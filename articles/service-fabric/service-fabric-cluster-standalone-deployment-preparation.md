@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 7357577ea7aff467288578673110b1a6dda7ccef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391054"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259095"
 ---
 <a id="preparemachines"></a>
 
@@ -74,7 +74,7 @@ Estas son algunas especificaciones recomendadas para cada máquina que se va a a
 El administrador de clúster que implemente y configure el clúster debe tener [privilegios de administrador](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) en cada una de las máquinas. No se puede instalar Service Fabric en un controlador de dominio.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Descarga del paquete independiente de Service Fabric para Windows Server
-[Descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) y descomprímalo en una máquina de implementación que no forme parte del clúster, o bien en una de las máquinas que formarán parte del clúster.
+[Descargue el paquete independiente de Service Fabric para Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) y descomprímalo en una máquina de implementación que no forme parte del clúster, o bien en una de las máquinas que formarán parte del clúster.
 
 ## <a name="modify-cluster-configuration"></a>Modificación de la configuración del clúster
 Para crear un clúster independiente, debe crear un archivo ClusterConfig.json de configuración del clúster independiente, que describa la especificación del clúster. Puede basar el archivo de configuración en las plantillas que se encuentran en el siguiente vínculo. <br>

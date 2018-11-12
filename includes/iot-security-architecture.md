@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: ac51dc8b7cbfa08ebca201c42c0c82356b7d5b6c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254763"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263955"
 ---
 # <a name="internet-of-things-security-architecture"></a>Arquitectura de seguridad de Internet de las cosas
 
@@ -252,7 +252,7 @@ Todos los dispositivos y puertas de enlace de campo tienen algún tipo de almace
 
 Una puerta de enlace en la nube es un sistema que permite la comunicación remota desde y hacia los dispositivos o puertas de enlace de campo de varios sitios a través de un espacio de la red pública, normalmente hacia un sistema de análisis de datos y de control basado en la nube, una federación de dichos sistemas. En algunos casos, una puerta de enlace en la nube puede facilitar inmediatamente el acceso a los dispositivos especiales desde terminales como teléfonos o tabletas. En el contexto que se trata aquí, "nube" hace referencia a un sistema dedicado al procesamiento de datos que no está enlazado con el mismo sitio que los dispositivos o puertas de enlace de campo conectados y en el que las medidas operativas evitan el acceso físico dirigido, pero no necesariamente a una infraestructura de "nube pública". Una puerta de enlace en la nube puede asignarse a una superposición de virtualización de redes para aislar la puerta de enlace en la nube y todos sus dispositivos o puertas de enlace de campo conectados del resto del tráfico de red. La puerta de enlace en la nube no es un sistema de control de dispositivos ni unas instalaciones de almacenamiento o procesamiento de los datos de los dispositivos; dichas instalaciones hacen de interfaz con la puerta de enlace en la nube. La zona de la puerta de enlace en la nube incluye la propia puerta de enlace en la nube, junto con todas las puertas de enlace de campo y los dispositivos conectados directa o indirectamente a ella.
 
-Habitualmente, una puerta de enlace en la nube es un software personalizado integrado que se ejecuta como si fuera un servicio con puntos de conexión expuestos a los que se conectan tanto una puerta de enlace de campo como los dispositivos. Por lo tanto, debe diseñarse pensando en la seguridad. Siga el proceso de [SDL](http://www.microsoft.com/sdl) para diseñar y compilar este servicio.
+Habitualmente, una puerta de enlace en la nube es un software personalizado integrado que se ejecuta como si fuera un servicio con puntos de conexión expuestos a los que se conectan tanto una puerta de enlace de campo como los dispositivos. Por lo tanto, debe diseñarse pensando en la seguridad. Siga el proceso de [SDL](https://www.microsoft.com/sdl) para diseñar y compilar este servicio.
 
 #### <a name="services-zone"></a>Zona de servicios
 

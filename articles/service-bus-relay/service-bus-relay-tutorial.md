@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857982"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262019"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Tutorial de Azure WCF Relay
 
@@ -35,7 +35,7 @@ En los últimos tres pasos se describe cómo crear una aplicación cliente, cóm
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* [Microsoft Visual Studio 2015 o una versión superior](http://visualstudio.com). En este tutorial se usa Visual Studio 2017.
+* [Microsoft Visual Studio 2015 o una versión superior](https://visualstudio.com). En este tutorial se usa Visual Studio 2017.
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-service-namespace"></a>Creación de un espacio de nombres de servicio
@@ -81,7 +81,7 @@ El contrato de servicio especifica las operaciones (la terminología del servici
     ```
 
    > [!NOTE]
-   > Normalmente, el espacio de nombres del contrato de servicio contiene un esquema de nomenclatura que incluye información de versión. Al incluirse la información de versión en el espacio de nombres del contrato de servicio, los servicios pueden aislar los cambios más importantes mediante la definición de un nuevo contrato de servicio con un nuevo espacio de nombres y su exposición en un nuevo extremo. De esta manera, los clientes pueden seguir usando el contrato de servicio anterior sin tener que actualizarse. La información de versión puede constar de una fecha o un número de compilación. Para obtener más información, vea [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). Para los fines de este tutorial, el esquema de nomenclatura del espacio de nombres del contrato de servicio no contiene información de versión.
+   > Normalmente, el espacio de nombres del contrato de servicio contiene un esquema de nomenclatura que incluye información de versión. Al incluirse la información de versión en el espacio de nombres del contrato de servicio, los servicios pueden aislar los cambios más importantes mediante la definición de un nuevo contrato de servicio con un nuevo espacio de nombres y su exposición en un nuevo extremo. De esta manera, los clientes pueden seguir usando el contrato de servicio anterior sin tener que actualizarse. La información de versión puede constar de una fecha o un número de compilación. Para obtener más información, vea [Control de versiones del servicio](https://go.microsoft.com/fwlink/?LinkID=180498). Para los fines de este tutorial, el esquema de nomenclatura del espacio de nombres del contrato de servicio no contiene información de versión.
    >
    >
 8. En la interfaz de `IEchoContract`, declare un método para la operación sencilla que el contrato `IEchoContract` expone en la interfaz y aplique el atributo `OperationContractAttribute` al método que quiere exponer como parte del contrato público de Relay WCF de la siguiente forma:

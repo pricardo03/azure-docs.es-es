@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116149"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231828"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migración de Contoso: rehospedar una aplicación local en una máquina virtual de Azure e Instancia administrada de Azure SQL Database
 
@@ -366,7 +366,7 @@ Después de la conmutación por error en Azure, Contoso quiere poder conectarse 
 Los administradores de Contoso también deben comprobar estos elementos cuando ejecutan una conmutación por error:
 
 - No debe haber actualizaciones de Windows pendientes en la máquina virtual cuando se desencadene una conmutación por error. Si hay actualizaciones de Windows pendientes, los usuarios de Contoso no puede iniciar sesión en la máquina virtual hasta que la actualización finalice.
-- Después de la conmutación por error, los administradores deben comprobar los **diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual. Si no pueden ver los diagnósticos de arranque, deben comprobar que la máquina virtual se está ejecutando y, después, revisar las [sugerencias para la solución de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Después de la conmutación por error, los administradores deben comprobar los **diagnósticos de arranque** para ver una captura de pantalla de la máquina virtual. Si no pueden ver los diagnósticos de arranque, deben comprobar que la máquina virtual se está ejecutando y, después, revisar las [sugerencias para la solución de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ## <a name="step-5-replicate-the-on-premises-vms-to-azure"></a>Paso 5: Replicar VM locales en Azure
 

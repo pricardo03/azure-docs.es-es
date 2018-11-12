@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 212afbd605e3a16da7be2c04492ec41875ff5b75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666846"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255189"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Administración de todas las directivas para un laboratorio de Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Azure DevTest Labs le permite controlar los costos y desperdiciar lo mínimo pos
 ## <a name="set-allowed-virtual-machine-sizes"></a>Establecimiento de tamaños de máquina virtual permitidos
 La directiva para establecer los tamaños permitidos de la máquina virtual ayuda a minimizar la pérdida del laboratorio al permitirle especificar los tamaños de máquina virtual que se permiten en este. Si se activa esta directiva, los tamaños de máquina virtual de esta lista son los únicos que pueden utilizarse en la creación de tales máquinas.
 
-1. En [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), seleccione un laboratorio y, luego, seleccione **Configuración y directivas**.
+1. En [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), seleccione un laboratorio y, luego, seleccione **Configuración y directivas**.
 
     ![Acceso a la configuración y directivas del laboratorio](./media/devtest-lab-set-lab-policy/policies-menu.png)
 

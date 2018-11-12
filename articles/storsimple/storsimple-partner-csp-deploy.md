@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109583"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238937"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implementación de StorSimple Virtual Array para el programa de proveedores de soluciones en la nube
 
@@ -34,13 +34,13 @@ En este artículo se describe cómo un asociado de CSP puede agregar un cliente 
 Antes de comenzar, asegúrese de lo siguiente:
 
 - Está inscrito en el programa CSP.
-- Tiene credenciales válidas de inicio de sesión en el [Centro de partners](http://partnercenter.microsoft.com/). Las credenciales le permiten iniciar sesión en el portal para asociados para agregar clientes nuevos, buscar clientes o navegar a la cuenta de un cliente desde el Panel del asociado. CSP puede funcionar como administrador de StorSimple en nombre del cliente en Azure Portal.
+- Tiene credenciales válidas de inicio de sesión en el [Centro de partners](https://partnercenter.microsoft.com/). Las credenciales le permiten iniciar sesión en el portal para asociados para agregar clientes nuevos, buscar clientes o navegar a la cuenta de un cliente desde el Panel del asociado. CSP puede funcionar como administrador de StorSimple en nombre del cliente en Azure Portal.
                              
 ## <a name="add-a-customer"></a>Agregar un cliente
 
 Si agrega un cliente, se crea automáticamente una suscripción. Para agregar un cliente (y crear automáticamente una suscripción), lleve a cabo estos pasos en el portal para asociados.
 
-1. Vaya al [Centro de partners](http://partnercenter.microsoft.com/) e inicie sesión con sus credenciales de CSP. Haga clic en **Panel**.
+1. Vaya al [Centro de partners](https://partnercenter.microsoft.com/) e inicie sesión con sus credenciales de CSP. Haga clic en **Panel**.
 
      ![Panel del Centro de partners](./media/storsimple-partner-csp-deploy/image1.png)
                               
@@ -77,7 +77,7 @@ Si agrega un cliente, se crea automáticamente una suscripción. Para agregar un
 
 En algunos casos, es posible que tenga un cliente existente y que necesite agregar una suscripción. Para agregar una suscripción a un cliente existente, lleve a cabo estos pasos en el portal para asociados.
 
-1. Vaya al [Centro de partners](http://partnercenter.microsoft.com/) e inicie sesión con sus credenciales de CSP. Haga clic en **Panel**.
+1. Vaya al [Centro de partners](https://partnercenter.microsoft.com/) e inicie sesión con sus credenciales de CSP. Haga clic en **Panel**.
 
      ![Panel del Centro de partners](./media/storsimple-partner-csp-deploy/image1.png)
                               

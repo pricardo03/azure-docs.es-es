@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 844440d22bc0a524e9e61bde457ee9f43fd367b2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6cab6559cb38b7d6d1dc2105b694acbcac85108c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444619"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262053"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
@@ -434,7 +434,7 @@ Si desea analizar los archivos ORC o escribir los datos en formato ORC, establez
 ```
 
 > [!IMPORTANT]
-> Para copias habilitadas por Integration Runtime autohospedado, por ejemplo, entre almacenes de datos locales y en la nube, si no va a copiar archivos ORC **como están**, necesita instalar el JRE 8 (Java Runtime Environment) en la máquina de IR. IR de 64 bits requiere JRE de 64 bits. Puede encontrar las dos versiones [aquí](http://go.microsoft.com/fwlink/?LinkId=808605).
+> Para copias habilitadas por Integration Runtime autohospedado, por ejemplo, entre almacenes de datos locales y en la nube, si no va a copiar archivos ORC **como están**, necesita instalar el JRE 8 (Java Runtime Environment) en la máquina de IR. IR de 64 bits requiere JRE de 64 bits. Puede encontrar las dos versiones [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Tenga en cuenta los siguientes puntos:
@@ -478,7 +478,7 @@ Si desea analizar los archivos Parquet o escribir los datos en formato Parquet, 
 ```
 
 > [!IMPORTANT]
-> Para copias habilitadas por Integration Runtime autohospedado, por ejemplo, entre almacenes de datos locales y en la nube, si no va a copiar archivos Parquet **como están**, necesita instalar el JRE 8 (Java Runtime Environment) en la máquina de IR. IR de 64 bits requiere JRE de 64 bits. Puede encontrar las dos versiones [aquí](http://go.microsoft.com/fwlink/?LinkId=808605).
+> Para copias habilitadas por Integration Runtime autohospedado, por ejemplo, entre almacenes de datos locales y en la nube, si no va a copiar archivos Parquet **como están**, necesita instalar el JRE 8 (Java Runtime Environment) en la máquina de IR. IR de 64 bits requiere JRE de 64 bits. Puede encontrar las dos versiones [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Tenga en cuenta los siguientes puntos:

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 6a4ae0697e59eb00e216fc29b154408e4d7a99b8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1664dc16e93fa825962690ec3ed5681478005d59
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785924"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229635"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Uso del complemento Smooth Streaming de Microsoft para Open Source Media Framework de Adobe
 ## <a name="overview"></a>Información general
@@ -47,7 +47,7 @@ El complemento admite la carga y reproducción de contenido Smooth Streaming baj
 * Esta versión solo admite OSMF 2.0.
 
 ## <a name="supported-features-and-known-issues"></a>Características admitidas y problemas conocidos
-Para obtener una lista completa de características compatibles, características no compatibles y problemas conocidos, consulte [este documento](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+Para obtener una lista completa de características compatibles, características no compatibles y problemas conocidos, consulte [este documento](https://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
 
 ## <a name="loading-the-plugin"></a>Carga del complemento
 Los complementos de OSMF se pueden cargar estáticamente (en el momento de la compilación) o dinámicamente (en el tiempo de ejecución). La descarga del complemento Smooth Streaming para OSMF incluye las versiones dinámicas y estáticas.

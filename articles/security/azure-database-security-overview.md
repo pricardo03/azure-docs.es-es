@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249058"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262206"
 ---
 # <a name="azure-database-security-overview"></a>Introducción a la seguridad de base de datos de Azure
 
@@ -35,7 +35,7 @@ Microsoft proporciona otros métodos para cifrar los datos de la empresa:
 
 Gracias a la auditoría de Azure SQL Database, las empresas pueden registrar eventos en un registro de auditoría de Azure Storage. La auditoría de SQL Database también se integra con Microsoft Power BI, con el fin de facilitar la generación de análisis e informes detallados.
 
-Las bases de datos de Azure SQL pueden estar firmemente protegidas para satisfacer la mayoría de los requisitos de seguridad o legales, como HIPAA, ISO 27001/27002 y PCI DSS nivel 1. En el [sitio del Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/services/) hay disponible una lista actualizada de certificaciones de cumplimiento de seguridad.
+Las bases de datos de Azure SQL pueden estar firmemente protegidas para satisfacer la mayoría de los requisitos de seguridad o legales, como HIPAA, ISO 27001/27002 y PCI DSS nivel 1. En el [sitio del Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/services/) hay disponible una lista actualizada de certificaciones de cumplimiento de seguridad.
 
 En este artículo se describen los conceptos básicos de la protección de las bases de datos de Microsoft Azure SQL para los datos estructurados, tabulares y relacionales. En concreto, este artículo le ayudará a empezar a trabajar con los recursos necesarios para proteger los datos, controlar el acceso y realizar una supervisión proactiva.
 
@@ -44,7 +44,7 @@ En este artículo se describen los conceptos básicos de la protección de las b
 SQL Database le ayuda a proteger los datos mediante un cifrado:
 
 - Para los datos en movimiento mediante la [Seguridad de la capa de transporte (TLS)](https://support.microsoft.com/kb/3135244).
-- Para los datos en reposo mediante el [Cifrado de datos transparente](http://go.microsoft.com/fwlink/?LinkId=526242).
+- Para los datos en reposo mediante el [Cifrado de datos transparente](https://go.microsoft.com/fwlink/?LinkId=526242).
 - Para los datos en uso mediante [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
 Si desea conocer otras formas de cifrar datos, considere:

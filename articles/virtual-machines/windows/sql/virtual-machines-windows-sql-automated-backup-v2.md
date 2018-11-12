@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 4619c26e34c90f58702ad286f76a999f83f49cc4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894516"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246827"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automated Backup v2 para Azure Virtual Machines (Resource Manager)
 
@@ -31,7 +31,7 @@ Automated Backup v2 configura automáticamente [Automated Backup para Microsoft 
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para utilizar Automated Backup v2, revise los siguientes requisitos previos:
 
 **Sistema operativo**:
@@ -56,7 +56,7 @@ Para utilizar Automated Backup v2, revise los siguientes requisitos previos:
 > [!NOTE]
 > Automated Backup se basa en la **Extensión Agente de IaaS de SQL Server**. Las imágenes actuales de la galería de máquinas virtuales de SQL agregan esta extensión de manera predeterminada. Para más información, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Configuración
 En la siguiente tabla se describen las opciones que pueden configurarse para Automated Backup v2. Los pasos de configuración reales varían si usa el Portal de Azure o comandos de Windows PowerShell de Azure.
 
 ### <a name="basic-settings"></a>Configuración básica
@@ -67,7 +67,7 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Aut
 | **Período de retención** | 1-30 días (30 días) | El número de días para retener copias de seguridad. |
 | **Storage Account** | Cuenta de Azure Storage | Una cuenta de almacenamiento de Azure que usar para almacenar archivos de Automated Backup en el almacenamiento de blobs. Se crea un contenedor en esta ubicación para guardar todos los archivos de copia de seguridad. La convención de nomenclatura de los archivos de copia de seguridad agrega la fecha, la hora y el GUID de base de datos. |
 | **Cifrado** |Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita el cifrado. Cuando se habilita el cifrado, los certificados usados para restaurar la copia de seguridad se ubican en la cuenta de almacenamiento especificada. Usa el mismo contenedor **automaticbackup** con la misma convención de nomenclatura. Si la contraseña cambia, se genera un nuevo certificado con esa contraseña, pero el certificado antiguo permanece para restaurar copias de seguridad anteriores. |
-| **Password** |Texto de contraseña | Una contraseña para claves de cifrado. Esta contraseña solo es necesaria si se habilita el cifrado. Para restaurar una copia de seguridad cifrada, debe disponer de la contraseña correcta y del certificado relacionado que se usó en el momento en el que se realizó la copia de seguridad. |
+| **Contraseña** |Texto de contraseña | Una contraseña para claves de cifrado. Esta contraseña solo es necesaria si se habilita el cifrado. Para restaurar una copia de seguridad cifrada, debe disponer de la contraseña correcta y del certificado relacionado que se usó en el momento en el que se realizó la copia de seguridad. |
 
 ### <a name="advanced-settings"></a>Configuración avanzada
 
@@ -151,7 +151,7 @@ Si habilita Automated Backup por primera vez, Azure configura el Agente de IaaS 
 
 Puede usar PowerShell para configurar Automated Backup v2. Antes de comenzar:
 
-- [Descargue e instale la última versión de Azure PowerShell](http://aka.ms/webpi-azps).
+- [Descargue e instale la última versión de Azure PowerShell](https://aka.ms/webpi-azps).
 - Abra Windows PowerShell y asócielo a su cuenta con el comando **Connect-AzureRmAccount**.
 
 ### <a name="install-the-sql-iaas-extension"></a>Instalación de la extensión IaaS de SQL Server

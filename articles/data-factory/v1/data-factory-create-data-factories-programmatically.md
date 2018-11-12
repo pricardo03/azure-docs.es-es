@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: de892afee57b9a39b841f6cfc93f8470d831c2a6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: afee3254ebdd325d756bfc5027cca531442c5689
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045939"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257380"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creación, supervisión y administración de factorías de datos de Azure mediante el SDK de .NET de Azure Data Factory
 > [!NOTE]
@@ -31,9 +31,9 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 > [!NOTE]
 > Este artículo no abarca todas las API de .NET de Data Factory. Para obtener documentación completa sobre la API de .NET para Data Factory, consulte la [referencia de API de .NET de Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1). 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Visual Studio 2012, 2013 o 2015
-* Descargue e instale el [SDK de .NET de Azure](http://azure.microsoft.com/downloads/).
+* Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para instalar Azure PowerShell en su equipo. Azure PowerShell se usa para crear una aplicación de Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Creación de una aplicación en Azure Active Directory

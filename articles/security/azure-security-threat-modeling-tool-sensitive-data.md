@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301468"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262376"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Marco de seguridad: Información confidencial | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN: autocomplete attribute](http://msdn.microsoft.com/library/ms533486(VS.85).aspx) (MSDN: atributo autocomplete), [Using Autocomplete en HTML forms](http://msdn.microsoft.com/library/ms533032.aspx) (Uso de Autocompletar en formularios HTML), [Vulnerabilidad en la comprobación del estado de HTML](http://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) (Vuelta a Autocompletar) |
+| **Referencias**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx) (MSDN: atributo autocomplete), [Using Autocomplete en HTML forms](https://msdn.microsoft.com/library/ms533032.aspx) (Uso de Autocompletar en formularios HTML), [Vulnerabilidad en la comprobación del estado de HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) (Vuelta a Autocompletar) |
 | **Pasos** | El atributo autocomplete especifica si un formulario debe tener Autocompletar activado o desactivado. Cuando está activado, el explorador completa automáticamente los valores en función de los que el usuario haya escrito antes. Por ejemplo, cuando se escribe un nombre y una contraseña nuevos en un formulario y se envía este, el explorador le pregunta si se debe guardar la contraseña. A partir de entonces, cuando se muestre el formulario, el nombre y la contraseña se rellenan automáticamente o se completan cuando se escribe el nombre. Un atacante con acceso local podría obtener la contraseña no cifrada de la memoria caché del explorador. De forma predeterminada, la función Autocompletar está habilitada y se debe deshabilitar explícitamente. |
 
 ### <a name="example"></a>Ejemplo

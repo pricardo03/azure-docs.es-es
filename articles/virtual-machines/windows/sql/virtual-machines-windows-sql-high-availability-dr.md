@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: e9b4ca959b93e097bb52a841cec02cc476ef5f48
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 463ef5f4a655617074915078fb4ced9e596f8957
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401266"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257721"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines
 
@@ -93,7 +93,7 @@ Considere un escenario en el que se crea un clúster de dos nodos y se pone en c
 5. Cuando NODE2 intenta establecer conectividad con NODE1, los paquetes dirigidos a NODE1 nunca abandonan NODE2 porque resuelve la dirección IP de NODE1 en sí mismo. NODE2 no puede establecer conectividad con NODE1, pierde el cuórum y cierra el clúster.
 6. Mientras tanto, NODE1 puede enviar paquetes a NODE2 pero NODE2 no puede responder. Node1 pierde el cuórum y cierra el clúster.
 
-Puede evitar esta situación asignando una dirección IP estática no usada, por ejemplo una dirección IP de vínculo local como 169.254.1.1, al nombre de red del clúster a fin de poner dicho nombre de red en línea. Para simplificar este proceso, vea [Configuración del clúster de conmutación por error de Windows en Azure para grupos de disponibilidad](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
+Puede evitar esta situación asignando una dirección IP estática no usada, por ejemplo una dirección IP de vínculo local como 169.254.1.1, al nombre de red del clúster a fin de poner dicho nombre de red en línea. Para simplificar este proceso, vea [Configuración del clúster de conmutación por error de Windows en Azure para grupos de disponibilidad](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
 Para más información, vea [Configuración de grupos de disponibilidad en Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
@@ -120,7 +120,7 @@ Para obtener más información sobre la conectividad del cliente, consulte:
 
 * [Usar palabras clave de cadena de conexión con SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
 * [Conectar clientes a una sesión de creación de reflejo de la base de datos (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-* [Conexión con el agente de escucha del grupo de disponibilidad en TI híbrida](http://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
+* [Conexión con el agente de escucha del grupo de disponibilidad en TI híbrida](https://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
 * [Agentes de escucha del grupo de disponibilidad, conectividad de cliente y conmutación por error de una aplicación (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
 * [Uso de cadenas de conexión de creación de reflejo de la base de datos con grupos de disponibilidad](https://technet.microsoft.com/library/hh213417.aspx)
 
@@ -130,7 +130,7 @@ Es recomendable implementar la solución HADR partiendo de la suposición de que
 ### <a name="geo-replication-support"></a>Compatibilidad de la replicación geográfica
 La replicación geográfica en discos de Azure no admite que el archivo de datos y el archivo de registro de la misma base de datos se almacenen en discos independientes. La GRS replica los cambios en cada disco independiente y asincrónicamente. Este mecanismo garantiza el orden de escritura en un único disco en la copia con replicación geográfica pero no a través de las copias con replicación geográfica de varios discos. Si configura una base de datos para almacenar su archivo de datos y su archivo de registro en discos independientes, los discos recuperados después de un desastre pueden contener una copia más actualizada del archivo de datos que el archivo de registro, lo que interrumpe el registro de escritura previa en SQL Server y las propiedades ACID de las transacciones. Si no tiene la opción de deshabilitar la replicación geográfica en la cuenta de almacenamiento, debe conservar todos los archivos de datos y de registro de una base de datos dada en el mismo disco. Si debe usar más de un disco debido al tamaño de la base de datos, debe implementar una de las soluciones de recuperación de desastres enumeradas anteriormente para garantizar la redundancia de datos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Si necesita crear una máquina virtual de Azure con SQL Server, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Para obtener el mejor rendimiento de SQL Server en una máquina virtual de Azure, consulte la guía en [Procedimientos recomendados para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
@@ -139,5 +139,5 @@ Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines
 
 ### <a name="other-resources"></a>Otros recursos:
 * [Instalación de un nuevo bosque de Active Directory en Azure](../../../active-directory/active-directory-new-forest-virtual-machine.md)
-* [Creación del clúster de conmutación por error para grupos de disponibilidad en la VM de Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
+* [Creación del clúster de conmutación por error para grupos de disponibilidad en la VM de Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 

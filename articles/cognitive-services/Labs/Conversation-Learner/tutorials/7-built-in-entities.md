@@ -10,19 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171374"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260064"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Cómo agregrar entidades pregeneradas
 En este tutorial se muestra cómo agregar entidades "precompiladas" a un modelo de Conversation Learner.
 
 ## <a name="video"></a>Vídeo
 
-[![Vista previa del tutorial 7](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
+[![Vista previa del tutorial 7](https://aka.ms/cl-tutorial-07-preview)](https://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>Requisitos
 Para poder realizar este tutorial debe ejecutar el bot del tutorial general
@@ -62,7 +62,7 @@ A continuación, cree la segunda acción:
 1. Haga clic en Acciones y en Nueva acción para crear una segunda acción.
 3. En Respuesta, escriba "¿Cuál es la fecha?".
 4. En Disqualifying Entities (Entidades descalificadas), escriba "luis datetimev2".
-4. Click Create
+4. Haga clic en Crear.
 
 ![](../media/tutorial7_actions2.PNG)
 

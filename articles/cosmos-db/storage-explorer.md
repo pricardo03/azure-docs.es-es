@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345114"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261167"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Administración de Azure Cosmos DB en el Explorador de Azure Storage
 
 El uso de Azure Cosmos DB en el Explorador de Azure Storage permite a los usuarios administrar entidades de Azure Cosmos DB, manipular datos, actualizar procedimientos y desencadenadores almacenados, además de otras entidades de Azure, como los blobs y las colas de Storage. Ahora puede usar la misma herramienta para administrar las diferentes entidades de Azure en un solo lugar. Actualmente, el Explorador de Azure Storage admite cuentas de SQL, MongoDB, Graph y Table.
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Una cuenta de Azure Cosmos DB para SQL API <!--or MongoDB API-->. Si no tiene una cuenta, puede crear una en Azure Portal, tal y como se describe en [Azure Cosmos DB: Compilación de una aplicación web de SQL API con .NET y Azure Portal](create-sql-api-dotnet.md).
 
@@ -130,7 +130,7 @@ Puede realizar muchas tareas de acción rápida haciendo clic con el botón dere
 
 2. Seleccione **Sin límite** para poder especificar una clave de partición y, después, haga clic en **Aceptar** para finalizar.
 
-    Si se usa una clave de partición al crear una colección, una vez completada la creación no se podrá cambiar el valor de la clave de partición en la colección. Para más información sobre la configuración de claves de partición, vea [Uso de las API de Azure Cosmos DB](partition-data.md#designing-for-partitioning).
+    Si se usa una clave de partición al crear una colección, una vez completada la creación no se podrá cambiar el valor de la clave de partición en la colección.
 
     ![Clave de partición](./media/storage-explorer/partitionkey.png)
 

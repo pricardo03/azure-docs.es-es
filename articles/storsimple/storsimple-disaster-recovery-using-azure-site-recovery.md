@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: d6b8341f16cca29fe5bedca34749f47053a14ebb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666945"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249275"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solución de recuperación ante desastres automatizada con Azure Site Recovery para recursos compartidos de archivos alojados en StorSimple
 ## <a name="overview"></a>Información general
@@ -43,7 +43,7 @@ Para implementar una solución de recuperación ante desastres con un solo clic 
    - Recursos compartidos de archivos hospedados en los volúmenes configurados en el dispositivo de almacenamiento de StorSimple
    - [Almacén de los servicios de Azure Site Recovery](../site-recovery/site-recovery-vmm-to-vmm.md) creado en una suscripción de Microsoft Azure
 
-Además, si Azure es su sitio de recuperación, ejecute la [herramienta de evaluación de disponibilidad de máquinas virtuales de Azure](http://azure.microsoft.com/downloads/vm-readiness-assessment/) en las máquinas virtuales para asegurarse de que son compatibles con las máquinas virtuales de Azure y los servicios de Azure Site Recovery.
+Además, si Azure es su sitio de recuperación, ejecute la [herramienta de evaluación de disponibilidad de máquinas virtuales de Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) en las máquinas virtuales para asegurarse de que son compatibles con las máquinas virtuales de Azure y los servicios de Azure Site Recovery.
 
 Para evitar problemas de latencia (que podrían ocasionar mayores costes), asegúrese de que crea su StorSimple Cloud Appliance, la cuenta de automatización y las cuentas de almacenamiento en la misma región.
 
@@ -81,7 +81,7 @@ Para llevar a cabo este paso, debe preparar el entorno del servidor de archivos 
 
 1. Instale al agente de máquina virtual en cada una de las máquinas virtuales de servidor de archivos. Esto resulta necesario para que pueda ejecutar scripts de automatización de Azure en las máquinas virtuales conmutadas por error.
    
-   1. [Descargue el agente](http://aka.ms/vmagentwin) en `C:\\Users\\<username>\\Downloads`.
+   1. [Descargue el agente](https://aka.ms/vmagentwin) en `C:\\Users\\<username>\\Downloads`.
    1. Abra Windows PowerShell en modo de administrador (Ejecutar como administrador) y, después, escriba el siguiente comando para ir a la ubicación de descarga:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -321,10 +321,10 @@ Durante una conmutación por recuperación, los contenedores de volúmenes de St
 ## <a name="best-practices"></a>Prácticas recomendadas
 ### <a name="capacity-planning-and-readiness-assessment"></a>Evaluación de disponibilidad y planeamiento de capacidad
 #### <a name="hyper-v-site"></a>Sitio de Hyper-V
-Utilice la [herramienta de planeamiento de capacidad de usuario](http://www.microsoft.com/download/details.aspx?id=39057) para diseñar el servidor, el almacenamiento y la infraestructura de red de su entorno de réplica de Hyper-V.
+Utilice la [herramienta de planeamiento de capacidad de usuario](https://www.microsoft.com/download/details.aspx?id=39057) para diseñar el servidor, el almacenamiento y la infraestructura de red de su entorno de réplica de Hyper-V.
 
 #### <a name="azure"></a>Azure
-Puede ejecutar la [herramienta de evaluación de disponibilidad de máquinas virtuales de Azure](http://azure.microsoft.com/downloads/vm-readiness-assessment/) en las máquinas virtuales para asegurarse de que son compatibles con las máquinas virtuales de Azure y los servicios de Azure Site Recovery. La herramienta de evaluación de disponibilidad comprueba las configuraciones de máquina virtual y emite una advertencia cuando las configuraciones son incompatibles con Azure. Por ejemplo, emite una advertencia si la unidad C: es mayor de 127 GB.
+Puede ejecutar la [herramienta de evaluación de disponibilidad de máquinas virtuales de Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) en las máquinas virtuales para asegurarse de que son compatibles con las máquinas virtuales de Azure y los servicios de Azure Site Recovery. La herramienta de evaluación de disponibilidad comprueba las configuraciones de máquina virtual y emite una advertencia cuando las configuraciones son incompatibles con Azure. Por ejemplo, emite una advertencia si la unidad C: es mayor de 127 GB.
 
 El planeamiento de capacidad se compone de al menos dos procesos importantes:
 

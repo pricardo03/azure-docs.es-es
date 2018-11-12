@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f50be01d067032b1143a80e56ccb5d49d899d4d6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1f48e3273ac0a237c72565acf25049b763dba8a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415974"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246674"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Descripción de un reinicio del sistema de una máquina virtual de Azure
 
@@ -108,7 +108,7 @@ Las máquinas puede que solo permanezcan cinco minutos apagadas, pero también p
 
 **Superación de los límites de E/S**
 
-Las máquinas virtuales pueden apagarse temporalmente cuando las solicitudes de E/S se limitan en sincronía con el volumen de operaciones de entrada/salida por segundo (IOPS) al superar los límites de E/S del disco (el almacenamiento en disco estándar está limitado a 500 IOPS). Para mitigar este problema, utilice el seccionamiento del disco o configure el espacio de almacenamiento dentro de la máquina virtual invitada en función de la carga de trabajo. Para más información, consulte [Configuring Azure Virtual Machines for Optimal Storage Performance](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx) (Configuración de máquinas virtuales de Azure para que el rendimiento del almacenamiento sea óptimo).
+Las máquinas virtuales pueden apagarse temporalmente cuando las solicitudes de E/S se limitan en sincronía con el volumen de operaciones de entrada/salida por segundo (IOPS) al superar los límites de E/S del disco (el almacenamiento en disco estándar está limitado a 500 IOPS). Para mitigar este problema, utilice el seccionamiento del disco o configure el espacio de almacenamiento dentro de la máquina virtual invitada en función de la carga de trabajo. Para más información, consulte [Configuring Azure Virtual Machines for Optimal Storage Performance](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx) (Configuración de máquinas virtuales de Azure para que el rendimiento del almacenamiento sea óptimo).
 
 Con Azure Premium Storage se consiguen límites de IOPS mayores (hasta 80 000 IOPS). Para más información, consulte el artículo sobre [Premium Storage de alto rendimiento](../windows/premium-storage.md).
 

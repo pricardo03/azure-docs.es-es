@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638433"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255769"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
@@ -107,7 +107,7 @@ Azure Storage ofrece diferentes opciones para obtener acceso a los datos de blob
 Los niveles de acceso disponibles son:
 
 > [!NOTE]
-> El [Nivel de acceso Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponible en su versión preliminar limitada, como una cuenta de almacenamiento con redundancia local (LRS) en las regiones del Europa del Norte, Este de EE. UU. 2, Centro de EE. UU. y Oeste de EE. UU. Para saber cómo registrarse para obtener la versión preliminar, consulte [ Introducción a Azure Premium Blob Storage ](http://aka.ms/premiumblob).
+> El [Nivel de acceso Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponible en su versión preliminar limitada, como una cuenta de almacenamiento con redundancia local (LRS) en las regiones del Europa del Norte, Este de EE. UU. 2, Centro de EE. UU. y Oeste de EE. UU. Para saber cómo registrarse para obtener la versión preliminar, consulte [ Introducción a Azure Premium Blob Storage ](https://aka.ms/premiumblob).
 
 * El nivel de acceso **frecuente**, que está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son algo más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
 * El nivel de acceso **esporádico** está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que acceder a los datos del nivel de acceso frecuente.

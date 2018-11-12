@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: bea59f0d1ce1d1f3813c0b39a57b1f4e726fe2a5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50129111"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247303"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Preguntas más frecuentes sobre itinerancia de datos y configuración
 Este artículo responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración.
@@ -37,7 +37,7 @@ Este artículo responde a algunas preguntas que los administradores de TI podrí
 * *Características de facilidad de acceso*, como el tema de contraste alto, narrador o lupa
 * *Otras configuraciones de Windows*, como la configuración del mouse.
 
-**Datos de la aplicación**: las aplicaciones universales de Windows pueden escribir los datos de configuración en una carpeta de itinerancia y todos los datos escritos en esta carpeta se sincronizarán automáticamente. Depende del desarrollador de las aplicaciones individuales el diseñar una aplicación para sacar partido a esta funcionalidad. Para más información acerca de cómo desarrollar una aplicación universal de Windows que use la itinerancia, consulte [Almacenar y recuperar la configuración y otros datos de aplicación](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) y el [blog para desarrolladores de itinerancia de datos de aplicación de Windows 8](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Datos de la aplicación**: las aplicaciones universales de Windows pueden escribir los datos de configuración en una carpeta de itinerancia y todos los datos escritos en esta carpeta se sincronizarán automáticamente. Depende del desarrollador de las aplicaciones individuales el diseñar una aplicación para sacar partido a esta funcionalidad. Para más información acerca de cómo desarrollar una aplicación universal de Windows que use la itinerancia, consulte [Almacenar y recuperar la configuración y otros datos de aplicación](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) y el [blog para desarrolladores de itinerancia de datos de aplicación de Windows 8](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>¿Qué cuenta se usa para la sincronización de configuración?
 En Windows 8.1, siempre se usan cuentas Microsoft de consumo para la sincronización de la configuración. Los usuarios empresariales tenían la capacidad de conectar una cuenta de Microsoft a su cuenta de dominio de Active Directory para obtener acceso a la sincronización de configuración. En Windows 10, esta funcionalidad de cuenta de Microsoft conectada se ha sustituido por una plataforma de cuenta principal o secundaria.

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24099028"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256007"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Use Azure Application Insights para entender la forma en que los clientes utilizan su aplicación
 
@@ -38,13 +38,13 @@ Para completar este tutorial:
 - Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
     - ASP.NET y desarrollo web
     - Desarrollo de Azure
-- Descargue e instale [Visual Studio Snapshot Debugger](http://aka.ms/snapshotdebugger).
+- Descargue e instale [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](app-insights-asp-net.md). 
 - [Envíe telemetría desde su aplicación](app-insights-usage-overview.md#send-telemetry-from-your-app) para agregar eventos personalizados o vistas de página
 - Enviar el [contexto del usuario](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) para realizar un seguimiento de lo que un usuario hace con el tiempo y utilizar plenamente las características de uso.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
-Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com).
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="get-information-about-your-users"></a>Obtención de información acerca de los usuarios
 El panel **Usuarios** le permite conocer detalles importantes acerca de los usuarios de varias formas. Este panel se puede utilizar para saber desde dónde se conectan los usuarios, conocer detalles de sus clientes y las áreas de la aplicación a las que acceden. 

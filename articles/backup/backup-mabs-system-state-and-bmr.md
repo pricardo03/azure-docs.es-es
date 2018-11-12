@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: markgal
-ms.openlocfilehash: d35f8667cb1ca9a0b3abd08450ebc647d6d12276
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7cb87847d6a1e191fb20dfa9cdf263066704eb6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607215"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238819"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Realizar una copia de seguridad del estado del sistema y restaurar a una reconstrucción completa con Azure Backup Server
 
@@ -29,7 +29,7 @@ Azure Backup Server realiza una copia de seguridad del estado del sistema y prop
 
 En la tabla siguiente se resumen los elementos de los que se pueden realizar copias de seguridad y que se pueden recuperar. Para obtener información detallada sobre las versiones de las aplicaciones que se pueden proteger con el estado del sistema y BMR, vea [los elementos de los que Azure Backup Server puede realizar una copia de seguridad](backup-mabs-protection-matrix.md).
 
-|Backup|Problema|Recuperación a partir de una copia de seguridad de Azure Backup Server|Recuperación a partir de una copia de seguridad del estado de sistema|BMR|
+|Copia de seguridad|Problema|Recuperación a partir de una copia de seguridad de Azure Backup Server|Recuperación a partir de una copia de seguridad del estado de sistema|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Datos de archivo**<br /><br />Copia de seguridad de datos normal<br /><br />BMR/Copia de seguridad del estado del sistema|Datos de archivo perdidos|Y|N|N|
 |**Datos de archivo**<br /><br />Copia de seguridad de Azure Backup Server de los datos de archivo<br /><br />BMR/Copia de seguridad del estado del sistema|Sistema operativo dañado o perdido|N|Y|Y|
@@ -97,15 +97,15 @@ Cuando finaliza la copia de seguridad, el archivo se transfiere al equipo con Ba
 ## <a name="before-you-begin"></a>Antes de empezar
 
 1.  **Implemente Azure Backup Server**. Compruebe que Backup Server está implementado correctamente. Para más información, consulte:
-    * [Requisitos del sistema para Azure Backup Server](http://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [Requisitos del sistema para Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matriz de protección de Backup Server](backup-mabs-protection-matrix.md)
 
 2.  **Configure el almacenamiento**. Puede almacenar los datos de la copia de seguridad en disco, en cinta y en la nube con Azure. Para obtener más información, vea [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage) (Preparar el almacenamiento de datos).
 
-3.  **Configure el agente de protección**. Instale el agente de protección en el equipo del que quiere hacer una copia de seguridad. Para obtener más información, vea [Deploy the DPM protection agent](http://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent) (Implementar el agente de protección DPM).
+3.  **Configure el agente de protección**. Instale el agente de protección en el equipo del que quiere hacer una copia de seguridad. Para obtener más información, vea [Deploy the DPM protection agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent) (Implementar el agente de protección DPM).
 
 ## <a name="back-up-system-state-and-bare-metal"></a>Copia de seguridad del estado del sistema y reconstrucción completa
-Configure un grupo de protección como se describe en [Deploy protection groups](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups) (Implementar grupos de protección). Tenga en cuenta que no se puede proteger BMR y el estado del sistema para el mismo equipo en grupos diferentes. Además, cuando se selecciona BMR, el estado del sistema se habilita automáticamente.
+Configure un grupo de protección como se describe en [Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups) (Implementar grupos de protección). Tenga en cuenta que no se puede proteger BMR y el estado del sistema para el mismo equipo en grupos diferentes. Además, cuando se selecciona BMR, el estado del sistema se habilita automáticamente.
 
 
 1.  Para abrir el Asistente para crear grupo de protección en la consola de administrador de Backup Server, seleccione **Protección** > **Acciones** > **Crear grupo de protección**.
@@ -114,7 +114,7 @@ Configure un grupo de protección como se describe en [Deploy protection groups]
 
 3.  En la página **Seleccionar miembros del grupo**, expanda el equipo y seleccione **BMR** o **Estado del sistema**.
 
-    Recuerde en cuenta que no se puede proteger BMR y el estado del sistema para el mismo equipo en grupos diferentes. Además, cuando se selecciona BMR, el estado del sistema se habilita automáticamente. Para obtener más información, vea [Deploy protection groups](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups) (Implementar grupos de protección).
+    Recuerde en cuenta que no se puede proteger BMR y el estado del sistema para el mismo equipo en grupos diferentes. Además, cuando se selecciona BMR, el estado del sistema se habilita automáticamente. Para obtener más información, vea [Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups) (Implementar grupos de protección).
 
 4.  En la página **Seleccionar método de protección de datos**, seleccione cómo quiere controlar la copia de seguridad a corto y largo plazo. La copia de seguridad a corto plazo siempre se realiza primero en disco, pero existe la opción de realizar una copia de seguridad desde el disco a la nube de Azure mediante Azure Backup (a corto o largo plazo). Como alternativa a la copia de seguridad a largo plazo en la nube, puede configurar la copia de seguridad a largo plazo en un dispositivo de cinta o biblioteca de cintas independiente conectados a Backup Server.
 

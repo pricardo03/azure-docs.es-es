@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8852fc75658298a2c6887d8fef154d5a0b59affd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 482faaea7089e095da13a2bae5f5937e20d50616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159916"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246759"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos extendidos en SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -32,15 +32,15 @@ En este tema se explica cómo la implementación de eventos extendidos en Azure 
 
 Se puede encontrar información adicional sobre eventos extendidos, para Azure SQL Database y Microsoft SQL Server, en:
 
-- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
-- [Eventos extendidos](http://msdn.microsoft.com/library/bb630282.aspx)
+- [Quick Start: Extended events in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Eventos extendidos](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este tema se da por sentado que ya tiene algunos conocimientos sobre:
 
 - [Servicio Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
-- [Eventos extendidos](http://msdn.microsoft.com/library/bb630282.aspx) en Microsoft SQL Server.
+- [Eventos extendidos](https://msdn.microsoft.com/library/bb630282.aspx) en Microsoft SQL Server.
 
 - La mayor parte de nuestra documentación acerca de los eventos extendidos se aplica tanto a SQL Server como a SQL Database.
 
@@ -69,10 +69,10 @@ Los temas relacionados proporcionan dos ejemplos de código:
 ## <a name="transact-sql-differences"></a>Diferencias de Transact-SQL
 
 
-- Cuando se ejecuta el comando [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) en SQL Server, se usa la cláusula **ON SERVER** . Pero en SQL Database se usa la cláusula **ON DATABASE** en su lugar.
+- Cuando se ejecuta el comando [CREATE EVENT SESSION](https://msdn.microsoft.com/library/bb677289.aspx) en SQL Server, se usa la cláusula **ON SERVER** . Pero en SQL Database se usa la cláusula **ON DATABASE** en su lugar.
 
 
-- La cláusula **ON DATABASE** se aplica también a los comandos Transact-SQL [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) y [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx).
+- La cláusula **ON DATABASE** se aplica también a los comandos Transact-SQL [ALTER EVENT SESSION](https://msdn.microsoft.com/library/bb630368.aspx) y [DROP EVENT SESSION](https://msdn.microsoft.com/library/bb630257.aspx).
 
 
 - Un procedimiento recomendado es incluir la opción de sesión de eventos de **STARTUP_STATE = ON** en sus instrucciones **CREATE EVENT SESSION** o **ALTER EVENT SESSION**.
@@ -80,7 +80,7 @@ Los temas relacionados proporcionan dos ejemplos de código:
 
 ## <a name="new-catalog-views"></a>Nuevas vistas de catálogo
 
-La característica eventos extendidos es compatible con varias [vistas de catálogo](http://msdn.microsoft.com/library/ms174365.aspx). Las vistas de catálogo le informan sobre *metadatos o definiciones* de sesiones de eventos creadas por el usuario en la base de datos actual. Las vistas no devuelven información acerca de las instancias de sesiones de eventos activas.
+La característica eventos extendidos es compatible con varias [vistas de catálogo](https://msdn.microsoft.com/library/ms174365.aspx). Las vistas de catálogo le informan sobre *metadatos o definiciones* de sesiones de eventos creadas por el usuario en la base de datos actual. Las vistas no devuelven información acerca de las instancias de sesiones de eventos activas.
 
 | Nombre de<br/>vista de catálogo | DESCRIPCIÓN |
 |:--- |:--- |
@@ -92,9 +92,9 @@ La característica eventos extendidos es compatible con varias [vistas de catál
 
 En Microsoft SQL Server, hay vistas de catálogo similares con nombres que incluyen *.server\_* en lugar de *.database\_*. El patrón de nombre es parecido a **sys.server_event_%**.
 
-## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Nuevas vistas de administración dinámica [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nuevas vistas de administración dinámica [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Azure SQL Database tiene [vistas de administración dinámica (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) que admiten eventos extendidos. Las DMV le informan sobre las sesiones de eventos *activas* .
+Azure SQL Database tiene [vistas de administración dinámica (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) que admiten eventos extendidos. Las DMV le informan sobre las sesiones de eventos *activas* .
 
 | Nombre de DMV | DESCRIPCIÓN |
 |:--- |:--- |
@@ -149,11 +149,11 @@ SELECT
 
 Estos son los destinos que pueden capturar los resultados de las sesiones de eventos en SQL Database:
 
-- [Destino de búfer de anillo](http://msdn.microsoft.com/library/ff878182.aspx) : guarda brevemente los datos en la memoria.
-- [Destino del contador de eventos de](http://msdn.microsoft.com/library/ff878025.aspx) :cuenta todos los eventos que se producen durante una sesión de eventos extendidos.
-- [Destino de archivo de evento](http://msdn.microsoft.com/library/ff878115.aspx) : escribe búferes completos en un contenedor de Azure Storage.
+- [Destino de búfer de anillo](https://msdn.microsoft.com/library/ff878182.aspx) : guarda brevemente los datos en la memoria.
+- [Destino del contador de eventos de](https://msdn.microsoft.com/library/ff878025.aspx) :cuenta todos los eventos que se producen durante una sesión de eventos extendidos.
+- [Destino de archivo de evento](https://msdn.microsoft.com/library/ff878115.aspx) : escribe búferes completos en un contenedor de Azure Storage.
 
-La API [Seguimiento de eventos para Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) no está disponible para eventos extendidos en SQL Database.
+La API [Seguimiento de eventos para Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) no está disponible para eventos extendidos en SQL Database.
 
 ## <a name="restrictions"></a>Restricciones
 
@@ -195,8 +195,8 @@ El destino del **archivo de eventos** puede experimentar latencia de red o error
 - [Cmdlets de Azure Storage](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Usar Azure PowerShell con Azure Storage](../storage/common/storage-powershell-guide-full.md) proporciona información completa sobre PowerShell y el servicio Azure Storage.
 - [Uso del almacenamiento de blobs de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [CREATE CREDENTIAL (Transact-SQL).](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL).](https://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Las publicaciones del blog de Jonathan Kehayias acerca de los eventos extendidos en Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
@@ -209,6 +209,6 @@ Hay otros temas de ejemplo de código para eventos extendidos disponibles en los
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

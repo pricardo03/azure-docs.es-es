@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0e5de93f8a10d27c28b3f07567f9b6fa7e41d482
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 42f3378196b4e3e1dfe1234e801e87875f9c61fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781844"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247660"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitación de una imagen con licencia en su laboratorio en Azure DevTest Labs
 
@@ -28,7 +28,7 @@ En Azure DevTest Labs, una imagen con licencia es la que incluye los términos y
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Determinación de si una imagen con licencia está disponible para los usuarios
 El primer paso para permitir a los usuarios crear máquinas virtuales desde una imagen con licencia es asegurarse de que esos términos y condiciones se han aceptado para la imagen con licencia. Los pasos siguientes muestran cómo puede ver el estado de la oferta de una imagen con licencia y, si fuese necesario, aceptar los términos y condiciones.
 
-1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 
@@ -54,7 +54,7 @@ Para asegurarse de que una imagen con licencia está disponible para los usuario
 
 Siga estos pasos para habilitar la implementación mediante programación para una imagen con licencia:
 
-1. En [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), vaya a la lista de **imágenes de Marketplace**.
+1. En [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), vaya a la lista de **imágenes de Marketplace**.
 
 1. Identifique una imagen con licencia para la que desee que los usuarios tengan acceso, pero cuyos términos no se hayan aceptado. Por ejemplo, podría ver una máquina virtual de ciencia de datos que muestra un estado de **Términos aceptados** o **Revisión de términos necesaria**.
 

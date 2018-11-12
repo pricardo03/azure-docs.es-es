@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: af8a4a9c25005925bed3ddb78ced618e669f7f09
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 514e85fc61240834d8db152ece65a4f9cce9023e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424625"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250414"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Usar ReportViewer en un sitio web hospedado en Azure
 > [!IMPORTANT] 
@@ -37,7 +37,7 @@ Para incorporar ReportViewer en su sitio web de Microsoft Azure, debe completar 
 * **Configurar** autenticación y autorización
 * **Publicar** la aplicación web ASP.NET en Azure
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Revise la sección "Recomendación general y procedimientos recomendados" de [SQL Server Business Intelligence en Azure Virtual Machines](../classic/ps-sql-bi.md).
 
 > [!NOTE]
@@ -62,7 +62,7 @@ En el modo de procesamiento remoto, el control ReportViewer usa los siguientes e
 3. Repita los pasos 1 y 2 para Microsoft.ReportViewer.WebForms.
 
 ### <a name="to-get-reportviewer-language-pack"></a>Para obtener el paquete de idioma de ReportViewer
-1. Instale el paquete redistribuible de Microsoft Report Viewer 2012 Runtime adecuado desde el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=317386).
+1. Instale el paquete redistribuible de Microsoft Report Viewer 2012 Runtime adecuado desde el [Centro de descarga de Microsoft](https://go.microsoft.com/fwlink/?LinkId=317386).
 2. Seleccione el idioma en la lista desplegable y la página le dirigirá a la página del centro de descarga correspondiente.
 3. Haga clic en **Descargar** para iniciar la descarga de ReportViewerLP.exe.
 4. Después de descargar ReportViewerLP.exe, haga clic en **Ejecutar** para instalar inmediatamente o haga clic en **Guardar** para guardarlo en el equipo. Si hace clic en **Guardar**, recuerde el nombre de la carpeta donde se guarda el archivo.
@@ -72,7 +72,7 @@ En el modo de procesamiento remoto, el control ReportViewer usa los siguientes e
 ### <a name="to-configure-for-localized-reportviewer-control"></a>Para configurar para el control ReportViewer localizado
 1. Descargue e instale el paquete redistribuible de Microsoft Report Viewer 2012 Runtime siguiendo las instrucciones especificadas anteriormente.
 2. Cree la carpeta <language> en el proyecto y copie allí los archivos de ensamblados de recursos asociados. Los archivos de ensamblados de recursos que se va a copiar son: **Microsoft.ReportViewer.Webforms.Resources.dll** y **Microsoft.ReportViewer.Common.Resources.dll**. Seleccione los archivos de ensamblados de recursos y, en el panel Propiedades, establezca **Copiar en el directorio de resultados** en "**Copiar siempre**".
-3. Establezca la referencia cultural y la referencia cultural de la interfaz de usuario para el proyecto web. Para obtener más información sobre cómo establecer la referencia cultural y la referencia cultural de la interfaz de usuario para una página web ASP.NET, vea [Cómo establecer la referencia cultural y la referencia cultural de la interfaz de usuario para la globalización de páginas web de ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
+3. Establezca la referencia cultural y la referencia cultural de la interfaz de usuario para el proyecto web. Para obtener más información sobre cómo establecer la referencia cultural y la referencia cultural de la interfaz de usuario para una página web ASP.NET, vea [Cómo establecer la referencia cultural y la referencia cultural de la interfaz de usuario para la globalización de páginas web de ASP.NET](https://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## <a name="configuring-authentication-and-authorization"></a>Configuración de autenticación y autorización
 El control ReportViewer debe usar las credenciales adecuadas para autenticarse con el servidor de informes y las credenciales deben estar autorizadas por el servidor de informes para obtener acceso a los informes que quiere. Para obtener información sobre la autenticación, vea las notas del producto [Control Visor de informes de Reporting Services y servidores de informes basados en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
@@ -88,7 +88,7 @@ Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en A
 > 
 
 ## <a name="resources"></a>Recursos
-[Informes de Microsoft](http://go.microsoft.com/fwlink/?LinkId=205399)
+[Informes de Microsoft](https://go.microsoft.com/fwlink/?LinkId=205399)
 
 [Business Intelligence de SQL Server en Azure Virtual Machines](../classic/ps-sql-bi.md)
 

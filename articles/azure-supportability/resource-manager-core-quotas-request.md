@@ -7,18 +7,18 @@ ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1be05ac7216a65922927b94d1cc4ba2a893433b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037239"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250992"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Solicitudes de aumento de cuota de vCPU de Resource Manager
 
 Las cuotas de vCPU de Resource Manager se aplican en el nivel de región y de familia de SKU.
-Aprenda más sobre cómo se imponen cuotas en la página [Límites de servicios y suscripciones de Azure](http://aka.ms/quotalimits).
-Para más información sobre las familias de SKU, puede comparar coste y el rendimiento de la [precios de máquinas virtuales](http://aka.ms/pricingcompute) página.
+Aprenda más sobre cómo se imponen cuotas en la página [Límites de servicios y suscripciones de Azure](https://aka.ms/quotalimits).
+Para más información sobre las familias de SKU, puede comparar coste y el rendimiento de la [precios de máquinas virtuales](https://aka.ms/pricingcompute) página.
 
 Para solicitar un aumento, siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante la hoja de uso y cuota de Azure disponible en Azure Portal. 
 

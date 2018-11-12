@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8b7d2620b5b972c9476332f2b662a891a0b3765
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 9edbb9d916840f348a7df589c6e7cb2110419cb3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430347"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262410"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -1259,7 +1259,7 @@ La experiencia en implementaciones de SAP que hemos acumulado durante los últim
 >
 > * [Configuración del RAID de software en Linux][virtual-machines-linux-configure-raid]
 > * [Configuración del LVM en una máquina virtual Linux en Azure][virtual-machines-linux-configure-lvm]
-> * [Azure Storage secrets and Linux I/O optimizations (Secretos de Almacenamiento de Azure y optimizaciones de E/S de Linux)](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+> * [Azure Storage secrets and Linux I/O optimizations (Secretos de Almacenamiento de Azure y optimizaciones de E/S de Linux)](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 >
 >
 
@@ -1316,7 +1316,7 @@ La replicación geográfica de Azure funciona localmente en cada disco duro virt
 > Para configurar el montaje automático, consulte la documentación del ejecutable de línea de comandos diskpart.exe aquí:
 >
 > * [Opciones de línea de comandos de DiskPart](https://technet.microsoft.com/library/bb490893.aspx)
-> * [Automount (Montaje automático)](http://technet.microsoft.com/library/cc753703.aspx)
+> * [Automount (Montaje automático)](https://technet.microsoft.com/library/cc753703.aspx)
 >
 > Se debe abrir la ventana de línea de comandos de Windows como administrador.
 >

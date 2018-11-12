@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248717"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282840"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Datos de supervisión recopilados por Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) es un servicio que le ayuda a supervisar sus aplicaciones y los recursos de los que dependen. Lo fundamental de esta función es el almacenamiento de datos de telemetría y otros datos de los recursos supervisados. En este artículo se proporciona una descripción completa de cómo Azure Monitor almacena y usa estos datos.
@@ -98,7 +98,7 @@ Las **métricas personalizadas** son métricas que se definen además de las mé
 Entre las tareas que puede realizar con las métricas se incluyen:
 
 - Usar el [Explorador de métricas](../monitoring-and-diagnostics/monitoring-metric-charts.md) para analizar las métricas recopiladas y representarlas en un gráfico. Realizar el seguimiento del rendimiento de un recurso (como una máquina virtual, un sitio web o una aplicación lógica) mediante el anclaje de gráficos a un [panel de Azure](../azure-portal/azure-portal-dashboards.md).
-- Configurar una [regla de alerta de métrica](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) que envíe una notificación o realice una [acción automatizada](../monitoring-and-diagnostics/monitoring-action-groups.md) cuando la métrica cruce un umbral.
+- Configurar una [regla de alerta de métrica](../monitoring-and-diagnostics/alert-metric.md) que envíe una notificación o realice una [acción automatizada](../monitoring-and-diagnostics/monitoring-action-groups.md) cuando la métrica cruce un umbral.
 - Usar [Escalado automático](../monitoring-and-diagnostics/monitoring-overview-autoscale.md) para aumentar o disminuir los recursos según una métrica que cruce un umbral.
 - Enrutar las métricas a Log Analytics para analizar los datos de métricas junto con los datos de registro y para almacenar los valores de métricas durante más de 93 días. 
 - Hacer streaming de métricas a un [centro de eventos](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) para enrutarlas a [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) o a sistemas externos.
@@ -138,7 +138,7 @@ Los registros que recopila Azure Monitor se almacenan en Log Analytics, que reco
 Log Analytics puede recopilar datos de diversos orígenes, tanto en Azure como desde recursos locales. Los orígenes de datos escritos en Log Analytics incluyen los siguientes:
 
 - [Registros de actividad](../log-analytics/log-analytics-activity.md) de recursos de Azure, que incluyen información sobre su configuración y mantenimiento, y [registros de diagnóstico](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md), que proporcionan información sobre su funcionamiento.
-- Agentes de las máquinas virtuales [Windows](../log-analytics/log-analytics-windows-agent.md) y [Linux](../log-analytics/log-analytics-linux-agents.md), que envían datos de telemetría desde el sistema operativo invitado y las aplicaciones a Log Analytics de acuerdo con los [orígenes de datos](../log-analytics/log-analytics-data-sources.md) que se configuran.
+- Agentes de las máquinas virtuales [Windows](../log-analytics/log-analytics-windows-agent.md) y [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md), que envían datos de telemetría desde el sistema operativo invitado y las aplicaciones a Log Analytics de acuerdo con los [orígenes de datos](../log-analytics/log-analytics-data-sources.md) que se configuran.
 - Datos de aplicaciones recopilados por [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Datos que proporcionan información sobre una aplicación o un servicio determinado desde [soluciones de supervisión](../monitoring/monitoring-solutions.md) o características como las de información del contenedor, información de máquinas virtuales o información del grupo de recursos.
 - Datos de seguridad recopilados por [Azure Security Center](https://docs.microsoft.com/azure/security-center/).

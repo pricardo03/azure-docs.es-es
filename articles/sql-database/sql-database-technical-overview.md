@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 1ae68e8eac3baca53cda603769a89bc6a84fd468
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405935"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256942"
 ---
 # <a name="the-azure-sql-database-service"></a>Servicio Azure SQL Database
 
@@ -101,7 +101,7 @@ Además, SQL Database puede [emitir métricas y registros de diagnóstico](sql-d
 
 ## <a name="availability-capabilities"></a>Funcionalidades de disponibilidad
 
-El contrato de nivel de servicio [(SLA)](http://azure.microsoft.com/support/legal/sla/)de Azure de disponibilidad del 99,99 %, líder del sector, con la tecnología de una red global de centros de datos administrados por Microsoft, ayuda a mantener las aplicaciones en funcionamiento de forma ininterrumpida. La plataforma de Azure administra completamente cada instancia de Azure SQL Database y garantiza un alto porcentaje de disponibilidad de los datos sin pérdida de datos. Azure controla automáticamente la aplicación de revisiones, las copias de seguridad, la replicación, la detección de errores, los posibles errores de hardware, de software o de red subyacentes, la implementación de correcciones de errores, las conmutaciones por error, las actualizaciones de base de datos y otras tareas de mantenimiento. La disponibilidad Estándar se consigue mediante una separación de las capas de proceso y de almacenamiento. La disponibilidad Premium se logra mediante la integración de los recursos de proceso y almacenamiento en un único nodo para obtener un buen rendimiento y, después, mediante la implementación de tecnología similar para los grupos de disponibilidad AlwaysOn en segundo plano. Para obtener una explicación completa de las funcionalidades de alta disponibilidad de Azure SQL Database, consulte [Disponibilidad de SQL Database](sql-database-high-availability.md). Además, SQL Database proporciona características de [continuidad empresarial y escalabilidad global](sql-database-business-continuity.md) integradas, entre las que se incluyen:
+El contrato de nivel de servicio [(SLA)](https://azure.microsoft.com/support/legal/sla/)de Azure de disponibilidad del 99,99 %, líder del sector, con la tecnología de una red global de centros de datos administrados por Microsoft, ayuda a mantener las aplicaciones en funcionamiento de forma ininterrumpida. La plataforma de Azure administra completamente cada instancia de Azure SQL Database y garantiza un alto porcentaje de disponibilidad de los datos sin pérdida de datos. Azure controla automáticamente la aplicación de revisiones, las copias de seguridad, la replicación, la detección de errores, los posibles errores de hardware, de software o de red subyacentes, la implementación de correcciones de errores, las conmutaciones por error, las actualizaciones de base de datos y otras tareas de mantenimiento. La disponibilidad Estándar se consigue mediante una separación de las capas de proceso y de almacenamiento. La disponibilidad Premium se logra mediante la integración de los recursos de proceso y almacenamiento en un único nodo para obtener un buen rendimiento y, después, mediante la implementación de tecnología similar para los grupos de disponibilidad AlwaysOn en segundo plano. Para obtener una explicación completa de las funcionalidades de alta disponibilidad de Azure SQL Database, consulte [Disponibilidad de SQL Database](sql-database-high-availability.md). Además, SQL Database proporciona características de [continuidad empresarial y escalabilidad global](sql-database-business-continuity.md) integradas, entre las que se incluyen:
 
 - **[Copias de seguridad automáticas](sql-database-automated-backups.md)**:
 
@@ -200,7 +200,7 @@ SQL Database admite la compilación de aplicaciones con Python, Java, Node.js, P
 - [Cambio de pila de DBA](https://dba.stackexchange.com/questions/tagged/sql-server): formule preguntas sobre administración de base de datos
 - [Desbordamiento de pila](http://stackoverflow.com/questions/tagged/sql-server): formule preguntas sobre desarrollo
 - [Foros de MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): formule preguntas técnicas
-- [Comentarios](http://aka.ms/sqlfeedback): informe de errores y características de la solicitud
+- [Comentarios](https://aka.ms/sqlfeedback): informe de errores y características de la solicitud
 - [Reddit](https://www.reddit.com/r/SQLServer/): analice SQL Server
 
 ## <a name="next-steps"></a>Pasos siguientes

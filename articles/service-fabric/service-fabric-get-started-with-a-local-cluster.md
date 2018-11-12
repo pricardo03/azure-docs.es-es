@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 0243f6ca96b5e2c20b40bf6e0fc11e8d760db475
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 639293a1811c35d87bd705800b8ecf62f667c0e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053370"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246725"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Introducción a la implementación y actualización de aplicaciones en un clúster local
 El SDK de Service Fabric de Azure incluye un completo entorno de desarrollo local y puede usar para empezar a trabajar rápidamente con aplicaciones de implementación y administración en un clúster local. En este artículo, se crea un clúster local, se implementa en él una aplicación existente y, a continuación, se actualiza la aplicación a una nueva versión, y todo ello desde Windows PowerShell.
@@ -71,7 +71,7 @@ En este tutorial, se usará una aplicación de ejemplo existente (llamada WordCo
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. [Descargue la aplicación WordCount](http://aka.ms/servicefabric-wordcountapp) en la ubicación que creó.  Nota: el explorador Microsoft Edge guarda el archivo con extensión *.zip* .  Debe cambiar la extensión del archivo a *.sfpkg*.
+4. [Descargue la aplicación WordCount](https://aka.ms/servicefabric-wordcountapp) en la ubicación que creó.  Nota: el explorador Microsoft Edge guarda el archivo con extensión *.zip* .  Debe cambiar la extensión del archivo a *.sfpkg*.
 5. Conecte con el clúster local:
    
     ```powershell
@@ -139,7 +139,7 @@ Service Fabric proporciona actualizaciones sin tiempo de inactividad mediante la
 
 La nueva versión de la aplicación ahora contará solo las palabras que comiencen por vocal. Cuando se implemente la actualización, veremos dos cambios en el comportamiento de la aplicación. En primer lugar, la velocidad a la que crece el recuento debe reducirse, ya que se cuentan menos palabras. En segundo lugar, dado que la primera partición tiene dos vocales (A y E) y las restantes particiones contienen solo una, su recuento debería finalmente debería empezar a superar a los demás.
 
-1. [Descargue el paquete de WordCount versión 2](http://aka.ms/servicefabric-wordcountappv2) en la misma ubicación en la que descargó el paquete de la versión 1.
+1. [Descargue el paquete de WordCount versión 2](https://aka.ms/servicefabric-wordcountappv2) en la misma ubicación en la que descargó el paquete de la versión 1.
 2. Vuelva a la ventana de PowerShell y use el comando de actualización del SDK para registrar la nueva versión en el clúster. Después, empiece a actualizar la aplicación fabric:/WordCount.
    
     ```powershell

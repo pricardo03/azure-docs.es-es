@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6969f0c6a05ebf5b34fb746d2a83b884687ad710
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29762448"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258262"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch
 
@@ -105,7 +105,7 @@ Para configurar un tamaño de VM especializado para el grupo de Batch, las herra
 
 Para ejecutar aplicaciones MPI para Windows en un grupo de nodos de A8 de Azure, necesitará instalar una implementación de MPI admitida. Estos son los pasos de ejemplo para instalar [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) en un grupo de Windows mediante un paquete de aplicación de Batch.
 
-1. Descargue el [paquete de instalación](http://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) correspondiente a la versión más reciente de Microsoft MPI.
+1. Descargue el [paquete de instalación](https://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) correspondiente a la versión más reciente de Microsoft MPI.
 2. Cree un archivo ZIP del paquete.
 3. Cargue el paquete en su cuenta de Batch. Para conocer los pasos, consulte las instrucciones de los [paquetes de aplicación](batch-application-packages.md). Especifique un identificador de aplicación (por ejemplo, *MSMPI*) y una versión (por ejemplo, *8.1*). 
 4. Mediante las API de Batch o Azure Portal, cree un grupo en la configuración de servicios en la nube con el número de nodos y la escala deseados. En la tabla siguiente se muestra la configuración de ejemplo para configurar MPI en modo desatendido mediante una tarea de inicio:

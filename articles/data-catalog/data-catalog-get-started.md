@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 4386f87b6986e6ab1742a8d3c14a100fea112182
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406318"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238495"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introducción a Azure Data Catalog
 Azure Data Catalog es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para recursos de datos empresariales. Si desea información detallada, consulte [¿Qué es Azure Data Catalog](data-catalog-what-is-data-catalog.md).
@@ -96,7 +96,7 @@ La base de datos Adventure Works admite escenarios de procesamiento de transacci
 Para instalar la base de datos de ejemplo Adventure Works:
 
 1. Descargue el archivo [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) en CodePlex.
-2. Para restaurar la base de datos en su máquina, siga las instrucciones de [Restore a Database Backup Using SSMS](http://msdn.microsoft.com/library/ms177429.aspx)(Restauración de una base de datos mediante SSMS) o realice estos pasos:
+2. Para restaurar la base de datos en su máquina, siga las instrucciones de [Restore a Database Backup Using SSMS](https://msdn.microsoft.com/library/ms177429.aspx)(Restauración de una base de datos mediante SSMS) o realice estos pasos:
    1. Abra SQL Server Management Studio y conéctese al motor de base de datos de SQL Server.
    2. Haga clic con el botón derecho en **Bases de datos** y seleccione **Restaurar base de datos**.
    3. En **Restaurar base de datos**, haga clic en la opción **Dispositivo** de **Origen** y en **Examinar**.

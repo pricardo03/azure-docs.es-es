@@ -26,7 +26,7 @@
 
 A partir del 1 de abril de 2017, se eliminarán automáticamente los registros de trabajo de más de 90 días de su cuenta, junto con los registros de tarea asociados, aunque el número total de registros no llegue a la cuota máxima. Si desea archivar la información del trabajo o la tarea, puede usar el código que se describe [aquí](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> Al realizar una solicitud para obtener una lista de las entidades Job, se devuelve un máximo de 1000 por solicitud. Si necesita realizar un seguimiento de todos los trabajos enviados, puede usar top y skip, tal como se describe en [Opciones de consulta del sistema de OData](http://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup> Al realizar una solicitud para obtener una lista de las entidades Job, se devuelve un máximo de 1000 por solicitud. Si necesita realizar un seguimiento de todos los trabajos enviados, puede usar top y skip, tal como se describe en [Opciones de consulta del sistema de OData](https://msdn.microsoft.com/library/gg309461.aspx).
 
 <sup>4</sup> Los localizadores no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM). Para obtener más información, consulte [esta](../articles/media-services/previous/media-services-content-protection-overview.md) sección.
 

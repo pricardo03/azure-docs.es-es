@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: danlep
-ms.openlocfilehash: bf7dfc2600c3d94faeb8d03561f6f2b30a0ee2d2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f8c0adf96d027f58a35dbe570f1b19c311cd84b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316994"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246521"
 ---
 # <a name="pool-create-event"></a>Evento de creación del grupo
 
@@ -51,7 +51,7 @@ ms.locfileid: "30316994"
 |-------------|----------|-----------|
 |id|string|El identificador del grupo.|
 |DisplayName|String|El nombre para mostrar del grupo.|
-|vmSize|string|El tamaño de las máquinas virtuales que se usan en el grupo. Todas las máquinas virtuales de un grupo son del mismo tamaño. <br/><br/> Para obtener información sobre los tamaños disponibles de máquinas virtuales para los grupos de Cloud Services (grupos creados con cloudServiceConfiguration), consulte [Tamaños para Cloud Services](http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch admite todas las VM de Cloud Services excepto `ExtraSmall`.<br/><br/> Para obtener información sobre los tamaños de VM disponibles para grupos con imágenes del Virtual Machines Marketplace (grupos creados con virtualMachineConfiguration), consulte [Tamaños de máquinas virtuales](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) o [Tamaños de máquinas virtuales](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). Batch admite todos los tamaños de máquina virtual de Azure excepto `STANDARD_A0` y aquellos con Premium Storage (series `STANDARD_GS`, `STANDARD_DS` y `STANDARD_DSV2`).|
+|vmSize|string|El tamaño de las máquinas virtuales que se usan en el grupo. Todas las máquinas virtuales de un grupo son del mismo tamaño. <br/><br/> Para obtener información sobre los tamaños disponibles de máquinas virtuales para los grupos de Cloud Services (grupos creados con cloudServiceConfiguration), consulte [Tamaños para Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch admite todas las VM de Cloud Services excepto `ExtraSmall`.<br/><br/> Para obtener información sobre los tamaños de VM disponibles para grupos con imágenes del Virtual Machines Marketplace (grupos creados con virtualMachineConfiguration), consulte [Tamaños de máquinas virtuales](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) o [Tamaños de máquinas virtuales](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). Batch admite todos los tamaños de máquina virtual de Azure excepto `STANDARD_A0` y aquellos con Premium Storage (series `STANDARD_GS`, `STANDARD_DS` y `STANDARD_DSV2`).|
 |[cloudServiceConfiguration](#bk_csconf)|Tipo complejo|La configuración del servicio en la nube para el grupo.|
 |[virtualMachineConfiguration](#bk_vmconf)|Tipo complejo|La configuración de la máquina virtual para el grupo.|
 |[networkConfiguration](#bk_netconf)|Tipo complejo|La configuración de red para el grupo.|
@@ -65,14 +65,14 @@ ms.locfileid: "30316994"
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Escriba|Notas|
 |------------------|----------|-----------|
 |osFamily|string|La familia del SO invitado de Azure para instalar en las máquinas virtuales en el grupo.<br /><br /> Los valores posibles son:<br /><br /> **2**: familia 2 de SO, que equivale a Windows Server 2008 R2 SP1.<br /><br /> **3**: familia 3 de SO, que equivale a Windows Server 2012.<br /><br /> **4**: familia 4 de SO, que equivale a Windows Server 2012 R2.<br /><br /> Para obtener más información, consulte [Versiones del SO invitado de Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |targetOSVersion|string|La versión del SO invitado de Azure para instalar en las máquinas virtuales en el grupo.<br /><br /> El valor predeterminado es **\***, que especifica la versión del sistema operativo más reciente para la familia especificada.<br /><br /> Para otros valores permitidos, consulte [Versiones del SO invitado de Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Escriba|Notas|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Tipo complejo|Especifica información sobre la plataforma o imagen de Marketplace que se usará.|
 |nodeAgentSKUId|string|El SKU agente del nodo de Batch proporcionado en el nodo de ejecución.|
@@ -80,7 +80,7 @@ ms.locfileid: "30316994"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Escriba|Notas|
 |------------------|----------|-----------|
 |publisher|string|El publicador de la imagen.|
 |offer|string|La oferta publicador de la imagen.|
@@ -89,12 +89,12 @@ ms.locfileid: "30316994"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Escriba|Notas|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|boolean|Indica si la máquina virtual está habilitada para las actualizaciones automáticas. Si esta propiedad no se especifica, se usa el valor predeterminado.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Nombre del elemento|type|Notas|
+|Nombre del elemento|Escriba|Notas|
 |------------------|--------------|----------|
 |subnetId|string|Especifica el identificador de recursos de la subred en la que se crean los nodos de proceso del grupo.|

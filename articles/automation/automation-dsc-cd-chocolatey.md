@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634259"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259180"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Ejemplo de uso: implementación continua en máquinas virtuales con Automation State Configuration y Chocolatey
 
@@ -87,7 +87,7 @@ También podemos aplicar el enfoque manual. La estructura de carpetas de un mód
 Por tanto, es necesario hacer algunos ajustes. Pero no es difícil y solo es necesario hacerlos una vez para cada recurso (a menos que desee actualizarlo en el futuro.) Para más información sobre la creación de módulos de integración de PowerShell, consulte este artículo: [Creación de módulos de integración para Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
 - Instale el módulo que necesita en su estación de trabajo, como sigue:
-  - Instale [Windows Management Framework, v5](http://aka.ms/wmf5latest) (no es necesario para Windows 10).
+  - Instale [Windows Management Framework, v5](https://aka.ms/wmf5latest) (no es necesario para Windows 10).
   - `Install-Module –Name MODULE-NAME` &lt;—toma el módulo de la Galería de PowerShell.
 - Copie la carpeta del módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` a una carpeta temporal.
 - Elimine los ejemplos y la documentación de la carpeta principal.

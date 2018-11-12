@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 9ca8a9de9a286d4b14dae4a822f3e9baf4747c60
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7e51513e5cc17b18b6822925051b207f61e20ea1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363340"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283859"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implementación de Azure Digital Twins y configuración de un grafo espacial
 
@@ -44,7 +44,7 @@ Estos tutoriales utilizan y modifican los mismos ejemplos que usa la [guía de i
 
 Use los pasos de esta sección para crear una nueva instancia del servicio Digital Twins. No se puede crear más de una instancia por suscripción; si ya hay una en ejecución, vaya a la siguiente sección. 
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 
 <a id="permissions" />

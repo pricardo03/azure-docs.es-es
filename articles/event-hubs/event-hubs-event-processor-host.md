@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 63cc8a698c9e383c4b5908286d28b51d89842bdc
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585703"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258959"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Introducción al host del procesador de eventos de Azure Event Hubs
 
 Azure Event Hubs es un eficaz servicio de ingesta de telemetría que se puede usar para hacer streaming de millones de eventos a un bajo costo. En este artículo se describe cómo usar eventos ingeridos mediante el *host del procesador de eventos* (EPH), un agente de consumidor inteligente que simplifica la administración de la creación de puntos de comprobación, la concesión y los lectores de eventos paralelos.  
 
-La clave del escalado de Event Hubs es el concepto de consumidores con particiones. En contraposición al patrón de [consumidores de la competencia](http://msdn.microsoft.com/library/dn568101.aspx), el patrón de consumidores con particiones permite una alta escalabilidad mediante la eliminación de cuellos de botella de contención y la facilitación del paralelismo de principio a fin.
+La clave del escalado de Event Hubs es el concepto de consumidores con particiones. En contraposición al patrón de [consumidores de la competencia](https://msdn.microsoft.com/library/dn568101.aspx), el patrón de consumidores con particiones permite una alta escalabilidad mediante la eliminación de cuellos de botella de contención y la facilitación del paralelismo de principio a fin.
 
 ## <a name="home-security-scenario"></a>Escenario de seguridad en el hogar
 

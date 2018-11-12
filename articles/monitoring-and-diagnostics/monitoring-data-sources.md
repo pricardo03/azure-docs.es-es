@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 55dc43f238b487392be48047b3d608f84e1e3ee2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: b01dafcda9ed8fe14e3f0d50daf25bae1658faee
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579317"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282635"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consume monitoring data from Azure (Consumo de datos de supervisión de Azure)
 
@@ -24,17 +24,17 @@ En toda la plataforma Azure, reunimos datos de supervisión en un solo lugar con
 | Tipo de datos | Categoría | Servicios admitidos | Métodos de acceso |
 | --- | --- | --- | --- |
 | Métricas en el nivel de plataforma de Azure Monitor | Métricas | [Consulte la lista aquí](monitoring-supported-metrics.md) | <ul><li>**API de REST:**[API de métrica de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Storage Blob o centro de eventos:**[configuración de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
-| Métricas de SO invitado de proceso (p. ej., contadores de rendimiento) | Métricas | Máquinas virtuales [Windows](../virtual-machines-dotnet-diagnostics.md) y Linux (v2), [Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabla de almacenamiento o Storage Blob:**[diagnósticos de Azure para Windows o Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Centro de eventos:**[diagnósticos de Azure para Windows](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
+| Métricas de SO invitado de proceso (p. ej., contadores de rendimiento) | Métricas | Máquinas virtuales [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) y Linux (v2), [Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabla de almacenamiento o Storage Blob:**[diagnósticos de Azure para Windows o Linux](azure-diagnostics-storage.md)</li><li>**Centro de eventos:**[diagnósticos de Azure para Windows](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
 | Métricas personalizadas o de la aplicación | Métricas | Cualquier aplicación instrumentada con Application Insights | <ul><li>**API de REST:**[API de REST de Application Insights](https://dev.applicationinsights.io/reference)</li></ul> |
 | Métricas de almacenamiento | Métricas | Azure Storage | <ul><li>**Tabla de almacenamiento:**[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Datos de facturación | Métricas | Todos los servicios de Azure | <ul><li>**API de REST:**[uso de Azure Resource y API de RateCard](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Registro de actividad | Eventos | Todos los servicios de Azure | <ul><li>**API de REST:**[API de eventos de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Storage Blob o centro de eventos:**[perfil de registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Registros de diagnóstico de Azure Monitor | Eventos | [Consulte la lista aquí](monitoring-diagnostic-logs-schema.md) | <ul><li>**Storage Blob o centro de eventos:**[configuración de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
-| Registros de SO invitado de proceso (p. ej., IIS, ETW, syslogs) | Eventos | Máquinas virtuales [Windows](../virtual-machines-dotnet-diagnostics.md) y Linux (v2), [Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabla de almacenamiento o Storage Blob:**[diagnósticos de Azure para Windows o Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Centro de eventos:**[diagnósticos de Azure para Windows](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
+| Registros de SO invitado de proceso (p. ej., IIS, ETW, syslogs) | Eventos | Máquinas virtuales [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) y Linux (v2), [Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabla de almacenamiento o Storage Blob:**[diagnósticos de Azure para Windows o Linux](azure-diagnostics-storage.md)</li><li>**Centro de eventos:**[diagnósticos de Azure para Windows](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
 | Registros de App Service | Eventos | App Services | <ul><li>**File Storage, Table Storage o Blob Storage:**[diagnósticos de la aplicación web](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Registros de almacenamiento | Eventos | Azure Storage | <ul><li>**Tabla de almacenamiento:**[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Alertas de Security Center | Eventos | Azure Security Center | <ul><li>**API de REST:**[alertas de seguridad](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
-| Informes de Active Directory | Eventos | Azure Active Directory | <ul><li>**API de REST:**[Graph API de Azure Active Directory](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |
+| Informes de Active Directory | Eventos | Azure Active Directory | <ul><li>**API de REST:**[Graph API de Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md)</li></ul> |
 | Estado del recurso de Security Center | Status | [Todos los recursos admitidos](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**API de REST:**[estados de seguridad](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | Estado de los recursos | Status | Servicios admitidos | <ul><li>**API de REST:**[API de REST de Resource Health](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Alertas de métricas de Azure Monitor | Notificaciones | [Consulte la lista aquí](monitoring-supported-metrics.md) | <ul><li>**Webhook:**[alertas de métricas de Azure](insights-webhooks-alerts.md)</li></ul> |
@@ -46,6 +46,6 @@ En toda la plataforma Azure, reunimos datos de supervisión en un solo lugar con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre las [métricas de Azure Monitor](monitoring-overview-metrics.md)
+- Más información sobre las [métricas de Azure Monitor](../monitoring/monitoring-data-collection.md)
 - Más información sobre [el registro de actividad de Azure](monitoring-overview-activity-logs.md)
 - Más información sobre los [registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f12a15a0d739ae6e98be3871fa8bb4104f49565c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809049"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257214"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Publicar una oferta de Cortana Intelligence mediante Cloud Partner Portal
 
@@ -29,7 +29,7 @@ En este artículo se describe cómo publicar una oferta de Cortana Intelligence 
 
 Cloud Partner Portal admite acceso basado en rol en el portal, lo que permite a los colaboradores contribuir en la publicación de una oferta. Para obtener más información, vea [Managing users on cloud partner portal](./cloud-partner-portal-manage-users.md) (Administrar usuarios en Cloud Partner Portal).
 
-Antes de publicar una oferta en nombre de un publicador de cuenta, una persona con el rol \"Propietario\" tiene que aceptar los [Términos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Declaración de privacidad de Microsoft](http://www.microsoft.com/privacystatement/default.aspx) y el [Contrato del programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Antes de publicar una oferta en nombre de un publicador de cuenta, una persona con el rol \"Propietario\" tiene que aceptar los [Términos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Declaración de privacidad de Microsoft](https://www.microsoft.com/privacystatement/default.aspx) y el [Contrato del programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Para empezar a crear una oferta de Cortana Intelligence
 
@@ -187,7 +187,7 @@ Seleccione el sector más afín a la aplicación. Si la aplicación está relaci
 
 ### <a name="categories"></a>Categorías
 
-Seleccione las categorías que son relevantes para la aplicación. Seleccione un máximo de dos categorías.
+Seleccione las categorías que sean pertinentes para su aplicación. Seleccione un máximo de dos categorías.
 
 ### <a name="app-type"></a>Tipo de aplicación
 
@@ -216,7 +216,7 @@ Los asociados pueden ofrecer dos tipos de experiencias de prueba en AppSource.
 
         - [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome)
 
-- La opción **Solicitud de versión de prueba** (**Versiones de prueba gestionadas por el asociado / PLT**) requiere que los clientes rellenen un formulario de información de contacto para el seguimiento del asociado. Después el asociado ofrece una demostración o una versión de prueba de la aplicación. Para obtener más información, vea el vídeo sobre el [AppSource trial experience walk through](http://aka.ms/trialexperienceforwebapps) (Tutorial de la experiencia de prueba en AppSource) para obtener información general de alto nivel.
+- La opción **Solicitud de versión de prueba** (**Versiones de prueba gestionadas por el asociado / PLT**) requiere que los clientes rellenen un formulario de información de contacto para el seguimiento del asociado. Después el asociado ofrece una demostración o una versión de prueba de la aplicación. Para obtener más información, vea el vídeo sobre el [AppSource trial experience walk through](https://aka.ms/trialexperienceforwebapps) (Tutorial de la experiencia de prueba en AppSource) para obtener información general de alto nivel.
 
 >[!Note]
 >Los datos muestran que las **pruebas gestionadas por el cliente** tienen una mayor generación de clientes potenciales que las **pruebas gestionadas por los asociados**.

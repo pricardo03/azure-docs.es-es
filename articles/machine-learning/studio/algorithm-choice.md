@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959213"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262308"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Cómo elegir algoritmos para Azure Machine Learning Studio
 
@@ -121,7 +121,7 @@ Algunos algoritmos de aprendizaje hacen determinadas suposiciones sobre la estru
 | [bosque de decisión](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [selva de decisión](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Uso de memoria bajo |
 | [árbol de decisión impulsado](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Uso de memoria grande |
-| [red neuronal](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [red neuronal](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[La personalización adicional es posible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [perceptrón promedio](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [máquina de vectores de soporte](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Útil para conjuntos de características de gran tamaño |
 | [máquina de vectores de soporte localmente profunda](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Útil para conjuntos de características de gran tamaño |
@@ -130,7 +130,7 @@ Algunos algoritmos de aprendizaje hacen determinadas suposiciones sobre la estru
 | [regresión logística](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [bosque de decisión](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [selva de decisión ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Uso de memoria bajo |
-| [red neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [red neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[La personalización adicional es posible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [uno frente a todos](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Vea las propiedades del método de dos clases seleccionado |
 | **Regresión** | | | | | |
 | [lineal](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -138,7 +138,7 @@ Algunos algoritmos de aprendizaje hacen determinadas suposiciones sobre la estru
 | [bosque de decisión](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [árbol de decisión impulsado](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Uso de memoria grande |
 | [cuantil de bosque rápido](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distribuciones en lugar de predicciones de puntos |
-| [red neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [red neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[La personalización adicional es posible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Logarítmico lineal técnicamente. Para la predicción de recuentos |
 | [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Para la predicción de ordenación de clasificaciones |
 | **Detección de anomalías** | | | | | |
@@ -190,7 +190,7 @@ Los árboles de decisión impulsados evitan el sobreajuste al limitar la cantida
 Las redes neuronales son algoritmos de aprendizaje inspirados en el cerebro que abarcan problemas [multiclase](https://msdn.microsoft.com/library/azure/dn906030.aspx), [de dos clases](https://msdn.microsoft.com/library/azure/dn905947.aspx) y [de regresión](https://msdn.microsoft.com/library/azure/dn905924.aspx). Vienen en una variedad infinita, pero las redes neuronales de Azure Machine Learning tienen todas la forma de gráficos acíclicos dirigidos. Esto significa que las características de entrada se adelantan (nunca se atrasan) en una secuencia de capas antes convertirse en salidas. En cada capa, las entradas se ponderan en varias combinaciones, se suman y se pasan a la siguiente capa. Esta combinación de cálculos sencillos da como resultado la capacidad de aprender límites de clase y tendencias de datos sofisticados, casi como por arte de magia. Las redes de varias capas de este tipo realizan el "aprendizaje profundo" que hace posibles los informes de tecnología y la ciencia ficción.
 
 Sin embargo, el alto rendimiento no es gratuito. Las redes neuronales pueden tardar mucho tiempo para entrenarse, especialmente para grandes conjuntos de datos con muchas características. También tienen más parámetros que la mayoría de los algoritmos, lo que implica que el barrido de parámetros alargue mucho el tiempo de entrenamiento.
-Para los que quieren obtener resultados óptimos y [especificar su propia estructura de red](http://go.microsoft.com/fwlink/?LinkId=402867), las posibilidades son inagotables.
+Para los que quieren obtener resultados óptimos y [especificar su propia estructura de red](https://go.microsoft.com/fwlink/?LinkId=402867), las posibilidades son inagotables.
 
 ![Límites que aprenden las redes neuronales][6]
 ***Los límites que aprenden las redes neuronales pueden ser complejos e irregulares***

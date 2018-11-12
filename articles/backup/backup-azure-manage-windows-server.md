@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: markgal
-ms.openlocfilehash: 9fad5876ce177129d6178052916843b94b33ccf1
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445474"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250703"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Supervisión y administración de almacenes de Recovery Services
 
 En este artículo se explica cómo usar el panel de **información general** del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services. Al abrir un almacén de Recovery Services de la lista, se abre el panel de **información general** del mismo. El panel proporciona diversos detalles acerca del almacén. Hay *iconos* que muestran: el estado de las alertas críticas y de advertencia, los trabajos de copia de seguridad en curso y con errores, y la cantidad de almacenamiento con redundancia local (LRS) y almacenamiento con redundancia geográfica (GRS) usada. Si realiza copias de seguridad de máquinas virtuales de Azure en el almacén, el icono [**Estado de la comprobación previa a la copia de seguridad** muestra todos los elementos críticos o de advertencia](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). La imagen siguiente es el panel de **información general** de **Contoso-vault**. El icono **Elementos de copia de seguridad** muestra que hay nueve elementos registrados en el almacén.
 
-![panel del almacén de Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+![panel del almacén de Servicios de recuperación](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
 Los requisitos previos de este artículo son: una suscripción de Azure, un almacén de Recovery Services y que haya al menos un elemento de copia de seguridad configurado para el almacén.
 
@@ -42,7 +42,7 @@ Para supervisar las alertas o ver los datos de administración de un almacén de
 
 4. En la lista de almacenes, haga clic en cualquiera de ellos para abrir su panel de **información general**. 
 
-    ![panel del almacén de Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![panel del almacén de Servicios de recuperación](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
     El panel de información general utiliza iconos para proporcionar alertas y datos de los trabajos de copia de seguridad.
 
@@ -296,4 +296,4 @@ R3. Sí. En las siguientes situaciones no se envían notificaciones.
 ## <a name="next-steps"></a>Pasos siguientes
 * [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 * Para obtener más información sobre Azure Backup, consulte [Información general de Azure Backup](backup-introduction-to-azure-backup.md)
-* Visite el [Foro de Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* Visite el [Foro de Azure Backup](https://go.microsoft.com/fwlink/p/?LinkId=290933)

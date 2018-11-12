@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 2: Intenciones y entidades creadas previamente, usar expresiones comunes creadas previamente, extraer datos comunes de LUIS'
 titleSuffix: Azure Cognitive Services
-description: Agregue intenciones y entidades creadas previamente a la aplicación de tutorial de recursos humanos para obtener de manera inmediata predicciones de intenciones y extracciones de datos. No es necesario etiquetar ninguna expresión con entidades creadas previamente. La entidad se detecta automáticamente.
+description: Agregue intenciones y entidades creadas previamente a la aplicación de tutorial de recursos humanos para obtener de manera inmediata predicciones de intenciones y extracciones de datos. No necesita etiquetar ninguna expresión con entidades pregeneradas. La entidad se detecta automáticamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d42aed76ecdbc2bd840e17517db2ca0b6ba11aa0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d73284ecf40b2dfcd4954c1ddee82bf92a8931b9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034440"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281802"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutorial 2: Identificar las intenciones y entidades comunes
 En este tutorial, modificará la aplicación HumanResources. Agregue intenciones y entidades creadas previamente a la aplicación de tutorial de recursos humanos para obtener de manera inmediata predicciones de intenciones y extracciones de datos. No es necesario etiquetar ninguna expresión con entidades creadas previamente porque la entidad se detecta automáticamente.
@@ -34,7 +34,7 @@ Los modelos creados previamente de dominios de asunto y tipos de datos comunes l
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Uso de la aplicación existente
+## <a name="use-existing-app"></a>Usar una aplicación existente
 Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
 
 Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
@@ -48,7 +48,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 ## <a name="add-prebuilt-intents"></a>Agregar intenciones creadas previamente
 LUIS proporciona varias intenciones creadas previamente para ayudarle con las intenciones de usuario comunes.  
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Seleccione **Add prebuilt intent** (Agregar intención creada previamente). 
 

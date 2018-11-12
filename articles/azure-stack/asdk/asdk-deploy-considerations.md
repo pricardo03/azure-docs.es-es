@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719450"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238633"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Consideraciones de planeación de la implementación de Azure Stack
 Antes de implementar el Kit de desarrollo de Azure Stack (ASDK), asegúrese de que el equipo host del kit de desarrollo cumple los requisitos que se describen en este artículo.
@@ -82,7 +82,7 @@ Si implementa mediante la opción de AD FS, debe volver a implementar Azure Stac
 ### <a name="azure-active-directory-accounts"></a>Cuentas de Azure Active Directory
 Para implementar Azure Stack mediante una cuenta de Azure AD, debe preparar una cuenta de Azure AD antes de ejecutar el script de PowerShell de implementación. Esta cuenta se convierte en el administrador global para el inquilino de Azure AD. Se utiliza para aprovisionar y delegar aplicaciones y entidades de servicio para todos los servicios de Azure Stack que interactúan con Azure Active Directory y Graph API. También se utiliza como el propietario de la suscripción de proveedor predeterminada (que puede cambiar más adelante). Puede iniciar sesión en el portal del administrador del sistema de Azure Stack mediante el uso de esta cuenta.
 
-1. Cree una cuenta de Azure AD que sea el administrador de directorios de al menos una instancia de Azure AD. Si ya tiene una, puede usarla. En caso contrario, puede crearla de forma gratuita en [https://azure.microsoft.com/free/](http://azure.microsoft.com/pricing/free/) (en China, visite <http://go.microsoft.com/fwlink/?LinkID=717821>). Si tiene previsto más adelante [registrar Azure Stack en Azure](asdk-register.md), también debe tener una suscripción en la cuenta recién creada.
+1. Cree una cuenta de Azure AD que sea el administrador de directorios de al menos una instancia de Azure AD. Si ya tiene una, puede usarla. En caso contrario, puede crearla de forma gratuita en [https://azure.microsoft.com/free/](https://azure.microsoft.com/pricing/free/) (en China, visite <http://go.microsoft.com/fwlink/?LinkID=717821>). Si tiene previsto más adelante [registrar Azure Stack en Azure](asdk-register.md), también debe tener una suscripción en la cuenta recién creada.
    
     Guarde dichas credenciales para usarlas como administrador del servicio. Esta cuenta puede configurar y administrar recursos en la nube, cuentas de usuario, planes de inquilinos, cuotas y precios. En el portal, pueden crear nubes de sitios web, nubes privadas de máquinas virtuales, crear planes y administrar suscripciones de usuario.
 1. Cree al menos una cuenta de usuario de prueba en Azure AD para que pueda iniciar sesión en el kit de desarrollo como un inquilino.
@@ -94,7 +94,7 @@ Para implementar Azure Stack mediante una cuenta de Azure AD, debe preparar una 
    | Cuenta profesional o educativa con una suscripción de Azure China válida |SÍ |
    | Cuenta profesional o educativa con una suscripción de Azure Gobierno de Estados Unidos válida |SÍ |
 
-Después de al implementación, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
+Después de la implementación, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
 
 ## <a name="network"></a>Red
 ### <a name="switch"></a>Switch

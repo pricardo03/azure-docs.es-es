@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/04/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 322c398bd6384821697e2b672825cc0805eb43ad
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092905"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229618"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>¿Qué es Azure Data Box Disk? (versión preliminar)
 
@@ -25,7 +25,7 @@ Puede configurar, conectar y desbloquear rápidamente los discos a través del s
 
 > [!IMPORTANT]
 > - Data Box Disk se encuentra en versión preliminar. Antes de implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> - Debe suscribirse a este servicio. Para suscribirse, vaya al [portal de vista previa](http://aka.ms/azuredataboxfromdiskdocs).
+> - Debe suscribirse a este servicio. Para suscribirse, vaya al [portal de vista previa](https://aka.ms/azuredataboxfromdiskdocs).
 > - Durante la versión preliminar, Data Box Disk puede enviarse tanto a los clientes de Estados Unidos como a los de la Unión Europea. Para más información, vaya a [Disponibilidad por región](#region-availability).
 
 ## <a name="use-cases"></a>Casos de uso
@@ -112,7 +112,7 @@ Durante la versión preliminar, Data Box Disk puede transferir datos a las sigui
 
 ## <a name="pricing"></a>Precios
 
-Durante la versión preliminar, Data Box Disk está disponible sin costo alguno. Esta situación cambiará cuando Data Box Disk esté disponible con carácter general.
+Para más información sobre los precios, vaya a la [página precios de la versión preliminar](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

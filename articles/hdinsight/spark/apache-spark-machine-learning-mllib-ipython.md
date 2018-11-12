@@ -3,19 +3,19 @@ title: Ejemplo de aprendizaje automático con Spark MLlib en HDInsight - Azure
 description: Aprenda a usar Spark MLlib para crear una aplicación de aprendizaje automático que analice un conjunto de datos usando la clasificación mediante una regresión logística.
 keywords: aprendizaje automático con spark, ejemplo de aprendizaje automático con spark
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/18/2018
-ms.author: jasonh
-ms.openlocfilehash: 78f9240e6b01bafc68b71d20044c7ec7458cc972
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: e553833f8b9a5daab5c454cea628acdda0320e76
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047303"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257646"
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usar Spark MLlib para compilar una aplicación de aprendizaje automático y analizar un conjunto de datos
 
@@ -78,7 +78,7 @@ Dado que los datos sin procesar están en formato CSV, puede usar el contexto de
         sio.close()
         return value
     
-    inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+    inspections = sc.textFile('/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                     .map(csvParse)
     ```
 

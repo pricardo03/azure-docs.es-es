@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a179c0c6b777ee6b2afdd0f2e9267d247665d8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38675972"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248255"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Escalado de cuotas y límites en DevTest Labs
 Mientras trabaja en DevTest Labs, puede que observe que hay ciertos límites predeterminados para algunos recursos de Azure, lo que puede afectar al servicio DevTest Labs. Estos límites se conocen como **cuotas**.
@@ -35,7 +35,7 @@ En [Límites de suscripción y de servicios de Azure](https://docs.microsoft.com
 ## <a name="view-your-usage-and-quotas"></a>Visualización del uso y las cuotas
 Estos pasos muestran cómo ver las cuotas actuales en su suscripción para recursos específicos de Azure y comprobar qué porcentaje de cada cuota ha usado.
 
-1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Seleccione **Más servicios** y **Facturación** en la lista.
 1. En la hoja Facturación, seleccione una suscripción.
 4. Seleccione **Uso y cuotas**.
@@ -49,7 +49,7 @@ Estos pasos muestran cómo ver las cuotas actuales en su suscripción para recur
 ## <a name="requesting-more-resources-in-your-subscription"></a>Solicitud de más recursos en la suscripción
 Si alcanza un límite de cuota, se puede aumentar el límite predeterminado de un recurso en una suscripción hasta un máximo, como se describe en [Límites de suscripción y de servicios de Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-Estos pasos le muestran cómo solicitar un aumento de la cuota a través de [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+Estos pasos le muestran cómo solicitar un aumento de la cuota a través de [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Seleccione **Más servicios**, **Facturación**, y **Uso y cuotas**.
 1. En la hoja Uso y cuotas, seleccione el botón **Solicitar aumento**.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 5d2f4fc77d5849dc2be80ada9610098c9a381f92
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466161"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244107"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Cambio de secretos en Azure Stack
 
@@ -92,7 +92,7 @@ Si ejecuta el cambio de secretos mediante las instrucciones que aparecen a conti
 5.  Guarde una copia de seguridad de los certificados usados para el cambio en una ubicación segura. Si se ejecuta el cambio y, después, se produce un error, reemplace los certificados del recurso compartido de archivos por las copias de seguridad antes de volver a ejecutar el cambio. Conserve las copias de seguridad en la ubicación segura.
 6.  Cree un recurso compartido de archivos al que pueda acceder desde las máquinas virtuales de ERCS. El recurso compartido de archivos debe ser de lectura y escritura para la identidad **CloudAdmin**.
 7.  Abra una consola de PowerShell ISE desde un equipo que tenga acceso al recurso compartido de archivos. Vaya al recurso compartido de archivos. 
-8.  Ejecute **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para crear los directorios necesarios para los certificados externos.
+8.  Ejecute **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** para crear los directorios necesarios para los certificados externos.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Cambio de secretos externos e internos
 

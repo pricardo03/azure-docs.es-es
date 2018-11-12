@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 9a69253129cdedc4f5d7e736d5bd8d6a68f95a1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01a02296354ebe3d60f0e1fda6a6da8554a265fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986580"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239073"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
 ## <a name="overview"></a>Información general
@@ -28,7 +28,7 @@ Este documento también contiene las notas de la versión de SDK de Azure para l
 
 Azure SDK 2.7 solo es compatible en Visual Studio 2015 y Visual Studio 2013. [SDK de Azure 2.6](https://azure.microsoft.com/downloads/) es el último SDK compatible para Visual Studio 2012.
 
-Para información detallada acerca de esta publicación, consulte la[ Publicación de anuncio de SDK de Azure 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) y [Publicación de anuncio de SDK de Azure 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850).
+Para información detallada acerca de esta publicación, consulte la[ Publicación de anuncio de SDK de Azure 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) y [Publicación de anuncio de SDK de Azure 2.7.1](https://go.microsoft.com/fwlink/?LinkId=623850).
 
 ## <a name="azure-sdk-for-net-27"></a>SDK de Azure para .NET 2.7
 ### <a name="sign-in-improvements-for-visual-studio-2015"></a>Mejoras en el inicio de sesión de Visual Studio de 2015
@@ -37,13 +37,13 @@ Azure SDK 2.7 para Visual Studio 2015 es compatible con las nuevas característi
 Las mejoras en el inicio de sesión incluidas en SDK de Azure 2.7 solo están disponibles en Visual Studio 2015. Compatibilidad con Visual Studio 2013 se incluye en SDK de Azure 2.7.1.
 
 ### <a name="mobile-sdk"></a>SDK de dispositivos móvil
-Plantillas de **Aplicaciones móviles** para reflejar el [paquete de NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) y el proceso de configuración más actualizados
+Plantillas de **Mobile Apps** para reflejar el [paquete de NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) y el proceso de configuración más actualizados
 
-### <a name="service-bus"></a>Bus de servicio
-Mejoras y correcciones de errores generales. Para obtener información detallada sobre las actualizaciones y otras características, consulte las notas de la versión del [NuGet de bus de servicio](http://www.nuget.org/packages/WindowsAzure.ServiceBus/)más reciente.
+### <a name="service-bus"></a>Azure Service Bus
+Mejoras y correcciones de errores generales. Para obtener información detallada sobre las actualizaciones y otras características, consulte las notas de la versión del [NuGet de Service Bus](http://www.nuget.org/packages/WindowsAzure.ServiceBus/)más reciente.
 
 ### <a name="hdinsight-tools"></a>Herramientas de HDInsight
-En esta versión se han realizado las siguientes actualizaciones. Estas actualizaciones se encuentran en vista previa. Para obtener más información, consulte [este blog](http://go.microsoft.com/fwlink/?LinkId=619108).
+En esta versión se han realizado las siguientes actualizaciones. Estas actualizaciones se encuentran en vista previa. Para más información, vea [este blog](https://go.microsoft.com/fwlink/?LinkId=619108).
 
 * Gráficos de Hive para Hive en trabajos de Tez
 * Compatibilidad completa de IntelliSense de DML de Hive
@@ -51,10 +51,10 @@ En esta versión se han realizado las siguientes actualizaciones. Estas actualiz
 * Plantillas de Storm para servicios de Azure
 
 #### <a name="breaking-changes"></a>Cambios drásticos
-* El proyecto de **Storm** antiguo debe actualizarse cuando se usa esta versión de las herramientas. Para obtener más información, consulte [este blog](http://go.microsoft.com/fwlink/?LinkId=619108).
-* Visual Studio Web Express ya no es compatible. Para obtener más información, consulte [este blog](http://go.microsoft.com/fwlink/?LinkId=619108).
+* El proyecto de **Storm** antiguo debe actualizarse cuando se usa esta versión de las herramientas. Para obtener más información, consulte [este blog](https://go.microsoft.com/fwlink/?LinkId=619108).
+* Visual Studio Web Express ya no es compatible. Para obtener más información, consulte [este blog](https://go.microsoft.com/fwlink/?LinkId=619108).
 
-### <a name="azure-app-service-tools"></a>Herramientas del Servicio de aplicaciones de Azure
+### <a name="azure-app-service-tools"></a>Herramientas de Azure App Service
 En esta versión se han realizado las siguientes actualizaciones en Web Tools Extensions. Para más información, consulte [este](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) blog. 
 
 * Compatibilidad agregada para las cuentas de DreamSpark
@@ -72,23 +72,23 @@ Cloud Explorer admite lo siguiente:
 * Vistas de grupo de recursos y tipo de recurso de los recursos de Azure 
 * Búsqueda de recursos por nombre (disponible en la vista de tipo de recurso)
 * Compatibilidad con las suscripciones y los recursos que tienen aplicado el control de acceso basado en rol (RBAC) 
-* Panel de acción integrado que muestra las acciones orientadas a desarrolladores específicas para los recursos seleccionados. Por ejemplo: adjunte el depurador remoto para las máquinas virtuales creadas con la pila del Administrador de recursos, Ver datos del diagnóstico para máquinas virtuales, etc.
+* Panel de acción integrado que muestra las acciones orientadas a desarrolladores específicas para los recursos seleccionados. Por ejemplo: adjunte el depurador remoto para las máquinas virtuales creadas con la pila de Resource Manager, Ver datos del diagnóstico para máquinas virtuales, etc.
 * Panel de propiedades integrado que muestra propiedades orientadas a desarrolladores normalmente necesarias durante el desarrollo y las pruebas 
 * Cambio rápido de la cuenta que se utilizará al enumerar los recursos (utilice el comando Configuración de la barra de herramientas) 
 * Filtrado de suscripciones que se utilizará al enumerar los recursos (utilice el comando Configuración de la barra de herramientas) 
-* Vínculos profundos en el Portal de Azure para administración de recursos y grupos de recursos 
+* Vínculos profundos en Azure Portal para administración de recursos y grupos de recursos 
 
 ### <a name="azure-resource-manager-tools"></a>Herramientas del Administrador de recursos de Azure
 Las herramientas del Administrador de recursos de Azure se han actualizado para trabajar con el control de acceso basado en rol (RBAC) y nuevos tipos de suscripción.  Estos cambios incluyen la capacidad de usar nuevas cuentas de almacenamiento, además de almacenamiento clásico para almacenar artefactos durante la implementación.  
 
 Si está utilizando un proyecto del grupo de recursos de Azure desde una versión anterior del SDK con SDK 2.7, es necesario un nuevo script de implementación para implementar mediante una nueva cuenta de almacenamiento en lugar de almacenamiento clásico.  Se le solicitará antes de realizar cambios en el proyecto que agregue el nuevo script.  Se cambiará el nombre del script anterior y tendrá que realizar modificaciones manualmente en el nuevo script.
 
-### <a name="storage-explorer-tools"></a>Herramientas del explorador de almacenamiento
-* Compatibilidad con la visualización de los blobs de anexión. Puede obtener más información en [esta entrada de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx). 
-* Soporte técnico para ver las cuentas de almacenamiento premium a través del Explorador de servidores. El Explorador de servidores solo mostrará los blobs de página de cuentas de almacenamiento premium como si fuera el único tipo compatible para cuentas de almacenamiento premium.
+### <a name="storage-explorer-tools"></a>Herramientas del Explorador de Storage
+* Compatibilidad con la visualización de los blobs de anexión. Puede obtener más información en [esta entrada de blog](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx). 
+* Soporte técnico para ver las cuentas de Premium Storage a través del Explorador de servidores. El Explorador de servidores solo mostrará los blobs de página de cuentas de almacenamiento premium como si fuera el único tipo compatible para cuentas de almacenamiento premium.
 
-### <a name="azure-data-factory-tools-for-visual-studio"></a>Herramientas de Factoría de datos de Azure para Visual Studio
-Introducción a **Herramientas de Factoría de datos de Azure** para Visual Studio. A continuación se muestran las características habilitadas. Para obtener más información, consulte [este blog](http://go.microsoft.com/fwlink/?LinkId=617530) .
+### <a name="azure-data-factory-tools-for-visual-studio"></a>Herramientas de Azure Data Factory para Visual Studio
+Introducción a **Herramientas de Azure Data Factory** para Visual Studio. A continuación se muestran las características habilitadas. Para obtener más información, consulte [este blog](https://go.microsoft.com/fwlink/?LinkId=617530) .
 
 * **Creación basada en plantillas**: seleccione plantillas de procesamiento de datos, de movimiento de datos o basadas en casos de uso para implementar una solución de integración de datos completa e iniciar la experiencia práctica rápidamente con Factoría de datos. 
 * **Integración con el Explorador de soluciones para la creación e implementación de entidades de Data Factory**: cree e implemente canalizaciones y las entidades relacionadas como proyectos de Visual Studio. 
@@ -102,7 +102,7 @@ Introducción a **Herramientas de Factoría de datos de Azure** para Visual Stud
 La sección siguiente contiene las actualizaciones que se introdujeron con SDK de Azure para la versión .NET 2.7.1.
 
 ### <a name="hdinsight-tools"></a>Herramientas de HDInsight
-Para obtener una explicación más detallada acerca de las actualizaciones de herramientas de HDInsight, consulte [este blog](http://go.microsoft.com/fwlink/?LinkId=623831).
+Para obtener una explicación más detallada acerca de las actualizaciones de herramientas de HDInsight, consulte [este blog](https://go.microsoft.com/fwlink/?LinkId=623831).
 
 * Vista de operador de trabajos de Hive (nueva característica)
   
@@ -113,14 +113,14 @@ Para obtener una explicación más detallada acerca de las actualizaciones de he
 * Gráfico de topología Storm (nueva característica)
   
     La visualización es muy importante cuando desee comprobar si su topología funciona según lo esperado. En esta versión agregamos la visualización de gráficos Storm. Puede visualizar las métricas importantes para su topología (por ejemplo, un color indica si un Bolt está "ocupado" o no). También puede hacer doble clic en el Bolt/Spout para ver más detalles.
-* Compatibilidad con clústeres de HDInsight que se crearon en el Portal de Azure (corrección de un error)
+* Compatibilidad con clústeres de HDInsight que se crearon en Azure Portal (corrección de un error)
   
     Ahora puede usar Visual Studio para ver y enviar trabajos a todos los clústeres de HDInsight independientemente de dónde se creó el clúster.
 * Mayor compatibilidad con IntelliSense y carga más rápida de metadatos de Hive (mejora)
   
     Hemos mejorado IntelliSense agregando más sugerencias que facilitan su uso. Por ejemplo, el alias de tabla ahora también puede sugerirse en IntelliSense para que pueda escribir la consulta más fácilmente. Además, hemos mejorado la carga de metadatos de Hive, de forma que solo tarda unos segundos para enumerar todas las bases de datos, tablas y columnas de la tienda de metadatos de Hive.
 
-Para obtener una explicación más detallada acerca de las actualizaciones de herramientas de HDInsight, consulte [este blog](http://go.microsoft.com/fwlink/?LinkId=623831).
+Para obtener una explicación más detallada acerca de las actualizaciones de herramientas de HDInsight, consulte [este blog](https://go.microsoft.com/fwlink/?LinkId=623831).
 
 ### <a name="improvements-in-visual-studio-2013"></a>Mejoras en Visual Studio 2013
 * SDK de Azure 2.7.1 permite que Visual Studio 2013 acceda a suscripciones y cuentas de Azure a través del control de acceso basado en rol, proveedores de soluciones en la nube y Dreamspark.
@@ -132,7 +132,7 @@ Instalación de SDK de Azure 2.6 o 2.7.1 para Visual Studio Community 2013 en un
 Los proyectos de LightSwitch no son compatibles con esta versión. Este problema se resolverá con la próxima versión del SDK.
 
 ## <a name="also-see"></a>Consulte también:
-[Publicación de anuncio de SDK de Azure 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850)
+[Publicación de anuncio de SDK de Azure 2.7.1](https://go.microsoft.com/fwlink/?LinkId=623850)
 
 [Publicación de anuncio de Azure SDK 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 

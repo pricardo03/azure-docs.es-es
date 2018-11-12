@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528034"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282057"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Diseño y compilación de una solución de administración en Azure (versión preliminar)
 > [!NOTE]
@@ -30,7 +30,7 @@ Las [soluciones de administración]( monitoring-solutions.md) ofrecen escenarios
 
 ## <a name="what-is-a-management-solution"></a>¿Qué es una solución de administración?
 
-Las soluciones de administración contienen recursos de Azure que funcionan conjuntamente para lograr un escenario de administración determinado.  Se implementan como [plantillas de administración de recursos](../azure-resource-manager/resource-manager-template-walkthrough.md) que contienen detalles de cómo instalar y configurar sus recursos contenidos cuando se instala la solución.
+Las soluciones de administración contienen recursos de Azure que funcionan conjuntamente para lograr un escenario de administración determinado.  Se implementan como [plantillas de administración de recursos](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) que contienen detalles de cómo instalar y configurar sus recursos contenidos cuando se instala la solución.
 
 La estrategia básica consiste en iniciar la solución de administración mediante la creación de los componentes individuales en el entorno de Azure.  Una vez que tenga la funcionalidad funcionando correctamente, puede empezar a empaquetarlos en un [archivo de solución de administración]( monitoring-solutions-solution-file.md). 
 
@@ -49,16 +49,16 @@ Hay varias maneras de recopilar orígenes de datos en el repositorio de Log Anal
 Si necesita datos que no son accesibles a través de cualquiera de los orígenes de datos disponibles, puede usar la [API del recopilador de datos HTTP](../log-analytics/log-analytics-data-collector-api.md) que le permite escribir datos en el repositorio de Log Analytics desde cualquier cliente que pueda llamar a una API de REST.  La forma más común de recopilación de datos personalizados en una solución de administración consiste en crear un [runbook en Azure Automation](../automation/automation-runbook-types.md) que recopila los datos necesarios de los recursos de Azure o de recursos externos, y utiliza la API del recopilador de datos para escribir en el repositorio.  
 
 ### <a name="log-searches"></a>Búsqueda de registros
-Las [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) se usan para extraer y analizar datos en el repositorio de Log Analytics.  Las utilizan vistas y alertas, y además permiten al usuario realizar análisis ad hoc de los datos en el repositorio.  
+Las [búsquedas de registros](../log-analytics/log-analytics-queries.md) se usan para extraer y analizar datos en el repositorio de Log Analytics.  Las utilizan vistas y alertas, y además permiten al usuario realizar análisis ad hoc de los datos en el repositorio.  
 
 Debe definir las consultas que cree que le resultarán útiles para el usuario, incluso si no hay vistas o alertas que las utilicen.  Estas estarán disponibles para los usuarios como búsquedas guardadas en el portal y también se pueden incluir en un [elemento de visualización Lista de consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) en la vista personalizada.
 
 ### <a name="alerts"></a>Alertas
-[Alertas de Log Analytics](../log-analytics/log-analytics-alerts.md) identifican los problemas a través de [búsquedas de registros](#log-searches) con los datos en el repositorio.  Estas alertas o bien envían una notificación al usuario o ejecutan automáticamente una acción en respuesta. Debe identificar las diferentes condiciones de alerta para la aplicación e incluir reglas de alerta correspondientes en el archivo de solución.
+[Alertas de Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identifican los problemas a través de [búsquedas de registros](#log-searches) con los datos en el repositorio.  Estas alertas o bien envían una notificación al usuario o ejecutan automáticamente una acción en respuesta. Debe identificar las diferentes condiciones de alerta para la aplicación e incluir reglas de alerta correspondientes en el archivo de solución.
 
 Si el problema potencialmente puede corregirse con un proceso automatizado, entonces usted normalmente creará un runbook en Azure Automation para realizar esta corrección.  La mayoría de los servicios de Azure pueden administrarse con [cmdlets](/powershell/azure/overview) que el runbook aprovechará para realizar esta funcionalidad.
 
-Si la solución requiere una funcionalidad externa en respuesta a una alerta, puede usar una [respuesta webhook](../log-analytics/log-analytics-alerts-actions.md).  Esto le permite llamar a un servicio web externo enviando información de la alerta.
+Si la solución requiere una funcionalidad externa en respuesta a una alerta, puede usar una [respuesta webhook](../monitoring-and-diagnostics/alert-metric.md).  Esto le permite llamar a un servicio web externo enviando información de la alerta.
 
 ### <a name="views"></a>Vistas
 Las vistas de análisis de Log Analytics se usan para visualizar los datos del repositorio de Log Analytics.  Cada solución normalmente contendrá una sola vista con un [icono](../log-analytics/log-analytics-view-designer-tiles.md) que se muestra en el panel principal del usuario.  La vista puede contener cualquier número de [elementos de visualización](../log-analytics/log-analytics-view-designer-parts.md) para proporcionar al usuario diferentes visualizaciones de los datos recopilados.

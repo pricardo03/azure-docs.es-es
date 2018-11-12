@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109063"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259945"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple para el programa de proveedores de soluciones en la nube: preguntas más frecuentes
 
@@ -72,7 +72,7 @@ Para obtener información acerca de los incentivos, vaya a [incentivos del progr
 Las suscripciones de StorSimple Virtual Array se pueden agregar a la cuenta de los clientes a través del Centro de partners. Además, se puede usar Azure Portal para agregar usuarios a las suscripciones.
 
 ### <a name="is-the-azure-portal-approach-the-same-as-other-services-for-csp"></a>¿Es el enfoque de Azure Portal el mismo que el de otros servicios para CSP? 
-Sí. Con StorSimple Virtual Array para CSP, la mejor forma de que los asociados accedan a Azure Portal es a través del [Centro de partners](http://partnercenter.microsoft.com/), que es el lugar en el que pueden administrar los clientes y las suscripciones. Para administrar las suscripciones de StorSimple, el asociado o cliente (en función de los permisos concedidos) debe iniciar sesión en Azure Portal. 
+Sí. Con StorSimple Virtual Array para CSP, la mejor forma de que los asociados accedan a Azure Portal es a través del [Centro de partners](https://partnercenter.microsoft.com/), que es el lugar en el que pueden administrar los clientes y las suscripciones. Para administrar las suscripciones de StorSimple, el asociado o cliente (en función de los permisos concedidos) debe iniciar sesión en Azure Portal. 
 
 ### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>¿Envía Microsoft un nuevo portal para StorSimple para CSP? 
 No. StorSimple Virtual Array en CSP se podrá administrar a través de Azure Portal.
@@ -94,7 +94,7 @@ El modelo de soporte para StorSimple en CSP es el mismo que el de otros servicio
 Para más información acerca de StorSimple para CSP, vaya a:
 
 - [Programa Proveedor de soluciones en la nube de Microsoft](https://partner.microsoft.com/Membership)
-- [Centro de partners](http://partnercenter.microsoft.com/) 
+- [Centro de partners](https://partnercenter.microsoft.com/) 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

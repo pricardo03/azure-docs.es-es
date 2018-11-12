@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ce8e2457c1d575e890174de3b9cf7faf6e16a7cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421141"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258823"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Envío de trabajos HPC desde un equipo local a un clúster de HPC Pack implementado en Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +37,7 @@ Configure un equipo cliente local para enviar trabajos a un clúster de [Microso
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Paso 1: Instalar y configurar los componentes web en el nodo principal
 Para habilitar una interfaz de REST para enviar trabajos al clúster a través de HTTPS, asegúrese de que los componentes web de HPC Pack están configurados en el nodo principal de HPC Pack. Si no están instalados, primero instale los componentes web, para lo que debe ejecutar el archivo de instalación HpcWebComponents.msi. A continuación, configure los componentes, para lo que debe ejecutar el script de HPC PowerShell **Set-HPCWebComponents.ps1**.
 
-Para obtener información detallada sobre los procedimientos, consulte [Instalación de los componentes web de Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
+Para obtener información detallada sobre los procedimientos, consulte [Instalación de los componentes web de Microsoft HPC Pack](https://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
 > Algunas plantillas de inicio rápido de Azure para clústeres de HPC Pack instalan y configuran los componentes web automáticamente.
@@ -169,7 +169,7 @@ Para comprobar la configuración, intente ejecutar trabajos en el clúster de Az
 1. Para ver los resultados del trabajo que ha enviado, haga clic en su identificador y luego en **View Tasks** (Ver tareas) para ver el resultado del comando [en **Output** (Salida)].
 
 ## <a name="next-steps"></a>Pasos siguientes
-* También es posible enviar trabajos al clúster de Azure con la [API de REST de HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* También es posible enviar trabajos al clúster de Azure con la [API de REST de HPC Pack](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 * Si desea enviar trabajos de clúster desde un cliente Linux, consulte el ejemplo de Python en el [SDK de HPC Pack 2012 R2 y el código de ejemplo](https://www.microsoft.com/download/details.aspx?id=41633).
 
 <!--Image references-->

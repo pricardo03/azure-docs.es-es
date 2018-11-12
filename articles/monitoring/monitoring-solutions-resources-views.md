@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: b4f54358f4bc1db973d6fe7163411e3a313c3cf4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a0d543ebe435b616306690bfb5e3de63ecc1ff6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887435"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259129"
 ---
 # <a name="views-in-management-solutions-preview"></a>Vistas de soluciones de administración (versión preliminar)
 > [!NOTE]
@@ -33,7 +33,7 @@ Las [soluciones de administración](monitoring-solutions.md) incluirán normalme
 >
 >
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](monitoring-solutions-creating.md) y la estructura de un archivo de solución.
 
 ## <a name="overview"></a>Información general
@@ -90,7 +90,7 @@ Tenga en cuenta que podría copiar todo el recurso de vista desde el archivo de 
 * Las variables deben definirse en la solución y usarse en las propiedades adecuadas.
 
 ### <a name="log-analytics-api-version"></a>Versión de la API de Log Analytics
-Todos los recursos de Log Analytics definidos en una plantilla de Resource Manager tienen una propiedad **apiVersion** que define la versión de la API que el recurso debe usar.  Esta versión es diferente para las vistas con consultas que usan el [lenguaje de consulta heredado y actualizado](../log-analytics/log-analytics-log-search-upgrade.md).  
+Todos los recursos de Log Analytics definidos en una plantilla de Resource Manager tienen una propiedad **apiVersion** que define la versión de la API que el recurso debe usar.  Esta versión es diferente para las vistas con consultas que usan el [lenguaje de consulta heredado y actualizado](../log-analytics/log-analytics-queries.md).  
 
  En la tabla siguiente se especifican las versiones de API de Log Analytics para las vistas en los espacios de trabajo heredados y actualizados: 
 

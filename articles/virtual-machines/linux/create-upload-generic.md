@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 67796cc3cbb925bb18a917d17b8abb7c085de370
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638222"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235979"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Información para las distribuciones no aprobadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -76,7 +76,7 @@ Las imágenes VHD en Azure deben tener un tamaño virtual alineado con 1 MB.  No
 
 * El disco duro virtual http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd tiene un tamaño virtual no admitido de 21475270656 bytes. El tamaño debe ser un número entero (en MB).
 
-En este caso, puede cambiar el tamaño de la VM mediante la consola de administrador de Hyper-V o el del cmdlet de PowerShell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx).  Si no está ejecutando en un entorno de Windows, se recomienda usar `qemu-img` para convertir (si es necesario) y cambiar el tamaño del disco duro virtual.
+En este caso, puede cambiar el tamaño de la VM mediante la consola de administrador de Hyper-V o el del cmdlet de PowerShell [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx).  Si no está ejecutando en un entorno de Windows, se recomienda usar `qemu-img` para convertir (si es necesario) y cambiar el tamaño del disco duro virtual.
 
 > [!NOTE]
 > Hay un [problema conocido en versiones de qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) >= 2.2.1 que da como resultado un VHD con formato incorrecto. El problema se corrigió en QEMU 2.6. Se recomienda usar `qemu-img` 2.2.0 o inferior, o 2.6 o superior.
@@ -125,7 +125,7 @@ En este caso, puede cambiar el tamaño de la VM mediante la consola de administr
 
 Los controladores de los Servicios de integración de Linux (LIS) para Hyper-V y Azure contribuyen directamente en el kernel de Linux del canal de subida. Muchas de las distribuciones que incluyen una versión reciente del kernel de Linux (como 3.x) ya tienen estos controladores disponibles, o de lo contrario ofrecerán versiones con modificaciones de versiones anteriores de estos controladores con sus kernels.  Estos controladores se actualizan constantemente en el kernel del canal de subida con nuevas correcciones y características; por ello, se recomienda cuando sea posible la ejecución de una [distribución aprobada](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que incluya estas correcciones y actualizaciones.
 
-Si ejecuta una variante de las versiones de 6.0 a 6.3 de Red Hat Enterprise Linux, tendrá que instalar los [controladores de LIS más recientes para Hyper-V](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). A partir de RHEL 6.4+ (y derivados), los controladores de LIS ya se incluyen con el kernel; por tanto, no se necesitan paquetes de instalación adicionales.
+Si ejecuta una variante de las versiones de 6.0 a 6.3 de Red Hat Enterprise Linux, tendrá que instalar los [controladores de LIS más recientes para Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). A partir de RHEL 6.4+ (y derivados), los controladores de LIS ya se incluyen con el kernel; por tanto, no se necesitan paquetes de instalación adicionales.
 
 Si se requiere un kernel personalizado, se recomienda usar una versión de kernel más reciente (por ejemplo, 3.8+). En el caso de las distribuciones o los proveedores que mantienen su propio kernel, tendrá que modificar los controladores de LIS con una versión más antigua del kernel del canal de subida al kernel personalizado.  Incluso si ya ejecuta una versión de kernel relativamente reciente, es altamente recomendable mantenerse al tanto de las correcciones ascendentes de los controladores de LIS y realizar modificaciones con versiones anteriores en estos cuando sea necesario. Las ubicaciones de los archivos de origen de controladores de LIS se especifican en el archivo [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) del árbol de origen del kernel de Linux:
 ```

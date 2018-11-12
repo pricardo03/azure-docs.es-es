@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.openlocfilehash: e731f28ab416de7da30f41fe8a154108b8097b89
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3269d38b691ec4dd9573a241c89dadc285787143
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041805"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254033"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Instalación de Data Lake Tools para Visual Studio
 
@@ -26,7 +26,7 @@ Aprenda a usar Visual Studio para crear cuentas de Azure Data Lake Analytics, de
     * Visual Studio 2017
     * Visual Studio 2015
     * Visual Studio 2013
-* **Microsoft Azure SDK para .NET** versión 2.7.1, o posterior.  Instálelo con el [Instalador de plataforma web](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Microsoft Azure SDK para .NET** versión 2.7.1, o posterior.  Instálelo con el [Instalador de plataforma web](https://www.microsoft.com/web/downloads/platform.aspx).
 * Una cuenta de **Data Lake Analytics**. Para crear una cuenta, consulte [Introducción a Azure Data Lake Analytics mediante Azure Portal](data-lake-analytics-get-started-portal.md).
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2017"></a>Instalación de Herramientas de Azure Data Lake para Visual Studio 2017
@@ -39,7 +39,7 @@ Habilite la carga de trabajo **Desarrollo de Azure** tal y como se muestra: ![Ha
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2013-and-2015"></a>Instalación de Herramientas de Azure Data Lake para Visual Studio 2013 y 2015
 
-Descargue Azure Data Lake Tools para Visual Studio [desde el Centro de descarga](http://aka.ms/adltoolsvs) e instálelo. Después de la instalación tenga en cuenta que:
+Descargue Azure Data Lake Tools para Visual Studio [desde el Centro de descarga](https://aka.ms/adltoolsvs) e instálelo. Después de la instalación tenga en cuenta que:
 * El nodo de **Explorador de servidores** > **Azure** contiene un nodo de **Data Lake Analytics**. 
 * El menú **Herramientas** tiene un elemento de **Data Lake**.
 

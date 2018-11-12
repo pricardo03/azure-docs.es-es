@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318646"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253200"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Guía de instalación de Azure AD Connect y Azure AD Connect Health
 
@@ -26,7 +26,7 @@ ms.locfileid: "49318646"
 > [!IMPORTANT]
 > Microsoft no admite la modificación ni el funcionamiento de la sincronización de Azure AD Connect con acciones distintas a estas que se documentan formalmente. Cualquiera de estas acciones pueden provocar un estado incoherente o incompatible de sincronización de Azure AD Connect. Como resultado, Microsoft no ofrece soporte técnico para estas implementaciones.
 
-Puede encontrar la descarga de Azure AD Connect en el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
+Puede encontrar la descarga de Azure AD Connect en el [Centro de descarga de Microsoft](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Solución | Escenario |
 | --- | --- |
@@ -41,7 +41,7 @@ Puede encontrar la descarga de Azure AD Connect en el [Centro de descarga de Mic
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Pasos siguientes para instalar Azure AD Connect
 |Tema |Vínculo|  
 | --- | --- |
-|Descarga de Azure AD Connect | [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Descarga de Azure AD Connect | [Descarga de Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalación mediante configuración rápida | [Instalación rápida de Azure AD Connect](./how-to-connect-install-express.md)|
 |Instalación mediante configuración personalizada | [Instalación personalizada de Azure AD Connect](./how-to-connect-install-custom.md)|
 |Actualización desde DirSync | [Actualización desde la herramienta de sincronización de Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
@@ -141,12 +141,12 @@ Para empezar a usar Azure AD Connect Health, siga estos pasos:
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Descarga e instalación de un agente de Azure AD Connect Health
 * Asegúrese de que [cumple los requisitos](how-to-connect-health-agent-install.md#requirements) de Azure AD Connect Health.
 * Introducción a Azure AD Connect Health para AD FS
-    * [Descargue el agente de Azure AD Connect Health para AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Descargue el agente de Azure AD Connect Health para AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Consulte las instrucciones de instalación](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Introducción al uso de Azure AD Connect Health para la sincronización
-    * [Descargue e instale la versión más reciente de Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). El agente de Health para la sincronización se instalará como parte de la instalación de Azure AD Connect (versión 1.0.9125.0 o superior).
+    * [Descargue e instale la versión más reciente de Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). El agente de Health para la sincronización se instalará como parte de la instalación de Azure AD Connect (versión 1.0.9125.0 o superior).
 * Introducción a Azure AD Connect Health para AD DS
-    * [Descargue el agente de Azure AD Connect Health para AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Descargue el agente de Azure AD Connect Health para AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [Consulte las instrucciones de instalación](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 

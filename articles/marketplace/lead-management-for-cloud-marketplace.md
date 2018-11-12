@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362660"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258551"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Administración de clientes potenciales de Marketplace en la nube
 
@@ -97,7 +97,7 @@ Una vez que esté implementada la configuración técnica, debería incorporar e
 
 **¿Qué son los clientes potenciales y por qué son importantes para mí como anunciante en Marketplace?** 
 
-Los clientes potenciales son los clientes que están implementando sus productos desde Marketplace. Independientemente de que el producto aparezca en [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) o [AppSource](http://appsource.microsoft.com/), podrá recibir a los clientes potenciales que estén interesados en su producto si ha configurado el destino de clientes potenciales en su oferta.  
+Los clientes potenciales son los clientes que están implementando sus productos desde Marketplace. Independientemente de que el producto aparezca en [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) o [AppSource](https://appsource.microsoft.com/), podrá recibir a los clientes potenciales que estén interesados en su producto si ha configurado el destino de clientes potenciales en su oferta.  
 
 
 **¿Dónde puedo obtener ayuda para la configuración de mi destino de clientes potenciales?** 

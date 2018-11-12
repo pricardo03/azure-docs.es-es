@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211118"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244022"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Incorporación de runbooks de Azure Automation a los planes de recuperación
 En este artículo se explica cómo se integra Azure Site Recovery con Azure Automation para ayudarle a ampliar los planes de recuperación. Los planes de recuperación pueden organizar la recuperación de máquinas virtuales protegidas con Site Recovery. Los planes de recuperación funcionan para la replicación en una nube secundaria y para la replicación en Azure. Los planes de recuperación además ayudan a que la recuperación sea **coherente y precisa**, **repetible** y **automatizada**. Si conmuta por error las máquinas virtuales en Azure, la integración con Azure Automation amplía los planes de recuperación. Se puede usar para ejecutar runbooks, que ofrecen eficaces tareas de automatización.
@@ -252,8 +252,8 @@ Para obtener otro ejemplo, vea el siguiente vídeo. En él se muestra cómo recu
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Cuenta de ejecución del servicio Azure Automation](../automation/automation-create-runas-account.md)
-* [Información general sobre Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Información general sobre Azure Automation")
-* [Scripts de ejemplo de Azure Automation](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Scripts de ejemplo de Azure Automation")
+* [Información general sobre Azure Automation](https://msdn.microsoft.com/library/azure/dn643629.aspx "Información general sobre Azure Automation")
+* [Scripts de ejemplo de Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Scripts de ejemplo de Azure Automation")
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Aprenda más](site-recovery-failover.md) sobre la ejecución de conmutaciones por error.

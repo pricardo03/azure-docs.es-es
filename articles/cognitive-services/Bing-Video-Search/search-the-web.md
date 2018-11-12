@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: cf37db9bffa8b2a54a6327c29ec806e0eefc8c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225419"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261866"
 ---
 # <a name="what-is-bing-video-search"></a>¿Qué es Bing Video Search?
 
@@ -27,7 +27,7 @@ Si va a crear una página de resultados de búsqueda solo de vídeos para buscar
 
 Si proporciona un cuadro de búsqueda donde el usuario escribe su término de búsqueda, use [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) para mejorar la experiencia. La API devuelve cadenas consulta sugeridas basadas en términos de búsqueda parciales a medida que el usuario escribe.
 
-Una vez que el usuario escribe el término de búsqueda, codifíquelo en formato de URL antes de establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing dinghies*, establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
+Una vez que el usuario escriba el término de búsqueda, codifíquelo en formato de URL antes de establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing dinghies*, establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
 
 ## <a name="getting-videos"></a>Obtención de vídeos
 
@@ -47,7 +47,7 @@ Todas las solicitudes deben realizarse desde un servidor.
 
 Si es la primera vez que llama a cualquiera de las API de Bing, no incluya el encabezado de identificador de cliente. Solo debe incluir el identificador de cliente si se ha llamado previamente a una API de Bing y Bing ha devuelto un identificador de cliente para esa combinación de usuario y dispositivo.
 
-Para obtener vídeos de un dominio específico, utilice el operador de consulta [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Para obtener vídeos de un dominio específico, utilice el operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -131,7 +131,7 @@ De forma predeterminada, Video Search API devuelve todos los vídeos que están 
 - [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;filtra los vídeos por la duración del vídeo (por ejemplo, vídeos de menos de cinco minutos de duración).
 - [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;filtra los vídeos por antigüedad (por ejemplo, vídeos detectados por Bing en la última semana).
 
-Para obtener vídeos de un dominio específico, incluya el operador de consulta [site:](http://msdn.microsoft.com/library/ff795613.aspx) en la cadena de consulta.
+Para obtener vídeos de un dominio específico, incluya el operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx) en la cadena de consulta.
 
 > [!NOTE]
 > En función de la consulta, si usa el operador de consulta `site:`, existe la posibilidad de que la respuesta incluya contenido para adultos sin tener en cuenta la configuración [Búsqueda segura](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch). Debería usar `site:` solo si es consciente del contenido del sitio y el escenario admite la posibilidad de contenido para adultos.

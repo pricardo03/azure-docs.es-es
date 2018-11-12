@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8aad769da4d1c831dc0222c39daf86801a4f850b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232519"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244294"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Inserción enriquecida de Azure Notification Hubs
 ## <a name="overview"></a>Información general
@@ -94,7 +94,7 @@ En un alto nivel:
         }
    
    > [!NOTE]
-   > (opcional) Vea [Insertar y acceder a recursos con Visual C#](http://support.microsoft.com/kb/319292) para más información sobre cómo agregar y obtener los recursos del proyecto.
+   > (opcional) Vea [Insertar y acceder a recursos con Visual C#](https://support.microsoft.com/kb/319292) para más información sobre cómo agregar y obtener los recursos del proyecto.
    > 
    > 
 7. En **NotificationsController.cs**, vuelva a definir **NotificationsController** con los siguientes fragmentos de código. Esto envía un identificador de notificación enriquecida silencioso inicial y permite la recuperación de imagen en el cliente:

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 83ba02aedebe69e15736975fbd73c7c7f221634f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785814"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242643"
 ---
 # <a name="create-content-keys-with-rest"></a>Creación de claves de contenido con REST
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ A continuación, se muestran los pasos generales para generar claves de contenid
 3. Cifre la clave de contenido con la clave pública del certificado X.509. 
    
    El SDK de Media Services para .NET SDK usa RSA con OAEP al realizar el cifrado.  Puede ver un ejemplo en la [función EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Cree un valor de suma de comprobación (según el algoritmo de suma de comprobación de claves AES de PlayReady) calculado con el identificador de clave y la clave de contenido. Para obtener más información, vea la sección "Algoritmo de sumas de comprobación de claves AES de PlayReady" del documento Objeto de encabezado de PlayReady que se encuentra [aquí](http://www.microsoft.com/playready/documents/).
+4. Cree un valor de suma de comprobación (según el algoritmo de suma de comprobación de claves AES de PlayReady) calculado con el identificador de clave y la clave de contenido. Para obtener más información, vea la sección "Algoritmo de sumas de comprobación de claves AES de PlayReady" del documento Objeto de encabezado de PlayReady que se encuentra [aquí](https://www.microsoft.com/playready/documents/).
    
    El siguiente ejemplo de .NET calcula la suma de comprobación con la parte del GUID del identificador de clave y la clave de contenido sin cifrar.
    

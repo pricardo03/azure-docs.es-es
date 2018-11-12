@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: e6e2c0b82f306e399454c1672c56e2933e3f1158
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: eed970d46c8a895001ce0a6d7d7f37acf6c02a55
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040872"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249207"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Preguntas más frecuentes sobre las colecciones de áreas de trabajo de Power BI
 
@@ -61,7 +61,7 @@ Consulte la documentación del servicio para más información sobre cómo utili
 Sí. Puede usar su suscripción de Azure existente para aprovisionar y usar el servicio Colección de áreas de trabajo de Power BI.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>¿Necesitan los usuarios finales de mi aplicación una licencia de Power BI?
-No. Los usuarios finales de su aplicación no tienen que comprar una suscripción de Power BI por separado para acceder a las visualizaciones de datos en aplicación. En el modelo de las colecciones de áreas de trabajo de Power BI, al proveedor de la aplicación se le factura el servicio mediante el medidor de consumo de Azure. Consulte la [página de precios y licencia](http://go.microsoft.com/fwlink/?LinkId=760527).
+No. Los usuarios finales de su aplicación no tienen que comprar una suscripción de Power BI por separado para acceder a las visualizaciones de datos en aplicación. En el modelo de las colecciones de áreas de trabajo de Power BI, al proveedor de la aplicación se le factura el servicio mediante el medidor de consumo de Azure. Consulte la [página de precios y licencia](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>¿Cómo funciona la autenticación de usuarios con las colecciones de áreas de trabajo de Power BI?
 El servicio Colección de áreas de trabajo de Power BI usa tokens de aplicación para realizar la autenticación y la autorización en lugar de la autenticación explícita de usuario final. En el modelo de token de aplicación, la aplicación administra la autenticación y la autorización de sus usuarios finales. A continuación, cuando sea necesario, la aplicación crea
@@ -80,7 +80,7 @@ Los desarrolladores o empleados que trabajan en la aplicación deben tener una c
 Puede visitar la [página de documentación de las colecciones de áreas de trabajo de Power BI](get-started.md). Puede mantenerse informado sobre este servicio, visitando el [blog de Power BI](https://powerbi.microsoft.com/blog/) o el centro para desarrolladores de Power BI en dev.powerbi.com. También puede formular preguntas en [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>¿Cómo empiezo?
-¡Puede empezar ahora de forma gratuita! Si tiene una suscripción a Azure, ahora puede aprovisionar las colecciones de áreas de trabajo de Power BI directamente desde Azure Portal. También puede crear una [cuenta de Azure gratis](https://azure.microsoft.com/free/). Después de aprovisionar el servicio Colección de áreas de trabajo de Power BI, puede usar fácilmente las API de REST de Power BI directamente, o bien usar el SDK para desarrolladores disponible en [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Se proporcionan ejemplos de cómo aprovechar el SDK para desarrolladores.
+¡Puede empezar ahora de forma gratuita! Si tiene una suscripción a Azure, ahora puede aprovisionar las colecciones de áreas de trabajo de Power BI directamente desde Azure Portal. También puede crear una [cuenta de Azure gratis](https://azure.microsoft.com/free/). Después de aprovisionar el servicio Colección de áreas de trabajo de Power BI, puede usar fácilmente las API de REST de Power BI directamente, o bien usar el SDK para desarrolladores disponible en [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). Se proporcionan ejemplos de cómo aprovechar el SDK para desarrolladores.
 
 ## <a name="see-also"></a>Otras referencias
 

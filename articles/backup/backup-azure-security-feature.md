@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 32eba23202eca1c71c4f3b01dcb364281cb2eb60
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 62b2744494fcd4d98bf75892dc95d86130dd04bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246693"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261747"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen las copias de seguridad híbridas. En este artículo se habla de cómo habilitar y usar estas características mediante un agente de Azure Recovery Services y Azure Backup Server. Estas características son:
@@ -114,6 +114,6 @@ Las características de seguridad que se mencionan en este artículo proporciona
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Comience a usar el almacén de Azure Recovery Services](backup-azure-vms-first-look-arm.md) para habilitar estas características.
-* [Descargue la versión más reciente del agente de Azure Recovery Services](http://aka.ms/azurebackup_agent) para proteger los equipos con Windows y los datos de copia de seguridad frente a ataques.
+* [Descargue la versión más reciente del agente de Azure Recovery Services](https://aka.ms/azurebackup_agent) para proteger los equipos con Windows y los datos de copia de seguridad frente a ataques.
 * [Descargue la versión más reciente de Azure Backup Server](https://aka.ms/latest_azurebackupserver) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.
 * [Descargue UR12 para System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) o [descargue UR2 para System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 443d37f5b45db9495c09d68300c9ea4978466eb9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: fe6df20d294a3b1802d396085c36a6587dc45730
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388235"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249088"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementación de una aplicación de Service Fabric en un clúster en Azure
 
@@ -87,7 +87,7 @@ Para la suscripción de Azure, abra este puerto mediante una regla de equilibrio
 
 Los Party Cluster son clústeres de Service Fabric gratuitos, de duración limitada, hospedados en Azure y operados por el equipo de Service Fabric. Cualquiera puede implementar aplicaciones y aprender todo lo relacionado con la plataforma. El clúster usa un único certificado autofirmado para la seguridad tanto de nodo a nodo como de cliente a nodo.
 
-Inicie sesión y [únase a un clúster de Windows](http://aka.ms/tryservicefabric). Para descargar el certificado PFX en el equipo, seleccione el vínculo **PFX**. Seleccione el vínculo **How to connect to a secure Party cluster?** (Cómo conectarse a un clúster de entidad seguro) y copie la contraseña del certificado. El certificado, la contraseña del certificado y el valor de **Punto de conexión** se usan en los pasos siguientes.
+Inicie sesión y [únase a un clúster de Windows](https://aka.ms/tryservicefabric). Para descargar el certificado PFX en el equipo, seleccione el vínculo **PFX**. Seleccione el vínculo **How to connect to a secure Party cluster?** (Cómo conectarse a un clúster de entidad seguro) y copie la contraseña del certificado. El certificado, la contraseña del certificado y el valor de **Punto de conexión** se usan en los pasos siguientes.
 
 ![PFX y punto de conexión](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098824"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262240"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple
 
@@ -54,7 +54,7 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo que us
 ## <a id="scenario"></a>Escenario típico de streaming en vivo
 En los pasos siguientes se describen las tareas que intervienen en la creación de aplicaciones típicas de streaming en vivo.
 
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador en vivo local que genera una transmisión de RTMP o MP4 fragmentado de velocidad de bits múltiple (Smooth Streaming) de salida. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador en vivo local que genera una transmisión de RTMP o MP4 fragmentado de velocidad de bits múltiple (Smooth Streaming) de salida. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     También puede realizar este paso después de crear el canal.
 2. Cree e inicie un canal.
@@ -105,7 +105,7 @@ Use la dirección URL secundaria si quiere mejorar la durabilidad y la toleranci
 
     En este escenario, ambos codificadores insertan datos en las URL principal y secundaria. Esto proporciona la mejor confiabilidad y tolerancia a errores, así como redundancia de datos. Este escenario puede tolerar errores y desconexiones en ambos codificadores, aunque un codificador deje de funcionar. Se da por hecho que los codificadores tienen sincronización temporal y proporcionan exactamente los mismos datos.  
 
-Para obtener información sobre los codificadores en directo de RTMP, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
+Para obtener información sobre los codificadores en directo de RTMP, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824).
 
 #### <a name="ingest-urls-endpoints"></a>Direcciones URL de ingesta (extremos)
 Un canal proporciona un punto de conexión de entrada (dirección URL de ingesta) que usted especifica en el codificador en vivo, de modo que este pueda insertar transmisiones en los canales.   
@@ -187,7 +187,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | Estado del canal | Indicadores de la IU del portal | ¿Facturado? |
 | --- | --- | --- | --- |
 | **Starting** (iniciándose) |**Starting** (iniciándose) |No (estado transitorio) |
-| **Ejecución** |**Ready** (Listo) (sin programas en ejecución)<p><p>o<p>**Streaming** (al menos un programa en ejecución) |Sí |
+| **Ejecución** |**Ready** (Listo) (sin programas en ejecución)<p><p>o<p>**Streaming** (al menos un programa en ejecución) |SÍ |
 | **Stopping** (Deteniéndose) |**Stopping** (Deteniéndose) |No (estado transitorio) |
 | **Stopped** |**Stopped** |Sin  |
 

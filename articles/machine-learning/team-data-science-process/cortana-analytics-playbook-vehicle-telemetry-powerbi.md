@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421056"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262290"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instrucciones de configuración del panel de Power BI para la plantilla de la solución Vehicle Telemetry Analytics
 Este menú está relacionado con los capítulos de este playbook: 
@@ -30,7 +30,7 @@ La solución Vehicle Telemetry Analytics muestra cómo los concesionarios de veh
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Implemente la solución [Vehicle Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
-* [Instale Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+* [Instale Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
 * Obtenga una [suscripción a Azure](https://azure.microsoft.com/pricing/free-trial/). Si no tiene una suscripción a Azure, comience con una suscripción gratuita.
 * Abra una cuenta de Power BI.
 
@@ -348,7 +348,7 @@ Ha creado correctamente el panel en tiempo real. Mientras ejecuta CarEventGenera
 
 ### <a name="configure-power-bi-reports"></a>Configuración de informes de Power BI
 
-1. Abra el archivo de diseñador '**ConnectedCarsPbiReport.pbix** con Power BI Desktop. Si aún no lo tiene, instale Power BI Desktop desde el sitio web de [instalación](http://www.microsoft.com/download/details.aspx?id=45331).
+1. Abra el archivo de diseñador '**ConnectedCarsPbiReport.pbix** con Power BI Desktop. Si aún no lo tiene, instale Power BI Desktop desde el sitio web de [instalación](https://www.microsoft.com/download/details.aspx?id=45331).
 
 1. Seleccione **Editar consultas**.
 

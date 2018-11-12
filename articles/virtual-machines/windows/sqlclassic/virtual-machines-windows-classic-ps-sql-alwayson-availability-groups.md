@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: fe7384baa6740d316fb5a8ec7b1894f337d88080
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 584fca3df4fee24a4f1c7b93d5371c48be059f7b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401300"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257942"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configuración de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -482,7 +482,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Descargue **CreateAzureFailoverCluster.ps1** de [Create Failover Cluster for AlwaysOn Availability Groups in Windows Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creación del clúster de conmutación por error para grupos de disponibilidad AlwaysOn en la máquina virtual de Azure) en el directorio de trabajo local. Usará este script para ayudarle a crear un clúster funcional de conmutación por error. Para información sobre cómo Clústeres de conmutación por error de Windows interactúa con la red de Azure, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Descargue **CreateAzureFailoverCluster.ps1** de [Create Failover Cluster for AlwaysOn Availability Groups in Windows Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creación del clúster de conmutación por error para grupos de disponibilidad AlwaysOn en la máquina virtual de Azure) en el directorio de trabajo local. Usará este script para ayudarle a crear un clúster funcional de conmutación por error. Para información sobre cómo Clústeres de conmutación por error de Windows interactúa con la red de Azure, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Cambie al directorio de trabajo y cree el clúster de conmutación por error con el script descargado.
 
         Set-ExecutionPolicy Unrestricted -Force
@@ -565,7 +565,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
              -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
              -Database $db
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ha implementado correctamente SQL Server AlwaysOn mediante la creación de un grupo de disponibilidad en Azure. Para configurar un agente de escucha para este grupo de disponibilidad, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](../classic/ps-sql-int-listener.md).
 
 Para más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

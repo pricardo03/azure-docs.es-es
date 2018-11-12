@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318544"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260387"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoría en Azure SQL Data Warehouse
 
@@ -150,7 +150,7 @@ Existen varios métodos que puede usar para ver los registros de auditoría de b
 ### <a name="database-level-policy-audit-logs"></a>Registros de auditoría de la directiva de nivel de base de datos
 Los registros de auditoría de nivel de servidor se agregan en una recopilación de tablas de Almacenamiento con el prefijo **SQLDBAuditLogs** en la cuenta de almacenamiento de Azure que eligió durante la configuración. Puede ver archivos de registro usando una herramienta como el [Explorador de Azure Storage](http://azurestorageexplorer.codeplex.com).
 
-Hay una plantilla de informe de panel preconfigurada disponible como [hoja de cálculo de Excel descargable](http://go.microsoft.com/fwlink/?LinkId=403540) para ayudarle a analizar datos de registro rápidamente. Para utilizar la plantilla en los registros de auditoría, necesita Excel 2013 o posterior y Power Query, que puede [descargar aquí](http://www.microsoft.com/download/details.aspx?id=39379).
+Hay una plantilla de informe de panel preconfigurada disponible como [hoja de cálculo de Excel descargable](https://go.microsoft.com/fwlink/?LinkId=403540) para ayudarle a analizar datos de registro rápidamente. Para utilizar la plantilla en los registros de auditoría, necesita Excel 2013 o posterior y Power Query, que puede [descargar aquí](https://www.microsoft.com/download/details.aspx?id=39379).
 
 La plantilla contiene datos de ejemplo ficticios y puede configurar Power Query para importar el registro de auditoría directamente desde la cuenta de almacenamiento de Azure.
 

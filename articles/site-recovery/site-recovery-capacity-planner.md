@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: f600471e8a3602628a5040051f382e6e020f29d5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211424"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261883"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planeamiento de la capacidad para la recuperación ante desastres de máquinas virtuales de Hyper-V 
 
@@ -43,7 +43,7 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 
 ## <a name="run-the-quick-planner"></a>Ejecución de Quick Planner
-1. Descargue y abra [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Tendrá que ejecutar macros. Cuando se le pida, realice las selecciones para habilitar la edición y el contenido.
+1. Descargue y abra [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Tendrá que ejecutar macros. Cuando se le pida, realice las selecciones para habilitar la edición y el contenido.
 
 2. En **Select a planner type** (Seleccione un tipo de planeador), seleccione **Quick Planner** (Planificador rápido) en el cuadro de lista.
 
@@ -81,7 +81,7 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 ## <a name="run-the-detailed-planner"></a>Ejecución de Detailed Planner
 
-1. Descargue y abra [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Tendrá que ejecutar macros. Cuando se le pida, realice las selecciones para habilitar la edición y el contenido.
+1. Descargue y abra [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Tendrá que ejecutar macros. Cuando se le pida, realice las selecciones para habilitar la edición y el contenido.
 
 2. En **Seleccionar un tipo de planificador**, elija **Planificador detallado** en el cuadro de lista.
 
