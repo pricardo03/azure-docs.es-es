@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169948"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229669"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionamiento de Deep Learning Virtual Machine en Azure 
 
-Deep Learning Virtual Machine (DLVM) es una variante configurada especialmente de la popular [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) para que resulten más fáciles de usar instancias de máquinas virtuales basadas en GPU para entrenar rápidamente modelos de aprendizaje profundo. Es compatible con Windows 2016 o con DSVM de Ubuntu como base. DLVM comparte las mismas imágenes de máquina virtual principal y, por tanto, todo el conjunto de herramientas que está disponible en DSVM. 
+Deep Learning Virtual Machine (DLVM) es una variante configurada especialmente de la popular [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) para que resulten más fáciles de usar instancias de máquinas virtuales basadas en GPU para entrenar rápidamente modelos de aprendizaje profundo. Es compatible con Windows 2016 o con DSVM de Ubuntu como base. DLVM comparte las mismas imágenes de máquina virtual principal y, por tanto, todo el conjunto de herramientas que está disponible en DSVM. 
 
 DLVM contiene varias herramientas para AI, incluidas las ediciones de GPU de las plataformas de aprendizaje profundo populares, como Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer; herramientas para adquirir y procesar previamente imágenes, datos de texto, herramientas para las actividades de modelado y desarrollo de ciencia de datos como Microsoft R Server Developer Edition, Anaconda Python, Jupyter Notebook para Python y R, IDE para Python y R, bases de datos SQL y muchas otras herramientas de ciencia de datos y de aprendizaje automático. 
 

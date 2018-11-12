@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: c9d9cd9616b263ca002e6fe7ad6c875cce10289b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246773"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228970"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Table Storage y a Servicios conectados de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -173,7 +173,7 @@ Los siguientes pasos muestran cómo crear una tabla:
   
     ![Crear tabla](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    Como se dijo anteriormente, el método **CloudTable.CreateIfNotExists** devuelve **true** solo si la tabla no existía, pero se creó. Por lo tanto, si se ejecuta la aplicación cuando la tabla existe, el método devuelve **False**. Para ejecutar la aplicación varias veces, debe eliminar la tabla antes de ejecutar la aplicación de nuevo. La eliminación de la tabla puede realizarse a través del método **CloudTable.Delete**. También puede eliminar la tabla mediante [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) o [el Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Como se dijo anteriormente, el método **CloudTable.CreateIfNotExists** devuelve **true** solo si la tabla no existía, pero se creó. Por lo tanto, si se ejecuta la aplicación cuando la tabla existe, el método devuelve **False**. Para ejecutar la aplicación varias veces, debe eliminar la tabla antes de ejecutar la aplicación de nuevo. La eliminación de la tabla puede realizarse a través del método **CloudTable.Delete**. También puede eliminar la tabla mediante [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) o [el Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-an-entity-to-a-table"></a>Adición de una entidad a una tabla
 

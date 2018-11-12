@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3baa48113022bed1bdc7caa5854a231334c975af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f239b3ef6881f9ea1be043b7d27f061e015ae3be
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224637"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037368"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>¿Qué es la administración de dispositivos en Azure Active Directory?
 
@@ -45,7 +45,7 @@ Para que un dispositivo esté bajo el control de Azure AD, tiene las dos opcione
 
 El **registro** de un dispositivo en Azure AD le permite administrar la identidad de un dispositivo. Cuando se registra un dispositivo, el Registro de dispositivos de Azure AD le proporciona una identidad que se utiliza para autenticar el dispositivo cuando el usuario inicia sesión en Azure AD. Puede utilizar esta identidad para habilitar o deshabilitar un dispositivo.
 
-Cuando se combina con una solución de administración de dispositivos móviles (MDM) como Microsoft Intune, los atributos del dispositivo en Azure AD se actualizan con información adicional sobre este. Esto le permite crear reglas de acceso condicional que obligan a que el acceso desde dispositivos cumpla con las normas de seguridad y cumplimiento. Para más información sobre la inscripción de dispositivos de Microsoft Intune, consulte el artículo sobre cómo inscribir dispositivos para su administración en Intune.
+Cuando se combina con una solución de administración de dispositivos móviles (MDM) como Microsoft Intune, los atributos del dispositivo en Azure AD se actualizan con información adicional sobre este. Esto le permite crear reglas de acceso condicional que obligan a que el acceso desde dispositivos cumpla con las normas de seguridad y cumplimiento. Para más información sobre la inscripción de dispositivos de Microsoft Intune, consulte el artículo sobre cómo [inscribir dispositivos para su administración en Intune](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms).
 
 La **unión** de un dispositivo va más allá del simple registro. Esto significa que ofrece todas las ventajas de registrar un dispositivo y, además, también cambia el estado local de un dispositivo. El cambio del estado local permite a los usuarios iniciar sesión en un dispositivo mediante una cuenta profesional o educativa en lugar de con una cuenta personal.
 
