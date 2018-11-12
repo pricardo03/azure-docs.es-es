@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 7576c479b9e3e443b048a9295c0ff0f30d4b9423
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240331"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037590"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 En este tutorial se muestra cómo realizar varias tareas comunes de ciencia de los datos con la máquina virtual de Linux Data Science. Linux Data Science Virtual Machine (DSVM) es una imagen de máquina virtual disponible en Azure que viene preinstalada con una colección de herramientas usadas normalmente en el análisis de los datos y el aprendizaje automático. Los componentes de software principales se detallan en el tema [Aprovisionamiento de Linux Data Science Virtual Machine](linux-dsvm-intro.md) . La imagen de máquina virtual permite comenzar a trabajar fácilmente con la ciencia de los datos en cuestión de minutos, sin tener que instalar ni configurar cada una de las herramientas de forma individual. Puede escalar la máquina virtual verticalmente de manera fácil, si es necesario, y detenerla cuando no la use. Así que este recurso es tanto elástico como rentable.
 
-En las tareas de ciencias de los datos que se demuestran en este tutorial se siguen los pasos descritos en el [proceso de ciencia de los datos en equipos](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview). Este proceso proporciona un enfoque sistemático sobre la ciencia de los datos que permite a los equipos de científicos de los datos colaborar de manera efectiva durante el ciclo de vida de creación de aplicaciones inteligentes. El proceso de ciencia de los datos también proporciona un marco iterativo para la ciencia de los datos que pueden seguir los individuos.
+En las tareas de ciencias de los datos que se demuestran en este tutorial se siguen los pasos descritos en el [proceso de ciencia de los datos en equipos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview). Este proceso proporciona un enfoque sistemático sobre la ciencia de los datos que permite a los equipos de científicos de los datos colaborar de manera efectiva durante el ciclo de vida de creación de aplicaciones inteligentes. El proceso de ciencia de los datos también proporciona un marco iterativo para la ciencia de los datos que pueden seguir los individuos.
 
 En este tutorial analizamos el conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Se trata de un conjunto de correos electrónicos macados como es correo no deseado o no es correo no deseado, y también contiene algunas estadísticas sobre el contenido de los correos electrónicos. Las estadísticas incluidas se describen en la siguiente sección.
 
