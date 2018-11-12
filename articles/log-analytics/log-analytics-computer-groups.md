@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f96d18c2e1a00008f2e391302a41d145d6b47efd
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408547"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016612"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de equipos en búsquedas de registros en Log Analytics
 
-Los grupos de equipos en Log Analytics permiten delimitar las [búsquedas de registros](log-analytics-log-search-new.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una búsqueda de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
+Los grupos de equipos en Log Analytics permiten delimitar las [búsquedas de registros](log-analytics-queries.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una búsqueda de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
 
 ## <a name="creating-a-computer-group"></a>Creación de un grupo de equipos
 Puede crear un grupo de equipos en Log Analytics mediante cualquiera de los métodos de la tabla siguiente.  En las secciones siguientes se proporcionan detalles sobre cada método. 
@@ -136,5 +136,5 @@ En el área de trabajo de Log Analytics se crea un registro para cada pertenenci
 | TimeGenerated |Fecha y hora en la que se creó o actualizó el grupo de equipos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
 

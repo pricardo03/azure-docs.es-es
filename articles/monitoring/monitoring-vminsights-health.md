@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0f149d09b310553ecd5b03e94601408f279d9c0c
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094234"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914318"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)
 Azure incluye varios servicios que realizan individualmente una tarea o un rol específico en el espacio de supervisión, pero hasta ahora no era posible proporcionar una perspectiva detallada del estado del sistema operativo hospedado en máquinas virtuales de Azure.  Aunque se podían supervisar distintas condiciones mediante Log Analytics o Azure Monitor, no estaban diseñadas para modelar ni representar el estado general de la máquina virtual o de los componentes principales.  Con la característica de estado de Azure Monitor para máquinas virtuales, la disponibilidad y el rendimiento del sistema operativo invitado Windows o Linux se supervisan de forma proactiva con un modelo que representa los principales componentes y sus relaciones, así como los criterios que especifican cómo se debe medir el estado de dichos componentes y, además, le avisa cuando se detecta una condición de estado incorrecto.  
@@ -271,7 +271,7 @@ Para filtrar esta vista, seleccione valores en los menús desplegables que apare
 |Servicio de supervisión |Seleccione un servicio o seleccione *Todo* para incluir todos los servicios. Solo las alertas de *VM Insights* son compatibles con esta característica.| 
 |Intervalo de tiempo| Solo las alertas activadas dentro del período de tiempo seleccionado se incluyen en la vista. Los valores compatibles son Última hora, Últimas 24 horas, Últimos 7 días y Últimos 30 días. | 
 
-La página **Detalles de la alerta** se muestra cuando se selecciona una alerta y proporciona detalles de la alerta, lo que le permite cambiar su estado. Para aprender a administrar alertas, consulte [Creación, visualización y administración de alertas mediante Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+La página **Detalles de la alerta** se muestra cuando se selecciona una alerta y proporciona detalles de la alerta, lo que le permite cambiar su estado. Para aprender a administrar alertas, consulte [Creación, visualización y administración de alertas mediante Azure Monitor](../monitoring-and-diagnostics/alert-metric.md).  
 
 >[!NOTE]
 >Actualmente no se admite la creación de nuevas alertas basadas en criterios de mantenimiento ni la modificación de las reglas de alerta de mantenimiento existentes en Azure Monitor desde el portal.  
