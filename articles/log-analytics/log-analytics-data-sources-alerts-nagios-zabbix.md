@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402947"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008341"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Recopilación de alertas de Nagios y Zabbix en Log Analytics desde el agente de Log Analytics para Linux 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) y [Zabbix](http://www.zabbix.com/) son herramientas de supervisión de código abierto. Con estas herramientas, puede recopilar alertas en Log Analytics con el fin de analizarlas, y [también alertas de otros orígenes](log-analytics-alerts.md).  En este artículo, se describe cómo configurar el agente de Log Analytics para Linux con el fin de recopilar alertas de estos sistemas.
+[Nagios](https://www.nagios.org/) y [Zabbix](http://www.zabbix.com/) son herramientas de supervisión de código abierto. Con estas herramientas, puede recopilar alertas en Log Analytics con el fin de analizarlas, y [también alertas de otros orígenes](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).  En este artículo, se describe cómo configurar el agente de Log Analytics para Linux con el fin de recopilar alertas de estos sistemas.
  
 ## <a name="prerequisites"></a>Requisitos previos
 El agente de Log Analytics para Linux es compatible con la recopilación de alertas de Nagios (hasta la versión 4.2.x) y Zabbix (hasta la versión 2.x).
@@ -80,7 +80,7 @@ Realice los pasos siguientes en el servidor Nagios para recopilar alertas.
 
 
 ## <a name="alert-records"></a>Registros de alerta
-Puede recuperar registros de alertas de Nagios y Zabbix con [búsquedas de registros](log-analytics-log-searches.md) en Log Analytics.
+Puede recuperar registros de alertas de Nagios y Zabbix con [búsquedas de registros](log-analytics-queries.md) en Log Analytics.
 
 ### <a name="nagios-alert-records"></a>Registros de alertas de Nagios
 
@@ -118,5 +118,5 @@ Los registros de alertas recopilados por Zabbix tienen como **tipo** una **alert
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Más información sobre las [alertas](log-analytics-alerts.md) en Log Analytics.
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
+* Más información sobre las [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) en Log Analytics.
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos. 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9efb08922f3e6f78266baaf8ae623dd241c09522
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978930"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037624"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -167,7 +167,7 @@ Si se reemplaza el prefijo de dirección 0.0.0.0/0, además del tráfico de sali
         - Poder traducir y reenviar direcciones de red, o desviar el tráfico a través de un servidor proxy al recurso de destino de la subred y devolver el tráfico a Internet. 
     - **Puerta de enlace de red virtual**: si la puerta de enlace es una puerta de enlace de red virtual ExpressRoute, un dispositivo local conectado a Internet puede traducir y reenviar direcciones de red, o bien desviar el tráfico a través de un servidor proxy al recurso de destino de la subred a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) de ExpressRoute. 
 
-Si la red virtual está conectada a una instancia de Azure VPN Gateway, no asocie una tabla de rutas a la [subred de la puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluya una ruta con un destino 0.0.0.0/0. Si lo hace, puede que la puerta de enlace no funcione correctamente. Para más información, consulte la pregunta *¿Por qué hay algunos puertos abiertos en mi puerta de enlace de VPN?* en las [Preguntas más frecuentes sobre VPN Gateway](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#why-are-certain-ports-opened-on-my-vpn-gateway).
+Si la red virtual está conectada a una instancia de Azure VPN Gateway, no asocie una tabla de rutas a la [subred de la puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluya una ruta con un destino 0.0.0.0/0. Si lo hace, puede que la puerta de enlace no funcione correctamente. Para más información, consulte la pregunta *¿Por qué hay algunos puertos abiertos en mi puerta de enlace de VPN?* en las [Preguntas más frecuentes sobre VPN Gateway](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
 Para obtener información acerca de las puertas de enlace de redes virtuales y aplicaciones virtuales entre Internet y Azure, consulte [Red perimetral entre Azure y un centro de datos local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Red perimetral entre Azure e Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

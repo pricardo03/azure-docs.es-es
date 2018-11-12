@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4b027f6cd57dfa48ba2e230371ffcad97b1f8ec4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445116"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014727"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: configuración de los requisitos de complejidad para las contraseñas
 
@@ -38,11 +38,10 @@ Estos son los tipos de directivas en los que se puede configurar la complejidad 
 
 ## <a name="how-to-configure-password-complexity"></a>Procedimientos para la configuración de la complejidad de contraseñas
 
-1. Siga estos pasos para [ir a la configuración de Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 1. Abra **Sign-up or sign-in policies** (Directivas de registro o de inicio de sesión).
-1. Seleccione una directiva y haga clic en **Editar**.
-1. Abra **Complejidad de la contraseña**.
-1. Cambie la complejidad de contraseña para esta directiva a **Simple**, **Segura**, o **Personalizada**.
+2. Seleccione una directiva y haga clic en **Editar**.
+3. Abra **Complejidad de la contraseña**.
+4. Cambie la complejidad de contraseña para esta directiva a **Simple**, **Segura**, o **Personalizada**.
 
 ### <a name="comparison-chart"></a>Gráfico de comparación
 

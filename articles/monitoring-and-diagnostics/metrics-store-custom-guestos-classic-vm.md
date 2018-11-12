@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 06b3d97f4b2b7867f09a8c4e5fe974615e9b0c70
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093427"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958634"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Envío de métricas de SO invitado al almacén de datos de Azure Monitor para una máquina virtual Windows (clásica)
 
@@ -45,7 +45,7 @@ El proceso descrito en este artículo solo funciona para máquinas virtuales cl�
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
-Cree una entidad de servicio en el inquilino de Azure Active Directory según las instrucciones que encontrará en [Creación de una entidad de servicio](../azure-resource-manager/resource-group-create-service-principal-portal.md). Tenga en cuenta lo siguiente al realizar este proceso: 
+Cree una entidad de servicio en el inquilino de Azure Active Directory según las instrucciones que encontrará en [Creación de una entidad de servicio](../active-directory/develop/howto-create-service-principal-portal.md). Tenga en cuenta lo siguiente al realizar este proceso: 
 - Cree un nuevo secreto de cliente para esta aplicación.
 - Guarde la clave y el identificador de cliente para usarlos en pasos posteriores.
 

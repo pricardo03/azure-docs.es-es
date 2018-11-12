@@ -3,7 +3,7 @@ title: Administración de recursos de Azure Blob Storage con el Explorador de St
 description: Administración de blobs y contenedores de blobs de Azure con el Explorador de Azure Storage
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 2207bac1ef7cb6393d7dc173f96ddda719bcdfdf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8315647afec0166b41ce7a75f491077edd56db46
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528535"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036267"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Administración de recursos de Azure Blob Storage con el Explorador de Azure Storage
 ## <a name="overview"></a>Información general
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS.
 Puede usar el almacenamiento de blobs para exponer datos públicamente o para almacenar datos de la aplicación de manera privada. En este artículo, aprenderá a usar el Explorador de Azure Storage para trabajar con blobs y contenedores de blobs.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para completar los pasos de este artículo, necesitará:
 
-* [Descarga e instalación del Explorador de Azure Storage](http://www.storageexplorer.com)
-* [Conectarse a una cuenta de almacenamiento de Azure o a un servicio](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Descarga e instalación del Explorador de Storage](http://www.storageexplorer.com)
+* [Conectarse a una cuenta de Almacenamiento de Azure o a un servicio](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Creación de un contenedor de blobs
 Todos los blobs deben residir en un contenedor de blobs, que no es más que una agrupación lógica de blobs. Una cuenta puede contener un número ilimitado de contenedores y cada contenedor puede almacenar un número ilimitado de blobs.
