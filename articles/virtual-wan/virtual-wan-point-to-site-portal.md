@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409293"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261815"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Creación de una conexión de punto a sitio mediante Azure Virtual WAN (Versión preliminar)
 
@@ -79,7 +79,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Creación de una instancia de Virtual WAN
 
-En un explorador, vaya a [Azure Portal (versión preliminar)](http://aka.ms/azurevirtualwanpreviewfeatures) e inicie sesión con su cuenta de Azure.
+En un explorador, vaya a [Azure Portal (versión preliminar)](https://aka.ms/azurevirtualwanpreviewfeatures) e inicie sesión con su cuenta de Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -111,12 +111,13 @@ Una configuración de P2S define los parámetros para conectarse a los clientes 
 
 ## <a name="hub"></a>5. Edición de la asignación del concentrador
 
-1. En la página de su red WAN virtual, haga clic en **Configuraciones de punto a sitio**.
-2. En **Concentrador** verá una lista de configuraciones que aún no se han conectado a un concentrador.
-3. Seleccione la configuración que desea asociar y haga clic en **Editar asignación de concentrador**.
-4. En la lista desplegable, seleccione los concentradores que desee asociar a la configuración.
-5. Haga clic en **Asignar**. 
-6. La operación puede tardar hasta 30 minutos en completarse.
+1. En la página de la red virtual WAN, haga clic en **Centros**.
+2. Seleccione el centro al que desea asignar la configuración de punto a sitio.
+3. Haga clic en **"..."** y elija **Editar concentrador virtual**
+4. Seleccione **Incluir puerta de enlace de punto a sitio**.
+5. Elija los valores de **Unidades de escalado de puerta de enlace** y **Configuración de punto a sitio**, junto con un **grupo de direcciones** para los clientes.
+6. Haga clic en **Confirmar**. 
+7. La operación puede tardar hasta 30 minutos en completarse.
 
 ## <a name="vnet"></a>6. Conexión de la red virtual a un concentrador
 
@@ -135,9 +136,10 @@ En este paso, creará la conexión de emparejamiento entre una red virtual y el 
 
 Use el perfil de VPN para configurar los clientes.
 
-1. En la página de su red WAN virtual, haga clic en **Configuraciones de punto a sitio**.
-2. En la parte superior de la página, haga clic en **Descargar perfil de punto a sitio**. 
-3. Una vez el archivo se haya terminado de crear, puede hacer clic en el vínculo para descargarlo.
+1. En la página de la red virtual WAN, haga clic en **Centros**.
+2. Seleccione el centro para el que desea descargar el perfil.
+3. Haga clic en **"..."** y elija **Descargar perfil**. 
+4. Una vez el archivo se haya terminado de crear, puede hacer clic en el vínculo para descargarlo.
 4. Use el archivo de perfil para configurar los clientes de punto a sitio.
 
 ## <a name="device"></a>8. Configuración de los clientes de punto a sitio

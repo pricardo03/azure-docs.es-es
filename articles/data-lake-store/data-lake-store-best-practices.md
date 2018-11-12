@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: ef2b5fe6c9b70eaea5ab4db2d4a0ca59ff82dbb9
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 2c7e624344605b24e78962ac2b6d23278c06c0cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391902"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255155"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen1
 
@@ -27,7 +27,7 @@ En este artículo obtendrá más información sobre los procedimientos recomenda
 
 Azure Data Lake Storage Gen1 ofrece controles de acceso de POSIX y una auditoría detallada de usuarios, grupos y entidades de servicio de Azure Active Directory (Azure AD). Estos controles de acceso se pueden establecer para archivos y carpetas ya existentes. Los controles de acceso también se pueden utilizar para crear valores predeterminados que se pueden aplicar a archivos o carpetas nuevos. Si los permisos se establecen para carpetas y objetos secundarios ya existentes, se deberán propagar de manera recursiva en cada objeto. Si hay un gran número de archivos, la propagación de los permisos puede llevar mucho tiempo. La velocidad puede oscilar entre 30 y 50 objetos procesados por segundo. Por tanto, planee la estructura de carpetas y los grupos de usuario adecuadamente. En caso contrario, puede provocar retrasos y problemas inesperados al trabajar con los datos. 
 
-Suponga que tiene una carpeta con 100 000 objetos secundarios. Si tomamos el límite inferior de 30 objetos procesados por segundo, actualizar el permiso para toda la carpeta podría llevar una hora. En [Control de acceso en Azure Data Lake Storage Gen1](data-lake-store-access-control.md) encontrará más información sobre las listas de control de acceso de Data Lake Storage Gen1. Para conseguir un rendimiento mejorado a la hora de asignar las listas de control de acceso de forma recursiva, puede usar la herramienta de línea de comandos de Azure Data Lake Store. Esta herramienta crea varios subprocesos y una lógica de navegación recursiva que permite aplicar rápidamente las listas de control de acceso a millones de archivos. La herramienta está disponible para Linux y Windows, y la [documentación](https://github.com/Azure/data-lake-adlstool) y las [descargas](http://aka.ms/adlstool-download) de esta herramienta se encuentran en GitHub. Puede habilitar estas mismas mejoras de rendimiento con herramientas propias escritas con los SDK de [.NET](data-lake-store-data-operations-net-sdk.md) y [Java](data-lake-store-get-started-java-sdk.md) de Data Lake Storage Gen1.
+Suponga que tiene una carpeta con 100 000 objetos secundarios. Si tomamos el límite inferior de 30 objetos procesados por segundo, actualizar el permiso para toda la carpeta podría llevar una hora. En [Control de acceso en Azure Data Lake Storage Gen1](data-lake-store-access-control.md) encontrará más información sobre las listas de control de acceso de Data Lake Storage Gen1. Para conseguir un rendimiento mejorado a la hora de asignar las listas de control de acceso de forma recursiva, puede usar la herramienta de línea de comandos de Azure Data Lake Store. Esta herramienta crea varios subprocesos y una lógica de navegación recursiva que permite aplicar rápidamente las listas de control de acceso a millones de archivos. La herramienta está disponible para Linux y Windows, y la [documentación](https://github.com/Azure/data-lake-adlstool) y las [descargas](https://aka.ms/adlstool-download) de esta herramienta se encuentran en GitHub. Puede habilitar estas mismas mejoras de rendimiento con herramientas propias escritas con los SDK de [.NET](data-lake-store-data-operations-net-sdk.md) y [Java](data-lake-store-get-started-java-sdk.md) de Data Lake Storage Gen1.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Uso de grupos de seguridad frente a usuarios individuales 
 

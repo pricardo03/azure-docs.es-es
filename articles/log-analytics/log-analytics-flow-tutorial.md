@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f09e523b70e541c724ea53d0bd47215ad44d623
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77d47b1f4946a8539b58b9335b967321b6bbf2e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041993"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259877"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatización de procesos de Log Analytics con el conector para Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) le permite crear flujos de trabajo automatizados, con cientos de acciones para diversos servicios. La salida de una acción se puede utilizar como entrada de otra lo que le permite crear una integración entre los diferentes servicios.  El conector de Azure Log Analytics para Microsoft Flow le permite compilar flujos de trabajo que incluyen datos recuperados de las búsquedas de registros de Log Analytics.
@@ -29,7 +29,7 @@ El tutorial de este artículo le muestra cómo crear un flujo que envíe automá
 
 
 ## <a name="step-1-create-a-flow"></a>Paso 1: Creación de un almacén
-1. Inicie sesión en [Microsoft Flow](http://flow.microsoft.com) y seleccione **Mis flujos**.
+1. Inicie sesión en [Microsoft Flow](https://flow.microsoft.com) y seleccione **Mis flujos**.
 2. Haga clic en **+ Crear desde cero**.
 
 ## <a name="step-2-create-a-trigger-for-your-flow"></a>Paso 2: Creación de un desencadenador para el flujo
@@ -79,7 +79,7 @@ El tutorial de este artículo le muestra cómo crear un flujo que envíe automá
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [búsquedas de registros en Log Analytics](log-analytics-log-search-new.md).
+- Más información sobre [búsquedas de registros en Log Analytics](log-analytics-queries.md).
 - Más información sobre [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

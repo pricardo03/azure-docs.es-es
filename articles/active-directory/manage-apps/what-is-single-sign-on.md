@@ -14,12 +14,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720130"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236013"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?
 Inicio de sesión único significa poder tener acceso a todas las aplicaciones y los recursos que necesita para hacer negocios, iniciando iniciar sesión una sola vez usando una única cuenta de usuario. Una vez que ha iniciado sesión, puede tener acceso a todas las aplicaciones que necesite sin tener que autenticarse (por ejemplo, escribiendo una contraseña) una segunda vez.
@@ -102,7 +102,7 @@ La [Galería de aplicaciones de Azure Active Directory](https://azure.microsoft.
 Algunas sugerencias para buscar aplicaciones por las funciones que admiten:
 
 * Azure AD admite el aprovisionamiento automático y el desaprovisionamiento para todas las aplicaciones de tipo "Destacada" en la [Galería de aplicaciones de Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/).
-* [Aquí](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)se puede consultar una lista de aplicaciones federadas que admiten específicamente el inicio de sesión único federado usando protocolos como SAML, WS-Federation u OpenID Connect.
+* [Aquí](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)se puede consultar una lista de aplicaciones federadas que admiten específicamente el inicio de sesión único federado usando protocolos como SAML, WS-Federation u OpenID Connect.
 
 Una vez que haya encontrado la aplicación, puede comenzar por seguir las instrucciones paso a paso de la Galería de aplicaciones y de Azure Portal para habilitar el inicio de sesión único.
 

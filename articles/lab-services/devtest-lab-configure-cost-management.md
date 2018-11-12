@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 13535dae82ef2c8896dad7d6221553d15e4e6a95
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573818"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259758"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Visualización de las tendencias de costos mensuales estimados de laboratorio en Azure DevTest Labs
 La característica de administración de costos de Laboratorios de desarrollo y pruebas le ayuda a controlar el costo del laboratorio. En este artículo se muestra el uso del gráfico **Monthly Estimated Cost Trend** (Tendencia de costos estimados mensuales) para ver el costo estimado hasta la fecha del mes de calendario actual, así como el costo a fin de mes previsto para el mes de calendario actual. En este artículo también se muestra cómo administrar mejor los costos de laboratorio estableciendo objetivos y umbrales de gastos que, al alcanzarlos, desencadenan que DevTest Labs le informe de los resultados.
@@ -27,7 +27,7 @@ La característica de administración de costos de Laboratorios de desarrollo y 
 ## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>Visualización del gráfico de tendencias de costo estimado mensual
 Para ver el gráfico de tendencias de costos mensuales estimados, siga estos pasos: 
 
-1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si es necesario, seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista. (Puede que su laboratorio ya aparezca en el panel, en **Todos los recursos**).
 1. En la lista de laboratorios, seleccione el laboratorio que desee.  
 1. En el área **Introducción** del laboratorio, seleccione **Configuración y directivas**.   

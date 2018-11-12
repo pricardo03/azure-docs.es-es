@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 3e26e40c26a27fdab1ec565dd4112b40acdd17d2
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ae212bebf5a34e9a80f49a750735137d7a8814be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213374"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232671"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure tras la migración a Azure 
 
@@ -32,7 +32,7 @@ Antes de configurar la recuperación ante desastres, asegúrese de que la migrac
 El [agente de VM](../virtual-machines/extensions/agent-windows.md) de Azure debe estar instalado en la máquina virtual, para que Site Recovery pueda replicarlo.
 
 
-1. Para instalar el agente de VM en máquinas virtuales que ejecutan Windows, descargue y ejecute el [instalador del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necesita privilegios de administrador en la máquina virtual para completar la instalación.
+1. Para instalar el agente de VM en máquinas virtuales que ejecutan Windows, descargue y ejecute el [instalador del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necesita privilegios de administrador en la máquina virtual para completar la instalación.
 2. Para instalar el agente de VM en máquinas virtuales que ejecutan Linux, instale la última versión del [agente de Linux](../virtual-machines/extensions/agent-linux.md). Para completar la instalación, necesita privilegios de administrador. Se recomienda realizar la instalación desde el repositorio de distribución. No se recomienda instalar el agente de máquina virtual Linux directamente desde GitHub. 
 
 

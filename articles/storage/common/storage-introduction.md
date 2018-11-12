@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: f03872a125e4e4d2f1e0b458a31d67a07802f2c8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1fb9be6c05edbd85a709632a001fe1c1b8b4c6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387454"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247796"
 ---
 # <a name="introduction-to-azure-storage"></a>Introducción a Azure Storage
 
@@ -201,7 +201,7 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 ### <a name="tools-and-utilities"></a>Herramientas y utilidades
 * [Cmdlets de Azure PowerShell para Storage](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Cmdlets de la CLI de Azure para Storage](https://docs.microsoft.com/cli/azure/storage)
-* [Utilidad de línea de comandos AzCopy](http://aka.ms/downloadazcopy)
+* [Utilidad de línea de comandos AzCopy](https://aka.ms/downloadazcopy)
 * El [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
 * [Herramientas de cliente de Azure Storage](../storage-explorers.md)
 * [Herramientas de desarrollo de Azure](https://azure.microsoft.com/tools/)

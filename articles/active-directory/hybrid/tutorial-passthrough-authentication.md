@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6154164aadd8ed508bfae8de8b6f3c8255111a73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fed1078b9a4e0ca4d0674db522f73705fa3efd0a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308074"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254494"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial: Integración de un bosque de AD único en Azure mediante la autenticación de paso a través (PTA)
 
@@ -249,7 +249,7 @@ Ahora comprobaremos que los usuarios que teníamos en nuestro directorio local s
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Prueba del inicio de sesión con uno de nuestros usuarios
 
-1.  Vaya a [http://myapps.microsoft.com](http://myapps.microsoft.com).
+1.  Vaya a [http://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Inicie sesión con la cuenta de usuario que se creó en nuestro nuevo inquilino.  Deberá iniciar sesión mediante el formato siguiente: (user@domain.onmicrosoft.com). Use la misma contraseña que el usuario utiliza para iniciar sesión en el entorno local.
 ![Verify](media/tutorial-password-hash-sync/verify1.png)
 

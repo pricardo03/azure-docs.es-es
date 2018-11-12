@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ecfaf24d1122b711a93e1335b79acbbc4235bdae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049956"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259928"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicación de un anuncio en un laboratorio de Azure DevTest Labs
 
@@ -35,7 +35,7 @@ La característica de anuncios está pensada para usarla para notificaciones tem
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Pasos para publicar un anuncio en un laboratorio existente
 
-1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si es necesario, seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista. (Puede que su laboratorio ya aparezca en el panel, en **Todos los recursos**).
 1. En la lista de laboratorios, seleccione aquel en el que desea publicar un anuncio.  
 1. En el área **Introducción** del laboratorio, seleccione **Configuración y directivas**.  
@@ -70,7 +70,7 @@ Cuando ya no quiera mostrar este anuncio a los usuarios del laboratorio, vuelva 
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Pasos para que los usuarios vean un anuncio
 
-1. En [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), seleccione un laboratorio.
+1. En [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), seleccione un laboratorio.
 
 1. Si el laboratorio tiene un anuncio publicado en él, se muestra un aviso de información en la parte superior de la página de información general del laboratorio. Este aviso de información es el título del anuncio que se especificó cuando se creó este.
 
@@ -160,10 +160,10 @@ Puede especificar un anuncio como parte de una plantilla de Azure Resource Manag
 
 Puede implementar una plantilla de Azure Resource Manager de una de las maneras siguientes:
 
-- [Portal de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+- [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [API de REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [API DE REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Si cambia o establece una directiva de laboratorio, puede que quiera publicar un anuncio para informar a los usuarios. [Configuración de directivas y programaciones](devtest-lab-set-lab-policy.md) proporciona información acerca de cómo aplicar restricciones y convenciones en la suscripción mediante el uso de directivas personalizadas.

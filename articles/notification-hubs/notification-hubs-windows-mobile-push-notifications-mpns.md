@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 14b9a4ed66995a73f00234f4b25f52fccbcbe556
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e055b51af19ad3958c0c9155490c598ed0f4a80e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38562611"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235214"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones de Windows Phone concretos mediante Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 > * Crear una aplicación Windows Phone
 > * Realizar un envío de prueba de una notificación 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - [Visual Studio 2015 Express con componentes de desarrollo para dispositivos móviles](https://www.visualstudio.com/vs/older-downloads/)
@@ -61,7 +61,7 @@ La realización de este tutorial es un requisito previo para todos los demás tu
     El concentrador se crea y configura ahora para enviar una notificación sin autenticar para Windows Phone.
 
     > [!NOTE]
-    > Este tutorial usa MPNS en modo sin autenticar. El modo sin autenticar de MPNS viene con restricciones sobre las notificaciones que puede enviar a cada canal. Notification Hubs admite el [modo autenticado de MPNS](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) al permitir que cargue su certificado.
+    > Este tutorial usa MPNS en modo sin autenticar. El modo sin autenticar de MPNS viene con restricciones sobre las notificaciones que puede enviar a cada canal. Notification Hubs admite el [modo autenticado de MPNS](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) al permitir que cargue su certificado.
 
 ## <a name="create-a-windows-phone-application"></a>Crear una aplicación Windows Phone
 En esta sección se creará una aplicación de Windows Phone que se registra automáticamente en el Centro de notificaciones. 

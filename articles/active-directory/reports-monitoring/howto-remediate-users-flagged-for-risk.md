@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fe16ecb2725cf306b5b57c9d45d8601581a3ece
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 13d81e655b98771d985277974bd3081437e2a3e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578910"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255786"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remedie los usuarios marcados como en riesgo en el portal de Azure Active Directory
 
@@ -61,9 +61,9 @@ Examine la información que se muestra aquí. Debe restablecer la contraseña de
 
 Realice las acciones siguientes para ayudar a corregir las cuentas afectadas y proteger su entorno:
 
-1.  [Valide](http://aka.ms/MFAValid) la información correcta de la autenticación multifactor y del restablecimiento de contraseña de autoservicio. 
-2.  [Habilite](http://aka.ms/MFAuth) la autenticación multifactor para todos los usuarios. 
-3.  Mediante este [script de corrección](http://aka.ms/remediate), puede realizar los pasos siguientes en todas las cuentas afectadas: 
+1.  [Valide](https://aka.ms/MFAValid) la información correcta de la autenticación multifactor y del restablecimiento de contraseña de autoservicio. 
+2.  [Habilite](https://aka.ms/MFAuth) la autenticación multifactor para todos los usuarios. 
+3.  Mediante este [script de corrección](https://aka.ms/remediate), puede realizar los pasos siguientes en todas las cuentas afectadas: 
 
     a. Restablezca la contraseña para proteger la cuenta y terminar las sesiones activas.
 
@@ -87,10 +87,10 @@ Realice las acciones siguientes para ayudar a corregir las cuentas afectadas y p
 
 Además, debe:
 
-- Leer e implementar esta [guía](http://aka.ms/fixaccount) para afrontar actividades inusuales. 
-- [Habilitar la canalización de la auditoría](http://aka.ms/improvesecurity) para que le ayude a analizar la actividad de su empresa. Una vez completado, el almacén de auditoría empieza a rellenarse con todos los registros de actividad. En este momento, también puede aprovechar la [Búsqueda e investigación del Centro de seguridad y cumplimiento](http://aka.ms/sccsearch). 
-- Utilice este [script](http://aka.ms/mailboxaudit1) para habilitar la auditoría de los buzones de todas sus cuentas. 
-- Revise los permisos de delegado y las reglas de reenvío de correo de todos los buzones. Este [script de PowerShell](http://aka.ms/delegateforwardrules) se puede usar para realizar esta tarea. 
+- Leer e implementar esta [guía](https://aka.ms/fixaccount) para afrontar actividades inusuales. 
+- [Habilitar la canalización de la auditoría](https://aka.ms/improvesecurity) para que le ayude a analizar la actividad de su empresa. Una vez completado, el almacén de auditoría empieza a rellenarse con todos los registros de actividad. En este momento, también puede aprovechar la [Búsqueda e investigación del Centro de seguridad y cumplimiento](https://aka.ms/sccsearch). 
+- Utilice este [script](https://aka.ms/mailboxaudit1) para habilitar la auditoría de los buzones de todas sus cuentas. 
+- Revise los permisos de delegado y las reglas de reenvío de correo de todos los buzones. Este [script de PowerShell](https://aka.ms/delegateforwardrules) se puede usar para realizar esta tarea. 
 
 
 

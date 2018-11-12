@@ -9,16 +9,16 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
-ms.openlocfilehash: 33c3b91e7bf9fa64e3ba3f98a9396045753d0c2a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045701"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260047"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Solución de problemas de un trabajo periódico anómalo
 
-En este artículo se explica cómo usar las [Herramientas de Azure Data Lake para Visual Studio](http://aka.ms/adltoolsvs) para solucionar problemas de trabajos periódicos. Obtenga más información sobre la canalización y los trabajos periódicos en el [blog de Azure Data Lake y Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+En este artículo se explica cómo usar las [Herramientas de Azure Data Lake para Visual Studio](https://aka.ms/adltoolsvs) para solucionar problemas de trabajos periódicos. Obtenga más información sobre la canalización y los trabajos periódicos en el [blog de Azure Data Lake y Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
 
 Normalmente, los trabajos periódicos comparten la misma lógica de consulta y datos de entrada similares. Por ejemplo, imagine que tiene un trabajo periódico que se ejecuta todos los lunes por la mañana a las 8 a. m. para contar el usuario activo semanal de la semana pasada. Los scripts de estos trabajos comparten una plantilla de script que contiene la lógica de consulta. Las entradas de estos trabajos son los datos de uso de la semana pasada. El uso compartido de la misma lógica de consulta y de entradas afines normalmente significa que el rendimiento de estos trabajos es estable y similar. Si uno de los trabajos periódicos de repente se lleva a cabo de forma anómala, genera un error o se ralentiza mucho, debe hacer lo siguiente:
 
@@ -39,7 +39,7 @@ En **Herramientas** > **Data Lake** > **Vista Trabajo**, puede copiar la direcci
  
 ### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Caso 2: Tiene la canalización del trabajo periódico, pero no la dirección URL
 
-En Visual Studio, puede abrir el Explorador de canalizaciones a través del Explorador de servidores > su cuenta de Azure Data Lake Analytics > **Canalizaciones**. (Si no se encuentra este nodo en el Explorador de servidores, [descargue el último complemento](http://aka.ms/adltoolsvs)). 
+En Visual Studio, puede abrir el Explorador de canalizaciones a través del Explorador de servidores > su cuenta de Azure Data Lake Analytics > **Canalizaciones**. (Si no se encuentra este nodo en el Explorador de servidores, [descargue el último complemento](https://aka.ms/adltoolsvs)). 
 
 ![Selección del nodo Canalizaciones](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 

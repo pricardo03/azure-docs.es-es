@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 81c88c90ff24cb5e0ab143237fb08678067ea993
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f830a27e9caf032443c2b27bdd2f95fa8069bcf2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305544"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247286"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial: Integración de un bosque de AD único mediante la sincronización de hash de contraseñas (PHS)
 
@@ -209,11 +209,11 @@ Ahora es el momento de descargar e instalar Azure AD Connect.  Una vez instalado
 6. En la pantalla Conectar a AD DS, escriba el nombre de usuario y la contraseña de una cuenta de administrador de empresa. Haga clic en **Next**.  
 7. En la pantalla Listo para configurar, haga clic en **Instalar**.
 8. Una vez completada la instalación, haga clic en **Salir**.
-9. Una vez completada la instalación, cierre la sesión e inicie de sesión de nuevo antes de utilizar Synchronization Service Manager o el Editor de reglas de sincronización.
+9. Una vez completada la instalación, cierre sesión e inicie sesión de nuevo antes de utilizar Synchronization Service Manager o el Editor de reglas de sincronización.
 
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Comprobación de la creación y sincronización de los usuarios
-Ahora comprobaremos que los usuarios que teníamos en nuestro directorio local se han sincronizado y que ya existen en el inquilino de Azure AD.  Tenga en cuenta que está acción puede tardar unas horas en completarse.  Para comprobar que los usuarios están sincronizados, haga lo siguiente:
+Ahora comprobaremos que los usuarios que teníamos en nuestro directorio local se han sincronizado y que ya existen en el inquilino de Azure AD.  Tenga en cuenta que esta acción puede tardar unas horas en completarse.  Para comprobar que los usuarios están sincronizados, haga lo siguiente:
 
 
 1. Vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con una cuenta que tenga una suscripción de Azure.
@@ -224,7 +224,7 @@ Ahora comprobaremos que los usuarios que teníamos en nuestro directorio local s
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Prueba del inicio de sesión con uno de nuestros usuarios
 
-1.  Vaya a [http://myapps.microsoft.com](http://myapps.microsoft.com).
+1.  Vaya a [http://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Inicie sesión con la cuenta de usuario que se creó en nuestro nuevo inquilino.  Deberá iniciar sesión mediante el formato siguiente: (user@domain.onmicrosoft.com). Use la misma contraseña que el usuario utiliza para iniciar sesión en el entorno local.</br>
 ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
 
