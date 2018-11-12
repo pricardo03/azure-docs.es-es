@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: afcda23faf4e9f0999442fa91d3c016e446c04db
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524549"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231370"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Diseño de aplicaciones de alta disponibilidad mediante RA-GRS
 
@@ -149,7 +149,7 @@ Otra consideración es cómo controlar varias instancias de una aplicación y qu
 
 Dispone de tres opciones principales para supervisar la frecuencia de reintentos en la región primaria y determinar cuándo se debe cambiar a la región secundaria y hacer que la aplicación se ejecute en modo de solo lectura.
 
-*   Agregue un controlador para el evento [**Retrying**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) en el objeto [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) que se pasa a las solicitudes de almacenamiento: este método se muestra en este artículo y se usa en el ejemplo que lo acompaña. Estos eventos se activan cada vez que el cliente reintenta una solicitud, lo que le permite realizar un seguimiento de la frecuencia con que el cliente encuentra errores con posibilidad de reintento en un punto de conexión principal.
+*   Agregue un controlador para el evento [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) en el objeto [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) que se pasa a las solicitudes de almacenamiento: este método se muestra en este artículo y se usa en el ejemplo que lo acompaña. Estos eventos se activan cada vez que el cliente reintenta una solicitud, lo que le permite realizar un seguimiento de la frecuencia con que el cliente encuentra errores con posibilidad de reintento en un punto de conexión principal.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -160,7 +160,7 @@ Dispone de tres opciones principales para supervisar la frecuencia de reintentos
     };
     ```
 
-*   En el método [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) de una directiva de reintentos personalizada, puede ejecutar código personalizado siempre que se lleve a cabo un reintento. Además de registrar cuándo sucede un reintento, esto también ofrece la oportunidad de modificar el comportamiento de reintento.
+*   En el método [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) de una directiva de reintentos personalizada, puede ejecutar código personalizado siempre que se lleve a cabo un reintento. Además de registrar cuándo sucede un reintento, esto también ofrece la oportunidad de modificar el comportamiento de reintento.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
