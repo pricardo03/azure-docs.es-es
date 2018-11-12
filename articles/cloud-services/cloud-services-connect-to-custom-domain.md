@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: b05e20b5c99c6f1b5b1bf93ca781ec97284fba79
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bb812699795f112023b579352ac3a52bef311d40
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004922"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232654"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Conexión de los roles de Azure Cloud Services a un controlador de dominio de AD personalizado que se hospeda en Azure
 En primer lugar, vamos a configurar una red virtual en Azure. A continuación, agregaremos un controlador de dominio de Active Directory (hospedado en una máquina virtual de Azure) a la red virtual. Después, agregaremos los roles de servicios en la nube existentes a la red virtual creada previamente y los conectaremos al controlador de dominio.
@@ -95,7 +95,7 @@ Para iniciar sesión en la máquina virtual, puede obtener el archivo RDP a trav
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-Una vez que haya iniciado sesión en la máquina virtual, configúrela como controlador de dominio de AD, para lo que debe seguir la guía paso a paso acerca de la [configuración de un controlador de dominio de AD de cliente](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+Una vez que haya iniciado sesión en la máquina virtual, configúrela como controlador de dominio de AD, para lo que debe seguir la guía paso a paso acerca de la [configuración de un controlador de dominio de AD de cliente](https://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## <a name="add-your-cloud-service-to-the-virtual-network"></a>Incorporación del servicio en la nube a la red virtual
 A continuación, es preciso que agregue la implementación del servicio en la nube a la nueva red virtual. Para ello, modifique el archivo cscfg del servicio en la nube agregando a este las secciones relevantes con Visual Studio o el editor de su elección.

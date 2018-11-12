@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 99e0b22b663f6edab9646111b390186a6f89a90f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1521bba188fcd7d8bade88196fe687929f414f93
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035188"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283519"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Tutorial 6: Agrupación y extracción de datos relacionados
 En este tutorial, agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
@@ -32,7 +32,7 @@ La entidad compuesta es una buena opción para este tipo de datos, ya que los da
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usar la aplicación de tutorial existente
+> * Usar la aplicación del tutorial existente
 > * Incorporación de entidad compuesta 
 > * Train
 > * Publicar
@@ -97,7 +97,7 @@ Los datos extraídos del punto de conexión deben contener esta información y d
 ]
 ```
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. En la página **Intents** (Intenciones), seleccione la intención **MoveEmployee**. 
 

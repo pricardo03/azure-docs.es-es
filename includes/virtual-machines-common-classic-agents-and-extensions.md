@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: b83e1ef752fede446b41153e3d486a872c2707f3
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9158e6bfe07fc5d06b0685d77eff26644b594a8b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226453"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264163"
 ---
 Las extensiones de VM pueden ayudarle a:
 
@@ -42,10 +42,10 @@ El Agente de VM se habilita en las siguientes situaciones:
       $vm.VM.ProvisionGuestAgent = $TRUE
       Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
-* Cuando se crea una imagen de máquina virtual que incluye a un agente de máquina virtual instalado. Una vez que la imagen con el agente de máquina virtual existe, dicha imagen se puede cargar en Azure. En el caso de una VM de Windows, descargue el [archivo .msi del agente de máquina virtual de Windows](http://go.microsoft.com/fwlink/?LinkID=394789) e instale dicho agente. En el caso de una máquina virtual Linux, instale el agente de máquina virtual desde el repositorio de GitHub, que se encuentra en <https://github.com/Azure/WALinuxAgent>. Para más información sobre cómo instalar el agente de máquina virtual en Linux, consulte la [Guía de usuario de agente de máquina virtual Linux de Azure](../articles/virtual-machines/extensions/agent-linux.md).
+* Cuando se crea una imagen de máquina virtual que incluye a un agente de máquina virtual instalado. Una vez que la imagen con el agente de máquina virtual existe, dicha imagen se puede cargar en Azure. En el caso de una VM de Windows, descargue el [archivo .msi del agente de máquina virtual de Windows](https://go.microsoft.com/fwlink/?LinkID=394789) e instale dicho agente. En el caso de una máquina virtual Linux, instale el agente de máquina virtual desde el repositorio de GitHub, que se encuentra en <https://github.com/Azure/WALinuxAgent>. Para más información sobre cómo instalar el agente de máquina virtual en Linux, consulte la [Guía de usuario de agente de máquina virtual Linux de Azure](../articles/virtual-machines/extensions/agent-linux.md).
 
 > [!NOTE]
-> En PaaS, el agente de máquina virtual se denomina **WindowsAzureGuestAgent** y siempre está disponible en las máquinas virtuales de rol web y rol de trabajo. [para más información, consulte [Windows Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) (Arquitectura de roles de Azure)]. El agente de máquina virtual para máquinas virtuales de rol ahora puede agregar extensiones a las máquinas virtuales de servicio en la nube, de la misma forma en que lo hace para las máquinas virtuales persistentes. La principal diferencia entre las extensiones de máquina virtual en las máquinas virtuales de rol y en las máquinas virtuales persistentes es cuando se agregan las extensiones de máquina virtual. Con las máquinas virtuales de rol, las extensiones se agregan primero al servicio en la nube y, después, a las implementaciones de dicho servicio en la nube.
+> En PaaS, el agente de máquina virtual se denomina **WindowsAzureGuestAgent** y siempre está disponible en las máquinas virtuales de rol web y rol de trabajo. [para más información, consulte [Windows Azure Role Architecture](https://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) (Arquitectura de roles de Azure)]. El agente de máquina virtual para máquinas virtuales de rol ahora puede agregar extensiones a las máquinas virtuales de servicio en la nube, de la misma forma en que lo hace para las máquinas virtuales persistentes. La principal diferencia entre las extensiones de máquina virtual en las máquinas virtuales de rol y en las máquinas virtuales persistentes es cuando se agregan las extensiones de máquina virtual. Con las máquinas virtuales de rol, las extensiones se agregan primero al servicio en la nube y, después, a las implementaciones de dicho servicio en la nube.
 >
 > Utilice el cmdlet [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) para mostrar todas las extensiones de VM de rol disponibles.
 >

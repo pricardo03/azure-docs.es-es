@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3328a7c80a05a48b3c04ad5492a7eafe62059681
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a940b1d2184961d907f72ad072270dad3571e844
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622472"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229260"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso: recomendaciones de productos
-Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Consulte la página [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Azure Data Factory y otros servicios del componente Cortana Intelligence.
+Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Consulte la página [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Azure Data Factory y otros servicios del componente Cortana Intelligence.
 
 ## <a name="scenario"></a>Escenario
 Los distribuidores en línea normalmente desean conseguir que sus clientes compren los productos presentando los productos que probablemente más les interesen y, por tanto, es más probable que compren. Para lograr esto, los distribuidores en línea deben personalizar la experiencia en línea de sus usuarios mediante recomendaciones de productos personalizadas para ese usuario concreto. Estas recomendaciones personalizadas se van a realizar en función de los datos de su comportamiento de compra actual e histórico, la información de productos, las marcas recién introducidas y los datos de segmentación de productos y clientes.  Además, se pueden proporcionar recomendaciones de productos a usuarios basadas en el análisis del comportamiento de uso general de todos los usuarios combinados.

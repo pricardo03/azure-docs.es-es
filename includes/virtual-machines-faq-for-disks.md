@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400334"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263919"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -292,7 +292,7 @@ No hay ningún inconveniente a la hora de usar TRIM en discos de Azure, ya sea e
 
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
-El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco del sistema operativo es de 2 TiB. Azure admite hasta 32 TiB para discos de datos administrados. Los tamaños de discos administrados superiores a 4 TiB están en versión preliminar. Para obtener más información sobre estos, consulte nuestra [publicación del blog](http://aka.ms/azure-large-disk-32TB-preview-blog).
+El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco del sistema operativo es de 2 TiB. Azure admite hasta 32 TiB para discos de datos administrados. Los tamaños de discos administrados superiores a 4 TiB están en versión preliminar. Para obtener más información sobre estos, consulte nuestra [publicación del blog](https://aka.ms/azure-large-disk-32TB-preview-blog).
 
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
@@ -309,7 +309,7 @@ No es necesario actualizar las herramientas de Azure existentes para crear, cone
 |Herramientas de Azure      | Versiones compatibles                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Número de versión 4.1.0: versión de junio de 2017 o posterior|
-|CLI de Azure v1     | Número de versión 0.10.13: versión de mayo de 2017 o posterior|
+|CLI de Azure v1     | Número de versión 0.10.13: versión de mayo de 2017 o posterior|
 |CLI de Azure v2     | Número de versión 2.0.12: versión de julio de 2017 o posterior|
 |AzCopy           | Número de versión 6.1.0: versión de junio de 2017 o posterior|
 

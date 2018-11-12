@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c56a0239209f5c71130c9dd8173eed48f60a3b0a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d40759a53842ca3c39e67850eb727897019a25ec
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042077"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012061"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Log Analytics
 
@@ -53,7 +53,7 @@ Después de agregar la solución y completar una comprobación, se muestra infor
 
 Para llevar a cabo la comprobación de estado en los controladores de dominio que son miembros del dominio que se va a evaluar, necesitan un agente y conectividad a Log Analytics mediante alguno de los siguientes métodos admitidos:
 
-1. Instale [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) si el controlador de dominio no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
+1. Instale [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) si el controlador de dominio no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
 2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con el servicio Log Analytics, el controlador de dominio se puede hospedar en varios hosts junto con Log Analytics para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
 3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) una vez que habilite la solución en el área de trabajo.  
 
@@ -186,4 +186,4 @@ Después de que se ejecute la siguiente comprobación de estado programada, de f
 * Sí, consulte la sección [Omisión de las recomendaciones](#ignore-recommendations) anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para aprender a analizar recomendaciones y datos detallados de AD Health Check.
+* Use [Búsquedas de registros en Log Analytics](log-analytics-queries.md) para aprender a analizar recomendaciones y datos detallados de AD Health Check.

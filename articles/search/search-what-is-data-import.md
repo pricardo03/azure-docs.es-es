@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: b518d86d5cb08f85beecd4afe30efc9e4f70e1f7
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371475"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249785"
 ---
 # <a name="indexing-in-azure-search"></a>Indexación en Azure Search
 > [!div class="op_single_selector"]
@@ -45,9 +45,9 @@ Para una introducción a cada metodología, consulte [Importar datos con REST](s
 ## <a name="pulling-data-into-an-index"></a>Extracción de datos en un índice
 El modelo de extracción rastrea un origen de datos compatible y carga automáticamente los datos en el índice. En Azure Search, esta funcionalidad se implementa a través de *indexadores*, que en este momento se encuentran disponibles en las siguientes plataformas:
 
-+ [Blob storage](search-howto-indexing-azure-blob-storage.md)
-+ [Almacenamiento de tablas](search-howto-indexing-azure-tables.md)
-+ [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer)
++ [Blob Storage](search-howto-indexing-azure-blob-storage.md)
++ [Table storage](search-howto-indexing-azure-tables.md)
++ [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
 + [Azure SQL Database y SQL Server en máquinas virtuales de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Los indexadores conectan un índice a un origen de datos (normalmente una tabla, vista o estructura equivalente) y asignan campos de origen a los campos equivalentes del índice. Durante la ejecución, el conjunto de filas se transforma automáticamente en JSON y se carga en el índice especificado. Todos los indexadores admiten la programación, de modo que se puede especificar con qué frecuencia se deben actualizar los datos. La mayoría de los indexadores proporcionan seguimiento de cambios, siempre el origen de datos lo admita. Mediante el seguimiento de cambios y eliminaciones en documentos existentes, además de reconocer nuevos documentos, los indexadores eliminan la necesidad de administrar activamente los datos del índice. 

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2570e779f258e702f04166dffc3087195d01a983
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420564"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283644"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
 
 > [!NOTE]
-> Aunque en este tutorial se explican los pasos para VM Scale Sets, la misma información se aplica al escalado automático de [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/) y [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Para conocer una configuración simple de escalado y reducción horizontal en una instancia de VM Scale Set en una métrica de rendimiento simple, como CPU, consulte los documentos para [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) y [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
+> Aunque en este tutorial se explican los pasos para VM Scale Sets, la misma información se aplica al escalado automático de [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/) y [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Para conocer una configuración simple de escalado y reducción horizontal en una instancia de VM Scale Set en una métrica de rendimiento simple, como CPU, consulte los documentos para [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) y [Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
 >
 >
 

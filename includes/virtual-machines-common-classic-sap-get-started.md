@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 3ad1f0638284ad1d9b65a5bb6f2d2b03e9c51e04
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1983e7560c986df241e9c592aaaa6b646a99840f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227256"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264028"
 ---
 ## <a name="planning-and-implementation"></a>Planeamiento e implementación
 Título: SAP NetWeaver en Azure Virtual Machines: guía de planeación e implementación
@@ -18,7 +18,7 @@ Resumen: Este es el documento por donde debe empezar si está pensando en ejecut
 
 Actualizado: agosto de 2015
 
-[Descargar esta guía ahora](http://go.microsoft.com/fwlink/?LinkId=397963)
+[Descargar esta guía ahora](https://go.microsoft.com/fwlink/?LinkId=397963)
 
 ## <a name="deployment"></a>Implementación
 Título: SAP NetWeaver en Azure Virtual Machines: Guía de implementación
@@ -27,7 +27,7 @@ Resumen: Este documento proporciona una guía de los procedimientos necesarios p
 
 Actualizado: septiembre de 2015
 
-[Descargar esta guía ahora](http://go.microsoft.com/fwlink/?LinkId=397964)
+[Descargar esta guía ahora](https://go.microsoft.com/fwlink/?LinkId=397964)
 
 ## <a name="sap-dbms-on-azure"></a>SAP DBMS en Azure
 Título: SAP DBMS en la guía de implementación de Azure
@@ -36,7 +36,7 @@ Resumen: Este documento cubre las consideraciones de planeación e implementaci�
 
 Actualización: diciembre de 2015
 
-[Descargar esta guía ahora](http://go.microsoft.com/fwlink/?LinkId=397965)
+[Descargar esta guía ahora](https://go.microsoft.com/fwlink/?LinkId=397965)
 
 ## <a name="sap-netweaver-on-azure"></a>SAP NetWeaver en Azure
 Título: SAP NetWeaver: creación de una solución de recuperación ante desastres basada en Azure
@@ -45,5 +45,5 @@ Resumen: Este documento proporciona una guía paso a paso para crear una soluci�
 
 Actualizado: septiembre de 2015
 
-[Descargar esta guía ahora](http://go.microsoft.com/fwlink/?LinkID=521971)
+[Descargar esta guía ahora](https://go.microsoft.com/fwlink/?LinkID=521971)
 
