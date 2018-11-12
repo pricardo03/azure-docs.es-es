@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: cf0e94b859b49eddb8e2471d5319b3cc4a2c17ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d8e390fc185c3cb0b63bcea56feb4b133652673d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720300"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258840"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -63,7 +63,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 | NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
-| **inputFormat** |Obligatorio |string |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obligatorio |string |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obligatorio |string |Formato de la fecha de salida. |
 
 - - -

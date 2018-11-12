@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a1cdf332e34df5f0b3d2058ba5980b67582f14a2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888169"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248833"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
 
-Antes de empezar a instalarlo, debe [descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) y completar los pasos de los requisitos previos que se señalan en [Requisitos previos de Azure AD Connect](how-to-connect-install-prerequisites.md). Asegúrese también de que posee las cuentas necesarias que se describen en [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md).
+Antes de empezar a instalarlo, debe [descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) y completar los pasos de los requisitos previos que se señalan en [Requisitos previos de Azure AD Connect](how-to-connect-install-prerequisites.md). Asegúrese también de que posee las cuentas necesarias que se describen en [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md).
 
 Si la configuración personalizada no coincide con la topología, por ejemplo, para actualizar DirSync, consulte la [documentación relacionada](#related-documentation) sobre otros escenarios.
 

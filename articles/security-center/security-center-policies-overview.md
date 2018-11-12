@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: ab8a289ea0de263871b76788514052c09a6bf4da
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295744"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256636"
 ---
 # <a name="security-policy-settings"></a>Configuración de directiva de seguridad
 En este documento se ofrece información general sobre la configuración de directivas de seguridad en Security Center.
@@ -56,4 +56,4 @@ En este artículo ha aprendido a configurar directivas de seguridad en Azure Sec
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Seguridad de datos de Azure Security Center](security-center-data-security.md): aprenda cómo Security Center administra y protege los datos.
 * [Preguntas frecuentes acerca de Azure Security Center](security-center-faq.md): obtenga respuestas a las preguntas más frecuentes sobre cómo usar el servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.

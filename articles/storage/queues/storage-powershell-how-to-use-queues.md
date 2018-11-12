@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: 2f347ef0bd53a8d148a56d8431e004e9e88894d8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b89c2607a1b21b999e5f95224e4aefc97e321f14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128578"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251362"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Operaciones en Azure Queue Storage con Azure PowerShell
 
@@ -82,7 +82,7 @@ $queueName = "howtoqueue"
 $queue = New-AzureStorageQueue –Name $queueName -Context $ctx
 ```
 
-Para obtener información sobre las convenciones de nomenclatura del servicio Cola de Azure, consulte [Nomenclatura de colas y metadatos](http://msdn.microsoft.com/library/azure/dd179349.aspx).
+Para obtener información sobre las convenciones de nomenclatura del servicio Cola de Azure, consulte [Nomenclatura de colas y metadatos](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 ## <a name="retrieve-a-queue"></a>Recuperar una cola
 
@@ -100,7 +100,7 @@ Get-AzureStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>un mensaje a una cola
 
-Las operaciones que afectan a los mensajes reales de la cola usan la biblioteca del cliente de Storage de .NET como se expone en PowerShell. Para agregar un mensaje a una cola, cree una instancia del objeto de mensaje, clase [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). A continuación, llame al método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) . Se puede crear un CloudQueueMessage a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
+Las operaciones que afectan a los mensajes reales de la cola usan la biblioteca del cliente de Storage de .NET como se expone en PowerShell. Para agregar un mensaje a una cola, cree una instancia del objeto de mensaje, clase [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://msdn.microsoft.com/library/azure/jj732474.aspx). A continuación, llame al método [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) . Se puede crear un CloudQueueMessage a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
 
 En el siguiente ejemplo le mostraremos cómo agregar un mensaje a la cola.
 
@@ -128,7 +128,7 @@ Los mensajes se leen, en lo posible, siguiendo un orden de tipo primero en entra
 
 Este **tiempo de expiración de invisibilidad** define cuánto tiempo permanece invisible el mensaje antes de volver a estar disponible para procesarse. El valor predeterminado es 30 segundos. 
 
-El código lee un mensaje de la cola en dos pasos. Cuando llama al método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), verá el siguiente mensaje en la cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. Para terminar de eliminar el mensaje de la cola, debe llamar al método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). 
+El código lee un mensaje de la cola en dos pasos. Cuando llama al método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), verá el siguiente mensaje en la cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. Para terminar de eliminar el mensaje de la cola, debe llamar al método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). 
 
 En el ejemplo siguiente, leerá los tres mensajes de la cola y, después, esperará diez segundos (el tiempo de expiración de invisibilidad). A continuación, leerá los tres mensajes de nuevo, eliminando los mensajes tras leerlos mediante una llamada a **DeleteMessage**. Si intenta leer la cola después de que se eliminen los mensajes, se devolverá $queueMessage como NULL.
 

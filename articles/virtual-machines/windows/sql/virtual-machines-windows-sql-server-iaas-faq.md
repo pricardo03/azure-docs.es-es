@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 906cec35c30c277ac1e8bc641d12fe37c29413dd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: edddc40b17adde685f875dfaa6b20879c6e61b15
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427185"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259163"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Preguntas más frecuentes para SQL Server en máquinas virtuales de Windows en Azure
 
@@ -79,7 +79,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Tengo que pagar para obtener una licencia de SQL Server en una máquina virtual de Azure si solo se usa para conmutación por error o en modo en espera?**
 
-   No tiene que pagar por obtener una licencia de SQL Server, como réplica secundaria pasiva en una implementación de alta disponibilidad, si dispone de Software Assurance y usa la Movilidad de Licencias como se describe en [P+F sobre licencias de máquinas virtuales](http://azure.microsoft.com/pricing/licensing-faq/). En caso contrario, deberá pagar para adquirir la licencia.
+   No tiene que pagar por obtener una licencia de SQL Server, como réplica secundaria pasiva en una implementación de alta disponibilidad, si dispone de Software Assurance y usa la Movilidad de Licencias como se describe en [P+F sobre licencias de máquinas virtuales](https://azure.microsoft.com/pricing/licensing-faq/). En caso contrario, deberá pagar para adquirir la licencia.
 
 
 ## <a name="administration"></a>Administración

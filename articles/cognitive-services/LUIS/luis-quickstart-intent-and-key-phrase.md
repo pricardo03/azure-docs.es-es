@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8fa183c22b9b6830c57b0a16b7f5d20ca38e3ef3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166527"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281819"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial: 8: Extracción de frases clave de expresiones
 En este tutorial, va a usar una entidad keyPhrase pregenerada que muestra cómo extraer los temas principales clave de las expresiones. No necesita etiquetar ninguna expresión con entidades pregeneradas. La entidad se detecta automáticamente.
@@ -29,19 +29,19 @@ Las expresiones siguientes muestran ejemplos de frases clave:
 
 La aplicación cliente puede utilizar estos valores, junto con otras entidades extraídas, para decidir el siguiente paso de la conversación.
 
-**En este tutorial, aprenderá lo siguiente:**
+**En este tutorial, aprenderá a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Uso de la aplicación de tutorial existente
+> * Usar la aplicación del tutorial existente
 > * Adición de la entidad KeyPhrase 
 > * Train
 > * Publicar
-> * Obtención de intenciones y entidades del punto de conexión
+> * Obtener intenciones y entidades del punto de conexión
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Uso de una aplicación existente
+## <a name="use-existing-app"></a>Usar una aplicación existente
 
 Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
 
@@ -56,11 +56,11 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 ## <a name="add-keyphrase-entity"></a>Adición de la entidad KeyPhrase 
 Agregue la entidad predefinida keyPhrase para extraer los temas principales de las expresiones.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Seleccione **Entities** (Entidades) en el menú izquierdo.
 
-3. Haga clic en **Manage prebuilt entities** (Administrar entidades predefinidas).
+3. Seleccione **Add prebuilt entity** (Agregar entidad creada previamente).
 
 4. En el cuadro de diálogo emergente, seleccione **keyphrase** y, a continuación, seleccione **Done** (Listo). 
 
@@ -78,7 +78,7 @@ Agregue la entidad predefinida keyPhrase para extraer los temas principales de l
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Obtención de intenciones y entidades desde el punto de conexión
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtención de intenciones y entidades del punto de conexión
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 

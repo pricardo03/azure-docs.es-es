@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2d081604c0ca01f47c3ff2aab7477859d280963
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21c10c4bf19d4bf72c4ec5005bb95353ed00c7aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110173"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256959"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Instalación de actualizaciones de la matriz virtual de StorSimple: Azure Portal
 
@@ -49,7 +49,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para descargar la actualización o la revisión
 
-1. Inicie Internet Explorer y vaya a [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Inicie Internet Explorer y vaya a [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. Si esta es la primera vez que utiliza el Catálogo de Microsoft Update en este equipo, haga clic en **Instalar** cuando se le solicite que instale el complemento del Catálogo de Microsoft Update.
 
@@ -57,7 +57,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
    
     Aparece la lista de revisiones, por ejemplo, **StorSimple Virtual Array Update 0.3**.
    
-    ![Búsqueda de catálogo](./media/storsimple-virtual-array-install-update/download1.png)
+    ![Catálogo de búsqueda](./media/storsimple-virtual-array-install-update/download1.png)
 
 4. Haga clic en **Agregar**. La actualización se agrega a la cesta.
 
@@ -98,7 +98,7 @@ Utilice este método para instalar actualizaciones en un dispositivo que ejecute
    
     ![actualizar dispositivo](./media/storsimple-virtual-array-install-update/update6m.png)
 
-## <a name="use-the-azure-portal"></a>Uso del Portal de Azure
+## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
 Si se ejecuta Update 0.2, recomendamos instalar las actualizaciones mediante Azure Portal. El procedimiento del Portal requiere que el usuario examine, descargue e instale las actualizaciones. Este procedimiento tarda aproximadamente 7 minutos en completarse. Realice los pasos siguientes para instalar la actualización o revisión.
 

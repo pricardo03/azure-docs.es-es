@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032995"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252231"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
@@ -132,7 +132,7 @@ Para recibir información detallada sobre la instalación, use el modificador **
 
 Los runbooks pueden usar cualquiera de las actividades y los cmdlets definidos en los módulos instalados en el entorno de Azure Automation. Estos módulos no se implementan automáticamente en equipos locales, por lo que debe instalarlos de forma manual. La excepción es el módulo de Azure que se instala de manera predeterminada y ofrece acceso a los cmdlets para todos los servicios y actividades de Azure para Azure Automation.
 
-Como el propósito principal de la característica Hybrid Runbook Worker es administrar recursos locales, es muy probable que deba instalar los módulos que admiten estos recursos. Para más información sobre cómo instalar módulos de Windows PowerShell, consulte [Instalación de módulos](http://msdn.microsoft.com/library/dd878350.aspx). 
+Como el propósito principal de la característica Hybrid Runbook Worker es administrar recursos locales, es muy probable que deba instalar los módulos que admiten estos recursos. Para más información sobre cómo instalar módulos de Windows PowerShell, consulte [Instalación de módulos](https://msdn.microsoft.com/library/dd878350.aspx). 
 
 Los módulos instalados deben estar en una ubicación a la que haga referencia la variable de entorno **PSModulePath** para que Hybrid Worker los importe automáticamente. Para más información, consulte [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx) (Modificación de la ruta de instalación PSModulePath).
 

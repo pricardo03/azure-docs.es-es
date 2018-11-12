@@ -10,18 +10,18 @@ ms.component: recommendations
 ms.topic: overview
 ms.date: 02/15/2018
 ms.author: luisca
-ms.openlocfilehash: 59529806c322176c1d85c273a99682eaa7c13e41
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8bdcc7ef4bbe2a769899a6db3e540e8d493e6ced
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222679"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250125"
 ---
 # <a name="recommendations-api-discontinued"></a>Recommendations API (interrumpida)
 
 La versión preliminar de Recommendations API ya no está en desarrollo activo y se retiró oficialmente el 15 de febrero. 
 
-Como alternativa, considere la posibilidad de usar la nueva [plantilla de solución Recomendaciones](http://aka.ms/recopcs) de código abierto, que permite hospedar un motor de recomendaciones en su propia suscripción de Azure. Admite los escenarios principales de Recommendations API, y permite también implementar en cualquier región de Azure y controlar más de cerca los recursos de proceso utilizados para entrenar modelos y atender las recomendaciones. 
+Como alternativa, considere la posibilidad de usar la nueva [plantilla de solución Recomendaciones](https://aka.ms/recopcs) de código abierto, que permite hospedar un motor de recomendaciones en su propia suscripción de Azure. Admite los escenarios principales de Recommendations API, y permite también implementar en cualquier región de Azure y controlar más de cerca los recursos de proceso utilizados para entrenar modelos y atender las recomendaciones. 
 
 Para más información acerca de la plantilla de solución Recomendaciones, consulte [la documentación](https://github.com/Microsoft/Product-Recommendations). 
 

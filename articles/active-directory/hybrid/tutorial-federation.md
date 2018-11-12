@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a869e8d504e4f3557caa7925b89e8c184718af9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 161a5710766db626e4c4ec6bb6fdfafcc20650d5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306084"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248051"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federación de un entorno de bosque de AD único en la nube
 
@@ -280,7 +280,7 @@ Ahora comprobaremos que los usuarios que teníamos en nuestro directorio local s
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Prueba del inicio de sesión con uno de nuestros usuarios
 
-1.  Vaya a [http://myapps.microsoft.com](http://myapps.microsoft.com).
+1.  Vaya a [http://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Inicie sesión con la cuenta de usuario que se creó en nuestro nuevo inquilino.  Deberá iniciar sesión mediante el formato siguiente: (user@domain.onmicrosoft.com). Use la misma contraseña que el usuario utiliza para iniciar sesión en el entorno local.
 ![Verify](media/tutorial-password-hash-sync/verify1.png)
 

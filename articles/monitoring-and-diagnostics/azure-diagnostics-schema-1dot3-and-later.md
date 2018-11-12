@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: a1f6aae69580f2afe5aceabd70cfe8e6fd3151b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5e74a845fbf263791e3e07006e79e4332646dfd5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977951"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256313"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuración de Azure Diagnostics 1.3 y posterior
 > [!NOTE]
@@ -138,8 +138,8 @@ Para obtener información sobre Azure Diagnostics, consulte [este artículo sobr
 
   </WadCfg>  
 
-  <StorageAccount>diagstorageaccount</StorageAccount>
-  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
+  <StorageAccount>diagstorageaccount</StorageAccount>
+  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
   </PublicConfig>  
 
   <PrivateConfig>  <!-- Added in 1.3 -->  
@@ -532,7 +532,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configura la recopilación de eventos generados a partir de la [clase EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo necesario:<br /><br /> **provider**: el nombre de clase del evento EventSource.<br /><br /> Los atributos opcionales son:<br /><br /> - **scheduledTransferLogLevelFilter**: el nivel de gravedad mínimo para transferir a la cuenta de almacenamiento.<br /><br /> - **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](http://www.w3schools.com/xml/schema_dtypes_date.asp). |  
+|**EtwEventSourceProviderConfiguration**|Configura la recopilación de eventos generados a partir de la [clase EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo necesario:<br /><br /> **provider**: el nombre de clase del evento EventSource.<br /><br /> Los atributos opcionales son:<br /><br /> - **scheduledTransferLogLevelFilter**: el nivel de gravedad mínimo para transferir a la cuenta de almacenamiento.<br /><br /> - **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](http://www.w3schools.com/xml/schema_dtypes_date.asp). |  
 |**EtwManifestProviderConfiguration**|Atributo necesario:<br /><br /> **provider**: el GUID del proveedor de eventos<br /><br /> Los atributos opcionales son:<br /><br /> - **scheduledTransferLogLevelFilter**: el nivel de gravedad mínimo para transferir a la cuenta de almacenamiento.<br /><br /> - **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](http://www.w3schools.com/xml/schema_dtypes_date.asp). |  
 
 
@@ -540,7 +540,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etweventsourceproviderconfiguration-element"></a>Elemento EtwEventSourceProviderConfiguration  
  *Árbol: Raíz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
 
- Configura la recopilación de eventos generados a partir de la [clase EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
+ Configura la recopilación de eventos generados a partir de la [clase EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
 |Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  

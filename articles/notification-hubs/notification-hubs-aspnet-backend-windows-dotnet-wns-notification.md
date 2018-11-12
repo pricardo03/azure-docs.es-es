@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
-ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d2d0e878aed5b200852e56a29ce0430305d4efc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452420"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251549"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -43,7 +43,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Prueba de la aplicación
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Este tutorial se basa en el Centro de notificaciones y en el proyecto de Visual Studio que creó en el tutorial [Introducción a Notification Hubs para aplicaciones de la plataforma universal de Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Por consiguiente, complételo antes de iniciar este. 
 
 > [!NOTE]
@@ -222,7 +222,7 @@ En esta sección se actualiza el código del proyecto que completó para el tuto
     ```
 1. Haga clic con el botón derecho en el proyecto **WindowsApp**, haga clic en **Agregar** y, después, en **Clase**. Asigne un nombre a la clase **RegisterClient.cs** y después haga clic en **Aceptar** para generar la clase.
    
-   Esta clase contiene las llamadas REST requeridas para ponerse en contacto con el back-end de la aplicación con la finalidad de registrarlas para las notificaciones push. También almacena localmente los identificadores *registrationIds* creados por el Centro de notificaciones, como se detalla en la sección [Administración de registros desde un back-end](http://msdn.microsoft.com/library/dn743807.aspx). Usa un token de autorización almacenado localmente cuando hace clic en el botón **Login and register** (Iniciar sesión y registrarse).
+   Esta clase contiene las llamadas REST requeridas para ponerse en contacto con el back-end de la aplicación con la finalidad de registrarlas para las notificaciones push. También almacena localmente los identificadores *registrationIds* creados por el Centro de notificaciones, como se detalla en la sección [Administración de registros desde un back-end](https://msdn.microsoft.com/library/dn743807.aspx). Usa un token de autorización almacenado localmente cuando hace clic en el botón **Login and register** (Iniciar sesión y registrarse).
 2. Agregue las siguientes instrucciones `using` en la parte superior del archivo RegisterClient.cs:
 
     ```csharp   

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854888"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283843"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Seguimiento y correlación distribuidos del servicio de mensajería de Service Bus
 
@@ -181,7 +181,7 @@ En todos los eventos puede obtener acceso a `Activity.Current`, que contiene el 
 
 #### <a name="logging-additional-properties"></a>Registrar propiedades adicionales
 
-`Activty.Current` proporciona un contexto detallado de la operación actual y sus elementos primarios. Para obtener más información, consulte la [documentación de las actividades](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md).
+`Activity.Current` proporciona un contexto detallado de la operación actual y sus elementos primarios. Para obtener más información, consulte la [documentación de las actividades](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md).
 La instrumentación de Service Bus proporciona información adicional en el elemento `Activity.Current.Tags`, ya que tiene las opciones `MessageId` y `SessionId` siempre que estén disponibles.
 
 Las actividades que realizan el seguimiento de los eventos "Receive", "Peek" y "ReceiveDeferred" también pueden tener la etiqueta `RelatedTo`. Esta contiene una lista distintiva de los elementos `Diagnostic-Id` de los mensajes que se han recibido como resultado.

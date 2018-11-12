@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f48e9a5600dca1e13d6ee94a675d5bc824915118
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393968"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261067"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de colas que ofrece Microsoft Azure en la actualidad: colas de Storage y colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
@@ -70,7 +70,7 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 | Garantía de ordenación |**No** <br/><br>Para obtener más información, vea la primera nota de la sección "Información adicional".</br> |**Sí- Primero en caducar primero en salir (FIFO)**<br/><br>(mediante el uso de sesiones de mensajería) |
 | Garantía de entrega |**Al menos una vez** |**Al menos una vez**<br/><br/>**Como máximo una vez** |
 | Compatibilidad con la operación atómica |**No** |**Sí**<br/><br/> |
-| Comportamiento de recepción |**Sin bloqueo**<br/><br/>(se completa inmediatamente si no se encuentra ningún mensaje nuevo) |**Bloqueo con/sin tiempo de espera**<br/><br/>(ofrece sondeo largo o ["Técnica de cometa"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sin bloqueo**<br/><br/>(solo mediante el uso de la API administrada de .NET) |
+| Comportamiento de recepción |**Sin bloqueo**<br/><br/>(se completa inmediatamente si no se encuentra ningún mensaje nuevo) |**Bloqueo con/sin tiempo de espera**<br/><br/>(ofrece sondeo largo o ["Técnica de cometa"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sin bloqueo**<br/><br/>(solo mediante el uso de la API administrada de .NET) |
 | API de estilo de inserción |**No** |**Sí**<br/><br/>API de .NET de sesiones de [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) y **OnMessage**. |
 | Modo de recepción |**Ojear y alquilar** |**Ojear y bloquear**<br/><br/>**Recibir y eliminar** |
 | Modo de acceso exclusivo |**Basado en concesión** |**Basado en bloqueo** |

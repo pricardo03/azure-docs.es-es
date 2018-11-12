@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052094"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238801"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Ejecución y prueba de U-SQL con el SDK de U-SQL para Azure Data Lake
 
@@ -36,7 +36,7 @@ El SDK de U-SQL para Data Lake requiere las siguientes dependencias:
 
     ![SDK de Windows 10 para ejecución local de Data Lake Tools para Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Instale [Data Lake Tools para Visual Studio](http://aka.ms/adltoolsvs). Puede encontrar los archivos preconfigurados del SDK de Windows y Visual C++ en C:\Archivos de programa (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. En este caso, el script del compilador local de U-SQL no podrá encontrar estas dependencias automáticamente. Debe especificar la ruta de acceso de CppSDK para él. Puede copiar los archivos en otra ubicación o simplemente usarla como está.
+    - Instale [Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs). Puede encontrar los archivos preconfigurados del SDK de Windows y Visual C++ en C:\Archivos de programa (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. En este caso, el script del compilador local de U-SQL no podrá encontrar estas dependencias automáticamente. Debe especificar la ruta de acceso de CppSDK para él. Puede copiar los archivos en otra ubicación o simplemente usarla como está.
 
 ## <a name="understand-basic-concepts"></a>Conceptos básicos
 

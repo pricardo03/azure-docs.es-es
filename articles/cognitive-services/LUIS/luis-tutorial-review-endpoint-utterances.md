@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d2400c09a7d18faccc94464158419c81962d4a86
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042285"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282159"
 ---
 # <a name="tutorial-1-fix-unsure-predictions"></a>Tutorial 1: Corrección de predicciones no seguras
 En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que tengan que comprobarse para la intención y otras puede que necesiten comprobarse para la entidad. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS. 
@@ -61,7 +61,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 
 ## <a name="review-endpoint-utterances"></a>Revisar las expresiones de punto de conexión
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Seleccione **Review endpoint utterances** (Revisar las expresiones de punto de conexión) en el panel de navegación izquierdo. La lista se filtra para la intención **ApplyForJob**. 
 

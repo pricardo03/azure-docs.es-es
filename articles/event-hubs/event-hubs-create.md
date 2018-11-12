@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: d053edaa187a3e0626f5ea0864d778f44f394bd7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 6a3fe8ae8cfbaeff31bec1d49c3cc5da552e8308
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455783"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254067"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Guía de inicio rápido: Creación de un centro de eventos mediante Azure Portal
-Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Información general detallada de Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
+Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
 
 En esta guía de inicio rápido se crea un centro de eventos mediante [Azure Portal](https://portal.azure.com).
 
@@ -27,7 +27,7 @@ En esta guía de inicio rápido se crea un centro de eventos mediante [Azure Por
 Para completar esta guía de inicio rápido, asegúrese de que tiene:
 
 - Suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](http://www.visualstudio.com/vs) o posterior.
+- [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](https://www.visualstudio.com/vs) o posterior.
 - [SDK de .NET Standard](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 
 ## <a name="create-a-resource-group"></a>Creación de un grupo de recursos

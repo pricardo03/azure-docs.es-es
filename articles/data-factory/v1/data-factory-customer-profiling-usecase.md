@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b60e4f3547e049dc35c08ce115bdfcbbf6ebb18a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 5345ca3a9c2f35b45669a3a54ecb42ca627cde32
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246653"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259826"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Generación de perfiles de clientes
-Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Para más información sobre Cortana Intelligence, visite [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics)(conjunto de aplicaciones de Cortana Intelligence). En este documento se describe un caso de uso sencillo para que pueda comprender cómo Azure Data Factory puede resolver los problemas comunes de análisis.
+Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Para más información sobre Cortana Intelligence, visite [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics)(conjunto de aplicaciones de Cortana Intelligence). En este documento se describe un caso de uso sencillo para que pueda comprender cómo Azure Data Factory puede resolver los problemas comunes de análisis.
 
 ## <a name="scenario"></a>Escenario
 Contoso es una empresa de juegos que crea juegos para varias plataformas: consolas de juegos, dispositivos portátiles y PC. A medida que los usuarios juegan a estos juegos, se generan grandes volúmenes de datos de registro que realizan el seguimiento de los patrones de uso, estilo de juegos y preferencias del usuario.  Cuando se combinan con datos demográficos, regionales y de productos, Contoso realiza análisis para guiar a los usuarios sobre cómo mejorar su experiencia y orientarles sobre actualizaciones y compras en el juego. 

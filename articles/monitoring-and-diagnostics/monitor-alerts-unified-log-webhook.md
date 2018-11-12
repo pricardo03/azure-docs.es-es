@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ee38eb32886c050eb87b2d6ed91252ee7bcfea0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989301"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280715"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta de registro en Azure](alert-log.md), tiene la opción de [configurarla mediante grupos de acciones](monitoring-action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
@@ -79,7 +79,7 @@ Para incluir resultados de búsqueda en una carga personalizada, asegúrese de q
 En esta sección se muestra la carga de ejemplo de webhook para las alertas del registro, incluso cuando la carga es estándar y se ha personalizado.
 
 > [!NOTE]
-> Para garantizar la compatibilidad con versiones anteriores, la carga de webhook estándar para alertas correspondiente a Azure Log Analytics es la misma que la [administración de alertas de Log Analytics](../log-analytics/log-analytics-alerts-creating.md). En cuanto a las alertas de registro que usan [Application Insights](../application-insights/app-insights-analytics.md), la carga de webhook estándar se basa en el esquema del grupo de acciones.
+> Para garantizar la compatibilidad con versiones anteriores, la carga de webhook estándar para alertas correspondiente a Azure Log Analytics es la misma que la [administración de alertas de Log Analytics](../monitoring-and-diagnostics/alert-metric.md). En cuanto a las alertas de registro que usan [Application Insights](../application-insights/app-insights-analytics.md), la carga de webhook estándar se basa en el esquema del grupo de acciones.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook estándar de las alertas de registro 
 En ambos ejemplos se indica una carga ficticia con solo dos columnas y dos filas.
@@ -201,4 +201,4 @@ A continuación se muestra una carga de ejemplo para una acción de webhook pers
 - Información sobre la [administración de alertas de registro en Azure](alert-log.md)
 - Crear y administrar [grupos de acciones en Azure](monitoring-action-groups.md)
 - Más información sobre [Application Insights](../application-insights/app-insights-analytics.md)
-- Más información sobre [Log Analytics](../log-analytics/log-analytics-overview.md). 
+- Más información sobre [Log Analytics](../log-analytics/log-analytics-queries.md). 

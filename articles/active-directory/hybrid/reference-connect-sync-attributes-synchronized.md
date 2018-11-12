@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ea901d51403096166b367a1586cb26d2d914e2d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306534"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251805"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect Sync: atributos sincronizados con Azure Active Directory
 En este tema se enumeran los atributos que se sincronizan mediante la sincronización de Azure AD Connect.  
@@ -376,7 +376,7 @@ En este caso, comience con la lista de atributos de este tema e identifique aque
 Este grupo es un conjunto de atributos que se usan como atributos mínimos necesarios para una carga de trabajo o aplicación genérica. Se puede emplear para cargas de trabajo que no figuren en otra sección o para una aplicación que no sea de Microsoft. Se usa explícitamente para lo siguiente:
 
 * Yammer (solo se consume User)
-* [Escenarios híbridos de colaboración entre organizaciones negocio a negocio (B2B) ofrecidos por recursos como SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
+* [Escenarios híbridos de colaboración entre organizaciones negocio a negocio (B2B) ofrecidos por recursos como SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
 Este grupo es un conjunto de atributos que se pueden usar si no se emplea el directorio de Azure AD para admitir Office 365, Dynamics o Intune. Tiene un pequeño conjunto de atributos principales.
 
