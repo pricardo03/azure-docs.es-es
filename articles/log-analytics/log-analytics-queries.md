@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6e587f79f0f77446ea5a61cbb989f3f1c3655e0a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741766"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005060"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Análisis de los datos de Log Analytics en Azure Monitor
 
@@ -32,7 +32,7 @@ Los datos de registro que recopila Azure Monitor se almacenan en un área de tra
 
 ## <a name="log-queries"></a>Consultas de registros
 
-Requiere una consulta de registros para recuperar datos de Log Analytics.  Si está [analizando los datos en el portal](log-analytics-log-search-portals.md), [configurando una regla de alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para recibir una notificación sobre una condición determinada o recuperando datos mediante la [API de Log Analytics](https://dev.loganalytics.io/), usará una consulta para especificar los datos que quiere.  En este artículo se describe cómo se usan las búsquedas de registros en Log Analytics y se proporcionan los conceptos que debe comprender antes de crear una.
+Requiere una consulta de registros para recuperar datos de Log Analytics.  Si está [analizando los datos en el portal](log-analytics-log-search-portals.md), [configurando una regla de alertas](../monitoring-and-diagnostics/alert-metric.md) para recibir una notificación sobre una condición determinada o recuperando datos mediante la [API de Log Analytics](https://dev.loganalytics.io/), usará una consulta para especificar los datos que quiere.  En este artículo se describe cómo se usan las búsquedas de registros en Log Analytics y se proporcionan los conceptos que debe comprender antes de crear una.
 
 
 
@@ -41,12 +41,12 @@ Requiere una consulta de registros para recuperar datos de Log Analytics.  Si es
 Entre las distintas formas en que usará las consultas en Log Analytics se incluyen las siguientes:
 
 - **Portales.** Puede realizar análisis interactivos de los datos de registro en [Azure Portal](log-analytics-log-search-portals.md).  Esto le permite modificar la consulta y analizar los resultados en una gran variedad de formatos y visualizaciones.  
-- **Reglas de alertas.** [Las reglas de alertas](log-analytics-alerts.md) identifican de manera proactiva los problemas de datos del área de trabajo.  Cada regla de alertas se basa en una búsqueda de registros que se ejecuta automáticamente a intervalos regulares.  Los resultados se inspeccionan para determinar si se debe crear una alerta.
+- **Reglas de alertas.** [Las reglas de alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identifican de manera proactiva los problemas de datos del área de trabajo.  Cada regla de alertas se basa en una búsqueda de registros que se ejecuta automáticamente a intervalos regulares.  Los resultados se inspeccionan para determinar si se debe crear una alerta.
 - **Paneles.** Puede anclar los resultados de cualquier consulta en un [panel de Azure](), que le permitirá visualizar los datos de registros y métricas en conjunto y, opcionalmente, compartirlos con otros usuarios de Azure. 
 - **Vistas.**  Puede crear visualizaciones de datos que se incluyan en los paneles de usuario con el [diseñador de vistas](log-analytics-view-designer.md).  Las consultas de registros proporcionan los datos utilizados por [iconos](log-analytics-view-designer-tiles.md) y [elementos de visualización](log-analytics-view-designer-parts.md) en cada vista.  
 - **Exportación.**  Cuando importe datos desde el área de trabajo de Log Analytics a Excel o [Power BI](log-analytics-powerbi.md), cree una consulta de registros para definir los datos que se van a exportar.
 - **PowerShell.** Puede ejecutar un script de PowerShell desde una línea de comandos o un runbook de Azure Automation que utilice el cmdlet [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar los datos de Log Analytics.  Este cmdlet requiere una consulta para determinar los datos que se van a recuperar.
-- **API de Log Analytics.**  La [API de búsqueda de registros de Log Analytics](log-analytics-log-search-api.md) permite que cualquier cliente de API REST recupere datos del área de trabajo.  La solicitud de API incluye una consulta que se ejecuta en Log Analytics para determinar los datos que se van a recuperar.
+- **API de Log Analytics.**  La [API de búsqueda de registros de Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) permite que cualquier cliente de API REST recupere datos del área de trabajo.  La solicitud de API incluye una consulta que se ejecuta en Log Analytics para determinar los datos que se van a recuperar.
 
 ![Búsqueda de registros](media/log-analytics-queries/queries-overview.png)
 

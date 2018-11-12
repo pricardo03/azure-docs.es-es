@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: e2d1ccbc6532da3600c952236c3904c9e55294c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279428"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093840"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -112,7 +112,7 @@ Póngase en contacto con [soporte técnico](https://portal.azure.com/#blade/Micr
 
 ## <a name="validate-move"></a>Validar el movimiento
 
-La [operación de validación del movimiento](/rest/api/resources/resources/validatemoveresources) le permite probar el escenario de movimiento sin mover realmente los recursos. Use esta operación para determinar si el movimiento se realizará correctamente. Para ejecutar esta operación, necesita el:
+La [operación de validación del movimiento](/rest/api/resources/resources/resources_validatemoveresources) le permite probar el escenario de movimiento sin mover realmente los recursos. Use esta operación para determinar si el movimiento se realizará correctamente. Para ejecutar esta operación, necesita el:
 
 * nombre del grupo de recursos de origen
 * identificador de recurso del grupo de recursos de destino

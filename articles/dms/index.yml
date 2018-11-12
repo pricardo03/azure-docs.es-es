@@ -1,0 +1,75 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: a314401883d0325029ce50502f85c335458e3959
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285057"
+documentType: LandingData
+title: Documentación sobre Azure Database Migration Service
+metadata:
+  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
+  title: 'Documentación sobre Azure Database Migration Service: Tutoriales | Microsoft Docs'
+  meta.description: Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service.
+  services: functions
+  author: pochiraju
+  manager: craigg
+  ms.service: dms
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2018
+  ms.author: rajpo
+abstract:
+  description: Azure Database Migration Service permite migraciones completas de varios orígenes de base de datos a plataformas de datos de Azure, con un tiempo de inactividad mínimo. El servicio utiliza Data Migration Assistant para generar informes de evaluación que proporcionen recomendaciones que le guíen a través de los cambios necesarios antes de realizar una migración. Cuando esté listo para comenzar el proceso de migración, Azure Database Migration Service realizará todos los pasos necesarios.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/video-thumb-intro2dms.png
+      width: 250
+    title: Introducción a Azure DMS (1:30)
+    href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
+    width: 250
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Aprenda a migrar instancias locales de SQL Server a Azure SQL Database mediante Azure Database Migration Service:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/dms/quickstart-create-data-migration-service-portal
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Aprenda a migrar bases de datos con Database Migration Service:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">Migración de SQL Server a Azure SQL Database sin conexión mediante DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migración de SQL Server a Azure SQL Database en línea mediante DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migración de SQL Server a Instancia administrada de Azure SQL Database sin conexión mediante DMS</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migración de SQL Server a Instancia administrada de Azure SQL Database en línea mediante DMS</a>
+    - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migración de MySQL a Azure Database for MySQL en línea mediante DMS</a>
+    - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migración de PostgreSQL a Azure Database for PostgreSQL en línea mediante DMS</a>
+- title: Ejemplos
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">Migración de SQL Server local a Azure SQL Database mediante Azure PowerShell</a>
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">Migración de SQL Server local a Instancia administrada de Azure SQL Database mediante Azure PowerShell</a>
+- title: Referencia
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/pre-reqs">Información general sobre los requisitos previos para usar Azure Database Migration Service</a>
+    - html: <a href="/azure/dms/faq">Preguntas más frecuentes sobre el uso de Azure Database Migration Service</a>
+    - html: <a href="/azure/dms/known-issues-azure-sql-online">Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL DB</a>
