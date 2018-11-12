@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b8c3a2cc67c47753957963fc04b52f934b10ddfc
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041720"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014030"
 ---
 # <a name="data-sources-in-log-analytics"></a>Orígenes de datos en Log Analytics
 Log Analytics recopila datos de los orígenes conectados y los almacena en el área de trabajo de Log Analytics.  Los orígenes de datos que configura definen los datos que se recopilan de cada uno de ellos.  Los datos de Log Analytics se almacenan como un conjunto de registros.  Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.
 
 ![Recopilación de datos de Log Analytics](./media/log-analytics-data-sources/overview.png)
 
-Los orígenes de datos son distintos de las [soluciones de administración](log-analytics-add-solutions.md), que también recopilan datos de los orígenes conectados y crean registros en Log Analytics.  Además de recopilar datos, las soluciones incluyen normalmente búsquedas y vistas de registros que ayudan a analizar el funcionamiento de una aplicación o servicio determinados.
+Los orígenes de datos son distintos de las [soluciones de administración](../monitoring/monitoring-solutions.md), que también recopilan datos de los orígenes conectados y crean registros en Log Analytics.  Además de recopilar datos, las soluciones incluyen normalmente búsquedas y vistas de registros que ayudan a analizar el funcionamiento de una aplicación o servicio determinados.
 
 
 ## <a name="summary-of-data-sources"></a>Resumen de orígenes de datos
@@ -68,5 +68,5 @@ Todos los datos que recopila Log Analytics se almacenan en el área de trabajo c
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Conozca las [soluciones](../monitoring/monitoring-solutions.md) que agregan funcionalidad a Log Analytics y que también recopilan datos del área de trabajo.
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
-* Configure [alertas](log-analytics-alerts.md) que le notifiquen de manera proactiva acerca de los datos críticos recopilados de soluciones y orígenes de datos.
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
+* Configure [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) que le notifiquen de manera proactiva acerca de los datos críticos recopilados de soluciones y orígenes de datos.
