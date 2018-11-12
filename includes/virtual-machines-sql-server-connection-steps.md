@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: c7c3aea53a1bbdbfc39bad568b2879311e365acd
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4d77e9b57301bea30d8a33985071c28e972a81a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226611"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264145"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Apertura de puertos TCP en el firewall de Windows para la instancia predeterminada del motor de base de datos
 1. Conéctese a la máquina virtual con Escritorio remoto. Para obtener instrucciones detalladas acerca de cómo conectarse a la máquina virtual, consulte [Open a SQL VM with Remote Desktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop)(Apertura de una VM de SQL con Escritorio remoto).
@@ -38,7 +38,7 @@ ms.locfileid: "50226611"
    
     ![Nombre de la regla](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
 
-Abra puertos adicionales para otros componentes cada vez que sea necesario. Para obtener más información, consulte [Configurar Firewall de Windows para permitir el acceso a SQL Server](http://msdn.microsoft.com/library/cc646023.aspx).
+Abra puertos adicionales para otros componentes cada vez que sea necesario. Para obtener más información, consulte [Configurar Firewall de Windows para permitir el acceso a SQL Server](https://msdn.microsoft.com/library/cc646023.aspx).
 
 ### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Configuración de SQL Server para escuchar en el protocolo TCP
 
@@ -94,5 +94,5 @@ Para conectarse al motor de base de datos desde otro equipo, debe crear al menos
    ![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 9. Haga clic en Aceptar.
 
-Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](http://msdn.microsoft.com/library/aa337562.aspx).
+Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](https://msdn.microsoft.com/library/aa337562.aspx).
 

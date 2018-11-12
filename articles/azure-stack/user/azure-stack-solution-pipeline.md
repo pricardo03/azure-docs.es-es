@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952008"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280748"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementación de aplicaciones en Azure y Azure Stack
 
@@ -273,21 +273,57 @@ Mediante la creación de puntos de conexión, una compilación de Visual Studio 
 10. Seleccione **Save changes** (Guardar los cambios).
 
 Ahora que existe la información del punto de conexión, la conexión de Azure DevOps Services con Azure Stack está lista para su uso. El agente de compilación de Azure Stack obtiene instrucciones de Azure DevOps Services y, a continuación, el agente transmite la información del punto de conexión para la comunicación con Azure Stack.
+
 ## <a name="create-an-azure-stack-endpoint"></a>Creación de un punto de conexión de Azure Stack
+
+### <a name="create-an-endpoint-for-azure-ad-deployments"></a>Creación de un punto de conexión para implementaciones de Azure AD
 
 Puede seguir las instrucciones del artículo [Create an Azure Resource Manager service connection with an existing service principal](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) (Creación de una conexión de servicio de Azure Resource Manager con una entidad de servicio existente) para crear una conexión de servicio con una entidad de servicio existente y usar la siguiente asignación:
 
-- Entorno: AzureStack
-- Dirección URL del entorno: algo parecido a `https://management.local.azurestack.external`
-- Id. de suscripción: identificador de suscripción del usuario de Azure Stack
-- Nombre de suscripción: nombre de suscripción del usuario de Azure Stack
-- Id. de cliente de entidad de servicio: identificador de la entidad de [esta](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sección del artículo
-- Clave de entidad de servicio: clave del mismo artículo (o la contraseña si usa el script)
-- Id. de inquilino: identificador del inquilino que se recupera con las instrucciones de [Obtención del identificador de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)
+Puede crear una conexión de servicio mediante la asignación siguiente:
 
-Ahora que se ha creado el punto de conexión, la conexión de VSTS con Azure Stack está lista para su uso. El agente de compilación de Azure Stack obtiene instrucciones de VSTS y, a continuación, el agente transmite la información del punto de conexión para la comunicación con Azure Stack.
+| NOMBRE | Ejemplo | DESCRIPCIÓN |
+| --- | --- | --- |
+| Nombre de conexión | Azure AD de Azure Stack | El nombre de la conexión |
+| Entorno | AzureStack | El nombre del entorno |
+| Dirección URL del entorno | `https://management.local.azurestack.external` | El punto de conexión de administración |
+| Nivel de ámbito | Subscription | El ámbito de la conexión |
+| Id. de suscripción | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Identificador de suscripción del usuario de Azure Stack |
+| Nombre de la suscripción | name@contoso.com | El nombre de suscripción del usuario de Azure Stack |
+| Id. de cliente de la entidad de servicio | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | El identificador de la entidad de [esta](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sección del artículo |
+| Clave de entidad de servicio | THESCRETGOESHERE= | La clave del mismo artículo (o la contraseña si usa el script) |
+| Id. de inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | El identificador del inquilino que se recupera con las instrucciones de [Obtención del identificador de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)  |
+| Conexión: | Not verified (Sin comprobar) | Valide la configuración de conexión a la entidad de servicio. |
 
-![Agente de compilación](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+Ahora que se ha creado el punto de conexión, la conexión de DevOps con Azure Stack está lista para su uso. El agente de compilación de Azure Stack obtiene instrucciones de DevOps y, a continuación, el agente transmite la información del punto de conexión para la comunicación con Azure Stack.
+
+![Creación de un agente de Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+### <a name="create-an-endpoint-for-ad-fs"></a>Creación de un punto de conexión para AD FS
+
+La última actualización de Azure DevOps permite crear una conexión de servicio mediante una entidad de servicio con un certificado de autenticación. Esto es necesario cuando se implementa Azure Stack con AD FS como proveedor de identidades. 
+
+![Creación de un agente de AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+
+Puede crear una conexión de servicio mediante la asignación siguiente:
+
+| NOMBRE | Ejemplo | DESCRIPCIÓN |
+| --- | --- | --- |
+| Nombre de conexión | Azure Stack ADFS | El nombre de la conexión |
+| Entorno | AzureStack | El nombre del entorno |
+| Dirección URL del entorno | `https://management.local.azurestack.external` | El punto de conexión de administración |
+| Nivel de ámbito | Subscription | El ámbito de la conexión |
+| Id. de suscripción | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Identificador de suscripción del usuario de Azure Stack |
+| Nombre de la suscripción | name@contoso.com | El nombre de suscripción del usuario de Azure Stack |
+| Id. de cliente de la entidad de servicio | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | El identificador de cliente de la entidad de servicio que se creó para AD FS. |
+| Certificate | `<certificate>` |  Convierta el archivo de certificado de PFX a PEM Pegue el contenido del archivo de certificado PEM en este campo. <br> Conversión de PFX a PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
+| Id. de inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | El identificador del inquilino que se recupera con las instrucciones de [Obtención del identificador de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id) |
+| Conexión: | Not verified (Sin comprobar) | Valide la configuración de conexión a la entidad de servicio. |
+
+Ahora que se ha creado el punto de conexión, la conexión de Azure DevOps con Azure Stack está lista para su uso. El agente de compilación de Azure Stack obtiene instrucciones de Azure DevOps y, a continuación, el agente transmite la información del punto de conexión para la comunicación con Azure Stack.
+
+> [!Note]
+> Si el punto de conexión de ARM del usuario de Azure Stack no se expone a Internet, se producirá un error en la validación de conexión. Esto es normal y puede validar su conexión mediante la creación de una canalización de versión con una tarea simple. 
 
 ## <a name="develop-your-application-build"></a>Desarrollo de la aplicación
 

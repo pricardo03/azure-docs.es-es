@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 45a6bd349169265ef411d01a3601a27551847633
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 37dc96cf965181c5acba74449c684a08035e37b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226582"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263968"
 ---
 En este artículo encontrará respuestas a algunas de las preguntas más comunes de los usuarios sobre las máquinas virtuales de Azure creadas con el modelo de implementación clásico.
 
@@ -22,9 +22,9 @@ Sí. Para obtener instrucciones sobre cómo realizar la migración, consulte:
 ## <a name="what-can-i-run-on-an-azure-vm"></a>¿Qué puedo ejecutar en una máquina virtual de Azure?
 Todos los suscriptores pueden ejecutar software de servidor en una máquina virtual de Azure. Puede ejecutar versiones recientes de Windows Server, así como varias distribuciones de Linux. Para obtener más información de soporte técnico, consulte:
 
-• Para máquinas virtuales de Windows: [soporte de software del servidor de Microsoft para Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Para máquinas virtuales de Windows: [soporte de software del servidor de Microsoft para Azure Virtual Machines](https://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• Para máquinas virtuales de Linux: [Linux en distribuciones aprobadas por Azure](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• Para máquinas virtuales de Linux: [Linux en distribuciones aprobadas por Azure](https://go.microsoft.com/fwlink/p/?LinkId=393551)
 
 Para imágenes de cliente de Windows, hay disponibles determinadas versiones de Windows 7 y Windows 8.1 para suscriptores de MSDN Azure y suscriptores de pago por uso de desarrollo y prueba de MSDN, para tareas de desarrollo y prueba. Para obtener más información, como instrucciones y limitaciones, consulte [Imágenes de cliente de Windows para los suscriptores de MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
@@ -38,10 +38,10 @@ Las características de los grupos de afinidad ya están en desuso en el modelo 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>¿Cuánto almacenamiento puedo usar con una máquina virtual?
 Cada disco de datos puede ser de hasta 1 TB. El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Una cuenta de almacenamiento de Azure proporciona almacenamiento para el disco del sistema operativo y los discos de datos. Cada disco es un archivo .vhd almacenado como un blob en páginas. Para obtener información detallada sobre los precios, consulte [Detalles de precios de almacenamiento](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+Una cuenta de almacenamiento de Azure proporciona almacenamiento para el disco del sistema operativo y los discos de datos. Cada disco es un archivo .vhd almacenado como un blob en páginas. Para obtener información detallada sobre los precios, consulte [Detalles de precios de almacenamiento](https://go.microsoft.com/fwlink/p/?LinkId=396819).
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>¿Qué tipos de disco duro virtual se puede usar?
-Azure solo admite discos duros virtuales fijos con formato VHD. Si tiene un disco VHDX que quiere usar en Azure, debe convertirlo mediante el Administrador de Hyper-V o el cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) . Una vez hecho esto, use el cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (en modo de administración de servicios) para cargar el VHD en una cuenta de almacenamiento de Azure para que pueda usarlo con máquinas virtuales.
+Azure solo admite discos duros virtuales fijos con formato VHD. Si tiene un disco VHDX que quiere usar en Azure, debe convertirlo mediante el Administrador de Hyper-V o el cmdlet [convert-VHD](https://go.microsoft.com/fwlink/p/?LinkId=393656) . Una vez hecho esto, use el cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (en modo de administración de servicios) para cargar el VHD en una cuenta de almacenamiento de Azure para que pueda usarlo con máquinas virtuales.
 
 * Para obtener instrucciones para Linux, consulte [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
@@ -50,7 +50,7 @@ En muchos aspectos son similares a las máquinas virtuales Hyper-V de "generaci�
 
 * Azure no proporciona acceso a consolas a una máquina virtual. No hay ninguna manera de obtener acceso a una máquina virtual hasta que se hace arranque.
 * Las máquinas virtuales de Azure de la mayoría de [tamaños](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) solo tienen un adaptador de red virtual, lo que significa que solo pueden tener una dirección IP externa. (Los tamaños A8 y A9 emplean un segundo adaptador de red para la comunicación de aplicaciones entre las instancias en escenarios limitados).
-* Las máquinas virtuales de Azure no admiten funciones de máquina virtual de Hyper-V de generación 2. Para más información sobre estas características, consulte [Especificaciones de máquina virtual para Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) e [Introducción a las máquinas virtuales de generación 2](https://technet.microsoft.com/library/dn282285.aspx).
+* Las máquinas virtuales de Azure no admiten funciones de máquina virtual de Hyper-V de generación 2. Para más información sobre estas características, consulte [Especificaciones de máquina virtual para Hyper-V](https://technet.microsoft.com/library/dn592184.aspx) e [Introducción a las máquinas virtuales de generación 2](https://technet.microsoft.com/library/dn282285.aspx).
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>¿Pueden estas máquinas virtuales usar mi infraestructura de red local existente?
 Para las máquinas virtuales creadas en el modelo de implementación clásico, puede usar la instancia de Azure Virtual Network para extender su infraestructura existente. El enfoque es como configurar una sucursal. Puede aprovisionar y administrar redes privadas virtuales (VPN) en Azure, así como conectarlas de forma segura con la infraestructura de TI local. Para obtener más información, consulte [Información general de la red virtual](../articles/virtual-network/virtual-networks-overview.md).
@@ -85,7 +85,7 @@ Generalmente, el término "Actualizar" significa cambiar a una versión más rec
 * Las máquinas virtuales de Linux usan las herramientas de administración de paquetes y procedimientos adecuados para la distribución.
 * En una máquina virtual de Windows, debe migrar el servidor con algo parecido a las herramientas de migración de Windows Server. No intente actualizar el sistema operativo invitado cuando resida en Azure. No se admite debido al riesgo de perder el acceso a una máquina virtual. Si se producen problemas durante la actualización, podría perder la capacidad de iniciar una sesión de escritorio remoto y no sería capaz de solucionar los problemas.
 
-Para obtener información general sobre las herramientas y procesos para migrar a Windows Server, consulte [Migración de roles y características a Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
+Para obtener información general sobre las herramientas y procesos para migrar a Windows Server, consulte [Migración de roles y características a Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>¿Cuál es el nombre de usuario predeterminado y la contraseña en la máquina virtual?
 Las imágenes proporcionadas por Azure no tienen un nombre de usuario configurado previamente y una contraseña. Cuando cree la máquina virtual mediante una de esas imágenes, deberá proporcionar un nombre de usuario y una contraseña, que usará para iniciar sesión en la máquina virtual.
@@ -100,8 +100,8 @@ Detalles adicionales:
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>¿Puede Azure ejecutar antivirus en las máquinas virtuales?
 Azure ofrece varias opciones para soluciones antivirus, pero la administración depende de usted. Por ejemplo, podría necesitar una suscripción independiente para el software antimalware y tendrá que decidir cuándo ejecutar análisis e instalar las actualizaciones. Puede agregar soporte antivirus con una extensión de máquina virtual de Microsoft Antimalware, Symantec Endpoint Protection o TrendMicro Deep Security Agent al crear una máquina virtual de Windows o en un momento posterior. Las extensiones de Symantec y TrendMicro le permiten usar una suscripción de prueba gratuita de tiempo limitado o una suscripción existente de empresa. Microsoft Antimalware es gratuito. Para obtener información, consulte:
 
-* [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-* [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](http://go.microsoft.com/fwlink/p/?LinkId=404206)
+* [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](https://go.microsoft.com/fwlink/p/?LinkId=404207)
+* [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](https://go.microsoft.com/fwlink/p/?LinkId=404206)
 * [Implementación de soluciones antimalware en Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>¿Qué opciones tengo para la copia de seguridad y la recuperación?

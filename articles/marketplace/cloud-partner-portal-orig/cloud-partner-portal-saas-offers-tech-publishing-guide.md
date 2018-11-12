@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d73040f11549741643d96913c42df49594b8d41
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807272"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228902"
 ---
 <a name="saas-application-technical-publishing-guide"></a>Guía de publicación técnica de aplicaciones SaaS
 ===========================================
@@ -34,7 +34,7 @@ Para obtener información general de todas las demás ofertas de Marketplace, co
 
 El portal de publicación proporciona un acceso basado en rol al portal lo cual permite que varias personas colaboren en la publicación de una oferta. Para más información, consulte [Administración de usuarios](./cloud-partner-portal-manage-users.md). 
 
-Antes de publicar una oferta en nombre de un publicador de cuenta, una persona con el rol *Propietario* tiene que aceptar los [Términos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Declaración de privacidad de Microsoft](http://www.microsoft.com/privacystatement/default.aspx) y el [Contrato del programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Antes de publicar una oferta en nombre de un publicador de cuenta, una persona con el rol *Propietario* tiene que aceptar los [Términos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Declaración de privacidad de Microsoft](https://www.microsoft.com/privacystatement/default.aspx) y el [Contrato del programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 
 <a name="creating-an-offer"></a>Creación de una oferta
@@ -70,7 +70,7 @@ En la siguiente tabla se describen los campos de la oferta:
 
 | **Campos de la oferta** | **Descripción**                                                                                            |
 |------------------|----------------------------------------------------------------------------------------------------------- |
-| Id. de oferta         | Un identificador único de la oferta en un perfil del anunciante. Este identificador se mostrará en las direcciones URL de producto y en los informes de facturación. Puede contener solo caracteres alfanuméricos en minúscula o guiones (-). El identificador, que tendrá 50 caracteres como máximo, no puede terminar con un guion. Tenga en cuenta que este campo queda bloqueado en cuanto se lanza una oferta. Por ejemplo, si un anunciante llamado Contoso publica una oferta con el identificador de oferta sample-vm, este aparecerá en Azure Marketplace como: [https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview](https://azuremarketplace.microsoft.com/) |
+| Id. de oferta         | Identificador único de la oferta en un perfil del anunciante. Este identificador se mostrará en las direcciones URL de producto y en los informes de facturación. Puede contener solo caracteres alfanuméricos en minúscula o guiones (-). El identificador, que tendrá 50 caracteres como máximo, no puede terminar con un guion. Tenga en cuenta que este campo queda bloqueado en cuanto se lanza una oferta. Por ejemplo, si un anunciante llamado Contoso publica una oferta con el identificador de oferta sample-vm, este aparecerá en Azure Marketplace como: [https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview](https://azuremarketplace.microsoft.com/) |
 | Id. de publicador     | El identificador del anunciante es su identificador único en Marketplace. Se deben asociar todas las ofertas al identificador del anunciante. Este identificador no se puede modificar una vez que se haya guardado la oferta.                                                                                       |
 | NOMBRE             | Se trata del nombre para mostrar de la oferta. Este es el nombre que se mostrará en Azure Marketplace y en Azure Portal. Puede tener un máximo de 50 caracteres. Aquí se recomienda incluir un nombre de marca que identifique el producto. No incluya aquí el nombre de su empresa a menos sea así como se comercializa. Si comercializa esta oferta en su propio sitio web, asegúrese de que el nombre sea exactamente el mismo que aparece en el sitio web.             |
 |  |  |

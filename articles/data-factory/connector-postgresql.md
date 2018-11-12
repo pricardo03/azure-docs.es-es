@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 6279e088b8abd574bbd8ef6488d986d42c91123c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1c321d96efc7af387fb30b6ed608eb871cb7de5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046061"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230502"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copia de datos desde PostgreSQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,11 +33,11 @@ Puede copiar datos desde la base de datos PostgreSQL en cualquier almacén de da
 
 En concreto, este conector PostgreSQL es compatible con la **versión 7.4 y posterior** de PostgreSQL.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si la base de datos PostgreSQL no está accesible públicamente, debe configurar un entorno de Integration Runtime autohospedado. Para obtener información sobre los entornos Integration Runtime (autohospedado), consulte el artículo sobre los [entornos Integration Runtime (autohospedado)](create-self-hosted-integration-runtime.md). El entorno de Integration Runtime proporciona un controlador de PostgreSQL integrado a partir de la versión 3.7, por lo tanto, no es necesario que instale uno manualmente.
 
-Si tiene una versión de IR autohospedado anterior a 3.7, debe instalar el [proveedor de datos Ngpsql para PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716), con una versión entre 2.0.12 y 3.1.9 en la máquina de Integration Runtime.
+Si tiene una versión de IR autohospedado anterior a 3.7, debe instalar el [proveedor de datos Ngpsql para PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716), con una versión entre 2.0.12 y 3.1.9 en la máquina de Integration Runtime.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -51,8 +51,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado PostgreSQL:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **PostgreSql** | Sí |
-| connectionString | Cadena de conexión de ODBC para conectarse a Azure Database for PostgreSQL. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| Tipo | La propiedad type debe establecerse en: **PostgreSql** | SÍ |
+| connectionString | Cadena de conexión de ODBC para conectarse a Azure Database for PostgreSQL. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 Una cadena de conexión típica es `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Más propiedades que puede establecer para su caso:
@@ -117,7 +117,7 @@ Para copiar datos desde PostgreSQL, establezca la propiedad type del conjunto de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | SÍ |
 | tableName | Nombre de la tabla de la base de datos PostgreSQL. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -147,7 +147,7 @@ Para copiar datos desde PostgreSQL, establezca el tipo de origen de la actividad
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | SÍ |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 > [!NOTE]

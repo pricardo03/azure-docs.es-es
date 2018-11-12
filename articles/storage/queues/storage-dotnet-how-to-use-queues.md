@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 06/13/2018
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 11b43037a16072bcb2056b70305eeef9d3b5d4ce
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e0a38a8494e0a0ae9288aab5c3d491946dc629f8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729021"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231556"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introducción al Almacenamiento en cola de Azure mediante .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -277,8 +277,8 @@ queue.Delete();
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
 * Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
-  * [Referencia de la biblioteca de clientes de almacenamiento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  * [Referencia de API de REST](http://msdn.microsoft.com/library/azure/dd179355)
+  * [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  * [Referencia de API de REST](https://msdn.microsoft.com/library/azure/dd179355)
 * Aprenda a simplificar el código que escriba para trabajar con Azure Storage mediante [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 * Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
   * [Introducción al Almacenamiento de tablas de Azure mediante .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para almacenar datos estructurados.

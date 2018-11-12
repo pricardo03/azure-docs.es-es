@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696938"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230876"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Hojas de referencia rápida de consultas Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Elija entre una descarga tamaño A3 o A4.
 
 ## <a name="letter-sized-cheat-sheets"></a>Hojas de referencia rápida con tamaño A4
 
-Descargue las [hojas de referencia rápida de consultas Azure Cosmos DB con tamaño A4](http://go.microsoft.com/fwlink/?LinkId=623215) si va a imprimir en papel de tamaño A4 (210 x 297 mm).
+Descargue las [hojas de referencia rápida de consultas Azure Cosmos DB con tamaño A4](https://go.microsoft.com/fwlink/?LinkId=623215) si va a imprimir en papel de tamaño A4 (210 x 297 mm).
 
 ![Hojas de referencia rápida de consultas Azure Cosmos DB, tamaño carta, con consultas y funciones de la API de SQL, JavaScript, MongoDB API, Gremlin API y Table API](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 

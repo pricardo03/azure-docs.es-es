@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 22e28e208d46a23a2dd7e36e1c3ba4be13be928a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 93d5cbdb44d3014b547141d59ce96cf607276846
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091967"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234619"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carga de un VHD generalizado y su uso para crear máquinas virtuales nuevas en Azure
 
@@ -47,7 +47,7 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 > 
 
 1. Inicie sesión en la máquina virtual de Windows.
-2. Abra una ventana del símbolo del sistema como administrador. Cambie el directorio a %windir%\system32\sysprep y, después, ejecute `sysprep.exe`.
+2. Abra una ventana del símbolo del sistema como administrador. Cambie el directorio a %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
 3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está seleccionada.
 4. En **Opciones de apagado**, seleccione **Apagar**.
 5. Seleccione **Aceptar**.
@@ -100,7 +100,7 @@ Dependiendo de la conexión de red y del tamaño del archivo VHD, este comando p
  
 También puede cargar un VHD en la cuenta de almacenamiento mediante uno de los siguientes medios:
 
-- [AzCopy](http://aka.ms/downloadazcopy)
+- [AzCopy](https://aka.ms/downloadazcopy)
 - [API de tipo Copy Blob de Azure Storage](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Blobs de carga de Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
 - [Referencia de la API de REST del servicio Import/Export de Storage](https://msdn.microsoft.com/library/dn529096.aspx)

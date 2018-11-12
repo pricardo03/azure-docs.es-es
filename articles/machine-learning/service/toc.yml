@@ -4,7 +4,7 @@ items:
 - name: Información general
   items:
   - name: ¿Qué es el servicio Azure Machine Learning?
-    displayName: AML, services
+    displayName: AML, services, overview
     href: overview-what-is-azure-ml.md
   - name: Funcionamiento del servicio
     displayName: architecture
@@ -17,6 +17,7 @@ items:
   - name: 'Introducción: Portal'
     href: quickstart-get-started.md
   - name: 'Introducción: Python'
+    displayName: create workspace
     href: quickstart-create-workspace-with-python.md
 - name: Tutoriales
   items:
@@ -25,6 +26,7 @@ items:
   - name: 'Implementación de modelos: Parte 2'
     href: tutorial-deploy-models-with-aml.md
   - name: Entrenamiento de modelos de Machine Learning automatizados
+    displayName: automl
     href: tutorial-auto-train-models.md
 - name: Ejemplos
   items:
@@ -34,6 +36,7 @@ items:
 - name: Conceptos
   items:
   - name: Administración de modelos
+    displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
   - name: Aceleración con FPGA
     href: concept-accelerate-with-fpgas.md
@@ -51,13 +54,14 @@ items:
     - name: Configuración de un entorno
       href: how-to-configure-environment.md
     - name: Visual Studio Code Tools for AI
+      displayName: Visual Studio Code, vscode
       items:
       - name: Introducción
         href: how-to-vscode-tools.md
       - name: Entrenamiento e implementación
         href: how-to-vscode-train-deploy.md
   - name: Preparación de los datos
-    displayName: data prep, etl, elt
+    displayName: data prep, etl, elt, data preparation
     href: how-to-data-prep.md
     items:
     - name: Carga de datos
@@ -69,6 +73,7 @@ items:
   - name: Entrenamiento de modelos
     items:
     - name: Configuración de entornos de entrenamiento
+      displayName: compute target, train
       href: how-to-set-up-training-targets.md
     - name: Acceso a los datos de aprendizaje
       href: how-to-access-data.md
@@ -79,13 +84,12 @@ items:
         href: how-to-train-pytorch.md
       - name: TensorFlow
         href: how-to-train-tensorflow.md
-  - name: Ajuste de modelos
-    items:
     - name: Ajuste de hiperparámetros
       href: how-to-tune-hyperparameters.md
     - name: Seguimiento de experimentos y métricas
       href: how-to-track-experiments.md
   - name: Automatizar el aprendizaje automático
+    displayName: automl
     href: how-to-automated-ml.md
     items:
     - name: Configuración del entrenamiento automático
@@ -101,8 +105,10 @@ items:
     - name: Lugar de implementación de modelos
       href: how-to-deploy-and-where.md
     - name: Implementación en ACI
+      displayName: Azure Container Instances
       href: how-to-deploy-to-aci.md
     - name: Implementación en AKS
+      displayName: Azure Kubernetes
       href: how-to-deploy-to-aks.md
     - name: Implementación en FPGA
       href: how-to-deploy-fpga-web-service.md
@@ -112,6 +118,9 @@ items:
       href: how-to-troubleshoot-deployment.md
     - name: Protección con SSL
       href: how-to-secure-web-service.md
+    - name: Consumo de un modelo implementado
+      displayName: create client, client, consume
+      href: how-to-consume-web-service.md
   - name: Supervisión de modelos
     items:
     - name: Recopilación de datos de producción
@@ -126,6 +135,8 @@ items:
     href: http://aka.ms/aml-sdk
   - name: SDK de preparación de datos
     href: http://aka.ms/data-prep-sdk
+  - name: Supervisión de SDK
+    href: https://aka.ms/aml-monitoring-sdk
   - name: CLI de Machine Learning
     href: reference-azure-machine-learning-cli.md
 - name: Recursos
@@ -347,9 +358,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemas antiguos
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 23e715064db714765a11771182248978f9493bd2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8519a04730105537d5bd8639da54afafdf76590b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095082"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345021"

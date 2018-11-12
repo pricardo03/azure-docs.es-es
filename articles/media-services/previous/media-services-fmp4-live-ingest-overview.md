@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443535"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228885"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services
 En esta especificación se describe el protocolo y el formato para ingesta de streaming en vivo basada en MP4 fragmentado para Azure Media Services. Azure Media Services proporciona un servicio de streaming en vivo que los clientes pueden utilizar para la transmisión de eventos en directo y la difusión de contenido en tiempo real mediante el uso de Azure como plataforma en la nube. Este documento también describe las prácticas recomendadas para crear mecanismos de ingesta en vivo sólidos y de alta redundancia.
@@ -38,7 +38,7 @@ En el diagrama siguiente se muestra la arquitectura general del servicio de stre
 ![flujo de ingestión][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Formato de secuencia de bits: MP4 fragmentado según ISO 14496-12
-El formato de ingesta de streaming en vivo que se describe en este documento se basa en [ISO-14496-12]. Consulte [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) para una explicación detallada del formato MP4 fragmentado y de las extensiones tanto para archivos de vídeo bajo demanda como para la ingesta de streaming en vivo.
+El formato de ingesta de streaming en vivo que se describe en este documento se basa en [ISO-14496-12]. Consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) para una explicación detallada del formato MP4 fragmentado y de las extensiones tanto para archivos de vídeo bajo demanda como para la ingesta de streaming en vivo.
 
 ### <a name="live-ingest-format-definitions"></a>Definiciones de formato de introducción en directo
 A continuación se muestra una lista de definiciones de formato especial que se aplican a la ingestión en vivo en Azure Media Services:

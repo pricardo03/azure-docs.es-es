@@ -16,15 +16,15 @@ ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 87d1aef0ffbf1a6b371947d804aa48503b507284
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e3d1ad02c8d5df7e9dac7437f2e442c2dc9dfcb9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417062"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279184"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configuración del agente de Log Analytics para los equipos Windows en un entorno híbrido
-[Azure Log Analytics](log-analytics-overview.md) puede recopilar datos directamente de los equipos Windows físicos o virtuales en un centro de datos o en otro entorno en la nube dentro de un único repositorio para llevar a cabo una correlación y un análisis detallados.  En esta guía de inicio rápido se muestra cómo configurar y recopilar datos de equipos Windows con unos pasos sencillos.  Para máquinas virtuales Windows de Azure, vea el tema [Recopilación de datos acerca de máquinas virtuales de Azure](log-analytics-quick-collect-azurevm.md).  
+[Azure Log Analytics](log-analytics-agent-windows.md) puede recopilar datos directamente de los equipos Windows físicos o virtuales en un centro de datos o en otro entorno en la nube dentro de un único repositorio para llevar a cabo una correlación y un análisis detallados.  En esta guía de inicio rápido se muestra cómo configurar y recopilar datos de equipos Windows con unos pasos sencillos.  Para máquinas virtuales Windows de Azure, vea el tema [Recopilación de datos acerca de máquinas virtuales de Azure](log-analytics-quick-collect-azurevm.md).  
 
 Para comprender la configuración compatible, revise los [sistemas operativos Windows admitidos](log-analytics-concept-hybrid.md#supported-windows-operating-systems) y la [configuración del firewall de red](log-analytics-concept-hybrid.md#network-firewall-requirements).
  

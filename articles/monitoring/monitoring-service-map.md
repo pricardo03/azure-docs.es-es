@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252928"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215266"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores en la forma en que piensa en ellos: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
@@ -277,7 +277,7 @@ En el panel **Machine Updates** (Actualizaciones de la máquina) se muestran dat
 ![Panel de seguimiento de cambios del equipo](media/monitoring-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
-Los datos de inventario de equipos y procesos de Service Map están disponibles para [buscar](../log-analytics/log-analytics-queries.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
+Los datos de inventario de equipos y procesos de Service Map están disponibles para [buscar](../log-analytics/log-analytics-log-searches.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
 
 Se genera un registro por hora para cada equipo y proceso únicos, además de los registros generados cuando un proceso o equipo se inicia o se integra en Service Map. Estos registros tienen las propiedades de las tablas siguientes. Los campos y valores de los eventos ServiceMapComputer_CL se asignan a los campos del recurso Equipo en la API ServiceMap de Azure Resource Manager. Los campos y valores de los eventos ServiceMapProcess_CL se asignan a los campos del recurso Proceso en la API ServiceMap de Azure Resource Manager. El campo ResourceName_s coincide con el campo de nombre del recurso correspondiente de Resource Manager. 
 
@@ -504,7 +504,7 @@ Para más información sobre el uso y la recopilación de datos, vea la [Declara
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información sobre las [búsquedas de registros](../log-analytics/log-analytics-queries.md) de Log Analytics para recuperar datos recopilados por Service Map.
+Más información sobre las [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) de Log Analytics para recuperar datos recopilados por Service Map.
 
 
 ## <a name="troubleshooting"></a>solución de problemas

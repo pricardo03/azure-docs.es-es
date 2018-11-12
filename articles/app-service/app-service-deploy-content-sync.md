@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 3781010c74daa51c92813db85ee03eaa4c02a4cf
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 3796f5c8956b633a4789baaf31a439746dc96b96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233594"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233769"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronización de contenido de una carpeta de nube a Azure App Service
-En este artículo se explica cómo sincronizar el contenido en [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) desde Dropbox y OneDrive. 
+En este artículo se explica cómo sincronizar el contenido en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) desde Dropbox y OneDrive. 
 
 La implementación de la sincronización de contenido a petición funciona con el [motor de implementación Kudu](https://github.com/projectkudu/kudu/wiki) de App Service. Puede trabajar con el código y el contenido de la aplicación en una carpeta en la nube des y luego sincronizarlos en App Service con tan solo hacer clic en un botón. La sincronización de contenido usa el servidor de compilación Kudu. 
 

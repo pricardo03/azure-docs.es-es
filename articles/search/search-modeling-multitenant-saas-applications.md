@@ -9,18 +9,18 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364281"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232388"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Search
 Una aplicación multiinquilino es una que proporciona los mismos servicios y funcionalidades a cualquier número de inquilinos que no pueden ver o compartir los datos de cualquier otro inquilino. En este documento se describen estrategias de aislamiento de inquilinos para aplicaciones miltiinquilino creadas con Azure Search.
 
 ## <a name="azure-search-concepts"></a>Conceptos de Azure Search
-Como solución de búsqueda como servicio, Azure Search permite a los desarrolladores agregar completas experiencias de búsqueda a las aplicaciones sin necesidad de administrar ninguna infraestructura ni de convertirse en expertos en recuperación de información. Los datos se cargan en el servicio y luego se almacenan en la nube. Mediante sencillas solicitudes a la API de Azure Search, los datos se pueden modificar y buscar. Se puede encontrar información general del servicio en [este artículo](http://aka.ms/whatisazsearch). Antes de analizar los patrones de diseño, es importante comprender algunos conceptos de Azure Search.
+Como solución de búsqueda como servicio, Azure Search permite a los desarrolladores agregar completas experiencias de búsqueda a las aplicaciones sin necesidad de administrar ninguna infraestructura ni de convertirse en expertos en recuperación de información. Los datos se cargan en el servicio y luego se almacenan en la nube. Mediante sencillas solicitudes a la API de Azure Search, los datos se pueden modificar y buscar. Se puede encontrar información general del servicio en [este artículo](https://aka.ms/whatisazsearch). Antes de analizar los patrones de diseño, es importante comprender algunos conceptos de Azure Search.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Servicios de búsqueda, índices, campos y documentos
 Al usar Azure Search, uno se suscribe a un *servicio de búsqueda*. A medida que se cargan datos en Azure Search, se almacenan en un *índice* dentro del servicio de búsqueda. Puede haber varios índices dentro de un único servicio. Para usar los conceptos de bases de datos que ya conocemos, el servicio de búsqueda se puede vincular a una base de datos, mientras que los índices de un servicio se pueden vincular a tablas dentro de una base de datos.
@@ -126,7 +126,7 @@ Este método puede usarse para lograr la funcionalidad de cuentas de usuario ind
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Azure Search es una opción convincente para muchas aplicaciones, [le más sobre las sólidas funcionalidades del servicio](http://aka.ms/whatisazsearch). Al evaluar los diversos patrones de diseño para aplicaciones multiinquilino, tenga en cuenta los [distintos planes de tarifa](https://azure.microsoft.com/pricing/details/search/) y sus respectivos [límites de servicio](search-limits-quotas-capacity.md) para adaptar mejor Azure Search de forma que encaje en cargas de trabajo de aplicaciones y arquitecturas de todos los tamaños.
+Azure Search es una opción convincente para muchas aplicaciones, [le más sobre las sólidas funcionalidades del servicio](https://aka.ms/whatisazsearch). Al evaluar los diversos patrones de diseño para aplicaciones multiinquilino, tenga en cuenta los [distintos planes de tarifa](https://azure.microsoft.com/pricing/details/search/) y sus respectivos [límites de servicio](search-limits-quotas-capacity.md) para adaptar mejor Azure Search de forma que encaje en cargas de trabajo de aplicaciones y arquitecturas de todos los tamaños.
 
 Las preguntas sobre Azure Search y los escenarios multiinquilino se pueden dirigir a azuresearch_contact@microsoft.com.
 

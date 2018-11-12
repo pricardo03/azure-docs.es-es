@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365261"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231631"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service
 ## <a name="overview"></a>Información general
-Azure integra diagnósticos para ayudar a depurar [Aplicaciones web de App Service](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnóstico, agregar instrumentación a la aplicación y obtener acceso a la información que registra Azure.
+Azure integra diagnósticos para ayudar a depurar [Aplicaciones web de App Service](https://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnóstico, agregar instrumentación a la aplicación y obtener acceso a la información que registra Azure.
 
 En este artículo se usa [Azure Portal](https://portal.azure.com), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -37,10 +37,10 @@ Puede habilitar o deshabilitar los siguientes tipos de registros:
 
 * **Registro de errores detallado** : registra información detallada de errores para códigos de estado HTTP que indican un problema (código de estado 400 o superior). Puede contener información que puede ayudar a determinar por qué el servidor devolvió el código de error.
 * **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Puede resultar útil si trata de aumentar el rendimiento del sitio o de aislar lo que causa la devolución de un error HTTP específico.
-* **Registro del servidor web** : registra todas las transacciones HTTP con el [formato de archivo de registro extendido de W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Resulta útil al determinar las métricas totales del sitio, como el número de solicitudes tramitadas o que proceden de una dirección IP específica.
+* **Registro del servidor web** : registra todas las transacciones HTTP con el [formato de archivo de registro extendido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Resulta útil al determinar las métricas totales del sitio, como el número de solicitudes tramitadas o que proceden de una dirección IP específica.
 
 ### <a name="application-diagnostics"></a>Diagnósticos de aplicaciones
-El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo: 
+El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo: 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -97,7 +97,7 @@ La estructura de directorios en que se almacenan los registros es la siguiente:
 * **Registros de aplicaciones** : /LogFiles/Application/. Esta carpeta contiene uno o varios archivos de texto con información generada por el registro de aplicaciones.
 * **Seguimientos de solicitudes con error** : /LogFiles/W3SVC#########/. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL en el mismo directorio de los archivos XML, porque el archivo XSL proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML cuando se visualizan en Internet Explorer.
 * **Registros detallados de errores** : /LogFiles/DetailedErrors/. Esta carpeta contiene uno o varios archivos .htm con información amplia de todos los errores HTTP que se han producido.
-* **Registros de servidor web** : /LogFiles/http/RawLogs. Esta carpeta contiene uno o varios archivos de texto a los que se le aplica el [formato de archivo de registro extendido W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Registros de servidor web** : /LogFiles/http/RawLogs. Esta carpeta contiene uno o varios archivos de texto a los que se le aplica el [formato de archivo de registro extendido W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
 * **Registros de implementaciones** : /LogFiles/Git. Esta carpeta contiene registros generados por los procesos de implementación internos usados por las aplicaciones web de Azure, además de los registros de las implementaciones Git. También puede encontrar registros de implementación en D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -171,7 +171,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **-Pa
 Para ver una lista de rutas de acceso disponibles, use el parámetro -ListPath.
 
 > [!NOTE]
-> Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -264,7 +264,7 @@ El seguimiento de solicitudes con error se almacena en archivos XML con nombre *
 Los registros de error detallados son documentos HTML que ofrecen información más detallada sobre los errores HTTP que se han producido. Habida cuenta de que se trata sencillamente de documentos HTML, se pueden ver en un explorador web.
 
 ### <a name="web-server-logs"></a>Registros de servidor web
-A los registros del servidor web se les aplica el [formato de archivo de registro extendido W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Esta información se puede leer con un editor de texto o analizarse con utilidades como el [analizador del registro](http://go.microsoft.com/fwlink/?LinkId=246619).
+A los registros del servidor web se les aplica el [formato de archivo de registro extendido W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Esta información se puede leer con un editor de texto o analizarse con utilidades como el [analizador del registro](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > Los registros generados por aplicaciones web de Azure no admiten los campos **s-computername**, **s-ip** o **cs-version**.
@@ -274,7 +274,7 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 ## <a name="nextsteps"></a> Pasos siguientes
 * [Supervisión de Web Apps](web-sites-monitor.md)
 * [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Análisis de registros de aplicación web en HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Análisis de registros de aplicación web en HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 20b98fa9656c9c66a81ff98a70fcdbfb29d4dad6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2a9214b918883e493ebe5c93fc7f56e7ce9c77ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093187"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234501"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comunes que causan el reciclaje de los roles
 En este artículo se describen algunas de las causas comunes de problemas relacionados con la implementación y se proporcionan sugerencias para la resolución de dichos problemas. Aparece una indicación de que existe un problema con una aplicación cuando la instancia de rol no se inicia o cuando alterna entre los estados inicializando, ocupado y deteniendo.
@@ -64,7 +64,7 @@ Para ejecutar un rol web con SSL, debe asegurarse de que el certificado de admin
 ## <a name="next-steps"></a>Pasos siguientes
 Vea más [artículos de solución de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para servicios en la nube.
 
-En la [series de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)puede ver más escenarios de reciclaje de roles.
+En la [series de blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)puede ver más escenarios de reciclaje de roles.
 
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx

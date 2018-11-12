@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: d24902b894a632e9fe8c57f2fb2b652b44ab128c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 932b4c80912fa516a08c18cd581f96b5ea91e1dc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41946495"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232314"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Preparación de una máquina virtual basada en Red Hat para Azure Stack
 
@@ -30,7 +30,7 @@ Para información de soporte técnico de Red Hat Enterprise Linux, consulte [Red
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparación de una máquina virtual basada en Red Hat desde el Administrador de Hyper-V
 
-En esta sección, se supone que ya tiene un archivo ISO en el sitio web de Red Hat y que instaló la imagen RHEL en un disco duro virtual (VHD). Para más información sobre cómo usar el Administrador de Hyper-V para instalar una imagen de sistema operativo, consulte el artículo sobre cómo [instalar el rol de Hyper-V y configurar una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
+En esta sección, se supone que ya tiene un archivo ISO en el sitio web de Red Hat y que instaló la imagen RHEL en un disco duro virtual (VHD). Para más información sobre cómo usar el Administrador de Hyper-V para instalar una imagen de sistema operativo, consulte el artículo sobre cómo [instalar el rol de Hyper-V y configurar una máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="rhel-installation-notes"></a>Notas de instalación de RHEL
 

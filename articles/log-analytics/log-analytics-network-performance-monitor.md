@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638224"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011058"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -103,7 +103,7 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
 
 ### <a name="configure-the-solution"></a>Configuración de la solución 
 
-1. Agregue la solución Network Performance Monitor al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). También puede usar el proceso que se describe en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md). 
+1. Agregue la solución Network Performance Monitor al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). También puede usar el proceso que se describe en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../monitoring/monitoring-solutions.md). 
 2. Abra el área de trabajo de Log Analytics y seleccione el icono **Overview** (Información general). 
 3. Seleccione el icono denominado **Network Performance Monitor**  con el mensaje *Solution requires additional configuration* (La solución necesita una configuración adicional).
 
@@ -251,7 +251,7 @@ La topología mostrada en el mapa corresponde al nivel 3 y no contiene ningún d
 
 ## <a name="log-analytics-search"></a>Búsqueda de Log Analytics 
 
-Todos los datos expuestos mediante gráficos en las páginas de exploración en profundidad y en el panel de Network Performance Monitor también se encuentran disponibles de forma nativa en la [búsqueda de Log Analytics](log-analytics-log-search-new.md). Puede realizar un análisis interactivo de los datos en el repositorio y correlacionar datos procedentes de distintos orígenes. También puede crear vistas y alertas personalizadas, y exportar los datos a Excel, Power BI o un vínculo que se pueda compartir. El área  **Common Queries**  (Consultas comunes) del panel incorpora una serie de consultas útiles que puede usar como punto de partida para crear sus propios informes y consultas. 
+Todos los datos expuestos mediante gráficos en las páginas de exploración en profundidad y en el panel de Network Performance Monitor también se encuentran disponibles de forma nativa en la [búsqueda de Log Analytics](log-analytics-queries.md). Puede realizar un análisis interactivo de los datos en el repositorio y correlacionar datos procedentes de distintos orígenes. También puede crear vistas y alertas personalizadas, y exportar los datos a Excel, Power BI o un vínculo que se pueda compartir. El área  **Common Queries**  (Consultas comunes) del panel incorpora una serie de consultas útiles que puede usar como punto de partida para crear sus propios informes y consultas. 
 
 ## <a name="alerts"></a>Alertas
 
