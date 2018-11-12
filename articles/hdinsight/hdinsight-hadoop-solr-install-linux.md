@@ -2,19 +2,19 @@
 title: Uso de la acción de script para instalar Solr en HDInsight basado en Linux (Azure)
 description: Aprenda a instalar Solr en clústeres de Hadoop para HDInsight basados en Linux mediante acciones de script.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 205983344be8ae5bbe566a208ceb862b2e93cb8d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 1c8c63e10e62af60e09af729b115cc675dae7205
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093104"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009409"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Solr en clústeres de Hadoop de HDInsight
 
@@ -54,7 +54,7 @@ Para crear un clúster que tenga Solr instalado, siga los pasos del documento [C
 
 1. En la sección __Resumen del clúster__, seleccione__Configuración avanzada__ y, a continuación, __Acciones de script__. Use la siguiente información para rellenar el cuestionario:
 
-   * **NOMBRE**: escriba un nombre descriptivo para la acción de script.
+   * **NOMBRE**: escriba un nombre sencillo para la acción de script.
    * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **PRINCIPAL**: active esta opción.
    * **TRABAJADOR**: active esta opción.

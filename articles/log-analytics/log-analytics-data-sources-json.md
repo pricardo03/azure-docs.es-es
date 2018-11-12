@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 69338e438ced8871de1e994ee8b816f9dc40b13a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9e54a586ac20835078ae3a3734122b0db34ea69e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402359"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006760"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-log-analytics"></a>Recopilar orígenes de datos JSON personalizados con el agente de Log Analytics para Linux en Log Analytics
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
@@ -106,5 +106,5 @@ Se admiten datos JSON anidados, pero se indexan en función del campo principal.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
  

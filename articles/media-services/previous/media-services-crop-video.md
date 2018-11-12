@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 29/10/2018
+ms.date: 10/29/2018
 ms.author: anilmur;juliako;
-ms.openlocfilehash: f6c853648b138763675e016d8de6eaff6377f166
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3a8888148e1f58cdf2b1893c624b74ec6d6c93da
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229607"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282550"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Recorte de vídeos con Codificador multimedia estándar
 Puede utilizar el Codificador multimedia estándar (MES) para recortar el vídeo de entrada. Recortar es el proceso que consiste en la selección de una ventana rectangular en el fotograma de vídeo y la codificación solo de los píxeles que están dentro de esa ventana. El diagrama siguiente puede ayudarle a ilustrar el proceso.

@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 461c6e3cbdfcc5ef8207277b08ad4a8cf492f796
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388326"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282805"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creación de alertas de métricas para registros en Azure Monitor  
 
 ## <a name="overview"></a>Información general
-Azure Monitor admite el [tipo de alertas de métricas](monitoring-near-real-time-metric-alerts.md), que tiene ventajas sobre las [alertas clásicas](insights-alerts-portal.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](monitoring-supported-metrics.md). En este artículo se explica el uso de un subconjunto (es decir) para el recurso `Microsoft.OperationalInsights/workspaces`. 
+Azure Monitor admite el [tipo de alertas de métricas](monitoring-near-real-time-metric-alerts.md), que tiene ventajas sobre las [alertas clásicas](alert-metric-classic.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](monitoring-supported-metrics.md). En este artículo se explica el uso de un subconjunto (es decir) para el recurso `Microsoft.OperationalInsights/workspaces`. 
 
 También puede utilizar las alertas de métricas en los registros populares de Log Analytics extraídos como métricas como parte de las métricas de los registros, incluidos recursos en Azure o en la instancia local. A continuación se enumeran las soluciones de Log Analytics admitidas:
 - [Contadores de rendimiento](../log-analytics/log-analytics-data-sources-performance-counters.md) para equipos con Windows y Linux
-- [Registros de latidos para Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
-- Registros de [administración de actualizaciones](../operations-management-suite/oms-solution-update-management.md)
+- [Registros de latidos para Agent Health](../monitoring/monitoring-solution-agenthealth.md)
+- Registros de [administración de actualizaciones](../automation/automation-update-management.md)
 - [Datos de registros de eventos](../log-analytics/log-analytics-data-sources-windows-events.md)
  
 Hay muchas ventajas al usar **alertas de métricas para registros** a través de [alertas de registro](alert-log.md) basadas en consultas en Azure; a continuación se enumeran algunas de ellas:
@@ -47,7 +47,7 @@ Los datos de métricas de registros populares se canalizan antes de procesarse e
 Antes de que funcione la métrica para registros recopilada en los datos de Log Analytics, debe configurarse lo siguiente y estar disponible:
 1. **Área de trabajo de Log Analytics activa**: debe haber un área de trabajo de Log Analytics activa y válida. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md).
 2. **Agente configurado para el área de trabajo de Log Analytics**: el agente debe configurarse para que las VM de Azure o VM locales envíen datos al área de trabajo de Log Analytics usada en el paso anterior. Para obtener más información, consulte [Log Analytics - Agent Overview](../monitoring/monitoring-overview-azure-agents.md) (Log Analytics: Introducción al agente).
-3. **Soluciones de Log Analytics admitidas instaladas**: la solución de Log Analytics debe estar configurada y enviando datos al área de trabajo de Log Analytics; las soluciones admitidas son [Contadores de rendimiento para Windows y Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), [Registros de latidos para Agent Health](../operations-management-suite/oms-solution-agenthealth.md), Administración de actualizaciones y [Datos de eventos](../log-analytics/log-analytics-data-sources-windows-events.md).
+3. **Soluciones de Log Analytics admitidas instaladas**: la solución de Log Analytics debe estar configurada y enviando datos al área de trabajo de Log Analytics; las soluciones admitidas son [Contadores de rendimiento para Windows y Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), [Registros de latidos para Agent Health](../monitoring/monitoring-solution-agenthealth.md), Administración de actualizaciones y [Datos de eventos](../log-analytics/log-analytics-data-sources-windows-events.md).
 4. **Soluciones de Log Analytics configuradas para enviar registros**: la solución de Log Analytics debe tener los datos/registros correspondiente necesarios para las [métricas admitidas para las áreas de trabajo de Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) habilitadas. Por ejemplo, para el contador *% de memoria disponible*, debe configurarse primero en la solución [Contadores de rendimiento](../log-analytics/log-analytics-data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configuración de alertas de métricas para registros

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 48a5356b03e38e864ba76f048febdb0b040893f5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d6da1ee603c85556693b145ba17d1e0cd0dfabd7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669302"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034547"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Administrar temas y publicar eventos con dominios de eventos
 
@@ -84,7 +84,7 @@ Los permisos que se establecen para un tema se almacenan en Azure Active Directo
 
 ## <a name="manage-access-to-topics"></a>Administración del acceso a temas
 
-La administración de acceso a temas se realiza mediante [asignación de roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-cli). La asignación de roles usa la comprobación de acceso basada en roles para limitar las operaciones en recursos de Azure a los usuarios autorizados en un determinado ámbito.
+La administración de acceso a temas se realiza mediante [asignación de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). La asignación de roles usa la comprobación de acceso basada en roles para limitar las operaciones en recursos de Azure a los usuarios autorizados en un determinado ámbito.
 
 Event Grid tiene dos roles integrados que puede utilizar para asignar acceso a determinados usuarios a varios temas dentro de un dominio. Estos roles son `EventGrid EventSubscription Contributor (Preview)`, que permite la creación y eliminación de suscripciones, y `EventGrid EventSubscription Reader (Preview)`, que permite solo enumerar las suscripciones a eventos.
 

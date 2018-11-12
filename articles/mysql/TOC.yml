@@ -94,6 +94,8 @@ items:
       href: concepts-compatibility.md
     - name: Desarrollo de aplicaciones
       href: concepts-database-application-development.md
+    - name: Resistencia de la conexión
+      href: concepts-connectivity.md
   - name: Replicación
     items:
     - name: Replicación de datos internos
@@ -158,6 +160,16 @@ items:
       href: howto-data-in-replication.md
     - name: Creación de réplicas de lectura en Azure Portal
       href: howto-read-replicas-portal.md
+    - name: Creación de réplicas de lectura en la CLI de Azure
+      href: howto-read-replicas-cli.md
+  - name: Solución de problemas
+    items:
+    - name: Solución de problemas de conexión
+      href: howto-troubleshoot-common-connection-issues.md
+    - name: Solución de problemas del rendimiento de las consultas
+      href: howto-troubleshoot-query-performance.md
+    - name: Uso de vistas en el esquema sys
+      href: howto-troubleshoot-sys-schema.md
   - name: Protección contra amenazas avanzada
     items:
     - name: Azure Portal
@@ -214,9 +226,9 @@ items:
     href: partners-migration-mysql.md
   - name: Guía sobre Database Migration
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 5e81e536ec941d7822dae39ecf5548a21b2e7a5d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 39c05df6c48a1a6fe42c1c2e75cbc79441e42bc5
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986566"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287530"

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b20a142007b3422d071de47410f4c9cdd1ff62a7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025677"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006743"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Supervisión de instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
 
@@ -46,8 +46,8 @@ Debido a que la solución no utiliza agentes para conectarse al servicio Log Ana
 | --- | --- | --- |
 | **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Sí** | Azure envía directamente los datos de métricas y registros de Azure a Log Analytics. |
 | [Cuenta de Almacenamiento de Azure](log-analytics-azure-storage.md) | Sin  | Log Analytics no lee los datos de una cuenta de almacenamiento. |
-| [Agentes de Windows](log-analytics-windows-agent.md) | Sin  | La solución no utiliza agentes directos de Windows. |
-| [Agentes de Linux](log-analytics-linux-agents.md) | Sin  | La solución no utiliza agentes directos de Linux. |
+| [Agentes de Windows](log-analytics-agent-windows.md) | Sin  | La solución no utiliza agentes directos de Windows. |
+| [Agentes de Linux](log-analytics-quick-collect-linux-computer.md) | Sin  | La solución no utiliza agentes directos de Linux. |
 | [Grupo de administración de SCOM](log-analytics-om-agents.md) | No | La solución no utiliza una conexión directa entre el agente de SCOM y Log Analytics. |
 
 ## <a name="configuration"></a>Configuración
@@ -192,7 +192,7 @@ Para configurar alertas automáticas en la solución, se escribe una consulta de
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Creación de alertas para una instancia de Azure SQL Database
 
-Las [alertas se pueden crear fácilmente](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) con los datos procedentes de los recursos de Azure SQL Database. Estas son algunas consultas de [búsqueda de registros](log-analytics-log-searches.md) útiles que puede usar para las alertas de registros:
+Las [alertas se pueden crear fácilmente](../monitoring-and-diagnostics/alert-metric.md) con los datos procedentes de los recursos de Azure SQL Database. Estas son algunas consultas de [búsqueda de registros](log-analytics-queries.md) útiles que puede usar para las alertas de registros:
 
 *CPU alta en Azure SQL Database*
 
@@ -289,6 +289,6 @@ Aunque la solución puede usarse de forma gratuita, se aplicarán cargos por el 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Use [Búsquedas de registros](log-analytics-log-searches.md) en Log Analytics para ver datos detallados de Azure SQL.
+- Use [Búsquedas de registros](log-analytics-queries.md) en Log Analytics para ver datos detallados de Azure SQL.
 - [Cree sus propios paneles](log-analytics-dashboards.md) que muestren datos de Azure SQL.
-- [Cree alertas](log-analytics-alerts.md) cuando se produzcan eventos específicos de Azure SQL.
+- [Cree alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) cuando se produzcan eventos específicos de Azure SQL.
