@@ -1,163 +1,106 @@
 ---
-title: 'Tutorial: Creación de un proyecto de clasificación de imágenes con el SDK de Custom Vision para C#'
+title: 'Guía de inicio rápido: Creación de un proyecto de clasificación de imágenes con el SDK de Custom Vision para C#'
 titlesuffix: Azure Cognitive Services
-description: Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción mediante el punto de conexión predeterminado.
+description: Cree un proyecto, agregue etiquetas, cargue imágenes, entrene el proyecto y realice una predicción mediante el SDK para .NET con C#.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 05/03/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: anroth
-ms.openlocfilehash: e046fe452a13384ae7929be805c6252d6ad2fbf9
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 6f92201e1c7222bed5d59066798d7eb6844ecd76
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953050"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279439"
 ---
-# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-c"></a>Tutorial: Creación de un proyecto de clasificación de imágenes con el SDK de Custom Vision para C#
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Guía de inicio rápido: Creación de un proyecto de clasificación de imágenes con el SDK de Custom Vision para .NET
 
-Aprenda a usar el SDK de Custom Vision Service en una aplicación de C#. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación para Windows con la API de Custom Vision Service.
+En este artículo se proporciona información y código de ejemplo para ayudarle a empezar a utilizar el SDK de Custom Vision con C# para crear un modelo de clasificación de imágenes. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de .NET. Si desea seguir el proceso de creación y utilizar un modelo de clasificación _sin_ código, consulte la [guía basada en explorador](getting-started-build-a-classifier.md) en su lugar.
 
 ## <a name="prerequisites"></a>Requisitos previos
+- Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/)
 
-* Cualquier edición de Visual Studio 2017 para Windows.
 
-## <a name="get-the-custom-vision-sdk-and-samples"></a>Obtener el SDK y ejemplos de Custom Vision
-Para compilar este ejemplo, necesita los paquetes NuGet del SDK de Custom Vision:
+## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obtención del SDK de Custom Vision y código de ejemplo
+Para escribir una aplicación de .NET que utiliza Custom Vision, necesitará los paquetes NuGet de Custom Vision, que están incluidos en el proyecto de ejemplo que descargará, pero puede acceder a ellos individualmente aquí.
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-Puede descargar las imágenes con los [ejemplos de C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+Clone o descargue el proyecto [Ejemplos de .NET de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples). Vaya a la carpeta **CustomVision/ImageClassification** carpeta y abra _ImageClassification.csproj_ en Visual Studio.
 
-## <a name="get-the-training-and-prediction-keys"></a>Obtener las claves de entrenamiento y predicción
+Este proyecto de Visual Studio crea un nuevo proyecto de Custom Vision denominado __My New Project__, al que se puede acceder en el [sitio web de Custom Vision](https://customvision.ai/). A continuación, carga las imágenes para entrenar y probar un clasificador. En este proyecto, el clasificador pretende determinar si un árbol es un __abeto__ o un __cerezo japonés__.
 
-Para obtener las claves que se utilizan en este ejemplo, visite la [página web de Custom Vision](https://customvision.ai) y seleccione el __icono de engranaje__ en la esquina superior derecha. En la sección __Cuentas__, copie los valores de los campos __Training Key__ (Clave de entrenamiento) y __Prediction Key__ (Clave de predicción).
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-![Imagen de la interfaz de usuario de claves](./media/csharp-tutorial/training-prediction-keys.png)
+## <a name="understand-the-code"></a>Comprendiendo el código
 
-## <a name="understand-the-code"></a>Comprensión del código
+Abra el archivo _Program.cs_ e inspeccione el código. Inserte las claves de la suscripción en las definiciones pertinentes del método **Main**.
 
-En Visual Studio, abra el proyecto que se encuentra en el directorio `Samples/CustomVision.Sample/` del proyecto del SDK.
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
 
-Esta aplicación utiliza la clave de entrenamiento que recuperó anteriormente para crear un nuevo proyecto denominado __My New Project__. A continuación, carga las imágenes para entrenar y probar un clasificador. El clasificador identifica si el árbol es un __abeto canadiense__ o un __cerezo japonés__.
+Las siguientes líneas de código ejecutan la funcionalidad principal del proyecto.
 
-Los siguientes fragmentos de código implementan la funcionalidad principal de este ejemplo:
+### <a name="create-a-new-custom-vision-service-project"></a>Creación de un proyecto de Custom Vision Service
 
-* __Creación de un proyecto de Custom Vision Service__:
+El proyecto creado se mostrará en el [sitio web de Custom Vision](https://customvision.ai/) que ha visitado anteriormente. 
 
-    ```csharp
-     // Create a new project
-    Console.WriteLine("Creating new project:");
-    var project = trainingApi.CreateProject("My New Project");
-    ```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=32-34)]
 
-* __Creación de etiquetas en un proyecto__:
+### <a name="create-tags-in-the-project"></a>Creación de etiquetas en el proyecto
 
-    ```csharp
-    // Make two tags in the new project
-    var hemlockTag = trainingApi.CreateTag(project.Id, "Hemlock");
-    var japaneseCherryTag = trainingApi.CreateTag(project.Id, "Japanese Cherry");
-    ```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=36-38)]
 
-* __Carga y etiquetado de imágenes__:
+### <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
 
-    ```csharp
-    // Add some images to the tags
-    Console.WriteLine("\tUploading images");
-    LoadImagesFromDisk();
+Se incluyen las imágenes de este proyecto. Se hace referencia a ellas en el método **LoadImagesFromDisk** de _Program.cs_.
 
-    // Images can be uploaded one at a time
-    foreach (var image in hemlockImages)
-    {
-        using (var stream = new MemoryStream(File.ReadAllBytes(image)))
-        {
-            trainingApi.CreateImagesFromData(project.Id, stream, new List<string>() { hemlockTag.Id.ToString() });
-        }
-    }
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 
-    // Or uploaded in a single batch 
-    var imageFiles = japaneseCherryImages.Select(img => new ImageFileCreateEntry(Path.GetFileName(img), File.ReadAllBytes(img))).ToList();
-    trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFiles, new List<Guid>() { japaneseCherryTag.Id }));
-    ```
+### <a name="train-the-classifier"></a>Entrenamiento del clasificador
 
-* __Entrenamiento del clasificador__:
+Este código crea la primera iteración del proyecto y la marca como la predeterminada. La iteración predeterminada refleja la versión del modelo que responderá a las solicitudes de predicción. La debe actualizar cada vez que vuelva a entrenar el modelo.
 
-    ```csharp
-    // Now there are images with tags start training the project
-    Console.WriteLine("\tTraining");
-    var iteration = trainingApi.TrainProject(project.Id);
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=57-73)]
 
-    // The returned iteration will be in progress, and can be queried periodically to see when it has completed
-    while (iteration.Status == "Completed")
-    {
-        Thread.Sleep(1000);
+### <a name="set-the-prediction-endpoint"></a>Establecimiento del punto de conexión de la predicción
 
-        // Re-query the iteration to get it's updated status
-        iteration = trainingApi.GetIteration(project.Id, iteration.Id);
-    }
-    ```
-
-* __Establecimiento de una iteración predeterminada para el punto de conexión de predicción__:
-
-    ```csharp
-    // The iteration is now trained. Make it the default project endpoint
-    iteration.IsDefault = true;
-    trainingApi.UpdateIteration(project.Id, iteration.Id, iteration);
-    Console.WriteLine("Done!\n");
-    ```
-
-* __Creación de un punto de conexión de predicción__:
+El punto de conexión de la predicción es la referencia que puede utilizar para enviar una imagen al modelo actual y obtener una predicción de clasificación.
  
-    ```csharp
-    // Create a prediction endpoint, passing in obtained prediction key
-    PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
-    ```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=77-82)]
  
-* __Envío de una imagen al punto de conexión de predicción__:
+### <a name="submit-an-image-to-the-default-prediction-endpoint"></a>Envío de una imagen al punto de conexión de la predicción predeterminado
 
-    ```csharp
-    // Make a prediction against the new project
-    Console.WriteLine("Making a prediction:");
-    var result = endpoint.PredictImage(project.Id, testImage);
+En este script, se carga la imagen de prueba en el método **LoadImagesFromDisk** y la salida de la predicción del modelo se va a mostrar en la consola.
 
-    // Loop over each prediction and write out the results
-    foreach (var c in result.Predictions)
-    {
-        Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
-    }
-    ```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=84-92)]
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-1. Realice los cambios siguientes para agregar las claves de aprendizaje y predicción a la aplicación:
+Cuando se ejecuta la aplicación, se debería abrir una ventana de consola y escribir la salida siguiente:
 
-    * Agregue su __clave de entrenamiento__ a la línea siguiente:
+```
+Creating new project:
+        Uploading images
+        Training
+Done!
 
-        ```csharp
-        string trainingKey = "<your key here>";
-        ```
+Making a prediction:
+        Hemlock: 95.0%
+        Japanese Cherry: 0.0%
+```
 
-    * Agregue su __clave de predicción__ a la línea siguiente:
+Luego puede comprobar que la imagen de prueba (que se encuentra en **imágenes/Test/**) se ha etiquetado correctamente. Para salir de la aplicación, presione cualquier tecla. También puede volver al [sitio web de Custom Vision](https://customvision.ai) y ver el estado actual del proyecto recién creado.
 
-        ```csharp
-        string predictionKey = "<your key here>";
-        ```
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 
-2. Ejecute la aplicación. Mientras se ejecuta la aplicación, se escribe la siguiente salida en la consola:
+## <a name="next-steps"></a>Pasos siguientes
 
-    ```
-    Creating new project:
-            Uploading images
-            Training
-    Done!
+Ya ha visto cómo todos los pasos del proceso de clasificación de imágenes se pueden realizar en código. En este ejemplo se ejecuta una sola iteración de entrenamiento, pero a menudo necesitará entrenar y probar su modelo varias veces para hacerlo más preciso.
 
-    Making a prediction:
-            Hemlock: 95.0%
-            Japanese Cherry: 0.0%
-    ```
-
-3. Para salir de la aplicación, presione cualquier tecla.
+> [!div class="nextstepaction"]
+> [Prueba y reentrenamiento del modelo](test-your-model.md)
