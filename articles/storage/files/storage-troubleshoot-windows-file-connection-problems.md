@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 5e730e52d55f6c8c2dd02f69e3efa67017af152b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0496d9b3fde8b0194ddf57b3bbfec98eb7fda7fe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242983"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250856"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucione problemas de Azure Files en Windows
 
@@ -46,7 +46,7 @@ Windows 8, Windows Server 2012 y versiones posteriores de cada sistema negocian 
 
 ### <a name="cause-2-port-445-is-blocked"></a>Causa 2: Puerto 445 bloqueado
 
-Los errores del sistema 53 o 67 pueden producirse cuando se bloquea la comunicación de salida del puerto 445 a un centro de datos de Azure Files. Para ver el resumen de los ISP que permiten o deniegan el acceso desde el puerto 445, visite [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+Los errores del sistema 53 o 67 pueden producirse cuando se bloquea la comunicación de salida del puerto 445 a un centro de datos de Azure Files. Para ver el resumen de los ISP que permiten o deniegan el acceso desde el puerto 445, visite [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Para descubrir si este es el motivo del mensaje "Error de sistema 53", puede usar Portqry para enviar una consulta al punto de conexión TCP:445. Si el punto de conexión TCP:445 se muestra como filtrado, eso quiere decir que el puerto TCP está bloqueado. Aquí se muestra una consulta de ejemplo:
 
