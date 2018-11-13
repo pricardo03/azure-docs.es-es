@@ -1,97 +1,77 @@
 ---
-title: ¿Qué es el servicio Face API?
+title: ¿Qué es Face API?
 titleSuffix: Azure Cognitive Services
-description: En este tema se explica el servicio Face API y los términos relacionados.
+description: Aprenda a usar el servicio Face para detectar y analizar las caras en imágenes.
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: overview
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 6c1e0d0a51bc01c581c05e7ce3215f5501b4be76
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310409"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914199"
 ---
-# <a name="what-is-the-face-api-service"></a>¿Qué es el servicio Face API?
+# <a name="what-is-the-azure-face-api"></a>¿Qué es Azure Face API?
 
-Face API es un servicio basado en la nube que proporciona algoritmos para analizar los rostros de las personas en imágenes y vídeo. Face API tiene dos funciones principales: detección de rostros con atributos y reconocimiento facial.
+Azure Face API es un servicio de Cognitive Services que proporciona algoritmos para detectar, reconocer y analizar las caras humanas en imágenes. La capacidad de procesar rostros de personas es muy importante en muchos escenarios de software diferentes, por ejemplo, en la seguridad, la interfaz de usuario natural, el análisis y la administración de contenido de las imágenes, las aplicaciones móviles y la robótica.
+
+Face API proporciona varias funciones distintas, que se describen en las secciones siguientes. Siga leyendo para obtener más información sobre cada una y para determinar si se adaptan a sus necesidades.
 
 ## <a name="face-detection"></a>Detección de caras
 
-Face API detecta hasta 64 rostros de personas con una localización facial de alta precisión en las imágenes. La imagen puede especificarse por archivo (flujo de bytes) o con una dirección URL válida.
+Face API puede detectar caras humanas en una imagen y devolver las coordenadas del rectángulo de sus ubicaciones. Si lo desea, la detección de caras puede extraer una serie de atributos faciales como la postura, el sexo, la edad, la posición de la cabeza, el vello facial y las gafas.
 
-![Introducción sobre la detección de caras](./Images/Face.detection.jpg)
+![Una imagen de una mujer y un hombre, con rectángulos dibujados en torno a sus caras y edad y sexo](./Images/Face.detection.jpg)
 
-El rectángulo facial (con delimitación izquierda, derecha, de altura y anchura) que indica la ubicación de la cara en la imagen se devuelve junto con cada cara detectada. Si lo desea, la detección de caras extrae una serie de atributos faciales como la postura, el sexo, la edad, la posición de la cabeza, el vello facial y las gafas. Para más información, vea [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+La característica de detección facial también está disponible mediante [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), pero, si desea realizar más operaciones con datos de caras, debe usar Face API (este servicio). Para más información acerca de la detección facial, consulte [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="face-recognition"></a>Reconocimiento facial
+## <a name="face-verification"></a>Verificación de caras
 
-La capacidad de identificar rostros de personas es muy importante en muchos escenarios, como seguridad, interfaz de usuario natural, análisis y administración de contenido de imagen, aplicaciones móviles y robótica. El servicio Face API proporciona cuatro funciones de reconocimiento facial: comprobación de caras, búsqueda de caras similares, agrupación de caras e identificación de personas.
+Verify API realiza una autenticación con dos caras detectadas o a partir de una cara detectada en un objeto personal. En la práctica, evalúa si dos caras pertenecen a la misma persona. Esto puede ser muy útil en escenarios de seguridad. Para más información, consulte [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-### <a name="face-verification"></a>Verificación de caras
+## <a name="find-similar-faces"></a>Búsqueda de caras similares
 
-La verificación de caras realiza la autenticación con dos caras detectadas o a partir de una cara detectada en un objeto personal. Para más información, vea [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Find Similar API toma una cara objetivo y una serie de caras candidatas y busca un conjunto pequeño de las caras que más se asemejan a la cara objetivo. Se admiten dos modos de funcionamiento: **matchPerson** y **matchFace**. El modo **matchPerson** devuelve las caras parecidas tras filtrar a la misma persona (mediante [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)). El modo **matchFace** omite el filtro de la misma persona y devuelve una lista de caras similares candidatas que pueden o no pertenecer a la misma persona.
 
-### <a name="finding-similar-faces"></a>Búsqueda de caras similares
+En el ejemplo siguiente, esta es la cara de destino:
 
-Con una cara objetivo detectada y una serie de caras candidatas con las que buscar, el servicio encuentra un conjunto pequeño de las caras que más se asemejan a la cara objetivo. Se admiten dos modos de funcionamiento, **matchFace** y **matchPerson**. El modo **matchPerson** devuelve caras similares después de aplicar un umbral de la misma persona derivado de [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). El modo **matchFace** ignora el umbral de la misma persona y devuelve las caras de los candidatos más similares. En el siguiente ejemplo se enumeran las caras de los candidatos.
-![Información general: búsqueda de caras similares](./Images/FaceFindSimilar.Candidates.jpg) Esta es la cara de la consulta.
-![Información general: búsqueda de caras similares](./Images/FaceFindSimilar.QueryFace.jpg)
+![Una mujer sonriendo](./Images/FaceFindSimilar.QueryFace.jpg)
 
-Al buscar cuatro caras parecidas, el modo **matchPerson** devolvería (a) y (b), que representan la misma persona que la cara de la consulta. El modo **matchFace** devuelve (a), (b), (c) y (d), exactamente cuatro caras candidatas, aunque el nivel de similitud sea bajo. Para más información, vea [Face - Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+Y estas son las caras candidatas:
 
-### <a name="face-grouping"></a>Agrupación de caras
+![Cinco imágenes de personas sonriendo. Las imágenes (a) y (b) son de la misma persona](./Images/FaceFindSimilar.Candidates.jpg)
 
-Con un conjunto de caras desconocidas, la API de agrupación de caras las divide automáticamente en varios grupos en función de la similitud. Cada grupo es un subconjunto adecuado no relacionado de un conjunto original de caras desconocidas que contiene caras similares. Se puede considerar que todas las caras del mismo grupo pertenecen a la misma persona. Para más información, vea [Face - Group](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+Al buscar cuatro caras parecidas, el modo **matchPerson** devolvería (a) y (b), que representan a la misma persona que la cara objetivo. El modo **matchFace** devuelve (a), (b), (c) y (d)&mdash;, exactamente cuatro caras candidatas, aunque algunas no sean la misma persona que el objetivo o el nivel de similitud sea bajo. Para más información, consulte [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
-### <a name="person-identification"></a>Identificación de personas
+## <a name="face-grouping"></a>Agrupación de caras
 
-Se puede usar Face API para identificar a una persona a partir de una cara detectada y una base de datos de personas. Esta base de datos se crea de antemano y puede modificarse con el tiempo.
+Group API divide un conjunto de caras desconocidas en varios grupos en función de la similitud. Cada grupo es un subconjunto apropiado separado del conjunto original de caras. Todas las caras de un grupo pertenecerán probablemente a la misma persona, pero puede haber varios grupos diferentes para una sola persona (que se diferencien por otro factor, por ejemplo, por la expresión). Para más información, consulte [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-La siguiente imagen es un ejemplo de una base de datos denominada "myfriends". Cada grupo puede contener hasta 1 000 000/10 000 objetos de persona. Cada objeto de persona puede tener hasta 248 caras registradas.
+## <a name="person-identification"></a>Identificación de personas
 
-![Introducción - LargePersonGroup/PersonGroup](./Images/person.group.clare.jpg)
+Identify API puede usarse para identificar una cara detectada en una base de datos de personas. Esto puede resultar de utilidad para el etiquetado automático de imágenes en software de administración de fotografías. Esta base de datos se crea de antemano y puede modificarse con el tiempo.
 
-Una vez creada y entrenada la base de datos, se puede realizar la identificación en el grupo con una cara nueva detectada. Si la cara se identifica como una persona en el grupo, se devuelve el objeto de persona.
+La siguiente imagen es un ejemplo de una base de datos denominada "myfriends". Cada grupo puede contener hasta 1 000 000 de objetos persona distintos y cada objeto persona puede tener hasta 248 caras registradas.
 
-Para más información sobre la identificación de personas, vea las siguientes guías de API:
+![Una cuadrícula con tres columnas para diferentes personas, cada una con tres filas de imágenes de caras](./Images/person.group.clare.jpg)
 
-[Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)  
-[PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)  
-[PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)  
-[PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)  
-[LargePersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)  
-[LargePersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)  
-[LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)  
+Una vez creada y entrenada la base de datos, puede realizar la identificación en el grupo con una cara nueva detectada. Si la cara se identifica como una persona en el grupo, se devuelve el objeto de persona.
 
-#### <a name="face-storage-and-pricing"></a>Almacenamiento de caras y precios
-
-El Almacenamiento de caras permite realizar una suscripción estándar para almacenar caras persistentes adicionales al usar los objetos de personas de LargePersonGroup/PersonGroup ([PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)/[LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)) o LargeFaceLists/FaceLists ([FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)/[LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)) para la identificación o la coincidencia de similitudes con Face API. Las imágenes almacenadas se cobran a 0,50 USD por 1000 caras y esta tarifa se prorratea por días. Las suscripciones del nivel Gratis están limitadas a un total de 1000 personas.
-
-Por ejemplo, si la cuenta usó 10 000 caras almacenadas cada día durante la primera mitad del mes y ninguna la segunda mitad, se le cobraría solo por las 10 000 caras durante los días de almacenamiento. Como alternativa, si cada día del mes almacena 1000 caras durante unas horas y luego las elimina por la noche, se le facturarán 1000 caras almacenadas cada día.
+Para más información acerca de la identificación de personas, consulte [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="sample-apps"></a>Aplicaciones de ejemplo
 
-Eche un vistazo a estas aplicaciones de ejemplo que usan Face API.
+Las aplicaciones de ejemplo siguientes muestran algunas de las maneras en que se puede usar Face API.
 
-- [Microsoft Face API: Ejemplo y Biblioteca cliente de Windows](https://github.com/Microsoft/Cognitive-Face-Windows)
-  - La aplicación de ejemplo WPF que demuestra varios escenarios de detección, análisis e identificación facial.
-- [Aplicación FamilyNotes de UWP](https://github.com/Microsoft/Windows-appsample-familynotes)
-  - La aplicación de ejemplo de la Plataforma universal de Windows (UWP) que muestra el uso de voz, Cortana, tinta y cámara mediante un escenario de uso compartido de notas familiares.
-- [Ejemplo de análisis de fotogramas de vídeo](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
-  - Aplicación de ejemplo de Win32 que muestra cómo analizar secuencias de vídeo en directo casi en tiempo real con Face API, Computer Vision API y Emotion API.
-
-## <a name="tutorials"></a>Tutoriales
-En los siguientes tutoriales se describen los procesos de suscripción y las funcionalidades básicas de Face API:
-- [Tutorial de introducción a Face API en CSharp](Tutorials/FaceAPIinCSharpTutorial.md)
-- [Tutorial de introducción a Face API en Java para Android](Tutorials/FaceAPIinJavaForAndroidTutorial.md)
-- [Tutorial de introducción a Face API en Python](Tutorials/FaceAPIinPythonTutorial.md)
+- [Microsoft Face API: Biblioteca de cliente Windows y ejemplo](https://github.com/Microsoft/Cognitive-Face-Windows): una aplicación de ejemplo WPF que demuestra varios escenarios de detección, análisis e identificación facial.
+- [Aplicación FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes): una aplicación de Plataforma universal de Windows (UWP) que usa la identificación facial junto con la voz, Cortana, la escritura manuscrita y la cámara en un escenario de uso compartido de notas en familia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pruebe una guía de inicio rápido para implementar un escenario sencillo de Face API.
-- [Guía de inicio rápido: Detección de caras en una imagen con C#](quickstarts/csharp.md) (otros lenguajes disponibles)
+Siga una guía de inicio rápido para implementar un escenario sencillo de identificación facial en el código.
+- [Guía de inicio rápido: Detección de caras en una imagen con el SDK para .NET con C#](quickstarts/csharp.md) (otros lenguajes disponibles)

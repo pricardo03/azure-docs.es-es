@@ -13,28 +13,97 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 40ac3ca92c65607df056b883608dde60d816143e
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181793"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979478"
 ---
-# <a name="hybrid-identity-and-microsofts-identity-solutions"></a>Soluciones de identidad híbrida y de identidad de Microsoft
-Hoy en día, las empresas y las organizaciones se basan cada vez más en una combinación de aplicaciones locales y en la nube.  Tener aplicaciones y usuarios que requieren acceso a esas aplicaciones, locales y en la nube, se convierte en todo un desafío.
+# <a name="hybrid-identity-and-microsoft-identity-solutions"></a>Soluciones de identidad híbrida y de identidad de Microsoft
+Las soluciones de identidad híbrida de [Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) permiten sincronizar objetos de directorio locales con Azure AD mientras administra los usuarios locales. La primera decisión que hay que tomar cuando se planea sincronizar la instancia local de Windows Server Active Directory con Azure AD es si desea usar identidades administradas o una identidad federada. 
 
-Las soluciones de identidad de Microsoft abarcan funcionalidades locales y de nube, de forma que se crea una sola identidad de usuario para la autenticación y la autorización en todos los recursos, sin importar su ubicación. A esto le llamamos identidad híbrida.
+- **Identidades administradas**: cuentas de usuario y grupos que se sincronizan desde una instancia local de Active Directory; Azure administra la autenticación de usuarios.   
+- Las **identidades federadas** permiten más control sobre los usuarios mediante la separación de la autenticación del usuario de Azure y la delegación de la autenticación en un proveedor de identidades local de confianza. 
+
+Hay varias opciones disponibles para configurar la identidad híbrida. Mientras piensa en el modelo de identidad que mejor se adapte a las necesidades de su organización, debe pensar también en el tiempo, la infraestructura existente, la complejidad y el costo. Estos factores son diferentes para cada organización y pueden cambiar con el tiempo. Sin embargo, si cambian los requisitos, también cuenta con la flexibilidad para cambiar a otro modelo de identidad.
+
+## <a name="managed-identity"></a>Identidad administrada 
+
+La identidad administrada es la manera más sencilla de sincronizar los objetos de directorio locales (usuarios y grupos) con Azure AD. 
+
+![Identidad híbrida sincronizada](./media/whatis-hybrid-identity/managed.png)
+
+Aunque la identidad administrada es el método más fácil y rápido, los usuarios todavía tienen que mantener una contraseña independiente para los recursos basados en la nube. Para evitar esto, también puede (opcionalmente) [sincronizar un hash de contraseñas de usuario](how-to-connect-password-hash-synchronization.md) con su directorio Azure AD. La sincronización de hashes de contraseña permite a los usuarios iniciar sesión en recursos organizativos basados en la nube con el mismo nombre de usuario y contraseña que usan en local. Azure AD Connect busca periódicamente en el directorio local los cambios y mantiene sincronizado el directorio Azure AD. Cuando se cambia un atributo de usuario o una contraseña en Active Directory local, se actualiza automáticamente en Azure AD. 
+
+Para la mayoría de las organizaciones que solo tienen que habilitar a sus usuarios para iniciar sesión en Office 365, aplicaciones SaaS y otros recursos basados en Azure AD, se recomienda la opción de sincronización de hash de contraseña predeterminada. Si esto no funciona, deberá decidir entre la autenticación de paso a través y AD FS.
+
+> [!TIP]
+> Las contraseñas de usuario se almacenan en Windows Server Active Directory local en forma de un valor hash que representa la contraseña real del usuario. Un valor hash es el resultado de una función matemática unidireccional (el algoritmo hash). No hay ningún método para volver del resultado de una función unidireccional a la versión de texto sin formato de una contraseña. El hash de contraseña no puede usarse para iniciar sesión en la red local. Si decide sincronizar contraseñas, Azure AD Connect extrae los hashes de contraseña de la instancia local de Active Directory y aplica un procesamiento de seguridad adicional al hash de contraseña antes de sincronizarlo con Azure AD. También se puede usar la sincronización de hash de contraseñas junto con la escritura diferida de contraseñas para habilitar el autoservicio de restablecimiento de contraseña en Azure AD. Además, puede habilitar el inicio de sesión único (SSO) para usuarios en equipos unidos a un dominio que están conectados a la red corporativa. Con el inicio de sesión único, los usuarios habilitados solo necesitan escribir un nombre de usuario para acceder a los recursos de nube de manera segura. 
+>
+
+## <a name="pass-through-authentication"></a>Autenticación de paso a través
+
+La [autenticación de paso a través de Azure AD](how-to-connect-pta.md) proporciona una sencilla solución de validación de contraseñas para servicios basados en Azure AD mediante su instancia de Active Directory local. Si las directivas de seguridad y cumplimiento de su organización no permiten el envío de contraseñas de los usuarios, incluso en un formulario con algoritmo hash, y solo hay que admitir el SSO de escritorio para dispositivos unidos a un dominio, se recomienda que lo evalúe mediante la autenticación de paso a través. La autenticación de paso a través no requiere ninguna implementación en la red perimetral, lo que simplifica la infraestructura de implementación cuando se compara con AD FS. Cuando los usuarios inician sesión con Azure AD, este método de autenticación valida las contraseñas de los usuarios directamente en la instancia de Active Directory local.
+
+![Autenticación de paso a través](./media/whatis-hybrid-identity/pass-through-authentication.png)
+
+Con la autenticación de paso a través, no es necesario una infraestructura de red compleja ni tampoco almacenar contraseñas locales en la nube. Combinada con el inicio de sesión único, la autenticación de paso a través proporciona una experiencia realmente integrada cuando se inicie sesión en Azure AD o en otros servicios en la nube.
+
+La autenticación de paso a través se configura mediante Azure AD Connect y utiliza un agente local simple que escucha las solicitudes de validación de contraseña. El agente se puede implementar fácilmente en varios equipos para proporcionar una alta disponibilidad y equilibrio de carga. Puesto que todas las comunicaciones son exclusivamente salientes, no es necesario que el conector se instale en una red perimetral. Los requisitos del equipo servidor para el conector son los siguientes:
+
+- Windows Server 2012 R2 o superior
+- Unión a un dominio en el bosque en el que se validan los usuarios
+
+## <a name="federated-identity-ad-fs"></a>Identidad federada (AD FS)
+
+Para tener más control sobre cómo los usuarios acceden a Office 365 y otros servicios en la nube, puede configurar la sincronización de directorios con el inicio de sesión único (SSO) mediante [Servicios de federación de Active Directory (AD FS)](how-to-connect-fed-whatis.md). La federación de los inicios de sesión del usuario con AD FS delega la autenticación a un servidor local que valida las credenciales del usuario. En este modelo, las credenciales de Active Directory local nunca se pasan a Azure AD.
+
+![Identidad federada](./media/whatis-hybrid-identity/federated-identity.png)
+
+También llamado federación de identidades, este método garantiza que toda la autenticación de usuario está controlada en local y permite a los administradores implementar niveles más rigurosos de control de acceso. La federación de identidades con AD FS es la opción más complicada y requiere la implementación de servidores adicionales en su entorno local. La federación de identidades también permite confirmar el soporte técnico ininterrumpido para su infraestructura de Active Directory y AD FS. Es necesario este elevado nivel de soporte técnico porque si el acceso de Internet local, el controlador de dominio o los servidores de AD FS no están disponibles, los usuarios no pueden iniciar sesión en servicios en la nube.
+
+> [!TIP]
+> Si opta por usar Federación con Servicios de federación de Active Directory (AD FS), tiene la posibilidad de configurar la sincronización de hash de contraseñas como copia de seguridad en caso de error en la infraestructura de AD FS.
+>
+
+## <a name="common-scenarios-and-recommendations"></a>Escenarios comunes y recomendaciones
+
+Estos son algunos escenarios comunes de identidad híbrida y administración de acceso con recomendaciones sobre la opción (u opciones) de identidad que podría ser más adecuada.
+
+|Necesitará:|PHS y SSO<sup>1</sup>| PTA y SSO<sup>2</sup> | AD FS<sup>3</sup>|
+|-----|-----|-----|-----|
+|Sincronice nuevas cuentas de usuarios, contactos y grupos creadas en Active Directory local con la nube automáticamente.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|
+|Configurar mi inquilino para escenarios híbridos de Office 365|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|
+|Permitir que mis usuarios inicien sesión en Cloud Services y accedan con su contraseña local|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|
+|Implementar el inicio de sesión único utilizando credenciales corporativas|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|
+|Asegurarse de que ningún hash de contraseña está almacenado en la nube| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|
+|Habilitar soluciones de autenticación multifactor en la nube| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|
+|Habilitar soluciones locales de autenticación multifactor| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|
+|Admitir la autenticación de tarjeta inteligente para mis usuarios<sup>4</sup>| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|
+|Mostrar notificaciones de expiración de contraseña en el portal de Office y en el escritorio de Windows 10| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|
+
+> <sup>1</sup> Sincronización de hash de contraseñas con inicio de sesión único.
+>
+> <sup>2</sup> Autenticación de paso a través e inicio de sesión único. 
+>
+> <sup>3</sup> Inicio de sesión único federado con AD FS.
+>
+> <sup>4</sup> AD FS se puede integrar con el PKI de la empresa para permitir el inicio de sesión con certificados. Estos certificados pueden ser certificados flexibles implementados a través de canales de aprovisionamiento de confianza, como certificados MDM o GPO o de tarjetas inteligentes (incluidas las tarjetas PIV/CAC) o Hello para empresas (cert-trust). Para más información sobre la compatibilidad con la autenticación de tarjetas inteligentes, consulte [este blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/).
+>
 
 ## <a name="what-is-azure-ad-connect"></a>¿Qué es Azure AD Connect?
 
 Azure AD Connect es la herramienta de Microsoft diseñada para satisfacer y lograr sus objetivos de identidad híbrida.  Esto le permite proporcionar una identidad común para los usuarios de aplicaciones de Office 365, Azure y SaaS integradas con Azure AD.  Ofrece las siguientes características:
     
 - [Sincronización](how-to-connect-sync-whatis.md): este componente es responsable de la creación de usuarios, grupos y otros objetos. También es responsable de asegurarse de que la información de identidad de los usuarios y los grupos de su entorno local coincide con la de la nube.  Es responsable de sincronizar los hash de contraseña con Azure AD.
+- [Sincronización de hash de contraseña](how-to-connect-password-hash-synchronization.md): un componente opcional que permite a los usuarios usar la misma contraseña de forma local y en la nube mediante la sincronización de un hash de contraseña de usuarios con Azure AD.
 -   [AD FS y la integración de federación](how-to-connect-fed-whatis.md): la federación es una parte opcional de Azure AD Connect y puede utilizarse para configurar un entorno híbrido mediante una infraestructura local de AD FS. También proporciona funcionalidades de administración de AD FS como la renovación de certificados e implementaciones de servidor de AD FS adicionales.
 -   [Autenticación de paso a través](how-to-connect-pta.md): otro componente opcional que permite a los usuarios usar la misma contraseña de forma local y en la nube, pero que no requiere la infraestructura adicional de un entorno federado.
+-   [Integración de PingFederate y federación](how-to-connect-install-custom.md#configuring-federation-with-pingfederate): otra opción de federación que le permite usar PingFederate como proveedor de identidades.
 -   [Seguimiento de estado](whatis-hybrid-identity-health.md): Azure AD Connect Health puede proporcionar una sólida supervisión y una ubicación central en Azure Portal donde se puede ver esta actividad. 
 
 

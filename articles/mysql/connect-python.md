@@ -11,23 +11,27 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 7eef3d71a35b5016e48e519b95c2573fbe3390e7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 54b25aa141da15224d5d8034ba54783d3633f5be
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265112"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914743"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL: uso de Python para conectarse y consultar datos
 En este tutorial rápido se muestra cómo usar [Python](https://python.org) para conectarse a una instancia de Azure Database for MySQL. Se emplean instrucciones SQL para consultar, insertar, actualizar y eliminar datos de la base de datos en las plataformas Mac OS, Ubuntu Linux y Windows. En este tema se da por hecho que está familiarizado con el desarrollo mediante Python y que nunca ha usado Azure Database for MySQL.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Create an Azure Database for MySQL server using Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creación de un servidor de Azure Database for MySQL mediante Azure Portal)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Instalación de Python y el conector de MySQL
-Instale [Python](https://www.python.org/downloads/) y el [conector de MySQL para Python](https://dev.mysql.com/downloads/connector/python/) en su propia máquina. Dependiendo de la plataforma, siga estos pasos de la sección que proceda:
+Instale [Python](https://www.python.org/downloads/) y el [conector de MySQL para Python](https://dev.mysql.com/downloads/connector/python/) en su propia máquina. Según la plataforma, siga los pasos de la sección que proceda. 
+
+> [!NOTE]
+> Esta guía de inicio rápido usa un enfoque de consulta SQL sin procesar para conectarse a MySQL para ejecutar consultas. Si usa una plataforma web, use el conector recomendado para ella. Por ejemplo, [mysqlclient](https://pypi.org/project/mysqlclient/) se sugiere para usarlo con Django.
+>
 
 ### <a name="windows"></a>Windows
 1. Descargue e instale Python 2.7 desde [python.org](https://www.python.org/downloads/windows/). 
@@ -56,7 +60,7 @@ Instale [Python](https://www.python.org/downloads/) y el [conector de MySQL para
 
    ```bash
    pip install mysql-connector-python-rf
-   ```
+   ``` 
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 Obtenga la información de conexión necesaria para conectarse a Azure Database for MySQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
@@ -66,7 +70,6 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 3. Haga clic en el nombre del servidor.
 4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
  ![Nombre del servidor de Azure Database for MySQL](./media/connect-python/1_server-overview-name-login.png)
-   
 
 ## <a name="run-python-code"></a>Ejecución de código de Python
 - Pegue el código en un archivo de texto y luego guarde el archivo en una carpeta de proyecto con la extensión de archivo .py (por ejemplo, C:\pythonmysql\createtable.py o /home/username/pythonmysql/createtable.py).

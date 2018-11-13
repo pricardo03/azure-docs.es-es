@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/03/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 7676360d71dab4da58693221645517c69b56dff8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090695"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036062"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolución de Azure Data Box y comprobación de la carga de datos en Azure
 
@@ -51,11 +51,16 @@ Una vez completada la comprobación, el dispositivo Data Box se conecta a la red
 
 Una vez finalizada la copia, el estado del pedido se actualiza a **Completed** (Completado).
 
-Compruebe que los datos estén en las cuentas de almacenamiento antes de eliminarlos del origen. 
+Compruebe que los datos estén en las cuentas de almacenamiento antes de eliminarlos del origen. Al copiar los datos en Data Box, dependiendo del tipo, estos se cargan en una de las siguientes rutas de acceso de la cuenta de Azure Storage.
+
+- Para los blobs en bloques y los blobs en páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+- Para Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+Como alternativa, puede ir a su cuenta de almacenamiento de Azure en Azure Portal e ir desde allí.
 
 ## <a name="erasure-of-data-from-data-box"></a>Eliminación de datos de Data Box
  
- Una vez que se completa la carga en Azure, Data Box elimina los datos de los discos según las [directrices de la revisión 1 de NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
+Una vez que se completa la carga en Azure, Data Box elimina los datos de los discos según las [directrices de la revisión 1 de NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

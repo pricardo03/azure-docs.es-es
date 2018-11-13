@@ -4,17 +4,17 @@ description: Azure Policy es un servicio de Azure que se usa para crear, asignar
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: dbdffc7a6f77f3f34ce7937c60eb7a53e5f72590
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c016e21ff59d5f68afee79b2159218d10e90a7ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961287"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252826"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -35,12 +35,14 @@ La directiva se centra en las propiedades de los recursos durante la implementac
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Permisos de RBAC en Azure Policy
 
-Azure Policy tiene permisos representados como operaciones en dos proveedores de recursos diferente:
+Azure Policy dispone de varios permisos, conocidos como operaciones, en dos proveedores de recursos:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Varios de los roles integrados tienen distintos niveles de permisos en los recursos de Azure Policy, como **administrador de seguridad**, que puede administrar asignaciones de directivas y definiciones de directivas, pero no puede ver información de cumplimiento y **lector** , que puede leer detalles relacionados con las asignaciones y definiciones de directivas, pero que no puede realizar cambios ni ver información acerca del cumplimiento. Mientras que el rol **propietario** tiene todos los derechos completos, **colaborador** no tiene ningún permiso en Azure Policy. Para conceder permiso para ver los detalles de cumplimiento de una directiva, cree un [rol personalizado](../../role-based-access-control/custom-roles.md).
+Muchos roles integrados conceden permiso a recursos de Azure Policy. El rol **Colaborador de la directiva de recursos (versión preliminar)** incluye la mayoría de las operaciones de directiva y el rol **Propietario** tiene derechos completos. Tanto el rol **Colaborador** como **Lector** pueden leer todos los detalles sobre la directiva, pero el rol **Colaborador** también puede activar la corrección.
+
+Si ninguno de los roles integrados tiene los permisos necesarios, cree un [rol personalizado](../../role-based-access-control/custom-roles.md).
 
 ## <a name="policy-definition"></a>Definición de directiva
 

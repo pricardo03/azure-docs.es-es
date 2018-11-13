@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/07/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352667"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277977"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configuración de la unión a Azure Active Directory híbrido para dominios federados
 
@@ -156,6 +156,8 @@ Si algunos de los dispositivos unidos a un dominio son dispositivos de Windows d
  
 - Configurar los valores de la intranet local para el registro de dispositivos
 
+- Control de dispositivos de Windows de nivel inferior 
+
 
 ### <a name="update-device-settings"></a>Actualizar configuración del dispositivo 
 
@@ -176,8 +178,6 @@ Para completar con éxito la combinación de Azure AD híbrido de los dispositiv
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - El servicio de token de seguridad (STS - dominios federados) de su organización
 
 - `https://autologon.microsoftazuread-sso.com` (para el SSO de conexión directa).
@@ -185,6 +185,10 @@ Para completar con éxito la combinación de Azure AD híbrido de los dispositiv
 Además, tiene que habilitar **Permitir actualizaciones en la barra de estado a través de script** en la zona de intranet local del usuario.
 
 
+
+### <a name="control-windows-down-level-devices"></a>Control de dispositivos de Windows de nivel inferior 
+
+Para registrar dispositivos de nivel inferior de Windows, debe descargar e instalar un paquete de Windows Installer (.msi) desde el Centro de descarga. Para más información, haga clic [aquí](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 ## <a name="verify-the-registration"></a>Comprobación del registro
 

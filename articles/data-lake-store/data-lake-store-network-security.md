@@ -1,6 +1,6 @@
 ---
 title: Seguridad de red de Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Funcionamiento del firewall para las direcciones IP y de la integración de redes virtuales en Azure Data Lake Storage Gen1
+description: Funcionamiento de la integración del firewall de IP y la red virtual en Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,111 +13,139 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 0da5962bc0b48a387ee82a1db36099682e14bca3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: b206b49914a448aa3fc9da63f72cca91f9f9ade1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168193"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218974"
 ---
-# <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integración de Virtual Network para Azure Data Lake Storage Gen1: versión preliminar
+# <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integración de la red virtual en Azure Data Lake Storage Gen1: versión preliminar
 
-Presentación de la integración de Virtual Network para Azure Data Lake Storage Gen1 (versión preliminar). La integración de redes virtuales permite evitar el acceso no autorizado a las cuentas de Azure Data Lake Storage Gen1 mediante el bloqueo a las redes virtuales y las subredes distintas de las suyas. Ahora puede configurar su cuenta de ADLS Gen1 para que solo acepte tráfico desde las redes y subredes especificadas y bloquee el acceso desde las demás. Esto ayuda a proteger la cuenta de ADLS frente a amenazas externas.
+En este artículo se presenta la integración de red virtual de Azure Data Lake Storage Gen1, que se encuentra en versión preliminar. Con la integración de red virtual, puede configurar las cuentas para que acepten el tráfico procedente únicamente de redes virtuales y subredes específicas. 
 
-Para la integración de redes virtuales para ADLS Gen1 se utiliza la seguridad del punto de conexión del servicio de redes virtuales entre su instancia de Virtual Network y el servicio Azure Active Directory para generar notificaciones de seguridad adicionales en el token de acceso. Estas notificaciones sirven para autenticar la red virtual en la cuenta de ADLS Gen1 y permitir el acceso.
+Esta característica ayuda a proteger su cuenta de Data Lake Storage frente a amenazas externas.
+
+Para la integración de red virtual en Data Lake Storage Gen1, se usa la seguridad del punto de conexión de servicio de red virtual entre la red virtual y Azure Active Directory (Azure AD) para generar notificaciones de seguridad adicionales en el token de acceso. Estas notificaciones se usan entonces para autenticar la red virtual en la cuenta de Data Lake Storage Gen1 y permitir el acceso.
 
 > [!NOTE]
-> Se trata de tecnología de versión preliminar y no se recomienda su uso en entornos de producción.
+> Esta tecnología se encuentra en versión preliminar. No es aconsejable su uso en entornos de producción.
 >
-> No hay cargos adicionales asociados al uso de estas funcionalidades. Su cuenta se facturará según la tarifa estándar para ADLS Gen1 ([precios](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable)) y los servicios de Azure que use ([precios](https://azure.microsoft.com/pricing/#product-picker)).
+> No hay cargos adicionales asociados con el uso de estas funcionalidades. Su cuenta se factura según la tarifa estándar de Data Lake Storage Gen1. Para más información, consulte los [precios](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). Para todos los otros servicios de Azure que use, consulte los [precios](https://azure.microsoft.com/pricing/#product-picker).
 
-## <a name="scenarios-for-vnet-integration-for-adls-gen1"></a>Escenarios de integración de redes virtuales para ADLS Gen1
+## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Escenarios de integración de red virtual en Data Lake Storage Gen1
 
-La integración de redes virtuales en ADLS Gen1 permite restringir el acceso a su cuenta de ADLS Gen1 a las redes virtuales y las subredes designadas.  Otras redes o máquinas virtuales de Azure no podrán acceder a la cuenta una vez bloqueada la subred o la red virtual especificada.  Funcionalmente, la integración de redes virtuales en ADLS Gen1 permite el mismo escenario que los [puntos de conexión del servicio de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).  Hay algunas diferencias importantes que se detallan en las siguientes secciones. 
+Con la integración de red virtual de Data Lake Storage Gen1, puede restringir el acceso a la cuenta de Data Lake Storage Gen1 desde subredes y redes virtuales específicas. Una vez que la cuenta está bloqueada para la subred de la red virtual especificada, no se permite el acceso a otras redes virtuales o máquinas virtuales de Azure. Funcionalmente, la integración de red virtual de Data Lake Storage Gen1 permite el mismo escenario que los [puntos de conexión de servicio de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). En las siguientes secciones se detallan algunas diferencias importantes. 
 
-![Diagrama del escenario para la integración de redes virtuales en ADLS Gen1](media/data-lake-store-network-security/scenario-diagram.png)
+![Diagrama del escenario de integración de red virtual de Data Lake Storage Gen1](media/data-lake-store-network-security/scenario-diagram.png)
 
 > [!NOTE]
-> Además de las reglas de red virtual, también se pueden usar reglas de firewall para las direcciones IP existentes para permitir el acceso desde redes locales. 
+> Además de las reglas de red virtual, también se pueden usar reglas de firewall de IP existentes para permitir el acceso desde redes locales. 
 
-## <a name="optimal-routing-with-adls-gen1-vnet-integration"></a>Enrutamiento óptimo con la integración de redes virtuales en ADLS Gen1
+## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Enrutamiento óptimo con la integración de red virtual de Data Lake Storage Gen1
 
-Una ventaja clave de los puntos de conexión del servicio de redes virtuales es el [enrutamiento óptimo](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) desde la red virtual.  Para llevar a cabo el mismo enrutamiento óptimo en las cuentas de ADLS Gen1, enrute la red virtual a la cuenta de ADLS Gen1 mediante las siguientes [rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined):
+Una de las ventajas principales de los puntos de conexión de servicio de red virtual es el [enrutamiento óptimo](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) desde la red virtual. Puede realizar la misma optimización de ruta para las cuentas de Data Lake Storage Gen1. Use las siguientes [rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) desde la red virtual hasta la cuenta de Data Lake Storage Gen1.
 
-- **Dirección IP pública de ADLS**: use la dirección IP pública para las cuentas de ADLS Gen1 de destino.  Puede identificar las direcciones IP de las cuentas de ADLS Gen1 al [resolver los nombres DNS](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) de las cuentas.  Cree una entrada independiente para cada dirección.
+**Dirección IP pública de Data Lake Storage**: use la dirección IP pública para las cuentas de Data Lake Storage Gen1 de destino. Para identificar las direcciones IP de la cuenta de Data Lake Storage Gen1, [resuelva los nombres DNS](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) de las cuentas. Cree una entrada independiente para cada dirección.
 
-```azurecli
-# Create a Route table for your resource group
-az network route-table create --resource-group $RgName --name $RouteTableName
+    ```azurecli
+    # Create a route table for your resource group.
+    az network route-table create --resource-group $RgName --name $RouteTableName
+    
+    # Create route table rules for Data Lake Storage public IP addresses.
+    # There's one rule per Data Lake Storage public IP address. 
+    az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+    
+    # Update the virtual network, and apply the newly created route table to it.
+    az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
+    ```
 
-# Create Route Table Rules for ADLS Public IP Addresses
-# There will be one rule per ADLS Public IP Addresses 
-az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+## <a name="data-exfiltration-from-the-customer-virtual-network"></a>Filtración de datos desde la red virtual del cliente
 
-# Update the VNet and apply the newly created Route Table to it
-az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
-```
+Además de proteger el acceso a las cuentas de Data Lake Storage de la red virtual, quizá le interese también asegurarse de que no se produzca la filtración de datos a cuentas no autorizadas.
 
-## <a name="data-exfiltration-from-the-customer-vnet"></a>Extrusión de datos desde la red virtual del cliente
-
-Además de proteger el acceso a las cuentas de ADLS desde Virtual Network, quizá le interese también asegurarse de que no se produce extrusión de datos a cuentas no autorizadas.
-
-Nuestra recomendación es usar una solución de firewall de la red virtual para filtrar el tráfico saliente en función de la dirección URL de la cuenta de destino y permitir el acceso únicamente a las cuentas de ADLS Gen1 autorizadas.
+Use una solución de firewall en la red virtual para filtrar el tráfico saliente en función de la dirección URL de la cuenta de destino. Permita el acceso solo a cuentas de Data Lake Storage Gen1 autorizadas.
 
 Algunas de las opciones disponibles son las siguientes:
-- [Firewall de Azure](https://docs.microsoft.com/azure/firewall/overview): puede [implementar y configurar una instancia de Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) para la red virtual y proteger el tráfico saliente de ADLS y restringirlo únicamente a la dirección URL de la cuenta conocida y autorizada.
-- Firewall de [aplicación de red virtual](https://azure.microsoft.com/solutions/network-appliances/): si el administrador solo autoriza el uso de ciertos proveedores firewall comercial, puede usar una solución de firewall de aplicación de red virtual, que se encuentra disponible en Azure Marketplace para realizar la misma función.
+- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): [implemente y configure Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) para la red virtual. Proteja el tráfico saliente de Data Lake Storage y bloquéelo hasta la dirección URL de la cuenta conocida y aprobada.
+- Firewall de [aplicación virtual de red](https://azure.microsoft.com/solutions/network-appliances/): el administrador podría permitirle usar solo determinados proveedores de firewall comerciales. Use una solución de firewall de aplicación virtual de red que esté disponible en Azure Marketplace para realizar la misma función.
 
 > [!NOTE]
-> El uso de firewalls en la ruta de acceso de datos supondrá un salto adicional en eta y podría afectar al rendimiento de la red en cuanto al intercambio de datos de un extremo a otro, incluida la disponibilidad de rendimiento y la latencia de la conexión. 
+> El uso de firewalls en la ruta de acceso a los datos introduce un salto adicional en dicha ruta. Esto podría afectar al rendimiento en el intercambio de datos de un extremo a otro. También podría afectar a la disponibilidad del rendimiento y la latencia de conexión. 
 
 ## <a name="limitations"></a>Limitaciones
-1.  Los clústeres de HDInsight deben crearse de nuevo tras agregarse a la versión preliminar.  Los clústeres que se crearan antes de que la compatibilidad de la integración de redes virtuales en ADLS Gen1 estuviera disponible deberán volverse a crear para admitir esta nueva característica. 
-2.  Al crear un nuevo clúster de HDInsight, la selección de una cuenta de ADLS Gen1 con la integración de redes virtuales habilitada provocará un error en el proceso. Primero debe deshabilitar la regla de red virtual o marcar **Allow access from all networks and services** (Permitir el acceso desde todas las redes y servicios) a través de la hoja **Firewall y redes virtuales** de la cuenta de ADLS.  Consulte la sección [Excepciones](##Exceptions) para más información.
-3.  La versión preliminar de la integración de redes virtuales en ADLS Gen1 no funciona con [Managed Identities for Azure Resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
-4.  Desde el portal no se puede acceder a los datos de archivo o carpeta de la cuenta de ADLS Gen1 con las redes virtuales habilitadas.  Esto incluye el acceso desde una máquina virtual que esté dentro de la red virtual y las actividades como el uso del Explorador de datos.  Las actividades de administración de cuentas seguirán funcionando.  A los datos de archivo o carpeta de la cuenta de ADLS con las redes virtuales habilitadas se accede desde cualquier recurso ajeno al portal: el acceso al SDK, los scripts de PowerShell, otros servicios de Azure (cuyo origen no sea el portal), etc. 
+
+- Los clústeres de HDI que se crearon antes de que estuviera disponible la compatibilidad con la integración de red virtual de Data Lake Storage Gen1 deben volver a crearse para admitir esta nueva característica.
+ 
+- Al crear un nuevo clúster de HDInsight y seleccionar una cuenta de Data Lake Storage Gen1 con la integración de red virtual habilitada, se produce un error en el proceso. En primer lugar, deshabilite la regla de red virtual. O bien, en la hoja **Firewall y redes virtuales** de la cuenta de Data Lake Storage, seleccione **Allow access from all networks and services** (Permitir el acceso desde todas las redes y servicios). Para más información, consulte la sección [Excepciones](##Exceptions).
+
+- La versión preliminar de la integración de red virtual de Data Lake Storage Gen1 no funciona con [identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+  
+- Los datos de archivos y carpetas de la cuenta de Data Lake Storage Gen1 habilitada para la red virtual no son accesibles desde el portal. Esta restricción incluye el acceso desde una máquina virtual que esté dentro de la red virtual y actividades como el uso del Explorador de datos. Las actividades de administración de cuentas seguirán funcionando. Los datos de archivos y carpetas de la cuenta de Data Lake Storage habilitada para la red virtual son accesibles a través de todos los recursos que no sean del portal. Estos recursos incluyen acceso al SDK, scripts de PowerShell y otros servicios de Azure cuando no se originan desde el portal. 
 
 ## <a name="configuration"></a>Configuración
 
-### <a name="step1-configure-your-vnet-to-use-aad-service-endpoint"></a>Paso 1: configuración de la red virtual para usar el punto de conexión del servicio AAD
-1.  Vaya a Azure Portal e inicie sesión en la cuenta. 
-2.  [Cree una nueva red virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) en la suscripción o vaya a una red virtual existente.  La red virtual debe encontrarse en la misma región que la cuenta de ADLS Gen 1. 
-3.  En la hoja de la red virtual, elija **Puntos de conexión de servicio**. 
-4.  Haga clic en **Agregar** para agregar un nuevo punto de conexión de servicio.
-![Incorporación de un punto de conexión de servicio de red virtual](media/data-lake-store-network-security/config-vnet-1.png)
-5.  Elija **Microsoft.AzureActiveDirectory** como servicio para el punto de conexión.
-![Selección del punto de conexión del servicio Microsoft.azureactivedirectory](media/data-lake-store-network-security/config-vnet-2.png)
-6.  Elija las subredes para las que se va a permitir la conectividad y haga clic en **Agregar**.
-![Selección de la subred](media/data-lake-store-network-security/config-vnet-3.png)
-7.  La incorporación del punto de conexión de servicio puede tardar hasta 15 minutos. Una vez agregado, se mostrará en la lista. Compruebe que se muestra y que todos los detalles son como se han configurado. 
-![Incorporación correcta del punto de conexión de servicio](media/data-lake-store-network-security/config-vnet-4.png)
+### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Paso 1: Configuración de la red virtual para usar un punto de conexión de servicio de Azure AD
 
-### <a name="step-2-set-up-the-allowed-vnetsubnet-for-your-adls-gen1-account"></a>Paso 2: configuración de la red virtual o la subred permitida para la cuenta de ADLS Gen1
-1.  Después de configurar la red virtual, [cree una nueva cuenta de Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) en la suscripción o vaya a una existente. La cuenta de ADLS Gen1 debe encontrarse en la misma región que la red virtual. 
+1.  Vaya a Azure Portal e inicie sesión en su cuenta.
+ 
+2.  [Cree una red virtual ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) en su suscripción. O bien, puede ir a una red virtual existente. La red virtual debe estar en la misma región que la cuenta de Data Lake Storage Gen 1.
+ 
+3.  En la hoja **Red virtual**, seleccione **Puntos de conexión de servicio**.
+ 
+4.  Seleccione **Agregar** para agregar un nuevo punto de conexión de servicio.
+
+    ![Incorporación de un punto de conexión de servicio de red virtual](media/data-lake-store-network-security/config-vnet-1.png)
+
+5.  Seleccione **Microsoft.AzureActiveDirectory** como servicio del punto de conexión.
+
+     ![Selección del punto de conexión de servicio Microsoft.AzureActiveDirectory](media/data-lake-store-network-security/config-vnet-2.png)
+
+6.  Seleccione las subredes para las que planea permitir la conectividad. Seleccione **Agregar**.
+
+    ![Selección de la subred](media/data-lake-store-network-security/config-vnet-3.png)
+
+7.  La incorporación del punto de conexión de servicio puede tardar hasta 15 minutos. Después de agregarla, se muestra en la lista. Compruebe que se muestra y que todos los detalles son como se han configurado.
+ 
+    ![Incorporación correcta del punto de conexión de servicio](media/data-lake-store-network-security/config-vnet-4.png)
+
+### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>Paso 2: Configuración de la red virtual o la subred permitidas para la cuenta de Data Lake Storage Gen1
+
+1.  Después de configurar la red virtual, [cree una cuenta de Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) en su suscripción. O bien, puede ir a una cuenta de Data Lake Storage Gen1 existente. La cuenta de Data Lake Storage Gen1 debe estar en la misma región que la red virtual.
+ 
 2.  Elija **Firewall y redes virtuales**.
 
-  > [!NOTE]
-  > Si no ve **Firewall y redes virtuales** en la configuración, a continuación, cierre la sesión en el portal. Cierre el explorador. Limpie la caché del explorador. Reinicie la máquina y vuelva a intentarlo.
+    > [!NOTE]
+    > Si no ve **Firewall y redes virtuales** en la configuración, cierre la sesión en el portal. Cierre el explorador y borre la caché del explorador. Reinicie la máquina y vuelva a intentarlo.
 
-  ![Incorporación de una regla de red virtual a la cuenta de ADLS](media/data-lake-store-network-security/config-adls-1.png)
-3.  Elija **Redes seleccionadas**. 
-4.  Haga clic en **Agregar red virtual existente**.
-  ![Incorporación de una red virtual existente](media/data-lake-store-network-security/config-adls-2.png)
-5.  Elija las redes virtuales y las subredes para las cuales permitir la conectividad y haga clic en **Agregar**.
-  ![Elección de la red virtual y las subredes](media/data-lake-store-network-security/config-adls-3.png)
-6.  Asegúrese de que las redes virtuales y las subredes aparecen correctamente en la lista y haga clic en **Guardar**.
-  ![Guardado de la nueva regla](media/data-lake-store-network-security/config-adls-4.png)
+       ![Incorporación de una regla de red virtual a la cuenta de Data Lake Storage](media/data-lake-store-network-security/config-adls-1.png)
 
-  > [!NOTE]
-  > La configuración puede tardar hasta 5 minutos en entrar en vigor después de guardarla.
+3.  Seleccione **Redes seleccionadas**.
+ 
+4.  Seleccione **Agregar red virtual existente**.
 
-7.  [Opcional] Además de las redes virtuales y las subredes, si desea permitir la conectividad desde direcciones IP específicas, puede hacerlo en la sección **Firewall** de la misma página. 
+    ![Incorporación de una red virtual existente](media/data-lake-store-network-security/config-adls-2.png)
+
+5.  Seleccione las redes virtuales y subredes para permitir la conectividad. Seleccione **Agregar**.
+
+    ![Selección de la red virtual y las subredes](media/data-lake-store-network-security/config-adls-3.png)
+
+6.  Asegúrese de que las redes virtuales y las subredes aparezcan correctamente en la lista. Seleccione **Guardar**.
+
+    ![Guardar la nueva regla](media/data-lake-store-network-security/config-adls-4.png)
+
+    > [!NOTE]
+    > La configuración puede tardar en aplicarse hasta cinco minutos después de guardarla.
+
+7.  [Opcional] En la página **Firewall y redes virtuales**, en la sección **Firewall**, puede permitir la conectividad desde direcciones IP específicas. 
 
 ## <a name="exceptions"></a>Excepciones
-Hay dos casillas en el área Excepciones de la hoja **Firewall y redes virtuales** que permiten la conectividad desde un conjunto de servicios y máquinas virtuales de Azure.
-![Excepciones de Firewall y redes virtuales](media/data-lake-store-network-security/firewall-exceptions.png)
-- **Allow all Azure services to access this Data Lake Storage Gen1 account** (Permitir que todos los servicios accedan a esta cuenta de Data Lake Storage Gen1) permite que todos los servicios de Azure, como Azure Data Factory, Event Hubs, Azure Virtual Machines, etc. se comuniquen con la cuenta de ADLS.
+Puede habilitar la conectividad desde servicios y máquinas virtuales de Azure fuera de las redes virtuales seleccionadas. En la hoja **Firewall y redes virtuales**, en el área **Excepciones**, seleccione entre dos opciones:
+ 
+- **Allow all Azure services to access this Data Lake Storage Gen1 account** (Permitir que todos los servicios de Azure accedan a esta cuenta de Data Lake Storage Gen1). Esta opción permite que los servicios de Azure como Azure Data Factory, Azure Event Hubs y todas las máquinas virtuales de Azure se comuniquen con su cuenta de Data Lake Storage.
 
-- **Allow Azure Data Lake Analytics to access this Data Lake Storage Gen1 account** (Permitir que Azure Data Lake Analytics acceda a esta cuenta de Data Lake Storage Gen1) permite que el servicio Azure Data Lake Analytics se conecte con esta cuenta de ADLS. 
+- **Allow Azure Data Lake Analytics to access this Data Lake Storage Gen1 account** (Permitir que Azure Data Lake Analytics acceda a esta cuenta de Data Lake Storage Gen1). Esta opción permite la conectividad de Data Lake Analytics a esta cuenta de Data Lake Storage. 
 
-Se recomienda mantener estas excepciones desactivadas y solo activarlas cuando se necesite conectar con estos servicios desde fuera de la red virtual.
+  ![Excepciones de Firewall y redes virtuales](media/data-lake-store-network-security/firewall-exceptions.png)
+
+Se recomienda mantener estas excepciones desactivadas. Actívelas solo si necesita conectividad desde estos otros servicios fuera de la red virtual.

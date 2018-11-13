@@ -7,22 +7,22 @@ ms.component: dsc
 keywords: dsc, configuración, automation
 author: KrisBash
 ms.author: krbash
-ms.date: 12/17/2017
+ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053722"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243699"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar una máquina virtual Linux con Desired State Configuration
 
 Al habilitar Desired State Configuration (DSC), puede administrar y supervisar las configuraciones de los servidores Windows y Linux. Las configuraciones que se desvían de la configuración deseada se pueden identificar o corregir automáticamente. Esta guía de inicio rápido le guía por la incorporación de una máquina virtual Linux y la implementación de una pila de LAMP con DSC.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este inicio rápido necesita instalar:
 
@@ -30,7 +30,7 @@ Para completar este inicio rápido necesita instalar:
 * Una cuenta de Azure Automation Para obtener instrucciones sobre cómo crear una cuenta de ejecución de Azure Automation, consulte el artículo sobre las [cuentas de ejecución de Azure](automation-sec-configure-azure-runas-account.md).
 * Una máquina virtual de Azure Resource Manager (no clásica) que ejecute Red Hat Enterprise Linux, CentOS u Oracle Linux. Para obtener instrucciones sobre la creación de una máquina virtual, consulte [Creación de máquinas virtuales Linux con Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure en https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Incorporar una máquina virtual
@@ -38,12 +38,12 @@ Hay muchos métodos diferentes para incorporar una máquina y habilitar Desired 
 
 1. En el panel izquierdo de Azure Portal, seleccione **Cuentas de Automation**. Si la opción no está visible en el panel izquierdo, haga clic en **Todos los servicios** y búsquela en la vista que se muestra.
 1. Seleccione una cuenta de Automation de la lista.
-1. En el panel izquierdo de la cuenta de Automation, seleccione **Nodos DSC**.
-1. Haga clic en la opción de menú **Agregar máquina virtual de Azure**.
-1. Busque la máquina virtual para la que quiere habilitar DSC. Puede usar el campo de búsqueda y las opciones de filtro para buscar una máquina virtual específica.
-1. Haga clic en la máquina virtual y, a continuación, seleccione **Conectar**.
-1. Seleccione la configuración de DSC adecuada para la máquina virtual. Si ya tiene una configuración preparada, la puede especificar como *Nombre de la configuración del nodo*. Puede establecer el [modo de configuración](https://docs.microsoft.com/powershell/dsc/metaconfig) para controlar el comportamiento de la configuración de la máquina.
-1. Haga clic en **Aceptar**
+1. En el panel izquierdo de la cuenta de Automation, seleccione **State Configuration (DSC)** (Configuración de estado [DSC]).
+2. Haga clic en **Agregar** para abrir la página de selección de máquinas virtuales.
+3. Busque la máquina virtual para la que quiere habilitar DSC. Puede usar el campo de búsqueda y las opciones de filtro para buscar una máquina virtual específica.
+4. Haga clic en la máquina virtual y, a continuación, seleccione **Conectar**.
+5. Seleccione la configuración de DSC adecuada para la máquina virtual. Si ya tiene una configuración preparada, la puede especificar como *Nombre de la configuración del nodo*. Puede establecer el [modo de configuración](https://docs.microsoft.com/powershell/dsc/metaconfig) para controlar el comportamiento de la configuración de la máquina.
+6. Haga clic en **Aceptar**
 
 ![Incorporación de una máquina virtual de Azure a DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -101,10 +101,10 @@ configuration LAMPServer {
 
 Para importar la configuración:
 
-1. En el panel izquierdo de la cuenta de Automation, seleccione **Configuraciones DSC**.
-1. Haga clic en la opción de menú **Agregar una configuración**.
-1. Seleccione el *archivo de configuración* que guardó en el paso anterior.
-1. Haga clic en **Aceptar**
+1. En el panel izquierdo de la cuenta de Automation, seleccione **State Configuration (DSC)** (Configuración de estado [DSC]) y, luego, haga clic en la pestaña **Configuraciones**.
+2. Haga clic en **+Agregar**.
+3. Seleccione el *archivo de configuración* que guardó en el paso anterior.
+4. Haga clic en **Aceptar**
 
 ## <a name="compile-a-configuration"></a>Compilar una configuración
 
@@ -112,18 +112,16 @@ Las configuraciones DSC se deben compilar en una configuración de nodo (documen
 
 Para compilar la configuración:
 
-1. En el panel izquierdo de la cuenta de Automation, seleccione **Configuraciones DSC**.
+1. En el panel izquierdo de la cuenta de Automation, seleccione **State Configuration (DSC)** (Configuración de estado [DSC]) y, luego, haga clic en la pestaña **Configuraciones**.
 1. Seleccione la configuración importada en un paso anterior, "LAMPServer".
 1. En las opciones del menú, haga clic en **Compilar** y, a continuación, en **Sí**.
 1. En la vista Configuración, verá un nuevo *trabajo de compilación* en cola. Cuando el trabajo se complete correctamente, podrá avanzar al paso siguiente. Si se produce algún error, puede hacer clic en el trabajo de compilación para obtener más información.
-
-![Estado del trabajo de compilación](./media/automation-quickstart-dsc-configuration/dsc-compilationjob.png)
 
 ## <a name="assign-a-node-configuration"></a>Asignación de una configuración de nodo
 
 Una *configuración de nodo* compilada se puede asignar a nodos DSC. La asignación aplica la configuración a la máquina y supervisa (o corrige automáticamente) cualquier desvío de esa configuración.
 
-1. En el panel izquierdo de la cuenta de Automation, seleccione **Nodos DSC**.
+1. En el panel izquierdo de la cuenta de Automation, seleccione State Configuration (DSC) (Configuración de estado [DSC]) y, luego, haga clic en la pestaña **Nodos**.
 1. Seleccione el nodo al que quiere asignar una configuración
 1. Haga clic en **Asignar configuración de nodo**.
 1. Seleccione *Configuración del nodo* - **LAMPServer.localhost** para realizar la asignación y haga clic en **Aceptar**.
@@ -133,7 +131,7 @@ Una *configuración de nodo* compilada se puede asignar a nodos DSC. La asignaci
 
 ## <a name="viewing-node-status"></a>Visualización del estado del nodo
 
-El estado de todos los nodos administrados se puede encontrar en la vista **Nodos DSC** de la cuenta de Automation. Puede filtrar la visualización por el estado, la configuración del nodo o la búsqueda de nombre. 
+El estado de todos los nodos administrados puede encontrarse en **State Configuration (DSC)** (Configuración de estado [DSC]) y, luego, en la pestaña **Nodos** de la cuenta de Automation. Puede filtrar la visualización por el estado, la configuración del nodo o la búsqueda de nombre.
 
 ![Estado del nodo DSC](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2b39084443690b99391268acb6352763657e2a3c
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467266"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218583"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Guía de inicio rápido: Reconocimiento de voz en Java para Windows o Linux mediante el SDK de Speech Service
 
@@ -74,7 +74,7 @@ Si usa Ubuntu 16.04, antes de iniciar Eclipse, ejecute los comandos siguientes p
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Agregue también un elemento `dependencies`, con la versión 1.0.1 del SDK de Voz como dependencia:
+  * Agregue también un elemento `dependencies`, con la versión 1.1.0 del SDK de Voz como dependencia:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

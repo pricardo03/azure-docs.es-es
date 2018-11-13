@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7bc8b3ba415f8fe701098a9fa7e51d60ffb9df4e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092463"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913829"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copia de datos a Azure Data Box Disk y comprobación de los mismos
 
@@ -31,14 +31,15 @@ En este tutorial, aprenderá a:
 Antes de comenzar, asegúrese de que:
 - Ha completado el [Tutorial: Instalación y configuración de Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Los discos se desbloquean y se conectan a un equipo cliente.
-- El equipo cliente que se utiliza para copiar datos en los discos debe ejecutar un [sistema operativo compatible](data-box-disk-system-requirements.md).
+- El equipo cliente que se utiliza para copiar datos en los discos debe ejecutar un [sistema operativo compatible](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- Asegúrese de que el tipo de almacenamiento previsto para los datos coincide con los [tipos de almacenamiento admitidos](data-box-disk-system-requirements.md#supported-storage-types).
 
 
 ## <a name="copy-data-to-disks"></a>Copia de datos a discos
 
 Realice los pasos siguientes para conectarse y copiar datos desde el equipo a Data Box Disk.
 
-1. Vea el contenido de la unidad desbloqueada. 
+1. Vea el contenido de la unidad desbloqueada.
 
     ![Visualización del contenido de la unidad](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
@@ -229,7 +230,7 @@ Una vez que se completa la copia de los datos, el siguiente paso es validarlos.
 
 Para comprobar los datos, realice los pasos siguientes.
 
-1. Ejecute `DataBoxDiskValidation.cmd` para la validación de la suma de comprobación en la carpeta *AzureImportExport* de la unidad. 
+1. Ejecute `DataBoxDiskValidation.cmd` para la validación de la suma de comprobación en la carpeta *DataBoxDiskImport* de la unidad. 
     
     ![Salida de la herramienta de validación Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

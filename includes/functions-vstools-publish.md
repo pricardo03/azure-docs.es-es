@@ -5,15 +5,15 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 08/26/2018
+ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b290cada86401d91313939a7673998810cb82551
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650757"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51028153"
 ---
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 
@@ -22,6 +22,9 @@ ms.locfileid: "49650757"
     ![Elegir un destino de publicación](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     Cuando habilita **Ejecutar desde ZIP**, la aplicación de función de Azure se ejecuta directamente desde el paquete de implementación. Para más información, consulte [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md) (Ejecución de Azure Functions desde un archivo de paquete).
+     
+    >[!CAUTION]
+    >Al elegir **Seleccionar existente**, todos los archivos de la aplicación de función existente en Azure se sobrescriben con los archivos del proyecto local. Use esta opción solo al volver a publicar actualizaciones en una aplicación de función existente.
 
 3. Si todavía no conectó Visual Studio a su cuenta de Azure, seleccione **Agregar una cuenta...**.
 

@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 09/23/2018
-ms.openlocfilehash: c0c249ffe426e86049024122d9cbf786bb677220
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 3eadc2d233fd1716716c323f4c7087ee8363c67c
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160645"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912329"
 ---
-# <a name="create-an-azure-sql-database-managed-instance"></a>Creación de una Instancia administrada de Azure SQL Database
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Guía de inicio rápido: Creación de una Instancia administrada de Azure SQL Database
 
 Este inicio rápido le guía por la creación de una [Instancia administrada](sql-database-managed-instance.md) de Azure SQL Database en Azure Portal. 
 
@@ -89,3 +89,4 @@ Cuando la implementación finalice correctamente, revise los recursos creados y 
   - Para obtener una guía de inicio rápido en la que se muestra cómo conectarse a una instancia administrada desde una máquina virtual de Azure, vea [Configure an Azure virtual machine connection](sql-database-managed-instance-configure-vm.md) (Configuración de una conexión de máquina virtual de Azure).
   - Para obtener una guía de inicio rápido en la que se muestra cómo conectarse a una Instancia administrada desde un equipo cliente local mediante una conexión de punto a sitio, vea [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md) (Configuración de una conexión de punto a sitio).
 - Para restaurar una base de datos SQL Server existente desde el entorno local en una Instancia administrada, puede usar [Azure Database Migration Service (DMS) para la migración](../dms/tutorial-sql-server-to-managed-instance.md) a fin de restaurar desde un archivo de copia de seguridad de base de datos, o bien el [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar desde un archivo de copia de seguridad de base de datos.
+- Para una supervisión avanzada del rendimiento de la base de datos de Instancia administrada con inteligencia de solución de problemas integrada, consulte [Supervisión de instancias de Azure SQL Database con Azure SQL Analytics ](../log-analytics/log-analytics-azure-sql.md)

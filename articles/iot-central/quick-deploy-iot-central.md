@@ -1,46 +1,63 @@
 ---
 title: Creación de una aplicación de Azure IoT Central | Microsoft Docs
-description: Cree una aplicación de Azure IoT Central para administrar máquinas expendedoras refrigeradas. Visualice los datos de telemetría generados a partir de los dispositivos simulados.
-author: tbhagwat3
-ms.author: tanmayb
-ms.date: 10/12/2018
+description: Cree una nueva aplicación de Azure IoT Central. Cree una aplicación de evaluación o de pago por uso mediante una plantilla de aplicación.
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c6ed1f0feaa9b8b20d291be7929228707281cf9b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f0e5b9d6e873cad1a997bda2ee286c92ad3818d3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158098"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959467"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Creación de una aplicación de Azure IoT Central
 
 Como _generador_, usará la interfaz de usuario de Azure IoT Central para definir la aplicación de Azure IoT Central. En esta guía de inicio rápido se muestra cómo crear una aplicación de Azure IoT Central que contenga un ejemplo de _plantilla de dispositivo_ y _dispositivos_ simulados.
 
-## <a name="create-the-application"></a>Creación de la aplicación
+Vaya a la página [Application Manager](https://aka.ms/iotcentral) (Administrador de aplicaciones) de Azure IoT Central. Tendrá que iniciar sesión con una cuenta Microsoft personal, profesional o educativa.
 
-Para completar esta guía de inicio rápido debe crear una aplicación de Azure IoT Central a partir de la plantilla de aplicación **Sample Contoso**.
-
-Vaya a la página [Application Manager](https://aka.ms/iotcentral) (Administrador de aplicaciones) de Azure IoT Central. A continuación, escriba la dirección de correo electrónico y la contraseña que usa para acceder a la suscripción de Azure:
-
-![Incorporación de la cuenta de la organización](media/quick-deploy-iot-central/sign-in.png)
-
-Para empezar a crear una nueva aplicación de Azure IoT Central, elija **New Application** (Nueva aplicación):
-
-![Página Application Manager (Administrador de aplicaciones) de Azure IoT Central](media/quick-deploy-iot-central/iotcentralhome.png)
-
-Para crear una nueva aplicación de Azure IoT Central:
-
-1. Elija el plan de pago **Free Trial Application** (Evaluación gratuita de la aplicación).
-1. Elija un nombre de aplicación descriptivo, como **Contoso IoT**. Azure IoT Central genera un prefijo de dirección URL único. Puede cambiar este prefijo de dirección URL por algo más fácil de recordar.
-1. Elija la plantilla de aplicación **Sample Contoso**.
-1. Luego elija **Crear**.
+Para empezar a crear una nueva aplicación de Azure IoT Central, seleccione **New Application** (Nueva aplicación). De este modo, ira a la página **Create Application** (Create Application).
 
 ![Página de creación de una aplicación de Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate.png)
 
+Para crear una nueva aplicación de Azure IoT Central:
+
+1. Elija un plan de pago:
+    - Las aplicaciones de **versión de evaluación** son gratuitas durante siete días y luego expiran. Se pueden convertir a pago por uso en cualquier momento antes.
+    - Las aplicaciones de **pago por uso** se cobran por dispositivo y los cinco primeros dispositivos son gratuitos.
+
+    Obtenga más información sobre los precios en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+
+1. Elija un nombre de aplicación descriptivo, como **Contoso IoT**. Azure IoT Central genera un prefijo de dirección URL único. Puede cambiar este prefijo de dirección URL por algo más fácil de recordar.
+
+1. Elija una plantilla de aplicación. Una plantilla de aplicación puede contener elementos predefinidos, como plantillas de dispositivos y paneles que le ayudarán a empezar a trabajar.
+    | Plantilla de la aplicación | DESCRIPCIÓN |
+    | -------------------- | ----------- |
+    | Ejemplo Contoso       | Crea una aplicación que incluye una plantilla de dispositivo que ya se ha creado para una máquina expendedora de refrigerados. Utilice esta plantilla para empezar a explorar Azure IoT Central. |
+    | Ejemplo Devkits       | Permite crear una aplicación con plantillas de dispositivo preparadas para que se conecte a un dispositivo MXChip o Raspberry Pi. Utilice esta plantilla si es un desarrollador de dispositivos que experimenta con alguno de estos dispositivos. |
+    | Aplicación personalizada   | Permite crear una aplicación vacía para que pueda rellenarla con sus propias plantillas de dispositivo y dispositivos. |
+
+1. Si va a crear una aplicación de **pago por uso**, debe seleccionar el *Directorio*, la *Suscripción de Azure* y la *Región*. 
+    - *Directorio* es la instancia de Azure Active Directory para crear la aplicación. Contiene las identidades de usuario, las credenciales y otra información de la organización. Si no tiene un inquilino de AAD, se crea uno automáticamente cuando se crea una suscripción de Azure.
+
+    - Una *suscripción de Azure* permite crear instancias de los servicios de Azure. IoT Central aprovisionará los recursos de su suscripción. Si no tiene una suscripción de Azure, puede crear una en [la página de suscripción a Azure](https://aka.ms/createazuresubscription). Después de crear la suscripción de Azure, vuelva a la página **Crear aplicación**. La nueva suscripción aparecerá en el cuadro de lista desplegable **Suscripción de Azure**.
+
+    - *Región* es la ubicación física donde desea crear la aplicación. Normalmente, debe elegir el área que se encuentre físicamente más cercana a los dispositivos para obtener un rendimiento óptimo. Puede ver las regiones en las que Azure IoT Central está disponible en la página [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
+
+    > [!Note]
+    > Una vez que elija una región, ya no podrá mover la aplicación a otra región más adelante.
+
+1. Haga clic en **Create**(Crear).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido se ha creado una aplicación de Azure IoT Central previamente rellenada que contiene una plantilla de dispositivo **Refrigerated Vending Machine** y dispositivos simulados. Consulte el artículo de [definición de una nueva plantilla de dispositivo en la aplicación](tutorial-define-device-type.md) para más información sobre cómo definir sus propias plantillas de dispositivo como generador.
+En esta guía de inicio rápido, ha creado una aplicación de IoT Central. Este es el siguiente paso que le sugerimos:
+
+> [!div class="nextstepaction"]
+> [Dé un paseo por IoT Central](#overview-iot-central-tour)

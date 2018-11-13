@@ -11,15 +11,15 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: fa9686e7f9ca7f14a51ea2b9c313dd69a2e40cec
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 11/01/2018
+ms.openlocfilehash: bc27ece2eddc842a81698aaa685cbe6d63c6a1df
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362261"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912261"
 ---
-# <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Restauración de una copia de seguridad de datos a una instancia administrada de Azure SQL Database
+# <a name="quickstart-restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Guía de inicio rápido: Restauración de una copia de seguridad de datos a una Instancia administrada de Azure SQL Database
 
 En este inicio rápido se muestra cómo restaurar una copia de seguridad de una base de datos almacenada en Azure Blob Storage en la Instancia administrada mediante el archivo de copia de seguridad Wide World Importers - Standard. Este método requiere cierto tiempo de inactividad. 
 

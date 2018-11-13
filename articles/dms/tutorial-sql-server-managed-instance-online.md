@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Database Migration Service para realizar una migración en línea de SQL Server a Instancia administrada de Azure SQL Database | Microsoft Docs
+title: 'Tutorial: Uso de Azure Database Migration Service para realizar una migración en línea de SQL Server a Instancia administrada de Azure SQL Database | Microsoft Docs'
 description: Aprenda a realizar una migración en línea desde SQL Server local a Instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 4d46a438708e2e72d625f5104293b4605f7b096d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ab869e53810f049593803d58b3df75d0c083bbd2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946086"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962901"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Migración de SQL Server a Instancia administrada de Azure SQL Database en línea mediante DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migración de SQL Server a Instancia administrada de Azure SQL Database en línea mediante DMS
 Azure Database Migration Service se puede usar para migrar las bases de datos de una instancia de SQL Server local a una [Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance.md) con un tiempo de inactividad mínimo. Para ver otros métodos que requieren realizar acciones manuales, consulte [Migración de una instancia de SQL Server a la Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-migrate.md).
 
 >[!IMPORTANT]
@@ -145,7 +145,7 @@ Después de crear una instancia del servicio, búsquela en Azure Portal, ábrala
 
 3. Especifique los valores de **Usuario de SQL** y **Contraseña** para conectarse a la instancia de destino de Instancia administrada de Azure SQL Database.
 
-       ![Select Target](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![Selección del destino](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
 
 2.  Seleccione **Guardar**.
 

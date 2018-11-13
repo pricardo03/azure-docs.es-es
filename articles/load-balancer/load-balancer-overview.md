@@ -4,24 +4,20 @@ description: Información general sobre las características, la arquitectura y 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 618b00906a799e1b8cfcfac5ee6bcc3a714c2f87
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918749"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219586"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -70,14 +66,14 @@ Load Balancer proporciona las siguientes funcionalidades básicas para las aplic
 
 * **Reenvío de puertos**
 
-    Con Load Balancer puede crear una regla NAT de entrada para reenviar el tráfico desde un puerto específico de la dirección IP de un servidor front-end específico a un puerto específico de una instancia de back-end específica dentro de la red virtual. Esto también se realiza con la misma distribución basada en hash que se usa para el equilibrio de carga. Los escenarios comunes para esta funcionalidad son sesiones de Protocolo de Escritorio remoto (RDP) o Secure Shell (SSH) en instancias de máquina virtual individuales dentro de la red virtual de Azure. Puede asignar varios puntos de conexión internos a los diferentes puertos de la misma dirección IP de front-end. Estos se pueden usar para administrar las máquinas virtuales de forma remota a través de Internet sin necesidad de un servidor de salto adicional.
+    Con Load Balancer puede crear una regla NAT de entrada para reenviar el tráfico desde un puerto específico de la dirección IP de un servidor front-end específico a un puerto específico de una instancia de back-end específica dentro de la red virtual. Esto también se realiza con la misma distribución basada en hash que se usa para el equilibrio de carga. Los escenarios comunes para esta funcionalidad son sesiones de Protocolo de Escritorio remoto (RDP) o Secure Shell (SSH) en instancias de máquina virtual individuales dentro de la red virtual de Azure. Puede asignar varios puntos de conexión internos a los diferentes puertos de la misma dirección IP de front-end. Puede usar las direcciones IP de front-end para administrar las máquinas virtuales de forma remota a través de Internet sin necesidad de un JumpBox adicional.
 
 * **Independiente de la aplicación y transparente**
 
     Load Balancer no interactúa directamente con TCP, UDP ni el nivel de aplicación, y admite cualquier escenario de aplicación TCP o UDP.  Load Balancer no finaliza ni origina flujos, interactúa con la carga del flujo, no proporciona función de puerta de enlace al nivel de aplicación, y el protocolo de enlace se realiza siempre directamente entre el cliente y la instancia del grupo de servidores back-end.  Una respuesta a un flujo de entrada siempre es una respuesta de una máquina virtual.  Cuando llega el flujo a la máquina virtual, también se conserva la dirección IP de origen original.  Un par de ejemplos para mostrar más detalladamente la transparencia:
     - A cada punto de conexión solo le responde una máquina virtual.  Por ejemplo, un protocolo de enlace TCP se realiza siempre entre el cliente y la máquina virtual de back-end seleccionada.  Una respuesta a una solicitud a un front-end es una respuesta generada por una máquina virtual de back-end. Cuando se asegura correctamente la conectividad con un front-end, se asegura la conectividad de extremo a extremo con al menos una máquina virtual de back-end.
     - Las cargas de aplicaciones son transparentes para Load Balancer y todas las aplicaciones UDP o TCP son compatibles. Para las cargas de trabajo que requieren procesamiento por solicitud HTTP o manipulación de cargas de nivel de aplicación (por ejemplo, análisis de direcciones URL de HTTP), debe usar un equilibrador de carga de 7 niveles como [Application Gateway](https://azure.microsoft.com/services/application-gateway).
-    - Dado que Load Balancer es independiente de la carga TCP y la descarga TLS ("SSL") no se proporciona, puede crear escenarios cifrados de extremo a extremo mediante Load Balancer y obtener un amplio escalado horizontal para las aplicaciones TLS, ya que se termina la conexión TLS en la propia máquina virtual.  Por ejemplo, la capacidad para claves de sesión TLS solo está limitada por el tipo y número de máquinas virtuales que se agregan al grupo de servidores back-end.  Si necesita "descarga SSL", tratamiento del nivel de aplicación o desea delegar la administración de certificados en Azure, debe utilizar el equilibrador de carga de Azure de 7 niveles [Application Gateway](https://azure.microsoft.com/services/application-gateway) en su lugar.
+    - Dado que Load Balancer es independiente de la carga TCP y no se proporciona descarga TLS ("SSL"), puede crear escenarios cifrados de extremo a extremo mediante Load Balancer y obtener un amplio escalado horizontal para las aplicaciones TLS, ya que la conexión TLS se termina en la propia máquina virtual.  Por ejemplo, la capacidad para claves de sesión TLS solo está limitada por el tipo y número de máquinas virtuales que se agregan al grupo de servidores back-end.  Si necesita "descarga SSL", tratamiento del nivel de aplicación o desea delegar la administración de certificados en Azure, debe utilizar el equilibrador de carga de Azure de 7 niveles [Application Gateway](https://azure.microsoft.com/services/application-gateway) en su lugar.
         
 
 * **Reconfiguración automática**
@@ -90,7 +86,7 @@ Load Balancer proporciona las siguientes funcionalidades básicas para las aplic
      
     Load Balancer proporciona [distintos tipos de sondeo de mantenimiento](load-balancer-custom-probe-overview.md#types) para puntos de conexión TCP, HTTP y HTTPS.
 
-    Además, cuando se usa para los servicios en la nube clásicos, se permite un tipo adicional: [agente invitado](load-balancer-custom-probe-overview.md#guestagent).  Se debería considerar un sondeo de mantenimiento de último recurso y no se recomienda cuando otras opciones son viables.
+    Además, cuando se usa para los servicios en la nube clásicos, se permite un tipo adicional: [agente invitado](load-balancer-custom-probe-overview.md#guestagent).  Esta solución debe considerarse un sondeo de mantenimiento de último recurso y no se recomienda cuando otras opciones son viables.
     
 * **Conexiones de salida (SNAT)**
 

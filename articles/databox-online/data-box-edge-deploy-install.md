@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 21ac3de793f5ce559c3a03de2a09f11ccb86b12a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6bd3c1b2cdbd83673a181ee7e088adb39749036e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167365"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963853"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Tutorial: Instalación de Azure Data Box Edge (versión preliminar)
 
@@ -111,8 +111,14 @@ Antes de comenzar a pasar los cables del dispositivo, necesitará:
 
 - El dispositivo físico de Edge, desempaquetado y montado en el bastidor.
 - Dos cables de alimentación. 
-- Dos cables de red RJ-45 de 1-GbE y cuatro cables de cobre SFP+ de 25-GbE.
+- Al menos un cable de red RJ-45 de 1-GbE cable para conectarse a la interfaz de administración de red. Hay dos interfaces de red de 1-GbE, uno de administración y otro de datos, en el dispositivo.
+- Un cable de cobre SFP+ de 25 GbE para cada interfaz de red de datos que se va a configurar. Al menos una de interfaz de red de datos (PUERTOS 2, 3, 4, 5 o 6) debe estar conectada a Internet (para la conexión a Azure).
 - Acceso a dos unidades de distribución de energía (recomendable).
+
+> [!NOTE]
+> - Si va a conectar solo una interfaz de red de datos, es recomendable que use una interfaz de red de 25-GbE como la de los PUERTOS 3, 4, 5 o 6 para enviar datos a Azure. 
+> - Para obtener el mejor rendimiento y controlar grandes volúmenes de datos, considere la posibilidad de conectar todos los puertos de datos.
+> - El dispositivo de Edge debe estar conectado a la red del centro de datos para poder ingerir datos desde los servidores de origen de datos. 
 
 El dispositivo de Edge tiene 8 SSD de NVMe. El panel frontal incluye también indicadores LED de estado y botones de alimentación. El dispositivo incluye dos fuentes de alimentación (PSU) redundantes en la parte posterior. El dispositivo tiene seis interfaces de red: dos interfaces de 1 Gbps y cuatro de 25 Gbps. El dispositivo cuenta con un controlador de administración de placa base (BMC). Identifique los distintos puertos de la placa posterior del dispositivo.
  
@@ -123,13 +129,7 @@ Realice los pasos siguientes para realizar el cableado de los cables de alimenta
 1. Conecte los cables de alimentación a cada una de las fuentes de alimentación del receptáculo. Para garantizar una alta disponibilidad, instale y conecte ambas fuentes de alimentación a distintas tomas de alimentación.
 2. Conecte los cables de alimentación a las unidades de distribución de energía (PDU) del bastidor. Asegúrese de que las dos PSU usen tomas de alimentación independientes.
 3. Conecte el PUERTO 1 de la interfaz de red de 1-GbE al equipo que se usa para configurar el dispositivo físico. El PUERTO 1 es la interfaz de administración dedicada.
-4. Conecte el PUERTO 2 de la interfaz de red de 1-GbE mediante los cables de red RJ-45 a la red del centro de datos o a Internet. 
-5. Conecte los PUERTOS 3, 4, 5 y 6 de las interfaces de red de 25-GbE mediante los cables de cobre SFP+ a la red del centro de datos o a Internet. 
-
-> [!NOTE]
-> - Al menos una de las interfaces de red de datos (PUERTOS 2, 3, 4, 5 o 6) debe estar conectada a Internet (para la conexión a Azure). 
-> - Es recomendable que use una interfaz de red de 25-GbE como la de los PUERTOS 3, 4, 5 o 6 para enviar datos a Azure. 
-> - El dispositivo de Edge debe estar conectado a la red del centro de datos para poder ingerir datos desde los servidores de origen de datos.  
+4. Conecte uno o varios de los PUERTOS 2, 3, 4, 5 o 6 a la red del centro de datos o Internet. Si conecta el PUERTO 2, utilice el cable de red RJ-45. Para las interfaces de red de 25 GbE, use cables de cobre SFP+.  
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6d08a36d7a464ccc1904839d6631be0553aacb17
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815382"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279218"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
@@ -79,7 +79,7 @@ Para excluir resultados de direcciones URL o sitios web específicos, agréguelo
 
 ## <a name="add-pinned-entries"></a>Agregar entradas ancladas
 
-Para anclar una página web específica a la parte superior de los resultados de búsqueda, agregue la página web y el término de consulta a la pestaña **Pinned** (Anclado). La pestaña **Pinned** (Anclado) contiene una lista de pares de término de consulta y página web que especifican la página web que aparece como mejor resultado para una consulta específica. La página web se ancla solo si la cadena de consulta del usuario coincide con la cadena de consulta del ancla en función de la condición de coincidencia del ancla. [Más información](../define-your-custom-view.md#pin-to-top).
+Para anclar una página web específica a la parte superior de los resultados de búsqueda, agregue la página web y el término de consulta a la pestaña **Pinned** (Anclado). La pestaña **Pinned** (Anclado) contiene una lista de pares de término de consulta y página web que especifican la página web que aparece como mejor resultado para una consulta específica. La página web se ancla solo si la cadena de consulta del usuario coincide con la cadena de consulta del ancla en función de la condición de coincidencia del ancla. En las búsquedas solo se mostrarán las páginas web indexadas. Para más información, consulte [Definición de una vista personalizada](../define-your-custom-view.md#pin-to-top).
 
 1. En la página **Configuración**, haga clic en la pestaña **Anclados** y escriba el término de consulta y de página web de la página web que desee que se devuelva como el primer resultado.  
   

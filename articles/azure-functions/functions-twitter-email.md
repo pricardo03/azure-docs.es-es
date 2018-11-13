@@ -1,30 +1,30 @@
 ---
-title: Creación de una función que se integre con Azure Logic Apps | Microsoft Docs
+title: Creación de una función que se integre con Azure Logic Apps
 description: Creación de una función que se integre con Azure Logic Apps y Azure Cognitive Services para categorizar las opiniones de tweet y enviar notificaciones en caso de que las opiniones sean negativas.
 services: functions, logic-apps, cognitive-services
 keywords: flujo de trabajo, aplicaciones de nube, servicios en la nube, procesos empresariales, integración de sistemas, integración de aplicaciones empresariales, EAI
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.author: glenga
+ms.date: 11/06/2018
+ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 79a02115a449c710778e4c69f470efc3ebebae53
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 4c9f92f80275d04cd1bab408213fd02abf5c9139
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087056"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279405"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
 Azure Functions se integra con Azure Logic Apps en el diseñador de Logic Apps. Esta integración permite usar la capacidad de proceso de Azure Functions en las orquestaciones con otros servicios de Azure y de terceros. 
 
-Este tutorial muestra cómo utilizar Functions con Logic Apps y Microsoft Cognitive Services en Azure para analizar opiniones de entradas de Twitter. Una función desencadenada por HTTP clasifica los tweets en verde, amarillo o rojo en función de la puntuación de la opinión. Se envía un correo electrónico cuando se detecta una opinión deficiente. 
+En este tutorial se muestra cómo utilizar Functions con Logic Apps y Cognitive Services en Azure para ejecutar el análisis de opiniones de entradas de Twitter. Una función desencadenada por HTTP clasifica los tweets en verde, amarillo o rojo en función de la puntuación de la opinión. Se envía un correo electrónico cuando se detecta una opinión deficiente. 
 
-![imagen de los dos primeros pasos de una aplicación en el diseñador de Logic Apps](media/functions-twitter-email/designer1.png)
+![imagen de los dos primeros pasos de una aplicación en el diseñador de Logic Apps](media/functions-twitter-email/00-logic-app-overview.png)
 
 En este tutorial, aprenderá a:
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 
 + Una cuenta de [Twitter](https://twitter.com/) activa. 
 + Una cuenta de [Outlook.com](https://outlook.com/) (para enviar las notificaciones).
-+ Este tema usa como punto de inicio los recursos creados en [Creación de su primera función desde Azure Portal](functions-create-first-azure-function.md).  
++ Este tema usa como punto de partida los recursos creados en [Creación de la primera función desde Azure Portal](functions-create-first-azure-function.md).  
 Si aún no lo hecho, lleve a cabo estos pasos ahora para crear la aplicación de función.
 
 ## <a name="create-a-cognitive-services-resource"></a>Creación de un recurso de Cognitive Services
@@ -51,9 +51,9 @@ Cognitive Services APIs están disponibles en Azure como recursos individuales. 
 
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-3. Haga clic en **AI + Analytics** > **Text Analytics API** (IA + Analytics > API Text Analytics). A continuación, utilice la configuración de acuerdo con lo especificado en la tabla, acepte los términos y active **Anclar al panel**.
+3. Haga clic en **IA y Machine Learning** > **Análisis de texto**. Después, use la configuración especificada en la tabla para crear el recurso.
 
-    ![Página Creación de recursos de Cognitive](media/functions-twitter-email/cog_svcs_resource.png)
+    ![Página Creación de recursos de Cognitive](media/functions-twitter-email/01-create-text-analytics.png)
 
     | Configuración      |  Valor sugerido   | Descripción                                        |
     | --- | --- | --- |
@@ -62,11 +62,15 @@ Cognitive Services APIs están disponibles en Azure como recursos individuales. 
     | **Plan de tarifa** | F0 | Comience con la tarifa más baja. Si se queda sin llamadas, aumente a un nivel superior.|
     | **Grupos de recursos** | myResourceGroup | Utilice el mismo grupo de recursos para todos los servicios de este tutorial.|
 
-4. Haga clic en **Crear** para crear el recurso. Una vez creado, seleccione el recurso de Cognitive Services nuevo anclado al panel. 
+4. Haga clic en **Crear** para crear el recurso. 
 
-5. En la columna de navegación de la izquierda, haga clic en **Claves** y, luego, copie el valor de la **clave 1** y guárdelo. Esta clave se usa para conectar la aplicación lógica a la API Cognitive Services. 
+5. Haga clic en **Información general** y copie el valor de **Punto de conexión** en un editor de texto. Este valor se utiliza al crear una conexión a Cognitive Services API.
+
+    ![Configuración de Cognitive Services](media/functions-twitter-email/02-cognitive-services.png)
+
+6. En la columna de navegación de la izquierda, haga clic en **Claves** y, luego, copie el valor de **Clave 1** y péguelo en un editor de texto. La clave se usa para conectar la aplicación lógica a Cognitive Services API. 
  
-    ![simétricas](media/functions-twitter-email/keys.png)
+    ![Claves de Cognitive Services](media/functions-twitter-email/03-cognitive-serviecs-keys.png)
 
 ## <a name="create-the-function-app"></a>Crear la aplicación de función
 
@@ -76,23 +80,15 @@ Functions proporciona una excelente manera de descargar tareas de procesamiento 
 
 ## <a name="create-an-http-triggered-function"></a>Crear una función desencadenada mediante HTTP  
 
-1. Expanda su instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **Función personalizada**. Se muestra el conjunto completo de plantillas de funciones.
+1. Expanda su instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal**.
 
-    ![Página de inicio rápido de Functions en Azure Portal](media/functions-twitter-email/add-first-function.png)
+    ![Página de inicio rápido de Functions en Azure Portal](media/functions-twitter-email/05-function-app-create-portal.png)
 
-2. En el campo de búsqueda, escriba `http` y, a continuación, elija **C#** para la plantilla del desencadenador HTTP. 
+2. Luego, seleccione **Webhook y API** y haga clic en **Crear**. 
 
-    ![Elija el desencadenador HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
+    ![Elija el desencadenador HTTP](./media/functions-twitter-email/06-function-webhook.png)
 
-    Todas las funciones posteriores agregadas a la aplicación de función usan las plantillas de lenguaje C#.
-
-3. Escriba un **nombre** para la función, elija `Function` en el **[Nivel de autenticación](functions-bindings-http-webhook.md#http-auth)** y, a continuación, seleccione **Crear**. 
-
-    ![Crear la función desencadenada mediante HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
-
-    Esta opción crea una función de script de C# mediante la plantilla del desencadenador de HTTP. El código aparecerá en una ventana nueva como `run.csx`.
-
-4. Reemplace el contenido del archivo `run.csx` con el código siguiente y, luego, haga clic en **Guardar**:
+3. Reemplace el contenido del archivo `run.csx` con el código siguiente y, luego, haga clic en **Guardar**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -129,9 +125,9 @@ Functions proporciona una excelente manera de descargar tareas de procesamiento 
     ```
     El código de la función devuelve una clasificación de color basada en la puntuación de la opinión recibida en la solicitud. 
 
-4. Para probar la función, haga clic en **Probar** a la derecha para expandir la pestaña de pruebas. Escriba un valor de  en el Cuerpo de la solicitud`0.2` y, a continuación, haga clic en **Ejecutar**. Devuelve un valor **RED** (rojo) en el cuerpo de la respuesta. 
+4. Para probar la función, haga clic en **Probar** a la derecha para expandir la pestaña de pruebas. Escriba un valor de `0.2` en el **Cuerpo de la solicitud`0.2` y, a continuación, haga clic en **Ejecutar**. Devuelve un valor **RED** (rojo) en el cuerpo de la respuesta. 
 
-    ![Prueba de la función en Azure Portal](./media/functions-twitter-email/test.png)
+    ![Prueba de la función en Azure Portal](./media/functions-twitter-email/07-function-test.png)
 
 Ahora, tiene una función que clasifica las puntuaciones de opinión. A continuación, cree una aplicación lógica que integre la función con la API de Twitter y Cognitive Services. 
 
@@ -139,11 +135,11 @@ Ahora, tiene una función que clasifica las puntuaciones de opinión. A continua
 
 1. En Azure Portal, haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
 
-2. Haga clic en **Integración empresarial** > **Aplicación lógica**. A continuación, utilice la configuración como se especifica en la tabla, active **Anclar al panel** y haga clic en **Crear**.
+2. Haga clic en **Web** > **Aplicación lógica**.
  
-4. Después, en **Nombre**, escriba `TweetSentiment`; use la configuración como se especifica en la tabla, acepte los términos y active **Anclar al panel**.
+3. Luego, escriba un valor para **Nombre** como `TweetSentiment` y use la configuración especificada en la tabla.
 
-    ![Creación de una aplicación lógica en Azure Portal](./media/functions-twitter-email/new_logic_app.png)
+    ![Creación de una aplicación lógica en Azure Portal](./media/functions-twitter-email/08-logic-app-create.png)
 
     | Configuración      |  Valor sugerido   | Descripción                                        |
     | ----------------- | ------------ | ------------- |
@@ -151,11 +147,11 @@ Ahora, tiene una función que clasifica las puntuaciones de opinión. A continua
     | **Grupos de recursos** | myResourceGroup | Elija el mismo grupo de recursos existente que antes. |
     | **Ubicación** | Este de EE. UU | Elija una ubicación cercana a usted. |    
 
-4. Seleccione **Anclar al panel** y haga clic en **Crear** para crear la aplicación lógica. 
+4. Cuando haya especificado los valores de configuración adecuados, haga clic en **Crear** para crear la aplicación lógica. 
 
 5. Una vez creada la aplicación, haga clic en la nueva aplicación lógica anclada al panel. A continuación, en el diseñador de Logic Apps, desplácese hacia abajo y haga clic en la plantilla **Aplicación lógica en blanco**. 
 
-    ![Plantilla Aplicación lógica en blanco](media/functions-twitter-email/blank.png)
+    ![Plantilla Aplicación lógica en blanco](media/functions-twitter-email/09-logic-app-create-blank.png)
 
 Ahora puede usar el diseñador de Logic Apps para agregar servicios y desencadenadores a la aplicación.
 
@@ -167,13 +163,13 @@ En primer lugar, cree una conexión a la cuenta de Twitter. La aplicación lógi
 
 2. Use la configuración del desencadenador de Twitter como se especifica en la tabla. 
 
-    ![Configuración del conector de Twitter](media/functions-twitter-email/azure_tweet.png)
+    ![Configuración del conector de Twitter](media/functions-twitter-email/10-tweet-settings.png)
 
     | Configuración      |  Valor sugerido   | DESCRIPCIÓN                                        |
     | ----------------- | ------------ | ------------- |
     | **Texto de búsqueda** | #Azure | Use un hashtag lo suficientemente popular como para generar nuevos tweets en el intervalo elegido. Si usa el nivel Gratis y el hashtag es demasiado popular, puede agotar rápidamente la cuota de transacciones de la API Cognitive Services. |
-    | **Frecuencia** | Minuto | La unidad de frecuencia utilizada para el sondeo de Twitter.  |
     | **Intervalo** | 15 | El tiempo transcurrido entre solicitudes a Twitter, en unidades de frecuencia. |
+    | **Frecuencia** | Minuto | La unidad de frecuencia utilizada para el sondeo de Twitter.  |
 
 3.  Haga clic en **Guardar** para conectarse a su cuenta de Twitter. 
 
@@ -183,31 +179,37 @@ Ahora la aplicación está conectada a Twitter. A continuación, va a conectar a
 
 1. Haga clic en **Nuevo paso** y, a continuación, en **Agregar una acción**.
 
-    ![Nuevo paso y Agregar una acción](media/functions-twitter-email/new_step.png)
+2. En **Elegir una acción**, escriba **Análisis de texto** y, después, haga clic en la acción **Detectar sentimiento**.
+    
+    ![Nuevo paso y Agregar una acción](media/functions-twitter-email/11-detect-sentiment.png)
 
-2. En **Elegir una acción**, haga clic en **Análisis de texto** y, a continuación, haga clic en la acción **Detectar opiniones**.
+3. Escriba un nombre de conexión como `MyCognitiveServicesConnection`, pegue la clave de Cognitive Services API y el punto de conexión de Cognitive Services que reservó en el editor de texto y haga clic en **Crear**.
 
-    ![Detectar sentimiento](media/functions-twitter-email/detect_sent.png)
+    ![Nuevo paso y Agregar una acción](media/functions-twitter-email/12-connection-settings.png)
 
-3. Escriba un nombre de conexión como `MyCognitiveServicesConnection`, pegue la clave para la API Cognitive Services que guardó y haga clic en **Crear**.  
+4. Luego, escriba **Tweet Text** (Texto del tweet) en el cuadro de texto y haga clic en **Nuevo paso**.
 
-4. Haga clic en **Texto para analizar** > **Texto de Tweet** y, a continuación, haga clic en **Guardar**.  
-
-    ![Detectar sentimiento](media/functions-twitter-email/ds_tta.png)
+    ![Especificación del texto que se va a analizar](media/functions-twitter-email/13-analyze-tweet-text.png)
 
 Una vez configurada la detección de opinión, puede agregar una conexión a la función que consume los resultados de la puntuación de la opinión.
 
 ## <a name="connect-sentiment-output-to-your-function"></a>Conexión de la salida de opiniones con la función
 
-1. En el diseñador de Logic Apps, haga clic en **Nuevo paso** > **Agregar una acción** y, a continuación, haga clic en **Azure Functions**. 
+1. En el Diseñador de Logic Apps, haga clic en **Nuevo paso** > **Agregar una acción**, filtre por **Azure Functions** y haga clic en **Choose an Azure function** (Elegir una función de Azure).
 
-2. Haga clic en **Elegir una función de Azure** y seleccione la función **CategorizeSentiment** que ha creado anteriormente.  
+    ![Detectar sentimiento](media/functions-twitter-email/14-azure-functions.png)
+  
+4. Seleccione la aplicación de función que creó anteriormente.
 
-    ![Cuadro de función de Azure que muestra Elegir una función de Azure](media/functions-twitter-email/choose_fun.png)
+    ![Seleccionar la función](media/functions-twitter-email/15-select-function.png)
 
-3. En **Cuerpo de la solicitud**, haga clic en **Puntuación** y, a continuación, en **Guardar**.
+5. Seleccione la función que creó para este tutorial.
 
-    ![Score](media/functions-twitter-email/trigger_score.png)
+    ![Seleccionar la función](media/functions-twitter-email/16-select-function.png)
+
+4. En **Cuerpo de la solicitud**, haga clic en **Puntuación** y, a continuación, en **Guardar**.
+
+    ![Score](media/functions-twitter-email/17-function-input-score.png)
 
 Ahora, la función se desencadena cuando se envía una puntuación de opiniones desde la aplicación lógica. La función devuelve una clasificación de códigos de color a la aplicación lógica. A continuación, agregue una notificación por correo electrónico que se envía cuando la función devuelve un valor de opinión de **RED** (rojo). 
 
@@ -217,26 +219,28 @@ La última parte del flujo de trabajo consiste en desencadenar el envío de un c
 
 1. En el diseñador de Logic Apps, haga clic en **Nuevo paso** > **Agregar una condición**. 
 
+    ![Agregar una condición a la aplicación lógica.](media/functions-twitter-email/18-add-condition.png)
+
 2. Haga clic en **Elegir un valor** y, a continuación, haga clic en **Cuerpo**. Seleccione **Es igual a**, haga clic en **Elegir un valor**, escriba `RED` y haga clic en **Guardar**. 
 
-    ![Agregar una condición a la aplicación lógica.](media/functions-twitter-email/condition.png)
+    ![Elegir una acción para la condición.](media/functions-twitter-email/19-condition-settings.png)    
 
 3. En **IF TRUE**, haga clic en **Agregar una acción**, busque `outlook.com`, haga clic en **Enviar un correo electrónico** e inicie sesión en su cuenta de Outlook.com.
-    
-    ![Elegir una acción para la condición.](media/functions-twitter-email/outlook.png)
+
+    ![Configure el correo electrónico para la acción de envío de correo electrónico.](media/functions-twitter-email/20-add-outlook.png)
 
     > [!NOTE]
     > Si no tiene una cuenta de Outlook.com, puede elegir otro conector, como Gmail u Office 365 Outlook
 
 4. En la acción **Enviar un correo electrónico**, use la configuración de correo electrónico que se especifica en la tabla. 
 
-    ![Configure el correo electrónico para la acción de envío de correo electrónico.](media/functions-twitter-email/send_email.png)
-
-    | Configuración      |  Valor sugerido   | DESCRIPCIÓN  |
-    | ----------------- | ------------ | ------------- |
-    | **To** | Escriba su dirección de correo electrónico | La dirección de correo electrónico que recibe la notificación. |
-    | **Asunto** | Detectada opinión de tweet negativa  | La línea de asunto de la notificación de correo electrónico.  |
-    | **Cuerpo** | Texto de tweet, ubicación | Haga clic en los parámetros **Texto de tweet** y **Ubicación**. |
+    ![Configure el correo electrónico para la acción de envío de correo electrónico.](media/functions-twitter-email/21-configure-email.png)
+    
+| Configuración      |  Valor sugerido   | DESCRIPCIÓN  |
+| ----------------- | ------------ | ------------- |
+| **To** | Escriba su dirección de correo electrónico | La dirección de correo electrónico que recibe la notificación. |
+| **Asunto** | Detectada opinión de tweet negativa  | La línea de asunto de la notificación de correo electrónico.  |
+| **Cuerpo** | Texto de tweet, ubicación | Haga clic en los parámetros **Texto de tweet** y **Ubicación**. |
 
 5.  Haga clic en **Save**(Guardar).
 
@@ -248,7 +252,7 @@ Ahora que el flujo de trabajo se ha completado, puede habilitar la aplicación l
 
 2. En la columna izquierda, haga clic en **Información general** para ver el estado de la aplicación lógica. 
  
-    ![Estado de ejecución de la aplicación lógica](media/functions-twitter-email/over1.png)
+    ![Estado de ejecución de la aplicación lógica](media/functions-twitter-email/22-execution-history.png)
 
 3. (Opcional) Haga clic en una de las ejecuciones para ver los detalles de la ejecución.
 
@@ -258,11 +262,17 @@ Ahora que el flujo de trabajo se ha completado, puede habilitar la aplicación l
 
 5. Cuando se detecta una opinión potencialmente negativa, recibirá un correo electrónico. Si no ha recibido un correo electrónico, puede cambiar el código de la función para devolver siempre RED (rojo):
 
-        return req.CreateResponse(HttpStatusCode.OK, "RED");
+    ```csharp
+    return (ActionResult)new OkObjectResult("RED");
+    ```
 
     Después de comprobar las notificaciones de correo electrónico, vuelva a cambiar al código original:
 
-        return req.CreateResponse(HttpStatusCode.OK, category);
+    ```csharp
+    return requestBody != null
+        ? (ActionResult)new OkObjectResult(category)
+        : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
+    ```
 
     > [!IMPORTANT]
     > Después de completar este tutorial, debe deshabilitar la aplicación lógica. Al deshabilitar la aplicación, evita recibir cargos por ejecuciones y agotar las transacciones de la API Cognitive Services.
@@ -271,7 +281,7 @@ Ya ha visto lo fácil que es integrar Functions en un flujo de trabajo de Logic 
 
 ## <a name="disable-the-logic-app"></a>Deshabilitar la aplicación lógica
 
-Para deshabilitar la aplicación lógica, haga clic en **Información general** y, a continuación, haga clic en **Deshabilitar** en la parte superior de la pantalla. Esto detiene la ejecución de la aplicación lógica y evita incurrir en cargos sin eliminar la aplicación. 
+Para deshabilitar la aplicación lógica, haga clic en **Información general** y, a continuación, haga clic en **Deshabilitar** en la parte superior de la pantalla. Al deshabilitar la aplicación se evita que se ejecute, así como incurrir en cargos sin eliminar la aplicación.
 
 ![Registros de la función](media/functions-twitter-email/disable-logic-app.png)
 

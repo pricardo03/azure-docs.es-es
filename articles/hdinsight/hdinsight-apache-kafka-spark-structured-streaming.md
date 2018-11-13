@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Apache Spark Structured Streaming con Kafka: Azure HDInsight '
+title: 'Tutorial: Apache Spark Structured Streaming con Apache Kafka: Azure HDInsight '
 description: Aprenda a usar el streaming de Apache Spark para obtener datos dentro o fuera de Apache Kafka. En este tutorial, se transmiten datos con Jupyter Notebook de Spark en HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/08/2018
-ms.author: jasonh
-ms.openlocfilehash: 11169e45d5fbdc5e51b81c06d814524a7b09c614
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 83e277eceea2df746de6f6e9a33130989e2d874d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108296"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278368"
 ---
-# <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Tutorial: Uso de Spark Structured Streaming con Kafka en HDInsight
+# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Spark Structured Streaming con Apache Kafka en HDInsight
 
-Este tutorial muestra cómo utilizar Spark Structured Streaming para leer y escribir datos con Apache Kafka en Azure HDInsight.
+En este tutorial se muestra cómo usar Apache Spark Structured Streaming para leer y escribir datos con Apache Kafka en Azure HDInsight.
 
 El flujo estructurado de Spark es un motor de procesamiento de flujo basado en Spark SQL. Permite expresar los cálculos de streaming de la misma forma que el cálculo por lotes de los datos estáticos. 
 

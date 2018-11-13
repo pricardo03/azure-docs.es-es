@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 7e2225a173562be28840cb0a66913b9f8c9657ff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4608e9ec0cd67b6c0f7ac23e27761b0355a5d738
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962052"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50911871"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Inicio rápido: Registro de una aplicación con el punto de conexión de Azure Active Directory v1.0
 
@@ -31,7 +31,10 @@ Los desarrolladores de la empresa y los proveedores de software como servicio (S
 
 Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse primero en un inquilino de Azure AD. Este proceso de registro implica proporcionar los detalles de Azure AD sobre la aplicación, como la dirección URL donde se encuentra, la dirección URL para enviar respuestas cuando un usuario está autenticado, el URI que identifica la aplicación y así sucesivamente.
 
-En esta guía de inicio rápido se muestra cómo agregar y registrar una aplicación en Azure AD.
+En esta guía de inicio rápido se muestra cómo agregar y registrar una aplicación en Azure AD mediante la experiencia de **registros de aplicaciones** existente en Azure Portal.
+
+> [!NOTE]
+> ¿Desea registrar una nueva aplicación? Pruebe la nueva experiencia de **Registros de aplicaciones (versión preliminar)** en Azure Portal. Consulte [Registro de una aplicación (versión preliminar)](quickstart-register-app.md) para empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

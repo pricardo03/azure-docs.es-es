@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 7b2652c1e25c2815518ac533bde5bced5b3ee635
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 751e7d6b401417ee3efd4ffc30263d2507ff2627
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063411"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913660"
 ---
-# <a name="use-ruby-to-query-an-azure-sql-database"></a>Uso de Ruby para consultar una base de datos SQL de Azure
+# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de Ruby para consultar una base de datos de Azure SQL Database
 
 En esta guía de inicio rápido se muestra cómo se usa [Ruby](https://www.ruby-lang.org) para crear un programa que se conecte a una instancia de Azure SQL Database y que use instrucciones Transact-SQL para consultar los datos.
 

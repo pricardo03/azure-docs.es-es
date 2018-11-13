@@ -1,40 +1,44 @@
 ---
 title: Prueba y ejecución de una solución de simulación de dispositivo en Azure | Microsoft Docs
-description: En esta guía de inicio rápido, va a implementar el acelerador de soluciones de Azure IoT Simulación de dispositivo. Tiene que iniciar sesión en el panel de soluciones para crear una simulación.
-author: dominicbetts
+description: En esta guía de inicio rápido, se implementa una solución de dispositivos Azure IoT y se ejecuta una simulación
+author: troyhopwood
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/05/2018
-ms.author: dobett
-ms.openlocfilehash: 549a1b867ad35c6de42969722ba5a2bd28c8f99a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.date: 09/28/2018
+ms.author: troyhop
+ms.openlocfilehash: a109f3536ea8709313de3d1d6d17ce69c5652289
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213163"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753940"
 ---
-# <a name="quickstart-deploy-and-run-a-cloud-based-device-simulation-solution"></a>Guía de inicio rápido: Implementación y ejecución de una solución de simulación de dispositivos basada en la nube
+# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Guía de inicio rápido: Implementación y ejecución de una simulación de dispositivo IoT en Azure
 
-Esta guía de inicio rápido le muestra cómo implementar el acelerador de soluciones Simulación de dispositivo de Azure IoT para probar su solución IoT. Después de implementar el acelerador de soluciones, debe utilizar la página **Simulación** para crear y ejecutar una simulación.
+En esta guía de inicio rápido se muestra cómo implementar una simulación de dispositivo Azure IoT para probar la solución IoT. Después de implementar el acelerador de soluciones, se ejecuta una simulación de ejemplo para empezar a trabajar.
 
 Para completar esta guía de inicio rápido, necesita una suscripción de Azure.
 
-Si no tiene ninguna, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="deploy-the-solution"></a>Implementación de la solución
+## <a name="deploy-device-simulation"></a>Implementación de una simulación de dispositivo
 
-Al implementar el acelerador de soluciones para la suscripción de Azure, debe establecer algunas opciones de configuración.
+Al implementar la simulación de dispositivo en la suscripción de Azure, debe establecer algunas opciones de configuración.
 
 Inicie sesión en [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) con las credenciales de su cuenta de Azure.
 
-Haga clic en **Probar ahora** en el icono **Simulación de dispositivo**.
+Haga clic en el icono **Simulación de dispositivo**:
 
 ![Seleccionar Device Simulation](./media/quickstart-device-simulation-deploy/devicesimulation.png)
 
-En la página **Crear la solución Simulación de dispositivo**, escriba un **nombre de la solución único**. Tome nota del nombre de la solución, ya que será el nombre del grupo de recursos de Azure que contiene todos los recursos de la solución.
+Haga clic en **Probar ahora** en la página de descripción de Device Simulation:
+
+![Clic en Probar ahora](./media/quickstart-device-simulation-deploy/devicesimulationPDP.png)
+
+En la página **Crear la solución Simulación de dispositivo**, escriba un **nombre de la solución único**.
 
 Seleccione la **Suscripción** y la **Región** que desea usar para implementar el acelerador de soluciones. Generalmente, elegirá la región más cercana. Debe ser un [administrador global o un usuario](iot-accelerators-permissions.md) en la suscripción.
 
@@ -46,55 +50,49 @@ Haga clic en **Crear solución** para comenzar a aprovisionar la solución. Este
 
 ## <a name="sign-in-to-the-solution"></a>Inicio de sesión en la solución
 
-Una vez completado el proceso de aprovisionamiento, puede iniciar sesión en el panel del acelerador de soluciones de simulación de dispositivo.
+Una vez completado el proceso de aprovisionamiento, puede hacer clic en el botón **Iniciar** para iniciar sesión en la simulación de dispositivo:
 
-En la página **Soluciones aprovisionadas**, haga en el nuevo acelerador de soluciones de simulación de dispositivo:
+![Abrir Simulación de dispositivo](./media/quickstart-device-simulation-deploy/choosenew.png)
 
-![Elección de la nueva solución](./media/quickstart-device-simulation-deploy/choosenew.png)
+Haga clic en **Aceptar** para aceptar la solicitud de permisos; la solución de simulación de dispositivo se muestra en el explorador.
 
-Puede consultar información sobre el acelerador de soluciones Simulación de dispositivo en el panel que aparece. Elija el **panel de la solución** para ver el acelerador de soluciones Simulación de dispositivo:
+Cuando se abre por primera vez, verá el panel de la simulación de dispositivo con una guía de **Introducción**. Haga clic en el primer icono para abrir una simulación de ejemplo. Si cierra la guía de **Introducción**, puede abrir la **simulación sencilla de ejemplo** desde el panel; para ello, haga clic en su icono:
 
-![Panel de soluciones](./media/quickstart-device-simulation-deploy/solutionpanel.png)
+![Panel de soluciones](./media/quickstart-device-simulation-deploy/GettingStarted.png)
 
-Haga clic en **Aceptar** para aceptar la solicitud de permisos; el panel de la soluciones de simulación de dispositivo se muestra en el explorador:
+## <a name="sample-simulation"></a>Simulación de ejemplo
 
-[![Panel de soluciones](./media/quickstart-device-simulation-deploy/solutiondashboard-inline.png)](./media/quickstart-device-simulation-deploy/solutiondashboard-expanded.png#lightbox)
-
-## <a name="configure-the-simulation"></a>Configuración de la simulación
-
-Puede configurar y ejecutar una simulación desde el panel. Use los valores de la tabla siguiente para configurar la simulación:
+Al ser una simulación de ejemplo, no se puede modificar. La simulación está configurada con los siguientes valores:
 
 | Configuración             | Valor                       |
 | ------------------- | --------------------------- |
 | IoT Hub de destino      | Usar un centro de IoT aprovisionado previamente |
-| Modelo de dispositivo        | Refrigerador                     |
+| Modelo de dispositivo        | Camión                       |
 | Número de dispositivos   | 10                          |
 | Frecuencia de telemetría | 10 segundos                  |
-| Duración de la simulación | 5 minutos                   |
+| Duración de la simulación | Ejecución indefinida            |
 
-[![Configuración de la simulación](./media/quickstart-device-simulation-deploy/simulationconfig-inline.png)](./media/quickstart-device-simulation-deploy/simulationconfig-expanded.png#lightbox)
+![Configuración de la simulación](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
 
 ## <a name="run-the-simulation"></a>Ejecución de la simulación
 
-Haga clic en **Iniciar simulación**. La simulación se ejecuta durante la duración que ha elegido. Puede detener la simulación en cualquier momento haciendo clic en **Detener simulación**. La simulación muestra las estadísticas de la ejecución actual. Haga clic en **View IoT Hub metrics in the Azure portal** (Ver métricas de IoT Hub en Azure Portal) para ver las métricas notificadas por el centro de IoT:
+Haga clic en **Iniciar simulación**. La simulación se ejecutará indefinidamente, como se ha configurado. Puede detener la simulación en cualquier momento haciendo clic en **Detener simulación**. La simulación muestra las estadísticas de la ejecución actual.
 
-[![Ejecución de la simulación](./media/quickstart-device-simulation-deploy/simulationrun-inline.png)](./media/quickstart-device-simulation-deploy/simulationrun-expanded.png#lightbox)
+![Ejecución de la simulación](./media/quickstart-device-simulation-deploy/runningsimulation.png)
 
-Solo se puede ejecutar una simulación cada vez desde una instancia aprovisionada del acelerador de soluciones.
+Solo se puede ejecutar una simulación cada vez desde una instancia de la simulación de dispositivo.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene previsto explorar más a fondo, deje implementado el acelerador de soluciones de simulación de dispositivo.
+Si tiene previsto explorar más a fondo, mantenga la implementación de la simulación de dispositivo.
 
-Si ya no necesita el acelerador de soluciones, elimínelo de la página [Soluciones aprovisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard). Para ello, selecciónelo y, a continuación, haga clic en **Eliminar solución**:
+Si ya no necesita la simulación de dispositivo, puede eliminarla en la página [Soluciones aprovisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard); para ello, haga clic en su icono y, a continuación, haga clic en **Eliminar solución**:
 
 ![Eliminación de la solución](media/quickstart-device-simulation-deploy/deletesolution.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha implementado el acelerador de soluciones de simulación de dispositivo y ha ejecutado una simulación de dispositivo IoT.
-
-Para más información sobre cómo usar una instancia de IoT Hub existente en una simulación, consulte la siguiente guía de procedimientos:
+En esta guía de inicio rápido, ha implementado una solución de simulación de dispositivo y ha ejecutado una simulación de dispositivo IoT de ejemplo.
 
 > [!div class="nextstepaction"]
-> [Uso de un centro de IoT existente con el acelerador de soluciones Simulación de dispositivo](iot-accelerators-device-simulation-choose-hub.md)
+> [Creación de una simulación con uno o varios tipos de dispositivos](iot-accelerators-device-simulation-create-simulation.md)

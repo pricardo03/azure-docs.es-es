@@ -3,24 +3,24 @@ title: Definición de un nuevo tipo de dispositivo en Azure IoT Central | Micros
 description: Este tutorial le muestra, como desarrollador, cómo definir un nuevo tipo de dispositivo en la aplicación de Azure IoT Central. Se definen la telemetría, el estado, las propiedades y la configuración del tipo.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 10/12/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8c69a863d8719a0e4eba30a6d5a619210e7f95b8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156041"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963610"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo en la aplicación de Azure IoT Central
 
 Este tutorial le muestra, como desarrollador, cómo usar una plantilla de dispositivo para definir un nuevo tipo de dispositivo en la aplicación de Microsoft Azure IoT Central. Una plantilla de dispositivo define la telemetría, el estado, las propiedades y la configuración del tipo de dispositivo.
 
-Para poder probar la aplicación antes de conectar un dispositivo real, Azure IoT Central genera un dispositivo simulado a partir de la plantilla de dispositivo en el momento de la creación.
+Para poder probar la aplicación antes de conectar un dispositivo real, IoT Central genera un dispositivo simulado a partir de la plantilla de dispositivo en el momento de la creación.
 
 En este tutorial, creará una plantilla de dispositivo **Connected Air Conditioner** (Acondicionador de aire conectado). Un dispositivo acondicionador de aire conectado:
 
@@ -59,9 +59,9 @@ Para completar este tutorial, necesitará una aplicación de Azure IoT Central. 
 
 4. Para crear una nueva aplicación de Azure IoT Central:
     
-    * Elija **Gratis**. La evaluación gratuita de 7 días no tiene requisitos de suscripción.
+    * Elija **Versión de evaluación**. No necesita una suscripción de Azure para crear una aplicación de evaluación.
     
-       Para más información acerca de los directorios y las suscripciones, consulte [Creación de una aplicación de Azure IoT Central](howto-create-application.md).
+       Para más información acerca de los directorios y las suscripciones, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
     
     * Elija **Custom Application** (Aplicación personalizada).
     
@@ -69,9 +69,9 @@ Para completar este tutorial, necesitará una aplicación de Azure IoT Central. 
     
     * Seleccione **Create**.
 
-    ![Página de creación de una aplicación de Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreatenew.png)
+    ![Página de creación de una aplicación de Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    Para más información, consulte [Creación de una aplicación de Azure IoT Central](howto-create-application.md).
+    Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
 
 ## <a name="create-a-new-custom-device-template"></a>Creación de una nueva plantilla de dispositivo personalizado
 

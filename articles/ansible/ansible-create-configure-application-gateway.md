@@ -1,6 +1,6 @@
 ---
 title: Administración del tráfico web con Azure Application Gateway mediante Ansible (versión preliminar)
-description: Obtenga información sobre cómo usar Ansible para crear y configurar una instancia de Azure Application Gateway para administrar el tráfico web
+description: Aprenda a usar Ansible para crear y configurar una instancia de Azure Application Gateway para administrar el tráfico web
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, azure application gateway, equilibrador de carga, tráfico web
 author: tomarcher
@@ -8,34 +8,36 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 02b98cb22d897fc9599f6e44ddc57ef4211b0893
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e3c165c87d6c179141f2ddd44f00f0f62a84b285
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410868"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912873"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-using-ansible-preview"></a>Administración del tráfico web con Azure Application Gateway mediante Ansible (versión preliminar)
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) es un equilibrador de carga de tráfico web que permite administrar el tráfico a las aplicaciones web. 
+# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible-preview"></a>Administración del tráfico web con Azure Application Gateway mediante Ansible (versión preliminar)
 
-Ansible permite automatizar la implementación y la configuración de recursos en un entorno. En este artículo se muestra cómo usar Ansible para crear una instancia de Azure Application Gateway y usarla para administrar el tráfico de dos servidores web que se ejecutan en instancias de contenedor de Azure. 
+[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) es un equilibrador de carga de tráfico web que permite administrar el tráfico a las aplicaciones web.
 
-En este tutorial, aprenderá a:
+Ansible le ayuda a automatizar la implementación y la configuración de recursos en su entorno. En este artículo se muestra cómo usar Ansible para crear una puerta de enlace de aplicación. También le enseña cómo usar la puerta de enlace para administrar el tráfico a dos servidores web que se ejecutan en instancias de contenedor de Azure.
+
+En este tutorial se muestra cómo realizar las siguientes acciones:
 
 > [!div class="checklist"]
 > * Configuración de la red
-> * Crear dos instancias de contenedor de Azure con una imagen httpd
-> * Crear una puerta de enlace de aplicación con las instancias de contenedor de Azure anteriores en el grupo de back-end
-
+> * Creación de dos instancias de contenedor de Azure con imágenes HTTPD
+> * Creación de una puerta de enlace de aplicación que funciona con las instancias de contenedor de Azure del clúster de servidores
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 - **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Se requiere Ansible 2.7 para ejecutar los siguientes cuadernos de estrategias de ejemplo en este tutorial. Para instalar la versión RC de Ansible 2.7, ejecute `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 se publicará en octubre de 2018. Después de esa fecha, no es necesario especificar la versión aquí porque la versión predeterminada será la 2.7. 
+> Se requiere Ansible 2.7 para ejecutar los siguientes cuadernos de estrategias de ejemplo en este tutorial. Para instalar Ansible 2.7 RC, ejecute `sudo pip install ansible[azure]==2.7.0rc2`. Después del lanzamiento de Ansible 2.7, no tendrá que especificar la versión.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
+
 Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure.  
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado **myResourceGroup** en la ubicación **eastus**.
@@ -52,15 +54,17 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado **myResourceGro
         location: "{{ location }}"
 ```
 
-Guarde el cuaderno de estrategias anterior como *rg.yml*. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+Guarde este cuaderno de estrategias como *rg.yml*. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+
 ```bash
 ansible-playbook rg.yml
 ```
 
-## <a name="create-network-resources"></a>Crear recursos de red 
-Debe crear una red virtual para que la puerta de enlace de aplicaciones pueda comunicarse con otros recursos. 
+## <a name="create-network-resources"></a>Crear recursos de red
 
-En el ejemplo siguiente se crea una red virtual llamada **myVNet**, una subred llamada **myAGSubnet** y una dirección IP pública llamada **myAGPublicIPAddress** con un dominio denominado **mydomain**. 
+Cree en primer lugar una red virtual para que la puerta de enlace de aplicaciones pueda comunicarse con otros recursos.
+
+En el ejemplo siguiente se crea una red virtual llamada **myVNet**, una subred llamada **myAGSubnet** y una dirección IP pública llamada **myAGPublicIPAddress** con un dominio denominado **mydomain**.
 
 ```yml
 - hosts: localhost
@@ -98,13 +102,15 @@ En el ejemplo siguiente se crea una red virtual llamada **myVNet**, una subred l
         domain_name_label: "{{ publicip_domain }}"
 ```
 
-Guarde el cuaderno de estrategias anterior como *vnet_create.yml*. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+Guarde este cuaderno de estrategias como *vnet_create.yml*. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+
 ```bash
 ansible-playbook vnet_create.yml
 ```
 
-## <a name="create-backend-servers"></a>Creación de servidores back-end
-En este ejemplo, creará dos instancias de contenedor de Azure con imágenes httpd para usarlos como servidores back-end para la puerta de enlace de aplicaciones.  
+## <a name="create-servers"></a>Creación de servidores
+
+En el siguiente ejemplo se muestra cómo crear dos instancias de contenedores de Azure con imágenes HTTPD para usarlos como servidores web para la puerta de enlace de aplicación.  
 
 ```yml
 - hosts: localhost
@@ -147,22 +153,22 @@ En este ejemplo, creará dos instancias de contenedor de Azure con imágenes htt
               - 80
 ```
 
-Guarde el cuaderno de estrategias anterior como *aci_create.yml*. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+Guarde este cuaderno de estrategias como *aci_create.yml*. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+
 ```bash
 ansible-playbook aci_create.yml
 ```
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Ahora vamos a crear una puerta de enlace de aplicaciones. En el ejemplo siguiente se crea una puerta de enlace de aplicaciones denominada **myAppGateway** con configuración http, front-end y back-end.  
+En el ejemplo siguiente se crea una puerta de enlace de aplicaciones denominada **myAppGateway** con configuraciones para http, front-end y back-end.  
 
-> [!div class="checklist"]
-> * **appGatewayIP** definido en el bloque **gateway_ip_configurations**: se requiere una referencia de subred para la configuración IP de la puerta de enlace. 
-> * **appGatewayBackendPool** definido en el bloque **backend_address_pools**: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de back-end. 
-> * **appGatewayBackendHttpSettings** definido en el bloque **backend_http_settings_collection**: especifica que el puerto 80 y un protocolo HTTP se usan para la comunicación. 
-> * **appGatewayHttpListener** definido en el bloque **backend_http_settings_collection**: el agente de escucha predeterminado asociado con appGatewayBackendPool. 
-> * **appGatewayFrontendIP** definido en el bloque **frontend_ip_configurations**: asigna myAGPublicIPAddress a appGatewayHttpListener. 
-> * **rule1** definida en el bloque **request_routing_rules**: la regla de enrutamiento predeterminada que está asociada con appGatewayHttpListener. 
+* **appGatewayIP** se define en el bloque **gateway_ip_configurations**. Se necesita una referencia de subred para la configuración IP de la puerta de enlace.
+* **appGatewayBackendPool** se define en el bloque **backend_address_pools**. Una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
+* **appGatewayBackendHttpSettings** se define en el bloque **backend_http_settings_collection**. Especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
+* **appGatewayHttpListener** se define en el bloque **backend_http_settings_collection**. Agente de escucha predeterminado asociado con appGatewayBackendPool.
+* **appGatewayFrontendIP** se define en el bloque **frontend_ip_configurations**. Asigna myAGPublicIPAddress a appGatewayHttpListener.
+* **rule1** se define en el bloque **request_routing_rules**. La regla de enrutamiento predeterminada asociada a appGatewayHttpListener.
 
 ```yml
 - hosts: localhost
@@ -246,22 +252,23 @@ Ahora vamos a crear una puerta de enlace de aplicaciones. En el ejemplo siguient
             name: rule1
 ```
 
-Guarde el cuaderno de estrategias anterior *appgw_create.yml*. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+Guarde este cuaderno de estrategias como *appgw_create.yml*. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+
 ```bash
 ansible-playbook appgw_create.yml
 ```
 
-La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. 
+La puerta de enlace de aplicaciones puede tardar varios minutos en crearse.
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-En el cuaderno de estrategias de ejemplo anterior para recursos de red, el dominio llamado **mydomain** se creó en **eastus**. Ahora podría ir al explorador, escribir `http://mydomain.eastus.cloudapp.azure.com` y debería ver esta página, lo que confirma que Application Gateway funciona según lo previsto.
+En el cuaderno de estrategias de ejemplo para los recursos de red, el dominio llamado **mydomain** se creó en **eastus**. Vaya a `http://mydomain.eastus.cloudapp.azure.com` en el explorador. Si ve la página siguiente significa que la puerta de enlace de aplicación funciona según lo previsto.
 
-![Acceso a Application Gateway](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
+![Prueba correcta de una puerta de enlace de aplicación que funciona](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si no necesita estos recursos, puede eliminarlos mediante la ejecución del ejemplo siguiente. Este elimina un grupo de recursos denominado **myResourceGroup**. 
+Si no necesita estos recursos, puede eliminarlos mediante la ejecución del código siguiente. Este elimina un grupo de recursos denominado **myResourceGroup**.
 
 ```yml
 - hosts: localhost
@@ -274,11 +281,13 @@ Si no necesita estos recursos, puede eliminarlos mediante la ejecución del ejem
         state: absent
 ```
 
-Guarde el cuaderno de estrategias anterior como *rg_delete*.yml. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+Guarde este cuaderno de estrategias como *rg_delete*.yml. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+
 ```bash
 ansible-playbook rg_delete.yml
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-> [!div class="nextstepaction"] 
+
+> [!div class="nextstepaction"]
 > [Ansible en Azure](https://docs.microsoft.com/azure/ansible/)

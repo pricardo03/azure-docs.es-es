@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/01/2018
+ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407628"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959229"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Creación de un servidor de Azure Database for MySQL mediante Azure Portal
 
@@ -98,20 +98,9 @@ Para encontrar estos valores, siga estos pasos:
 En este ejemplo, el nombre del servidor es **mydemoserver.mysql.database.azure.com** y el inicio de sesión del administrador del servidor es **myadmin@mydemoserver**.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>Conexión a MySQL mediante la herramienta de línea de comandos mysql
-Hay una serie de aplicaciones que se pueden usar para conectarse al servidor de Azure Database for MySQL. 
+Conéctese al servidor mediante la herramienta **mysql.exe** de la línea de comandos. Puede descargarlo desde [aquí](https://dev.mysql.com/downloads/) e instalarlo en su equipo. 
 
-Ahora vamos a usar la herramienta de línea de comandos [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para conectarnos al servidor. También puede utilizar un explorador web y Azure Cloud Shell como se describe aquí sin instalar software adicional. Si la utilidad mysql está instalada localmente, también se puede conectar desde su propio equipo.
-
-1. Inicie Azure Cloud Shell desde el icono del terminal (**>_**) de la parte superior derecha de Azure Portal.
-![Símbolo del terminal de Azure Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  Azure Cloud Shell se abre en el explorador, donde puede escribir comandos de shell de Bash.
-
-   ![Símbolo del sistema: ejemplo de línea de comandos de mysql](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. En el símbolo del sistema de Cloud Shell, conéctese al servidor de Azure Database for MySQL, para lo que debe escribir la línea de comandos de mysql.
-
-    Para conectarse a un servidor de Azure Database for MySQL con la utilidad mysql, use el siguiente formato:
+1. Para conectarse a un servidor de Azure Database for MySQL con la utilidad mysql, use el siguiente formato:
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -119,7 +108,7 @@ Ahora vamos a usar la herramienta de línea de comandos [mysql](https://dev.mysq
 
     Por ejemplo, el siguiente comando conecta con nuestro servidor de ejemplo:
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -149,7 +138,7 @@ Ahora vamos a usar la herramienta de línea de comandos [mysql](https://dev.mysq
     mysql>
     ```
     > [!TIP]
-    > Si el firewall no está configurado para permitir la dirección IP de la instancia de Azure Cloud Shell, aparece el siguiente error:
+    > Si el firewall no está configurado para permitir la dirección IP de su cliente, se produce el siguiente error:
     >
     > ERROR 2003 (28000): no está permitido que el cliente con la dirección IP 123.456.789.0 acceda al servidor.
     >
@@ -178,7 +167,7 @@ Ahora vamos a usar la herramienta de línea de comandos [mysql](https://dev.mysq
     SHOW DATABASES;
     ```
 
-7.  Escriba `\q` y presione la tecla **Entrar** tecla para cerrar la herramienta mysql. Cuando haya terminado, puede cerrar Azure Cloud Shell.
+7.  Escriba `\q` y presione la tecla **Entrar** tecla para cerrar la herramienta mysql. 
 
 Ya está conectado al servidor de Azure Database for MySQL y ha creado una base de datos de usuario en blanco. En la sección siguiente encontrará un ejercicio similar. En el siguiente ejercicio se conecta al mismo servidor con otra herramienta común, MySQL Workbench.
 

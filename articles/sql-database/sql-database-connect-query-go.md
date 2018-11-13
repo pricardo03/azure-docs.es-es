@@ -11,15 +11,15 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 94da0ad79b0e01f3baa7f20661e45f873c742fd6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: c270fef40b732f170add32ef52eeadc790d8cd83
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063377"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913515"
 ---
-# <a name="use-go-to-query-an-azure-sql-database"></a>Uso de Go para consultar una instancia de Azure SQL Database
+# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de Go para consultar una base de datos de Azure SQL Database
 
 En esta guía de inicio rápido se muestra cómo usar [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) para conectarse a una instancia de Azure SQL Database. También se muestran las instrucciones Transact-SQL para consultar y modificar los datos.
 

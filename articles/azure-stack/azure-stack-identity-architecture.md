@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/01/2018
+ms.date: 11/07/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: f2d843b343fa830adf41352ae692ea98bed52ecc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: fiseraci
+ms.openlocfilehash: a16a6596d6bc33200f87a1dfd3b2ea5b02628e10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713653"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277824"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Arquitectura de identidad para Azure Stack
 Antes de elegir un proveedor de identidad para usarlo con Azure Stack, conozca las diferencias importantes entre las opciones de Azure Active Directory (Azure AD) y Servicios de federación de Active Directory (AD FS). 
@@ -44,7 +44,7 @@ El proveedor de identidad que elija puede limitar las opciones, incluida la comp
 |Las aplicaciones pueden utilizar el proveedor de identidades para iniciar sesión |SÍ |Sí. Requiere que las aplicaciones se federen con instancias de AD FS locales. |
 
 ## <a name="topologies"></a>Topologías
-En las siguientes secciones se explican las diferentes topologías de identidad que pueden usar.
+En las siguientes secciones se explican las diferentes topologías de identidad que se pueden usar.
 
 ### <a name="azure-ad-single-tenant-topology"></a>Azure AD: topología de inquilino único 
 De forma predeterminada, si instala Azure Stack y usa Azure AD, Azure Stack usa una topología de un único inquilino. 

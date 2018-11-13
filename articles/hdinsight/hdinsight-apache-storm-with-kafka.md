@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Apache Kafka con Storm en HDInsight en Azure '
+title: 'Tutorial: Apache Kafka con Apache Storm en HDInsight: Azure '
 description: Aprenda a crear una canalización de streaming mediante Apache Storm y Apache Kafka en HDInsight. En este tutorial, se usan los componentes KafkaBolt y KafkaSpout para hacer streaming de los datos de Kafka.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/21/2018
-ms.openlocfilehash: 7aa8f0b62459c376113bca5a0c58cc7dd3b5280c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1f8537408325aff0ba3ec198ed0e2bb697134845
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094896"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036349"
 ---
-# <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Kafka en HDInsight
+# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Apache Kafka en HDInsight
 
 Este tutorial muestra cómo utilizar una topología de Apache Storm para leer y escribir datos con Apache Kafka en HDInsight. Este tutorial también muestra cómo conservar los datos en el almacenamiento compatible con HDFS en el clúster de Storm.
 

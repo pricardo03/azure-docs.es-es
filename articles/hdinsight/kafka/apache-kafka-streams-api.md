@@ -3,18 +3,18 @@ title: 'Tutorial: Uso de Streams API de Apache Kafka: Azure HDInsight '
 description: Aprenda a usar Streams API de Apache Kafka con Kafka en HDInsight. Esta API permite realizar el procesamiento de flujos entre temas de Kafka.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/17/2018
-ms.openlocfilehash: f50e61f4acbdc33cee1786f68cf44252a8f29741
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/06/2018
+ms.openlocfilehash: b22a701d9e876ca011381810e330fed60b7177d4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417419"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278708"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: Streams API de Apache Kafka
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de su entorno de desarrollo
-> * Comprensión del código
+> * Comprendiendo el código
 > * Compilar e implementar la aplicación
 > * Configurar temas de Kafka
 > * Ejecución del código
@@ -52,7 +52,7 @@ Debe tener los siguientes componentes instalados en el entorno de desarrollo:
 
 * Un cliente de SSH y el comando `scp`. Para más información, vea el documento [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="understand-the-code"></a>Comprensión del código
+## <a name="understand-the-code"></a>Comprendiendo el código
 
 La aplicación de ejemplo se encuentra en [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), en el subdirectorio `Streaming`. La aplicación consta de dos archivos:
 
@@ -84,7 +84,7 @@ Esto es lo más importante que hay que saber del archivo `pom.xml`:
 
 ### <a name="streamjava"></a>Stream.java
 
-El archivo `Stream.java` utiliza Streams API para implementar una aplicación de recuento de palabras. Lee datos de un tema de Kafka llamado `test` y escribe los recuentos de palabras en un tema llamado `wordcounts`.
+El archivo [Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) utiliza Streams API para implementar una aplicación de recuento de palabras. Lee datos de un tema de Kafka llamado `test` y escribe los recuentos de palabras en un tema llamado `wordcounts`.
 
 El código siguiente define la aplicación de recuento de palabras:
 

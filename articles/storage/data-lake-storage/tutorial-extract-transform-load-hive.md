@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 23478a1f72a4b74bcacf27d3b18116250eb6bfff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4e7b6d5c2f84f7d385709dc780507c262081757a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984660"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280599"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Realización de las operaciones de extracción, transformación y carga mediante Apache Hive en Azure HDInsight
 
@@ -43,7 +43,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 * **Azure SQL Database**. Use una instancia de Azure SQL Database como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database en Azure Portal](../../sql-database/sql-database-get-started.md).
 
-* **CLI de Azure** Si no tiene instalada la CLI de Azure, consulte en [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) el procedimiento que debe seguir.
+* **Azure CLI**. Si no tiene instalada la CLI de Azure, consulte en [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) el procedimiento que debe seguir.
 
 * **Un cliente SSH**. Para más información, consulte [Conexión a través de SSH con HDInsight (Hadoop)](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -67,7 +67,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>Carga de datos en un clúster de HDInsight
 
-Hay muchas maneras de cargar datos en el almacenamiento asociado a un clúster de HDInsight. En esta sección, se usa `scp` para cargar datos. Para obtener información sobre otras maneras de cargar los datos, consulte [Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2 Preview](use-distcp.md) [Uso de Distcp para copiar datos entre Azure Storage Blob y Data Lake Storage Gen2 (versión preliminar)].
+Hay muchas maneras de cargar datos en el almacenamiento asociado a un clúster de HDInsight. En esta sección, se usa `scp` para cargar datos. Para obtener información acerca de otras maneras de cargar datos, consulte [Uso de Distcp para copiar datos entre Azure Storage Blob y Data Lake Storage Gen2 (versión preliminar)](use-distcp.md).
 
 1. Abra una ventana del símbolo del sistema y use el siguiente comando para cargar el archivo .zip en el nodo principal del clúster de HDInsight:
 

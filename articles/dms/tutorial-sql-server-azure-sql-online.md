@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Database Migration Service para realizar una migración en línea de SQL Server a Azure SQL Database | Microsoft Docs
+title: 'Tutorial: Uso de Azure Database Migration Service para realizar una migración en línea de SQL Server a Azure SQL Database | Microsoft Docs'
 description: Aprenda a realizar una migración en línea de SQL Server local a Azure SQL Database mediante Azure Database Migration Service.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: adf9f40e351ca642ca3e8eabe1e5eb7850f1f00d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: be6a5c444444c9482b921ea7fd68bf26ac10a2a2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945542"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958940"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Migración de SQL Server a Azure SQL Database en línea mediante DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Tutorial: Migración de SQL Server a Azure SQL Database en línea mediante DMS
 Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de SQL Server local a [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) con un tiempo de inactividad mínimo. En este tutorial migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 (o posterior) a una instancia de Azure SQL Database mediante Azure Database Migration Service.
 
 En este tutorial, aprenderá a:

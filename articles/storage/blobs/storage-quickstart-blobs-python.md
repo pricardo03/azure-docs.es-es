@@ -6,23 +6,23 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 10/31/2018
 ms.author: tamram
-ms.openlocfilehash: a264f5bdec6d09c0cbdd6ebec3a6b760deaf9547
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3550d9e63288ad0cfb45dc6267f20762d3068b6a
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139087"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219399"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Python
+# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Guía de inicio rápido: Carga, descarga y enumeración de blobs mediante Python
 
-En este tutorial de inicio rápido, aprenderá a usar Python para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
+En esta guía de inicio rápido, aprenderá a usar Python para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido: 
-* Instalación de [Python](https://www.python.org/downloads/)
+* Instale [Python](https://www.python.org/downloads/).
 * Descargue e instale el [SDK de Azure Storage para Python](https://github.com/Azure/azure-sdk-for-python). 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -30,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
-La [aplicación de ejemplo](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) utilizada en este tutorial de inicio rápido es una aplicación con Python básica.  
+La [aplicación de ejemplo](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) usada en esta guía de inicio rápido es una aplicación Python básica.  
 
 Use [git](https://git-scm.com/) para descargar una copia de la aplicación en su entorno de desarrollo. 
 
@@ -38,25 +38,25 @@ Use [git](https://git-scm.com/) para descargar una copia de la aplicación en su
 git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git 
 ```
 
-Este comando clona el repositorio en la carpeta git local. Para abrir el programa de Python, busque la carpeta storage-blobs-python-quickstart y el archivo example.py.  
+Este comando clona el repositorio *Azure-Samples/storage-blobs-python-quickstart* en la carpeta git local. Para ejecutar el programa de Python, abra el archivo *example.py* en la raíz del repositorio.  
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
-En la aplicación, debe proporcionar el nombre y la clave de la cuenta de almacenamiento para crear un objeto `BlockBlobService`. Abra el archivo `example.py` en el Explorador de soluciones en el IDE. Reemplace los valores **accountname** y **accountkey** con el nombre de cuenta y la clave. 
+En la aplicación, proporcione el nombre y la clave de la cuenta de almacenamiento para crear un objeto `BlockBlobService`. Abra el archivo *example.py* desde el Explorador de soluciones en el IDE. Reemplace los valores `accountname` y `accountkey` por el nombre y la clave de la cuenta. 
 
 ```python 
 block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
 ```
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
-En este ejemplo se crea un archivo de prueba en la carpeta "Documents". El programa de ejemplo carga el archivo de prueba en Blob Storage, enumera los blobs en el contenedor y descarga el archivo con un nuevo nombre. 
+En este ejemplo se crea un archivo de prueba en la carpeta *Documents*. El programa de ejemplo carga el archivo de prueba en Blob Storage, enumera los blobs en el contenedor y descarga el archivo con un nuevo nombre. 
 
 En primer lugar, instale las dependencias mediante la ejecución de `pip install`:
 
     pip install azure-storage
 
-Después, ejecute el ejemplo. La salida siguiente es un ejemplo de la salida devuelta al ejecutar la aplicación:
+Después, ejecute el ejemplo. Verá mensajes similares a la siguiente salida:
   
 ```
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -68,27 +68,27 @@ List blobs in the container
 
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
 ```
-Al presionar cualquier tecla para continuar, el programa de muestra elimina el contenedor de almacenamiento y los archivos. Antes de continuar, compruebe la carpeta "Documents" de los dos archivos. Puede abrirlos y ver que son idénticas.
+Antes de continuar, compruebe la carpeta *Documents* de los dos archivos. Puede abrirlos y ver que son idénticos.
 
 También puede usar una herramienta como [Explorador de Azure Storage](http://storageexplorer.com) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento. 
 
-Después de haber comprobado los archivos, presione cualquier tecla para finalizar la demostración y eliminar los archivos de prueba. Ahora que sabe lo que hace el ejemplo, abra el archivo example.py para examinar el código. 
+Después de haber comprobado los archivos, presione cualquier tecla para finalizar la demostración y eliminar los archivos de prueba. Ahora que sabe lo que hace el ejemplo, abra el archivo *example.py* para examinar el código. 
 
 ## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
 
-A continuación, explicaremos el código de ejemplo para ayudarle a comprender saber cómo funciona.
+Veamos el código de ejemplo para entender cómo funciona.
 
 ### <a name="get-references-to-the-storage-objects"></a>Obtención de referencias a los objetos de almacenamiento
-Lo primero que hay que hacer es crear las referencias a los objetos usados para acceder a Blob Storage y administrarlo. Estos objetos dependen unos de otros, y cada uno es utilizado por el siguiente de la lista.
+En primer lugar, creará las referencias a los objetos usados para acceder a Blob Storage y administrarlo. Estos objetos dependen unos de otros, y cada uno es utilizado por el siguiente de la lista.
 
 * Cree una instancia del objeto **BlockBlobService**, que apunta a Blob service en la cuenta de almacenamiento. 
 
 * Cree una instancia del objeto **CloudBlobContainer**, que representa el contenedor al que está accediendo. Los contenedores se usan para organizar los blobs al igual que se usan las carpetas en el equipo para organizar los archivos.
 
-Una vez que tenga CloudBlobContainer, puede crear una instancia del objeto **CloudBlockBlob** que apunte al blob específico en el que está interesado y realizar operaciones como carga, descarga y copia.
+Una vez que tenga el contenedor de blobs en la nube, cree una instancia del objeto **CloudBlockBlob** que apunte al blob específico en el que está interesado. Luego, puede cargar, descargar o copiar el blob según sea necesario.
 
 > [!IMPORTANT]
-> Los nombres de contenedor deben estar en minúsculas. Para más información sobre la nomenclatura de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
+> Los nombres de contenedor deben estar en minúsculas. Para más información sobre los nombres de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Nomenclatura y referencias de contenedores, blobs y metadatos).
 
 En esta sección, se crean instancias de los objetos, se crea un contenedor y luego se establecen permisos en el contenedor para que los blobs sean públicos. El contenedor se denomina **quickstartblobs**. 
 
@@ -107,9 +107,9 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 
 Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los blobs en bloques son los que se usan con más frecuencia y serán los que utilicemos en este tutorial de inicio rápido.  
 
-Para cargar un archivo en un blob, obtenga la ruta de acceso completa del archivo combinando el nombre del directorio y el nombre de archivo en la unidad local. A continuación, puede cargar el archivo en la ruta de acceso especificada con el método **create\_blob\_from\_path**. 
+Para cargar un archivo en un blob, obtenga la ruta de acceso completa del archivo combinando el nombre del directorio y el nombre de archivo en la unidad local. Luego, puede cargar el archivo en la ruta de acceso especificada con el método `create\_blob\_from\_path`. 
 
-El código de ejemplo crea un archivo local que se usará para la carga y descarga, almacenando el archivo que se va a cargar como **file\_path\_to\_file** y el nombre del blob como **local\_file\_name**. En el ejemplo siguiente se carga el archivo al contenedor denominado **quickstartblobs**.
+El código de ejemplo crea un archivo local que se usará para la carga y descarga; el archivo cargado se almacenará como `file\_path\_to\_file` y el nombre del blob como `local\_file\_name`. En el ejemplo siguiente se carga el archivo al contenedor denominado **quickstartblobs**.
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -129,13 +129,13 @@ print("\nUploading to Blob storage as blob" + local_file_name)
 block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
 ```
 
-Existen varios métodos de carga que puede usar con Blob Storage. Por ejemplo, si tiene una secuencia de memoria, puede utilizar el método **create\_blob\_from\_stream** en lugar de **create\_blob\_from\_path**. 
+Existen varios métodos de carga que puede usar con Blob Storage. Por ejemplo, si tiene una secuencia de memoria, puede usar el método `create\_blob\_from\_stream` en lugar de `create\_blob\_from\_path`. 
 
-Los blobs en bloques pueden tener un tamaño de hasta 4,7 TB y pueden ser cualquier cosa, desde hojas de cálculo de Excel a archivos de vídeo grandes. Los blobs en páginas se utilizan principalmente para los archivos VHD usados para respaldar VM IaaS. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los objetos almacenados en Blob Storage son blobs en bloques.
+Los blobs en bloques pueden tener un tamaño de hasta 4,7 TB y pueden ser cualquier cosa, desde hojas de cálculo de Excel a archivos de vídeo grandes. Los blobs en páginas se usan principalmente con los archivos VHD que respaldan las máquinas virtuales IaaS. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los objetos almacenados en Blob Storage son blobs en bloques.
 
 ### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
-Obtenga una lista de archivos del contenedor con el método **list_blobs**. Este método devuelve un generador. El código siguiente recupera la lista de blobs, luego los recorre y se muestran los nombres de los blobs encontrados en un contenedor.  
+Obtenga una lista de archivos del contenedor con el método `list_blobs`. Este método devuelve un generador. El código siguiente recupera la lista de blobs, luego los recorre y se muestran los nombres de los blobs encontrados en un contenedor.  
 
 ```python
 # List the blobs in the container
@@ -147,7 +147,7 @@ for blob in generator:
 
 ### <a name="download-the-blobs"></a>Descarga de los blobs
 
-Descargue blobs en el disco local con el método **get\_blob\_to\_path**. El código siguiente descarga el blob cargado en una sección anterior. "_DOWNLOADED" se agrega como un sufijo al nombre de blob para que pueda ver ambos archivos en el disco local. 
+Descargue los blobs en el disco local con el método `the get\_blob\_to\_path`. El código siguiente descarga el blob cargado en una sección anterior. *_DOWNLOADED* se agrega como un sufijo al nombre de blob para que pueda ver ambos archivos en el disco local. 
 
 ```python
 # Download the blob(s).
@@ -158,7 +158,7 @@ block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_t
 ```
 
 ### <a name="clean-up-resources"></a>Limpieza de recursos
-Si ya no necesita los blobs cargados en este tutorial de inicio rápido, puede eliminar todo el contenedor mediante **delete\_container**. Si ya no necesita los archivos creados, use el método **delete\_blob** para eliminarlos.
+Si ya no necesita los blobs cargados en esta guía de inicio rápido, puede eliminar todo el contenedor mediante el método `delete\_container`. Si lo que quiere es eliminar archivos individuales, use el método `delete\_blob`.
 
 ```python
 # Clean up resources. This includes the container and the temp files
@@ -168,7 +168,7 @@ os.remove(full_path_to_file2)
 ```
 ## <a name="resources-for-developing-python-applications-with-blobs"></a>Recursos para el desarrollo de aplicaciones Python con blobs
 
-Consulte estos recursos adicionales para el desarrollo de Python con Blob Storage:
+Para más información sobre el desarrollo de Python con almacenamiento de blobs, consulte estos recursos adicionales:
 
 ### <a name="binaries-and-source-code"></a>Archivos binarios y código fuente
 
@@ -176,12 +176,12 @@ Consulte estos recursos adicionales para el desarrollo de Python con Blob Storag
 
 ### <a name="client-library-reference-and-samples"></a>Referencia a la biblioteca de clientes y ejemplos
 
-- Para más información acerca de la biblioteca de cliente de Python, consulte la [referencia de la API de Python](https://docs.microsoft.com/python/api/overview/azure/storage).
+- Para más información sobre la biblioteca de cliente de Python, consulte la [referencia de la API de Python](https://docs.microsoft.com/python/api/overview/azure/storage).
 - Explore los [ejemplos de Blob Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) escritos mediante la biblioteca de cliente de Python.
 
 ## <a name="next-steps"></a>Pasos siguientes
  
-En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Python. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
+En esta guía de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Python. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 
 > [!div class="nextstepaction"]
 > [Procedimientos de las operaciones de Blob Storage](./storage-python-how-to-use-blob-storage.md)

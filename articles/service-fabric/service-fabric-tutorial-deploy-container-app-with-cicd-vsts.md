@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: ryanwi,v-steg
 ms.custom: mvc
-ms.openlocfilehash: 5ec898465b550a136db71ee731be5943c7441dcd
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: db0abf2c70ac79356496c78275dc658d1ee29a23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382166"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035925"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: implementación de una aplicación de contenedor con CI/CD en un clúster de Service Fabric
 
@@ -76,6 +76,9 @@ Las definiciones de versión de Team Services describen un flujo de trabajo que 
 Abra un explorador web y vaya al nuevo proyecto de equipo en: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
 Seleccione la pestaña **Compilación y versión**, después **Compilaciones** y, finalmente, **+ Nueva canalización**.
+
+>[!NOTE]
+>Si no ve la plantilla de definición de compilación, asegúrese de que la característica **Nueva experiencia de creación de canalizaciones de YAML** está desactivada. Esta característica se configura en la sección **Características en vista previa** de la cuenta de DevOps.
 
 ![Nueva canalización][new-pipeline]
 

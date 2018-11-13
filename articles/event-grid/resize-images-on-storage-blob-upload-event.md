@@ -3,7 +3,7 @@ title: Usar Azure Event Grid para automatizar el cambio de tamaño de imágenes 
 description: Azure Event Grid puede desencadenarse en cargas de blob de Azure Storage. Puede usarlo para enviar archivos de imagen cargados en Azure Storage a otros servicios, como Azure Functions, a fin de cambiar el tamaño y otras mejoras.
 services: event-grid, functions
 author: ggailey777
-manager: cfowler
+manager: jpconnoc
 editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585584"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282516"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -158,19 +158,18 @@ Una suscripción de eventos indica los eventos generados por el proveedor que se
 
 3. Use la configuración de suscripción de eventos que se especifica en la tabla.
     
-    ![Creación de suscripción de eventos a partir de la función en Azure Portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
+    ![Creación de suscripción de eventos a partir de la función en Azure Portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Configuración      | Valor sugerido  | Descripción                                        |
+    | Configuración      | Valor sugerido  | DESCRIPCIÓN                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nombre** | imageresizersub | Nombre que identifica a la nueva suscripción de eventos. | 
     | **Tipo de tema** |  Cuentas de almacenamiento | Elija el proveedor de eventos de las cuentas de almacenamiento. | 
     | **Suscripción** | Su suscripción de Azure | De forma predeterminada, se selecciona la suscripción de Azure actual.   |
     | **Grupos de recursos** | myResourceGroup | Seleccione **Usar existente** y elija el grupo de recursos que se ha venido usando en este tutorial.  |
-    | **Instancia** |  La cuenta de Blob Storage |  Elija la cuenta de Blob Storage que ha creado. |
+    | **Recurso** |  La cuenta de Blob Storage |  Elija la cuenta de Blob Storage que ha creado. |
     | **Tipos de evento** | Blob creado | Desactive todos los tipos que no sean **Blob creado**. Solo los tipos de evento de `Microsoft.Storage.BlobCreated` se pasan a la función.| 
-    | **Tipo de suscriptor** |  Webhook |  Las opciones son Webhook o Event Hubs. |
+    | **Tipo de suscriptor** |  generado automáticamente |  Predefinidos como Webhook. |
     | **Punto de conexión de suscriptor** | generado automáticamente | Use la dirección URL del punto de conexión generado automáticamente. | 
-    | **Filtro de prefijo** | /blobServices/default/containers/images/blobs/ | Filtra los eventos de almacenamiento a solo aquellos del contenedor **images**.| 
+    | **Nombre** | imageresizersub | Nombre que identifica a la nueva suscripción de eventos. | 
 
 4. Haga clic en **Crear** para agregar la suscripción de eventos. Se crea una suscripción a evento que desencadena `imageresizerfunc` cuando se agrega un blob al contenedor *images*. La función cambia el tamaño de las imágenes y las agrega al contenedor *thumbnails*.
 

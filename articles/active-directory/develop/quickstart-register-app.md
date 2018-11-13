@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: e4e667c9a9490d164b9fb1c90580ceb30989a7dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988878"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913001"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Guía de inicio rápido: Registro de una aplicación con la plataforma de identidad de Microsoft (versión preliminar)
 
 Los desarrolladores de la empresa y los proveedores de software como servicio (SaaS) pueden desarrollar aplicaciones de línea de negocio o servicios comerciales en la nube que se pueden integrar con la plataforma de identidad de Microsoft para ofrecer inicio de sesión seguro y autorización para los servicios.
 
-En esta guía de inicio rápido se muestra cómo agregar y registrar una aplicación en Azure Portal para que pueda integrarse con la plataforma de identidad de Microsoft.
+En esta guía de inicio rápido se muestra cómo agregar y registrar una aplicación con la experiencia de **Registros de aplicaciones (versión preliminar)** en Azure Portal para que pueda integrarse con la plataforma de identidad de Microsoft.
 
 ## <a name="prerequisite"></a>Requisito previo
 
@@ -36,7 +36,7 @@ Para empezar, deberá participar en la experiencia de versión preliminar para l
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registro de una aplicación nueva mediante Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
+1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee.
 1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory**, y después **Registros de aplicaciones (versión preliminar) > Nuevo registro**.
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
 
@@ -59,7 +59,7 @@ Para empezar, deberá participar en la experiencia de versión preliminar para l
 
     [![Registro de una aplicación nueva en Azure Portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
-Azure AD le asigna un identificador de aplicación único a la aplicación y le lleva a la página **Introducción** de la aplicación. Para agregar funcionalidades adicionales a la aplicación, puede seleccionar otras opciones de configuración, como personalización de marca, certificados y secretos, permisos de API y mucho más.
+Azure AD le asigna un identificador de aplicación único (cliente) a la aplicación y le lleva a la página **Información general** de la aplicación. Para agregar funcionalidades adicionales a la aplicación, puede seleccionar otras opciones de configuración, como personalización de marca, certificados y secretos, permisos de API y mucho más.
 
 [![Página de introducción de la aplicación recién registrada](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 

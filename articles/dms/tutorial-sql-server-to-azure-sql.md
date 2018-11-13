@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Database Migration Service para migrar bases de datos de SQL Server a Azure SQL Database sin conexión | Microsoft Docs
+title: 'Tutorial: Uso de Azure Database Migration Service para migrar bases de datos de SQL Server a Azure SQL Database desconectado | Microsoft Docs'
 description: Aprenda a migrar de SQL Server local a Azure SQL Database sin conexión mediante Azure Database Migration Service.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 6b8b6994b810db939a5e690d16d3c5d2f1a0825f
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 783785a73b3a6a99126b07f3759be540fe3098d8
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945406"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959246"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Migración de SQL Server a Azure SQL Database sin conexión mediante DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migración de SQL Server a Azure SQL Database desconectado mediante DMS
 Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de SQL Server local a [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). En este tutorial migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 (o posterior) a una instancia de Azure SQL Database mediante Azure Database Migration Service.
 
 En este tutorial, aprenderá a:

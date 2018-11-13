@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352617"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963938"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de la unión a Azure Active Directory híbrido para dominios administrados
 
@@ -140,6 +140,9 @@ Si algunos de los dispositivos unidos a un dominio son dispositivos de Windows d
  
 - Configurar los valores de la intranet local para el registro de dispositivos
 
+- Control de dispositivos de Windows de nivel inferior 
+
+
 ### <a name="update-device-settings"></a>Actualizar configuración del dispositivo 
 
 Para registrar dispositivos de Windows de nivel inferior, es preciso asegurarse de que están establecidos los valores de dispositivo que permiten a los usuarios registrar dispositivos en Azure AD. En Azure Portal, esta configuración se encuentra en:
@@ -163,6 +166,12 @@ Para completar con éxito la combinación de Azure AD híbrido de los dispositiv
 - `https://autologon.microsoftazuread-sso.com`.
 
 Además, tiene que habilitar **Permitir actualizaciones en la barra de estado a través de script** en la zona de intranet local del usuario.
+
+
+### <a name="control-windows-down-level-devices"></a>Control de dispositivos de Windows de nivel inferior 
+
+Para registrar dispositivos de nivel inferior de Windows, debe descargar e instalar un paquete de Windows Installer (.msi) desde el Centro de descarga. Para más información, haga clic [aquí](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 ## <a name="verify-the-registration"></a>Comprobación del registro
 
