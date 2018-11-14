@@ -4,16 +4,16 @@ description: Describe cómo Azure Policy usa la definición de directiva de recu
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212784"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283298"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -123,12 +123,12 @@ En la regla de directiva, se hace referencia a los parámetros con la siguiente 
 
 ## <a name="definition-location"></a>Ubicación de definición
 
-Al crear una definición de directiva o iniciativa, es importante especificar la ubicación de la definición.
+Al crear una iniciativa o directiva, es necesario especificar la ubicación de la definición. La ubicación de la definición debe ser un grupo de administración o una suscripción y determina el ámbito al que se puede asignar la iniciativa o directiva. Los recursos deben ser miembros directos o elementos secundarios dentro de la jerarquía de la ubicación de la definición para que puedan ser destino de asignación.
 
-La ubicación de la definición determina el ámbito al que pueden asignarse la definición de directiva o la iniciativa. La ubicación puede especificarse como un grupo de administración o una suscripción.
+Si la ubicación de la definición es:
 
-> [!NOTE]
-> Si planea aplicar esta definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga las suscripciones a las que asignará la iniciativa o directiva.
+- Una **suscripción**: solo se puede asignar la directiva a los recursos dentro de esa suscripción.
+- Un **grupo de administración**: solo se puede asignar la directiva a los recursos dentro de grupos de administración secundarios y suscripciones secundarias. Si planea aplicar la definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga esas suscripciones.
 
 ## <a name="display-name-and-description"></a>Nombre para mostrar y descripción
 
@@ -146,7 +146,7 @@ En el bloque **Then**, defina el efecto que se produce cuando se cumplen las con
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -233,6 +233,7 @@ La directiva admite tres tipos de efectos:
 - **Append**: agrega el conjunto de campos definido a la solicitud.
 - **AuditIfNotExists**: habilita la auditoría si un recurso no existe.
 - **DeployIfNotExists**: implementa un recurso si todavía no existe.
+- **Disabled**: no se evalúa el cumplimiento de la regla de directivas en los recursos.
 
 En el caso de **append**, debe proporcionar los detalles tal y como se muestra a continuación:
 
@@ -247,6 +248,18 @@ En el caso de **append**, debe proporcionar los detalles tal y como se muestra a
 El valor puede ser una cadena o un objeto con formato JSON.
 
 Con **AuditIfNotExists** y **DeployIfNotExists**, puede evaluar la existencia de un recurso relacionado y aplicar una regla y un efecto correspondiente si no existe ese recurso. Por ejemplo, puede requerir que un monitor de red se implemente para todas las redes virtuales. Para un ejemplo de auditoría cuando no se implementa una extensión de máquina virtual, consulte el artículo sobre la [auditoría si la extensión no existe](../samples/audit-ext-not-exist.md).
+
+El efecto de **DeployIfNotExists** requiere la propiedad **roleDefinitionId** en la parte **details** de la regla de directivas. Para obtener más información, vea [Remediation - Configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (Corrección: configurar la definición de directiva).
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 Para obtener información detallada sobre cada efecto, el orden de evaluación, las propiedades y algunos ejemplos, consulte [Descripción de los efectos de la directiva](effects.md).
 

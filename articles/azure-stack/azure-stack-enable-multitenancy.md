@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: bryanr
+ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026167"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240178"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Servicio multiinquilino en Azure Stack
 
@@ -26,9 +27,9 @@ ms.locfileid: "50026167"
 
 Puede configurar Azure Stack para admitir usuarios de varios inquilinos de Azure Active Directory (Azure AD) para usar los servicios en Azure Stack. Por ejemplo, tenga en cuenta el siguiente caso:
 
- - Usted es el administrador de servicios de contoso.onmicrosoft.com, donde está instalado Azure Stack.
- - Mary es la administradora de directorios de fabrikam.onmicrosoft.com, donde se encuentran los usuarios invitados. 
- - La empresa de Mary recibe servicios IaaS y PaaS de su empresa y debe permitir que los usuarios del directorio de invitados (fabrikam.onmicrosoft.com) inicien sesión y usen los recursos de Azure Stack en contoso.onmicrosoft.com.
+- Usted es el administrador de servicios de contoso.onmicrosoft.com, donde está instalado Azure Stack.
+- Mary es la administradora de directorios de fabrikam.onmicrosoft.com, donde se encuentran los usuarios invitados.
+- La empresa de Mary recibe servicios IaaS y PaaS de su empresa y debe permitir que los usuarios del directorio de invitados (fabrikam.onmicrosoft.com) inicien sesión y usen los recursos de Azure Stack en contoso.onmicrosoft.com.
 
 En esta guía encontrará los pasos necesarios, en el contexto de este escenario, para configurar los servicios multiinquilino en Azure Stack. En este escenario, usted y Mary deben completar los pasos para permitir que los usuarios de Fabrikam inicien sesión y consuman servicios de la implementación de Azure Stack en Contoso.  
 
@@ -50,6 +51,8 @@ Hay algunos requisitos previos que debe tener en cuenta antes de configurar los 
 En esta sección, configurará Azure Stack para permitir inicios de sesión de inquilinos del directorio de Azure AD de Fabrikam.
 
 Incorpore el inquilino de directorio invitado (Fabrikam) a Azure Stack y configure Azure Resource Manager para aceptar usuarios y entidades de servicio de dicho inquilino.
+
+El administrador de servicios de contoso.onmicrosoft.com ejecuta los comandos siguientes.
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -76,11 +79,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>Configurar el directorio de invitados
 
-Después de completar los pasos en el directorio de Azure Stack, Mary debe dar su consentimiento para que Azure Stack tenga acceso al directorio de invitados y para registrar Azure Stack en el directorio de invitados. 
+Una vez que el administrador u operador de Azure Stack ha habilitado el directorio de Fabrikam para su uso con Azure Stack, Mary debe registrar Azure Stack con el inquilino del directorio de Fabrikam.
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrar Azure Stack en el directorio de invitados
 
-Una vez que el administrador del directorio de invitados ha dado su consentimiento para que Azure Stack tenga acceso al directorio de Fabrikam, Mary debe registrar Azure Stack en el inquilino del directorio de Fabrikam.
+Mary, la administradora del directorio de Fabrikam, ejecuta los comandos siguientes en el fabrikam.onmicrosoft.com del directorio invitado.
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -99,14 +102,14 @@ Register-AzSWithMyDirectoryTenant `
 > Si el Administrador de Azure Stack instala nuevos servicios o las actualizaciones en el futuro, puede que tenga que volver a ejecutar este script.
 >
 > Ejecute este script de nuevo en cualquier momento para comprobar el estado de las aplicaciones de Azure Stack en su directorio.
-> 
+>
 > Si ha tenido problemas al crear máquinas virtuales en discos administrados (característica incorporada en la actualización 1808), es que se ha agregado un nuevo **proveedor de recursos de disco** que exige que este script se vuelva a ejecutar.
 
 ### <a name="direct-users-to-sign-in"></a>Instruir a los usuarios para iniciar sesión
 
 Ahora que usted y Mary han completado los pasos para incorporar el directorio de Mary, Mary puede instruir a los usuarios de Fabrikam para que inicien sesión.  Para iniciar sesión, los usuarios de Fabrikam (es decir, los usuarios con el sufijo fabrikam.onmicrosoft.com) van a https://portal.local.azurestack.external.  
 
-Mary instruirá a todas las [entidades de seguridad externas](../role-based-access-control/rbac-and-directory-admin-roles.md) en el directorio de Fabrikam (es decir, los usuarios en el directorio de Fabrikam sin el sufijo fabrikam.onmicrosoft.com) para que inicien sesión con https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Si no utilizan esta dirección URL, se dirigen a su directorio predeterminado (Fabrikam) y reciben un error que indica que su administrador no ha dado su consentimiento.
+Mary instruirá a todas las [entidades de seguridad externas](../role-based-access-control/rbac-and-directory-admin-roles.md) en el directorio de Fabrikam (es decir, los usuarios en el directorio de Fabrikam sin el sufijo fabrikam.onmicrosoft.com) para que inicien sesión con https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Si no utilizan esta dirección URL, se envían a su directorio predeterminado (Fabrikam) y reciben un error que indica que su administrador no ha dado su consentimiento.
 
 ## <a name="disable-multi-tenancy"></a>Deshabilitación del servicio multiinquilino
 

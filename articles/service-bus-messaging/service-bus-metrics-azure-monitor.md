@@ -7,14 +7,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f02fa8ff80915c23f70db09a1dee393010795132
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166340"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277451"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de Azure Service Bus en Azure Monitor (versión preliminar)
 
@@ -29,7 +29,7 @@ Azure Monitor proporciona interfaces de usuario unificadas para la supervisión 
 
 Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com), o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como Log Analytics y Event Hubs. Para más información, vea [Datos de supervisión recopilados por Azure Monitor](../monitoring/monitoring-data-collection.md).
 
-De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un periodo mayor, se pueden archivar en una cuenta de Azure Storage. Esto se configura en la [configuración de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) de Azure Monitor.
+De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un periodo mayor, se pueden archivar en una cuenta de Azure Storage. Este valor se configura en la [configuración de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) de Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Acceso a métricas del portal
 
@@ -80,6 +80,8 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 | ------------------- | ----------------- |
 |Mensajes entrantes (versión preliminar)|Número de eventos o mensajes enviados a Service Bus durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
 |Mensajes salientes (versión preliminar)|Número de eventos o mensajes recibidos de Service Bus durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+| Mensajes (versión preliminar) | Recuento de mensajes de una cola/tema. <br/><br/> Unidad: recuento <br/> Tipo de agregación: promedio <br/> Dimensión: EntityName |
+| Mensajes activos (versión preliminar) | Recuento de mensajes activos de una cola/tema. <br/><br/> Unidad: recuento <br/> Tipo de agregación: promedio <br/> Dimensión: EntityName |
 
 ## <a name="connection-metrics"></a>Métricas de conexión
 
@@ -106,6 +108,54 @@ Azure Service Bus admite las siguientes dimensiones para las métricas de Azure 
 |Nombre de dimensión|DESCRIPCIÓN|
 | ------------------- | ----------------- |
 |EntityName| Service Bus admite las entidades de mensajería en el espacio de nombres.|
+
+## <a name="set-up-alerts-on-metrics"></a>Configuración de alertas en métricas
+
+1. En la pestaña **Métricas** de la página **Espacio de nombres de Service Bus**, seleccione **Configurar alertas**. 
+
+    ![Página Métricas; menú Configurar alertas](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
+2. Seleccione **Seleccionar destino**, y realice las acciones siguientes en la página **Seleccionar un recurso**: 
+    1. Seleccione **Espacios de nombres de Service Bus** en el campo **Filtrar por tipo de recurso**. 
+    2. Seleccione su suscripción en el campo **Filtrar por suscripción**.
+    3. Seleccione el **espacio de nombres de Service Bus** en la lista. 
+    4. Seleccione **Listo**. 
+    
+        ![Seleccionar espacio de nombres](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+1. Seleccione **Agregar criterios** y realice las acciones siguientes en la página **Configurar lógica de señal**:
+    1. Seleccione **Métricas** para **Tipo de señal**. 
+    2. Seleccione una señal. Por ejemplo: **Errores del servicio (versión preliminar)**. 
+
+        ![Seleccionar errores del servidor](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
+    1. Seleccione **Mayor que** en **Condición**.
+    2. Seleccione **Total** para **Agregación de tiempo**. 
+    3. Escriba **5** en **Umbral**. 
+    4. Seleccione **Listo**.    
+
+        ![Especificar condición](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
+1. En la página **Crear regla**, expanda **Definir detalles de alerta** y realice las acciones siguientes:
+    1. Escriba un **Nombre** para la alerta. 
+    2. Escriba una **descripción** para la alerta.
+    3. Seleccione la **gravedad** de la alerta. 
+
+        ![Detalles de alertas](./media/service-bus-metrics-azure-monitor/alert-details.png)
+1. En la página **Crear regla**, expanda **Definir grupo de acciones**, seleccione **Nuevo grupo de acciones**, y realice las acciones siguientes en la página **Agregar grupo de acciones**. 
+    1. Escriba un nombre para el grupo de acciones.
+    2. Escriba un nombre corto para el grupo de acciones. 
+    3. Seleccione su suscripción. 
+    4. Seleccione un grupo de recursos. 
+    5. En este tutorial, escriba **Enviar correo electrónico** para **NOMBRE DE ACCIÓN**.
+    6. Seleccione **Correo electrónico/SMS/Push/Voz** para **TIPO DE ACCIÓN**. 
+    7. Seleccione **Editar detalles**. 
+    8. En la página **Correo electrónico/SMS/Push/Voz**, realice las siguientes acciones:
+        1. Seleccione **Correo electrónico**. 
+        2. Escriba la **dirección de correo electrónico**. 
+        3. Seleccione **Aceptar**.
+
+            ![Detalles de alertas](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+        4. En la página **Agregar grupo de acciones**, seleccione **Aceptar**. 
+1. En la página **Crear regla**, seleccione **Crear regla de alertas**. 
+
+    ![Botón Crear regla de alertas](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/11/2018
+ms.date: 11/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412812"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011330"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
@@ -40,23 +40,27 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 | Habilitar la copia de seguridad de VM de Azure | Operador de copias de seguridad | Grupo de recursos que contiene el almacén |
 | | Colaborador de la máquina virtual | Recurso de máquina virtual |
 | Copia de seguridad a petición de VM | Operador de copias de seguridad | Recurso de almacén de recuperación |
-| Restaurar VM | Operador de copias de seguridad | Grupo de recursos en el que se implementará la máquina virtual |
+| Restaurar VM | Operador de copias de seguridad | Almacén de Recovery Services |
 | | Colaborador de la máquina virtual | Grupo de recursos en el que se implementará la máquina virtual |
+| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |
 | Restaurar la copia de seguridad de la máquina virtual de discos no administrados | Operador de copias de seguridad | Recurso de almacén de recuperación |
-| | Colaborador de la máquina virtual | Recurso de máquina virtual |
-| | Colaborador de la cuenta de almacenamiento | Recurso de la cuenta de almacenamiento |
+| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |
+| | Colaborador de la cuenta de almacenamiento | Recurso de la cuenta de almacenamiento donde se van a restaurar los discos |
 | Restaurar discos administrados de la copia de seguridad de la máquina virtual | Operador de copias de seguridad | Recurso de almacén de recuperación |
-| | Colaborador de la máquina virtual | Recurso de máquina virtual |
-| | Colaborador de la cuenta de almacenamiento | Recurso de la cuenta de almacenamiento |
-| | Colaborador | Grupo de recursos en el cual se restaurará el disco administrado |
+| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |
+| | Colaborador de la cuenta de almacenamiento | Cuenta de almacenamiento temporal seleccionada como parte de la restauración para contener datos del almacén antes de convertirlos a discos administrados |
+| | Colaborador | Grupo de recursos en el cual se restaurarán los discos administrados |
 | Restaurar archivos individuales desde la copia de seguridad de la máquina virtual | Operador de copias de seguridad | Recurso de almacén de recuperación |
-| | Colaborador de la máquina virtual | Recurso de máquina virtual |
+| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |
 | Crear directiva de copia de seguridad para copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Recurso de almacén de recuperación |
 | Modificar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Recurso de almacén de recuperación |
 | Eliminar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Recurso de almacén de recuperación |
 | Detener copia de seguridad (con retención de datos o eliminación de datos) en copia de seguridad de VM | Colaborador de copias de seguridad | Recurso de almacén de recuperación |
 | Registrar Windows Server, cliente o SCDPM local o Azure Backup Server | Operador de copias de seguridad | Recurso de almacén de recuperación |
 | Eliminar Windows Server, cliente o SCDPM local registrado o Azure Backup Server | Colaborador de copias de seguridad | Recurso de almacén de recuperación |
+
+> [!IMPORTANT]
+> Si especifica Colaborador de máquina virtual en un ámbito de recursos de máquina virtual y hace clic en Copia de seguridad como parte de la configuración de máquina virtual, se abrirá la pantalla "Habilitar copia de seguridad" aunque ya se haya realizado una copia de seguridad de la máquina virtual, ya que la llamada para comprobar el estado de la copia de seguridad solo funciona en el nivel de suscripción. Para evitar este problema, vaya al almacén y abra la vista de elementos de copia de seguridad de la máquina virtual o especifique un rol de colaborador de máquina virtual en un nivel de suscripción. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md): introducción a RBAC en Azure Portal.

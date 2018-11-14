@@ -4,7 +4,7 @@ description: Describe los roles y permisos necesarios para crear factorías de d
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 10/08/2018
+ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: 10f325f3b7c93b91180b6a170c8b7accb75eb03b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 82c0ec4d114ec198ecba475b247a3c9952a6069a
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883778"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218770"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles y permisos para Azure Data Factory
 
@@ -50,6 +50,8 @@ Para más información acerca de este rol, consulte el [rol Colaborador de Data 
 ### <a name="resource-manager-template-deployment"></a>Implementación de plantillas del Administrador de recursos
 
 El rol **Colaborador de Data Factory**, a nivel del grupo de recursos o por encima de este, permite a los usuarios implementar plantillas de Resource Manager. Como resultado, los miembros del rol pueden usar plantillas de Resource Manager para implementar tanto factorías de datos como sus recursos secundarios, incluidos los conjuntos de datos, servicios vinculados, canalizaciones, desencadenadores y los entornos de ejecución de integración. Sin embargo, la pertenencia a este rol no permite al usuario crear otros recursos.
+
+Los permisos para Azure Repos y GitHub son independientes de los permisos de Data Factory. Como resultado, un usuario con permisos de repositorio que es solo un miembro del rol de lector puede editar los recursos secundarios de Data Factory y confirmar los cambios en el repositorio, pero no puede publicar estos cambios.
 
 > [!IMPORTANT]
 > La implementación de plantillas de Resource Manager con el rol **Colaborador de Data Factory** no eleva sus permisos. Por ejemplo, si implementa una plantilla que crea una máquina virtual de Azure y no tiene permiso para crear máquinas virtuales, la implementación falla con un error de autorización.

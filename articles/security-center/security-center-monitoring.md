@@ -1,6 +1,6 @@
 ---
-title: Protección de seguridad de los recursos en Azure Security Center | Microsoft Docs
-description: En este artículo comenzará a supervisar la protección de seguridad de los recursos en Azure Security Center.
+title: Refuerce su seguridad con Azure Security Center | Microsoft Docs
+description: Este artículo ayuda a reforzar la seguridad mediante la supervisión de los recursos en Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/21/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 361fc2c6931dcfaed062bd39b75be7bef059b467
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 23369ac9f6cef74bac045017e8f956470e9a1159
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122081"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248867"
 ---
-# <a name="monitoring-resource-security-hygiene-in-azure-security-center"></a>Supervisar la protección de seguridad de recursos en Azure Security Center
-En este artículo le indicaremos cómo usar las funcionalidades de supervisión de Azure Security Center para asegurarse de que la seguridad de los recursos es tan estricta como sea posible y para supervisar que cumple con las directivas establecidas.
+# <a name="strengthen-your-security-posture-with-azure-security-center"></a>Refuerce su seguridad con Azure Security Center
+Este artículo le ayuda a reforzar la seguridad. Use las funcionalidades de supervisión de Azure Security Center para asegurarse de que la seguridad de los recursos es tan estricta como sea posible y para supervisar que cumple con las directivas establecidas.
 
-## <a name="what-is-resource-security-hygiene"></a>¿Qué es la protección de seguridad de recursos?
-Con frecuencia se piensa que supervisar es observar y esperar que se produzca un evento, para así poder reaccionar ante la situación. La protección de seguridad de recursos le permite contar con una estrategia proactiva que audita los recursos a fin de identificar los sistemas que no cumplen con los estándares o los procedimientos recomendados de la organización.
+## <a name="how-do-you-strengthen-your-security-posture"></a>¿Cómo puede reforzar la seguridad?
+Con frecuencia se piensa que supervisar es observar y esperar que se produzca un evento, para así poder reaccionar ante la situación. Reforzar la seguridad se refiere a contar con una estrategia proactiva que audita los recursos a fin de identificar los sistemas que no cumplen con los estándares o los procedimientos recomendados de la organización.
 
-## <a name="resource-security-hygiene"></a>Protección de seguridad de recursos
 Después de habilitar las [directivas de seguridad](security-center-policies.md) para los recursos de una suscripción, Security Center analizará la seguridad de los recursos para identificar vulnerabilidades potenciales. La información acerca de la configuración de la red está disponible de inmediato. Dependiendo del número de máquinas virtuales y de los equipos que tenga con el agente instalado, la recopilación de información sobre máquinas virtuales y la configuración del equipo, como el estado de actualización de seguridad y la configuración del sistema operativo, puede tardar una hora o más en estar disponible. Puede ver una lista completa de los problemas y formas de proteger su red y corregir riesgos en el icono de **recomendaciones**.
 
 Puede ver el estado de seguridad de sus recursos, además de cualquier problema, en función del tipo de recurso:
@@ -54,4 +53,4 @@ En este artículo, aprendió a usar las funcionalidades de supervisión en Azure
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.

@@ -1,260 +1,85 @@
 ---
-title: Aprovisionamiento del rendimiento de Azure Cosmos DB | Microsoft Docs
-description: Aprenda a configurar el rendimiento aprovisionado para sus contenedores, colecciones, grafos y tablas de Azure Cosmos DB.
-services: cosmos-db
+title: Aprovisionamiento del rendimiento de Azure Cosmos DB
+description: Aprenda cómo establecer el rendimiento aprovisionado para las bases de datos y los contenedores de Azure Cosmos DB.
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 2280a3f6b2a67d392a109a5294e1509bcc804bc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869931"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278895"
 ---
-# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Configuración y obtención del rendimiento para contenedores y la base de datos de Azure Cosmos DB
+# <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>Aprovisionamiento del rendimiento de contenedores y bases de datos de Cosmos DB
 
-Puede establecer el rendimiento de un contenedor, o de un conjunto de contenedores, de Azure Cosmos DB desde Azure Portal o mediante los SDK del cliente. En este artículo se describen los pasos necesarios para configurar el rendimiento con diferentes granularidades en una cuenta de Azure Cosmos DB.
+Una base de datos de Cosmos es una unidad de administración de un conjunto de contenedores. Una base de datos consta de un conjunto de contenedores independiente del esquema. Un contenedor de Cosmos es la unidad de escalabilidad de rendimiento y almacenamiento. Un contenedor se divide horizontalmente en un conjunto de máquinas dentro de una región de Azure y se distribuye en todas las regiones de Azure asociadas a su cuenta de Cosmos.
 
-## <a name="provision-throughput-by-using-azure-portal"></a>Aprovisionamiento del rendimiento mediante Azure Portal
+Azure Cosmos DB le permite configurar el rendimiento en dos granularidades: **contenedores de Cosmos** y **bases de datos de Cosmos**.
 
-### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Aprovisionamiento del rendimiento en un contenedor (colección/gráfico/tabla)
+# <a name="setting-throughput-on-a-cosmos-container"></a>Configuración del rendimiento en un contenedor de Cosmos  
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).  
-2. En la barra de navegación izquierda, seleccione **Todos los recursos** y busque su cuenta de Azure Cosmos DB.  
-3. Puede configurar el rendimiento durante la creación de un contenedor (colección/grafico/tabla) o actualizar el rendimiento de un contenedor existente.  
-4. Para asignar un rendimiento durante la creación de un contenedor, abra la hoja **Explorador de datos** y seleccione **Nueva colección** (Nuevo gráfico, Nueva tabla en el caso de otras API)  
-5. Rellene el formulario de la hoja **Agregar colección**. Los campos de esta hoja se describen en la tabla siguiente:  
+El rendimiento aprovisionado en un contenedor de Cosmos se reserva exclusivamente para el contenedor. El contenedor recibe el rendimiento aprovisionado todo el tiempo. El rendimiento aprovisionado en un contenedor está respaldado financieramente por los contratos de nivel de servicio. Para configurar el rendimiento en un contenedor, consulte [Aprovisionamiento del rendimiento de un contenedor de Azure Cosmos DB](how-to-provision-container-throughput.md).
 
-   |**Configuración**  |**Descripción**  |
-   |---------|---------|
-   |Id. de base de datos  |  Especifique un nombre único para identificar la base de datos. Una base de datos es un contenedor lógico de una o varias colecciones. Los nombres de base de datos tiene que tener entre 1 y 255 caracteres y no pueden contener /, \\; #, ?, o un espacio al final. |
-   |Id. de colección  | Especifique un nombre único para identificar la colección. Los identificadores de las colecciones tienen los mismos requisitos de caracteres que los nombres de las bases de datos. |
-   |Capacidad de almacenamiento   | Este valor representa la capacidad de almacenamiento de la base de datos. Al aprovisionar el rendimiento de una colección individual, la capacidad de almacenamiento puede ser **Fija (10 GB)** o **Sin límite**. Una capacidad de almacenamiento ilimitada requiere que se establezca una clave de partición para los datos.  |
-   |Throughput   | Cada colección y base de datos pueden tener un rendimiento en unidades de solicitud por segundo.  Y una colección puede tener capacidad de almacenamiento fija o ilimitada. |
+La configuración del rendimiento aprovisionado en un contenedor es la opción más utilizada. Aunque puede escalar de forma flexible el rendimiento de un contenedor mediante el aprovisionamiento de cualquier cantidad de rendimiento (RU), no se puede especificar selectivamente el rendimiento de las particiones lógicas. Cuando la carga de trabajo que se ejecuta en una partición lógica consume más que el rendimiento que se asignó a la partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de todo el contenedor o volver a intentar la operación. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
 
-6. Después de especificar los valores de estos campos, seleccione **Aceptar** para guardar la configuración.  
+Se recomienda configurar el rendimiento en la granularidad del contenedor cuando se quiere un rendimiento garantizado para el contenedor.
 
-   ![Establecer el rendimiento de una colección](./media/set-throughput/set-throughput-for-container.png)
+El rendimiento aprovisionado en un contenedor de Cosmos se distribuye uniformemente entre todas las particiones lógicas del contenedor. Puesto que una o varias particiones lógicas de un contenedor se hospedan en una partición de recursos, las particiones físicas pertenecen exclusivamente al contenedor y admiten el rendimiento aprovisionado en el contenedor. En la imagen siguiente se muestra cómo una partición de recursos hospeda una o varias particiones lógicas de un contenedor:
 
-7. Para actualizar el rendimiento de un contenedor existente, expanda la base de datos y el contenedor y, después, haga clic en **Configuración**. En la ventana nueva, escriba el nuevo valor del rendimiento y, después, seleccione **Guardar**.  
+![Partición de recursos](./media/set-throughput/resource-partition.png)
 
-   ![Actualizar el rendimiento de una colección](./media/set-throughput/update-throughput-for-container.png)
+# <a name="setting-throughput-on-a-cosmos-database"></a>Configuración del rendimiento en una base de datos de Cosmos
 
-### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>Aprovisionamiento del rendimiento de un conjunto de contenedores o a nivel de base de datos
+Al aprovisionar el rendimiento en una base de datos de Cosmos, este se comparte entre todos los contenedores de la base de datos, a menos que haya especificado un rendimiento aprovisionado en determinados contenedores. Compartir el rendimiento de la base de datos entre sus contenedores equivale a hospedar una base de datos en un clúster de máquinas. Dado que todos los contenedores de una base de datos comparten los recursos disponibles en una máquina, no obtendrá un rendimiento predecible en ningún contenedor específico. Para configurar el rendimiento en una base de datos, consulte [Aprovisionamiento del rendimiento de una base de datos en Azure Cosmos DB](how-to-provision-database-throughput.md).
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).  
-2. En la barra de navegación izquierda, seleccione **Todos los recursos** y busque su cuenta de Azure Cosmos DB.  
-3. Puede configurar el rendimiento durante la creación de una base de datos o actualizar el rendimiento de una base de datos existente.  
-4. Para asignar el rendimiento durante la creación de una base de datos, abra la hoja **Explorador de datos** y seleccione **Nueva base de datos**  
-5. Rellene el valor **Id. de base de datos**, marque la opción **Provision throughput** (Aprovisionar rendimiento) y configura el valor de rendimiento.  
+La configuración del rendimiento en una base de datos de Cosmos garantiza la recepción del rendimiento aprovisionado todo el tiempo. Dado que todos los contenedores de la base de datos comparten el rendimiento aprovisionado, Cosmos DB no proporciona ninguna garantía de rendimiento predecible para un contenedor determinado de dicha base de datos. La parte del rendimiento que puede recibir un contenedor específico depende de los siguientes factores:
 
-   ![Establecer el aprovisionamiento con la opción de base de datos nueva](./media/set-throughput/set-throughput-with-new-database-option.png)
+* El número de contenedores.
+* La elección de las claves de partición de varios contenedores.
+* La distribución de la carga de trabajo en varias particiones lógicas de los contenedores. 
 
-6. Para actualizar el rendimiento de una base de datos existente, expanda la base de datos y el contenedor y, después, haga clic en **Escala**. En la ventana nueva, escriba el nuevo valor del rendimiento y, después, seleccione **Guardar**.  
+Se recomienda configurar el rendimiento en una base de datos si quiere compartir el rendimiento entre varios contenedores, pero no dedicarlo a ningún contenedor específico. A continuación, se muestran algunos ejemplos donde es preferible aprovisionar el rendimiento en el nivel de base de datos:
 
-   ![Actualizar el rendimiento de una base de datos](./media/set-throughput/update-throughput-for-database.png)
+* El uso compartido del rendimiento aprovisionado de una base de datos a través de un conjunto de contenedores es útil para una aplicación de varios inquilinos. Cada usuario puede representarse mediante un contenedor de Cosmos diferente.
 
-### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Aprovisionamiento del rendimiento tanto de un conjunto de contenedores como de un contenedor individual en una base de datos
+* El uso compartido del rendimiento aprovisionado de una base de datos a través de un conjunto de contenedores es útil al migrar una base de datos de NoSQL (como MongoDB o Cassandra) hospedada desde un clúster de VM o servidores físicos locales a Cosmos DB. Se puede considerar el rendimiento aprovisionado configurado en la base de datos de Cosmos como un equivalente lógico (pero más rentable y flexible) de la capacidad de proceso del clúster de MongoDB o Cassandra.  
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).  
-2. En la barra de navegación izquierda, seleccione **Todos los recursos** y busque su cuenta de Azure Cosmos DB.  
-3. Cree una base de datos y asígnele el rendimiento. Abra la hoja **Explorador de datos** y seleccione **Nueva base de datos**  
-4. Rellene el valor **Id. de base de datos**, marque la opción **Provision throughput** (Aprovisionar rendimiento) y configura el valor de rendimiento.  
+En cualquier momento determinado, el rendimiento asignado a un contenedor dentro de una base de datos se distribuye entre todas las particiones lógicas de dicho contenedor. Cuando hay contenedores que comparten el rendimiento aprovisionado en una base de datos, no se puede aplicar de forma selectiva el rendimiento a un contenedor específico o una partición lógica. Si la carga de trabajo en una partición lógica consume más que el rendimiento que se asignó a una partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de todo el contenedor o volver a intentar la operación. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
 
-   ![Establecer el aprovisionamiento con la opción de base de datos nueva](./media/set-throughput/set-throughput-with-new-database-option.png)
+Varias particiones lógicas que comparten el rendimiento aprovisionado en una base de datos se pueden hospedar en una partición de recurso único. Mientras que una única partición lógica de un contenedor siempre se encuentra dentro del ámbito de una partición de recursos, las particiones lógicas de "L" en los contenedores de "C" que comparten el rendimiento aprovisionado de una base de datos pueden asignarse y hospedarse en particiones físicas de "R". En la siguiente imagen se muestra cómo una partición de recursos puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
 
-5. A continuación, cree una colección en la base de datos que creó en el paso anterior. Para ello, haga clic con el botón derecho en la base de datos y seleccione **Nueva colección**.  
+![Partición de recursos](./media/set-throughput/resource-partition2.png)
 
-6. En la hoja **Agregar colección**, escriba el nombre de la colección y una clave de partición. Opcionalmente, puede aprovisionar el rendimiento de un contenedor concreto si elige no asignar un valor de rendimiento, el rendimiento asignado a la base de datos se comparte con la colección.  
+## <a name="setting-throughput-on-a-cosmos-database-and-a-container"></a>Configuración del rendimiento en un contenedor y una base de datos de Cosmos
 
-   ![Opcionalmente, establezca el rendimiento del contenedor](./media/set-throughput/optionally-set-throughput-for-the-container.png)
+Puede combinar los dos modelos, ya que se permite el aprovisionamiento del rendimiento tanto en la base de datos como en el contenedor. En el ejemplo siguiente se muestra cómo aprovisionar el rendimiento en un contenedor y una base de datos de Cosmos:
 
-## <a name="considerations-when-provisioning-throughput"></a>Consideraciones que deben tenerse en cuenta al aprovisionar el rendimiento
+* Puede crear una base de datos de Cosmos denominada "Z" con rendimiento aprovisionado de RU de "K". 
+* A continuación, cree cinco contenedores denominados A, B, C, D y E dentro de la base de datos.
+* Puede configurar explícitamente RU de "P" de rendimiento aprovisionado en el contenedor "B".
+* El rendimiento de RU de "K" se comparte entre los cuatro contenedores: A, C, D y E. La cantidad exacta de rendimiento disponible para A, C, D o E varía y no hay ningún contrato de nivel de servicio para el rendimiento de cada contenedor individual.
+* Se garantiza que el contenedor "B" obtendrá el rendimiento de RU de "P" todo el tiempo y que estará respaldado por los contratos de nivel de servicio.
 
-A continuación encontrará algunas consideraciones que le ayudarán a decidir una estrategia de reserva de rendimiento.
+## <a name="comparison-of-models"></a>Comparación de modelos
 
-### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Consideraciones que deben tenerse en cuenta al aprovisionar el rendimiento en el nivel de base de datos
-
-Considere la posibilidad de aprovisionar el rendimiento a nivel de base de datos (es decir, para un conjunto de contenedores) en los casos siguientes:
-
-* Si tiene doce, o más, contenedores que puedan compartir el rendimiento entre ellos.  
-
-* Al migrar desde una base de datos de inquilino único diseñada para ejecutarse en máquinas virtuales hospedadas por IaaS o en entornos locales (por ejemplo, NoSQL o bases de datos relacionales) a Azure Cosmos DB y tiene muchos contenedores.  
-
-* Si desea tener en cuenta picos no planeados en las cargas de trabajo mediante el uso de un rendimiento agrupado a nivel de base de datos.  
-
-* En lugar de establecer el rendimiento de un contenedor individual, le interesa obtener el rendimiento agregado en un conjunto de contenedores de la base de datos.
-
-### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Consideraciones que deben tenerse en cuenta al aprovisionar el rendimiento en el nivel de contenedor
-
-Considere la posibilidad de aprovisionar el rendimiento en un contenedor individual en los casos siguientes:
-
-* Si tiene pocos contenedores de Azure Cosmos DB.  
-
-* Si desea obtener el rendimiento garantizado en un contenedor determinado con el respaldo de SLA.
-
-<a id="set-throughput-sdk"></a>
-
-## <a name="set-throughput-by-using-sql-api-for-net"></a>Configuración del rendimiento mediante SQL API para .NET
-
-### <a name="set-throughput-at-the-container-level"></a>Configuración del rendimiento en el nivel de contenedor
-Este es un fragmento de código para crear un contenedor con 3000 unidades de solicitud por segundo para un contenedor individual mediante el SDK de .NET de la API de SQL:
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Establecimiento del rendimiento de un conjunto de contenedores a nivel de base de datos
-
-Este es un fragmento de código para aprovisionar 100 000 unidades de solicitud por segundo en un conjunto de contenedores mediante el SDK de .NET de la API de SQL:
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = await client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 });
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-Azure Cosmos DB funciona con un modelo de reserva para el rendimiento. Es decir, se le cobrará por la cantidad de rendimiento *reservada*, independientemente de la que *use* activamente. A medida que los patrones de uso, datos y carga de la aplicación cambian, puede escalar y reducir verticalmente de forma sencilla la cantidad de unidades de solicitud reservadas mediante los SDK o con [Azure Portal](https://portal.azure.com).
-
-Cada contenedor, o conjunto de contenedores, está asignado a un recurso `Offer` de Azure Cosmos DB que contiene metadatos sobre el rendimiento aprovisionado. Puede cambiar el rendimiento asignado buscando el recurso de oferta correspondiente para un contenedor y, a continuación, actualizándolo con el nuevo valor de rendimiento. A continuación se muestra un fragmento de código para cambiar el rendimiento del contenedor a 5000 unidades de solicitud por segundo mediante el SDK de .NET. Después de cambiar el rendimiento, debe actualizar las ventanas existentes de Azure Portal para que aparezca el rendimiento modificado. 
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-No se producirá ningún cambio en la disponibilidad del contenedor, o el conjunto de contenedores, cuando cambie el rendimiento. Por lo general, el nuevo rendimiento reservado es efectivo en cuestión de segundos después de su aplicación.
-
-<a id="set-throughput-java"></a>
-
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Configuración del rendimiento mediante SQL API para Java
-
-El siguiente fragmento de código recupera el rendimiento actual y lo cambia a 500 RU/s. Para obtener un ejemplo de código completo, vea el archivo [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) en GitHub. 
-
-```Java
-// find offer associated with this collection
-// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
-Iterator < Offer > it = client.queryOffers(
-    String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
-assertThat(it.hasNext(), equalTo(true));
-
-Offer offer = it.next();
-assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
-assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
-
-// update the offer
-int newThroughput = 500;
-offer.getContent().put("offerThroughput", newThroughput);
-client.replaceOffer(offer);
-```
-
-## <a name="get-the-request-charge-using-cassandra-api"></a>Obtención del cargo de solicitud mediante Cassandra API 
-
-Cassandra API admite una forma de proporcionar información adicional sobre el cargo de unidades de solicitud para una operación determinada. Por ejemplo, los cargos de RU/s para la operación de inserción se pueden recuperar como se indica a continuación:
-
-```csharp
-var insertResult = await tableInsertStatement.ExecuteAsync();
- foreach (string key in insertResult.Info.IncomingPayload)
-        {
-            byte[] valueInBytes = customPayload[key];
-            string value = Encoding.UTF8.GetString(valueInBytes);
-            Console.WriteLine($“CustomPayload:  {key}: {value}”);
-        }
-```
-
-
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtención de rendimiento mediante el uso de las métricas de portal de API de MongoDB
-
-La manera más sencilla de obtener una buena estimación de los cargos por la unidad de solicitud de la base de datos de API de MongoDB es usar las métricas de [Azure Portal](https://portal.azure.com). Con los grafos *Número de solicitudes* y *Cargo de solicitud*, puede obtener una estimación de cuántas unidades de solicitud está consumiendo cada operación y cuántas unidades de solicitud consumen entre sí.
-
-![Métricas del portal de API de MongoDB][1]
-
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Superación de los límites de rendimiento reservados en la API de MongoDB
-Las aplicaciones que superan el rendimiento aprovisionado para un contenedor o un conjunto de contenedores tendrán velocidad limitada hasta que la velocidad de consumo caiga por debajo de la velocidad del rendimiento aprovisionado. Cuando se produce una limitación de la velocidad, el back-end finalizará la solicitud con un código de error `16500`: `Too Many Requests`. De forma predeterminada, la API de MongoDB volverá a intentarlo automáticamente hasta 10 veces antes de devolver un código de error `Too Many Requests`. Si recibe numerosos códigos de error `Too Many Requests`, puede plantearse agregar una lógica de reintento en las rutinas de control de error de la aplicación o [mejorar el rendimiento aprovisionado para el contenedor](set-throughput.md).
-
-## <a id="GetLastRequestStatistics"></a>Obtención de cargo de solicitud mediante el comando GetLastRequestStatistics de la API de MongoDB
-
-La API de MongoDB admite un comando personalizado, *getLastRequestStatistics*, para recuperar las cargas de solicitudes de las operaciones especificadas.
-
-Por ejemplo, en el shell de Mongo, ejecute la operación en la que desea comprobar la carga de solicitudes.
-```
-> db.sample.find()
-```
-
-Después, ejecute el comando *getLastRequestStatistics*.
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-Un método para calcular la cantidad de rendimiento reservado que necesita la aplicación es registrar la carga de unidades de solicitud asociadas a la ejecución de las operaciones típicas, frente a un elemento representativo que usa la aplicación y, después, calcular el número de operaciones que prevé realizar cada segundo.
-
-> [!NOTE]
-> Si dispone de tipos de elemento que varían considerablemente en cuanto a tamaño y número de propiedades indexadas, registre el cargo de unidad de solicitud de operación aplicable asociado a cada *tipo* de elemento típico.
-> 
-> 
-
-## <a name="throughput-faq"></a>Preguntas más frecuentes sobre el rendimiento
-
-**¿Se puede configurar el rendimiento a menos de 400 RU/s?**
-
-400 RU/s es el rendimiento mínimo disponible en los contenedores de una sola partición de Cosmos DB (1000 RU/s es el valor mínimo para los contenedores con particiones). Las unidades de solicitud se establecen en intervalos de 100 RU/s pero el rendimiento no se puede establecer en 100 RU/s o en ningún valor inferior a 400 RU/s. Si está buscando un método rentable para desarrollar y probar Cosmos DB, puede usar gratuitamente el [Emulador de Azure Cosmos DB](local-emulator.md), que puede implementar localmente sin costo alguno. 
-
-**¿Cómo se configura el rendimiento mediante la API de MongoDB?**
-
-No hay ninguna extensión de API de MongoDB para configurar el rendimiento. La recomendación es utilizar SQL API, como se muestra en [Configuración del rendimiento mediante SQL API para .NET](#set-throughput-sdk).
+|**Cuota**  |**Rendimiento aprovisionado en una base de datos**  |**Rendimiento aprovisionado en un contenedor**|
+|---------|---------|---------|
+|Unidad de escalabilidad|Contenedor|Contenedor|
+|Número mínimo de RU |400 |400|
+|Número mínimo de RU por contenedor|100|400|
+|Número mínimo de RU necesarias para consumir 1 GB de almacenamiento|40|40|
+|Número máximo de RU|Ilimitado (en la base de datos)|Ilimitado (en el contenedor)|
+|RU asignadas o disponibles para un contenedor específico|Sin garantías. Las RU asignadas a un contenedor determinado dependen de propiedades como la elección de las claves de partición de los contenedores que comparten el rendimiento, la distribución de la carga de trabajo o el número de contenedores. |Todas las RU configuradas en el contenedor se reservan exclusivamente para el contenedor.|
+|Almacenamiento máximo de un contenedor|Ilimitado|Ilimitado|
+|Rendimiento máximo por partición lógica de un contenedor|10 000 RU|10 000 RU|
+|Almacenamiento máximo (datos + índice) por partición lógica de un contenedor|10 GB|10 GB|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para aprender a calcular el rendimiento y las unidades de solicitud, consulte [Unidades de solicitud y cálculo de rendimiento en Azure Cosmos DB](request-units.md)
+* Más información sobre las [particiones lógicas](partition-data.md)
+* Más información sobre [cómo aprovisionar rendimiento en un contenedor de Cosmos](how-to-provision-container-throughput.md)
+* Más información sobre [cómo aprovisionar rendimiento en una base de datos de Cosmos](how-to-provision-database-throughput.md)
 
-* Para aprender más sobre el aprovisionamiento y cómo pasar a escala planetaria con Cosmos DB, consulte [Partición y escalado en Cosmos DB](partition-data.md).
-
-[1]: ./media/set-throughput/api-for-mongodb-metrics.png

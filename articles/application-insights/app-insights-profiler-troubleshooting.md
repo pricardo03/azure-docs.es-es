@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 28de0f8bdcaa730c5beea0c630d4e86e15642809
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142967"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978849"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solución de problemas de activación o visualización de Application Insights Profiler
 
@@ -46,16 +46,16 @@ El generador de perfiles escribe mensajes de seguimiento y eventos personalizado
 
 1. Si hay solicitudes durante el período de tiempo en el que se ejecutó el generador de perfiles, asegúrese de que la parte de la aplicación que tiene habilitado el generador de perfiles es la que controla las solicitudes. A veces, las aplicaciones constan de varios componentes pero Profiler está habilitado solo para algunos de los componentes, no para todos. La página Configurar Application Insights Profiler muestra los componentes que han cargado seguimientos.
 
-### <a name="net-core-21-bug"></a>**Error .Net Core 2.1** 
+### <a name="net-core-21-bug"></a>Error de .Net Core 2.1
 Hay un error en el agente del generador de perfiles que le impide cargar los seguimientos realizados desde las aplicaciones que se ejecutan en ASP.NET Core 2.1. Estamos trabajando en una solución y estará preparada en breve. La corrección para este error se implementará a finales de octubre.
 
-### <a name="other-things-to-check"></a>**Otras cosas que hay que comprobar:**
+### <a name="other-things-to-check"></a>Otros aspectos que hay que comprobar:
 * Que la aplicación se ejecuta en .Net Framework 4.6.
 * Si la aplicación web es una aplicación de ASP.NET Core, debe ejecutar al menos ASP.NET Core 2.0.
 * Si la antigüedad de los datos que intenta ver supera el par de semanas, procure limitar el filtro de tiempo y inténtelo de nuevo. Los seguimientos se eliminan pasados siete días.
 * Asegúrese de que no haya servidores proxy ni un firewall que bloqueen el acceso a https://gateway.azureserviceprofiler.net.
 
-### <a id="double-counting"></a>**Doble recuento en subprocesos paralelos**
+### <a id="double-counting"></a>Doble recuento de subprocesos paralelos
 
 En algunos casos, la métrica de tiempo total del visor de la pila es mayor que la duración de la solicitud.
 
@@ -63,11 +63,11 @@ Esta situación puede suceder cuando hay dos o más subprocesos que funcionan en
 
 Si ve subprocesos en paralelo en sus seguimientos, determine cuáles son los subprocesos que esperan para poder establecer la ruta crítica de la solicitud. En la mayoría de los casos, el subproceso que pasa rápidamente a un estado de espera tan solo espera a los demás subprocesos. Concéntrese en los demás subprocesos e ignore el tiempo de los subprocesos en espera.
 
-### <a name="error-report-in-the-profiling-viewer"></a>**Informe de errores del visor de generación de perfiles**
+### <a name="error-report-in-the-profile-viewer"></a>Informe de errores del visor de generación de perfiles
 Envíe una incidencia de soporte técnico desde el portal. Asegúrese de incluir el identificador de correlación del mensaje de error.
 
 ## <a name="troubleshooting-profiler-on-app-services"></a>Solución de problemas de Profiler en App Services
-### <a name="for-the-profiler-to-work-properly"></a>**Para que el generador de perfiles funcione correctamente:**
+### <a name="for-the-profiler-to-work-properly"></a>Para que el generador de perfiles funcione correctamente:
 * El plan de servicio de aplicación web tiene que ser de nivel Básico o superior.
 * La aplicación web tiene que tener instalada la extensión de Application Insights para App Services (2.6.5).
 * La aplicación web tiene que tener el valor **APPINSIGHTS_INSTRUMENTATIONKEY** configurado con la misma clave de instrumentación que usa el SDK de Application Insights.
@@ -82,7 +82,7 @@ Envíe una incidencia de soporte técnico desde el portal. Asegúrese de incluir
     
     ![profiler-webjob-log]
 
-### <a name="manual-installation"></a>**Instalación manual**
+### <a name="manual-installation"></a>Instalación manual
 
 Cuando se configura Profiler, se realizan las siguientes actualizaciones en la configuración de la aplicación web. Estas actualizaciones se pueden aplicar manualmente si su entorno lo requiere. Un ejemplo podría ser la ejecución de su aplicación en un entorno de Web Apps para PowerApps.
 
@@ -97,9 +97,9 @@ Cuando se configura Profiler, se realizan las siguientes actualizaciones en la c
 1. Instale **Application Insights** desde la galería de aplicaciones web de Azure.
 1. Reinicie la aplicación web.
 
-### <a name="too-many-active-profiling-sessions"></a>**Hay demasiadas sesiones de generación de perfiles activas**
+### <a name="too-many-active-profiling-sessions"></a>Hay demasiadas sesiones de generación de perfiles activas
 
-Actualmente, puede habilitar Profiler en hasta cuatro aplicaciones web de Azure y ranuras de implementación que se ejecuten en el mismo plan de servicio. Si el trabajo web de Profiler notifica demasiadas sesiones activas de generación de perfiles, mueva algunas aplicaciones web a un plan de servicio diferente.
+Actualmente, puede habilitar Profiler en hasta cuatro aplicaciones web de Azure y ranuras de implementación que se ejecuten en el mismo plan de servicio. Si tiene más aplicaciones web de las que se ejecutan en un plan de App Service, podría ver la excepción Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionExproducida por el generador de perfiles. El generador de perfiles se ejecuta por separado para cada aplicación web e intenta iniciar una sesión de ETW para cada una. Sin embargo, hay un número limitado de sesiones de ETW que pueden estar activas al mismo tiempo. Si el trabajo web de Profiler notifica demasiadas sesiones activas de generación de perfiles, mueva algunas aplicaciones web a un plan de servicio diferente.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Deployment error: Directory Not Empty (Error de implementación: el directorio no está vacío) "D:\\home\\site\\wwwroot\\App_Data\\jobs"
 

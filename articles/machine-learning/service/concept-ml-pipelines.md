@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 09/24/2018
-ms.openlocfilehash: 45aa954d2f85267b2c7c9aa2a7ba04e436765433
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 11/07/2018
+ms.openlocfilehash: 59a35cd7ca3af446853d518fc7e7d48d2321ff10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023938"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278980"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Canalizaciones y Azure Machine Learning
 
@@ -22,11 +22,11 @@ En este artículo, obtenga información sobre las canalizaciones de Machine Lear
 
 ## <a name="what-are-machine-learning-pipelines"></a>¿Qué son las canalizaciones de Machine Learning?
 
-Los científicos de datos usan canalizaciones de Machine Learning (ML) para crear, optimizar y administrar sus flujos de trabajo de aprendizaje automático. Una canalización típica implica una secuencia de pasos que abarcan las siguientes áreas:
-
+Mediante las canalizaciones de Machine Learning (ML), los científicos de datos, los ingenieros de datos y los profesionales de TI pueden colaborar en los pasos relacionados con las acciones siguientes:
 + Preparación de datos, como normalizaciones y transformaciones
-+ Entrenamiento del modelo, como la optimización y la validación de hiperparámetros
-+ Implementación y evaluación del modelo  
++ Entrenamiento del modelo
++ Evaluación del modelo
++ Implementación 
 
 El diagrama siguiente muestra un ejemplo de canalización:
 
@@ -38,11 +38,13 @@ El [SDK de Azure Machine Learning para Python](#the-python-sdk-for-pipelines) pu
 
 Con las canalizaciones, puede optimizar su flujo de trabajo con sencillez, velocidad, portabilidad y reutilización. Al compilar canalizaciones mediante Azure Machine Learning, puede centrarse en lo que conoce mejor &mdash;el aprendizaje automático&mdash; en lugar de en la infraestructura.
 
-El uso de distintos pasos permite volver a ejecutar solo los pasos que necesita al ajustar y probar el flujo de trabajo. Un paso es una unidad de proceso en la canalización. Como se muestra en el diagrama anterior, la tarea de preparación de datos puede implicar muchos pasos, incluidos, sin limitación, los de normalización, transformación, validación y caracterización.
+El uso de distintos pasos permite volver a ejecutar solo los pasos que necesita al ajustar y probar el flujo de trabajo. Un paso es una unidad de proceso en la canalización. Como se muestra en el diagrama anterior, la tarea de preparación de datos puede implicar muchos pasos, incluidos, sin limitación, los de normalización, transformación, validación y caracterización. Los orígenes de datos y los datos intermedios se reutilizan en la canalización, lo que ahorra tiempo y recursos de proceso. 
 
 Una vez diseñada la canalización, a menudo se aplican más ajustes en torno al bucle de aprendizaje de la canalización. Cuando se vuelve a ejecutar una canalización, la ejecución salta a los pasos necesarios para volver a ejecutarse, como un script de aprendizaje actualizado, y omite lo que no ha cambiado. El mismo paradigma se aplica a los scripts sin cambios utilizados para la ejecución del paso. 
 
 Con Azure Machine Learning, puede utilizar diversos kits de herramientas y marcos, como Microsoft Cognitive Toolkit o TensorFlow, en cada paso de la canalización. Azure se coordina entre los distintos [destinos de proceso](concept-azure-machine-learning-architecture.md) que usa para que los datos intermedios se pueden compartir con los destinos de proceso de bajada fácilmente. 
+
+También puede [realizar un seguimiento de las métricas de los experimentos de canalización](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments) directamente en Azure Portal. 
 
 ## <a name="key-advantages"></a>Ventajas clave
 
@@ -59,7 +61,7 @@ Las principales ventajas de la compilación de canalizaciones para los flujos de
 
 Use Python para crear sus canalizaciones de ML. El SDK de Azure Machine Learning ofrece construcciones imperativas para definir la secuencia y el paralelismo de los pasos descritos de las canalizaciones cuando no existen ninguna dependencia de datos. Puede interactuar con él en Jupyter Notebook o en otro IDE que prefiera. 
 
-Con las dependencias de datos declarativas, puede optimizar sus tareas. El SDK incluye un marco de módulos compilados previamente para tareas comunes, como la transferencia de datos, la creación de destinos de proceso y la publicación del modelo. El marco puede ampliarse para definir sus propias convenciones mediante la implementación de pasos personalizados que se puedan reutilizar en las canalizaciones.
+Con las dependencias de datos declarativas, puede optimizar sus tareas. El SDK incluye un marco de módulos compilados previamente para tareas comunes, como la transferencia de datos y la publicación del modelo. El marco puede ampliarse para definir sus propias convenciones mediante la implementación de pasos personalizados que se puedan reutilizar en las canalizaciones. Los recursos de almacenamiento y de destino de proceso también se pueden administrar directamente desde el SDK.
 
 Las canalizaciones se pueden guardar como plantillas e implementar en un punto de conexión de REST, con la finalidad de que pueda programar trabajos de puntuación por lotes o reentrenamiento.
 

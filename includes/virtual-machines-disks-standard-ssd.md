@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47061037"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264195"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Discos administrados SSD estándar para cargas de trabajo de máquinas virtuales de Azure
 
@@ -22,7 +22,7 @@ Los discos administrados de estado sólido (SSD) estándar de Azure son una opci
 ## <a name="standard-ssd-features"></a>Características de SSD estándar
 
 **Discos administrados**: los discos SSD estándar solo están disponibles como discos administrados. No se admiten discos no administrados ni blobs en páginas en SSD estándar. Al crear el disco administra, especifica el tipo de disco como SSD estándar e indica el tamaño del disco que necesita, y Azure crea y administrar el disco automáticamente.
-Los discos SSD estándar admiten todas las operaciones de administración de servicios que ofrecen los discos administrados. Por ejemplo, puede crear, copiar o crear una instantánea de discos administrados SSD estándar de la misma manera que hacer con los discos administrados.
+Los discos SSD estándar admiten todas las operaciones del modelo de implementación clásica que se ofrecen en Managed Disks. Por ejemplo, puede crear, copiar o crear una instantánea de discos administrados SSD estándar de la misma manera que hacer con los discos administrados.
 
 **Máquinas virtuales**: los discos SSD estándar se pueden utilizar con todas las VM de Azure, incluidos los tipos de VM que no admiten discos Premium. Por ejemplo, si usa una VM de la serie A, serie N o serie DS, o cualquier otra serie de VM de Azure, puede usar discos SSD estándar con esa VM. Con la introducción de discos SSD estándar, permite una amplia gama de cargas de trabajo que anteriormente utilizaban discos basados en HDD para realizar la transición a discos basados en SSD, y disfruta de un rendimiento coherente, una mayor disponibilidad, una mejor latencia y una mejor experiencia general que vienen con los SSD.
 
@@ -32,7 +32,7 @@ Los discos SSD estándar admiten todas las operaciones de administración de ser
 
 ## <a name="scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento
 
-La tabla siguiente contiene los tamaños de disco que actualmente se ofrecen para SSD estándar.
+La tabla siguiente contiene los tamaños de disco que actualmente se ofrecen para SSD estándar. Los tamaños marcados con un asterisco están actualmente en versión preliminar.
 
 |Tipo de disco SSD estándar  |Tamaño del disco  |IOPS por disco  |Rendimiento de disco  |
 |---------|---------|---------|---------|
@@ -42,9 +42,9 @@ La tabla siguiente contiene los tamaños de disco que actualmente se ofrecen par
 |E30     |1024 GiB       |Hasta 500         |Hasta 60 MiB por segundo         |
 |E40     |2048 GiB       |Hasta 500         |Hasta 60 MiB por segundo         |
 |E50     |4095 GiB       |Hasta 500         |Hasta 60 MiB por segundo         |
-|E60     |8192 GiB       |Hasta 1300       |Hasta 300 MiB por segundo        |
-|E70     |16 384 GiB      |Hasta 2000       |Hasta 500 MiB por segundo        |
-|E80     |32 767 GiB      |Hasta 2000       |Hasta 500 MiB por segundo        |
+|E60 *     |8192 GiB       |Hasta 1300       |Hasta 300 MiB por segundo        |
+|E70 *    |16 384 GiB      |Hasta 2000       |Hasta 500 MiB por segundo        |
+|E80 *    |32 767 GiB      |Hasta 2000       |Hasta 500 MiB por segundo        |
 
 Los discos SSD estándar están diseñados para proporcionar latencias de milisegundos de un solo dígito para la mayoría de las operaciones de E/S, y para entregar las IOPS y el rendimiento hasta los límites descritos en la tabla anterior. Las IOPS y el rendimiento reales pueden variar a veces, según los patrones de tráfico. Los discos SSD estándar proporcionarán un rendimiento más coherente que los discos HDD, con una latencia menor.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 42994a38aeab7f6da552f2f9073a806142511531
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095535"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241266"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 En este artículo se responde a preguntas habituales sobre el servicio Azure Backup.
@@ -44,7 +44,7 @@ No. Los datos de copia de seguridad almacenados en un almacén no se pueden move
 No. Un almacén de Recovery Services solo puede cambiar las opciones de almacenamiento antes de almacenar ninguna copia de seguridad.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>¿Puedo hacer una restauración a nivel de elemento (ILR) de las máquinas virtuales de las que se realiza una copia de seguridad en un almacén de Recovery Services?
-No, la ILR no se admite. 
+No, la ILR no se admite.
 
 
 ## <a name="azure-backup-agent"></a>Agente de Azure Backup
@@ -75,7 +75,7 @@ No necesita licencias independientes para la protección de Hyper-V o VMware.
 
 ### <a name="which-dpm-versions-are-supported"></a>¿Qué versiones de DPM son compatibles?
 
-Las versiones de DPM compatibles se resumen en la [matriz de compatibilidad](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Se recomienda que instale las últimas actualizaciones de DPM y que ejecute la [última versión](http://aka.ms/azurebackup_agent) del agente de Azure Backup en el servidor DPM.
+Las versiones de DPM compatibles se resumen en la [matriz de compatibilidad](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Se recomienda que instale las últimas actualizaciones de DPM y que ejecute la [última versión](https://aka.ms/azurebackup_agent) del agente de Azure Backup en el servidor DPM.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>¿Puedo registrar el servidor en varios almacenes?
 
@@ -99,7 +99,7 @@ Sí. Pero debe configurar DPM primero y después instalar el agente de Azure Bac
 ## <a name="general-backup"></a>Copia de seguridad general
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>¿Existen límites sobre la programación de copia de seguridad?
-Sí. 
+Sí.
 - Puede hacer copias de seguridad de máquinas Windows Server o Windows hasta tres veces al día. Puede configurar la directiva de programación con programas diarios o semanales.
 - Puede realizar copias de seguridad de DPM hasta dos veces al día. Puede configurar la directiva de programación con programas diarios, semanales, mensuales y anuales.
 - Puede realizar copias de seguridad de las máquinas virtuales de Azure una vez al día.
@@ -110,12 +110,12 @@ Azure Backup admite estos sistemas operativos para realizar copias de seguridad 
 
 **SISTEMA OPERATIVO**| **SKU** |**Detalles**
 --- | --- | ---
-Estación de trabajo | | 
+Estación de trabajo | |
 Windows 10 64 bits | Enterprise, Pro, Home | Las máquinas deben ejecutar las actualizaciones y los Service Pack más recientes.
 Windows 8.1 64 bits | Enterprise, Pro | Las máquinas deben ejecutar las actualizaciones y los Service Pack más recientes.
 Windows 8 64 bits | Enterprise, Pro | Las máquinas deben ejecutar las actualizaciones y los Service Pack más recientes.
 Windows 7 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Las máquinas deben ejecutar las actualizaciones y los Service Pack más recientes.
-Server | | 
+Server | |
 Windows Server 2016 64 bits | Standard, Datacenter, Essentials | Con las actualizaciones y los Service Pack más recientes.
 Windows Server 2012 R2 64 bits | Standard, Datacenter, Foundation | Con las actualizaciones y los Service Pack más recientes.
 Windows Server 2012 64 bits | Datacenter, Foundation, Standard | Con las actualizaciones y los Service Pack más recientes.
@@ -133,20 +133,20 @@ Para las copias de seguridad de máquinas virtuales Linux de Azure, Azure Backup
 Los límites de tamaño son los siguientes:
 
 
-SO/máquina | Límite de tamaño del origen de datos 
---- | --- | --- 
-Windows 8 o posterior | 54 400 GB 
-Windows 7 |1700 GB 
-Windows Server 2012 o superior | 54 400 GB 
-Windows Server 2008, Windows Server 2008 R2 | 1700 GB 
-MV de Azure | 32 discos de datos<br/><br/> Disco de datos de hasta 4095 GB
+SO/máquina | Límite de tamaño del origen de datos
+--- | --- | ---
+Windows 8 o posterior | 54 400 GB
+Windows 7 |1700 GB
+Windows Server 2012 o superior | 54 400 GB
+Windows Server 2008, Windows Server 2008 R2 | 1700 GB
+MV de Azure | 16 discos de datos<br/><br/> Disco de datos de hasta 4095 GB
 
 ## <a name="how-is-the-data-source-size-determined"></a>¿Cómo se determina el tamaño del origen de datos?
 
 La tabla siguiente explica cómo se determina el tamaño de cada origen de datos.
 
 **Origen de datos** | **Detalles**
---- | --- 
+--- | ---
 Volumen |La cantidad de datos de los que se realiza copia de seguridad de una máquina virtual de un único volumen de la que se realiza la copia de seguridad.
 Base de datos de SQL Server |Tamaño de una sola base de datos SQL de la que se hace copia de seguridad.
 SharePoint | Suma de las bases de datos de contenido y configuración de la granja de SharePoint de las que se hace copia de seguridad.
@@ -158,7 +158,7 @@ Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del
 
 No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad con el uso de un almacén de Recovery Services.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Si se cancela un trabajo de copia de seguridad una vez que se ha iniciado, ¿se eliminan los datos de copia de seguridad transferidos? 
+### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Si se cancela un trabajo de copia de seguridad una vez que se ha iniciado, ¿se eliminan los datos de copia de seguridad transferidos?
 No. Todos los datos transferidos al almacén, antes de que se cancelara el trabajo de copia de seguridad, permanecen en el almacén. Azure Backup usa un mecanismo para agregar ocasionalmente agregar puntos de control a los datos de copia de seguridad durante la copia de seguridad. Debido a que hay puntos de control en los datos de copia de seguridad, el siguiente proceso de copia de seguridad puede validar la integridad de los archivos. El siguiente trabajo de copia de seguridad será incremental a los datos que ya están en la copia de seguridad. Las copias de seguridad incrementales solo transfieren los datos nuevos o modificados, lo que equivale a una mejor utilización del ancho de banda.
 
 Si cancela un trabajo de copia de seguridad para una máquina virtual de Azure, se omiten los datos transferidos. El siguiente trabajo de copia de seguridad transfiere los datos incrementales desde el último trabajo de copia de seguridad correcto.
@@ -186,7 +186,7 @@ No. Todos los datos transferidos al almacén, antes de que se cancelara el traba
 ### <a name="are-the-retention-policies-for-dpm-and-windows-machines-without-dpm-the-same"></a>¿Las directivas de retención para DPM y máquinas Windows sin DPM son las mismas?
 Sí, los dos tipos tienen directivas de retención diarias, semanales, mensuales y anuales.
 
-### <a name="can-i-customize-retention-policies"></a>¿Puedo personalizar directivas de retención? 
+### <a name="can-i-customize-retention-policies"></a>¿Puedo personalizar directivas de retención?
 Sí, puede personalizarlas. Por ejemplo, puede configurar requisitos de retención semanales y diarios, pero no anuales ni mensuales.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>¿Puedo usar distintas horas para la programación de copias de seguridad y las directivas de retención?
@@ -208,7 +208,7 @@ La arquitectura de almacenamiento de Azure Backup le ofrece lo mejor de ambos mu
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>¿Hay un límite en el número de puntos de recuperación que se pueden crear?
 
-Puede crear hasta 9999 puntos de recuperación por instancia protegida. Una instancia protegida es un equipo, un servidor (físico o virtual) o una carga de trabajo que realiza copias de seguridad en Azure. 
+Puede crear hasta 9999 puntos de recuperación por instancia protegida. Una instancia protegida es un equipo, un servidor (físico o virtual) o una carga de trabajo que realiza copias de seguridad en Azure.
 
 - Obtenga más información sobre [copia de seguridad y retención](./backup-introduction-to-azure-backup.md#backup-and-retention).
 - Obtenga más información sobre [instancias protegidas](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance).
@@ -238,7 +238,7 @@ Sí. Los datos de Azure están cifrados en reposo.
 - Para la copia de seguridad local, el cifrado en reposo se proporciona con la frase de contraseña que proporcione durante la copia de seguridad en Azure.
 - Para máquinas virtuales de Azure, los datos están cifrados en reposo con Storage Service Encryption (SSE).
 
-Microsoft no descifra los datos de copia de seguridad en ningún momento. 
+Microsoft no descifra los datos de copia de seguridad en ningún momento.
 
 
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>¿Cuál es la longitud mínima de la clave de cifrado utilizada para cifrar los datos de copia de seguridad?

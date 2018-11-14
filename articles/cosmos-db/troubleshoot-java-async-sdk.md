@@ -4,17 +4,17 @@ description: Use características como registro del lado cliente y otras herrami
 services: cosmos-db
 author: moderakh
 ms.service: cosmos-db
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ef1d2d0751bf1b1a7ee88fbf37e44e6316dee8f8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249883"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238836"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Solución de problemas al usar el SDK de Java Async con las cuentas de la API de SQL de Azure Cosmos DB
 En este artículo se tratan problemas comunes, soluciones alternativas, pasos de diagnóstico y herramientas al utilizar el [SDK de Java Async](sql-api-sdk-async-java.md) con las cuentas de la API de SQL de Azure Cosmos DB.
@@ -48,7 +48,7 @@ El número de archivos abiertos ("nofile") debe ser lo suficientemente grande (a
 
 ##### <a name="snat"></a>Agotamiento de puertos SNAT (PAT) de Azure
 
-Si la aplicación está implementada en la máquina virtual de Azure, los [puertos SNAT de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) se utilizan por defecto para establecer conexiones con cualquier punto de conexión fuera de la máquina virtual. El número de conexiones permitidas desde la máquina virtual hasta el punto de conexión de Cosmos DB está limitado por la [configuración de Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Si la aplicación está implementada en la máquina virtual de Azure sin una dirección IP pública, los [puertos SNAT de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) se utilizan por defecto para establecer conexiones con cualquier punto de conexión fuera de la máquina virtual. El número de conexiones permitidas desde la máquina virtual hasta el punto de conexión de Cosmos DB está limitado por la [configuración de Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
 Los puertos SNAT de Azure se utilizan solo cuando la máquina virtual de Azure tiene una dirección IP privada y un proceso de la máquina virtual intenta establecer una conexión con una dirección IP pública. Por lo tanto, hay dos soluciones alternativas para evitar la limitación de Azure SNAT:
     * Agregue el punto de conexión del servicio de Azure Cosmos DB a la subred de la red virtual de la máquina virtual de Azure, como se explica en [Puntos de conexión del servicio de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Cuando se habilita el punto de conexión de servicio, ya no se envían las solicitudes de una dirección IP pública a Cosmos DB; en su lugar, se envían la red virtual y la identidad de la subred. Este cambio puede producir caídas de firewall si solo se permiten direcciones IP públicas. Si usa un firewall, al habilitar el punto de conexión de servicio, agréguele una subred usando las [ACL de la red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).

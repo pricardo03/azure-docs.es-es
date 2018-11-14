@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a2b209dc0204c390b16039ed1cf58b47f29629f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783328"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252112"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux
 
@@ -30,12 +30,12 @@ Obtenga información sobre cómo usar Apache Oozie con Hadoop en Azure HDInsight
 Oozie también puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java.
 
 > [!NOTE]
-> Otra opción para definir los flujos de trabajo con HDInsight es utilizar Azure Data Factory. Para obtener más información sobre Data Factory, consulte [Uso de Pig y Hive con Data Factory][azure-data-factory-pig-hive].
+> Otra opción para definir los flujos de trabajo con HDInsight es utilizar Azure Data Factory. Para obtener más información sobre Data Factory, consulte [Uso de Pig y Hive con Data Factory][azure-data-factory-pig-hive]. Para usar Oozie en clústeres con Enterprise Security Package, vea [Ejecución de Apache Oozie en clústeres HDInsight Hadoop con Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Un clúster de HDInsight**: Consulte [Introducción a HDInsight en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Un clúster de HDInsight normal**: consulte [Introducción a HDInsight en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las versiones posteriores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).

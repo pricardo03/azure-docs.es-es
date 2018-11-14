@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815263"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282931"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configuración de la experiencia de búsqueda personalizada
 
@@ -64,7 +64,7 @@ De forma similar, puede agregar sectores a la lista de bloqueados (excepto que n
 
 ## <a name="pinned-list"></a>Lista de anclados
 
-El portal también le permite anclar una página web a la parte superior del resultado de búsqueda si el usuario escribe un término de búsqueda específico. La pestaña **Pinned** (Anclado) contiene una lista de pares de término de consulta y página web que especifican la página web que aparece como mejor resultado para una consulta específica. Para información acerca de cómo anclar los resultados, consulte [Ajuste de la clasificación](#adjustrank).
+El portal también le permite anclar una página web a la parte superior del resultado de búsqueda si el usuario escribe un término de búsqueda específico. La pestaña **Pinned** (Anclado) contiene una lista de pares de término de consulta y página web que especifican la página web que aparece como mejor resultado para una consulta específica. Además, se mostrarán solo las páginas web indexadas en búsquedas. Para información acerca de cómo anclar los resultados, consulte [Ajuste de la clasificación](#adjustrank). 
 
 El anclaje de los resultados no está disponible para las experiencias Image Search ni Video Search.
 

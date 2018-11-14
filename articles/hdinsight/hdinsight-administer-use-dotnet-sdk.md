@@ -1,22 +1,22 @@
 ---
-title: Administración de clústeres de Hadoop en HDInsight con el SDK para .NET en Azure
-description: Aprenda a realizar tareas administrativas para clústeres de Hadoop en HDInsight mediante el SDK de .NET en HDInsight.
+title: Administración de clústeres de Apache Hadoop en HDInsight con el SDK para .NET en Azure
+description: Aprenda a realizar tareas administrativas para clústeres de Apache Hadoop en HDInsight mediante el SDK de .NET en HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0d8238d5f1dca15aaba0f8f5a6580df97164006a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110806"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037769"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Administración de clústeres de Hadoop en HDInsight con el SDK de .NET
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Administración de clústeres de Apache Hadoop en HDInsight con el SDK de .NET
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Más información sobre cómo administrar los clústeres de HDInsight con el [SDK de .NET de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
@@ -142,12 +142,12 @@ La característica de escalado de clústeres permite cambiar la cantidad de nodo
 
 A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de datos de cada tipo de clúster compatible con HDInsight:
 
-* Hadoop
+* Apache Hadoop
   
     Puede aumentar sin ningún problema la cantidad de nodos de trabajo en un clúster de Hadoop que se encuentre en ejecución, sin que afecte a ningún trabajo pendiente o en ejecución. También se pueden enviar trabajos nuevos mientras la operación está en curso. Los errores que puedan surgir en una operación de escalado se enfrentan oportunamente, por lo que el clúster siempre queda en estado funcional.
   
     Cuando se realiza la reducción vertical de un clúster de Hadoop al disminuir la cantidad de nodos de datos, se reinician algunos de los servicios del clúster. Esto provoca que todos los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puede volver a enviar los trabajos una vez finalizada la operación.
-* HBase
+* HBase Apache
   
     Puede agregar nodos sin problemas al clúster de HBase mientras se encuentra en ejecución, así como eliminarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Sin embargo, puede equilibrar manualmente los servidores regionales iniciando sesión en el nodo principal del clúster y ejecutando los comandos siguientes desde una ventana del símbolo del sistema:
   
@@ -156,7 +156,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
   
     Puede agregar o quitar sin problemas nodos de datos de su clúster de Storm mientras se encuentra en ejecución. Sin embargo, después de finalizar correctamente la operación de escalado, deberá volver a equilibrar la topología.
   
@@ -192,9 +192,9 @@ Los clústeres de HDInsight tienen los siguientes servicios web HTTP (todos esto
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton
+* Apache Ambari
+* Apache Oozie
+* Apache Templeton
 
 De manera predeterminada, estos servicios se conceden para el acceso. Puede revocar/conceder el acceso. Para revocar:
 
@@ -246,19 +246,19 @@ foreach (var key in results.Configuration.Keys)
 
 Consulte [Ejecución de ejemplos de Hadoop en HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Para enviar trabajos de Hive** 
+**Para enviar trabajos de Apache Hive** 
 
 Consulte [Ejecución de consultas de Hive mediante el SDK de .NET de HDInsight](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Para enviar trabajos de Pigs**
+**Para enviar trabajos de Apache Pig**
 
 Consulte [Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
-**Para enviar trabajos de Sqoop**
+**Para enviar trabajos de Apache Sqoop**
 
 Consulte [Uso de Sqoop con HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Para enviar trabajos de Oozie**
+**Para enviar trabajos de Apache Oozie**
 
 Vea [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight](hdinsight-use-oozie-linux-mac.md).
 

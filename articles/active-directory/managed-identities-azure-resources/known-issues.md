@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295588"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913995"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -60,7 +60,7 @@ Para obtener más información sobre Azure Instance Metadata Service, vea la [do
 
 Todas las distribuciones de Linux compatibles con IaaS de Azure se pueden usar con las identidades administradas para recursos de Azure mediante el punto de conexión de IMDS. 
 
-Nota: La extensión de máquina virtual de identidades administradas para recursos de Azure (que dejará de utilizarse en enero de 2019) solamente admite las distribuciones de Linux siguientes:
+La extensión de máquina virtual de identidades administradas para recursos de Azure (que dejará de utilizarse en enero de 2019) solamente admite las distribuciones de Linux siguientes:
 - CoreOS Stable
 - CentOS 7.1
 - Red Hat 7.2
@@ -124,16 +124,23 @@ Una vez que se inicia la máquina virtual, la etiqueta puede quitarse con el com
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>Problemas conocidos con identidades asignadas por el usuario
+### <a name="vm-extension-provisioning-fails"></a>Se produce un error de aprovisionamiento de la extensión de máquina virtual
 
-- Las asignaciones de identidades asignadas por el usuario solo están disponibles para la máquina virtual y VMSS. IMPORTANTE: Las asignaciones de identidades asignadas por el usuario cambiarán en los próximos meses.
-- Las identidades asignadas por el usuario duplicadas en la misma máquina virtual o VMSS provocarán un error en esa máquina virtual o VMSS. Esto incluye las identidades que se agregan con diferente uso de mayúsculas y minúsculas. Por ejemplo, MyUserAssignedIdentity y myuserassignedidentity. 
-- Se puede producir un error con el aprovisionamiento de la extensión de máquina virtual (que dejará de utilizarse en enero de 2019) en una máquina virtual debido a errores de búsqueda DNS. Reinicie la máquina virtual y vuelva a intentarlo. 
-- Al agregar una identidad asignada por el usuario "no existente", se producirá un error en la máquina virtual. 
-- No se admite la creación de una identidad asignada por el usuario con caracteres especiales (por ejemplo, un guion bajo) en el nombre.
-- Los nombres de identidades asignadas por el usuario se restringen a 24 caracteres para el escenario completo. Las identidades asignadas por el usuario con nombres que tengan más de 24 caracteres no se podrán asignar.
+Se puede producir un error en el aprovisionamiento de la extensión de máquina virtual debido a errores de búsqueda DNS. Reinicie la máquina virtual y vuelva a intentarlo.
+ 
+> [!NOTE]
+> Está previsto que la extensión de máquina virtual quede en desuso en enero de 2019. Le recomendamos que pase al uso del punto de conexión IMDS.
+
+### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transferencia de una suscripción entre directorios de Azure AD
+
+Las identidades administradas no se actualizan cuando una suscripción se mueve o transfiere a otro directorio. Como resultado, se interrumpe cualquier identidad administrada asignada por el sistema o por el usuario. 
+
+Como solución alternativa, una vez que se ha movido la suscripción, puede deshabilitar las identidades administradas asignadas por el sistema y volver a habilitarlas. Igualmente, puede eliminar y volver a crear cualquier identidad administrada asignada por el usuario. 
+
+## <a name="known-issues-with-user-assigned-managed-identities"></a>Problemas conocidos de las identidades asignadas por el usuario
+
+- No se admite la creación de una identidad administrada asignada por el usuario con caracteres especiales (por ejemplo, un guion bajo) en el nombre.
+- Los nombres de identidades asignadas por el usuario están restringidos a 24 caracteres. Si se supera este número, la identidad no se podrá asignar a un recurso (por ejemplo, Virtual Machine).
 - Si se usa la extensión de máquina virtual de identidades administradas (que dejará de utilizarse en enero de 2019), el límite admitido es de 32 identidades administradas asignadas por el usuario. Sin la extensión de máquina virtual de identidades administradas, el límite admitido es de 512.  
-- Al agregar una segunda identidad asignada por el usuario, es posible que el identificador de cliente no esté disponible para los tokens de solicitud para la extensión de máquina virtual. Como mitigación, reinicie la extensión de máquina virtual de identidades administradas para recursos de Azure con los dos comandos de bash siguientes:
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- Si una máquina virtual tiene una identidad asignada por el usuario pero ninguna identidad asignada por el sistema, las identidades administradas para recursos de Azure aparecerán como deshabilitadas en la interfaz de usuario del portal. Para habilitar la identidad asignada por el sistema, use una plantilla de Azure Resource Manager, una CLI de Azure o un SDK.
+- Mover una identidad administrada asignada por el usuario a otro grupo de recursos hará que la identidad se interrumpa. Como resultado, no podrá solicitar tokens para esa identidad. 
+- La transferencia de una suscripción a otro directorio interrumpirá las identidades administradas asignadas por el usuario existentes. 

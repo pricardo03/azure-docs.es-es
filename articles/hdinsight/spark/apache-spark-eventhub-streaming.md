@@ -3,18 +3,18 @@ title: 'Tutorial: Procesamiento de datos desde Event Hubs con Apache Spark en Az
 description: Conecte Apache Spark en Azure HDInsight a Azure Event Hubs y procese los datos de streaming.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.openlocfilehash: 9cdb5ae31e2743b5ebe877ddd8d6680423e3d9b2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046259"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283417"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Tutorial: Procesamiento de tweets con Azure Event Hubs y Spark en HDInsight
 
@@ -73,18 +73,14 @@ Use este centro de eventos para almacenar tweets.
     ![Aportación de un nombre de centro de evento para el ejemplo de streaming de Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Provide an event hub name for Spark streaming example")
 5. Seleccione **Crear** para crear el espacio de nombres.
 
-6. Abra el espacio de nombres del centro de eventos mediante las siguientes instrucciones:
+7. Abra el espacio de nombres del centro de eventos mediante las siguientes instrucciones:
 
     1. En Azure Portal, seleccione **Todos los servicios**.
     2. En el cuadro de filtro, escriba **Event Hubs**.
-    3. Haga doble clic en el espacio de nombres que ha creado.
+    3. Seleccione el espacio de nombres recién creado.
     4. Seleccione **+ Centro de eventos**.
 
-6. En la lista de espacios de nombres de Event Hubs, seleccione el espacio de nombres recién creado.      
-5. Seleccione **Event Hubs** y luego seleccione **+ Centro de eventos** para crear un centro de eventos.
-  
-
-6. Escriba los siguientes valores:
+8. Escriba los siguientes valores:
 
     - Nombre: asigne un nombre al centro de eventos.
     - Número de particiones: 10
@@ -92,12 +88,12 @@ Use este centro de eventos para almacenar tweets.
    
     ![Aportación de detalles del centro de evento para el ejemplo de streaming de Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Provide event hub details for Spark streaming example")
 
-7. Seleccione **Crear**.
-8. Seleccione **Directivas de acceso compartido** para el espacio de nombres (tenga en cuenta que no se trata de las directivas de acceso compartido del centro de eventos) y luego seleccione **RootManageSharedAccessKey**.
+9. Seleccione **Crear**.
+10. Seleccione **Directivas de acceso compartido** para el espacio de nombres (tenga en cuenta que no se trata de las directivas de acceso compartido del centro de eventos) y luego seleccione **RootManageSharedAccessKey**.
     
      ![Establecimiento de directivas de Event Hub para el ejemplo de streaming de Spark](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Set Event Hub policies for the Spark streaming example")
 
-9. Guarde los valores **Clave principal** y **Cadena de conexión: clave principal** para usarlos más adelante en este tutorial.
+11. Guarde los valores **Clave principal** y **Cadena de conexión: clave principal** para usarlos más adelante en este tutorial.
 
      ![Vista de las claves de directiva de Event Hub para el ejemplo de streaming de Spark](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "View Event Hub policy keys for the Spark streaming example")
 
@@ -222,7 +218,7 @@ Necesita crear un cuaderno de Jupyter Notebook y asignarle el nombre **SendTweet
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Con HDInsight, los datos se almacenan en Azure Storage o Azure Data Lake Store, por lo que cualquier clúster se puede eliminar de forma segura cuando no está en uso. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando. Si tiene previsto pasar inmediatamente al siguiente tutorial, es aconsejable que no elimine el clúster.
+Con HDInsight, los datos se almacenan en Azure Storage o Azure Data Lake Store, por lo que cualquier clúster se puede eliminar de forma segura cuando no está en uso. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Si tiene previsto pasar inmediatamente al siguiente tutorial, es aconsejable conservar el clúster; de lo contrario, elimínelo.
 
 Abra el clúster en Azure Portal y seleccione **Eliminar**.
 

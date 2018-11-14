@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ea29d9052c2389b0c7d145223d3660364cbf2c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054012"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016325"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archivo del registro de actividades de Azure
 En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de PowerShell o la CLI multiplataforma para archivar el [**registro de actividades de Azure**](monitoring-overview-activity-logs.md) en una cuenta de almacenamiento. Esta opción es útil si desea conservar el registro de actividades más de 90 días (con control total sobre la directiva de retención) para auditorías, análisis estáticos o copias de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividades se conservan en la plataforma de Azure durante 90 días sin necesidad de habilitar el archivado.
@@ -35,10 +35,10 @@ Para archivar el registro de actividades mediante cualquiera de los métodos sig
 ## <a name="archive-the-activity-log-using-the-portal"></a>Archivo del registro de actividades mediante el portal
 1. En el portal, haga clic en el vínculo **Registro de actividades** situado en el lado izquierdo. Si no ve un vínculo para el registro de actividades, haga clic primero en el vínculo **Todos los servicios**.
    
-    ![Ir a la hoja del registro de actividades](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. En la parte superior de la hoja, haga clic en **Exportar**.
+    ![Ir a la hoja del registro de actividades](media/monitoring-archive-activity-log/activity-logs-portal-navigate-v2.png)
+2. En la parte superior de la hoja, haga clic en **Exportar a Centro de eventos**.
    
-    ![Hacer clic en el botón Exportar](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+    ![Hacer clic en el botón Exportar](media/monitoring-archive-activity-log/activity-logs-portal-export-v2.png)
 3. En la hoja que aparece, seleccione la casilla para **exportar a una cuenta de almacenamiento** y seleccione una cuenta de almacenamiento.
    
     ![Establecer una cuenta de almacenamiento](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
@@ -65,9 +65,9 @@ Para archivar el registro de actividades mediante cualquiera de los métodos sig
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
 | StorageAccountId |SÍ |Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
-| Ubicación |SÍ |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones para la suscripción con `(Get-AzureRmLocation).Location`. |
+| Ubicaciones |SÍ |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones para la suscripción con `(Get-AzureRmLocation).Location`. |
 | RetentionInDays |Sin  |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
-| Categoría |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action.  Si no se proporciona, se presuponen todos los valores posibles |
+| Categorías |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action.  Si no se proporciona, se presuponen todos los valores posibles |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Archivo del registro de actividades a través de CLI
 

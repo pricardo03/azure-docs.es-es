@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: d96058ae9415ccb361af8a281a4b65b3f69edfcd
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746772"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034956"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servicio Azure Metadata: Scheduled Events para Windows VM
 
@@ -42,7 +42,7 @@ Muchas aplicaciones pueden beneficiarse del tiempo de preparación para el mante
 - Registros de eventos
 - Apagado correcto 
 
-Con Eventos programados, la aplicación puede detectar cuándo se producirá el mantenimiento y desencadenar tareas para limitar su impacto.  
+Con Eventos programados, la aplicación puede detectar cuándo se producirá el mantenimiento y desencadenar tareas para limitar su impacto. Habilitar eventos programados ofrece a la máquina virtual una cantidad mínima de tiempo antes de que se lleve a cabo la actividad de mantenimiento. Consulte la sección de programación de eventos a continuación para obtener más información.
 
 Eventos programados proporciona eventos en los casos de uso siguientes:
 - Mantenimiento iniciado por la plataforma (por ejemplo, actualización del SO del host)
@@ -71,7 +71,7 @@ El servicio Eventos programados tiene versiones. Las versiones son obligatorias 
 > Las versiones preliminares de eventos programados compatibles {más reciente} como la versión de api. Este formato ya no es compatible y dejará de utilizarse en el futuro.
 
 ### <a name="enabling-and-disabling-scheduled-events"></a>Habilitación y deshabilitación de Scheduled Events
-Scheduled Events se habilita para un servicio la primera vez que se realiza una solicitud de eventos. Debe esperar hasta dos minutos de demora en la respuesta en la primera llamada.
+Scheduled Events se habilita para un servicio la primera vez que se realiza una solicitud de eventos. Debe esperar hasta dos minutos de demora en la respuesta en la primera llamada. Debería consultar el punto de conexión periódicamente para detectar los próximos eventos de mantenimiento, así como el estado de las actividades de mantenimiento que se van a realizar.
 
 Scheduled Events se deshabilita para el servicio si no se realiza una solicitud durante 24 horas.
 
@@ -110,6 +110,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
     ]
 }
 ```
+DocumentIncarnation es una etiqueta de entidad y proporciona una manera fácil de inspeccionar si la carga de eventos ha cambiado desde la última consulta.
 
 ### <a name="event-properties"></a>Propiedades de evento
 |Propiedad  |  DESCRIPCIÓN |

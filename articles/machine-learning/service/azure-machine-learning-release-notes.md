@@ -9,16 +9,53 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158693"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261590"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
 En este artículo obtendrá información acerca de las versiones del servicio Azure Machine Learning. 
+
+## <a name="2018-11-05"></a>05-11-2018
+
+### <a name="azure-portal"></a>Azure Portal 
+Azure Portal para el servicio Azure Machine Learning tiene las siguientes actualizaciones:
+  * Una nueva pestaña **Canalizaciones** para las canalizaciones publicadas.
+  * Se agregó compatibilidad para adjuntar un clúster de HDInsight existente como un destino de proceso.
+
+### <a name="azure-machine-learning-sdk-for-python-v0174"></a>SDK de Azure Machine Learning para Python v0.1.74
+
++ **Cambios importantes** 
+  * *Workspace.compute_targets, almacenes de datos, experimentos, imágenes y modelos* y *servicios web* son propiedades en lugar de métodos. Por ejemplo, sustituya *Workspace.compute_targets()* por *Workspace.compute_targets*.
+  * *Run.get_context* reemplaza a *Run.get_submitted_run*. El último método se quitará en versiones posteriores.
+  * La clase *PipelineData* espera ahora un objeto de almacén de datos como un parámetro en lugar de datastore_name. De forma similar, *Canalización* acepta default_datastore en lugar de default_datastore_name.
+
++ **Nuevas características:**
+  * El [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) de las canalizaciones de Azure Machine Learning ahora usa los pasos de MPI.
+  * El widget RunDetails para instancias de Jupyter Notebook se actualiza para mostrar una visualización de la canalización.
+
+### <a name="azure-machine-learning-data-prep-sdk-v040"></a>SDK de preparación de datos de Azure Machine Learning v0.4.0 
+ 
++ **Nuevas características:**
+  * Recuento de tipos agregados al perfil de datos. 
+  * Recuento de valores e histograma ahora disponibles.
+  * Más percentiles en el perfil de datos.
+  * La mediana está disponible en el resumen.
+  * Ahora se admite Python 3.7.
+  * Cuando se guarda un flujo de datos que contiene almacenes de datos en un paquete DataPrep, la información del almacén de datos se guardará como parte del paquete DataPrep.
+  * Ahora se admite la escritura en el almacén de datos. 
+        
++ **Error corregido**
+  * Los desbordamientos de enteros sin signo de 64 bits ahora se controlan correctamente en Linux.
+  * Etiqueta de texto incorrecta corregida para archivos de texto sin formato en smart_read.
+  * El tipo de columna de cadenas se muestra ahora en la vista de métricas.
+  * El recuento de tipos ahora se corrige para mostrar los tipos de valores asignados a un tipo de campo única en lugar de valores individuales.
+  * Write_to_csv ya no genera ningún error cuando la ruta de acceso se proporciona como una cadena.
+  * Cuando se usa Reemplazar, dejar "Buscar" en blanco no generará ningún error. 
 
 ## <a name="2018-10-12"></a>12 de octubre de 2018
 
@@ -26,9 +63,6 @@ En este artículo obtendrá información acerca de las versiones del servicio Az
 
 + **Nuevas características:**
   * Compatibilidad con inquilinos múltiples al crear una nueva área de trabajo.
-
-+ **Cambios importantes**
-  * **En la próxima versión** *Workspace.compute_targets, almacenes de datos, experimentos, imágenes, modelos* y *servicios web* pasarán a ser propiedades en lugar de métodos. Por ejemplo, sustituya *Workspace.compute_targets()* por *Workspace.compute_targets*.
 
 + **Errores corregidos**
   * La versión de la biblioteca pynacl ya no necesita anclarse al implementar el servicio web.
@@ -217,7 +251,7 @@ Esta es la tercera actualización de Azure Machine Learning. Esta actualización
 **Nuevas características destacables**
 - [Compatibilidad con SQL Server y Azure SQL Database como un origen de datos](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [Aprendizaje profundo sobre Spark con compatibilidad con GPU mediante MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [Todos los contenedores de AML son compatibles con dispositivos de Azure IoT Edge cuando se implementan (no se requieren pasos adicionales)](http://aka.ms/aml-iot-edge-blog)
+- [Todos los contenedores de AML son compatibles con dispositivos de Azure IoT Edge cuando se implementan (no se requieren pasos adicionales)](https://aka.ms/aml-iot-edge-blog)
 - Lista de modelos disponibles y vistas de detalle disponibles en Azure Portal
 - Acceso a los destinos de proceso mediante la autenticación basada en claves SSH además del acceso basado en nombre de usuario y contraseña. 
 - Nuevo inspector de frecuencia de patrones en la experiencia de preparación de datos. 
@@ -282,7 +316,7 @@ Para más información sobre la creación de destinos de proceso, consulte [Conf
 - El comando `az ml datasource create` agregado permite la creación de un archivo de origen de datos desde la línea de comandos.
 
 #### <a name="model-management-and-operationalization"></a>Operacionalización y administración de modelos
-- [Todos los contenedores de AML son compatibles con dispositivos de Azure IoT Edge cuando se operacionalizan (no se requieren pasos adicionales)](http://aka.ms/aml-iot-edge-blog) 
+- [Todos los contenedores de AML son compatibles con dispositivos de Azure IoT Edge cuando se operacionalizan (no se requieren pasos adicionales)](https://aka.ms/aml-iot-edge-blog) 
 - Mejoras de mensajes de error en la CLI o16n
 - Correcciones de errores en UX del portal de administración de modelos  
 - Uso coherente de mayúsculas y minúsculas de letras para los atributos de administración de modelos en la página de detalles

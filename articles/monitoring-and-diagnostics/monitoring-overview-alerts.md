@@ -5,15 +5,15 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: f044cf7e0b614d338ec9b294dfbf02c26c4351b1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9340c5a70ac652f1cf0a8b0cddce8488e0a62eee
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413867"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978876"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -23,28 +23,36 @@ En este artículo se explica qué son las alertas, sus beneficios y cómo empeza
 ## <a name="what-are-alerts-in-microsoft-azure"></a>¿Qué son las alertas en Microsoft Azure?
 Las alertas le informan de forma proactiva cuando se detectan condiciones importantes en los datos que supervisa. Le permiten identificar y solucionar los problemas antes de que los usuarios del sistema puedan verlos. 
 
-En este artículo se describe la experiencia unificada de alertas en Azure Monitor, que ahora incluye Log Analytics y Application Insights. La [experiencia de alerta anterior](monitoring-overview-alerts.md) y los tipos de alertas se denominan **alertas clásicas**. Para ver esta experiencia anterior y el tipo de alerta anterior, haga clic en **Ver alertas clásicas** en la parte superior de la página de alertas.
-
+En este artículo se describe la experiencia unificada de alertas en Azure Monitor, que ahora incluye Log Analytics y Application Insights. La [experiencia de alerta anterior](monitoring-overview-alerts.md) y los tipos de alertas se denominan **alertas clásicas**. Para ver esta experiencia anterior y el tipo de alerta anterior, haga clic en **Ver alertas clásicas** en la parte superior de la página de alertas. 
 
 ## <a name="overview"></a>Información general
 
-En el diagrama siguiente se representan los términos generales y el flujo de alertas. 
+En el siguiente diagrama se representa el flujo de alertas. 
 
 ![Flujo de alertas](media/monitoring-overview-alerts/Azure-Monitor-Alerts.svg)
 
 Las reglas de alertas están separadas de las alertas y las acciones que realizan cuando se activa una alerta. 
 
-- **Regla de alertas**: la regla de alertas captura el destino y los criterios de las alertas. La regla de alertas puede tener el estado deshabilitado o habilitado. Las alertas solo se activan cuando están habilitadas. Los atributos clave de las reglas de alertas son:
-    - **Recurso de destino**: un destino puede ser cualquier recurso de Azure. El recurso de destino define el ámbito y las señales disponibles para las alertas. Destinos de ejemplo: una máquina virtual, una cuenta de almacenamiento, un conjunto de escalado de máquinas virtuales, un área de trabajo de Log Analytics o un recurso de Application Insights. Para determinados recursos (por ejemplo, Virtual Machines), puede especificar varios recursos como el destino de una regla de alertas.
-    - **Señal**: el recurso de destino emite las señales y pueden ser de varios tipos. Métrica, registro de actividad, Application Insights y registro.
-    - **Criterios**: los criterios son la combinación de la señal y la lógica aplicadas en un recurso de destino. Ejemplos: 
-         - Porcentaje de la CPU superior al 70 %
-         - Tiempo de respuesta del servidor superior a 4 ms 
-         - Recuento de resultados de una consulta de registro superior a 100
-- **Nombre de la alerta**: nombre específico para la regla de alertas configurado por el usuario
-- **Descripción de la alerta**: descripción para la regla de alertas configurada por el usuario
-- **Gravedad**: gravedad de la alerta, una vez que se cumplen los criterios especificados en la regla de alertas. La gravedad puede tener un valor entre 0 y 4.
-- **Acción**: una acción específica llevada a cabo al desencadenarse la alerta. Para más información, consulte Grupos de acciones.
+**Regla de alertas**: la regla de alertas captura el destino y los criterios de las alertas. La regla de alertas puede tener el estado deshabilitado o habilitado. Las alertas solo se activan cuando están habilitadas. 
+
+Los atributos clave de las reglas de alertas son:
+
+**Recurso de destino**: define el ámbito y las señales disponibles para las alertas. Un destino puede ser cualquier recurso de Azure. Destinos de ejemplo: una máquina virtual, una cuenta de almacenamiento, un conjunto de escalado de máquinas virtuales, un área de trabajo de Log Analytics o un recurso de Application Insights. Para determinados recursos (por ejemplo, Virtual Machines), puede especificar varios recursos como destino de la regla de alertas.
+
+**Señal**: el recurso de destino emite las señales y pueden ser de varios tipos. Métrica, registro de actividad, Application Insights y registro.
+
+**Criterios**: los criterios son la combinación de la señal y la lógica aplicadas en un recurso de destino. Ejemplos: 
+   - Porcentaje de la CPU superior al 70 %
+   - Tiempo de respuesta del servidor superior a 4 ms 
+   - Recuento de resultados de una consulta de registro superior a 100
+
+**Nombre de la alerta**: nombre específico para la regla de alertas configurado por el usuario
+
+**Descripción de la alerta**: descripción para la regla de alertas configurada por el usuario
+
+**Gravedad**: gravedad de la alerta, una vez que se cumplen los criterios especificados en la regla de alertas. La gravedad puede tener un valor entre 0 y 4.
+
+**Acción**: una acción específica llevada a cabo al desencadenarse la alerta. Para más información, vea [Grupos de acciones](monitoring-action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Tipo de alertas que se pueden realizar
 
@@ -54,8 +62,6 @@ Puede enviar alertas sobre métricas y registros tal y como se describe en el ar
 - Eventos del registro de actividad
 - Estado de la plataforma Azure subyacente
 - Pruebas de disponibilidad del sitio web
-
-
 
 ## <a name="manage-alerts"></a>Administrar alertas
 Puede establecer el estado de una alerta para especificar dónde se encuentra en el proceso de resolución. Cuando se cumplen los criterios especificados en la regla de alertas, se crea o se desencadena una alerta, que tiene el estado *Nuevo*. Puede cambiar el estado cuando se confirma una alerta y cuando se cierra. Todos los cambios de estado se almacenan en el historial de la alerta.
@@ -68,12 +74,12 @@ Se admiten los siguientes estados de alerta.
 | Confirmado | Un administrador revisó la alerta y empezó a trabajar en ella. |
 | Closed | Se resolvió el problema. Después de cerrar una alerta, puede volver a abrirla mediante el cambio a otro estado. |
 
-El estado de una alerta es distinto de la condición de supervisión. El estado de alerta lo establece el usuario y es independiente de la condición de supervisión. Cuando se borra la condición subyacente para la alerta desencadenada, la condición del monitor de la alerta se establece en resuelta. Si bien el sistema puede establecer la condición de supervisión en "Resuelta", el estado de la alerta no cambia hasta que el usuario lo cambia. Obtenga información sobre [cómo cambiar el estado de las alertas y de los grupos inteligentes](https://aka.ms/managing-alert-smart-group-states).
+El **estado de alerta** es diferente e independiente de la **condición de supervisión**. El estado de alerta lo establece el usuario. La condición de supervisión la establece el sistema. Cuando se desencadena una alerta, la condición de supervisión de la alerta se establece en *desencadenada*. Cuando desaparece la condición subyacente que provocó que se desencadenara la alerta, la condición de supervisión se establece en *resuelta*. El estado de alerta no cambia hasta que el usuario lo cambia. Obtenga información sobre [cómo cambiar el estado de las alertas y de los grupos inteligentes](https://aka.ms/managing-alert-smart-group-states).
 
 ## <a name="smart-groups"></a>Grupos inteligentes 
 Los grupos inteligentes están en versión preliminar. 
 
-Los grupos inteligentes son agregaciones de alertas basadas en algoritmos de aprendizaje automático que pueden ayudar a reducir el ruido de las alertas y ayudan en la solución de problemas. [Más información acerca de los grupos inteligentes](https://aka.ms/smart-groups) y [cómo administrar los grupos inteligentes](https://aka.ms/managing-smart-groups).
+Los grupos inteligentes son agregaciones de alertas basadas en algoritmos de aprendizaje automático que pueden ayudar a reducir el ruido de las alertas y contribuyen a la solución de problemas. [Más información acerca de los grupos inteligentes](https://aka.ms/smart-groups) y [cómo administrar los grupos inteligentes](https://aka.ms/managing-smart-groups).
 
 
 ## <a name="alerts-experience"></a>Experiencia de alertas 
@@ -114,11 +120,11 @@ Siga estos pasos para crear una regla de alertas nueva:
 1. Seleccione la _señal_ de las señales disponibles para el destino.
 1. Especifique la _lógica_ que se aplicará a los datos desde la señal.
  
-Este proceso simplificado de creación ya no requiere que el usuario sepa las señales o el origen de supervisión admitidos antes de seleccionar un recurso de Azure. La lista de señales disponibles se filtra automáticamente según el recurso de destino seleccionado y lo ayuda a definir la lógica de la regla de alertas.
+Este proceso simplificado de creación ya no requiere que el usuario sepa las señales o el origen de supervisión admitidos antes de seleccionar un recurso de Azure. La lista de señales disponibles se filtra automáticamente según el recurso de destino que seleccione. También en función de ese destino, se le guía por la definición de la lógica de la regla de alerta automáticamente.  
 
-Puede obtener más información sobre cómo crear reglas de alertas en [Creación, visualización y administración de alertas mediante Azure Monitor](monitor-alerts-unified-usage.md).
+Puede obtener más información sobre cómo crear reglas de alertas en [Creación, visualización y administración de alertas mediante Azure Monitor](alert-metric.md).
 
-Las alertas están disponibles a través de varios servicios de supervisión de Azure. Para obtener más información sobre cómo y cuándo usar cada uno de estos servicios, consulte [Supervisión de aplicaciones y recursos de Azure](./monitoring-overview.md). En la tabla siguiente se proporciona una lista de los tipos de reglas de alertas disponibles a través de Azure. También muestra la compatibilidad actual que tiene cada experiencia de alerta.
+Las alertas están disponibles a través de varios servicios de supervisión de Azure. Para obtener más información sobre cómo y cuándo usar cada uno de estos servicios, consulte [Supervisión de aplicaciones y recursos de Azure](../azure-monitor/overview.md). En la tabla siguiente se proporciona una lista de los tipos de reglas de alertas disponibles a través de Azure. También muestra la compatibilidad actual que tiene cada experiencia de alerta.
 
 Anteriormente, Azure Monitor, Application Insights, Log Analytics y Service Health tenían funcionalidades independientes de generación de alertas. Con el tiempo, Azure ha mejorado y combinado la interfaz de usuario y los distintos métodos de alerta. Esta consolidación aún está en proceso. Como resultado, algunas funcionalidades de alertas aún no se encuentran en el nuevo sistema de alertas.  
 
@@ -159,8 +165,8 @@ La página Detalles de la alerta incluye las secciones siguientes.
 | Sección | DESCRIPCIÓN |
 |:---|:---|
 | Essentials | Muestra las propiedades y otra información importante sobre la alerta. |
-| Historial | Muestra cada acción que realiza la alerta y los cambios hechos en la alerta. Se limita actualmente a los cambios de estado. |
-| Grupo inteligente | Información sobre el grupo inteligente en que se incluye la alerta. El *recuento de alertas* se refiere al número de alertas incluidas en el grupo inteligente. Esto incluye las otras alertas del mismo grupo inteligente que se crearon en los últimos 30 días.  Esto es independiente del filtro de tiempo en la página de la lista de alertas. Seleccione una alerta para ver sus detalles. |
+| Historial | Muestra cada acción que realiza la alerta y los cambios hechos en la alerta. Actualmente se limita a cambios de estado. |
+| Grupo inteligente | Información sobre el grupo inteligente en que se incluye la alerta. El *recuento de alertas* se refiere al número de alertas incluidas en el grupo inteligente. Incluye otras alertas en el mismo grupo inteligente que se crearon en los últimos 30 días, con independencia del filtro de tiempo de la página de lista de alertas. Seleccione una alerta para ver sus detalles. |
 | Más detalles | Muestra información contextual adicional para la alerta que habitualmente es específica para el tipo de origen que creó la alerta. |
 
 
@@ -168,7 +174,7 @@ La página Detalles de la alerta incluye las secciones siguientes.
 
 La funcionalidad de creación de alertas del registro de actividad y de métricas de Azure Monitor disponible antes del junio de 2018 se denomina "Alertas (clásico)". 
 
-Para obtener más información, consulte [Alertas clásicas](./monitoring-overview-alerts-classic.md).
+Para más información, consulte [Alertas clásicas](./monitoring-overview-alerts-classic.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

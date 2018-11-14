@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7eacc475145dac61db1717f1860e22cedd022262
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215487"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231454"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selección y uso de un destino de proceso para entrenar el modelo
 
@@ -463,7 +463,7 @@ Hay dos maneras de enviar una serie de entrenamientos:
 * Enviar un objeto `Pipeline`
 
 > [!IMPORTANT]
-> Los destinos de proceso Azure Databricks, Azure Datalake Analytics y Azure HDInsight solo se pueden usar en una canalización.
+> Los destinos de proceso Azure Databricks y Azure Datalake Analytics solo se pueden usar en una canalización.
 > No se puede usar el destino de proceso local en una canalización.
 
 ### <a name="submit-using-scriptrunconfig"></a>Enviar mediante `ScriptRunConfig`
@@ -591,7 +591,7 @@ Obtenga estos cuadernos: [!INCLUDE [aml-clone-in-azure-notebook](../../../includ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Referencia de SDK de Azure Machine Learning](http://aka.ms/aml-sdk)
+* [Referencia de SDK de Azure Machine Learning](https://aka.ms/aml-sdk)
 * [Tutorial: Entrenamiento de un modelo](tutorial-train-models-with-aml.md)
 * [Lugar de implementación de modelos](how-to-deploy-and-where.md)
 * [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) (Creación de canalizaciones de aprendizaje automático con el servicio Azure Machine Learning).

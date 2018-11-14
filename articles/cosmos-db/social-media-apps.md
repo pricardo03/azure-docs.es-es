@@ -10,23 +10,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bc31c7ebec7c1f7a02be65b15805fb48b1ef275d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239889"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260319"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Redes sociales y Azure Cosmos DB
 Vivir en una sociedad enormemente interconectada significa que, en algún momento de la vida, uno formará parte de una **red social**. Las redes sociales se usan para mantenerse en contacto con amigos, compañeros de trabajo y familiares y, a veces, para compartir intereses comunes con otras personas.
 
 Como ingenieros o desarrolladores, es probable que se haya preguntado cómo almacenan e interconectan nuestros datos estas redes sociales, o incluso puede que haya encargado crear o diseñar la arquitectura de una nueva red social para un segmento de mercado específico. Y ahí surge la gran duda: ¿cómo se almacenan todos estos datos?
 
-Suponga que quiere crear una red social nueva en la que los usuarios puedan publicar artículos y materiales como imágenes, vídeos o incluso música. En esta red social, los usuarios podrán comentar y valorar las publicaciones con fines de clasificación. Además, en la página de aterrizaje del sitio web, los usuarios podrán ver e interactuar con una fuente de publicaciones. En un principio, esto no parece muy complejo, pero, para mayor simplicidad, lo dejaremos así (podría diseñar fuentes de usuario personalizadas en las que se tuvieran en cuenta las relaciones, pero supera el objetivo de este artículo).
+Suponga que quiere crear una red social nueva en la que los usuarios puedan publicar artículos y materiales como imágenes, vídeos o incluso música. En esta red social, los usuarios podrán comentar y valorar las publicaciones con fines de clasificación. Además, en la página de aterrizaje del sitio web, los usuarios podrán ver e interactuar con una fuente de publicaciones. En principio, este método no parece muy complejo, pero, para mayor simplicidad, lo dejaremos así (podría diseñar fuentes de usuario personalizadas en las que se tuvieran en cuenta las relaciones, pero supera el objetivo de este artículo).
 
 Entonces, ¿cómo y dónde almacena estos datos?
 
-En caso de tener experiencia en bases de datos SQL o al menos tener nociones de [modelado de datos relacional](https://en.wikipedia.org/wiki/Relational_model) , podría verse tentado a empezar a dibujar algo parecido a esto:
+Debe tener experiencia en bases de datos SQL o al menos tener nociones de [modelado de datos relacional](https://en.wikipedia.org/wiki/Relational_model), y podría empezar por dibujar algo parecido a esto:
 
 ![Diagrama que ilustra un modelo relacional relativo](./media/social-media-apps/social-media-apps-sql.png) 
 
@@ -34,9 +34,9 @@ Sin embargo, a pesar de ser una estructura de datos perfectamente normalizada, n
 
 No me malinterpreten, he trabajado con bases de datos SQL toda mi vida y me parecen excelentes, pero, al igual que todos los modelos, prácticas y plataformas de software, no son perfectas para todos los escenarios.
 
-¿Por qué SQL no es la mejor opción en este escenario? Echemos un vistazo a la estructura de una entrada única, si quisiéramos esa publicación en un sitio web o una aplicación, tendríamos que realizar una consulta con Ocho combinaciones de tablas para mostrar una sola publicación. Ahora, cree una secuencia de entradas que se cargue dinámicamente y aparezcan en la pantalla.
+¿Por qué SQL no es la mejor opción en este escenario? Echemos un vistazo a la estructura de una entrada única, si quisiéramos esa publicación en un sitio web o una aplicación, tendríamos que realizar una consulta con Con la combinación de ocho tablas(!) para mostrar una sola publicación, ahora cree una secuencia de entradas que se cargue dinámicamente y aparezcan en la pantalla.
 
-Por supuesto, podría usar una instancia de SQL enorme con capacidad suficiente para resolver miles de consultas con las combinaciones necesarias para servir el contenido, pero ¿por qué habría de hacerlo cuando existe una solución más sencilla?
+Podría usar una instancia de SQL enorme con capacidad suficiente para resolver miles de consultas con muchas combinaciones para servir el contenido, pero ¿por qué habría de hacerlo cuando existe una solución más sencilla?
 
 ## <a name="the-nosql-road"></a>La vía NoSQL
 Este artículo le ayudará a modelar los datos de su plataforma social con una base de datos NoSQL de Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), de una manera rentable y aprovechando otras funciones de Azure Cosmos DB, como [Gremlin API](../cosmos-db/graph-introduction.md). Con un enfoque [NoSQL](https://en.wikipedia.org/wiki/NoSQL), almacenamiento de datos en formato JSON y la aplicación de [desnormalización](https://en.wikipedia.org/wiki/Denormalization), la publicación, que antes era complicada, ahora puede transformarse en un único [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
@@ -59,7 +59,7 @@ Este artículo le ayudará a modelar los datos de su plataforma social con una b
         ]
     }
 
-Además, puede obtenerse con una sola consulta y sin combinaciones. Esto es mucho más sencillo, directo, económico y requiere menos recursos para conseguir un mejor resultado.
+Además, puede obtenerse con una sola consulta y sin combinaciones. Esta consulta es mucho más sencilla, directa, económica y requiere menos recursos para conseguir un mejor resultado.
 
 Azure Cosmos DB se asegura de que todas las propiedades se indexen con su indexación automática, que incluso se puede [personalizar](indexing-policies.md). El enfoque sin esquema nos permite almacenar documentos con estructuras dinámicas y diferentes. Así, por ejemplo, si en el futuro quiere que las publicaciones tengan una lista de categorías o hashtags asociados, Cosmos DB gestionará los nuevos documentos con los atributos agregados y sin ningún esfuerzo adicional requerido por nuestra parte.
 
@@ -216,12 +216,12 @@ Ahora que ya está interesado, probablemente pensará que necesita un doctorado 
 
 Para posibilitar cualquiera de estos escenarios de Machine Learning, se puede usar [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) para introducir la información de distintos orígenes, así como [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para procesar dicha información y generar una salida que pueda tratar Azure Machine Learning.
 
-Otra opción disponible es usar [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services) para analizar el contenido de los usuarios; no solo se pueden comprenderlos mejor (mediante el análisis de lo que escriben con [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), sino que también se puede detectar contenido no deseado o contenido para adultos y actuar en consecuencia con [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services incluye una gran cantidad de soluciones listas para usar que no requieren ningún conocimiento de Machine Learning para usarlas.
+Otra opción disponible es usar [Azure Cognitive Services](https://www.microsoft.com/cognitive-services) para analizar el contenido de los usuarios; no solo se pueden comprenderlos mejor (mediante el análisis de lo que escriben con [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), sino que también se puede detectar contenido no deseado o contenido para adultos y actuar en consecuencia con [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services incluye una gran cantidad de soluciones listas para usar que no requieren ningún conocimiento de Machine Learning para usarlas.
 
 ## <a name="a-planet-scale-social-experience"></a>Una experiencia social a escala mundial
 Hay un último, pero no por ello menos importante, artículo que abordaremos: la **escalabilidad**. Cuando se diseña una arquitectura, resulta fundamental que cada componente pueda escalar por sí mismo, ya sea porque es necesario procesar más datos o porque se desea tener una mayor cobertura geográfica (o ambas opciones). Afortunadamente, llevar a cabo una tarea así de compleja es una **experiencia inmediata** con Cosmos DB.
 
-Cosmos DB admite la [creación de particiones dinámica](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) inmediata mediante la creación automática de particiones según una **clave de partición** determinada (que se define como uno de los atributos en los documentos). Definir la clave de partición correcta se debe realizar en el momento del diseño, teniendo en cuenta los [procedimientos recomendados](../cosmos-db/partition-data.md#designing-for-partitioning) disponibles; en caso de una experiencia social, la estrategia de creación de particiones debe alinearse con la forma en que consulta (se prefieren las lecturas dentro de la misma partición) y escribe (evite las "zonas activas" distribuyendo las escrituras en varias particiones). Algunas opciones son: particiones basadas en una clave temporal (día/mes/semana), por categoría de contenido, por región geográfica, por usuario; en realidad, todo depende de cómo consultará los datos y cómo los mostrará en la experiencia social. 
+Cosmos DB admite la [creación de particiones dinámica](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) inmediata mediante la creación automática de particiones según una **clave de partición** determinada (que se define como uno de los atributos en los documentos). La clave de partición correcta se debe definir en tiempo de diseño; para más información, vea el artículo sobre cómo [elegir la clave de partición correcta](partitioning-overview.md#choose-partitionkey). En caso de una experiencia social, la estrategia de creación de particiones debe alinearse con la forma en que consulta (se prefieren las lecturas dentro de la misma partición) y escribe (evite las "zonas activas" distribuyendo las escrituras en varias particiones). Algunas opciones son: particiones basadas en una clave temporal (día/mes/semana), por categoría de contenido, por región geográfica, por usuario; en realidad, todo depende de cómo consultará los datos y cómo los mostrará en la experiencia social. 
 
 Un punto interesante que vale la pena mencionar es que Cosmos DB ejecutará las consultas (incluidas las [agregaciones](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) en todas las particiones de forma transparente, por lo que no necesita agregar ninguna lógico a medida que crecen los datos.
 

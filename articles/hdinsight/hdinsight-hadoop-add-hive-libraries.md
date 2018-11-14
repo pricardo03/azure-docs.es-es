@@ -1,24 +1,24 @@
 ---
-title: Incorporación de bibliotecas de Hive durante la creación de clústeres de HDInsight (Azure)
-description: Aprenda a agregar bibliotecas de Hive (archivos JAR) a un clúster de HDInsight durante la creación del clúster.
+title: Incorporación de bibliotecas de Apache Hive durante la creación de clústeres de HDInsight (Azure)
+description: Aprenda a agregar bibliotecas de Apache Hive (archivos JAR) a un clúster de HDInsight durante la creación del clúster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 40650c813efc8fe7389b0445c72007dbd97e3ce8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108693"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035312"
 ---
-# <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Incorporación de bibliotecas personalizadas de Hive al crear el clúster de HDInsight
+# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Incorporación de bibliotecas personalizadas de Apache Hive al crear el clúster de HDInsight
 
-Obtenga información sobre cómo cargar previamente las bibliotecas de Hive en HDInsight. Este documento contiene información sobre el uso de una acción de script para cargar previamente bibliotecas durante la creación del clúster. Las bibliotecas que se agregan mediante los pasos de este documento están disponibles globalmente en Hive: no hace falta usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para cargarlos.
+Obtenga información sobre cómo cargar previamente las bibliotecas de Apache Hive en HDInsight. Este documento contiene información sobre el uso de una acción de script para cargar previamente bibliotecas durante la creación del clúster. Las bibliotecas que se agregan mediante los pasos de este documento están disponibles globalmente en Hive: no hace falta usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para cargarlos.
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -69,7 +69,7 @@ Para **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.wind
 
 2. En la sección **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
 
-   * **NOMBRE**: escriba un nombre descriptivo para la acción de script.
+   * **NOMBRE**: escriba un nombre sencillo para la acción de script.
 
    * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 

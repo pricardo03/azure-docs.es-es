@@ -2,19 +2,19 @@
 title: Personalización de clústeres de HDInsight mediante acciones de script en Azure
 description: Agregue componentes personalizados a clústeres de HDInsight basados en Linux mediante acciones de script. Las acciones de script son scripts de Bash que se pueden usar para personalizar la configuración del clúster o para agregar servicios adicionales y utilidades como Hue, Solr o R.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.author: jasonh
-ms.openlocfilehash: e9662a0a0def91fa2cace1eb47dceffed5ff1ae6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978036"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279745"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalización de clústeres de HDInsight basados en Linux mediante acciones de script
 
@@ -67,7 +67,7 @@ Una acción de script es un script de Bash que se ejecuta en los nodos de un cl�
         Para obtener URI de ejemplo, vea la sección [Ejemplo de scripts de acción de script](#example-script-action-scripts).
 
         > [!WARNING]
-        > HDInsight solo admite cuentas de Azure Storage de __uso general__. No admite actualmente el tipo de cuenta de __Blob Storage__.
+        > HDInsight solo admite blobs en cuentas de Azure Storage con nivel de rendimiento estándar. 
 
 * Su **ejecución se puede limitar a determinados tipos de nodos**, por ejemplo, nodos principales o de trabajo.
 
@@ -147,7 +147,7 @@ Los scripts de acciones de script se pueden usar con las utilidades siguientes:
 
 * Azure Portal
 * Azure PowerShell
-* CLI clásica de Azure
+* CLI de Azure clásica
 * SDK .NET de HDInsight
 
 HDInsight proporciona scripts para instalar los siguientes componentes en clústeres de HDInsight:

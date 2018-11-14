@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 0f738348dd0a000df8b1da299bb7b58ebc5a1165
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cceea9fa613d2a2428427bfe73eb50550db6c69a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040110"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281632"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimientos recomendados para la seguridad de las bases de datos de Azure
-La seguridad es un aspecto importante a la hora de administrar bases de datos, y siempre ha sido una prioridad para [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Las bases de datos pueden protegerse de forma estricta para ayudar a satisfacer la mayoría de los requisitos de seguridad o legales, como HIPAA, ISO 27001/27002 y PCI DSS nivel 1. En el [sitio del Centro de confianza de Microsoft](http://azure.microsoft.com/support/trust-center/services/) hay disponible una lista actualizada de certificaciones de cumplimiento de seguridad. También puede colocar las bases de datos en centros de datos de Azure específicos en función de los requisitos normativos.
+La seguridad es un aspecto importante a la hora de administrar bases de datos, y siempre ha sido una prioridad para [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Las bases de datos pueden protegerse de forma estricta para ayudar a satisfacer la mayoría de los requisitos de seguridad o legales, como HIPAA, ISO 27001/27002 y PCI DSS nivel 1. En el [sitio del Centro de confianza de Microsoft](https://azure.microsoft.com/support/trust-center/services/) hay disponible una lista actualizada de certificaciones de cumplimiento de seguridad. También puede colocar las bases de datos en centros de datos de Azure específicos en función de los requisitos normativos.
 
 En este artículo se explica un conjunto de procedimientos recomendados de seguridad de las bases de datos de Azure. Estos procedimientos recomendados se derivan de nuestra experiencia con la seguridad de las bases de datos de Azure, y de las experiencias de clientes como usted.
 
@@ -72,22 +72,18 @@ Entre las ventajas se incluyen las siguientes:
 
 > [!NOTE]
 > La autenticación de SQL Server no puede usar el protocolo de seguridad Kerberos.
->
->
 
 Si usa autenticación de SQL Server, debe:
 
 - Administrar las credenciales seguras usted mismo.
 - Proteger las credenciales en la cadena de conexión.
-- Proteger (potencialmente) las credenciales transmitidas a través de la red desde el servidor web a la base de datos. Para obtener más información, vea [Conectar con SQL Server mediante Autenticación de SQL en ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
+- Proteger (potencialmente) las credenciales transmitidas a través de la red desde el servidor web a la base de datos. Para obtener más información, vea [Conectar con SQL Server mediante Autenticación de SQL en ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticación de Azure Active Directory (AD)*
 La autenticación de Azure AD es un mecanismo de conexión a Azure SQL Database y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure AD. Con la autenticación de Azure AD, puede administrar las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece una ubicación única para administrar usuarios de base de datos y simplifica la administración de permisos.
 
 > [!NOTE]
 > Se recomienda el uso de la autenticación de Azure AD por encima de la autenticación de SQL Server.
->
->
 
 Entre las ventajas se incluyen las siguientes:
 
@@ -112,12 +108,12 @@ En los pasos de configuración se incluyen los siguientes procedimientos para co
 
 Puede encontrar información detallada en [Uso de la autenticación de Azure Active Directory para autenticación con SQL Database, Instancia administrada o SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
-## <a name="protect-your-data-by-using-encryption"></a>Protección de los datos con cifrado
-El [cifrado de datos transparente de Azure SQL Database](https://msdn.microsoft.com/library/dn948096.aspx) ayuda a proteger los datos en disco y protege frente a accesos no autorizados al hardware. También realiza cifrado y descifrado de la base de datos en tiempo real, copias de seguridad asociadas y archivos de registro de transacciones en reposo sin necesidad de efectuar cambios en la aplicación. El cifrado de datos transparente se encarga de cifrar el almacenamiento de toda una base de datos mediante una clave simétrica denominada clave de cifrado de base de datos.
+## <a name="protect-your-data-by-using-encryption-and-row-level-security"></a>Protección de los datos con cifrado y seguridad de nivel de fila
+El [cifrado de datos transparente de Azure SQL Database](../sql-database/transparent-data-encryption-azure-sql.md) ayuda a proteger los datos en disco y protege frente a accesos no autorizados al hardware. También realiza cifrado y descifrado de la base de datos en tiempo real, copias de seguridad asociadas y archivos de registro de transacciones en reposo sin necesidad de efectuar cambios en la aplicación. El cifrado de datos transparente se encarga de cifrar el almacenamiento de toda una base de datos mediante una clave simétrica denominada clave de cifrado de base de datos.
 
 Incluso cuando se cifra el almacenamiento completo, es importante cifrar también la base de datos. Se trata de una implementación del enfoque defensivo en profundidad para la protección de los datos. Si usa Azure SQL Database y quiere proteger datos confidenciales (como números de tarjetas de crédito o de la seguridad social), puede cifrar las bases de datos con el cifrado AES de 256 bits validado por FIPS 140-2. Este cifrado cumple los requisitos de muchos estándares del sector (por ejemplo, HIPAA y PCI).
 
-Los archivos relacionados con la [extensión del grupo de búferes (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) no se cifran cuando se cifra una base de datos mediante cifrado de datos transparente. Debe usar herramientas de cifrado de nivel de sistema de archivos como [BitLocker](https://technet.microsoft.com/library/cc732774) o el [Sistema de cifrado de archivos (EFS)]() para los archivos relacionados con la BPE.
+Los archivos relacionados con la [extensión del grupo de búferes (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) no se cifran cuando se cifra una base de datos mediante cifrado de datos transparente. Debe usar herramientas de cifrado de nivel de sistema de archivos como [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) o el [Sistema de cifrado de archivos (EFS)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749610(v%3dws.10)) para los archivos relacionados con la BPE.
 
 Dado que un usuario autorizado, como un administrador de seguridad o de base de datos, puede acceder a los datos aun cuando la base de datos esté cifrada con cifrado de datos transparente, también se deben seguir estas recomendaciones:
 
@@ -126,11 +122,11 @@ Dado que un usuario autorizado, como un administrador de seguridad o de base de 
 - Asegúrese de que los usuarios y las aplicaciones usen cuentas independientes para autenticarse. De este modo, puede limitar los permisos concedidos a usuarios y aplicaciones y reducir el riesgo de actividad malintencionada.
 - Implemente seguridad de nivel de base de datos mediante roles fijos de base de datos (como db_datareader o db_datawriter). También puede crear roles personalizados para la aplicación a fin de conceder permisos explícitos a objetos de base de datos seleccionados.
 
-Si desea conocer otras formas de cifrar datos, considere:
+Si desea conocer otras formas de proteger los datos, considere:
 
-- [Cifrado de nivel de celda](https://msdn.microsoft.com/library/ms179331.aspx) para cifrar columnas concretas, o incluso celdas de datos, con distintas claves de cifrado.
-- [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx), que permite a los clientes cifrar información confidencial dentro de aplicaciones cliente y no revelar las claves de cifrado al motor de base de datos (SQL Database o SQL Server). En consecuencia, Always Encrypted proporciona una separación entre quienes poseen los datos (y pueden verlos) y quienes administran los datos (pero no deben tener acceso a los mismos).
-- [Seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131), que permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta. (Por ejemplo, la pertenencia a un grupo y el contexto de ejecución).
+- [Cifrado de nivel de celda](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) para cifrar columnas concretas, o incluso celdas de datos, con distintas claves de cifrado.
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), que permite a los clientes cifrar información confidencial dentro de aplicaciones cliente y no revelar las claves de cifrado al motor de base de datos (SQL Database o SQL Server). En consecuencia, Always Encrypted proporciona una separación entre quienes poseen los datos (y pueden verlos) y quienes administran los datos (pero no deben tener acceso a los mismos).
+- [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security), que permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta. (Por ejemplo, la pertenencia a un grupo y el contexto de ejecución).
 
 Las organizaciones que no usan el cifrado de nivel de base de datos pueden ser más susceptibles a ataques que ponen en peligro los datos ubicados en bases de datos SQL.
 
@@ -179,6 +175,6 @@ Además, la detección de amenazas integra las alertas con Azure Security Center
 ## <a name="next-steps"></a>Pasos siguientes
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.
 
-Los siguientes recursos proporcionan más información general sobre la seguridad de Azure y los servicios de Microsoft relacionados:
-* [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/): para obtener información actualizada sobre lo último en seguridad de Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): aquí puede notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o mediante correo electrónico a secure@microsoft.com
+En los siguientes recursos se ofrece más información general sobre la seguridad de Azure y los servicios de Microsoft relacionados:
+* [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/): ofrece información actualizada sobre lo último en seguridad de Azure
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): aquí podrá notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a secure@microsoft.com.

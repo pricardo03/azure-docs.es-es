@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341130"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280170"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -66,7 +66,7 @@ Ahora, al realizarse la llamada `GET /api/stock/value` a un servicio externo, de
 
 ## <a name="correlation-headers"></a>Encabezados de correlación
 
-Estamos trabajando en una propuesta de RFC para el [protocolo HTTP de correlación](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Esta propuesta define dos encabezados:
+Estamos trabajando en una propuesta de RFC para el [protocolo HTTP de correlación](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Esta propuesta define dos encabezados:
 
 - `Request-Id`: lleva el id. único a nivel global de la llamada
 - `Correlation-Context`: lleva la colección de pares nombre-valor de las propiedades de seguimiento distribuidas
@@ -77,7 +77,7 @@ Application Insights define la [extensión](https://github.com/lmolkova/correlat
 
 ### <a name="w3c-distributed-tracing"></a>Seguimiento distribuido de W3C
 
-Estamos realizando una transición al (formato de seguimiento distribuido de W3C) [https://w3c.github.io/distributed-tracing/report-trace-context.html]. Define:
+Estamos realizando una transición al [formato de seguimiento distribuido de W3C](https://w3c.github.io/trace-context/). Define:
 - `traceparent`: lleva el identificador único global de la operación y un identificador único de la llamada.
 - `tracestate`: lleva contexto específico del sistema de seguimiento.
 
@@ -156,7 +156,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-La [clase de contexto del dispositivo](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (este es el único elemento de telemetría etiquetado)
+La [clase de contexto del dispositivo](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (este es el único elemento de telemetría etiquetado)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```

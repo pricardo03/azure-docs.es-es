@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 10/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 45f5dc840f015793912e314ab3d47e54a409708e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 177deb779ca3e3e9575a41ab9a37bb51d5e79df8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126673"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008086"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Protección del servicio SQL de Azure en Azure Security Center
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios.  Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, redes, SQL y datos y aplicaciones.
@@ -49,12 +49,26 @@ Al hacer clic en la base de datos para abordar esta recomendación, se abre la h
 
 Para habilitar la auditoría, seleccione **Activar** en la opción **Auditoría**.
 
-## <a name="available-sql-service-and-data-recommendations"></a>Recomendaciones de datos y servicio SQL disponibles
-| Recomendación | DESCRIPCIÓN |
-| --- | --- |
-| [Habilitar la auditoría y la detección de amenazas en los servidores SQL Server](security-center-enable-auditing-on-sql-servers.md) |Recomienda activar la auditoría y la detección de amenazas para los servidores de Azure SQL (solo en el servicio Azure SQL; no incluye la instancia SQL que se ejecuta en sus máquinas virtuales). |
-| [Habilitación de la auditoría y la detección de amenazas en bases de datos SQL](security-center-enable-auditing-on-sql-databases.md) |Recomienda activar la auditoría y la detección de amenazas para las bases de datos de Azure SQL (solo en el servicio Azure SQL; no incluye la instancia SQL que se ejecuta en sus máquinas virtuales). |
-| [Habilitar Cifrado de datos transparente en bases de datos SQL](security-center-enable-transparent-data-encryption.md) |Recomienda habilitar el cifrado de bases de datos SQL (solo el servicio SQL de Azure). |
+## <a name="data-and-storage-recommendations"></a>Recomendaciones de disco y almacenamiento
+
+|Tipo de recurso|Puntuación segura|Recomendación|DESCRIPCIÓN|
+|----|----|----|----|
+|Cuenta de almacenamiento|20|Exigir la transferencia segura a la cuenta de almacenamiento|La transferencia segura es una opción que obliga a la cuenta de almacenamiento a aceptar solamente solicitudes de conexiones seguras (HTTPS). El uso de HTTPS garantiza la autenticación entre el servidor y el servicio, y protege los datos en tránsito de ataques de nivel de red, como "man in-the-middle", interceptación y secuestro de sesión.|
+|Redis|20|Habilitar solo conexiones seguras a Redis Cache|Habilite solo las conexiones a Redis Cache que pasan por SSL. El uso de conexiones seguras garantiza la autenticación entre el servidor y el servicio, y protege los datos en tránsito de ataques de nivel de red, como "man in-the-middle", interceptación y secuestro de sesión.|
+|SQL|15|Habilitar el cifrado de datos transparente en bases de datos SQL|Habilite el cifrado de datos transparente para proteger los datos en reposo y satisfacer los requisitos de cumplimiento.|
+|SQL|15|Habilitación de la auditoría en servidores SQL|Habilite la auditoría de servidores SQL de Azure. (solo el servicio SQL de Azure. No incluye los servidores SQL que se ejecutan en las máquinas virtuales).|
+|SQL|15|Habilitación de la auditoría en bases de datos SQL|Habilite la auditoría de bases de datos SQL de Azure. (solo el servicio SQL de Azure. No incluye los servidores SQL que se ejecutan en las máquinas virtuales).|
+|Data Lake Analytics|15|Habilitar el cifrado en reposo de Data Lake Analytics|Habilite el cifrado de datos transparente proteger los datos en reposo en Data Lake Analytics. El cifrado en reposo es transparente, lo que significa que Data Lake Analytics cifra automáticamente los datos antes de guardarlos y descifra los datos antes de recuperarlos. No se requiere ningún cambio en las aplicaciones y los servicios que interactúan con Data Lake Analytics a causa del cifrado. El cifrado en reposo minimiza el riesgo de pérdida de datos derivada del robo físico y también ayuda a cumplir los requisitos de cumplimiento normativo.|
+|Data Lake Store|15|Habilitar el cifrado en reposo para Data Lake Store|Habilite el cifrado de datos transparente para proteger los datos en reposo en Data Lake Store. El cifrado en reposo es transparente, lo que significa que Data Lake Store cifra automáticamente los datos antes de guardarlos y descifra los datos antes de recuperarlos. No tiene que realizar ningún cambio en las aplicaciones y los servicios que interactúan con Data Lake Store para permitir el cifrado. El cifrado en reposo minimiza el riesgo de pérdida de datos derivada del robo físico y también ayuda a cumplir los requisitos de cumplimiento normativo.|
+|Cuenta de almacenamiento|15|Habilitar el cifrado para la cuenta de Azure Storage|Habilite Azure Storage Service Encryption para los datos en reposo. El Cifrado de servicio de almacenamiento (SSE) funciona mediante el cifrado de los datos cuando se escriben en Azure Storage y el descifrado antes de la recuperación. SSE actualmente solo está disponible para Azure Blob service y puede usarse para blobs en bloques, blobs de página y blobs en anexos.|
+|Data Lake Analytics|5|Habilitar los registros de diagnósticos en Data Lake Analytics|Habilite los registros y consérvelos durante un período de hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|Data Lake Store|5|Habilitar los registros de diagnóstico de Azure Data Lake Store|Habilite los registros y consérvelos durante un período de hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|SQL|30|Corregir las vulnerabilidades en las bases de datos SQL|La evaluación de vulnerabilidades de SQL examina la base de datos en busca de vulnerabilidades de seguridad y expone las posibles desviaciones de los procedimientos recomendados, como errores de configuración, permisos excesivos y datos confidenciales sin protección. La corrección de las vulnerabilidades encontradas puede mejorar considerablemente el estado de seguridad de la base de datos.|
+|SQL|20|Aprovisionar un administrador de Azure AD para SQL Server|Aprovisione un administrador de Azure AD para SQL Server a fin de habilitar la autenticación de Azure AD. La autenticación de Azure AD permite la administración simplificada de permisos y la administración centralizada de identidades de usuarios de base de datos y otros servicios de Microsoft.|
+|Cuenta de almacenamiento|15|Deshabilitar el acceso de red no restringido a la cuenta de almacenamiento|Audite el acceso de red no restringido en la configuración de firewall de su cuenta de almacenamiento. Si se configuran reglas de red, solo las aplicaciones de redes permitidas pueden acceder a la cuenta de almacenamiento. Para permitir conexiones desde clientes específicos locales o de Internet, se puede conceder acceso al tráfico procedente de redes virtuales de Azure específicas o a intervalos de direcciones IP de Internet públicas.|
+|Cuenta de almacenamiento|1||Migrar las cuentas de almacenamiento a nuevos recursos de AzureRM|Use el nuevo Azure Resource Manager v2 para las cuentas de almacenamiento a fin de proporcionar mejoras de seguridad como las siguientes: mayor control de acceso (RBAC), mejor auditoría, gobierno e implementación basados en Resource Manager, acceso a identidades administradas, acceso a secretos de Key Vault, autenticación basada en Azure AD y compatibilidad con etiquetas y grupos de recursos para facilitar la administración de seguridad.|
+
+
 
 ## <a name="see-also"></a>Otras referencias
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:

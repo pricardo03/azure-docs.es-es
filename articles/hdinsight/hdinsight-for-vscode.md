@@ -10,16 +10,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 5cf3a18dc01ba5670e73aa93cb6c9aab2d5de660
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f8bd1f1181cbd592782ce1126d5d61b5f257ca08
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378626"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234755"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Uso de las Herramientas de Azure HDInsight para Visual Studio Code
 
-Obtenga información sobre cómo usar las Herramientas de Azure HDInsight para Visual Studio Code (VS Code) para crear y enviar trabajos por lotes de Hive, consultas interactivas de Hive y scripts de PySpark. Las Azure HDInsight Tools se pueden instalar en las plataformas compatibles con VS Code. Entre ellas se incluyen Windows, Linux y macOS. Encontrará los requisitos previos de cada plataforma.
+Obtenga información sobre cómo usar las Herramientas de Azure HDInsight para Visual Studio Code (VS Code) para crear y enviar trabajos por lotes de Apache Hive, consultas interactivas de Apache Hive y scripts de PySpark. Las Azure HDInsight Tools se pueden instalar en las plataformas compatibles con VS Code. Entre ellas se incluyen Windows, Linux y macOS. Encontrará los requisitos previos de cada plataforma.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -83,7 +83,7 @@ Antes de poder enviar scripts a clústeres de HDInsight desde VS Code, debe cone
 
         ![Instrucciones de inicio de sesión para otro entorno](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
-    Una vez establecida la conexión, el nombre de la cuenta de Azure se muestra en la barra de estado en la parte inferior izquierda de la ventana de VSCode. 
+    Una vez establecida la conexión, el nombre de la cuenta de Azure se muestra en la barra de estado en la parte inferior izquierda de la ventana de VSCode. 
 
     > [!NOTE]
     > Debido a un problema conocido de autenticación de Azure es preciso que abra un explorador en modo privado o incógnito. Si la cuenta de Azure tiene dos factores habilitados, se recomienda usar la autenticación de teléfono en lugar de la del PIN.
@@ -102,7 +102,7 @@ Antes de poder enviar scripts a clústeres de HDInsight desde VS Code, debe cone
 
 <h3 id="linkcluster">Para vincular un clúster</h3>
 
-Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com).
+Puede vincular un clúster normal mediante un nombre de usuario administrado de Apache Hive o vincular un clúster de Hadoop de seguridad de Enterprise Security Pack mediante un nombre de usuario de dominio (como user1@contoso.com).
 1. Para abrir la paleta de comandos, presione **CTRL+MAYÚS+P** y, después, escriba **HDInsight: Link a Cluster** (HDInsight: vincular un clúster).
 
    ![comando de clúster de vinculación](./media/hdinsight-for-vscode/link-cluster-command.png)
@@ -121,7 +121,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 4. También puede desvincular un clúster si escribe **HDInsight: Unlink a cluster** (HDInsight: desvincular un clúster) desde la paleta de comandos.
 
 
-### <a name="to-link-a-generic-livy-endpoint"></a>Para vincular un punto de conexión de Livy genérico
+### <a name="to-link-a-generic-apache-livy-endpoint"></a>Para vincular un punto de conexión de Apache Livy genérico
 
 1. Para abrir la paleta de comandos, presione **CTRL+MAYÚS+P** y, después, escriba **HDInsight: Link a Cluster** (HDInsight: vincular un clúster).
 2. Seleccione **Generic Livy Endpoint** (Punto de conexión de Livy genérico).
@@ -142,7 +142,7 @@ Para probar la conexión, puede enumerar los clústeres de HDInsight:
 
 2. Haga clic con el botón derecho en el editor de scripts y, después, seleccione **HDInsight: List Cluster** (HDInsight: enumerar clústeres) en el menú contextual. 
 
-3. Los clústeres de Hive y Spark aparecen en el panel **Salida**.
+3. Los clústeres de HDInsight aparecen en el panel **Salida**.
 
     ![Establecer la configuración de un clúster predeterminado](./media/hdinsight-for-vscode/list-cluster-result.png)
 
@@ -160,7 +160,7 @@ Para probar la conexión, puede enumerar los clústeres de HDInsight:
 
 2. Escriba **HDInsight: establecer el entorno Azure**.
 
-3. Seleccione una forma de Azure y AzureChina como entrada de inicio de sesión predeterminada.
+3. Seleccione un entorno, como "Azure" o "AzureChina", como la entrada de registro predeterminada.
 
 4. Mientras tanto, la herramienta ya ha guardado la entrada de inicio de sesión predeterminada en **.VSCode\settings.json**. También puede actualizarlo directamente en este archivo de configuración. 
 
@@ -181,7 +181,7 @@ Con Herramientas de HDInsight para VS Code, puede enviar consultas de Hive inter
     ```
 4. Haga clic con el botón derecho en el editor de scripts, seleccione **HDInsight: Hive Interactive** (HDInsight: Hive interactivo) para enviar la consulta, o bien use el método abreviado de teclado **Ctrl + Alt + I**. Seleccione **HDInsight: Hive Batch** (HDInsight: lote de Hive) para enviar el script, o bien use el método abreviado de teclado **Ctrl + Alt + H**. 
 
-5. Seleccione el clúster cuando sea necesario. Las herramientas también permiten enviar un bloque de código, en lugar del archivo de script completo mediante el menú contextual. Poco después, los resultados de la consulta aparecen en una pestaña nueva.
+5. Seleccione el clúster si no ha especificado un clúster predeterminado. Las herramientas también permiten enviar un bloque de código, en lugar del archivo de script completo mediante el menú contextual. Transcurridos unos instantes, los resultados de la consulta aparecen en una pestaña nueva.
 
    ![Resultado de Hive interactivo](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -191,7 +191,7 @@ Con Herramientas de HDInsight para VS Code, puede enviar consultas de Hive inter
 
 ## <a name="submit-interactive-pyspark-queries"></a>Envíe consultas de PySpark interactivas
 
-### <a name="to-submit-interactive-pyspark-queries-to-spark-clusters"></a>Para enviar consultas de PySpark interactivas a clústeres de Spark.
+### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>Para enviar consultas de PySpark interactivas a clústeres de HDInsight Spark.
 
 1. Cree una carpeta de trabajo y un archivo de script con la extensión .py si no los tiene aún.
 
@@ -211,7 +211,7 @@ Con Herramientas de HDInsight para VS Code, puede enviar consultas de Hive inter
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Resalte estos scripts. Después, haga clic con el botón derecho en el editor de scripts y seleccione **HDInsight: PySpark Interactive** (HDInsight: PySpark interactivo), o bien use el método abreviado de teclado **Ctrl + Alt + I**.
+4. Resalte este script. Después, haga clic con el botón derecho en el editor de scripts y seleccione **HDInsight: PySpark Interactive** (HDInsight: PySpark interactivo), o bien use el método abreviado de teclado **Ctrl + Alt + I**.
 
 5. Si aún no ha instalado la extensión **Python** en VS Code, haga clic en el botón **Instalar**, como se muestra en la siguiente ilustración:
 

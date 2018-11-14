@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: f25434814a7fb3d0f49cab539b394970c9bcfb3b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023447"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260013"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Inicio rápido: Cómo familiarizarse con Content Moderator
 
@@ -26,7 +26,7 @@ En este tutorial, usará la herramienta de revisión en línea de Content Modera
 - Un explorador web
 
 ## <a name="set-up-the-review-tool"></a>Configuración de la herramienta de revisión
-La herramienta de revisión Content Moderator es una herramienta basada en web que permite a los usuarios revisores ayudar a tomar decisiones a la instancia de Cognitive Services. En esta guía, recorrerá el breve proceso de configuración de la herramienta de revisión para que pueda ver cómo funciona el servicio de Content Moderator. Vaya al sitio de la [herramienta de revisión de Content Moderator](http://contentmoderator.cognitive.microsoft.com/) y regístrese.
+La herramienta de revisión Content Moderator es una herramienta basada en web que permite a los usuarios revisores ayudar a tomar decisiones a la instancia de Cognitive Services. En esta guía, recorrerá el breve proceso de configuración de la herramienta de revisión para que pueda ver cómo funciona el servicio de Content Moderator. Vaya al sitio de la [herramienta de revisión de Content Moderator](https://contentmoderator.cognitive.microsoft.com/) y regístrese.
 
 ![Página principal de Content Moderator](images/homepage.PNG)
 
@@ -48,7 +48,7 @@ Envíe el contenido para moderación. Internamente, la herramienta de revisión 
 
 ## <a name="review-moderation-tags"></a>Revisión de las etiquetas de moderación
 
-Revise las etiquetas de moderación aplicadas. Puede ver qué etiquetas se aplicaron a su contenido y cuál fue la puntuación de cada categoría.
+Revise las etiquetas de moderación aplicadas. Puede ver qué etiquetas se aplicaron a su contenido y cuál fue la puntuación de cada categoría. Consulte los temas de moderación de [Imagen](image-moderation-api.md), [Texto](text-moderation-api.md) y [Vídeo](video-moderation-api.md) para obtener información sobre qué indican las diferentes etiquetas de contenido.
 
 ![Revisión de los resultados](images/reviewresults_text.png)
 
@@ -70,4 +70,4 @@ O bien continúe con los pasos siguientes para empezar a usar las API de moderac
 Obtenga información sobre cómo usar las API de moderación en su aplicación.
 - Implementación de la moderación de imágenes. Use la [consola de API](try-image-api.md) o use el [inicio rápido de C#](image-moderation-quickstart-dotnet.md) para examinar imágenes y detectar posible contenido explícito y para adultos mediante etiquetas, puntuaciones de confianza y otra información extraída.
 - Implementación de la moderación de texto. Use la [consola de API](try-text-api.md) o use el [inicio rápido de C#](text-moderation-quickstart-dotnet.md) para examinar el contenido de texto con el fin de buscar posibles palabras soeces, clasificación de texto no deseado asistida por máquina (versión preliminar) e información de identificación personal (DCP). 
-- Implementación de la moderación de vídeo. Use el [inicio rápido de C#](video-moderation-api.md) para examinar vídeos y detectar posible contenido explícito y para adultos. 
+- Implementación de la moderación de vídeo. Consulte la [guía de procedimientos de moderación en vídeo para C#](video-moderation-api.md) para buscar vídeos y detectar posible contenido para adultos y subido de tono. 

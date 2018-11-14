@@ -7,24 +7,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.author: maxluk
-ms.openlocfilehash: 434b3ecf65aaa5ecea81f5a9773f1bc6e8f6f2be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: arindamc
+ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092334"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255309"
 ---
 # <a name="monitor-cluster-performance"></a>Supervisión del rendimiento de un clúster
 
-La supervisión del mantenimiento y rendimiento de un clúster de HDInsight es esencial para mantener el máximo rendimiento y utilización de los recursos. La supervisión también puede ayudarle a solucionar posibles errores de codificación o de configuración de un clúster.
+La supervisión del mantenimiento y rendimiento de un clúster de HDInsight es esencial para mantener un rendimiento y una utilización óptimos de los recursos. La supervisión puede ayudarle también a detectar y solucionar problemas de código de usuario y de errores de configuración del clúster.
 
-En las secciones siguientes se describe cómo optimizar la carga de clústeres, la eficacia de la cola YARN y la accesibilidad del almacenamiento.
+En las secciones siguientes se describe cómo supervisar y optimizar la carga en los clústeres, las colas YARN y detectar problemas de limitación de almacenamiento.
 
-## <a name="cluster-loading"></a>Carga de clústeres
+## <a name="monitor-cluster-load"></a>Supervisión de la carga del clúster
 
-Los clústeres de Hadoop deben equilibrar la carga entre los nodos del clúster. Este equilibrio impide que la RAM, la CPU o los recursos de disco limiten las tareas de procesamiento.
+Los clústeres de Hadoop pueden ofrecer el rendimiento más óptimo cuando la carga del clúster se distribuye uniformemente entre todos los nodos. Esto permite que las tareas de procesamiento se ejecuten sin estar limitadas por la memoria RAM, la CPU o los recursos de disco en los nodos individuales.
 
 Para obtener una visión de alto nivel de los nodos de un clúster y su carga, inicie sesión en la [interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md) y seleccione la pestaña **Hosts**. Los hosts se enumeran por sus nombres de dominio completos. El estado de funcionamiento de cada host se muestra mediante un indicador de mantenimiento de color:
 
@@ -47,11 +47,11 @@ Para más información acerca del establecimiento de alertas y visualización de
 
 ## <a name="yarn-queue-configuration"></a>Configuración de la cola de YARN
 
-Hadoop tiene varios servicios que se ejecutan a través de su plataforma distribuida. YARN (del inglés Yet Another Resource Negotiator) coordina estos servicios, asigna recursos de los clústeres y administra el acceso a un conjunto de datos común.
+Hadoop tiene varios servicios que se ejecutan a través de su plataforma distribuida. YARN (Yet Another Resource Negotiator) coordina estos servicios y asigna los recursos de clúster para asegurarse de que las cargas se distribuyen uniformemente en el clúster.
 
 YARN divide las responsabilidades de JobTracker, la administración de recursos y la programación y supervisión de recursos, en dos demonios: ResourceManager global y ApplicationMaster (AM) por aplicación.
 
-ResourceManager es un *programador puro* y únicamente arbitra los recursos disponibles entre todas las aplicaciones que compiten por ellos. ResourceManager garantiza que todos los recursos están siempre en uso y se optimizan para varias constantes como SLA, garantías de capacidad, etc. ApplicationMaster negocia los recursos de ResourceManager y funciona con NodeManager para ejecutar y supervisar los contenedores y su consumo de recursos.
+Resource Manager es un *programador puro* y únicamente arbitra los recursos disponibles entre todas las aplicaciones que compiten por ellos. Resource Manager garantiza que todos los recursos están siempre en uso y se optimizan para varias constantes como SLA, garantías de capacidad, etc. ApplicationMaster negocia los recursos de Resource Manager y funciona con NodeManager para ejecutar y supervisar los contenedores y su consumo de recursos.
 
 Cuando varios inquilinos comparten un clúster grande, compiten por sus recursos. CapacityScheduler es un programador acoplable que sirve de ayuda al compartir recursos, ya que ponen las solicitudes en cola. CapacityScheduler también admite *colas jerárquicas* para asegurarse de que los recursos se comparten entre las subcolas de una organización, antes de que se permita a las colas de otras aplicaciones utilizar los recursos libres.
 
@@ -63,13 +63,13 @@ La página YARN Queue Manager (Administrador de colas de YARN) muestra una lista
 
 ![Página de detalles de YARN Queue Manager (Administrador de colas de YARN)](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Para obtener una visión más detallada de las colas, seleccione en el panel de Ambari el servicio **YARN** en la lista de la izquierda. Después, en el menú desplegable **Quick Links** (Vínculos rápidos), seleccione **ResourceManager UI** (Interfaz de usuario de ResourceManager) debajo del nodo activo.
+Para obtener una visión más detallada de las colas, seleccione en el panel de Ambari el servicio **YARN** en la lista de la izquierda. Después, en el menú desplegable **Vínculos rápidos**, seleccione **ResourceManager UI** (Interfaz de usuario de ResourceManager) debajo del nodo activo.
 
-![Vínculo del menú ResourceManager UI (Interfaz de usuario de ResourceManager)](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Vínculo del menú de la interfaz de usuario de Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-En ResourceManager UI (Interfaz de usuario de ResourceManager), seleccione **Scheduler** (Programador) en el menú de la izquierda. Se ve una lista de las colas debajo de *Application Queues* (Colas de aplicación). Aquí puede ver la capacidad que se usa para cada una de las colas, cómo se distribuyen los trabajos entre ellas y si alguno de los trabajos tiene los recursos restringidos.
+En la interfaz de usuario de Resource Manager, seleccione **Scheduler** (Programador) en el menú de la izquierda. Se ve una lista de las colas debajo de *Application Queues* (Colas de aplicación). Aquí puede ver la capacidad que se usa para cada una de las colas, cómo se distribuyen los trabajos entre ellas y si alguno de los trabajos tiene los recursos restringidos.
 
-![Vínculo del menú ResourceManager UI (Interfaz de usuario de ResourceManager)](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Vínculo del menú de la interfaz de usuario de Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Limitación del almacenamiento
 

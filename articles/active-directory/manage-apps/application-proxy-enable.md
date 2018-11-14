@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5227f756e807a30573733bd408144d869caac9ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366482"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034973"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Empezar a trabajar con el proxy de aplicación e instalar el conector
 En este artículo se explican los pasos para habilitar el proxy de aplicación de Microsoft Azure AD en el directorio en la nube de Azure AD.
@@ -33,6 +33,7 @@ Antes de poder habilitar y usar los servicios del proxy de la aplicación, debe 
 * Una [suscripción Basic o Premium a Microsoft Azure AD](../fundamentals/active-directory-whatis.md) y un directorio de Azure AD del que sea administrador global.
 * Un servidor en el que se ejecute Windows Server 2012 R2 o 2016 y en el que se pueda instalar el conector del proxy de aplicación. El servidor necesita tener la capacidad de conectarse a los servicios del proxy de aplicación en la nube y a las aplicaciones locales que va a publicar.
   * Para habilitar el inicio de sesión único en las aplicaciones publicadas mediante la delegación limitada de kerberos, esta máquina debe estar unida al mismo dominio de AD que las aplicaciones que va a publicar. Para obtener información, vea la información sobre [la delegación limitada de kerberos para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-with-kcd.md).
+* TLS 1.2 en ejecución en el sistema operativo subyacente. Para cambiar a TLS 1.2, siga los pasos indicados en [Habilitación de TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Mientras que el contenido es para Azure AD Connect, este procedimiento es el mismo para todos los clientes .NET.
 
 Si su organización usa servidores proxy para conectarse a Internet, lea [Trabajo con servidores proxy locales existentes](application-proxy-configure-connectors-with-proxy-servers.md) para más información sobre cómo configurarlos antes de comenzar a usar el proxy de aplicación.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6599d634ec1e13715bdd34b6e8ab6fbd9f4f3e61
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742920"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011500"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Versión preliminar: Implementación de la protección con contraseña de Azure AD
 
@@ -53,6 +53,13 @@ Una vez que la característica ha estado en ejecución en modo de auditoría dur
 * Todas las máquinas en las que haya componentes de protección con contraseña de Azure AD instalados, incluidos los controladores de dominio, deben tener instalado Universal C Runtime.
 Si es posible, esto se logra mediante la aplicación de revisiones completas a la máquina a través de Windows Update. De lo contrario, es posible que se instale un paquete de actualizaciones específico del sistema operativo: vea [Actualización para Universal C RunTime en Windows ](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows).
 * Debe existir conectividad de red entre al menos un controlador de dominio de cada dominio y un servidor que hospede el servicio de proxy de Protección con contraseña de Azure AD. Esta conectividad debe permitir que el controlador de dominio tenga acceso al puerto del asignador de puntos de conexión RPC (135) y al puerto del servidor RPC del servicio de proxy.  De forma predeterminada, el puerto del servidor RPC es un puerto RPC dinámico, pero se puede configurar (ver abajo) para utilizar un puerto estático.
+* Todas las máquinas que hospeda el servicio de proxy de protección de contraseña de Azure AD deben tener acceso de red a los puntos de conexión siguientes:
+
+    |Punto de conexión |Propósito|
+    | --- | --- |
+    |`https://login.microsoftonline.com`|Solicitudes de autenticación|
+    |`https://enterpriseregistration.windows.net`|Funcionalidad de protección de contraseña de Azure AD|
+
 * Una cuenta de administrador global para registrar el servicio de proxy de protección con contraseña de Azure AD y el bosque con Azure AD.
 * Una cuenta con privilegios de administrador de dominio de Active Directory en el dominio raíz del bosque para registrar el bosque de Windows Server Active Directory con Azure AD.
 * Todos los dominios de Active Directory que ejecuten el software del servicio de agente de controlador de dominio deben usar DFSR para la replicación de sysvol.

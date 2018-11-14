@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736978"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255734"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo conectar, en tanto que desarrollador de disp
 
 Necesitará lo siguiente para completar los pasos de este artículo:
 
-1. Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, consulte [Create your Azure IoT Central Application](howto-create-application.md) (Creación de una aplicación de Azure IoT Central).
+1. Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, vea la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
 1. Un dispositivo DevKit. Para adquirir un dispositivo DevKit, visite [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 
@@ -69,7 +69,7 @@ En su aplicación de Azure IoT Central, agregue un dispositivo real de la planti
 #### <a name="to-prepare-the-devkit-device"></a>Para preparar el dispositivo DevKit:
 
 
-1. Descargue el firmware de Azure IoT Central precompilado más reciente para MXChip desde la página [releases](http://aka.ms/iotcentral-docs-MXChip-releases) (versiones) en GitHub.
+1. Descargue el firmware de Azure IoT Central precompilado más reciente para MXChip desde la página [releases](https://aka.ms/iotcentral-docs-MXChip-releases) (versiones) en GitHub.
 1. Conecte el dispositivo DevKit en el equipo de desarrollo con un cable USB. En Windows, se abre una ventana del explorador de archivos en una unidad asignada al almacenamiento en el dispositivo DevKit. Por ejemplo, la unidad podría denominarse **AZ3166 (D:)**.
 1. Arrastre el archivo **iotCentral.bin** a la ventana de la unidad. Cuando se complete la operación de copia, el dispositivo se reinicia con el nuevo firmware.
 

@@ -1,157 +1,65 @@
 ---
-title: Claves únicas en Azure Cosmos DB | Microsoft Docs
-description: Obtenga información acerca de cómo usar las claves únicas en la base de datos de Azure Cosmos DB.
-services: cosmos-db
-keywords: restricción de clave única, infracción de restricción de clave única
-author: rafats
-manager: kfile
-editor: monicar
+title: Claves únicas en Azure Cosmos DB
+description: Obtenga información sobre cómo usar las claves únicas en la base de datos de Azure Cosmos DB.
+author: aliuy
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/08/2018
-ms.author: rafats
-ms.openlocfilehash: ff432de59e5a5fdfeaad4c3a5361554ee32e21b0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.date: 10/30/2018
+ms.author: andrl
+ms.openlocfilehash: 36b57fd98de206641422d80bf3ea3d2a3853f578
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740015"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252571"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Claves únicas en Azure Cosmos DB
 
-Las claves únicas proporcionan a los desarrolladores la capacidad de agregar una capa de integridad de datos a su base de datos. Al crear una directiva de clave única al crear un contenedor, se garantiza la unicidad de uno o más valores por [clave de partición](partition-data.md). Una vez creado un contenedor con una directiva de clave única, impide la creación de cualquier elemento nuevo o actualizado con valores que dupliquen los valores especificados por la restricción de clave única.   
+Las claves únicas proporcionan la capacidad de agregar una capa de integridad de datos a un contenedor de Cosmos. Cree una directiva de clave única al crear un contenedor de Cosmos. Con las claves únicas, se garantiza la exclusividad de uno o varios valores dentro de una partición lógica (puede garantizar la exclusividad con la [clave de partición](partition-data.md)). Una vez creado un contenedor con una directiva de clave única, impide la creación de cualquier elemento duplicado nuevo o actualizado dentro de una partición lógica, según especifique la restricción de clave única. La clave de partición combinada con la clave única garantiza la exclusividad de un elemento dentro del ámbito del contenedor.
 
-> [!NOTE]
-> Las claves únicas se admiten en las versiones más recientes de los SDK de SQL de [.NET](sql-api-sdk-dotnet.md) y [.NET Core](sql-api-sdk-dotnet-core.md) y de la [API de MongoDB](mongodb-feature-support.md#unique-indexes). Table API y Gremlin API no admiten claves únicas en este momento. 
-> 
->
+Por ejemplo, considere un contenedor de Cosmos con la dirección de correo electrónico como restricción de clave única y `CompanyID` como clave de partición. Mediante la configuración de una clave única con la dirección de correo electrónico del usuario, se asegura de que cada elemento tiene una dirección de correo electrónico única dentro de un ámbito `CompanyID` determinado. No se pueden crear dos elementos con direcciones de correo electrónico duplicadas y con el mismo valor de clave de partición.  
 
-## <a name="use-case"></a>Caso de uso
+Si desea proporcionar a los usuarios la capacidad de crear varios elementos con la misma dirección de correo electrónico, pero no con el mismo nombre, apellidos y dirección de correo electrónico, puede agregar otras rutas de acceso a la directiva de claves únicas. En lugar de crear una clave única basada en la dirección de correo electrónico, puede crear también una clave única con una combinación de nombre, apellido y correo electrónico (una clave única compuesta). En este caso, se permite cada combinación única de los tres valores dentro de un ámbito `CompanyID` determinado. Por ejemplo, el contenedor puede contener elementos con los valores siguientes, donde cada elemento respeta la restricción de clave única.
 
-Como ejemplo, veamos cómo una base de datos de usuario asociada a una [aplicación social](use-cases.md#web-and-mobile-applications) podría beneficiarse de tener una directiva de clave única en las direcciones de correo electrónico. Al hacer que la dirección de correo electrónico del usuario sea una clave única, se asegura de que cada registro tenga una dirección de correo electrónico única y que no se puedan crear nuevos registros con direcciones de correo electrónico duplicadas. 
+|CompanyID|Nombre|Apellidos|Dirección de correo electrónico|
+|---|---|---|---|
+|Contoso|Gaby|Duperre|gaby@contoso.com |
+|Contoso|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
+|Fabrikam|   |Duperre|gaby@fabraikam.com|
+|Fabrikam|   |   |gaby@fabraikam.com|
 
-Si desea que los usuarios puedan crear varios registros con la misma dirección de correo electrónico, pero no con el mismo nombre, apellidos y dirección de correo electrónico, puede añadir otras rutas de acceso a la directiva de claves únicas. Por lo tanto, en lugar de crear una clave única basada en una dirección de correo electrónico, puede crear una clave única que sea una combinación de nombre, apellido y correo electrónico. En este caso, se permite cada combinación única de las tres rutas de acceso, por lo que la base de datos podría contener elementos que tengan los siguientes valores de ruta de acceso. Cada uno de estos registros aprobaría la directiva de clave única.  
+Si ha intentado insertar otro elemento con cualquiera de las combinaciones enumeradas en la tabla anterior, podría recibir un error que indica que no se ha cumplido la restricción de clave única. Como resultado, recibirá un mensaje tipo "Ya existe un recurso con el id. o nombre especificado" o "Ya existe un recurso con el id., nombre o índice único especificado".  
 
-**Valores permitidos para la clave única de nombre, apellidos y correo electrónico**
+## <a name="defining-a-unique-key"></a>Definición de una clave única
 
-|Nombre|Apellidos|Dirección de correo electrónico|
-|---|---|---|
-|Gaby|Duperre|gaby@contoso.com |
-|Gaby|Duperre|gaby@fabrikam.com|
-|Ivan|Duperre|gaby@fabrikam.com|
-|    |Duperre|gaby@fabrikam.com|
-|    |       |gaby@fabraikam.com|
+Puede definir claves únicas solo cuando se crea un contenedor de Cosmos. Una clave única se limita a una partición lógica. En el ejemplo anterior, si crea particiones del contenedor según el código postal, al final tendrá elementos duplicados en cada partición lógica. Tenga en cuenta las siguientes propiedades al crear claves únicas:
 
-Si ha intentado insertar otro registro con cualquiera de las combinaciones enumeradas en la tabla anterior, podría recibir un error que indica que no se ha cumplido la restricción de clave única. El error que Azure Cosmos DB devolvió es "Ya existe un recurso con el id. o nombre especificado". O "Ya existe un recurso con el id., nombre o índice único especificado". 
+* No puede actualizar un contenedor existente para que use una clave única distinta. En otras palabras, una vez creado un contenedor con una directiva de clave única, la directiva no se puede cambiar.
 
-## <a name="using-unique-keys"></a>Uso de claves únicas
+* Si desea establecer una clave única para un contenedor existente, debe crear un contenedor con la restricción de clave única y usar la herramienta de migración de datos apropiada para mover los datos del contenedor existente al nuevo. Para los contenedores de SQL, use la [Herramienta de migración de datos](import-data.md) para mover los datos. Para los contenedores de MongoDB, utilice [mongoimport.exe o mongorestore.exe](mongodb-migrate.md) para mover los datos.
 
-Las claves únicas deben definirse cuando se crea el contenedor y la clave única se explora en la clave de partición. Para crear sobre el ejemplo anterior, si realiza una partición basada en el código postal, podría tener duplicados los registros de la tabla en cada partición.
+* Una directiva de clave única puede tener un máximo de dieciséis valores de ruta de acceso (por ejemplo /firstName, /lastName, /address/zipCode, etc.). Cada directiva de clave única puede tener un máximo de diez combinaciones o restricciones de clave única, y las rutas de acceso combinadas para cada restricción de índice único no deben exceder los 60 bytes. En el ejemplo anterior, el nombre, el apellido y la dirección de correo electrónico de forma conjunta constituyen solo una restricción, y utiliza tres de las dieciséis posibles rutas de acceso.
 
-No puede actualizar un contenedor existente para que use claves únicas.
+* Cuando un contenedor tiene una directiva de clave única, los cargos de unidad de solicitud para crear, actualizar y eliminar un elemento son ligeramente superiores.
 
-Cuando se crea un contenedor con una directiva de clave única, esta directiva no se puede cambiar a menos que se vuelva a crear el contenedor. Si tiene datos existentes sobre los que desea implementar claves únicas, cree el nuevo contenedor y utilice después la herramienta de migración de datos apropiada para mover los datos al nuevo contenedor. Para los contenedores de SQL, use la [Herramienta de migración de datos](import-data.md). Para los contenedores de MongoDB, utilice [mongoimport.exe o mongorestore.exe](mongodb-migrate.md).
+* No se admiten las claves únicas dispersas. Si faltan algunos valores de ruta de acceso única, se tratan como valores NULL, que participan en la restricción de exclusividad. Por lo tanto, solo puede haber un único elemento con un valor NULL para cumplir esta restricción.
 
-En cada clave única se puede incluir un máximo de 16 valores de ruta de acceso (por ejemplo /firstName, /lastName, /address/zipCode, etc.). 
+* Los nombres de clave única distinguen mayúsculas de minúsculas. Por ejemplo, considere un contenedor con la restricción de clave única establecida en /address/zipcode. Si los datos tienen un campo denominado ZipCode, Cosmos DB inserta "null" como clave única porque "código postal" no es lo mismo que "Código Postal". Debido a esta distinción entre mayúsculas y minúsculas, todos los demás registros con Código Postal no se podrán insertar porque un valor "null" duplicado infringirá la restricción de clave única.
 
-Cada directiva de clave única puede tener un máximo de 10 combinaciones o restricciones de clave única, y las rutas de acceso combinadas para todas las propiedades de índice únicas no deben superar los 60 caracteres. Por lo tanto, el ejemplo anterior que usa el nombre, el apellido y la dirección de correo electrónico es solo una restricción, y utiliza tres de las 16 posibles rutas de acceso disponibles. 
+## <a name="supported-apis-and-sdks"></a>SDK y API compatibles
 
-Los cargos por unidad de solicitud para crear, actualizar y eliminar un elemento son ligeramente superiores cuando hay una directiva de clave única en el contenedor. 
+La característica de claves únicas actualmente es compatible con los siguientes SDK de cliente y API de Cosmos DB: 
 
-No se admiten las claves únicas dispersas. Si faltan valores para algunas rutas de acceso únicas, se tratan como un valor nulo especial, que participa en la restricción de unicidad.
-
-## <a name="sql-api-sample"></a>Ejemplo de API de SQL
-
-En el ejemplo de código siguiente se muestra cómo crear un nuevo contenedor de SQL con dos restricciones de clave única. La primera restricción es la del nombre, apellido y correo electrónico descrita en el ejemplo anterior. La segunda restricción es la dirección y el código postal de los usuarios. Un archivo JSON de ejemplo que utiliza las rutas de acceso en esta directiva de clave única sigue el ejemplo de código. 
-
-```csharp
-// Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,
-// and /email, and another for /address/zipCode.
-private static async Task CreateCollectionIfNotExistsAsync(string dataBase, string collection)
-{
-    try
-    {
-        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(dataBase, collection));
-    }
-    catch (DocumentClientException e)
-    {
-        if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-        {
-            DocumentCollection myCollection = new DocumentCollection();
-            myCollection.Id = collection;
-            myCollection.PartitionKey.Paths.Add("/pk");
-            myCollection.UniqueKeyPolicy = new UniqueKeyPolicy
-            {
-                UniqueKeys =
-                new Collection<UniqueKey>
-                {
-                    new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipcode" } },
-          }
-            };
-            await client.CreateDocumentCollectionAsync(
-                UriFactory.CreateDatabaseUri(dataBase),
-                myCollection,
-                new RequestOptions { OfferThroughput = 2500 });
-        }
-        else
-        {
-            throw;
-        }
-    }
-```
-
-Documento JSON de ejemplo.
-
-```json
-{
-    "id": "1",
-    "pk": "1234",
-    "firstName": "Gaby",
-    "lastName": "Duperre",
-    "email": "gaby@contoso.com",
-    "address": 
-        {            
-            "line1": "100 Some Street",
-            "line2": "Unit 1",
-            "city": "Seattle",
-            "state": "WA",
-            "zipcode": 98012
-        }
-    
-}
-```
-> [!NOTE]
-> Observe que el nombre de clave único distingue mayúsculas de minúsculas. Como se muestra en el ejemplo anterior, el nombre único está establecido para /dirección/código postal. Si los datos tendrán Código Postal, insertará "null" en la clave única porque código postal no es lo mismo que Código Postal. Debido a esta distinción entre mayúsculas y minúsculas, todos los demás registros con Código Postal no se podrán insertar porque un valor "null" duplicado infringirá la restricción de clave única.
-
-## <a name="mongodb-api-sample"></a>Ejemplo de API de MongoDB
-
-El ejemplo de comando siguiente muestra cómo crear un índice único en los campos de nombre, apellido y correo electrónico de la colección de usuarios para la API de MongoDB. Esto garantiza la unicidad de una combinación de los tres campos en todos los documentos de la colección. Para las colecciones de la API de MongoDB, se crea el índice único después de crear la colección, pero antes de rellenarla.
-
-> [!NOTE]
-> El formato de clave único para las cuentas de la API de MongoDB es diferente de las cuentas de la API de SQL, donde no tiene que especificar el carácter de barra diagonal (/) delante del nombre del campo. 
-
-```
-db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
-```
-## <a name="configure-unique-keys-by-using-azure-portal"></a>Configuración de claves únicas mediante Azure Portal
-
-En las secciones anteriores encontrará ejemplos de código que mostrarán cómo puede definir restricciones de clave única cuando se crea una colección mediante la API de MongoDB o la API de SQL. También es posible definir claves únicas cuando se crea una colección a través de la interfaz de usuario web en Azure Portal. 
-
-- Vaya al **Explorador de datos** de la cuenta de Cosmos DB
-- Haga clic en **Nueva colección**
-- En la sección Claves únicas, puede agregar las restricciones de clave única que desea si hace clic en **Add unique key** (Agregar clave única)
-
-![Definición de claves únicas en el Explorador de datos](./media/unique-keys/unique-keys-azure-portal.png)
-
-- Si quiere crear una restricción de clave única en la ruta de acceso lastName, agregue `/lastName`.
-- Si quiere crear una restricción de clave única para la combinación lastName firstName, agregue `/lastName,/firstName`
-
-Cuando termine, haga clic en **Aceptar** para crear la colección.
+|Controladores cliente|API DE SQL|Cassandra API|MongoDB API|API de Gremlin|Table API|
+|---|---|---|---|---|---|
+|.NET|SÍ|Sin |Sí|No|Sin |
+|Java|SÍ|Sin |Sí|No|Sin |
+|Python|SÍ|Sin |Sí|No|Sin |
+|Node/JS|SÍ|Sin |Sí|No|Sin |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a crear claves únicas para los elementos de una base de datos. Si está creando un contenedor por primera vez, consulte [Partición y escalado en Azure Cosmos DB](partition-data.md) pues las claves únicas y las claves de partición dependen unas de otras. 
-
-
+* Más información sobre las [particiones lógicas](partition-data.md)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 38a8cd35d123f58d6379ade4d900e86b36b416ec
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: cca9307fd849f6b8537cf7484d2e56e1a710295b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240144"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257197"
 ---
 # <a name="azure-stack-1809-update"></a>Actualización de Azure Stack 1809
 
@@ -39,7 +39,7 @@ El número de compilación de la actualización 1809 de Azure Stack es **1.1809.
 
 Esta actualización incluye las siguientes correcciones para Azure Stack:
 
-- Con esta versión, Sistemas integrados de Azure Stack admite configuraciones de entre 4 y 16 nodos. Puede usar la [herramienta de planeamiento de capacidad de Azure Stack](http://aka.ms/azstackcapacityplanner) para facilitar la configuración y planeación de Azure Stack.
+- Con esta versión, Sistemas integrados de Azure Stack admite configuraciones de entre 4 y 16 nodos. Puede usar la [herramienta de planeamiento de capacidad de Azure Stack](https://aka.ms/azstackcapacityplanner) para facilitar la configuración y planeación de Azure Stack.
 
 - <!--  2712869   | IS  ASDK -->  **Cliente de Syslog de Azure Stack (disponibilidad general)**  Este cliente permite el reenvío de auditorías, alertas y registros de seguridad relacionados con la infraestructura de Azure Stack a un servidor de Syslog o a un software de información de seguridad y administración de eventos (SIEM) que es externo a Azure Stack. El cliente de Syslog ahora permite especificar el puerto en el que escucha el servidor de Syslog.
 
@@ -154,7 +154,8 @@ Para obtener más información acerca de estos puntos vulnerables, haga clic en 
 
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
 
-*No hay ningún paso posterior para la actualización 1809.*
+> [!Important]  
+> Prepare la implementación de Azure Stack para el host de extensiones que se habilita en la siguiente actualización. Prepare el sistema mediante la guía siguiente: [Preparación de un host de extensiones de Azure Stack](azure-stack-extension-host-prepare.md).
 
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - [Link to KB]()  

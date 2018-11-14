@@ -2,16 +2,16 @@
 title: Introducción al firewall de aplicaciones web (WAF) de Azure Application Gateway
 description: Este artículo proporciona una introducción al firewall de aplicaciones web (WAF) de Application Gateway.
 services: application-gateway
-author: amsriva
+author: vhorne
 ms.service: application-gateway
-ms.date: 10/11/2018
+ms.date: 11/7/2018
 ms.author: amsriva
-ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068458"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219535"
 ---
 # <a name="web-application-firewall-waf"></a>Firewall de aplicaciones web (WAF)
 
@@ -39,7 +39,7 @@ Estas son las principales ventajas proporcionadas por Application Gateway y el f
 
 * Supervise la aplicación web frente a ataques mediante un registro de WAF en tiempo real. Este registro se integra con [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) para realizar un seguimiento de los registros y alertas de WAF y permite supervisar con facilidad las tendencias.
 
-* WAF se integrará con Azure Security Center pronto. Azure Security Center permite obtener una visión central del estado de la seguridad de todos sus recursos en Azure.
+* WAF se integra con Azure Security Center. Azure Security Center permite obtener una visión central del estado de la seguridad de todos sus recursos en Azure.
 
 ### <a name="customization"></a>Personalización
 
@@ -47,12 +47,12 @@ Estas son las principales ventajas proporcionadas por Application Gateway y el f
 
 ## <a name="features"></a>Características
 
-- Protección contra la inyección de código SQL
-- Protección contra scripts entre sitios
-- Protección contra ataques web comunes, como inyección de comandos, contrabando de solicitudes HTTP, división de respuestas HTTP y ataque remoto de inclusión de archivos
-- Protección contra infracciones del protocolo HTTP
-- Protección contra anomalías del protocolo HTTP, como la falta de agentes de usuario de host y encabezados de aceptación
-- Prevención contra bots, rastreadores y escáneres
+- Protección contra la inyección de código SQL.
+- Protección contra scripts entre sitios.
+- Protección contra ataques web comunes, como inyección de comandos, contrabando de solicitudes HTTP, división de respuestas HTTP y ataque remoto de inclusión de archivos.
+- Protección contra infracciones del protocolo HTTP.
+- Protección contra anomalías del protocolo HTTP, como la falta de agentes de usuario de host y encabezados de aceptación.
+- Prevención contra bots, rastreadores y escáneres.
 - Detección de errores de configuración comunes en aplicaciones (es decir, Apache, IIS, etc.)
 
 ### <a name="public-preview-features"></a>Características de la versión preliminar pública
@@ -74,12 +74,12 @@ Application Gateway admite dos conjuntos de reglas: CRS 3.0 y CRS 2.2.9. Estos c
 
 El firewall de aplicaciones web viene preconfigurado con CRS 3.0 de forma predeterminada, aunque también puede usar la versión 2.2.9. CRS 3.0 permite reducir el número de falsos positivos con respecto a la versión 2.2.9. Se ofrece la posibilidad de [personalizar reglas para adaptarse a sus necesidades](application-gateway-customize-waf-rules-portal.md). Entre las vulnerabilidades web más habituales frente a las que protege el firewall de aplicaciones web se incluyen:
 
-- Protección contra la inyección de código SQL
-- Protección contra scripts entre sitios
-- Protección contra ataques web comunes, como inyección de comandos, contrabando de solicitudes HTTP, división de respuestas HTTP y ataque remoto de inclusión de archivos
-- Protección contra infracciones del protocolo HTTP
-- Protección contra anomalías del protocolo HTTP, como la falta de agentes de usuario de host y encabezados de aceptación
-- Prevención contra bots, rastreadores y escáneres
+- Protección contra la inyección de código SQL.
+- Protección contra scripts entre sitios.
+- Protección contra ataques web comunes, como inyección de comandos, contrabando de solicitudes HTTP, división de respuestas HTTP y ataque remoto de inclusión de archivos.
+- Protección contra infracciones del protocolo HTTP.
+- Protección contra anomalías del protocolo HTTP, como la falta de agentes de usuario de host y encabezados de aceptación.
+- Prevención contra bots, rastreadores y escáneres.
 - Detección de errores de configuración comunes (es decir, Apache, IIS, etc.)
 
 Para ver una lista más detallada de las reglas y sus mecanismos de protección, consulte el siguiente apartado sobre [conjuntos de reglas principales](#core-rule-sets).

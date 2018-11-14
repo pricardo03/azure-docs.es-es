@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0b40b8018715e6b680f42676dfaead0ac6e5bf7a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429072"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279150"
 ---
 # <a name="azure-stack-1808-update"></a>Actualización de Azure Stack 1808
 
@@ -64,7 +64,7 @@ Esta actualización incluye las siguientes correcciones para Azure Stack.
 - **Elemento de Marketplace de Kubernetes**. Ahora puede implementar clústeres de Kubernetes con el [Elemento de Marketplace de Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md). Los usuarios pueden seleccionar el elemento de Kubernetes y rellenar varios parámetros para implementar un clúster de Kubernetes en Azure Stack. El propósito de las plantillas es facilitar a los usuarios la configuración de implementaciones de Kubernetes de desarrollo y pruebas en unos pocos pasos.
 
 <!-- | IS ASDK--> 
-- **Plantillas de cadena de bloques**. Ahora puede ejecutar [las implementaciones del consorcio Ethereum](azure-stack-ethereum.md) en Azure Stack. Puede encontrar tres nuevas plantillas en las [plantillas de inicio rápido de Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates). Permiten al usuario implementar y configurar una red del consorcio Ethereum de varios miembros con conocimientos mínimos de Azure y Ethereum. El propósito de las plantillas es facilitar a los usuarios la configuración de implementaciones de cadena de bloques de desarrollo y pruebas en unos pocos pasos.
+- **Plantillas de cadena de bloques**. Ahora puede ejecutar [las implementaciones del consorcio Ethereum](user/azure-stack-ethereum.md) en Azure Stack. Puede encontrar tres nuevas plantillas en las [plantillas de inicio rápido de Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates). Permiten al usuario implementar y configurar una red del consorcio Ethereum de varios miembros con conocimientos mínimos de Azure y Ethereum. El propósito de las plantillas es facilitar a los usuarios la configuración de implementaciones de cadena de bloques de desarrollo y pruebas en unos pocos pasos.
 
 <!-- | IS ASDK--> 
 - **El perfil de versión de API 2017-03-09-profile se ha actualizado a 2018-03-01-hybrid**. Los perfiles de la API especifican el proveedor de recursos de Azure y la versión de la API para los puntos de conexión REST de Azure. Para más información sobre los perfiles, vea [Administración de perfiles de versión de API en Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
@@ -148,15 +148,19 @@ Esta actualización también contiene la mitigación de la vulnerabilidad de can
 - Al ejecutar [Test-AzureStack](azure-stack-diagnostic-test.md) después de la actualización 1808, se muestra un mensaje de advertencia desde el Controlador de administración de placa base (BMC). Puede omitir esta advertencia sin problemas.
 
 <!-- 2468613 - IS --> 
-- Durante la instalación de esta actualización, puede que vea alertas con el título *Error – Template for FaultType UserAccounts.New is missing (Error: Falta la plantilla para FaultType UserAccounts.New).*  Puede omitir estas alertas con seguridad. Estas alertas se cerrarán automáticamente cuando se complete la instalación de esta actualización.
+- Durante la instalación de esta actualización, puede que vea alertas con el título *Error – Template for FaultType UserAccounts.New is missing.* (Error: Falta la plantilla para FaultType UserAccounts.New).  Puede omitir estas alertas con seguridad. Estas alertas se cerrarán automáticamente cuando se complete la instalación de esta actualización.
 
 <!-- 2489559 - IS --> 
 - No intente crear máquinas virtuales durante la instalación de esta actualización. Para más información sobre cómo administrar las actualizaciones, consulte [Introducción a la administración de actualizaciones en Azure Stack](azure-stack-updates.md#plan-for-updates).
 
 <!-- 2830461 - IS --> 
-- En determinadas circunstancias cuando una actualización requiere atención, la alerta correspondiente podría no generarse. El estado preciso se reflejará en el portal y no se ve afectado.
+- En determinadas circunstancias cuando una actualización requiere atención, es posible que no se genere la alerta correspondiente. El estado preciso se reflejará en el portal y no se ve afectado.
 
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
+
+> [!Important]  
+> Prepare la implementación de Azure Stack para el host de extensiones. Prepare el sistema mediante la guía siguiente: [Preparación de un host de extensiones de Azure Stack](azure-stack-extension-host-prepare.md).
+
 Después de instalar esta actualización, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md). 
 - [KB 4468920: Revisión de Azure Stack 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 
@@ -209,11 +213,11 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 ### <a name="health-and-monitoring"></a>Estado y supervisión
 
 <!-- TBD - IS -->
-- Es posible que vea que las siguientes alertas aparecen y desaparecen repetidamente y que, después, desaparecen del sistema de Azure Stack:
+- Puede que vea que las siguientes alertas aparecen repetidamente y después, desaparecen en el sistema de Azure Stack:
    - *Instancia del rol de infraestructura no disponible*
    - *Nodo de la unidad de escalado desconectado*
    
-  Vuelva a ejecutar el cmdlet [Test-AzureStack](azure-stack-diagnostic-test.md) para comprobar el estado de las instancias de rol de infraestructura y nodos de la unidad de escalado. Si [Test-AzureStack](azure-stack-diagnostic-test.md) no detecta ningún problema, puede omitir estas alertas. Si se detecta un problema, puede intentar iniciar la instancia de rol de infraestructura o un nodo mediante el portal de administración o PowerShell.
+  Vuelva a ejecutar el cmdlet [Test-AzureStack](azure-stack-diagnostic-test.md) para comprobar el estado de las instancias de rol de infraestructura y los nodos de la unidad de escalado. Si [Test-AzureStack](azure-stack-diagnostic-test.md) no detecta ningún problema, puede ignorar estas alertas. Si se detecta un problema, puede intentar iniciar la instancia de rol de infraestructura o un nodo mediante el portal de administración o PowerShell.
 
 <!-- 1264761 - IS ASDK --> 
 - Es posible que vea alertas del componente **Controlador de mantenimiento** con los siguientes detalles:  
@@ -249,8 +253,11 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
 ### <a name="compute"></a>Compute
 
+<!-- TBD – IS, ASDK -->
+- Si se vuelve a conectar un disco desasociado a la misma máquina virtual (VM) con el mismo nombre y LUN, se produce un error parecido a **No se puede conectar el disco de datos "datadisk" a la VM "vm1"**. El error se produce porque el disco se está desasociando en este momento o porque no se pudo realizar la última operación de desasociación. Espere hasta que el disco esté completamente desasociado para volver a intentarlo o elimine/desasocie de nuevo el disco de forma explícita. La solución alternativa consiste en volver a conectarlo con un nombre diferente o en otro LUN. 
+
 <!-- 3099544 – IS, ASDK --> 
-- Cuando cree una máquina virtual mediante el portal de Azure Stack y seleccione el tamaño de la máquina, se mostrará la columna USD/mes con el mensaje **No disponible**. Esta columna no debería aparecer, ya que en Azure Stack no se permite mostrar la columna de precios de la máquina virtual.
+- Cuando cree una VM mediante el portal de Azure Stack y seleccione su tamaño, se mostrará la columna USD/mes con el mensaje **No disponible**. Esta columna no debería aparecer, ya que en Azure Stack no se permite mostrar la columna de precios de la máquina virtual.
 
 <!-- 3090289 – IS, ASDK --> 
 - Después de aplicar la actualización 1808, se pueden producir los problemas siguientes al implementar máquinas virtuales con Managed Disks:

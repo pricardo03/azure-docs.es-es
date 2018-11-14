@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420972"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260506"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -48,7 +48,6 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 
 **Código de error**: UserErrorRpCollectionLimitReached <br>
 **Mensaje de error**: Se ha alcanzado el límite máximo de colecciones del punto de restauración. <br>
-Description:  
 * Este problema puede ocurrir si hay un bloqueo en el grupo de recursos del punto de recuperación que impida la limpieza automática del punto de recuperación.
 * Este problema también puede ocurrir si se desencadenan varias copias de seguridad al día. Actualmente recomendamos solo una copia de seguridad por día, ya que los puntos de restauración instantáneos se retienen durante 7 días y solo 18 puntos de restauración instantáneos se pueden asociar a una máquina virtual en cualquier momento dado. <br>
 
@@ -96,6 +95,21 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Causa 5: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 6: [El servicio de copia de seguridad no tiene permiso para eliminar los puntos de restauración antiguos debido a un bloqueo del grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
 
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize: Azure Backup no admite actualmente tamaños de disco mayores que 1023 GB.
+
+**Código de error**: UserErrorUnsupportedDiskSize <br>
+**Mensaje de error**: Azure Backup no admite actualmente tamaños de disco mayores que 1023 GB. <br>
+
+La operación de copia de seguridad podría generar un error al realizar una copia de seguridad de una máquina virtual con un tamaño de disco mayor que 1023 GB, ya que el almacén no se actualiza a la pila de copia de seguridad de máquina virtual de Azure V2. Al actualizar a la pila de copia de seguridad de máquina virtual de Azure V2, se admitirán hasta 4 TB. Revise estas [ventajas](backup-upgrade-to-vm-backup-stack-v2.md) y [consideraciones](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) y después continúe con la actualización según estas [instrucciones](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+
+## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported: actualmente Azure Backup no admite discos SSD estándar.
+
+**Código de error**: UserErrorStandardSSDNotSupported <br>
+**Mensaje de error**: actualmente Azure Backup no admite discos SSD estándar. <br>
+
+Actualmente Azure Backup admite discos SSD estándar solo para los almacenes que se actualizan a la pila de copia de seguridad de máquina virtual de Azure V2. Revise estas [ventajas](backup-upgrade-to-vm-backup-stack-v2.md) y [consideraciones](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) y después continúe con la actualización según estas [instrucciones](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+
+
 ## <a name="causes-and-solutions"></a>Causas y soluciones
 
 ### <a name="the-vm-has-no-internet-access"></a>La máquina virtual no tiene acceso a Internet.
@@ -139,7 +153,7 @@ Es posible que el agente de máquina virtual se haya dañado o que el servicio s
 1. Determine si el servicio Windows Guest Agent se ejecuta en los servicios de máquina virtual (services.msc). Intente reiniciar el servicio Windows Guest Agent e inicie la copia de seguridad.    
 2. Si el servicio Windows Guest Agent no se muestra en los servicios, vaya al Panel de control y seleccione **Programas y características** para determinar si dicho servicio está instalado.
 4. Si aparece en **Programas y características**, desinstálelo.
-5. Descargue e instale la [versión más reciente del MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Debe tener derechos de administrador para completar la instalación.
+5. Descargue e instale la [versión más reciente del MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Debe tener derechos de administrador para completar la instalación.
 6. Compruebe que los servicios de agente invitado de Windows aparecen en los servicios.
 7. Ejecute un trabajo de copia de seguridad a petición:
     * En el portal, seleccione **Crear copia de seguridad ahora**.
@@ -208,7 +222,7 @@ La realización de estos pasos hace que se vuelva a instalar la extensión duran
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Eliminación del bloqueo del grupo de recursos de punto de restauración
 1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
-2. Vaya a la opción **Todos los recursos**, seleccione el grupo de recursos de la colección de puntos de restauración en el siguiente formato AzureBackupRG_<Geo>_<number>.
+2. Vaya a la opción **Todos los recursos**, seleccione el grupo de recursos de la colección de puntos de restauración en el siguiente formato AzureBackupRG_`<Geo>`_`<number>`.
 3. En la sección **Configuración**, seleccione **Bloqueos** para mostrar los bloqueos.
 4. Para quitar el bloqueo, seleccione los puntos suspensivos y haga clic en **Eliminar**.
 
@@ -217,17 +231,17 @@ La realización de estos pasos hace que se vuelva a instalar la extensión duran
 ### <a name="clean_up_restore_point_collection"></a> Eliminación de la colección de puntos de restauración
 Después de quitar el bloqueo, los puntos de restauración deben limpiarse. Para limpiar los puntos de restauración, siga cualquiera de los métodos siguientes:<br>
 * [Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [Limpieza de la colección de puntos de restauración desde portal creado por el servicio de copia de seguridad](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
+* [Eliminación de la colección de puntos de restauración desde Azure Portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup">Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad ad hoc</a>
 Después de quitar el bloqueo, desencadene una copia de seguridad ad-hoc o manual. Esto garantizará que los puntos de restauración se limpian automáticamente. Espere que esta operación ad-hoc o manual produzca un error la primera vez; sin embargo, asegurará la limpieza automática en lugar de la eliminación manual de los puntos de restauración. Después de la limpieza, debería realizarse correctamente la siguiente copia de seguridad programada.
 
 > [!NOTE]
-    > Se realizará la limpieza automática después de unas horas de desencadenar la copia de seguridad ad-hoc o manuales. Si la copia de seguridad programada sigue produciendo un error, pruebe a eliminar manualmente la colección de puntos de restauración mediante los pasos indicados [aquí](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+    > Se realizará la limpieza automática después de unas horas de desencadenar la copia de seguridad ad-hoc o manuales. Si la copia de seguridad programada sigue produciendo un error, pruebe a eliminar manualmente la colección de puntos de restauración mediante los pasos indicados [aquí](#clean-up-restore-point-collection-from-azure-portal).
 
-#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Limpieza de la colección de puntos de restauración desde portal creado por el servicio de copia de seguridad<br>
+#### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Eliminación de la colección de puntos de restauración desde Azure Portal <br>
 
-Para borrar manualmente la colección de puntos de restauración que no se han borrado debido al bloqueo del grupo de recursos, siga estos pasos:
+Para borrar manualmente la colección de puntos de restauración que no se han borrado debido al bloqueo del grupo de recursos, pruebe con los siguientes pasos:
 1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
 2. En el menú **central**, haga clic en **Todos los recursos**, seleccione el grupo de recursos con el siguiente formato AzureBackupRG_`<Geo>`_`<number>` donde se encuentra la máquina virtual.
 

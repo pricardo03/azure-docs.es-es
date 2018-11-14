@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 44eec21f4687d2df64c59d41cdb02c6ef2268f82
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b5d3a735bd490468e989ac29c9f082475cc7eab3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528704"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283381"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Espacio de nombres jerárquico de Azure Data Lake Storage Gen2 (versión preliminar)
 
-La adición de un **espacio de nombres jerárquico** es un mecanismo clave que permite a Azure Data Lake Storage Gen2 (versión preliminar) proporcionar rendimiento para el sistema de archivos a precios y escala de almacenamiento de objetos. Esto permite que la colección de objetos o archivos dentro de una cuenta esté organizada en una jerarquía de directorios y subdirectorios anidados de la misma manera en que se organiza el sistema de archivos en el equipo. Con el espacio de nombres jerárquico habilitado, Data Lake Storage Gen2 proporciona la escalabilidad y la rentabilidad del almacenamiento de objetos, con una semántica de sistema de archivos con la que los marcos y motores de análisis están familiarizados.
+La adición de un **espacio de nombres jerárquico** es un mecanismo clave que permite a Azure Data Lake Storage Gen2 (versión preliminar) proporcionar rendimiento para el sistema de archivos a precios y escala de almacenamiento de objetos. Esto permite que la colección de objetos o archivos dentro de una cuenta esté organizada en una jerarquía de directorios y subdirectorios anidados de la misma manera en que se organiza el sistema de archivos en el equipo. Con el espacio de nombres jerárquico habilitado, una cuenta de almacenamiento es capaz de proporcionar la escalabilidad y la rentabilidad del almacenamiento de objetos, con una semántica de sistema de archivos con la que los marcos y motores de análisis están familiarizados.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Ventajas del espacio de nombres jerárquico
 
@@ -26,7 +26,7 @@ La adición de un **espacio de nombres jerárquico** es un mecanismo clave que p
 
 Las siguientes ventajas están asociadas a los sistemas de archivos que implementan un espacio de nombres jerárquico sobre los datos de blob:
 
-- **Manipulación atómica de directorios:** los almacenamientos de objetos se aproximan a una jerarquía de directorios mediante la adopción de una convención de inserción de barras diagonales (/) en el nombre del objeto para indicar los segmentos de trazado. Aunque esta convención funciona para la organización de objetos, no proporciona asistencia para acciones como mover o eliminar directorios, ni para cambiarles el nombre. Sin directorios reales, las aplicaciones podrían tener que procesar millones de blobs individuales para lograr realizar las tareas de nivel de directorio. Por el contrario, el espacio de nombres jerárquico procesa estas tareas mediante la actualización de una sola entrada (el directorio principal). 
+- **Manipulación atómica de directorios:** los almacenamientos de objetos se aproximan a una jerarquía de directorios mediante la adopción de una convención de inserción de barras diagonales (/) en el nombre del objeto para indicar los segmentos de ruta. Aunque esta convención funciona para la organización de objetos, no proporciona asistencia para acciones como mover o eliminar directorios, ni para cambiarles el nombre. Sin directorios reales, las aplicaciones podrían tener que procesar millones de blobs individuales para lograr realizar las tareas de nivel de directorio. Por el contrario, el espacio de nombres jerárquico procesa estas tareas mediante la actualización de una sola entrada (el directorio principal).
 
     Esta notable optimización es especialmente significativa para muchos marcos de análisis de macrodatos. Con frecuencia, herramientas como Hive, Spark, etc. escriben la salida en ubicaciones temporales y, a continuación, cambian el nombre de la ubicación al finalizar el trabajo. Sin el espacio de nombres jerárquico, muchas veces este cambio de nombre puede tardar más tiempo que el propio proceso de análisis. La disminución de la latencia de trabajo equivale a la reducción del costo total de propiedad (TCO) de las cargas de trabajo de análisis.
 

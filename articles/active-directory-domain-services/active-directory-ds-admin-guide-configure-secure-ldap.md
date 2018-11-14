@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: de77050206c98832b274e8bdbda8026fc115610e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 850b721cfa78dde23ebc11944bf023de8798cec9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156228"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236960"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services
 Este artículo muestra cómo puede habilitar el protocolo ligero de acceso a directorios seguro (LDAPS) para el dominio administrado con Servicios de dominio de Azure AD. LDAP seguro también se denomina "protocolo ligero de acceso a directorios (LDAP) en la Capa de sockets seguros (SSL)/Seguridad de la capa de transporte (TLS)".
@@ -45,7 +45,7 @@ Antes de habilitar LDAP seguro, adquiera un certificado válido de acuerdo con l
 
 1. **Emisor de confianza**: el certificado debe ser emitido por una autoridad de confianza para los equipos que se conectan al dominio administrado mediante LDAP seguro. Esta entidad puede ser una entidad de certificación (CA) pública o empresarial de confianza para estos equipos.
 2. **Duración** : el certificado debe ser válido al menos para los próximos 3-6 meses. El acceso LDAP seguro a su dominio administrado se interrumpe cuando expira el certificado.
-3. **Nombre del firmante** : el nombre del firmante del certificado debe ser un comodín para el dominio administrado. Por ejemplo, si el dominio se denomina "contoso100.com", el nombre del firmante del certificado debe ser "*.contoso100.com". Establezca el nombre DNS (nombre alternativo del firmante) en este nombre con caracteres comodín.
+3. **Nombre del firmante**: el nombre del firmante del certificado debe ser el dominio administrado. Por ejemplo, si el dominio se denomina "contoso100.com", el nombre del firmante del certificado debe ser "contoso100.com". Establezca el nombre DNS (nombre alternativo del firmante) en un nombre con caracteres comodín para el dominio administrado.
 4. **Uso de la clave** : el certificado debe configurarse para los usos siguientes: firmas digitales y cifrado de claves.
 5. **Propósito del certificado** : el certificado debe ser válido para la autenticación del servidor SSL.
 
@@ -83,7 +83,7 @@ En el equipo de Windows, abra una nueva ventana de PowerShell como **Administrad
 $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
-  -Type SSLServerAuthentication -DnsName *.contoso100.com
+  -Type SSLServerAuthentication -DnsName *.contoso100.com, contoso100.com
 ```
 
 En el ejemplo anterior, reemplace ".contoso100.com" por el nombre de dominio DNS de su dominio administrado. Por ejemplo, si ha creado un dominio administrado denominado "contoso100.onmicrosoft.com", reemplace "contoso100.com" en el atributo Subject por "contoso100.onmicrosoft.com" y "*.contoso100.com" en el atributo DnsName por "*.contoso100.onmicrosoft.com".

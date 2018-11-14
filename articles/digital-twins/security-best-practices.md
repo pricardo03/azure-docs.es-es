@@ -8,23 +8,23 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: a17fe8ed47384ed248b339643be11269b8b9cdc0
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6ca01523744dbce15f8fdb3bbe2d5a9b44510f3f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092192"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959484"
 ---
-# <a name="security-best-practices"></a>Procedimientos recomendados de seguridad
+# <a name="security-best-practices"></a>Prácticas recomendadas de seguridad
 
 La seguridad de Azure Digital Twins permite el acceso preciso a recursos y acciones específicos del grafo de IoT. Para ello, se usa la administración pormenorizada de roles y permisos que se conoce como control de acceso basado en rol.
 
-Azure Digital Twins también aprovecha otras características de seguridad presentes en Azure IoT, como Azure Active Directory. Por ese motivo, la configuración de la aplicación de Azure Digital Twins implica el uso de muchos de los mismos [procedimientos de seguridad de Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/) actualmente recomendados.
+Azure Digital Twins usa también otras características de seguridad que están presentes en Azure IoT, lo que incluye Azure Active Directory (Azure AD). Por ese motivo, la configuración de la aplicación de Azure Digital Twins implica el uso de muchos de los mismos [procedimientos de seguridad de Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/) actualmente recomendados.
 
 En este artículo se resumen los principales procedimientos recomendados que deben seguirse.
 
 > [!IMPORTANT]
-> Revise los recursos de seguridad adicionales (incluidos los proveedores de dispositivos) para garantizar la seguridad máxima del espacio de IoT.
+> Para garantizar la máxima seguridad para el espacio de IoT, revise los recursos de seguridad adicionales. Asegúrese de incluir los proveedores de dispositivos.
 
 ## <a name="iot-security-best-practices"></a>Procedimientos recomendados para la seguridad de IoT
 
@@ -32,8 +32,8 @@ Algunos de los procedimientos principales para proteger los dispositivos IoT de 
 
 > [!div class="checklist"]
 > * Proteja cada dispositivo que esté conectado al espacio de IoT con medios a prueba de manipulaciones.
-> * Limite el rol de cada dispositivo, sensor y persona dentro del espacio de IoT. Si se pone en riesgo, el impacto será menor.
-> * Posible uso de filtrado de dirección IP de dispositivo y restricción de puertos.
+> * Limite el rol de cada dispositivo, sensor y persona dentro del espacio de IoT. Si se pone en riesgo, el efecto será menor.
+> * Considere la posibilidad de usar el filtrado de direcciones IP de dispositivo y la restricción de puertos.
 > * Limite el ancho de banda de E/S y dispositivo para mejorar el rendimiento. La limitación de velocidad puede mejorar la seguridad al impedir ataques por denegación de servicio.
 > * Mantenga actualizado el firmware del dispositivo.
 
@@ -42,20 +42,20 @@ Algunos de los procedimientos más importantes para proteger de forma segura un 
 > [!div class="checklist"]
 > * Cifre los datos persistentes, guardados o almacenados.
 > * Exija el cambio o la actualización de claves y contraseñas de forma periódica.
-> * Restrinja cuidadosamente el acceso y los permisos por rol (consulte a continuación los procedimientos recomendados de control de acceso basado en rol).
-> * Use cifrado seguro. Esto significa exigir contraseñas largas, mediante protocolos seguros y autenticación en dos fases.
+> * Restrinja cuidadosamente el acceso y los permisos por rol. Consulte la sección "Procedimientos recomendados del control de acceso basado en roles".
+> * Use cifrado seguro. Exija contraseñas largas y use protocolos seguros y autenticación en dos fases.
 
-La supervisión de recursos de IoT para inspeccionar los valores atípicos, las amenazas o los parámetros de recursos que se encuentran fuera del intervalo de funcionamiento habitual se administra mediante Azure Analytics.
+Supervise los recursos de IoT para inspeccionar los valores atípicos, las amenazas o los parámetros de recursos que se encuentran fuera del intervalo de funcionamiento habitual. Use Azure Analytics para administrar la supervisión.
 
 > [!NOTE]
-> Para más información sobre el procesamiento y la supervisión de eventos, consulte nuestro artículo sobre [enrutamiento de eventos](./concepts-events-routing.md).
+> Para más información sobre el procesamiento y la supervisión de eventos, consulte [Enrutamiento de eventos y mensajes con Azure Digital Twins](./concepts-events-routing.md).
 
 ## <a name="azure-active-directory-best-practices"></a>Procedimientos recomendados de Azure Active Directory
 
-Azure Digital Twins usa Azure Active Directory para autenticar a los usuarios y proteger las aplicaciones. Azure Active Directory admite la autenticación en varias arquitecturas modernas, todas ellas basadas en los protocolos OAuth 2.0 u OpenID Connect estándar del sector. Algunos de los principales procedimientos recomendados para proteger su espacio de IoT en Azure Active Directory son:
+Azure Digital Twins usa Azure AD para autenticar a los usuarios y proteger las aplicaciones. Azure AD admite la autenticación de diversas arquitecturas modernas. Todas se basan en protocolos estándar del sector como OAuth 2.0 u OpenID Connect. Algunos de los principales procedimientos recomendados para proteger su espacio de IoT en Azure AD son:
 
 > [!div class="checklist"]
-> * Almacene secretos y claves de aplicación de Azure Active Directory en una ubicación segura, como [Key Vault](https://azure.microsoft.com/services/key-vault/).
+> * Almacene los secretos y las claves de aplicación de Azure AD en una ubicación segura, como [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 > * Para autenticarse, use un certificado emitido por una [entidad emisora de certificados](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) de confianza en lugar de secretos de aplicación.
 > * Limite el ámbito de acceso de OAuth 2.0 para un token.
 > * Compruebe la longitud de tiempo que es válido un token y si un token sigue siendo válido.
@@ -72,4 +72,4 @@ Para más información sobre los procedimientos recomendados de Azure IoT, lea [
 
 Para información sobre el control de acceso basado en rol, lea [Control de acceso basado en rol](./security-role-based-access-control.md).
 
-Para información sobre la autenticación, lea [Autenticación con API](./security-authenticating-apis.md).
+Para información sobre la autenticación, lea [Autenticación con las API](./security-authenticating-apis.md).

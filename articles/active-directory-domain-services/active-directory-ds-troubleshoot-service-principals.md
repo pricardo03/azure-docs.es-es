@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579551"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035042"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Solución de problemas de configuración de entidad de servicio no válida para el dominio administrado
 
@@ -45,7 +45,7 @@ Utilice los pasos siguientes para determinar qué entidades de servicio deben vo
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Cómo volver a crear una entidad de servicio con PowerShell](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Cómo volver a realizar el registro en el espacio de nombres de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Cómo volver a realizar el registro en el espacio de nombres de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Entidades de servicio que se corrigen solas](#service-principals-that-self-correct) |
+| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Cómo volver a realizar el registro en el espacio de nombres de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Cómo volver a crear una entidad de servicio con PowerShell
 Siga estos pasos si una entidad de servicio con el identificador ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` no está en el directorio de Azure AD.
@@ -76,7 +76,7 @@ Para solucionar este problema, escriba los siguientes comandos en una ventana de
 
 
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Cómo volver a realizar el registro en el espacio de nombres de Microsoft.AAD mediante Azure Portal
-Siga estos pasos si una entidad de servicio con el identificador ```443155a6-77f3-45e3-882b-22b3a8d431fb``` o ```abba844e-bc0e-44b0-947a-dc74e5d09022``` no está en el directorio de Azure AD.
+Siga estos pasos si una entidad de servicio con el identificador ```443155a6-77f3-45e3-882b-22b3a8d431fb``` o ```abba844e-bc0e-44b0-947a-dc74e5d09022``` o ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` no está en el directorio de Azure AD.
 
 **Solución:** siga estos pasos para restaurar Domain Services en el directorio:
 
@@ -85,12 +85,6 @@ Siga estos pasos si una entidad de servicio con el identificador ```443155a6-77f
 3. En el panel de navegación izquierdo, elija **Proveedores de recursos**.
 4. Busque "Microsoft.AAD" en la tabla y haga clic en **Volver a registrar**.
 5. Para asegurarse de que la alerta se resuelve, consulte la página de estado del dominio administrado en dos horas.
-
-
-## <a name="service-principals-that-self-correct"></a>Entidades de servicio que se corrigen solas
-Siga estos pasos si una entidad de servicio con el identificador ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` no está en el directorio de Azure AD.
-
-**Solución:** Azure AD Domain Services puede detectar el momento en el que esta entidad de servicio específica falta, está mal configurada o se ha eliminado. El servicio volverá a crear automáticamente esta entidad de servicio. Sin embargo, deberá eliminar la aplicación y el objeto que funcionaba con la aplicación eliminada, ya que cuando la certificación se sustituya, la nueva entidad de servicio no podrá modificar la aplicación y el objeto. Esto dará lugar a un nuevo error en el dominio. Para evitar este problema, siga los pasos descritos en la [sección de AADDS105](#alert-aadds105-password-synchronization-application-is-out-of-date). A continuación, compruebe el mantenimiento del dominio administrado transcurridas dos horas para asegurarse de que la entidad de servicio se ha vuelto a crear.
 
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: La aplicación de sincronización de contraseña no está actualizada
@@ -110,8 +104,8 @@ Para solucionar este problema, escriba los siguientes comandos en una ventana de
 2. Elimine la aplicación y el objeto antiguos mediante los siguientes comandos de PowerShell.
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```

@@ -4,40 +4,46 @@ description: La definición de Azure Policy tiene varios efectos que determinan 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 54562401c830232d0a4bf90405cc5a2dbedcd8bc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4668b1fe6e59898d81fc71558e21acd1a89be767
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055975"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279507"
 ---
 # <a name="understand-policy-effects"></a>Descripción de los efectos de Policy
 
 Cada definición de directiva en Azure Policy tiene un efecto único que determina lo que ocurre durante el análisis cuando el segmento **if** de la regla de directiva se evalúa para que coincida con el recurso que se está examinando. Los efectos también pueden comportarse de manera diferente si son para un nuevo recurso, un recurso actualizado o un recurso existente.
 
-Actualmente son cinco los efectos que se admiten en una definición de directiva:
+Actualmente, se admiten seis efectos en una definición de directiva:
 
 - Append
 - Auditoría
 - AuditIfNotExists
 - Denegar
 - DeployIfNotExists
+- Disabled
 
 ## <a name="order-of-evaluation"></a>Orden de evaluación
 
 Cuando se realiza una solicitud para crear o actualizar un recurso a través de Azure Resource Manager, la directiva procesa algunos de los efectos antes de entregar la solicitud al proveedor de recursos adecuados.
 De este modo, se evita que un proveedor de recursos realice un procesamiento innecesario cuando un recurso no cumple con los controles de gobierno diseñados de Policy. Policy crea una lista de todas las definiciones de directiva asignadas, por una directiva o asignación de iniciativa, que se aplica por ámbito (menos las exclusiones) al recurso y se prepara para evaluar el recurso en cada definición.
 
-- **Append** se evalúa primero. Dado que append ya podría alterar la solicitud, un cambio realizado por append podría evitar la activación de un efecto audit o deny.
+- Primero se selecciona **Deshabilitado** para determinar si se debe evaluar la regla de directivas.
+- Luego se evalúa **Append**. Dado que append ya podría alterar la solicitud, un cambio realizado por append podría evitar la activación de un efecto audit o deny.
 - Luego se evalúa **deny**. La evaluación de deny antes de audit impide el doble registro de un recurso no deseado.
 - A continuación, se evalúa **audit** antes de que la solicitud vaya al proveedor de recursos.
 
 Una vez que se proporciona la solicitud al proveedor de recursos y este devuelve un código de estado correcto, se evalúan **AuditIfNotExists** y **DeployIfNotExists** para determinar si es necesario registrarse o realizar una acción de cumplimiento de seguimiento.
+
+## <a name="disabled"></a>Disabled
+
+Este efecto es útil para probar situaciones y cuando la definición de directiva ha parametrizado el efecto. Es posible deshabilitar una única asignación de esa directiva mediante la modificación del parámetro de la asignación del efecto en lugar de deshabilitar todas las asignaciones de la directiva.
 
 ## <a name="append"></a>Append
 

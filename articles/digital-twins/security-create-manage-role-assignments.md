@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: adfb4c369ea1b324da8562a5b0b245ebdecff602
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323922"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012469"
 ---
 # <a name="create-and-manage-role-assignments"></a>Creación y administración de asignaciones de roles
 
@@ -21,15 +21,15 @@ Azure Digital Twins usa el control de acceso basado en rol ([RBAC](./security-ro
 
 Cada asignación de roles incluye:
 
-* Un **identificador de objeto** (un identificador de Azure Active Directory, el identificador de objeto de la entidad de servicio o el nombre de dominio).
-* Un **tipo de identificador de objeto**.
-* Un **identificador de definición de roles**.
-* Una **ruta de acceso al espacio**.
-* (En la mayoría de los casos) un **identificador de inquilino** de Azure Active Directory.
+* **Identificador de objeto**: un identificador de Azure Active Directory, el identificador de objeto de la entidad de servicio o el nombre de dominio
+* **Tipo de identificador de objeto**
+* **Identificador de definición de roles**
+* **Ruta de acceso al espacio**
+* **Identificador de inquilino**: en la mayoría de casos, un identificador de inquilino de Azure Active Directory
 
 ## <a name="role-definition-identifiers"></a>Identificadores de definición de roles
 
-En la siguiente tabla se muestra lo que se puede obtener al consultar las API de sistema o de roles:
+En la siguiente tabla se muestra lo que se puede obtener al consultar las API de sistema o de roles.
 
 | **Rol** | **Identificador** |
 | --- | --- |
@@ -45,7 +45,7 @@ En la siguiente tabla se muestra lo que se puede obtener al consultar las API de
 
 ## <a name="supported-objectidtypes"></a>ObjectIdTypes admitidos
 
-Los `ObjectIdTypes` admitidos son:
+Los `ObjectIdTypes` admitidos:
 
 * `UserId`
 * `DeviceId`
@@ -62,15 +62,15 @@ HTTP POST /api/v1.0/roleassignments
 
 | **Nombre** | **Obligatorio** | **Tipo** | **Descripción** |
 | --- | --- | --- | --- |
-| roleId| SÍ |string | Identificador de definición de rol. Las definiciones de roles y sus identificadores se encuentran la consultar la API de sistema. |
+| roleId| SÍ |string | Identificador de definición de rol. Busque las definiciones de roles y sus identificadores consultando la API de sistema. |
 | objectId | SÍ |string | Identificador de objeto para la asignación de roles que debe tener el formato en función del tipo asociado. Para el ObjectIdType `DomainName`, ObjectId debe comenzar con el carácter `“@”`. |
 | objectIdType | SÍ |string | Tipo de asignación de roles. Debe ser una de las siguientes filas de la tabla. |
 | tenantId | Varía | string |Identificador de inquilino. No se permite para los ObjectIdType `DeviceId` y `TenantId`. Obligatorio para los ObjectIdType `UserId` y `ServicePrincipalId`. Opcional para el ObjectIdType DomainName. |
-| path* | SÍ | string |Ruta de acceso completa al objeto `Space`. Ejemplo: `/{Guid}/{Guid}` Si un identificador, necesita la asignación de roles para todo el grafo, especifique `"/"` (que designa la raíz). Sin embargo, su uso no se recomienda y **debe siempre seguir el principio de privilegio mínimo**. |
+| path* | SÍ | string |Ruta de acceso completa al objeto `Space`. Un ejemplo es `/{Guid}/{Guid}`. Si un identificador necesita la asignación de roles para todo el grafo, especifique `"/"`. Este carácter designa la raíz, pero se desaconseja su uso. Siga siempre el principio de privilegio mínimo. |
 
 ## <a name="sample-configuration"></a>Configuración de ejemplo
 
-Un usuario necesita permiso del administrador para acceder a una planta del espacio del inquilino:
+En este ejemplo, un usuario necesita permiso del administrador para acceder a una planta del espacio del inquilino.
 
   ```JSON
     {
@@ -82,7 +82,7 @@ Un usuario necesita permiso del administrador para acceder a una planta del espa
     }
   ```
 
-Una aplicación que ejecuta simulaciones de dispositivos y sensores en escenarios de prueba:
+En este ejemplo, una aplicación que ejecuta simulaciones de dispositivos y sensores en escenarios de prueba.
 
   ```JSON
     {
@@ -94,7 +94,7 @@ Una aplicación que ejecuta simulaciones de dispositivos y sensores en escenario
     }
   ```
 
-Todos los usuarios que forman parte de un dominio tendrán permiso de lectura para espacios, sensores y usuarios, incluidos sus correspondientes objetos relacionados:
+Todos los usuarios que forman parte de un dominio reciben acceso de lectura para los usuarios, sensores y espacios. Este acceso incluye sus correspondientes objetos relacionados.
 
   ```JSON
     {
@@ -105,7 +105,7 @@ Todos los usuarios que forman parte de un dominio tendrán permiso de lectura pa
     }
   ```
 
-Para obtener (GET) una asignación de roles:
+Use GET para obtener una asignación de roles.
 
 ```plaintext
 HTTP GET /api/v1/roleassignments?path={path}
@@ -115,7 +115,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 | --- | --- | --- | --- | --- |
 | Ruta de acceso | Ruta de acceso | True | string | Ruta de acceso completa al espacio |
 
-Para eliminar (DELETE) una asignación de roles:
+Use DELETE para eliminar una asignación de roles.
 
 ```plaintext
 HTTP DELETE /api/v1/roleassignments/{id}

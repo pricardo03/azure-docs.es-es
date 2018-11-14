@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501974"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278317"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Preguntas frecuentes sobre Service Fabric Mesh
 Azure Service Fabric Mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin necesidad de administrar máquinas virtuales, almacenamiento o redes. Este artículo contiene respuestas a las preguntas más habituales.
@@ -27,24 +27,54 @@ Formule preguntas, obtenga respuestas de los ingenieros de Microsoft e informe d
 
 **¿Cuál es el costo de participar en la versión preliminar?**
 
-No hay ningún cargo para implementar aplicaciones o contenedores en la versión preliminar de Mesh. En cambio, le recomendamos que elimine los recursos que implemente y que no los deje ejecutándose, a menos que los esté probando activamente.
+No hay ningún cargo por implementar aplicaciones o contenedores actualmente en la versión preliminar de Mesh. Sin embargo, le recomendamos que elimine los recursos que implemente y que no los deje ejecutándose, a menos que los esté probando activamente.
 
 **¿Hay un límite de cuota del número de núcleos y RAM?**
 
-Sí, las cuotas para cada suscripción son:
+Sí, las cuotas para cada suscripción se establecen del siguiente modo:
 
 - Número de aplicaciones: 5 
-- Número de núcleos por aplicación: 12 
+- Núcleos por aplicación: 12 
 - Total de memoria RAM por cada aplicación: 48 GB 
-- Número de puntos de conexión de red y de entrada: 5  
-- Número de volúmenes de Azure que puede adjuntar: 10 
+- Puntos de conexión de red y de entrada: 5  
+- Volúmenes de Azure que puede adjuntar: 10 
 - Número de réplicas de servicio: 3 
 - El contenedor más grande que puede implementar está limitado a 4 núcleos, 16 GB de RAM.
 - Puede asignar núcleos parciales a los contenedores en incrementos de 0,5 núcleos hasta un máximo de 6 núcleos.
 
-**¿Puedo dejar mi aplicación ejecutándose durante la noche?**
+**¿Durante cuánto tiempo puedo dejar mi aplicación implementada?**
 
-Sí, puede, pero le recomendamos que elimine los recursos que implemente y que no los deje ejecutándose, a menos que los esté probando activamente. Esta directiva puede cambiar en el futuro y se pueden eliminar los recursos si se están usando incorrectamente.
+Actualmente, limitamos la duración de una aplicación a dos días. El objetivo es maximizar el uso de los núcleos libres asignados a la versión preliminar. Como resultado, solo se permite ejecutar una implementación determinada continuamente durante 48 horas, tiempo tras el cual el sistema la apagará. Si se diera el caso, puede validar que el sistema la apague mediante la ejecución de un comando `az mesh app show` en la CLI de Azure y comprobar si devuelve `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."`. 
+
+Por ejemplo:  
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
+
+Para seguir implementando la misma aplicación en Mesh, debe eliminar el grupo de recursos asociado con la aplicación o quitar individualmente la aplicación y todos los recursos relacionados de Mesh (incluida la red). 
+
+Para eliminar el grupo de recursos, use el comando `az group delete <nameOfResourceGroup>`. 
 
 ## <a name="supported-container-os-images"></a>Imágenes del sistema operativo de contenedor compatibles
 Las siguientes imágenes del sistema operativo de contenedor pueden usarse al implementar servicios.

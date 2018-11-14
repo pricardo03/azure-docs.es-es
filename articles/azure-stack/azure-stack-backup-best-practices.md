@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946558"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035108"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Procedimientos recomendados del servicio Infrastructure Backup
 
@@ -52,9 +52,8 @@ La clave debe almacenarse en una ubicación segura (por ejemplo, un secreto de A
 
 ### <a name="backups"></a>Copias de seguridad
 
- - Infrastructure Backup Controller debe activarse a demanda. Se recomienda hacer una copia de seguridad al menos dos veces al día.
  - Los trabajos de copia de seguridad se ejecutan mientras se está ejecutando el sistema, de modo que no hay ningún tiempo de inactividad en las aplicaciones de usuario o las experiencias de administración. Los trabajos de copia de seguridad tardan entre 20 y 40 minutos para una solución que está bajo una carga razonable.
- - Utilizando las instrucciones proporcionadas por el OEM,el host de ciclo de vida de hardware y los conmutadores de red de copia de seguridad manuales deben almacenarse en el recurso compartido de copia de seguridad en el que Backup Controller almacena los datos de copia de seguridad del plano de control. Considere la posibilidad de almacenar las configuraciones del host de ciclo de vida de hardware y el conmutador en la carpeta de la región. Si tiene varias instancias de la Azure Stack en la misma región, puede usar un identificador para cada configuración que pertenezca a una unidad de escala.
+ - Utilizando las instrucciones proporcionadas por el OEM, el host de ciclo de vida de hardware y los conmutadores de red de copia de seguridad manuales deben almacenarse en el recurso compartido de copia de seguridad en el que Backup Controller almacena los datos de copia de seguridad del plano de control. Considere la posibilidad de almacenar las configuraciones del host de ciclo de vida de hardware y el conmutador en la carpeta de la región. Si tiene varias instancias de la Azure Stack en la misma región, puede usar un identificador para cada configuración que pertenezca a una unidad de escala.
 
 ### <a name="folder-names"></a>Nombres de carpetas
 
@@ -95,5 +94,6 @@ El sistema prevé las siguientes alertas:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- - Revise el material de referencia para [el servicio Infrastructure Backup](azure-stack-backup-reference.md).  
- - Habilite el [servicio Infrastructure Backup](azure-stack-backup-enable-backup-console.md).
+Revise el material de referencia para [el servicio Infrastructure Backup](azure-stack-backup-reference.md).
+
+Habilite el [servicio Infrastructure Backup](azure-stack-backup-enable-backup-console.md).

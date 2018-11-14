@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6f7fced5163476dc1de866474484f98d546d1901
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 31ae13fb84453a7014b66499c983e1f52554775e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945729"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279133"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Agregar ADFS como proveedor de identidades de SAML mediante las directivas personalizadas de Azure Active Directory B2C
 
@@ -26,11 +26,11 @@ En este artículo se muestra cómo habilitar el inicio de sesión para una cuent
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Asegúrese de que tiene acceso al archivo .pfx del certificado con la clave privada emitida por ADFS.
+- Asegúrese de que tiene acceso a un archivo .pfx del certificado con una clave privada. Puede generar su propio certificado firmado y cargarlo en Azure AD B2C. Azure AD B2C usa este certificado para firmar la solicitud SAML enviada al proveedor de identidades SAML.
 
 ## <a name="create-a-policy-key"></a>Creación de una clave de directiva
 
-Debe almacenar el certificado de ADFS en el inquilino de Azure AD B2C.
+Debe almacenar el certificado en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
@@ -38,7 +38,7 @@ Debe almacenar el certificado de ADFS en el inquilino de Azure AD B2C.
 4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
 6. En **Opciones**, elija `Upload`.
-7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `ADFSSamlCert`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `SamlCert`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
 8. Busque el archivo .pfx de certificado con la clave privada y selecciónelo.
 9. Haga clic en **Create**(Crear).
 
@@ -64,6 +64,7 @@ Puede definir una cuenta de ADFS como proveedor de notificaciones; para ello, ag
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -165,6 +166,15 @@ Abra un explorador y vaya a esta dirección URL. Asegúrese de escribir la direc
 9. Seleccione **Agregar regla**.  
 10. En **Claim rule template** (Plantilla de regla de notificación), seleccione **Send LDAP attributes as claims** (Enviar atributos LDAP como notificaciones).
 11. Proporcione un valor en **Claim rule name** (Nombre de la regla de notificación). Para **Attribute store** (Almacén de atributos), seleccione **Select Active Directory** (Seleccionar Active Directory), agregue las siguientes notificaciones y haga clic en **Finalizar** y luego en **Aceptar**.
+
+    | Atributo LDAP | Tipo de notificación saliente |
+    | -------------- | ------------------- |
+    | User-Principal-Name | userPricipalName |
+    | Surname | family_name |
+    | Given-Name | given_name |
+    | E-Mail-Address | email |
+    | Display-Name | Nombre |
+    
 12.  Según el tipo de certificado, es posible que tenga que establecer el algoritmo HASH. En la ventana de propiedades de la relación de confianza de usuario (demo de B2C), haga clic en la pestaña **Avanzado** y cambie el valor de **Algoritmo hash seguro** a `SHA-1` o `SHA-256` y luego haga clic en **Aceptar**.  
 13. En el Administrador del servidor, seleccione **Herramientas** y luego **ADFS Management** (Administración de ADFS).
 14. Seleccione la relación de usuario de confianza que creó, seleccione **Actualizar a partir de los metadatos de federación** y luego haga clic en **Actualizar**. 

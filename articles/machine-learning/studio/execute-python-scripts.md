@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 537839295deb631c3b9811c8d40db8608954e8a1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7520780060f603a7e394b100549529a2c1b6fe4b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835260"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228171"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Ejecución de scripts de Python en Azure Machine Learning Studio
 
@@ -67,7 +67,7 @@ Figura 1. El módulo **Ejecutar script de Python** .
 El módulo [Ejecutar script de Python][execute-python-script] de Azure ML Studio acepta hasta tres entradas y genera hasta dos salidas (que se tratan en la siguiente sección), al igual que su análogo de R, el módulo [Ejecutar script R][execute-r-script]. El código Python que se ejecutará se escribe en el cuadro de parámetro como una función de punto de entrada especialmente denominada llamada `azureml_main`. Los siguientes son los principios de diseño clave que se usan para implementar este módulo:
 
 1. *Debe ser idiomático para los usuarios de Python.* La mayoría de los usuarios de Python incluye su código como funciones dentro de módulos. Así, la colocación de muchas instrucciones ejecutables en un módulo de nivel superior es relativamente rara. Como resultado, el cuadro del script también asume una función de Python especialmente denominada, en contraposición a solo una secuencia de instrucciones. Los objetos expuestos en la función son tipos de bibliotecas de Python estándar, como tramas de datos [Pandas](http://pandas.pydata.org/) y matrices [NumPy](http://www.numpy.org/).
-2. *Debe contar con alta fidelidad entre las ejecuciones locales y las ejecuciones en la nube.* El back-end que se usa para ejecutar el código de Python se basa en [Anaconda](https://store.continuum.io/cshop/anaconda/), una distribución científica multiplataforma de Python ampliamente usada. Incluye cerca de 200 de los paquetes más comunes de Python. Por lo tanto, los científicos de datos pueden depurar y calificar su código en su entorno Anaconda compatible con la instancia de Azure Machine Learning local. Luego usan un entorno de desarrollo existente, como [IPython](http://ipython.org/) Notebook o las [Herramientas de Python para Visual Studio](http://aka.ms/ptvs), para ejecutarlo como parte de un experimento de Azure Machine Learning. El punto de entrada `azureml_main` es una función vainilla de Python y por tanto ****se puede crear sin código específico de Azure Machine Learning ni el SDK instalado.
+2. *Debe contar con alta fidelidad entre las ejecuciones locales y las ejecuciones en la nube.* El back-end que se usa para ejecutar el código de Python se basa en [Anaconda](https://store.continuum.io/cshop/anaconda/), una distribución científica multiplataforma de Python ampliamente usada. Incluye cerca de 200 de los paquetes más comunes de Python. Por lo tanto, los científicos de datos pueden depurar y calificar su código en su entorno Anaconda compatible con la instancia de Azure Machine Learning local. Luego usan un entorno de desarrollo existente, como [IPython](http://ipython.org/) Notebook o las [Herramientas de Python para Visual Studio](https://aka.ms/ptvs), para ejecutarlo como parte de un experimento de Azure Machine Learning. El punto de entrada `azureml_main` es una función vainilla de Python y por tanto ****se puede crear sin código específico de Azure Machine Learning ni el SDK instalado.
 3. *Debe admitir composición sin problemas con otros módulos de Azure Machine Learning.* El módulo [Ejecutar script de Python][execute-python-script] acepta, como entradas y salidas, conjuntos de datos estándar de Azure Machine Learning. El marco subyacente une los runtimes de Azure Machine Learning y Python de forma transparente y eficaz. Por tanto, Python se puede usar con flujos de trabajo existentes de Azure Machine Learning, incluidos los que llaman a R y SQLite. Como resultado, los científicos de datos pueden crear flujos de trabajo que:
    * usen Python y Pandas para el procesamiento previo y la limpieza de datos
    * transmitan los datos a una transformación de SQL que una varios conjuntos de datos para formar características
@@ -190,7 +190,8 @@ Aquí se muestra la función de Python usada para calcular las puntuaciones de i
 ![imagen11](./media/execute-python-scripts/figure8.png)
 
 Figura 10. Función para clasificar características por puntuaciones.
-  El siguiente experimento calcula y devuelve las puntuaciones de importancia de características en el conjunto de datos "Diabetes en los indios Pima" en Azure Machine Learning:
+ 
+El siguiente experimento calcula y devuelve las puntuaciones de importancia de características en el conjunto de datos "Diabetes en los indios Pima" en Azure Machine Learning:
 
 ![image12](./media/execute-python-scripts/figure9a.png)
 ![image13](./media/execute-python-scripts/figure9b.png)    

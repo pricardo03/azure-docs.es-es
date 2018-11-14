@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299107"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256432"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatización de procesos de Azure Application Insights con el conector para Microsoft Flow
 
@@ -34,7 +34,7 @@ También puede agregar acciones adicionales. Microsoft Flow pone a su disposici�
 En este tutorial, obtendrá información sobre cómo crear un flujo que usa el algoritmo de clústeres automáticos de Analytics para agrupar los atributos en los datos para una aplicación web. El flujo envía automáticamente los resultados por correo electrónico, y esto es solo un ejemplo de cómo puede usar Microsoft Flow y Application Insights Analytics conjuntamente. 
 
 ### <a name="step-1-create-a-flow"></a>Paso 1: Creación de un almacén
-1. Inicie sesión en [Microsoft Flow](http://flow.microsoft.com) y, a continuación, seleccione **Mis flujos**.
+1. Inicie sesión en [Microsoft Flow](https://flow.microsoft.com) y, a continuación, seleccione **Mis flujos**.
 1. Haga clic en **Crear un flujo a partir de un documento en blanco**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Paso 2: Creación de un desencadenador para el flujo
@@ -47,7 +47,7 @@ En este tutorial, obtendrá información sobre cómo crear un flujo que usa el a
 ### <a name="step-3-add-an-application-insights-action"></a>Paso 3: Incorporación de una acción de Application Insights
 1. Haga clic en **Nuevo paso** y, a continuación, en **Agregar una acción**.
 1. Busque **Azure Application Insights**.
-1. Haga clic en **Azure Application Insights: Visualize Analytics query Preview** [Visualizar consulta de Analytics (Versión preliminar)].
+1. Haga clic en **Azure Application Insights: Visualizar consulta de análisis Versión preliminar**.
 
     ![Ventana Ejecutar consulta de Analytics](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -125,7 +125,7 @@ Cuando se ejecuta el flujo, los destinatarios que haya especificado en la lista 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre cómo crear [consultas de análisis](app-insights-analytics-using.md).
+- Más información sobre cómo crear [consultas de análisis](../log-analytics/query-language/get-started-queries.md).
 - Más información sobre [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

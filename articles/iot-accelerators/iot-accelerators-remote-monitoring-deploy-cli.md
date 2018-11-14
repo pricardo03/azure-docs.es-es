@@ -1,29 +1,29 @@
 ---
-title: 'Implementación de la solución Supervisión remota de Java: Azure | Microsoft Docs'
-description: En este tutorial, se muestra cómo aprovisionar el acelerador de la solución Supervisión remota mediante la CLI.
+title: 'Implementación de la solución Supervisión remota mediante la CLI: Azure | Microsoft Docs'
+description: En esta guía paso a paso, se muestra cómo aprovisionar el acelerador de la solución Supervisión remota mediante la CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956704"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248017"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de la solución Supervisión remota mediante la CLI
 
-En este tutorial, se muestra cómo aprovisionar el acelerador de la solución Supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web de azureiotsuite.com. Para obtener más información sobre esta opción, consulte [Implementación del acelerador de la solución Supervisión remota](quickstart-remote-monitoring-deploy.md).
+En esta guía paso a paso, se explica cómo implementar el acelerador de la solución Supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web de azureiotsuite.com. Para más información sobre esta opción, vea el inicio rápido [Implementación del acelerador de la solución Supervisión remota](quickstart-remote-monitoring-deploy.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para implementar el acelerador de la solución Supervisión remota, necesita una suscripción de Azure activa.
 
-En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Para ejecutar la CLI, necesita tener instalado [Node.js](https://nodejs.org/) en su máquina local.
 
@@ -37,7 +37,7 @@ npm install iot-solutions -g
 
 ## <a name="sign-in-to-the-cli"></a>Inicio de sesión en la CLI
 
-Para poder implementar el acelerador de la solución, debe iniciar sesión en su suscripción de Azure mediante la CLI de la manera siguiente:
+Para poder implementar el acelerador de la solución, debe iniciar sesión en su suscripción de Azure mediante la CLI:
 
 ```cmd/sh
 pcs login
@@ -51,19 +51,20 @@ Al implementar el acelerador de la solución, hay varias opciones que permiten c
 
 | Opción | Valores | DESCRIPCIÓN |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard`, `local` | Una implementación _básica_ está destinada a pruebas y demostraciones. En este tipo de implementación, todos los microservicios se implementan en una única máquina virtual. Una implementación _estándar_ está destinada a producción. En este tipo de implementación, los microservicios se implementan en varias máquinas virtuales. Una implementación _local_ configura un contenedor de Docker para que ejecute los microservicios en la máquina local y usa los servicios de Azure, como Storage y Cosmos DB, en la nube. |
+| SKU    | `basic`, `standard`, `local` | Una implementación _básica_ está destinada a pruebas y demostraciones. En este tipo de implementación, todos los microservicios se implementan en una única máquina virtual. Una implementación _estándar_ está destinada a producción. En este tipo de implementación, los microservicios se implementan en varias máquinas virtuales. Una implementación _local_ configura un contenedor de Docker para que ejecute los microservicios en la máquina local y usa los servicios de nube de Azure, como Storage y Cosmos DB. |
 | Tiempo de ejecución | `dotnet`, `java` | Selecciona la implementación del lenguaje de los microservicios. |
 
-Para obtener información sobre cómo usar la implementación local, consulte el artículo sobre la [ejecución local de la solución Supervisión remota](iot-accelerators-remote-monitoring-deploy-local.md).
+Para obtener información sobre cómo usar la opción de implementación local, consulte el artículo sobre la [ejecución local de la solución Supervisión remota](iot-accelerators-remote-monitoring-deploy-local.md).
 
-## <a name="basic-vs-standard-deployments"></a>Implementación básica frente a estándar
+## <a name="basic-and-standard-deployments"></a>Implementaciones estándar y básica
+
+En esta sección se resumen las diferencias claves entre una implementación básica y estándar.
 
 ### <a name="basic"></a>Básica
-La implementación básica está orientada a presentar la solución. Para reducir el costo de esta demostración, todos los microservicios se implementan en una única máquina virtual; esto no se considera una arquitectura lista para entornos de producción.
 
-La opción de implementación estándar debe usarse cuando esté listo para personalizar una arquitectura para entornos de producción, creada para fines de escalabilidad y extensibilidad.
+La implementación básica está orientada a presentar la solución. Para reducir los costos, todos los microservicios se implementan en una sola máquina virtual. Esta implementación no usa una arquitectura lista para producción.
 
-Al crear una solución básica, se aprovisionarán los servicios de Azure siguientes en su suscripción de Azure al costo de: 
+Una implementación básica crea los siguientes servicios en la suscripción de Azure:
 
 | Recuento | Recurso                       | Escriba         | Se usa para |
 |-------|--------------------------------|--------------|----------|
@@ -78,13 +79,11 @@ Al crear una solución básica, se aprovisionarán los servicios de Azure siguie
 | 1     | [Servicio de Azure Device Provisioning](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Aprovisionamiento de dispositivos a escala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1: 1 unidad              | Almacenamiento para datos de mensajes y permite el análisis detallado de telemetría |
 
-
-
 ### <a name="standard"></a>Estándar
-La implementación estándar es una implementación lista para producción que un desarrollador puede personalizar y ampliar para satisfacer sus necesidades. La opción de implementación estándar debe usarse cuando esté listo para personalizar una arquitectura para entornos de producción, creada para fines de escalabilidad y extensibilidad. Los microservicios de aplicación se crean como contenedores de Docker y se implementan con Azure Kubernetes Service (AKS). El orquestador es responsable de la implementación, el escalado y la administración de la aplicación.
 
+Una implementación estándar es una implementación lista para producción que un desarrollador puede personalizar y ampliar. Use la opción de implementación estándar cuando esté listo para personalizar una arquitectura para entornos de producción, creada para fines de escalabilidad y extensibilidad. Los microservicios de aplicación se crean como contenedores de Docker y se implementan con Azure Kubernetes Service. El orquestador de Kubernetes implementa, escala y administra los microservicios.
 
-Al crear una solución estándar, se aprovisionarán los servicios de Azure siguientes en su suscripción de Azure al costo de:
+Una implementación estándar crea los siguientes servicios en la suscripción de Azure:
 
 | Recuento | Recurso                                     | SKU / Tamaño      | Se usa para |
 |-------|----------------------------------------------|-----------------|----------|
@@ -99,9 +98,12 @@ Al crear una solución estándar, se aprovisionarán los servicios de Azure sigu
 | 1     | [Servicio de Azure Device Provisioning](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Aprovisionamiento de dispositivos a escala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1: 1 unidad              | Almacenamiento para datos de mensajes y permite el análisis detallado de telemetría |
 
-> Puede encontrar más información sobre los precios de estos servicios [aquí](https://azure.microsoft.com/pricing). Las cantidades de uso y los detalles de facturación de la suscripción se pueden encontrar en [Azure Portal](https://portal.azure.com/).
+> [!NOTE]
+> Puede encontrar información sobre los precios de estos servicios en [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing). Puede encontrar los detalles de uso y facturación de la suscripción en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="deploy-the-solution-accelerator"></a>Implementación del acelerador de solución
+
+Ejemplos de implementación:
 
 ### <a name="example-deploy-net-version"></a>Ejemplo: Implementación de la versión de .NET
 
@@ -128,7 +130,7 @@ Al ejecutar el comando `pcs` para implementar una solución, se le pide:
 - Una ubicación.
 - Las credenciales de las máquinas virtuales que hospedan los microservicios. Puede usar estas credenciales para tener acceso a las máquinas virtuales de cara a la solución de problemas.
 
-Cuando el comando `pcs` finaliza, muestra la dirección URL de la nueva implementación del acelerador de la solución. El comando `pcs` también crea un archivo `{deployment-name}-output.json` con información adicional, como el nombre de la instancia de IoT Hub que se aprovisionó para usted.
+Cuando el comando `pcs` finaliza, muestra la dirección URL del nuevo acelerador de soluciones. El comando `pcs` también crea un archivo `{deployment-name}-output.json` que contiene información como el nombre de la instancia de IoT Hub que se creó.
 
 Para más información sobre los parámetros de la línea de comandos, ejecute:
 
@@ -140,13 +142,13 @@ Para más información sobre la CLI, consulte [Uso de la CLI](https://github.com
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En esta guía paso a paso, ha aprendido lo siguiente:
 
 > [!div class="checklist"]
 > * Configuración del acelerador de la solución
 > * Implementación del acelerador de solución
 > * Inicio de sesión en el acelerador de la solución
 
-Ahora que ha implementado la solución Supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](./quickstart-remote-monitoring-deploy.md).
+Ahora que ha implementado la solución de supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](./quickstart-remote-monitoring-deploy.md).
 
-<!-- Next tutorials in the sequence -->
+<!-- Next how-to guides in the sequence -->

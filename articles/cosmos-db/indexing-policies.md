@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cd3b5f49788282b535f07c6f84bf7e4002132ab9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054679"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237594"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
 
@@ -140,7 +140,7 @@ Azure Cosmos DB modela los documentos JSON y el índice como árboles. Puede aju
 
 Las rutas de acceso de índice comienzan con la raíz (/) comodín ?, lo que indica que hay varios valores posibles para el prefijo. Por ejemplo, para atender la consulta SELECT * FROM Families F WHERE F.familyName = "Andersen", debe incluir una ruta de acceso de índice para /familyName/? en la directiva de índice de la colección.
 
-Las rutas de acceso del índice también pueden usar el operador comodín \* para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo, /payload/* puede usarse para excluir de la indexación a todo el contenido de la propiedad payload.
+Las rutas de acceso del índice también pueden usar el operador comodín \*para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo, /payload/* puede usarse para excluir de la indexación a todo el contenido de la propiedad payload.
 
 Estos son los patrones comunes para especificar las rutas de acceso del índice:
 
@@ -323,7 +323,7 @@ Puede elegir si desea que la recopilación de todos los documentos se indexe aut
 
 Cuando se desactiva la indexación automática, podrá agregar al índice de manera selectiva solo algunos documentos específicos. Por el contrario, puede dejar activada la indexación automática y excluir de forma selectiva documentos específicos. Las configuraciones de indexación activada/desactivada son útiles cuando solo tiene un subconjunto de los documentos que necesita consultar.
 
-En el ejemplo siguiente se muestra cómo incluir un documento explícitamente mediante el [SDK de .NET para SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) y la propiedad [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+En el ejemplo siguiente se muestra cómo incluir un documento explícitamente mediante el [SDK de .NET para SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) y la propiedad [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -413,7 +413,7 @@ Puede quitar el índice de una colección moviendo al modo de indexación Ningun
 ## <a name="performance-tuning"></a>Optimización del rendimiento
 Las API de SQL proporcionan información acerca de las métricas de rendimiento, como el almacenamiento de índice usado y el costo del rendimiento (unidades de solicitud) para cada operación. Esta información puede usarse para comparar varias directivas de indexación y para optimizar el rendimiento.
 
-Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute una solicitud **HEAD** o **GET** en el recurso de la colección. A continuación, inspeccione los encabezados **x-ms-request-quota** y **x-ms-request-usage**. En el SDK de .NET, las propiedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) y [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contienen los valores correspondientes.
+Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute una solicitud **HEAD** o **GET** en el recurso de la colección. A continuación, inspeccione los encabezados **x-ms-request-quota** y **x-ms-request-usage**. En el SDK de .NET, las propiedades [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) y [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) contienen los valores correspondientes.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -421,7 +421,7 @@ Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute un
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Para medir la sobrecarga de la indexación en cada operación de escritura (crear, actualizar o eliminar), inspeccione el encabezado **x-ms-request-charge** (o la propiedad [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) equivalente en [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) en el SDK de .NET) para medir el número de unidades de solicitud que usan estas operaciones.
+Para medir la sobrecarga de la indexación en cada operación de escritura (crear, actualizar o eliminar), inspeccione el encabezado **x-ms-request-charge** (o la propiedad [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) equivalente en [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) en el SDK de .NET) para medir el número de unidades de solicitud que usan estas operaciones.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

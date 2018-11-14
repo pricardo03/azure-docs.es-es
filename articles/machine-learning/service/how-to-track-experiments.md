@@ -9,19 +9,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: da92f59c4e25ec012cd9ad389c9afac410ba28e1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649999"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219314"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Seguimiento de experimentos y métricas de entrenamiento en Azure Machine Learning
 
 Con el servicio Azure Machine Learning, puede realizar un seguimiento de sus experimentos y supervisar las métricas para mejorar el proceso de creación de modelos. En este artículo, aprenderá sobre las distintas maneras de agregar el registro al script de entrenamiento, enviar el experimento con **start_logging** y **ScriptRunConfig**, comprobar el progreso de un trabajo en ejecución y ver los resultados de una ejecución. 
 
 >[!NOTE]
-> El código de este artículo se ha probado con el SDK de Azure Machine Learning versión 0.168. 
+> El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 0.1.74. 
 
 ## <a name="list-of-training-metrics"></a>Lista de métricas de entrenamiento 
 
@@ -67,7 +67,6 @@ Antes de agregar el registro y enviar un experimento, debe configurar el área d
 
   # make up an arbitrary name
   experiment_name = 'train-in-notebook'
-  exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
   
 ## <a name="option-1-use-startlogging"></a>Opción 1: Usar start_logging
@@ -103,7 +102,8 @@ En el ejemplo siguiente, se entrena un modelo sklearn Ridge sencillo de forma lo
 2. Agregue seguimiento del experimento mediante el SDK del servicio Azure Machine Learning y cargue un modelo guardado en el registro de ejecución del experimento. El código siguiente agrega etiquetas y registros y carga un archivo de modelo en la ejecución del experimento.
 
   ```python
-  run = Run.start_logging(experiment = exp)
+  experiment = Experiment(workspace = ws, name = experiment_name)
+  run = experiment.start_logging()
   run.tag("Description","My first run!")
   run.log('alpha', 0.03)
   reg = Ridge(alpha = 0.03)
@@ -209,8 +209,8 @@ En este ejemplo se amplía el modelo sklearn Ridge básico anterior. Se realiza 
   ```python
   from azureml.core import ScriptRunConfig
 
-  src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
-  run = exp.submit(src)
+  src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
+  run = experiment.submit(src)
   ```
   
 ## <a name="view-run-details"></a>Visualización de los detalles de ejecución
@@ -248,11 +248,22 @@ El vínculo para la ejecución le lleva directamente a la página de detalles de
   ![Captura de pantalla de detalles de ejecución en Azure Portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 También puede ver las salidas o los registros de la ejecución, o descargar la instantánea del experimento que ha enviado para que pueda compartir la carpeta del experimento con otros usuarios.
+### <a name="viewing-charts-in-run-details"></a>Visualización de gráficos en los detalles de ejecución
+
+Hay varias maneras de usar las API de registro para registrar diferentes tipos de métricas durante una ejecución y verlas como gráficos en Azure Portal. 
+
+|Valor registrado|Ejemplo de código| Ver en el portal|
+|----|----|----|
+|Registrar una matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Gráfico de líneas de una sola variable|
+|Registrar un único valor numérico con el mismo nombre de métrica usado repetidamente (como desde dentro de un bucle)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de líneas de una sola variable|
+|Registrar una fila con dos columnas numéricas repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de líneas de dos variables|
+|Registrar tabla con dos columnas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de líneas de dos variables|
 
 ## <a name="example-notebooks"></a>Cuadernos de ejemplo
 Los cuadernos siguientes muestran los conceptos de este artículo:
 * [01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
 * [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.getting-started/06.logging-api/06.logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
 
 Obtenga estos cuadernos: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

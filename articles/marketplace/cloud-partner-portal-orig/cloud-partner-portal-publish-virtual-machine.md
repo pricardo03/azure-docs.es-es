@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387368"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247082"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publicación de una máquina virtual en Azure Marketplace
 
@@ -37,7 +37,7 @@ Los siguientes requisitos previos técnicos y de otra índole se aplican a la pu
 
 -   [Creación y prueba de una máquina virtual de Linux a partir de una imagen](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Creación y carga de un disco duro virtual de Windows](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Creación y carga de un disco duro virtual con Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Creación y prueba de una máquina virtual de Windows a partir de una imagen](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -60,7 +60,7 @@ Los siguientes requisitos previos técnicos y de otra índole se aplican a la pu
 
 -   Acepte los términos del contrato del anunciante y de las directivas de participación en Azure Marketplace.
 
--   Acepte los [términos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [declaración de privacidad de Microsoft](http://www.microsoft.com/privacystatement/default.aspx) y el [contrato del programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+-   Acepte los [términos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [declaración de privacidad de Microsoft](https://www.microsoft.com/privacystatement/default.aspx) y el [contrato del programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -211,7 +211,7 @@ En este archivo de Excel, los precios de las diferentes regiones se muestran en 
 
 >[!IMPORTANT]
 >-   Los precios no se pueden cambiar una vez lanzada una oferta. Sin embargo, sí podrá agregar o quitar regiones admitidas.
->-   Este precio se cobra al usuario aparte de los [precios de máquinas virtuales\' de Azure](http://aka.ms/vmpricingdetails).
+>-   Este precio se cobra al usuario aparte de los  [precios de máquinas virtuales de Azure](https://aka.ms/vmpricingdetails).
 >-   Los precios se establecen para todas las regiones en la moneda local y se usa el tipo de cambio disponible en el momento en que se fijan los precios.
 >-   Para establecer o ver el precio de cada región individualmente, exporte la hoja de cálculo de precios e impórtela con precios personalizados.
 
@@ -225,7 +225,7 @@ La siguiente sección que hay que completar será la de las imágenes de máquin
 
 -   [Creación y prueba de una máquina virtual de Linux a partir de una imagen](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Creación y carga de un disco duro virtual con Windows](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Creación y carga de un disco duro virtual con Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Creación y prueba de una máquina virtual de Windows a partir de una imagen](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 

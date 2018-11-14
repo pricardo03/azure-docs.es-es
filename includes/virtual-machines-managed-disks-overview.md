@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3e660dbcbfecd57c43ecec6006581364660adb44
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50737256"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263899"
 ---
 # <a name="azure-managed-disks-overview"></a>Introducción a Azure Managed Disks
 
@@ -67,21 +67,21 @@ Veamos estas opciones más detalladamente.
 
 **Tamaño del disco**: la facturación de los discos administrados depende del tamaño aprovisionado del disco. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Managed Disks más cercana, como se especifica en las tablas siguientes. Cada disco administrado se asigna a uno de los tamaños aprovisionados admitidos y se factura según corresponda. Por ejemplo, si crea un disco administrado estándar y especifica un tamaño aprovisionado de 200 GB, se le facturará según los precios del tipo de disco S15.
 
-Estos son los tamaños de disco disponibles para un disco administrado premium:
+Estos son los tamaños de disco disponibles para un disco administrado premium; los tamaños que se indican con un asterisco están actualmente en versión preliminar:
 
-| **Tipo de disco<br> administrado SDD Premium** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+| **Tipo de disco<br> administrado SSD Premium** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Tamaño del disco        | 32 GiB  | 64 GiB  | 128 GB | 256 GiB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 8192 GiB (8 TiB) | 16 384 GiB (16 TiB) | 32 767 GiB (TiB) |
 
-Estos son los tamaños de disco disponibles para un disco administrado SSD estándar:
+Estos son los tamaños de disco disponibles para un disco administrado SSD estándar; los tamaños que se indican con un asterisco están actualmente en versión preliminar:
 
-| **Tipo de disco<br> administrado SSD estándar** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60** | **E70** | **E80** |
+| **Tipo de disco<br> administrado SSD estándar** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
 |------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Tamaño del disco        | 128 GB | 256 GiB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 8192 GiB (8 TiB) | 16 384 GiB (16 TiB) | 32 767 GiB (TiB) |
 
-Estos son los tamaños de disco disponibles para un disco administrado HDD estándar:
+Estos son los tamaños de disco disponibles para un disco administrado HDD estándar; los tamaños que se indican con un asterisco están actualmente en versión preliminar:
 
-| **Tipo de disco<br> administrado HDD estándar** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+| **Tipo de disco<br> administrado HDD estándar** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Tamaño del disco        | 32 GiB  | 64 GiB  | 128 GB | 256 GiB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 8192 GiB (8 TiB) | 16 384 GiB (16 TiB) | 32 767 GiB (TiB) |
 

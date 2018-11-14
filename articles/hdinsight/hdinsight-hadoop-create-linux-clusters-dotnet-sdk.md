@@ -1,6 +1,6 @@
 ---
-title: Creación de clústeres de Hadoop con NET en Azure HDInsight
-description: Aprenda a crear clústeres de Hadoop, HBase, Storm o Spark en Linux para HDInsight con el SDK .NET de HDInsight.
+title: Creación de clústeres de Apache Hadoop con .NET en Azure HDInsight
+description: Aprenda a crear clústeres de Apache Hadoop, Apache HBase, Apache Storm o Apache Spark en Linux con el SDK de .NET para HDInsight.
 services: hdinsight
 author: mamccrea
 ms.reviewer: jasonh
@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: ea5c0d3b9f444601607ebcda8d139797eb8dd2ec
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 943d5aeccf949c1dd494dc8ec8fda0d782527749
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093918"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035688"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Crear clústeres basados en Linux en HDInsight con el SDK de .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-Aprenda a crear un clúster de Hadoop en un clúster de HDInsight de Azure mediante el SDK de .NET.
+Aprenda a crear un clúster de Apache Hadoop en un clúster de HDInsight de Azure mediante el SDK de .NET.
 
 > [!IMPORTANT]
 > Los pasos descritos en este documento crean un clúster con un nodo de trabajo. Si piensa crear más de 32 nodos de trabajo, ya sea al crear el clúster o al escalar el clúster después de crearlo, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.

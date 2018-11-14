@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a322edbc6825261dde0fd926a362ca037739e06e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1fd60774f5790a514e540984812fc1aaf6e38e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388065"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238920"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory 
 
@@ -68,6 +68,18 @@ En la siguiente sección encontrará un árbol de decisión que le ayudará a de
 ## <a name="decision-tree"></a>Árbol de decisión
 
 ![Árbol de decisión de autenticación de Azure AD](media/azure-ad/azure-ad-authn-image1.png)
+
+Detalles sobre las preguntas de decisión:
+
+1. Azure AD puede controlar el inicio de sesión de los usuarios sin tener que depender de los componentes locales para comprobar las contraseñas.
+2. Azure AD puede entregar el inicio de sesión de usuario a un proveedor de autenticación de confianza como AD FS de Microsoft.
+3. Si tiene que aplicar directivas de seguridad de Active Directory a nivel de usuario, como la cuenta expirada, cuenta deshabilitada, contraseña expirada, cuenta bloqueada y horas de inicio de sesión de cada usuario, Azure AD requiere algunos componentes locales.
+4. Las características de inicio de sesión no son compatibles de forma nativa con Azure AD:
+   * Inicio de sesión con tarjetas inteligentes o certificados.
+   * Inicio de sesión con el servidor de MFA de forma local.
+   * Inicio de sesión con una solución de autenticación de terceros.
+   * Solución de autenticación local de varios sitios.
+5. Azure AD Identity Protection requiere la sincronización del hash de contraseña, independientemente de qué método de inicio de sesión elija, para proporcionar el informe "Usuarios con credenciales filtradas". Las organizaciones pueden conmutar por error a la sincronización del hash de contraseña si se produce un error en su método principal de inicio de sesión y se ha configurado antes del evento de error.
 
 ## <a name="detailed-considerations"></a>Consideraciones detalladas
 
@@ -207,4 +219,4 @@ En la actualidad, las amenazas están presentes 24 horas al día y proceden de c
 
 [Comience a trabajar](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) con Azure AD e implemente la solución de autenticación adecuada para su organización.
 
-Si está pensando cambiar de la autenticación federada a la autenticación en la nube, consulte la información acerca de [cómo cambiar el método de inicio de sesión](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Para ayudarle a planear e implementar la migración, puede usar [estos planes de implementación de proyectos](http://aka.ms/deploymentplans).
+Si está pensando cambiar de la autenticación federada a la autenticación en la nube, consulte la información acerca de [cómo cambiar el método de inicio de sesión](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Para ayudarle a planear e implementar la migración, puede usar [estos planes de implementación de proyectos](https://aka.ms/deploymentplans).

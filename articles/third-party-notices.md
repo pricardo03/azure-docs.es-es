@@ -4,9 +4,9 @@ Microsoft y los colaboradores le conceden una licencia para la documentación de
 
 Microsoft, Windows, Microsoft Azure y otros productos y servicios de Microsoft a los que se hace referencia en la documentación pueden ser marcas comerciales o marcas registradas de Microsoft Corporation en los Estados Unidos y/o en otros países.
 Las licencias de este proyecto no le conceden derechos de uso de nombres, logotipos ni marcas comerciales de Microsoft.
-Las directrices generales de marca registrada de Microsoft se encuentran en [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
+Las directrices generales de marca registrada de Microsoft se encuentran en [http://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653).
 
-La información de privacidad se encuentra en [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
+La información sobre privacidad se puede encontrar en [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/).
 
 Microsoft y sus colaboradores se reservan todos los demás derechos, ya sea por los derechos de autor, las patentes o las marcas registradas correspondientes, o de forma implícita, por exclusión o de otro modo.
 

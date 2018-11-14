@@ -7,20 +7,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 8c79107a0081b1c7478ffe8ceb44ec67e1f618c4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782284"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283672"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Uso de Data Lake Storage Gen2 (versión preliminar) con clústeres de Azure HDInsight
 
-Para analizar datos en el clúster HDInsight, puede almacenar los datos en cualquier combinación de Azure Storage, Azure Data Lake Storage Gen1 o Azure Data Lake Storage Gen2 (versión preliminar). Todas las opciones de almacenamiento permiten eliminar de forma segura clústeres de HDInsight que se usan para el cálculo sin perder datos del usuario.
+Para analizar datos en el clúster de HDInsight, puede almacenar los datos en cualquier combinación de Azure Blob Storage, Azure Blob Storage con Azure Data Lake Storage Gen2 (versión preliminar) o Azure Data Lake Storage Gen1. Todas las opciones de almacenamiento permiten eliminar de forma segura clústeres de HDInsight que se usan para el cálculo sin perder datos del usuario.
 
-Hadoop admite una noción del sistema de archivos predeterminado. El sistema de archivos predeterminado implica una autoridad y un esquema predeterminados. También se puede usar para resolver rutas de acceso relativas. Durante el proceso de creación del clúster de HDInsight, puede especificar un contenedor de blobs en Azure Storage o Azure Data Lake Storage como el sistema de archivos predeterminado. Además, con HDInsight 3.5, puede seleccionar Azure Storage o Azure Data Lake Storage como el sistema de archivos predeterminado, con algunas excepciones.
+Hadoop admite una noción del sistema de archivos predeterminado. El sistema de archivos predeterminado implica una autoridad y un esquema predeterminados. También se puede usar para resolver rutas de acceso relativas. Durante el proceso de creación del clúster de HDInsight, puede especificar un contenedor de blobs en Azure Storage o el espacio de nombres jerárquico que ofrece Data Lake Storage Gen2 como el sistema de archivos predeterminado. Además, con HDInsight 3.5, puede seleccionar un contenedor o el espacio de nombres jerárquico como el sistema de archivos predeterminado, con algunas excepciones.
 
-En este artículo, aprenderá cómo funciona Azure Data Lake Storage Gen2 con clústeres de HDInsight. Para más información sobre la creación de un clúster HDInsight, consulte el artículo sobre [configuración de clústeres HDInsight mediante Azure Data Lake Storage con Hadoop, Spark, Kafka, y más](quickstart-create-connect-hdi-cluster.md).
+En este artículo, aprenderá cómo funciona Data Lake Storage Gen2 con clústeres de HDInsight. Para más información sobre la creación de un clúster HDInsight, consulte el artículo sobre [configuración de clústeres HDInsight mediante Azure Data Lake Storage con Hadoop, Spark, Kafka, y más](quickstart-create-connect-hdi-cluster.md).
 
 Azure Storage es una solución de almacenamiento sólida y de uso general, que se integra sin problemas con HDInsight. HDInsight puede usar Azure Data Lake Storage como el sistema de archivos predeterminado para el clúster. A través de una interfaz del sistema de archivos distribuidos de Hadoop (HDFS), el conjunto completo de componentes de HDInsight puede operar directamente en archivos de Azure Data Lake Storage.
 
@@ -49,13 +49,13 @@ A la hora de usar una cuenta de Azure Storage con clústeres de HDInsight, es ne
 * **Los archivos públicos en cuentas de almacenamiento que NO están conectados a un clúster** exponen permisos de solo lectura a los archivos en el sistema de archivos.
   
   > [!NOTE]
-  > Los sistemas de archivos públicos le permiten obtener una lista de todos los archivos disponibles en el sistema de archivos y acceder a los metadatos. Los sistemas de archivos públicos le permiten acceder a los archivos solo si conoce la URL exacta. Para más información, consulte el artículo sobre cómo [restringir el acceso a contenedores y blobs](http://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (las reglas para contenedores y blobs funcionan de la misma manera con los mismo archivos y sistema de archivos).
+  > Los sistemas de archivos públicos le permiten obtener una lista de todos los archivos disponibles en el sistema de archivos y acceder a los metadatos. Los sistemas de archivos públicos le permiten acceder a los archivos solo si conoce la URL exacta. Para más información, consulte el artículo sobre cómo [restringir el acceso a contenedores y blobs](https://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (las reglas para contenedores y blobs funcionan de la misma manera con los mismo archivos y sistema de archivos).
  
 * **Los sistemas de archivos privados de las cuentas de almacenamiento que no están conectados a un clúster:** no permiten el acceso al sistema de archivos a menos que defina la cuenta de almacenamiento al enviar los trabajos de WebHCat. Los motivos de esta restricción se explican más adelante en este artículo.
 
 Las cuentas de almacenamiento definidas en el proceso de creación y sus claves se almacenan en *%HADOOP_HOME%/conf/core-site.xml* en los nodos de clúster. El comportamiento predeterminado de HDInsight es usar las cuentas de almacenamiento definidas en el archivo *core-site.xml*. Puede modificar esta configuración mediante [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md)
 
-Varios trabajos de WebHCat, incluidos Hive, MapReduce, streaming de Hadoop y Pig, pueden llevar una descripción de cuentas de almacenamiento y metadatos con ellos. (Actualmente este enfoque funciona para Pig con cuentas de almacenamiento pero no para metadatos). Para obtener más información, consulte [Uso de un clúster de HDInsight con cuentas de almacenamiento y tiendas de metadatos alternativas](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Varios trabajos de WebHCat, incluidos Hive, MapReduce, streaming de Hadoop y Pig, pueden llevar una descripción de cuentas de almacenamiento y metadatos con ellos. (Actualmente este enfoque funciona para Pig con cuentas de almacenamiento pero no para metadatos). Para obtener más información, consulte [Uso de un clúster de HDInsight con cuentas de almacenamiento y tiendas de metadatos alternativas](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 ## <a id="benefits"></a>Ventajas de Azure Storage
 
@@ -80,13 +80,13 @@ Determinados trabajos y paquetes de MapReduce podrían crear resultados intermed
 > [!NOTE]
 > La mayoría de los comandos HDFS (por ejemplo, `ls`, `copyFromLocal` y `mkdir`) siguen funcionando según lo previsto. Únicamente los comandos específicos de DFS, como `fschk` y `dfsadmin`, muestran comportamientos diferentes en Azure Storage.
 
-## <a name="create-an-data-lake-storage-file-system"></a>Creación de un sistema de archivos de Data Lake Storage
+## <a name="create-a-data-lake-storage-file-system"></a>Creación de un sistema de archivos de Data Lake Storage
 
 Para usar el sistema de archivos, en primer lugar debe crear una [cuenta de Azure Storage][azure-storage-create]. Como parte de este proceso, debe especificar una región de Azure donde se crea la cuenta de almacenamiento. El clúster y la cuenta de almacenamiento deben ubicarse en la misma región. La base de datos de SQL Server de la tienda de metadatos Hive y la base de datos de SQL Server de la tienda de metadatos Oozie también deben encontrarse en la misma región.
 
-Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a un sistema de archivos de su cuenta de Azure Data Lake Storage. 
+Sea cual sea su ubicación, todos los blobs que cree pertenecerán a un sistema de archivos de su cuenta de almacenamiento.
 
-El sistema de archivos predeterminado de Data Lake Storage almacena información específica del clúster, como registros y el historial de trabajos. No comparta un sistema de archivos predeterminado de Data Lake Storage con varios clústeres HDInsight. Se podría dañar el historial de trabajos. Es recomendable usar un sistema de archivos diferente para cada clúster y colocar los datos compartidos en una cuenta de almacenamiento vinculada especificada en la implementación de todos los clústeres pertinentes en lugar de la cuenta de almacenamiento predeterminada. Para más información acerca de cómo configurar cuentas de almacenamiento vinculadas, consulte [Creación de clústeres de HDInsight][hdinsight-creation]. Sin embargo, puede volver a usar un sistema de archivos de almacenamiento predeterminado después de que se haya eliminado el clúster de HDInsight original. En el caso de los clústeres de HBase, para conservar el esquema y los datos de tabla de HBase se puede crear un nuevo clúster de HBase mediante el contenedor de blobs predeterminado que usaba un clúster de HBase eliminado.
+El sistema de archivos predeterminado de Data Lake Storage Gen2 almacena información específica del clúster, como registros y el historial de trabajos. No comparta un sistema de archivos predeterminado de Data Lake Storage Gen2 con varios clústeres de HDInsight. Se podría dañar el historial de trabajos. Es recomendable usar un sistema de archivos diferente para cada clúster y colocar los datos compartidos en una cuenta de almacenamiento vinculada especificada en la implementación de todos los clústeres pertinentes en lugar de la cuenta de almacenamiento predeterminada. Para más información acerca de cómo configurar cuentas de almacenamiento vinculadas, consulte [Creación de clústeres de HDInsight][hdinsight-creation]. Sin embargo, puede volver a usar un sistema de archivos de almacenamiento predeterminado después de que se haya eliminado el clúster de HDInsight original. En el caso de los clústeres de HBase, para conservar el esquema y los datos de tabla de HBase se puede crear un nuevo clúster de HBase mediante el contenedor de blobs predeterminado que usaba un clúster de HBase eliminado.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -132,7 +132,7 @@ Si ha [instalado y configurado Azure PowerShell][powershell-install], puede usar
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 > [!NOTE]
-> Crear un contenedor es sinónimo de crear un sistema de archivos en Azure Data Lake Storage.
+> Crear un contenedor es sinónimo de crear un sistema de archivos en Data Lake Storage Gen2.
 
 ### <a name="use-azure-cli"></a>Uso de CLI de Azure
 
@@ -164,7 +164,7 @@ Para crear un contenedor, use el comando siguiente:
     azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
-> Crear un contenedor es sinónimo de crear un sistema de archivos en Azure Data Lake Storage.
+> Crear un contenedor es sinónimo de crear un sistema de archivos en Data Lake Storage Gen2.
 
 ## <a name="address-files-in-azure-storage"></a>Archivos adicionales en Azure Storage
 
@@ -174,7 +174,7 @@ El esquema de URI para acceder a los archivos de Azure Storage desde HDInsight e
 
 El esquema URI proporciona acceso sin cifrar (con el prefijo *abfs:*) y acceso cifrado SSL (con *abfss*). Se recomienda usar *abfss* siempre que sea posible, incluso cuando se acceda a datos que se encuentren en la misma región de Azure.
 
-* &lt;FILE_SYSTEM_NAME&gt; identifica la ruta de acceso del sistema de archivos de Azure Data Lake Storage.
+* &lt;FILE_SYSTEM_NAME&gt; identifica la ruta de acceso del sistema de archivos de Data Lake Storage Gen2.
 * &lt;ACCOUNT_NAME&gt; identifica el nombre de la cuenta de Azure Storage. Se necesita el nombre completo de dominio (FQDN).
 
     Si se han especificado valores para &lt;FILE_SYSTEM_NAME&gt; o &lt;ACCOUNT_NAME&gt;, se utiliza el sistema de archivos predeterminado. Para los archivos del sistema de archivos predeterminado, puede usar una ruta relativa o absoluta. Por ejemplo, se puede hacer referencia al archivo *hadoop-mapreduce-examples.jar* que se incluye con los clústeres de HDInsight usando una de las rutas de acceso siguientes:
@@ -205,9 +205,9 @@ En este artículo, aprendió a usar Azure Storage compatible con HDFS con HDInsi
 Para más información, consulte:
 
 * [El controlador ABFS Hadoop Filesystem para Azure Data Lake Storage Gen2](abfs-driver.md)
-* [Introducción a Azure Data Lake Storage](introduction.md)
-* [Configuración de clústeres HDInsight mediante Azure Data Lake Storage con Hadoop, Spark, Kafka y más](quickstart-create-connect-hdi-cluster.md)
-* [Ingesta de datos en Azure Data Lake Storage con Distcp](use-distcp.md)
+* [Introducción a Azure Data Lake Storage Gen2](introduction.md)
+* [Configuración de clústeres de HDInsight mediante Azure Data Lake Storage Gen2 con Hadoop, Spark, Kafka y más](quickstart-create-connect-hdi-cluster.md)
+* [Ingesta de datos en Azure Data Lake Storage Gen2 con Distcp](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md

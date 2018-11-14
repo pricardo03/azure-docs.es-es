@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025844"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038610"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servicio Voz
 
@@ -57,10 +57,12 @@ Los siguientes campos se envían en el encabezado de la solicitud HTTP.
 
 ### <a name="audio-format"></a>Formato de audio
 
-El audio se envía en el cuerpo de la solicitud HTTP `POST`. Debe estar en formato WAV de 16 bits con canal único PCM (mono) a 16 kHz de los siguientes formatos/codificaciones.
+El audio se envía en el cuerpo de la solicitud HTTP `POST`. Debe estar en uno de los formatos de esta tabla:
 
-* Formato WAV con el códec PCM
-* Formato Ogg con el códec OPUS
+| Formato | Códec | Bitrate | Velocidad de muestreo |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16 bits | 16 kHz, mono |
+| OGG | OPUS | 16 bits | 16 kHz, mono |
 
 >[!NOTE]
 >Se admiten los formatos anteriores a través de la API de REST y WebSocket en el servicio de voz. El [SDK de Voz](/index.yml) actualmente solo admite el formato WAV con el códec PCM.
@@ -104,7 +106,7 @@ La siguiente es una solicitud típica.
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codec="audio/pcm"; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked

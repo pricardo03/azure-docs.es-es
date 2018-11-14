@@ -4,8 +4,6 @@ description: Usar reglas de salida para definir traducciones de direcciones de r
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637569"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219382"
 ---
 # <a name="load-balancer-outbound-rules"></a>Reglas de salida de Load Balancer
 
@@ -69,9 +67,9 @@ La versión de la API "2018-07-01" permite una definición de regla de salida qu
 
 Mientras una regla de salida se puede usar con una única dirección IP pública, las reglas de salida alivian la carga de configuración para escalar la NAT de salida. Puede usar varias direcciones IP para planear escenarios de gran escala y puede usar reglas de salida para mitigar los patrones con tendencia a [agotamiento de SNAT](load-balancer-outbound-connections.md#snatexhaust).  
 
-Cada dirección IP adicional que proporciona un front-end ofrece 64 000 puertos efímeros que Load Balancer puede usar como puertos SNAT. Mientras las reglas de equilibrio de carga o NAT de entrada tienen un único front-end, la regla de salida amplía la noción de front-end y permite varios front-ends por regla.  Con varios front-ends por regla, se multiplica la cantidad de puertos SNAT disponibles con cada dirección IP pública y se pueden admitir escenarios muy grandes.
+Cada dirección IP adicional que proporciona un front-end ofrece 64 000 puertos efímeros que Load Balancer puede usar como puertos SNAT. Mientras las reglas de equilibrio de carga o NAT de entrada tienen un único front-end, la regla de salida amplía la noción de front-end y permite varios front-ends por regla.  Con varios front-ends por regla, se multiplica la cantidad de puertos SNAT disponibles con cada dirección IP pública y se pueden admitir escenarios grandes.
 
-Además, puede usar un [prefijo de IP pública](https://aka.ms/lbpublicipprefix) directamente con una regla de salida.  Esto proporciona un escalado más fácil y una creación simplificada de listas de permitidos para los flujo que se origina en la implementación de Azure. Puede configurar una configuración de IP de front-end en el recurso de Load Balancer para hacer referencia directamente a un prefijo de dirección IP pública.  Esto permite el control exclusivo de Load Balancer sobre el prefijo IP público y la regla de salida usará automáticamente todas las direcciones IP públicas que contiene el prefijo de IP pública para las conexiones de salida.  Cada una de las direcciones IP dentro del intervalo del prefijo de IP pública proporciona 64 000 puertos efímeros por dirección IP que Load Balancer puede usar como puertos SNAT.   
+Además, puede usar un [prefijo de IP pública](https://aka.ms/lbpublicipprefix) directamente con una regla de salida.  El uso de un prefijo de dirección IP pública proporciona un escalado más fácil y una creación simplificada de listas de permitidos para los flujos que se originan en la implementación de Azure. Puede configurar una configuración de IP de front-end en el recurso de Load Balancer para hacer referencia directamente a un prefijo de dirección IP pública.  Esto permite el control exclusivo de Load Balancer sobre el prefijo IP público y la regla de salida usará automáticamente todas las direcciones IP públicas que contiene el prefijo de IP pública para las conexiones de salida.  Cada una de las direcciones IP dentro del intervalo del prefijo de IP pública proporciona 64 000 puertos efímeros por dirección IP que Load Balancer puede usar como puertos SNAT.   
 
 No se pueden crear recursos de dirección IP pública individuales a partir del prefijo de IP pública cuando se usa esta opción, ya que la regla de salida debe tener control total sobre el prefijo de IP pública.  Si necesita un control más específico, puede crear un recurso de dirección IP pública individual a partir del prefijo de IP pública y asignar varias direcciones IP públicas individualmente al front-end de una regla de salida.
 

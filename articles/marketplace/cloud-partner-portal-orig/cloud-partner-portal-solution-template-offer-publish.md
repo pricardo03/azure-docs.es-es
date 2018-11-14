@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ded952ac6418ae3d9916b3ae8b8dbacb0c9c5a84
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5320b8d5ca7456a6f1b0fdd1372c9f39ac1edfb0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807763"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219416"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publicación de una plantilla de solución en Azure Marketplace
 
@@ -91,7 +91,9 @@ Una SKU se presenta en la oferta principal de Azure Marketplace y se muestra com
     - Configuración de oferta
     - SKU
     - Marketplace
-    - Soporte técnico. Cada vista contiene un conjunto de campos que debe rellenar. Los campos obligatorios se marcan con un asterisco rojo (\*).
+    - Soporte técnico
+
+Cada vista contiene un conjunto de campos que debe rellenar. Los campos obligatorios se marcan con un asterisco rojo (\*).
 
 ## <a name="to-configure-offer-settings"></a>Para definir la configuración de la oferta
 

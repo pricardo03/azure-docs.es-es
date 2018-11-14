@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df1cada5e730189546f65d9799926807390db083
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b61ee3c3baa4590dc8a2fbf91b1ff941626a01e4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432263"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959836"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creación de una máquina virtual Windows con una plantilla de Resource Manager
 
@@ -53,9 +53,9 @@ Todos los recursos se deben implementar en un [grupo de recursos](../../azure-re
 
 ## <a name="create-the-files"></a>Creación de los archivos
 
-En este paso, creará un archivo de plantilla que implementa los recursos y un archivo de parámetros que proporciona valores de parámetro a la plantilla. También creará un archivo de autorización que se utiliza para realizar operaciones de Azure Resource Manager.
+En este paso, creará un archivo de plantilla que implementa los recursos y un archivo de parámetros que proporciona valores de parámetro a la plantilla. También creará un archivo de autorización que se utiliza para realizar operaciones de Azure Resource Manager. 
 
-1. Cree un archivo denominado *CreateVMTemplate.json* y agréguele este código JSON:
+1. Cree un archivo denominado *CreateVMTemplate.json* y agréguele este código JSON: Reemplace el valor de `domainNameLabel` por su propio nombre único.
 
     ```json
     {
@@ -203,7 +203,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> También puede implementar las plantillas y los parámetros desde archivos locales. Para obtener más información, consulte [Usar Azure PowerShell con Azure Storage](../../storage/common/storage-powershell-guide-full.md).
+> También puede implementar las plantillas y los parámetros desde archivos locales. Para más información, consulte [Usar Azure PowerShell con Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 2a3c317dc9abdb861a007be9aaed714089e9f453
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2ec758d9457b75cd7e5f6f29757d3201f3a6d62e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388201"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283485"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guía para la creación de una imagen de máquina virtual para Azure Marketplace
 En este artículo, **paso 2**, se explica cómo puede preparar los discos duros virtuales (VHD) que va a implementar en Azure Marketplace. Los VHD constituyen el fundamento de la SKU. El proceso difiere en función de si la SKU que va a proporcionar está basada en Linux o en Windows. En este artículo se tratan ambos escenarios. Este proceso puede realizarse en paralelo con la [creación y registro de cuentas][link-acct-creation].
@@ -148,11 +148,11 @@ Para descargar un archivo de escritorio remoto en una máquina local, use el [cm
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
-Encontrará más información acerca de RDP en el artículo de MSDN [Conectarse a una máquina virtual de Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+Encontrará más información acerca de RDP en el artículo de MSDN [Conectarse a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 **Configurar una máquina virtual y crear la SKU**
 
-Una vez descargado el VHD del sistema operativo, use Hyper-V y configure una máquina virtual para comenzar a crear la SKU. Encontrará los pasos detallados en el siguiente vínculo de TechNet: [Instalar Hyper-V y crear una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
+Una vez descargado el VHD del sistema operativo, use Hyper-V y configure una máquina virtual para comenzar a crear la SKU. Encontrará los pasos detallados en el siguiente vínculo de TechNet: [Instalar Hyper-V y crear una máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 Elegir el tamaño de VHD correcto
 El VHD del sistema operativo Windows en la imagen de máquina virtual debe crearse como VHD de 128 GB con formato fijo.  
@@ -191,7 +191,7 @@ Para obtener más información sobre las imágenes de máquina virtual consulte 
 
 ### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Configurar las herramientas necesarias, PowerShell y la CLI de Azure clásica
 * [Cómo configurar PowerShell](/powershell/azure/overview)
-* [Configuración de la CLI de Azure clásica](../cli-install-nodejs.md)
+* [Cómo configurar la CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 Crear una imagen de máquina virtual de usuario
 #### <a name="capture-vm"></a>Captura de máquina virtual
@@ -427,63 +427,45 @@ A continuación se muestran los pasos para generar la dirección URL de SAS medi
 
 11. Repita estos pasos para cada VHD de la SKU.
 
-**CLI de Azure clásica (recomendable para la integración continua y distinta de Windows)**
+**CLI de Azure 2.0 (recomendado para la integración continua y distinta de Windows)**
 
 A continuación se enumeran los pasos para generar la dirección URL de SAS mediante la CLI de Azure clásica.
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.  Descargue la CLI de Azure clásica de [aquí](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). También puede encontrar vínculos diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** y **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Descargue la CLI de Microsoft Azure desde [aquí](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). También puede encontrar vínculos diferentes para **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** y **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)**.
 
 2.  Una vez completada la descarga, instálela.
 
-3.  Cree un archivo PowerShell (u otro ejecutable de la script) con el código siguiente y guárdelo localmente.
+3.  Cree un archivo Bash (u otro ejecutable de script equivalente) con el código siguiente y guárdelo localmente.
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
+        export AZURE_STORAGE_ACCOUNT=<Storage Account Name>
+        EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')
+        CONTAINER_SAS=$(az storage container generate-sas --account-name -n vhds --permissions rl --expiry $EXPIRY -otsv)
+        BLOB_URL=$(az storage blob url -c vhds -n <VHD Blob Name> -otsv)
+        echo $BLOB_URL\?$CONTAINER_SAS
 
     Actualice los siguientes parámetros especificados anteriormente.
 
-    a. **`<StorageAccountName>`**: indique el nombre de la cuenta de almacenamiento
+    a. **`<Storage Account Name>`**: indique el nombre de la cuenta de almacenamiento
 
-    b. **`<Storage Account Key>`**: indique la clave de la cuenta de almacenamiento
+    b. **`<VHD Blob Name>`**: indique el nombre del blob de disco duro virtual.
 
-    c. **`<Permission Start Date>`**: para proteger la hora UTC, seleccione el día anterior a la fecha actual. Por ejemplo, si la fecha actual es el 26 de octubre de 2016, el valor debe ser 10/25/2016. Si utiliza la CLI de Azure 2.0 o superior, especifique la fecha y la hora en las fechas inicial y final, por ejemplo: 10-25-2016T00:00:00Z.
+    Seleccione una fecha que al menos sea 3 semanas posterior a la fecha de inicio (de forma predeterminada es la hora de generación del token de SAS). Un valor de ejemplo es: **2018-10-11T23:56Z**.
 
-    d. **`<Permission End Date>`**: seleccione una fecha que sea al menos 3 semanas después de la **Fecha de inicio**. El valor debería ser **11/02/2016**. Si utiliza la CLI de Azure 2.0 o superior, especifique la fecha y la hora en las fechas inicial y final, por ejemplo: 11-02-2016T00:00:00Z.
+    Un ejemplo de código después de actualizar parámetros correctos es el siguiente:     export AZURE_STORAGE_ACCOUNT=vhdstorage1ba78dfb6bc2d8     EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')     CONTAINER_SAS=$(az storage container generate-sas -n vhds --permissions rl --expiry $EXPIRY -otsv)     BLOB_URL=$(az storage blob url -c vhds -n osdisk_1ba78dfb6b.vhd -otsv)     echo $BLOB_URL\?$CONTAINER_SAS
 
-    A continuación se muestra el código de ejemplo después de actualizar los parámetros adecuados.
+4.  Ejecute el script para conseguir la dirección URL de SAS para el acceso de nivel de contenedor.
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
-
-4.  Abra el editor de Powershell con el modo de "Ejecutar como administrador" y abra el archivo del paso 3. Puede usar cualquier editor de script disponible en el sistema operativo.
-
-5.  Ejecute el script para conseguir la dirección URL de SAS para el acceso de nivel de contenedor.
-
-    A continuación se muestra el resultado de la firma de SAS; copie la parte resaltada en el Bloc de notas.
-
-    ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
-
-6.  Ahora tendrá la dirección URL de SAS de nivel de contenedor y tendrá que agregar el nombre del disco duro virtual en ella.
-
-    N.º de URL de SAS de nivel de contenedor
-
-    `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-7.  Inserte el nombre del disco duro virtual después del nombre del contenedor en la dirección URL de SAS como se indica a continuación:`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-    Ejemplo:
-
-    TestRGVM201631920152.vhd es el nombre de disco duro virtual, así que la dirección URL de SAS del disco duro virtual será
-
-    `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+5.  Compruebe la dirección URL de SAS.
 
     - Compruebe que el nombre de archivo de imagen y ".vhd" están en el URI.
     -   Asegúrese de que "sp=rl" aparece en el medio de la firma. Esto demuestra que el acceso de lectura y lista se ha proporcionado correctamente.
     -   Asegúrese de que "sr=c" aparece en el medio de la firma. Esto demuestra que tiene acceso de nivel de contenedor.
+
+    Ejemplo:
+
+    `https://vhdstorage1ba78dfb6bc2d8.blob.core.windows.net/vhds/osdisk_1ba78dfb6b.vhd?se=2018-10-12T00%3A04Z&sp=rl&sv=2018-03-28&sr=c&sig=...`
 
 8.  Para asegurarse de que el URI de firma de acceso compartido generado funciona correctamente, pruébelo en el explorador. El proceso de descarga debería comenzar.
 

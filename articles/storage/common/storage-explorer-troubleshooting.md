@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470327"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281785"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -59,6 +59,9 @@ Si se encuentra en un bucle de reautenticación o ha cambiado el UPN de una de s
 1. Quite todas las cuentas y cierre el Explorador de Storage.
 2. Elimine la carpeta .IdentityService de la máquina. En Windows, la carpeta se encuentra en `C:\users\<username>\AppData\Local`. En Mac y Linux, puede encontrar la carpeta en la raíz de su directorio de usuario.
 3. Si está en Mac o Linux, también deberá eliminar la entrada Microsoft.Developer.IdentityService del almacén de claves de su sistema operativo. En Mac, el almacén de claves es la aplicación de "Gnome Keychain". En Linux, la aplicación normalmente se denomina "Keyring" pero el nombre puede ser diferente en función de su distribución.
+
+### <a name="conditional-access"></a>Acceso condicional
+El acceso condicional no se admite cuando se usa el Explorador de Storage en Windows 10, Linux o macOS. Esto se debe a una limitación en la biblioteca de AAD usada por el Explorador de Storage.
 
 ## <a name="mac-keychain-errors"></a>Errores de cadena de claves de Mac
 En ocasiones, la cadena de claves de macOS puede entrar en un estado que ocasiona problemas en la biblioteca de autenticación del Explorador de Storage. Para sacar a la cadena de claves de ese estado, pruebe los pasos siguientes:
@@ -143,6 +146,12 @@ Si es correcta la configuración de proxy, tendrá que ponerse en contacto con e
 ## <a name="unable-to-retrieve-children-error-message"></a>Mensaje de error "No se pueden recuperar los elementos secundarios"
 
 Si está conectado a Azure a través de un servidor proxy, compruebe que la configuración de proxy sea correcta. Si el propietario de una suscripción o una cuenta concedió acceso a un recurso, compruebe que disponga de permisos de lectura o lista para dicho recurso.
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>La cadena de conexión no tiene una configuración completa
+
+Si recibe este mensaje de error, es posible que no tenga los permisos necesarios para obtener las claves para la cuenta de almacenamiento. Para confirmar si este es el caso, vaya al portal y busque la cuenta de almacenamiento. Puede hacerlo rápidamente haciendo clic en el nodo de la cuenta de almacenamiento y haciendo clic en "Abrir en Portal". Cuando haya hecho esto, vaya a la hoja "Claves de acceso". Si no tiene permisos para ver las claves, verá una página con el mensaje "No tiene acceso". Para solucionar este problema, puede obtener la clave de cuenta de otra persona y asociarla con el nombre y la clave, o puede pedir a alguien una SAS para la cuenta de almacenamiento y usarla para asociar la cuenta de almacenamiento.
+
+Si ve las claves de cuenta, a continuación, registre un problema en GitHub para que podemos ayudarlo a resolver el problema.
 
 ## <a name="issues-with-sas-url"></a>Problemas con la URL de SAS
 Si se conecta a un servicio mediante una dirección URL de SAS y se produce este error:

@@ -299,6 +299,8 @@ items:
         href: azure-stack-app-service-release-notes-update-two.md
       - name: Notas de la versión de la actualización 3 de App Service en Azure Stack
         href: azure-stack-app-service-release-notes-update-three.md
+      - name: Notas de la versión de la actualización 4 de App Service en Azure Stack
+        href: azure-stack-app-service-release-notes-update-four.md
   - name: Creación de planes, ofertas y cuotas
     items:
     - name: Introducción a los planes, ofertas, cuotas y suscripciones
@@ -388,9 +390,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Aprendizaje y certificación
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 60487f16002df5a55d2859a14ec34559acd5cd5f
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b68cebd2d6e2a7965eef61bf35c50824f7102c8e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578162"
+ms.locfileid: "51614759"

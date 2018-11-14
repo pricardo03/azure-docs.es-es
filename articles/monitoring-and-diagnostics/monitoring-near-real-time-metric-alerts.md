@@ -8,28 +8,21 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 47dee26c84d96ebf5b0a421c2f10d18892d6d933
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 15ecbcafd3397b425b669a48f19bee6073b71149
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227255"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279796"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos compatibles para las alertas de métricas de Azure Monitor
 
-Azure Monitor ahora admite un [nuevo tipo de alerta de métrica](monitoring-overview-unified-alerts.md) que tiene ventajas considerables sobre las anteriores [alertas de métrica clásicas](insights-alerts-portal.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](monitoring-supported-metrics.md). Las nuevas alertas admiten un subconjunto (creciente) de los tipos de recurso. En este artículo se muestra ese subconjunto.
+Azure Monitor ahora admite un nuevo tipo de alerta de métrica que tiene ventajas considerables sobre las anteriores [alertas de métrica clásicas](alert-metric-classic.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](monitoring-supported-metrics.md). Las nuevas alertas admiten un subconjunto (creciente) de los tipos de recurso. En este artículo se muestra ese subconjunto.
 
-También puede utilizar las nuevas alertas de métricas en los registros populares de Log Analytics extraídos como métricas como parte de las métricas de los registros. 
-- [Contadores de rendimiento](../log-analytics/log-analytics-data-sources-performance-counters.md) para equipos con Windows y Linux
-- [Registros de latidos para Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
-- Registros de [administración de actualizaciones](../operations-management-suite/oms-solution-update-management.md)
-- [Datos de registros de eventos](../log-analytics/log-analytics-data-sources-windows-events.md)
- 
-> [!NOTE]
-> La métrica o dimensión específicas solo se mostrarán si los datos de ellas existen durante el período elegido. Estas métricas están disponibles para los clientes con áreas de trabajo de Azure Log Analytics en Este de EE. UU., Centro-oeste de EE. UU. y Europa Occidental. Las métricas de Log Analytics está actualmente en versión preliminar pública y está sujeta a cambios.
+También puede utilizar las nuevas alertas de métricas en los registros populares de Log Analytics extraídos como métricas. Para obtener más información, consulte [Alertas de métricas para registros](monitoring-metric-alerts-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST support
-Actualmente, solo puede crear alertas de métricas nuevas en Azure Portal, la [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) o [plantillas de Resource Manager](monitoring-create-metric-alerts-with-templates.md). La compatibilidad con la configuración de nuevas alertas mediante las versiones 2.0 de PowerShell y la CLI de Azure estará disponible próximamente.
+Actualmente, solo puede crear alertas de métricas nuevas en Azure Portal, la [API de REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/) o [plantillas de Resource Manager](monitoring-create-metric-alerts-with-templates.md). La compatibilidad con la configuración de nuevas alertas mediante las versiones 2.0 de PowerShell y la CLI de Azure estará disponible próximamente.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métricas y dimensiones compatibles
 Las nuevas alertas de métricas admiten alertas de métricas que utilizan dimensiones. Puede usar dimensiones para filtrar las métricas al nivel adecuado. Todas las métricas compatibles, junto con las dimensiones aplicables, se pueden explorar y visualizar en el [Explorador de métricas de Azure Monitor](monitoring-metric-charts.md).
@@ -43,8 +36,8 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.Batch/batchAccounts | N/D| [Cuentas de Batch](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
 |Microsoft.Cache/Redis     |    N/D     |[Redis Cache](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.CognitiveServices/accounts     |    N/D     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.Compute/virtualMachines     |    N/D     | [Virtual Machines](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
-|Microsoft.Compute/virtualMachineScaleSets     |   N/D      |[Conjuntos de escalado de máquina virtual](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.Compute/virtualMachines     |    N/D     | [Máquinas virtuales](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
+|Microsoft.Compute/virtualMachineScaleSets     |   N/D      |[Conjuntos de escalado de máquinas virtuales](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | SÍ| [Grupos de contenedores](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
 |Microsoft.ContainerService/managedClusters | SÍ | [Clústeres administrados](monitoring-supported-metrics.md#microsoftcontainerservicemanagedclusters)|
 |Microsoft.DataFactory/datafactories| SÍ| [Factorías de datos V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|

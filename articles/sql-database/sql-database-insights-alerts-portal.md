@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159319"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979002"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar Azure Portal para crear alertas de Azure SQL Database y Data Warehouse
 
@@ -44,19 +44,15 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creación de una regla de alerta de una métrica con Azure Portal
 1. En el [portal](https://portal.azure.com/), busque el recurso que desea supervisar y selecciónelo.
-2. Este paso es diferente para SQL Database y los grupos elásticos frente a SQL Data Warehouse: 
-
-   - **SOLO para SQL Database y grupos elásticos**: en la sección SUPERVISIÓN, seleccione **Alertas** o **Reglas de alerta**. El texto y el icono pueden variar ligeramente en los distintos recursos.  
+2. Seleccione **Alertas (clásico)** en la sección SUPERVISIÓN. El texto y el icono pueden variar ligeramente en los distintos recursos.  
    
-     ![Supervisión](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
+     ![Supervisión](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SOLO para SQL Data Warehouse**: Seleccione **Supervisión** en la sección TAREAS COMUNES. Haga clic en el gráfico **Uso de DWU**.
+   - **SOLO SQL DW**: haga clic en el gráfico **Uso de DWU**. Seleccione **Ver alertas clásicas**.
 
-     ![TAREAS COMUNES](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
-
-3. Seleccione el comando **Agregar alerta** y rellene los campos.
+3. Seleccione el botón **Agregar alerta de métrica (clásica)** y rellene los campos.
    
-    ![Agregar alerta](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Agregar alerta](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. Asígnele un **nombre** a la regla de alerta y elija una **descripción**, que también se muestra los correos electrónicos de notificación.
 5. Seleccione la **métrica** que desea supervisar y elija un valor de **Condición** y **Umbral** para la métrica. También debe elegir el **período** de la regla de métrica que se debe cumplir antes de que se desencadene la alerta. Por ejemplo, si usa el período "PT5M" y la alerta busca una CPU por encima del 80 %, la alerta se desencadena cuando el **promedio** de CPU ha estado por encima del 80 % durante 5 minutos. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando el promedio de CPU está por debajo del 80 % durante más de 5 minutos. La CPU se mide cada 1 minuto. Consulte la tabla siguiente para ver las ventanas de tiempo compatibles y el tipo de agregación que usa cada alerta; no todas las alertas usan el valor promedio.   
 6. Marque la opción **Enviar correo electrónico a propietarios...** si desea que se envíe un correo electrónico a los administradores y coadministradores cuando se active la alerta.

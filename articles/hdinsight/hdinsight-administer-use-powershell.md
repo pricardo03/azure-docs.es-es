@@ -1,25 +1,25 @@
 ---
-title: 'Administración de clústeres de Hadoop en HDInsight con PowerShell: Azure'
-description: Vea cómo realizar tareas administrativas para clústeres de Hadoop en HDInsight usando Azure PowerShell.
+title: Administración de clústeres de Apache Hadoop en HDInsight con PowerShell (Azure)
+description: Vea cómo realizar tareas administrativas para clústeres de Apache Hadoop en HDInsight mediante Azure PowerShell.
 services: hdinsight
-ms.reviewer: jasonh
-author: jasonwhowell
+ms.reviewer: tyfox
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 7abd75347d7bd2673a9e6040ee15def6638de440
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/6/2018
+ms.author: tylerfox
+ms.openlocfilehash: 4bf46501a75b9dd5be7ae1b446a0db90c20be559
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096589"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235265"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Administración de clústeres de Apache Hadoop en HDInsight con Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Se puede usar Azure PowerShell para controlar y automatizar la implementación y la administración de las cargas de trabajo en Azure. En este artículo aprenderá a administrar clústeres de Hadoop en Azure HDInsight mediante Azure PowerShell. Para más información sobre los cmdlets de PowerShell de HDInsight, consulte la [referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Se puede usar Azure PowerShell para controlar y automatizar la implementación y la administración de las cargas de trabajo en Azure. En este artículo aprenderá a administrar clústeres de Apache Hadoop en Azure HDInsight mediante Azure PowerShell. Para más información sobre los cmdlets de PowerShell de HDInsight, consulte la [referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Requisitos previos**
 
@@ -209,7 +209,7 @@ $resourceGroupName = $cluster.ResourceGroup
 ## <a name="submit-jobs"></a>Envío de trabajos
 **Para enviar trabajos de MapReduce**
 
-Vea [Ejecución de ejemplos de Hadoop MapReduce en HDInsight basado en Windows](hdinsight-run-samples.md).
+Vea [Ejecución de los ejemplos de MapReduce incluidos en HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Para enviar trabajos de Hive**
 

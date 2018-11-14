@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 221434a391f963a764ef36b9533cc8cfd0e16c01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123455"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961898"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creación de alertas del registro de actividad en notificaciones del servicio
 ## <a name="overview"></a>Información general
@@ -36,7 +36,7 @@ También puede configurar a quién se debe enviar la alerta:
 
 Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](monitoring-action-groups.md).
 
-Para obtener información sobre cómo configurar las alertas de notificación de mantenimiento del servicio mediante plantillas de Azure Resource Manager, consulte [Plantillas de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+Para obtener información sobre cómo configurar las alertas de notificación de mantenimiento del servicio mediante plantillas de Azure Resource Manager, consulte [Plantillas de Resource Manager](alert-activity-log.md).
 
 ## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Creación de una alerta basada en una notificación de mantenimiento del servicio para un nuevo grupo de acciones con Azure Portal
 1. En el [portal](https://portal.azure.com), seleccione **Estado del servicio**.
@@ -70,7 +70,7 @@ Para obtener información sobre cómo configurar las alertas de notificación de
 
 1. A continuación, defina una lista de destinatarios proporcionando:
 
-    a. **Nombre**: el nombre, alias o identificador del destinatario.
+    a. **Nombre**: escriba el nombre, alias o identificador del destinatario.
 
     b. **Tipo de acción**: seleccione SMS, correo electrónico, webhook, aplicación de Azure, etc.
 

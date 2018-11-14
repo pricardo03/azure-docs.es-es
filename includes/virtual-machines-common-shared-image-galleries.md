@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6ad38d2dc1c5c41dc10685d680f70c59e7983cd2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8eca04478fd5aba292fcc47abac37b740b552dff
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035459"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51208650"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a generar estructura y organización en torno a las imágenes de VM personalizadas. La galería de imágenes compartidas ofrece tres proposiciones de valor principales:
 - Administración sencilla
-- Escalar las imágenes de clientes
+- Escalado de imágenes personalizadas
 - Compartir las imágenes: comparta sus imágenes con distintos usuarios, entidades de servicio o grupos de AD dentro de su organización, así como con diferentes regiones mediante la replicación en varias regiones
 
-Una imagen administrada es una copia de una VM completa (incluidos los discos de datos asociados) o, simplemente, el disco del sistema operativo, según cómo cree la imagen. Cuando crea una VM desde la imagen, la copia de los VHD en la imagen se usa para crear los discos para la nueva VM. La imagen administrada permanece en el almacenamiento y puede usarse una y otra vez para crear nuevas VM.
+Una imagen administrada es una copia de una VM completa (incluidos los discos de datos asociados) o, simplemente, el disco del sistema operativo, según cómo cree la imagen. Cuando crea una VM desde la imagen, la copia de los VHD de la imagen se usa para crear los discos para la nueva VM. La imagen administrada permanece en el almacenamiento y puede usarse una y otra vez para crear nuevas VM.
 
 Si tiene un gran número de imágenes administradas que se deben mantener y quiere que estén disponibles en toda la empresa, puede usar una galería de imágenes compartidas como repositorio que facilite la tarea de actualizar y compartir las imágenes. Los cargos por uso de una galería de imágenes compartidas son simplemente los costos del almacenamiento usado por las imágenes, además de los costos de salida de red para la replicación de imágenes de la región de origen a las regiones publicadas.
 
@@ -40,7 +40,7 @@ La característica de galería de imágenes compartidas tiene varios tipos de re
 
 ### <a name="regional-support"></a>Compatibilidad regional
 
-La compatibilidad regional para las galerías de imágenes compartidas es limitada, pero se expandirá con el tiempo. Para la versión preliminar, estas son las listas de donde se pueden crear galerías y las regiones donde puede replicar cualquier galería: 
+La compatibilidad regional para las galerías de imágenes compartidas se encuentra disponible como versión preliminar limitada, pero se expandirá con el tiempo. Para la versión preliminar limitada, aquí está la lista de las regiones donde puede crear galerías y la lista de regiones donde puede replicar cualquier imagen de la galería: 
 
 | Crear galería en  | Replicar la versión en |
 |--------------------|----------------------|
@@ -61,19 +61,19 @@ La compatibilidad regional para las galerías de imágenes compartidas es limita
 
 
 ## <a name="scaling"></a>Escalado
-La galería de imágenes compartidas le permite especificar el número de réplicas que quiere que Azure mantenga para las imágenes. Esto ayuda en los escenarios de implementación de varias VM, ya que las implementaciones de VM se pueden distribuir a las distintas réplicas, lo que reduce la probabilidad de que el proceso de creación de instancias quede limitado por la sobrecarga de una única réplica.
+La galería de imágenes compartidas le permite especificar el número de réplicas de las imágenes que quiere que Azure mantenga. Esto ayuda en los escenarios de implementación de varias VM, ya que las implementaciones de VM se pueden distribuir a las distintas réplicas, lo que reduce la probabilidad de que el proceso de creación de instancias quede limitado por la sobrecarga de una única réplica.
 
 ![Gráfico que muestra cómo puede escalar imágenes](./media/shared-image-galleries/scaling.png)
 
 
 ## <a name="replication"></a>Replicación
-La galería de imágenes compartidas también permite replicar las imágenes en otras regiones de Azure automáticamente. Cada versión de una imagen compartida se puede replicar en distintas regiones en función de lo más adecuado para su organización. Un ejemplo es replicar siempre la imagen más reciente en varias regiones, mientras que todas las versiones anteriores solo están disponibles en una región. Esto puede ayudar a ahorrar costos de almacenamiento para las versiones de imágenes compartidas. Las regiones donde puede replicarse la versión de una imagen compartida se pueden actualizar después de su creación. El tiempo necesario para replicar en diferentes regiones depende de la cantidad de datos que se copien y el número de regiones en las que se replicará la versión. En algunos casos, esto puede tardar varias horas. Mientras se produce la replicación, puede ver el estado de replicación por región. Una vez que se complete la replicación de la imagen en una región, podrá implementar una VM o VMSS con esa versión en la región.
+La galería de imágenes compartidas también permite replicar las imágenes en otras regiones de Azure automáticamente. Cada versión de una imagen compartida se puede replicar en distintas regiones en función de lo que sea más conveniente para su organización. Un ejemplo es replicar siempre la imagen más reciente en varias regiones, mientras que todas las versiones anteriores solo están disponibles en una región. Esto puede ayudar a ahorrar costos de almacenamiento para las versiones de imágenes compartidas. Las regiones donde puede replicarse la versión de una imagen compartida se pueden actualizar después de su creación. El tiempo necesario para replicar en diferentes regiones depende de la cantidad de datos que se copien y del número de regiones en las que se replicará la versión. En algunos casos, esto puede tardar varias horas. Mientras se produce la replicación, puede ver el estado de replicación por región. Una vez que se complete la replicación de la imagen en una región, podrá implementar una VM o VMSS con esa versión de la imagen en la región.
 
 ![Gráfico que muestra cómo puede replicar imágenes](./media/shared-image-galleries/replication.png)
 
 
 ## <a name="access"></a>Access
-Dado que la galería de imágenes compartidas, la imagen compartida y la versión de la imagen compartida son recursos, pueden compartirse con los controles integrados nativos de RBAC de Azure. Con RBAC puede compartir estos recursos con otros usuarios, entidades de servicio y grupos de su organización. El ámbito de uso compartido de estos recursos es dentro del mismo inquilino de AD. Una vez que un usuario tiene acceso a la versión de la imagen compartida, puede implementar una VM o un conjunto de escalado de máquinas virtuales en cualquiera de las suscripciones a las que tenga acceso dentro del mismo inquilino de AD que la versión de la imagen compartida.  Aquí está la matriz de uso compartido que ayuda a entender a lo que el usuario tiene acceso:
+Dado que la galería de imágenes compartidas, la imagen compartida y la versión de la imagen compartida son recursos, pueden compartirse con los controles integrados nativos de Azure RBAC. Con RBAC puede compartir estos recursos con otros usuarios, entidades de servicio y grupos de su organización. El ámbito de uso compartido de estos recursos es dentro del mismo inquilino de Azure AD. Una vez que un usuario tiene acceso a la versión de la imagen compartida, puede implementar una VM o un conjunto de escalado de máquinas virtuales en cualquiera de las suscripciones a las que tenga acceso dentro del mismo inquilino de Azure AD que la versión de la imagen compartida.  Aquí está la matriz de uso compartido que ayuda a entender a lo que el usuario tiene acceso:
 
 | Compartido con el usuario     | Galería de imágenes compartidas | Imagen compartida | Versión de la imagen compartida |
 |----------------------|----------------------|--------------|----------------------|
@@ -86,7 +86,7 @@ Dado que la galería de imágenes compartidas, la imagen compartida y la versió
 ## <a name="billing"></a>Facturación
 No hay ningún cargo adicional por usar el servicio de la galería de imágenes compartidas. Se le cobrará por los siguientes recursos:
 - Costos de almacenamiento de las versiones de imágenes compartidas. Esto depende del número de réplicas de la versión y del número de regiones en las que se replique la versión.
-- Cargos de salida de red para la replicación de la región de origen de la versión a las regiones replicadas.
+- Cargos de salida de red para la replicación desde la región de origen de la versión en las regiones replicadas.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes 
 
@@ -98,7 +98,7 @@ No hay ningún cargo adicional por usar el servicio de la galería de imágenes 
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -n Microsoft.Compute
+az provider register -name Microsoft.Compute
 ```
 
 **PowerShell**: 
@@ -119,7 +119,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
  
  Para ver las definiciones de imagen y las versiones de imagen, debe seleccionar también **Mostrar tipos ocultos**.
  
- Para enumerar todos los recursos de la galería de imágenes compartidas a través de las suscripciones para las que tiene permiso, use el comando siguiente en la CLI de Azure:
+ Para enumerar todos los recursos de la galería de imágenes compartidas mediante las suscripciones para las que tiene permiso, use el comando siguiente en la CLI de Azure:
 
  ```bash
  az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
@@ -186,9 +186,9 @@ Versión de la imagen:
 
  A. No, puede replicar las versiones de la imagen en varias regiones de una suscripción y usarla en otras suscripciones a través de RBAC.
 
-**P.** ¿Puedo compartir versiones de imágenes entre los inquilinos de AD? 
+**P.** ¿Puedo compartir versiones de imágenes entre los inquilinos de Azure AD? 
 
- A. No, actualmente la galería de imágenes compartidas no admite el uso compartido de versiones de imágenes entre los inquilinos de AD. Sin embargo, puede usar la característica de Ofertas privadas en Azure Marketplace para lograr esto.
+ A. No, actualmente la galería de imágenes compartidas no admite el uso compartido de versiones de imágenes entre los inquilinos de Azure AD. Sin embargo, puede usar la característica de Ofertas privadas en Azure Marketplace para lograr esto.
 
 
 **P.** ¿Cuánto tarda la replicación de versiones de imágenes en las regiones de destino?

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4ac3871893e7e8161dc087f285eb3d802cd4a355
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f76a55778a5d4c00060192bfaa704724d5fe1045
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215147"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219498"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Administración del servidor de configuración para máquinas virtuales de VMware
 
@@ -137,7 +137,7 @@ Los paquetes acumulativos se ejecutan para actualizar el servidor de configuraci
 - Si ejecuta 9.7 9.8, 9,9 o 9.10, puede actualizar directamente a 9.11.
 - Si ejecuta la versión 9.6 o anterior, y desea actualizar a 9.11, primero debe actualizar a la versión 9.7 antes de hacerlo a la versión 9.11.
 
-En la [página wiki de actualizaciones](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx), hay disponibles vínculos a paquetes acumulativos para actualizar a todas las versiones del servidor de configuración.
+En la [página de actualizaciones de Azure](https://azure.microsoft.com/updates/?product=site-recovery), hay disponibles vínculos a paquetes acumulativos para actualizar a todas las versiones del servidor de configuración.
 
 > [!IMPORTANT]
 > Con cada nueva versión "N" de un componente de Azure Site Recovery que se publica, todas las versiones anteriores a "N-4" se consideran excluidas del soporte técnico. Siempre es aconsejable actualizar a las versiones más recientes disponibles.

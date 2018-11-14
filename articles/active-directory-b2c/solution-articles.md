@@ -4,16 +4,16 @@ description: En este artículo se proporcionan vínculos a información de soluc
 services: active-directory-b2c
 author: davidmu1
 ms.author: davidmu
-ms.date: 10/11/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: b2c
-ms.openlocfilehash: 74598aa83a9ed47ee85ef71593745faccfb81ee3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 595b69e24484bb31a13b6f3554990cddb69c1a89
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165954"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227483"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Soluciones y aprendizaje para Azure Active Directory B2C
 
@@ -27,3 +27,4 @@ Azure Active Directory (Azure AD) B2C permite a las organizaciones implementar s
 | [Enabling partners, Suppliers, and Customers to Access Applications with Azure Active Directory](https://aka.ms/aadexternalidentities) (Habilitación de socios, proveedores y clientes para acceder a aplicaciones con Azure Active Directory) | El éxito de toda organización, independientemente de su tamaño, sector, o postura de cumplimiento normativo y seguridad, se basa en la capacidad organizativa de colaborar con otras organizaciones y conectarse con los clientes.<br><br>Esta guía, que aúna Azure AD, Azure AD B2C y la colaboración de Azure AD B2B, detalla el valor empresarial y los mecanismos de creación de una aplicación o experiencia web que proporciona una experiencia de autenticación consolidada, adaptada a los contextos de sus empleados, socios comerciales, proveedores y clientes. |
 | [Migrating Application Authentication to Azure AD B2C in a Hybrid Environment](https://aka.ms/MigratetoAADB2C) (Migración de la autenticación de aplicaciones a Azure AD B2C en un entorno híbrido) | En las organizaciones modernas de la actualidad, la transformación digital y el pasaje a la nube se dan en etapas, lo que exige que la mayoría de las organizaciones funcione, al menos temporalmente, en un entorno de identidad híbrida.<br><br>Esta guía se centra en crear el plan de migración para mover la primera aplicación en Azure AD B2C y aborda las consideraciones para hacerlo mientras está en un entorno de identidad híbrida. |
 | [General Data protection Regulation (GDPR) Considerations for Customer Facing Applications](https://aka.ms/AADB2CandGDPR) (Consideraciones del Reglamento General de Protección de Datos [RGPD] para aplicaciones orientadas a clientes) | Para cualquier aplicación orientada a los clientes, todas las organizaciones que se embarquen en proyectos que conserven datos personales y atiendan a ciudadanos de la UE deben tener en cuenta el RGPD.<br><br>Esta guía de solución se centra en cómo se puede usar Azure AD B2C como componente flexible de su enfoque general de cumplimiento del RGPD, incluido cómo los componentes de Azure AD B2C son compatibles con cada uno de los derechos clave del RGPD para personas físicas. |
+| Trabajar con directivas personalizadas:<br><ul><li>[Introducción a las directivas personalizadas](http://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Introduction.pdf)</li><li>[Usar directivas personalizadas en el inquilino](http://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Leveraging%20Custom%20Policies%20for%20your%20Tenant.pdf)</li><li>[Estructurar directivas y administrar claves](http://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Structuring%20Policies%20and%20Managing%20Keys.pdf)</li><li>[Traiga su propia identidad y migre usuarios](http://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Bring-your-own-identity%20and%20Migrating%20Users.pdf)</li><li>[Solucionar problemas de directivas y auditar el acceso](http://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Troubleshooting%20Policies%20and%20Auditing.pdf)</li><li>[Profundización en el esquema de directivas personalizadas](http://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Deep%20Dive%20on%20Custom%20Policy%20Schema.pdf)</li><br>| Esta serie de documentos proporciona un recorrido de un extremo a otro de las directivas personalizadas en Azure AD B2C, con la presentación detallada de los escenarios de identidades avanzados más comunes.<br><br> Incluye cómo implementar y administrar directivas personalizadas para estos escenarios y cómo diagnosticarlas con las herramientas disponibles. También proporciona una visión detallada de cómo funcionan las directivas personalizadas y detalles sobre cómo ajustarlas para satisfacer sus propios requisitos. |

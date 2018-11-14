@@ -2,18 +2,18 @@
 title: Almacenamiento inmutable en Azure Storage Blobs | Microsoft Docs
 description: Azure Storage ofrece compatibilidad WORM (escribir una vez, leer muchas) con el almacenamiento de Blob (objeto), lo que permite a los usuarios almacenar datos en un estado no modificable durante un intervalo de tiempo especificado.
 services: storage
-author: MichaelHauss
+author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: mihauss
+ms.date: 11/05/2018
+ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 38e34391294e1a070d506583fbc30dcdb703bea0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156908"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037011"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage
 
@@ -194,7 +194,7 @@ En caso de impago, las directivas de retención de datos normales se aplicarán 
 
 **¿Se ofrece una evaluación o un período de gracia para probar la característica?**
 
-Sí. Cuando se crea por primera vez una directiva de retención basada en el tiempo, está en estado *desbloqueado*. En este estado, puede realizar los cambios que desee en el intervalo de retención, como por ejemplo, aumentarlo o disminuirlo, e incluso eliminar la directiva. Una vez que la directiva se bloquea, permanece bloqueada indefinidamente para impedir su eliminación. Además, ya no se puede disminuir el intervalo de retención cuando la directiva está bloqueada. Se recomienda encarecidamente que utilice el estado *desbloqueado* únicamente para fines de prueba y que bloquee la directiva en un periodo de 24 horas. Estas prácticas ayudan a cumplir SEC 17a-4(f) y otras normativas.
+Sí. Cuando se crea por primera vez una directiva de retención basada en el tiempo, está en estado *desbloqueado*. En este estado, puede realizar los cambios que desee en el intervalo de retención, como por ejemplo, aumentarlo o disminuirlo, e incluso eliminar la directiva. Una vez bloqueada la directiva, permanece en este estado hasta que expira el intervalo de retención. Esto evita la eliminación y modificación en el intervalo de retención. Se recomienda encarecidamente que utilice el estado *desbloqueado* únicamente para fines de prueba y que bloquee la directiva en un periodo de 24 horas. Estas prácticas ayudan a cumplir SEC 17a-4(f) y otras normativas.
 
 **¿Está disponible la característica en las nubes nacionales y gubernamentales?**
 

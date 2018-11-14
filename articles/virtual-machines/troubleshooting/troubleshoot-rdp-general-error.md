@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/30/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7f5e1f2141a58f666367d253d5fc313499e64c9f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239397"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960164"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Solución de problemas de un error general de RDP en una máquina virtual Windows en Azure
 
@@ -65,7 +65,7 @@ Para resolver este problema, [realice una copia de seguridad del disco del siste
 
 ### <a name="serial-console"></a>Consola serie
 
-#### <a name="step-1-turn-on-remote-deskop"></a>Paso 1: Activar Escritorio remoto
+#### <a name="step-1-turn-on-remote-desktop"></a>Paso 1: Activación de Escritorio remoto
 
 1. Acceda a [Serial Console](serial-console-windows.md) seleccionando **Soporte técnico y solución de problemas** > **Serial Console (versión preliminar)**. Si la característica está habilitada en la máquina virtual, puede conectar la máquina virtual correctamente.
 
@@ -76,94 +76,91 @@ Para resolver este problema, [realice una copia de seguridad del disco del siste
    ```
    ch -si 1
    ```
-4. Compruebe los valores de las claves del registro:
 
-   1. Asegúrese de que el componente de RDP está habilitado.
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Paso 2: Comprobación de los valores de las claves del Registro de RDP:
+
+1. Compruebe si el RDP está deshabilitado por las directivas.
 
       ```
-      REM Get the local policy
+      REM Get the local policy 
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
 
       REM Get the domain policy if any
       reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
       ```
 
-      Si la directiva de dominio existe, se sobrescribe la configuración de la directiva local.
+      - Si la directiva de dominio existe, se sobrescribe la configuración de la directiva local.
+      - Si la directiva de dominio indica que RDP está deshabilitado (1), actualice directiva de AD del controlador de dominio.
+      - Si la directiva de dominio indica que RDP está habilitado (0), no hay que actualizar.
+      - Si no existe la directiva de dominio y la directiva local indica que RDP está deshabilitado (1), habilite RDP mediante el comando siguiente: 
+      
+            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+                  
 
-         - Si la directiva de dominio indica que RDP está deshabilitado (1), actualice directiva de AD del controlador de dominio.
-         - Si la directiva de dominio indica que RDP está habilitado (0), no hay que actualizar.
-
-      Si no existe la directiva de dominio y la directiva local indica que RDP está deshabilitado (1), habilite RDP mediante el comando siguiente:
-
-         ```
-         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-         ```
-
-   2. Compruebe la configuración actual del servidor de Terminal Server.
+2. Compruebe la configuración actual del servidor de Terminal Server.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
       ```
 
-   3. Si el comando devuelve 0, el servidor de Terminal Server está deshabilitado. A continuación, habilite el servidor de Terminal Server:
+      Si el comando devuelve 0, el servidor de Terminal Server está deshabilitado. A continuación, habilite el servidor de Terminal Server:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
       ```
 
-   4. El módulo de Terminal Server está establecido en el modo de purga si el servidor no se encuentra en una granja de servidores de terminal server (RDS o Citrix). Compruebe el modo actual del módulo de Terminal Server.
+3. El módulo de Terminal Server está establecido en el modo de purga si el servidor no se encuentra en una granja de servidores de terminal server (RDS o Citrix). Compruebe el modo actual del módulo de Terminal Server.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
       ```
 
-   5. Si el comando devuelve 1, el módulo de Terminal Server está establecido en el modo de purga. A continuación, establezca el módulo en el modo de trabajo:
+      Si el comando devuelve 1, el módulo de Terminal Server está establecido en el modo de purga. A continuación, establezca el módulo en el modo de trabajo:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
       ```
 
-   6. Compruebe si puede conectarse al servidor de Terminal Server.
+4. Compruebe si puede conectarse al servidor de Terminal Server.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
       ```
 
-   7. Si el comando devuelve 1, no se puede conectar al servidor de Terminal Server. A continuación, habilite la conexión de la manera siguiente:
+      Si el comando devuelve 1, no se puede conectar al servidor de Terminal Server. A continuación, habilite la conexión de la manera siguiente:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
       ```
-
-   8. Compruebe la configuración actual del agente de escucha de RDP.
+5. Compruebe la configuración actual del agente de escucha de RDP.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation
       ```
 
-   9. Si el comando devuelve 0, el agente de escucha de RDP está deshabilitado. A continuación, habilite el agente de escucha como se indica:
+      Si el comando devuelve 0, el agente de escucha de RDP está deshabilitado. A continuación, habilite el agente de escucha como se indica:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
       ```
 
-   10. Compruebe si puede conectarse al agente de escucha de RDP.
+6. Compruebe si puede conectarse al agente de escucha de RDP.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
       ```
 
-   11. Si el comando devuelve 1, no se puede conectar al agente de escucha de RDP. A continuación, habilite la conexión de la manera siguiente:
+   Si el comando devuelve 1, no se puede conectar al agente de escucha de RDP. A continuación, habilite la conexión de la manera siguiente:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
       ```
 
-6. Reinicie la máquina virtual.
+7. Reinicie la máquina virtual.
 
-7. Salga de la instancia CMD escribiendo `exit` y, a continuación, presione la tecla **Entrar** dos veces.
+8. Salga de la instancia CMD escribiendo `exit` y, a continuación, presione la tecla **Entrar** dos veces.
 
-8. Reinicie la máquina virtual escribiendo `restart`.
+9. Escriba `restart` para reiniciar la máquina virtual y, luego, conéctese a la máquina virtual.
 
 Si sigue produciéndose el problema, vaya al paso 2.
 
@@ -177,13 +174,13 @@ Para obtener más información, consulte [Escritorio remoto se desconecta con fr
 
 ### <a name="offline-repair"></a>Reparación sin conexión
 
-#### <a name="step-1-turn-on-remote-deskop"></a>Paso 1: Activar Escritorio remoto
+#### <a name="step-1-turn-on-remote-desktop"></a>Paso 1: Activación de Escritorio remoto
 
 1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
 3. Asegúrese de que el disco aparece marcado como **En línea** en la consola de Administración de discos. Anote la letra de unidad que se asigna al disco del sistema operativo conectado.
-3. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
-4. Abra una sesión de símbolo del sistema con privilegios elevados (**Ejecutar como administrador**). Ejecute los scripts siguientes. En este script, se supone que la letra de unidad que se asigna al disco del sistema operativo conectado es F. Reemplácela por el valor apropiado para su máquina virtual.
+4. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
+5. Abra una sesión de símbolo del sistema con privilegios elevados (**Ejecutar como administrador**). Ejecute los scripts siguientes. En este script, se supone que la letra de unidad que se asigna al disco del sistema operativo conectado es F. Reemplácela por el valor apropiado para su máquina virtual.
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
@@ -219,21 +216,21 @@ Para obtener más información, consulte [Escritorio remoto se desconecta con fr
       reg unload HKLM\BROKENSOFTWARE 
       ```
 
-3. Si la máquina virtual está unida al dominio, compruebe la siguiente clave del registro para ver si hay una directiva de grupo que se deshabilitará RDP. 
+6. Si la máquina virtual está unida al dominio, compruebe la siguiente clave del registro para ver si hay una directiva de grupo que se deshabilitará RDP. 
 
-   ```
-   HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
-   ```
-
+      ```
+      HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+      ```
 
       Si el valor de esta clave está establecido en 1, significa que RDP está deshabilitado por la directiva. Para habilitar Escritorio remoto a través de la directiva de GPO, cambie la directiva siguiente del controlador de dominio:
 
-   ```
-   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-   ```
+   
+      **Configuración del equipo\Directivas\Plantillas administrativas:**
 
-4. Desasocie el disco de la máquina virtual de rescate.
-5. [Cree una máquina virtual desde el disco](../windows/create-vm-specialized.md).
+      Definiciones de directiva\Componentes de Windows\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Conexiones\Permitir que los usuarios se conecten de forma remota mediante Servicios de Escritorio remoto
+  
+7. Desasocie el disco de la máquina virtual de rescate.
+8. [Cree una máquina virtual desde el disco](../windows/create-vm-specialized.md).
 
 Si sigue produciéndose el problema, vaya al paso 2.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 4438cff0dcf5e896f39729d9871d4deb3207b4b8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108002"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230434"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -38,7 +38,7 @@ HDInsight está disponible en muchas regiones de Azure. Para buscar la región m
 
 ### <a name="location-of-default-storage"></a>Ubicación del almacenamiento predeterminado
 
-El almacenamiento predeterminado, ya sea una cuenta de Azure Storage o Azure Data Lake Store, debe estar en la misma ubicación que el clúster. Azure Storage está disponible en todas las ubicaciones. Data Lake Store está disponible en algunas regiones: vea la disponibilidad actual de Data Lake Store en *Storage* en [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
+El almacenamiento predeterminado, ya sea una cuenta de Azure Storage o Azure Data Lake Store, debe estar en la misma ubicación que el clúster. Azure Storage está disponible en todas las ubicaciones. Data Lake Store Gen1 está disponible en algunas regiones: vea la disponibilidad actual de Data Lake Store en *Storage* en [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Ubicación de los datos existentes
 
@@ -48,7 +48,7 @@ Si ya tiene una cuenta de almacenamiento o un recurso de Data Lake Store que con
 
 Una vez que un clúster de HDInsight ya está implementado, puede adjuntar cuentas adicionales de Azure Storage o acceder a recursos de Data Lake Store. Todas las cuentas de almacenamiento deben residir en la misma ubicación que el clúster. Un almacén de Data Lake Store puede estar en una ubicación distinta, aunque esto puede ocasionar algo de latencia de lectura y escritura de datos.
 
-Azure Storage tiene algunos [límites de capacidad](../azure-subscription-service-limits.md#storage-limits), mientras que Data Lake Store tiene una capacidad prácticamente ilimitada.
+Azure Storage tiene algunos [límites de capacidad](../azure-subscription-service-limits.md#storage-limits), mientras que Data Lake Store Gen1 tiene una capacidad prácticamente ilimitada.
 
 Un clúster puede acceder a una combinación de distintas cuentas de almacenamiento. Estos son ejemplos típicos:
 

@@ -1,5 +1,5 @@
 ---
-title: Llamada a una API web de ASP.NET protegida en Azure Active Directory B2C | Microsoft Docs
+title: Llamada a una API web de .NET desde una aplicación web de .NET en Azure Active Directory B2C | Microsoft Docs
 description: Creación de una aplic. web de .NET y llamada a una API web con Azure Active Directory B2C y tokens de acceso de OAuth 2.0.
 services: active-directory-b2c
 author: davidmu1
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 38ad6d8f3746d856d8c0a73520d55fad9d8344e6
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7296954a17b21183eb8be2744b42289522cf7f57
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157928"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012503"
 ---
-# <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: llamada a una API web de .NET desde una aplic. web de .NET
+# <a name="call-a-net-web-api-from-a-net-web-app-in-azure-active-directory-b2c"></a>Llamada a una API web de .NET desde una aplicación web de .NET en Azure Active Directory B2C
 
 Con Azure AD B2C, puede agregar características eficaces de administración de identidades a las aplicaciones web y las API web. En este artículo se describe cómo solicitar tokens de acceso y hacer llamadas desde una aplic. web de "tareas pendientes" .NET a una API web de .NET.
 
@@ -31,10 +31,10 @@ Este artículo no trata de la implementación de la administración de registros
 Para crear una aplicación web que llama a una API web, debe hacer lo siguiente:
 
 1. [Crear un inquilino de Azure AD B2C](active-directory-b2c-get-started.md).
-2. [Registrar una API web](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [Registrar una aplicación web](active-directory-b2c-app-registration.md#register-a-web-app).
+2. [Registrar una API web](active-directory-b2c-app-registration.md).
+3. [Registrar una aplicación web](active-directory-b2c-app-registration.md).
 4. [Configurar directivas](active-directory-b2c-reference-policies.md).
-5. [Conceder a la aplicación web permisos para usar la API web](active-directory-b2c-access-tokens.md#publishing-permissions).
+5. [Conceder a la aplicación web permisos para usar la API web](active-directory-b2c-access-tokens.md).
 
 > [!IMPORTANT]
 > La API de web y la aplicación de cliente deben usar el mismo directorio de Azure AD B2C.

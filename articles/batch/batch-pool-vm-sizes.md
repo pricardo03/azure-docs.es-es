@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/07/2018
 ms.author: danlep
-ms.openlocfilehash: 987cbcc642152a4077cc895ad06e43ac56113497
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 35e5d13ac358fa5edcb778253340de0f9e15c067
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544071"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281286"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -42,8 +42,14 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | Serie A | Standard_A0 |
 | Serie B | Todo |
 
-Las VM de la serie M solo se admiten para nodos de prioridad baja.
+Los siguientes tamaños de VM solo se admiten para nodos de prioridad baja:
 
+| Familia  | Tamaños admitidos  |
+|---------|---------|
+| Serie M | Standard_M64ms |
+| Serie M | Standard_M128s |
+
+Otros tamaños de VM de la familia de la serie M no se admiten actualmente.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Grupos en la configuración de Cloud Service
 
@@ -55,6 +61,7 @@ Los grupos de Batch en la configuración de Cloud Service son compatibles con to
 | Serie Av2 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="restricted-vm-families"></a>Familias de máquina virtual restringidas
+
 Las siguientes familias de máquina virtual se pueden asignar en grupos de Batch, pero tiene que solicitar un aumento de la cuota específico (consulte [este artículo](batch-quota-limit.md#increase-a-quota)):
 * Serie NCv2
 * Serie NCv3

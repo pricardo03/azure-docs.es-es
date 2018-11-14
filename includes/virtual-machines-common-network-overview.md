@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/11/2018
+ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 73273447bcf534f6ffd4584673756c40e8509e21
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49437094"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50973979"
 ---
 Cuando se crea una máquina virtual (VM) de Azure, es preciso crear una [red virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) o usar una red virtual existente. También es preciso decidir la forma en que pretende que se acceda a las máquinas virtuales en la red virtual. Es importante [planear antes de crear recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) y asegurarse de que se conocen los [límites de los recursos de red](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -36,9 +36,7 @@ Además de estos recursos básicos, también debe considerar estos recursos opci
 
 Una [interfaz de red (NIC)](../articles/virtual-network/virtual-network-network-interface.md) es la interconexión entre una máquina virtual y una red virtual (VNet). Una máquina virtual debe tener al menos una NIC, pero puede tener varias, en función del tamaño de la máquina virtual que se cree. Más información sobre cuántas NIC admite cada tamaño de máquina virtual [Windows](../articles/virtual-machines/windows/sizes.md) o [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Puede crear una máquina virtual con varias NIC y agregarlas o quitarlas a lo largo del ciclo de vida de una máquina virtual. Disponer de varias NIC permite a una máquina virtual conectarse a distintas subredes y enviar o recibir tráfico a través de la interfaz más adecuada.
-
-Si la máquina virtual se agrega a un conjunto de disponibilidad, todas las máquinas virtuales de este deben tener una o varias NIC. No es preciso que las máquinas virtuales con más de una NIC tengan el mismo número de NIC, pero todas ellas deben tener al menos dos.
+Puede crear una máquina virtual con varias NIC y agregarlas o quitarlas a lo largo del ciclo de vida de una máquina virtual. Disponer de varias NIC permite a una máquina virtual conectarse a distintas subredes y enviar o recibir tráfico a través de la interfaz más adecuada. Puede haber máquinas virtuales con cualquier cantidad de interfaces de red en el mismo conjunto de disponibilidad, hasta el máximo que permita el tamaño de la máquina virtual. 
 
 Todas las NIC conectadas a una máquina virtual deben existir en la misma ubicación y suscripción que esta. Cada NIC debe estar conectada a una red virtual que exista en la misma ubicación y suscripción de Azure en la que se encuentre la NIC. Una vez creada la NIC, puede cambiar la subred a la que la máquina virtual está conectada, pero no la red virtual. A cada NIC conectada a una máquina virtual se le asigna una dirección MAC que no cambia hasta que se elimine la máquina virtual.
 
@@ -151,7 +149,7 @@ En esta tabla se enumeran los métodos que se pueden usar para crear un equilibr
 
 Las máquinas virtuales se pueden crear en la misma red virtual y se pueden conectar entre sí mediante direcciones IP privadas. Pueden conectarse aunque estén en subredes diferentes sin necesidad de configurar una puerta de enlace o utilizar direcciones IP públicas. Para poner máquinas virtuales en una red virtual, cree la red virtual y, después, al crear cada máquina virtual, asígnela a la red virtual y la subred. Las máquinas virtuales adquieren su configuración de red durante la implementación o el inicio.  
 
-A las máquinas virtuales se les asigna una dirección IP cuando se implementan. Si implementa varias máquinas virtuales en una red virtual o una subred, se les asignan direcciones IP cuando arrancan. Una dirección IP dinámica (DIP) es la dirección IP interna asociada a una máquina virtual. Puede asignar una DIP estática a una máquina virtual. Si asigna una DIP estática, debe plantearse la posibilidad de utilizar una subred específica para evitar reutilizar accidentalmente una DIP estática para otra máquina virtual.  
+A las máquinas virtuales se les asigna una dirección IP cuando se implementan. Si implementa varias máquinas virtuales en una red virtual o una subred, se les asignan direcciones IP cuando arrancan. También puede asignar una IP estática a una máquina virtual. Si asigna una IP estática, debe plantearse la posibilidad de utilizar una subred específica para evitar reutilizar accidentalmente una IP estática para otra máquina virtual.  
 
 Si crea una máquina virtual y posteriormente desea migrarla a una red virtual, no es un cambio de configuración simple. Debe volver a implementar la máquina virtual en la red virtual. La manera más fácil de volver a implementarla es eliminar la máquina virtual, pero no los discos conectados a ella y, después, volver a crear la máquina virtual con los discos originales en la red virtual. 
 

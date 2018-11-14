@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362609"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281666"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introducción al escalado automático
 El escalado automático es una funcionalidad adicional de Service Fabric para escalar servicios de manera dinámica en función de la carga que notifican los servicios o del uso de recursos. El escalado automático proporciona una gran elasticidad y permite el aprovisionamiento de instancias o particiones adicionales del servicio a petición. Todo el proceso de escalado es automático y transparente. Además, una vez configuradas las directivas en un servicio, no es necesario realizar ninguna operación de escalado manual a nivel de servicio. El escalado automático se puede activar al crear el servicio o al actualizarlo en cualquier momento.
@@ -28,7 +28,9 @@ El escalado automático es útil en escenarios en los que la carga de un servici
 * Si todas las instancias de una puerta de enlace usan más de dos núcleos de media, agregue una instancia más para escalar el servicio de puerta de enlace horizontalmente. Hágalo cada hora, pero no tenga nunca más de siete instancias en total.
 * Si todas las instancias de la puerta de enlace usan menos de 0,5 núcleos de media, quite una instancia para reducir el servicio horizontalmente. Hágalo cada hora, pero no tenga nunca menos de tres instancias en total.
 
-Se admite el escalado automático para contenedores y servicios normales de Service Fabric. En lo que queda de este artículo, se describen las directivas de escalado, cómo habilitar o deshabilitar el escalado automático y se proporcionan ejemplos sobre cómo usar esta característica.
+Se admite el escalado automático para contenedores y servicios normales de Service Fabric. Para poder usar el escalado automático, debe ejecutar la versión 6.2 o posterior del entorno de ejecución de Service Fabric. 
+
+En lo que queda de este artículo, se describen las directivas de escalado, cómo habilitar o deshabilitar el escalado automático y se proporcionan ejemplos sobre cómo usar esta característica.
 
 ## <a name="describing-auto-scaling"></a>Descripción del escalado automático
 Las directivas de escalado automático pueden definirse para cada servicio de un clúster de Service Fabric. Cada directiva de escalado consta de dos partes:
@@ -41,7 +43,7 @@ Todos los desencadenadores que son compatibles actualmente funcionan con [métri
 Hay dos mecanismos compatibles actualmente con el escalado automático. El primero está pensado para servicios sin estado o para contenedores en los que el escalado automático se realiza agregando o quitando [instancias](service-fabric-concepts-replica-lifecycle.md). Para servicios con y sin estado, también se puede realizar el escalado automático agregando o quitando [particiones](service-fabric-concepts-partitioning.md) con nombre del servicio.
 
 > [!NOTE]
-> Actualmente solo se admite una directiva de escalado por servicio.
+> Actualmente se admite una única directiva de escalado por servicio y solo un desencadenador de escalado por directiva de escalado.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Desencadenador de carga de partición media con escalado basado en instancias
 El primer tipo de desencadenador se basa en la carga de instancias de una partición de servicio sin estado. En primer lugar, se suavizan las cargas de métricas para obtener la carga de cada instancia de una partición y, a continuación, se realiza la media de estos valores entre todas las instancias de la partición. Hay tres factores que determinan cuándo se escalará el servicio:

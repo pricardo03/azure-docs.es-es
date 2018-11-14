@@ -1,22 +1,22 @@
 ---
-title: Habilitación de volcados de montón de los servicios de Hadoop en HDInsight (Azure)
-description: Habilitar los volcados de montón de los servicios de Hadoop en los clústeres de HDInsight basado en Linux para la depuración y el análisis.
+title: Habilitación de volcados de montón de los servicios de Apache Hadoop en HDInsight (Azure)
+description: Habilite los volcados de montón de los servicios de Apache Hadoop en los clústeres de HDInsight basados en Linux para la depuración y el análisis.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 7fa0ebb1946a856d02296b4ec752113ff8fecbd5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095589"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037723"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Habilitación de los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux
+# <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Habilitar los volcados de montón de los servicios de Apache Hadoop en HDInsight basado en Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
@@ -29,11 +29,11 @@ Los volcados de montón contienen una instantánea de la memoria de la aplicaci�
 
 Puede habilitar los volcados de montón en los siguientes servicios:
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2, metastore, derbyserver
+* **Apache HCatalog**: tempelton
+* **Apache Hive**: hiveserver2, metastore, derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager, nodemanager, timelineserver
-* **hdfs** - datanode, secondarynamenode, namenode
+* **Apache Yarn**: resourcemanager, nodemanager, timelineserver
+* **Apache HDFS**: datanode, secondarynamenode, namenode
 
 También puede habilitar los volcados de montón para los procesos de asignación y ejecución que ejecuta HDInsight.
 
@@ -49,7 +49,7 @@ La asignación y reducción de procesos son tareas ligeramente diferentes, ya qu
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> Se recomienda usar Ambari para modificar los scripts y la configuración de mapred-site.xml, puesto que Ambari controla la replicación de los cambios en los nodos del clúster. Consulte la sección [Uso de Ambari](#using-ambari) para obtener los pasos específicos que debe dar.
+> Se recomienda usar Apache Ambari para modificar los scripts y la configuración de mapred-site.xml, puesto que Ambari controla la replicación de los cambios en los nodos del clúster. Consulte la sección [Uso de Ambari](#using-ambari) para obtener los pasos específicos que debe dar.
 
 ### <a name="enable-heap-dumps"></a>Habilitar los volcados de montón
 

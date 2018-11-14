@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 07/09/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: d32e05e99543b30ee92ea455ae2f800b09d83661
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: dbc72e040f3d68ca77c036c41612f57616d1e74e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012113"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016835"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como CSP, cree y administre una aplicación de Azure IoT Central en nombre del cliente 
 
@@ -35,13 +35,13 @@ Va a la página Administrador de aplicaciones de Azure IoT Central. Azure IoT Ce
 
 Para crear una aplicación de Azure IoT Central, haga clic en el icono **Nueva aplicación**. De esta manera se cargará la página de creación de aplicaciones. Debe completar todos los campos de esta página y luego eligir **Crear**. A continuación encontrará más información sobre cada uno de los campos.
 
-![Página Crear aplicación para los CSP](media\howto-create-application-asCSP\image4-1.png)
+![Página Crear aplicación para los CSP](media\howto-create-application-asCSP\image4.png)
 
-![Página Crear aplicación para los CSP](media\howto-create-application-asCSP\image4-2.png)
+![Página Crear aplicación para los CSP](media\howto-create-application-asCSP\image4-1.png)
 
 ## <a name="payment-plan"></a>Plan de pago
 
-Solo puede crear aplicaciones de pago como CSP. Para presentar Azure IoT Central al cliente, puede crear una aplicación en versión de evaluación por separado. Obtenga más información sobre las aplicaciones en versión de evaluación y de pago en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+Solo se pueden crear aplicaciones de pago por uso como un CSP. Para presentar Azure IoT Central al cliente, puede crear una aplicación en versión de evaluación por separado. Obtenga más información sobre las aplicaciones en versión de evaluación y de pago por uso en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## <a name="application-name"></a>Nombre de la aplicación
 

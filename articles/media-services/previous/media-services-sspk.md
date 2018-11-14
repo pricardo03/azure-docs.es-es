@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b4472f522571e0056ce6b28d67a69b0dcabba8a6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785824"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243903"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licencias de Microsoft® Smooth Streaming Client Porting Kit
 ## <a name="overview"></a>Información general
@@ -43,7 +43,7 @@ La licencia de SSPK tiene unos términos que ofrecen un valor empresarial excele
   * Interfaces de programación para la interacción con el  descodificadores de A/V de hardware (descodificación, representación)
 * Interfaz de administración de derechos digitales (DRM) 
   * Interfaces de programación para administrar DRM a través de la capa de abstracción de DRM (DAL)
-  * Microsoft PlayReady Porting Kit se distribuye por separado, pero se integra mediante esta interfaz. Para obtener más detalles acerca de las licencias de Microsoft PlayReady Device, haga clic en [aquí](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+  * Microsoft PlayReady Porting Kit se distribuye por separado, pero se integra mediante esta interfaz. Para obtener más detalles acerca de las licencias de Microsoft PlayReady Device, haga clic en [aquí](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 * Ejemplos de implementación 
   * Ejemplo de implementación de PAL para Linux
   * Ejemplo de implementación de HAL para Linux

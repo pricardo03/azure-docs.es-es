@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24337863d4e3f8e093c2e33afbb39364ec37516d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fd33ca723bd00b4a9c25009ef5b4f444487244f0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252107"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281955"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Descripción del filtrado de eventos para suscripciones de Event Grid
 
@@ -57,9 +57,9 @@ La sintaxis JSON para el filtrado por tipo de evento es:
 
 Para filtrar por valores en los campos de datos y especificar el operador de comparación, use la opción de filtrado avanzada. En el filtrado avanzado, se especifica lo siguiente:
 
-* operador: el tipo de comparación.
+* tipo de operador: el tipo de comparación.
 * clave: el campo de datos de evento que se usa para filtrar. Puede ser un número, un booleano o una cadena.
-* valores: los valores para comparar con la clave.
+* valor o valores: el valor o los valores que se compararán con la clave.
 
 La sintaxis JSON para el uso de filtros avanzados es:
 
@@ -67,14 +67,14 @@ La sintaxis JSON para el uso de filtros avanzados es:
 "filter": {
   "advancedFilters": [
     {
-      "Operator": "NumberGreaterThanOrEquals",
-      "Key": "Data.Key1",
-      "Values": 5
+      "operatorType": "NumberGreaterThanOrEquals",
+      "key": "Data.Key1",
+      "value": 5
     },
     {
-      "Operator": "StringContains",
-      "Key": "Subject",
-      "Values": ["container1", "container2"]
+      "operatorType": "StringContains",
+      "key": "Subject",
+      "values": ["container1", "container2"]
     }
   ]
 }
@@ -122,7 +122,7 @@ Para los eventos en el esquema de Cloud Events, use los siguientes valores para 
 * EventTypeVersion
 * Datos del evento (por ejemplo, Data.key1)
 
-Para el esquema de entrada personalizado, use los campos de datos de evento (por ejemplo, Data.key1 Data.key1.key2).
+Para el esquema de entrada personalizado, use los campos de datos de evento (por ejemplo, Data.key1).
 
 ### <a name="values"></a>Valores
 
@@ -140,7 +140,7 @@ El filtrado avanzado tiene las siguientes limitaciones:
 * 5 filtros avanzados por suscripción de Event Grid
 * 512 caracteres por valor de cadena
 * 5 valores para los operadores **in** y **not in**
-* La clave solo puede tener dos niveles de anidamiento (por ejemplo, data.key1.key2)
+* La clave solo puede tener un nivel de anidamiento (por ejemplo, data.key1)
 
 La misma clave se puede usar en más de un filtro.
 

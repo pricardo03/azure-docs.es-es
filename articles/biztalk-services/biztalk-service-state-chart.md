@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: bbe1288a42db307001ac778394ac410206f1df21
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102749"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228205"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Qué puede y no puede hacer con el estado del servicio de BizTalk
 
@@ -33,7 +33,7 @@ Por ejemplo, supongamos que aprovisiona un nuevo servicio de BizTalk. Cuando fin
 
 ## <a name="view-the-possible-states"></a>Ver los estados posibles
 
-Las tablas siguientes incluyen las operaciones o acciones que se pueden realizar cuando el servicio de BizTalk se encuentra en un estado concreto. Una ✔ significa que la operación está permitida en ese estado. y la entrada vacía indica que la operación no se puede realizar en ese estado.
+Las tablas siguientes incluyen las operaciones o acciones que se pueden realizar cuando el servicio de BizTalk se encuentra en un estado concreto. Una marca ✔ significa que se permite la operación mientras esté en ese estado. y la entrada vacía indica que la operación no se puede realizar en ese estado.
 
 | Estado de servicio | Iniciar | Detención | Reinicio | Suspensión | Reanudación | Eliminar | Escala | Actualizar <br/> Configuración | Copia de seguridad |
 | --- | --- | --- | --- | --- | --- | --- |--- | --- | --- |
@@ -53,10 +53,10 @@ Las tablas siguientes incluyen las operaciones o acciones que se pueden realizar
 
 
 ## <a name="see-also"></a>Otras referencias
-* [Revise las pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [BizTalk Services: gráfico de ediciones](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: copias de seguridad y restauración](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk Services: limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-* [BizTalk Services: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-* [¿Cómo puedo comenzar a utilizar el SDK de Azure BizTalk Services?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Revise las pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: gráfico de ediciones](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services: copias de seguridad y restauración](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services: limitaciones](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [BizTalk Services: nombre del emisor y clave del emisor](https://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [¿Cómo puedo comenzar a utilizar el SDK de Azure BizTalk Services?](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 

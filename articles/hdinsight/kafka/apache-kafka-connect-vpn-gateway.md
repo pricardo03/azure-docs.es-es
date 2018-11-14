@@ -3,18 +3,18 @@ title: Conexión a Kafka mediante redes virtuales - Azure HDInsight
 description: Aprenda a conectarse directamente a Kafka en HDInsight mediante una instancia de Azure Virtual Network. Aprenda cómo conectarse a Kafka desde clientes de desarrollo mediante una puerta de enlace de red privada virtual o desde clientes de la red local mediante un dispositivo de puerta de enlace de red privada virtual.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.openlocfilehash: 973563a0c9a986bb4dec785b4521566acb657d15
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: da98873b133d69d78271494b991b67caea1d5a11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042401"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283077"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network
 
@@ -35,7 +35,7 @@ HDInsight no permite la conexión directa a Kafka a través de la red pública d
     2. Cree una puerta de enlace de red privada virtual que use una configuración de sitio a sitio. La configuración usada en este documento conecta a un dispositivo de puerta de enlace de red privada virtual en la red local.
     3. Cree un servidor DNS en la red virtual.
     4. Configure el reenvío entre el servidor DNS de cada red.
-    5. Instale Kafka en HDInsight en la red virtual.
+    5. Cree una instancia de Kafka en un clúster de HDInsight en la red virtual.
 
     Para más información, vea la sección [Conexión a Kafka desde una red local](#on-premises). 
 
@@ -43,8 +43,8 @@ HDInsight no permite la conexión directa a Kafka a través de la red pública d
 
     1. Cree una red virtual.
     2. Cree una puerta de enlace de red privada virtual que use una configuración de punto a sitio. Esta configuración se puede utilizar tanto con clientes de Windows como de macOS.
-    3. Instale Kafka en HDInsight en la red virtual.
-    4. Configurar Kafka para anunciar direcciones IP. Esta configuración permite al cliente conectarse mediante direcciones IP en lugar de nombres de dominio.
+    3. Cree una instancia de Kafka en un clúster de HDInsight en la red virtual.
+    4. Configurar Kafka para anunciar direcciones IP. Esta configuración permite al cliente conectarse mediante direcciones IP de agente en lugar de nombres de dominio.
     5. Descargue y use el cliente de VPN en el sistema de desarrollo.
 
     Para más información, vea la sección [Conexión a Kafka con un cliente VPN](#vpnclient).

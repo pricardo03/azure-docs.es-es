@@ -11,15 +11,15 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 98d30d2987d42a2c4893e00c3ba2ea6acd471bef
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 11/07/2018
+ms.openlocfilehash: 0a248ec5137a6de43910b1d11184dfeda18601f5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318816"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280354"
 ---
-# <a name="set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Configuración de SQL Data Sync para sincronizar datos entre Azure SQL Database e instancias locales de SQL Server
+# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configuración de SQL Data Sync para sincronizar datos entre Azure SQL Database e instancias locales de SQL Server
 
 En este tutorial, obtendrá información sobre cómo configurar Azure SQL Data Sync mediante la creación de un grupo de sincronización híbrido que contiene instancias de Azure SQL Database y de SQL Server. El nuevo grupo de sincronización está configurado completamente y se sincroniza según el programa establecido.
 
@@ -129,7 +129,7 @@ En la página **Configurar localmente**, haga lo siguiente:
 
     Si ha elegido **Crear un agente nuevo**, haga lo siguiente:
 
-   1. Descargue el software del Agente de sincronización cliente del vínculo facilitado e instálelo en el equipo en que se encuentra SQL Server.
+   1. Descargue el software del Agente de sincronización cliente del vínculo facilitado e instálelo en el equipo en que se encuentra SQL Server. También puede descargar el agente de sincronización de datos directamente desde el [Agente de sincronización de datos de SQL de Azure](https://www.microsoft.com/download/details.aspx?id=27693).
 
         > [!IMPORTANT]
         > Tendrá que abrir el puerto TCP 1433 saliente en el firewall para permitir que el agente cliente se comunique con el servidor.
@@ -253,35 +253,7 @@ Después de exportar una base de datos como un archivo `.bacpac` e importar dich
 
 ## <a name="faq-about-the-client-agent"></a>Preguntas frecuentes sobre el agente cliente
 
-### <a name="why-do-i-need-a-client-agent"></a>¿Por qué se necesita un agente cliente?
-
-El servicio SQL Data Sync se comunica con bases de datos de SQL Server a través del agente cliente. Esta función de seguridad evita la comunicación directa con las bases de datos detrás de un firewall. Cuando el servicio SQL Data Sync se comunica con el agente, lo hace mediante conexiones cifradas y un token o *clave del agente* únicos. Las bases de datos de SQL Server autentican el agente mediante la cadena de conexión y la clave del agente. Este diseño proporciona un alto nivel de seguridad para los datos.
-
-### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>¿Cuántas instancias de la interfaz de usuario del agente local pueden ejecutarse?
-
-Solo se puede ejecutar una instancia de la interfaz de usuario.
-
-### <a name="how-can-i-change-my-service-account"></a>¿Cómo puedo cambiar mi cuenta de servicio?
-
-Después de instalar un agente cliente, la única manera de cambiar la cuenta de servicio es desinstalarlo e instalar un nuevo agente cliente con la nueva cuenta de servicio.
-
-### <a name="how-do-i-change-my-agent-key"></a>¿Cómo puedo cambiar la clave del agente?
-
-Un agente solo puede usar una clave del agente una vez. No se puede reutilizar si se quita el agente y se instala uno nuevo, ni tampoco puede ser utilizada por varios agentes. Si necesita crear una nueva clave para un agente existente, debe asegurarse de que la misma clave esté registrada con el agente cliente y el servicio SQL Data Sync.
-
-### <a name="how-do-i-retire-a-client-agent"></a>¿Cómo se puede retirar un agente cliente?
-
-Para invalidar o retirar un agente inmediatamente, vuelva a generar su clave en el portal pero no la envíe en la interfaz de usuario del agente. Al regenerar una clave, se invalida la clave anterior, independientemente de si el agente correspondiente está conectado o desconectado.
-
-### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>¿Cómo muevo un agente cliente a otro equipo?
-
-Si desea ejecutar el agente local desde otro equipo distinto al equipo en el que está actualmente, haga lo siguiente:
-
-1. Instale el agente en el equipo deseado.
-2. Inicie sesión en el portal de SQL Data Sync y regenere una clave del agente para el nuevo agente.
-3. Use la interfaz de usuario del nuevo agente para enviar la nueva clave del agente.
-4. Espere mientras el agente cliente descarga la lista de bases de datos locales que se registraron anteriormente.
-5. Proporcione las credenciales de todas las bases de datos que se muestren como inaccesibles. Estas bases de datos deben ser accesibles desde el nuevo equipo en el que está instalado el agente.
+Para ver las preguntas más frecuentes sobre el agente de cliente, consulte [Preguntas más frecuentes sobre el agente](sql-database-data-sync-agent.md#agent-faq).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,16 +8,47 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c676932541866df081f6db54fa0b1ec4da7088
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471148"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218600"
 ---
 # <a name="release-notes"></a>Notas de la versión
+
+## <a name="speech-service-sdk-110"></a>SDK del servicio Voz 1.1.0
+
+**Nuevas características**
+
+* Compatibilidad con Android x86/x64.
+* Compatibilidad con el proxy: en el objeto SpeechConfig ahora puede llamar a una función para establecer la información del proxy (nombre de host, puerto, nombre de usuario y contraseña). Esta característica no está disponible aún en iOS.
+* Mensajes y códigos de error mejorados. Si un reconocimiento devolvió un error, esto ya ha establecido `Reason` (en el evento cancelado) o `CancellationDetails` (en el resultado del reconocimiento) en `Error`. El evento cancelado ahora contiene dos miembros adicionales, `ErrorCode` y `ErrorDetails`. Si el servidor devolvió información de error adicional con el error notificado, ahora estará disponible en los nuevos miembros.
+
+**Mejoras**
+
+* Verificación adicional agregada en la configuración del reconocedor y mensaje de error adicional agregado.
+* Control mejorado del silencio prolongado en medio de un archivo de audio.
+* Paquete NuGet: para proyectos de .NET Framework, evitar la compilación con la configuración de AnyCPU.
+
+**Correcciones de errores**
+
+* En los reconocedores se han encontrado varias excepciones corregidas. Además, las excepciones se detectan y se convierten en un evento cancelado.
+* Corrección de una fuga de memoria en la administración de propiedades.
+* Se corrigió el error en el que un archivo de entrada de audio podría bloquear el reconocedor.
+* Se corrigió un error donde se podrían recibir eventos después de un evento de detención de la sesión.
+* Se corrigieron algunas condiciones de subprocesos.
+* Se corrigió un problema de compatibilidad de iOS que podría dar lugar a un bloqueo.
+* Mejoras de estabilidad para la compatibilidad del micrófono en Android.
+* Se corrigió un error donde un reconocedor en JavaScript ignoraría el lenguaje de reconocimiento.
+* Se corrigió un error que impide establecer el valor EndpointId (en algunos casos) en JavaScript.
+* Se cambió el orden de los parámetros en AddIntent en JavaScript y se agregó la firma de AddIntent en JavaScript.
+
+**Muestras**
+
+* Ejemplo de C++ agregado para secuencia de extracción e inserción en el [repositorio de ejemplo](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-service-sdk-101"></a>SDK del servicio Voz 1.0.1
 

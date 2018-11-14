@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887571"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282788"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -45,17 +45,27 @@ Si planea ejecutar cargas de trabajo de producción en Batch, es posible que ten
 
 Si creó una cuenta de Batch con el modo de asignación de grupo establecido en **suscripción de usuario**, las cuotas se aplican de manera diferente. En este modo, las máquinas virtuales de Batch y otros recursos se crean directamente en la suscripción cuando se crea un grupo. Las cuotas de núcleos de Azure Batch no se aplican a las cuentas creadas en este modo. En su lugar, se aplican las cuotas en la suscripción para núcleos de proceso regionales y otros recursos. Aprenda más sobre estas cuotas en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
+## <a name="pool-size-limits"></a>Límites de tamaño de grupo
+
+| **Recurso** | **Límite máximo** |
+| --- | --- |
+| **Nodos de proceso en el [grupo con la comunicación entre nodos habilitada](batch-mpi.md)**  ||
+| Modo de asignación de grupo de servicio Batch | 100 |
+| Modo de asignación de grupo de suscripción Batch | 80 |
+| **Nodos de proceso en el [grupo creado con la imagen de máquina virtual personalizada](batch-custom-images.md)**<sup>1</sup> ||
+| Nodos dedicados | 2000 |
+| Nodos de prioridad baja | 1000 |
+
+<sup>1</sup> Para los grupos que tienen habilitada la comunicación de notas entre nodos.
+
 ## <a name="other-limits"></a>Otros límites
 
 | **Recurso** | **Límite máximo** |
 | --- | --- |
-| [Tareas simultáneas](batch-parallel-node-tasks.md) por nodo de proceso |4 × número de núcleos de nodo |
-| [Aplicaciones](batch-application-packages.md) por cuenta de Batch |20 |
-| Paquetes de aplicación por aplicación |40 |
+| [Tareas simultáneas](batch-parallel-node-tasks.md) por nodo de proceso | 4 × número de núcleos de nodo |
+| [Aplicaciones](batch-application-packages.md) por cuenta de Batch | 20 |
+| Paquetes de aplicación por aplicación | 40 |
 | Duración máxima de la tarea | 7 días<sup>1</sup> |
-| Nodos de proceso en el [grupo con la comunicación entre nodos habilitada](batch-mpi.md) | 100 |
-| Nodos de proceso dedicados en el [grupo creado con la imagen de máquina virtual personalizada](batch-custom-images.md) | 2.500 |
-| Nodos de proceso de prioridad baja en el [grupo creado con la imagen de máquina virtual personalizada](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> La duración máxima de una tarea, desde el momento en que se agrega al trabajo hasta que se completa, es de 7 días. Las tareas completadas se mantienen de forma indefinida; los datos de las tareas no completadas dentro de la duración máxima no están accesibles.
 

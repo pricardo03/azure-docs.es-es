@@ -1,22 +1,22 @@
 ---
-title: Creación de clústeres de Hadoop mediante la API REST en Azure
+title: Creación de clústeres de Apache Hadoop mediante la API de REST en Azure
 description: Aprenda a crear clústeres de HDInsight enviando plantillas de Azure Resource Manager a la API de REST de Azure.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
-ms.author: jasonh
-ms.openlocfilehash: 6d2e0b06f0402ae26212be45a00b4c9a5394a117
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 9a8c39864d05a4e2b89da7bdfc937f8d2e5dbec9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983708"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038428"
 ---
-# <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Hadoop mediante la API de REST de Azure
+# <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Apache Hadoop mediante la API de REST de Azure
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 

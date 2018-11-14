@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 09/05/2018
-ms.author: sngun
-ms.openlocfilehash: 57172927011532af9b14fa7ff09d6aad9bac1e92
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/02/2018
+ms.author: moderakh
+ms.openlocfilehash: 80beeda607c83bc2a583c140779766952efcc568
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417606"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252877"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -52,6 +52,15 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Se corrigió un error NPE en la ruta de acceso de reintento de escritura.
+* Se corrigió un error NPE en la administración de puntos de conexión.
+* Se actualizaron dependencias vulnerables ([GitHub #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Se agregó compatibilidad para el registro de red de Netty para solucionar problemas.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Se agregó compatibilidad para escrituras en varias regiones.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Se agregó compatibilidad con proxy.
@@ -110,6 +119,8 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.2.1](#2.1.0) |2 de noviembre de 2018|--- |
+| [2.2.0](#2.2.1) |22 de septiembre de 2018|--- |
 | [2.1.0](#2.1.0) |5 de septiembre de 2018|--- |
 | [2.0.1](#2.0.1) |16 de agosto de 2018|--- |
 | [2.0.0](#2.0.0) |20 de junio de 2018|--- |

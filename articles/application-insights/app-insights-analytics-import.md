@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142824"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960011"
 ---
 # <a name="import-data-into-analytics"></a>Importación de datos a Analytics
 
@@ -120,14 +120,14 @@ Formato JSON
  
 Cada columna se identifica por la ubicación, el nombre y el tipo.
 
-* Ubicación: Para formato de archivo delimitado es la posición del valor asignado. Para el formato JSON, es el jpath de la clave asignada.
-* Nombre: Nombre que se muestra de la columna.
-* Tipo: Tipo de datos de esa columna.
- 
+* Ubicación: para formatos de archivo delimitados, es la posición del valor asignado. Para el formato JSON, es el jpath de la clave asignada.
+* Nombre: nombre que se muestra de la columna.
+* Tipo: tipo de datos de esa columna.
+
 > [!NOTE]
 > En caso de que se usen datos de ejemplo y el formato de archivo esté delimitado, la definición de esquema debe asignar todas las columnas y agregar nuevas columnas al final.
 > 
-> JSON permite una asignación parcial de los datos, por lo que la definición de esquema con un formato JSON no tiene que asignar cada clave que se encuentra en los datos de ejemplo. También pueden asignar las columnas que no forman parte de los datos de ejemplo. 
+> JSON permite la asignación parcial de los datos, por lo que la definición de esquema con un formato JSON no tiene que asignar cada clave que se encuentra en los datos de ejemplo. También pueden asignar las columnas que no forman parte de los datos de ejemplo. 
 
 ## <a name="import-data"></a>Importar datos
 
@@ -137,7 +137,7 @@ Para importar datos, cárguelos en Azure Storage, cree una clave de acceso para 
 
 Puede llevar a cabo el siguiente proceso manualmente o configurar un sistema automatizado para hacerlo a intervalos regulares. Debe seguir estos pasos para cada bloque de datos que desea importar.
 
-1. Cargue los datos en [Azure Blob Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Cargue los datos en [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md). 
 
  * Los blobs pueden tener un tamaño de hasta 1 GB sin comprimir. Los blobs grandes de cientos de MB son ideales desde la perspectiva del rendimiento.
  * Es posible comprimir con Gzip para mejorar el tiempo de carga y la latencia de los datos, a fin de que estén disponibles para consultarlos. Use la extensión de nombre de archivo `.gz`.
@@ -369,5 +369,5 @@ Use este código para cada blob.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Paseo por el lenguaje de consulta de Log Analytics](app-insights-analytics-tour.md)
+* [Paseo por el lenguaje de consulta de Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 * Si está utilizando Logstash, utilice el [complemento de Logstash para enviar datos a Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5f2dd31488ae61bec061a81986a208bd328bf39b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ce0123528b3fb2454d8b83d59b5916363ae0e944
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093627"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251583"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueo de una instancia de App Service Environment
 
@@ -28,7 +28,7 @@ Una instancia de App Service aislado tiene una serie de dependencias de entrada.
 
 Las dependencias de salida de App Service aislado se definen casi por completo con los FQDN, que no tienen direcciones estáticas tras ellos. La falta de direcciones estáticas significa que no se pueden usar grupos de seguridad de red (NSG) para bloquear el tráfico saliente de una instancia de App Service aislado. Las direcciones cambian con tal frecuencia que no se pueden configurar reglas en función de la resolución actual ni usarlas para crear grupos de seguridad de red. 
 
-La solución para proteger las direcciones de salida se encuentra en el uso de un dispositivo de firewall que puede controlar el tráfico saliente basándose en los nombres de dominio. El equipo de redes de Azure ha puesto un nuevo dispositivo de red en versión preliminar denominado Azure Firewall. Azure Firewall es capaz de restringir el tráfico HTTP y HTTPS de salida en función del nombre DNS del destino.  
+La solución para proteger las direcciones de salida se encuentra en el uso de un dispositivo de firewall que puede controlar el tráfico saliente basándose en los nombres de dominio. Azure Firewall puede restringir el tráfico saliente HTTP y HTTPS basándose en el FQDN de destino.  
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configuración de Azure Firewall con App Service aislado 
 
@@ -36,11 +36,11 @@ A continuación, se indican los pasos para bloquear la salida de App Service ais
 
 1. Cree una instancia de Azure Firewall en la red virtual en la que se encuentra, o se encontrará, App Service aislado. [Documentación sobre Azure Firewall](https://docs.microsoft.com/azure/firewall/)
 2. En la interfaz de usuario de Azure Firewall, seleccione la etiqueta de FQDN de App Service aislado.
-3. Cree una tabla de rutas con las direcciones de administración de [Direcciones de administración de App Service aislado]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) con un próximo salto de Internet. Las entradas de la tabla de rutas son necesarias para evitar problemas de enrutamiento asimétrico. 
-4. Agregue rutas a las dependencias de dirección IP que se indican a continuación en las dependencias de dirección IP con un próximo salto de Internet. 
-5. Agregue una ruta a la tabla de rutas para 0.0.0.0/0 con el próximo salto como dispositivo de red de Azure Firewall.
-6. Cree puntos de conexión de servicio para la subred de App Service aislado en Azure SQL y Azure Storage.
-7. Asigne la tabla de rutas que creó a la subred de App Service aislado.  
+3. Cree una tabla de rutas con las direcciones de administración de [Direcciones de administración de App Service aislado]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) con un próximo salto de Internet. Las entradas de la tabla de rutas son necesarias para evitar problemas de enrutamiento asimétrico.
+4. Agregue rutas a las dependencias de dirección IP que se indican a continuación en las dependencias de dirección IP con un próximo salto de Internet.
+5. Agregue una ruta a la tabla de rutas para 0.0.0.0/0 con el próximo salto como Azure Firewall.
+6. Cree puntos de conexión de servicio para la subred de ASE en Azure SQL y Azure Storage.
+7. Asigne la tabla de rutas que creó a la subred de ASE.
 
 ## <a name="application-traffic"></a>Tráfico de la aplicación 
 

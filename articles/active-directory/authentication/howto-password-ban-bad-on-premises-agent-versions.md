@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c52c84a1311c30c19356bb8a1287b203faf476fc
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742910"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913643"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Versión preliminar: Historial de versiones del agente de protección con contraseña de Azure AD
 
@@ -23,6 +23,23 @@ ms.locfileid: "50742910"
 | --- |
 | La protección con contraseña de Azure AD es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12250"></a>1.2.25.0
+
+Fecha de lanzamiento: 01/11/2018
+
+Correcciones:
+
+* El agente de controlador de dominio y el servicio de proxy ya no deberían funcionar mal debido a errores de confianza de certificados.
+* El agente de controlador de dominio y el servicio de proxy presentan correcciones adicionales para las máquinas compatibles con FIPS.
+* El servicio de proxy funcionará ahora correctamente en un entorno de red solo TLS 1.2.
+* Correcciones menores de rendimiento y estabilidad
+* Registro mejorado
+
+Cambios:
+
+* El nivel de sistema operativo mínimo necesario para el servicio de proxy es ahora Windows Server 2012 R2. El nivel de sistema operativo mínimo necesario para el servicio de agente de controlador de dominio sigue siendo Windows Server 2012.
+* El algoritmo de validación de contraseña usa una tabla de normalización de caracteres ampliada. Como consecuencia, contraseñas que se aceptaron en versiones anteriores podrían rechazarse.
 
 ## <a name="12100"></a>1.2.10.0
 
@@ -45,8 +62,8 @@ Correcciones:
 > Las actualizaciones locales del software del agente del controlador de dominio requerirán un reinicio.
 
 * El servicio de proxy y de agente del controlador de dominio ahora se pueden ejecutar en un servidor configurado para usar solo algoritmos conformes a FIPS.
-* Registro mejorado
 * Correcciones menores de rendimiento y estabilidad
+* Registro mejorado
 
 ## <a name="11103"></a>1.1.10.3
 

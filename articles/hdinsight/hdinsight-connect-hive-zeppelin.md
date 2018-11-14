@@ -1,32 +1,32 @@
 ---
-title: Uso de Zeppelin para ejecutar consultas de Hive en Azure HDInsight
-description: Aprenda a usar Zeppelin para ejecutar consultas de Hive.
+title: Uso de Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight
+description: Aprenda a usar Apache Zeppelin para ejecutar consultas de Apache Hive.
 keywords: hdinsight,hadoop,hive,interactive query,LLAP
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 3064c9cd141458307891f666bd5af9aa738cc021
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/05/2018
+ms.author: hrasheed
+ms.openlocfilehash: 75ec0e17e9866d2cd3420ff6ecf648bf22a8ae8e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093175"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277960"
 ---
-# <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Uso de Zeppelin para ejecutar consultas de Hive en Azure HDInsight 
+# <a name="use-apache-zeppelin-to-run-apache-hive-queries-in-azure-hdinsight"></a>Uso de Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight 
 
-Los clústeres de HDInsight Interactive Query incluyen blocs de notas de Zeppelin con los que puede ejecutar consultas de Hive interactivas. Con este artículo aprenderá a usar Zeppelin para ejecutar consultas de Hive en Azure HDInsight. 
+Los clústeres de HDInsight Interactive Query incluyen blocs de notas de Azure Zeppelin con los que puede ejecutar consultas de Hive interactivas. Con este artículo aprenderá a usar Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de seguir los pasos de este artículo, debe disponer de los siguientes elementos:
 
 * **Clúster de HDInsight Interactive Query**. Vea [Crear clúster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) para crear un clúster de HDInsight.  Asegúrese de elegir el tipo Interactive Query. 
 
-## <a name="create-a-zeppelin-note"></a>Crear una nota de Zeppelin
+## <a name="create-a-apache-zeppelin-note"></a>Crear una nota de Apache Zeppelin
 
 1. Vaya a esta dirección URL:
 

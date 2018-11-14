@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: 926ce58872b06b41a0c7942b7090dcb4d5c8df03
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.openlocfilehash: 9533992b939983ceda37a7c98d0bc2426168a0ac
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956497"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279368"
 ---
 # <a name="configure-spark-settings"></a>Configuración de opciones de Spark
 
@@ -30,11 +30,8 @@ El número de máquinas virtuales y el tamaño de las máquinas virtuales, para 
 
 Utilice la mejor versión de Spark para el clúster.  El servicio HDInsight incluye varias versiones tanto de Spark como del propio HDInsight.  Cada versión de Spark incluye un conjunto de configuración de clúster predeterminadas.  
 
-Al crear un nuevo clúster, estas son las versiones actuales de Spark para elegir:
+Al crear un clúster nuevo, puede elegir entre varias versiones de Spark. Para ver la lista completa, consulte [Componentes y versiones de HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning)
 
-![Versiones de Spark](./media/apache-spark-settings/spark-version.png)
-
-Spark 2.x puede ejecutar mucho mejor que Spark 1.x. Spark 2.x tiene un número de optimizaciones de rendimiento, como Tungsten, optimización de consulta de Catalyst y mucho más.  
 
 > [!NOTE]
 > La versión predeterminada de Apache Spark en el servicio HDInsight puede cambiar sin previo aviso. Microsoft recomienda especificar la versión particular al crear clústeres con el .NET SDK, Azure PowerShell y la CLI de Azure clásica, si tiene una dependencia de versiones.

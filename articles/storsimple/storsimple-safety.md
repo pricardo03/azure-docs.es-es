@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: a178e8880bcbcada9d66eaacf5ccbdb7c55957cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be635826edbb60d50b06cc7c529e32b6280390b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109933"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249394"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar y operar el dispositivo StorSimple de forma segura
 ![Icono Advertencia](./media/storsimple-safety/IC740879.png)
 ![Icono Leer el aviso de seguridad](./media/storsimple-safety/IC740885.png)**LEER LA INFORMACIÓN DE SEGURIDAD Y SALUD**
 
-Lea toda la información de seguridad y salud de esta guía que sea aplicable a su dispositivo de Microsoft Azure StorSimple Conserve todas las guías impresas entregadas con su dispositivo de StorSimple para futuras referencias. Si no se siguen las instrucciones y se configura, usa y cuida adecuadamente este producto, puede aumentar el riesgo de lesiones graves o muerte, o bien de daños en el dispositivo o dispositivos. También hay disponible una [versión descargable de esta guía](http://www.microsoft.com/download/details.aspx?id=44233).
+Lea toda la información de seguridad y salud de esta guía que sea aplicable a su dispositivo de Microsoft Azure StorSimple Conserve todas las guías impresas entregadas con su dispositivo de StorSimple para futuras referencias. Si no se siguen las instrucciones y se configura, usa y cuida adecuadamente este producto, puede aumentar el riesgo de lesiones graves o muerte, o bien de daños en el dispositivo o dispositivos. También hay disponible una [versión descargable de esta guía](https://www.microsoft.com/download/details.aspx?id=44233).
 
 ## <a name="safety-icon-conventions"></a>Convenciones de iconos de seguridad
 Estos son los iconos que encontrará cuando revise las precauciones de seguridad que se deben observar al configurar y ejecutar el dispositivo de Microsoft Azure StorSimple.
 
-| Icono | Description |
+| Icono | DESCRIPCIÓN |
 |:--- |:--- |
 | ![Icono Peligro](./media/storsimple-safety/IC740879.png)**PELIGRO** |Indica una situación peligrosa que, si no se evita, causará la muerte o lesiones graves. Esta palabra de aviso se debe limitar a las situaciones más extremas. |
 | ![Icono Advertencia](./media/storsimple-safety/IC740879.png)**ADVERTENCIA** |Indica una situación peligrosa que, si no se evita, podría causar la muerte o lesiones graves. |
@@ -52,7 +52,7 @@ Para reducir el riesgo de lesiones:
 * No levante el alojamiento por las asas de los módulos de alimentación y refrigeración (PCM) ubicadas en la parte posterior de la unidad. No están diseñadas para soportar el peso.
 
 ## <a name="connection-precautions"></a>Precauciones en la conexión
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**ADVERTENCIA**
+![Warning Icon](./media/storsimple-safety/IC740879.png)![Electrical Shock Icon](./media/storsimple-safety/IC740882.png)**¡ADVERTENCIA**
 
 Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
@@ -62,7 +62,7 @@ Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 * Asegúrese siempre de que la conexión de alimentación está desconectada antes de extraer un PCM del alojamiento.
 * Dado que el enchufe del cable de la fuente de alimentación es el dispositivo de desconexión principal, asegúrese de que los enchufes están ubicados cerca del equipo y que se pueden acceder con facilidad.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**ADVERTENCIA**
+![Warning Icon](./media/storsimple-safety/IC740879.png)![Electrical Shock Icon](./media/storsimple-safety/IC740882.png)**¡ADVERTENCIA**
 
 Para reducir la probabilidad de sobrecalentamiento o de incendio de las conexiones eléctricas:
 
@@ -145,7 +145,7 @@ Para reducir el riesgo de cortocircuito, incendio, explosión, lesiones o muerte
 
 ![Icono Aviso](./media/storsimple-safety/IC740881.png)**AVISO:**
 
-Cuando se envían o transportan las baterías por aire, siga el documento IATA Lithium Battery Guidance disponible en [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Cuando se envían o transportan las baterías por aire, siga el documento IATA Lithium Battery Guidance disponible en [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx).
 
 Después de revisar estos avisos de seguridad, el siguiente paso es desempaquetar, montar en bastidor y cablear su dispositivo.
 

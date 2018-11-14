@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437002"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263294"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Discos administrados y Premium Storage de alto rendimiento para VM
 
@@ -97,7 +97,7 @@ Estas son algunas de las características admitidas en las máquinas virtuales c
     Puede usar discos premium y estándar en la misma VM de Premium Storage. Con Premium Storage, puede aprovisionar una máquina virtual y conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede fragmentar los discos para aumentar la capacidad y el rendimiento del volumen.
 
     > [!NOTE]
-    > Si fragmenta discos de datos de Premium Storage mediante [Espacios de almacenamiento](http://technet.microsoft.com/library/hh831739.aspx), tendrá que configurarlos con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. De forma predeterminada, en el administrador de servidores, puede configurar las columnas para hasta 8 discos. Si dispone de más de 8 discos, use PowerShell para crear el volumen. Especifique manualmente el número de columnas. De lo contrario, la IU del administrador del servidor sigue usando 8 columnas aunque tenga más discos. Por ejemplo, si tiene 32 discos en un conjunto de bandas único, especifique 32 columnas. Use el parámetro [NumberOfColumns](http://technet.microsoft.com/library/hh848643.aspx) del cmdlet *New-VirtualDisk* de PowerShell para especificar el número de columnas que usa el disco virtual. Para más información, consulte [Introducción a los espacios de almacenamiento](http://technet.microsoft.com/library/hh831739.aspx) y [Preguntas más frecuentes sobre los espacios de almacenamiento](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+    > Si fragmenta discos de datos de Premium Storage mediante [Espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx), tendrá que configurarlos con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. De forma predeterminada, en el administrador de servidores, puede configurar las columnas para hasta 8 discos. Si dispone de más de 8 discos, use PowerShell para crear el volumen. Especifique manualmente el número de columnas. De lo contrario, la IU del administrador del servidor sigue usando 8 columnas aunque tenga más discos. Por ejemplo, si tiene 32 discos en un conjunto de bandas único, especifique 32 columnas. Use el parámetro [NumberOfColumns](https://technet.microsoft.com/library/hh848643.aspx) del cmdlet *New-VirtualDisk* de PowerShell para especificar el número de columnas que usa el disco virtual. Para más información, consulte [Introducción a los espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx) y [Preguntas más frecuentes sobre los espacios de almacenamiento](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
     >
     > 
 
@@ -151,7 +151,9 @@ Si usa cuentas de Premium Storage para los discos no administrados y la aplicaci
 ### <a name="premium-storage-disk-limits"></a>Límites de discos de Premium Storage
 Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece ocho tipos de discos GA de Premium Storage: P4 (solo discos administrados), P6 (solo discos administrados), P10, P15 (solo discos administrados), P20, P30, P40 y P50. Así como vista previa de tres tamaños de disco: P60 P70 y P80. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
 
-| Tipo de discos Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+Los tamaños marcados con un asterisco están actualmente en versión preliminar.
+
+| Tipo de discos Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Tamaño del disco           | 32 GiB| 64 GiB| 128 GB| 256 GiB| 512 GB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16 384 GiB (16 TiB)| 32 767 GiB (32 TiB)|
 | IOPS por disco       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12 500          | 15 000             | 20.000             |
@@ -237,7 +239,7 @@ Los siguientes límites se aplican a las instantáneas de blobs de Premium Stora
 
 Para mantener copias con redundancia geográfica, puede copiar instantáneas desde una cuenta de almacenamiento premium a una cuenta de almacenamiento estándar con redundancia geográfica con AzCopy o Copy Blob. Para más información, vea [Transferencia de datos con la utilidad en línea de comandos AzCopy](../articles/storage/common/storage-use-azcopy.md) y [Copy Blob](/rest/api/storageservices/Copy-Blob).
 
-Para más información acerca de cómo realizar operaciones de REST en blobs en páginas en cuentas de Premium Storage, consulte [Uso de operaciones de Blob service con Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969).
+Para más información acerca de cómo realizar operaciones de REST en blobs en páginas en cuentas de Premium Storage, consulte [Uso de operaciones de Blob service con Azure Premium Storage](https://go.microsoft.com/fwlink/?LinkId=521969).
 
 ### <a name="managed-disks"></a>Discos administrados
 
@@ -267,12 +269,12 @@ Las distribuciones de Linux siguientes han sido validadas para Azure Premium Sto
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 requerido](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vea la nota en la siguiente sección* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recomendado](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vea la nota en la siguiente sección* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 requerido](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vea la nota en la siguiente sección* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Vea la nota en la siguiente sección* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+ y 7.2+ | &nbsp; | UEK4 o RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 o RHCK con[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 o RHCK con[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 o RHCK con[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 o RHCK con[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Controladores de LIS para CentOS Openlogic

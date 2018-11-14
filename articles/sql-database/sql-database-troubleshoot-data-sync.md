@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: 0f836a857d6f9748416fda1526a1957af4fc51e4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 44bf04d3840009b9408ccfc51fdcefa7c7e116cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163603"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278946"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solución de problemas de SQL Data Sync
 
@@ -112,143 +112,7 @@ Data Sync no controla las referencias circulares, así que asegúrese de no usar
 
 ## <a name="client-agent-issues"></a>Problemas del agente cliente
 
-- [La instalación, desinstalación o reparación del agente cliente produce un error](#agent-install)
-
-- [El agente cliente no funciona cuando cancelo la desinstalación](#agent-uninstall)
-
-- [Mi base de datos no aparece en la lista del agente](#agent-list)
-
-- [El agente cliente no se inicia (error 1069)](#agent-start)
-
-- [No puedo enviar la clave del agente](#agent-key)
-
-- [El agente cliente no se puede eliminar del portal si no se puede acceder a su base de datos local](#agent-delete)
-
-- [La aplicación local del agente de sincronización no se puede conectar al servicio de sincronización local](#agent-connect)
-
-### <a name="agent-install"></a> La instalación, desinstalación o reparación del agente cliente produce un error
-
-- **Causa**. Muchos escenarios pueden provocar este error. Para determinar cuál es la causa concreta, debe examinar los registros.
-
-- **Resolución**. Para encontrar la causa específica del error, debe generar y examinar los registros de Windows Installer. Puede activar el registro desde el símbolo del sistema. Por ejemplo, si el archivo AgentServiceSetup.msi descargado es LocalAgentHost.msi, genere y examine los archivos de registro mediante el uso de las siguientes líneas de comandos:
-
-    -   Para las instalaciones: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   Para las desinstalaciones: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-
-    También puede activar el registro para todas las instalaciones realizadas por Windows Installer. En el artículo de Microsoft Knowledge Base [Cómo habilitar el registro de Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) se proporciona una solución de un solo clic para activar el registro en Windows Installer. También indica la ubicación de los registros.
-
-### <a name="agent-uninstall"></a> El agente cliente no funciona cuando cancelo la desinstalación
-
-El agente cliente no funciona aunque cancele su desinstalación.
-
-- **Causa**. Este problema se produce porque el agente cliente de SQL Data Sync no almacena credenciales.
-
-- **Resolución**. Puede probar estas dos soluciones:
-
-    -   Use services.msc para volver a introducir las credenciales para el agente cliente.
-    -   Desinstale este agente cliente y, después, instale uno nuevo. Descargue e instale el agente cliente más reciente del [Centro de descarga](http://go.microsoft.com/fwlink/?linkid=221479).
-
-### <a name="agent-list"></a> Mi base de datos no aparece en la lista del agente
-
-Al intentar agregar una base de datos existente de SQL Server a un grupo de sincronización, la base de datos no aparece en la lista de agentes.
-
-Estos escenarios pueden provocar este error:
-
-- **Causa**. El agente cliente y el grupo de sincronización se encuentran en distintos centros de datos.
-
-- **Resolución**. El agente cliente y el grupo de sincronización deben estar en el mismo centro de datos. Para configurar esto, tiene dos opciones:
-
-    -   Cree un nuevo agente en el centro de datos donde se encuentra el grupo de sincronización. Registre la base de datos con ese agente.
-    -   Elimine el grupo de sincronización actual. A continuación, vuelva a crear el grupo de sincronización en el centro de datos donde se encuentra el agente.
-
-- **Causa**. La lista de agentes cliente de la base de datos no está actualizada.
-
-- **Resolución**. Detenga y reinicie el servicio de agente cliente.
-
-    El agente local descarga la lista de bases de datos asociadas solo la primera vez que se envía la clave del agente. No descarga la lista de bases de datos asociadas en los envíos posteriores de la clave del agente. Las bases de datos que se registran durante un traslado del agente no aparecen en la instancia original del agente.
-
-### <a name="agent-start"></a> El agente cliente no se inicia (error 1069)
-
-El agente no se está ejecutando en un equipo que hospeda SQL Server. Al intentar iniciar manualmente el agente, ve un cuadro de diálogo con el mensaje "Error 1069: el servicio no se inició debido a un error de inicio de sesión".
-
-![Cuadro de diálogo del error 1069 de Data Sync](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
-
-- **Causa**. Una causa probable de este error es que la contraseña del servidor local ha cambiado desde que creó el agente y la contraseña del agente.
-
-- **Resolución**. Actualice la contraseña del agente con su contraseña actual del servidor:
-
-  1. Busque el servicio del agente de cliente de SQL Data Sync.  
-    a. Seleccione **Iniciar**.  
-    b. En el cuadro de búsqueda, escriba **services.msc**.  
-    c. En los resultados de la búsqueda, haga clic en **Servicios**.  
-    d. En la ventana **Servicios**, desplácese hasta la entrada **Agente de SQL Data Sync**.  
-  1. Haga clic con el botón derecho en **Agente de SQL Data Sync** y seleccione **Detener**.
-  1. Haga clic con el botón derecho en **Agente de SQL Data Sync** y seleccione **Propiedades**.
-  1. En **Propiedades del agente de SQL Data Sync**, seleccione la pestaña **Inicio de sesión**.
-  1. En el cuadro de texto **Contraseña**, escriba su contraseña.
-  1. En el cuadro de texto **Confirmar contraseña**, vuelva a escribir su contraseña.
-  1. Seleccione **Aplicar** y luego **Aceptar**.
-  1. En la ventana **Servicios**, haga clic con el botón derecho en el servicio **Agente de SQL Data Sync** y, después, haga clic en **Iniciar**.
-  1. Cierre la ventana **Servicios**.
-
-### <a name="agent-key"></a> No puedo enviar la clave del agente
-
-Después de crear o volver a crear una clave para un agente, intenta enviar esa clave a través de la aplicación SqlAzureDataSyncAgent y no se puede completar el envío.
-
-![Cuadro de diálogo de error de sincronización: no se puede enviar la clave del agente](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
-
-- **Requisitos previos**. Antes de continuar, compruebe los siguientes requisitos previos:
-
-  - El servicio de Windows SQL Data Sync se está ejecutando.
-
-  - La cuenta del servicio de Windows SQL Data Sync tiene acceso a la red.
-
-  - El puerto 1433 saliente está abierto en la regla de firewall local.
-
-  - Se agrega la dirección IP local al servidor o la regla de firewall de base de datos para la base de datos de metadatos de sincronización.
-
-- **Causa**. La clave del agente identifica de forma única cada agente local. La clave debe cumplir dos condiciones:
-
-  -   La clave del agente cliente del servidor de SQL Data Sync y del equipo local deben ser idénticas.
-  -   La clave del agente cliente solo se puede usar una vez.
-
-- **Resolución**. Si el agente no funciona, es porque una de estas condiciones o ninguna de las dos se cumplen. Para que el agente vuelva a funcionar:
-
-  1. Genere una nueva clave.
-  1. Aplique la nueva clave al agente.
-
-  Para aplicar la nueva clave al agente:
-
-  1. En el Explorador de archivos, vaya al directorio de instalación del agente. El directorio de instalación predeterminado es C:\\Archivos de programa (x86)\\Microsoft SQL Data Sync.
-  1. Haga doble clic en el subdirectorio bin.
-  1. Abra la aplicación SqlAzureDataSyncAgent.
-  1. Seleccione **Enviar clave del agente**.
-  1. Pegue la clave del portapapeles en el espacio proporcionado.
-  1. Seleccione **Aceptar**.
-  1. Cierre el programa.
-
-### <a name="agent-delete"></a> El agente cliente no se puede eliminar del portal si no se puede acceder a su base de datos local
-
-Si no se puede acceder a un punto de conexión local (es decir, a una base de datos) que está registrado en un agente cliente de SQL Data Sync (versión preliminar), dicho agente no se puede eliminar.
-
-- **Causa**. El agente local no se puede eliminar porque la base de datos a la que no se puede acceder sigue registrada con el agente. Al intentar eliminar el agente, el proceso de eliminación intenta acceder a la base de datos, en la que se produce un error.
-
-- **Resolución**. Use "Forzar eliminación" para eliminar la base de datos a la que no se puede acceder.
-
-> [!NOTE]
-> Si tras una eliminación forzada, las tablas de metadatos de sincronización permanecen, use `deprovisioningutil.exe` para limpiarlas.
-
-### <a name="agent-connect"></a> La aplicación local del agente de sincronización no se puede conectar al servicio de sincronización local
-
-- **Resolución**. Realice estos pasos:
-
-  1. Salga de la aplicación.  
-  1. Abra el panel Servicios de componentes.  
-    a. En el cuadro de búsqueda de la barra de tareas, escriba **services.msc**.  
-    b. En los resultados de la búsqueda, haga doble clic en **Servicios**.  
-  1. Detenga el servicio **SQL Data Sync**.
-  1. Reinicie el servicio **SQL Data Sync**.  
-  1. Vuelva a abrir la aplicación.
+Para solucionar problemas con el agente de cliente, consulte [Troubleshoot Data Sync Agent issues](sql-database-data-sync-agent.md#agent-tshoot) (Solución de problemas del agente de sincronización de datos).
 
 ## <a name="setup-and-maintenance-issues"></a>Problemas de configuración y mantenimiento
 
