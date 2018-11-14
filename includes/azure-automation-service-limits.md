@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 34cae9172d9b024bd6866742d39d82ad496bfc52
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45570457"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964614"
 ---
 | Recurso | Límite máximo |Notas|
 | --- | --- |---|
@@ -31,5 +31,6 @@ ms.locfileid: "45570457"
 | Tamaño máximo de los parámetros de un trabajo de runbook   | 512 kb||
 | Parámetros máximos de runbook   | 50|Puede pasar una cadena JSON o XML a un parámetro y analizarlo con el runbook si alcanza el límite de 50 parámetros|
 | Tamaño máximo de carga de webhook |  512 kb|
+| Máximo de días que se conservan los datos de trabajo|30 días|
 
 **<sup>1</sup>** Un espacio aislado es un entorno compartido que puede usarse en varios trabajos. Los trabajos que usan el mismo espacio aislado están limitados por los límites de los recursos del espacio aislado.

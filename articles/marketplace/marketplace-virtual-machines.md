@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144529"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958668"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guía de publicación de ofertas de máquinas virtuales
 
@@ -29,18 +29,18 @@ Estas ofertas de transacción se implementan y facturan a través de Marketplace
 
 ## <a name="free-trial"></a>Versión de prueba gratuita 
 
-Puede disponer que los usuarios prueben la oferta mediante el acceso a licencias de software de tiempo limitada si se usa el modelo de facturación traiga su propia licencia (BYOL). A continuación encontrará los requisitos para implementar esta oferta. 
+Puede disponer que los usuarios prueben la oferta mediante el acceso a licencias de software de tiempo limitado si se usa el modelo de facturación traiga su propia licencia (BYOL). A continuación encontrará los requisitos para implementar esta oferta. 
 
 |Requisitos  |Detalles  |
 |---------|---------|
-|Período de evaluación gratuita y experiencia de evaluación     |   El cliente puede probar la aplicación de forma gratuita durante un tiempo limitado. El cliente no tiene que pagar ninguna tarifa de licencia o suscripción por la oferta. Los clientes no tienen que pagar por los servicios o productos de Microsoft subyacentes. Todas las opciones de la versión de prueba se implementan en la suscripción a Azure. Dispone de control exclusivo de la administración y optimización de costos. Puede elegir una evaluación gratuita o una demostración interactiva. Con independencia de lo que elija, la prueba gratuita debe ofrecer al cliente una cantidad preestablecida de tiempo para probar la oferta sin ningún costo adicional.|
+|Período de evaluación gratuita y experiencia de evaluación     |   Los clientes pueden probar la aplicación de forma gratuita durante un tiempo limitado. Los clientes no tienen que pagar ninguna tarifa de licencia o suscripción por la oferta. Los clientes no tienen que pagar por los servicios o productos de Microsoft subyacentes. Todas las opciones de la versión de prueba se implementan en la suscripción a Azure. Dispone de control exclusivo de la administración y optimización de costos. Puede elegir una evaluación gratuita o una demostración interactiva. Con independencia de lo que elija, la prueba gratuita debe ofrecer al cliente una cantidad preestablecida de tiempo para probar la oferta sin ningún costo adicional.|
 |Solución de fácil configuración y lista para usar    |  La aplicación debe ser fácil y rápida de configurar e instalar.       |
 |Disponibilidad/tiempo de actividad    |    La aplicación o plataforma SaaS debe tener un tiempo de actividad de al menos un 99,9 %.     |
 |Azure Active Directory     |    La oferta debe permitir el inicio de sesión único (SSO) federado de Azure Active Directory (Azure AD) con consentimiento habilitado.     |
 
 ## <a name="test-drive"></a>Versión de prueba
 
-Se implementan una o varias máquinas virtuales a través de aplicaciones de infraestructura como servicio (IaaS) o SaaS. Una ventaja de la opción de publicación de versión de prueba es el aprovisionamiento automatizado de una máquina virtual o una solución completa dirigida por una visita guiada hospedada por un asociado. Una versión limitada de prueba proporciona una prueba sin ningún costo adicional para el cliente. El cliente no tiene que ser un cliente existente de Azure para poder participar en la experiencia de prueba. 
+Se implementan una o varias máquinas virtuales a través de aplicaciones de infraestructura como servicio (IaaS) o software como servicio (SaaS). Una ventaja de la opción de publicación de versión de prueba es el aprovisionamiento automatizado de una máquina virtual o una solución completa dirigida por una visita guiada hospedada por un asociado. Una versión limitada de prueba proporciona una prueba sin ningún costo adicional para el cliente. El cliente no tiene que ser un cliente existente de Azure para poder participar en la experiencia de prueba. 
 
 Póngase en contacto con nosotros en [amp-testdrive](mailto:amp-testdrive@microsoft.com) para empezar a trabajar. 
 

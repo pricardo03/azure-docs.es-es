@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a782a7341e53420dbc31fefc86007951df967a9e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: af1a14f87eaf20a7f49a8fc6112c4f3c7595f6bd
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307984"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914383"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Información de uso de los certificados de Azure IoT Edge
 
@@ -78,9 +78,9 @@ Dado que los procesos del fabricante y del operador son independientes, hay algu
 
 ## <a name="devtest-implications"></a>Implicaciones de desarrollo y pruebas
 
-Para facilitar los escenarios de desarrollo y pruebas, Microsoft proporciona un conjunto de [scripts de comodidad](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para generar certificados que no sean de producción adecuados para IoT Edge en el escenario de puerta de enlace transparente.
+Para facilitar los escenarios de desarrollo y pruebas, Microsoft proporciona un conjunto de [scripts de comodidad](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para generar certificados que no sean de producción adecuados para IoT Edge en el escenario de puerta de enlace transparente. Para obtener ejemplos de cómo funcionan los scripts, consulte [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md).
 
-Estos scripts generan certificados que siguen la estructura de la cadena de certificados que se explica en este artículo. Para [Linux](how-to-create-transparent-gateway-linux.md#certificate-creation) o [Windows](how-to-create-transparent-gateway-windows.md#certificate-creation). Los siguientes comandos generan el "certificado de CA raíz" y un único "certificado de CA intermedio".
+Estos scripts generan certificados que siguen la estructura de la cadena de certificados que se explica en este artículo. Los siguientes comandos generan el "certificado de CA raíz" y un único "certificado de CA intermedio".
 
 ```bash
 ./certGen.sh create_root_and_intermediate 
@@ -124,6 +124,4 @@ Puede ver la jerarquía de profundidad del certificado representada en la captur
 
 [Información sobre los módulos de Azure IoT Edge](iot-edge-modules.md)
 
-[Uso de un dispositivo IoT Edge como puerta de enlace transparente (Linux)](how-to-create-transparent-gateway-linux.md)
-
-[Uso de un dispositivo IoT Edge como puerta de enlace transparente (Windows)](how-to-create-transparent-gateway-windows.md)
+[Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md)

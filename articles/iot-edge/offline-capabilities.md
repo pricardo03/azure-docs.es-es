@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c4ab33f4d706eb677b2b790ff871c1fb900846ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340178"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235639"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Descripción de las funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios de IoT Edge (versión preliminar)
 
@@ -46,7 +46,7 @@ En el ejemplo siguiente, se muestra cómo funciona un escenario de IoT Edge en m
 
 ## <a name="restrictions-and-limits"></a>Restricciones y límites
 
-Las funcionalidades sin conexión ampliadas que se describen en este artículo están disponibles en [IoT Edge 1.0.2 o versiones posteriores](https://github.com/Azure/azure-iotedge/releases). Las versiones anteriores tienen un subconjunto de características sin conexión. Los dispositivos de IoT Edge existentes que no tienen funcionalidades sin conexión ampliadas no se pueden actualizar cambiando la versión del entorno de ejecución, sino que deben volver a configurarse con una nueva identidad de dispositivo de IoT Edge para obtener estas características. 
+Las funcionalidades sin conexión ampliadas que se describen en este artículo están disponibles en [IoT Edge 1.0.4 o versiones posteriores](https://github.com/Azure/azure-iotedge/releases). Las versiones anteriores tienen un subconjunto de características sin conexión. Los dispositivos de IoT Edge existentes que no tienen funcionalidades sin conexión ampliadas no se pueden actualizar cambiando la versión del entorno de ejecución, sino que deben volver a configurarse con una nueva identidad de dispositivo de IoT Edge para obtener estas características. 
 
 La compatibilidad con las funcionalidades sin conexión ampliadas está disponible en todas las regiones en las que lo está IoT Hub, excepto en Este de EEE. UU. y Europa Occidental. 
 
@@ -56,34 +56,7 @@ Los dispositivos de IoT Edge y sus dispositivos secundarios asignados pueden fun
 
 ## <a name="set-up-an-edge-device"></a>Configuración de un dispositivo de Edge
 
-En cualquier dispositivo de IoT Edge que desee ejecutar sin conexión durante largos períodos de tiempo, configure el entorno de ejecución de IoT Edge para comunicarse mediante MQTT. 
-
 Para que un dispositivo de IoT Edge amplíe sus funcionalidades sin conexión a los dispositivos IoT secundarios, es necesario declarar las relaciones primario/secundario en Azure Portal.
-
-### <a name="set-the-upstream-protocol-to-mqtt"></a>Configuración del protocolo de subida a MQTT
-
-Configure el centro y el agente de Edge para que se comuniquen con MQTT como protocolo de subida. Este protocolo se declara en el manifiesto de implementación utilizando variables de entorno. 
-
-En Azure Portal, puede acceder al centro de Edge y a las definiciones de los módulos del agente de Edge seleccionando el botón **Configurar las opciones avanzadas del entorno en tiempo de ejecución de Edge** al establecer los módulos para una implementación. En ambos módulos, cree una variable de entorno llamada **UpstreamProtocol** y establezca su valor en **MQTT**. 
-
-En el archivo JSON de la plantilla de implementación, las variables de entorno se declaran tal y como se muestra en el ejemplo siguiente: 
-
-```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
-    },
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
-}
-```
 
 ### <a name="assign-child-devices"></a>Asignación de dispositivos secundarios
 
@@ -142,4 +115,4 @@ Reemplace `<HostStoragePath>` y `<ModuleStoragePath>` con las rutas de almacenam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Habilitar operaciones sin conexión ampliadas en escenarios de puerta de enlace transparente con dispositivos [Linux](how-to-create-transparent-gateway-linux.md) o [Windows](how-to-create-transparent-gateway-windows.md).
+Habilitar operaciones sin conexión ampliadas en escenarios de [puerta de enlace transparente](how-to-create-transparent-gateway.md).

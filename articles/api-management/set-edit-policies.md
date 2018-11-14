@@ -3,7 +3,7 @@ title: Establecimiento o modificación de directivas de Azure API Management | M
 description: Este tema muestra cómo establecer o modificar las directivas de administración de Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: aaf86a440328e27c8c47b809536951eeaf2104b9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936704"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008273"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Establecimiento o modificación de directivas de Azure API Management
 
@@ -33,15 +33,14 @@ Para establecer o modificar una directiva, siga estos pasos:
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. Vaya a la instancia de APIM.
 3. Haga clic en la pestaña **API**.
+
+    ![Editar directiva](./media/set-edit-policies/code-editor.png)
+
 4. Seleccione una de las API que haya importado previamente.
 5. Seleccione la pestaña **Diseño**.
 6. Seleccione una operación en la que desee aplicar la directiva. Si desea aplicar la directiva a todas las operaciones, seleccione **Todas las operaciones**.
-7. Haga clic en el triángulo situado junto a los lápices de **entrada** o **salida**.
-8. Seleccione el elemento **Editor de código**.
-
-    ![Editar directiva](./media/set-edit-policies/set-edit-policies01.png)
-
-9. Pegue el código de la directiva que desee en uno de los bloques adecuados.
+7. Seleccione el icono **</>** (editor de código) en la sección **Procesamiento de entrada** o **Procesamiento de salida**.
+8. Pegue el código de la directiva que desee en uno de los bloques adecuados.
          
         <policies>
              <inbound>

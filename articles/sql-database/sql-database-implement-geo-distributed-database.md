@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 2508d43e876a7e463d68eed1b1ca93ddf0d1e9d1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166272"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913351"
 ---
-# <a name="implement-a-geo-distributed-database"></a>Implementar una base de datos distribuida geográficamente
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementación de una base de datos distribuida geográficamente
 
 En este tutorial, configurará una instancia de Azure SQL Database y una aplicación para realizar conmutación por error a una región remota y, luego, probar el plan de conmutación por error. Aprenderá a: 
 

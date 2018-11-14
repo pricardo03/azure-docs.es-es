@@ -1,36 +1,36 @@
 ---
 title: Administración del ciclo de vida de Azure Storage
-description: Obtenga información sobre cómo crear reglas de directiva de ciclo de vida para volver a realizar la transición de datos del nivel de acceso frecuente al nivel de almacenamiento de acceso y al nivel de acceso de archivo.
+description: Aprenda a crear reglas de directiva de ciclo de vida para realizar la transición de datos antiguos del nivel de almacenamiento de acceso frecuente al nivel de almacenamiento de acceso esporádico y al nivel de almacenamiento de archivo.
 services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 11/01/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6647ff97b078ca5afa5c66833a1617f6b3ec0f1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429565"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978815"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
-Los conjuntos de datos tienen ciclos de vida únicos. A algunos datos se accede con frecuencia al principio del ciclo de vida, pero la necesidad de acceso se reduce drásticamente a medida que pasa el tiempo. Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se suele acceder a ellos. Algunos datos expiran días o meses después de su creación, mientras que otros conjuntos de datos se leen y modifican de forma activa en el transcurso de sus ciclos de vida. La administración del ciclo de vida de Azure Blob Storage (versión preliminar) ofrece una directiva enriquecida basada en reglas que se puede usar para realizar la transición de los datos al nivel de acceso mejorado y para hacer que los datos expiren cuando finalice su ciclo de vida.
+Los conjuntos de datos tienen ciclos de vida únicos. A algunos datos se accede con frecuencia al principio del ciclo de vida, pero la necesidad de acceso se reduce drásticamente a medida que pasa el tiempo. Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se suele acceder a ellos. Algunos datos expiran días o meses después de su creación, mientras que otros conjuntos de datos se leen y modifican de forma activa en el transcurso de sus ciclos de vida. La administración del ciclo de vida de Azure Blob Storage (versión preliminar) ofrece una directiva enriquecida basada en reglas, que se puede usar en las cuentas de Blob Storage y GPv2. para realizar la transición de los datos al nivel de acceso apropiado, o para que expiren cuando finalice su ciclo de vida.
 
 La directiva de administración del ciclo de vida permite:
 
 - Realizar la transición de blobs a un nivel de almacenamiento de acceso más esporádico (frecuente a esporádico, frecuente a archivo o esporádico a archivo) para optimizar el rendimiento y el costo
 - Eliminar los blobs al final de sus ciclos de vida
-- Definir reglas que se ejecutarán una vez al día al nivel de cuenta de almacenamiento (admite las cuentas GPv2 y de almacenamiento de blobs)
+- Definir reglas que se ejecutarán una vez al día en el nivel de cuenta de almacenamiento
 - Aplicar reglas a contenedores o a un subconjunto de blobs (mediante prefijos como filtros)
 
-Considere el caso de que un conjunto de datos al que se accede con frecuencia durante la fase temprana del ciclo de vida solo sea necesario en ocasiones después de dos semanas y al que se acceda en raras ocasiones transcurrido un mes y más tiempo. En este escenario, el almacenamiento de acceso frecuente es mejor durante las fases tempranas, el almacenamiento de acceso esporádico es más apropiado para el acceso ocasional y el almacenamiento de archivo es el mejor nivel cuando los datos tienen más de un mes. Con el ajuste de los niveles de almacenamiento en relación con la antigüedad de los datos, puede designar las opciones de almacenamiento menos caras para satisfacer sus necesidades. Para conseguir esta transición, las directivas de administración del ciclo de vida se encuentran disponibles para mover los datos que tienen más tiempo a niveles de almacenamiento de acceso más esporádico.
+Considere el caso de que un conjunto de datos al que se accede con frecuencia durante la fase temprana del ciclo de vida solo sea necesario en ocasiones después de dos semanas y al que se acceda en raras ocasiones transcurrido un mes y más tiempo. En este escenario, el almacenamiento de acceso frecuente es mejor durante las fases tempranas, el almacenamiento de acceso esporádico es más apropiado para el acceso ocasional y el almacenamiento de archivo es el mejor nivel cuando los datos tienen más de un mes. Con el ajuste de los niveles de almacenamiento en relación con la antigüedad de los datos, puede designar las opciones de almacenamiento menos caras para satisfacer sus necesidades. Para conseguir esta transición, las reglas de directivas de administración del ciclo de vida se encuentran disponibles para mover los datos antiguos a niveles de almacenamiento de acceso más esporádico.
 
 ## <a name="storage-account-support"></a>Compatibilidad con la cuenta de almacenamiento
 
-La directiva de administración del ciclo de vida está disponible con la cuenta de uso general v2 (GPv2) y con la cuenta de Blob Storage. Puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2 con tan solo hacer un clic en Azure Portal. Para más información sobre las cuentas de almacenamiento, consulte [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).  
+La directiva de administración del ciclo de vida está disponible con la cuenta de uso general v2 (GPv2) y con la cuenta de Blob Storage. Puede actualizar una cuenta existente de uso general (GPv1) a una cuenta de GPv2 con tan solo hacer un clic en Azure Portal y sin tiempo de inactividad. Para más información sobre las cuentas de almacenamiento, consulte [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Precios 
 
@@ -67,9 +67,9 @@ az feature show --namespace Microsoft.Storage --name DLM
 Si la característica se aprueba y registra correctamente, debe recibir el estado "Registrado". 
 
 
-## <a name="add-or-remove-policies"></a>Adición o eliminación de directivas 
+## <a name="add-or-remove-a-policy"></a>Incorporación o eliminación de una directiva 
 
-Puede agregar, editar o eliminar una directiva en Azure Portal, con [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate) o herramientas de cliente en los siguientes lenguajes: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0) y [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Puede agregar, editar o eliminar una directiva en Azure Portal, con [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) o herramientas de cliente en los siguientes lenguajes: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0) y [Ruby](  https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -77,7 +77,7 @@ Puede agregar, editar o eliminar una directiva en Azure Portal, con [PowerShell]
 
 2. Para desplazarse a su cuenta de almacenamiento, seleccione Todos los recursos y, después, seleccione la cuenta de almacenamiento.
 
-3. En la hoja Configuración, haga clic en **Administración del ciclo de vida**, que se agrupa bajo Blob service, para ver o cambiar las directivas.
+3. En la hoja Configuración, haga clic en **Administración del ciclo de vida**, que se encuentra agrupado bajo Blob Service, para ver o cambiar las directivas.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -92,7 +92,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 > [!NOTE]
 Si habilita reglas de firewall para la cuenta de almacenamiento, puede que se bloqueen las solicitudes de administración del ciclo de vida. Puede proporcionar excepciones para desbloquearlas. Para más información, vea la sección Excepciones en [Configuración de redes virtuales y firewalls de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-## <a name="policies"></a>Directivas
+## <a name="policy"></a>Directiva
 
 Una directiva de administración del ciclo de vida es una colección de reglas en un documento JSON:
 
@@ -122,7 +122,7 @@ Dentro de una directiva, se necesitan dos parámetros:
 | version        | Una cadena expresada como `x.x` | El número de versión preliminar es 0.5 |
 | reglas          | Una matriz de objetos de regla | Se requiere al menos una regla en cada directiva. Durante la versión preliminar, puede especificar hasta cuatro reglas por directiva. |
 
-Los parámetros necesarios dentro de una regla son:
+Dentro de cada regla, se requieren tres parámetros:
 
 | Nombre de parámetro | Tipo de parámetro | Notas |
 |----------------|----------------|-------|
@@ -132,10 +132,13 @@ Los parámetros necesarios dentro de una regla son:
 
 ## <a name="rules"></a>Reglas
 
-Cada definición de regla incluye un conjunto de filtros y un conjunto de acciones. La regla de ejemplo siguiente modifica el nivel de blobs en bloques base con el prefijo `container1/foo`. En la directiva, estas reglas se definen como:
+Cada definición de regla incluye un conjunto de filtros y un conjunto de acciones. El [conjunto de filtros](#rule-filters) se utiliza para limitar las acciones de regla a un determinado conjunto de objetos dentro de un contenedor o nombres de objetos. El [conjunto de acciones ](#rule-actions) aplica las acciones de nivel o eliminación al conjunto filtrado de objetos.
 
-- Establecer el nivel del blob en almacenamiento de acceso esporádico 30 días después de la última modificación
-- Establecer el nivel del blob en almacenamiento de archivo 90 días después de la última modificación
+### <a name="sample-rule"></a>Ejemplo de regla
+El siguiente ejemplo de regla filtra la cuenta para ejecutar las acciones solo en `container1/foo`. Para todos los objetos que existen dentro de `container1` **Y** que comienzan con `foo`, se ejecutan las acciones siguientes: 
+
+- Establecer el nivel del blob en nivel de almacenamiento de acceso esporádico 30 días después de la última modificación
+- Establecer el nivel del blob en nivel de almacenamiento de archivo 90 días después de la última modificación
 - Eliminar el blob 2555 días (7 años) después de la última modificación
 - Eliminar instantáneas de blob 90 días después de la creación de las instantáneas
 
@@ -177,7 +180,7 @@ Durante la versión preliminar, los filtros válidos incluyen:
 | Nombre de filtro | Tipo de filtro | Notas | Es obligatorio |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matriz de valores de enumeración predefinidos. | En la versión preliminar, solo se admite `blockBlob`. | SÍ |
-| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si todos los blobs bajo "https://myaccount.blob.core.windows.net/mycontainer/mydir/.." deben coincidir con una regla, el prefijo es "mycontainer/mydir". | Si no está definida, esta regla se aplica a todos los blobs dentro de la cuenta. | Sin  |
+| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si todos los blobs bajo "https://myaccount.blob.core.windows.net/container1/foo/.." deben coincidir para una regla, el prefixMatch es "container1/foo". | Si no se ha definido prefixMatch, las reglas se aplican a todos los blobs dentro de la cuenta. | Sin  |
 
 ### <a name="rule-actions"></a>Acciones de regla
 

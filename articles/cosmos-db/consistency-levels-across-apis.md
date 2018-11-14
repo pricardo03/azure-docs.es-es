@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: ed08b90b9e216ee8713bfe445e98144bf2ba02d4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 974531cd5907e4f69e7d064125d3e51fa4974949
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244000"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956390"
 ---
-# <a name="consistency-levels-and-cosmos-db-apis"></a>Niveles de coherencia y API de Cosmos DB
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveles de coherencia y API de Azure Cosmos DB
 
-Los cinco modelos de coherencia se admiten de forma nativa por la API de SQL, que es la API por defecto cuando se utiliza Cosmos DB. Además de la API de SQL, Cosmos DB también proporciona compatibilidad nativa para las API compatibles de protocolo de transferencia para bases de datos populares como MongoDB, Apache Cassandra, Gremlin y Azure Tables. Estas bases de datos no ofrecen ni modelos de coherencia definidos con precisión ni garantías respaldadas por SLA para los niveles de coherencia, y normalmente proporcionan solo un subconjunto de los cinco modelos de coherencia que ofrece Cosmos DB. Para la API de SQL, Gremlin API y Table API, se utiliza el nivel de coherencia predeterminado configurado en la cuenta de Cosmos.
+Los cinco modelos de coherencia que ofrece Azure Cosmos DB se admiten de forma nativa por SQL API de Cosmos DB, que es la API predeterminada cuando se utiliza Cosmos DB. Además de la API de SQL, Cosmos DB también proporciona compatibilidad nativa para las API compatibles de protocolo de transferencia para bases de datos populares como MongoDB, Apache Cassandra, Gremlin y Azure Tables. Estas bases de datos no ofrecen modelos de coherencia definidos con precisión ni las garantías de respaldo SLA para los niveles de coherencia. Estas bases de datos suelen proporcionan únicamente un subconjunto de los cinco modelos de coherencia que ofrece Cosmos DB. Para SQL API, Gremlin API y Table API, se utiliza el nivel de coherencia predeterminado configurado en la cuenta de Cosmos.
 
-En la tabla siguiente se muestra la asignación entre la coherencia de datos solicitada por un controlador cliente OSS para Apache Cassandra 4.x y MongoDB 3.4 cuando se usa Cassandra API y MongoDB API, respectivamente, y los niveles de coherencia de Cosmos DB correspondientes.
+En las secciones siguientes se muestra la asignación entre la coherencia de datos solicitada por un controlador cliente OSS para Apache Cassandra 4.x y MongoDB 3.4 cuando se usa Cassandra API y MongoDB API, respectivamente y los niveles de coherencia de Cosmos DB correspondientes.
 
-## <a id="cassandra-mapping"></a>Asignación de niveles de coherencia de Apache Cassandra y Cosmos DB
+## <a id="cassandra-mapping"></a>Asignación de niveles de coherencia entre Apache Cassandra y Cosmos DB
 
-En la tabla siguiente se muestra la asignación para la coherencia de lectura entre el cliente de Apache Cassandra 4.x y el nivel de coherencia predeterminado de Cosmos DB para una implementación de varias regiones y una sola región.
+En la tabla siguiente se muestra la asignación para la "coherencia de lectura" entre el cliente de Apache Cassandra 4.x y el nivel de coherencia predeterminado de Cosmos DB para una implementación de varias regiones y una sola región.
 
 | **Apache Cassandra 4.x** | **Cosmos DB (varias regiones)** | **Cosmos DB (región única)** |
 | - | - | - |

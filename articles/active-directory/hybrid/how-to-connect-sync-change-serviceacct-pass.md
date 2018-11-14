@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b0b88622069801124aff5b44dc4b813838f41c73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310484"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747259"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Cambio de la contraseña de la cuenta del servicio de sincronización de Azure AD Connect
 Si cambia la contraseña de la cuenta del servicio de sincronización de Azure AD Connect, el servicio de sincronización no podrá iniciarse correctamente hasta que haya abandonado la clave de cifrado y reinicializado la contraseña de la cuenta del servicio de sincronización de Azure AD Connect. 
@@ -44,7 +44,7 @@ En primer lugar, tiene que cambiar la contraseña en el Administrador de control
 En segundo lugar, en determinadas condiciones, si la contraseña se actualiza, el servicio de sincronización ya no podrá recuperar la clave de cifrado a través de DPAPI. Sin la clave de cifrado, el servicio de sincronización no puede descifrar la contraseña necesaria para sincronizar con o desde AD y Azure AD locales.
 Verá errores como los siguientes:
 
-- En el Administrador de control de servicios de Windows, si intenta iniciar el servicio de sincronización y este no puede recuperar la clave de cifrado, se produce el error “**Windows no pudo iniciar el servicio Sincronización de Microsoft Azure AD en el equipo local.** Para más información, revise el registro de eventos del sistema. **Si este no es un servicio de Microsoft, póngase en contacto con el proveedor del servicio y haga referencia al código de error específico del servicio \*\*-21451857952**\*\*.”
+- En el Administrador de control de servicios de Windows, si intenta iniciar el servicio de sincronización y este no puede recuperar la clave de cifrado, se produce el error “**Windows no pudo iniciar el servicio Sincronización de Microsoft Azure AD en el equipo local. Para más información, revise el registro de eventos del sistema. **Si este no es un servicio de Microsoft, póngase en contacto con el proveedor del servicio y haga referencia al código de error específico del servicio \*\*-21451857952**\*\*.”
 - En el Visor de eventos de Windows, el registro de eventos de la aplicación contiene un error con **Id. de evento 6028** y el mensaje de error *"**The server encryption key cannot be accessed.**"* (No se puede acceder a la clave de cifrado del servidor.)
 
 Para asegurarse de que no recibe estos errores, siga los procedimientos descritos en [Abandonar la clave de cifrado de sincronización de Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) al cambiar la contraseña.
@@ -59,6 +59,8 @@ Use los procedimientos siguientes para abandonar la clave de cifrado.
 
 Si tiene que abandonar la clave de cifrado, use para ello los procedimientos siguientes.
 
+1. [Detener el servicio de sincronización](#stop-the-synchronization-service)
+
 1. [Abandonar la clave de cifrado existente](#abandon-the-existing-encryption-key)
 
 2. [Especificar la contraseña de la cuenta de AD DS](#provide-the-password-of-the-ad-ds-account)
@@ -66,6 +68,13 @@ Si tiene que abandonar la clave de cifrado, use para ello los procedimientos sig
 3. [Reinicializar la contraseña de la cuenta de Sincronización de Azure AD](#reinitialize-the-password-of-the-azure-ad-sync-account)
 
 4. [Iniciar el servicio de sincronización](#start-the-synchronization-service)
+
+#### <a name="stop-the-synchronization-service"></a>Detener el servicio de sincronización
+En primer lugar, puede detener el servicio en el Administrador de control de servicios de Windows.  Asegúrese de que el servicio no esté en ejecución cuando intente detenerlo.  Si lo está, espere a que termine y después deténgalo.
+
+
+1. Vaya a Administrador de control de servicios de Windows (INICIO → Servicios).
+2. Seleccione **Sincronización de Microsoft Azure AD** y haga clic en Detener.
 
 #### <a name="abandon-the-existing-encryption-key"></a>Abandonar la clave de cifrado existente
 Abandone la clave de cifrado existente para poder crear otra clave de cifrado:

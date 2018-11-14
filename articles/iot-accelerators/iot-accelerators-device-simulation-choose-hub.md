@@ -6,35 +6,37 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/06/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: ee96173ca5f36dee0f08c38e4b6e29da6fee804e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 38cde750ce07741a433baa1b8607a584f94ad9b1
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967516"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753927"
 ---
 # <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>Uso de una instancia de IoT Hub existente con el acelerador de soluciones Simulación de dispositivo
 
-Al aprovisionar el acelerador de soluciones Simulación de dispositivo, puede elegir implementar una instancia de IoT Hub en el grupo de recursos del acelerador de soluciones para usar en la simulación.
+Cuando implemente Simulación del dispositivo, también puede implementar un centro de IoT para utilizarlo en la simulación. Esta opción implementa un [centro de IoT del nivel S2 con una sola unidad de escalado](../iot-hub/iot-hub-scaling.md). Aunque implemente este centro de IoT opcional, podrá seguir utilizando otro centro de IoT como destino en la ejecución de la simulación.
 
-Si decide no implementar la instancia de IoT Hub opcional, debe usar su propio centro para cualquier simulación que ejecute. Si decide implementar la instancia de IoT Hub opcional, puede utilizar su propio centro o este opcional.
+Si decide no implementar el centro de IoT opcional, tendrá que utilizar su propio centro con cualquier simulación que ejecute.
 
 Si no dispone de ninguna instancia de IoT, siempre puede crear una nueva desde [Azure Portal](https://portal.azure.com).
 
-Para utilizar una instancia de IoT Hub existente, necesita una cadena de conexión para la directiva de acceso compartido **iothubowner**. Puede obtener la cadena de conexión de [Azure Portal](https://portal.azure.com):
+Si desea utilizar un centro de IoT existente, necesita una cadena de conexión para la directiva de acceso compartido **iothubowner**. Puede obtener la cadena de conexión de [Azure Portal](https://portal.azure.com):
 
 1. En la página de configuración del centro en el portal, haga clic en **Directivas de acceso compartido**.
+
 1. Haga clic en **iothubowner**.
+
 1. Copie la cadena de conexión principal o la secundaria.
 
 [![Obtención de la cadena de conexión](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-expanded.png#lightbox)
 
-Use la cadena de conexión que copió al configurar la simulación:
+Utilice la cadena de conexión que copió al configurar la simulación:
 
-[![Configuración de la simulación](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation-expanded.png#lightbox)
+![Configuración de la simulación](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 
-En esta guía, ha aprendido cómo usar una instancia de IoT Hub existente en una simulación. Después, puede que desee aprender a [configurar un modelo de dispositivo personalizado](iot-accelerators-device-simulation-custom-model.md) para una simulación.
+En esta guía, ha aprendido cómo usar una instancia de IoT Hub existente en una simulación. Es posible que ahora desee aprender a [crear un modelo de dispositivo avanzado](iot-accelerators-device-simulation-advanced-device.md) para utilizarlo en una simulación.

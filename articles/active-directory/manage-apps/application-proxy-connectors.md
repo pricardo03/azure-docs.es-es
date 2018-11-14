@@ -15,12 +15,12 @@ ms.date: 10/17/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406284"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036044"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -32,7 +32,7 @@ Los conectores son agentes ligeros que se colocan en local y facilitan la conexi
 
 ## <a name="requirements-and-deployment"></a>Requisitos e implementación
 
-Para implementar correctamente Proxy de aplicación necesita al menos un conector, pero se recomiendan dos o más para conseguir una mayor resistencia. Instale el conector en un equipo Windows Server 2012 R2 o 2016. El conector debe ser capaz de comunicarse con el servicio Proxy de aplicación, así como con las aplicaciones locales que se publican. 
+Para implementar correctamente Proxy de aplicación necesita al menos un conector, pero se recomiendan dos o más para conseguir una mayor resistencia. Instale el conector en un equipo Windows Server 2012 R2 o 2016. El conector debe ser capaz de comunicarse con el servicio Proxy de aplicación, así como con las aplicaciones locales que se publican. El proxy de la aplicación también requiere que TLS 1.2 se ejecute en el sistema operativo subyacente. Para cambiar a TLS 1.2, siga los pasos indicados en [Habilitación de TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Mientras que el contenido es para Azure AD Connect, este procedimiento es el mismo para todos los clientes .NET.
 
 Para más información sobre los requisitos de red del servidor del conector, vea [Get started with Application Proxy and install a connector (Información general sobre Proxy de aplicación e instalación de un conector)](application-proxy-enable.md).
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419731"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960827"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
@@ -185,8 +185,8 @@ Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de tele
 
 * [Generador de perfiles](app-insights-profiler.md) 
 * [Depurador de instantáneas](app-insights-snapshot-debugger.md)
-* [Analytics](app-insights-analytics-tour.md)
-* [Diagnóstico de análisis inteligente](app-insights-analytics-diagnostics.md)
+* [Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Diagnóstico de análisis inteligente](app-insights-analytics.md)
 
 Las detecciones inteligentes son completamente automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
 

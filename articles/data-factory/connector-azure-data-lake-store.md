@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: aed1ab14072da3e3d3e49060b7117a24eeecdb56
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817031"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010259"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,9 +44,6 @@ En concreto, este conector de Azure Data Lake Store admite las siguientes funcio
 > Para ver un tutorial del uso de conector de Azure Data Lake Store, consulte [Carga de datos en Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
-
->[!NOTE]
->Cuando usa la herramienta Copiar datos para crear una canalización de copias o usa la interfaz de usuario de ADF para realizar una prueba de conexión o navegar por las carpetas durante el proceso de creación, es necesario conceder el permiso de la entidad de servicio o MSI en el nivel raíz. No obstante, la ejecución de la actividad de copia puede funcionar siempre y cuando se otorgue el permiso a los datos que se van a copiar. Si necesita limitar el permiso, puede omitir las operaciones de creación.
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de Azure Data Lake Store.
 
@@ -79,6 +76,9 @@ Para usar la autenticación de entidad de servicio, registre una entidad de apli
 > Asegúrese de que concede el permiso adecuado principal del servicio en Azure Data Lake Store:
 >- **Como origen**, en el Explorador de datos -> Acceso, conceda al menos permiso de **lectura y ejecución** para enumerar y copiar los archivos en la carpeta y las subcarpetas o permiso de **lectura** para copiar un único archivo y optar por agregar a **esta carpeta y a todas las subcarpetas** una jerarquía recursiva y agregar como **una entrada de permiso de acceso y una entrada de permiso predeterminado**. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
 >- **Como receptor**, en el Explorador de datos -> Acceso, conceda al menos permiso de **escritura y ejecución** para crear elementos secundarios en la carpeta y optar por agregar a **esta carpeta y a todas las subcarpetas** una jerarquía recursiva y agregar como **una entrada de permiso de acceso y una entrada de permiso predeterminado**. Si usa Azure IR para copiar (tanto el origen como el receptor están en la nube), en el control de acceso de cuenta (IAM), conceda al menos el rol de **lector** para que Data Factory pueda detectar la región de Data Lake Store. Si desea evitar este rol de IAM, [cree un Azure IR](create-azure-integration-runtime.md#create-azure-ir) explícitamente con la ubicación de Data Lake Storage y realice la asociación en el servicio de Data Lake Storage vinculado como en el siguiente ejemplo.
+
+>[!NOTE]
+>Cuando usa la herramienta **Copiar datos** para crear la canalización de copia, o usa **ADF UI** para probar la conexión o desplazarse por las carpetas durante la creación, se necesita el permiso de la entidad de servicio que se concede **en el nivel de raíz con el permiso "Ejecutar"** para enumerar las carpetas comenzando desde la raíz. No obstante, la ejecución de la actividad de copia puede funcionar siempre y cuando se otorgue el permiso a los datos que se van a copiar. Si necesita limitar el permiso, puede omitir las operaciones de creación.
 
 Se admiten las siguientes propiedades:
 
@@ -127,6 +127,9 @@ Para usar identidades administradas para la autenticación de recursos de Azure:
 > Asegúrese de conceder el permiso adecuado a la identidad de servicio de la factoría de datos en Azure Data Lake Store:
 >- **Como origen**, en el Explorador de datos -> Acceso, conceda al menos permiso de **lectura y ejecución** para enumerar y copiar los archivos en la carpeta y las subcarpetas o permiso de **lectura** para copiar un único archivo y optar por agregar a **esta carpeta y a todas las subcarpetas** una jerarquía recursiva y agregar como **una entrada de permiso de acceso y una entrada de permiso predeterminado**. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
 >- **Como receptor**, en el Explorador de datos -> Acceso, conceda al menos permiso de **escritura y ejecución** para crear elementos secundarios en la carpeta y optar por agregar a **esta carpeta y a todas las subcarpetas** una jerarquía recursiva y agregar como **una entrada de permiso de acceso y una entrada de permiso predeterminado**. Si usa Azure IR para copiar (tanto el origen como el receptor están en la nube), en el control de acceso de cuenta (IAM), conceda al menos el rol de **lector** para que Data Factory pueda detectar la región de Data Lake Store. Si desea evitar este rol de IAM, [cree un Azure IR](create-azure-integration-runtime.md#create-azure-ir) explícitamente con la ubicación de Data Lake Storage y realice la asociación en el servicio de Data Lake Storage vinculado como en el siguiente ejemplo.
+
+>[!NOTE]
+>Cuando usa la herramienta **Copiar datos** para crear la canalización de copia, o usa **ADF UI** para probar la conexión o desplazarse por las carpetas durante la creación, se necesita el permiso que se concede **en el nivel de raíz con el permiso "Ejecutar"** para enumerar las carpetas comenzando desde la raíz. No obstante, la ejecución de la actividad de copia puede funcionar siempre y cuando se otorgue el permiso a los datos que se van a copiar. Si necesita limitar el permiso, puede omitir las operaciones de creación.
 
 En Azure Data Factory, no es necesario especificar ninguna propiedad además de la información general de Data Lake Store en el servicio vinculado.
 

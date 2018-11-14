@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621208"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747565"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -48,7 +48,7 @@ Cuando diseñe la aplicación, tiene flexibilidad al decidir cuántos temas se c
 
 ## <a name="event-subscriptions"></a>Suscripciones a eventos
 
-Una suscripción indica a Event Grid los eventos de un tema que le interesan recibir. Al crear la suscripción, proporciona un punto de conexión para controlar el evento. Puede filtrar los eventos que se envían al punto de conexión. Puede filtrar por tipo de evento o por patrón de asunto. Para más información, vea [Esquema de suscripción de Event Grid](subscription-creation-schema.md).
+Las suscripciones le indican a Event Grid qué eventos de un tema les interesa recibir. Al crear la suscripción, proporciona un punto de conexión para controlar el evento. Puede filtrar los eventos que se envían al punto de conexión. Puede filtrar por tipo de evento o por patrón de asunto. Para más información, vea [Esquema de suscripción de Event Grid](subscription-creation-schema.md).
 
 Para obtener ejemplos de creación de suscripciones, vea:
 
@@ -58,9 +58,17 @@ Para obtener ejemplos de creación de suscripciones, vea:
 
 Para obtener información sobre las suscripciones de Event Grid actuales, vea [Consulta de suscripciones de Event Grid](query-event-subscriptions.md).
 
+## <a name="event-subscription-expiration"></a>Caducidad de la suscripción de eventos
+
+La [extensión de Event Grid](/cli/azure/azure-cli-extensions-list) para la CLI de Azure le permite establecer una fecha de expiración al crear una suscripción de eventos. Si va a utilizar la API REST, utilice también `api-version=2018-09-15-preview`
+
+La suscripción de eventos expira automáticamente después de esa fecha. Establezca una fecha de expiración para las suscripciones de eventos que solamente son necesarias durante un tiempo limitado y de cuya limpieza no quiere preocuparse. Por ejemplo, es posible que, al crear una suscripción de eventos para probar un escenario, desee establecer una fecha de expiración. 
+
+Para ver un ejemplo acerca de cómo se establece una fecha de expiración, consulte [Suscripción con filtros avanzados](how-to-filter-events.md#subscribe-with-advanced-filters).
+
 ## <a name="event-handlers"></a>Controladores de eventos
 
-Desde la perspectiva de Event Grid, un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Event Grid admite varios tipos de controlador. Puede usar un servicio de Azure admitido o su propio webhook como controlador. Según el tipo de controlador, Event Grid sigue distintos procedimientos para garantizar la entrega del evento. En el caso de los controladores de eventos de webhook HTTP, el evento se reintenta hasta que el controlador devuelve un código de estado de `200 – OK`. En la cola de Azure Storage, los eventos se reintentan hasta que Queue service puede procesar correctamente la inserción del mensaje en la cola.
+Desde la perspectiva de Event Grid, un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Event Grid admite varios tipos de controladores. Puede usar un servicio de Azure admitido o su propio webhook como controlador. Según el tipo de controlador, Event Grid sigue distintos procedimientos para garantizar la entrega del evento. En el caso de los controladores de eventos de webhook HTTP, el evento se reintenta hasta que el controlador devuelve un código de estado de `200 – OK`. En Azure Storage Queue, los eventos se reintentan hasta que Queue service procesa correctamente la inserción de mensajes en la cola.
 
 Para información sobre cómo implementar cualquiera de los controladores admitidos de Event Grid, consulte [Event handlers in Azure Event Grid](event-handlers.md) (Controladores de eventos en Azure Event Grid).
 
@@ -74,7 +82,7 @@ Si Event Grid no puede confirmar que un evento se ha recibido en el punto de con
 
 ## <a name="batching"></a>Lotes
 
-Cuando se usa un tema personalizado, los eventos siempre se deben publicar en una matriz. Puede tratarse de un lote de uno de los escenarios de bajo rendimiento, sin embargo, para casos de uso de gran volumen, se recomienda agrupar varios eventos para la publicación para lograr una mayor eficacia. Los lotes pueden tener hasta 1 MB. Cada evento no debe superar los 64 KB.
+Cuando se usa un tema personalizado, los eventos siempre se deben publicar en una matriz. En los escenarios de bajo rendimiento, puede utilizarse un lote con un único evento; sin embargo, en los casos de uso de gran volumen, se recomienda agrupar varios eventos en cada publicación para lograr una mayor eficacia. Los lotes pueden tener hasta 1 MB. Cada uno de los eventos no debe superar los 64 KB.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

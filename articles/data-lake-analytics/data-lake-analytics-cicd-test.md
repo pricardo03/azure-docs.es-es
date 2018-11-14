@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 82ffcc6f891a64650375121b9418daad33dc2628
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4532e0c6e8095c9d64897410e0492e2135d8a478
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301706"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747939"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Prueba del código de Azure Data Lake Analytics
 
@@ -117,7 +117,7 @@ Tanto los **proyectos de prueba para el script de U-SQL** como los **proyectos d
 
 ### <a name="run-u-sql-test-cases-in-azure-devops"></a>Ejecución de casos de prueba de U-SQL en Azure DevOps
 
-Para la prueba de U-SQL, asegúrese de cargar `CPPSDK` en su máquina de compilación y, después, pase la ruta de acceso de `CPPSDK` USqlScriptTestRunner (cppSdkFolderFullPath: \@"").
+En las pruebas de U-SQL, no olvide cargar `CPPSDK` en su máquina de compilación y pasar después la ruta de acceso de `CPPSDK` USqlScriptTestRunner (cppSdkFolderFullPath: \\@"").
 
 **¿Qué es CPPSDK?**
 

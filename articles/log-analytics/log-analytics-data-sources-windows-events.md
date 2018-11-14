@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4e21c011f54382466bf614dc01fb9d51b514d998
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f2f6472fc485691b95305337dd608126d001aa27
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044253"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010715"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Orígenes de datos de registros de eventos de Windows en Log Analytics
 Muchas aplicaciones escriben en el registro de eventos de Windows, por lo que constituye uno de los [orígenes de datos](log-analytics-data-sources.md) más comunes para recopilar información mediante agentes de Windows.  Puede recopilar eventos de registros estándar, como el sistema y la aplicación, además de especificar cualquier registro personalizado creado por las aplicaciones que debe supervisar.
@@ -40,7 +40,7 @@ A medida que escribe el nombre de un registro de eventos, Log Analytics da suger
 Log Analytics recopila cada evento que coincide con una gravedad seleccionada de un registro de eventos supervisado al crear el evento.  El agente registra su lugar en cada registro de eventos del que recopila entradas.  Si el agente queda sin conexión durante un período, Log Analytics recopila los eventos desde donde quedó, aunque esos eventos se hayan creado mientras el agente estaba sin conexión.  Sin embargo, existe la posibilidad de que estos eventos no se recopilen si el registro de eventos hace que los eventos no recopilados se sobrescriban mientras el agente está sin conexión.
 
 >[!NOTE]
->Log Analytics no recopila eventos de auditoría creados por SQL Server del origen *MSSQLSERVER* con Id. de evento 18453 que contengan palabras clave *Classic* o *Audit Success* y la palabra clave *0xa0000000000000*.
+>Log Analytics no recopila eventos de auditoría creados por SQL Server del origen *MSSQLSERVER* con el identificador de evento 18453 que contenga las palabras clave  *Classic* o *Audit Success* y la palabra clave *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Propiedades de los registros de eventos de Windows
@@ -76,6 +76,6 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Configure Log Analytics para recopilar otros [orígenes de datos](log-analytics-data-sources.md) para su análisis.
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
 * Use [Campos personalizados](log-analytics-custom-fields.md) para redistribuir los registros de eventos en campos individuales.
 * Configure la [recopilación de contadores de rendimiento](log-analytics-data-sources-performance-counters.md) desde los agentes de Windows.

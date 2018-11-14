@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 4c60474c07a3853e409436359713578178b639fb
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 289aa893a0ffa598d5b9fae67a81e9bf0c9782f7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024873"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014404"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Configurar redes avanzadas en Azure Kubernetes Service (AKS)
 
@@ -35,12 +35,21 @@ Los clústeres configurados con redes avanzadas requieren planeamiento adicional
 
 Se asignan direcciones IP para los pods y los nodos del clúster desde la subred especificada dentro de la red virtual. Cada nodo se configura con una dirección IP principal. De forma predeterminada, Azure CNI configura previamente treinta direcciones IP adicionales que se asignan a los pods programados en el nodo. Cuando se escala horizontalmente el clúster, cada nodo del mismo modo se configura de modo similar con direcciones IP de la subred. También puede ver el [número máximo de pods por nodo](#maximum-pods-per-node).
 
+> [!IMPORTANT]
+> El número de direcciones IP necesarias debe incluir consideraciones sobre las operaciones de actualización y escalabilidad. Si establece el intervalo de direcciones IP para que solo se admita un número fijo de nodos, no se podrá actualizar o escalar el clúster.
+>
+> - Al **actualizar** el clúster de AKS, se implementa un nuevo nodo en el clúster. Los servicios y las cargas de trabajo comienzan a ejecutarse en el nuevo nodo y el nodo antiguo se quita del clúster. Para realizar este proceso de actualización gradual es necesario que haya disponible un bloque adicional de direcciones IP. El recuento de nodos es entonces `n + 1`.
+>
+> - Al **escalar** un clúster de AKS, se implementa un nuevo nodo en el clúster. Los servicios y las cargas de trabajo comienzan a ejecutarse en el nuevo nodo. El intervalo de direcciones IP debe tener en cuenta cómo podría escalar verticalmente el número de nodos y los pods que el clúster puede admitir. También se debe incluir un nodo adicional para las operaciones de actualización. El recuento de nodos es entonces `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
+
+Si espera que los nodos ejecuten el número máximo de pods, y destruye e implementa pods con regularidad, también debe contar con algunas direcciones IP adicionales por nodo. Estas direcciones IP adicionales tienen en cuenta que la eliminación de un servicio y la implementación de la dirección IP liberada para un nuevo servicio pueden tardar unos segundos, y adquieren la dirección.
+
 El plan de direcciones IP de un clúster AKS consta de una red virtual, al menos una subred para los nodos y pods, y un intervalo de direcciones del servicio de Kubernetes.
 
 | Intervalo de direcciones / recurso de Azure | Límites y tamaño |
 | --------- | ------------- |
 | Virtual network | El tamaño de Azure Virtual Network puede ser de /8, pero se limita a 65 536 direcciones IP configuradas. |
-| Subred | Debe ser lo suficientemente grande como para dar cabida a los nodos, los pods y a todos los recursos de Kubernetes y de Azure que se pueden aprovisionar en el clúster. Por ejemplo, si implementa una instancia de Azure Load Balancer interna, sus direcciones IP de front-end se asignan desde la subred del clúster, no las direcciones IP públicas. <p/>Para calcular el tamaño *mínimo* de la subred: `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Ejemplo de un clúster de 50 nudos: `(50) + (50 * 30 (default)) = 1,550` (/21 o superior)<p>Si no especifica un número máximo de pods por nodo al crear el clúster, el número máximo de pods por nodo se establece en *30*. El número mínimo de direcciones IP requeridas se basa en ese valor. Si se calculan los requisitos mínimos de dirección IP según otro valor máximo distinto, vea [cómo configurar el número máximo de pods por nodo](#configure-maximum---new-clusters) para establecer este valor cuando se implementa el clúster. |
+| Subred | Debe ser lo suficientemente grande como para dar cabida a los nodos, los pods y a todos los recursos de Kubernetes y de Azure que se pueden aprovisionar en el clúster. Por ejemplo, si implementa una instancia de Azure Load Balancer interna, sus direcciones IP de front-end se asignan desde la subred del clúster, no las direcciones IP públicas. El tamaño de la subred también debe tener en cuenta las operaciones de actualización o las necesidades futuras de escalabilidad.<p />Para calcular el tamaño *mínimo* de subred, incluido un nodo adicional para operaciones de actualización: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Ejemplo de un clúster de 50 nudos: `(51) + (51  * 30 (default)) = 1,581` (/21 o superior)<p/>Ejemplo de un clúster de 50 nodos que también incluye aprovisionamiento para escalar verticalmente 10 nodos adicionales: `(61) + (61 * 30 (default)) = 2,440` (/20 o superior)<p>Si no especifica un número máximo de pods por nodo al crear el clúster, el número máximo de pods por nodo se establece en *30*. El número mínimo de direcciones IP requeridas se basa en ese valor. Si se calculan los requisitos mínimos de dirección IP según otro valor máximo distinto, vea [cómo configurar el número máximo de pods por nodo](#configure-maximum---new-clusters) para establecer este valor cuando se implementa el clúster. |
 | Intervalo de direcciones del servicio de Kubernetes | Este intervalo no lo debe usar ningún elemento de red de esta red virtual o que esté conectado a ella. El CIDR de la dirección del servicio debe ser menor que /12. |
 | Dirección IP del servicio DNS de Kubernetes | Dirección IP del intervalo de direcciones del servicio de Kubernetes que se usará en la detección de servicios de clúster (kube-dns). |
 | Dirección de puente de Docker | Dirección IP (en notación CIDR) que se usa como la dirección IP del puente de Docker en los nodos. El valor predeterminado es 172.17.0.1/16. |
@@ -73,7 +82,7 @@ Cuando crea un clúster de AKS, los parámetros siguientes son configurables par
 
 **Red virtual**: la red virtual en la que desea implementar el clúster de Kubernetes. Si desea crear una red virtual nueva para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de red virtual*. Para información acerca de límites y cuotas para Azure Virtual Network, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
-**Subred**: la subred dentro de la red virtual en la que desea implementar el clúster. Si desea crear una nueva subred en la red virtual para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de subred*.
+**Subred**: la subred dentro de la red virtual en la que desea implementar el clúster. Si desea crear una nueva subred en la red virtual para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de subred*. Para la conectividad híbrida, el intervalo de direcciones no debe solaparse con ninguna otra red virtual de su entorno.
 
 **Intervalo de direcciones de servicio de Kubernetes**: este es el conjunto de direcciones IP virtuales que Kubernetes asigna a [servicios][services] en el clúster. Puede usar cualquier intervalo de direcciones privado que cumpla los requisitos siguientes:
 

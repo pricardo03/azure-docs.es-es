@@ -1,19 +1,19 @@
 ---
 title: Conexión de un dispositivo Raspberry Pi a su aplicación de Azure IoT Central (C#) | Microsoft Docs
 description: Como desarrollador de dispositivos, aprenda a conectar un dispositivo Raspberry Pi a su aplicación de Azure IoT Central mediante C#.
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/22/2018
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+manager: peterpr
+ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734242"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956730"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conexión de un dispositivo Raspberry Pi a su aplicación de Azure IoT Central (C#)
 
@@ -23,10 +23,10 @@ En este artículo se describe cómo conectar, en tanto que desarrollador de disp
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Necesitará lo siguiente para completar los pasos de este artículo:
+Para completar los pasos descritos en este artículo, necesita los siguientes componentes:
 
 * [.NET Core 2](https://www.microsoft.com/net) instalado en el equipo de desarrollo. También debe tener un editor de código adecuado, como [Visual Studio Code](https://code.visualstudio.com/).
-* Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, consulte [Create your Azure IoT Central Application](howto-create-application.md) (Creación de una aplicación de Azure IoT Central).
+* Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
 * Un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian.
 
 
@@ -34,10 +34,21 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 
 Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **Raspberry Pi** con las siguientes características: 
 
-- Telemetría que contiene las medidas para **Humidity** (Humedad), **Temperature** (Temperatura), **Pressure** (Presión), **Magnometer** (Magnetómetro) (medido a lo largo de los ejes X, Y y Z), **Accelorometer** (Acelerómetro) (medido a lo largo de los ejes X, Y y Z) y **Gyroscope** (Giroscopio) (medido a lo largo de los ejes X, Y y Z) del dispositivo.
-- Configuración que muestra las opciones **Voltage** (Voltaje), **Current** (Actual), **Fan Speed** (Velocidad del ventilador) y un botón de alternancia **IR**.
-- Propiedades que contienen **die number** (Número de troquel) de la propiedad del dispositivo y la propiedad en la nube **location** (Ubicación).
-
+- Datos de telemetría, lo que incluye las siguientes medidas que recopilará el dispositivo:
+    - Humedad
+    - Temperatura
+    - Presión
+    - Magnetómetro (X, Y, Z)
+    - Acelerómetro (X, Y, Z)
+    - Giroscopio (X, Y, Z)
+- Configuración
+    - Voltage (Voltaje)
+    - Current
+    - Fan Speed
+    - Conmutador de infrarrojos.
+- Properties (Propiedades)
+    - Propiedad Die number (Número de chip) del dispositivo
+    - Propiedad Location cloud (ubicación en la nube)
 
 Para obtener detalles completos sobre la configuración de la plantilla de dispositivo, consulte [Detalles de la plantilla de dispositivo Raspberry PI](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 

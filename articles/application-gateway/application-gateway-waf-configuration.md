@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: 12115770959c3869184f0af78c4feba2fd6f2be4
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f89841c7712737d2d55601c6525e975274b4a103
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984900"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036724"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Listas de exclusión y límites de tamaño de solicitud del firewall de aplicaciones web (versión preliminar pública)
 
@@ -30,22 +30,31 @@ El firewall de aplicaciones web permite a los usuarios configurar límites de ta
 - El campo de tamaño máximo del cuerpo de la solicitud se especifica en KB y controla el límite de tamaño de la solicitud general, excluyendo cualquier carga de archivo. Este campo puede oscilar entre 1 KB como mínimo y 128 KB como máximo. El valor predeterminado para el tamaño del cuerpo de la solicitud es de 128 KB.
 - El campo de límite de carga de archivo se especifica en MB y controla el tamaño máximo de carga de archivo permitido. Este campo puede tener un valor mínimo de 1 MB y un máximo de 500 MB. El valor predeterminado del límite de carga de archivo es 100 MB.
 
-El WAF también ofrece un botón configurable para activar o desactivar la inspección del cuerpo de la solicitud. De forma predeterminada, la inspección del cuerpo de la solicitud está habilitada. Si se desactiva la inspección del cuerpo de la solicitud, el WAF no evalúa el contenido del cuerpo del mensaje HTTP. En tal caso, el WAF continúa aplicando reglas de WAF en URI, cookies y encabezados. Si se desactiva la inspección del cuerpo de la solicitud, el campo de tamaño máximo del cuerpo de la solicitud no es aplicable y no se puede definir. Al desactivar la inspección del cuerpo de la solicitud, se podrán enviar mensajes de más de 128 KB al WAF. Sin embargo, no se inspeccionará el cuerpo del mensaje para detectar vulnerabilidades.
+El WAF también ofrece un botón configurable para activar o desactivar la inspección del cuerpo de la solicitud. De forma predeterminada, la inspección del cuerpo de la solicitud está habilitada. Si se desactiva la inspección del cuerpo de la solicitud, el WAF no evalúa el contenido del cuerpo del mensaje HTTP. En tal caso, el WAF continúa aplicando reglas de WAF en URI, cookies y encabezados. Si se desactiva la inspección del cuerpo de la solicitud, el campo de tamaño máximo del cuerpo de la solicitud no es aplicable y no se puede definir. Al desactivar la inspección del cuerpo de la solicitud, se podrán enviar mensajes de más de 128 KB al WAF, pero no se inspecciona el cuerpo de mensaje en busca de vulnerabilidades.
 
 ## <a name="waf-exclusion-lists"></a>Listas de exclusión del WAF
 
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
 Las listas de exclusión del WAF permiten a los usuarios omitir determinados atributos de solicitud de una evaluación del WAF. Un ejemplo común son los tokens insertados de Active Directory que se usan para campos de contraseña o autenticación. Estos atributos suelen contener caracteres especiales que podrían desencadenar un falso positivo de las reglas de WAF. Una vez que se agrega un atributo a la lista de exclusión del WAF, ninguna regla de WAF configurada y activa lo toma en consideración. Las listas de exclusión tienen un ámbito global.
-Puede agregar encabezados de solicitud, cuerpos de la solicitud, cookies de solicitud o argumentos de cadena de consulta de solicitud a las listas de exclusión del WAF. Si el cuerpo tiene datos de formulario o XML/JSON (pares clave-valor), se puede usar el tipo de exclusión del atributo de solicitud.
+
+Los siguientes atributos se pueden agregar a las listas de exclusión:
+
+* Encabezados de solicitud
+* Cookies de solicitud
+* Cuerpo de la solicitud
+
+   * Datos de varias partes del formulario
+   * XML
+   * JSON
 
 Puede especificar una coincidencia exacta de atributo de cadena de consulta, cookie, cuerpo o encabezado de solicitud u, opcionalmente, puede especificar coincidencias parciales.
 
 Estos son los operadores de criterios de coincidencia admitidos:
 
 - **Equals** (es igual a): este operador se usa para una coincidencia exacta. Por ejemplo, para seleccionar el encabezado denominado **bearerToken**, utilice el operador de igualdad con el selector definido como **bearerToken**.
-- **Starts with** (empieza por): este operador coincide con todos los campos que comienzan por el valor del selector especificado. 
-- **Ends with** (termina en): este operador coincide con todos los campos de solicitud que terminan con el valor del selector especificado. 
+- **Starts with** (empieza por): este operador coincide con todos los campos que comienzan por el valor del selector especificado.
+- **Ends with** (termina en): este operador coincide con todos los campos de solicitud que terminan con el valor del selector especificado.
 - **Contains** (contiene): este operador coincide con todos los campos de solicitud que contienen el valor del selector especificado.
 
 En todos los casos, la coincidencia distingue mayúsculas de minúsculas y no se permiten expresiones regulares como selectores.

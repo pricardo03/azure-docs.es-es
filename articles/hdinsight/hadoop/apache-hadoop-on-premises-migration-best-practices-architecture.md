@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 02db6b4691beb4bfefa3815c87cf54f350219d81
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 62e15b5845ed9faa605f978f0d2fd427c9c3ee9b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418014"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008188"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Procedimientos recomendados de arquitectura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -113,7 +113,7 @@ Estos son algunos procedimientos recomendados para Hive Metastore en HDInsight:
 - Considere la posibilidad de reemplazar las consultas basadas en Impala por consultas LLAP.
 - Considere la posibilidad de reemplazar los trabajos de MapReduce por trabajos de Spark.
 - Considere la posibilidad de reemplazar los trabajos por lotes de Spark de baja latencia utilizando trabajos de Spark Structured Streaming.
-- Considere la posibilidad de utilizar Azure Data Factory (ADF) 2.0 para la orquestación de datos.
+- Considere la posibilidad de usar Azure Data Factory (ADF) 2.0 para la orquestación de datos.
 - Considere la posibilidad de utilizar Ambari para la administración de clústeres.
 - Cambie el almacenamiento de datos de HDFS local a WASB, ADLS o ADFS para el procesamiento de scripts.
 - Considere la posibilidad de usar Ranger RBAC en las tablas y la auditoría de Hive.

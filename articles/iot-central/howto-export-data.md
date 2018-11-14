@@ -8,16 +8,16 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 86128abd82ee41459a84fc7d9169042179807793
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3231a956648b80d88059b7b0fc8f790e0e58be99
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034916"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962799"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportación de los datos a Azure IoT Central
 
-*Este tema se aplica a los administradores.*
+*Este tema se aplica a administradores*.
 
 En este artículo se describe cómo usar la característica de exportación de datos continuos en Azure IoT Central para exportar periódicamente datos a la cuenta de Azure Blob Storage. Puede exportar **medidas**, **dispositivos** y **plantillas de dispositivo** a archivos con el formato [Apache AVRO](https://avro.apache.org/docs/current/index.html). Los datos exportados se pueden utilizar para realizar análisis en frío de rutas de acceso, como modelos de entrenamiento en Azure Machine Learning o análisis de tendencias a largo plazo en Microsoft Power BI.
 
@@ -26,10 +26,10 @@ En este artículo se describe cómo usar la característica de exportación de d
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una aplicación de prueba de IoT Central extendida durante 30 días, o una aplicación de pago.
-- Una cuenta de Azure con una suscripción de Azure.
-- La misma cuenta de Azure es un administrador en la aplicación IoT Central.
-- La misma cuenta de Azure tiene permisos para crear una cuenta de almacenamiento o acceder a una cuenta de almacenamiento existente en la misma suscripción a Azure.
+- Una aplicación de pago por uso.
+- Un administrador en la aplicación IoT Central que tenga:
+    - Una cuenta de Azure en la suscripción de Azure en la que se encuentra la aplicación IoT Central
+    - Permisos para crear una cuenta de almacenamiento o acceder a una cuenta de almacenamiento existente en la misma suscripción de Azure
 
 ## <a name="types-of-data-to-export"></a>Tipos de datos para exportar
 

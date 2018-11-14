@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c06939ccb920954c08ef02f38e6d12471ac267db
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155582"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959297"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creación de flujos de trabajo con el conector de IoT Central en Microsoft Flow
 
@@ -21,8 +21,10 @@ ms.locfileid: "50155582"
 
 Use Microsoft Flow para automatizar flujos de trabajo en las muchas aplicaciones y servicios en los que confían los usuarios profesionales. Con el conector de IoT Central de Microsoft Flow, puede desencadenar flujos de trabajo si se activa una regla en IoT Central. En un flujo de trabajo desencadenado por IoT Central o cualquier otra aplicación, puede usar las acciones en el conector de IoT Central para crear un dispositivo, actualizar las propiedades y la configuración de un dispositivo, o bien eliminar un dispositivo. Consulte [estas plantillas de Microsoft Flow](https://aka.ms/iotcentralflowtemplates) que conectan IoT Central a otros servicios como notificaciones móviles y Microsoft Teams.
 
-> [!NOTE] 
-> Tendrá que iniciar sesión en Microsoft Flow con una cuenta personal, profesional o educativa de Microsoft. Más información sobre los planes de Microsoft Flow [aquí](https://aka.ms/microsoftflowplans).
+## <a name="prerequisites"></a>Requisitos previos
+
+- Una aplicación de pago por uso
+- Una cuenta personal, profesional o educativa de Microsoft para iniciar sesión en Flow ([más información sobre los planes de Microsoft Flow](https://aka.ms/microsoftflowplans))
 
 ## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>Desencadenar un flujo de trabajo al desencadenar una regla
 

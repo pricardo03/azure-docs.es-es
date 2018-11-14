@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 60a92e35f1408d944e8091be4945c53abe3791d1
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585720"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754059"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Uso del servicio Azure Import/Export para exportar datos de Azure Blob Storage
 Este artículo proporciona instrucciones paso a paso sobre cómo usar el servicio Azure Import/Export para exportar de forma segura grandes cantidades de datos desde Azure Blob Storage. El servicio requiere que envíe unidades de disco vacías al centro de datos de Azure. El servicio exporta datos de la cuenta de almacenamiento a las unidades de disco y luego envía de vuelta las unidades de disco.
@@ -114,7 +114,7 @@ Si no conoce el número de unidades de disco que necesita, vaya a [Comprobación
 Cuando el panel notifica que el trabajo está completo, se le envían los discos y el número de seguimiento para el envío está disponible en el portal.
 
 1. Después de que haya recibido las unidades de disco con los datos exportados, tiene que obtener las claves de BitLocker para desbloquear las unidades de disco. Vaya al trabajo de exportación en Azure Portal. Haga clic en la pestaña **Import/Export**. 
-2. Seleccione y haga clic en el trabajo de exportación de la lista. Vaya a **Claves de BitLocker** y copie las claves.
+2. Seleccione el trabajo de exportación de la lista y haga clic en él. Vaya a **Claves de BitLocker** y copie las claves.
    
    ![Visualización de claves de BitLocker de un trabajo de exportación](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 

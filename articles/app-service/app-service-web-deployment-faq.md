@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302595"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748449"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la implementación en Web Apps en Azure
 
@@ -79,7 +79,7 @@ Para solucionar problemas de FTP:
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>¿Cómo publico mi código en App Service?
 
-El inicio rápido de Azure está diseñado para ayudarle a implementar la aplicación mediante el uso de la pila de implementación y el método que elija. Para usar el inicio rápido, en Azure Portal, vaya a **Configuración** > **Implementación de la aplicación**.
+El inicio rápido de Azure está diseñado para ayudarle a implementar la aplicación mediante el uso de la pila de implementación y el método que elija. Para utilizar Inicio rápido, en Azure Portal, vaya al servicio de aplicación en **Implementación** y seleccione **Inicio rápido**.
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>¿Por qué mi aplicación se reinicia a veces después de la implementación en App Service?
 

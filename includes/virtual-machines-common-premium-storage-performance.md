@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f0ed4b20f9dbfef4824f66eab3ab953a5dbcfaae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060460"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50746746"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
 
@@ -30,6 +30,10 @@ Este artículo le ayudará a responder a las siguientes preguntas habituales ace
 * ¿Cómo puede optimizar para IOPS, el ancho de banda y la latencia?  
 
 Proporcionamos estas directrices específicamente para Premium Storage porque las cargas de trabajo que se ejecutan en Premium Storage dependen mucho del rendimiento. Se proporcionan ejemplos donde corresponda. También puede aplicar algunas de estas instrucciones a las aplicaciones que se ejecutan en máquinas virtuales de IaaS con discos de Standard Storage.
+
+> [!NOTE]
+> A veces, lo que parece ser un problema de rendimiento es realmente un cuello de botella de red. En estos casos, debería optimizarse el [rendimiento de la red](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> También debería asegurarse de que la máquina virtual permite utilizar redes aceleradas. De ser así, puede habilitarlas incluso después de realizar la implementación en máquinas virtuales [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) y [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 Antes de comenzar, si no está familiarizado con Premium Storage, lea primero los artículos [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../articles/virtual-machines/windows/premium-storage.md) y [Objetivos de escalabilidad y rendimiento de Azure Storage](../articles/storage/common/storage-scalability-targets.md).
 
@@ -221,11 +225,11 @@ Cuando ejecute Linux con Premium Storage, compruebe las actualizaciones más rec
 
 Actualmente, Azure Premium Storage ofrece ocho tamaños de disco de GA y tres tamaños de disco que están en versión preliminar. Cada tamaño de disco tiene un límite de escala diferente de IOPS, ancho de banda y almacenamiento. Elija el tamaño de disco de Premium Storage adecuado según los requisitos de la aplicación y el tamaño de la máquina virtual a gran escala. En la tabla siguiente se muestran los once tamaños de disco y sus capacidades. Los tamaños de disco P4, P6, P15, P60, P70 y P80 solo se admiten actualmente para Managed Disks.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
+| Tipo de discos Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamaño del disco           | 32 GiB | 64 GiB | 128 GB| 256 GiB| 512 GB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8192 GiB (8 TiB)    | 16 384 GiB (16 TiB)    | 32 767 GiB (32 GiB)    |
-| IOPS por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20.000              |
-| Rendimiento de disco | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |125 MiB por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
+| Tamaño del disco           | 32 GiB | 64 GiB | 128 GB| 256 GiB| 512 GB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8192 GiB (8 TiB)    | 16 384 GiB (16 TiB)    | 32 767 GiB (32 GiB)    |
+| IOPS por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20.000              |
+| Rendimiento de disco | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |125 MiB por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
 
 El número de discos que elija depende del tamaño de disco elegido. Puede usar un único disco P50 o varios discos P10 para cubrir los requisitos de la aplicación. Tenga en cuenta las consideraciones enumeradas a continuación al realizar su elección.
 

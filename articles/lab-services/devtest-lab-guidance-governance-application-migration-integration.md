@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8653056c5c4b0e5b6831d3cc2b0006e89ac01bdd
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250880"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978622"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Gobierno de la infraestructura de Azure DevTest Labs: migración e integración de aplicaciones
-Una vez establecido el entorno de laboratorio de desarrollo y pruebas, necesita pensar en las siguientes preguntas: 
+Una vez establecido el entorno de laboratorio de desarrollo y pruebas, necesita pensar en las siguientes preguntas:
 
-- ¿Cómo usar el entorno en el equipo del proyecto? 
+- ¿Cómo usar el entorno en el equipo del proyecto?
 - ¿Cómo se garantiza el cumplimiento de las directivas organizativas necesarias y el mantenimiento de la agilidad para aportar valor a la aplicación?
 
 ## <a name="azure-marketplace-images-vs-custom-images"></a>Imágenes de Azure Marketplace frente a imágenes personalizadas
@@ -60,10 +60,10 @@ Sin embargo, otro factor que se debe tener en cuenta es la frecuencia de los cam
 ### <a name="answer"></a>Respuesta
 Vea [este vídeo sobre el patrón de una fábrica de imágenes](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Este escenario es un escenario avanzado, y los scripts se proporcionan solo como ejemplo. Si se requieren cambios, deberá administrar y mantener los scripts usados en su entorno.
 
-Uso de DevTest Labs para crear una canalización de la imagen personalizada en Visual Studio Team Services (VSTS):
+Uso de DevTest Labs para crear una canalización de la imagen personalizada en Azure Pipelines:
 
 - [Introduction: Get VMs ready in minutes by setting up an image factory in Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/) (Introducción: Preparación de máquinas virtuales en cuestión de minutos con la configuración de una fábrica de imágenes en Azure DevTest Labs)
-- [Image Factory – Part 2! Setup VSTS and Factory Lab to Create VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/) (Fábrica de imágenes – Parte 2: Configuración de VSTS y del laboratorio de fábrica para crear máquinas virtuales)
+- [Image Factory – Part 2! Setup Azure Pipelines and Factory Lab to Create VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/) (Fábrica de imágenes – Parte 2: Configuración de Azure Pipelines y del laboratorio de fábrica para crear máquinas virtuales)
 - [Image Factory – Part 3: Save Custom Images and Distribute to Multiple Labs](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/) (Fábrica de imágenes – Parte 3: Personalización de imágenes y distribución a varios laboratorios)
 - [Vídeo: Custom Image Factory with Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) (Fábrica de imágenes personalizadas con Azure DevTest Labs)
 
@@ -79,7 +79,7 @@ Sí. Hay dos aspectos que se deben tener en cuenta: el tráfico entrante y salie
 
 **Tráfico saliente** : si desea evitar que las máquinas virtuales sean accesibles directamente a través de la red pública de Internet y forzar el tráfico a través de un firewall corporativo, puede enrutar el tráfico local a través de ExpressRoute o VPN, mediante el uso del enrutamiento forzado.
 
-> [!NOTE] 
+> [!NOTE]
 > Si tiene un servidor proxy que bloquea el tráfico sin configuración del proxy, no olvide agregar excepciones a la cuenta de almacenamiento de artefactos del laboratorio.
 
 También puede usar grupos de seguridad de red para máquinas virtuales o subredes. Este paso agrega una capa adicional de protección para permitir o bloquear el tráfico.
@@ -100,9 +100,9 @@ En caso contrario, cada entorno de DevTest Labs podría tener su propia red virt
 ¿Cuándo se debe usar una dirección IP compartida en lugar de una pública o privada?
 
 ### <a name="answer"></a>Respuesta
-Si usa una VPN de sitio a sitio o ExpressRoute, considere la posibilidad de usar direcciones IP privadas para poder acceder a las máquinas a través de la red interna y para que no se pueda acceder a ellas a través de Internet. 
+Si usa una VPN de sitio a sitio o ExpressRoute, considere la posibilidad de usar direcciones IP privadas para poder acceder a las máquinas a través de la red interna y para que no se pueda acceder a ellas a través de Internet.
 
-> [!NOTE] 
+> [!NOTE]
 > Los propietarios de laboratorio pueden cambiar esta directiva de subred para asegurarse de que nadie cree accidentalmente direcciones IP públicas para sus máquinas virtuales. El propietario de la suscripción debe crear una directiva de suscripción que impida la creación de direcciones IP públicas.
 
 Si se usan direcciones IP compartidas, las máquinas virtuales del laboratorio comparten una dirección IP pública. Este enfoque puede resultar útil si necesita impedir que se traspasen los límites de las direcciones IP públicas de una suscripción concreta.
@@ -125,7 +125,7 @@ Para determinar el número de máquinas virtuales por usuario o laboratorio, exi
 ¿Cómo se pueden usar plantillas de Resource Manager en un entorno de DevTest Labs?
 
 ### <a name="answer"></a>Respuesta
-Para implementar las plantillas de Resource Manager en un entorno de DevTest Labs, aplique los pasos mencionados en el artículo sobre las [características de entornos de DevTest Labs](devtest-lab-test-env.md). Básicamente, consulte las plantillas de Resource Manager en un repositorio de GIT (Visual Studio Team Services o GitHub) y agregue un [repositorio privado para las plantillas](devtest-lab-test-env.md) al laboratorio.
+Para implementar las plantillas de Resource Manager en un entorno de DevTest Labs, aplique los pasos mencionados en el artículo sobre las [características de entornos de DevTest Labs](devtest-lab-test-env.md). Básicamente, consulte las plantillas de Resource Manager en un repositorio de GIT (Azure Repos o GitHub) y agregue un [repositorio privado para las plantillas](devtest-lab-test-env.md) al laboratorio.
 
 Este escenario puede no ser útil si usa DevTest Labs para hospedar máquinas de desarrollo, pero sí puede serlo si va a crear un entorno de ensayo, que es representativo de producción.
 

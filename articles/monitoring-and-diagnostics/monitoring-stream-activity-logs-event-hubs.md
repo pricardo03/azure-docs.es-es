@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258005"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011840"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmisión del registro de actividad de Azure a Event Hubs
 Puede transmitir el [registro de actividad de Azure](monitoring-overview-activity-logs.md) casi en tiempo real a cualquier replicación de dos maneras:
@@ -39,10 +39,10 @@ Para actualizar el perfil de registro del registro de actividad para incluir el 
 ### <a name="via-the-azure-portal"></a>Mediante Azure Portal
 1. Vaya a la sección **Registro de actividad** mediante la búsqueda de **Todos los servicios** en el lado izquierdo del portal.
    
-   ![Selección del registro de actividad en la lista de servicios del portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Haga clic en el botón **Exportar** en la parte superior del registro.
+   ![Selección del registro de actividad en la lista de servicios del portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+2. Seleccione el botón **Exportar al Centro de eventos** en la parte superior del registro.
    
-   ![Botón Exportar en el portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![Botón Exportar en el portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
 
    Tenga en cuenta que la configuración de filtro que había aplicado mientras veía el registro de actividad en la vista anterior no tiene ningún efecto sobre la configuración de exportación. Solo es para filtrar lo que ve mientras explora el registro de actividad en el portal.
 3. En la sección que aparece, seleccione **Todas las regiones**. No seleccione regiones específicas.
@@ -99,7 +99,7 @@ Si ya existe un perfil de registro, primero debe quitar el perfil de registro ex
 El esquema para el registro de actividad está disponible en [Supervisión de la actividad de suscripción con el registro de actividad de Azure](monitoring-overview-activity-logs.md). Cada evento está en una matriz de blobs JSON denominados *registros*.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [(Archivado del registro de actividades en una cuenta de almacenamiento)](monitoring-archive-activity-log.md)
+* [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)
 * [Lea la información general sobre el registro de actividades de Azure](monitoring-overview-activity-logs.md)
-* [Configure una alerta basada en un evento del registro de actividades](insights-auditlog-to-webhook-email.md)
+* [Configure una alerta basada en un evento del registro de actividades](monitor-alerts-unified-log-webhook.md)
 

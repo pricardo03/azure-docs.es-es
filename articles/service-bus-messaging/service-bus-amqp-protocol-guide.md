@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 75c6b5c34559ad17f662c895352bff5a58da00d4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395855"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013333"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -391,7 +391,7 @@ Por tanto, el mecanismo ANONYMOUS debe ser compatible con el cliente de AMQP 1.0
 
 Una vez establecida la conexión y la sesión, las únicas operaciones permitidas son asociar los vínculos al nodo *$cbs* y enviar la solicitud *put-token*. Un token válido debe establecerse correctamente mediante una solicitud *put-token* para algún nodo de entidad en un plazo de 20 segundos después de establecer la conexión; de lo contrario, Service Bus interrumpe la conexión unilateralmente.
 
-El cliente es responsable de realizar un seguimiento de la expiración del token. Cuando expira un token, Service Bus elimina rápidamente todos los vínculos de la conexión a la entidad correspondiente. Para evitar el problema, el cliente puede sustituir el token del nodo por uno nuevo en cualquier momento a través del nodo de administración virtual *$cbs* con el mismo gesto *put-token* y sin interferir con el tráfico de carga que fluye en diferentes vínculos.
+El cliente es responsable de realizar un seguimiento de la expiración del token. Cuando expira un token, Service Bus elimina rápidamente todos los vínculos de la conexión a la entidad correspondiente. Para evitar el problema, el cliente puede sustituir el token del nodo por uno nuevo en cualquier momento mediante el nodo de administración virtual *$cbs* con el mismo gesto *put-token* y sin interferir con el tráfico de carga que fluye en diferentes vínculos.
 
 ### <a name="send-via-functionality"></a>Funcionalidad "enviar por"
 

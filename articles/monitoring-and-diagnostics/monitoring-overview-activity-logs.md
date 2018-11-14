@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094370"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006029"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 
@@ -33,10 +33,7 @@ El registro de actividad es distinto de los [registros de diagnóstico](monitori
 Puede recuperar los eventos del registro de actividad mediante Azure Portal, la CLI, los cmdlets de PowerShell y la API de REST de Azure Monitor.
 
 > [!NOTE]
->  [Las alertas más recientes](monitoring-overview-unified-alerts.md) ofrecen una experiencia mejorada para crear y administrar las reglas de alerta del registro de actividad.  [Más información](monitoring-activity-log-alerts-new-experience.md).
-
-Vea el vídeo siguiente sobre la introducción del registro de actividad.
-> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+>  [Las alertas más recientes](monitoring-overview-unified-alerts.md) ofrecen una experiencia mejorada para crear y administrar las reglas de alerta del registro de actividad.  [Más información](alert-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>Categorías del Registro de actividad
@@ -70,7 +67,7 @@ Estas son algunas de las cosas que puede hacer con el registro de actividad:
 En Azure Portal puede ver el registro de actividad en varios lugares:
 * El **Registro de actividad** al que tiene acceso buscando Registro de actividad en **Todos los servicios** en el panel de navegación izquierdo.
 * **Monitor** aparece de forma predeterminada en el panel de navegación izquierdo. El Registro de actividad es una de las secciones de Azure Monitor.
-* El **recurso** de cualquier recurso, por ejemplo, la hoja de configuración de una máquina virtual. Activity Log es una de las secciones en la mayoría de estas hojas de recursos y al hacer clic en ella automáticamente filtra los eventos relacionados con ese recurso concreto.
+* La mayoría de los **recursos**, por ejemplo, la hoja de configuración de una máquina virtual. El registro de actividad es una sección que hay en la mayoría de las hojas de recursos y, al hacer clic en ella, se filtran automáticamente los eventos relacionados con ese recurso concreto.
 
 En Azure Portal, puede filtrar Activity Log por estos campos:
 * Intervalo de tiempo: la hora de inicio y finalización para los eventos.
@@ -84,11 +81,9 @@ En Azure Portal, puede filtrar Activity Log por estos campos:
 * Evento iniciado por: el 'llamador' o el usuario que realizó la operación.
 * Abrir búsqueda: se trata de un cuadro de búsqueda de texto abierto que busca esa cadena en todos los campos de todos los eventos.
 
-Una vez que haya definido un conjunto de filtros, puede guardarlo como una consulta que se conserva entre sesiones por si necesita volver a realizar la misma consulta con esos filtros aplicados de nuevo en el futuro. También puede anclar una consulta en el panel de Azure para estar siempre al tanto de eventos específicos.
+Una vez que haya definido un conjunto de filtros, puede anclar una consulta en el panel de Azure para estar siempre al tanto de eventos específicos.
 
-Al hacer clic en "Aplicar" se ejecuta la consulta y se muestran todos los eventos que coinciden. Al hacer clic en cualquier evento en la lista, se muestra el resumen de ese evento, así como la notación de objetos JavaScript (JSON) completa y sin procesar de ese evento.
-
-Para ampliar aún más las posibilidades, puede hacer clic en el icono de **Búsqueda de registros**, que muestra los datos de Activity Log en el [análisis de registros de la solución Activity Log Analytics](../log-analytics/log-analytics-activity.md). La hoja Log Analytics ofrece una experiencia básica de exploración/filtro en registros, pero Log Analytics le permite dinamizar, consultar y visualizar sus datos de otras formas más eficaces.
+Para ampliar aún más las posibilidades, puede hacer clic en el icono **Registros**, que muestra los datos del registro de actividad en la [solución Activity Log Analytics de Log Analytics](../log-analytics/log-analytics-activity.md). La hoja Log Analytics ofrece una experiencia básica de exploración/filtro en registros, pero Log Analytics le permite dinamizar, consultar y visualizar sus datos de otras formas más eficaces.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportación del registro de actividad con perfiles de registro
 Un **perfil de registro** controla cómo se exporta el registro de actividad. Con un perfil de registro, puede configurar:
@@ -114,14 +109,14 @@ Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eve
 Estas opciones se pueden configurar a través de la opción de exportación en la hoja de registro de actividad en el portal. También pueden configurarse mediante programación [con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), los cmdlets de PowerShell o con la CLI. Una suscripción solo puede tener un perfil de registro.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configuración de perfiles de registro mediante Azure Portal
-Puede transmitir el registro de actividad a un centro de eventos o almacenarlo en una cuenta de almacenamiento mediante la opción "Exportar" en Azure Portal.
+Puede transmitir el registro de actividad a un centro de eventos o almacenarlo en una cuenta de almacenamiento mediante la opción "Exportar al Centro de eventos" de Azure Portal.
 
 1. Vaya a la hoja **Registro de actividad** mediante el menú en el lado izquierdo del portal.
 
-    ![Ir al registro de actividad en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Haga clic en el botón **Exportar** en la parte superior de la hoja.
+    ![Ir al registro de actividad en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+2. Haga clic en el botón **Exportar al Centro de eventos** en la parte superior de la hoja.
 
-    ![Botón Exportar en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![Botón Exportar en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
 3. En la hoja que aparece, puede seleccionar:  
   * Las regiones para las que le gustaría exportar eventos
   * La cuenta de almacenamiento en la que desea guardar los eventos

@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6a61fdeaf1a751ab4001257335abdcbd6fac9cbf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739471"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007593"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>Versión preliminar: Procedimientos operativos de protección con contraseña de Azure AD
 
 |     |
 | --- |
-| La protección con contraseña de Azure AD es una característica en vista previa pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| La protección con contraseña de Azure AD es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Después de haber completado la [instalación de la protección con contraseña de Azure AD](howto-password-ban-bad-on-premises-deploy.md) local, hay algunos elementos que se deben configurar en Azure Portal.
@@ -67,7 +67,7 @@ Por lo general, este ajuste debe dejarse en su estado habilitado predeterminado 
 
 Se puede usar el cmdlet `Get-AzureADPasswordProtectionSummaryReport` para generar una vista resumida de la actividad. A continuación se muestra un ejemplo de salida de este cmdlet:
 
-```
+```PowerShell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -83,10 +83,26 @@ PasswordSetErrors               : 1
 El ámbito de los informes del cmdlet puede condicionarse con uno de los parámetros –Forest, -Domain o –DomainController. No especificar un parámetro implica –Forest.
 
 > [!NOTE]
-> Este cmdlet funciona con la apertura de una sesión de Powershell en cada controlador de dominio. Para que la operación se realice correctamente, la compatibilidad de la sesión remota debe estar habilitada en cada controlador de dominio y el cliente debe tener privilegios suficientes. Para obtener más información sobre los requisitos de la sesión remota de Powershell, ejecute 'Get-Help about_Remote_Troubleshooting' en una ventana de Powershell.
+> Este cmdlet funciona al abrir una sesión de PowerShell en cada controlador de dominio. Para que la operación se realice correctamente, se debe habilitar la compatibilidad con la sesión remota de PowerShell en cada controlador de dominio y el cliente debe tener privilegios suficientes. Para más información sobre los requisitos de la sesión remota de Powershell, ejecute "Get-Help about_Remote_Troubleshooting" en una ventana de PowerShell.
 
 > [!NOTE]
 > Este cmdlet funciona consultando remotamente el registro de eventos de administración del cada servicio de agente de controlador de dominio. Si los registros de eventos contienen un gran número de eventos, el cmdlet puede tardar mucho tiempo en completarse. Además, las consultas de red masivas de grandes conjuntos de datos pueden afectar al rendimiento del controlador de dominio. Por lo tanto, este cmdlet debe usarse con cuidado en entornos de producción.
+
+## <a name="dc-agent-discovery"></a>Detección del agente de controlador de dominio
+
+Se puede usar el cmdlet `Get-AzureADPasswordProtectionDCAgent` para mostrar información básica sobre los diversos agentes de controlador de dominio que se están ejecutando en un dominio o bosque. Esta información se recupera de los objetos serviceConnectionPoint registrados por los servicios de agente de controlador de dominio en ejecución. A continuación se muestra un ejemplo de salida de este cmdlet:
+
+```PowerShell
+Get-AzureADPasswordProtectionDCAgent
+ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
+Domain                : bplchild.bplRootDomain.com
+Forest                : bplRootDomain.com
+Heartbeat             : 2/16/2018 8:35:01 AM
+```
+
+Cada servicio de agente de controlador de dominio actualiza las diversas propiedades una vez cada hora aproximadamente. Los datos siguen estando sujetos a la latencia de replicación de Active Directory.
+
+Se puede influenciar el ámbito de la consulta del cmdlet con los parámetros –Forest o –Domain.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

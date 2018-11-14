@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717682"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016053"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -24,8 +24,8 @@ En este artículo se muestra cómo crear y administrar grupos de acciones en el 
 Cada acción se compone de las siguientes propiedades:
 
 * **Nombre**: un identificador único dentro del grupo de acciones.  
-* **Tipo de acción**: realizar una llamada de voz o enviar un SMS, enviar un correo electrónico, llamar a un webhook, enviar datos a una herramienta ITSM, llamar a una aplicación lógica, enviar una notificación push a la aplicación de Azure o ejecutar un runbook de Automation.
-* **Detalles**: el número de teléfono, dirección de correo electrónico o identificador URI del webhook o los detalles de conexión de ITSM.
+* **Tipo de acción**: acción que se va a realizar. El envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas son algunos ejemplos. Consulte los tipos más adelante en este artículo. 
+* **Detalles**: detalles correspondientes que varían según el *tipo de acción*. 
 
 Para más información sobre el uso de plantillas de Azure Resource Manager para configurar grupos de acciones, consulte [Plantillas de Resource Manager para grupos de acciones](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -57,64 +57,45 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
 1. Seleccione **Aceptar** para crear el grupo de acciones.
 
-## <a name="action-specific-information"></a>Información específica de la acción
-<dl>
-<dt>Notificaciones push de la aplicación de Azure</dt>
-<dd>En un grupo de acciones puede tener hasta 10 acciones de aplicación de Azure.</dd>
-<dd>En este momento, la acción de aplicación de Azure solo admite alertas de ServiceHealth. Los demás momentos de alerta se omitirán. Consulte el artículo acerca de la [configuración de alertas siempre que se publique una notificación de estado de un servicio](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
-
-<dt>Correo electrónico</dt>
-<dd>Se enviarán mensajes de correo electrónico desde las direcciones de correo electrónico siguientes. Asegúrese de que el filtrado de correo electrónico esté configurado correctamente.
-<ul>
-    <li>azure-noreply@microsoft.com</li>
-    <li>azureemail-noreply@microsoft.com</li>
-    <li>alerts-noreply@mail.windowsazure.com</li>
-</ul>
-</dd>
-<dd>En un grupo de acciones puede tener hasta 1000 acciones de correo electrónico.</dd>
-<dd>Consulte el artículo de [información sobre las limitaciones](./monitoring-alerts-rate-limiting.md).</dd>
-
-<dt>ITSM</dt>
-<dd>En un grupo de acciones puede tener hasta 10 acciones de ITSM.</dd>
-<dd>La acción de ITSM requiere una conexión de ITSM. Aprenda cómo crear una [conexión de ITSM](../log-analytics/log-analytics-itsmc-overview.md).</dd>
-
-<dt>Aplicaciones lógicas</dt>
-<dd>En un grupo de acciones puede tener hasta 10 acciones de aplicación lógica.</dd>
-
-<dt>Runbook</dt>
-<dd>En un grupo de acciones puede tener hasta 10 acciones de runbook.</dd>
-<dd>Consulte los [límites de servicio de suscripción de Azure](../azure-subscription-service-limits.md) para conocer los límites relacionados con las cargas de runbook.</dd>
-
-<dt>SMS</dt>
-<dd>En un grupo de acciones puede tener hasta 10 acciones de SMS.</dd>
-<dd>Consulte el artículo de [información sobre las limitaciones](./monitoring-alerts-rate-limiting.md).</dd>
-<dd>Consulte el artículo sobre el [comportamiento de las alertas por SMS](monitoring-sms-alert-behavior.md).</dd>
-
-<dt>Voz</dt>
-<dd>En un grupo de acciones puede tener hasta 10 acciones de voz.</dd>
-<dd>Consulte el artículo de [información sobre las limitaciones](./monitoring-alerts-rate-limiting.md).</dd>
-
-<dt>Webhook</dt>
-<dd>En un grupo de acciones puede tener hasta 10 acciones de webhook.
-<dd>Lógica de reintento: el tiempo de espera para una respuesta es de 10 segundos. Se volverá a intentar la llamada de webhook un máximo de 2 veces cuando se devuelvan los siguientes códigos de estado HTTP: 408, 429, 503, 504 o el punto de conexión HTTP no responda. El primer reintento se produce transcurridos 10 segundos. El segundo y último reintento se produce transcurridos 100 segundos.</dd>
-<dd>Rangos de direcciones IP de origen
-<ul>
-    <li>13.106.57.181</li>
-    <li>13.106.54.3</li>
-    <li>13.106.54.19</li>
-    <li>13.106.38.142</li>
-    <li>13.106.38.148</li>
-    <li>13.106.57.196</li>
-</ul>
-Para recibir actualizaciones sobre los cambios a estas direcciones IP, se recomienda configurar una [alerta de estado del servicio](./monitoring-service-notifications.md) que supervise las notificaciones informativas sobre el servicio de grupos de acciones.
-</dd>
-</dl>
-
 ## <a name="manage-your-action-groups"></a>Administración de los grupos de acciones ##
 Después de crear un grupo de acciones, está visible en la sección **Grupos de acciones** de la hoja **Supervisión**. Seleccione el grupo de acciones que desea administrar para:
 
 * Agregar, editar o quitar acciones.
 * Eliminar el grupo de acciones.
+
+## <a name="action-specific-information"></a>Información específica de la acción
+**Notificaciones push de aplicaciones de Azure**: en un grupo de acciones puede tener hasta 10 acciones de aplicación de Azure. En este momento, la acción de aplicación de Azure solo admite alertas de ServiceHealth. Los demás momentos de alerta se omitirán. Consulte el artículo acerca de la [configuración de alertas siempre que se publique una notificación de estado de un servicio](monitoring-activity-log-alerts-on-service-notifications.md).
+
+**Correo electrónico**: se enviarán mensajes de correo electrónico desde las siguientes direcciones de correo electrónico. Asegúrese de que el filtrado de correo electrónico esté configurado correctamente.
+   - azure-noreply@microsoft.com
+   - azureemail-noreply@microsoft.com
+   - alerts-noreply@mail.windowsazure.com
+
+En un grupo de acciones puede tener hasta 1000 acciones de correo electrónico. Consulte el artículo de [información sobre las limitaciones](./monitoring-alerts-rate-limiting.md).
+
+**ITSM**: puede tener hasta 10 acciones de administración de servicios de TI en un grupo de acciones, que necesitan conexión para ITSM. Aprenda cómo crear una [conexión de ITSM](../log-analytics/log-analytics-itsmc-overview.md).
+
+**Aplicación lógica**: en un grupo de acciones puede tener hasta 10 acciones de aplicación lógica.
+
+**Runbook**: puede tener hasta 10 acciones de runbook en un grupo de acciones. Consulte los [límites de servicio de suscripción de Azure](../azure-subscription-service-limits.md) para más información sobre las cargas de runbook
+
+**SMS**: puede tener hasta 10 acciones de SMS en un grupo de acciones. Consulte el artículo de [información sobre las limitaciones](./monitoring-alerts-rate-limiting.md). Consulte el artículo [Comportamiento de alertas por SMS](monitoring-sms-alert-behavior.md)
+
+**Voz**: en un grupo de acciones puede tener hasta 10 acciones de voz.</dd>
+Consulte el artículo de [información sobre las limitaciones](./monitoring-alerts-rate-limiting.md).</dd>
+
+**Webhook**: en un grupo de acciones puede tener hasta 10 acciones de webhook. Lógica de reintento: el tiempo de espera para una respuesta es de 10 segundos. Se volverá a intentar la llamada de webhook un máximo de 2 veces cuando se devuelvan los siguientes códigos de estado HTTP: 408, 429, 503, 504 o el punto de conexión HTTP no responda. El primer reintento se produce transcurridos 10 segundos. El segundo y último reintento se produce transcurridos 100 segundos.
+
+Rangos de direcciones IP de origen
+    - 13.106.57.181
+    - 13.106.54.3
+    - 13.106.54.19
+    - 13.106.38.142
+    - 13.106.38.148
+    - 13.106.57.196
+
+Para recibir actualizaciones sobre los cambios a estas direcciones IP, se recomienda configurar una [alerta de estado del servicio](./monitoring-service-notifications.md) que supervise las notificaciones informativas sobre el servicio de grupos de acciones.
+
 
 ## <a name="next-steps"></a>Pasos siguientes ##
 * Más información sobre el [comportamiento de las alertas por SMS](monitoring-sms-alert-behavior.md).  

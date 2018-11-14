@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: cf25d08fc9a0e1ae458d350be93af31447928ecb
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: c8ba9ac3150b5a84b2902afaaefcf78c76764fed
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069461"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036197"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
 
@@ -121,7 +121,7 @@ Se puede hacer referencia al sondeo de equilibrador de carga en el valor *networ
   ...
 ```
 > [!NOTE]
-> Al utilizar actualizaciones automáticas del sistema operativo con Service Fabric, la nueva imagen del sistema operativo se implanta de dominio de actualización en dominio de actualización para mantener una alta disponibilidad de los servicios que se ejecutan en Service Fabric. Para más información sobre las características de durabilidad de los clústeres de Service Fabric, consulte [esta documentación](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> Al utilizar actualizaciones automáticas del sistema operativo con Service Fabric, la nueva imagen del sistema operativo se implanta de dominio de actualización en dominio de actualización para mantener una alta disponibilidad de los servicios que se ejecutan en Service Fabric. Para utilizar las actualizaciones automáticas del sistema operativo en Service Fabric, el clúster debe estar configurado para utilizar el nivel de durabilidad Silver o superior. Para más información sobre las características de durabilidad de los clústeres de Service Fabric, consulte [esta documentación](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Credenciales siempre actualizadas
 Si el conjunto de escalado usa credenciales para acceder a recursos externos (por ejemplo, si se configura una extensión de máquina virtual que usa un token de SAS para la cuenta de almacenamiento), debe asegurarse de que las credenciales se mantengan actualizadas. Si las credenciales, incluidos los certificados y los tokens, han expirado, se producirá un error en la actualización y el primer lote de máquinas virtuales se quedará en estado de error.

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ff97d164ee8b2059e1b46377067041d6c381052b
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414801"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753974"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Preguntas sobre el servicio de copia de seguridad de Azure Virtual Machines
 En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes del servicio Backup de Azure Virtual Machines. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,13 +48,13 @@ Sí. Incluso cuando una máquina virtual está apagada, las copias de seguridad 
 Sí. Puede cancelar el trabajo de copia de seguridad si se encuentra en la fase denominada "Tomando instantánea". **No puede cancelar un trabajo si la transferencia de datos de la instantánea está en curso**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Habilité el bloqueo de grupo de recursos en las máquinas virtuales de mi disco administrado con copia de seguridad. ¿Seguirán funcionando mis copias de seguridad?
-Si el usuario bloquea el grupo de recursos, el servicio de Backup no puede eliminar los puntos de restauración anteriores. Debido a esto, las copias de seguridad nuevas comienzan a presentar errores debido a que hay un límite de 18 puntos de restauración que impone el back-end. Si las copias de seguridad presentan un error interno después del bloqueo de grupo de recursos, siga estos [pasos para quitar la colección de puntos de restauración](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+Si el usuario bloquea el grupo de recursos, el servicio de Backup no puede eliminar los puntos de restauración anteriores. Debido a esto, las copias de seguridad nuevas comienzan a presentar errores debido a que hay un límite de 18 puntos de restauración que impone el back-end. Si las copias de seguridad presentan un error interno después del bloqueo de grupo de recursos, siga estos [pasos para quitar la colección de puntos de restauración](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>¿Tiene en cuenta la directiva de copia de seguridad el horario de verano?
 No. Tenga en cuenta que la fecha y la hora de su equipo se muestran en la hora local y con la diferencia del horario de verano actual. Por lo tanto, la hora de las copias de seguridad programadas puede diferir de la hora local debido al horario de verano.
 
 ### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>¿Cuántos discos de datos se pueden conectar como máximo a una máquina virtual para realizar copias de seguridad con Azure Backup?
-Azure Backup admite ahora la copia de seguridad de máquinas virtuales con hasta 32 discos. Para obtener compatibilidad para 32 discos, [actualice a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure](backup-upgrade-to-vm-backup-stack-v2.md). A partir del 24 de septiembre de 2018 se admitirán todas las máquinas virtuales que habiliten la protección.
+Azure Backup admite ahora la copia de seguridad de máquinas virtuales con hasta 16 discos. Para obtener la compatibilidad con 16 discos, [actualice a la versión 2 de la pila de Azure VM Backup](backup-upgrade-to-vm-backup-stack-v2.md). A partir del 24 de septiembre de 2018 se admitirán todas las máquinas virtuales que habiliten la protección.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>¿Azure Backup admite las instancias SSD estándar de Managed Disks?
 Azure Backup admite las [instancias SSD estándar de Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), un nuevo tipo de almacenamiento duradero para Microsoft Azure Virtual Machines. Es compatible con discos administrados en la [versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure](backup-upgrade-to-vm-backup-stack-v2.md).

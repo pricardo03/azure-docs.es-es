@@ -3,17 +3,17 @@ title: Creación y administración de reglas de telemetría en una aplicación d
 description: Las reglas de telemetría de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b82ac3bf67370a2c39e85bf5691da38539edb74
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729337"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005740"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de telemetría y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -87,7 +87,7 @@ En esta sección se muestra cómo configurar las acciones que se realizarán cua
 
    ![Configuración de acción](media\howto-create-telemetry-rules\Configure_Action.png)
 
-1. Para guardar la regla, elija **Guardar**. La regla está activa en unos minutos e inicia la supervisión de telemetría que se envía a la aplicación. Si coincide con la condición especificada en la regla, la regla desencadena la acción de correo electrónico configurada.
+1. Para guardar la regla, elija **Guardar**. La regla está activa en unos minutos e inicia la supervisión de telemetría que se envía a la aplicación. Cuando se cumple la condición especificada en la regla, la regla desencadena la acción de correo electrónico configurada.
 
 1. Seleccione **Listo** para salir del modo **Editar plantilla**.
 

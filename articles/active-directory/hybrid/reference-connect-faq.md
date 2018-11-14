@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 50ec49c22c64780c8f887b12eef1dd0e75c379ed
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269452"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010611"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -75,6 +75,9 @@ No, Azure AD Connect no admite bosques o dominios locales en los que el nombre d
 
 **P: ¿Se admiten entornos puros de IPv6?**  
 No, Azure AD Connect no admite entornos puros de IPv6.
+
+**P: Tengo un entorno de varios bosques y la red entre los dos bosques es mediante NAT (traducción de direcciones de red). ¿Usa Azure AD Connect entre estos dos bosques admitidos?**</br>
+ No, no se admite el uso de Azure AD Connect sobre NAT. 
 
 ## <a name="federation"></a>Federación
 **P.: ¿Qué debo hacer si recibo un correo electrónico que me pide que renueve el certificado de Office 365?**  

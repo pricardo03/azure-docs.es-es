@@ -4,16 +4,16 @@ description: Aprenda a configurar el entorno de ejecución de Azure IoT Edge y t
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/24/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037463"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913230"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy
 
@@ -25,6 +25,18 @@ Para configurar un dispositivo de IoT Edge para que funcione con un servidor pro
 2. Configure los demonios de Docker y de IoT Edge en el dispositivo para que usen el servidor proxy.
 3. Configure las propiedades de edgeAgent en el archivo config.yaml del dispositivo.
 4. Establezca las variables de entorno del entorno de ejecución de Azure IoT Edge y de otros módulos de IoT Edge en el manifiesto de implementación. 
+
+## <a name="know-your-proxy-url"></a>Dirección URL de proxy
+
+Para configurar tanto el demonio Docker como IoT Edge en el dispositivo, deberá saber la dirección URL del proxy. 
+
+Las direcciones URL de proxy tienen el formato siguiente: **protocolo**://**host_proxy**:**puerto_proxy**. 
+
+* El **protocolo** es HTTP o HTTPS. El demonio Docker puede configurarse con cualquier protocolo, según la configuración del registro de contenedor, pero los contenedores de tiempo de ejecución y demonio de IoT Edge deben utilizar siempre HTTPS.
+
+* El **host_proxy** es una dirección para el servidor proxy. Si el servidor proxy requiere autenticación, puede proporcionar sus credenciales como parte del host_proxy con el formato de **usuario**:**contraseña**@**host_proxy**. 
+
+* El **puerto_proxy** es el puerto de red en el que el proxy responde al tráfico de red. 
 
 ## <a name="install-the-runtime"></a>Instalación de la instancia en tiempo de ejecución
 
@@ -47,7 +59,7 @@ Los demonios de Docker e IoT Edge que se ejecutan en el dispositivo de IoT Edge 
 
 ### <a name="docker-daemon"></a>Demonio de Docker
 
-Consulte la documentación de Docker para configurar el demonio de Docker con variables de entorno. La mayoría de los registros de contenedor (incluidos los de DockerHub y Azure Container Registry) admiten solicitudes HTTPS, por lo que la variable que se debe establecer es **HTTPS_PROXY**. Si va a extraer imágenes de un registro que no admite la seguridad de la capa de transporte (TLS), debe establecer **HTTP_PROXY**. 
+Consulte la documentación de Docker para configurar el demonio de Docker con variables de entorno. La mayoría de los registros de contenedor (incluidos los de DockerHub y Azure Container) admiten solicitudes HTTPS, por lo que el parámetro que se debe establecer es **HTTPS_PROXY**. Si va a extraer imágenes de un registro que no admite la seguridad de la capa de transporte (TLS), debe establecer el parámetro **HTTP_PROXY**. 
 
 Elija el artículo aplicable a su versión de Docker: 
 
@@ -113,7 +125,9 @@ Abra el archivo config.yaml en el dispositivo de IoT Edge. En los sistemas Linux
 
 En el archivo config.yaml, busque la sección **especificación del módulo de agente de Edge**. La definición del agente de Edge incluye un parámetro **env** en el que puede agregar variables de entorno. 
 
-![Definición de edgeAgent](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+<!--
+![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 Elimine las llaves que son marcadores de posición del parámetro env y agregue la nueva variable en una nueva línea. Recuerde que las sangrías de YAML son dos espacios. 
 
@@ -201,7 +215,7 @@ Si incluyó la variable de entorno **UpstreamProtocol** en el archivo config.yam
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

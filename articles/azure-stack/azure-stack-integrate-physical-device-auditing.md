@@ -6,24 +6,25 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 459cdf4e1a70ee02d818dd6abe101e4fc3475b68
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 83177363803c8f5c505c083614000dfa8f0df60d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036686"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036910"
 ---
 # <a name="azure-stack-datacenter-integration---physical-device-auditing"></a>Integración del centro de datos de Azure Stack: auditoría de dispositivos físicos
 
-Todos los dispositivos físicos de Azure Stack, como los controladores de administración de placa base (BMC) y los conmutadores de red, emiten registros de auditoría y se deben integrar en la solución general de auditoría. Puesto que los dispositivos varían entre los diversos proveedores de hardware de OEM de Azure Stack, póngase en contacto con su proveedor para obtener la documentación de integración de auditoría. Las secciones siguientes proporcionan información general sobre la auditoría de dispositivos físicos en Azure Stack.  
+Todos los dispositivos físicos de Azure Stack, como los controladores de administración de placa base (BMC) y los conmutadores de red, emiten registros de auditoría. Puede integrar los registros de auditoría en la solución general de auditoría. Puesto que los dispositivos varían entre los diversos proveedores de hardware de OEM de Azure Stack, póngase en contacto con su proveedor para obtener la documentación de integración de auditoría.
+Las secciones siguientes proporcionan información general sobre la auditoría de dispositivos físicos en Azure Stack.  
 
 ## <a name="physical-device-access-auditing"></a>Auditoría de acceso a dispositivos físicos
 
-Todos los dispositivos físicos de Azure Stack admiten el uso de TACACS o RADIUS. Esto incluye el acceso al controlador de administración de placa base (BMC) y a los conmutadores de red.
+Todos los dispositivos físicos de Azure Stack admiten el uso de TACACS o RADIUS. La compatibilidad incluye el acceso al controlador de administración de placa base (BMC) y a los conmutadores de red.
 
 Las soluciones de Azure Stack no se suministran con RADIUS o TACACS integrado. Sin embargo, las soluciones se han validado para que admitan el uso de las soluciones de RADIUS o TACACS ya existentes disponibles en el mercado.
 

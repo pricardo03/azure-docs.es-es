@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/24/2018
-ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986328"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978408"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database
 
@@ -31,19 +31,30 @@ En el siguiente diagrama se proporciona una descripción general de la arquitect
 
 En los pasos siguientes se describe cómo se establece una conexión a una base de datos SQL de Azure a través del equilibrador de carga de software (SLB) de Azure SQL Database y de la puerta de enlace de Azure SQL Database.
 
-- Los clientes, tanto desde dentro como desde fuera de Azure, se conectan a la SLB, que tiene una dirección IP pública y escucha en el puerto 1433.
-- El SLB dirige el tráfico a la puerta de enlace de Azure SQL Database.
-- La puerta de enlace redirige el tráfico al middleware del proxy correcto.
-- El middleware del proxy redirige el tráfico a la base de datos SQL de Azure adecuada.
+- Los clientes se conectan al SLB, que tiene una dirección IP pública y escucha en el puerto 1433.
+- El SLB desvía el tráfico a la puerta de enlace de Azure SQL Database.
+- La puerta de enlace, dependiendo de la directiva de conexión efectiva, redirecciona o envía por proxy el tráfico al middleware del proxy correcto.
+- El middleware del proxy desvía el tráfico a la base de datos SQL de Azure adecuada.
 
 > [!IMPORTANT]
 > Cada uno de estos componentes integra protección frente a ataques de denegación de servicio distribuido (DDoS) en la red y en el nivel de aplicación.
 
+## <a name="connection-policy"></a>Directiva de conexión
+
+Azure SQL Database admite las siguientes tres opciones para la configuración de directiva de conexión de un servidor de SQL Database:
+
+- **Redirigir (recomendado):** los clientes establecen conexiones directamente con el nodo que hospeda la base de datos. Para habilitar la conectividad, los clientes tienen que permitir las reglas de firewall de salida a todas las direcciones IP de Azure en la región (intentar esto utilizando los grupos de seguridad de red (NSG) con [etiquetas de servicio](../virtual-network/security-overview.md#service-tags)), no solo las direcciones IP de puerta de enlace de Azure SQL Database. Como los paquetes van directamente a la base de datos, la latencia y la capacidad de proceso mejoran.
+- **Proxy:** en este modo, el proxy procesa todas las conexiones a través de las puertas de enlace de Azure SQL Database. Para habilitar la conectividad, el cliente tiene que tener reglas de firewall de salida que permiten solo las direcciones IP de puerta de enlace de Azure SQL Database (normalmente dos direcciones IP por región). La elección de este modo puede producir una latencia mayor y un rendimiento inferior, según la naturaleza de la carga de trabajo. Es muy recomendable utilizar la directiva de conexión Redirigir para obtener la menor latencia y el mayor rendimiento.
+- **Predeterminado:** esta es la directiva de conexión en vigor en todos los servidores después de su creación, a menos que se modifique explícitamente cambiándola a Proxy o Redirigir. La directiva efectiva depende de si las conexiones se originan desde dentro de Azure (Redirigir) o fuera de Azure (Proxy).
+
 ## <a name="connectivity-from-within-azure"></a>Conectividad desde dentro de Azure
 
-Si va a conectarse desde dentro de Azure, las conexiones tienen una directiva de conexión predeterminada basada en el **redireccionamiento**. Una directiva de **redireccionamiento** establece que las conexiones después de la sesión TCP se realicen a la base de datos SQL de Azure; a continuación, la sesión del cliente se redirige al middleware del proxy, pero se cambia la IP virtual de destino de la puerta de enlace de Azure SQL Database por la del middleware del proxy. Por lo tanto, todos los paquetes posteriores fluyen directamente a través del middleware del proxy, de tal forma que omiten la puerta de enlace de Azure SQL Database. En el siguiente diagrama, se ilustra este flujo de tráfico.
+Si va a conectarse desde dentro de Azure en un servidor creado después del 10 de noviembre de 2018, las conexiones tienen de forma predeterminada una directiva de conexión **Redirigir**. Una directiva de **redireccionamiento** establece que las conexiones después de la sesión TCP se realicen a la base de datos SQL de Azure; a continuación, la sesión del cliente se redirige al middleware del proxy, pero se cambia la IP virtual de destino de la puerta de enlace de Azure SQL Database por la del middleware del proxy. Por lo tanto, todos los paquetes posteriores fluyen directamente a través del middleware del proxy, de tal forma que omiten la puerta de enlace de Azure SQL Database. En el siguiente diagrama, se ilustra este flujo de tráfico.
 
 ![Descripción general de la arquitectura](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+
+> [!IMPORTANT]
+> Si creó el servidor de SQL Database antes del 10 de noviembre de 2018, la directiva de conexión se estableció explícitamente en **Proxy**. Al usar los puntos de conexión de servicio, es muy recomendable cambiar la directiva de conexión a **Redirigir** para conseguir un mejor rendimiento. Si cambia la directiva de conexión a **Redirigir**, no es suficiente permitir el tráfico saliente en el grupo de seguridad de red a las direcciones IP de puerta de enlace de Azure SQL Database que se indican abajo, también tiene que permitir el tráfico saliente a todas las direcciones IP de Azure SQL Database. Esto puede realizarse con la ayuda de las etiquetas de servicio de NSG (grupos de seguridad de red). Para más información, consulte [Etiquetas de servicio](../virtual-network/security-overview.md#service-tags).
 
 ## <a name="connectivity-from-outside-of-azure"></a>Conectividad desde fuera de Azure
 
@@ -51,19 +62,11 @@ Si va a conectarse desde fuera de Azure, las conexiones tienen una directiva de 
 
 ![Descripción general de la arquitectura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
-> [!IMPORTANT]
-> Al usar los puntos de conexión de servicio con Azure SQL Database, de forma predeterminada la directiva es **Proxy**. Para habilitar la conectividad desde dentro de la red virtual, debe permitir las conexiones salientes a las direcciones IP de puerta de enlace de Azure SQL Database especificadas en la lista siguiente.
-
-Al usar los puntos de conexión de servicio se recomienda cambiar la directiva de conexión a **Redirigir** para habilitar un mejor rendimiento. Si cambia la directiva de conexión a **Redirigir**, no es suficiente permitir el tráfico saliente en el NSG a las direcciones IP de puerta de enlace de Azure SQL Database que se indican abajo, ya que también necesita permitir el tráfico saliente a todas las direcciones IP de Azure SQL Database. Esto puede realizarse con la ayuda de las etiquetas de servicio de NSG (grupos de seguridad de red). Para más información, consulte [Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
-
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Direcciones IP de la puerta de enlace de Azure SQL Database
 
 Para conectarse a una base de datos SQL de Azure desde recursos locales, debe permitir el tráfico de red saliente a la puerta de enlace de Azure SQL Database en su región de Azure. Las conexiones solo se establecen a través de la puerta de enlace al conectarse en modo de proxy, que es el valor predeterminado para conexiones desde recursos locales.
 
 En la tabla siguiente se enumeran las direcciones IP principales y secundarias de la puerta de enlace de Azure SQL Database para todas las regiones de datos. En algunas regiones, hay dos direcciones IP. En estas regiones, la dirección IP principal es la dirección IP actual de la puerta de enlace y la dirección IP secundaria es una dirección IP de conmutación por error. La dirección de conmutación por error es la dirección a la que se puede mover el servidor para mantener la alta disponibilidad del servicio. En estas regiones, se recomienda que permita el tráfico saliente a ambas direcciones IP. La dirección IP secundaria es propiedad de Microsoft y no escucha en ningún servicio hasta que Azure SQL Database la activa para aceptar conexiones.
-
-> [!IMPORTANT]
-> Si se conecta desde dentro de Azure, la directiva de conexión será **Redirigir** de forma predeterminada (excepto si usa puntos de conexión de servicio). No será suficiente permitir las siguientes direcciones IP. Debe permitir todas las direcciones IP de Azure SQL Database. Si va a conectarse desde una red virtual, esto puede realizarse con la ayuda de las etiquetas de servicio de NSG (grupos de seguridad de red). Para más información, consulte [Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Nombre de región | Dirección IP principal | Dirección IP secundaria |
 | --- | --- |--- |

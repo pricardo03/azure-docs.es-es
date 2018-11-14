@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/12/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: b1f7120b3758e35d818aedbcc3b85feca44f8c33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129665"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006165"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protección de los recursos de red en Azure Security Center
 Azure Security Center analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
@@ -126,6 +126,20 @@ En esta vista de topología, el primer nivel muestra las redes virtuales. El seg
 
 El tercer nivel muestra máquinas virtuales, que es similar a lo que se ha descrito anteriormente. Puede hacer clic en un recurso para ver más información o aplicar la configuración o el control de seguridad necesario.
 
+## <a name="network-recommendations"></a>Recomendaciones de red
+
+|Tipo de recurso|Puntuación segura|Recomendación|DESCRIPCIÓN|
+|----|----|----|----|
+|Máquina|40|Habilitar grupos de seguridad de red en máquinas virtuales|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.|
+|Subred|35|Habilitar grupos de seguridad de red en subredes |Habilite grupos de seguridad de red para controlar el acceso de red de los recursos implementados en las subredes.|
+|Máquina|30|Aplicar un control de acceso a redes Just-In-Time|Aplique el control de acceso de máquina virtual Just-In-Time para bloquear de forma permanente el acceso a puertos seleccionados y permitir que los usuarios autorizados los abran mediante el mismo mecanismo y durante una cantidad de tiempo limitada.|
+|Máquina|20|Restricción del acceso a través de puntos de conexión accesibles desde Internet|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.|
+|Máquina|10|Agregar un firewall de próxima generación|Agregue una solución de Firewall de próxima generación (NGFW) para proteger mejor sus máquinas virtuales accesibles desde Internet.|
+|Máquina|5|Enrutar el tráfico solo a través del firewall de puerta de enlace de red|Para completar la implementación de su solución de firewall de próxima generación, se debe enrutar el tráfico a las máquinas virtuales accesibles desde Internet protegidas solo a través de la solución de firewall de próxima generación.|
+|VNet|5|Habilitar la protección contra DDoS estándar|Las aplicaciones con direcciones IP públicas en estas redes virtuales no están protegidas con el servicio de protección contra DDOS estándar. Es recomendable habilitarlo para permitir la mitigación de los ataques volumétricos de red y protocolo.|
+|Máquina|10|Agregar un firewall de próxima generación|Agregue una solución de firewall de próxima generación (NGFW) para proteger mejor las máquinas virtuales accesibles desde Internet.|
+|Máquina|5|Enrutar el tráfico solo a través del firewall de puerta de enlace de red|Para completar la implementación de la solución de firewall de próxima generación, el tráfico hacia las máquinas virtuales accesibles desde Internet protegidas se debe enrutar solo a través de la solución de firewall de próxima generación.|
+Vnet|5|Habilitar la protección contra DDoS estándar|Las aplicaciones con direcciones IP públicas en estas redes virtuales no están protegidas con el servicio de protección contra DDOS estándar. Es recomendable habilitarlo para permitir la mitigación de los ataques volumétricos de red y protocolo.|
 ## <a name="see-also"></a>Otras referencias
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740460"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036553"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -76,7 +76,7 @@ Cuando se usa la declaración [`async function`](https://developer.mozilla.org/d
 
 El ejemplo siguiente es una función simple que registra que se ha desencadenado y completa la ejecución inmediatamente.
 
-``` javascript
+```javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
 };
@@ -109,22 +109,27 @@ module.exports = async function (context, req) {
 ## <a name="bindings"></a>Enlaces 
 En JavaScript, los [enlaces](functions-triggers-bindings.md) se configuran y definen en el archivo function.json de una función. Las funciones interactúan con los enlaces de varias maneras.
 
-### <a name="reading-trigger-and-input-data"></a>Lectura de datos del desencadenador y de entrada
-Una función puede leer los enlaces del desencadenador y de entrada (enlaces de `direction === "in"`) de tres maneras:
+### <a name="inputs"></a>Entradas
+Las entradas se dividen en dos categorías Azure Functions: una es la entrada del desencadenador y la otra es una entrada adicional. Una función puede leer los enlaces del desencadenador y de entrada (enlaces de `direction === "in"`) de tres maneras:
  - **_[Recomendada]_ Como parámetros pasados a la función.** Se pasan a la función en el mismo orden en que se definen en *function.json*. Tenga en cuenta que la propiedad `name` definida en el archivo *function.json* no tiene que coincidir con el nombre del parámetro, aunque debería.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
+   
  - **Como miembros del objeto [`context.bindings`](#contextbindings-property).** Cada miembro se denomina mediante la propiedad `name` definida en el archivo *function.json*.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + context.bindings.myTrigger);
        context.log("This is myInput: " + context.bindings.myInput);
        context.log("This is myOtherInput: " + context.bindings.myOtherInput);
    };
    ```
+   
  - **Como entradas mediante el objeto [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) de JavaScript.** Es básicamente lo mismo que pasar entradas como parámetros, pero permite controlar las entradas de manera dinámica.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + arguments[1]);
        context.log("This is myInput: " + arguments[2]);
@@ -132,12 +137,13 @@ Una función puede leer los enlaces del desencadenador y de entrada (enlaces de 
    };
    ```
 
-### <a name="writing-data"></a>Escritura de datos
+### <a name="outputs"></a>Salidas
 Las salidas (enlaces de `direction === "out"`) se pueden escribir mediante una función de varias maneras. En todos los casos, la propiedad `name` del enlace tal como se define en el archivo *function.json* corresponde al nombre del miembro de objeto escrito en la función. 
 
 Puede asignar datos a los enlaces de salida de una de las maneras siguientes. No debe combinar estos métodos.
 - **_[Recomendado para varias salidas]_ Devolución de un objeto.** Si usa una función de devolución asincrónica o de promesa, puede devolver un objeto con datos de salida asignados. En el ejemplo siguiente, los enlaces de salida se denominan "httpResponse" y "queueOutput" en el archivo *function.json*.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       return {
@@ -148,10 +154,12 @@ Puede asignar datos a los enlaces de salida de una de las maneras siguientes. No
       };
   };
   ```
+  
   Si utiliza una función sincrónica, puede devolver este objeto mediante [`context.done`](#contextdone-method) (vea el ejemplo).
 - **_[Recomendado para una salida única]_ Devolución de un valor directamente y uso del nombre de enlace $return.** Este método solo funciona con las funciones de devolución asincrónicas o de promesa. Vea el ejemplo de [Exportación de una función asincrónica](#exporting-an-async-function). 
 - **Asignación de valores a `context.bindings`**. Puede asignar valores directamente a context.bindings.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       context.bindings.httpResponse = {

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b125d822596675b138560c14c76f9a3120ce3424
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3b9e6a59b44db9295d86e3bc8a8dda9ec9761f38
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628834"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009215"
 ---
 # <a name="create-a-new-device-template-version"></a>Creación de una nueva versión de plantilla de dispositivo
 
-Microsoft Azure IoT Central permite el desarrollo rápido de aplicaciones de IoT. Puede iterar rápidamente por los diseños de plantilla de dispositivo agregando, editando o eliminando las medidas, las configuraciones o las propiedades. Algunos de estos cambios podrían ser intrusivos para los dispositivos conectados actualmente. Azure IoT Central identifica estos cambios importantes y proporciona una manera de implementar de forma segura estas actualizaciones en los dispositivos.
+Azure IoT Central permite el desarrollo rápido de aplicaciones de IoT. Puede iterar rápidamente por los diseños de plantilla de dispositivo agregando, editando o eliminando las medidas, las configuraciones o las propiedades. Algunos de estos cambios podrían ser intrusivos para los dispositivos conectados actualmente. Azure IoT Central identifica estos cambios importantes y proporciona una manera de implementar de forma segura estas actualizaciones en los dispositivos.
 
 Una plantilla de dispositivo tiene un número de versión al crearlo. De forma predeterminada, el número de versión es 1.0.0. Si edita una plantilla de dispositivo, y si ese cambio puede afectar a los dispositivos conectados en vivo, Azure IoT Central le pedirá que cree una nueva versión de la plantilla de dispositivo.
 
@@ -40,7 +40,7 @@ En la lista siguiente se describen las acciones del usuario que podrían requeri
     * Eliminación de una propiedad opcional
     * Cambio del nombre de campo de una propiedad, el nombre de campo que usan los dispositivos para enviar mensajes.
     * Cambio de una propiedad opcional para una propiedad obligatoria
-*  Settings
+*  Configuración
     * Incorporación o eliminación de una configuración
     * Cambio del nombre de campo de una configuración, el nombre de campo que usan los dispositivos para enviar y recibir mensajes.
 

@@ -8,43 +8,43 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dwalthermsft
-ms.openlocfilehash: f9a3d934de47630ac3fd2356001014d006c2a4eb
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 86ae75118dd1311ea2ae92fb718fe4c58b8e5673
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212274"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961762"
 ---
 # <a name="public-preview-service-limits"></a>Límites de servicio de la versión preliminar pública
 
-Durante la **versión preliminar pública**, Azure Digital Twins tendrá límites temporales de suscripción, instancia y frecuencia que se describen a continuación.
+Durante la versión preliminar pública, Azure Digital Twins tendrá los siguientes límites temporales de suscripción, instancia y frecuencia.
 
 Estas restricciones ayudan a simplificar el aprendizaje sobre el nuevo servicio y sus numerosas características.
 
 > [!NOTE]
-> Estos límites se pueden aumentar o eliminar con **disponibilidad general** (**GA**).
+> Estos límites se pueden aumentar o eliminar con disponibilidad general (GA).
 
 ## <a name="per-subscription-limits"></a>Límites por suscripción
 
-Durante la **versión preliminar pública**, cada suscripción de Azure puede crear o ejecutar exactamente una instancia de Azure Digital Twins a la vez.
+Durante la versión preliminar pública, cada suscripción de Azure puede crear o ejecutar solo una instancia de Azure Digital Twins a la vez.
 
 > [!TIP]
-> La eliminación de la instancia permite crear una nueva.
+> Si elimina la instancia, puede crear una nueva.
 
 ## <a name="per-instance-limits"></a>Límites por instancia
 
 Por su parte, cada instancia de Azure Digital Twins puede tener:
 
-- Un recurso **IoTHub**
-- Un punto de conexión **EventHub** para el tipo de evento **DeviceMessage**
-- Hasta tres puntos de conexión **EventHub**, **ServiceBus** o **EventGrid** del tipo de evento **SensorChange**, **SpaceChange**, **TopologyOperation** o **UdfCustom**
+- Un recurso **IoTHub**.
+- Un punto de conexión **EventHub** para el tipo de evento **DeviceMessage**.
+- Hasta tres puntos de conexión **EventHub**, **ServiceBus** o **EventGrid** del tipo de evento **SensorChange**, **SpaceChange**, **TopologyOperation** o **UdfCustom**.
 
 ## <a name="management-api-limits"></a>Límites de la API de administración
 
 Los límites de frecuencia de las solicitudes a la API de administración son:
 
-- 100 solicitudes por segundo a la API de administración
-- Una sola consulta a la API de administración puede devolver hasta 1000 objetos
+- 100 solicitudes por segundo a Management API.
+- Una sola consulta a Management API puede devolver hasta 1000 objetos. 
 
 > [!IMPORTANT]
 > Si se supera el límite de 1000 objetos, se producirá un error y deberá simplificar la consulta.
@@ -58,8 +58,8 @@ Los siguientes límites establecen el total de llamadas de las funciones definid
 
 > [!NOTE]
 > Las siguientes acciones pueden provocar que se apliquen límites de frecuencia adicionales temporalmente:
-> - Ediciones en los metadatos del objeto de topología
-> - Actualizaciones de las definiciones de las funciones definidas por el usuarios
+> - Modificaciones realizadas en los metadatos del objeto de topología
+> - Actualizaciones realizadas a las definiciones de funciones definidas por el usuario
 > - Dispositivos que envían telemetría por primera vez
 
 ## <a name="device-telemetry-limits"></a>Límites de telemetría del dispositivo

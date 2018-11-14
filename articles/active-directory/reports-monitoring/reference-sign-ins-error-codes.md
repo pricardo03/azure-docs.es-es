@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 85df34445622a13488df590f5cb53bedb7b6ea93
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ce06c72c9974b4887cc441344fd755bfd156a1ca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42142580"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914726"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -117,10 +117,10 @@ En la siguiente sección se proporciona una información general completa de tod
 |50135|Se necesita un cambio de contraseña debido a un riesgo de la cuenta|
 |50136|Redirección de la sesión de MSA a una aplicación: se ha detectado una única sesión de MSA |
 |50140|Este error se produjo debido a una interrupción en "Mantener la sesión iniciada" cuando el usuario estaba iniciando sesión. [Abra un vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el de solicitud y el código de error para conocer más detalles. |
-|50143|Error de coincidencia de sesión: la sesión no es válida porque el inquilino de usuario no coincide con la sugerencia de dominio debido a que el recurso es diferente. [Abra un vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el de solicitud y el código de error para conocer más detalles.|
+|50143|Error de coincidencia de sesión: la sesión no es válida porque el inquilino del usuario no coincide con la sugerencia de dominio debido a un recurso diferente.  [Abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) con el identificador de correlación, el identificador de solicitud y el código de error para más detalles.|
 |50144|Ha expirado la contraseña de Active Directory del usuario. Genere una nueva contraseña para el usuario o solicite al usuario final que lo haga mediante la herramienta de restablecimiento de autoservicio|
 |50146|Es necesario que esta aplicación esté configurada con una clave de firma específica de la aplicación. En este momento no tiene configurada ninguna o ha expirado o ya no es válida. Póngase en contacto con el propietario de la aplicación|
-|50148|El code_verifier no coincide con el code_challenge proporcionado en la solicitud de autorización para PKCE. Póngase en contacto con el desarrollador de aplicaciones. |
+|50148|El code_verifier no coincide con el code_challenge proporcionado en la solicitud de autorización para PKCE. Póngase en contacto con el desarrollador de aplicaciones. |
 |50155|Error de autenticación del dispositivo para este usuario|
 |50158|No se cumplió el desafío de seguridad externo|
 |50161|Las notificaciones enviadas por el proveedor externo no son suficientes o falta la notificación que se solicitó al proveedor externo|
@@ -152,7 +152,7 @@ En la siguiente sección se proporciona una información general completa de tod
 |70007|La aplicación ha devuelto un valor no admitido de "response_mode" al solicitar un token. Póngase en contacto con el propietario de la aplicación|
 |70008|El código de autorización o el token de actualización proporcionados han expirado o se han revocado. Haga que el usuario vuelva a iniciar sesión|
 |70011|El ámbito solicitado por la aplicación no es válido. Póngase en contacto con el propietario de la aplicación|
-|70012|Se produjo un error de servidor al autenticar un usuario (consumidor) de MSA. Inténtelo de nuevo. Si el error persiste, [abra un vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+|70012|Se produjo un error de servidor al autenticar un usuario (consumidor) de MSA. Inténtelo de nuevo. Si el error persiste, [abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|El código de verificación no es válido debido a que el usuario ha escrito un código de usuario incorrecto en el flujo de códigos del dispositivo. No se ha aprobado la autorización|
 |70019|El código de verificación ha expirado. Haga que el usuario vuelva a iniciar sesión|
 |70037|Se ha proporcionado una respuesta incorrecta al desafío. Se ha rechazado la sesión de autenticación remota.|
@@ -180,6 +180,7 @@ En la siguiente sección se proporciona una información general completa de tod
 |90014| Falta un campo obligatorio para un mensaje de protocolo, póngase en contacto con el propietario de la aplicación. Si es usted el propietario de la aplicación, asegúrese de que tiene todos los parámetros necesarios para la solicitud de inicio de sesión. |
 |90072| La cuenta tiene que agregarse primero como un usuario externo en el inquilino. Cierre sesión y vuelva a iniciarla con otra cuenta de Azure AD.|
 |90094| La concesión requiere permisos de administrador. Pida al administrador de inquilino que dé su consentimiento para esta aplicación.|
+|500133| La aserción no está dentro de su intervalo de tiempo válido. Asegúrese de que el token de acceso no ha expirado antes de usarlo para la aserción de usuario o solicite un nuevo token.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
