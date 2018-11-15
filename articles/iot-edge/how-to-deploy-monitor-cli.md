@@ -3,18 +3,18 @@ title: Implementar y supervisar módulos para Azure IoT Edge (CLI) | Microsoft D
 description: Administración de los módulos que se ejecutan en dispositivos perimetrales
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a3d073e9fd7c535ea84d6e4dbbf8003a6c55725b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3f2e7de6b32b4cca6320933050775f843e2cdf39
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394619"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567940"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
@@ -144,7 +144,7 @@ Use los comandos siguientes para crear una implementación:
 * **--labels**: agregue etiquetas para realizar un seguimiento de las implementaciones. Las etiquetas son pares de Nombre y Valor que describen la implementación. Por ejemplo, `HostPlatform, Linux` o `Version, 3.0.1`.
 * **--content** -ruta del archivo del manifiesto de implementación JSON. 
 * **--hub-name**: nombre de la instancia de IoT Hub en la que se creará la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
-* **--target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
+* **--target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
 * **--priority**: debe ser un entero positivo. En el caso de que dos o más implementaciones se destinen al mismo dispositivo, se aplicará la implementación con el valor numérico más alto para la prioridad.
 
 ## <a name="monitor-a-deployment"></a>Supervisión de una implementación
@@ -157,7 +157,7 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 * **--deployment-id**: el nombre de la implementación que está en IoT Hub.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
-Inspeccione la implementación en la ventana de comandos. La propiedad **metrics** enumera un recuento para cada métrica que evalúa cada centro:
+Inspeccione la implementación en la ventana de comandos. La propiedad **metrics** enumera un recuento para cada métrica que evalúa cada centro:
 * **targetedCount**: es una métrica del sistema que especifica la cantidad de dispositivos gemelos que hay en IoT Hub que coinciden con las condiciones del destino.
 * **appliedCount**: es una métrica del sistema que especifica la cantidad de dispositivos cuyo contenido de implementación se ha aplicado a sus módulos gemelos en IoT Hub.
 * **reportedSuccessfulCount**: es una métrica de dispositivo que especifica la cantidad de dispositivos de Edge en el informe de implementación correcto, a partir del tiempo de ejecución del cliente de IoT Edge.

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/04/2017
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.openlocfilehash: cf92b5b6ee3c6a529a43e7fa4cfeeb09954ad9ea
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: bb04f1965764413c474c2e0d057d77d5d30edd07
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365398"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623118"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabajo con aplicaciones para notificaciones en Proxy de aplicación
 Las [aplicaciones para notificaciones](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) realizan un redireccionamiento al servicio de token de seguridad (STS). El STS solicita las credenciales del usuario a cambio de un token y, después, redirige al usuario a la aplicación. Hay varias maneras de habilitar el Proxy de aplicación para trabajar con estos redireccionamientos. Use este artículo para configurar la implementación en las aplicaciones para notificaciones. 
@@ -54,7 +54,7 @@ Si todas las direcciones URL internas de las aplicaciones son nombres de dominio
    ![Agregar un extremo: establezca el valor de Dirección URL de confianza - captura de pantalla](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Habilitar el inicio de sesión único](application-proxy-single-sign-on.md) para las aplicaciones que no son compatibles con notificaciones
+* [Habilitar el inicio de sesión único](configure-single-sign-on-portal.md) para las aplicaciones que no son compatibles con notificaciones
 * [Habilitación de las aplicaciones de cliente nativo para interactuar con el proxy de aplicación](application-proxy-configure-native-client-application.md)
 
 

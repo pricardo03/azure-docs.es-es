@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983772"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299613"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitaciones en Azure Database for PostgreSQL
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos.
@@ -31,10 +31,10 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 |Uso general| 8| 480|
 |Uso general| 16| 950|
 |Uso general| 32| 1.500|
-|Memoria optimizada| 2| 150|
-|Memoria optimizada| 4| 250|
-|Memoria optimizada| 8| 480|
-|Memoria optimizada| 16| 950|
+|Memoria optimizada| 2| 300|
+|Memoria optimizada| 4| 500|
+|Memoria optimizada| 8| 960|
+|Memoria optimizada| 16| 1900|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > FATAL:  sorry, too many clients already
@@ -47,7 +47,7 @@ El sistema de Azure requiere cinco conexiones para supervisar el servidor de Azu
 - La reducción del tamaño de almacenamiento del servidor no se admite actualmente.
 
 ### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor
-- La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento. Si desea actualizar a la siguiente versión principal, realice un [volcado de memoria y restáurelo ](./howto-migrate-using-dump-and-restore.md) a un servidor que se haya creado con la nueva versión del motor.
+- La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento. Si quiere actualizar a la siguiente versión principal, realice un [volcado y restáurelo ](./howto-migrate-using-dump-and-restore.md) a un servidor que se haya creado con la nueva versión del motor.
 
 ### <a name="vnet-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.

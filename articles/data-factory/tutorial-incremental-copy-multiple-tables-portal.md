@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: ea1e3ca76f779f442c9d22478ea93de3d5ab83f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088113"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614529"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos SQL de Azure.    
@@ -279,7 +279,7 @@ Cuando mueva datos de un almacén de datos de una privada red (local) a un almac
    ![Nombre de entorno de ejecución de integración autohospedado](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
 1. Haga clic en **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida en este equipo) en la sección **Option 1: Express setup** (Opción 1: configuración rápida). 
 
-   ![Vínculo a configuración rápida](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
+   ![Vínculo a configuración rápida](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. En la ventana **Microsoft Integration Runtime (Self-hosted) Express Setup** (Configuración rápida de Integration Runtime [autohospedado]), haga clic en **Close** (Cerrar). 
 
    ![Configuración correcta de Integration Runtime](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)

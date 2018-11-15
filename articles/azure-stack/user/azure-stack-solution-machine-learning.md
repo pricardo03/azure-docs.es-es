@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 8a5ca4f94a6f1186b6d1a26b1c7e12357cd9e799
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353723"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616374"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de aprendizaje automático de Edge con Azure y Azure Stack
 
@@ -992,7 +992,7 @@ El motor de Docker debe ejecutarse localmente para completar los pasos siguiente
 1.  Asegúrese de que el proveedor de recursos de Azure **Microsoft.ContainerRegistry** esté registrado en la suscripción. Registre este proveedor de recursos antes de crear un entorno en el paso 3. Compruebe si ya está registrado mediante el comando siguiente:
 
     ```CLI
-        az provider list --query "\[\].{Provider:namespace, Status:registrationState}" --out table
+        az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
     ```
 
     Vea esta salida:
@@ -1175,7 +1175,7 @@ Desde la sesión del subsistema Windows para Linux, use los siguientes comandos 
 
 ### <a name="create-a-service-principal-in-azure-ad"></a>Creación de una entidad de servicio en Azure AD
 
-1.  Inicie sesión en [*Azure Portal*](http://www.poartal.azure.com/) global.
+1.  Inicie sesión en [*Azure Portal*](http://portal.azure.com/) global.
 
 2.  Inicie sesión con el inquilino de Azure AD asociado a la instancia de Azure Stack.
 
@@ -1271,10 +1271,8 @@ Desde el entorno de WSL, ejecute los comandos siguientes para instalar kubectl e
 
 ```Bash  
     apt-get update && apt-get install -y apt-transport-https
-    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-    cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
-    deb http://apt.kubernetes.io/ kubernetes-xenial main
-    EOF
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+    sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
     apt-get update
     apt-get install -y kubectl
 ```

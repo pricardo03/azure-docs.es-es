@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 4ca551ed07447e41ec94b0334eac0d235e0a5b6f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9543b1f3b10c246dadaf21b6960c7b6785fb66f4
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835090"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566387"
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Aprenda a administrar los servicios de web de AzureML mediante la Administración de API
 ## <a name="overview"></a>Información general
@@ -33,7 +33,7 @@ Azure API Management es un servicio de Azure que le permite administrar los extr
 ## <a name="what-is-azureml"></a>¿Qué es AzureML?
 AzureML es un servicio de Azure para el aprendizaje automático que permite crear, implementar y compartir fácilmente las soluciones de análisis avanzado. Haga clic en [aquí](https://azure.microsoft.com/services/machine-learning/) para obtener información detallada sobre AzureML.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para completar a esta guía, necesita:
 
 * Una cuenta de Azure. Si no tiene una cuenta de Azure, haga clic [aquí](https://azure.microsoft.com/pricing/free-trial/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
@@ -377,7 +377,7 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con 
 
     while True:
         print("Checking the job status...")
-        # If you are using Python 3+, replace urllib2 with urllib.request in the follwing code
+        # If you are using Python 3+, replace urllib2 with urllib.request in the following code
         req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
         try:
             response = urllib2.urlopen(req)

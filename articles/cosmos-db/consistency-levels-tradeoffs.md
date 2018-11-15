@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963054"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514781"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Contrapartidas entre rendimiento y disponibilidad en los distintos niveles de coherencia en Azure Cosmos DB
 
@@ -33,20 +33,6 @@ Las bases de datos distribuidas que dependen de la replicación para su alta dis
 - Para el mismo número de unidades de solicitud, los niveles de coherencia de sesión, de prefijo coherente y posible proporcionan aproximadamente el doble de rendimiento de lectura en comparación con la coherencia fuerte o de obsolescencia limitada.
 
 - Para un tipo determinado de operación de escritura (por ejemplo, Insert, Replace, Upsert, Delete, etc.), el rendimiento de escritura de las unidades de solicitud es idéntico para todos los niveles de coherencia.
-
-## <a name="consistency-levels-and-durability"></a>Durabilidad y niveles de coherencia
-
-Antes de que una operación de escritura sea reconocida por el cliente, un quórum de réplicas dentro de la región que acepta las operaciones de escritura confirma permanentemente las datos. Además, si el contenedor está configurado con la directiva de indexación coherente, el quórum de réplicas también actualiza, replica y confirma permanentemente el índice de forma sincrónica antes de enviar el reconocimiento de la operación de escritura al cliente.
-
-En la tabla siguiente se resume la posible ventana de pérdida de datos en caso de un desastre regional para las cuentas de Cosmos que abarcan varias regiones.
-
-| **Nivel de coherencia** | **Ventana de la posible pérdida de datos en caso de un desastre regional** |
-| - | - |
-| Alta | Cero |
-| De obsolescencia entrelazada | Se limita a la "ventana de obsolescencia" que puede configurar en la cuenta de Cosmos. |
-| Sesión | Hasta cinco segundos |
-| De prefijo coherente | Hasta cinco segundos |
-| Ocasional | Hasta cinco segundos |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 07/26/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 7c6445624b2c03497c881b0c34bac8256fa28a98
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302050"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686609"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Límites de capacidad de SQL Data Warehouse
 Valores máximos permitidos para los distintos componentes de Azure SQL Data Warehouse.
@@ -27,7 +27,7 @@ Valores máximos permitidos para los distintos componentes de Azure SQL Data War
 | [Unidades de almacenamiento de datos (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Valor predeterminado de la DTU por servidor |54 000<br></br>De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una cuota de DTU de 54 000, lo que permite un máximo de DW6000c. Esta cuota es simplemente un límite de seguridad. Puede aumentar su cuota mediante la [creación de una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) y la selección de *Cuota* como el tipo de solicitud.  Para calcular las necesidades de la DTU, multiplique 7,5 por el total de DWU necesarias o multiplique 9,0 por el total de cDWU necesarias. Por ejemplo: <br></br>DW6000 x 7,5 = 45 000 DTU<br></br>DW6000c x 9,0 = 54 000 DTU<br></br>Puede ver el consumo de DTU actual en la opción de SQL Server en el portal. Tanto las bases de datos en pausa como las no pausadas cuentan en la cuota de DTU. |
 | Conexión de base de datos |Sesiones abiertas simultáneas |1024<br/><br/>Cada una de las sesiones activas de 1024 puede enviar solicitudes a una base de datos de SQL Data Warehouse al mismo tiempo. Tenga en cuenta que no hay límite en el número de consultas que se pueden ejecutar a la vez. Cuando se supera el límite de simultaneidad, la solicitud entra en una cola interna donde espera para su proceso. |
 | Conexión de base de datos |Memoria máxima para instrucciones preparadas |20 MB |
-| [administración de la carga de trabajo](resource-classes-for-workload-management.md) |N.º máximo de consultas simultáneas |128<br/><br/> SQL Data Warehouse puede ejecutar 128 consultas simultáneas como máximo y pone en cola las restantes.<br/><br/>El número de consultas simultáneas se puede reducir cuando los usuarios se asignan a clases de recursos superiores o cuando SQL Data Warehouse tiene una configuración de [unidad de almacenamiento de datos](memory-and-concurrency-limits.md) inferior. Algunas consultas, como las consultas DMV, siempre se pueden ejecutar y no afectan al límite de consultas simultáneas. Para más detalles sobre la ejecución de consultas simultáneas, consulte el artículo sobre [valores máximos de simultaneidad](memory-and-concurrency-limits.md#concurrency-maximums). |
+| [Administración de cargas de trabajo](resource-classes-for-workload-management.md) |N.º máximo de consultas simultáneas |128<br/><br/> SQL Data Warehouse puede ejecutar 128 consultas simultáneas como máximo y pone en cola las restantes.<br/><br/>El número de consultas simultáneas se puede reducir cuando los usuarios se asignan a clases de recursos superiores o cuando SQL Data Warehouse tiene una configuración de [unidad de almacenamiento de datos](memory-and-concurrency-limits.md) inferior. Algunas consultas, como las consultas DMV, siempre se pueden ejecutar y no afectan al límite de consultas simultáneas. Para más detalles sobre la ejecución de consultas simultáneas, consulte el artículo sobre [valores máximos de simultaneidad](memory-and-concurrency-limits.md#concurrency-maximums). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximos: |399 GB por DW100. Por lo tanto, en DWU1000 el tamaño de tempdb es de 3,99 TB. |
 
 ## <a name="database-objects"></a>Objetos de base de datos
@@ -35,7 +35,7 @@ Valores máximos permitidos para los distintos componentes de Azure SQL Data War
 |:--- |:--- |:--- |
 | Base de datos |Tamaño máximo | Gen1: 240 TB comprimidos en disco. Este espacio es independiente del espacio de tempdb o de registro y, por tanto, está dedicado a tablas permanentes.  La compresión del almacén de columnas en clúster se estima en 5X.  Esta compresión permite que la base de datos crezca a aproximadamente 1 PB cuando todas las tablas tienen el almacén de columnas en clúster (el tipo de tabla predeterminada). <br/><br/> Gen2: 240 TB para el almacén de filas y almacenamiento ilimitado para las tablas de almacén de columnas |
 | Tabla |Tamaño máximo |60 TB comprimidos en disco |
-| Tabla |Tablas por base de datos |10 000 |
+| Tabla |Tablas por base de datos | 100 000 |
 | Tabla |Columnas por tabla |1024 columnas |
 | Tabla |Bytes por columna |Depende de la columna de [tipo de datos](sql-data-warehouse-tables-data-types.md). El límite es 8000 para los tipos de datos char, 4000 para nvarchar o 2 GB para los tipos de datos MAX. |
 | Tabla |Bytes por fila, tamaño definido |8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página. Al igual que SQL Server, SQL Data Warehouse admite el almacenamiento con desbordamiento de fila, lo que permite insertar **columnas de longitud variable** de forma no consecutiva. Cuando se insertan filas de longitud variable, solo se almacena la raíz de 24 bytes en el registro principal. Para obtener más información, consulte [Datos de desbordamiento de fila superiores a 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
@@ -69,7 +69,7 @@ Valores máximos permitidos para los distintos componentes de Azure SQL Data War
 | SELECT |Columnas por JOIN |1024 columnas<br/><br/>Nunca se pueden tener más de 1024 columnas en la instrucción JOIN. No hay ninguna garantía de que siempre pueda tener 1024. Si el plan JOIN requiere una tabla temporal con más columnas que el resultado de JOIN, se aplica el límite de 1024 a la tabla temporal. |
 | SELECT |Bytes por columnas GROUP BY |8060<br/><br/>Las columnas de la cláusula GROUP BY pueden tener como máximo 8060 bytes. |
 | SELECT |Bytes por columnas ORDER BY |8060 bytes<br/><br/>Las columnas de la cláusula ORDER BY pueden tener como máximo 8060 bytes |
-| Identificadores por instrucción |Número de identificadores de referencia |65 535<br/><br/>SQL Data Warehouse limita el número de identificadores que pueden incluirse en una única expresión de una consulta. Si se supera este número se produce el error de SQL Server 8632. Para más información, consulte [Error interno: se ha alcanzado un límite de servicios de expresión] [Error interno: se ha alcanzado un límite de servicios de expresión]. |
+| Identificadores por instrucción |Número de identificadores de referencia |65 535<br/><br/>SQL Data Warehouse limita el número de identificadores que pueden incluirse en una única expresión de una consulta. Si se supera este número se produce el error de SQL Server 8632. Para obtener más información, consulte [Internal error: An expression services limit has been reached](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a)(Error interno: se ha alcanzado un límite de servicios de una expresión). |
 | Literales de cadena | Número de literales de cadena en una instrucción | 20.000 <br/><br/>SQL Data Warehouse limita el número de constantes de cadena de una única expresión de una consulta. Si se supera este número se produce el error de SQL Server 8632.|
 
 ## <a name="metadata"></a>Metadatos

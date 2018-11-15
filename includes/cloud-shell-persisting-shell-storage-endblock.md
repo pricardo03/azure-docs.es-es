@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: azure
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cynthn
+ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572686"
+---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Transferir archivos locales a Cloud Shell
 El directorio `clouddrive` se sincroniza con la hoja de almacenamiento de Azure Portal. Use esta hoja para transferir archivos locales al recurso compartido de archivos y viceversa. La actualización de archivos en Cloud Shell se refleja en la GUI de File Storage al actualizarse las hojas.
 

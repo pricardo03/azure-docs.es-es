@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
 ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
+ms.lasthandoff: 11/09/2018
 ms.locfileid: "49352244"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
@@ -49,7 +49,7 @@ Para más información sobre las cuentas de almacenamiento, vea [Información ge
 Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo de importación y exportación no puede abarcar varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
-> El servicio Azure Import/Export no admite cuentas de almacenamiento con la característica [Puntos de conexión del servicio Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md) habilitada. 
+> El servicio Azure Import/Export no admite cuentas de almacenamiento con la característica [Puntos de conexión del servicio Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md) habilitada. 
 
 ## <a name="supported-storage-types"></a>Tipos de almacenamiento admitidos
 

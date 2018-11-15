@@ -4,17 +4,17 @@ description: Administra la posición de seguridad del dispositivo IoT Edge y la 
 services: iot-edge
 keywords: seguridad, elemento seguro, enclave, TEE, IoT Edge
 author: eustacea
-manager: timlt
+manager: philmea
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6231f50134f7dcfd29e8754841847beb69570204
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321196"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567696"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Administrador de seguridad de IoT Edge
 

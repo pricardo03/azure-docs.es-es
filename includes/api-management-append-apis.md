@@ -1,3 +1,16 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+ms.openlocfilehash: 2bfa356deeede1c16bd5a464ea7081132a67faf6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572680"
+---
 ## <a name="append-other-apis"></a>Anexión de otras API
 
 Una API puede constar de varias API expuestas por diferentes servicios, entre las que se incluyen la especificación OpenAPI, una API de SOAP, la característica API Apps de Azure App Service, Azure Function App, Azure Logic Apps y Azure Service Fabric.

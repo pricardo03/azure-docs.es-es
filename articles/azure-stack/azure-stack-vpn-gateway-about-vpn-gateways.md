@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 8f45535b0e75c3f95a56148ea92a343bb0d8a9f5
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079266"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300156"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Acerca de VPN Gateway para Azure Stack
 
@@ -33,7 +33,7 @@ Al crear una puerta de enlace de red virtual, debe especificar el tipo de puerta
 
 Cada red virtual solo puede tener dos puertas de enlace de red virtual, pero solo una de cada tipo. Según la configuración que elija, puede crear varias conexiones a una única instancia de VPN Gateway. Un ejemplo de esto es la configuración de conexión multisitio.
 
-Antes de crear y configurar instancias de VPN Gateway para Azure Stack, revise las [consideraciones para los servicios de red de Azure Stack](/articles/azure-stack/user/azure-stack-network-differences.md) para información sobre las diferencias de las configuraciones de Azure Stack y Azure.
+Antes de crear y configurar instancias de VPN Gateway para Azure Stack, revise las [consideraciones para los servicios de red de Azure Stack](user/azure-stack-network-differences.md) para información sobre las diferencias de las configuraciones de Azure Stack y Azure.
 
 >[!NOTE]
 >En Azure, el rendimiento de ancho de banda de la SKU de VPN Gateway que elija debe dividirse entre todas las conexiones que están conectadas a la puerta de enlace. Pero en Azure Stack, el valor de ancho de banda de la SKU de VPN Gateway se aplica a cada recurso de conexión que está conectado a él.

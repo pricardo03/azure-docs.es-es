@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 6d31e6a4d424b8e3c634c9d5075b1f02c512187b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651211"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578678"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Cómo utilizar una identidad administrada con Azure Container Instances
 
@@ -38,7 +38,7 @@ Utilice una identidad administrada en un contenedor en ejecución para autentica
 
 ### <a name="enable-a-managed-identity"></a>Habilitación de una entidad administrada
 
- En Azure Container Instances, se admiten identidades administradas para los recursos de Azure a partir de la API de REST versión 2018-10-01 y los SDK y las herramientas correspondientes. Al crear un grupo de contenedores, habilite una o varias identidades administradas estableciendo una propiedad [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity). También puede habilitar o actualizar las identidades administradas después de que se ejecute un grupo de contenedores; cualquiera de estas acciones hace que el grupo de contenedores se reinicie. Para establecer las identidades en un grupo de contenedores nuevo o existente, use la CLI de Azure, una plantilla de Resource Manager o un archivo YAML. 
+ En Azure Container Instances, se admiten identidades administradas para los recursos de Azure a partir de la API de REST versión 2018-10-01 y los SDK y las herramientas correspondientes. Al crear un grupo de contenedores, habilite una o varias identidades administradas estableciendo una propiedad [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity). También puede habilitar o actualizar las identidades administradas después de que se ejecute un grupo de contenedores; cualquiera de estas acciones hace que el grupo de contenedores se reinicie. Para establecer las identidades en un grupo de contenedores nuevo o existente, use la CLI de Azure, una plantilla de Resource Manager o un archivo YAML. 
 
 Azure Container Instances admite ambos tipos de identidades administradas de Azure: asignada por el usuario y asignada por el sistema. En un grupo de contenedores, puede habilitar una identidad asignada por el sistema y una o más identidades asignadas por el usuario. 
 

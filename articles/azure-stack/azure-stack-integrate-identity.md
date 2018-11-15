@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 11/08/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 8a33d4edb4107b936c36a744bb082c02b7830868
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024450"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300717"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
 Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
@@ -173,8 +173,6 @@ Se requiere la siguiente información como entrada para los parámetros de autom
 |CustomAdfsName|Nombre del proveedor de notificaciones. Aparece de este modo en la página de aterrizaje de AD FS.|Contoso|
 |CustomADFSFederationMetadataFileContent|Contenido de los metadatos|$using:federationMetadataFileContent|
 
-
-
 ### <a name="create-federation-metadata-file"></a>Creación de un archivo de metadatos de federación
 
 Para el siguiente procedimiento, debe usar un equipo que tenga conectividad de red a la implementación de AD FS existente, que se convierte en el servicio de token de seguridad de la cuenta. Además, deben instalarse los certificados necesarios.
@@ -182,9 +180,11 @@ Para el siguiente procedimiento, debe usar un equipo que tenga conectividad de r
 1. Abra una sesión de Windows PowerShell con privilegios elevados y ejecute el comando siguiente con los parámetros adecuados para su entorno:
 
    ```PowerShell  
-    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
-    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
-
+    $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
+    $webclient = New-Object System.Net.WebClient
+    $webclient.Encoding = [System.Text.Encoding]::UTF8
+    $metadataAsString = $webclient.DownloadString($url)
+    Set-Content -Path c:\metadata.xml -Encoding UTF8 -Value $metadataAsString
    ```
 
 2. Copie el archivo de metadatos en un equipo que pueda comunicarse con el punto de conexión con privilegios.

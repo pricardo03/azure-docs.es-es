@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: a40917ec24ede1107f7d8ae7f5fb2f0f03d1094c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7da75e052aaf36d0f59a5f23c28e42c0e4661b0a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278334"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615254"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Qué es la extensión Azure Diagnostics
 La extensión Azure Diagnostics es un agente dentro de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde un número de orígenes diferentes. Actualmente se admiten los roles web y de trabajo de Azure Cloud Services, las máquinas virtuales, los conjuntos de escalado de máquinas virtuales y Service Fabric. Otros servicios de Azure tienen métodos de diagnóstico diferentes. Consulte [Introducción a la supervisión en Azure](../azure-monitor/overview.md).
@@ -47,7 +47,7 @@ También puede enviarlos a [Application Insights](../application-insights/app-in
 ### <a name="azure-monitor"></a>Azure Monitor
 También tiene la opción de enviar los datos a Azure Monitor. En este momento, este receptor solo se puede aplicar a los contadores de rendimiento. Permite enviar a Azure Monitor los contadores de rendimiento recopilados en la máquina virtual, VMSS o en el servicio en la nube como métricas personalizadas. El receptor de Azure Monitor admite:
 * La recuperación de todos los contadores de rendimiento que se envían a Azure Monitor a través de las [API de métricas de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/).
-* Las alertas de todos los contadores de rendimiento que se envían a Azure Monitor a través de la nueva [experiencia unificada de alertas](monitoring-overview-unified-alerts.md) de Azure Monitor.
+* Las alertas de todos los contadores de rendimiento que se envían a Azure Monitor a través de la nueva [experiencia unificada de alertas](monitoring-overview-alerts.md) de Azure Monitor.
 * El tratamiento del operador comodín de los contadores de rendimiento como la dimensión "Instancia" de la métrica.  Por ejemplo, si recopiló el contador de "LogicalDisk(\*)/DiskWrites/sec", debería poder filtrar y dividir en la dimensión "Instancia" para el trazado o una alerta en las escrituras en disco/s para cada disco lógico de la máquina virtual (C:, D:, etc.).
 
 Para obtener más información sobre cómo configurar este receptor, consulte la [documentación del esquema de diagnósticos de Azure](azure-diagnostics-schema-1dot3-and-later.md).

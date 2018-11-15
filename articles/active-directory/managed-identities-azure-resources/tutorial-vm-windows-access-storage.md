@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: 46be9469e67a4f456be100823d475b8720262b1b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d032d8cc33d33954406ad45e64fc199d569abf41
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163182"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620942"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Storage
 
@@ -37,15 +37,7 @@ En este tutorial se muestra cómo usar una identidad administrada asignada por e
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Iniciar sesión en Azure Portal](https://portal.azure.com)
-
-- [Crear una máquina virtual Windows](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Habilitar la identidad administrada asignada por el sistema de la máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
 
@@ -90,7 +82,7 @@ Puede usar la identidad administrada asignada por el sistema de la máquina virt
 
     ![Asignación de permisos](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Obtención de un token de acceso y su uso para llamar a Azure Storage 
+## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Obtención de un token de acceso y su uso para llamar a Azure Storage 
 
 Azure Storage admite de manera nativa la autenticación de Azure AD, por lo que puede aceptar directamente los tokens de acceso obtenidos mediante una identidad administrada. Forma parte de la integración de Azure Storage con Azure AD y es diferente de proporcionar las credenciales en la cadena de conexión.
 

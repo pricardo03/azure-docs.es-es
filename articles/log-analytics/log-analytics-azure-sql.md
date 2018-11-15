@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: b20a142007b3422d071de47410f4c9cdd1ff62a7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5eb398cf981edbcfe9b98ee89c3dd4e12b3f758f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006743"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615500"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Supervisión de instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
 
@@ -291,4 +291,4 @@ Aunque la solución puede usarse de forma gratuita, se aplicarán cargos por el 
 
 - Use [Búsquedas de registros](log-analytics-queries.md) en Log Analytics para ver datos detallados de Azure SQL.
 - [Cree sus propios paneles](log-analytics-dashboards.md) que muestren datos de Azure SQL.
-- [Cree alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) cuando se produzcan eventos específicos de Azure SQL.
+- [Cree alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) cuando se produzcan eventos específicos de Azure SQL.

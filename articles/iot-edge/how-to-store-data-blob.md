@@ -2,19 +2,19 @@
 title: Azure Blob Storage en dispositivos de Azure IoT Edge | Microsoft Docs
 description: Implementación de un módulo de Azure Blob Storage en un dispositivo de IoT Edge para almacenar datos en el perímetro.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
 ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b86f73302d9f5d07cd1e6e8c7801de56a988cc7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955293"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567288"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Almacene datos en el perímetro con Azure Blob Storage en IoT Edge (versión preliminar)
 

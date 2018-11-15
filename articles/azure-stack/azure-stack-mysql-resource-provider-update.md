@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: f58ba1af301379810d5072f55c7b9365f205911f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 46671a559f4db9aaa798e2c0d8cc668794687a58
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364700"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686337"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Actualización del proveedor de recursos de MySQL 
 
@@ -41,9 +41,6 @@ El script **UpdateMySQLProvider.ps1** crea una nueva máquina virtual con el có
 >[!NOTE]
 >Se recomienda descargar la imagen de Windows Server 2016 Core más reciente de Marketplace Management (Administración de Marketplace). Si tiene que instalar una actualización, puede colocar un **único** paquete MSU en la ruta de acceso local de la dependencia. El script dará error si hay más de un archivo MSU en esta ubicación.
 
->[!NOTE]  
-> 
-
 El script requiere el uso de los mismos argumentos que se describen para el script DeployMySqlProvider.ps1. Proporcione aquí también el certificado.  
 
 Este es un ejemplo del script *UpdateMySQLProvider.ps1* que puede ejecutar desde el símbolo del sistema de PowerShell. Asegúrese de cambiar la información de la cuenta y las contraseñas según sea necesario:  
@@ -52,9 +49,10 @@ Este es un ejemplo del script *UpdateMySQLProvider.ps1* que puede ejecutar desde
 > El proceso de actualización solo se aplica a sistemas integrados. 
 
 ```powershell 
-# Install the AzureRM.Bootstrapper module and set the profile. 
-Install-Module -Name AzureRm.BootStrapper -Force 
-Use-AzureRmProfile -Profile 2017-03-09-profile 
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
 $domain = "AzureStack" 

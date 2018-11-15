@@ -3,18 +3,18 @@ title: Implementación y supervisión de módulos para Azure IoT Edge | Microsof
 description: Administración de los módulos que se ejecutan en dispositivos perimetrales
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393464"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566252"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
 
@@ -106,7 +106,7 @@ Use la propiedad de etiquetas en los dispositivos para dirigirse a los dispositi
 Como varias implementaciones pueden tener como destino el mismo dispositivo, debe dar a cada implementación un número de prioridad. En caso de conflicto, gana la implementación con la prioridad más alta (los valores más altos indican prioridad más alta). Si dos implementaciones tienen el mismo número de prioridad, gana la que se creó más recientemente. 
 
 1. Especifique un número entero positivo en el valor de **Prioridad** de la implementación. En el caso de que dos o más implementaciones se destinen al mismo dispositivo, se aplicará la implementación con el valor numérico más alto para la prioridad.
-1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
+1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
 1. Seleccione **Siguiente** para pasar al último paso.
 
 ### <a name="step-5-review-template"></a>Paso 5: Revisión de la plantilla
@@ -123,14 +123,14 @@ Para ver los detalles de una implementación y supervisar los dispositivos que l
 
    ![Visualización de las implementaciones de IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Examine la lista de implementaciones. Para cada implementación, puede ver los detalles siguientes:
+1. Examine la lista de implementaciones. Para cada implementación, puede ver los detalles siguientes:
    * **ID**: nombre de la implementación.
    * **Target condition** (Condición de destino): la etiqueta que se utiliza para definir los dispositivos dirigidos.
    * **Priority** (Prioridad): el número de prioridad asignado a la implementación.
    * **Métricas del sistema** - **Dirigidas** especifica el número de dispositivos gemelos en IoT Hub que coinciden con la condición de destino, y **Aplicadas** especifica el número de dispositivos que ha tenido el contenido de implementación aplicado a sus módulos gemelos en IoT Hub. 
    * **Métricas del dispositivo**: el número de dispositivos de Edge en el informe de implementación correcto o con errores del entorno de ejecución del cliente de IoT Edge.
    * **Creation time** (Hora de creación): la marca de tiempo de cuando se creó la implementación. Esta marca de tiempo se utiliza para dirimir cuando dos implementaciones tienen la misma prioridad. 
-2. Seleccione la implementación que desea supervisar.  
+2. Seleccione la implementación que desea supervisar.  
 3. Examine los detalles de la implementación. Puede usar las pestañas para revisar los detalles de la implementación.
 
 ## <a name="modify-a-deployment"></a>Modificación de una implementación
@@ -151,10 +151,10 @@ Para modificar una implementación, siga estos pasos:
    ![Visualización de las implementaciones de IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Seleccione la implementación que desea modificar. 
-1. Realice las actualizaciones en los campos siguientes: 
-   * Condición de destino 
-   * Etiquetas 
-   * Prioridad 
+1. Realice las actualizaciones en los campos siguientes: 
+   * Condición de destino 
+   * Etiquetas 
+   * Prioridad 
 1. Seleccione **Guardar**.
 1. Siga los pasos de [Supervisión de una implementación](#monitor-a-deployment) para observar la implementación de los cambios. 
 
@@ -170,7 +170,7 @@ Cuando se elimina una implementación, los dispositivos adoptan la siguiente imp
 
 1. Utilice la casilla de verificación para seleccionar la implementación que desea eliminar. 
 1. Seleccione **Eliminar**.
-1. Un mensaje le informará de que esta acción eliminará esta implementación y volverá al estado anterior para todos los dispositivos.  Esto significa que se aplicará una implementación con una prioridad más baja.  Si ninguna otra implementación está dirigida, no se quitará ningún módulo. Si quiere quitar todos los módulos del dispositivo, cree una implementación con cero módulos e impleméntela a los mismos dispositivos. Seleccione **Yes** (Sí) para continuar. 
+1. Un mensaje le informará de que esta acción eliminará esta implementación y volverá al estado anterior para todos los dispositivos.  Esto significa que se aplicará una implementación con una prioridad más baja.  Si ninguna otra implementación está dirigida, no se quitará ningún módulo. Si quiere quitar todos los módulos del dispositivo, cree una implementación con cero módulos e impleméntela a los mismos dispositivos. Seleccione **Yes** (Sí) para continuar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

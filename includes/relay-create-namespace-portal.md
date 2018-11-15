@@ -1,3 +1,16 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572692"
+---
 1. Inicie sesión en [Azure Portal][Azure portal].
 2. En el menú de la izquierda, seleccione **+ Crear un recurso**. Seleccione **Integración** > **Retransmisión**. Si no ve **Retransmisión** en la lista, seleccione **Ver todo** en la esquina superior derecha. 
 3. En **Crear espacio de nombres**, especifique un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.

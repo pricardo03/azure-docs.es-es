@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 36b57fd98de206641422d80bf3ea3d2a3853f578
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 006d0ef28d82a7648a56b3bf871c5a3afd6a55a6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252571"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624427"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Claves únicas en Azure Cosmos DB
 
@@ -48,17 +48,6 @@ Puede definir claves únicas solo cuando se crea un contenedor de Cosmos. Una cl
 * No se admiten las claves únicas dispersas. Si faltan algunos valores de ruta de acceso única, se tratan como valores NULL, que participan en la restricción de exclusividad. Por lo tanto, solo puede haber un único elemento con un valor NULL para cumplir esta restricción.
 
 * Los nombres de clave única distinguen mayúsculas de minúsculas. Por ejemplo, considere un contenedor con la restricción de clave única establecida en /address/zipcode. Si los datos tienen un campo denominado ZipCode, Cosmos DB inserta "null" como clave única porque "código postal" no es lo mismo que "Código Postal". Debido a esta distinción entre mayúsculas y minúsculas, todos los demás registros con Código Postal no se podrán insertar porque un valor "null" duplicado infringirá la restricción de clave única.
-
-## <a name="supported-apis-and-sdks"></a>SDK y API compatibles
-
-La característica de claves únicas actualmente es compatible con los siguientes SDK de cliente y API de Cosmos DB: 
-
-|Controladores cliente|API DE SQL|Cassandra API|MongoDB API|API de Gremlin|Table API|
-|---|---|---|---|---|---|
-|.NET|SÍ|Sin |Sí|No|Sin |
-|Java|SÍ|Sin |Sí|No|Sin |
-|Python|SÍ|Sin |Sí|No|Sin |
-|Node/JS|SÍ|Sin |Sí|No|Sin |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

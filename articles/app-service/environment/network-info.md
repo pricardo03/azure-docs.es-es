@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 6d4f7fab0c36095d96cec0038a39744102e8972b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433759"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288261"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -33,7 +33,7 @@ Hay dos versiones de App Service Environment: ASEv1 y ASEv2. Para información s
 
 Todas las llamadas que vayan a Internet desde una instancia de ASE salen de la red virtual a través de una IP virtual asignada para el ASE. La dirección IP pública de esta IP virtual es la dirección IP de origen para todas las llamadas desde el ASE que vayan a Internet. Si las aplicaciones en la instancia de ASE realizan llamadas a los recursos de la red virtual o a través de una VPN, la IP de origen es una de las de la subred usada por su ASE. Dado que el ASE está dentro de la red virtual, también puede tener acceso a los recursos dentro de la red virtual sin ninguna configuración adicional. Si la red virtual está conectada a la red local, las aplicaciones en su ASE también tienen acceso a los recursos allí sin configuración adicional.
 
-![ASE externo][1] 
+![ASE externo][1] 
 
 Si tiene un ASE externo, la VIP pública es también el punto de conexión que las aplicaciones ASE usan para:
 
@@ -52,7 +52,7 @@ Los puertos de acceso de aplicación normales son:
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Configurable por el usuario |  80, 443 |
 |  FTP/FTPS    | Configurable por el usuario |  21, 990, 10001-10020 |
-|  Depuración remota en Visual Studio  |  Configurable por el usuario |  4016, 4018, 4020, 4022 |
+|  Depuración remota en Visual Studio  |  Configurable por el usuario |  4020, 4022, 4024 |
 
 Es así tanto si está en un ASE externo como en un ASE de ILB. Si se encuentra en un ASE externo, llega a esos puertos en la VIP pública. Si se encuentra en un ASE de ILB, llega a esos puertos en el ILB. Si bloquea el puerto 443, puede afectar a algunas características que se exponen en el portal. Para más información, consulte [Dependencias del portal](#portaldep).
 
@@ -170,7 +170,7 @@ Los dos primeros requisitos de entrada para que el ASE funcione están en la par
 
 Una regla predeterminada permite que las direcciones IP en la red virtual se comuniquen con la subred de ASE. Otra regla predeterminada permite que el equilibrador de carga, también conocido como VIP pública, se comunique con el ASE. Para ver las reglas predeterminadas, seleccione **Reglas predeterminadas** junto al icono **Agregar**. Si coloca una regla para denegar todo lo demás después de las reglas de NSG que se muestran, evita el tráfico entre la IP virtual y el ASE. Para impedir el tráfico procedente de dentro de la red virtual, agregue su propia regla para permitir la entrada. Use un origen igual que AzureLoadBalancer con **cualquier** destino y un intervalo de puertos **\***. Puesto que la regla NSG se aplica a la subred de ASE, no es necesario que sea específico en el destino.
 
-Si ha asignado una dirección IP a la aplicación, asegúrese de mantener los puertos abiertos. Para ver los puertos, seleccione **App Service Environment** > **Direcciones IP**.  
+Si ha asignado una dirección IP a la aplicación, asegúrese de mantener los puertos abiertos. Para ver los puertos, seleccione **App Service Environment** > **Direcciones IP**.  
 
 Se necesitan todos los elementos que se muestran en las siguientes reglas de salida, excepto el último. Estos elementos habilitan el acceso de red a las dependencias de ASE que se han indicado anteriormente en este artículo. Si bloquea alguna de ellas, el ASE deja de funcionar. El último elemento de la lista habilita al ASE para que se comunique con otros recursos de la red virtual.
 

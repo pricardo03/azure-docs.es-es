@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731809"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615610"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Almacenamiento de salidas y entradas de los trabajos de Batch AI con Azure Storage
 
@@ -98,7 +98,7 @@ Si el script de entrenamiento requiere conocimiento de una ruta de acceso, se de
 
 ### <a name="abbreviate-input-paths"></a>Abreviación de las rutas de acceso de entrada
 
-Para abreviar las rutas de acceso de entrada como una variable de entorno, utilice la propiedad `inputDirectories` de su archivo `job.json` (o `models.JobCreateParamters.input_directories` si usa el SDK de Batch AI). El esquema para `inputDirectories` es:
+Para abreviar las rutas de acceso de entrada como una variable de entorno, utilice la propiedad `inputDirectories` de su archivo `job.json` (o `models.JobCreateParameters.input_directories` si usa el SDK de Batch AI). El esquema para `inputDirectories` es:
 
 ```json
 {
@@ -115,7 +115,7 @@ Para más información, consulte [esta página](https://github.com/Azure/BatchAI
 
 ### <a name="abbreviate-output-paths"></a>Abreviación de las rutas de acceso de salida
 
-Para abreviar las rutas de acceso de salida como una variable de entorno, utilice la propiedad `outputDirectories` de su archivo `job.json` (o `models.JobCreateParamters.output_directories` si usa el SDK de Batch AI). Con este método, puede simplificar las rutas de acceso para los archivos de salida. El esquema para `outputDirectories` es:
+Para abreviar las rutas de acceso de salida como una variable de entorno, utilice la propiedad `outputDirectories` de su archivo `job.json` (o `models.JobCreateParameters.output_directories` si usa el SDK de Batch AI). Con este método, puede simplificar las rutas de acceso para los archivos de salida. El esquema para `outputDirectories` es:
 
 ```json
 {

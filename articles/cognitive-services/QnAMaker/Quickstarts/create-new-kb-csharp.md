@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/6/2018
 ms.author: diberry
-ms.openlocfilehash: d9040965a0cfaf022bf4cc582cb2aeaa34d04849
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bcb19ebdcf6d4ca1c01612f815700fbbc0dd2fda
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252452"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567730"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Guía de inicio rápido: creación de una base de conocimiento en QnA Maker mediante C#
 
@@ -32,7 +32,7 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 * Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave, seleccione **Claves** en **Administración de recursos** en el panel. 
 
 > [!NOTE] 
-> Los archivos de la solución completa están disponibles en el repositorio [**Azure-Samples/cognitive-services-qnamaker-csharp** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/create-and-publish-knowledge-base).
+> Los archivos de la solución completa están disponibles en el repositorio [**Azure-Samples/cognitive-services-qnamaker-csharp** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
 
 ## <a name="create-a-knowledge-base-project"></a>Creación de un proyecto de base de conocimiento
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: f52a849fee4005628fb6a8ad567d89f5046d4765
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968080"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515359"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimización de la inversión en la nube con Azure Cost Management
 
@@ -186,10 +186,6 @@ Para más información, consulte [¿Qué son las reservas de Azure?](../billing/
 Si ya tiene licencias de Windows Server o de SQL Server en las implementaciones locales, puede usar el programa de Ventaja híbrida de Azure para ahorrar en Azure. Con la ventaja de Windows Server, cada licencia cubre el costo del sistema operativo (en dos máquinas virtuales como máximo) y solo tiene que pagar los costos de proceso básicos. Puede usar licencias de SQL Server existentes para ahorrar hasta un 55 por ciento en las opciones de SQL Database basadas en núcleos virtuales. Las opciones incluyen SQL Server en máquinas virtuales de Azure y SQL Server Integration Services.
 
 Para más información, consulte [Calculadora de ahorro de la Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-#### <a name="monetary-commitment"></a>Compromiso monetario
-
-Los clientes que firman un contrato Enterprise pueden crear un compromiso monetario por adelantado con Microsoft. Además de proporcionar una manera sencilla de asignar los presupuestos a los recursos en la nube, los compromisos monetarios permiten tener tarifas reducidas en Azure. Las reducciones de tarifa pueden dar lugar a importantes ahorros en costos para la organización.
 
 ### <a name="other-resources"></a>Otros recursos:
 

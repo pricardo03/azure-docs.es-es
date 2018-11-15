@@ -8,16 +8,17 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 15ecbcafd3397b425b669a48f19bee6073b71149
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 89b412a58291dd542b38cd0cbfa1288795024151
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279796"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613722"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos compatibles para las alertas de métricas de Azure Monitor
 
-Azure Monitor ahora admite un nuevo tipo de alerta de métrica que tiene ventajas considerables sobre las anteriores [alertas de métrica clásicas](alert-metric-classic.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](monitoring-supported-metrics.md). Las nuevas alertas admiten un subconjunto (creciente) de los tipos de recurso. En este artículo se muestra ese subconjunto.
+Azure Monitor ahora admite un [nuevo tipo de alerta de métrica](monitoring-overview-alerts.md) que tiene ventajas considerables sobre las anteriores [alertas de métrica clásicas](monitoring-overview-alerts-classic.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](monitoring-supported-metrics.md). Las nuevas alertas admiten un subconjunto (creciente) de los tipos de recurso. En este artículo se muestra ese subconjunto.
+
 
 También puede utilizar las nuevas alertas de métricas en los registros populares de Log Analytics extraídos como métricas. Para obtener más información, consulte [Alertas de métricas para registros](monitoring-metric-alerts-logs.md).
 
@@ -120,6 +121,6 @@ La operación POST contiene el esquema y la carga útil de JSON siguientes para 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre la nueva [experiencia de alertas](monitoring-overview-unified-alerts.md).
+* Más información sobre la nueva [experiencia de alertas](monitoring-overview-alerts.md).
 * Más información sobre las [alertas de registro en Azure](monitor-alerts-unified-log.md).
 * Más información sobre las [alertas en Azure](monitoring-overview-alerts.md).

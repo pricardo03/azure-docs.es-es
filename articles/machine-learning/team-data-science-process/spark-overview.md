@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: acb02df7a1ca49e822062ec5658b4875388b85ab
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 043d19e3917bcdac7e963225af7e614315e414bd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586026"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344712"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Información general sobre la ciencia de los datos con Spark en HDInsight de Azure
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 En este conjunto de temas se muestra cómo utilizar Spark en HDInsight para completar tareas comunes de ciencia de datos como la ingesta de datos, el diseño de características, el modelado y la evaluación de modelos. Los datos que se utilizan son un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York en 2013 Los modelos creados incluyen regresión logística y lineal, bosques aleatorios y árboles impulsados por gradiente: En los temas también se muestra cómo almacenar estos modelos en el Azure Blob Storage (WASB) y cómo puntuar y evaluar su rendimiento predictivo. En los temas más avanzados se describe cómo se pueden entrenar los modelos mediante validación cruzada y barrido de hiperparámetros. En este tema introductorio también se hace referencia al tema en el que se describe cómo configurar un clúster de Spark que se necesita para completar los pasos de los tutoriales proporcionados. 
 

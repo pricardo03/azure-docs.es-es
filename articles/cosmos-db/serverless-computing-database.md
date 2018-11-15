@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140983"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623167"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -98,7 +98,7 @@ En implementaciones de venta minorista, cuando un usuario agrega un elemento a s
 
 **Implementación:** varios desencadenadores de Azure Cosmos DB que escuchan un contenedor
 
-1. Puede crear varias instancias de Azure Functions si agrega desencadenadores de Azure Cosmos DB a cada una de ellas, todas las cuales escuchan la misma fuente de cambios de los datos del carro de la compra. Tenga en cuenta que cuando varias funciones escuchan en la misma fuente de cambios, es necesario una colección de concesiones para cada función. Para más información sobre las colecciones de concesiones, consulte [Biblioteca del procesador de fuente de cambios](change-feed.md#understand-cf).
+1. Puede crear varias instancias de Azure Functions si agrega desencadenadores de Azure Cosmos DB a cada una de ellas, todas las cuales escuchan la misma fuente de cambios de los datos del carro de la compra. Tenga en cuenta que cuando varias funciones escuchan en la misma fuente de cambios, es necesario una colección de concesiones para cada función. Para más información sobre las colecciones de concesiones, consulte [Biblioteca del procesador de fuente de cambios](change-feed-processor.md).
 2. Cada vez que un elemento nuevo se agrega al carro de la compra de los usuarios, la fuente de cambios invoca cada función de manera independiente desde el contenedor de carros de la compra.
     * Una función puede usar el contenido de la cesta actual para cambiar la visualización de otros artículos que puedan interesarle al usuario.
     * Otra función podría actualizar los totales de inventario.

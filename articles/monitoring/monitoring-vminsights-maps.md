@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ac96de2669a75a5966650afc0b49cc2f926537fa
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095485"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614215"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación
 Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en el entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para VM: directamente desde la máquina virtual o a través de los grupos de máquinas virtuales en Azure Monitor. 
@@ -52,7 +52,7 @@ Para que la característica de asignación muestre las alertas pertinentes, cree
 - Incluya una cláusula para agrupar por equipo (por ejemplo, **by Computer interval 1 minute**).
 - Elija que se envíen alertas según las unidades métricas.
 
-Para obtener más información sobre Alertas de Azure y crear reglas de alertas, consulte el artículo [Alertas unificadas en Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+Para obtener más información sobre Alertas de Azure y crear reglas de alertas, consulte el artículo [Alertas unificadas en Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
 
 El opción de **leyenda** en la esquina superior derecha describe los símbolos y los roles en una asignación.  Para observar más de cerca la asignación y explorarla, los controles de zoom en la parte inferior derecha de la página determinan el nivel de zoom y ajustan el tamaño de la página al tamaño de la página actual.  
 

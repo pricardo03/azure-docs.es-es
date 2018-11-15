@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0859e480df0111e26d5b64bf835f94b3852b3414
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0d76aa5091e77d8713290e6da8908e15ad3ef995
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277365"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684574"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Uso de Data Lake Store con clústeres de Azure HDInsight
 
@@ -47,7 +47,7 @@ A partir de ahora, solo algunos tipos o versiones de clústeres de HDInsight adm
 | HDInsight versión 3.2 | Sin  | Sí | |
 | Storm | | |Data Lake Store se puede usar para escribir datos de una topología de Storm. Puede usar Data Lake Store para datos de referencia que luego puede leer una topología de Storm.|
 
-[!WARNING]
+> [!WARNING]
 > HDInsight HBase no es compatible con Azure Data Lake Storage Gen 1
 
 El uso de Data Lake Store como una cuenta de almacenamiento adicional no afecta al rendimiento o la capacidad de lectura o escritura en Azure Storage desde el clúster.

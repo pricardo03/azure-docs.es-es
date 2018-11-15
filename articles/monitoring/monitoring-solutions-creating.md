@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b7839fc498b54d2128528c8d655d78bb759a7cd5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282057"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612446"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Diseño y compilación de una solución de administración en Azure (versión preliminar)
 > [!NOTE]
@@ -54,7 +54,7 @@ Las [búsquedas de registros](../log-analytics/log-analytics-queries.md) se usan
 Debe definir las consultas que cree que le resultarán útiles para el usuario, incluso si no hay vistas o alertas que las utilicen.  Estas estarán disponibles para los usuarios como búsquedas guardadas en el portal y también se pueden incluir en un [elemento de visualización Lista de consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) en la vista personalizada.
 
 ### <a name="alerts"></a>Alertas
-[Alertas de Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identifican los problemas a través de [búsquedas de registros](#log-searches) con los datos en el repositorio.  Estas alertas o bien envían una notificación al usuario o ejecutan automáticamente una acción en respuesta. Debe identificar las diferentes condiciones de alerta para la aplicación e incluir reglas de alerta correspondientes en el archivo de solución.
+[Alertas de Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) identifican los problemas a través de [búsquedas de registros](#log-searches) con los datos en el repositorio.  Estas alertas o bien envían una notificación al usuario o ejecutan automáticamente una acción en respuesta. Debe identificar las diferentes condiciones de alerta para la aplicación e incluir reglas de alerta correspondientes en el archivo de solución.
 
 Si el problema potencialmente puede corregirse con un proceso automatizado, entonces usted normalmente creará un runbook en Azure Automation para realizar esta corrección.  La mayoría de los servicios de Azure pueden administrarse con [cmdlets](/powershell/azure/overview) que el runbook aprovechará para realizar esta funcionalidad.
 

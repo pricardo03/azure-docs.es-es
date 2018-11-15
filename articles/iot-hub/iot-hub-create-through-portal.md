@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 8f08141f5c14a734f89ba91045767e2a36a44fd2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985612"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515852"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
@@ -24,45 +24,7 @@ Para seguir los pasos de este tutorial, necesita una suscripción a Azure. Si no
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
-
-2. Elija **+ Crear un recurso** y, a continuación, **Internet de las cosas**.
-
-3. Haga clic en **Centro de Iot** en la lista de la derecha. Verá la primera pantalla para crear un centro de IoT.
-
-   ![Captura de pantalla donde se muestra cómo crear un hub en Azure Portal](./media/iot-hub-create-through-portal/iot-hub-create-screen-basics.png)
-
-   Rellene los campos.
-
-   **Subscription** (Suscripción): seleccione la suscripción que se usará con su centro de IoT.
-
-   **Resource Group** (Grupo de recursos): puede crear un grupo de recursos o usar uno ya existente. Para crear uno, haga clic en **Create new** (Crear) y escriba el nombre que quiere usar. Para usar un grupo de recursos existente, haga clic en **Use existing** (Usar existente) y seleccione el grupo de recursos de la lista desplegable.
-
-   **Region** (Región): en la lista desplegable, seleccione la región en la que quiere ubicar su centro.
-
-   **IoT Hub Name** (Nombre del centro de IoT): escriba el nombre del centro de IoT. Este nombre debe ser único globalmente. 
-
-   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
-
-4. Haga clic en **Next: Size and scale** (Siguiente: Tamaño y escala) para ir a la pantalla siguiente.
-
-   ![Captura de pantalla que muestra la configuración de tamaño y escala de un nuevo centro de IoT mediante Azure Portal](./media/iot-hub-create-through-portal/iot-hub-create-screen-size-scale.png)
-
-   En esta pantalla, puede aceptar los valores predeterminados y hacer clic en **Review + create** (Revisar y crear) en la parte inferior. O bien, puede rellenar los campos según sea necesario.
-
-   **Pricing and scale tier** (Nivel de precios y de escala): puede elegir entre varios niveles, en función del número de características que quiera y el número de mensajes que envíe mediante su solución al día. El nivel gratis está pensado para la prueba y evaluación. Permite la conexión de 500 dispositivos con el centro de IoT y hasta 8000 mensajes al día. Cada suscripción a Azure puede crear una instancia de IoT Hub en el nivel gratis. 
-
-   **IoT Hub units** (Unidades de IoT Hub): el número de mensajes que se permiten por unidad y por día depende del plan de tarifa del centro. Por ejemplo, si desea que el Centro de IoT admita la entrada de 700 000 mensajes, elija dos unidades del nivel de S1.
-
-   Para más información sobre las demás opciones del nivel, consulte la sección [Elección del nivel correcto de IoT Hub](iot-hub-scaling.md).
-
-   **Advanced / Device-to-cloud partitions** (Particiones avanzadas/de dispositivo a nube): esta propiedad relaciona los mensajes del dispositivo a la nube con el número de lectores simultáneos de los mensajes. La mayoría de los centros de IoT solo necesitan cuatro particiones. 
-
-5. Haga clic en **Review + create** (Revisar y crear) para revisar sus selecciones. Verá algo parecido a esta pantalla.
-
-   ![Captura de pantalla de revisión de la información para crear el centro de IoT](./media/iot-hub-create-through-portal/iot-hub-create-review.png)
-
-5. Haga clic en **Create** (Crear) para crear el centro de IoT. Esta operación tarda unos minutos.
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>Cambio de la configuración del Centro de IoT
 

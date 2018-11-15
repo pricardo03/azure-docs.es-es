@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 76a87b79ccc776e0facd57a1cff50fbbcb4f0b9e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e18b670b94962c0e7aa469402228fd4ed95d846b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414886"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287258"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas clásicas mediante Azure Monitor
 
@@ -124,24 +124,25 @@ En esta sección se muestra cómo usar los comandos de PowerShell para crear, ve
 
     ```PowerShell
     Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
+    ```
 
-8. You can use the `Add-AlertRule` cmdlet to create, update, or disable an alert rule. You can create email and webhook properties using  `New-AzureRmAlertRuleEmail` and `New-AzureRmAlertRuleWebhook`, respectively. In the Alert rule cmdlet, assign these properties as actions to the **Actions** property of the Alert Rule. The following table describes the parameters and values used to create an alert using a metric.
+8. Puede usar el cmdlet `Add-AlertRule` para crear, actualizar o deshabilitar una regla de alerta. Puede crear propiedades de correo electrónico y webhook mediante `New-AzureRmAlertRuleEmail` y `New-AzureRmAlertRuleWebhook` respectivamente. En el cmdlet de regla de alerta, asigne estas propiedades como acciones a la propiedad **Actions** de la regla de alerta. En la tabla siguiente se describen los parámetros y valores utilizados para crear una alerta con una métrica.
 
-    | parameter | value |
+    | Parámetro | value |
     | --- | --- |
-    | Name |simpletestdiskwrite |
-    | Location of this alert rule |East US |
+    | NOMBRE |simpletestdiskwrite |
+    | Ubicación (Location) de esta regla de alerta |Este de EE. UU |
     | ResourceGroup |montest |
     | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-    | MetricName of the alert that is created |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
+    | Nombre de la métrica (MetricName) de la alerta que se crea |\PhysicalDisk(_Total)\Disk Writes/sec. Consulte el cmdlet `Get-MetricDefinitions` acerca de cómo recuperar los nombres exactos de las métricas |
     | operator |GreaterThan |
-    | Threshold value (count/sec in for this metric) |1 |
-    | WindowSize (hh:mm:ss format) |00:05:00 |
-    | aggregator (statistic of the metric, which uses Average count, in this case) |Average |
-    | custom emails (string array) |'foo@example.com','bar@example.com' |
-    | send email to owners, contributors and readers |-SendToServiceOwners |
+    | Valor de umbral (número por segundo para esta métrica) |1 |
+    | WindowSize (formato hh:mm:ss) |00:05:00 |
+    | aggregator (estadística de la métrica que, en este caso, usa el recuento medio) |Media |
+    | mensajes de correo electrónico personalizados (matriz de cadenas) |"foo@example.com","bar@example.com" |
+    | enviar correo electrónico a los propietarios, colaboradores y lectores |-SendToServiceOwners |
 
-9. Create an Email action
+9. Creación de una acción de correo electrónico
 
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
