@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: d3cddc729e40b5591922fc7b5c7d3d6a258219a7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5c45167255ec91030f07e550de223a7ebed93168
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955820"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345766"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -217,7 +217,7 @@ Para copiar datos desde una instancia de Azure SQL Data Warehouse o en ella, est
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlDWTable**. | SÍ |
-| tableName | El nombre de la tabla o vista en la instancia de Azure SQL Data Warehouse a la que hace referencia el servicio vinculado. | SÍ |
+| tableName | El nombre de la tabla o vista en la instancia de Azure SQL Data Warehouse a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
 
 #### <a name="dataset-properties-example"></a>Ejemplo de propiedades de un conjunto de datos
 
@@ -257,7 +257,6 @@ Para copiar datos desde Azure SQL Data Warehouse, establezca la propiedad **type
 
 - Si se especifica **sqlReaderQuery** para **SqlSource**, la actividad de copia ejecuta la consulta en el origen de Azure SQL Data Warehouse para obtener los datos. O bien se puede especificar un procedimiento almacenado. Especifique **sqlReaderStoredProcedureName** y **storedProcedureParameters** si el procedimiento almacenado usa parámetros.
 - Si no se especifican **sqlReaderQuery** ni **sqlReaderStoredProcedureName**, se usan las columnas que se definen en la sección **structure** del JSON del conjunto de datos para construir una consulta. `select column1, column2 from mytable` se ejecuta en Azure SQL Data Warehouse. Si la definición del conjunto de datos no tiene la sección **structure**, se seleccionan todas las columnas de la tabla.
-- Cuando use **sqlReaderStoredProcedureName**, necesitará especificar un valor para la propiedad ficticia **tableName** del JSON del conjunto de datos.
 
 #### <a name="sql-query-example"></a>Ejemplo de consulta SQL
 

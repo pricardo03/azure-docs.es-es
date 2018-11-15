@@ -2,18 +2,18 @@
 title: Compatibilidad de plataformas con Azure IoT Edge | Microsoft Docs
 description: Plataformas compatibles con Azure IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: adf017c57cf7c895a0da8fec70e89dda0a314693
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 45c5c7245a2af3b0d0e328bfcc43112eaee406ee
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277926"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565010"
 ---
 # <a name="azure-iot-edge-support"></a>Compatibilidad de Azure IoT Edge
 Hay varias maneras de buscar compatibilidad para el producto de Azure IoT Edge.

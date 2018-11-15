@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a16230b6f51f0ce93f4a9bf53591abbcd6b4bd3b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 4e99656319f543fb40d8509cb4ae9e1c25cfc75b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283689"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622489"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conexión de equipos Windows al servicio Log Analytics de Azure
 
@@ -35,7 +35,7 @@ El agente puede instalarse mediante uno de los métodos siguientes. La mayoría 
 * Script de PowerShell.
 * Plantilla de Resource Manager para máquinas virtuales que ejecutan Windows de forma local en Azure Stack.  
 
-Para comprender la configuración compatible, revise los [sistemas operativos Windows admitidos](log-analytics-concept-hybrid.md#supported-windows-operating-systems) y la [configuración del firewall de red](log-analytics-concept-hybrid.md#network-firewall-requirements).
+Para comprender la configuración compatible, revise los [sistemas operativos Windows admitidos](log-analytics-agent-overview.md#supported-windows-operating-systems) y la [configuración del firewall de red](log-analytics-agent-overview.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obtención de la clave y el identificador de área de trabajo
 Antes de instalar Microsoft Monitoring Agent para Windows, necesita la clave y el identificador de área de trabajo para el área de trabajo de Log Analytics.  Esta información es necesaria durante la configuración de cada método de instalación para configurar de forma correcta el agente y garantizar que puede comunicarse correctamente con Log Analytics en la nube Gobierno de EE. UU. y comercial de Azure.  

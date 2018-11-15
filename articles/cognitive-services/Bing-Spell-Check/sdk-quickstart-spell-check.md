@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 3a6f7511407ba29b8fc6d8d3a41369bcd8cf18bc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 406936200a39e21d7377e7b2dba19a7ee745de57
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803111"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568842"
 ---
 # <a name="quickstart-bing-spell-check-sdk-with-c"></a>Guía de inicio rápido: SDK de Bing Spell Check con C#
 
@@ -25,7 +25,7 @@ El SDK de Bing Spell Check contiene la funcionalidad de API REST para comprobar 
 
 Para configurar una aplicación de consola con el SDK de Bing Spell Check, vaya a la opción `Manage NuGet Packages` del Explorador de soluciones en Visual Studio. Agregue el paquete `Microsoft.Azure.CognitiveServices.SpellCheck`.
 
-La instalación del [paquete del SDK de Spell Check](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.2.0) también instala las dependencias, entre las que se incluyen:
+La instalación del [paquete del SDK de Spell Check](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck/1.2.0) también instala las dependencias, entre las que se incluyen:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.AZure

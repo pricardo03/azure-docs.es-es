@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: azure
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cynthn
+ms.openlocfilehash: eef2c762c87a13c62eeb9b017ed43f54835ab16e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572721"
+---
 Azure Cloud Shell es una experiencia de shell basado en el explorador para administrar y desarrollar recursos de Azure.
 
 Cloud Shell ofrece una experiencia de shell preconfigurado y accesible desde el explorador para administrar recursos de Azure sin el trabajo añadido de realizar la instalación, el control de versiones y el mantenimiento de una máquina de forma manual.

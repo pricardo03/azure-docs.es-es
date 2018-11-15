@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 04211a00bcdce3baf8060e00a9ce81831a39acb9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22e22a2eb6eefb84c6745de9b19e7710913b4ee7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257670"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616289"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -107,7 +107,7 @@ El primer paso es crear una aplicación en Azure Active Directory que la soluci�
 1. Especifique los valores de **Descripción** y **Duración** de la nueva clave.
 1. Haga clic en **Guardar** y, a continuación, copie el **valor** se generó.
 
-    ![simétricas](media/monitoring-solution-office-365/keys.png)
+    ![Claves](media/monitoring-solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>Adición del consentimiento de administrador
 Para habilitar la cuenta administrativa por primera vez, debe proporcionar el consentimiento de administrador para la aplicación. Puede hacerlo con un script de PowerShell. 
@@ -711,4 +711,4 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 ## <a name="next-steps"></a>Pasos siguientes
 * Usar Búsquedas de registros en [Log Analytics](../log-analytics/log-analytics-queries.md) para ver datos detallados sobre la actualización.
 * [Cree sus propios paneles](../log-analytics/log-analytics-dashboards.md) para mostrar las consultas de búsqueda favoritas de Office 365.
-* [Cree alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para recibir notificaciones proactivas de actividades importantes de Office 365.  
+* [Cree alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para recibir notificaciones proactivas de actividades importantes de Office 365.  

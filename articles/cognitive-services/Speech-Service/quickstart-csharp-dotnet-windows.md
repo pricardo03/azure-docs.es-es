@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 2dd001ebebd5cdf90d7d0b8163a85a5f83c855f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281301"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683509"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Guía de inicio rápido: Reconocimiento y traducción de voz mediante el SDK de Voz y .NET Framework (Windows)
 
@@ -23,7 +23,7 @@ ms.locfileid: "51281301"
 
 Use esta guía para crear una aplicación de consola de conversión de voz en texto mediante .NET Framework para Windows y el SDK de Voz. Cuando termine, puede usar el micrófono del equipo para realizar la conversión de voz en texto en tiempo real.
 
-En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con el servicio Voz de Microsoft habilitado. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) para obtener una clave de suscripción.
+En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con el servicio Voz de Microsoft habilitado. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) para obtener una clave de suscripción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

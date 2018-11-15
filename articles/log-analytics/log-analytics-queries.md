@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a8a1ab41972aa2ae184b900c2dab94ec58f3e7c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005060"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612761"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Análisis de los datos de Log Analytics en Azure Monitor
 
-Los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics, que se basa en el [Explorador de datos de Azure](/data-explorer). Recopila datos de telemetría desde varios orígenes y usa el [lenguaje de consulta del Explorador de datos](/kusto) para recuperar y analizar los datos.
+Los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics, que se basa en el [Explorador de datos de Azure](/azure/data-explorer). Recopila datos de telemetría desde varios orígenes y usa el [lenguaje de consulta del Explorador de datos](/azure/kusto/query) para recuperar y analizar los datos.
 
 > [!NOTE]
 > Log Analytics anteriormente se trató como un servicio de Azure. Ahora se considera parte de Azure Monitor y se centra en el almacenamiento y el análisis de datos de registro mediante su lenguaje de consulta. Las características que anteriormente se consideraban como una parte de Log Analytics, como los agentes de Windows y Linux para la recopilación de datos, las vistas para consultar los datos existentes y las alertas para avisarle proactivamente de problemas, no han cambiado, pero ahora se consideran parte de Azure Monitor.
@@ -41,12 +41,12 @@ Requiere una consulta de registros para recuperar datos de Log Analytics.  Si es
 Entre las distintas formas en que usará las consultas en Log Analytics se incluyen las siguientes:
 
 - **Portales.** Puede realizar análisis interactivos de los datos de registro en [Azure Portal](log-analytics-log-search-portals.md).  Esto le permite modificar la consulta y analizar los resultados en una gran variedad de formatos y visualizaciones.  
-- **Reglas de alertas.** [Las reglas de alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identifican de manera proactiva los problemas de datos del área de trabajo.  Cada regla de alertas se basa en una búsqueda de registros que se ejecuta automáticamente a intervalos regulares.  Los resultados se inspeccionan para determinar si se debe crear una alerta.
+- **Reglas de alertas.** [Las reglas de alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) identifican de manera proactiva los problemas de datos del área de trabajo.  Cada regla de alertas se basa en una búsqueda de registros que se ejecuta automáticamente a intervalos regulares.  Los resultados se inspeccionan para determinar si se debe crear una alerta.
 - **Paneles.** Puede anclar los resultados de cualquier consulta en un [panel de Azure](), que le permitirá visualizar los datos de registros y métricas en conjunto y, opcionalmente, compartirlos con otros usuarios de Azure. 
 - **Vistas.**  Puede crear visualizaciones de datos que se incluyan en los paneles de usuario con el [diseñador de vistas](log-analytics-view-designer.md).  Las consultas de registros proporcionan los datos utilizados por [iconos](log-analytics-view-designer-tiles.md) y [elementos de visualización](log-analytics-view-designer-parts.md) en cada vista.  
 - **Exportación.**  Cuando importe datos desde el área de trabajo de Log Analytics a Excel o [Power BI](log-analytics-powerbi.md), cree una consulta de registros para definir los datos que se van a exportar.
 - **PowerShell.** Puede ejecutar un script de PowerShell desde una línea de comandos o un runbook de Azure Automation que utilice el cmdlet [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar los datos de Log Analytics.  Este cmdlet requiere una consulta para determinar los datos que se van a recuperar.
-- **API de Log Analytics.**  La [API de búsqueda de registros de Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) permite que cualquier cliente de API REST recupere datos del área de trabajo.  La solicitud de API incluye una consulta que se ejecuta en Log Analytics para determinar los datos que se van a recuperar.
+- **API de Log Analytics.**  La [API de búsqueda de registros de Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) permite que cualquier cliente de API REST recupere datos del área de trabajo.  La solicitud de API incluye una consulta que se ejecuta en Log Analytics para determinar los datos que se van a recuperar.
 
 ![Búsqueda de registros](media/log-analytics-queries/queries-overview.png)
 

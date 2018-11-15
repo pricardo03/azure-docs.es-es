@@ -2,18 +2,18 @@
 title: Configuración de dispositivos de bajada con Azure IoT Edge | Microsoft Docs
 description: Cómo configurar dispositivos de bajada o dispositivos hoja para su conexión mediante dispositivos de puerta de enlace Azure IoT Edge.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7b9993650492574fc45b7f15fa3424060079f5fe
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: bd9d8c4a75df0d9070476fb72d2b60f5cb182a87
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50915084"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566234"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -95,7 +95,7 @@ Los siguientes pasos son un ejemplo de cómo instalar un certificado de entidad 
 1. En el menú Inicio, busque y seleccione **Administrar certificados de equipo**. Se abre una utilidad llamada **certlm**.
 2. Vaya a **Certificados: equipo local** > **Entidades de certificación raíz de confianza**.
 3. Haga clic con el botón derecho en **Certificados** y seleccione **Todas las tareas** > **Importar**. Se debe iniciar el asistente para importación de certificados. 
-4. Siga los pasos tal como se indica e importe el archivo del certificado `<path>/azure-iot-test-only.root.ca.cert.pem`. Cuando haya completado, verá el mensaje "Importación correcta". 
+4. Siga los pasos tal como se indica e importe el archivo del certificado `<path>/azure-iot-test-only.root.ca.cert.pem`. Cuando se haya completado, verá el mensaje "Importación correcta". 
 
 También puede instalar certificados mediante programación con las API de .NET, como se muestra más adelante en el ejemplo de .NET de este artículo. 
 

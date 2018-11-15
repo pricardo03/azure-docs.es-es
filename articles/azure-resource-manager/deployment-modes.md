@@ -9,22 +9,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4d1b27c9b1694f987ea7461c16899f3e5ecb84d2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c4347254df59c62085b2bfb195496bf479cf7b35
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50141000"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344594"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
+
 Al implementar los recursos, debe especificar si la implementación es una actualización incremental o una actualización completa.  La diferencia principal entre estos dos modos es la forma en que Resource Manager controla los recursos existentes en el grupo de recursos que no están en la plantilla. El modo predeterminado es el incremental.
 
 ## <a name="incremental-and-complete-deployments"></a>Implementaciones de incrementales y completadas
+
 Al implementar recursos:
 
-* En el modo completo, Resource Manager **elimina** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla. 
+* En el modo completo, Resource Manager **elimina** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla.
 * En el modo incremental, Resource Manager **deja sin modificar** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla.
 
 En ambos modos, Resource Manager intenta crear todos los recursos especificados en la plantilla. Si el recurso ya existe en el grupo de recursos y su configuración es igual, los resultados de la operación no cambian. Si cambia los valores de propiedad de un recurso, el recurso se actualiza con esos nuevos valores. Si intenta actualizar la ubicación o el tipo de un recurso existente, la implementación produce un error. En su lugar, implemente un nuevo recurso con la ubicación o escriba la que necesite.
@@ -64,12 +66,12 @@ Cuando se implementa en modo **completo**, se elimina el recurso C. El grupo de 
 
 Para establecer el modo de implementación al implementar con PowerShell, use el parámetro `Mode`.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment `
   -Mode Complete `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\storage.json 
+  -TemplateFile c:\MyTemplates\storage.json
 ```
 
 Para establecer el modo de implementación al implementar con la CLI de Azure, use el parámetro `mode`.
@@ -100,7 +102,7 @@ Al usar una [plantilla vinculada o anidada](resource-group-linked-templates.md),
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 * Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 * Para ver las operaciones de un proveedor de recursos, consulte [API de REST de Azure](/rest/api/).
-

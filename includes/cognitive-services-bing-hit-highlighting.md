@@ -1,3 +1,16 @@
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572696"
+---
 Bing admite el resaltado de aciertos, que marca los términos de la consulta (u otros términos que Bing considere relevantes) en las cadenas de presentación de algunas de las respuestas. Por ejemplo, los campos `name`, `displayUrl` y `snippet` de una página web pueden marcar los términos de la consulta.
 
 De forma predeterminada, Bing no incluye marcadores de resaltado en las cadenas de presentación. Para incluir los marcadores, incluya el parámetro `textDecorations` en la solicitud de consulta y establézcalo en **true**. Bing marca los términos de la consulta con los caracteres Unicode E000 y E001 para designar el principio y final del término. Por ejemplo, si el término de consulta es Sailing Dinghy y cualquiera de los términos existe en el campo, el término se incluye entre caracteres de resaltado de aciertos, tal y como se muestra en el ejemplo siguiente:  

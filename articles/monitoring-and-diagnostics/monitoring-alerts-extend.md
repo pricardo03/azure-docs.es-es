@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414625"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612580"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Extensión de alertas de Log Analytics en Alertas de Azure
 Hasta hace poco, Azure Log Analytics incluía su propia funcionalidad de alerta, que podía informarle proactivamente de las condiciones en función de datos de Log Analytics. Las reglas de alertas se administraban en el portal de Microsoft Operations Management Suite. La nueva experiencia de alertas integra ahora las alertas en distintos servicios de Microsoft Azure. Está disponible como **Alertas** en Azure Monitor en Azure Portal e incluye las alertas de registros de actividad, las métricas y los registros tanto de Log Analytics como de Azure Application Insights. 
@@ -60,5 +60,5 @@ Aún puede crear alertas de la [API de Log Analytics](../log-analytics/log-analy
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Conozca las herramientas para [iniciar la extensión de alertas de Log Analytics a Azure](monitoring-alerts-extend-tool.md).
-* Obtenga más información sobre la experiencia de [Alertas de Azure](monitoring-overview-unified-alerts.md).
+* Obtenga más información sobre la experiencia de [Alertas de Azure](monitoring-overview-alerts.md).
 * Aprenda a crear [alertas de registro en Alertas de Azure](monitor-alerts-unified-log.md).

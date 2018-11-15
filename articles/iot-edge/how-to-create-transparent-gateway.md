@@ -2,18 +2,18 @@
 title: Creación de una puerta de enlace transparente con Azure IoT Edge | Microsoft Docs
 description: Uso de un dispositivo Azure IoT Edge como una puerta de enlace transparente que puede procesar información para varios dispositivos
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a48699507fbba18b20cb94e404c4814f25d31f44
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50915083"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568478"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
 
@@ -21,19 +21,19 @@ Este artículo proporciona instrucciones detalladas para configurar dispositivos
 
 >[!NOTE]
 >Actualmente:
-> * Si la puerta de enlace se desconecta desde IoT Hub, los dispositivos de nivel inferior no se pueden autenticar con la puerta de enlace.
+> * Si la puerta de enlace se desconecta de IoT Hub, los dispositivos de nivel inferior no se pueden autenticar con la puerta de enlace.
 > * Los dispositivos habilitados para Edge no pueden conectarse a puertas de enlace de IoT Edge. 
 > * Los dispositivos de bajada no pueden usar la carga de archivos.
 
-Para que un dispositivo funcione como una puerta de enlace, debe poder conectarse de forma segura a los dispositivos de bajada. Azure IoT Edge le permite usar una infraestructura de clave pública (PKI) para configurar conexiones seguras entre los dispositivos. En este caso, vamos a permitir que un dispositivo de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente. Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo de Edge, porque lo que quiere es que los dispositivos solo se conecten a sus puertas de enlace y no a una puerta de enlace posiblemente malintencionada.
+Para que un dispositivo funcione como una puerta de enlace, debe poder conectarse de forma segura a los dispositivos de bajada. Azure IoT Edge le permite usar una infraestructura de clave pública (PKI) para configurar conexiones seguras entre los dispositivos. En este caso, vamos a permitir que un dispositivo de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente. Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo Edge, porque lo que quiere es que los dispositivos solo se conecten a sus puertas de enlace y no a una puerta de enlace que puede ser malintencionada.
 
 Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). En muchos casos, estas aplicaciones utilizan el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). En la práctica, un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge. 
 
-Puede crear cualquier infraestructura de certificados que permita la confianza necesaria para la topología de la puerta de enlace de dispositivo. En este artículo, se da por hecho que usa la misma configuración de certificado que usaría para habilitar la [seguridad de entidad de certificación X.509](../iot-hub/iot-hub-x509ca-overview.md) en IoT Hub, lo que implica un certificado de entidad de certificación X.509 asociado a una instancia de IoT Hub específica (la entidad de certificación del propietario de la instancia de IoT Hub) y una serie de certificados, firmados con esta entidad de certificación, y una entidad de certficación para el dispositivo Edge.
+Puede crear cualquier infraestructura de certificados que permita la confianza necesaria para la topología de la puerta de enlace de dispositivo. En este artículo, se da por hecho que usa la misma configuración de certificado que usaría para habilitar la [seguridad de entidad de certificación X.509](../iot-hub/iot-hub-x509ca-overview.md) en IoT Hub, lo que implica un certificado de entidad de certificación X.509 asociado a una instancia de IoT Hub específica (la entidad de certificación del propietario de la instancia de IoT Hub) y una serie de certificados, firmados con esta entidad de certificación, y una entidad de certificación para el dispositivo Edge.
 
 ![Instalación de la puerta de enlace](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-La puerta de enlace presenta su certificado de entidad de certificación de Edge al dispositivo de bajada durante el inicio de la conexión. El dispositivo de bajada comprueba que el certificado de entidad de certificación del dispositivo de Edge está firmado con el certificado de entidad de certificación del propietario. Este proceso permite que el dispositivo de bajada confirme que la puerta de enlace procede de un origen de confianza.
+La puerta de enlace presenta su certificado de entidad de certificación de Edge al dispositivo de bajada durante el inicio de la conexión. El dispositivo de bajada comprueba que el certificado de entidad de certificación del dispositivo Edge está firmado con el certificado de entidad de certificación del propietario. Este proceso permite que el dispositivo de bajada confirme que la puerta de enlace procede de un origen de confianza.
 
 Los pasos siguientes le guían por el proceso de crear los certificados e instalarlos en los lugares adecuados.
 
@@ -213,9 +213,9 @@ Ahora que ha creado una cadena de certificados, debe instalarla en el dispositiv
 
    Si ha generado los certificados en el propio dispositivo Edge, puede omitir este paso y usar la ruta de acceso al directorio de trabajo.
 
-   * Certificado de entidad de certificación de dispositivo: `<WRKDIR>\certs\new-edge-device-full-chain.cert.pem`
-   * Clave privada de entidad de certificación de dispositivo: `<WRKDIR>\private\new-edge-device.key.pem`
-   * Entidad de certificación de propietario: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+   * Certificado de entidad de certificación del dispositivo: `<WRKDIR>\certs\new-edge-device-full-chain.cert.pem`
+   * Clave privada de entidad de certificación del dispositivo: `<WRKDIR>\private\new-edge-device.key.pem`
+   * Entidad de certificación del propietario: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
 2. Abra el archivo de configuración del demonio de seguridad de IoT Edge. 
 
@@ -237,7 +237,7 @@ Cuando se instala por primera vez IoT Edge en un dispositivo, se inicia automát
 
 Puede comprobar qué módulos se ejecutan en un dispositivo con el comando `iotedge list`.
 
-1. En Azure Portal, navegue hasta el centro de IoT.
+1. En Azure Portal, vaya hasta el centro de IoT.
 
 2. Vaya a **IoT Edge** y seleccione el dispositivo IoT Edge que quiere usar como puerta de enlace.
 
@@ -245,7 +245,7 @@ Puede comprobar qué módulos se ejecutan en un dispositivo con el comando `iote
 
 4. Seleccione **Next** (Siguiente).
 
-5. En la página **Specify routes** (Especificar rutas), debe tener una ruta predeterminada que envíe todos los mensajes de todos los módulos a IoT Hub. Si no es así, agregue el código siguiente y, a continuación, seleccione **Next** (Siguiente).
+5. En la página **Specify routes** (Especificar rutas), debe tener una ruta predeterminada que envíe todos los mensajes de todos los módulos a IoT Hub. Si no es así, agregue el código siguiente y seleccione **Next** (Siguiente).
 
    ```JSON
    {

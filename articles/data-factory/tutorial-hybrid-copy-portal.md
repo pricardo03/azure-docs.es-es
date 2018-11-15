@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f408d24a5957061bf03d340a555b87bdc6b2aacc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304142"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614028"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copia de datos de una base de datos de SQL Server local en Azure Blob Storage
 En este tutorial se utiliza la interfaz de usuario (IU) de Azure Data Factory para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local en Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube.
@@ -111,7 +111,7 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
 1. En la lista de contenedores, seleccione **adftutorial**.
 
-    ![Selección de contenedor](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Selección de contenedor](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Mantenga abierta la ventana **contenedor** de **adftutorial**. Úselo para comprobar la salida al final de este tutorial. Data Factory crea automáticamente la carpeta de salida de este contenedor, por lo que no es necesario que el usuario la cree.
 
@@ -197,7 +197,7 @@ El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve 
 
 1. En la sección **Option 1: Express setup** (Opción 1: configuración rápida) seleccione **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida en este equipo). 
 
-    ![Vínculo a configuración rápida](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Vínculo a configuración rápida](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. En la ventana **Integration Runtime (Self-hosted) Express Setup** (Configuración rápida de Integration Runtime [autohospedado]), seleccione **Close** (Cerrar). 
 
@@ -237,7 +237,7 @@ El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve 
 
 1. Vaya a la pestaña con **SQLServerToBlobPipeline** o seleccione **SQLServerToBlobPipeline** en la vista de árbol. 
 
-    ![Pestaña Pipeline (Canalización)](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![Pestaña Pipeline (Canalización)](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. Vaya a la pestaña **Sink** (Receptor) en la parte inferior de la ventana **Properties** (Propiedades) y seleccione **+ New** (+ Nuevo). 
 

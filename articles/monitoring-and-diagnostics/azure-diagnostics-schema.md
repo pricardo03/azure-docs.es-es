@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 603ed12bf74f2d75543fd7e60834e695138c991d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dbe2619b99fdc5281375e2c6c1300432d9a4cbb9
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963808"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616136"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de la extensión Azure Diagnostics
 Esta página es un índice de las versiones del esquema de la extensión Azure Diagnostics que se incluyen como parte de Microsoft Azure SDK.  
@@ -67,7 +67,7 @@ Las distintas versiones de Azure Diagnostics utilizan esquemas de configuración
 ### <a name="diagnostics-extension-111"></a>Extensión Diagnostics 1.11
 Incorporación de compatibilidad con el receptor de Azure Monitor. Este receptor solo se puede aplicar a los contadores de rendimiento. Permite el envío a Azure Monitor de los contadores de rendimiento recopilados en la máquina virtual, VMSS o en el servicio en la nube como métricas personalizadas. El receptor de Azure Monitor admite:
 * La recuperación de todos los contadores de rendimiento que se envían a Azure Monitor a través de las [API de métricas de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metrics/list).
-* Las alertas de todos los contadores de rendimiento que se envían a Azure Monitor a través de la nueva [experiencia unificada de alertas](monitoring-overview-unified-alerts.md) de Azure Monitor.
+* Las alertas de todos los contadores de rendimiento que se envían a Azure Monitor a través de la nueva [experiencia unificada de alertas](monitoring-overview-alerts.md) de Azure Monitor.
 * El tratamiento del operador comodín de los contadores de rendimiento como la dimensión "Instancia" de la métrica. Por ejemplo, si recopiló el contador de "LogicalDisk(\*)/DiskWrites/sec", debería poder filtrar y dividir en la dimensión "Instancia" para el trazado o una alerta en las escrituras en disco/s para cada disco lógico (C:, D:, etc.).
 
 Definición de Azure Monitor como un receptor nuevo de la configuración de la extensión Diagnostics

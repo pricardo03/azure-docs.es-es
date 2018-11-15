@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572713"
+---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especificación de la definición de la estructura de los conjuntos de datos rectangulares
 La sección structure de JSON de los conjuntos de datos es una sección **opcional** para tablas rectangulares (con filas y columnas) y contiene una colección de columnas de la tabla. Se usará la sección structure para proporcionar información de tipo para las conversiones de tipos o para realizar asignaciones de columnas. En las siguientes secciones se describen estas configuraciones con más detalle. 
 

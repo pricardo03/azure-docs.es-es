@@ -2,24 +2,20 @@
 title: Configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería | Microsoft Docs
 description: Configuración de una aplicación personalizada ajena para el inicio de sesión único con contraseña cuando no aparece en la Galería de aplicaciones de Azure AD
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 37ac3b5fb680a9966f5b8f3da43a2b3013554557
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d880a142b54d253cc1522b3dcc521c86119e0997
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355444"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578406"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
@@ -115,7 +111,6 @@ Para configurar el inicio de sesión único para una aplicación, siga estos pas
 
 11. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios, haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
 
-12. **Opcional:** para determinadas aplicaciones de redes sociales como Twitter y Facebook, también hay la opción de habilitar la sustitución automática de la contraseña de la aplicación con una frecuencia que se puede seleccionar. Para habilitar esta opción, seleccione **Quiero que Azure AD administre automáticamente la contraseña de este usuario o grupo** al escribir las credenciales en nombre de un usuario o grupo. A continuación, seleccione la **frecuencia de sustitución (en semanas)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Asignar un usuario a una aplicación directamente
 

@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d031965a812cd218fbb4e78dfbf90ee01c26f5bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b91c3dec1dda401fbacab39325b2c8980ec7254f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085985"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625071"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -81,7 +81,7 @@ Haga clic en **+ Agregar máquinas virtuales de Azure** y seleccione una o varia
 
 Las máquinas que no estén en Azure se deben agregar manualmente. Desde la cuenta de Automation, seleccione **Inventory** o **Change Tracking** en **ADMINISTRACIÓN DE CONFIGURACIÓN** o **Update management** en **UPDATE MANAGEMENT**.
 
-Haga clic en **Agregar un equipo que no es de Azure**. Esta operación abre una nueva ventana del explorador con las [instrucciones acerca de cómo instalar y configurar Microsoft Monitoring Agent en la máquina](../log-analytics/log-analytics-concept-hybrid.md) para que esta pueda empezar a enviar notificaciones a la solución. Si está incorporando una máquina administrada actualmente por System Center Operations Manager, no se necesita un nuevo agente, ya que la información del área de trabajo se agrega al agente existente.
+Haga clic en **Agregar un equipo que no es de Azure**. Esta operación abre una nueva ventana del explorador con las [instrucciones acerca de cómo instalar y configurar Microsoft Monitoring Agent en la máquina](../log-analytics/log-analytics-agent-overview.md) para que esta pueda empezar a enviar notificaciones a la solución. Si está incorporando una máquina administrada actualmente por System Center Operations Manager, no se necesita un nuevo agente, ya que la información del área de trabajo se agrega al agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Incorporación de máquinas en el área de trabajo
 

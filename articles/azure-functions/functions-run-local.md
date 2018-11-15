@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: cc3a835c0322aded4a92b15c1320259780ffb6d2
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249227"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346429"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -113,16 +113,6 @@ Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core 
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
-
-### <a name="v1"></a>Versión 1.x
-
-La versión original de las herramientas usa el entorno en tiempo de ejecución versión 1.x de Functions. Esta versión usa .NET Framework (4.7.1) y solo se admite en equipos con Windows. Antes de instalar las herramientas de la versión 1.x, debe [instalar NodeJS](https://docs.npmjs.com/getting-started/installing-node), que incluye npm.
-
-Use el siguiente comando para instalar las herramientas de la versión 1.x:
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
 
 ## <a name="create-a-local-functions-project"></a>Creación de un proyecto local de Functions
 

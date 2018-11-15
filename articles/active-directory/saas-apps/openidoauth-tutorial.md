@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 420ec288b81e0bb12ae9f61a5eaf03880205cc55
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247987"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287445"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configuración de una aplicación OpenID/OAuth desde la galería de aplicaciones de Azure AD
 
@@ -84,7 +84,7 @@ Puede usar el marco de consentimiento de Azure AD para desarrollar aplicaciones 
 
 El marco se basa en que un usuario o un administrador da consentimiento a una aplicación que solicita el registro en su directorio. El registro podría implicar el acceso a datos del directorio. Después de dar su consentimiento, la aplicación cliente puede llamar a Microsoft Graph API en nombre del usuario y usar la información según sea necesario.
 
-[Microsoft Graph API](https://graph.microsoft.io/) proporciona acceso a datos de Office 365, como:
+[Microsoft Graph API](https://developer.microsoft.com/graph/) proporciona acceso a datos de Office 365, como:
 
 - Calendarios y mensajes de Exchange.
 - Sitios y listas de SharePoint.

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ced100f0bdd20841648ca84dfcab1847bdcd3096
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: d7097886b746c225bb420f9a96e2b7ef5c95c913
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362490"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684746"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights
 
@@ -31,7 +31,7 @@ Cuando se usa Azure Active Directory (Azure AD) B2C junto con Azure Application 
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-El marco de experiencia de identidad de Azure AD B2C incluye ahora el proveedor `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`. Este proveedor envía los datos de eventos directamente a Application Insights mediante la clave de instrumentación proporcionada a Azure AD B2C.
+El marco de experiencia de identidad de Azure AD B2C incluye ahora el proveedor `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Este proveedor envía los datos de eventos directamente a Application Insights mediante la clave de instrumentación proporcionada a Azure AD B2C.
 
 Un perfil técnico usa este proveedor para definir un evento desde Azure AD B2C. El perfil especifica el nombre del evento, las notificaciones que se registran y la clave de instrumentación. Para publicar un evento, el perfil técnico se agrega entonces como `orchestration step` o `validation technical profile` en un recorrido del usuario personalizado.
 

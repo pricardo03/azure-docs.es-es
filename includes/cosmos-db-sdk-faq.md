@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572723"
+---
 **1. ¿Cómo se notificará a los clientes la retirada del SDK?**
 
 Microsoft notificará con 12 meses de antelación la finalización del soporte técnico del SDK que se retira para facilitar una transición sin problemas a un SDK compatible. Además, se notificará a los clientes a través de diversos canales de comunicación: Portal de administración de Azure, Centro para desarrolladores, entrada de blog y comunicación directa a los administradores asignados el servicio.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 8eca04478fd5aba292fcc47abac37b740b552dff
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 48404c8b6f45ab79a9136154c44c7fd44572a3e6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51208650"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51678224"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a generar estructura y organización en torno a las imágenes de VM personalizadas. La galería de imágenes compartidas ofrece tres proposiciones de valor principales:
 - Administración sencilla
@@ -98,7 +98,7 @@ No hay ningún cargo adicional por usar el servicio de la galería de imágenes 
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -name Microsoft.Compute
+az provider register --name Microsoft.Compute
 ```
 
 **PowerShell**: 

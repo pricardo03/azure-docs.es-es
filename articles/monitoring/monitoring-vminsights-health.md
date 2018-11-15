@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f149d09b310553ecd5b03e94601408f279d9c0c
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1b9afa89e5d355668defac30afe4c012b684c71e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914318"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614403"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)
 Azure incluye varios servicios que realizan individualmente una tarea o un rol específico en el espacio de supervisión, pero hasta ahora no era posible proporcionar una perspectiva detallada del estado del sistema operativo hospedado en máquinas virtuales de Azure.  Aunque se podían supervisar distintas condiciones mediante Log Analytics o Azure Monitor, no estaban diseñadas para modelar ni representar el estado general de la máquina virtual o de los componentes principales.  Con la característica de estado de Azure Monitor para máquinas virtuales, la disponibilidad y el rendimiento del sistema operativo invitado Windows o Linux se supervisan de forma proactiva con un modelo que representa los principales componentes y sus relaciones, así como los criterios que especifican cómo se debe medir el estado de dichos componentes y, además, le avisa cuando se detecta una condición de estado incorrecto.  
@@ -119,7 +119,7 @@ En la pestaña **Mantenimiento**, puede aprender lo siguiente:
 * ¿Cuántas VM tienen un estado incorrecto debido a un problema detectado con un procesador, un disco, la memoria o un adaptador de red, clasificados según el estado de mantenimiento?  
 * ¿Cuántas VM tienen un estado incorrecto debido a un problema detectado con un procesador, un disco, la memoria o un adaptador de red, clasificados según el estado de mantenimiento?
 
-Aquí puede identificar rápidamente los principales problemas críticos detectados por los criterios de mantenimiento que supervisan la VM de forma proactiva, así como revisar los detalles de la alerta de estado de la VM y el artículo de conocimiento asociado a fin de obtener ayuda para diagnosticar y solucionar el problema.  Seleccione cualquiera de las gravedades para abrir la página [Todas las alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md#all-alerts-page) filtrada según esa gravedad.
+Aquí puede identificar rápidamente los principales problemas críticos detectados por los criterios de mantenimiento que supervisan la VM de forma proactiva, así como revisar los detalles de la alerta de estado de la VM y el artículo de conocimiento asociado a fin de obtener ayuda para diagnosticar y solucionar el problema.  Seleccione cualquiera de las gravedades para abrir la página [Todas las alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) filtrada según esa gravedad.
 
 En la lista **VM distribution by operating system** (Distribución de la máquina virtual por sistema operativo) se muestran las VM que enumera la edición de Windows o la distribución de Linux, junto con su versión. En cada categoría de sistema operativo, las VM se desglosan aún más según el estado de la VM. 
 
@@ -247,7 +247,7 @@ En el ejemplo anterior, cuando se selecciona **/mnt (Logical Disk)** (/mnt [disc
 Para ver el estado de mantenimiento actualizado, puede actualizar la página Diagnóstico de mantenimiento haciendo en el vínculo **Actualizar**.  Si hay una actualización en el estado de mantenimiento de los criterios de mantenimiento basada en el intervalo de sondeo predefinido, esta tarea permite evitar la espera y refleja el estado de mantenimiento más reciente.  **Estado de criterios de mantenimiento** es un filtro que le permite definir el ámbito de los resultados según el estado de mantenimiento seleccionado: Correcto, Advertencia, Crítico, Desconocido, etc.  La hora **Última actualización** de la esquina superior derecha representa la última vez en que se actualizó la página Diagnóstico de estado.  
 
 ## <a name="alerting-and-alert-management"></a>Creación y administración de alertas 
-La característica de mantenimiento de Azure Monitor para máquinas virtuales se integra con [Alertas de Azure](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) y genera una alerta cuando los criterios de mantenimiento predefinidos cambian de un estado correcto a uno incorrecto y dicha condición se detecta. Las alertas se clasifican según la gravedad: de 0 a 4, donde el 0 representa el nivel de gravedad más alto.  
+La característica de mantenimiento de Azure Monitor para máquinas virtuales se integra con [Alertas de Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) y genera una alerta cuando los criterios de mantenimiento predefinidos cambian de un estado correcto a uno incorrecto y dicha condición se detecta. Las alertas se clasifican según la gravedad: de 0 a 4, donde el 0 representa el nivel de gravedad más alto.  
 
 El número total de alertas de mantenimiento de la VM clasificadas según la gravedad está disponible en el panel **Mantenimiento** de la sección **Alertas**. Cuando selecciona el número total de alertas o el número correspondiente a un nivel de gravedad, la página **Alertas** se abre y muestra todas las alertas que coinciden con su selección.  Por ejemplo, si ha seleccionado la fila correspondiente a **Sev level 1** (Nivel de gravedad), verá lo siguiente:
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bcdd5b6d28a6c08b7b36e170fcb7d184fcf65eb0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d215af253471258e487dadcfae0cfd7edafd1c26
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024468"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634658"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Conectar Azure Stack a Azure mediante VPN
 
@@ -127,7 +127,7 @@ Ahora, cree una máquina virtual en Azure y colóquela en la subred de máquina 
 
 1. En Azure Portal, seleccione **+ Crear un recurso**.
 2. Vaya a **Marketplace** y, a continuación, seleccione **Compute**.
-3. En la lista de imágenes de máquina virtual, seleccione la imagen **Windows Server 2016 Datacenter Oval**.
+3. En la lista de imágenes de máquina virtual, seleccione la imagen **Windows Server 2016 Datacenter Eval**.
 4. En la sección **Conceptos básicos**, para **Nombre**, escriba **AzureVM**.
 5. Escriba un nombre de usuario y una contraseña válidos. Use esta cuenta para iniciar sesión en la máquina virtual una vez creada.
 6. Proporcione una **Suscripción**, **Grupo de recursos** y **Ubicación** y, a continuación, seleccione **Aceptar**.
@@ -227,7 +227,7 @@ Para comprobar la conexión VPN, cree dos máquinas virtuales: una en Azure y ot
 
 1. En Azure Portal, seleccione **+ Crear un recurso**.
 2. Vaya a **Marketplace** y, a continuación, seleccione **Compute**.
-3. En la lista de imágenes de máquina virtual, seleccione la imagen **Windows Server 2016 Datacenter Oval**.
+3. En la lista de imágenes de máquina virtual, seleccione la imagen **Windows Server 2016 Datacenter Eval**.
 4. En la sección **Conceptos básicos**, en **Nombre**, escriba **Azs-VM**.
 5. Escriba un nombre de usuario y una contraseña válidos. Use esta cuenta para iniciar sesión en la máquina virtual una vez creada.
 6. Proporcione una **Suscripción**, **Grupo de recursos** y **Ubicación** y, a continuación, seleccione **Aceptar**.

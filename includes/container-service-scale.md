@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 15f582e80c486a1d12f98e34063af7af84ed6f0a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572684"
+---
 Después de [implementar un clúster de Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md), tendrá que cambiar el número de nodos de agente. Por ejemplo, puede que necesite más agentes para poder ejecutar más aplicaciones o instancias de contenedor. 
 
 Puede cambiar el número de nodos de agente en un clúster DC/OS, Docker Swarm o Kubernetes mediante Azure Portal o la CLI de Azure. 

@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 74dcef9e927fc537cba56b03fcbfb9528c952ad0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7852a0fc548980227723c9f6a259c63367159201
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837878"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346246"
 ---
 # <a name="heading"></a>Muestreo de datos en SQL Server en Azure
+
 En este artículo se trata cómo realizar una muestra de datos almacenados en SQL Server en Azure con SQL o con el lenguaje de programación Python. También se muestra cómo mover los datos de muestra a Azure Machine Learning guardándolos en un archivo, cargándolos en un blob de Azure y leyéndolos en Azure Machine Learning Studio.
 
 El muestreo de Python usa la biblioteca ODBC [pyodbc](https://code.google.com/p/pyodbc/) para conectarse a SQL Server en Azure y la biblioteca [Pandas](http://pandas.pydata.org/) para realizar el muestreo.
@@ -31,10 +32,6 @@ El muestreo de Python usa la biblioteca ODBC [pyodbc](https://code.google.com/p/
 > En el código SQL de ejemplo en este documento se supone que los datos están en un servidor SQL Server en Azure. Si no es así, consulte el artículo [Mover datos a un servidor SQL Server en una máquina virtual de Azure](move-sql-server-virtual-machine.md) para obtener instrucciones sobre cómo mover los datos a SQL Server en Azure.
 > 
 > 
-
-El siguiente **menú** está vinculado a artículos que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento. 
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
 **¿Por qué realizar un muestreo de los datos?**
 Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.

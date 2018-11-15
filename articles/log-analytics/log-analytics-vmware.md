@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5c9f37d326d66e69e87ec846ca6f22d1788203f5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005230"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613994"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solución de supervisión de VMware (versión preliminar)de Log Analytics
 
@@ -165,7 +165,7 @@ Guardar consultas de búsqueda es una característica estándar de Log Analytics
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Creación de alertas a partir de las consultas
-Después de crear las consultas, recomendamos utilizarlas para saber cuando se producen eventos específicos. Consulte el artículo de [alertas de Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para obtener información sobre cómo crear alertas. Para ejemplos de consultas de alertas y otros ejemplos de consultas, consulte la entrada de blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Supervisión de VMware mediante Log Analytics).
+Después de crear las consultas, recomendamos utilizarlas para saber cuando se producen eventos específicos. Consulte el artículo de [alertas de Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para obtener información sobre cómo crear alertas. Para ejemplos de consultas de alertas y otros ejemplos de consultas, consulte la entrada de blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Supervisión de VMware mediante Log Analytics).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>¿Qué se necesita en la configuración del host ESXi? ¿Qué impacto tendrá en mi entorno actual?
@@ -208,4 +208,4 @@ Puede haber varios motivos:
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros](log-analytics-queries.md) en Log Analytics para ver datos detallados sobre los datos de hosts de VMware.
 * [Cree sus propios paneles](log-analytics-dashboards.md) que muestren datos de hosts de VMware.
-* [Cree alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) cuando se produzcan eventos específicos de hosts de VMware.
+* [Cree alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) cuando se produzcan eventos específicos de hosts de VMware.

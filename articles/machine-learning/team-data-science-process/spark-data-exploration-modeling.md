@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: f6f0393fa3c7a1c0851c18ebd4e48f2ef426f893
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 12757bca2e0fcff6a79263909fafd59c94b5eef2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248493"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566523"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploración y modelado de datos con Spark
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 Este tutorial usa Spark en HDInsight para realizar tareas de modelado por exploración de datos, clasificación binaria y regresión en una muestra del conjunto de datos de carreras y tarifas de taxi de 2013 en la ciudad de Nueva York.  Lo guía por los pasos del [proceso de la ciencia de los datos](https://aka.ms/datascienceprocess), de principio a fin, usando un clúster de Spark en HDInsight para el procesamiento y blobs de Azure para almacenar los datos y los modelos. El proceso analiza y visualiza los datos extraídos de un Blob de Azure Storage y, después, los prepara para crear modelos predictivos. Estos modelos se crean usando el kit de herramientas MLlib de Spark para realizar las tareas de clasificación binaria y modelado por regresión.
 
@@ -1002,7 +1001,7 @@ El código de esta sección muestra cómo entrenar, evaluar y guardar un modelo 
     dirfilename = modelDir + btregressionfilename;
     gbtModel.save(sc, dirfilename)
 
-    # CONVER RESULTS TO DF AND REGISER TEMP TABLE
+    # CONVERT RESULTS TO DF AND REGISTER TEMP TABLE
     test_predictions = sqlContext.createDataFrame(predictionAndLabels)
     test_predictions.registerTempTable("tmp_results");
 

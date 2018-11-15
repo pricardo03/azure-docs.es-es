@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5320b8d5ca7456a6f1b0fdd1372c9f39ac1edfb0
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219416"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345596"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publicación de una plantilla de solución en Azure Marketplace
 
@@ -161,7 +161,7 @@ Después de finalizar la configuración de la SKU, proporcione los siguientes de
 
 ![Detalles del paquete](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
-- **Versión actual**: versión del paquete que va a cargar. Debe tener el formato - ..
+- **Versión actual**: versión del paquete que va a cargar. Las etiquetas de versión deben ser del tipo X.Y.Z, donde X, Y y Z son números enteros.
 
 - **Archivo de paquete**: este paquete contiene los siguientes archivos, guardados en un archivo ZIP.
 

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: diberry
-ms.openlocfilehash: ce0a2f36ca11c704062deb28bf47c45a91a32222
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a26fa1f64f1ef8ecef8140b1feab89fdd57875fe
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435406"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569206"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -32,10 +32,10 @@ LUIS entiende expresiones en los idiomas siguientes:
 | Idioma |Configuración regional  |  Dominio creado previamente | Entidad creada previamente | Sugerencias de frase | \**[Análisis de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Las opiniones y<br>palabras clave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglés de Estados Unidos |`en-US` | ✔ | ✔  |✔|✔|
-| Francés canadiense |`fr-CA` |-|   -   |-|✔|
 | *[Chino](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Neerlandés |`nl-NL` |-|  -   |-|✔|
 | Francés (Francia) |`fr-FR` |-| ✔ |✔ |✔|
+| Francés (Canadá) |`fr-CA` |-|   -   |-|✔|
 | Alemán |`de-DE` |-| ✔ |✔ |✔|
 | Italiano |`it-IT` |-| ✔ |✔|✔|
 | *[Japonés](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Solo la frase clave|

@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2dcf93a635a8eb0a01ec266d2478b6e5a336ec00
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 09f7fba2b8ae3b3ccc8710ffe9302d02d311c74c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358700"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514339"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visualización de registros de actividad para auditar las acciones sobre los recursos
 
@@ -35,28 +35,26 @@ El registro de actividad contiene todas las operaciones de escritura (PUT, POST,
 
 Los registros de actividad se conservan 90 días. Puede consultar cualquier intervalo de fechas, siempre que no hayan transcurrido más de 90 días desde la fecha inicial.
 
-
-
 Puede recuperar información de los registros de actividad mediante el portal, PowerShell, la CLI de Azure, la API de REST de Insights o la [biblioteca .NET de Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portal
 
 1. Para ver los registros de actividad mediante el portal, seleccione **Monitor**.
-   
+
     ![seleccionar registro de actividad](./media/resource-group-audit/select-monitor.png)
 
    O bien, para filtrar automáticamente el registro de actividad por un determinado recurso o grupo de recursos, seleccione **Registro de actividad**. Observe que el registro de actividad se filtra automáticamente por el recurso seleccionado.
-   
+
     ![filtrar por recurso](./media/resource-group-audit/filtered-by-resource.png)
 2. En **Registro de actividad**, verá un resumen de operaciones recientes.
-   
+
     ![mostrar acciones](./media/resource-group-audit/audit-summary.png)
 3. Para restringir el número de operaciones que se muestran, seleccione diferentes condiciones. Por ejemplo, la siguiente imagen muestra los campos **Timespan** y **Evento iniciado por** modificados para ver las acciones llevadas a cabo por un determinado usuario o aplicación durante el mes pasado. Seleccione **Aplicar** para ver los resultados de la consulta.
-   
+
     ![establecer opciones de filtro](./media/resource-group-audit/set-filter.png)
 
 4. Si necesita volver a ejecutar la consulta más tarde, seleccione **Guardar** y asígnele un nombre.
-   
+
     ![guardar consulta](./media/resource-group-audit/save-query.png)
 5. Para ejecutar rápidamente una consulta, puede seleccionar una de las consultas integradas, como implementaciones con error.
 
@@ -64,7 +62,7 @@ Puede recuperar información de los registros de actividad mediante el portal, P
 
    La consulta seleccionada establece automáticamente los valores de filtro necesarios.
 
-    ![ver errores de implementación](./media/resource-group-audit/view-failed-deployment.png)   
+    ![ver errores de implementación](./media/resource-group-audit/view-failed-deployment.png)
 
 6. Seleccione una de las operaciones para ver un resumen del evento.
 
@@ -74,31 +72,31 @@ Puede recuperar información de los registros de actividad mediante el portal, P
 
 1. Para recuperar las entradas de registro, ejecute el comando **Get-AzureRmLog** . Ofrezca parámetros adicionales para filtrar la lista de entradas. Si no especifica una hora de inicio y de finalización, se devuelven las entradas de la última hora. Por ejemplo, para recuperar las operaciones de un grupo de recursos durante la última hora ejecute:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup
   ```
-   
+
     En el ejemplo siguiente se muestra cómo usar el registro de actividad para investigar operaciones llevadas a cabo durante un tiempo especificado. Las fechas inicial y final se especifican en un formato de fecha.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
   ```
 
     También puede usar funciones de fecha para especificar el intervalo de fechas, como los últimos 14 días.
-   
-  ```powershell 
+
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
 2. En función de la hora de inicio que especifique, los comandos anteriores pueden devolver una lista larga de operaciones para el grupo de recursos. Puede filtrar los resultados para lo que busca ofreciendo criterios de búsqueda. Por ejemplo, si trata de investigar cómo se detuvo una aplicación web, podría ejecutar el siguiente comando.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
   ```
 
-    En este ejemplo se muestra que someone@contoso.com ha realizado una acción de detención. 
+    En este ejemplo se muestra que someone@contoso.com ha realizado una acción de detención.
 
-  ```powershell 
+  ```powershell
   Authorization     :
   Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
   Action    : Microsoft.Web/sites/stop/action
@@ -118,26 +116,27 @@ Puede recuperar información de los registros de actividad mediante el portal, P
 
 3. Puede buscar las acciones realizadas por un usuario determinado, incluso para un grupo de recursos que ya no existe.
 
-  ```powershell 
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
 4. Puede filtrar por las operaciones con errores.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
 5. Para centrarse en un error, examine el mensaje de estado para esa entidad.
-   
-        ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
-   
-    Que devuelve:
-   
-        code           message                                                                        
-        ----           -------                                                                        
-        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. 
 
+  ```azurepowershell-interactive
+  ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
+  ```
+
+    Que devuelve:
+
+        code           message
+        ----           -------
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP.
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -146,7 +145,6 @@ Para recuperar las entradas del registro, ejecute el comando [az monitor activit
   ```azurecli
   az monitor activity-log list --resource-group <group name>
   ```
-
 
 ## <a name="rest-api"></a>API DE REST
 
@@ -159,4 +157,3 @@ Las operaciones REST para trabajar con el registro de actividad forman parte de 
 * Para aprender sobre los comandos para ver operaciones de implementación, consulte [Visualización de operaciones de implementación](resource-manager-deployment-operations.md).
 * Para aprender a evitar eliminaciones en un recurso para todos los usuarios, consulte [Bloqueo de recursos con Azure Resource Manager](resource-group-lock-resources.md).
 * Para ver la lista de operaciones disponibles para cada proveedor de Microsoft Azure Resource Manager, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md)
-

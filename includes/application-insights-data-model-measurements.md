@@ -1,3 +1,16 @@
+---
+author: mrbullwinkle
+ms.service: application-insights
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: mbullwin
+ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572704"
+---
 Colección de medidas personalizadas. Use esta colección para notificar la medida designada asociada al elemento de telemetría. Casos de uso típicos:
 - el tamaño de carga útil de la telemetría de dependencia
 - el número de elementos en la cola procesados por la telemetría de solicitudes

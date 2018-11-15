@@ -2,18 +2,18 @@
 title: Implementación de módulos para Azure IoT Edge | Microsoft Docs
 description: Aprenda cómo se implementan los módulos en los dispositivos perimetrales.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f4cfed8ed20bac126795394cd6532322a68d718f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: b97a88a36631af1de3c95f0730a9a951b9a3a907
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249843"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569070"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones de IoT Edge en un único dispositivo o a escala
 
