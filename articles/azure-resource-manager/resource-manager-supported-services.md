@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 811bb40816339dbe7097e429722625a3ae5c95c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fafc16bdf00f947d4ba8ffe56d7cf2ae3e0bc489
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358207"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344950"
 ---
 # <a name="resource-providers-and-types"></a>Tipos y proveedores de recursos
 
@@ -38,7 +38,7 @@ También puede llevar a cabo estos pasos a través del portal, PowerShell o la C
 
 Para ver todos los proveedores de recursos de Azure y el estado de registro de su suscripción, use:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
@@ -56,7 +56,7 @@ Microsoft.CognitiveServices      Registered
 
 Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación `/register/action` para este. Esta operación está incluida en los roles Colaborador y Propietario.
 
-```powershell
+```azurepowershell-interactive
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -73,7 +73,7 @@ No se puede anular el registro de un proveedor de recursos si todavía dispone d
 
 Para ver información de un proveedor de recursos concreto, use:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -90,7 +90,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 
 Para ver los tipos de recursos de un proveedor, use:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
@@ -103,11 +103,11 @@ locations
 locations/quotas
 ```
 
-La versión de API se corresponde a una versión de operaciones de API de REST que se publican por el proveedor de recursos. Conforme un proveedor de recursos habilite nuevas características, publicará una nueva versión de la API de REST. 
+La versión de API se corresponde a una versión de operaciones de API de REST que se publican por el proveedor de recursos. Conforme un proveedor de recursos habilite nuevas características, publicará una nueva versión de la API de REST.
 
 Para obtener las versiones de API de un tipo de recurso, use:
 
-```powershell
+```azurepowershell-interactive
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
@@ -121,11 +121,11 @@ Que devuelve:
 2015-07-01
 ```
 
-El Administrador de recursos se admite en todas las regiones, pero puede que los recursos que implementa no se admitan en todas las regiones. Además, puede haber limitaciones en su suscripción que le impidan utilizar algunas regiones que admiten el recurso. 
+El Administrador de recursos se admite en todas las regiones, pero puede que los recursos que implementa no se admitan en todas las regiones. Además, puede haber limitaciones en su suscripción que le impidan utilizar algunas regiones que admiten el recurso.
 
 Para obtener las ubicaciones compatibles con un tipo de recurso, use:
 
-```powershell
+```azurepowershell-interactive
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
@@ -140,6 +140,7 @@ West US
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
+
 Para ver todos los proveedores de recursos de Azure y el estado de registro de su suscripción, use:
 
 ```azurecli
@@ -204,7 +205,7 @@ locations
 locations/quotas
 ```
 
-La versión de API se corresponde a una versión de operaciones de API de REST que se publican por el proveedor de recursos. Conforme un proveedor de recursos habilite nuevas características, publicará una nueva versión de la API de REST. 
+La versión de API se corresponde a una versión de operaciones de API de REST que se publican por el proveedor de recursos. Conforme un proveedor de recursos habilite nuevas características, publicará una nueva versión de la API de REST.
 
 Para obtener las versiones de API de un tipo de recurso, use:
 
@@ -224,7 +225,7 @@ Result
 2015-07-01
 ```
 
-El Administrador de recursos se admite en todas las regiones, pero puede que los recursos que implementa no se admitan en todas las regiones. Además, puede haber limitaciones en su suscripción que le impidan utilizar algunas regiones que admiten el recurso. 
+El Administrador de recursos se admite en todas las regiones, pero puede que los recursos que implementa no se admitan en todas las regiones. Además, puede haber limitaciones en su suscripción que le impidan utilizar algunas regiones que admiten el recurso.
 
 Para obtener las ubicaciones compatibles con un tipo de recurso, use:
 
@@ -289,7 +290,7 @@ La versión de API se corresponde a una versión de operaciones de API de REST q
 ![Vista de las versiones de API](./media/resource-manager-supported-services/show-api-versions.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 * Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 * Para ver las operaciones de un proveedor de recursos, consulte [API de REST de Azure](/rest/api/).
-

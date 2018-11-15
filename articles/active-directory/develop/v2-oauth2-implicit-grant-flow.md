@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1722f81c55c490d6030dd04e5907e93012051492
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817113"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289026"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos de la versión 2.0: uso del flujo implícito para las SPA
 
@@ -145,7 +145,7 @@ Una vez que haya validado completamente el id_token, puede iniciar una sesión c
 
 ## <a name="get-access-tokens"></a>Obtención de tokens de acceso
 
-Ahora que ha iniciado la sesión del usuario en su aplicación de página única, puede obtener tokens de acceso para llamar a las API web protegidas por Azure AD, como las de [Microsoft Graph](https://graph.microsoft.io). Incluso si ya recibió un token mediante el `token` response_type, puede usar este método para adquirir tokens para recursos adicionales sin tener que redirigir al usuario para que vuelva a iniciar sesión.
+Ahora que ha iniciado la sesión del usuario en su aplicación de página única, puede obtener tokens de acceso para llamar a las API web protegidas por Azure AD, como las de [Microsoft Graph](https://developer.microsoft.com/graph). Incluso si ya recibió un token mediante el `token` response_type, puede usar este método para adquirir tokens para recursos adicionales sin tener que redirigir al usuario para que vuelva a iniciar sesión.
 
 En el flujo normal de OpenID Connect y OAuth, haría esto mediante una solicitud al punto de conexión v2.0 `/token` . Sin embargo, el punto de conexión v2.0 no admite solicitudes CORS, así que las llamadas a AJAX para obtener y actualizar los tokens están fuera de nuestro alcance. En su lugar, puede usar el flujo implícito en un iframe oculto para obtener nuevos tokens para otras API web: 
 

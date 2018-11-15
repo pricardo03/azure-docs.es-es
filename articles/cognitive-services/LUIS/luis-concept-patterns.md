@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd11eb23b10800e115a63549f233e0239763420
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638160"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300377"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
 Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas.  Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones. 
@@ -89,7 +89,7 @@ Para agregar una entidad **pattern.any** a la plantilla de patrón, incluya dich
 En estos ejemplos de títulos de libros, las palabras contextuales del título del libro no resultan confusas para LUIS. LUIS sabe que el título del libro finaliza porque está en un patrón y marcado con una entidad pattern.any.
 
 ### <a name="explicit-lists"></a>Listas explícitas
-Si el patrón contiene una entidad pattern.any, y la sintaxis del patrón permite la posibilidad de una extracción incorrecta de entidades basada en la expresión, cree una [lista explícita](https://aka.ms/ExplicitList) mediante la API de creación para permitir la excepción. 
+Si el patrón contiene una entidad pattern.any, y la sintaxis del patrón permite la posibilidad de una extracción incorrecta de entidades basada en la expresión, cree una [lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) mediante la API de creación para permitir la excepción. 
 
 Por ejemplo, suponga que tiene un patrón que contiene tanto la sintaxis opcional, `[]`, como la sintaxis de la entidad, `{}`, combinadas para extraer datos de forma incorrecta.
 
@@ -102,7 +102,7 @@ Considere el patrón `[find] email about {subject} [from {person}]'. En las sigu
 
 En la tabla anterior, en la expresión `email about the man from La Mancha`, el asunto debería ser `the man from La Mancha` (el título de un libro), pero como el asunto incluye la palabra opcional `from`, el título se predice de forma incorrecta. 
 
-Para corregir esta excepción al patrón, agregue `the man from la mancha` como una coincidencia de lista explícita de la entidad {subject} mediante la [API de creación de lista explícita](https://aka.ms/ExplicitList).
+Para corregir esta excepción al patrón, agregue `the man from la mancha` como una coincidencia de lista explícita de la entidad {subject} mediante la [API de creación de lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Sintaxis para marcar texto opcional en una expresión de plantilla
 Marque texto opcional en la expresión mediante la sintaxis de corchetes de expresión regular, `[]`. El texto opcional solo puede anidar dos corchetes.

@@ -3,7 +3,7 @@ title: Creación de una aplicación contenedor de Linux de Service Fabric en Azu
 description: En este inicio rápido, compilará una imagen de Docker con la aplicación, insertará la imagen en un registro de contenedor y luego implementar el contenedor en un clúster de Service Fabric.
 services: service-fabric
 documentationcenter: linux
-author: suhuruli
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
-ms.author: suhuruli
+ms.author: twhitney,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: f60fde6f0066cf88bd1bd942e475fe410ff16581
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c569a100984b77b05eac9f8b345faa05fb6848d7
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256535"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299239"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Linux en Service Fabric
 

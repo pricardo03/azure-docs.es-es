@@ -4,17 +4,17 @@ description: Uso de Visual Studio Code para desarrollar, compilar y depurar un m
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3ec7f6043c1d2e8e8f090ffc60822768ab9bc9d9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984008"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566031"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos de C para Azure IoT Edge
 
@@ -37,7 +37,7 @@ Para crear un módulo, necesita Docker para compilar la imagen del módulo y un 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) o [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Puede usar un registro de Docker local con fines de prototipo y prueba en lugar de un registro en la nube. 
 
-Para probar el módulo en un dispositivo, necesita una instancia de IoT Hub con al menos un dispositivo IoT Edge. Para usar el equipo como un dispositivo IoT Edge, siga los pasos descritos en el inicio rápido para [Linux](quickstart-linux.md). 
+Para probar el módulo en un dispositivo, necesita una instancia de IoT Hub con al menos un dispositivo IoT Edge. Para usar el equipo como dispositivo IoT Edge, siga los pasos descritos en el tutorial de inicio rápido para [Linux](quickstart-linux.md). 
 
 ## <a name="create-a-new-solution-template"></a>Creación de una plantilla de solución
 
@@ -94,7 +94,7 @@ En cada carpeta de módulo, hay varios archivos de Docker para diferentes tipos 
 2. Reemplace el módulo createOptions de C en el archivo **deployment.template.json** por el siguiente contenido y guarde este archivo: 
     
     ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
 2. En la paleta de comandos de VS Code, escriba y ejecute el comando **Azure IoT Edge: Build and Push IoT Edge solution** (Azure IoT Edge: compilar e insertar solución IoT Edge).

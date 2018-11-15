@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: e07a59ba0484910d87329be94f0fcc58b1011b95
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572709"
+---
 En Azure Portal se supervisan el rendimiento, el almacenamiento, la disponibilidad, la latencia y la coherencia de los recursos de su cuenta. Vamos a echar un vistazo rápido a estas métricas. 
 
 1. Haga clic en **Métricas** en el menú de navegación.

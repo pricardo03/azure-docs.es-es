@@ -1,19 +1,19 @@
 ---
 title: archivo de inclusión
 description: archivo de inclusión
-services: azure-digital-twins
-author: adamgerard
-ms.service: azure-digital-twins
+services: digital-twins
+author: kingdomofends
+ms.service: digital-twins
 ms.topic: include
-ms.date: 09/27/2018
+ms.date: 11/13/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: a03f2b4e8d216db3764af03dc06b5188289ffc92
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 42aa275e692e4e2e9b7ca38825c828c1f56247fb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964210"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51628209"
 ---
 El control de acceso basado en rol es una estrategia de seguridad basada en la herencia para la administración de accesos, permisos y roles. Los roles descendientes heredan permisos de los roles primarios. También se pueden asignar permisos sin que se hereden de un rol primario. Además, se pueden asignar para personalizar un rol según sea necesario.
 

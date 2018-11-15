@@ -3,7 +3,7 @@ title: Creación de una aplicación contenedor de Windows de Service Fabric en A
 description: En esta guía de inicio rápido, creará su primera aplicación contenedora Windows en Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: vturecek
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/30/2018
-ms.author: ryanwi
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: be6c13b998664cda65b1002c23726cbe89359a59
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2855d28a3d5414413ca1657a7bef9c060f6d4424
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261203"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300343"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Windows en Service Fabric
 

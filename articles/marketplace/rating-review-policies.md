@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: qianw211
-ms.openlocfilehash: 3679981a335c380b54d7349d16f94bb7e5e1fee3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1ab00e51aa8677f71990cf3da8bf01c9ab62ce4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258874"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683145"
 ---
 # <a name="azure-appsource-and-marketplace-review-policies"></a>Directivas de reseñas de Azure AppSource y Marketplace
 
@@ -52,12 +52,3 @@ A continuación se enumeran las directivas de calificaciones y reseñas de Azure
 * Asegúrese de que los puntos de vista expresados en la reseña son equilibrados y neutrales.
 * Recuerde que va a publicar en un foro público y debe actuar en consecuencia.
 
-## <a name="review-guidelines-for-publishers"></a>Directrices de reseña para los anunciantes
-
-* No publique ningún contenido que pueda infringir la [directiva de reseñas de AppSource y Azure Marketplace](./rating-review-policies.md).
-* No incluya ningún contenido de marketing o anuncios en el comentario.
-* No promocione otras aplicaciones o servicios en el comentario.
-* La respuesta debe estar directamente relacionada con la aplicación y reseña específicas.
-* No use respuestas predefinidas ni publique comentarios predefinidos en varias reseñas.
-* No manipule las reseñas de ninguna forma, como con la oferta de compensaciones o incentivos a los revisores para cambiar calificaciones o reseñas.
-* Sea siempre educado y tenga en cuenta que los clientes satisfechos son lo mejores promotores de las aplicaciones.

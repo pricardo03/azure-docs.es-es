@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 215e0abe196620624dcca7f430aec4ee9b9612f2
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955461"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288210"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparación del punto de conexión v2.0 con el punto de conexión v1.0 de Azure AD
 
@@ -41,7 +41,7 @@ Al desarrollar una nueva aplicación, es importante conocer las diferencias entr
 
 * Tanto los puntos de conexión v1.0 como v2.0 aceptan inicios de sesión de *[usuarios invitados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de un directorio de Azure AD para las aplicaciones configuradas como *[inquilino único](single-and-multi-tenant-apps.md)* o para las aplicaciones configuradas como *multiinquilino* para el punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-El punto de conexión v2.0 le permite escribir aplicaciones que aceptan el inicio de sesión desde cuentas tanto personales y profesionales y educativas, lo que le ofrece la posibilidad de escribir una aplicación completamente independiente de la cuenta. Por ejemplo, si su aplicación llama a [Microsoft Graph](https://graph.microsoft.io), las cuentas profesionales tendrán a su disposición algunos datos y funcionalidades adicionales, como los sitios de SharePoint o datos de Directory. Pero, para muchas acciones, como [leer correo de un usuario](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), el mismo código puede acceder al correo electrónico tanto para cuentas personales como profesionales y educativas.
+El punto de conexión v2.0 le permite escribir aplicaciones que aceptan el inicio de sesión desde cuentas tanto personales y profesionales y educativas, lo que le ofrece la posibilidad de escribir una aplicación completamente independiente de la cuenta. Por ejemplo, si su aplicación llama a [Microsoft Graph](https://developer.microsoft.com/graph), las cuentas profesionales tendrán a su disposición algunos datos y funcionalidades adicionales, como los sitios de SharePoint o datos de Directory. Pero, para muchas acciones, como [leer correo de un usuario](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message), el mismo código puede acceder al correo electrónico tanto para cuentas personales como profesionales y educativas.
 
 En el caso del punto de conexión v2.0, puede usar una sola biblioteca (MSAL) para obtener acceso a entornos educativos, de consumidor y de empresa.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f07488e526a15fb067d6ea7a265d069fbe3aee3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5601c6c5b85b144b853c40e89c81a22f87b7880f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009562"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615003"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Supervisión de Surface Hubs con Log Analytics para realizar un seguimiento de su estado
 
@@ -84,8 +84,8 @@ La supervisión de los dispositivos Surface Hub con Log Analytics es muy similar
 
    ![Panel de Surface Hub](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-Puede crear [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) en función de las búsquedas de registros existentes o personalizadas. Con los datos que recopile Log Analytics de los dispositivos Surface Hub, puede buscar problemas y generar alertas sobre las condiciones que defina para sus dispositivos.
+Puede crear [alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) en función de las búsquedas de registros existentes o personalizadas. Con los datos que recopile Log Analytics de los dispositivos Surface Hub, puede buscar problemas y generar alertas sobre las condiciones que defina para sus dispositivos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-queries.md) para ver datos detallados de Surface Hub.
-* Cree [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para recibir una notificación cuando se produzcan problemas con Surface Hub.
+* Cree [alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para recibir una notificación cuando se produzcan problemas con Surface Hub.

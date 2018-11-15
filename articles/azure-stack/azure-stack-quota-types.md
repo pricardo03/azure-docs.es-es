@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/30/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3c0ab236dd6fce10be0a50c435f04517e14c1387
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077602"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299426"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cuota en Azure Stack
 
@@ -31,15 +31,15 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 ## <a name="compute-quota-types"></a>Tipos de cuota de proceso 
 | **Tipo** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
-| Número máximo de máquinas virtuales | 20 | El número máximo de máquinas virtuales que puede crear una suscripción en esta ubicación. |
-| Número máximo de núcleos de máquinas virtuales | 50 | El número máximo de núcleos que puede crear una suscripción en esta ubicación (por ejemplo, una máquina virtual A3 tiene cuatro núcleos). |
+| Número máximo de máquinas virtuales | 50 | El número máximo de máquinas virtuales que puede crear una suscripción en esta ubicación. |
+| Número máximo de núcleos de máquinas virtuales | 100 | El número máximo de núcleos que puede crear una suscripción en esta ubicación (por ejemplo, una máquina virtual A3 tiene cuatro núcleos). |
 | Número máximo de conjuntos de disponibilidad | 10 | El número máximo de conjuntos de disponibilidad que se pueden crear en esta ubicación. |
-| Número máximo de conjuntos de escalado de máquinas virtuales | 20 | El número máximo de conjuntos de escalado de máquinas virtuales que se pueden crear en esta ubicación. |
+| Número máximo de conjuntos de escalado de máquinas virtuales | 100 | El número máximo de conjuntos de escalado de máquinas virtuales que se pueden crear en esta ubicación. |
 
 ## <a name="storage-quota-types"></a>Tipos de cuotas de almacenamiento 
 | **Elemento** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
-| Capacidad máxima (GB) |500 |Capacidad de almacenamiento total que puede consumir una suscripción en esta ubicación. |
+| Capacidad máxima (GB) |2048 |Capacidad de almacenamiento total que puede consumir una suscripción en esta ubicación. |
 | Número total de cuentas de almacenamiento |20 |El número máximo de cuentas de almacenamiento que puede crear una suscripción en esta ubicación. |
 
 > [!NOTE]  

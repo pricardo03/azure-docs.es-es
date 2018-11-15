@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4540b68dedc3086c3ea0fb12ebbe3cfe2344698b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a21a21f40e731e8bc1d20e01d3671c372df65d84
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718804"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622047"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo
-En este tutorial se muestra cómo usar la directiva de grupo para instalar de forma remota la extensión de panel de acceso para Internet Explorer en los equipos de los usuarios. Esta extensión es necesaria para los usuarios de Internet Explorer que deben iniciar sesión en aplicaciones que están configuradas con un [inicio de sesión único basado en contraseña](what-is-single-sign-on.md#password-based-single-sign-on).
+En este tutorial se muestra cómo usar la directiva de grupo para instalar de forma remota la extensión de panel de acceso para Internet Explorer en los equipos de los usuarios. Esta extensión es necesaria para los usuarios de Internet Explorer que deben iniciar sesión en aplicaciones que están configuradas con un [inicio de sesión único basado en contraseña](what-is-single-sign-on.md#password-based-sso).
 
 Se recomienda que los administradores automaticen la implementación de esta extensión. De lo contrario, los usuarios tendrán que descargar e instalar la extensión por sí mismos, lo que puede ocasionar errores y además requiere permisos de administrador. En este tutorial, se trata un método para automatizar las implementaciones de software mediante la directiva de grupo. [Más información acerca de la directiva de grupo.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
@@ -40,7 +40,7 @@ En primer lugar, debe colocar el paquete del instalador en una ubicación de red
 2. En la ventana **Administrador del servidor**, vaya a **Servicios de archivos y almacenamiento**.
    
     ![Abra Servicios de archivos y almacenamiento.](./media/deploy-access-panel-browser-extension/files-services.png)
-3. Vaya a la pestaña **Recursos compartidos** . A continuación, haga clic en **Tareas** > **Nuevo recurso compartido...**.
+3. Vaya a la pestaña **Recursos compartidos** . A continuación, haga clic en Tareas****Nuevo recurso compartido...**.
    
     ![Abra Servicios de archivos y almacenamiento.](./media/deploy-access-panel-browser-extension/shares.png)
 4. Complete el **Asistente para nuevo recurso compartido** y establezca permisos para asegurarse de que se pueda acceder desde los equipos de los usuarios. [Más información acerca de los recursos compartidos.](https://technet.microsoft.com/library/cc753175.aspx)

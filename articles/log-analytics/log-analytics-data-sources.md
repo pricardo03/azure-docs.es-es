@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 071e4694bc3e2a8dc70a199fe7d6021332693b88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014030"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613875"
 ---
 # <a name="data-sources-in-log-analytics"></a>Orígenes de datos en Log Analytics
 Log Analytics recopila datos de los orígenes conectados y los almacena en el área de trabajo de Log Analytics.  Los orígenes de datos que configura definen los datos que se recopilan de cada uno de ellos.  Los datos de Log Analytics se almacenan como un conjunto de registros.  Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.
@@ -69,4 +69,4 @@ Todos los datos que recopila Log Analytics se almacenan en el área de trabajo c
 ## <a name="next-steps"></a>Pasos siguientes
 * Conozca las [soluciones](../monitoring/monitoring-solutions.md) que agregan funcionalidad a Log Analytics y que también recopilan datos del área de trabajo.
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
-* Configure [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) que le notifiquen de manera proactiva acerca de los datos críticos recopilados de soluciones y orígenes de datos.
+* Configure [alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) que le notifiquen de manera proactiva acerca de los datos críticos recopilados de soluciones y orígenes de datos.

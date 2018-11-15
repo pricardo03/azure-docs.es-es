@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: cd137462235431f0a0c1562e15a32951fe2a41c5
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957996"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346718"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -146,7 +146,7 @@ Para usar la autenticación de token de aplicación de Azure AD basada en la ent
 }
 ```
 
-### <a name="managed-identity"></a>Identidades administradas para la autenticación de recursos de Azure
+### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
 Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa esa factoría de datos concreta. Esta identidad de servicio se puede usar para Azure SQL Database. Con esta identidad la fábrica designada y puede acceder y copiar datos de su base de datos o en ella.
 
@@ -208,7 +208,7 @@ Para copiar datos con una instancia de Azure SQL Database como origen o destino,
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlTable**. | SÍ |
-| tableName | Nombre de la tabla o vista de la instancia de Azure SQL Database a la que hace referencia el servicio vinculado. | SÍ |
+| tableName | Nombre de la tabla o vista de la instancia de Azure SQL Database a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
 
 #### <a name="dataset-properties-example"></a>Ejemplo de propiedades de un conjunto de datos
 
@@ -248,7 +248,6 @@ Para copiar datos desde Azure SQL Database (o en dicho servicio), establezca la 
 
 - Si se especifica **sqlReaderQuery** en **SqlSource**, la actividad de copia ejecuta la consulta en el origen de Azure SQL Database para obtener los datos. O bien se puede especificar un procedimiento almacenado. Especifique **sqlReaderStoredProcedureName** y **storedProcedureParameters** si el procedimiento almacenado usa parámetros.
 - Si no se especifican **sqlReaderQuery** ni **sqlReaderStoredProcedureName**, se usan las columnas que se definen en la sección **structure** del JSON del conjunto de datos para construir una consulta. `select column1, column2 from mytable` se ejecuta en Azure SQL Database. Si la definición del conjunto de datos no tiene la sección **structure**, se seleccionan todas las columnas de la tabla.
-- Cuando use **sqlReaderStoredProcedureName**, necesitará especificar un valor para la propiedad ficticia **tableName** del JSON del conjunto de datos.
 
 #### <a name="sql-query-example"></a>Ejemplo de consulta SQL
 
