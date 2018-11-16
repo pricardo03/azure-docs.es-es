@@ -35,7 +35,7 @@
 # Procedimientos
 ## Conectividad de Internet
 ### [Servidores públicos de equilibrio de carga de red](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Servidores públicos de equilibrio de carga de aplicación](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Servidores públicos de equilibrio de carga de aplicación](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Protección de aplicaciones web](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Distribución de tráfico entre ubicaciones](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Conectividad interna

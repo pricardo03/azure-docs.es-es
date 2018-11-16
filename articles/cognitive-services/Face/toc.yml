@@ -8,10 +8,14 @@ items:
   expanded: true
 - name: Guías de inicio rápido
   items:
-  - name: Uso del SDK de .NET
+  - name: Uso del SDK de cliente
     items:
     - name: Detectar caras en una imagen
-      href: QuickStarts/csharp-detect-sdk.md
+      items:
+      - name: C#
+        href: QuickStarts/csharp-detect-sdk.md
+      - name: Python
+        href: Tutorials/FaceAPIinPythonTutorial.md
   - name: Uso de la API de REST
     items:
     - name: Detectar caras en una imagen
@@ -44,10 +48,6 @@ items:
       href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: Guías de procedimientos
   items:
-  - name: Primeras aplicaciones de Face API
-    items:
-    - name: Python
-      href: Tutorials/FaceAPIinPythonTutorial.md
   - name: Detectar caras en imágenes
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
   - name: Identificar caras en imágenes
@@ -104,9 +104,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Notas de la versión
     href: ReleaseNotes.md
-ms.openlocfilehash: 46fc3f747b6b9048ac0422ae30fc538fdcbc33f8
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0cc51a9f242b479d24c05e1167e8609d4111bc32
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631412"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686506"

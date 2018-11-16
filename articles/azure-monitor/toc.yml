@@ -99,11 +99,11 @@ items:
       - name: Métricas basadas en registros y agregadas previamente
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Contenedores
-      href: ../monitoring/monitoring-container-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      href: insights/container-insights-overview.md
     - name: Virtual Machines
-      href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
+      href: insights/vminsights-overview.md
     - name: Soluciones de supervisión
-      href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
+      href: insights/solutions-inventory.md
   - name: Análisis de datos
     items:
     - name: Log Analytics
@@ -520,17 +520,17 @@ items:
       - name: Azure Monitor para contenedores
         items:
         - name: Información general
-          href: ../monitoring/monitoring-container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-overview.md
         - name: Incorporación
-          href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-onboard.md
         - name: Análisis
-          href: ../monitoring/monitoring-container-insights-analyze.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-analyze.md
         - name: Deshabilitar la supervisión
-          href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-optout.md
         - name: Actualización de agentes
-          href: ../monitoring/monitoring-container-insights-agent-upgrade.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-agent-upgrade.md
         - name: solución de problemas
-          href: ../monitoring/monitoring-container-insights-troubleshoot.md
+          href: insights/container-insights-troubleshoot.md
       - name: Supervisión de contenedores de Docker y Windows
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Supervisión de aplicaciones de Docker
@@ -566,25 +566,25 @@ items:
       - name: Azure Monitor para máquinas virtuales
         items:
         - name: Información general
-          href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-overview.md
         - name: Problemas conocidos
-          href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-known-issues.md
         - name: Preguntas más frecuentes
-          href: ../monitoring/monitoring-vminsights-faq.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-faq.md
         - name: Incorporación
-          href: ../monitoring/monitoring-vminsights-onboard.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-onboard.md
         - name: Supervisión del mantenimiento
-          href: ../monitoring/monitoring-vminsights-health.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-health.md
         - name: Asignación de dependencias
-          href: ../monitoring/monitoring-vminsights-maps.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-maps.md
         - name: Supervisión del rendimiento
-          href: ../monitoring/monitoring-vminsights-performance.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-performance.md
         - name: Consulta de datos con Log Analytics
-          href: ../monitoring/monitoring-vminsights-log-search.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-log-search.md
         - name: Deshabilitar la supervisión
-          href: ../monitoring/monitoring-vminsights-optout.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-optout.md
       - name: Estado de mantenimiento de los agentes
-        href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solution-agenthealth.md
       - name: Capacidad y rendimiento
         href: ../log-analytics/log-analytics-capacity.md?toc=/azure/azure-monitor/toc.json
       - name: Análisis de VMWare
@@ -614,7 +614,7 @@ items:
       - name: DNS
         href: ../log-analytics/log-analytics-dns.md?toc=/azure/azure-monitor/toc.json
       - name: Office 365
-        href: ../monitoring/monitoring-solution-office-365.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solution-office-365.md
       - name: Evaluación de Operations Manager
         href: ../log-analytics/log-analytics-scom-assessment.md?toc=/azure/azure-monitor/toc.json
       - name: Surface Hub
@@ -622,9 +622,9 @@ items:
     - name: Uso de soluciones de supervisión
       items:
       - name: Información general
-        href: ../monitoring/monitoring-solutions.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions.md
       - name: Soluciones de destino
-        href: ../monitoring/monitoring-solution-targeting.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solution-targeting.md
   - name: Visualización de datos
     items:
     - name: Vistas
@@ -887,17 +887,17 @@ items:
     - name: Soluciones de supervisión
       items:
       - name: Diseño y compilación
-        href: ../monitoring/monitoring-solutions-creating.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-creating.md
       - name: Archivo de soluciones
-        href: ../monitoring/monitoring-solutions-solution-file.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-solution-file.md
       - name: Recursos de Automation
-        href: ../monitoring/monitoring-solutions-resources-automation.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-resources-automation.md
       - name: Búsquedas de registros y alertas
-        href: ../monitoring/monitoring-solutions-resources-searches-alerts.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-resources-searches-alerts.md
       - name: Vistas
-        href: ../monitoring/monitoring-solutions-resources-views.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-resources-views.md
       - name: Procedimientos recomendados
-        href: ../monitoring/monitoring-solutions-best-practices.md?toc=/azure/azure-monitor/toc.json
+        href: insights/solutions-best-practices.md
       - name: Recopilación de datos de supervisión de un runbook
         href: ../monitoring/monitoring-runbook-datacollect.md?toc=/azure/azure-monitor/toc.json
 - name: Referencia
@@ -1003,9 +1003,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Ejemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 4015e5461f3323b6e1fc8e5ec6b0e695fc028373
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 41881a2a7073a53a2d2831bdafcd1496e2357d89
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624121"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711946"
