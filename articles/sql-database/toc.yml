@@ -143,7 +143,7 @@ items:
     items:
     - name: Instancias administradas
       href: sql-database-managed-instance-index.yml
-    - name: ¿Qué es Instancia administrada?
+    - name: Información general
       href: sql-database-managed-instance.md
     - name: Límites de recursos
       href: sql-database-managed-instance-resource-limits.md
@@ -163,15 +163,15 @@ items:
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Replicación transaccional
       href: replication-with-sql-database-managed-instance.md
-  - name: Continuidad del negocio
+  - name: Plataforma como servicio
     items:
+    - name: Plataforma como servicio
+      href: sql-database-paas.yml
     - name: Continuidad del negocio
       href: sql-database-business-continuity.md
     - name: Alta disponibilidad
       href: sql-database-high-availability.md
-    - name: Recuperación de base de datos acelerada
-      href: sql-database-accelerated-database-recovery.md
-    - name: Copias de seguridad de bases de datos
+    - name: Copias de seguridad automatizadas
       href: sql-database-automated-backups.md
     - name: Retención de copia de seguridad a largo plazo
       items:
@@ -193,6 +193,8 @@ items:
       items:
       - name: Recuperación mediante copias de seguridad
         href: sql-database-recovery-using-backups.md
+      - name: Recuperación de base de datos acelerada
+        href: sql-database-accelerated-database-recovery.md
       - name: Guía de recuperación de interrupciones
         href: sql-database-disaster-recovery.md
       - name: Maniobras de recuperación
@@ -208,6 +210,8 @@ items:
   - name: Seguridad
     items:
     - name: Seguridad
+      href: sql-database-security-index.yml
+    - name: Información general
       href: sql-database-security-overview.md
     - name: Protección contra amenazas avanzada
       items:
@@ -648,9 +652,9 @@ items:
     href: /azure/architecture/
   - name: Testimonios de clientes
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 90ce805e96458e83315cd5f7c9e60b3585f7313d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 12add5f8ee32ce3c5207a604ef7cad821d5e5a4e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854295"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165278"
