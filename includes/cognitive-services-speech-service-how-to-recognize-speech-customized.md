@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: d874f1bd13239be16d7819ad1fa74797bd45ec1f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f2898f5cdc817a10d1083325a9a7d1b54443fdef
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43129333"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47000715"
 ---
 ## <a name="speech-recognition-with-a-customized-model"></a>Reconocimiento de voz mediante un modelo personalizado
 
 [Custom Speech Service (CRIS)](https://www.cris.ai/) permite la personalización del motor de voz a texto de Microsoft para su aplicación.
-El siguiente fragmento de código le muestra cómo reconocer voz de un micrófono mediante el modelo de CRIS. Especifique la clave de suscripción a CRIS y su propia identificación de implementación antes de ejecutar el código.
+El siguiente fragmento de código le muestra cómo reconocer voz de un micrófono mediante el modelo de CRIS. Especifique la clave de suscripción y su propia identificación del punto de conexión antes de ejecutar el código.
