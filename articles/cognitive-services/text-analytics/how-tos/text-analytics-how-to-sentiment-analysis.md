@@ -1,7 +1,6 @@
 ---
-title: 'Ejemplo: Análisis de opiniones con la API de REST Text Analytics'
-titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo detectar opiniones mediante la API de REST Text Analytics.
+title: Cómo analizar opiniones en la API REST Text Analytics (Microsoft Cognitive Services en Azure) | Microsoft Docs
+description: Cómo detectar opiniones mediante la API REST Text Analytics en Microsoft Cognitive Services en Azure con este tutorial.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605902"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632873"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Ejemplo: Cómo detectar opiniones en Text Analytics
 
@@ -24,6 +23,9 @@ La [API de análisis de sentimiento](https://westus.dev.cognitive.microsoft.com/
 Esta funcionalidad es útil para detectar opiniones positivas y negativas en redes sociales, revisiones de los clientes y foros de discusión. El contenido lo proporciona el usuario; los modelos y los datos de entrenamiento los proporciona el servicio.
 
 Actualmente, Análisis de sentimiento admite inglés, alemán, español y francés. Otros idiomas están en versión preliminar. Para más información, consulte [Lenguajes admitidos](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Text Analytics proporciona también una imagen de contenedor de Docker basada en Linux para el análisis de opinión, por lo que puede [instalar y ejecutar el contenedor de Text Analytics](text-analytics-how-to-install-containers.md) cerca de los datos.
 
 ## <a name="concepts"></a>Conceptos
 
@@ -77,7 +79,7 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 
 + Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [API de análisis de sentimiento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9).
 
-+ Establezca el punto de conexión HTTP para la extracción de frases clave. Debe incluir el recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Establezca el punto de conexión de HTTP para el análisis de opinión, mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Debe incluir el recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
 + Establezca un encabezado de solicitud para incluir la clave de acceso para las operaciones de Text Analytics. Para más información, consulte [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Cómo buscar puntos de conexión y claves de acceso).
 

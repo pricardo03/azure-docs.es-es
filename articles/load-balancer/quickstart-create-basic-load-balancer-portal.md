@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 523f5eba632b15eaaf45f24be820f7b255aae7c0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378438"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616034"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de una instancia pública de Load Balancer Básico mediante Azure Portal
 
@@ -159,6 +159,7 @@ Para permitir que la instancia de Load Balancer Básico supervise el estado de l
    - **myHealthProbe** como nombre del sondeo de mantenimiento
    - **HTTP** en tipo de protocolo
    - **80** en número de puerto
+   - **Healthprobe.aspx** para la ruta de acceso del URI. Puede reemplazar este valor por cualquier otro identificador URI o mantener el valor de ruta de acceso predeterminado de **"\\"** para obtener el URI predeterminado.
    - **15** en **Intervalo**, el número de segundos entre los intentos de sondeo
    - **2** en **Umbral incorrecto**, el número de errores de sondeo consecutivos que deben producirse para que se considere que una máquina virtual no funciona de manera correcta.
 

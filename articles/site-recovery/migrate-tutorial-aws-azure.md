@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d10464dac8d9e47d80f11b8bfaf70740e3ad250
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252146"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567101"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -241,7 +241,10 @@ Ejecute una conmutación por error real para las instancias de EC2 a fin de migr
 1. En **Elementos protegidos** > **Elementos replicados**, seleccione las instancias de AWS y, a continuación, seleccione **Conmutación por error**.
 2. En **Conmutación por error**, seleccione un **Punto de recuperación** en el que realizar la conmutación por error. Seleccione el punto de recuperación más reciente e inicie la conmutación por error. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
 1. Asegúrese de que la máquina virtual aparece en **Elementos replicados**.
-2. Haga clic con el botón derecho en cada máquina virtual y, a continuación, seleccione **Completar la migración**. Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual de AWS y la facturación de Site Recovery para la VM.
+2. Haga clic con el botón derecho en cada máquina virtual y, a continuación, seleccione **Completar la migración**. Esto hace lo siguiente:
+
+    - Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual de AWS y la facturación de Site Recovery para la VM.
+    - Este paso limpia los datos de replicación. No elimina las máquinas virtuales migradas. 
 
     ![Completar migración](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

@@ -3,29 +3,31 @@ title: Tutorial de C# de Azure IoT Edge | Microsoft Docs
 description: En este tutorial se muestra la creación de un módulo IoT Edge con código C# y su implementación en un dispositivo perimetral.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ec8cd52d8a91c76033d52f9b49ee84dde98eada2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4c20ab78ba4da44d4746ef6f68674fe494392347
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156772"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633995"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desarrollo de un módulo IoT Edge con C# en el dispositivo simulado
 
 Los módulos Azure IoT Edge se pueden usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos IoT Edge. En este tutorial, se detallan los pasos para crear e implementar un módulo de IoT Edge que filtra los datos de sensor. Utilizará el dispositivo de IoT Edge simulado que creó en las guías de inicio rápido para implementar Azure IoT Edge en un dispositivo simulado con [Windows](quickstart.md) o [Linux](quickstart-linux.md). En este tutorial, aprenderá a:    
 
 > [!div class="checklist"]
-> * Usar Visual Studio Code para crear un módulo IoT Edge basado en el SDK de .NET Core 2.0.
+> * Use Visual Studio Code para crear un módulo de IoT Edge basado en el SDK de .NET Core 2.1.
 > * Utilizar Visual Studio Code y Docker para crear una imagen de Docker y publicarla en el Registro.
 > * Implementar el módulo en el dispositivo IoT Edge.
 > * Ver datos generados.
 
+>[!NOTE]
+>También puede usar [los módulos de IoT Edge de desarrollo, depuración e implementación de Visual Studio 2017](how-to-visual-studio-develop-csharp-module.md).
 
 El módulo IoT Edge que creó en este tutorial filtra lo datos sobre la temperatura generados por el dispositivo. Solo envía mensajes a los niveles superiores si la temperatura sobrepasa el umbral especificado. Este tipo de análisis perimetral resulta útil para reducir la cantidad de datos que se comunican a la nube y se almacenan en ella. 
 

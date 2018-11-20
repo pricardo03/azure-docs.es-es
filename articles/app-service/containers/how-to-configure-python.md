@@ -15,24 +15,38 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406473"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633655"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configuración de una aplicación de Python para Azure App Service en Linux
 
 En este artículo se describe cómo [Azure App Service en Linux](app-service-linux-intro.md) ejecuta aplicaciones de Python, y cómo puede personalizar el comportamiento de App Service cuando es necesario.
 
+## <a name="set-python-version"></a>Establecimiento de la versión de Python
+
+Existen dos imágenes base: Python 3.6 y Python 3.7. Puede crear una aplicación con la imagen deseada basada en Python. Por ejemplo, para crear una aplicación con Python 3.7, ejecute el siguiente comando en Cloud Shell:
+
+```azurecli-interactive
+az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
+```
+
+Para cambiar la versión de Python (imagen base) a Python 3.6, por ejemplo, ejecute el siguiente comando en Cloud Shell:
+
+```azurecli-interactive
+az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "PYTHON|3.6"
+```
+
+Si necesita una versión diferente de Python, debe compilar e implementar su propia imagen de contenedor en su lugar. Para más información, consulte [Uso de una imagen personalizada de Docker para Web App for Containers](tutorial-custom-docker-image.md).
+
 ## <a name="container-characteristics"></a>Características del contenedor
 
-Las aplicaciones de Python que se implementan en App Service en Linux se ejecutan dentro de un contenedor de Docker que se define en el repositorio de GitHub, [Azure-App-Service/python container](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Las aplicaciones de Python que se implementan en App Service en Linux se ejecutan dentro de un contenedor de Docker que se define en el repositorio de GitHub, [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) o [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
 Este contenedor tiene las siguientes características:
-
-- La imagen del contenedor base es `python-3.7.0-slim-stretch`, lo que significa que las aplicaciones se ejecutan con Python 3.7. Si necesita una versión diferente de Python, debe compilar e implementar su propia imagen de contenedor en su lugar. Para más información, consulte [Uso de una imagen personalizada de Docker para Web App for Containers](tutorial-custom-docker-image.md).
 
 - Las aplicaciones se ejecutan mediante el [servidor HTTP de WSGI de Gunicorn](http://gunicorn.org/), mediante los argumentos adicionales `--bind=0.0.0.0 --timeout 600`.
 

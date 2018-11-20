@@ -13,15 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 82cd29cf1a635d1cd613d289a5d8db6ef54ee661
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49398747"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623211"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>¿Qué es la supervisión de Azure Active Directory? (versión preliminar)
 
@@ -32,7 +32,6 @@ Actualmente, puede enrutar los registros a:
 - Una cuenta de almacenamiento de Azure.
 - Un centro de eventos de Azure, para que pueda integrarlo con sus instancias de Splunk y Sumologic.
 - Un área de trabajo de Azure Log Analytics, donde puede analizar los datos, crear un panel y alertar sobre eventos específicos.
-
 
 ## <a name="diagnostic-settings-configuration"></a>Configuración de opciones de diagnóstico
 
@@ -53,7 +52,7 @@ Al enrutar los registros a una cuenta de almacenamiento de Azure, puede retenerl
 
 ## <a name="stream-logs-to-event-hub"></a>Transmisión en secuencias de registros a un centro de eventos
 
-Enrutar los registros a un centro de eventos de Azure le permite integrarse con herramientas SIEM de terceros como Sumologic y Splunk. Esta integración le permite combinar los datos de registro de actividad de Azure AD con otros datos administrados por el SIEM, lo que da como resultado una mejor comprensión del entorno. Aprenda cómo [transmitir registros a un centro de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md).
+Enrutar los registros a un centro de eventos de Azure le permite integrarse con herramientas SIEM de terceros como Sumologic y Splunk. Esta integración le permite combinar los datos de registro de actividad de Azure AD con otros datos administrados por el SIEM, a fin de proporcionar una mejor comprensión del entorno. Aprenda cómo [transmitir registros a un centro de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="send-logs-to-log-analytics"></a>Envío de registros a Log Analytics
 

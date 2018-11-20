@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación y administración de una instancia de Standard Load Balancer: Azure Portal | Microsoft Docs'
+title: 'Tutorial: Equilibrio de carga del tráfico de Internet en máquinas virtuales - Azure Portal | Microsoft Docs'
 description: Este tutorial muestra cómo crear y administrar una instancia de Standard Load Balancer mediante Azure Portal.
 services: load-balancer
 documentationcenter: na
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380053"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687323"
 ---
-# <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Creación y administración de una instancia de Standard Load Balancer mediante Azure Portal
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Equilibrio de carga del tráfico de Internet en máquinas virtuales mediante Azure Portal
 
-El equilibrio de carga proporciona un mayor nivel de disponibilidad y escala, ya que distribuye las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, aprenderá sobre los distintos componentes de Azure Standard Load Balancer que distribuyen el tráfico y proporcionan una alta disponibilidad. Aprenderá a:
+El equilibrio de carga proporciona un mayor nivel de disponibilidad y escala, ya que distribuye las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, conocerá los distintos componentes de Azure Standard Load Balancer que distribuyen el tráfico de Internet a máquinas virtuales y proporcionan una alta disponibilidad. Aprenderá a:
 
 
 > [!div class="checklist"]

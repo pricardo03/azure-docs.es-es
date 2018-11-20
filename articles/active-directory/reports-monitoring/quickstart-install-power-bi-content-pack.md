@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba2784663a585aebb82ee149be3b54e73920f6dd
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816657"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622541"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Guía de inicio rápido: Instalación del paquete de contenido de Power BI para Azure Active Directory
 
@@ -29,7 +29,7 @@ ms.locfileid: "48816657"
 |Actualmente, el paquete de contenido de Power BI de Azure AD usa las Graph API de Azure AD para recuperar datos del inquilino de Azure AD. Como resultado, es posible que vea alguna discrepancia entre los datos disponibles en el paquete de contenido y los datos recuperados con la [API de Microsoft Graph para crear informes](concept-reporting-api.md). |
 |  |
 
-El paquete de contenido de Power BI para Azure Active Directory le ofrece la posibilidad de obtener información detallada sobre lo que le pasa a su instancia de Active Directory. Puede descargar el paquete de contenido precompilado y usarlo para informar de todas las actividades dentro de su directorio mediante la rica experiencia de visualización que ofrece Power BI. También puede crear su propio panel y compartirlo fácilmente con cualquier persona de su organización. 
+El paquete de contenido de Power BI para Azure Active Directory (Azure AD) le ofrece la posibilidad de visualizar los datos de informes de su entorno. Puede descargar el paquete de contenido precompilado y usarlo para informar de todas las actividades dentro de su directorio mediante la rica experiencia de visualización que ofrece Power BI. También puede crear su propio panel y compartirlo fácilmente con cualquier persona de su organización. 
 
 En este tutorial, aprenderá a instalar el paquete de contenido.
 

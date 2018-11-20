@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729999"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288040"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Inicio rápido: crear una canalización de Cognitive Search mediante aptitudes y datos de ejemplo
 
@@ -26,10 +26,16 @@ En esta guía de inicio rápido, pruebe la canalización de enriquecimiento en [
 * Ejecute el asistente (una aptitud de la entidad detecta personas, ubicaciones y organizaciones).
 * Use el [Explorador de búsqueda](search-explorer.md) para consultar los datos enriquecidos.
 
+## <a name="supported-regions"></a> Regiones admitidas
+
 Puede probar Cognitive Search en el servicio Azure Search creado en las siguientes regiones:
 
+* Centro occidental de EE.UU.
 * Centro-Sur de EE. UU
+* Este de EE. UU
 * Europa occidental
+* Europa del Norte
+* Sudeste asiático
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -57,7 +63,7 @@ En primer lugar, regístrese en el servicio Azure Search.
 
 1. En el grupo de recursos, cree un grupo de recursos en el que se incluirán todos los recursos que cree en esta guía rápida. De este modo, será más fácil borrar los recursos tras finalizar los pasos de la guía.
 
-1. En cuanto a la ubicación, elija **Centro y Sur de EE. UU.** o **Europa Occidental**. Actualmente, la versión preliminar solo está disponible en estas regiones.
+1. En Ubicación, elija una de las [regiones admitidas](#supported-regions) para Cognitive Search.
 
 1. En la opción Plan de tarifa, puede crear un servicio **Gratis** para completar tutoriales y guías de inicio rápido. Si quiere realizar una investigación detallada con sus propios datos, cree un [servicio de pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** o **Estándar**. 
 

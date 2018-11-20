@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e03d913e1887bceb9267207e3a9abea93ab6d000
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649404"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568037"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Box
 
@@ -113,7 +113,7 @@ A.-->
 A. Si la luz LED que indica un error del sistema está encendida, esto quiere decir que su sistema no está funcionando correctamente. [Póngase en contacto con el servicio de soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md) para conocer los pasos siguientes.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>P: No puedo acceder a la contraseña de desbloqueo de Data Box en Azure Portal. ¿Por qué?
-A. Si no puede acceder a la contraseña de desbloqueo en Azure Portal, compruebe los permisos de la suscripción y la cuenta de almacenamiento. Asegúrese de tener los permisos de colaborador o propietario en el nivel del grupo de recursos. De lo contrario, debe tener un permiso de rol de operador de Data Box, al menos para ver las credenciales de acceso.
+A. Si no puede acceder a la contraseña de desbloqueo en Azure Portal, compruebe los permisos de la suscripción y la cuenta de almacenamiento. Asegúrese de tener los permisos de colaborador o propietario en el nivel del grupo de recursos. De lo contrario, debe tener al menos permiso de rol de operador de Data Box para ver las credenciales de acceso.
 
 ## <a name="track-status"></a>Seguimiento del estado
 
@@ -233,7 +233,7 @@ A.  Los siguientes informes están disponibles para garantizar la cadena de cust
 A.  Los registros de seguimiento del transportista se obtienen en el historial de pedidos de Data Box. Podrá obtener acceso a este informe una vez que el dispositivo haya llegado al centro de datos de Azure, y se hayan borrado los datos de los discos del mismo. Si lo necesita de forma urgente, también puede ir directamente al sitio web del transportista con el número de seguimiento del pedido y obtener la información del seguimiento.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>¿Puedo transportar Data Box al centro de datos de Azure? 
-A.  No. Actualmente, el centro de datos de Azure no acepta la entrega de Data Box de clientes o transportistas que no sean UPS o DHL.
+A.   No. Actualmente, el centro de datos de Azure no acepta la entrega de Data Box de clientes o transportistas que no sean UPS o DHL.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

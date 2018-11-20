@@ -13,20 +13,19 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 01/15/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 220f27ccf2d3eaefd8347e1d52824be2d601d9c9
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 0c3c9b23ac3383eb7e2eda256af4fb92f7f5e0b5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364416"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622166"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>¿Qué son los informes de Azure Active Directory?
 
-Con los informes de Azure Active Directory, puede obtener información sobre el funcionamiento de su entorno.  
-Los datos proporcionados le permiten:
+Los informes de Azure Active Directory (Azure AD) proporcionan una vista completa de la actividad en su entorno. Los datos proporcionados le permiten:
 
 - Determinar cómo utilizan los usuarios las aplicaciones y servicios
 - Detectar posibles riesgos que afectan al estado de su entorno
@@ -34,27 +33,25 @@ Los datos proporcionados le permiten:
 
 La arquitectura de informes se basa en dos pilares principales:
 
-- Informes de seguridad
-- Informes de actividad
+- [Informes de seguridad](#security-reports)
+- [Informes de actividad](#activity-reports)
 
 ![Informes](./media/overview-reports/01.png)
 
 
 ## <a name="security-reports"></a>Informes de seguridad
 
-Los informes de seguridad de Azure Active Directory le ayudan a proteger las identidades de su organización.  
-Hay dos tipos de informes de seguridad en Azure Active Directory:
+Los informes de seguridad ayudan a proteger las identidades de su organización. Hay dos tipos de informes de seguridad:
 
 - **Usuarios marcados en riesgo**: en el [informe de seguridad de usuarios marcados en riesgo](concept-user-at-risk.md) puede obtener una visión general de las cuentas de usuario que pueden haber estado en peligro.
 
 - **Inicios de sesión de riesgo**: en el [informe de seguridad de inicios de sesión de riesgo](concept-risky-sign-ins.md) puede obtener un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
 
-**¿Qué licencia de Azure AD se necesita para acceder a un informe de seguridad?**  
+### <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>¿Qué licencia de Azure AD se necesita para acceder a un informe de seguridad?  
 
-Todas las ediciones de Azure Active Directory le proporcionan estos informes sobre usuarios marcados en riesgo e inicios de sesión de riesgo.  
-Sin embargo, el nivel de granularidad del informe varía según la edición: 
+Todas las ediciones de Azure AD le proporcionan informes de usuarios marcados en riesgo e informes de inicios de sesión de riesgo. Sin embargo, el nivel de granularidad del informe varía según la edición: 
 
-- En las **ediciones Azure Active Directory Free y Basic** ya puede obtener una lista de usuarios marcados en riesgo y de inicios de sesión de riesgo. 
+- En las **ediciones gratuita y básica de Azure Active Directory**, puede obtener una lista de usuarios marcados en riesgo y de inicios de sesión de riesgo. 
 
 - En la edición **Azure Active Directory Premium 1** se extiende este modelo, con lo que también puede examinar algunos de los eventos de riesgo subyacentes que se han detectado para cada informe. 
 
@@ -63,14 +60,16 @@ Sin embargo, el nivel de granularidad del informe varía según la edición:
 
 ## <a name="activity-reports"></a>Informes de actividad
 
-Hay dos tipos de informes de actividad en Azure Active Directory:
+Los informes de actividad le ayudan a comprender el comportamiento de los usuarios de su organización. Hay dos tipos de informes de actividad en Azure AD:
 
 - **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
 
 - **Inicios de sesión**: con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
 
 
-Los **informes de registros de auditoría** le proporcionan registros de las actividades del sistema en relación con el cumplimiento normativo. Estos datos le permiten abordar cuestiones comunes como:
+### <a name="audit-logs-report"></a>Informe de registros de auditoría 
+
+Los [informes de registros de auditoría](concept-audit-logs.md) le proporcionan registros de las actividades del sistema en relación con el cumplimiento normativo. Estos datos le permiten abordar cuestiones comunes como:
 
 - Algún usuario de mi inquilino obtuvo acceso a un grupo de administración. ¿Quién les dio acceso? 
 
@@ -79,28 +78,25 @@ Los **informes de registros de auditoría** le proporcionan registros de las act
 - Quiero saber cuántos restablecimientos de contraseña se producen en mi inquilino
 
 
-**¿Qué licencia de Azure AD se necesita para acceder al informe de registros de auditoría?**  
+#### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>¿Qué licencia de Azure AD se necesita para acceder al informe de registros de auditoría?  
 
-El informe de registros de auditoría está disponible para aquellas características para las que dispone de licencia. Si tiene una licencia para una característica determinada, también tiene acceso a la información del registro de auditoría de dicha característica.
+El informe de registros de auditoría está disponible para aquellas características para las que dispone de licencia. Si tiene una licencia para una característica determinada, también tiene acceso a la información del registro de auditoría de dicha característica. Para más información, consulte [Características y funcionalidades de Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
 
-Para más información, consulte la **comparación de características disponibles con carácter general de las ediciones Free, Basic y Premium** en [Características y funcionalidad de Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+### <a name="sign-ins-report"></a>Informe de inicios de sesión
 
-
-El **informe de actividad de inicios de sesión** le permite encontrar respuestas a preguntas como:
+El [informe de inicios de sesión](concept-sign-ins.md) le permite encontrar respuestas a preguntas como:
 
 - ¿Cuál es el patrón de inicio de sesión de un usuario?
 - ¿Cuántos usuarios tienen usuarios que han iniciado sesión durante una semana?
 - ¿Cuál es el estado de estos inicios de sesión?
 
-
-**¿Qué licencia de Azure AD se necesita para acceder a los informes de actividades de inicio de sesión?**  
+#### <a name="what-azure-ad-license-do-you-need-to-access-the-sign-ins-activity-report"></a>¿Qué licencia de Azure AD se necesita para acceder a los informes de actividades de inicio de sesión?  
 
 El inquilino debe tener una licencia de Azure AD Premium asociada para acceder al informe de actividades de inicio de sesión.
 
 ## <a name="programmatic-access"></a>Acceso mediante programación
 
-Además de a través de la interfaz de usuario, los informes de Azure Active Directory también le proporcionan [acceso mediante programación](concept-reporting-api.md) a los datos de los informes. Los datos de estos informes pueden ser muy útiles para las aplicaciones, como sistemas SIEM, auditorías y herramientas de inteligencia empresarial. Las API de generación de informes de Azure AD proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Estas API pueden llamarse desde una variedad de lenguajes de programación y herramientas. 
-
+Además de la interfaz de usuario, Azure AD también proporciona [acceso mediante programación](concept-reporting-api.md) a los datos de informes, mediante un conjunto de API basadas en REST. Estas API pueden llamarse desde una variedad de lenguajes de programación y herramientas. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

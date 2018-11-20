@@ -1,5 +1,5 @@
 ---
-title: Streaming en vivo con Azure Media Services v3 mediante .NET Core | Microsoft Docs
+title: Streaming en directo con Azure Media Services v3 | Microsoft Docs
 description: Este tutorial le guía a través de los pasos del streaming en vivo con Media Services v3 mediante .NET Core.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: bd149177a91bc0d5897723df2fad50fef11a37ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392342"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613399"
 ---
-# <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>Streaming en vivo con Azure Media Services v3 mediante .NET Core
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Streaming en directo con Media Services v3 mediante las API
 
-En Media Services, los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son los responsables de procesar el contenido de streaming en vivo. Un objeto LiveEvent proporciona un punto de conexión de entrada (dirección URL de ingesta) que luego ofrece a un transcodificador en vivo. El objeto LiveEvent recibe flujos de entrada en vivo desde el codificador en directo y los deja a disposición del streaming a través de uno o más objetos [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Los objetos LiveEvents también proporcionan un punto de conexión de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de un procesamiento y entrega ulteriores. En este tutorial se muestra cómo usar .NET Core para un tipo de **paso a través** de un evento en directo. 
+En Azure Media Services, los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son los responsables de procesar el contenido de streaming en directo. Un objeto LiveEvent proporciona un punto de conexión de entrada (dirección URL de ingesta) que luego ofrece a un transcodificador en vivo. El objeto LiveEvent recibe flujos de entrada en vivo desde el codificador en directo y los deja a disposición del streaming a través de uno o más objetos [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Los objetos LiveEvents también proporcionan un punto de conexión de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de un procesamiento y entrega ulteriores. En este tutorial se muestra cómo usar .NET Core para un tipo de **paso a través** de un evento en directo. 
 
 > [!NOTE]
 > Asegúrese de revisar [Streaming en vivo con Media Services v3](live-streaming-overview.md) antes de continuar. 
@@ -31,7 +31,6 @@ En Media Services, los objetos [LiveEvents](https://docs.microsoft.com/rest/api/
 En este tutorial se muestra cómo realizar las siguientes acciones:    
 
 > [!div class="checklist"]
-> * Creación de una cuenta de Media Services
 > * Acceso a la API de Media Services
 > * Configuración de la aplicación de ejemplo
 > * Examen del código que realiza el streaming en vivo
@@ -44,9 +43,17 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 Los siguientes requisitos son necesarios para completar el tutorial.
 
-* Instalación de Visual Studio Code o Visual Studio
-* Una cámara o un dispositivo (como un equipo portátil) que se utiliza para difundir un evento.
-* Un codificador en directo local que convierte las señales de la cámara en secuencias que se envían a un servicio de streaming en vivo de Media Services. La secuencia debe estar en formato **RTMP** o **Smooth Streaming**.
+- Instalación de Visual Studio Code o Visual Studio.
+- Instale y use la CLI localmente, para este artículo es preciso usar la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión que tiene. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
+
+    Actualmente no todos los comandos de la [CLI de Media Services v3](https://aka.ms/ams-v3-cli-ref) funcionan en Azure Cloud Shell. Se recomienda usar la CLI localmente.
+
+- [Cree una cuenta de Media Services](create-account-cli-how-to.md).
+
+    Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos
+
+- Una cámara o un dispositivo (como un equipo portátil) que se utiliza para difundir un evento.
+- Un codificador en directo local que convierte las señales de la cámara en secuencias que se envían a un servicio de streaming en vivo de Media Services. La secuencia debe estar en formato **RTMP** o **Smooth Streaming**.
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
@@ -61,10 +68,6 @@ El ejemplo de streaming en vivo se encuentra en carpeta [Live](https://github.co
 > [!IMPORTANT]
 > Este ejemplo utiliza un sufijo único para cada recurso. Si cancela la depuración o finaliza la aplicación sin ejecutarla, acabará con varios objetos LiveEvents en tu cuenta. <br/>
 > Asegúrese de detener los objetos LiveEvents en ejecución. En caso contrario, se le **facturará** por ellos.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -176,9 +179,9 @@ El evento en directo convierte automáticamente los eventos en contenido a petic
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya no necesita ninguno de los recursos del grupo de recursos, incluida las cuentas de almacenamiento y de Media Services que ha creado en este tutorial, elimine el grupo de recursos que ha creado antes. Puede usar la herramienta **CloudShell**.
+Si ya no necesita ninguno de los recursos del grupo de recursos, incluida las cuentas de almacenamiento y de Media Services que ha creado en este tutorial, elimine el grupo de recursos que ha creado antes.
 
-En **CloudShell**, ejecute el siguiente comando:
+Ejecute el siguiente comando de la CLI:
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup

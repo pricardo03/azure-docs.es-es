@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037964"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567458"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutorial: Solicitar Azure Data Box Disk (versión preliminar)
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 > [!IMPORTANT]
 > - Data Box Disk se encuentra en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> - Durante la versión preliminar, Data Box Disk puede enviarse a clientes de Estados Unidos, Europa Occidental, Europa del Norte,Canadá y Australia. Para más información, vaya a [Disponibilidad por región](data-box-disk-overview.md#region-availability).
+> - Durante la versión preliminar, Data Box Disk se puede enviar a clientes de Estados Unidos, Europa Occidental, Europa del Norte,Canadá y Australia. Para más información, vaya a [Disponibilidad por región](data-box-disk-overview.md#region-availability).
 
 ## <a name="sign-up"></a>Suscripción
 
@@ -77,7 +77,7 @@ Para solicitar Data Box Disk, siga estos pasos en [Azure Portal](https://aka.ms/
     |Región de Azure de destino| Seleccione la región de la cuenta de almacenamiento.<br> Actualmente, se admiten cuentas de almacenamiento de todas las regiones de EE.UU., Europa Occidental, Europa del Norte, Canadá y Australia. |
     |Cuentas de almacenamiento|En función de la región de Azure especificada, seleccione en la lista filtrada una cuenta de almacenamiento existente. <br>También puede crear una nueva cuenta de uso general v1 o de uso general v2. |
     |Tamaño de datos estimado, en TB| Escriba una estimación, en TB. <br>Según el tamaño de los datos, Microsoft envía un número adecuado de SSD de 8 TB (7 TB de capacidad utilizable). <br>La capacidad máxima utilizable de cinco discos 35 TB. |
-    |Clave de paso de disco| Si marca **Usar la clave personalizada en lugar de la clave de paso generada por Azure**, proporcione la clave de paso de disco. <br> Proporcione una clave de 12 a 32 caracteres alfanuméricos que tenga al menos un carácter numérico y uno especial. Solo se permiten los caracteres especiales `@?_+`. <br> Puede elegir omitir esta opción y usar la clave de paso generada por Azure para desbloquear los discos.|
+    |Clave de paso de disco| Si marca **Usar la clave personalizada en lugar de la clave de paso generada por Azure**, proporcione la clave de paso de disco. <br> Proporcione una clave alfanumérica de entre 12 y 32 caracteres de longitud que tenga al menos un carácter numérico y un carácter especial. Solo se permiten los caracteres especiales `@?_+`. <br> Puede elegir omitir esta opción y usar la clave de paso generada por Azure para desbloquear los discos.|
 
 13. Haga clic en **Next**. 
 

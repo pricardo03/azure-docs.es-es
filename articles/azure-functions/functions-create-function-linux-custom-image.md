@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: aa3c72c7ff2aa5e25fbff9fc38c33fd2dda34ecd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: de15d1f8c268e80ac1659c53a141ec39cc6d3cb8
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985087"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564816"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Creación de una función en Linux con una imagen personalizada (versión preliminar)
 
@@ -241,6 +241,13 @@ az functionapp config appsettings set --name <function_app> \
 AzureWebJobsStorage=$storageConnectionString
 ```
 
+> [!NOTE]
+> Si el contenedor es privado, tendría que establecer también la siguiente configuración de aplicación  
+> - DOCKER_REGISTRY_SERVER_USERNAME  
+> - DOCKER_REGISTRY_SERVER_PASSWORD  
+>
+> Tendrá que detener y, a continuación, iniciar la aplicación de función para que se tomen estos valores
+
 Ahora puede probar cómo se ejecutan las funciones en Linux en Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
@@ -249,7 +256,7 @@ Ahora puede probar cómo se ejecutan las funciones en Linux en Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Crear una aplicación de función y un archivo Dockerfile mediante Core Tools.

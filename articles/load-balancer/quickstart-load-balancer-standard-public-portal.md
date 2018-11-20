@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42702413"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615235"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: creación de un equilibrador de carga estándar para equilibrar la carga de las VM mediante Azure Portal
 
@@ -145,6 +145,7 @@ Para permitir que el equilibrador de carga supervise el estado de la aplicación
     - *myHealthProbe*: como nombre del sondeo de estado.
     - **HTTP**: en tipo de protocolo.
     - *80*: en número de puerto.
+    - *Healthprobe.aspx* para la ruta de acceso del URI. Puede reemplazar este valor por cualquier otro identificador URI o mantener el valor de ruta de acceso predeterminado de **"\\"** para obtener el URI predeterminado.
     - *15*: como número de **Intervalo**, en segundos, entre los intentos de sondeo.
     - *2*: como número de **Umbral incorrecto** o errores de sondeo consecutivos que deben producirse para que una máquina virtual se considere que no funciona de manera incorrecta.
 4. Haga clic en **Aceptar**.

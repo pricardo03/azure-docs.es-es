@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d6ecf62b46c25ec7cf4ab80219d1bc220e4eb4cc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3f4090f1724850b0263905a0593fc77cc6dbfd16
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367413"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620741"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Guía de inicio rápido: Descarga de un informe de auditoría con Azure Portal
 
@@ -32,7 +32,7 @@ En esta guía de inicio rápido, obtendrá información sobre cómo descargar re
 Necesita:
 
 * Un inquilino de Azure Active Directory. 
-* Un usuario, que tenga el rol Administrador de seguridad, Lector de seguridad o Administrador global del inquilino. Además, cualquier usuario del inquilino puede acceder a sus propios registros de auditoría.
+* Un usuario, que tenga el rol **Administrador de seguridad**, **Lector de seguridad** o **Administrador global** del inquilino. Además, cualquier usuario del inquilino puede acceder a sus propios registros de auditoría.
 
 ## <a name="quickstart-download-an-audit-report"></a>Guía de inicio rápido: Descarga de un informe de auditoría
 

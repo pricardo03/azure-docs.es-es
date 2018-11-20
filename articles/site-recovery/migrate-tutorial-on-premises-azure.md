@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0134f6c83548ae5ffb4924ecf7d652ce89910340
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 176f8bb6fbb7a1a6bb81525cd3833d57bf9a5086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210625"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568808"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
@@ -110,7 +110,10 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
 3. La configuración de la clave de cifrado no es importante para este escenario.
 4. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. Site Recovery intentará apagar las máquinas virtuales antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
 5. Compruebe que la máquina virtual de Azure aparece en Azure según lo previsto.
-6. En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual > **Completar migración**. Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual y la facturación de Site Recovery para la VM.
+6. En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual > **Completar migración**. Esto hace lo siguiente:
+
+    - Finaliza el proceso de migración, se detiene la replicación de la máquina virtual de AWS y se detiene la facturación de Site Recovery para la máquina virtual.
+    - Este paso limpia los datos de replicación. No elimina las máquinas virtuales migradas.
 
     ![Completar migración](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 

@@ -1,51 +1,46 @@
 ---
-title: 'Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y Java'
+title: 'Guía de inicio rápido: Detección de caras en una imagen con la API REST de Azure y Java'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido se detectan caras de una imagen mediante Face API con Java.
+description: En este tutorial, usará la API REST de Azure Face con Java para detectar caras en una imagen.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: df9490a3ee2af115b48dafd323e1afdec24b392d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0a8a97be89893dbf072942501be51b82d20c1ef4
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956228"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578071"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y Java
 
-En esta guía de inicio rápido se detectan los rostros de personas en una imagen mediante Face API.
+En este tutorial, usará la API REST de Azure Face con Java para detectar caras humanas en una imagen.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una clave de suscripción para ejecutar el ejemplo. Puede obtener las claves de la suscripción de evaluación gratuita en la página de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
+- Cualquier entorno de desarrollo integrado de Java de su elección.
 
-## <a name="detect-faces-in-an-image"></a>Detectar caras en una imagen
+## <a name="create-the-java-project"></a>Creación del proyecto de Java
 
-Use el método [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para detectar los rostros en una imagen y devolver atributos de la cara, como:
+Cree una nueva aplicación de Java de la línea de comandos en el IDE y agregue una clase **Main** con un método **main**. A continuación, descargue las siguientes bibliotecas globales del repositorio de Maven al directorio `lib` del proyecto:
+* `org.apache.httpcomponents:httpclient:4.2.4`
+* `org.json:json:20170516`
 
-* Id. de rostro: identificador único que se usa en varios escenarios de Face API.
-* Rectángulo facial: las indicaciones de ubicación (izquierda, parte superior, ancho y alto) del rostro en la imagen.
-* Puntos de referencia: matriz de 27 puntos faciales de referencia de las posiciones importantes de los componentes del rostro.
-* Atributos faciales como la edad, el sexo, la intensidad de la sonrisa, la postura de la cabeza y el vello facial.
+## <a name="add-face-detection-code"></a>Adición del código de detección de caras
 
-Para ejecutar el ejemplo, siga estos pasos:
+Abra la clase main del proyecto. Aquí, agregará el código necesario para cargar imágenes y detectar caras.
 
-1. Cree una aplicación de línea de comandos en el IDE de Java favorito.
-2. Reemplace la clase Main por el código siguiente (mantenga las instrucciones `package`).
-3. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-4. Si es necesario, cambie el valor de `uriBase` para usar la ubicación donde obtuvo las claves de suscripción.
-5. Descargue estas bibliotecas globales del repositorio de Maven al directorio `lib` del proyecto:
-   * `org.apache.httpcomponents:httpclient:4.2.4`
-   * `org.json:json:20170516`
-6. Ejecute "Main".
+### <a name="import-packages"></a>Importar paquetes
 
-### <a name="face---detect-request"></a>Solicitud Face - Detect
+Agregue las siguientes instrucciones `import` en la parte superior del archivo.
 
 ```java
 // This sample uses Apache HttpComponents:
@@ -63,87 +58,101 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+```
 
-public class Main
+### <a name="add-essential-fields"></a>Adición de los campos esenciales
+
+Agregue los siguientes campos a la clase **Main**. Estos datos especifican cómo conectarse al servicio Face y dónde obtener los datos de entrada. Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y es posible que deba cambiar la cadena `uriBase` para que contenga el identificador de la región correcta. También es posible que desee establecer el valor de `imageWithFaces` en una ruta de acceso que apunte a un archivo de imagen diferente.
+
+El campo `faceAttributes` es simplemente una lista de determinados tipos de atributos. Especificará qué información recuperar sobre las caras detectadas.
+
+```Java
+// Replace <Subscription Key> with your valid subscription key.
+private static final String subscriptionKey = "<Subscription Key>";
+
+// NOTE: You must use the same region in your REST call as you used to
+// obtain your subscription keys. For example, if you obtained your
+// subscription keys from westus, replace "westcentralus" in the URL
+// below with "westus".
+//
+// Free trial subscription keys are generated in the westcentralus region. If you
+// use a free trial subscription key, you shouldn't need to change this region.
+private static final String uriBase =
+    "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+
+private static final String imageWithFaces =
+    "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
+
+private static final String faceAttributes =
+    "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+```
+
+### <a name="call-the-face-detection-rest-api"></a>Llamada a la API REST de detección de caras
+
+Agregue el siguiente código al método **main**. Construye una llamada REST a Face API para detectar información de caras en la imagen remota (la cadena `faceAttributes` especifica qué atributos de cara recuperar). A continuación, escribe los datos de salida en una cadena JSON.
+
+```Java
+HttpClient httpclient = new DefaultHttpClient();
+
+try
 {
-    // Replace <Subscription Key> with your valid subscription key.
-    private static final String subscriptionKey = "<Subscription Key>";
+    URIBuilder builder = new URIBuilder(uriBase);
 
-    // NOTE: You must use the same region in your REST call as you used to
-    // obtain your subscription keys. For example, if you obtained your
-    // subscription keys from westus, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the westcentralus region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
-    private static final String uriBase =
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+    // Request parameters. All of them are optional.
+    builder.setParameter("returnFaceId", "true");
+    builder.setParameter("returnFaceLandmarks", "false");
+    builder.setParameter("returnFaceAttributes", faceAttributes);
 
-    private static final String imageWithFaces =
-        "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
+    // Prepare the URI for the REST API call.
+    URI uri = builder.build();
+    HttpPost request = new HttpPost(uri);
 
-    private static final String faceAttributes =
-        "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+    // Request headers.
+    request.setHeader("Content-Type", "application/json");
+    request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-    public static void main(String[] args)
+    // Request body.
+    StringEntity reqEntity = new StringEntity(imageWithFaces);
+    request.setEntity(reqEntity);
+
+    // Execute the REST API call and get the response entity.
+    HttpResponse response = httpclient.execute(request);
+    HttpEntity entity = response.getEntity();
+```
+
+### <a name="parse-the-json-response"></a>Procese la respuesta JSON.
+
+Agregue el siguiente bloque directamente debajo del código anterior, que convierte los datos JSON devueltos en un formato más fácil de leer antes de imprimirlo en la consola. Por último, cierre el bloque try-catch.
+
+```Java
+    if (entity != null)
     {
-        HttpClient httpclient = new DefaultHttpClient();
+        // Format and display the JSON response.
+        System.out.println("REST Response:\n");
 
-        try
-        {
-            URIBuilder builder = new URIBuilder(uriBase);
-
-            // Request parameters. All of them are optional.
-            builder.setParameter("returnFaceId", "true");
-            builder.setParameter("returnFaceLandmarks", "false");
-            builder.setParameter("returnFaceAttributes", faceAttributes);
-
-            // Prepare the URI for the REST API call.
-            URI uri = builder.build();
-            HttpPost request = new HttpPost(uri);
-
-            // Request headers.
-            request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-            // Request body.
-            StringEntity reqEntity = new StringEntity(imageWithFaces);
-            request.setEntity(reqEntity);
-
-            // Execute the REST API call and get the response entity.
-            HttpResponse response = httpclient.execute(request);
-            HttpEntity entity = response.getEntity();
-
-            if (entity != null)
-            {
-                // Format and display the JSON response.
-                System.out.println("REST Response:\n");
-
-                String jsonString = EntityUtils.toString(entity).trim();
-                if (jsonString.charAt(0) == '[') {
-                    JSONArray jsonArray = new JSONArray(jsonString);
-                    System.out.println(jsonArray.toString(2));
-                }
-                else if (jsonString.charAt(0) == '{') {
-                    JSONObject jsonObject = new JSONObject(jsonString);
-                    System.out.println(jsonObject.toString(2));
-                } else {
-                    System.out.println(jsonString);
-                }
-            }
+        String jsonString = EntityUtils.toString(entity).trim();
+        if (jsonString.charAt(0) == '[') {
+            JSONArray jsonArray = new JSONArray(jsonString);
+            System.out.println(jsonArray.toString(2));
         }
-        catch (Exception e)
-        {
-            // Display error message.
-            System.out.println(e.getMessage());
+        else if (jsonString.charAt(0) == '{') {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            System.out.println(jsonObject.toString(2));
+        } else {
+            System.out.println(jsonString);
         }
     }
 }
+catch (Exception e)
+{
+    // Display error message.
+    System.out.println(e.getMessage());
+}
 ```
 
-### <a name="face---detect-response"></a>Respuesta de Face - Detect
+## <a name="run-the-app"></a>Ejecución de la aplicación
 
-Se devuelve una respuesta correcta en JSON.
+Compile el código y ejecútelo. Una respuesta correcta mostrará datos de las caras en formato JSON fácilmente legible en la ventana de consola. Por ejemplo: 
 
 ```json
 [{
@@ -237,7 +246,7 @@ Se devuelve una respuesta correcta en JSON.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo crear una aplicación Android que usa el servicio Face para detectar caras en una imagen. La aplicación muestra la imagen con un marco dibujado alrededor de cada cara.
+En esta guía de inicio rápido, ha creado una sencilla aplicación de consola de Java que usa llamadas REST a Azure Face API para detectar caras en una imagen y devolver sus atributos. A continuación, obtenga información sobre cómo hacer más cosas con esta funcionalidad en una aplicación Android.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Introducción a Face API en Android](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Tutorial: Creación de una aplicación Android para detectar y enmarcar caras](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

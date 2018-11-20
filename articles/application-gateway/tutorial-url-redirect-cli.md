@@ -1,6 +1,6 @@
 ---
-title: 'Crear una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL: CLI de Azure'
-description: Aprenda a crear una puerta de enlace de aplicaciones con tráfico redirigido basado en rutas de URL con la CLI de Azure.
+title: 'Tutorial: Creación de una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL: CLI de Azure'
+description: En este tutorial aprenderá a crear una puerta de enlace de aplicaciones con tráfico redirigido basado en rutas de URL con la CLI de Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3515d603c16bffe911df1b927d02644fcffa0788
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8489cf79848eb41e3c6334242ca607e925ae0b31
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947557"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568155"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: crear una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL mediante la CLI de Azure
 
@@ -313,14 +313,6 @@ Cuando ya no los necesite, quite el grupo de recursos, la puerta de enlace de ap
 az group delete --name myResourceGroupAG --location eastus
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Configuración de la red
-> * Creación de una puerta de enlace de aplicaciones
-> * Incorporación de agentes de escucha y reglas de enrutamiento
-> * Creación de conjuntos de escalado de máquinas virtuales para grupos de back-end
 
 > [!div class="nextstepaction"]
 > [Obtenga más información sobre lo que puede hacer con la puerta de enlace de aplicaciones](application-gateway-introduction.md).

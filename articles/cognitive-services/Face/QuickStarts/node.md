@@ -1,47 +1,35 @@
 ---
-title: 'Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y Node.js'
+title: 'Guía de inicio rápido: Detección de caras en una imagen con la API REST de Azure y Node.js'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido se detectan los rostros de una imagen mediante Face API con Node.js en Cognitive Services.
+description: En este tutorial, usará la API REST de Azure Face con Node.js para detectar caras en una imagen.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 06/08/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: b5258f1c465732df257a7db85e828effff200ee0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954112"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578002"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-nodejs"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST de Face y Node.js
 
-En esta guía de inicio rápido se detectan los rostros de personas en una imagen mediante Face API.
+En esta guía de inicio rápido, usará la API REST de Azure Face con Node.js para detectar caras humanas en una imagen.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una clave de suscripción para ejecutar el ejemplo. Puede obtener las claves de la suscripción de evaluación gratuita en la página de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
 
-## <a name="face---detect-request"></a>Solicitud Face - Detect
+## <a name="create-the-nodejs-script"></a>Creación del script de Node.js
 
-Use el método [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para detectar los rostros en una imagen y devolver atributos de la cara, como:
-
-* Id. de rostro: identificador único que se usa en varios escenarios de Face API.
-* Rectángulo facial: las indicaciones de ubicación (izquierda, parte superior, ancho y alto) del rostro en la imagen.
-* Puntos de referencia: matriz de 27 puntos faciales de referencia de las posiciones importantes de los componentes del rostro.
-* Atributos faciales como la edad, el sexo, la intensidad de la sonrisa, la postura de la cabeza y el vello facial.
-
-Para ejecutar el ejemplo, siga estos pasos:
-
-1. Copie el código siguiente en un editor.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie el valor de `uriBase` por la ubicación donde obtuvo las claves de suscripción.
-1. También puede establecer `imageUri` en la imagen que quiere analizar.
-1. Guarde el archivo con la extensión `.js`.
-1. Abra el símbolo del sistema de Node.js y ejecute el archivo, por ejemplo: `node myfile.js`.
+El código siguiente llamará a Face API para obtener los datos de los atributos de las caras de una imagen. En primer lugar, copie el código en un editor de texto; deberá realizar algunos cambios antes de su ejecución.
 
 ```nodejs
 'use strict';
@@ -88,9 +76,29 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="face---detect-response"></a>Respuesta de Face - Detect
+### <a name="subscription-key"></a>Subscription key
+Reemplace `<Subscription Key>` por una clave de suscripción de Face API válida.
 
-Se devuelve una respuesta correcta en código JSON, por ejemplo:
+### <a name="face-endpoint-url"></a>Dirección URL del punto de conexión de Face
+
+La dirección URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica el punto de conexión de Azure Face para las consultas. Deberá cambiar la primera parte de esta dirección URL para que coincida con la región que corresponde a la clave de suscripción (a menos que ya sea correcta).
+
+### <a name="url-query-string"></a>Cadena de consulta de URL
+
+El campo `returnFaceAttributes` especifica qué atributos de cara recuperar. Es posible que desee cambiar esta cadena según su uso previsto.
+
+### <a name="image-source-url"></a>Dirección URL del origen de la imagen
+El campo `imageUrl` indica la imagen que se usará como entrada. Puede cambiarlo para apuntar a cualquier imagen que desee analizar.
+
+## <a name="save-and-run-the-script"></a>Guardado y ejecución del script
+
+Una vez realizados los cambios, guarde el archivo como un script de JavaScript (.js). A continuación, abra un símbolo del sistema y ejecútelo con el comando `node`.
+
+```
+node myfile.js
+```
+
+Debería ver la información de la cara mostrada como datos JSON en la ventana de la consola. Por ejemplo: 
 
 ```json
 [
@@ -273,7 +281,7 @@ Se devuelve una respuesta correcta en código JSON, por ejemplo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore las versiones de Face API que se utilizan para detectar rostros humanos en una imagen, delimitarlos con rectángulos y devolver atributos como la edad y el sexo.
+En este tutorial, ha escrito un comando de cURL que llama a Azure Face API para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información.
 
 > [!div class="nextstepaction"]
-> [Versiones de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

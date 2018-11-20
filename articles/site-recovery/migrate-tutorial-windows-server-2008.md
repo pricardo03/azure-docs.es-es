@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 09/22/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 68a1367eec5392036797612e631a438b076b2cfc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1f537a381bbd595e519aaeb4cadb5b9be4657b6b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210472"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566574"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migración de servidores que ejecutan Windows Server 2008 a Azure
 
@@ -71,7 +71,7 @@ El resto de este tutorial muestra cómo puede migrar máquinas virtuales de VMwa
 
 - Es posible que no pueda usar el protocolo RDP a los servidores de Windows Server 2008 SP2 que ejecutan el sistema operativo de 32 bits inmediatamente después de que se conmuten por error o se conmuten por error de prueba a Azure. Reinicie la máquina virtual conmutada por error desde Azure Portal e intente conectarse de nuevo. Si todavía no puede conectarse, compruebe si el servidor está configurado para permitir conexiones a escritorio remotas y asegúrese de que no hay ninguna regla de firewall ni grupos de seguridad de red bloqueando la conexión. 
   > [!TIP]
-  > Se recomienda una conmutación por error de prueba antes de migrar los servidores. Asegúrese de que ha realizado al menos una conmutación por error correcta en cada servidor que va a migrar. Como parte de la prueba de conmutación por error, conéctese a la máquina de la conmutación por error de prueba y asegúrese que las cosas funcionan según lo previsto.
+  > Se recomienda una conmutación por error de prueba antes de migrar los servidores. Asegúrese de que ha realizado al menos una conmutación por error de prueba correcta en cada servidor que va a migrar. Como parte de la prueba de conmutación por error, conéctese a la máquina de la conmutación por error de prueba y asegúrese que las cosas funcionan según lo previsto.
   >
   >La operación de conmutación por error de prueba no es disruptiva y le ayuda a probar las migraciones mediante la creación de máquinas virtuales en una red aislada de su elección. A diferencia de la operación de conmutación por error, durante la operación de conmutación por error de prueba, la replicación de datos continúa realizándose. Puede realizar tantas conmutaciones por error de prueba como sea necesario antes de tener todo listo para migrar. 
   >
@@ -154,7 +154,10 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
 2. En **Conmutación por error**, seleccione un **punto de recuperación** en el que realizar la conmutación por error. Seleccione el punto de recuperación más reciente.
 3. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. Después, Site Recovery intentará apagar el servidor antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
 4. Compruebe que la máquina virtual de Azure aparece en Azure según lo previsto.
-5. En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual > **Completar migración**. Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual y la facturación de Site Recovery para la VM.
+5. En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual > **Completar migración**. Esto hace lo siguiente:
+
+    - Finaliza el proceso de migración, se detiene la replicación de la máquina virtual de AWS y se detiene la facturación de Site Recovery para la máquina virtual.
+    - Este paso limpia los datos de replicación. No elimina las máquinas virtuales migradas.
 
    ![Completar migración](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 

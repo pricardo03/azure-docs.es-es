@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de máquinas virtuales que ejecuten una pila SQL&#47;IIS&#47;.NET en Azure | Microsoft Docs'
+title: 'Tutorial: Creación de máquinas virtuales que ejecuten una pila SQL, IIS y .NET en Azure | Microsoft Docs'
 description: En este tutorial, aprenderá a instalar la pila Azure SQL, IIS, .NET en una máquina virtual Windows en Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 357a81ef3ab23a1e06b88f083c2fcdc35b27853d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464917"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515495"
 ---
-# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: Instalación de la pila SQL&#47;IIS&#47;.NET en una máquina virtual Windows con Azure PowerShell
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: Instalación de la pila SQL, IIS y .NET en una máquina virtual Windows con Azure PowerShell
 
-En este tutorial, vamos a instalar una pila SQL&#47;IIS&#47;.NET con Azure PowerShell. Esta pila está formada por dos máquinas virtuales que ejecutan Windows Server 2016, una con IIS y .NET y la otra con SQL Server.
+En este tutorial, vamos a instalar una pila SQL, IIS y .NET con Azure PowerShell. Esta pila está formada por dos máquinas virtuales que ejecutan Windows Server 2016, una con IIS y .NET y la otra con SQL Server.
 
 > [!div class="checklist"]
 > * Crear una VM 
@@ -57,7 +57,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-Instale IIS y .NET framework utilizando la extensión de script personalizado.
+Instale IIS y .NET Framework utilizando la extensión de script personalizado con el cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
 
 ```azurepowershell-interactive
 Set-AzureRmVMExtension `

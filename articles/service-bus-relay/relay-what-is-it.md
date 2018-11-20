@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319343"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621036"
 ---
 # <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
-El servicio Azure Relay le permite exponer de forma segura servicios que se ejecutan en la red corporativa en la nube pública. Puede hacerlo sin tener que abrir una conexión de firewall y sin realizar cambios molestos en la infraestructura de la red corporativa. 
+El servicio Azure Relay le permite exponer de forma segura servicios que se ejecutan en la red corporativa en la nube pública. Eso se puede hacer sin tener que abrir un puerto en el firewall y sin realizar cambios molestos en la infraestructura de la red corporativa. 
 
 El servicio Azure Relay admite los siguientes escenarios entre servicios locales y aplicaciones que se ejecutan en la nube o en otro entorno local. 
 
@@ -56,7 +56,7 @@ Para más información sobre el protocolo de Conexiones híbridas, consulte [Gu�
 > Conexiones híbridas de Azure Relay reemplaza a la anterior característica Conexiones híbridas de BizTalk Services. La característica Conexiones híbridas de BizTalk Services se basaba en Azure Service Bus WCF Relay. La funcionalidad Conexiones híbridas de Azure Relay complementa la característica WCF Relay que ya existía anteriormente. Estas dos funcionalidades del servicio (WCF Relay y Conexiones híbridas) coexisten en el servicio Azure Relay. Aunque comparten una puerta de enlace común, se trata de implementaciones diferentes.
 
 ## <a name="wcf-relay"></a>Retransmisión de WCF
-WCF Relay es totalmente compatible con .NET Framework y WCF. Puede crear una conexión entre el servicio local y el servicio de retransmisión mediante un conjunto de enlaces de “retransmisión” WCF. En segundo plano, los enlaces de retransmisión se asignan a nuevos elementos de enlace de transporte diseñados para crear componentes de canal WCF que se integran con Service Bus en la nube. Para más información, consulte [Introducción a WCF Relay](relay-wcf-dotnet-get-started.md).
+WCF Relay es totalmente compatible con .NET Framework y WCF. Puede crear una conexión entre el servicio local y el servicio de retransmisión mediante un conjunto de enlaces de “retransmisión” WCF. Los enlaces de retransmisión se asignan a nuevos elementos de enlace de transporte diseñados para crear componentes de canal WCF que se integran con Service Bus en la nube. Para más información, consulte [Introducción a WCF Relay](relay-wcf-dotnet-get-started.md).
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>Conexiones híbridas en comparación con Retransmisión de WCF
 Conexiones híbridas y WCF Relay habilitan una conexión segura a los recursos de dentro de una red corporativa. El uso de una u otra depende de sus necesidades particulares que se detallan en la siguiente tabla:
@@ -68,7 +68,7 @@ Conexiones híbridas y WCF Relay habilitan una conexión segura a los recursos d
 | **.NET Framework** |x |x |
 | **Script de Java/Node.JS** | |x |
 | **Protocolo abierto basado en estándares** | |x |
-| **Varios modelos de programación de RPC** | |x |
+| **Modelos de programación de RPC** | |x |
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Arquitectura: Procesamiento de solicitudes entrantes de retransmisión
 El siguiente diagrama muestra el control de las solicitudes de transmisión entrantes por parte del servicio Azure Relay:
@@ -86,9 +86,9 @@ El siguiente diagrama muestra el control de las solicitudes de transmisión entr
 9. La puerta de enlace reenvía cualquier mensaje del cliente de envío al cliente de escucha.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción a los Websockets de .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Introducción a los WebSockets de .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introducción a las solicitudes HTTP de .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [Introducción a los Websockets de Node](relay-hybrid-connections-node-get-started.md)
+* [Introducción a los WebSockets de Node](relay-hybrid-connections-node-get-started.md)
 * [Introducción a las solicitudes HTTP de Node](relay-hybrid-connections-http-requests-node-get-started.md)
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)
 

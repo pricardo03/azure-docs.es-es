@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8a3a9e4019be0b6039fe43df11a5f6093545f9cd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278589"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685372"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -97,46 +97,36 @@ Cree otra subred denominada **Jump-SN**, con un intervalo de direcciones **10.0.
 
 Ahora cree las máquinas virtuales de salto y de cargas de trabajo, y colóquelas en las subredes adecuadas.
 
-1. En la página principal de Azure Portal, haga clic en **Todos los servicios**.
-2. En **Compute**, haga clic en **Máquinas virtuales**.
-3. Haga clic en **Agregar** > **Windows Server** > **Windows Server 2016 Datacenter** > **Crear**.
+1. En Azure Portal, haga clic en **Crear un recurso**.
+2. Haga clic en **Compute** y, después, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.
+3. Especifique estos valores para la máquina virtual:
 
-**Aspectos básicos**
+    - *Test-FW-RG* para el grupo de recursos.
+    - *Srv-Jump*: como nombre de la máquina virtual.
+    - *azureuser*: como nombre del usuario administrador.
+    - *Azure123456!* como contraseña.
 
-1. En **Nombre**, escriba **Srv-Jump**.
-5. Escriba un nombre de usuario y una contraseña.
-6. En **Suscripción**, seleccione la suscripción.
-7. En **Grupo de recursos**, haga clic en **Usar existente** > **Test-FW-RG**.
-8. En **Ubicación**, seleccione la misma ubicación que usó anteriormente.
-9. Haga clic en **OK**.
+4. En **Reglas de puerto de entrada**, para **Puertos de entrada públicos**, haga clic en **Permitir los puertos seleccionados**.
+5. En **Seleccionar puertos de entrada**, seleccione **RDP (3389)**.
 
-**Tamaño**
-
-1. Elija un tamaño apropiado para una máquina virtual de prueba que ejecute Windows Server. Por ejemplo, **B2ms** (8 GB de RAM, 16 GB de almacenamiento).
-2. Haga clic en **Seleccionar**.
-
-**Configuración**
-
-1. En **Red**, como **Red virtual**, seleccione **Test-FW-VN**.
-2. En **Subred**, seleccione **Jump-SN**.
-3. En **Seleccionar puertos de entrada públicos**, seleccione **RDP (3389)**. 
-
-    Desea limitar el acceso a la dirección IP pública, pero deberá abrir el puerto 3389 para que pueda conectar un escritorio remoto al servidor de salto. 
-2. Deje los demás valores predeterminados y haga clic en **Aceptar**.
-
-**Resumen**
-
-Revise el resumen y luego haga clic en **Crear**. Esta operación tardará algunos minutos en completarse.
+6. Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.
+7. Acepte los discos predeterminados y haga clic en **Siguiente: Redes**.
+8. Asegúrese de que **Test-FW-VN** está seleccionada como red virtual y que la subred es **Jump-SN**.
+9. En **Dirección IP pública**, haga clic en **Crear nueva**.
+10. Escriba **Srv-Jump-PIP** para el nombre de la dirección IP pública y haga clic en **Aceptar**.
+11. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.
+12. Haga clic en **Deshabilitar** para deshabilitar los diagnósticos de arranque. Acepte los valores predeterminados y haga clic en **Revisar y crear**.
+13. Revise la configuración en la página de resumen y haga clic en **Crear**.
 
 Repita este proceso para crear otra máquina virtual denominada **Srv-Work**.
 
-Use la información de la tabla siguiente para configurar la **configuración** de la máquina virtual Srv-Work. El resto de la configuración es la misma que la de la máquina virtual Srv-Jump.
+Use la información de la tabla siguiente para configurar la máquina virtual Srv-Work. El resto de la configuración es la misma que la de la máquina virtual Srv-Jump.
 
 |Configuración  |Valor  |
 |---------|---------|
 |Subred|Workload-SN|
 |Dirección IP pública|None|
-|Seleccionar puertos de entrada públicos|No hay puertos de entrada públicos|
+|Puertos de entrada públicos|None|
 
 ## <a name="deploy-the-firewall"></a>Implementación del firewall
 
@@ -196,15 +186,16 @@ Se trata de la regla de aplicación que permite el acceso saliente a github.com.
 
 1. Abra **Test-FW-RG**y haga clic en el firewall **Test-FW01**.
 2. En la página **Test-FW01**, en **Configuración**, haga clic en **Reglas**.
-3. Haga clic en **Agregar una colección de reglas de aplicación**.
-4. En **Nombre**, escriba **App-Coll01**.
-5. En **Priority**, escriba **200**.
-6. En **Acción**, seleccione **Permitir**.
-7. En **Reglas**, como **Nombre**, escriba **AllowGH**.
-8. En **Direcciones de origen**, escriba **10.0.2.0/24**.
-9. En **Protocolo:Puerto**, escriba **http, https**.
-10. En **FQDN de destino**, escriba **github.com**
-11. Haga clic en **Agregar**.
+3. Haga clic en la pestaña **Recopilación de reglas de aplicación**.
+4. Haga clic en **Agregar una colección de reglas de aplicación**.
+5. En **Nombre**, escriba **App-Coll01**.
+6. En **Priority**, escriba **200**.
+7. En **Acción**, seleccione **Permitir**.
+8. En **Reglas**, **FQDN de destino**, como **Nombre** escriba **AllowGH**.
+9. En **Direcciones de origen**, escriba **10.0.2.0/24**.
+10. En **Protocolo:Puerto**, escriba **http, https**.
+11. En **FQDN de destino**, escriba **github.com**
+12. Haga clic en **Agregar**.
 
 Azure Firewall incluye una colección de reglas integradas para FQDN de infraestructura que están permitidos de forma predeterminada. Estos FQDN son específicos para la plataforma y no se pueden usar para otros fines. Para más información, consulte [Nombres de dominio completos de infraestructura](infrastructure-fqdns.md).
 
@@ -212,6 +203,7 @@ Azure Firewall incluye una colección de reglas integradas para FQDN de infraest
 
 Se trata de la regla de red que permite el acceso saliente a dos direcciones IP en el puerto 53 (DNS).
 
+1. Haga clic en la pestaña **Recopilación de reglas de red**.
 1. Haga clic en **Agregar una colección de reglas de red**.
 2. En **Nombre**, escriba **Net-Coll01**.
 3. En **Priority**, escriba **200**.

@@ -1,60 +1,65 @@
 ---
-title: 'Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y cURL'
+title: 'Guía de inicio rápido: Detección de caras en una imagen con la API REST de Azure y cURL'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido se detectan caras de una imagen mediante Face API con cURL.
+description: En esta guía de inicio rápido, usará la API REST de Azure Face con cURL para detectar caras en una imagen.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953355"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578053"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST de Face y cURL
 
-En esta guía de inicio rápido, se detectan caras de una imagen mediante Face API.
+En esta guía de inicio rápido, usará la API REST de Azure Face con cURL para detectar caras humanas en una imagen.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una clave de suscripción para ejecutar el ejemplo. Puede obtener las claves de la suscripción de evaluación gratuita en la página de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
 
-## <a name="detect-faces-in-an-image"></a>Detectar caras en una imagen
-
-Use el método [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para detectar los rostros en una imagen y devolver atributos de la cara, como:
-
-* Id. de rostro: identificador único que se usa en varios escenarios de Face API.
-* Rectángulo facial: las indicaciones de ubicación (izquierda, parte superior, ancho y alto) del rostro en la imagen.
-* Puntos de referencia: matriz de 27 puntos faciales de referencia de las posiciones importantes de los componentes del rostro.
-* Atributos faciales como la edad, el sexo, la intensidad de la sonrisa, la postura de la cabeza y el vello facial.
-
-Para ejecutar el ejemplo, siga estos pasos:
-
-1. Abra el símbolo del sistema.
-2. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-3. Si es necesario, cambie la dirección URL (`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`) para usar la ubicación donde obtuvo las claves de suscripción.
-4. Además, puede cambiar la imagen (`"{\"url\":...`) que se va a analizar.
-5. Pegue el código en la ventana de comandos.
-6. Ejecute el comando.
-
-### <a name="face---detect-request"></a>Solicitud Face - Detect
-
-> [!NOTE]
-> Debe utilizar la misma ubicación en la llamada de REST que utilizó para obtener las claves de la suscripción. Por ejemplo, si obtuvo sus claves de suscripción de westus, reemplace "westcentralus" en la siguiente dirección URL por "westus".
+## <a name="write-the-command"></a>Escritura del comando
+ 
+Utilizará un comando como el siguiente para llamar a Face API y obtener los datos de los atributos de las caras de una imagen. En primer lugar, copie el código en un editor de texto; deberá realizar cambios en ciertas partes del comando antes de su ejecución.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-### <a name="face---detect-response"></a>Respuesta de Face - Detect
+### <a name="subscription-key"></a>Subscription key
+Reemplace `<Subscription Key>` por una clave de suscripción de Face API válida.
 
-Se devuelve una respuesta correcta en JSON.
+### <a name="face-endpoint-url"></a>Dirección URL del punto de conexión de Face
+
+La dirección URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica el punto de conexión de Azure Face para las consultas. Deberá cambiar la primera parte de esta dirección URL para que coincida con la región que corresponde a la clave de suscripción (a menos que ya sea correcta).
+
+### <a name="url-query-string"></a>Cadena de consulta de URL
+
+La cadena de consulta de la dirección URL del punto de conexión de Face especifica qué atributos de cara recuperar. Es posible que desee cambiar esta cadena según su uso previsto.
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
+
+### <a name="image-source-url"></a>Dirección URL del origen de la imagen
+La dirección URL del origen indica la imagen que se usará como entrada. Puede cambiarlo para apuntar a cualquier imagen que desee analizar.
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
+
+## <a name="run-the-command"></a>Ejecute el comando
+
+Una vez realizados los cambios, abra un símbolo del sistema y escriba el nuevo comando. Debería ver la información de la cara mostrada como datos JSON en la ventana de la consola. Por ejemplo: 
 
 ```json
 [
@@ -150,7 +155,7 @@ Se devuelve una respuesta correcta en JSON.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore las versiones de Face API que se utilizan para detectar rostros humanos en una imagen, delimitarlos con rectángulos y devolver atributos como la edad y el sexo.
+En este tutorial, ha escrito un comando de cURL que llama a Azure Face API para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información.
 
 > [!div class="nextstepaction"]
-> [Versiones de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

@@ -1,6 +1,6 @@
 ---
 title: 'Guía de inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de Node | Microsoft Docs'
-description: 'Guía de inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de Node'
+description: 'Guía de inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4f7955c013ce7f45ebe6db8bb23eeec92303876e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230938"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686677"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Guía de inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET
 
@@ -175,7 +175,6 @@ Ahora, cuando ejecute la aplicación debería ver el valor del secreto recuperad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Página principal de Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-* [Documentación de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
+* [Más información acerca de Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 * [SDK de Azure para .NET](https://github.com/Azure/azure-sdk-for-net)
 * [Referencia de API REST en Azure](https://docs.microsoft.com/rest/api/keyvault/)

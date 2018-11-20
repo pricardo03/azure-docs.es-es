@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d99f077449529fb4a4a7f124fe1c0263d4113dee
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49d0840ff7a41ed48151b65e1351628d32d46d24
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363452"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623255"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory
 
@@ -62,8 +62,6 @@ Para completar este inicio rápido necesita instalar:
 
 Para más información, consulte:
 
-- [Acceso condicional en Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
-
+- [Acceso condicional de Azure AD](../active-directory-conditional-access-azure-portal.md)
 - [Condiciones de ubicación del acceso condicional de Azure AD](../conditional-access/location-condition.md)
-
-- [Informe de inicios de sesión poco seguros del portal de Azure AD](concept-risky-sign-ins.md)  
+- [Informe de inicios de sesión de riesgo](concept-risky-sign-ins.md)  

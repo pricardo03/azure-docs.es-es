@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7cccb47bd7489e88649ee82c4d52c72af0d91e8e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 983b966ad304afb467df26193dd609f6f21a1b32
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390952"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614284"
 ---
 # <a name="what-is-azure-network-watcher"></a>¿Qué es Azure Network Watcher?
 
@@ -98,6 +98,9 @@ Más información acerca de los registros de flujo NSG siguiendo el tutorial [Re
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visualización de registros de diagnóstico de recursos de red
 
 Puede habilitar el registro de diagnóstico de recursos de red de Azure, como grupos de seguridad de red, direcciones IP públicas, equilibradores de carga, puertas de enlace de red virtual y puertas de enlace de aplicación. La funcionalidad *Registros de diagnóstico* proporciona una única interfaz para habilitar y deshabilitar los registros de diagnóstico de recursos de red de cualquier recurso de red existente que genera un registro de diagnóstico. Puede ver registros de diagnóstico con herramientas como Microsoft Power BI y Azure Log Analytics. Para obtener más información sobre el análisis de registros de diagnóstico de red de Azure, vea [Soluciones de supervisión de redes de Azure en Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+
+## <a name="network-watcher-automatic-enablement"></a>Habilitación automática de Network Watcher
+Al crear o actualizar una red virtual en su suscripción, Network Watcher se habilitará automáticamente en la región de Virtual Network. El hecho de habilitar Network Watcher de forma automática no afecta a sus recursos ni a los cargos asociados. Para más información, consulte [Creación de una instancia de Network Watcher](network-watcher-create.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

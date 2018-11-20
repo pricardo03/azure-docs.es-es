@@ -7,18 +7,18 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: overview
-ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 696ba68894b4ac5f73c234ea49883fd0aa3db4d5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 11/14/2018
+ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320924"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686031"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>¿Qué es Azure Database for MariaDB?
 
-Azure Database for MariaDB es un servicio de base de datos relacional en la nube de Microsoft. Azure Database for MariaDB se basa en el motor de base de datos de [MariaDB Community Edition](https://mariadb.org/download/). Este servicio está en versión preliminar pública. 
+Azure Database for MariaDB es un servicio de base de datos relacional en la nube de Microsoft. Azure Database for MariaDB se basa en el motor de base de datos de [MariaDB Community Edition](https://mariadb.org/download/), versión 10.2. Este servicio está en versión preliminar pública. 
 
 Azure Database for MariaDB ofrece lo siguiente:
 
@@ -43,7 +43,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar el rendimiento y la escala en cuestión de segundos
 
-En la versión preliminar, el servicio Azure Database for MariaDB ofrece varios niveles de servicio: Básico, Uso general y Optimiza para memoria. Cada nivel ofrece diferentes niveles de rendimiento y funcionalidades para admitir cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica ayuda a la base de datos a responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Vea los [Planes de tarifa](concepts-pricing-tiers.md) para obtener más información.
+En la versión preliminar, el servicio Azure Database for MariaDB ofrece varios niveles de servicio: Básico, Uso general y Optimiza para memoria. Cada nivel ofrece diferentes niveles de rendimiento y funcionalidades para admitir cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica ayuda a la base de datos a responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Para más información, consulte los  [planes de tarifa](concepts-pricing-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 

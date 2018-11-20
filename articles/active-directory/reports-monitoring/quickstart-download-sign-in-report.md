@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 334649dbe315cb54ba95a29f4c69441fcd2c3417
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46362976"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621436"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Guía de inicio rápido: Descarga de un informe de inicio de sesión mediante Azure Portal
 
@@ -32,7 +32,7 @@ En esta guía de inicio rápido, obtendrá información sobre cómo descargar lo
 Necesita:
 
 * Un inquilino de Azure Active Directory, con una licencia Premium para ver el informe actividad de inicio de sesión. 
-* Un usuario, que tenga el rol Administrador de seguridad, Lector de seguridad, Lector de informes o Administrador global del inquilino. Además, cualquier usuario del inquilino puede acceder a sus propios inicios de sesión.
+* Un usuario, que tenga el rol **Administrador de seguridad**, **Lector de seguridad**, **Lector de informes** o **Administrador global** del inquilino. Además, cualquier usuario del inquilino puede acceder a sus propios inicios de sesión.
 
 ## <a name="quickstart-download-a-sign-in-report"></a>Guía de inicio rápido: Descarga de un informe de inicio de sesión
 

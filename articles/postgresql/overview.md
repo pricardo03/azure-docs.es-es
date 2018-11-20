@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/15/2018
-ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/14/2018
+ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092164"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685861"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>¿Qué es Azure Database for PostgreSQL?
 
-Azure Database for PostgreSQL es un servicio de base de datos relacional en la nube de Microsoft creado para los desarrolladores y basado en la versión de la comunidad de código abierto del motor de base de datos [PostgreSQL](https://www.postgresql.org/). Azure Database for PostgreSQL ofrece:
+Azure Database for PostgreSQL es un servicio de base de datos relacional en la nube de Microsoft creado para desarrolladores y basado en la versión de comunidad del motor de base de datos [PostgreSQL](https://www.postgresql.org/) de código abierto, versiones 9.5, 9.6 y 10. Azure Database for PostgreSQL ofrece:
 
 - Alta disponibilidad integrada sin costo adicional.
 - Rendimiento predecible, con precios de pago por uso inclusivos.
@@ -40,7 +40,7 @@ Para ver ejemplos de la CLI de Azure, consulte:
 - [Azure CLI samples for Azure Database for PostgreSQL](./sample-scripts-azure-cli.md) (Ejemplos de la CLI de Azure para Azure Database for PostgreSQL)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar el rendimiento y la escala en cuestión de segundos
-En la versión preliminar, el servicio Azure Database for PostgreSQL ofrece varios planes de tarifa: Básico, Uso general y Memoria optimizada. Cada plan ofrece capacidades de recursos diferente para admitir sus cargas de trabajo de la base de datos. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Vea los [Planes de tarifa](concepts-pricing-tiers.md) para obtener más información.
+En la versión preliminar, el servicio Azure Database for PostgreSQL ofrece varios planes de tarifa: Básico, Uso general y Memoria optimizada. Cada plan ofrece capacidades de recursos diferente para admitir sus cargas de trabajo de la base de datos. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Para más información, consulte los  [planes de tarifa](concepts-pricing-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 ¿Cómo se decide cuándo escalar? Use las características de supervisión y alertas integradas de Azure. Con estas herramientas, puede evaluar rápidamente cómo le afectará el ajuste de la escala en función de sus necesidades de rendimiento o almacenamiento actuales o futuras. Vea las [Alertas](howto-alert-on-metric.md) para obtener más información.

@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361718"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345715"
 ---
 # <a name="what-is-bing-spell-check-api"></a>¿Qué es Bing Spell Check API?
 
@@ -42,9 +42,12 @@ El modo predeterminado es `Proof`. El modo de corrección ortográfica `Proof` e
 <br /><br/>**Nota:** si el texto de consulta tiene más de 4096 caracteres, se truncará a 4096 y luego se procesará. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spell (para el escenario de consultas y búsquedas web)
 `Spell` es más agresivo para devolver mejores resultados de búsqueda. El modo `Spell` busca la mayoría de los errores ortográficos, pero no encuentra algunos de los errores gramaticales que `Proof` detecta, por ejemplo, las palabras repetidas o los errores de mayúsculas y minúsculas.
-<br /></br>**Nota:** a continuación se indica la longitud de consulta máxima permitida. Si la consulta supera dicho límite, el resultado hace parecer que la consulta no se ha modificado.
-<ul><li>130 caracteres para los códigos de idioma en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, lo, zh y ko. </li>
-<li>65 caracteres para los restantes</li></ul>
+
+> [!NOTE]
+> * La longitud máxima de consulta admitida es inferior. Si la consulta supera la longitud máxima, ni la consulta ni sus resultados se modificarán.
+>    * 130 caracteres para los códigos de idioma siguientes: en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh y ko. 
+>    * 65 caracteres para los demás.
+> * El modo de corrección ortográfica no admite caracteres de corchetes (`[` y `]`) en las consultas y puede causar resultados incoherentes. Se recomienda eliminarlos de las consultas cuando se usa el modo de corrección ortográfica.
 
 ## <a name="market-setting"></a>Configuración del mercado
 El mercado debe especificarse en el parámetro de consulta en la dirección URL de solicitud; de lo contrario, el corrector ortográfico tomará el mercado predeterminado en función de la dirección IP.

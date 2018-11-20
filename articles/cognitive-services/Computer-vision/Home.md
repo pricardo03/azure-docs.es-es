@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250621"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634335"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
@@ -53,6 +53,10 @@ También puede [reconocer tanto el texto impreso como el manuscrito](concept-rec
 ## <a name="moderating-content-in-images"></a>Moderación del contenido de las imágenes
 
 Computer Vision se puede usar para [detectar contenido explícito y para adultos](concept-detecting-adult-content.md) en una imagen, para lo que valora la probabilidad de que la imagen contenga este tipo de contenido y genera una puntuación relativa a la confianza de todo él. El filtro para la detección de contenido explícito y para adultos se puede establecer en una escala deslizando, con el fin de que pueda ajustarlo a sus preferencias.
+
+## <a name="using-containers"></a>Uso de contenedores
+
+[Use contenedores de Computer Vision](computer-vision-how-to-install-containers.md) para reconocer texto impreso y escrito a mano localmente, mediante la instalación de un contenedor de Docker estándar más cercano a los datos.
 
 ## <a name="image-requirements"></a>Requisitos de imagen
 

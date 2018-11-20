@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: rosh
-ms.openlocfilehash: 4dcc9220d4d38bfe34514edd6a3ad47c7a7d4ba8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9a2544fe5a3c0bac763b9aee79c36893ec56f351
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225623"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686694"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-node"></a>Inicio rápido: SDK de Bing Video Search con Node
 
@@ -25,7 +25,9 @@ El [código fuente de los ejemplos del SDK de Bing Video Search para Node](https
 
 ## <a name="application-dependencies"></a>Dependencias de aplicaciones
 
-Para configurar una aplicación de consola mediante el SDK de Bing Video Search, ejecute `npm install azure-cognitiveservices-videosearch` en el entorno de desarrollo.
+Para configurar una aplicación de consola mediante el SDK de Bing Video Search:
+* Ejecute `npm install ms-rest-azure` en el entorno de desarrollo.
+* Ejecute `npm install azure-cognitiveservices-videosearch` en el entorno de desarrollo.
 
 ## <a name="video-search-client"></a>Cliente de Video Search
 Obtenga una [clave de acceso de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) en *Buscar*. Creación de una instancia de `CognitiveServicesCredentials`:
