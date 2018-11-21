@@ -56,7 +56,7 @@ Se especifica el grupo de recursos al crear o modificar una máquina virtual, co
 
 ## <a name="create-a-vm"></a>Crear una VM
 
-Al crear una máquina virtual, hay varias opciones disponibles, como la imagen de sistema operativo,la configuración de red y las credenciales administrativas. En este ejemplo se crea una máquina virtual denominada *myVM* que ejecuta la versión predeterminada de Windows Server 2016 Datacenter.
+Al crear una máquina virtual, hay varias opciones disponibles, como la imagen de sistema operativo, la configuración de red y las credenciales administrativas. En este ejemplo se crea una máquina virtual denominada *myVM* que ejecuta la versión predeterminada de Windows Server 2016 Datacenter.
 
 Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta de administrador en la máquina virtual con [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
 
