@@ -1,5 +1,5 @@
 ---
-title: Tutorial de Azure Service Bus WCF Relay | Microsoft Docs
+title: Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay | Microsoft Docs
 description: Compile una aplicación cliente y servicio con WCF Relay.
 services: service-bus-relay
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2017
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262019"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615483"
 ---
-# <a name="azure-wcf-relay-tutorial"></a>Tutorial de Azure WCF Relay
+# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay
 
 En este tutorial se describe cómo crear un servicio y una aplicación cliente de WCF Relay sencillos mediante Azure Relay. Para ver un tutorial parecido donde se usa [Mensajería de Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consulte [Introducción a las colas de Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -31,19 +31,32 @@ Cuando complete la secuencia de temas de este tutorial, tendrá un servicio en e
 
 En los últimos tres pasos se describe cómo crear una aplicación cliente, cómo configurarla y cómo crear y usar un cliente que pueda tener acceso a la funcionalidad del host.
 
+En este tutorial, realice los siguientes pasos:
+
+> [!div class="checklist"]
+> * Creación de un espacio de nombres de Relay
+> * Creación de un contrato de servicio de WCF
+> * Implementación del contrato de WCF
+> * Hospedaje y ejecución de un servicio WCF para registrarse con el servicio Relay
+> * Crear un cliente WCF para el contrato de servicio
+> * Configurar el cliente de WCF
+> * Implementación del cliente de WCF
+> * Ejecución de las aplicaciones 
+
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, necesitará lo siguiente:
+Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
-* [Microsoft Visual Studio 2015 o una versión superior](https://visualstudio.com). En este tutorial se usa Visual Studio 2017.
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/free/).
+- Una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+- [Visual Studio 2015 o posterior](http://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2017.
+- SDK de Azure para .NET. Instálelo desde la [página de descargas de SDK](https://azure.microsoft.com/downloads/).
 
-## <a name="create-a-service-namespace"></a>Creación de un espacio de nombres de servicio
+## <a name="create-a-relay-namespace"></a>Creación de un espacio de nombres de Relay
+El primer paso consiste en crear un espacio de nombres y obtener una clave de [firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del servicio de retransmisión. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona las credenciales para que Azure autentique el acceso a una aplicación.
 
-El primer paso consiste en crear un espacio de nombres y obtener una clave de [firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del servicio de retransmisión. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona las credenciales para que Azure autentique el acceso a una aplicación. Siga las [instrucciones a continuación](relay-create-namespace-portal.md) para crear un espacio de nombres de retransmisión.
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>Definición de un contrato de servicio de WCF
-
 El contrato de servicio especifica las operaciones (la terminología del servicio web para funciones o métodos).que admite el servicio. Los contratos se crean mediante la definición de una interfaz de C++, C# o Visual Basic. Cada método de la interfaz corresponde a una operación de servicio específica. Todas las interfaces deben tener el atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) aplicado, y todas las operaciones deben tener el atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) aplicado. Si un método en una interfaz que tiene el atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) no tiene el atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), no se expone dicho método. El código para estas tareas se ofrece en el ejemplo a continuación del procedimiento. Para leer una descripción completa de los contratos y servicios, vea [Diseño e implementación de servicios](https://msdn.microsoft.com/library/ms729746.aspx), en la documentación de WCF.
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>Creación de un contrato de retransmisión con una interfaz
@@ -51,13 +64,13 @@ El contrato de servicio especifica las operaciones (la terminología del servici
 1. Abra Visual Studio como administrador, para lo que debe hacer clic con el botón derecho en el programa del menú **Inicio** y, después, haga clic en **Ejecutar como administrador**.
 2. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo** y seleccione **Nuevo**; a continuación, haga clic en **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, mire en **Otros lenguajes**). Haga clic en la plantilla **Aplicación de consola (.NET Framework)** y asígnele el nombre **EchoService**. Haga clic en **Aceptar** para crear el proyecto.
 
-    ![][2]
+    ![Creación de una aplicación de consola][2]
 
 3. Instale el paquete NuGet de Service Bus. Este paquete agrega automáticamente referencias a las bibliotecas de Service Bus, así como a **System.ServiceModel** de WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) es el espacio de nombres que permite el acceso mediante programación a las características básicas de WCF. Service Bus utiliza muchos de los objetos y atributos de WCF para definir contratos de servicio.
 
-    En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y, luego, en **Administrar paquetes NuGet**. Haga clic en la pestaña Examinar y, después, busque **WindowsAzure.ServiceBus**. Asegúrese de que el nombre del proyecto está seleccionado en el cuadro **Versiones**. Haga clic en **Instalar**y acepte las condiciones de uso.
+    En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y, luego, en **Administrar paquetes NuGet**. Haga clic en la pestaña **Examinar** y, después, busque **WindowsAzure.ServiceBus**. Asegúrese de que el nombre del proyecto está seleccionado en el cuadro **Versiones**. Haga clic en **Instalar**y acepte las condiciones de uso.
 
-    ![][3]
+    ![Paquete de Service Bus][3]
 4. En el Explorador de soluciones, haga doble clic en el archivo Program.cs para abrirlo en el editor en caso de que no esté ya abierto.
 5. Agregue las siguientes instrucciones using en la parte superior del archivo:
 
@@ -231,7 +244,7 @@ En el código siguiente se muestra el formato básico del archivo App.config aso
 </configuration>
 ```
 
-## <a name="host-and-run-a-basic-web-service-to-register-with-the-relay-service"></a>Hospedaje y ejecución de un servicio web básico para registrarse con el servicio de retransmisión
+## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>Hospedaje y ejecución de un servicio WCF para registrarse con el servicio Relay
 
 Este paso describe cómo ejecutar un servicio de Azure Relay.
 
@@ -501,7 +514,7 @@ En este paso, creará un archivo App.config para una aplicación cliente básica
     En este paso se define el nombre del punto de conexión, el contrato definido en el servicio y el hecho de que la aplicación cliente use TCP para comunicarse con Azure Relay. El nombre del extremo se usa en el paso siguiente para vincular la configuración de este extremo con el identificador URI del servicio.
 5. Haga clic en **Archivo** y luego en **Guardar todo**.
 
-## <a name="example"></a>Ejemplo
+### <a name="example"></a>Ejemplo
 
 En el código siguiente se muestra el archivo App.config del cliente de eco.
 
@@ -607,7 +620,7 @@ Sin embargo, una de las principales diferencias es que la aplicación cliente us
     channelFactory.Close();
     ```
 
-## <a name="example"></a>Ejemplo
+### <a name="example"></a>Ejemplo
 
 El código completado debería tener el siguiente formato y mostrar cómo crear una aplicación cliente, cómo llamar a las operaciones del servicio y cómo cerrar el cliente cuando finaliza la llamada a la operación.
 
@@ -714,13 +727,10 @@ namespace Microsoft.ServiceBus.Samples
 12. Puede continuar enviando mensajes de texto desde el cliente al servicio de esta manera. Cuando haya terminado, presione ENTRAR en las ventanas de las consolas del cliente y el servicio para finalizar ambas aplicaciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
+Avance al siguiente tutorial: 
 
-En este tutorial se ha mostrado cómo crear un servicio y una aplicación cliente de Azure Relay mediante las funcionalidades de WCF Relay de Service Bus. Para ver un tutorial parecido donde se usa [mensajería de Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consulte [Introducción a las colas de Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
-
-Para más información sobre Azure Relay, consulte los siguientes temas:
-
-* [Introducción a Azure Relay](relay-what-is-it.md)
-* [Uso de WCF Relay de Service Bus con .NET](relay-wcf-dotnet-get-started.md)
+> [!div class="nextstepaction"]
+>[Exposición de un servicio WCF REST local en un cliente fuera de la red](service-bus-relay-rest-tutorial.md)
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

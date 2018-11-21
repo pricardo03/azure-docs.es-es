@@ -1,6 +1,6 @@
 ---
-title: Uso de una función definida por el usuario (UDF) de Java con Hive en HDInsight (Azure)
-description: Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) que funcione con Hive. Esta función de ejemplo definida por el usuario convierte una tabla de cadenas de texto en minúsculas.
+title: Uso de una función definida por el usuario (UDF) de Java con Apache Hive en HDInsight (Azure)
+description: Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) que funcione con Apache Hive. Esta función de ejemplo definida por el usuario convierte una tabla de cadenas de texto en minúsculas.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3d8f1d75b8e61bd611f58ed953a8357fb4a47c78
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006250"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634080"
 ---
-# <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Hive en HDInsight
+# <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Apache Hive en HDInsight
 
-Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) que funcione con Hive. La función de Java definida por el usuario de este ejemplo convierte una tabla de cadenas de texto a caracteres en minúscula.
+Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) que funcione con Apache Hive. La función de Java definida por el usuario de este ejemplo convierte una tabla de cadenas de texto a caracteres en minúscula.
 
 ## <a name="requirements"></a>Requisitos
 

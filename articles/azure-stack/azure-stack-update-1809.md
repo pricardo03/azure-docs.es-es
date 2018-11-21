@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: cca9307fd849f6b8537cf7484d2e56e1a710295b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257197"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567917"
 ---
 # <a name="azure-stack-1809-update"></a>Actualización de Azure Stack 1809
 
@@ -70,6 +70,17 @@ Esta actualización incluye las siguientes correcciones para Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Se ha corregido el problema por el cual no se garantizaba que las direcciones IP públicas que se implementaban mediante el método de asignación dinámica se conservasen después de emitirse una detención o desasignación. Ahora ya se conservan.
 
 - <!-- 3078022 - IS, ASDK --> Si una máquina virtual se detenía o desasignaba con una actualización anterior a la 1808, no se podía reasignar después de la actualización 1808.  Este problema se ha corregido en la actualización 1809. Con esta corrección, las instancias que se encontraban en este estado y no se podían iniciar ya se pueden iniciar en la actualización 1809. La corrección también impide que este problema vuelva a ocurrir.
+
+<!-- 3090289 – IS, ASDK --> 
+- Se corrigió el error que, después de aplicar la actualización 1808, producía los problemas siguientes al implementar máquinas virtuales con Managed Disks:
+
+   1. Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
+      1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
+      2. En la misma suscripción, vaya a **Control de acceso (IAM)**, y compruebe que **Azure Stack – Managed Disk** (Azure Stack - Disco administrado) aparece en la lista.
+   2. Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga estos pasos:
+      1. Aplique la [revisión 1808 de Azure Stack](https://support.microsoft.com/help/4471992).
+      2. Siga los pasos de [este artículo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
+
 
 ### <a name="changes"></a>Cambios
 
@@ -128,7 +139,7 @@ Para obtener más información acerca de estos puntos vulnerables, haga clic en 
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- Instale la revisión más reciente de Azure Stack para la actualización 1808 antes de aplicar la 1809. Para obtener más información, consulte [KB 4468920: Revisión de Azure Stack 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920).
+- Instale la revisión más reciente de Azure Stack para la actualización 1808 antes de aplicar la 1809. Para obtener más información, consulte [KB 4471992: Revisión de Azure Stack 1.1808.7.113](https://support.microsoft.com/help/4471992/).
 
   > [!TIP]  
   > Suscríbase a las siguientes fuentes *RRS* o *Atom* para mantenerse al día con las revisiones de Azure Stack:
@@ -157,9 +168,8 @@ Para obtener más información acerca de estos puntos vulnerables, haga clic en 
 > [!Important]  
 > Prepare la implementación de Azure Stack para el host de extensiones que se habilita en la siguiente actualización. Prepare el sistema mediante la guía siguiente: [Preparación de un host de extensiones de Azure Stack](azure-stack-extension-host-prepare.md).
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+Después de instalar esta actualización, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).  
+- [KB 4471993: Revisión de Azure Stack 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
 
 ## <a name="known-issues-post-installation"></a>Problemas conocidos (posteriores a la instalación)
 
@@ -210,7 +220,9 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
    - *Instancia del rol de infraestructura no disponible*
    - *Nodo de la unidad de escalado desconectado*
    
-  Vuelva a ejecutar el cmdlet [Test-AzureStack](azure-stack-diagnostic-test.md) para comprobar el estado de las instancias de rol de infraestructura y los nodos de la unidad de escalado. Si [Test-AzureStack](azure-stack-diagnostic-test.md) no detecta ningún problema, puede ignorar estas alertas. Si se detecta un problema, puede intentar iniciar la instancia de rol de infraestructura o un nodo mediante el portal de administración o PowerShell.
+  Vuelva a ejecutar el cmdlet [Test-AzureStack](azure-stack-diagnostic-test.md) para comprobar el estado de las instancias de rol de infraestructura y los nodos de la unidad de escalado. Si [Test-AzureStack](azure-stack-diagnostic-test.md) no detecta ningún problema, puede ignorar estas alertas. Si se detecta un problema, puede intentar iniciar la instancia de rol de infraestructura o un nodo utilizando el portal de administración o PowerShell.
+
+  Este problema se corrigió en la versión más reciente de la [revisión 1809](https://support.microsoft.com/help/4471993/), así que asegúrese de instalarla si está experimentando el problema. 
 
 <!-- 1264761 - IS ASDK -->  
 - Es posible que vea alertas del componente **Controlador de mantenimiento** con los siguientes detalles:  

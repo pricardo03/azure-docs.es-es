@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 11/08/2018
 ms.author: alkohli
-ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972847"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300921"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedimientos recomendados de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general
@@ -63,17 +63,17 @@ Los ejemplos siguientes ilustran cómo puede ajustar el tamaño de una matriz vi
 #### <a name="example-1"></a>Ejemplo 1:
 En una matriz virtual, desea poder:
 
-* Aprovisionar un volumen en capas o recurso compartido de 2 TB.
-* Aprovisionar un volumen en capas o recurso compartido de 1 TB.
-* Aprovisionar volumen anclado localmente o recurso compartido de 300 GB.
+* Aprovisionar un volumen en capas o recurso compartido de 2 TB.
+* Aprovisionar un volumen en capas o recurso compartido de 1 TB.
+* Aprovisionar un volumen anclado localmente o recurso compartido de 300 GB.
 
 Para los volúmenes o recursos compartidos anteriores, vamos a calcular los requisitos de espacio del nivel local.
 
 En primer lugar, para cada volumen en capas o recurso compartido, la reserva local equivaldría al 12 % del tamaño del volumen o recurso compartido. Para el volumen o el recurso compartido anclados localmente, la reserva local es del 10 % del tamaño del volumen o el recurso compartido anclados localmente (además del tamaño aprovisionado). En este ejemplo, necesita
 
-* Una reserva local de 240 GB (para un volumen en capas o recurso compartido de 2 TB).
-* Una reserva local de 120 GB (para un volumen en capas o recurso compartido de 1 TB).
-* 330 GB para el volumen o el recurso compartido anclados localmente (agregando 10 % de la reserva local al tamaño aprovisionado de 300 GB)
+* Una reserva local de 240 GB (para un volumen en capas o recurso compartido de 2 TB).
+* Una reserva local de 120 GB (para un volumen en capas o recurso compartido de 1 TB).
+* 330 GB para el volumen o el recurso compartido anclados localmente (agregando 10 % de la reserva local al tamaño aprovisionado de 300 GB).
 
 El espacio total requerido hasta ahora en el nivel local es: 240 GB + 120 GB + 330 GB = 690 GB.
 
@@ -91,13 +91,13 @@ Si tiene en cuenta un crecimiento inesperado y nuevas restauraciones, debe aprov
 #### <a name="example-2"></a>Ejemplo 2:
 En una matriz virtual, desea poder:
 
-* Aprovisionar un volumen en capas de 2 TB.
-* Aprovisionar volumen anclado localmente de 300 GB.
+* Aprovisionar un volumen en capas de 2 TB.
+* Aprovisionar volumen anclado localmente de 300 GB.
 
 En función del 12 % de reserva de espacio local para volúmenes o recursos compartidos en capas y el 10 % para volúmenes o recursos compartidos anclados localmente, necesitamos
 
-* Una reserva local de 240 GB (para un volumen en capas o recurso compartido de 2 TB).
-* 330 GB para el volumen o el recurso compartido anclados localmente (agregando 10 % de la reserva local al espacio aprovisionado de 300 GB)
+* Una reserva local de 240 GB (para un volumen en capas o recurso compartido de 2 TB).
+* 330 GB para el volumen o el recurso compartido anclados localmente (agregando el 10 % de la reserva local al espacio aprovisionado de 300 GB)
 
 El espacio total requerido en el nivel local es: 240 GB + 330 GB = 570 GB
 
@@ -122,7 +122,7 @@ La configuración de red de cualquier matriz virtual se realiza a través de la 
 
 Al implementar la matriz virtual, es aconsejable seguir estos procedimientos recomendados:
 
-* Asegúrese de que la red en que se ha implementado la matriz virtual tiene capacidad para dedicar 5 Mbps de ancho de banda de Internet (o más).
+* Asegúrese de que la red en que se ha implementado la matriz virtual tiene capacidad para dedicar 5 Mbps de ancho de banda de Internet (o más).
   
   * La necesidad del ancho de banda de Internet varía en función de las características de la carga de trabajo y de la tasa de cambio de datos.
   * El cambio de datos que se puede controlar es directamente proporcional a su ancho de banda de Internet. Por ejemplo, cuando se realiza una copia de seguridad, un ancho de banda de 5 Mbps puede acomodar un cambio de datos de alrededor de 18 GB en 8 horas. Con cuatro veces más ancho de banda (20 Mbps) puede controlar el cambio de cuatro veces más datos (72 GB).
@@ -168,7 +168,7 @@ StorSimple admite dos tipos de volúmenes o recursos compartidos en función del
 Al configurar volúmenes o recursos compartidos de StoreSimple, se recomienda implementar los siguientes procedimientos recomendados:
 
 * Identifique el tipo de volumen en función de las cargas de trabajo que tiene intención de implementar antes de crear un volumen. Use volúmenes anclados localmente para cargas de trabajo que requieren tanto garantías locales de datos (incluso durante una interrupción de la nube) como latencias de nube bajas. Una vez que se crea un volumen en una matriz virtual, el tipo de volumen no se puede cambiar de anclado localmente a en capas, o *viceversa*. Como ejemplo, cree volúmenes anclados localmente al implementar cargas de trabajo SQL o cargas de trabajo que hospeden máquinas virtuales (VM); use volúmenes en capas para cargas de trabajo del recurso compartido de archivos.
-* Si trata con tamaños de archivo grandes, active la opción para los datos de archivo que se usen con menos frecuencia. Cuando se habilita esta opción para agilizar la transferencia de datos a la nube, se utiliza un tamaño de fragmento de desduplicación mayor, de 512 KB.
+
 
 #### <a name="volume-format"></a>Formato de volumen
 Después de crear volúmenes de StorSimple en un servidor de iSCSI, es preciso que inicialice, monte y dé formato a dichos volúmenes. Esta operación se realiza en el host conectado a su dispositivo de StorSimple. Cuando se montan y se da formato a volúmenes en el host de StorSimple, se recomienda seguir los procedimientos recomendados.
@@ -211,7 +211,7 @@ No se pueden cambiar la frecuencia y retención asociadas con las copias de segu
 * Programar las copias de seguridad para que se realicen en horas de poca actividad. La hora de inicio de la copia de seguridad no debe coincidir con un momento de numerosas E/S del host.
 * Inicie una copia de seguridad manual a petición cuando planee realizar una conmutación por error de un dispositivo o antes de la ventana de mantenimiento, con el fin de proteger los datos en la matriz virtual.
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>Restauración
 Se puede realizar una restauración desde un conjunto de copia de seguridad de dos maneras: restaurar a otro volumen o recurso compartido, o bien realizar una recuperación a nivel de elemento (disponible solo en una matriz virtual configurada como un servidor de archivos). La recuperación a nivel de elemento permite realizar una recuperación de archivos y carpetas pormenorizada desde una copia de seguridad en la nube de todos los recursos compartidos del dispositivo de StorSimple. Para más información, vaya a [Restaurar desde una copia de seguridad de la matriz virtual de StorSimple](storsimple-virtual-array-clone.md).
 
 Al realizar una restauración, tenga en cuenta las siguientes directrices:
@@ -249,7 +249,7 @@ Cuando desactive una matriz virtual, tenga en cuenta los siguientes procedimient
 ### <a name="monitoring"></a>Supervisión
 Para asegurarse de que la matriz virtual de StorSimple está siempre en buen estado, es preciso que supervisar la matriz y se asegure de que recibe información del sistema, incluidas las alertas. Para supervisar el estado general de la matriz virtual, implemente los siguientes procedimientos recomendados:
 
-* Configure la supervisión para realizar un seguimiento del uso del disco de datos de su matriz virtual, así como del disco del sistema operativo. Si se ejecuta Hyper-V, puede utilizar una combinación de System Center Virtual Machine Manager (SCVMM) y System Center Operations Manager (SCOM) para supervisar los hosts de virtualización.
+* Configure la supervisión para realizar un seguimiento del uso del disco de datos de su matriz virtual, así como del disco del sistema operativo. Si se ejecuta Hyper-V, puede utilizar una combinación de System Center Virtual Machine Manager (SCVMM) y System Center Operations Manager para supervisar los hosts de virtualización.
 * Configure las notificaciones de correo electrónico en la matriz virtual para que se envíen ante determinados niveles de uso.                                                                                                                                                                                                
 
 ### <a name="index-search-and-virus-scan-applications"></a>Aplicaciones de detección de virus y búsqueda en índices

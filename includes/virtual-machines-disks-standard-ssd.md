@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264195"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572707"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Discos administrados SSD estándar para cargas de trabajo de máquinas virtuales de Azure
 
@@ -46,9 +46,9 @@ La tabla siguiente contiene los tamaños de disco que actualmente se ofrecen par
 |E70 *    |16 384 GiB      |Hasta 2000       |Hasta 500 MiB por segundo        |
 |E80 *    |32 767 GiB      |Hasta 2000       |Hasta 500 MiB por segundo        |
 
-Los discos SSD estándar están diseñados para proporcionar latencias de milisegundos de un solo dígito para la mayoría de las operaciones de E/S, y para entregar las IOPS y el rendimiento hasta los límites descritos en la tabla anterior. Las IOPS y el rendimiento reales pueden variar a veces, según los patrones de tráfico. Los discos SSD estándar proporcionarán un rendimiento más coherente que los discos HDD, con una latencia menor.
+Los discos SSD estándar están diseñados para proporcionar latencias de milisegundos de un solo dígito para la mayoría de las operaciones de E/S, y para entregar las IOPS y el rendimiento hasta los límites descritos en la tabla anterior el 99 % del tiempo. Las IOPS y el rendimiento reales pueden variar a veces, según los patrones de tráfico. Los discos SSD estándar proporcionarán un rendimiento más coherente que los discos HDD, con una latencia menor.
 
-Por otro lado, los discos SSD Premium funcionan mejor que los SSD estándar, con latencias bajas, alto IOPS/rendimiento, y coherencia aún mejor con el rendimiento de discos aprovisionados. Es el tipo de disco recomendado para cargas de trabajo de producción críticas. Si la carga de trabajo requiere compatibilidad con discos de gran rendimiento y baja latencia, considere la posibilidad de usar Premium Storage.
+Por otro lado, los discos SSD Premium funcionan mejor que los SSD estándar, con latencias bajas, alto IOPS/rendimiento, y coherencia aún mejor con el rendimiento de discos aprovisionados. SSD Premium es el tipo de disco recomendado para cargas de trabajo de producción críticas. Si la carga de trabajo requiere compatibilidad con discos de gran rendimiento y baja latencia, considere la posibilidad de usar Premium Storage.
 
 Al igual que los SSD Premium, los SSD estándar también usan un tamaño de unidad de E/S de 256 KiB. Si el tamaño de los datos transferidos es inferior a 256 KiB, se considera 1 unidad de E/S. Los tamaños de E/S más grandes se cuentan como varias operaciones de E/S con un tamaño de 256 KiB. Por ejemplo, una E/S de 1100 KB se cuenta como cinco unidades de E/S.
 

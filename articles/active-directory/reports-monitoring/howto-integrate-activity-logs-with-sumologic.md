@@ -1,6 +1,6 @@
 ---
 title: Integración de los registros de Azure Active Directory con SumoLogic mediante Azure Monitor (versión preliminar) | Microsoft Docs
-description: Obtenga información sobre cómo integrar los registros de Azure Active Directory con SumoLogic mediante Azure Monitor (versión preliminar)
+description: Aprenda a integrar los registros de Azure Active Directory con SumoLogic mediante Azure Monitor (versión preliminar).
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d13eb22bd58dc7e680a27738549665bc2b691898
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4a39ee2fb057547c44c9eb08c85afdbb971ea5d5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392217"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622421"
 ---
-# <a name="integrate-azure-ad-logs-with-sumologic-by-using-azure-monitor-preview"></a>Integración de registros de Azure AD con SumoLogic mediante Azure Monitor (versión preliminar)
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Integración de los registros de Azure Active Directory con SumoLogic mediante Azure Monitor (versión preliminar)
 
-En este artículo, se ofrece información sobre cómo integrar los registros de Azure Active Directory (Azure AD) con SumoLogic mediante Azure Monitor. En primer lugar, se enrutan los registros a un centro de eventos de Azure y, a continuación, se integra el centro de eventos con SumoLogic.
+En este artículo, aprenderá a integrar los registros de Azure Active Directory (Azure AD) con SumoLogic mediante Azure Monitor. En primer lugar, se enrutan los registros a un centro de eventos de Azure y, a continuación, se integra el centro de eventos con SumoLogic.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

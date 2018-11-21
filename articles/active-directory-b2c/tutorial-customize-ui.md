@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9c206ac7a13ea222a01cac78c447c0764f753517
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669352"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622676"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Personalización de la interfaz de usuario de la aplicación en Azure Active Directory B2C
 
@@ -64,9 +64,11 @@ Aunque se pueden almacenar los archivos de muchas maneras, para este tutorial, a
  El código de Azure AD B2C en un explorador utiliza un enfoque moderno y estándar para cargar contenido personalizado desde una dirección URL que especifique en una directiva. Uso compartido de recursos entre orígenes (CORS) permite que los recursos restringidos en una página web se soliciten desde otros dominios.
 
 1. En el menú, seleccione **CORS**.
-2. Para **Orígenes permitidos**, **Encabezados permitidos**, y **Encabezados expuestos**, introduzca `your-tenant-name.b2clogin.com`. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C. Por ejemplo, `fabrikam.b2clogin.com`.
-3. Para **Verbos permitidos**, seleccione `GET` y `OPTIONS`.
-4. Para **Antigüedad máxima**, introduzca 200.
+2. En **Orígenes permitidos**, escriba `your-tenant-name.b2clogin.com`. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C. Por ejemplo, `fabrikam.b2clogin.com`.
+3. En **Métodos permitidos**, seleccione `GET` y `OPTIONS`.
+4. En **Encabezados permitidos**, escriba un asterisco (*).
+5. En **Encabezados expuestos**, escriba un asterisco (*).
+6. Para **Antigüedad máxima**, introduzca 200.
 
     ![Habilitación de CORS](./media/tutorial-customize-ui/enable-cors.png)
 

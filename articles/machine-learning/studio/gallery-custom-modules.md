@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: c53bab2e838425dfdd124e64c3d7d3114fa30429
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fe58b335a029e558ce29871483589908f17c03cd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834437"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345698"
 ---
 # <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Descubrimiento de módulos de aprendizaje automático personalizados en la Galería de Azure AI
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="custom-modules-for-machine-learning-studio"></a>Módulos personalizados de Machine Learning Studio
-La Galería de Azure AI ofrece varios [módulos personalizados](https://gallery.cortanaintelligence.com/customModules) que amplían las funcionalidades de Azure Machine Learning Studio. Puede importar los módulos para su uso en los experimentos, para poder desarrollar soluciones de análisis predictivo aún más avanzadas.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) ofrece varios [módulos personalizados ](https://gallery.cortanaintelligence.com/customModules) que amplían las funcionalidades de Azure Machine Learning Studio. Puede importar los módulos para su uso en los experimentos, para poder desarrollar soluciones de análisis predictivo aún más avanzadas.
 
 Actualmente, la Galería ofrece módulos sobre *análisis de series temporales*, *reglas de asociación*, *algoritmos de clústeres* (más allá de k-means) y *visualizaciones*, además de otros módulos de batalla.
 

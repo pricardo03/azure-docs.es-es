@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161835"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567067"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,8 +49,7 @@ El elemento **UserJourney** contiene los siguientes elementos:
 
 El recorrido del usuario se representa como una secuencia de orquestación por la que hay que pasar para lograr una transacción correcta. Si se produce un error en algún paso, la transacción no prospera. Estos pasos de orquestación hacen referencia tanto a los bloques de construcción como a los proveedores de notificaciones permitidos en el archivo de directiva. Cualquier paso de orquestación que se encargue de mostrar o representar una experiencia de usuario también hace referencia al identificador de la definición de contenido correspondiente.
 
-Los pasos de orquestación se pueden ejecutar de forma condicional según las condiciones previas definidas en el elemento del paso de orquestación. Por ejemplo, puede intentar llevar a cabo un paso de orquestación solo si existe una notificación específica o si una notificación es igual o no al valor especificado. 
-
+Los pasos de orquestación se pueden ejecutar de forma condicional, en función de las condiciones previas definidas en el elemento del paso de orquestación. Por ejemplo, puede intentar llevar a cabo un paso de orquestación solo si existe una notificación específica o si una notificación es igual o no al valor especificado. 
 
 Para especificar la lista ordenada de los pasos de orquestación, se agrega un elemento **OrchestrationSteps** como parte de la directiva. Este elemento es obligatorio.
 
@@ -66,7 +65,7 @@ El elemento **OrchestrationStep** contiene los siguientes atributos:
 | --------- | -------- | ----------- |
 | Orden | SÍ | El orden de los pasos de orquestación. | 
 | Escriba | SÍ | El tipo de paso de orquestación. Valores posibles: <ul><li>**ClaimsProviderSelection**: indica que el paso de orquestación presenta diversos proveedores de notificaciones al usuario para que seleccione uno.</li><li>**CombinedSignInAndSignUp**: indica que el paso de orquestación presenta una página combinada de inicio de sesión en el proveedor social y de registro en la cuenta local.</li><li>**ClaimsExchange**: indica que el paso de orquestación intercambia notificaciones con un proveedor de notificaciones.</li><li>**SendClaims**: indica que el paso de orquestación envía las notificaciones al usuario de confianza con un token emitido por un emisor de notificaciones.</li></ul> | 
-| ContentDefinitionReferenceId | Sin  | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este paso de orquestación. Normalmente, el identificador de referencia de la definición de contenido se define en el perfil técnico autoafirmado. Pero hay algunos casos en los que Azure AD B2C necesita mostrar contenido sin un perfil técnico. Hay dos ejemplos en función de si el tipo de paso de orquestación es uno de los siguientes: `ClaimsProviderSelection` o `CombinedSignInAndSignUp`. Azure AD B2C necesita mostrar la selección del proveedor de identidades sin tener un perfil técnico. | 
+| ContentDefinitionReferenceId | Sin  | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este paso de orquestación. Normalmente, el identificador de referencia de la definición de contenido se define en el perfil técnico autoafirmado. Pero hay algunos casos en los que Azure AD B2C necesita mostrar contenido sin un perfil técnico. Hay dos ejemplos en función de si el tipo de paso de orquestación es `ClaimsProviderSelection` o `CombinedSignInAndSignUp`. Azure AD B2C necesita mostrar la selección del proveedor de identidades sin tener un perfil técnico. | 
 | CpimIssuerTechnicalProfileReferenceId | Sin  | El tipo de paso de orquestación es `SendClaims`. Esta propiedad define el identificador de perfil técnico del proveedor de notificaciones que emite el token del usuario de confianza.  Si no aparece, no se crea ningún token para el usuario de confianza. |
 
 
@@ -74,7 +73,7 @@ El elemento **OrchestrationStep** puede contener los siguientes elementos:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- | 
-| Condiciones previas | 0:n | Una lista de las condiciones previas que deben cumplirse para que se ejecute el paso de orquestación. | 
+| Preconditions | 0:n | Una lista de las condiciones previas que deben cumplirse para que se ejecute el paso de orquestación. | 
 | ClaimsProviderSelections | 0:n | Una lista de las selecciones del proveedor de notificaciones para el paso de orquestación. | 
 | ClaimsExchanges | 0:n | Una lista de los intercambios de notificaciones para el paso de orquestación. | 
 

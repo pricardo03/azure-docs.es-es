@@ -1,6 +1,6 @@
 ---
 title: Análisis de series temporales de Azure Data Explorer
-description: Aprenda sobre el análisis de series temporales en Azure Data Explorer.
+description: 'Aprenda sobre el análisis de series temporales en Azure Data Explorer. '
 services: data-explorer
 author: orspod
 ms.author: v-orspod
@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: fafaf0b4721c45b002e67896223877da43d66e56
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51220018"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636702"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análisis de series temporales en Azure Data Explorer
 
@@ -57,10 +57,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- Utilice el operador [`make-series`](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator) para crear un conjunto de tres series temporales, donde:
+- Utilice el operador [`make-series`](/azure/kusto/query/make-seriesoperator) para crear un conjunto de tres series temporales, donde:
     - `num=count()`: serie temporal de tráfico
     - `range(min_t, max_t, 1h)`: la serie temporal se crea en intervalos de 1 hora en el intervalo de tiempo (marcas de tiempo más recientes y más antiguas de los registros de la tabla)
-    - `default=0`: especifique el método de relleno para los intervalos que faltan para crear series temporales regulares. O bien use [`series_fill_const()`](https://docs.microsoft.com/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-backwardfunction) y [`series_fill_linear()`](https://docs.microsoft.com/azure/kusto/query/series-fill-linearfunction) para los cambios
+    - `default=0`: especifique el método de relleno para los intervalos que faltan para crear series temporales regulares. O bien use [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) y [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) para los cambios
     - `byOsVer`: partición por sistema operativo
 - La estructura de datos de series temporales reales es una matriz numérica del valor agregado por cada intervalo temporal. Usamos `render timechart` para la visualización.
 
@@ -71,14 +71,14 @@ En la tabla anterior, tenemos tres particiones. Podemos crear una serie temporal
 ## <a name="time-series-analysis-functions"></a>Funciones de análisis de series temporales
 
 En esta sección, realizaremos las funciones típicas de procesamiento en serie.
-Cuando se ha creado un conjunto de series temporales, Azure Data Explorer admite una lista creciente de funciones para procesar y analizarlas que se encuentran en la [documentación de series temporales](https://docs.microsoft.com/azure/kusto/query/machine-learning-and-tsa). Describiremos algunas funciones representativas para el procesamiento y análisis de series temporales.
+Cuando se ha creado un conjunto de series temporales, Azure Data Explorer admite una lista creciente de funciones para procesar y analizarlas que se encuentran en la [documentación de series temporales](/azure/kusto/query/machine-learning-and-tsa). Describiremos algunas funciones representativas para el procesamiento y análisis de series temporales.
 
 ### <a name="filtering"></a>Filtros
 
 El filtrado es una práctica común en el procesamiento de señales y muy útil para tareas de procesamiento de series temporales (por ejemplo, suavizar una señal con ruido o detectar cambios).
 - Hay dos funciones de filtrado genéricas:
-    - [`series_fir()`](https://docs.microsoft.com/azure/kusto/query/series-firfunction): Aplicación de filtro FIR. Se utiliza para el cálculo simple de la media acumulada y la diferenciación de las series temporales para la detección de cambios.
-    - [`series_iir()`](https://docs.microsoft.com/azure/kusto/query/series-iirfunction): Aplicación de filtro IIR. Se utiliza para el suavizado exponencial y la suma acumulativa.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): Aplicación de filtro FIR. Se utiliza para el cálculo simple de la media acumulada y la diferenciación de las series temporales para la detección de cambios.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction): Aplicación de filtro IIR. Se utiliza para el suavizado exponencial y la suma acumulativa.
 - `Extend` la serie temporal establecida mediante la adición de una nueva serie de media acumulada de intervalos de tamaño 5 (denominada *ma_num*) a la consulta:
 
 ```kusto
@@ -95,8 +95,8 @@ demo_make_series1
 ### <a name="regression-analysis"></a>Análisis de regresión
 
 Azure Data Explorer admite el análisis de regresión lineal segmentado para calcular la tendencia de la serie temporal.
-- Utilice [series_fit_line()](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction) para ajustar la mejor línea a una serie temporal para la detección general de tendencias.
-- Utilice [series_fit_2lines()](https://docs.microsoft.com/azure/kusto/query/series-fit-2linesfunction) para detectar cambios de tendencia, en relación con la línea de base, que sean útiles en los escenarios de supervisión.
+- Utilice [series_fit_line()](/azure/kusto/query/series-fit-linefunction) para ajustar la mejor línea a una serie temporal para la detección general de tendencias.
+- Utilice [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction) para detectar cambios de tendencia, en relación con la línea de base, que sean útiles en los escenarios de supervisión.
 
 Ejemplo de las funciones `series_fit_line()` y `series_fit_2lines()` en una consulta de serie temporal:
 
@@ -128,8 +128,9 @@ demo_series3
 
 ![Estacionalidad de series temporales](media/time-series-analysis/time-series-seasonality.png)
 
-- Utilice [series_periods_detect()](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction) para detectar automáticamente los períodos de la serie temporal. 
-- Utilice [series_periods_validate()](https://docs.microsoft.com/azure/kusto/query/series-periods-validatefunction) si sabemos que una métrica debe tener uno o varios períodos distintos específicos y queremos comprobar su existencia.
+- Utilice [series_periods_detect()](/azure/kusto/query/series-periods-detectfunction) para detectar automáticamente los períodos de la serie temporal. 
+- Utilice [series_periods_validate()](/azure/kusto/query/series-periods-validatefunction) si sabemos que una métrica debe tener uno o varios períodos distintos específicos y queremos comprobar su existencia.
+
 > [!NOTE]
 > Es una anomalía si no existen períodos específicos distintos.
 
@@ -150,7 +151,7 @@ La función detecta la estacionalidad diaria y semanal. La puntuación diaria es
 
 ### <a name="element-wise-functions"></a>Funciones por elemento
 
-Las operaciones aritméticas y lógicas pueden realizarse en una serie temporal. Con [series_subtract()](https://docs.microsoft.com/azure/kusto/query/series-subtractfunction) podemos calcular una serie temporal residual, es decir, la diferencia entre la métrica sin procesar original y una suavizada, y buscar anomalías en la señal residual:
+Las operaciones aritméticas y lógicas pueden realizarse en una serie temporal. Con [series_subtract()](/azure/kusto/query/series-subtractfunction) podemos calcular una serie temporal residual, es decir, la diferencia entre la métrica sin procesar original y una suavizada, y buscar anomalías en la señal residual:
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -165,7 +166,9 @@ demo_make_series1
 
 ![Operaciones en series temporales](media/time-series-analysis/time-series-operations.png)
 
-Azul: serie temporal original Rojo: serie temporal suavizada Verde: serie temporal residual
+- Azul: serie temporal original
+- Rojo: series temporales suavizadas
+- Verde: series temporales residuales
 
 ## <a name="time-series-workflow-at-scale"></a>Flujo de trabajo de series temporales a escala
 
@@ -255,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-En menos de dos minutos, Azure Data Explorer detectó dos series temporales anormales (de un total de 23 115) en las que el recuento de lecturas bajó repentinamente.
+En menos de dos minutos, Azure Data Explorer analizó más de 20 000 series temporales y detectó dos series temporales anormales en las que el recuento de lecturas bajó repentinamente.
 
 Estas funcionalidades avanzadas, combinadas con el rápido rendimiento de Azure Data Explorer, proporcionan una solución única y eficaz para el análisis de series temporales.

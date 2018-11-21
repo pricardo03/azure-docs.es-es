@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: c21a5c5b23b709ce6683c51cf96f0e6ff89efc78
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543146"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568683"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C
 
@@ -82,7 +82,7 @@ En el ejemplo siguiente se usan estos perfiles técnicos de validación:
 
 1. El primer perfil técnico de validación comprueba las credenciales de usuario y no continúa si se produce un error, como un nombre de usuario no válido o una contraseña incorrecta. 
 2. El siguiente perfil técnico de validación no se ejecuta si la notificación userType no existe, o si el valor de userType es `Partner`. El perfil técnico de validación intenta leer el perfil de usuario de la base de datos interna de clientes y continúa si se produce un error, por ejemplo, si el servicio de la API de REST no está disponible o si hay un error interno.
-3. El último perfil técnico de validación no se ejecuta si la notificación userType no ha existido, o si el valor de userType es `Customer`. El perfil técnico de validación intenta leer el perfil de usuario de la base de datos interna de asociados y continúa si se produce un error, por ejemplo, si el servicio de la API de REST no está disponible o si hay un error interno.
+3. El último perfil técnico de validación no se ejecuta si la notificación userType no ha existido, o si el valor de userType es `Customer`. El perfil técnico de validación intenta leer el perfil de usuario de la base de datos interna del asociado y continúa si se produce un error, por ejemplo, si el servicio de la API de REST no está disponible o si hay un error interno.
 
 ```XML
 <ValidationTechnicalProfiles>

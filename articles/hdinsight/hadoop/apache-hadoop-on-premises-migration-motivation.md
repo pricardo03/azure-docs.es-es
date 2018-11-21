@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f899c2fb871ee528219bd48e94de62746626447f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416127"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288125"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -139,10 +139,10 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Destinos de datos|HDFS, RDBMS, Kafka, MPP ||
 |**Tema**: **metadatos**|||
 |Tipo de base de datos de Hive|Mysql, Postgres||
-|Núm. de instancias de Hive Metastore|2||
-|Núm. de tablas de Hive|100||
-|Núm. de directivas de Ranger|20||
-|Núm. de flujos de trabajo de Oozie|100||
+| No. de instancias de Hive Metastore|2||
+| No. de tablas de Hive|100||
+| No. de directivas de Ranger|20||
+| No. de flujos de trabajo de Oozie|100||
 |**Tema**: **escala**|||
 |Volumen de datos, incluida la replicación|100 TB||
 |Volumen diario de ingesta|50 GB||
@@ -154,11 +154,11 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Espacio en disco usado|75 %||
 |% medio de red usada|25 %
 |**Tema**: **personal**|||
-|Núm. de administradores|2||
-|Núm. de desarrolladores|10||
-|Núm. de usuarios finales|100||
+| No. de administradores|2||
+| No. de desarrolladores|10||
+| No. de usuarios finales|100||
 |Aptitudes|Hadoop, Spark||
-|Núm. de recursos disponibles para los esfuerzos de migración|2||
+| No. de recursos disponibles para los esfuerzos de migración|2||
 |**Tema**: **limitaciones**|||
 |Limitaciones actuales|La latencia es alta||
 |Desafíos actuales|Problema de simultaneidad||
@@ -180,12 +180,12 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Usar la supervisión y las alertas de Azure en lugar de supervisión de terceros|Usar supervisión y alertas de Azure||
 |**Tema**: **preferencias de seguridad** |||
 |¿Canalización de datos privada y protegida?|SÍ||
-|¿Clúster unión a un dominio (ESPP)?|     SÍ||
+|¿Un clúster unido a un dominio (ESP)?|     SÍ||
 |¿Sincronización de AD local en la nube?|     SÍ||
-|Núm. de usuarios de AD para sincronizar|          100||
+| No. de usuarios de AD para sincronizar|          100||
 |¿Aceptar sincronizar contraseñas en la nube?|    SÍ||
 |¿Solo usuarios en la nube?|                 SÍ||
-|¿MFA necesario?|                       No|| 
+|¿MFA necesario?|                       Sin || 
 |¿Requisitos de autorización de datos?|  SÍ||
 |¿Control de acceso basado en roles?|        SÍ||
 |¿Auditoría necesaria?|                  SÍ||
@@ -199,7 +199,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |¿Usar una tienda de metadatos remota?|SÍ||
 |¿Compartir tiendas de metadatos entre clústeres diferentes?|SÍ||
 |¿Deconstruir las cargas de trabajo?|Reemplace los trabajos de Hive con trabajos de Spark||
-|¿Usar ADF para orquestación de datos?|No||
+|¿Usar ADF para orquestación de datos?|Sin ||
 |¿HDInsight frente a Hortonworks Data Platform en IaaS?|HDInsight||
 
 ## <a name="next-steps"></a>Pasos siguientes

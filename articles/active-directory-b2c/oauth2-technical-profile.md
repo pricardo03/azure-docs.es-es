@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7f85de79b683ba7b10f5466c4a8042fc0ffdea90
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 3f1e34b4d527d076a0bac2e0cb6ef3a901296c57
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382875"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612482"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OAuth2 en una directiva personalizada en Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedo
 
 ## <a name="protocol"></a>Protocolo
 
-El atributo **Name** del elemento **Protocol** se debe establecer en `OAuth2`. Por ejemplo, el protocolo para el perfil técnico **Facebook-OAUTH** es `OAuth2`:
+El atributo **Name** del elemento **Protocol** tiene que establecerse en `OAuth2`. Por ejemplo, el protocolo para el perfil técnico **Facebook-OAUTH** es `OAuth2`:
 
 ```XML
 <TechnicalProfile Id="Facebook-OAUTH">
@@ -36,7 +36,7 @@ El atributo **Name** del elemento **Protocol** se debe establecer en `OAuth2`. P
 
 ## <a name="input-claims"></a>Notificaciones de entrada
 
-Los elementos **InputClaims** y **InputClaimsTransformations** no son necesarios. Sin embargo, es posible que desee enviar parámetros adicionales a su proveedor de identidades. En el ejemplo siguiente se agrega el parámetro de cadena de consulta **domain_hint** con el valor de `contoso.com` a la solicitud de autorización.
+Los elementos **InputClaims** y **InputClaimsTransformations** no son necesarios. Pero puede que quiera enviar otros parámetros al proveedor de identidades. En el ejemplo siguiente se agrega el parámetro de cadena de consulta **domain_hint** con el valor de `contoso.com` a la solicitud de autorización.
 
 ```XML
 <InputClaims>
@@ -46,9 +46,9 @@ Los elementos **InputClaims** y **InputClaimsTransformations** no son necesarios
 
 ## <a name="output-claims"></a>Notificaciones de salida
 
-El elemento **OutputClaims** contiene una lista de notificaciones devueltas por el proveedor de identidades de OAuth2. Es posible que tenga que asignar el nombre de la notificación definida en la directiva al nombre definido en el proveedor de identidades. También puede incluir las notificaciones que el proveedor de identidades no devuelve, siempre y cuando establezca el atributo `DefaultValue`.
+El elemento **OutputClaims** contiene una lista de notificaciones devueltas por el proveedor de identidades de OAuth2. Puede que tenga que asignar el nombre de la notificación definida en la directiva al nombre definido en el proveedor de identidades. También puede incluir notificaciones no especificadas por el proveedor de identidades, siempre que establezca el atributo `DefaultValue`.
 
-El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o generar otras nuevas.
+El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 
 El ejemplo siguiente muestra las notificaciones devueltas por el proveedor de identidades de Facebook:
 
@@ -78,8 +78,8 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| client_id | SÍ | El identificador de aplicación del proveedor de identidades. |
-| IdTokenAudience | Sin  | La audiencia del id_token. Si se especifica, Azure AD B2C comprueba si el token está en una notificación devuelta por el proveedor de identidades y es igual al especificado. |
+| client_id | SÍ | El identificador de la aplicación del proveedor de identidades. |
+| IdTokenAudience | Sin  | El público de id_token. Si se especifica, Azure AD B2C comprueba si el token está en una notificación devuelta por el proveedor de identidades y es igual al especificado. |
 | authorization_endpoint | SÍ | La dirección URL del punto de conexión de autorización de acuerdo con RFC 6749. |
 | AccessTokenEndpoint | SÍ | La dirección URL del punto de conexión del token de acuerdo con RFC 6749. |  
 | ClaimsEndpoint | SÍ | La dirección URL del punto de conexión de la información de usuario de acuerdo con RFC 6749. | 
@@ -88,21 +88,21 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 | ClaimsEndpointAccessTokenName | Sin  | El nombre del parámetro de la cadena de consulta del token de acceso. Los puntos de conexión de notificaciones de algunos proveedores de identidades admiten la solicitud GET HTTP. En este caso, se envía el token de portador mediante un parámetro de cadena de consulta en lugar del encabezado de autorización. |
 | ClaimsEndpointFormatName | Sin  | El nombre del parámetro de cadena de consulta de formato. Por ejemplo, puede establecer el nombre como `format` en este punto de conexión de notificaciones de LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ClaimsEndpointFormat | Sin  | El valor del parámetro de cadena de consulta de formato. Por ejemplo, puede establecer el valor como `json` en este punto de conexión de notificaciones de LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
-| ProviderName | Sin  | El nombre del proveedor de identidades. |
-| response_mode | Sin  | El método que utiliza el proveedor de identidades para enviar el resultado de vuelta a Azure AD B2C. Valores posibles: `query`, `form_post` (opción predeterminada) o `fragment`. |
+| ProviderName | Sin  | Nombre del proveedor de identidades. |
+| response_mode | Sin  | Método que usará el proveedor de identidades para enviar de vuelta el resultado Azure AD B2C. Valores posibles: `query`, `form_post` (predeterminado) o `fragment`. |
 | ámbito | Sin  | El ámbito de la solicitud de acceso definido según la especificación del proveedor de identidades de OAuth2. Como, por ejemplo, `openid`, `profile` y `email`. |
-| HttpBinding | Sin  | El enlace HTTP esperado al token de acceso y los puntos de conexión del token de notificaciones. Valores posibles: `GET` o `POST`.  |
+| HttpBinding | Sin  | Enlace HTTP esperado al token de acceso y los puntos de conexión del token de notificaciones. Valores posibles: `GET` o `POST`.  |
 | ResponseErrorCodeParamName | Sin  | El nombre del parámetro que contiene el mensaje de error devuelto a través de HTTP 200 (OK). |
 | ExtraParamsInAccessTokenEndpointResponse | Sin  | Contiene los parámetros adicionales que pueden devolverse en la respuesta de **AccessTokenEndpoint** por algunos proveedores de identidades. Por ejemplo, la respuesta de **AccessTokenEndpoint** contiene un parámetro adicional, como `openid`, que es un parámetro obligatorio además del elemento access_token en una cadena de consulta de solicitud **ClaimsEndpoint**. Varios nombres de parámetro deben convertirse en caracteres de escape y estar separados por el delimitador de coma ",". |
 | ExtraParamsInClaimsEndpointRequest | Sin  | Contiene los parámetros adicionales que pueden devolverse en la solicitud **ClaimsEndpoint** por algunos proveedores de identidades. Varios nombres de parámetro deben convertirse en caracteres de escape y estar separados por el delimitador de coma ",". |
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
-El elemento **CryptographicKeys** contiene el siguiente atributo:
+El elemento **CryptographicKeys** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| client_secret | SÍ | El secreto de cliente de la aplicación de proveedor de identidades. La clave de cifrado es necesaria solo si los metadatos de **response_type** se establecen en `code`. En este caso, Azure AD B2C realiza otra llamada para intercambiar el código de autorización para un token de acceso. Si los metadatos se establecen en `id_token`, puede omitir la clave de cifrado.  |  
+| client_secret | SÍ | Secreto de cliente de la aplicación del proveedor de identidades. La clave de cifrado es necesaria solo si los metadatos de **response_type** se establecen en `code`. En este caso, Azure AD B2C realiza otra llamada para cambiar el código de autorización por un token de acceso. Si los metadatos se establecen en `id_token`, puede omitir la clave de cifrado.  |  
 
 ## <a name="redirect-uri"></a>URI de redireccionamiento
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914658"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345494"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Cómo proporcionar notificaciones opcionales a la aplicación de Azure AD (versión preliminar pública)
 
@@ -42,7 +42,7 @@ Uno de los objetivos del [punto de conexión de la versión 2.0 de Azure AD](act
 | Tipo de cuenta | Versión 1.0 del punto de conexión | Versión 2.0 del punto de conexión  |
 |--------------|---------------|----------------|
 | Cuenta personal de Microsoft  | N/D: se usan vales de RPS en su lugar | En breve habrá compatibilidad |
-| Cuenta de Azure AD          | Compatible                          | Compatible con advertencias      |
+| Cuenta de Azure AD          | Compatible                          | Compatible con advertencias |
 
 > [!IMPORTANT]
 > Las aplicaciones que admiten tanto cuentas personales como cuentas de Azure AD (registradas mediante el [portal de registro de aplicaciones](https://apps.dev.microsoft.com)) no pueden usar notificaciones opcionales. Sin embargo, las aplicaciones registradas solo para Azure AD mediante el punto de conexión v2.0 pueden obtener las notificaciones opcionales que han solicitado en el manifiesto. En Azure Portal, puede usar el editor de manifiestos de aplicación en la experiencia existente de **Registros de aplicaciones** a fin de modificar sus notificaciones opcionales. Sin embargo, esta funcionalidad no está disponible mediante el editor de manifiestos de aplicación en la nueva experiencia de **Registros de aplicaciones (versión preliminar)**.
@@ -60,8 +60,6 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Momento de la última autenticación del usuario. Consulte las especificaciones de Open ID Connect| JWT        |           |  |
 | `tenant_region_scope`      | Región del inquilino de los recursos | JWT        |           | |
-| `signin_state`             | Notificación del estado de inicio de sesión   | JWT        |           | 6 valores devueltos, como marcas:<br> "dvc_mngd": dispositivo administrado<br> "dvc_cmp": dispositivo compatible<br> "dvc_dmjd": dispositivo unido a un dominio<br> "dvc_mngd_app": dispositivo administrado mediante administración de datos maestros<br> "inknownntwk": dispositivo en una red conocida<br> "kmsi": se usó Mantener la sesión iniciada <br> |
-| `controls`                 | Notificación de varios valores con los controles de sesión aplicados mediante directivas de acceso condicional | JWT        |           | 3 valores:<br> "app_res": la aplicación exige más restricciones pormenorizadas <br> "ca_enf": la aplicación del acceso condicional se ha diferido y sigue siendo necesaria <br> "no_cookie": este token no es suficiente para intercambiarlo por una cookie en el explorador <br>  |
 | `home_oid`                 | Para los usuarios invitados, identificador de objeto del usuario en el inquilino del usuario principal.| JWT        |           | |
 | `sid`                      | Identificador de sesión que se usa para el cierre de cada sesión de usuario. | JWT        |           |         |
 | `platf`                    | Plataforma de dispositivo    | JWT        |           | Restringido a los dispositivos administrados que pueden verificar el tipo de dispositivo|
@@ -76,6 +74,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `xms_pl`                   | Idioma preferido del usuario  | JWT ||El idioma preferido del usuario, si se establece. Se origina desde su inquilino principal, en escenarios de acceso de invitado. Con formato LL-CC ("en-us"). |
 | `xms_tpl`                  | Idioma preferido del inquilino| JWT | | El idioma preferido del inquilino de recursos, si se establece. Con formato LL ("en"). |
 | `ztdid`                    | Identificador de implementación sin interacción | JWT | | La identidad del dispositivo usada en [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). |
+|`email`                     | Correo electrónico direccionable de este usuario, si tiene uno.  | JWT, SAML | | Si el usuario es un invitado en el inquilino, este valor se incluye de forma predeterminada.  Para los usuarios administrados (aquellos dentro del inquilino), se debe solicitar a través de esta notificación opcional o, en la versión 2.0, con el ámbito OpenID.  Para los usuarios administrados, se debe establecer la dirección de correo electrónico en el [portal de administración de Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Estado de la cuenta de los usuarios de un inquilino. | JWT, SAML | | Si el usuario es miembro del inquilino, el valor es `0`. Si es un invitado, el valor es `1`. |
 | `upn`                      | Notificación UserPrincipalName. | JWT, SAML  |           | Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados <br> Propiedades adicionales: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

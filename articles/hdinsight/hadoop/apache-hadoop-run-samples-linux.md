@@ -1,5 +1,5 @@
 ---
-title: 'Ejecución de ejemplos de MapReduce de Hadoop en HDInsight: Azure'
+title: 'Ejecución de ejemplos de MapReduce de Apache Hadoop en HDInsight: Azure'
 description: Introducción al uso de ejemplos de MapReduce en archivos jar incluidos en HDInsight. Use SSH para conectarse al clúster y, a continuación, use el comando de Hadoop para ejecutar trabajos de ejemplo.
 keywords: jar de ejemplo de hadoop, jar de ejemplos de hadoop, ejemplos de mapreduce de hadoop, ejemplos de mapreduce
 services: hdinsight
@@ -10,18 +10,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 37ba412d9463ccf4cdd18c842910c3c6f5349ef2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 283171fa00837a8a7b4e0a13d7bca5645cf63a83
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007101"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633072"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Ejecución de los ejemplos de MapReduce incluidos en HDInsight
 
 [!INCLUDE [samples-selector](../../../includes/hdinsight-run-samples-selector.md)]
 
-Aprenda a ejecutar los ejemplos de MapReduce incluidos con Hadoop en HDInsight.
+Aprenda a ejecutar los ejemplos de MapReduce incluidos con Apache Hadoop en HDInsight.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

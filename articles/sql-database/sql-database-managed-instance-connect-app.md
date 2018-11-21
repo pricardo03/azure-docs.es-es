@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870485"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514968"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL Database
 
@@ -83,6 +83,10 @@ Un caso especial de conexión de Azure App Service a Instancia administrada es c
 Este escenario se ilustra en el diagrama siguiente:
 
 ![emparejamiento de aplicación integrada](./media/sql-database-managed-instance/integrated-app-peering.png)
+
+>[!NOTE]
+>La característica Integración con red virtual no integra una aplicación con una red virtual que tiene una puerta de enlace de ExpressRoute. Incluso si la puerta de enlace de ExpressRoute está configurada en modo de coexistencia, la integración de red virtual no funcionará. Si necesita acceder a los recursos mediante una conexión de ExpressRoute, puede utilizar una instancia de App Service Environment que se ejecute en la red virtual.
+>
  
 ## <a name="troubleshooting-connectivity-issues"></a>Solución de problemas de conectividad
 

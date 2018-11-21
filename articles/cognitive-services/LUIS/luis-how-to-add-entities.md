@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
-ms.openlocfilehash: 178f4314f9ede86444ee60fd2a64f85dc283080b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5beb952c2330d44ffe090fc422afa6da67376b0d
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138538"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288057"
 ---
 # <a name="create-entities-without-utterances"></a>Creación de entidades sin expresiones
 
@@ -49,7 +49,7 @@ Una entidad simple describe un concepto único. Utilice el procedimiento siguien
 
     Una vez creada esta entidad, vaya a todas las intenciones que tienen expresiones de ejemplo que contienen la entidad. Seleccione el texto de la expresión de ejemplo y marque el texto como la entidad. 
 
-    Habitualmente, se usa una [lista de frases](luis-concept-feature.md) para mejorar la señal de una entidad sencilla.
+    Habitualmente se usa una [lista de frases](luis-concept-feature.md) para mejorar la señal de las entidades sencillas.
 
 ## <a name="add-regular-expression-entities"></a>Incorporación de entidades de expresión regular
 
@@ -116,7 +116,7 @@ En la expresión `Where is Request relocation from employee new to the company o
 
 1. En la sección **Build** (Compilar), seleccione **Entities** (Entidades) en el panel de la izquierda y seleccione **Create new entity** (Crear nueva entidad).
 
-1. En el cuadro de diálogo **Add Entity** (Agregar entidad), escriba en el cuadro Entity name (Nombre de la entidad) y seleccione **Pattern.any** como **Entity type** (Tipo de entidad).
+1. En el cuadro de diálogo **Add Entity** (Agregar entidad), escriba `HumanResourcesFormTitle` en el cuadro **Entity name** (Nombre de entidad) y seleccione **Pattern.any** como **Entity type**. (Tipo de entidad).
 
     Para usar la entidad pattern.any, agregue un patrón en la página **Patterns** (Patrones), en la sección **Mejorar el rendimiento de las aplicaciones** con la sintaxis de llave correcta, como `Where is **{HumanResourcesFormTitle}** on the server?`.
 

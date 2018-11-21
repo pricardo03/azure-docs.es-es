@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72eaa17e78086a4e5338bb3198ef7471c44b785f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: eb48e40007a25992a9a399176b6a4f93be89efc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234856"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344098"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Suscripción a eventos a través del portal
 
@@ -45,6 +45,16 @@ Para crear una suscripción de Event Grid para cualquiera de los [orígenes de e
 1. Proporcione detalles adicionales sobre la suscripción a los eventos, como el punto de conexión para el control de eventos y un nombre de la suscripción.
 
    ![Indicación de detalles de la suscripción](./media/subscribe-through-portal/provide-subscription-details.png)
+
+1. Para habilitar la cola de mensajes fallidos y personalizar las directivas de reintento, seleccione **Características adicionales**.
+
+   ![Selección de características adicionales](./media/subscribe-through-portal/select-additional-features.png)
+
+1. Seleccione un contenedor para almacenar los eventos que no se pueden entregar y establezca cómo se envían los reintentos.
+
+   ![Habilitación de la cola de mensajes fallidos y reintentos](./media/subscribe-through-portal/set-deadletter-retry.png)
+
+1. Cuando haya terminado, seleccione **Crear**.
 
 ## <a name="create-subscription-on-resource"></a>Creación de una suscripción en un recurso
 

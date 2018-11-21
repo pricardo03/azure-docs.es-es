@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 12b14b87a02619b21e80436c80a284c4011f8b33
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407882"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300326"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Información general sobre la eliminación temporal de Azure Key Vault
 
@@ -44,7 +44,9 @@ La eliminación temporal es un comportamiento opcional de Key Vault y no **está
 ### <a name="purge-protection--flag"></a>Marca de protección de purgas
 La marca de protección de purgas (**--enable-purge-protection** en la CLI de Azure) está desactivada de forma predeterminada. Cuando esta marca está activada, un almacén o un objeto en estado eliminado no se puede purgar hasta que ha transcurrido el período de retención de 90 días. El almacén u objeto todavía se puede recuperar. Esta marca ofrece a los clientes mayor seguridad de que un almacén u objeto nunca se va a eliminar de forma permanente hasta que haya transcurrido el período de retención. Puede activar la marca de protección de purgas solo si la marca de eliminación temporal está activada, o si durante la creación del almacén se activan la eliminación temporal y la protección de purgas.
 
-[!NOTE] El requisito previo para activar la protección de purgas es que la eliminación temporal debe estar activada. El comando para hacerlo en la CLI de Azure 2 es
+> [!NOTE] 
+   El requisito previo para activar la protección de purgas es que la eliminación temporal debe estar activada.
+El comando para hacerlo en la CLI de Azure 2 es
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

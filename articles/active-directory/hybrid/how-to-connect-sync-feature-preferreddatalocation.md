@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 951ac39e1bb6ce050da26fa8ff3f93fd4e27e7d7
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1dfc01d0f2f0f5f3eae58fd6c889fee3ad306135
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318402"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623034"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación preferida para los recursos de Office 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Office 365, este atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
@@ -31,7 +31,7 @@ De forma predeterminada, los recursos de Office 365 para los usuarios se encuent
 Es posible definir la geoárea de un usuario si se establece el atributo **preferredDataLocation**. Puede tener los recursos de Office 365 del usuario, como el buzón de correo y OneDrive, en la misma geoárea que el usuario y, aún así, tener un inquilino para toda la organización.
 
 > [!IMPORTANT]
-> La replicación geográfica múltiple está disponible actualmente para los clientes con un mínimo de 2500 suscripciones a los servicios de Office 365. Póngase en contacto con su representante de Microsoft para más información.
+> La replicación geográfica múltiple está disponible actualmente para los clientes con un mínimo de 5000 suscripciones a los servicios de Office 365. Póngase en contacto con su representante de Microsoft para más información.
 >
 >
 
@@ -215,7 +215,7 @@ En general, se requiere un ciclo de sincronización completo. Esto se debe a que
    1. Haga clic con el botón derecho en **Conector de Azure AD** y seleccione **Espacio del conector de búsqueda**.
    2. En el cuadro de diálogo **Search Connector Space** (Espacio del conector de búsqueda):
 
-        a. Establezca el **ámbito** en **Pending Export** (Exportación pendiente).<br>
+         a. Establezca el **ámbito** en **Pending Export** (Exportación pendiente).<br>
         b. Active las tres casillas, incluidas **Agregar, Modificar y Eliminar**.<br>
         c. Para ver la lista de objetos con cambios que se deben exportar, seleccione **Buscar**. Para examinar los cambios de un determinado objeto, haga doble clic en el objeto.<br>
         d. Compruebe que los cambios sean los previstos.

@@ -13,44 +13,44 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/15/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b81c66acc0a90ba9b74cf1f4fb34ef7a545837f9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736613"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623186"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latencias de informes de Azure Active Directory
 
-Con los [informes](../active-directory-preview-explainer.md) de Azure Active Directory, obtendrá toda la información que necesita para determinar cómo funciona el entorno. La cantidad de tiempo necesaria para que los datos de informes aparezcan en Azure Portal se denomina latencia. 
-
-En este tema se muestra la información de latencia de todas las categorías de informes en Azure Portal. 
-
+La latencia es la cantidad de tiempo que tardan en mostrarse los datos de informes de Azure Active Directory (Azure AD) en [Azure Portal](https://portal.azure.com). En este artículo se muestra la latencia esperada de los distintos tipos de informes. 
 
 ## <a name="activity-reports"></a>Informes de actividad
 
-Hay dos áreas de informes de actividad:
+Hay dos tipos de informes de actividad:
 
-- **Actividades de inicio de sesión** : información sobre el uso de las aplicaciones administradas y las actividades de inicio de sesión de usuario
-- **Registros de auditoría** : información de la actividad del sistema acerca de los usuarios y administración de grupos, sus aplicaciones administradas y actividades de directorio
+- [Inicios de sesión](concept-sign-ins.md): proporciona información sobre el uso de aplicaciones administradas y actividades de inicio de sesión de usuario
+- [Registros de auditoría](concept-audit-logs.md): proporciona información de la actividad del sistema sobre los usuarios y grupos, las aplicaciones administradas y las actividades de directorio.
 
-La tabla siguiente enumera la información de latencia para los informes de actividad.
+La tabla siguiente enumera la información de latencia para los informes de actividad. 
 
-| Informe | Latencia (95 %) |Latencia (99 %)|
+> [!NOTE]
+> **Latencia (percentil 95)** hace referencia al momento en el que se notificará el 95 % de los registros, y **Latencia (percentil 99)** hace referencia al momento en el que se notificará el 99 % de los registros. 
+>
+
+| Informe | Latencia (percentil 95) |Latencia (percentil 99)|
 | :-- | --- | --- | 
 | Registros de auditoría | 2 minutos  | 5 minutos  |
 | Inicios de sesión | 2 minutos  | 5 minutos |
 
-
 ## <a name="security-reports"></a>Informes de seguridad
 
-Hay dos áreas de informes de seguridad:
+Hay dos tipos de informes de seguridad:
 
-- **Inicios de sesión peligrosos**: un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
-- **Usuarios marcados en riesgo**: un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. 
+- [Inicios de sesión peligrosos](concept-risky-sign-ins.md): un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
+- [Usuarios marcados en riesgo](concept-user-at-risk.md): un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. 
 
 La tabla siguiente enumera la información de latencia para los informes de seguridad.
 
@@ -61,7 +61,7 @@ La tabla siguiente enumera la información de latencia para los informes de segu
 
 ## <a name="risk-events"></a>Eventos de riesgo
 
-Azure Active Directory utiliza algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado evento de riesgo.
+Azure AD emplea algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado **evento de riesgo**.
 
 La tabla siguiente enumera la información de latencia para eventos de riesgo.
 
@@ -75,17 +75,8 @@ La tabla siguiente enumera la información de latencia para eventos de riesgo.
 | Inicios de sesión desde direcciones IP con actividad sospechosa |2 horas |4 horas |8 horas  |
 
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea obtener más información acerca de los informes de actividad en Azure Portal, consulte:
-
-- [Informes de actividad de inicio de sesión en el portal de Azure Active Directory](concept-sign-ins.md)
-- [Informes de actividad de auditoría en el portal de Azure Active Directory](concept-audit-logs.md)
-
-Si desea obtener más información acerca de los informes de seguridad en Azure Portal, consulte:
-
-- [Informe de seguridad de usuarios en riesgo en el portal de Azure Active Directory](concept-user-at-risk.md)
-- [Informe de inicios de sesión poco seguros en el portal de Azure Active Directory](concept-risky-sign-ins.md)
-
-Si desea obtener más información acerca de los eventos de riesgo, consulte [Eventos de riesgo de Azure Active Directory](concept-risk-events.md).
+* [Información general sobre informes de Azure AD](overview-reports.md)
+* [Acceso mediante programación a los informes de Azure AD](concept-reporting-api.md)
+* [Eventos de riesgo de Azure Active Directory](concept-risk-events.md)

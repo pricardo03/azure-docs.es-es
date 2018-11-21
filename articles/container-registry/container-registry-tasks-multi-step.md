@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/29/2018
 ms.author: danlep
-ms.openlocfilehash: cdabafc4f70b08076820e7e0d39300b3eb0bc1e7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856725"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632699"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks
 
@@ -53,7 +53,7 @@ Una tarea de varios pasos de ACR Tasks se define como una serie de pasos dentro 
 * [`push`](container-registry-tasks-reference-yaml.md#push): inserta imágenes compiladas en un registro de contenedor. Se admiten registros privados como Azure Container Registry, dado que es el Docker Hub público.
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd): ejecuta un contenedor, de forma que puede operar como una función dentro del contexto de la tarea en ejecución. Puede pasar parámetros al elemento `[ENTRYPOINT]` del contenedor y especificar propiedades como env, detach y otros parámetros conocidos de `docker run`. El tipo de paso `cmd` permite pruebas unitarias y funcionales, con la ejecución simultánea del contenedor.
 
-Las tareas de varios pasos pueden ser tan simples como la compilación y la inserción de una sola imagen:
+Los fragmentos de código siguientes muestran cómo combinar estos tipos de pasos de la tarea. Las tareas de varios pasos pueden ser tan simples como la creación de una sola imagen a partir de un Dockerfile y la inserción en el registro, con un archivo YAML parecido a:
 
 ```yaml
 version: 1.0-preview-1
@@ -62,7 +62,7 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-O más complejas, como esta tarea, que incluye los pasos para las acciones build, test, helm package y helm deploy:
+O pueden ser más complejas como en esta definición de tarea ficticia de varios pasos que incluye los pasos para las acciones build, test, helm package y helm deploy (no se muestra el registro de contenedor ni la configuración del repositorio de Helm):
 
 ```yaml
 version: 1.0-preview-1
@@ -84,6 +84,8 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
+
+Consulte [ejemplos de tareas][task-examples] para completar archivos YAML y Dockerfiles de tareas de varios pasos para varios escenarios.
 
 ## <a name="run-a-sample-task"></a>Ejecución de una tarea de ejemplo
 
@@ -163,6 +165,7 @@ Puede encontrar referencias y ejemplos de las tareas de varios pasos aquí:
 
 * [Referencia de tareas](container-registry-tasks-reference-yaml.md): tipos de pasos de tareas, sus propiedades y uso.
 * [Ejemplos de tareas][task-examples]: archivos `task.yaml` de ejemplo para varios escenarios, de sencillos a complejos.
+* [Repositorio de cmd](https://github.com/AzureCR/cmd): una colección de contenedores que se usan como comandos para tareas de ACR.
 
 <!-- IMAGES -->
 

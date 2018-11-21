@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401574"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285719"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Managed Disks con Ultra SSD (versión preliminar) para cargas de trabajo de máquinas virtuales de Azure
 
@@ -23,7 +23,7 @@ Azure Ultra SSD (versión preliminar) le ofrece un alto rendimiento, IOPS elevad
 
 **Managed Disks**: los discos Ultra SSD solo están disponibles como instancias de Managed Disks. Además, los discos Ultra SSD no se pueden implementar como un disco no administrado o un blob en páginas. Al crear el disco administrado, debe especificar el tipo de SKU del disco como Ultra SSD_LRS e indicar el tamaño del mismo, las unidades IOPS y el rendimiento que necesite; asimismo, Azure creará y administrará el disco automáticamente.  
 
-**Virtual Machines**: los discos Ultra SSD están diseñados para funcionar con todas las SKU de las máquinas virtuales de Azure que fueron habilitadas con SSD Premium; sin embargo, en el momento de la versión preliminar, los tamaños de las máquinas virtuales se limitarán a las instancias de VM ES/DS v3.
+**Virtual Machines**: los discos Ultra SSD están diseñados para funcionar con todas las SKU de Azure Virtual Machine que fueron habilitadas con SSD Premium; sin embargo, ya que está ahora en la versión preliminar, los tamaños de las máquinas virtuales se limitarán a ES/DS v3.
 
 **Configuración de rendimiento dinámico**: los discos Ultra SSD le permiten cambiar dinámicamente el rendimiento (unidades IOPS y rendimiento) del disco junto con sus necesidades de carga de trabajo, sin tener que reiniciar sus máquinas virtuales.
 
@@ -55,7 +55,7 @@ En la tabla siguiente, se resumen las diferentes configuraciones que se admiten 
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
-Al usar Ultra SSD, se aplican las siguientes consideraciones de facturación:
+Al usar Ultra SSD, se aplicarán las siguientes consideraciones de facturación:
 
 - Tamaño del disco administrado
 - IOPS aprovisionada del disco administrado
@@ -64,11 +64,11 @@ Al usar Ultra SSD, se aplican las siguientes consideraciones de facturación:
 
 ### <a name="managed-disk-size"></a>Tamaño del disco administrado
 
-Managed Disks se factura según los tamaños aprovisionados. Azure asigna el tamaño aprovisionado (redondeado al alza) a la oferta de tamaño de disco más cercana. Para obtener detalles sobre los tamaños de disco que se ofrecen, consulte la tabla en la sección Objetivos de escalabilidad y rendimiento anterior. Cada disco se asigna a un tamaño de disco aprovisionado compatible y se factura según corresponda y por hora. Por ejemplo, si aprovisiona un disco Ultra SSD de 200 GiB y lo elimina después de 20 horas, se asignará a la oferta de tamaño de disco de 256 GiB y se le cobrará por los 256 GiB durante 20 horas. Esto es así independientemente de la cantidad de datos que se escriba en el disco.
+Managed Disks se factura por tamaño de la máquina virtual elegida mientras se aprovisiona una nueva máquina virtual de Azure. Azure asigna el tamaño aprovisionado (redondeado al alza) a la oferta de tamaño de disco más cercana. Para obtener detalles sobre los tamaños de disco que se ofrecen, consulte la tabla en la sección Objetivos de escalabilidad y rendimiento anterior. Cada disco se asigna a un tamaño de disco aprovisionado compatible y se facturará según corresponda y por hora. Por ejemplo, si aprovisiona un disco Ultra SSD de 200 GiB y lo elimina después de 20 horas, se asignará a la oferta de tamaño de disco de 256 GiB y se le cobrará por los 256 GiB durante 20 horas. Esta facturación se basa en el consumo por horas de proceso con independencia del volumen de datos escritos realmente en el disco.
 
 ### <a name="managed-disk-provisioned-iops"></a>IOPS aprovisionada del disco administrado
 
-IOPS es el número de solicitudes que la aplicación envía a los discos en un segundo. Una operación de entrada y salida puede ser de lectura o escritura, secuencial o aleatoria. Al igual que el tamaño del disco, la IOPS aprovisionada se factura por hora. Para obtener detalles sobre las IOPS de disco que se ofrecen, consulte la tabla en la sección Objetivos de escalabilidad y rendimiento anterior.
+IOPS es el número de solicitudes que la aplicación envía a los discos en un segundo. Una operación de entrada y salida puede ser de lectura o escritura secuencial o aleatoria. Según el tamaño del disco o el número de discos conectados a la máquina virtual, el promedio de IOPS se factura por hora. Para obtener detalles sobre las IOPS de disco que se ofrecen, consulte la tabla en la sección Objetivos de escalabilidad y rendimiento anterior.
 
 ### <a name="managed-disk-provisioned-throughput"></a>Rendimiento aprovisionado del disco administrado
 

@@ -1,6 +1,6 @@
 ---
 title: 'Implementación local de la solución de supervisión remota: Docker: Azure | Microsoft Docs'
-description: En esta guía paso a paso se muestra cómo implementar el acelerador de soluciones de supervisión remota en la máquina local para pruebas y desarrollo.
+description: En esta guía paso a paso se muestra cómo implementar el acelerador de soluciones de supervisión remota en la máquina local mediante Docker para pruebas y desarrollo.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 91f43473a5648be5264038993f43b61887e0c363
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285417"
+ms.locfileid: "51288551"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Implementación local del acelerador de soluciones de supervisión remota: Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-En este artículo, se explica cómo implementar el acelerador de la solución Supervisión remota en la máquina local para pruebas y desarrollo. En el artículo se muestra cómo implementar los microservicios en contenedores locales de Docker. Una implementación local de microservicios usa los siguientes servicios en la nube: IoT Hub, Cosmos DB, Azure Streaming Analytics y Azure Time Series Insights.
+En este artículo, se explica cómo implementar el acelerador de la solución Supervisión remota en la máquina local para pruebas y desarrollo. Aprenderá a implementar los microservicios en contenedores locales de Docker. Una implementación local de microservicios usa los siguientes servicios en la nube: IoT Hub, Cosmos DB, Azure Streaming Analytics y Azure Time Series Insights.
 
 Si quiere ejecutar el acelerador de soluciones de supervisión remota en un IDE del equipo local, consulte [Implementación local del acelerador de la solución Supervisión remota: Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -29,7 +29,7 @@ Para implementar los servicios de Azure que usa el acelerador de la solución Su
 
 En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-### <a name="machine-setup"></a>Configuración del equipo
+### <a name="machine-setup"></a>Configuración de la máquina
 
 Para completar la implementación local, necesita que las herramientas siguientes estén instaladas en la máquina de desarrollo local:
 
@@ -70,13 +70,13 @@ docker-compose up
 La primera vez que ejecuta este comando, Docker descarga las imágenes de microservicios desde Docker Hub para crear los contenedores localmente. En las ejecuciones posteriores, Docker ejecuta los contenedores inmediatamente.
 
 > [!TIP]
-> Con frecuencia, publicamos nuevas imágenes de Docker con la nueva funcionalidad. Puede usar el siguiente conjunto de comandos para limpiar los contenedores locales de Docker y las imágenes correspondientes antes de extraer las más recientes. 
+> Microsoft publica con frecuencia nuevas imágenes de Docker con la nueva funcionalidad. Puede usar el siguiente conjunto de comandos para limpiar los contenedores locales de Docker y las imágenes correspondientes antes de extraer las más recientes:
 
-```cmd/sh
-docker list
-docker rm <list_of_containers>
-docker rmi <list_of_images>
-```
+    ```cmd/sh
+    docker list
+    docker rm <list_of_containers>
+    docker rmi <list_of_images>
+    ```
 
 Puede utilizar un shell independiente para ver los registros desde el contenedor. En primer lugar, busque el identificador del contenedor mediante el comando `docker ps`. A continuación, utilice `docker logs {container-id} --tail 1000` para ver las 1000 entradas más recientes del contenedor especificado.
 
@@ -101,14 +101,4 @@ Utilice el comando `docker-compose down --rmi all` para quitar las imágenes de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Configuración del entorno de desarrollo local
-> * Configuración del acelerador de la solución
-> * Implementación del acelerador de solución
-> * Inicio de sesión en el acelerador de la solución
-
 Ahora que ha implementado la solución de supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->

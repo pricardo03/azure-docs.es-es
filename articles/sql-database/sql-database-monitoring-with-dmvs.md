@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: df3062349ac384b92eeaf9483310cd5d3b48921f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c690e9b864d4b2b378814b478ea4918a9f75fbba
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238563"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288534"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Supervisar Azure SQL Database con vistas de administración dinámica
 
@@ -333,7 +333,7 @@ ORDER BY start_time ASC;
 
 ## <a name="identify-memory-grant-wait-performance-issues"></a>Identificar problemas de rendimiento de espera de concesión de memoria
 
-Si su principal tipo de espera es `RESOURCE_SEMAHPORE` y no tiene un problema de CPU alto, es posible que tenga un problema de espera de concesión de memoria.
+Si su principal tipo de espera es `RESOURCE_SEMAHPORE` y no tiene el problema del uso elevado de la CPU, es posible que lo tenga con la espera de la concesión de memoria.
 
 ### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Determinar si una espera `RESOURCE_SEMAHPORE` es una espera principal
 

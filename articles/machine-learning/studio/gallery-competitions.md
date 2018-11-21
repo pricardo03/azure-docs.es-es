@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 08434007c7ef66349cae2a368d3be94ee522bab1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bfc2f40231b5e28ffa3721eef70311da8dcb6da9
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242355"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51343675"
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Descubra las competiciones de la Galería de Azure AI.
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="cortana-intelligence-competitions"></a>Competiciones de Cortana Intelligence
-Las **[Competiciones](https://gallery.cortanaintelligence.com/competitions)** proporcionan una oportunidad interesante de competir con la comunidad de científicos de datos para solucionar problemas complejos con Cortana Intelligence Suite.
+Las **[competiciones](https://gallery.cortanaintelligence.com/competitions)** de [Azure AI Gallery](http://gallery.cortanaintelligence.com) proporcionan una oportunidad interesante de competir con la comunidad de científicos de datos a fin de solucionar problemas complejos con Cortana Intelligence Suite.
 
 Para obtener respuestas a preguntas frecuentes sobre las competiciones, consulte [Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence](competition-faq.md).
 

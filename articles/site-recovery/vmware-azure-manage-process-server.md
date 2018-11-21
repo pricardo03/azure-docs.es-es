@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 8a9342a2354cd4c92fa0230965b4eef6284ee826
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209129"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568859"
 ---
 # <a name="manage-process-servers"></a>Administración de servidores de proceso
 
@@ -79,4 +79,16 @@ Si el servidor de procesos usa un proxy para conectarse a Site Recovery en Azure
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
+## <a name="manage-anti-virus-software-on-process-servers"></a>Administración de software antivirus en servidores de procesos
+
+Si hay un software antivirus activo en un servidor de destino maestro o en un servidor de procesos independiente, excluya las siguientes carpetas de las operaciones del programa antivirus:
+
+
+- C:\Archivos de programa\Microsoft Azure Recovery Services Agent
+- C:\ProgramData\ASR
+- C:\ProgramData\ASRLogs
+- C:\ProgramData\ASRSetupLogs
+- C:\ProgramData\LogUploadServiceLogs
+- C:\ProgramData\Microsoft Azure Site Recovery
+- Directorio de instalación del servidor de procesos; por ejemplo, C:\Archivos de programa (x86)\Microsoft Azure Site Recovery
 

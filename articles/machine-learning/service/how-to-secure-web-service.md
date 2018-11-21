@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801019"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344491"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Protección de los servicios web de Azure Machine Learning con SSL
 
@@ -53,9 +53,8 @@ Cuando solicite un certificado, debe proporcionar el nombre de dominio completo 
 > [!TIP]
 > Si la entidad de certificación no puede proporcionar el certificado y la clave como archivos codificados en PEM, puede usar una utilidad como [OpenSSL](https://www.openssl.org/) para cambiar el formato.
 
-> [!IMPORTANT]
-> Los certificados autofirmados solo se deben usar para desarrollo. No se deben usar en el entorno de producción. Si usa un certificado autofirmado, consulte la sección [Consumo de servicios web con certificados autofirmados](#self-signed) para instrucciones específicas.
-
+> [!WARNING]
+> Los certificados autofirmados solo se deben usar para desarrollo. No se deben usar en el entorno de producción. Los certificados autofirmados pueden provocar problemas en las aplicaciones cliente. Para más información, consulte la documentación de las bibliotecas de red utilizadas en la aplicación cliente.
 
 ## <a name="enable-ssl-and-deploy"></a>Habilitación de SSL e implementación
 
@@ -119,91 +118,8 @@ Después, debe actualizar el DNS para que apunte al servicio web.
 
   Actualice el DNS en la pestaña "Configuración" de la "Dirección IP pública" del clúster de AKS, tal como se muestra en la imagen. Puede encontrar la dirección IP pública como uno de los tipos de recurso creados bajo el grupo de recursos que contiene los nodos del agente de AKS y otros recursos de red.
 
-  ![Azure Machine Learning Service: protección de servicios web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Azure Machine Learning Service: protección de servicios web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)self-
 
-## <a name="consume-authenticated-services"></a>Consumo de servicios autenticados
+## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="how-to-consume"></a>Procedimiento para el consumo 
-+ **Para ACI y AKS**: 
-
-  Para los servicios web ACI y AKS, aprenda a consumir servicios web en estos artículos:
-  + [Implementación en ACI](how-to-deploy-to-aci.md)
-
-  + [Implementación en AKS](how-to-deploy-to-aks.md)
-
-+ **Para FPGA**:  
-
-  En los ejemplos siguientes se muestra cómo consumir un servicio FPGA autenticado con Python y C#.
-  Reemplace `authkey` por la clave principal o secundaria que se devolvió al implementar el servicio.
-
-  Ejemplo de Python:
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  Ejemplo de C#:
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### <a name="set-the-authorization-header"></a>Establecimiento del encabezado de autorización
-Otros clientes gRPC pueden autenticar las solicitudes al establecer un encabezado de autorización. El enfoque general es crear un objeto `ChannelCredentials` que combina `SslCredentials` con `CallCredentials`. Esto se agrega al encabezado de autorización de la solicitud. Para más información sobre cómo implementar la compatibilidad con los encabezados específicos, consulte [https://grpc.io/docs/guides/auth.html](https://grpc.io/docs/guides/auth.html).
-
-En los ejemplos siguientes se muestra cómo establecer el encabezado en C# y Go:
-
-+ Use C# para establecer el encabezado:
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ Use Go para establecer el encabezado:
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## <a name="consume-services-with-self-signed-certificates"></a>Consumo de servicios con certificados autofirmados
-
-Hay dos maneras de permitir que el cliente se autentique en un servicio protegido con un certificado autofirmado:
-
-* En el sistema cliente, establezca la variable de entorno `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` en el sistema cliente para que apunte al archivo de certificado.
-
-* Cuando construya un objeto `SslCredentials`, pase el contenido del archivo de certificado al constructor.
-
-Usar cualquiera de los métodos hace que gRPC use el certificado como el certificado raíz.
-
-> [!IMPORTANT]
-> gRPC no acepta certificados que no son de confianza. Si se usa un certificado que no es de confianza, se generará un error con el código de estado `Unavailable`. Los detalles del error incluyen `Connection Failed`.
+Obtenga información acerca de cómo [Consume a ML Model deployed as a web service ](how-to-consume-web-service.md) (Consumir un modelo de ML implementado como servicio web).

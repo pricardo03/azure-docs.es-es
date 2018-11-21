@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: eae7f97799e38d5a4b09e3f193a84b423dced780
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/09/2018
+ms.openlocfilehash: 44d6135c8a259d3d4c791d359136963483088c5a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869336"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567900"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicación en base de datos agrupadas y únicas de SQL Database
 
@@ -65,7 +65,7 @@ La replicación de SQL Server puede configurarse para bases de datos únicas y a
 
 1. Cree una publicación de replicación transaccional en una base de datos de SQL Server local.  
 2. En la instancia de SQL Server local, use el **Asistente para nueva suscripción** o las instrucciones Transact-SQL para crear una inserción en la suscripción de Azure SQL Database.  
-3. El conjunto de datos inicial es normalmente una instantánea que crea el Agente de instantáneas y distribuye y aplica el Agente de distribución. El conjunto de datos inicial también se puede suministrar a través de una copia de seguridad u otros medios, como SQL Server Integration Services.  
+3. Con las bases de datos individuales y agrupadas de Azure SQL Database, el conjunto de datos inicial es una instantánea creada por el Agente de instantáneas y distribuida y aplicada por el Agente de distribución. Con Instancia administrada de Azure SQL Database, también puede utilizar una copia de seguridad de la base de datos para propagar la base de datos del suscriptor.
 
 ### <a name="data-migration-scenario"></a>Escenario de migración de datos  
 

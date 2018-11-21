@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: 5adc0e39c271b71d6c003eaba6cb5b8a71531bd7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471448"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622523"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Idiomas y regiones admitidos para Speech Service API
 
@@ -160,7 +160,7 @@ La personalización de la voz está disponible para inglés de Estados Unidos (e
 
 ## <a name="speech-translation"></a>Speech Translation
 
-**Speech Translation** API admite varios idiomas para la traducción de voz a voz y de texto a voz. El idioma de origen siempre debe ser de la tabla de idiomas de Voz siguiente. Los idiomas de destino admitidos dependen de si el destino de traducción es voz o texto.
+**Speech Translation** API admite varios idiomas para la traducción de voz a voz y de texto a voz. El idioma de origen siempre debe ser de la tabla de idiomas de Voz siguiente. Los idiomas de destino admitidos dependen de si el destino de traducción es voz o texto. Puede traducir la voz entrante en más de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Un subconjunto de estos idiomas está disponible para [síntesis de voz](language-support.md#text-languages). 
 
 ### <a name="speech-languages"></a>Idiomas de voz
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219906"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597655"
 ---
 <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación clásico por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -45,11 +45,11 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Redes virtuales |1000 |
 | Subredes por red virtual |3000 |
 | Emparejamientos de redes virtuales por red virtual |100 |
-| Servidores DNS por red virtual |25 |
+| Servidores DNS por red virtual |20 |
 | Direcciones IP privadas por red virtual |65536 |
 | Direcciones IP privadas por interfaz de red |256 |
 | Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 KB |
-| Interfaces de red (NIC) |24000 |
+| Interfaces de red (NIC) |65536 |
 | Grupos de seguridad de red (NSG) |5000 |
 | Reglas de NSG por NSG |1000 |
 | Direcciones IP y rangos especificados para el origen o destino en un grupo de seguridad |4000 |
@@ -64,28 +64,27 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Configuraciones de TAP de la interfaz de red por TAP de red virtual |100 |
 
 #### <a name="publicip-address"></a>Límites de dirección IP pública
-
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| Direcciones IP públicas - dinámicas |(Básico) 200 |ponerse en contacto con el servicio de soporte técnico |
+| Direcciones IP públicas - dinámicas |(Básico) 1000 |ponerse en contacto con el servicio de soporte técnico |
 | Direcciones IP públicas - estáticas |(Básico) 200 |ponerse en contacto con el servicio de soporte técnico |
 | Direcciones IP públicas - estáticas |(Estándar) 200 |ponerse en contacto con el servicio de soporte técnico |
 
 #### <a name="load-balancer"></a>Límites de Load Balancer
 Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de los recursos actuales comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
-| Recurso | Límite predeterminado | Límite máximo |
+| Recurso | Límite predeterminado |
 | --- | --- | --- |
-| Equilibradores de carga | 100 | 1000 |
-| Reglas por recurso, básico | 250 | 250 |
-| Reglas por recurso, estándar | 1.500 | 1.500 |
-| Reglas por configuración de dirección IP | 299 |299 |
-| Configuraciones de direcciones IP de front-end, básico | 10 | 200 |
-| Configuraciones de direcciones IP de front-end, estándar | 10 | 600 |
-| Grupo de back-end, básico | 100, conjunto de disponibilidad único | 100, conjunto de disponibilidad único |
-| Grupo de back-end, estándar | 1000, red virtual única | 1000, red virtual única |
-| Recursos de back-end por Load Balancer, Estándar * | 150 | 150 |
-| Puertos de alta disponibilidad, estándar | 1 por front-end interno | 1 por front-end interno |
+| Equilibradores de carga | 1000 | 
+| Reglas por recurso, básico | 250 |
+| Reglas por recurso, estándar | 1.500 | 
+| Reglas por configuración de dirección IP | 299 |
+| Configuraciones de direcciones IP de front-end, básico | 200 |
+| Configuraciones de direcciones IP de front-end, estándar | 600 |
+| Grupo de back-end, básico | 100, conjunto de disponibilidad único |
+| Grupo de back-end, estándar | 1000, red virtual única |
+| Recursos de back-end por Load Balancer, Estándar * | 150 |
+| Puertos de alta disponibilidad, estándar | 1 por front-end interno |
 
 ** Hasta 150 recursos, cualquier combinación de máquinas virtuales independientes, conjuntos de disponibilidad y conjuntos de escalado de máquinas virtuales.
 

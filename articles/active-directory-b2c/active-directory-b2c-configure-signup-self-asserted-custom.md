@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336862"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345007"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: modificación del registro para agregar nuevas notificaciones y configuración de la entrada del usuario.
 
@@ -277,8 +277,8 @@ El correo electrónico comprobado está habilitado de forma predeterminada en el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Agregue la nueva notificación a los flujos de inicios de sesión de cuentas sociales cambiando las instancias de TechnicalProfiles que se enumeran a continuación. Estas dos instancias se usan en los inicios de sesión de cuentas sociales o federadas para leer y escribir los datos de usuario con alternativeSecurityId como localizador.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+Si su directiva admite cuentas de las redes sociales, agregue la nueva notificación a los flujos de inicios de sesión de cuentas de las redes sociales; para ello, cambie las instancias de perfiles técnicos que se enumeran a continuación. Estas notificaciones se usan en los inicios de sesión de cuentas de las redes sociales para recopilar y escribir datos del usuario.
+
+1. Localice el perfil técnico **SelfAsserted Social** y agregue la notificación de salida. El orden de las notificaciones en **OutputClaims** controla el orden en que Azure AD B2C presenta las notificaciones en la pantalla. Por ejemplo, `<OutputClaim ClaimTypeReferenceId="city" />`.
+2. Localice el perfil técnico **AAD-UserWriteUsingAlternativeSecurityId** y agregue la notificación de persistencia. Por ejemplo, `<PersistedClaim ClaimTypeReferenceId="city" />`.
+3. Localice el perfil técnico **AAD-UserReadUsingAlternativeSecurityId** y agregue la notificación de salida. Por ejemplo, `<OutputClaim ClaimTypeReferenceId="city" />`.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: cce6685e98b7a67ab8e9e9ea35ccb492ae56da10
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 58643593970fa00822e79ed54f91d56c45ebba65
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018216"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578576"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante llamadas a la API REST
 
@@ -36,14 +36,6 @@ En este artículo, mediante CURL para llamar al punto de conexión REST de Azure
 
 - Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)**.
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para realizar las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de control de acceso basado en rol:
-
-    > [!NOTE]
-    > No se requieren asignaciones de roles del directorio de Azure AD.
-
-    - [Colaborador de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para crear una VM y habilitar y quitar la identidad administrada asignada por el usuario o el sistema desde una VM de Azure.
-    - Rol [Colaborador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para crear una identidad asignada por el usuario.
-    - Rol [Operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para asignar y quitar una identidad administrada asignada por el usuario en una VM.
 - Si usa Windows, instale el [subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) o [Azure Cloud Shell](../../cloud-shell/overview.md) en Azure Portal.
 - [Instale la consola local de la CLI de Azure](/cli/azure/install-azure-cli) si utiliza el [subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) o un [sistema operativo de distribución de Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Si utiliza la consola local de la CLI de Azure, inicie sesión en Azure mediante `az login` con una cuenta que esté asociada a la suscripción de Azure de la que desea administrar las identidades administradas asignadas por el usuario o por el sistema.
@@ -56,7 +48,7 @@ En esta sección, aprenderá a habilitar y deshabilitar una identidad administra
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>Habilitación de una identidad administrada asignada por el sistema durante la creación de una VM de Azure
 
-Para crear una máquina virtual de Azure con la identidad administrada asignada por el sistema habilitada, debe crear una máquina virtual y recuperar un token de acceso para usar CURL y llamar al punto de conexión de Resource Manager con el valor del tipo de identidad administrada asignada por el sistema.
+Para crear una máquina virtual de Azure que tenga habilitada la identidad administrada asignada por el sistema, la cuenta debe tener la asignación de roles [Colaborador de la máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Cree un [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para contener e implementar la máquina virtual y sus recursos relacionados, con [az group create](/cli/azure/group/#az-group-create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
 
@@ -84,7 +76,7 @@ Para crear una máquina virtual de Azure con la identidad administrada asignada 
 
 ### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>Habilitación de la identidad asignada por el sistema en una máquina virtual de Azure existente
 
-Para habilitar la identidad asignada por el sistema en una máquina virtual existente, debe adquirir un token de acceso y, después, utilizar CURL para llamar al punto de conexión REST de Resource Manager y actualizar el tipo de identidad.
+Para habilitar una identidad administrada asignada por el sistema en una máquina virtual que en un principio se aprovisionó sin dicha identidad, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Recupere un token de acceso de portador, que utilizará en el siguiente paso en el encabezado de autorización para crear la máquina virtual con una identidad administrada asignada por el sistema.
 
@@ -105,7 +97,7 @@ Para habilitar la identidad asignada por el sistema en una máquina virtual exis
    
    Por ejemplo, si la máquina virtual tiene asignadas las identidades administradas asignadas por el usuario `ID1` y `ID2`, y desea agregar una identidad administrada asignada por el sistema a dicha máquina virtual, utilice la siguiente llamada CURL. Reemplace `<ACCESS TOKEN>` y `<SUBSCRIPTION ID>` por los valores adecuados para su entorno.
 
-   La versión de API `2018-06-01` almacena las identidades administradas asignadas por el usuario en el valor `userAssignedIdentities` en un formato de diccionario, en contraposición al valor `identityIds` en un formato de matriz que se usaba en la versión `2017-12-01` de la API.
+   La versión de API `2018-06-01` almacena las identidades administradas asignadas por el usuario en el valor `userAssignedIdentities` en un formato de diccionario, en contraposición con el valor `identityIds` en formato de matriz que se usaba en la versión `2017-12-01` de la API.
    
    **VERSIÓN DE API 2018-06-01**
 
@@ -121,7 +113,7 @@ Para habilitar la identidad asignada por el sistema en una máquina virtual exis
 
 ### <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>Deshabilitación de una identidad administrada asignada por el sistema de una VM de Azure
 
-Para deshabilitar una identidad administrada asignada por el sistema en una máquina virtual existente, debe adquirir un token de acceso y, después, utilizar CURL para llamar al punto de conexión REST de Resource Manager y actualizar el tipo de identidad a `None`.
+Para deshabilitar una identidad administrada asignada por el sistema en una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Recupere un token de acceso de portador, que utilizará en el siguiente paso en el encabezado de autorización para crear la máquina virtual con una identidad administrada asignada por el sistema.
 
@@ -144,7 +136,9 @@ Para deshabilitar una identidad administrada asignada por el sistema en una máq
 
 En esta sección, aprenderá a agregar y a quitar una identidad administrada asignada por el usuario en una máquina virtual de Azure mediante CURL para llamar al punto de conexión de REST de Azure Resource Manager.
 
-### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Asignación de una identidad administrada asignada por el usuario durante la creación de una máquina virtual de Azure
+### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Asignación de una identidad administrada asignada por el usuario durante la creación de una VM de Azure
+
+Para asignar una identidad asignada por un usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) y [Operador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Recupere un token de acceso de portador, que utilizará en el siguiente paso en el encabezado de autorización para crear la máquina virtual con una identidad administrada asignada por el sistema.
 
@@ -182,6 +176,8 @@ En esta sección, aprenderá a agregar y a quitar una identidad administrada asi
    ```
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Asignación de una identidad administrada asignada por el usuario a una VM de Azure existente
+
+Para asignar una identidad asignada por un usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) y [Operador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Recupere un token de acceso de portador, que utilizará en el siguiente paso en el encabezado de autorización para crear la máquina virtual con una identidad administrada asignada por el sistema.
 
@@ -238,6 +234,8 @@ En esta sección, aprenderá a agregar y a quitar una identidad administrada asi
    ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Eliminación de una identidad administrada asignada por el usuario de una VM de Azure
+
+Para quitar una identidad asignada por un usuario de una máquina virtual, la cuenta necesita la asignación de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
 
 1. Recupere un token de acceso de portador, que utilizará en el siguiente paso en el encabezado de autorización para crear la máquina virtual con una identidad administrada asignada por el sistema.
 

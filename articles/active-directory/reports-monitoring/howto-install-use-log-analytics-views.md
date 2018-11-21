@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 10/01/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b1333eda0fa0bffdf3852f24414511f55acc090e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395583"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624648"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalación y uso de las vistas de Log Analytics para Azure Active Directory
 
@@ -42,7 +42,7 @@ Para usar las vistas de Log Analytics, necesita:
 
 1. Vaya al área de trabajo de Log Analytics. Para ello, vaya primero a [Azure Portal](https://portal.azure.com) y seleccione **Todos los servicios**. Escriba **Log Analytics** en el cuadro de texto y seleccione **Log Analytics**. Seleccione el área de trabajo a la que se han enviado los registros de actividad, como parte de los requisitos previos.
 2. Seleccione **View Designer** (Diseñador de vistas), seleccione **Import** (Importar) y, después, seleccione **Choose File** (Elegir archivo) para importar las vistas desde el equipo local.
-3. Seleccione las vistas que ha descargado de los requisitos previos y seleccione **Save** (Guardar) para guardar la importación. Haga esto para la vista **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de AD), la vista **Sign-ins Events** (Eventos de inicio de sesión) y la vista **Users Performing Consent** (Usuarios que dan su consentimiento).
+3. Seleccione las vistas que ha descargado de los requisitos previos y seleccione **Save** (Guardar) para guardar la importación. Realice este paso en la vista **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de AD) y la vista **Sign-ins Events** (Eventos de inicio de sesión).
 
 ## <a name="use-the-views"></a>Uso de las vistas
 
@@ -52,7 +52,6 @@ Para usar las vistas de Log Analytics, necesita:
 
     * **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de AD): esta vista muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
     * **Sign-ins Events** (Eventos de inicio de sesión): esta vista muestra los informes más importantes relacionados con la supervisión de la actividad de inicio de sesión, como los inicios de sesión por aplicación, usuario y dispositivo, así como una vista resumida que muestra el número de inicios de sesión a lo largo del tiempo.
-    * **Users Performing Consent** (Usuarios que dan su consentimiento): esta vista muestra los informes relacionados con el consentimiento del usuario, como las concesiones de consentimiento por parte del usuario, los inicios de sesión de los usuarios que han concedido el consentimiento, así como los inicios de sesión por aplicación para todas las aplicaciones basadas en el consentimiento. 
 
 3. Seleccione cualquiera de estas vistas para pasar a los informes individuales. También puede establecer alertas sobre cualquiera de los parámetros del informe. Por ejemplo, vamos a establecer una alerta para cada vez que se produzca un error de inicio de sesión. Para ello, seleccione primero la vista **Sign-ins Events** (Eventos de inicio de sesión), seleccione **Sign-in errors over time** (Errores de inicio de sesión a lo largo del tiempo) y, a continuación, seleccione **Analytics** (Análisis) para abrir la página de detalles, con la consulta real detrás del informe. 
 

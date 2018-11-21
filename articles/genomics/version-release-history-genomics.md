@@ -3,18 +3,18 @@ title: 'Historial de lanzamiento de versiones: Microsoft Genomics'
 titleSuffix: Azure
 description: Microsoft Genomics actualiza de manera habitual el cliente Python de Microsoft Genomics para obtener correcciones y funcionalidades nuevas.
 services: genomics
-author: grhuynh
+author: ruchir
 manager: cgronlun
-ms.author: grhuynh
+ms.author: ruchir
 ms.service: genomics
 ms.topic: article
-ms.date: 03/02/2018
-ms.openlocfilehash: 458ac634cee1a64da67e6560900c82c2f2743c0f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.date: 11/08/2018
+ms.openlocfilehash: e673d732d1d43e3f58a295a94d11fc42f3618d93
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034326"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345869"
 ---
 # <a name="version-release-history"></a>Historial de lanzamiento de versiones
 El equipo de Microsoft Genomics actualiza de manera habitual el cliente Python de Microsoft Genomics para obtener correcciones y funcionalidades nuevas. 
@@ -33,4 +33,4 @@ La versión 0.7.4 incluye compatibilidad para aceptar los tokens de SAS en lugar
 La versión 0.7.3 incluye correcciones de errores menores.
 
 ### <a name="version-072"></a>Versión 0.7.2
-La versión 0.7.2 es la versión inicial. Se lanzó el 1 de noviembre de 2017 y usa GATK 3.3.
+La versión 0.7.2 es la versión inicial. Se publicó el 1 de noviembre de 2017.

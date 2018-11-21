@@ -2,18 +2,18 @@
 title: Desarrollo de módulos para Azure IoT Edge | Microsoft Docs
 description: Aprenda a crear módulos personalizados para Azure IoT Edge.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: cb97e2cf6d554753f64afc76de84f43e38443909
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741443"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567237"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Descripción de los requisitos y las herramientas para desarrollar módulos de IoT Edge
 
@@ -58,7 +58,9 @@ Por último, los mensajes de dispositivo a nube que se gestionan mediante el cen
 | $outputName | La salida usada para enviar el mensaje. Puede estar vacía. |
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Conexión al centro de IoT Edge desde un módulo
-La conexión al centro local de IoT Edge desde un módulo implica dos pasos: usar la cadena de conexión que proporciona el entorno de tiempo de ejecución de IoT Edge cuando se inicia el módulo, y asegurarse de que la aplicación acepta el certificado que presenta el centro de IoT Edge en ese dispositivo.
+La conexión al centro de IoT Edge local desde un módulo implica dos pasos: 
+1. Use la cadena de conexión proporcionada por el tiempo de ejecución de IoT Edge cuando se inicia el módulo.
+2. Asegúrese de que la aplicación acepta el certificado presentado por el centro de IoT Edge en ese dispositivo.
 
 La cadena de conexión que se va a usar se proporciona mediante el entorno de tiempo de ejecución de IoT Edge en la variable de entorno `EdgeHubConnectionString`. De esta forma, está disponible para cualquier programa que quiera usarla.
 

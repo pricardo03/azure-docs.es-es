@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255189"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622030"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Administración de todas las directivas para un laboratorio de Azure DevTest Labs
 
-Azure DevTest Labs le permite controlar los costos y desperdiciar lo mínimo posible en sus laboratorios gracias a la posibilidad de administrar políticas (configuración) en cada uno de ellos. Este artículo explica en detalle paso a paso cómo configurar cada directiva.  
+Azure DevTest Labs le permite controlar los costos y reducir el desperdicio en sus laboratorios mediante la administración de directivas (configuración) en cada uno de ellos. Este artículo explica en detalle paso a paso cómo configurar cada directiva.  
 
 ## <a name="set-allowed-virtual-machine-sizes"></a>Establecimiento de tamaños de máquina virtual permitidos
 La directiva para establecer los tamaños permitidos de la máquina virtual ayuda a minimizar la pérdida del laboratorio al permitirle especificar los tamaños de máquina virtual que se permiten en este. Si se activa esta directiva, los tamaños de máquina virtual de esta lista son los únicos que pueden utilizarse en la creación de tales máquinas.
@@ -42,15 +42,15 @@ La directiva para establecer los tamaños permitidos de la máquina virtual ayud
 1. Seleccione **Guardar**.
 
 ## <a name="set-virtual-machines-per-user"></a>Establecimiento de máquinas virtuales por usuario
-La directiva **Virtual Machines por usuario** le permite especificar el número máximo de máquinas virtuales que puede crear un usuario individual. Si un usuario trata de crear o reclamar una máquina virtual una vez alcanzado el límite, aparece un mensaje de error que indica que la máquina virtual no se puede crear ni exigir. 
+La directiva **Virtual Machines por usuario** le permite especificar el número de máquinas virtuales que puede crear un usuario individual. Si un usuario intenta crear o reclamar una máquina virtual una vez alcanzado el límite, aparece un mensaje de error que indica que la máquina virtual no se puede crear ni reclamar. 
 
 1. En el panel **Configuración y directivas** del laboratorio, seleccione **Virtual Machines por usuario**.
    
     ![Máquinas virtuales por usuario](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Seleccione **Sí** para limitar el número de máquinas virtuales por usuario. Si no quiere limitar el número de máquinas virtuales por usuario, seleccione **No**. Si elige **Sí**, escriba un valor numérico que indique el número máximo de máquinas virtuales que un usuario puede crear o reclamar. 
+1. Seleccione **Sí** para limitar el número de máquinas virtuales por usuario. Si no quiere limitar el número de máquinas virtuales por usuario, seleccione **No**. Si elige **Sí**, escriba un valor numérico que indique el número de máquinas virtuales que un usuario puede crear o reclamar. 
 
-1. Seleccione **Sí** para limitar el número de máquinas virtuales que puede usar SSD (discos de estado sólido). Si no quiere limitar el número de máquinas virtuales que puede usar SSD, seleccione **No**. Si elige **Sí**, escriba un valor que indique el número máximo de máquinas virtuales que se pueden crear con SSD. 
+1. Seleccione **Sí** para limitar el número de máquinas virtuales que puede usar SSD (discos de estado sólido). Si no quiere limitar el número de máquinas virtuales que puede usar SSD, seleccione **No**. Si elige **Sí**, escriba un valor que indique el número de máquinas virtuales que se pueden crear con SSD. 
 
 1. Seleccione **Guardar**.
 
@@ -61,16 +61,16 @@ La directiva **Virtual Machines por laboratorio** le permite especificar el núm
    
     ![Máquinas virtuales por laboratorio](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
-1. Seleccione **Sí** para limitar el número de máquinas virtuales por laboratorio. Si no quiere limitar el número de máquinas virtuales por laboratorio, seleccione **No**. Si elige **Sí**, escriba un valor numérico que indique el número máximo de máquinas virtuales que un usuario puede crear o reclamar. 
+1. Seleccione **Sí** para limitar el número de máquinas virtuales por laboratorio. Si no quiere limitar el número de máquinas virtuales por laboratorio, seleccione **No**. Si elige **Sí**, escriba un valor numérico que indique el número de máquinas virtuales que un usuario puede crear o reclamar. 
 
-1. Seleccione **Sí** para limitar el número de máquinas virtuales que puede usar SSD (discos de estado sólido). Si no quiere limitar el número de máquinas virtuales que puede usar SSD, seleccione **No**. Si elige **Sí**, escriba un valor que indique el número máximo de máquinas virtuales que se pueden crear con SSD. 
+1. Seleccione **Sí** para limitar el número de máquinas virtuales que puede usar SSD (discos de estado sólido). Si no quiere limitar el número de máquinas virtuales que puede usar SSD, seleccione **No**. Si elige **Sí**, escriba un valor que indique el número de máquinas virtuales que se pueden crear con SSD. 
 
 1. Seleccione **Guardar**.
 
-## <a name="set-auto-shutdown"></a>Establecimiento del apagado automático
-La directiva de apagado automático ayuda a minimizar la pérdida del laboratorio, ya que permite especificar la hora de apagado de la máquina virtual de este laboratorio.
+## <a name="set-auto-shutdown"></a>Establecer el apagado automático
+La directiva de apagado automático ayuda a reducir los desperdicios del laboratorio al permitirle especificar la hora de apagado de la máquina virtual de este laboratorio.
 
-1. En el panel **Configuración y directivas** del laboratorio, seleccione **Apagado automático**.
+1. En el panel **Configuration and policies** (Configuración y directivas) del laboratorio, seleccione **Auto shutdown** (Apagado automático).
    
     ![Apagado automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -86,10 +86,34 @@ La directiva de apagado automático ayuda a minimizar la pérdida del laboratori
 
 De manera predeterminada, una vez que se habilite, esta directiva se aplica a todas las máquinas virtuales del laboratorio actual. Para quitar esta configuración de una máquina virtual específica, abra el panel de administración de la máquina virtual y cambie la configuración de **Apagado automático**.
 
-## <a name="set-auto-start"></a>Establecimiento del inicio automático
+## <a name="set-auto-shutdown-policy"></a>Establecer la directiva de apagado automático
+Como propietario del laboratorio, puede configurar una programación de apagado para todas las máquinas virtuales de su laboratorio. Al hacerlo, puede ahorrar costos derivados de la ejecución de máquinas que no se usan (inactivas). Puede aplicar una directiva de apagado en todas las máquinas del laboratorio a nivel central, pero también ahorrarles a los usuarios del laboratorio el trabajo de configurar una programación para sus máquinas individuales. Esta característica le permite definir la directiva en la programación del laboratorio: desde no ofrecer ningún control a ofrecer control completo a los usuarios del laboratorio. Como propietario del laboratorio, puede configurar esta directiva mediante los pasos siguientes:
+
+1. En la página principal del laboratorio, seleccione **Configuration and policies** (Configuración y directivas).
+2. Seleccione **Auto shutdown policy** (Directiva de apagado automático) en la sección **Schedules** (Programaciones) del menú izquierdo.
+3. Seleccione una de las opciones. En las secciones siguientes se proporcionan más detalles sobre estas opciones: la directiva establecida se aplica únicamente a las nuevas máquinas virtuales creadas en el laboratorio y no a las máquinas virtuales ya existentes. 
+
+    ![Opciones de la directiva de apagado automático](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
+
+### <a name="user-sets-a-schedule-and-can-opt-out"></a>El usuario establece una programación y puede excluirse de ella
+Si establece esta directiva para el laboratorio, los usuarios del laboratorio pueden excluirse de la programación del laboratorio o invalidarla. Esta opción concede a los usuarios del laboratorio control completo sobre la programación del apagado automático de sus máquinas virtuales. Los usuarios del laboratorio no verán ningún cambio en su página de programación de apagado de la máquina virtual.
+
+![Directiva de apagado automático: opción 1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
+
+### <a name="user-sets-a-schedule-and-cannot-opt-out"></a>El usuario establece una programación y no puede excluirse de ella
+Si establece esta directiva para el laboratorio, los usuarios del laboratorio pueden invalidar la programación del laboratorio. Sin embargo, no se pueden excluir de la directiva de apagado automático. Esta opción garantiza que todas las máquinas del laboratorio están bajo una programación de apagado automático. Los usuarios del laboratorio pueden actualizar la programación de apagado automático de sus máquinas virtuales y configurar notificaciones de apagado.
+
+![Directiva de apagado automático: opción 2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
+
+### <a name="user-has-no-control-over-the-schedule-set-by-lab-admin"></a>El usuario no tiene control sobre la programación establecida por el administrador del laboratorio
+Si establece esta directiva para el laboratorio, los usuarios del laboratorio no pueden excluirse de la programación del laboratorio ni invalidarla. Esta opción ofrece al administrador del laboratorio control total sobre la programación de cada máquina del laboratorio. Los usuarios del laboratorio solo pueden configurar notificaciones de apagado automático para sus máquinas virtuales.
+
+![Directiva de apagado automático: opción 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
+
+## <a name="set-autostart"></a>Establecer el inicio automático
 La directiva de inicio automático le permite especificar cuándo se deben iniciar las máquinas virtuales del laboratorio actual.  
 
-1. En el panel **Configuración y directivas** del laboratorio, seleccione **Inicio automático**.
+1. En el panel **Configuration and policies** (Configuración y directivas) del laboratorio, seleccione **Autostart** (Inicio automático).
    
     ![Inicio automático](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -99,7 +123,7 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 
 4. Seleccione **Guardar**.
 
-Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar esta configuración a una máquina virtual específica, abra el panel de administración de la máquina virtual y cambie su configuración de **Inicio automático**.
+Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar esta configuración a una máquina virtual específica, abra el panel de administración de la máquina virtual y cambie su configuración de **Autostart** (Inicio automático).
 
 ## <a name="set-expiration-date"></a>Establecimiento de la fecha de expiración
 Puede establecer una fecha de expiración cuando [cree la VM](devtest-lab-add-vm.md). En **Configuración avanzada**, elija el icono del calendario para especificar una fecha en la que la máquina virtual se eliminará automáticamente. De forma predeterminada, la máquina virtual nunca expirará.

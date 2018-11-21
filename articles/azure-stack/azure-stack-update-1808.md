@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0b40b8018715e6b680f42676dfaead0ac6e5bf7a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 37fb4c330004ce87afd900d9cafebb337261ec06
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279150"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568240"
 ---
 # <a name="azure-stack-1808-update"></a>Actualización de Azure Stack 1808
 
@@ -69,7 +69,8 @@ Esta actualización incluye las siguientes correcciones para Azure Stack.
 <!-- | IS ASDK--> 
 - **El perfil de versión de API 2017-03-09-profile se ha actualizado a 2018-03-01-hybrid**. Los perfiles de la API especifican el proveedor de recursos de Azure y la versión de la API para los puntos de conexión REST de Azure. Para más información sobre los perfiles, vea [Administración de perfiles de versión de API en Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
- ### <a name="fixed-issues"></a>Problemas corregidos
+### <a name="fixed-issues"></a>Problemas corregidos
+
 <!-- IS ASDK--> 
 - Se ha corregido el problema de la creación de un conjunto de disponibilidad en el portal que provocaba que el conjunto tuviera un dominio de error y un dominio de actualización de 1. 
 
@@ -162,7 +163,7 @@ Esta actualización también contiene la mitigación de la vulnerabilidad de can
 > Prepare la implementación de Azure Stack para el host de extensiones. Prepare el sistema mediante la guía siguiente: [Preparación de un host de extensiones de Azure Stack](azure-stack-extension-host-prepare.md).
 
 Después de instalar esta actualización, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md). 
-- [KB 4468920: Revisión de Azure Stack 1.1808.5.110](https://support.microsoft.com/help/4468920/)
+- [KB 4468920: Revisión de Azure Stack 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## <a name="known-issues-post-installation"></a>Problemas conocidos (posteriores a la instalación)
@@ -217,7 +218,9 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
    - *Instancia del rol de infraestructura no disponible*
    - *Nodo de la unidad de escalado desconectado*
    
-  Vuelva a ejecutar el cmdlet [Test-AzureStack](azure-stack-diagnostic-test.md) para comprobar el estado de las instancias de rol de infraestructura y los nodos de la unidad de escalado. Si [Test-AzureStack](azure-stack-diagnostic-test.md) no detecta ningún problema, puede ignorar estas alertas. Si se detecta un problema, puede intentar iniciar la instancia de rol de infraestructura o un nodo mediante el portal de administración o PowerShell.
+  Vuelva a ejecutar el cmdlet [Test-AzureStack](azure-stack-diagnostic-test.md) para comprobar el estado de las instancias de rol de infraestructura y los nodos de la unidad de escalado. Si [Test-AzureStack](azure-stack-diagnostic-test.md) no detecta ningún problema, puede ignorar estas alertas. Si se detecta un problema, puede intentar iniciar la instancia de rol de infraestructura o un nodo utilizando el portal de administración o PowerShell.
+
+  Este problema se corrigió en la versión más reciente de la [revisión 1808](https://support.microsoft.com/help/4471992/), así que asegúrese de instalarla si está experimentando el problema.
 
 <!-- 1264761 - IS ASDK --> 
 - Es posible que vea alertas del componente **Controlador de mantenimiento** con los siguientes detalles:  
@@ -253,8 +256,8 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
 ### <a name="compute"></a>Compute
 
-<!-- TBD – IS, ASDK -->
-- Si se vuelve a conectar un disco desasociado a la misma máquina virtual (VM) con el mismo nombre y LUN, se produce un error parecido a **No se puede conectar el disco de datos "datadisk" a la VM "vm1"**. El error se produce porque el disco se está desasociando en este momento o porque no se pudo realizar la última operación de desasociación. Espere hasta que el disco esté completamente desasociado para volver a intentarlo o elimine/desasocie de nuevo el disco de forma explícita. La solución alternativa consiste en volver a conectarlo con un nombre diferente o en otro LUN. 
+<!-- 3164607 – IS, ASDK -->
+- Si se vuelve a conectar un disco desasociado a la misma máquina virtual (VM) con el mismo nombre y LUN, se produce un error parecido a **No se puede conectar el disco de datos "datadisk" a la VM 'vm1'**. El error se produce porque el disco se está desasociando en este momento o porque no se pudo realizar la última operación de desasociación. Espere hasta que el disco esté completamente desasociado para volver a intentarlo o elimine/desasocie de nuevo el disco de forma explícita. La solución alternativa consiste en volver a conectarlo con un nombre diferente o en otro LUN. 
 
 <!-- 3099544 – IS, ASDK --> 
 - Cuando cree una VM mediante el portal de Azure Stack y seleccione su tamaño, se mostrará la columna USD/mes con el mensaje **No disponible**. Esta columna no debería aparecer, ya que en Azure Stack no se permite mostrar la columna de precios de la máquina virtual.
@@ -266,7 +269,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
       1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
       2. En la misma suscripción, vaya a **Control de acceso (IAM)**, y compruebe que **Azure Stack – Managed Disk** (Azure Stack - Disco administrado) aparece en la lista.
    2. Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga estos pasos:
-      1. Aplique la [revisión 1808 de Azure Stack](https://support.microsoft.com/help/4468920/).
+      1. Aplique la [revisión 1808 de Azure Stack](https://support.microsoft.com/help/4471992/).
       2. Siga los pasos de [este artículo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
       
 <!-- 3179561 - IS --> 

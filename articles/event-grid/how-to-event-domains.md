@@ -1,46 +1,65 @@
 ---
-title: Cómo administrar grandes conjuntos de temas de Azure Event Grid y publicar eventos en ellos con dominios de eventos
-description: Muestra cómo crear y administrar temas en Azure Event Grid y cómo publicar eventos en ellos con dominios de eventos.
+title: Administrar grandes conjuntos de temas de Azure Event Grid con dominios de eventos
+description: Muestra cómo administrar grandes conjuntos de temas de Azure Event Grid y publicar eventos en ellos con dominios de eventos.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: d6da1ee603c85556693b145ba17d1e0cd0dfabd7
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.date: 11/08/2018
+ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034547"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298542"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Administrar temas y publicar eventos con dominios de eventos
 
 En este artículo se muestra cómo:
 
 * Crear un dominio de Event Grid
-* Suscribirse a temas
+* Suscribirse a temas de Event Grid
 * Enumeración de claves
 * Publicar eventos en un dominio
+
+Para más información acerca de dominios de eventos, consulte [Dominios de eventos para administrar temas de Event Grid](event-domains.md).
+
+## <a name="install-preview-feature"></a>Instalación de la característica en vista previa
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-an-event-domain"></a>Crear un dominio de eventos
 
-La creación de un evento de dominio puede realizarse a través de la extensión `eventgrid` para la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Una vez creado un dominio, puede usarlo para administrar grandes conjuntos de temas.
+Para administrar grandes conjuntos de temas, cree un dominio de eventos.
+
+Para la CLI de Azure, utilice:
 
 ```azurecli-interactive
-# if you haven't already installed the extension, do it now.
+# If you haven't already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
 az eventgrid domain create \
   -g <my-resource-group> \
-  --name <my-domain-name>
+  --name <my-domain-name> \
   -l <location>
 ```
 
-Una creación correcta devolverá lo siguiente:
+Para PowerShell, use:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain-name> `
+  -Location <location>
+```
+
+Una creación correcta devolverá los siguientes valores:
 
 ```json
 {
@@ -57,24 +76,59 @@ Una creación correcta devolverá lo siguiente:
 }
 ```
 
-Anote `endpoint` y `id`, ya que se requerirán para administrar el dominio y publicar eventos.
+Anote `endpoint` y `id`, ya que se requieren para administrar el dominio y publicar eventos.
+
+## <a name="manage-access-to-topics"></a>Administración del acceso a temas
+
+La administración de acceso a temas se realiza mediante [asignación de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). La asignación de roles usa el control de acceso basado en roles para limitar las operaciones en recursos de Azure a los usuarios autorizados en un determinado ámbito.
+
+Event Grid tiene dos roles integrados, que puede utilizar para asignar acceso a determinados usuarios a varios temas dentro de un dominio. Estos roles son `EventGrid EventSubscription Contributor (Preview)`, que permite la creación y eliminación de suscripciones, y `EventGrid EventSubscription Reader (Preview)`, que permite solo enumerar las suscripciones a eventos.
+
+El siguiente comando de la CLI de Azure limita `alice@contoso.com` para crear y eliminar suscripciones de eventos solo en el tema `demotopic1`:
+
+```azurecli-interactive
+az role assignment create \
+  --assignee alice@contoso.com \
+  --role "EventGrid EventSubscription Contributor (Preview)" \
+  --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+El siguiente comando de PowerShell limita `alice@contoso.com` para crear y eliminar suscripciones de eventos solo en el tema `demotopic1`:
+
+```azurepowershell-interactive
+New-AzureRmRoleAssignment `
+  -SignInName alice@contoso.com `
+  -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
+  -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+Para más información sobre la administración de acceso para las operaciones de Event Grid, consulte [Autenticación y seguridad de Event Grid](./security-authentication.md).
 
 ## <a name="create-topics-and-subscriptions"></a>Creación de temas y suscripciones
 
 El servicio Event Grid crea y administra automáticamente el tema correspondiente en un dominio basado en la llamada para crear una suscripción de eventos para un tema de dominio. No hay ningún paso más para crear un tema en un dominio. De forma similar, cuando se elimina la última suscripción del evento para un tema, también se elimina el tema.
 
-Suscribirse a un tema en un dominio es lo mismo que suscribirse a cualquier otro recurso de Azure:
+Suscribirse a un tema en un dominio es lo mismo que suscribirse a cualquier otro recurso de Azure. Para el identificador de recurso de origen, especifique el identificador de dominio de evento que se devolvió al crear el dominio anteriormente. Para especificar el tema al que quiere suscribirse, agregue `/topics/<my-topic>` al final del identificador del recurso de origen. Para crear una suscripción de eventos del ámbito de dominio que reciba todos los eventos del dominio, especifique el identificador de dominio de evento sin especificar ningún tema.
+
+Normalmente, el usuario al que concedió acceso en la sección anterior crearía la suscripción. Para simplificar este artículo, cree la suscripción. 
+
+Para la CLI de Azure, utilice:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --name <event-subscription> \
-  --resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/<my-topic>" \
-  --endpoint https://contoso.azurewebsites.net/api/f1?code=code
+  --source-resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" \
+  --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-El identificador del recurso proporcionado es el mismo que se devolvió al crear el dominio anteriormente. Para especificar el tema al que quiere suscribirse, agregue `/topics/<my-topic>` al final del identificador del recurso.
+Para PowerShell, use:
 
-Para crear una suscripción de eventos del ámbito de dominio que recibe todos los eventos del dominio, asigne el dominio como `resource-id` sin especificar ningún tema, por ejemplo `/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>`.
+```azurepowershell-interactive
+New-AzureRmEventGridSubscription `
+  -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
+  -EventSubscriptionName <event-subscription> `
+  -Endpoint https://contoso.azurewebsites.net/api/updates
+```
 
 Si necesita un punto de conexión de prueba al que suscribir sus eventos, siempre puede implementar una [aplicación web precompilada](https://github.com/Azure-Samples/azure-event-grid-viewer) que muestre los eventos entrantes. Puede enviar los eventos a su sitio web de prueba en `https://<your-site-name>.azurewebsites.net/api/updates`.
 
@@ -82,23 +136,6 @@ Si necesita un punto de conexión de prueba al que suscribir sus eventos, siempr
 
 Los permisos que se establecen para un tema se almacenan en Azure Active Directory y se deben eliminar explícitamente. Eliminar una suscripción de eventos no revoca el acceso de un usuario para crear suscripciones de eventos si tiene acceso de escritura en un tema.
 
-## <a name="manage-access-to-topics"></a>Administración del acceso a temas
-
-La administración de acceso a temas se realiza mediante [asignación de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). La asignación de roles usa la comprobación de acceso basada en roles para limitar las operaciones en recursos de Azure a los usuarios autorizados en un determinado ámbito.
-
-Event Grid tiene dos roles integrados que puede utilizar para asignar acceso a determinados usuarios a varios temas dentro de un dominio. Estos roles son `EventGrid EventSubscription Contributor (Preview)`, que permite la creación y eliminación de suscripciones, y `EventGrid EventSubscription Reader (Preview)`, que permite solo enumerar las suscripciones a eventos.
-
-El siguiente comando limitaría `alice@contoso.com` para crear y eliminar suscripciones de eventos solo en el tema `foo`:
-
-```azurecli-interactive
-az role assignment create --assignee alice@contoso.com --role "EventGrid EventSubscription Contributor (Preview)" --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/foo
-```
-
-Para más información, vea [Event Grid security and authentication](./security-authentication.md) (Seguridad y autenticación de Event Grid):
-
-* Control de acceso de administración
-* Tipos de operación
-* Crear la definición de rol personalizada
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Publicar eventos en un dominio de Event Grid
 
@@ -106,7 +143,7 @@ Publicar eventos en un dominio es lo mismo que [publicar en un tema personalizad
 
 ```json
 [{
-  "topic": "foo",
+  "topic": "demotopic1",
   "id": "1111",
   "eventType": "maintenanceRequested",
   "subject": "myapp/vehicles/diggers",
@@ -118,7 +155,7 @@ Publicar eventos en un dominio es lo mismo que [publicar en un tema personalizad
   "dataVersion": "1.0"
 },
 {
-  "topic": "bar",
+  "topic": "demotopic2",
   "id": "2222",
   "eventType": "maintenanceCompleted",
   "subject": "myapp/vehicles/tractors",
@@ -131,7 +168,7 @@ Publicar eventos en un dominio es lo mismo que [publicar en un tema personalizad
 }]
 ```
 
-Para obtener las claves para usar un dominio:
+Para obtener las claves para un dominio con la CLI de Azure, use:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -139,8 +176,16 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
+Para PowerShell, use:
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomainKey `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
 Después, use su método favorito para crear una solicitud HTTP POST para publicar los eventos en el dominio de Event Grid.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre los conceptos de alto nivel en dominios de eventos y saber por qué son útiles, consulte [información general conceptual acerca de dominios de eventos](./event-domains.md).
+* Para más información sobre los conceptos de alto nivel en dominios de eventos y saber por qué son útiles, consulte la [información general conceptual acerca de dominios de eventos](event-domains.md).

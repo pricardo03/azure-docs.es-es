@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c65cfedd398bbb18d65f36a3f2a768e11443687a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962544"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636516"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Actualización a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure
 
@@ -86,15 +86,42 @@ Ejecute los siguientes cmdlets desde un terminal de PowerShell con privilegios e
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+### <a name="cli"></a>CLI
+Ejecute los siguientes comandos desde un shell:
+1.  Inicio de sesión en la cuenta de Azure
+
+    ```
+    az login
+    ```
+
+2.  Seleccione la suscripción que quiere registrar:
+
+    ```
+    az account set --subscription "Subscription Name"
+    ```
+
+3.  Registre esta suscripción:
+
+    ```
+    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+    ```
 
 ## <a name="verify-that-the-upgrade-is-finished"></a>Compruebe que la actualización ha finalizado
+### <a name="powershell"></a>PowerShell
 Desde un terminal de PowerShell con privilegios elevados, ejecute el siguiente cmdlet:
 
 ```
 Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-Si indica "Registrado", la suscripción se ha actualizado a la pila de copia de seguridad de VM del modelo de implementación de Resource Manager.
+### <a name="cli"></a>CLI
+Desde ashell, ejecute el siguiente comando:
+
+```
+az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+```
+
+Si pone "Registrado", la suscripción se actualiza a la pila de copia de seguridad V2.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

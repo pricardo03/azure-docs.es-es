@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 203a142a21153935e172508e62b813dca95468cb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c39cfdd3bfe244296290c4083644ea7e1b35672
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687089"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299000"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Conceptos de alta disponibilidad en Azure Database for PostgreSQL
 El servicio Azure Database for PostgreSQL garantiza un alto nivel de disponibilidad. El Acuerdo de Nivel de Servicio con respaldo financiero tiene un 99,99 % de disponibilidad general. Al usar este servicio, las aplicaciones prácticamente no tienen tiempo de inactividad.
@@ -34,5 +34,6 @@ De forma similar al modelo de alta disponibilidad, cuando Azure Database for Pos
 
 Durante la operación de escalado, se produce una interrupción en las conexiones de la base de datos. Las aplicaciones cliente se desconectan y las transacciones abiertas no confirmadas se cancelan. Una vez que la aplicación cliente reintenta la conexión o crea una conexión nueva, la puerta de enlace dirige la conexión a la instancia cuyo tamaño se modificó. 
 
-## <a name="next-steps"></a>pasos siguientes
-- Para obtener una visión general del servicio, consulte la [introducción a Azure Database for PostgreSQL](overview.md).
+## <a name="next-steps"></a>Pasos siguientes
+- Para información general del servicio, consulte la  [introducción a Azure Database for PostgreSQL](overview.md).
+- Para información general de la lógica de reintentos, consulte [Control de errores de conectividad transitorios para Azure Database for PostgreSQL](concepts-connectivity.md).

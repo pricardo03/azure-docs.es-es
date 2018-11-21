@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804334"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287190"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Inicio de sesión telefónico sin contraseña con la aplicación Microsoft Authenticator (versión preliminar pública)
 
@@ -37,11 +37,16 @@ En la versión preliminar pública, un administrador debe agregar una directiva 
 
 ### <a name="steps-to-enable"></a>Pasos para la habilitación
 
-1. Instale la [versión preliminar pública del módulo de PowerShell de Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureADPreview/).  
-2. En PowerShell, ejecute estos dos comandos:
-   1. `Connect-AzureAD`
-      1. En el cuadro de diálogo de autenticación, inicie sesión con una cuenta del inquilino. La cuenta debe ser un administrador de seguridad o un administrador global.
-   2. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+Asegúrese de tener instalada la versión más reciente de la versión preliminar pública del módulo de PowerShell de Azure Active Directory V2. Puede que desee desinstalarla y reinstalarla para confirmarlo; para ello, ejecute los comandos siguientes:
+
+1. `Uninstall-Module -Name AzureADPreview`
+2. `Install-Module -Name AzureADPreview`
+
+Puede habilitar la versión preliminar del inicio de sesión por teléfono sin contraseña mediante los siguientes comandos de PowerShell:
+
+1. `Connect-AzureAD`
+   1. En el cuadro de diálogo de autenticación, inicie sesión con una cuenta del inquilino. La cuenta debe ser un administrador de seguridad o un administrador global.
+1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>¿Cómo habilitan los usuarios finales el inicio de sesión telefónico?
 
@@ -61,7 +66,7 @@ Una vez que el usuario tiene la cuenta de MFA con notificaciones push configurad
 
 ### <a name="ad-fs-integration"></a>Integración de AD FS
 
-Cuando un usuario ha habilitado la credencial sin contraseña de Microsoft Authenticator, la autenticación predeterminada para ese usuario siempre será enviar una notificación para su aprobación. Esta lógica impide que los usuarios de un inquilino híbrido sean dirigidos a ADFS para la comprobación de inicio de sesión sin que el usuario tome un paso adicional para hacer clic en "Usar la contraseña en su lugar". En este proceso también se omitirán las directivas de acceso condicional del entorno local y los flujos de autenticación de paso a través. La excepción a este proceso se da cuando se especifica un login_hint, un usuario será reenviado de manera automática a AD FS y se omite la opción de usar la credencial sin contraseña.
+Cuando un usuario ha habilitado la credencial sin contraseña de Microsoft Authenticator, la autenticación predeterminada para ese usuario siempre será enviar una notificación para su aprobación. Esta lógica impide que los usuarios de un inquilino híbrido sean dirigidos a ADFS para la comprobación de inicio de sesión sin que el usuario tome un paso adicional para hacer clic en "Usar la contraseña en su lugar". En este proceso también se omitirán las directivas de acceso condicional del entorno local y los flujos de autenticación de paso a través. La excepción a este proceso se da cuando se especifica un login_hint, entonces un usuario será reenviado de manera automática a AD FS y se omitirá la opción de usar la credencial sin contraseña.
 
 ### <a name="azure-mfa-server"></a>Servidor de Azure MFA
 

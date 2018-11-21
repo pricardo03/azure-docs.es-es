@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 65495209714c37e5e166545ed7ed029e36c258c0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2fad3ad8bc6e1c0ca87038af6c461d863065fc95
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038601"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345970"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Copia de datos hacia o desde Azure Data Lake Storage Gen2 (versión preliminar) mediante Data Factory (versión preliminar)
 
@@ -34,6 +34,9 @@ En concreto, este conector admite las siguientes funcionalidades:
 
 >[!TIP]
 >Si habilita el espacio de nombres jerárquico, actualmente no hay ninguna interoperabilidad de operaciones entre las API de Blob y ADLS Gen2. En caso de que se produzca el error "ErrorCode=FilesystemNotFound" con el mensaje detallado "El sistema de archivos especificado no existe", puede que se deba a que el sistema de archivos del receptor especificado se creó en otra parte mediante la API de Blob en lugar de la API de ADLS Gen2. Para solucionar el problema, especifique un nuevo sistema de archivos con un nombre que no exista como nombre de un contenedor de blobs y ADF creará automáticamente ese sistema de archivos durante la copia de datos.
+
+>[!NOTE]
+>Si habilita la opción _"Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento"_ en la configuración del firewall de Azure Storage con Azure Integration Runtime para conectarse a Data Lake Storage, Gen2 dará un error prohibido, ya que ADF no se trata como un servicio de Microsoft de confianza. Use Integration Runtime autohospedado como vía de conexión en su lugar.
 
 ## <a name="get-started"></a>Introducción
 
@@ -84,7 +87,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del conjunto de datos debe establecerse en: **AzureBlobFSFile**. |SÍ |
-| folderPath | Ruta de acceso a la carpeta de Data Lake Storage Gen2. No se admiten filtros con caracteres comodín. Ejemplo: rootfolder/subfolder/. |SÍ |
+| folderPath | Ruta de acceso a la carpeta de Data Lake Storage Gen2. No se admiten filtros con caracteres comodín. Si no se especifica, apunta a la raíz. Ejemplo: rootfolder/subfolder/. |Sin  |
 | fileName | **Filtro de nombre o de comodín** para los archivos de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre de archivo real contiene un comodín o este carácter de escape.<br/><br/>Cuando fileName no se especifica para un conjunto de datos de salida y **preserveHierarchy** no se determina en el receptor de la actividad, la actividad de copia generará automáticamente el nombre de archivo con el siguiente patrón: "*Data.[GUID de ejecución de actividad].[GUID si FlattenHierarchy].[formato si está configurado].[compresión si está configurada]"*. Un ejemplo es "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |Sin  |
 | formato | Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar o generar archivos con un formato concreto, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** en **format** en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [Formato AVRO](supported-file-formats-and-compression-codecs.md#avro-format), [Formato ORC](supported-file-formats-and-compression-codecs.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo para el escenario de copia binaria) |
 | compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles admitidos son **Optimal** y **Fastest**. |Sin  |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: df29d0a55317d06d656d8444c6bd7754c6c955eb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407221"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567390"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Herramientas de visualización y exploración de datos en Data Science Virtual Machine
 
@@ -60,7 +60,7 @@ Un paso clave en la ciencia de datos pasa por comprender los datos. Las herramie
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Visualización de datos interactivos y herramienta de BI    |
-| Versiones de DSVM compatibles      | Windows  |
+| Versiones de DSVM compatibles      |  Windows  |
 | Usos típicos      |  Visualización de datos y creación de paneles   |
 | ¿Cómo se usa o ejecuta?      | Acceso directo de escritorio (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Herramientas relacionadas en DSVM      |   Visual Studio 2017, Visual Studio Code y Juno      |

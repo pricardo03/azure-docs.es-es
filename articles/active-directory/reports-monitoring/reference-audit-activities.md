@@ -13,32 +13,31 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 818f4f4d8ea51cb278190d6e41953f0b04b2e995
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143151"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622881"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
-Con los informes de Azure Active Directory (Azure AD), puede obtener toda la información que necesita para determinar cómo marcha el entorno.
+Con los informes de Azure Active Directory (Azure AD), puede obtener toda la información que necesita para determinar cómo funciona el entorno.
 
 La arquitectura de los informes de Azure AD consta de los siguientes componentes:
 
-- **Actividad** 
-    - **Actividades de inicio de sesión** : información sobre el uso de las aplicaciones administradas y las actividades de inicio de sesión de usuario
-    - Los **registros de auditoría** proporcionan rastreabilidad mediante los registros de todos los cambios realizados por diversas características de Azure AD. Algunos ejemplos de registros de auditoría incluyen los cambios realizados en cualquier recurso de Azure AD como usuarios, aplicaciones, grupos, roles, directivas, autenticaciones etc.
-- **Seguridad** 
-    - **Inicios de sesión peligrosos**: un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. Para más información, consulte Inicios de no seguros.
-    - **Usuarios marcados en riesgo**: un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. Para más información, consulte la sección Usuarios marcados en riesgo.
+- **Informes de actividad** 
+    - [Inicios de sesión](concept-sign-ins.md): proporciona información sobre el uso de aplicaciones administradas y actividades de inicio de sesión de usuario
+    - Los [registros de auditoría](concept-audit-logs.md) proporcionan rastreabilidad mediante los registros de todos los cambios realizados por diversas características de Azure AD. 
+    
+- **Informes de seguridad** 
+    - [Inicios de sesión peligrosos](concept-risky-sign-ins.md): un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
+    - [Usuarios marcados en riesgo](concept-user-at-risk.md): un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. 
 
 En este artículo se enumeran las actividades de auditoría que se pueden registrar en los registros de auditoría.
- 
-
 
 ## <a name="access-reviews"></a>Revisiones de acceso
 
@@ -72,9 +71,6 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |User Management|Obtención de aplicaciones V1|
 |User Management|Obtención de aplicación V2|
 |User Management|Obtención de aplicaciones V2|
-
-
-
 
 ## <a name="account-provisioning"></a>Aprovisionamiento de cuentas
 
@@ -289,7 +285,7 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Recurso|Establecimiento de propiedades de administración de derechos|
 |Recurso|Actualización de compañía|
 |Recurso|Actualización de configuración de compañía|
-|Recurso| Actualizar dominio|
+|Recurso|  Actualizar dominio|
 |Recurso|Comprobar dominio|
 |Recurso|Comprobar dominio verificado por correo electrónico|
 |Recurso|Incorporación|
@@ -593,13 +589,8 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Administración de directivas|Usuario registrado para el restablecimiento de contraseña de autoservicio|
 
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver una introducción a:
-
-- Los informes, consulte la [guía de informes de Azure Active Directory](overview-reports.md).
-
-- Los informes de actividad de auditoría, consulte [Informes de actividad de auditoría en el portal de Azure Active Directory](concept-audit-logs.md). 
-
+- [Información general sobre informes de Azure AD](overview-reports.md).
+- [Informe de registros de auditoría](concept-audit-logs.md) 
+- [Acceso mediante programación a los informes de Azure AD](concept-reporting-api.md)

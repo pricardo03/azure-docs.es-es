@@ -13,60 +13,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
-ms.author: msangapu
-ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/08/2018
+ms.author: msangapu;yili
+ms.openlocfilehash: b26366edddc223b842cc5d38473bda42422f1840
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867038"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298548"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implementación continua con Web App for Containers
 
 En este tutorial, configurará una implementación continua para una imagen de contenedor personalizada desde los repositorios administrados de [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) o [Docker Hub](https://hub.docker.com).
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="enable-continuous-deployment-with-acr"></a>Habilitación de la implementación continua con ACR
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+![Captura de pantalla del webhook ACR](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-## <a name="enable-the-continuous-deployment-feature"></a>Habilitación de la característica de implementación continua
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Seleccione la opción **App Service** del lado izquierdo de la página.
+3. Seleccione el nombre de la aplicación para la que quiere configurar una implementación continua.
+4. En la página **Configuración del contenedor**, seleccione **Contenedor único**
+5. Seleccione **Azure Container Registry**.
+6. Seleccione **Implementación continua > Activar**
+7. Seleccione **Guardar** para habilitar la implementación continua.
 
-Habilite la característica de implementación continua mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y la ejecución del siguiente comando:
+## <a name="use-the-acr-webhook"></a>Uso del webhook de ACR
 
-```azurecli-interactive
-az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
-```
+Una vez que se ha habilitado la implementación continua, puede ver el webhook recién creado en la página de webhooks de Azure Container Registry.
 
-En [Azure Portal](https://portal.azure.com/), seleccione la opción **App Service** en el lado izquierdo de la página.
+![Captura de pantalla del webhook ACR](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
-Seleccione el nombre de la aplicación para la que quiere configurar una implementación continua de Docker Hub.
+En Container Registry, haga clic en Webhooks para ver los webhooks actuales.
 
-En la página **Configuración del contenedor**, seleccione **Activado** y, luego, seleccione **Guardar** para habilitar la implementación continua.
+## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Habilitación de la implementación continua con Docker Hub (opcional)
 
-![Captura de pantalla de la configuración de la aplicación](./media/app-service-webapp-service-linux-ci-cd/step2.png)
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Seleccione la opción **App Service** del lado izquierdo de la página.
+3. Seleccione el nombre de la aplicación para la que quiere configurar una implementación continua.
+4. En la página **Configuración del contenedor**, seleccione **Contenedor único**
+5. Seleccione **Docker Hub**
+6. Seleccione **Implementación continua > Activar**
+7. Seleccione **Guardar** para habilitar la implementación continua.
 
-## <a name="prepare-the-webhook-url"></a>Preparación de la dirección URL del webhook
+![Captura de pantalla de la configuración de la aplicación](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 
-Obtenga la dirección URL del webhook mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y la ejecución del siguiente comando:
-
-```azurecli-interactive
-az webapp deployment container show-cd-url --name sname1 --resource-group rgname
-```
-
-Anote la dirección URL del webhook. La necesitará en la siguiente sección.
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
-
-Puede obtener `publishingusername` y `publishingpwd` descargando el perfil de publicación de la aplicación web mediante Azure Portal.
-
-![Captura de pantalla de la adición del webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
-
-## <a name="add-a-webhook"></a>Adición de un webhook
-
-Para agregar un webhook, siga los pasos descritos en estas guías:
-
-- [Azure Container Registry](../../container-registry/container-registry-webhook.md) con una dirección URL de webhook
-- [Webhooks para Docker Hub](https://docs.docker.com/docker-hub/webhooks/)
+Copie la dirección URL del webhook. Para agregar un webhook para Docker Hub, siga <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">webhooks para Docker Hub</a>.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

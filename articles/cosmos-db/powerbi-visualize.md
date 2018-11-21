@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945185"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622098"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar datos de Azure Cosmos DB mediante el conector de Power BI
 
@@ -76,11 +76,11 @@ Recuperará los datos de los volcanes de la cuenta de Azure Cosmos DB y visualiz
 
 5. En la página **Vista previa del conector**, haga clic en **Continuar**. Aparece la ventana de **Azure Cosmos DB**.
 
-6. Especifique la dirección URL del punto de conexión de la cuenta de Azure Cosmos DB de la que desea recuperar los datos, tal como se muestra a continuación, y haga clic en **Aceptar**. Para utilizar su propia cuenta, puede recuperar la dirección URL del cuadro te texto Identificador URI de la hoja **[Claves](manage-account.md#keys)** de Azure Portal. Si lo prefiere, puede indicar el nombre de la base de datos, el nombre de la colección o usar el navegador para seleccionar la base de datos y la colección para identificar la procedencia de los datos.
+6. Especifique la dirección URL del punto de conexión de la cuenta de Azure Cosmos DB de la que desea recuperar los datos, tal como se muestra a continuación, y haga clic en **Aceptar**. Para usar su propia cuenta, puede recuperar la dirección URL del cuadro te texto Identificador URI de la hoja **Claves** de Azure Portal. Si lo prefiere, puede indicar el nombre de la base de datos, el nombre de la colección o usar el navegador para seleccionar la base de datos y la colección para identificar la procedencia de los datos.
    
-7. Si se conecta a este punto de conexión por primera vez, se le pedirá la clave de cuenta. Para utilizar su propia cuenta, puede recuperar la clave del cuadro de texto **Clave principal** de la hoja **[Claves de solo lectura](manage-account.md#keys)** de Azure Portal. Escriba la clave adecuada y, a continuación, haga clic en **Conectar**.
+7. Si se conecta a este punto de conexión por primera vez, se le pedirá la clave de cuenta. Para usar su propia cuenta, recupere la clave del cuadro **Clave principal** de la hoja **Claves de solo lectura** de Azure Portal. Escriba la clave adecuada y, a continuación, haga clic en **Conectar**.
    
-   Se recomienda usar la clave de solo lectura al generar informes. De esta forma se evita una exposición innecesaria de la clave maestra a posibles riesgos de seguridad. La clave de solo lectura está disponible desde la hoja [Claves](manage-account.md#keys) de Azure Portal. 
+   Se recomienda usar la clave de solo lectura al generar informes. De esta forma se evita una exposición innecesaria de la clave maestra a posibles riesgos de seguridad. La clave de solo lectura está disponible desde la hoja **Claves** de Azure Portal. 
     
 8. Con la cuenta conectada correctamente, aparece el panel **Navegador**. El panel **Navegador** muestra la lista de bases de datos que hay en la cuenta.
 

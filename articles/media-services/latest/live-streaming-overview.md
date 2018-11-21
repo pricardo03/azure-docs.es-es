@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962391"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344984"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -44,11 +44,11 @@ Si lo desea, también puede aplicar el **filtro dinámico**, que puede utilizars
 
 En la última versión se han realizado las siguientes nuevas mejoras.
 
-- Nuevo modo en vivo de baja latencia (10 segundos de principio a fin).
+- Nuevo modo de latencia baja. Para más información, consulte [latencia](#latency).
 - Compatibilidad mejorada con RTMP (mayor estabilidad y mejor compatibilidad con codificadores de origen).
 - Ingesta segura de RTMPS.
 
-    Cuando se crea un evento en directo ahora obtiene 4 direcciones URL de ingesta. Las 4 direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId), solo la parte del número de puerto es diferente. Dos de las direcciones URL son principal y de respaldo para RTMPS.   
+    Cuando se crea un objeto LiveEvent, obtiene cuatro direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principal y de respaldo para RTMPS.   
 - Soporte técnico de transcodificación las 24 horas. 
 - Mejor compatibilidad con señalización de anuncios en RTMP a través de SCTE35.
 
@@ -82,7 +82,7 @@ Al crear este tipo de objeto LiveEvent, especifique **None** (LiveEventEncodingT
 
 En la tabla siguiente se comparan las características de dos tipos de objetos LiveEvent.
 
-| Característica | LiveEvent con paso a través | LiveEvent básico |
+| Característica | LiveEvent con paso a través | LiveEvent estándar |
 | --- | --- | --- |
 | La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |SÍ |
 | Resolución máxima, número de capas |4Kp30  |720p, 6 capas, 30 fps |
@@ -126,6 +126,20 @@ Un objeto LiveEvent es compatible con hasta tres objetos LiveOutput en ejecució
 Cuando la secuencia fluya al objeto LiveEvent, puede comenzar el evento de streaming mediante la creación de los objetos Asset, LiveOutput y StreamingLocator. Se archivará la secuencia y estará disponible a los usuarios a través del objeto [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
 Cuando se crea la cuenta de Media Services, se agrega un punto de conexión de streaming predeterminado a la cuenta en estado Detenido. Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado En ejecución.
+
+## <a name="latency"></a>Latencia
+
+En esta sección se describen los resultados típicos que se ven cuando se usa la configuración de baja latencia y varios reproductores. Los resultados varían en función de la latencia de red y CDN.
+
+Para usar la nueva característica LowLatency, puede establecer **StreamOptionsFlag** en **LowLatency** en LiveEvent. Una vez que la transmisión esté en funcionamiento, puede usar la página de demostración de [Azure Media Player](http://ampdemo.azureedge.net/) (AMP) y establecer las opciones de reproducción para usar "Low Latency Heuristics Profile" (Perfil de heurística de baja latencia).
+
+### <a name="pass-through-liveevents"></a>LiveEvents de paso a través
+
+||Baja latencia de GOP de 2 s habilitada|Baja latencia de GOP de 1 s habilitada|
+|---|---|---|
+|DASH en AMP|10 s|8 s|
+|HLS en el reproductor de iOS nativo|14 s|10 s|
+|HLS.JS en Mixer Player|30 s|16 s|
 
 ## <a name="billing"></a>Facturación
 

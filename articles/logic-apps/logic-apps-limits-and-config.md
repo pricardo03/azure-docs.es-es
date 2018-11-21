@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/11/2018
-ms.openlocfilehash: 1ae350e74a9b56aaaa72b38a9e3a43bddfbefefc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232280"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346710"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -321,9 +321,9 @@ Todas las aplicaciones lógicas de una región usan el mismo intervalo de direcc
 | Oeste de Reino Unido | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | | |
 
-### <a name="connectors"></a>Conectores
+### <a name="managed-connectors"></a>Conectores administrados
 
-Para admitir las llamadas que realizan los [conectores](../connectors/apis-list.md), establezca las opciones de configuración del firewall para que incluyan estas direcciones IP salientes, en función de las regiones donde estén las aplicaciones lógicas.
+Para admitir las llamadas que realizan los [conectores administrados de Microsoft](../connectors/apis-list.md), establezca las opciones de configuración del firewall de modo que incluyan estas direcciones IP salientes, en función de las regiones donde estén las aplicaciones lógicas.
 
 > [!IMPORTANT]
 > Si ya tiene algunas opciones de configuración, actualícelas **tan pronto como le sea posible antes del 1 de septiembre de 2018** para que incluyan y coincidan con las direcciones IP de esta lista de las regiones donde están las aplicaciones lógicas. 

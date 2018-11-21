@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043284"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300581"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales habilitadas para Azure Disk Encryption (ADE) en otra región de Azure
 
@@ -104,7 +104,7 @@ Puede modificar la configuración de destino predeterminada utilizada por Site R
 
 1. Haga clic en la opción **Personalizar:** que se encuentra al lado de "Suscripción de destino" para modificar la suscripción de destino predeterminada. Seleccione la suscripción en la lista de todas las suscripciones disponibles en el mismo inquilino de Azure Active Directory (AAD).
 
-2. Haga clic en **Personalizar:** junto a Grupo de recursos, Almacenamiento, Red y Conjuntos de disponibilidad para modificar los siguientes valores predeterminados:
+2. Haga clic en **Personalizar:** junto a Grupo de recursos, Red, Almacenamiento y Conjuntos de disponibilidad para modificar los siguientes valores predeterminados:
     - En **Grupo de recursos de destino**, seleccione el grupo de recursos en la lista de todos los grupos de recursos que existen en la ubicación de destino de la suscripción.
     - En **Red virtual de destino**, seleccione la red en una lista de todas las redes virtuales en la ubicación de destino.
     - En **Conjunto de disponibilidad**, puede agregar la configuración del conjunto de disponibilidad a la máquina virtual en caso de que forme parte de un conjunto de disponibilidad de la región de origen.

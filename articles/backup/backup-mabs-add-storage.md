@@ -1,32 +1,33 @@
 ---
-title: Uso de Modern Backup Storage con Azure Backup Server v2
-description: Obtenga información sobre las nuevas características de Azure Backup Server v2. En este artículo se describe cómo actualizar la instalación de la instancia de Backup Server.
+title: Uso de Modern Backup Storage con Azure Backup Server
+description: Obtenga información sobre las nuevas características de Azure Backup Server. En este artículo se describe cómo actualizar la instalación de la instancia de Backup Server.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.author: markgal
-ms.openlocfilehash: 7c583ea048ed1837c662869c62039165aaa3c024
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 11/13/2018
+ms.author: markgal; adigan; kasinh
+ms.openlocfilehash: da9b3d22dce3f92ff6d1a588d283d47f22fca736
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606761"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612974"
 ---
-# <a name="add-storage-to-azure-backup-server-v2"></a>Adición de almacenamiento a Azure Backup Server v2
+# <a name="add-storage-to-azure-backup-server"></a>Adición de almacenamiento a Azure Backup Server
 
-Azure Backup Server v2 incluye Modern Backup Storage de System Center 2016 Data Protection Manager. Modern Backup Storage proporciona ahorros de almacenamiento de hasta el 50 por ciento, copias de seguridad que son tres veces más rápidas y un almacenamiento más eficaz. También ofrece almacenamiento con reconocimiento de la carga de trabajo. 
+Azure Backup Server V2 y versiones posteriores incluye Modern Backup Storage de System Center 2016 Data Protection Manager. Modern Backup Storage proporciona ahorros de almacenamiento de hasta el 50 por ciento, copias de seguridad que son tres veces más rápidas y un almacenamiento más eficaz. También ofrece almacenamiento con reconocimiento de la carga de trabajo.
 
 > [!NOTE]
-> Para utilizar Modern Backup Storage, debe ejecutar Backup Server v2 en Windows Server 2016. Si ejecuta Backup Server v2 en una versión anterior de Windows Server, Azure Backup Server no puede sacar partido de Modern Backup Storage. En su lugar, protege las cargas de trabajo como lo hace con Backup Server v1. Para más información, consulte la [matriz de protección](backup-mabs-protection-matrix.md) de la versión de Backup Server.
+> Para utilizar Modern Backup Storage, debe ejecutar Backup Server V2 o V3 en Windows Server 2016 o V3 en Windows Server 2019.
+> Si ejecuta Backup Server V2 en una versión anterior de Windows Server, Azure Backup Server no puede sacar partido de Modern Backup Storage. En su lugar, protege las cargas de trabajo como lo hace con Backup Server V1. Para más información, consulte la [matriz de protección](backup-mabs-protection-matrix.md) de la versión de Backup Server.
 
-## <a name="volumes-in-backup-server-v2"></a>Volúmenes en Backup Server v2
+## <a name="volumes-in-backup-server"></a>Volúmenes en Backup Server
 
-Backup Server v2 acepta volúmenes de almacenamiento. Al agregar un volumen, Backup Server da formato al volumen en Sistema de archivos resistente (ReFS), que requiere Modern Backup Storage. Para agregar un volumen y expandirlo más adelante si es necesario, se recomienda utilizar este flujo de trabajo:
+Backup Server V2 o versiones posteriores acepta volúmenes de almacenamiento. Al agregar un volumen, Backup Server da formato al volumen en Sistema de archivos resistente (ReFS), que requiere Modern Backup Storage. Para agregar un volumen y expandirlo más adelante si es necesario, se recomienda utilizar este flujo de trabajo:
 
-1.  Configure Backup Server v2 en una máquina virtual.
+1.  Configure Backup Server en una máquina virtual.
 2.  Cree un volumen en un disco virtual en un grupo de almacenamiento:
     1.  Agregue un disco a un grupo de almacenamiento y cree un disco virtual con la distribución simple.
     2.  Agregue discos adicionales y extienda el disco virtual.
@@ -36,9 +37,9 @@ Backup Server v2 acepta volúmenes de almacenamiento. Al agregar un volumen, Bac
 
 ## <a name="create-a-volume-for-modern-backup-storage"></a>Creación de un volumen para Modern Backup Storage
 
-El uso de Backup Server v2 con volúmenes como almacenamiento en disco puede ayudarle a mantener el control sobre el almacenamiento. Un volumen puede ser un único disco. Sin embargo, si desea extender el almacenamiento en el futuro, cree un volumen de un disco creado mediante el uso de espacios de almacenamiento. Esto puede ayudarle si desea ampliar el volumen para el almacenamiento de copias de seguridad. En esta sección se ofrecen procedimientos recomendados para crear un volumen con esta configuración.
+El uso de Backup Server V2 o versiones posteriores con volúmenes como almacenamiento en disco puede ayudarle a mantener el control sobre el almacenamiento. Un volumen puede ser un único disco. Sin embargo, si desea extender el almacenamiento en el futuro, cree un volumen de un disco creado mediante el uso de espacios de almacenamiento. Esto puede ayudarle si desea ampliar el volumen para el almacenamiento de copias de seguridad. En esta sección se ofrecen procedimientos recomendados para crear un volumen con esta configuración.
 
-1. En Administrador del servidor, seleccione **Servicios de archivos y almacenamiento** > **Volúmenes** > **Grupos de almacenamiento**. En **DISCOS FÍSICOS**, seleccione **Nuevo grupo de almacenamiento**. 
+1. En Administrador del servidor, seleccione **Servicios de archivos y almacenamiento** > **Volúmenes** > **Grupos de almacenamiento**. En **DISCOS FÍSICOS**, seleccione **Nuevo grupo de almacenamiento**.
 
     ![Creación de un nuevo grupo de almacenamiento](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -91,10 +92,41 @@ Los cambios que realice con PowerShell se reflejan en la consola de administrado
 
 ![Discos y volúmenes en la consola de administrador](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
+
+## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrar el almacenamiento heredado a Modern Backup Storage
+Después de instalar Backup Server V2 o actualizar a esta versión, y después de actualizar el sistema operativo a Windows Server 2016, actualice los grupos de protección para que usen Modern Backup Storage. De forma predeterminada, los grupos de protección no se cambian. Siguen funcionando tal como se han configurado inicialmente.
+
+La actualización de los grupos de protección para que usen Modern Backup Storage es opcional. Para actualizar el grupo de protección, detenga la protección de todos los orígenes de datos mediante la opción de conservar datos. Después, agregue los orígenes de datos a un nuevo grupo de protección.
+
+1. En la consola de administrador, seleccione la característica **Protección**. En la lista **Miembro del grupo de protección**, haga clic con el botón derecho en el miembro y seleccione **Detener protección de miembro**.
+
+  ![Detener protección de miembro](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+
+2. En el cuadro de diálogo **Quitar del grupo**, revise el espacio en disco usado y el espacio disponible para el grupo de almacenamiento. El valor predeterminado es dejar los puntos de recuperación en el disco y permitirles expirar según su directiva de retención asociada. Haga clic en **OK**.
+
+  Si quiere devolver de inmediato el espacio en disco usado al grupo de almacenamiento libre, active la casilla **Eliminar réplica en disco** para eliminar los datos de copia de seguridad (y los puntos de recuperación) asociados a ese miembro.
+
+  ![Cuadro de diálogo Quitar del grupo](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+
+3. Cree un grupo de protección que use Modern Backup Storage. Incluya los orígenes de datos no protegidos.
+
+## <a name="add-disks-to-increase-legacy-storage"></a>Agregar discos para aumentar el almacenamiento heredado
+
+Si quiere usar el almacenamiento heredado con Backup Server, es posible que tenga que agregar discos para aumentar el almacenamiento heredado.
+
+Para agregar almacenamiento en disco:
+
+1. En la consola de administrador, seleccione **Administración** > **Almacenamiento en disco** > **Agregar**.
+
+    ![Cuadro de diálogo Agregar almacenamiento en disco](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+
+4. En el cuadro de diálogo **Agregar almacenamiento en disco**, seleccione **Agregar discos**.
+
+5. En la lista de discos disponibles, seleccione los discos que quiera agregar y haga clic en **Agregar** y en **Aceptar**.
+
 ## <a name="next-steps"></a>Pasos siguientes
 Después de instalar Backup Server, sepa cómo preparar el servidor o empezar a proteger la carga de trabajo.
 
 - [Preparar cargas de trabajo de Backup Server](backup-azure-microsoft-azure-backup.md)
 - [Usar Backup Server para hacer una copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
 - [Uso de Backup Server para hacer una copia de seguridad de SQL Server](backup-azure-sql-mabs.md)
-

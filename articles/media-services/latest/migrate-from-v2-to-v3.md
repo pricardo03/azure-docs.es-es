@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 2f5c0ef63ba150fdad4aea1a0c65269611d56815
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247694"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616017"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -45,7 +45,7 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 * Presenta el concepto de [transformaciones](transforms-jobs-concept.md) para el procesamiento de trabajos basados en archivos. Una transformación puede utilizarse para crear configuraciones reutilizables, crear plantillas de Azure Resource Manager y aislar los valores de procesamiento entre varios clientes o inquilinos.
 * Un recurso puede tener [varios objetos StreamingLocator](streaming-locators-concept.md) con diferentes configuraciones de empaquetado dinámico y cifrado dinámico.
 * La [protección de contenido](content-key-policy-concept.md) es compatible con características de varias claves.
-* Puede transmitir eventos en directo que duran hasta 24 horas.
+* Puede transmitir eventos en directo que tengan hasta 24 horas de duración al usar Media Services para transcodificar una fuente de contribución de velocidad de bits única en un flujo de salida que tiene varias velocidades de bits.
 * Nueva compatibilidad de streaming en vivo de baja latencia en LiveEvents.
 * LiveEvent.Preview admite empaquetado dinámico y cifrado dinámico. Esto habilita la protección de contenido en la vista previa, así como el empaquetado DASH y HLS.
 * LiveOuput es más fácil de usar que la entidad Program de las API v2. 
@@ -59,6 +59,7 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 * Los SDK v3 ahora se han desacoplado del SDK de Storage, lo que proporciona mayor control sobre la versión del SDK de Storage que desea usar y evita problemas de control de versiones. 
 * En las API v3, todas las velocidades de bits de codificación se expresan en bits por segundo. Esto es diferente a los valores preestablecidos de Media Encoder Standard v2. Por ejemplo, la velocidad de bits en v2 se especificaría como 128 (kbps), mientras que en v3 sería 128000 (bits/segundo). 
 * Las entidades AssetFiles, AccessPolicies y IngestManifests no existen en v3.
+* La propiedad IAsset.ParentAssets no existe en v3.
 * ContentKeys ya no es una entidad; ahora es una propiedad del objeto StreamingLocator.
 * La compatibilidad con Event Grid reemplaza los NotificationEndpoints.
 * Se cambió el nombre de las siguientes entidades.

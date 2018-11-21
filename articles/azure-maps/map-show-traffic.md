@@ -3,18 +3,18 @@ title: Visualización del tráfico con Azure Maps | Microsoft Docs
 description: Cómo mostrar los datos de tráfico en un mapa de Javascript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/14/2018
+ms.date: 11/10/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 532001a0cda22903d0bdf807ee868aef211336e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 45f7913c5cc69f99b01ba1a911910273673856d3
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240093"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51513778"
 ---
 # <a name="show-traffic-on-the-map"></a>Visualización del tráfico en el mapa
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo mostrar información de tráfico e incidentes
 
 En el código anterior, el primer bloque de código construye un objeto de mapa. Puede consultar [Creación de un mapa](map-create.md) para obtener instrucciones.
 
-El segundo bloque de código utiliza la función [setTraffic ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) de la clase map para mostrar los flujos de tráfico y las incidencias en el mapa.
+El segundo bloque de código utiliza la función [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) de la función [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa para mostrar los flujos de tráfico y las incidencias en el mapa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

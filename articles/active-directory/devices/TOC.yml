@@ -18,13 +18,18 @@ items:
   - name: Configuración de Azure AD durante la primera ejecución de Windows 10
     href: azuread-joined-devices-frx.md
   expanded: false
+- name: Conceptos
+  items:
+  - name: Inicio de sesión único en recursos locales
+    href: azuread-join-sso.md
+  expanded: false
 - name: Guías de procedimientos
   items:
   - name: Administración de dispositivos con Azure Portal
     href: device-management-azure-portal.md
   - name: Administración de dispositivos obsoletos
     href: manage-stale-devices.md
-  - name: Planeación de la unión a Azure AD
+  - name: Planeación de la implementación de la unión a Azure AD
     href: azureadjoin-plan.md
   - name: Planeación de la implementación de la unión a Azure AD híbrido
     href: hybrid-azuread-join-plan.md
@@ -65,9 +70,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: aa3be36e660c1e0a68446166d3ec90a8a24fa3e8
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 54f55af14658fa02999d7f134937fcd357d83d75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092328"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276506"

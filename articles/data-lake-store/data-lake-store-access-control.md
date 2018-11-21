@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432630"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567492"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Control de acceso en Azure Data Lake Storage Gen1
 
@@ -128,9 +128,11 @@ El usuario que creó el elemento es automáticamente el usuario propietario del 
 
 En las ACL de POSIX, todos los usuarios están asociados a un "grupo principal". Por ejemplo, el usuario "alice" puede pertenecer al grupo "finance". Alice puede pertenecer a varios grupos, pero uno de ellos siempre se designa como su grupo principal. En POSIX, cuando Alice crea un archivo, el grupo propietario de dicho archivo se establece como su grupo principal, que en este caso es "finance". De lo contrario, el grupo propietario se comporta de forma similar a los permisos asignados para otros usuarios o grupos.
 
+Dado que no hay ningún "grupo principal" asociado a los usuarios de Data Lake Storage Gen1, el grupo propietario se asigna como sigue.
+
 **Asignar el grupo propietario de un nuevo archivo o carpeta**
 
-* **Caso 1**: la carpeta raíz "/". Esta carpeta se crea cuando se crea una cuenta de Data Lake Storage Gen1. En este caso, el grupo propietario se establece en el usuario que creó la cuenta.
+* **Caso 1**: la carpeta raíz "/". Esta carpeta se crea cuando se crea una cuenta de Data Lake Storage Gen1. En este caso, el grupo propietario se establece en un GUID con solo ceros.  Este valor no permite ningún acceso.  Es un marcador de posición hasta el momento en el que se asigna un grupo.
 * **Caso 2** (cada dos casos): cuando se crea un elemento, se copia el grupo propietario de la carpeta primaria.
 
 **Cambiar el grupo propietario**
@@ -140,7 +142,9 @@ El grupo propietario se puede cambiar por:
 * El usuario propietario, si el usuario propietario también es miembro del grupo de destino.
 
 > [!NOTE]
-> El grupo propietario *no puede* cambiar las ACL de un archivo o carpeta.  Aunque el grupo propietario se establece en el usuario que creó la cuenta en el caso de la carpeta raíz, **Caso 1** anterior, una única cuenta de usuario no es válida para proporcionar los permisos mediante el grupo propietario.  Puede asignar este permiso a un grupo de usuarios válidos si es aplicable.
+> El grupo propietario *no puede* cambiar las ACL de un archivo o carpeta.
+>
+> Para las cuentas creadas hasta septiembre de 2018, el grupo propietario se establecía en el usuario autor de la cuenta en el caso de la carpeta raíz del **Caso 1** anterior.  Una cuenta de usuario único no es válida para proporcionar permisos a través del grupo propietario; por lo tanto, esta configuración predeterminada no concede permisos. Puede asignar este permiso a un grupo de usuarios válidos.
 
 
 ## <a name="access-check-algorithm"></a>Algoritmo de comprobación de acceso
@@ -246,7 +250,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>¿Es preciso habilitar la compatibilidad con las ACL?
 
-No. El control de acceso mediante las ACL siempre está activado en las cuentas de Data Lake Storage Gen1.
+ No. El control de acceso mediante las ACL siempre está activado en las cuentas de Data Lake Storage Gen1.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>¿Qué permisos son necesarios para eliminar de forma recursiva una carpeta y su contenido?
 

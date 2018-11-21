@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 6b8cb104c734edf688d875a8e9674a660f2db4e2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b586639cc6c9d4e25d65fa9f3a510e22789acfb2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834607"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346042"
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Descubrimiento y uso compartido de colecciones en la Galería de Azure AI
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="collections"></a>Colecciones
-Puede usar una [colección](https://gallery.cortanaintelligence.com/collections) para agrupar experimentos, API y otros elementos de la Galería que use para una solución o un concepto determinados. Puede agruparlos para usar, para guardar como referencia futura o para compartir.
+Puede usar una [colección](https://gallery.cortanaintelligence.com/collections) en [Azure AI Gallery](http://gallery.cortanaintelligence.com) para agrupar experimentos, API y otros elementos de la galería que use para una solución o un concepto determinados. Puede agruparlos para usar, para guardar como referencia futura o para compartir.
 
 ## <a name="discover"></a>Descubra
 Para examinar las colecciones [de la Galería](http://gallery.cortanaintelligence.com), en **Más**, seleccione **Colecciones**.

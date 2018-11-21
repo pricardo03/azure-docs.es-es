@@ -7,110 +7,89 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1e8bad9a7a194c96c39be0ab4f1c2f40d79031ea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 683f8ef89b02679d1f3f1a66f867f0dde757ada1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209616"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564976"
 ---
-# <a name="map-virtual-networks-in-different-azure-regions"></a>Asignación de redes virtuales en regiones diferentes de Azure
+# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configuración de la asignación de red y el direccionamiento IP para redes virtuales
 
-
-En este artículo se describe cómo asignar entre sí dos instancias de Azure Virtual Network ubicadas en regiones de Azure diferentes. La asignación de red garantiza que al crear la máquina virtual replicada en la región de Azure de destino, también se cree la máquina virtual en la red virtual asignada a la red virtual de la máquina virtual de origen.  
+En este artículo se describe cómo asignar dos instancias de redes virtuales de (VNet) ubicadas en regiones de Azure diferentes y cómo configurar el direccionamiento IP entre redes. La asignación de red garantiza que se crea una máquina virtual replicada en la región de Azure de destino en la red virtual que está asignada a la red virtual de la máquina virtual de origen.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de asignar redes, asegúrese de haber creado una [red virtual de Azure](../virtual-network/virtual-networks-overview.md) en las regiones de Azure de origen y destino.
 
-## <a name="map-virtual-networks"></a>Asignación de redes virtuales
+Antes de asignar redes, debe tener [redes virtuales de Azure](../virtual-network/virtual-networks-overview.md) en las regiones de Azure de origen y destino. 
 
-Para asignar una red virtual de Azure ubicada en una región de Azure (red de origen) a una red virtual ubicada en otra región (red de destino), en Azure Virtual Machines, vaya a **Infraestructura de Site Recovery** > **Asignación de red**. Cree una asignación de red.
+## <a name="set-up-network-mapping"></a>Configuración de la asignación de red
 
-![Ventana de asignaciones de red: creación de una asignación de red](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
+Asigne las redes de la siguiente manera:
 
+1. En **Infraestructura de Site Recovery**, haga clic en **+Asignación de red**.
 
-En el ejemplo siguiente, la máquina virtual se ejecuta en la región de Asia Oriental. La máquina virtual se replica en la región de Asia Suroriental.
+    ![ Crear una asignación de red](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-Para crear una asignación de red desde la región de Asia Oriental a la región de Asia Suroriental, seleccione la ubicación de la red de origen y la ubicación de la red de destino. Después, seleccione **Aceptar**.
+3. En **Agregar asignación de red**, seleccione las ubicaciones de origen y destino. En nuestro ejemplo, la máquina virtual de origen se ejecuta en la región Asia Oriental y se replica en la región Sudeste Asiático.
 
-![Ventana para agregar asignaciones de red: selección de las ubicaciones de origen y destino de la red de origen](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Seleccionar origen y destino ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+3. Ahora puede crear una asignación de red en el directorio opuesto. En nuestro ejemplo, el origen será ahora Sudeste Asiático y el destino será Asia Oriental.
 
-
-Repita el proceso anterior para crear una asignación de red desde la región de Asia Suroriental a la región de Asia Oriental.
-
-![Panel para agregar asignaciones de red: selección de las ubicaciones de origen y destino de la red de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+    ![Panel para agregar asignaciones de red: selección de las ubicaciones de origen y destino de la red de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
-## <a name="map-a-network-when-you-enable-replication"></a>Asignación de una red al habilitar la replicación
+## <a name="map-networks-when-you-enable-replication"></a>Asignación de redes al habilitar la replicación
 
-Cuando se replica una máquina virtual desde una región de Azure a otra por primera vez, si no existe ninguna asignación de red, puede establecer la red de destino al configurar la replicación. En función de esta configuración, Azure Site Recovery crea asignaciones de red desde la región de origen a la región de destino y desde la región de destino a la región de origen.   
+Si aún no ha preparado la asignación de red antes de configurar la recuperación ante desastres para máquinas virtuales de Azure, puede especificar una red de destino en el momento de [configurar y habilitar la replicación](azure-to-azure-how-to-enable-replication.md). Al hacerlo, ocurre lo siguiente:
 
-![Panel de configuración: elección de la ubicación de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
+- En función del destino que ha seleccionado, Site Recovery crea automáticamente asignaciones de red desde la región de origen a la región de destino y desde la región de destino a la región de origen.
+- De forma predeterminada, Site Recovery crea una red en la región de destino que es idéntica a la red de origen. Site Recovery agrega el sufijo **-asr** al nombre de la red de origen. Puede personalizar la red de destino.
+- Si ya se ha realizado la asignación de red, no puede modificar la red virtual de destino al habilitar la replicación. Para cambiar la red virtual de destino, debe modificar la asignación de red existente.
+- Si modifica la asignación de red de la región A a la región B, asegúrese de modificar también la asignación de red de la región B a la A.
 
-De forma predeterminada, Site Recovery crea una red en la región de destino que es idéntica a la red de origen. Site Recovery crea una red con la adición de **-asr** como sufijo al nombre de la red de origen. Para elegir una red ya creada, seleccione **Personalizar**.
+## <a name="specify-a-subnet"></a>Especificación de una subred
 
-![Panel para personalizar la configuración de destino: establecer el nombre del grupo de recursos de destino y de la red virtual de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+La subred de la máquina virtual de destino se selecciona en función del nombre de la subred de la máquina virtual de origen.
 
-Si ya se ha realizado la asignación de red, no puede modificar la red virtual de destino al habilitar la replicación. En este caso, para cambiar la red virtual de destino, modifique la asignación de red existente.  
+- Si una subred con el mismo nombre que el de la subred de la máquina virtual de origen está disponible en la red de destino, se establece esa subred para la máquina virtual de destino.
+- Si no hay ninguna subred con el mismo nombre en la red de destino, se establece la primera red en orden alfabético como subred de destino.
+- Puede modificar esto en la configuración de **Proceso y red** de la máquina virtual.
 
-![Panel para personalizar la configuración de destino: establecer el nombre del grupo de recursos de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
-
-![Panel para modificar la asignación de red: modificar el nombre de una red virtual de destino existente](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
-
-> [!IMPORTANT]
-> Si modifica la asignación de red de la región A a la región B, asegúrese de modificar también la asignación de red de la región B a la A.
->
->
+    ![Ventana Propiedades de Compute de Proceso y red](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
-## <a name="subnet-selection"></a>Selección de subred
-La subred de la máquina virtual de destino se selecciona en función del nombre de la subred de la máquina virtual de origen. Si hay una subred con el mismo nombre que el de la máquina virtual de origen disponible en la red de destino, se define esa subred para la máquina virtual de destino. Si no hay ninguna subred con el mismo nombre en la red de destino, se establece la primera red en orden alfabético como subred de destino.
+## <a name="set-up-ip-addressing-for-target-vms"></a>Configuración del direccionamiento IP para las máquinas virtuales de destino
 
-Para modificar la subred, vaya a la opción **Proceso y red** de la máquina virtual.
+La dirección IP de cada NIC de una máquina virtual de destino se configura como sigue:
 
-![Ventana Propiedades de Compute de Proceso y red](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
-
-
-## <a name="ip-address"></a>Dirección IP
-
-La dirección IP de cada interfaz de red de la máquina virtual de destino se define como se describe en las secciones siguientes.
-
-### <a name="dhcp"></a>DHCP
-Si la interfaz de red de la máquina virtual de origen usa DHCP, la interfaz de red de la máquina virtual de destino también se configura para que use DHCP.
-
-### <a name="static-ip-address"></a>Dirección IP estática
-Si la interfaz de red de la máquina virtual de origen usa una dirección IP estática, la interfaz de red de la máquina virtual de destino también se configura para que use una dirección IP estática. En las secciones siguientes se describe cómo configurar una dirección IP estática.
-
-### <a name="ip-assignment-behavior-during-failover"></a>Comportamiento de la asignación de IP durante la conmutación por error
-#### <a name="1-same-address-space"></a>1. Mismo espacio de direcciones
-
-Si la subred de origen y la de destino tienen el mismo espacio de direcciones, la dirección IP de la interfaz de red de la máquina virtual de origen se establece como dirección IP de destino. Si la misma dirección IP no está disponible, la siguiente dirección IP disponible se establece como la dirección IP de destino.
-
-#### <a name="2-different-address-spaces"></a>2. Distintos espacios de direcciones
-
-Si la subred de origen y la de destino tienen distintos espacios de direcciones, la siguiente dirección IP disponible en la subred de destino se establece como la dirección IP de destino.
+- **DHCP**: si la NIC de la máquina virtual de origen usa DHCP, la NIC de la máquina virtual de destino también se establece para usar DHCP.
+- **Dirección IP estática**: si la NIC de la máquina virtual de origen usa una dirección IP estática, la NIC de la máquina virtual de destino también usará una dirección IP estática.
 
 
-### <a name="ip-assignment-behavior-during-test-failover"></a>Comportamiento de la asignación de IP durante la conmutación por error de prueba
-#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Si la red de destino elegida es la red virtual de producción
-- La IP de recuperación (IP de destino) será una IP estática pero **no será la misma dirección IP** que la reservada para la conmutación por error.
-- La dirección IP asignada será la siguiente dirección IP disponible del final del intervalo de direcciones de subred.
-- Por ejemplo, la IP estática de la máquina virtual de origen está configurada para ser: 10.0.0.19 y se intentó una conmutación por error de prueba con la red de producción configurada: ***dr-PROD-nw***, con el intervalo de subred 10.0.0.0/24. </br>
-A la máquina virtual conmutada por error se le asignará la siguiente IP disponible del final del intervalo de direcciones de subred que es: 10.0.0.254 </br>
+## <a name="ip-address-assignment-during-failover"></a>Asignación de direcciones IP durante la conmutación por error
 
-**Nota:** La terminología **red virtual de producción** hace referencia a la "red de destino" asignada durante la configuración de la recuperación ante desastres.
-#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Si la red de destino elegida no es la red virtual de producción, pero tiene el mismo intervalo de subred que la red de producción
-
-- La IP de recuperación (IP de destino) será una IP estática con la **misma dirección IP** (p.ej., dirección IP estática configurada) que la reservada para la conmutación por error. Siempre que la misma dirección IP esté disponible.
-- Si la IP estática configurada ya está asignada a cualquier otra VM o dispositivo, la IP de recuperación será la siguiente IP disponible del final del intervalo de direcciones de subred.
-- Por ejemplo, la IP estática de la máquina virtual de origen está configurada para ser: 10.0.0.19 y se intentó una conmutación por error de prueba con una red de prueba: ***dr-NON-PROD-nw***, con el mismo intervalo de subred 10.0.0.0/24. </br>
-  A la máquina virtual conmutada por error se le asignará la siguiente IP estática </br>
-    - IP estática configurada: 10.0.0.19 si la IP está disponible.
-    - Siguiente IP disponible: 10.0.0.254 si ya está en uso la dirección IP 10.0.0.19.
+**Subredes de origen y destino** | **Detalles**
+--- | ---
+Mismo espacio de direcciones | La dirección IP de la NIC de la máquina virtual de origen se establece como la dirección IP de la NIC de la máquina virtual de destino.<br/><br/> Si la dirección no está disponible, la siguiente dirección IP disponible se establece como la dirección IP de destino.
+Distinto espacio de direcciones<br/><br/> La siguiente dirección IP disponible en la subred de destino se establece como la dirección de la NIC de la máquina virtual de destino.
 
 
-Para modificar la dirección IP de destino de cada interfaz de red, vaya a la configuración de **Proceso y red** de la máquina virtual.</br>
-Como práctica recomendada siempre se sugiere elegir una red de prueba para realizar la conmutación por error de prueba.
+
+## <a name="ip-address-assignment-during-test-failover"></a>Asignación de direcciones IP durante la conmutación por error de prueba
+
+**Red de destino** | **Detalles**
+--- | ---
+La red de destino es la red virtual de conmutación por error | - La dirección IP de destino es estática, pero no la misma dirección IP que se reserva para la conmutación por error.<br/><br/>  - La dirección IP asignada será la siguiente dirección disponible del final del intervalo de direcciones de subred.<br/><br/> Por ejemplo: si la dirección IP de origen es la 10.0.0.19 y la red de conmutación por error usa el intervalo 10.0.0.0/24, la siguiente dirección IP asignada a la máquina virtual de destino es la 10.0.0.254.
+La red de destino no es la red virtual de conmutación por error | - La dirección IP de destino será estática con la misma dirección IP reservada para la conmutación por error.<br/><br/>  - Si la misma dirección IP ya está asignada, la dirección IP es la siguiente disponible del final del intervalo de direcciones de subred.<br/><br/> Por ejemplo: si la dirección IP estática de origen es la 10.0.0.19 y la conmutación por error está en una red que no es la red de conmutación por error, con el intervalo 10.0.0.0/24, la dirección IP estática de destino será la 10.0.0.19 si está disponible y, en caso contrario, será la 10.0.0.254.
+
+- La red virtual de conmutación por error es la red de destino que seleccionó al configurar la recuperación ante desastres.
+- Se recomienda que utilice siempre una red que no sea de producción para la conmutación por error de prueba.
+- Puede modificar la dirección IP de destino en la configuración de **Proceso y red** de la máquina virtual.
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte la [Guía de redes para la replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure-networking-guidance.md).
+- Revise la [Guía de redes](site-recovery-azure-to-azure-networking-guidance.md) para la recuperación ante desastres de máquinas virtuales de Azure.
+- [Más información](site-recovery-retain-ip-azure-vm-failover.md) sobre la conservación de direcciones IP después de una conmutación por error.
+
+Si la red de destino elegida es la red virtual de conmutación por error y el segundo punto dice "Si la red de destino elegida es diferente de la red virtual de conmutación por error, pero tiene el mismo intervalo de subred que la red virtual de conmutación por error"

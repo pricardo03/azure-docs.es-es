@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946103"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636278"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Depuración de problemas con las funciones definidas por el usuario en Azure Digital Twins
 
@@ -42,12 +42,12 @@ Después de enviar la telemetría, abra Azure Log Analytics para consultar los r
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'yourCorrelationIdentifier'
+| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| Nombre del atributo personalizado | Reemplazar por |
+| Valor de la consulta | Reemplazar por |
 | --- | --- |
-| *suIdentificadorDeCorrelación* | El identificador de correlación que se especificó en los datos del evento |
+| YOUR_CORRELATION_IDENTIFIER | El identificador de correlación que se especificó en los datos del evento |
 
 Si registra su función definida por el usuario, esos registros aparecerán en su instancia de Azure Log Analytics con la categoría `UserDefinedFunction`. Para recuperarlos, escriba la siguiente condición de consulta en Azure Log Analytics:
 
@@ -62,6 +62,8 @@ Para obtener más información acerca de estas eficaces operaciones de consulta,
 
 Es importante tanto diagnosticar como identificar los problemas más comunes para buscar una solución. A continuación se resumen varios problemas comunes encontrados al desarrollar funciones definidas por el usuario.
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### <a name="ensure-a-role-assignment-was-created"></a>Asegúrese de que se creó una asignación de roles
 
 Sin no se crea una asignación de roles dentro de la API de administración, la función definida por el usuario no tendrá acceso para realizar acciones como enviar notificaciones, recuperar metadatos y configurar valores calculados dentro de la topología.
@@ -69,13 +71,12 @@ Sin no se crea una asignación de roles dentro de la API de administración, la 
 Compruebe si existe una asignación de roles para la función definida por el usuario a través de la API de administración:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Nombre del atributo personalizado | Reemplazar por |
+| Parámetro | Reemplazar por |
 | --- | --- |
-| *suURLDeAPIDeAdministración* | La ruta de dirección URL completa para la API de administración  |
-| *suIdDeFunciónDefinidaPorElUsuario* | El identificador de la función definida por el usuario para la que recuperar las asignaciones de roles|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | El identificador de la función definida por el usuario para la que recuperar las asignaciones de roles|
 
 Si no se recupera ninguna asignación de roles, siga este artículo en [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md) (Creación de una asignación de roles para su función definida por el usuario).
 
@@ -84,14 +85,13 @@ Si no se recupera ninguna asignación de roles, siga este artículo en [How to c
 Con la siguiente llamada a la API de administración de las instancias de Azure Digital Twins, podrá determinar si se aplica un buscador de coincidencias determinado para el sensor específico.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| Nombre del atributo personalizado | Reemplazar por |
+| Parámetro | Reemplazar por |
 | --- | --- |
-| *suURLDeAPIDeAdministración* | La ruta de dirección URL completa para la API de administración  |
-| *suIdentificadorDeBuscadorDeCoincidencias* | El identificador del buscador de coincidencias que quiere evaluar |
-| *suIdentificadorDeSensor* | El identificador del sensor que quiere evaluar |
+| *YOUR_MATCHER_IDENTIFIER* | El identificador del buscador de coincidencias que quiere evaluar |
+| *YOUR_SENSOR_IDENTIFIER* | El identificador del sensor que quiere evaluar |
 
 Respuesta:
 
@@ -109,13 +109,12 @@ Respuesta:
 Con la siguiente llamada a la API de administración de las instancias de Azure Digital Twins, podrá determinar los identificadores de las funciones definidas por el usuario que desencadenará la telemetría entrante del sensor determinado:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| Nombre del atributo personalizado | Reemplazar por |
+| Parámetro | Reemplazar por |
 | --- | --- |
-| *suURLDeAPIDeAdministración* | La ruta de dirección URL completa para la API de administración  |
-| *suIdentificadorDeSensor* | El identificador del sensor que enviará datos de telemetría |
+| *YOUR_SENSOR_IDENTIFIER* | El identificador del sensor que enviará datos de telemetría |
 
 Respuesta:
 

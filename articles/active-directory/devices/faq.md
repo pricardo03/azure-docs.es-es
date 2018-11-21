@@ -15,37 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143572"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515648"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
-**P: ¿Puedo registrar los dispositivos BYOD de Android o iOS?**
-
-**R:** Sí, pero solo con el servicio de registro de dispositivos de Azure y para clientes híbridos. No es compatible con el servicio de registro de dispositivos locales de AD FS.
-
-**P: ¿Cómo puedo registrar un dispositivo macOS?**
-
-**R:** Para registrar el dispositivo Mac OS:
-
-1.  [Cree una directiva de cumplimiento](https://docs.microsoft.com/intune/compliance-policy-create-mac-os).
-2.  [Defina una directiva de acceso condicional para dispositivos de Mac OS](../active-directory-conditional-access-azure-portal.md). 
-
-**Comentarios:**
-
-- Los usuarios que se incluyen en la directiva de acceso condicional necesitan un [versión admitida de Office para Mac OS](../conditional-access/technical-reference.md#client-apps-condition) para acceder a los recursos. 
-
-- Durante el primer intento de acceso, se pide a los usuarios que inscriban el dispositivo mediante el portal de empresa.
-
----
-
-**P: He registrado el dispositivo hace poco. ¿Por qué no puedo ver el dispositivo en la información del usuario en Azure Portal?**
-
-**R:** los dispositivos Windows 10 que están unidos a Azure AD híbrido no aparecen bajo los dispositivos del USUARIO.
+**P: He registrado el dispositivo hace poco. ¿Por qué no puedo ver el dispositivo en mi información del usuario de Azure Portal? O bien, ¿por qué está marcado el propietario del dispositivo como N/D para los dispositivos híbridos unidos a Azure AD?**
+**R:** Los dispositivos híbridos de Windows 10 que están unidos a Azure AD no aparecen en los dispositivos del usuario.
 Debe usar la vista Todos los dispositivos de Azure Portal. También puede usar el cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) de PowerShell.
 
 Los únicos que aparecen entre los dispositivos del USUARIO son los siguientes:
@@ -58,12 +38,16 @@ Los únicos que aparecen entre los dispositivos del USUARIO son los siguientes:
 
 **P: ¿Cómo puedo saber cuál es el estado de registro del dispositivo del cliente?**
 
-**R:** Puede usar Azure Portal, ir a Todos los dispositivos y buscar el dispositivo mediante el identificador de dispositivo. Compruebe el valor en la columna de tipo de unión.
-
-Si desea comprobar el estado del registro del dispositivo local desde un dispositivo registrado:
+**R:** Puede usar Azure Portal, ir a Todos los dispositivos y buscar el dispositivo mediante el identificador de dispositivo. Compruebe el valor en la columna de tipo de unión. A veces, puede deberse a que el dispositivo se restableció o a que se volvió a crear su imagen. Por lo tanto, también es esencial comprobar el estado de registro del dispositivo:
 
 - En dispositivos Windows 10 y Windows Server 2016 o posteriores, ejecute dsregcmd.exe /status.
 - En las versiones anteriores del sistema operativo, ejecute "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
+
+---
+
+**P: Puedo ver el registro del dispositivo en la información del USUARIO en Azure Portal y puedo ver el estado como registrado en el dispositivo. ¿He establecido la configuración correctamente para utilizar el acceso condicional?**
+
+**R:** El estado de unión del dispositivo, especificado en deviceID, debe coincidir con el de Azure AD y satisfacer los criterios de evaluación del acceso condicional. Para más información, consulte [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md) (Exigir dispositivos administrados para el acceso a aplicaciones en la nube con acceso condicional).
 
 ---
 
@@ -88,25 +72,6 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 3.  Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-**P: ¿Cómo se separa un dispositivo unido a Azure AD localmente en el dispositivo?**
-
-**R:** 
-- Para dispositivos unidos a Azure AD híbrido, asegúrese de desactivar el registro automático para que la tarea programada no registre el dispositivo nuevamente. A continuación, abra un símbolo del sistema como administrador y escriba `dsregcmd.exe /debug /leave`. O bien, se puede ejecutar este comando como un script en varios dispositivos para realizar la separación de forma masiva.
-
-- Para dispositivos unidos a Azure AD puros, asegúrese de tener una cuenta de administrador local sin conexión o cree una, ya que no podrá iniciar sesión con credenciales de usuario de Azure AD. A continuación, vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. Seleccione su cuenta y haga clic en **Desconectar**. Siga las indicaciones y proporcione las credenciales de administrador local cuando se le solicite. Reinicie el dispositivo para completar el proceso de separación.
-
----
-
-**P: Mis usuarios no pueden buscar impresoras desde dispositivos unidos a Azure AD. ¿Cómo se puede habilitar la impresión desde dispositivos unidos a Azure AD?**
-
-**R:** Para implementar impresoras para dispositivos unidos a Azure AD, consulte el artículo sobre [la impresión en nube híbrida](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Necesitará un servidor de Windows Server local para implementar la impresión en nube híbrida. Actualmente, el servicio de impresión basado en la nube no está disponible. 
-
----
-
-**P: ¿Cómo me uno a un dispositivo remoto unido a Azure AD?**
-**R:** Consulte el artículo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para detalles.
-
----
 
 **P: ¿Por qué veo entradas duplicadas del dispositivo en Azure Portal?**
 
@@ -128,7 +93,27 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 >[!Note] 
 >En el caso de los dispositivos inscritos, se recomienda borrar el dispositivo para asegurarse de que los usuarios no pueden acceder a los recursos. Para más información, consulte [Inscripción de dispositivos para la administración en Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+---
 
+# <a name="azure-ad-join-faq"></a>P+F de Unión a Azure AD
+
+**P: ¿Cómo se separa un dispositivo unido a Azure AD localmente en el dispositivo?**
+
+**R:** 
+- Para dispositivos unidos a Azure AD híbrido, asegúrese de desactivar el registro automático para que la tarea programada no registre el dispositivo nuevamente. A continuación, abra un símbolo del sistema como administrador y escriba `dsregcmd.exe /debug /leave`. O bien, se puede ejecutar este comando como un script en varios dispositivos para realizar la separación de forma masiva.
+
+- Para dispositivos unidos a Azure AD puros, asegúrese de tener una cuenta de administrador local sin conexión o cree una, ya que no podrá iniciar sesión con credenciales de usuario de Azure AD. A continuación, vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. Seleccione su cuenta y haga clic en **Desconectar**. Siga las indicaciones y proporcione las credenciales de administrador local cuando se le solicite. Reinicie el dispositivo para completar el proceso de separación.
+
+---
+
+**P: Mis usuarios no pueden buscar impresoras desde dispositivos unidos a Azure AD. ¿Cómo se puede habilitar la impresión desde dispositivos unidos a Azure AD?**
+
+**R:** Para implementar impresoras para dispositivos unidos a Azure AD, consulte el artículo sobre [la impresión en nube híbrida](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Necesitará un servidor de Windows Server local para implementar la impresión en nube híbrida. Actualmente, el servicio de impresión basado en la nube no está disponible. 
+
+---
+
+**P: ¿Cómo me uno a un dispositivo remoto unido a Azure AD?**
+**R:** Consulte el artículo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para detalles.
 
 ---
 
@@ -144,12 +129,6 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 ---
 
-**P: Puedo ver el registro del dispositivo en la información del USUARIO en Azure Portal y puedo ver el estado como registrado en el dispositivo. ¿He establecido la configuración correctamente para utilizar el acceso condicional?**
-
-**R:** El estado de unión del dispositivo, especificado en deviceID, debe coincidir con el de Azure AD y satisfacer los criterios de evaluación del acceso condicional. Para más información, consulte [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md) (Exigir dispositivos administrados para el acceso a aplicaciones en la nube con acceso condicional).
-
----
-
 **P: ¿Por qué me aparece el mensaje “El nombre de usuario o la contraseña no son correctos” para un dispositivo que ya he unido a Azure AD?**
 
 **R:** Las razones comunes para este escenario son:
@@ -158,7 +137,7 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 - El equipo no puede comunicarse con Azure Active Directory. Compruebe si existen errores de conectividad de red.
 
-- Los inicios de sesión federados requieren que el servidor de federación admita un punto de conexión activo de WS-Trust. 
+- Los inicios de sesión federados requieren que el servidor de federación admita puntos de conexión WS-Trust habilitados y accesibles. 
 
 - Tiene habilitada la autenticación de paso a través y el usuario tiene una contraseña temporal que debe cambiarse al iniciar sesión.
 
@@ -170,14 +149,15 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 ---
 
-**P: ¿Por qué se produce un error al intentar unir mi equipo a pesar de que no he obtenido información sobre el error?**
+**P: ¿Por qué se produce un error al intentar unir Azure AD a mi equipo a pesar de que no he obtenido información sobre el mismo?**
 
 **R:** Puede deberse a que el usuario ha iniciado sesión en el dispositivo con la cuenta de administrador integrada local. Cree una cuenta local distinta antes de usar Azure Active Directory Join para completar la instalación. 
 
-
 ---
 
-**P: ¿Dónde puedo encontrar información para solucionar problemas con el registro automático de dispositivos?**
+# <a name="hybrid-azure-ad-join-faq"></a>P+F de Unión a Azure AD híbrido
+
+**P: ¿Dónde puedo encontrar información de solución de problemas para diagnosticar errores de Unión a Azure AD híbrido?**
 
 **R:** Para consultar información sobre solución de problemas, vea:
 
@@ -188,3 +168,23 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 ---
 
+# <a name="azure-ad-register-faq"></a>P+F de Registro de Azure AD
+
+**P: ¿Puedo registrar los dispositivos BYOD de Android o iOS?**
+
+**R:** Sí, pero solo con el servicio de registro de dispositivos de Azure y para clientes híbridos. No es compatible con el servicio de registro de dispositivos locales de AD FS.
+
+**P: ¿Cómo puedo registrar un dispositivo macOS?**
+
+**R:** Para registrar el dispositivo Mac OS:
+
+1.  [Cree una directiva de cumplimiento](https://docs.microsoft.com/intune/compliance-policy-create-mac-os).
+2.  [Defina una directiva de acceso condicional para dispositivos de Mac OS](../active-directory-conditional-access-azure-portal.md). 
+
+**Comentarios:**
+
+- Los usuarios que se incluyen en la directiva de acceso condicional necesitan un [versión admitida de Office para Mac OS](../conditional-access/technical-reference.md#client-apps-condition) para acceder a los recursos. 
+
+- Durante el primer intento de acceso, se pide a los usuarios que inscriban el dispositivo mediante el portal de empresa.
+
+---

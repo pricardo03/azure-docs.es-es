@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 605533f25b36a92a660301d28aa63cb2ecdd44f4
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37909957"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285711"
 ---
 Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puerta de enlace que desea usar. Seleccione las SKU que cumplan sus requisitos en función de los tipos de cargas de trabajo, rendimientos, características y Acuerdos de Nivel de Servicio.
 
@@ -29,7 +29,7 @@ Las nueva SKU de puerta de enlace de VPN simplifican los conjuntos de caracterí
 
 | **SKU**| **Características**|
 | ---    | ---         |
-|**Basic** (\*\*)   | **VPN basada en ruta**: 10 túneles con P2S, sin autenticación RADIUS, sin P2S, sin IKEv2 para P2S<br>**VPN basada en directivas**: (IKEv1): 1 túnel; sin P2S|
+|**Basic** (\*\*)   | **VPN basada en ruta**: 10 túneles para conexiones o S2S, sin autenticación RADIUS para P2S, sin IKEv2 para P2S<br>**VPN basada en directivas**: (IKEv1) 1 túnel de S2S o conexión, sin P2S|
 | **VpnGw1, VpnGw2 y VpnGw3** | **VPN basada en ruta**: hasta 30 túneles (\*), P2S, BGP, activo-activo, directiva de IPsec/IKE personalizada, coexistencia de VPN y ExpressRoute |
 |        |             |
 

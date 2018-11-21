@@ -2,18 +2,18 @@
 title: Registro de un nuevo dispositivo Azure IoT Edge (portal) | Microsoft Docs
 description: Uso de Azure Portal para registrar un nuevo dispositivo IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b61594469df33e11c23c9cbe0b9542da374fefa3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 6657203c76bc03a262fbcbd30b5bf74b5be140eb
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035249"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577505"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Registro de un nuevo dispositivo Azure IoT Edge desde Azure Portal
 
@@ -21,9 +21,9 @@ Para poder usar los dispositivos IoT con Azure IoT Edge, debe registrarlos con e
 
 En este artículo se muestra cómo registrar un nuevo dispositivo IoT Edge mediante Azure Portal.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Un [centro de IoT](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure. 
+* Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure. 
 
 ## <a name="create-a-device"></a>Creación de un dispositivo
 
@@ -35,7 +35,7 @@ En Azure Portal, los dispositivos IoT Edge se crean y administran por separado d
 4. Proporcione un identificador de dispositivo descriptivo. 
 5. Seleccione **Guardar**. 
 
-## <a name="view-all-devices"></a>Visualización de todos los dispositivos
+## <a name="view-all-devices"></a>Ver todos los dispositivos
 
 Todos los dispositivos habilitados para Edge que se conectan al centro de IoT se enumeran en la página **IoT Edge**. 
 
@@ -44,7 +44,7 @@ Todos los dispositivos habilitados para Edge que se conectan al centro de IoT se
 Cuando esté listo para configurar el dispositivo, necesitará la cadena de conexión que vincula el dispositivo físico con su identidad en el centro de IoT.
 
 1. En la página **IoT Edge** del portal, haga clic en el identificador de dispositivo en la lista de dispositivos de Edge. 
-2. Copie el valor de **Cadena de conexión: clave principal** o **Cadena de conexión: clave secundaria**. 
+2. Copie el valor de **Cadena de conexión (clave principal)** o **Cadena de conexión (clave secundaria)**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

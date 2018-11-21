@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429472"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345053"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Implementación de servicios web en Azure Container Instances 
 
@@ -50,7 +50,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Configure la imagen de Docker que se usa para almacenar todos los archivos del modelo.
 1. Cree un script de puntuación (score.py) [siguiendo estas instrucciones](tutorial-deploy-models-with-aml.md#create-scoring-script).
 
-1. Cree un archivo de entorno (myenv.yml) [con estas instrucciones](tutorial-deploy-models-with-aml.md#create-environment-file). 
+    > [!IMPORTANT]
+    > El script de puntuación recibe los datos enviados desde los clientes y los pasa al modelo de puntuación. Documente la estructura de datos que esperan el modelo y el script. Esta documentación simplifica el proceso de creación de un cliente para consumir el servicio web.
+
+1. Cree un archivo de entorno (myenv.yml) [con estas instrucciones](tutorial-deploy-models-with-aml.md#create-environment-file).
 
 1. Use estos dos archivos para configurar la imagen de Docker en Python con el SDK de la siguiente forma:
 
@@ -217,8 +220,7 @@ Este método proporciona el máximo control sobre la creación y nomenclatura de
 
 Ya puede probar el servicio web.
 
-<a name='test-web-service'/>
-## <a name="test-the-web-service"></a>Prueba del servicio web
+## <a name="a-nametest-web-servicetest-the-web-service"></a><a name='test-web-service'/>Prueba del servicio web
 
 El servicio web es el mismo, independientemente de qué método se haya utilizado.  Para obtener predicciones, use el método `run` del servicio.  
 
@@ -261,4 +263,5 @@ service.delete()
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre la [implementación en Azure Kubernetes Service](how-to-deploy-to-aks.md) para realizar implementaciones de mayor escala. 
+* Obtenga información en el artículo [Consume a ML Model deployed as a web service ](how-to-consume-web-service.md) (Consumir un modelo de ML implementado como servicio web).
+* Obtenga información sobre la [implementación en Azure Kubernetes Service](how-to-deploy-to-aks.md) para realizar implementaciones de mayor escala. 

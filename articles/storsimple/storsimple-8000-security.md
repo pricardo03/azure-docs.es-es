@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: fb8c3fe9dd5ca207e4ae37faf9a5a1c4edfffc63
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ded3c89774c39b5edee02b9e3c6807ce75ff16a4
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233820"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566200"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Protección de datos y seguridad de StorSimple
 
@@ -205,9 +205,9 @@ StorSimple usa los siguientes algoritmos de cifrado para proteger datos almacena
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
-## <a name="managing-personal-inforamation"></a>Administración de información personal
+## <a name="managing-personal-information"></a>Administración de información personal
 
-StorSimple Device Manager para las series física y virtual recopila información personal en las instancias clave siguientes:
+StorSimple Device Manager para las series física y virtual recopila información personal en las instancias principales siguientes:
 
 - La configuración del usuario de alerta en la que se configuran las direcciones de correo electrónico de los usuarios. El administrador puede ver y borrar esta información. Esto se aplica a los dispositivos de la serie StorSimple 8000 y a StorSimple Virtual Array.
  * Para ver y borrar la configuración de la serie StorSimple 8000, siga los pasos que se indican en [Visualización y administración de alertas de StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings).

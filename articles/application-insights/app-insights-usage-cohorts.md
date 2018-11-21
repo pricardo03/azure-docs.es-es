@@ -14,12 +14,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 35737b91d8ef0b58223f51530f56408df1c7eb8e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138799"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564925"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes de Application Insights
 
@@ -51,7 +51,7 @@ El equipo define como usuario dedicado a cualquier persona que use la aplicació
     * **Período**, la definición de un mes.
     * **UsedAtleastCustom**, el número de veces que los usuarios necesitan usar algo de un período para contar como usuario dedicado.
 
-4. Cambie **UsedAtleastCustom** a **5 + días** y deje **Período** con el valor predeterminado de 28 días.
+4. Cambie **UsedAtleastCustom** a **5+ días** y deje **Período** con el valor predeterminado de 28 días.
 
     ![Usuarios dedicados](.\media\app-insights-usage-cohorts\003.png)
 

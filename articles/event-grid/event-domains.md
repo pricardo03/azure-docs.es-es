@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.openlocfilehash: b5a1e521f46da7feffd2eb556ad1662a9ccaee55
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/08/2018
+ms.openlocfilehash: 4e21b1bb85ba91266370d89ec8dbd0fae84ef197
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913843"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299799"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Dominios de eventos para administrar temas de Event Grid
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo usar dominios de eventos para administrar el
 * Crear particiones de los temas sin tener que administrar cada uno individualmente.
 * Evitar la publicación individual en cada uno de los puntos de conexión del tema.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+Esta característica se encuentra en su versión preliminar. Para usarlo, debe instalar una extensión o módulo de la versión preliminar. Para obtener instrucciones, consulte [Administración de temas y publicación de eventos con dominios de eventos](how-to-event-domains.md).
 
 ## <a name="event-domain-overview"></a>Información general sobre dominios de eventos
 

@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: c1ca9c45a7bd070ba0dbcee3b428f986ebac47d3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d64395314f73c5d359b30c15ef11bfd3078e068f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062104"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346310"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Descubrimiento de soluciones específicas del sector en la Galería de Azure AI
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="industry-specific-cortana-intelligence-solutions"></a>Soluciones de Cortana Intelligence específicas del sector
-La sección **[Sectores](https://gallery.azure.ai/industries)** de la galería reúne varios recursos que son específicos del sector industrial correspondiente, tales como
+La sección **[Sectores](https://gallery.azure.ai/industries)** de [Azure AI Gallery](http://gallery.cortanaintelligence.com) reúne varios recursos que son específicos del sector industrial correspondiente, tales como
 
 * [Minorista](https://gallery.azure.ai/industries/retail): busque soluciones al por menor como previsión de ventas, predicción de renovación del cliente y desarrollo de modelos de precios.
 * [Fabricación](https://gallery.azure.ai/industries/manufacturing): busque soluciones de fabricación como la anticipación de mantenimiento de equipo y previsión de precios de energía.

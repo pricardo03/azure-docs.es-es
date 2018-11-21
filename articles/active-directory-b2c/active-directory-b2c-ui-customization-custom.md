@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945067"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625801"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Después de completar este artículo, tendrá una directiva personalizada de reg
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Siga los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
+Realice los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
 
 ## <a name="page-ui-customization"></a>Personalización de la interfaz de usuario de la página
 
@@ -99,17 +99,13 @@ Para crear un contenedor público en Blob Storage, haga lo siguiente:
 
 Para configurar Blob Storage para Uso compartido de recursos entre orígenes (CORS), haga lo siguiente:
 
->[!NOTE]
->¿Desea probar la característica de personalización de la interfaz de usuario con nuestro contenido HTML y CSS de ejemplo? Proporcionamos [una herramienta auxiliar sencilla](active-directory-b2c-reference-ui-customization-helper-tool.md) que carga y configura el contenido de ejemplo en la cuenta de Blob Storage. Si usa la herramienta, vaya directamente a [Modificación de la directiva de inicio de sesión o de registro](#modify-your-sign-up-or-sign-in-custom-policy).
-
-1. Abra **CORS** en **Configuración** (hoja **Almacenamiento**).
-2. Haga clic en **Agregar**.
-3. Para los **Orígenes permitidos**, escriba un asterisco (\*).
-4. En la lista desplegable de **Verbos permitidos**, seleccione **GET** y **OPTIONS**.
-5. Para los **Encabezados permitidos**, escriba un asterisco (\*).
-6. Para los **Encabezados expuestos**, escriba un asterisco (\*).
-7. Para **Antigüedad máxima (segundos)**, escriba **200**.
-8. Haga clic en **Agregar**.
+1. En el menú, seleccione **CORS**.
+2. En **Orígenes permitidos**, escriba `your-tenant-name.b2clogin.com`. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C. Por ejemplo, `fabrikam.b2clogin.com`.
+3. En **Métodos permitidos**, seleccione `GET` y `OPTIONS`.
+4. En **Encabezados permitidos**, escriba un asterisco (*).
+5. En **Encabezados expuestos**, escriba un asterisco (*).
+6. Para **Antigüedad máxima**, introduzca 200.
+7. Haga clic en **Save**(Guardar).
 
 ## <a name="test-cors"></a>Prueba de CORS
 

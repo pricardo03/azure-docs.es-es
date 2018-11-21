@@ -1,111 +1,166 @@
 ---
-title: Retención de las direcciones IP para conmutación por error de máquinas virtuales de Azure | Microsoft Docs
+title: Conservar direcciones IP durante la conmutación por error de las máquinas virtuales de Azure con Azure Site Recovery | Microsoft Docs
 description: Describe cómo retener las direcciones IP cuando se conmuta por error máquinas virtuales de Azure para la recuperación ante desastres en una región secundaria con Azure Site Recovery
 ms.service: site-recovery
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 86adaa21a069c168b512231ba231940bfa2ef9e8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4e75ba210e12a39d2c4cfb9753bbc2da2893746b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213039"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567407"
 ---
-# <a name="ip-address-retention-for-azure-vm-failover"></a>Retención de direcciones IP para la conmutación por error de máquinas virtuales de Azure
+# <a name="retain-ip-addresses-during-failover"></a>Conservar las direcciones IP durante la conmutación por error
 
-Azure Site Recovery permite la recuperación ante desastres de las máquinas virtuales de Azure. Cuando se conmuta por error desde una región de Azure a otra, los clientes a menudo necesitan conservar sus configuraciones de IP. Por ello, Site Recovery imita la red virtual de origen y la estructura de la subred de forma predeterminada cuando se crean estos recursos en la región de destino. En cuanto a las máquinas virtuales de Azure configuradas mediante direcciones IP privadas y estáticas, Site Recovery dedica el máximo esfuerzo en aprovisionar la misma IP privada en la máquina virtual de destino, siempre y cuando un recurso de Azure o una máquina virtual replicada no haya bloqueado esa IP.
+[Azure Site Recovery](site-recovery-overview.md) permite la recuperación ante desastres para máquinas virtuales de Azure mediante la replicación de máquinas virtuales a otra región de Azure, la conmutación por error si se produce una interrupción y la conmutación por recuperación a la región principal cuando las cosas vuelven a la normalidad.
 
-En lo referente a aplicaciones sencillas, la configuración predeterminada que se detalla más arriba es todo lo que necesita. Si lo que tiene son aplicaciones de empresa más complejas, es posible que los clientes necesiten recursos de red adicionales para garantizar la conectividad posterior a la conmutación por error con otros componentes de su infraestructura. En este artículo se explican los requisitos de red para realizar la conmutación por error de máquinas virtuales de Azure desde una región a otra mientras se conservan las direcciones IP de la máquina virtual.
+Durante la conmutación por error, es posible que quiera conservar el mismo direccionamiento IP para la región de destino y la región de origen:
 
-## <a name="azure-to-azure-connectivity"></a>Conectividad de Azure a Azure
+- De forma predeterminada, cuando se habilita la recuperación ante desastres para máquinas virtuales de Azure, Site Recovery crea recursos de destino en función de la configuración de los recursos de origen. En el caso de las máquinas virtuales de Azure configuradas con direcciones IP estáticas, Site Recovery trata de aprovisionar la misma dirección IP para la máquina virtual de destino, si no está en uso. Para obtener una explicación completa de cómo Site Recovery controla el direccionamiento, [revise este artículo](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
+- En lo referente a aplicaciones sencillas, la configuración predeterminada es suficiente. Para aplicaciones más complejas, es posible que deba aprovisionar recursos adicionales para asegurarse de que la conectividad funciona como se esperaba después de la conmutación por error.
 
-En el primer escenario vemos que la **empresa A** tiene toda la infraestructura de las aplicaciones en Azure. Para garantizar la continuidad del negocio y el cumplimiento de las normas, la **empresa A** decide usar Azure Site Recovery para proteger sus aplicaciones.
 
-Si tenemos en cuenta el requisito de retención de IP (como, por ejemplo, en el caso de los enlaces de aplicaciones), la empresa A tiene la misma red virtual y la estructura de subred en la región de destino. Para reducir aún más el objetivo de tiempo de recuperación (RTO), **la empresa A** utiliza nodos de réplica de SQL Always ON, controladores de dominio, etc. y coloca estos nodos en una red virtual diferente en la región de destino. Al usar un espacio de direcciones diferente para los nodos de réplica, la **empresa A** puede establecer una conexión VPN de sitio a sitio entre las regiones de origen y destino, lo que no sería posible si se usara el mismo espacio de direcciones en ambos extremos.
+En este artículo se proporcionan algunos ejemplos para conservar las direcciones IP en escenarios de ejemplo más complejos. Algunos ejemplos son:
 
-Este es el aspecto de la arquitectura de red antes de la conmutación por error:
-- Las máquinas virtuales de la aplicación se hospedan en la región de Asia Oriental de Azure mediante una red virtual de Azure que consta de un espacio de direcciones 10.1.0.0/16. Esta red virtual se denomina **Source VNet**.
-- Las cargas de trabajo de la aplicación se dividen en tres subredes: 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, y se denominan respectivamente **subred 1**, **subred 2** y **subred 3**.
-- El Sudeste Asiático de Azure es la región de destino y tiene una red virtual de recuperación que se asemeja a la configuración del espacio de direcciones y de la subred del origen. Esta red virtual se denomina **Recovery VNet**.
-- Los nodos de réplica necesarios para Always On, el controlador de dominio, etc., se colocan en una red virtual con el espacio de direcciones 10.2.0.0/16 en la subred 4 que tiene la dirección 10.2.4.0/24. La red virtual se denomina **Azure VNet** y está en el Sudeste Asiático de Azure.
-- Las redes **Source VNet** y la **Azure VNet** están conectadas a través de la conexión VPN de sitio a sitio.
-- La red **Recovery VNet** no está conectada a ninguna otra red virtual.
-- La **empresa A** asigna o comprueba la dirección IP de destino de los elementos replicados. En este ejemplo, la IP de destino es la misma que la IP de origen para cada máquina virtual.
+- Conmutación por error para una empresa con todos los recursos ejecutándose en Azure
+- Conmutación por error para una empresa con una implementación híbrida, y recursos que se ejecutan en el entorno local y en Azure
 
-![Conectividad de Azure a Azure antes de la conmutación por error](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
+## <a name="resources-in-azure-full-failover"></a>Recursos de Azure: conmutación por error completa
 
-### <a name="full-region-failover"></a>Conmutación por error de región completa
+Todas las aplicaciones de la empresa A se ejecutan en Azure.
 
-Si se produce una interrupción a nivel regional, **la empresa A** puede recuperar toda la implementación de forma rápida y sencilla gracias a los potentes [planes de recuperación](site-recovery-create-recovery-plans.md) de Azure Site Recovery. Una vez establecida la dirección IP de destino de cada máquina virtual antes de la conmutación por error, **la empresa A** puede realizar la conmutación por error y automatizar el establecimiento de la conexión entre las redes Recovery VNet y Azure VNet, tal como se muestra en el diagrama siguiente.
+### <a name="before-failover"></a>Antes de la conmutación por error
 
-![Conexión de Azure a Azure antes de la conmutación por error de región completa](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
+Esta es la arquitectura antes de la conmutación por error.
 
-En función de los requisitos de la aplicación, las conexiones entre las dos redes virtuales en la región de destino se pueden establecer antes, durante (como un paso intermedio) o después de la conmutación por error. Use los [planes de recuperación](site-recovery-create-recovery-plans.md) para agregar scripts y definir el orden de la conmutación por error.
+- La empresa A tiene redes y subredes idénticas en las regiones de origen y destino de Azure.
+- Para reducir el objetivo de tiempo de recuperación (RTO), la empresa usa los nodos de réplica de SQL Server Always On, controladores de dominio, etc. Estos nodos de réplica están en una red virtual diferente en la región de destino, por lo que puede establecer la conectividad VPN de sitio a sitio entre las regiones de origen y destino. Esto no es posible si se usa el mismo espacio de direcciones IP en el origen y en el destino.  
+- Antes de la conmutación por error, la arquitectura de red es la siguiente:
+    - La región principal es Asia Oriental de Azure
+        - Asia Oriental tiene una red virtual (**VNET de origen**) con el espacio de direcciones 10.1.0.0/16.
+        - Asia Oriental tiene cargas de trabajo divididas en tres subredes de la red virtual:
+            - **Subred 1**: 10.1.1.0/24
+            - **Subred 2**: 10.1.2.0/24,
+            - **Subred 3**: 10.1.3.0/24
+    - La región secundaria (destino) es la del Sudeste Asiático de Azure.
+        - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
+        - El Sudeste Asiático tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.2.0.0/16.
+        - **VNET de Azure** contiene una subred (**Subred 4**) con el espacio de direcciones 10.2.4.0/24.
+        - Los nodos de réplica de SQL Server Always On, el controlador de dominio, etc. se encuentran en la **Subred 4**.
+    - Las redes **VNET de origen** y **VNET de Azure** están conectadas con una conexión VPN de sitio a sitio.
+    - La red **Recovery VNet** no está conectada a ninguna otra red virtual.
+    - La **empresa A** asigna o comprueba las direcciones IP de destino de los elementos replicados. La IP de destino es la misma que la IP de origen para cada máquina virtual.
 
-Asimismo, la empresa A también tiene la opción de usar el emparejamiento de VNET o la conexión VPN de sitio a sitio para poder conectar las redes Recovery VNet y Azure VNet. El emparejamiento de VNET no utiliza una puerta de enlace de VPN y tiene distintas restricciones. Además, [los precios del emparejamiento de VNET](https://azure.microsoft.com/pricing/details/virtual-network) se calculan de forma diferente que los [precios de VPN Gateway entre redes virtuales](https://azure.microsoft.com/pricing/details/vpn-gateway). En cuanto a las conmutaciones por error, es aconsejable imitar la conectividad del origen, incluyendo el tipo de conexión, para así poder minimizar incidentes impredecibles que puedan surgir de los cambios en la red.
+![Recursos de Azure antes de la conmutación por error completa](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
 
-### <a name="isolated-application-failover"></a>Conmutación por error de aplicaciones aisladas
+### <a name="after-failover"></a>Después de la conmutación por error
 
-En ciertas circunstancias, es posible que los usuarios necesiten realizar una conmutación por error de las partes de la infraestructura de aplicaciones. Como ejemplo, se puede realizar una conmutación por error de una aplicación o nivel que se encuentre en una subred dedicada. Aunque es posible realizar una conmutación por error en una subred con retención de IP, no es aconsejable en la mayoría de los casos, ya que aumenta considerablemente las incoherencias de conectividad. Asimismo, también perderá la conectividad de subred en otras subredes dentro de la misma red virtual de Azure.
+Si se produce una interrupción regional de origen, la empresa A puede conmutar por error todos sus recursos a la región de destino.
 
-La mejor manera de sacarle partido a los requisitos de la conmutación por error de una aplicación a nivel de subred, es usar las diferentes direcciones IP de destino para realizar la conmutación por error (siempre que la conectividad sea necesaria en otras subredes de la red virtual de origen) o aislar cada aplicación en su propia red virtual de origen. Gracias al último enfoque, puede establecer una conectividad entre redes en el origen y emularla al realizar la conmutación por error en la región de destino.
+- Con las direcciones IP de destino ya en vigor antes de la conmutación por error, la empresa A puede orquestar la conmutación por error y establecer automáticamente conexiones después de la conmutación por error entre la **VNET de recuperación** y la **VNET de Azure**. Esto se ilustra en el diagrama siguiente:
+- En función de los requisitos de la aplicación, las conexiones entre las dos redes virtuales (**VNET de recuperación** y **VNET de Azure**) en la región de destino se pueden establecer antes, durante (como un paso intermedio) o después de la conmutación por error.
+    - La empresa puede usar los [planes de recuperación](site-recovery-create-recovery-plans.md) para especificar cuándo se establecerán las conexiones.
+    - Pueden conectarse entre las redes virtuales con el emparejamiento de VNET o VPN de sitio a sitio.
+        - El emparejamiento de VNET no utiliza una puerta de enlace de VPN y tiene distintas restricciones.
+        - Los [precios](https://azure.microsoft.com/pricing/details/virtual-network) del emparejamiento de VNET se calculan de forma diferente que los [precios](https://azure.microsoft.com/pricing/details/vpn-gateway) de VPN Gateway entre redes virtuales. Para las conmutaciones por error, solemos aconsejar usar el mismo método de conectividad como redes de origen, incluido el tipo de conexión, para minimizar incidentes impredecibles de la red.
 
-Si quiere diseñar aplicaciones individuales para lograr resistencia, le recomendamos que aloje una aplicación en su propia red virtual dedicada y que establezca la conectividad entre esas redes virtuales según sea necesario. Esto le permitirá realizar una conmutación por error de aplicaciones aisladas a la vez que conserva las direcciones IP privadas originales.
+    ![Recursos de la conmutación por error completa de Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
-La configuración previa a la conmutación por error presenta el siguiente aspecto:
-- Las máquinas virtuales de la aplicación se hospedan en la región de Asia Oriental de Azure y usan una red virtual de Azure que consta de un espacio de direcciones 10.1.0.0/16 para la primera aplicación y un espacio de direcciones 10.2.0.0/16 para la segunda aplicación. Las redes virtuales de la primera y segunda aplicación se denominan **Source VNet1** y **Source VNet2** respectivamente.
-- Cada red virtual se divide en otras dos subredes.
-- El Sudeste Asiático de Azure es la región de destino y dispone de las redes virtuales de recuperación denominadas Recovery VNet1 y Recovery VNet2.
-- Los nodos de réplica necesarios para Always On, el controlador de dominio, etc., se colocan en una red virtual con el espacio de direcciones 10.3.0.0/16 en la **subred 4** que tiene la dirección 10.3.4.0/24. La red virtual se denomina Azure VNet y está en el Sudeste Asiático de Azure.
-- Las redes **Source VNet1** y **Azure VNet** están conectadas a través de la conexión VPN de sitio a sitio. Igualmente, las redes **Source VNet2** y **Azure VNet** están conectadas a través de la conexión VPN de sitio a sitio.
-- Las redes **Source VNet1** y **Source VNet2** también están conectadas a través de una conexión de VPN de sitio a sitio en este ejemplo. Dado que las dos redes virtuales están en la misma región, se puede usar el emparejamiento de VNET en vez de una conexión VPN de sitio a sitio.
+
+
+## <a name="resources-in-azure-isolated-app-failover"></a>Recursos de Azure: conmutación por error de aplicaciones aisladas
+
+Es posible que deba conmutar por error en el nivel de aplicación. Por ejemplo, para conmutar por error una aplicación específica o una capa de aplicación ubicada en una subred dedicada.
+
+- En este escenario, aunque puede conservar el direccionamiento IP, no resulta aconsejable ya que aumenta la posibilidad de incoherencias de conectividad. Asimismo, también perderá la conectividad de subred a otras subredes dentro de la misma VNET de Azure.
+- Una manera mejor de realizar la conmutación por error de la aplicación a nivel de subred es usar diferentes direcciones IP de destino para la conmutación por error (si necesita conectividad a otras subredes en la VNET de origen), o para aislar cada aplicación en su propia red virtual dedicada en la región de origen. Gracias al último enfoque, puede establecer una conectividad entre redes en la región de origen, y emular el mismo comportamiento cuando conmute por error a la región de destino.  
+
+En este ejemplo, la empresa A coloca las aplicaciones en la región de origen de las redes virtuales dedicadas, y establece conectividad entre esas redes virtuales. Con este diseño, puede realizar la conmutación por error de aplicaciones aislada y conservar las direcciones IP privadas de origen en la red de destino.
+
+### <a name="before-failover"></a>Antes de la conmutación por error
+
+Antes de la conmutación por error, la arquitectura es la siguiente:
+
+- Las máquinas virtuales de la aplicación se hospedan en la región Asia Oriental de Azure:
+    - Las máquinas virtuales de la **aplicación 1** se encuentran en **VNET de origen 1**: 10.1.0.0/16.
+    - Las máquinas virtuales de la **aplicación 2** se encuentran en **VNET de origen 2**: 10.2.0.0/16.
+    - **VNET de origen 1** tiene dos subredes.
+    - **VNET de origen 2** tiene dos subredes.
+- La región secundaria (destino) es Sudeste Asiático de Azure. Sudeste Asiático tiene redes virtuales de recuperación (**VNET de recuperación 1** y **VNET de recuperación 2**) que son idénticas a las redes **VNET de origen 1** y **VNET de origen 2**.
+        Las redes - **VNET de recuperación 1** y **VNET de recuperación 2** tienen, cada una, dos subredes que coinciden con **VNET de origen 1** y **VNET de origen 2**. Sudeste Asiático tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.3.0.0/16.
+        - **VNET de Azure** contiene una subred (**Subred 4**) con un espacio de direcciones 10.3.4.0/24.
+        Los nodos de réplica de SQL Server Always On, el controlador de dominio, etc. se encuentran en **Subred 4**.
+- Hay diferentes conexiones de VPN de sitio a sitio: 
+    - **VNET de origen 1** y **VNET de Azure**
+    - **VNET de origen 2** y **VNET de Azure**
+    - Las redes **VNET de origen 1** y **VNET de origen 2** están conectadas con VPN de sitio a sitio
+- Las redes **VNET de recuperación 1** y **VNET de recuperación 2** no están conectadas a otras redes virtuales.
+- La **empresa A** configura las puertas de enlace VPN en **VNET de recuperación 1** y en **VNET de recuperación 2**, para reducir el RTO.  
 - Las redes **Recovery VNet1** y **Recovery VNet2** no están conectadas a ninguna otra red virtual.
 - Para reducir el objetivo de tiempo de recuperación (RTO), las puertas de enlace de VPN se configuran en **Recovery VNet1** y **Recovery VNet2** antes de la conmutación por error.
 
-![Aplicación aislada en la conectividad de Azure a Azure antes de realizar la conmutación por error](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
+    ![Recursos de Azure antes de la conmutación por error de la aplicación](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
 
-Si se produce una situación de desastre que afecte solo a una aplicación (que en este ejemplo se aloja en la red Source VNet2), la empresa A puede recuperar la aplicación afectada tal como se indica a continuación:
-- Las conexiones VPN entre **Source VNet1** y **Source VNet2** y entre **Source VNet2** y **Azure VNet** están desconectadas.
-- Se establecen conexiones VPN entre **Source VNet1** y **Recovery VNet2** y entre **Recovery VNet2** y **Azure VNet**.
-- Las máquinas virtuales de **Source VNet2** se conmutan por error en **Recovery VNet2**.
+### <a name="after-failover"></a>Después de la conmutación por error
 
-![Aplicación aislada en la conectividad de Azure a Azure después de realizar la conmutación por error](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
+Si se produce una interrupción o un problema que afecta a una sola aplicación (en **VNET de origen 2 de nuestro ejemplo), la empresa A puede recuperar la aplicación afectada del siguiente modo:
 
-El ejemplo anterior donde se realiza una conmutación por error aislada se puede ampliar para que incluya más aplicaciones y conexiones de red. Se recomienda seguir un modelo de conexión similar siempre que sea posible, cuando se conmuta por error desde un origen a un destino.
 
-### <a name="further-considerations"></a>Consideraciones a tener en cuenta
+- Desconecte las conexiones VPN entre las redes **VNET de origen 1** y **VNET de origen 2**, y las redes **VNET de origen 2** y **VNET de Azure**.
+- Establezca conexiones VPN entre las redes **VNET de origen 1** y **VNET de recuperación 2**, y las redes **VNET de recuperación 2** y **VNET de Azure**.
+- Conmutar por error las máquinas virtuales de la red **VNET de origen 2** a la red **VNET de recuperación 2**.
 
-Las puertas de enlace VPN pueden usar direcciones IP públicas y saltos de puerta de enlace para establecer conexiones. Si no desea usar una dirección IP pública o desea evitar saltos adicionales, puede usar el [emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md) de Azure para emparejar las redes virtuales a través de las [regiones de Azure admitidas](../virtual-network/virtual-network-manage-peering.md#cross-region).
+![Recursos de la conmutación por error de la aplicación de Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
 
-## <a name="on-premises-to-azure-connectivity"></a>Conectividad local a Azure
 
-En el segundo escenario tendremos en cuenta la **empresa B**, en la cual una parte de la infraestructura de aplicaciones se ejecuta en Azure y el resto se ejecuta de forma local. Para garantizar la continuidad del negocio y el cumplimiento de las normas, la **empresa B** decide usar Azure Site Recovery para proteger las aplicaciones que se ejecutan en Azure.
+- Este ejemplo se puede ampliar para que incluya más aplicaciones y conexiones de red. Se recomienda seguir un modelo de conexión similar siempre que sea posible, cuando se conmuta por error desde un origen a un destino.
+- Las puertas de enlace VPN pueden usar direcciones IP públicas y saltos de puerta de enlace para establecer conexiones. Si no desea usar direcciones IP públicas o desea evitar saltos adicionales, puede usar el [emparejamiento de redes virtuales de Azure](../virtual-network/virtual-network-peering-overview.md) para emparejar redes virtuales a través de las [regiones de Azure admitidas](../virtual-network/virtual-network-manage-peering.md#cross-region).
+
+## <a name="hybrid-resources-full-failover"></a>Recursos de Hybrid: conmutación por error completa
+
+En este escenario, la **empresa B** ejecuta una empresa híbrida, en la cual una parte de la infraestructura de aplicaciones se ejecuta en Azure y el resto se ejecuta de forma local. 
+
+### <a name="before-failover"></a>Antes de la conmutación por error
 
 Este es el aspecto de la arquitectura de red antes de la conmutación por error:
-- Las máquinas virtuales de la aplicación se hospedan en la región de Asia Oriental de Azure mediante una red virtual de Azure que consta de un espacio de direcciones 10.1.0.0/16. Esta red virtual se denomina **Source VNet**.
-- Las cargas de trabajo de la aplicación se dividen en tres subredes: 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, y se denominan respectivamente **subred 1**, **subred 2** y **subred 3**.
-- El Sudeste Asiático de Azure es la región de destino y tiene una red virtual de recuperación que se asemeja a la configuración del espacio de direcciones y de la subred del origen. Esta red virtual se denomina **Recovery VNet**.
-- Las máquinas virtuales de la región de Asia Oriental de Azure están conectadas al centro de datos local mediante ExpressRoute o una conexión VPN de sitio a sitio.
-- Para reducir el objetivo de tiempo de recuperación (RTO), la empresa B debe aprovisionar las puertas de enlace en la red Recovery VNet en la región del Sudeste Asiático de Azure antes de realizar la conmutación por error.
-- La **empresa B** asigna o comprueba la dirección IP de destino de los elementos replicados. En este ejemplo, la IP de destino es la misma que la IP de origen para cada máquina virtual.
+
+- Las máquinas virtuales de la aplicación se hospedan en la región Asia Oriental de Azure.
+-  Asia Oriental tiene una red virtual (**VNET de origen**) con el espacio de direcciones 10.1.0.0/16.
+    - Asia Oriental tiene cargas de trabajo divididas en tres subredes de la red **VNET de origen**:
+        - **Subred 1**: 10.1.1.0/24
+        - **Subred 2**: 10.1.2.0/24,
+        - **Subred 3**: 10.1.3.0/24, que usa una red virtual de Azure con el espacio de direcciones 10.1.0.0/16. Esta red virtual se denomina **VNET de origen**
+ - La región secundaria (destino) es la del Sudeste Asiático de Azure:
+    - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
+- Las máquinas virtuales de la región de Asia Oriental están conectadas a un centro de datos local mediante Azure ExpressRoute o una conexión VPN de sitio a sitio.
+- Para reducir el RTO, la empresa B debe aprovisionar las puertas de enlace en VNET de recuperación en la región del Sudeste Asiático de Azure antes de realizar la conmutación por error.
+- La empresa B asigna o comprueba las direcciones IP de destino de las máquinas virtuales replicadas. La dirección IP de destino es la misma que la dirección IP de origen para cada máquina virtual.
+
 
 ![Conectividad local a Azure antes de realizar la conmutación por error](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
 
-### <a name="full-region-failover"></a>Conmutación por error de región completa
+### <a name="after-failover"></a>Después de la conmutación por error
 
-Si se produce una interrupción a nivel regional, **la empresa B** puede recuperar toda la implementación de forma rápida y sencilla gracias a los potentes [planes de recuperación](site-recovery-create-recovery-plans.md) de Azure Site Recovery. Una vez establecida la dirección IP de destino de cada máquina virtual antes de la conmutación por error, **la empresa B** puede realizar la conmutación por error y automatizar el establecimiento de la conexión entre las redes Recovery VNet y el centro de datos local, tal como se muestra en el diagrama siguiente.
 
-Recuerde que debe desconectar la conexión original entre la región de Asia Oriental de Azure y el centro de datos local antes de establecer la conexión entre la región del Sudeste Asiático de Azure y el centro de datos local. Asimismo, también se vuelve a configurar el enrutamiento local para que apunte a la región de destino y a las puertas de enlace una vez realizada la conmutación por error.
+Si se produce una interrupción regional de origen, la empresa B puede conmutar por error todos sus recursos a la región de destino.
+
+- Con las direcciones IP de destino ya en vigor antes de la conmutación por error, la empresa B puede orquestar la conmutación por error y establecer automáticamente conexiones después de la conmutación por error entre las redes **VNET de recuperación** y **VNET de Azure**.
+- En función de los requisitos de la aplicación, las conexiones entre las dos redes virtuales (**VNET de recuperación** y **VNET de Azure**) en la región de destino se pueden establecer antes, durante (como un paso intermedio) o después de la conmutación por error. La empresa puede usar los [planes de recuperación](site-recovery-create-recovery-plans.md) para especificar cuándo se establecerán las conexiones.
+- Recuerde que debe desconectar la conexión original entre la región de Asia Oriental de Azure y el centro de datos local antes de establecer la conexión entre la región del Sudeste Asiático de Azure y el centro de datos local.
+- Asimismo, se vuelve a configurar el enrutamiento local para que apunte a la región de destino y a las puertas de enlace una vez realizada la conmutación por error.
 
 ![Conectividad local a Azure después de realizar la conmutación por error](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
 
-### <a name="subnet-failover"></a>Conmutación por error de subred
+## <a name="hybrid-resources-isolated-app-failover"></a>Recursos híbridos: conmutación por error de aplicaciones aisladas
 
-A diferencia del escenario de Azure a Azure que se describe para la **empresa A**, no es posible realizar una conmutación por error de nivel de subred en la **empresa B**. Esto es porque el espacio de direcciones en redes virtuales de origen y de recuperación es el mismo, y el origen de la conexión local está activo.
+La empresa B no puede conmutar por error aplicaciones aisladas en el nivel de subred. Esto es porque el espacio de direcciones en redes virtuales de origen y de recuperación es el mismo, y el origen de la conexión local está activo.
 
-Para conseguir la resistencia de las aplicaciones, es recomendable alojar cada aplicación en su propia red virtual dedicada de Azure. A continuación, se pueden conmutar por error las aplicaciones de forma aislada y las conexiones locales a origen necesarias se pueden enrutar hacia la región de destino, tal como se describió anteriormente.
+ - Para lograr la resistencia de las aplicaciones, la empresa B deberá colocar cada aplicación en su propia red virtual de Azure dedicada.
+ - Con cada aplicación en una red virtual independiente, la empresa B puede conmutar por error las aplicaciones aisladas y enrutar las conexiones de origen a la región de destino.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre los [planes de recuperación](site-recovery-create-recovery-plans.md).
+
+Obtenga información acerca de los [planes de recuperación](site-recovery-create-recovery-plans.md).

@@ -6,24 +6,24 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/30/2017
+ms.date: 11/13/2018
 ms.author: markgal
-ms.openlocfilehash: 126c1971d83a8874c096caf407231fb6dee2ff59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f7bda070e613e5495d3733dd1610cb291e12c36
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606416"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612702"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Ejecutar una instalación desatendida de Azure Backup Server v2
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Ejecución de una instalación desatendida de Azure Backup Server
 
-Obtenga información sobre cómo ejecutar una instalación desatendida de Azure Backup Server v2. 
+Obtenga información sobre cómo ejecutar una instalación desatendida de Azure Backup Server.
 
 Estos pasos no se aplican si va a instalar Azure Backup Server v1.
 
-## <a name="install-backup-server-v2"></a>Instalar Backup Server v2
+## <a name="install-backup-server"></a>Instalación de Backup Server v2
 
-1. En el servidor que hospeda Azure Backup Server v2, cree un archivo de texto. (Puede crear el archivo en el Bloc de notas o en otro editor de texto). Guarde el archivo como MABSSetup.ini. 
+1. En el servidor que hospeda Azure Backup Server v2 o posterior, cree un archivo de texto. (Puede crear el archivo en el Bloc de notas o en otro editor de texto). Guarde el archivo como MABSSetup.ini.
 
 2. Pegue el código siguiente en el archivo MABSSetup.ini. Reemplace el texto entre corchetes (\< \>) por los valores de su entorno. A continuación se muestra un texto de ejemplo:
 

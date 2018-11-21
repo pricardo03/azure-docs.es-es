@@ -13,41 +13,39 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6fa26cb7947658af77496831d7239b4331aa1f2
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143513"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624665"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
-Con los informes de Azure Active Directory (Azure AD), puede obtener toda la información que necesita para determinar cómo marcha el entorno.
+Con los informes de Azure Active Directory (Azure AD), puede obtener toda la información que necesita para determinar cómo funciona el entorno.
 
-La arquitectura de los informes de Azure AD consta de los siguientes componentes:
+Esta arquitectura de informes consta de los siguientes componentes:
 
 - **Actividad** 
-    - **Actividades de inicio de sesión** : información sobre el uso de las aplicaciones administradas y las actividades de inicio de sesión de usuario
-    - Los **registros de auditoría** proporcionan rastreabilidad mediante los registros de todos los cambios realizados por diversas características de Azure AD. Algunos ejemplos de registros de auditoría incluyen los cambios realizados en cualquier recurso de Azure AD como usuarios, aplicaciones, grupos, roles, directivas, autenticaciones etc.
+    - **Inicios de sesión**: el [informe de inicios de sesión](concept-sign-ins.md) proporciona información sobre el uso de aplicaciones administradas y actividades de inicio de sesión de usuario.
+    - Los **registros de auditoría** proporcionan rastreabilidad mediante los registros de todos los cambios realizados por diversas características de Azure AD. Algunos ejemplos de registros de auditoría incluyen los cambios realizados en cualquier recurso de Azure AD como agregar o quitar usuarios, aplicaciones, grupos, roles y directivas.
 - **Seguridad** 
-    - **Inicios de sesión peligrosos**: un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. Para más información, consulte Inicios de no seguros.
-    - **Usuarios marcados en riesgo**: un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. Para más información, consulte la sección Usuarios marcados en riesgo.
+    - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](concept-risky-sign-ins.md) es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
+    - **Usuarios marcados en riesgo**: un [usuario en riesgo](concept-user-at-risk.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
 
-Este tema ofrece una visión general de las actividades de auditoría.
+En este artículo se proporciona información general del informe de auditoría.
  
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
-* Usuarios de los roles de administrador o lector de seguridad
-* Administradores globales
-* Los usuarios individuales (no administradores) pueden ver sus propias actividades
 
+* Los usuarios con los roles **Administrador de seguridad**, **Lector de seguridad** o **Administrador global**.
+* Además, todos los usuarios (no administradores) pueden ver sus propias actividades de auditoría
 
 ## <a name="audit-logs"></a>Registros de auditoría
 
-Los registros de auditoría de Azure Active Directory proporcionan registros de las actividades del sistema de cara al cumplimiento.  
-El primer punto de entrada a todos los datos de auditoría es **Registros de auditoría** en la sección **Actividad** de **Azure Active Directory**.
+Los registros de auditoría de Azure AD proporcionan registros de las actividades del sistema de cara al cumplimiento. Para acceder al informe de auditoría, seleccione **Registros de auditoría** en la sección **Actividad** de **Azure Active Directory**. 
 
 ![Registros de auditoría](./media/concept-audit-logs/61.png "Registros de auditoría")
 
@@ -68,15 +66,14 @@ Esto le permite mostrar los campos adicionales o quitar los campos que ya se est
 
 ![Registros de auditoría](./media/concept-audit-logs/21.png "Registros de auditoría")
 
-
-Si hace clic en un elemento de la vista de lista, puede obtener todos los detalles disponibles sobre él.
+Seleccione un elemento de la vista de lista para obtener información más detallada.
 
 ![Registros de auditoría](./media/concept-audit-logs/22.png "Registros de auditoría")
 
 
 ## <a name="filtering-audit-logs"></a>Filtrado de registros de auditoría
 
-Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de auditoría con los siguientes campos:
+Puede filtrar los datos de auditoría por los siguientes campos:
 
 - Intervalo de fechas
 - Iniciado por (actor)
@@ -85,7 +82,6 @@ Para restringir los datos del informe a un nivel que se adapte a sus necesidades
 - Actividad
 
 ![Registros de auditoría](./media/concept-audit-logs/23.png "Registros de auditoría")
-
 
 El filtro **Intervalo de fechas** permite definir un período de tiempo para los datos devueltos.  
 Los valores posibles son:
@@ -129,10 +125,9 @@ Cuando se selecciona **Grupo** como **Tipo de recurso de actividad**, obtendrá 
 - O365
 
 
-El filtro **Actividad** se basa en la selección de categoría y de tipo de recurso de actividad que realice. Puede seleccionar la actividad específica que desea ver o elegir todas. 
+El filtro **Actividad** se basa en la selección de categoría y tipo de recurso de actividad que realice. Puede seleccionar la actividad específica que desea ver o elegir todas. 
 
-Para obtener la lista de todas las actividades de auditoría, use Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, donde $tenantdomain = el nombre de dominio, o bien consulte el artículo sobre [eventos del informe de auditoría](concept-audit-logs.md).
-
+Para obtener la lista de todas las actividades de auditoría, use Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, donde $tenantdomain = el nombre de dominio, o bien consulte el artículo sobre [eventos del informe de auditoría](reference-audit-activities.md).
 
 ## <a name="audit-logs-shortcuts"></a>Métodos abreviados de los registros de auditoría
 
@@ -169,25 +164,23 @@ Si desea revisar los datos de auditoría relacionados con usuarios y grupos, pue
 
 Con los informes de auditoría basadas en aplicaciones, puede obtener respuestas a preguntas tales como:
 
-* ¿Cuáles son las aplicaciones que se han agregado o actualizado?
-* ¿Cuáles son las aplicaciones que se han quitado?
-* ¿Ha cambiado el principal de servicio para una aplicación?
+* ¿Qué aplicaciones se han agregado o actualizado?
+* ¿Qué aplicaciones se han quitado?
+* ¿Ha cambiado la entidad de servicio de una aplicación?
 * ¿Se han cambiado los nombres de las aplicaciones?
 * ¿Quién dio el consentimiento a una aplicación?
 
-Si desea revisar los datos de auditoría relacionados con las aplicaciones, puede buscar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la hoja **Aplicaciones empresariales**. Este punto de entrada tiene **Aplicaciones empresariales** como **Tipo de recurso de actividad** preseleccionado.
+Si quiere revisar los datos de auditoría relacionados con las aplicaciones, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la hoja **Aplicaciones empresariales**. Este punto de entrada tiene la opción **Aplicaciones empresariales** ya seleccionada en **Tipo de recurso de actividad**.
 
 ![Registros de auditoría](./media/concept-audit-logs/134.png "Registros de auditoría")
 
-Puede filtrar aún más esta vista hasta simplemente **grupos** o simplemente **usuarios**.
+Puede filtrar esta vista por **grupos** o **usuarios**.
 
 ![Registros de auditoría](./media/concept-audit-logs/25.png "Registros de auditoría")
 
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre los informes, consulte [Informes de Azure Active Directory](overview-reports.md).
-
-- Para obtener una lista completa de todas las actividades de auditoría, consulte [Referencia sobre actividades de auditoría de Azure AD](reference-audit-activities.md)
-
+- [Referencia sobre actividades de auditoría de Azure AD](reference-audit-activities.md)
+- [Referencia sobre la retención de informes de Azure AD](reference-reports-data-retention.md)
+- [Referencia sobre las latencias de registro de Azure AD](reference-reports-latencies.md)

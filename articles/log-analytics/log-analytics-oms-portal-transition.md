@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c731d0498c026a5d0659335550f6e280a031b1e4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011364"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612812"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Traslado del portal de OMS a Azure
 
@@ -55,7 +55,7 @@ Consulte [Preguntas comunes para la transición desde el portal de OMS a Azure P
 La administración de acceso a Azure Portal es más completa y eficaz que la administración de acceso al portal de OMS. Vea [Administración de áreas de trabajo](log-analytics-manage-access.md#manage-accounts-and-users) para obtener más información de administración de acceso en Log Analytics.
 
 > [!NOTE]
-> En las versiones anteriores de este artículo se indica que los permisos pasarían automáticamente del portal de OMS a Azure Portal. Esta transición automática ya no está prevista y debe realizarla el usuario.
+> En las versiones anteriores de este artículo se indica que los permisos pasarían automáticamente del portal de OMS a Azure Portal. Esta conversión automática ya no está prevista y debe realizarla el usuario.
 
 Puede que ya tenga el acceso adecuado en Azure Portal, en cuyo caso no es necesario realizar ningún cambio. Hay un par de casos en los que es posible que no tenga el acceso adecuado, en cuyo caso el administrador debe asignar los permisos.
 
@@ -84,7 +84,7 @@ Ya no podrá crear áreas de trabajo mediante el portal de OMS. Siga las instruc
 Las alertas se han [ampliado en Azure Portal](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Cuando este proceso haya terminado, las acciones de administración en alertas solo estarán disponibles en Azure Portal. Las alertas existentes seguirán apareciendo en el portal de OMS. Si obtiene acceso a las alertas mediante programación con la API de REST para alertas de Log Analytics o la plantilla de recursos de alerta de Log Analytics, tendrá que usar grupos de acciones en lugar de acciones en las llamadas API, las plantillas de Azure Resource Manager y los comandos de PowerShell.
 
 ### <a name="alert-management-solution"></a>solución de administración de alertas
-En lugar de la [solución Alert Management](log-analytics-solution-alert-management.md), puede usar la [interfaz de alertas unificadas de Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para visualizar y administrar las alertas. Esta nueva experiencia agrega alertas procedentes de varios orígenes a Azure, como, por ejemplo, las alertas de registro de Log Analytics. Puede ver las distribuciones de las alertas, aprovechar la agrupación automatizada de alertas relacionadas mediante grupos inteligentes y ver alertas en varias suscripciones mientras aplica filtros complejos. Todas estas características estarán disponibles en la versión preliminar a partir del 4 de junio de 2018. La solución Alert Management no estará disponible en Azure Portal. 
+En lugar de la [solución Alert Management](log-analytics-solution-alert-management.md), puede usar la [interfaz de alertas unificadas de Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para visualizar y administrar las alertas. Esta nueva experiencia agrega alertas procedentes de varios orígenes a Azure, como, por ejemplo, las alertas de registro de Log Analytics. Puede ver las distribuciones de las alertas, aprovechar la agrupación automatizada de alertas relacionadas mediante grupos inteligentes y ver alertas en varias suscripciones mientras aplica filtros complejos. Todas estas características estarán disponibles en la versión preliminar a partir del 4 de junio de 2018. La solución Alert Management no estará disponible en Azure Portal. 
 
 Los datos recopilados por la solución Alert Management (registros con un tipo de alerta) seguirán estando en Log Analytics siempre que la solución se instale en el área de trabajo. A partir de agosto de 2018, se habilitará el streaming de alertas procedentes de alertas unificadas en áreas de trabajo, lo que reemplaza esta funcionalidad. Se esperan algunos cambios de esquema que se anunciarán en una fecha posterior.
 

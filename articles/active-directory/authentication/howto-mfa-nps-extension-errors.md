@@ -5,21 +5,21 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036672"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634233"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication
 
-Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authentication, use este artículo para lograr una resolución más rápida. 
+Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authentication, use este artículo para lograr una resolución más rápida. Los registros de la extensión de NPS se encuentran en el Visor de eventos en **Vistas personalizadas** > **Roles de servidor** > **Servicios de acceso y directivas de redes** en el servidor donde está instalada la extensión de NPS.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Pasos para la solución de errores comunes
 
@@ -36,9 +36,6 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 | **REQUEST_MISSING_CODE** | Asegúrese de que el protocolo de cifrado de contraseña entre los servidores NPS y NAS admite el método de autenticación secundario que usa. **PAP** es compatible con todos los métodos de autenticación de Azure MFA en la nube: llamada de teléfono, mensaje de texto unidireccional, notificación de aplicación móvil y código de verificación  de la aplicación móvil. **CHAPV2** y **EAP** admiten llamadas de teléfono y notificaciones de aplicación móvil. |
 | **USERNAME_CANONICALIZATION_ERROR** | Compruebe que el usuario existe en la instancia local de Active Directory y que el servicio NPS tiene permiso para acceder al directorio. Si usa confianzas entre bosques, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para más ayuda. |
 
-
-   
-
 ### <a name="alternate-login-id-errors"></a>Errores de identificador de inicio de sesión alternativo
 
 | Código de error | Mensaje de error | Pasos para solucionar problemas |
@@ -46,7 +43,6 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 | **ALTERNATE_LOGIN_ID_ERROR** | Error: error de búsqueda de userObjectSid | Compruebe que el usuario existe en la instancia local de Active Directory. Si usa confianzas entre bosques, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para más ayuda. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Error: error en la búsqueda de LoginId alternativo | Compruebe que LDAP_ALTERNATE_LOGINID_ATTRIBUTE está establecido en un [atributo de directorio activo válido](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Si LDAP_FORCE_GLOBAL_CATALOG está establecido en True, o LDAP_LOOKUP_FORESTS se configura con un valor no vacío, compruebe que ha configurado un catálogo global y que el atributo AlternateLoginId se agrega a él. <br><br> Si LDAP_LOOKUP_FORESTS está configurado con un valor no vacío, compruebe que el valor es correcto. Si hay más de un nombre de bosque, los nombres deben estar separados con puntos y coma, no espacios. <br><br> Si estos pasos no solucionan el problema, [póngase en contacto con soporte técnico](#contact-microsoft-support) para obtener más ayuda. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Error: el valor de LoginId alternativo está vacío | Compruebe que el atributo de AlternateLoginId está configurado para el usuario. |
-
 
 ## <a name="errors-your-users-may-encounter"></a>Errores que pueden encontrar los usuarios
 
@@ -97,7 +93,7 @@ Si encuentra uno de estos errores, se recomienda [ponerse en contacto con el ser
 
 ### <a name="troubleshoot-user-accounts"></a>Solución de problemas de cuentas de usuario
 
-Si los usuarios [tienen problemas con la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-troubleshoot.md), ayúdelos a autodiagnosticar problemas. 
+Si los usuarios [tienen problemas con la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-troubleshoot.md), ayúdelos a autodiagnosticar problemas.
 
 ### <a name="contact-microsoft-support"></a>Consultar al soporte técnico de Microsoft
 
@@ -131,5 +127,3 @@ Para recopilar los registros de depuración de diagnóstico de soporte técnico,
 
 5. Abra el Editor del Registro y vaya a HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa; establezca **VERBOSE_LOG** en **FALSE**
 6. Comprima el contenido de la carpeta C:\NPS y adjunte el archivo comprimido al caso de soporte técnico.
-
-

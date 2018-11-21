@@ -3,22 +3,22 @@ title: Correlación de Telemetría de Application Insights | Microsoft Docs
 description: Correlación de Telemetría de Application Insights
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
+author: lgayhardt
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/09/2018
+ms.date: 10/31/2018
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.author: lagayhar
+ms.openlocfilehash: b61163f7e2bc4cf4e7029c9852e5baad431fa0e0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280170"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615847"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -146,19 +146,15 @@ En la actualidad, no se admite la propagación automática del contexto entre te
 ### <a name="role-name"></a>Nombre de rol
 Es posible que, en ocasiones, quiera personalizar el modo en que los nombres de los componentes aparecen en el [mapa de aplicación](app-insights-app-map.md). Para ello, puede establecer manualmente el valor de `cloud_roleName` a través de uno de los siguientes mecanismos:
 
-Un inicializador de telemetría (todos los elementos de telemetría están etiquetados)
-```Java
-public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
-
-    @Override
-    protected void onInitializeTelemetry(Telemetry telemetry) {
-        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
-    }
-  }
+Si usa `WebRequestTrackingFilter`, `WebAppNameContextInitializer` establecerá automáticamente el nombre de la aplicación. Agregue lo siguiente al archivo de configuración (ApplicationInsights.xml):
+```XML
+<ContextInitializers>
+  <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
+</ContextInitializers>
 ```
-La [clase de contexto del dispositivo](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (este es el único elemento de telemetría etiquetado)
+A través de la clase de contexto en la nube:
 ```Java
-telemetry.getContext().getDevice().setRoleName("My Component Name");
+telemetryClient.getContext().getCloud().setRole("My Component Name");
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

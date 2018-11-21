@@ -15,23 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 0efd754936b67611a747c6c5756de92443a937e4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 60431578ba8b5c740fe5e1124dcdad32c3cb2ede
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838012"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344097"
 ---
 # <a name="heading"></a>Muestra de datos en contenedores de blob de Azure, SQL Server y tablas de Hive
-Este documento incluye vínculos a artículos que tratan sobre cómo realizar un muestreo de los datos que se almacenan en una de las tres diferentes ubicaciones de Azure:
 
-* **datos del contenedor de blobs de Azure** descargándolos mediante programación y, a continuación, realizando un muestreo de ellos con el código Python de ejemplo.
-* **datos de SQL Server** con SQL y el lenguaje de programación Python. 
-* **datos de las tablas de Hive** mediante consultas de Hive.
+Los artículos siguientes describen cómo realizar un muestreo de los datos que se almacenan en una de las tres diferentes ubicaciones de Azure:
 
-El **menú** siguiente vincula a temas que describen cómo se realiza el muestreo de datos desde cada uno de estos entornos de Azure Storage. 
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+* Para muestrear los [**datos del contenedor de blobs de Azure**](sample-data-blob.md), se descargan mediante programación y, a continuación, se realiza un muestreo de ellos con el código Python de ejemplo.
+* Los [**datos de SQL Server**](sample-data-sql-server.md) se muestrean tanto con SQL como con el lenguaje de programación de Python. 
+* Los [**datos de las tablas de Hive**](sample-data-hive.md) se muestrean con consultas de Hive.
 
 Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 

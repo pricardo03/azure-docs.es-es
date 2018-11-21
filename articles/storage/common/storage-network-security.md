@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 51404c35b42d1c98116e74b5b7a47afe05b7d2a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470071"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300564"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 Azure Storage proporciona un modelo de seguridad por niveles que le permite proteger las cuentas de almacenamiento en un conjunto específico de redes permitidas.  Cuando se configuran las reglas de red, solo las aplicaciones de redes permitidas pueden acceder a una cuenta de almacenamiento.  Al llamar a desde una red permitida, las aplicaciones seguirán requiriendo la autorización adecuada (clave de acceso válida o token de SAS) para acceder a la cuenta de almacenamiento.
@@ -201,7 +201,7 @@ Cada cuenta de almacenamiento puede admitir hasta 100 reglas de red IP, que se p
 ### <a name="configuring-access-from-on-premises-networks"></a>Configuración del acceso desde redes locales
 Para conceder acceso desde las redes locales a la cuenta de almacenamiento con una regla de red IP, debe identificar las direcciones IP orientadas a Internet que usa su red.  Para obtener ayuda, póngase en contacto con el administrador de red.
 
-Si la red está conectada a la red de Azure mediante [ExpressRoute](/azure/expressroute/expressroute-introduction), cada circuito se configura con dos direcciones IP públicas en Microsoft Edge que se utilizan para conectarse a Microsoft Services como Azure Storage mediante [emparejamientos públicos de Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Para permitir la comunicación desde el circuito a Azure Storage, debe crear reglas de red IP para direcciones IP públicas de los circuitos.  Para encontrar las direcciones IP públicas del circuito de ExpressRoute, [abra un vale de soporte con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) a través de Azure Portal.
+Si la red está conectada a la red de Azure mediante [ExpressRoute](/azure/expressroute/expressroute-introduction), cada circuito se configura con dos direcciones IP públicas en Microsoft Edge que se utilizan para conectarse a Microsoft Services como Azure Storage mediante [emparejamientos públicos de Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Para permitir la comunicación desde el circuito a Azure Storage, debe crear reglas de red IP para direcciones IP públicas de los circuitos.  Para encontrar las direcciones IP públicas del circuito de ExpressRoute, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) a través de Azure Portal.
 
 
 ### <a name="managing-ip-network-rules"></a>Administración de reglas de red IP

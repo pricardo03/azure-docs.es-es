@@ -336,7 +336,7 @@ items:
     - name: Paquetes de dominio
       href: ../desktop-workbench/reference-python-package-overview.md
       items:
-      - name: Paquete Computer Vision
+      - name: 'Paquete Computer Vision: en desuso'
         items:
         - name: Instalación del paquete
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
@@ -350,7 +350,7 @@ items:
             href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
           - name: Mejora de la precisión del modelo
             href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
-      - name: Paquete de Forecasting
+      - name: 'Paquete de Forecasting: en desuso'
         items:
         - name: Información general e instalación
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
@@ -360,7 +360,7 @@ items:
         href: reference-fpga-package-overview.md
       - name: Paquete de Text Analytics
         items:
-        - name: Información general e instalación
+        - name: 'Información general e instalación: en desuso'
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Compilación e implementación de modelos de clasificación de texto
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
@@ -368,9 +368,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemas antiguos
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 71dc3f256a2d145dbb645feb7f309f5c760bf20a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 14ba5fa2b31c6695737b3250521d0904c950cf30
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163986"
+ms.locfileid: "52264903"

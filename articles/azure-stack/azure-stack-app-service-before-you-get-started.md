@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240875"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615881"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de empezar a trabajar con App Service en Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "50240875"
 Antes de implementar Azure App Service en Azure Stack, debe completar los pasos de los requisitos previos de este artículo.
 
 > [!IMPORTANT]
-> Aplique la actualización 1807 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack (ASDK) más reciente antes de implementar Azure App Service 1.3.
+> Aplique la actualización 1809 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack (ASDK) más reciente antes de implementar Azure App Service 1.4.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Descarga de los scripts de la aplicación auxiliar y el instalador
 
@@ -44,6 +44,10 @@ Antes de implementar Azure App Service en Azure Stack, debe completar los pasos 
    - Remove-AppService.ps1
    - Carpeta Modules
      - GraphAPI.psm1
+
+## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Distribuya la extensión de script personalizado desde Marketplace
+
+Azure App Service en Azure Stack requiere v1.9.0 de extensión de script personalizado.  La extensión tiene que [distribuirse desde Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) antes de iniciar la implementación o actualización de Azure App Service en Azure Stack
 
 ## <a name="high-availability"></a>Alta disponibilidad
 
@@ -151,6 +155,9 @@ El certificado de identidad debe contener un firmante que coincida con el siguie
 
 ## <a name="virtual-network"></a>Virtual network
 
+> [!NOTE]
+> La creación previa de una red virtual personalizada es opcional, ya que Azure App Service en Azure Stack puede crear la red virtual necesaria, pero después tendrá que comunicarse con SQL y el servidor de archivos utilizando direcciones IP públicas.
+
 Azure App Service en Azure Stack le permite implementar el proveedor de recursos en una red virtual existente o crear una red virtual como parte de la implementación. El uso de una red virtual existente permite utilizar IP internas para conectarse al servidor de archivos y al servidor SQL Server que Azure App Service necesita en Azure Stack. La red virtual debe configurarse con el intervalo de direcciones y las subredes siguientes antes de instalar Azure App Service en Azure Stack:
 
 Virtual Network - /16
@@ -167,12 +174,20 @@ Subredes
 
 Azure App Service necesita utilizar un servidor de archivos. Para las implementaciones de producción, se debe configurar el servidor de archivos para tener alta disponibilidad y ser capaz de administrar los errores.
 
+### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>Plantilla de inicio rápido para el servidor de archivos para las implementaciones de Azure App Service en ASDK.
+
 Para su uso solo con las implementaciones del kit de desarrollo de Azure Stack, puede usar la [plantilla de implementación de Azure Resource Manager de ejemplo](https://aka.ms/appsvconmasdkfstemplate) para implementar un servidor de archivos de nodo único configurado. El servidor de archivos de nodo único estará en un grupo de trabajo.
+
+### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Plantilla de inicio rápido para un servidor de archivos de alta disponibilidad y SQL Server
+
+Hay ahora disponible una [plantilla de inicio rápido de arquitectura de referencia](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha), que implementará el servidor de archivos, SQL Server, con compatibilidad con la infraestructura de Active Directory en una red virtual configurada para admitir una implementación de alta disponibilidad de Azure App Service en Azure Stack.  
+
+### <a name="steps-to-deploy-a-custom-file-server"></a>Pasos para implementar un servidor de archivos personalizado
 
 >[!IMPORTANT]
 > Si decide implementar App Service en una instancia de Virtual Network, el servidor de archivos debe implementarse en una subred independiente de App Service.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Aprovisionar grupos y cuentas en Active Directory
+#### <a name="provision-groups-and-accounts-in-active-directory"></a>Aprovisionar grupos y cuentas en Active Directory
 
 1. Crear los siguientes grupos de seguridad global de Active Directory:
 
@@ -195,7 +210,7 @@ Para su uso solo con las implementaciones del kit de desarrollo de Azure Stack, 
    - Agregar **FileShareOwner** al grupo **FileShareOwners**.
    - Agregar **FileShareUser** al grupo **FileShareUsers**.
 
-### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Aprovisionar grupos y cuentas en un grupo de trabajo
+#### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Aprovisionar grupos y cuentas en un grupo de trabajo
 
 >[!NOTE]
 > Cuando esté configurando un servidor de archivos, ejecute los siguientes comandos en el **símbolo del sistema de administrador**. <br>***No use PowerShell.***
@@ -225,7 +240,7 @@ Cuando se usa la plantilla de Azure Resource Manager, los usuarios ya están cre
    net localgroup FileShareOwners FileShareOwner /add
    ```
 
-### <a name="provision-the-content-share"></a>Aprovisionar el recurso compartido de contenido
+#### <a name="provision-the-content-share"></a>Aprovisionar el recurso compartido de contenido
 
 El recurso compartido de contenido incluye el contenido del sitio web del inquilino. El procedimiento para aprovisionar el recurso compartido de contenido en un único servidor de archivos es el mismo para los entornos de Active Directory y del grupo de trabajo. Pero es diferente para un clúster de conmutación por error en Active Directory.
 

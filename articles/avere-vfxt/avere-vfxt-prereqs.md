@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 823bf50a54ff43fa95f7136c137e3d8f3303c3e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d32c664049b7e7c1231e78c552e7c61d016fbe84
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669532"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286765"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparación para la creación de Avere vFXT
 
@@ -80,11 +80,10 @@ Para aceptar los términos de software de antemano:
     az account set --subscription abc123de-f456-abc7-89de-f01234567890
    ```
 
-1. Use este comando para aceptar los términos de servicio y habilitar el acceso mediante programación para Avere vFXT para así obtener las imágenes de software de Azure: 
+1. Use este comando para aceptar los términos de servicio y habilitar el acceso mediante programación para Avere vFXT y así obtener la imagen de software de Azure: 
 
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
-   az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-node:latest
    ```
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Siguiente paso: crear el clúster de vFXT

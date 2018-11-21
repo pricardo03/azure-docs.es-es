@@ -1,6 +1,6 @@
 ---
 title: Extracción, transformación y carga de datos (ETL) a escala en Azure HDInsight
-description: Obtenga información acerca de cómo se usa ETL en HDInsight con Hadoop.
+description: Obtenga información acerca de cómo se usa ETL en HDInsight con Apache Hadoop.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049009"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633332"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
-Extracción, transformación y carga de datos (ETL) es el proceso por el que se adquieren los datos desde varios orígenes, se recopilan en una ubicación estándar, se limpian y se procesan y, en última instancia, se cargan en un almacén de datos desde el que se pueden consultar. Los procesos ETL heredados importan los datos, los limpian localmente y, a continuación, los almacenan en un motor de datos relacionales. Con HDInsight, una gran variedad de componentes del ecosistema de Hadoop admiten la ejecución de ETL a escala. 
+Extracción, transformación y carga de datos (ETL) es el proceso por el que se adquieren los datos desde varios orígenes, se recopilan en una ubicación estándar, se limpian y se procesan y, en última instancia, se cargan en un almacén de datos desde el que se pueden consultar. Los procesos ETL heredados importan los datos, los limpian localmente y, a continuación, los almacenan en un motor de datos relacionales. Con HDInsight, una gran variedad de componentes del ecosistema de Apache Hadoop admiten la ejecución de ETL a escala. 
 
 Esta canalización puede resumir el uso de HDInsight en el proceso ETL:
 

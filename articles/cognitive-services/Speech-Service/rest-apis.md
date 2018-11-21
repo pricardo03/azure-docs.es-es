@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
-ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038610"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566625"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servicio Voz
 
@@ -127,14 +127,43 @@ Código HTTP|Significado|Posible motivo
 
 ### <a name="json-response"></a>Respuesta JSON
 
-Los resultados se devuelven en formato JSON. El formato `simple` incluye solo los siguientes campos de nivel superior.
+Los resultados se devuelven en formato JSON. Dependiendo de los parámetros de consulta, se devolverá un formato `simple` o `detailed`.
+
+#### <a name="the-simple-format"></a>Formato `simple` 
+
+Este formato contiene los siguientes campos de nivel superior.
 
 |Nombre del campo|Contenido|
 |-|-|
-|`RecognitionStatus`|Estado, como `Success`, para un reconocimiento correcto. Vea la tabla siguiente.|
+|`RecognitionStatus`|Estado, como `Success`, para un reconocimiento correcto. Consulte esta [tabla](rest-apis.md#recognitionstatus).|
 |`DisplayText`|Texto reconocido tras mayúsculas, puntuación, normalización inversa de texto (conversión de texto hablado en formularios más cortos, como 200 para "doscientos" o "Dr. Smith" para "doctor smith") y enmascaramiento de palabras soeces. Solo se presenta en caso de corrección.|
 |`Offset`|El tiempo (en unidades de 100 nanosegundos) en el que comienza la voz reconocida en la secuencia de audio.|
 |`Duration`|La duración (en unidades de 100 nanosegundos) de la voz reconocida en la secuencia de audio.|
+
+#### <a name="the-detailed-format"></a>Formato `detailed` 
+
+Este formato contiene los siguientes campos de nivel superior.
+
+|Nombre del campo|Contenido|
+|-|-|
+|`RecognitionStatus`|Estado, como `Success`, para un reconocimiento correcto. Consulte esta [tabla](rest-apis.md#recognition-status).|
+|`Offset`|El tiempo (en unidades de 100 nanosegundos) en el que comienza la voz reconocida en la secuencia de audio.|
+|`Duration`|La duración (en unidades de 100 nanosegundos) de la voz reconocida en la secuencia de audio.|
+|`NBest`|Lista de interpretaciones alternativas de la misma voz, clasificadas de la más a la menos probable. Consulte la [descripción de NBest](rest-apis.md#nbest).|
+
+#### <a name="nbest"></a>NBest
+
+El campo `NBest` es una lista de interpretaciones alternativas de la misma de voz, clasificadas de la más a la menos probable. La primera entrada es la misma que el resultado de reconocimiento principal. Cada entrada contiene los siguientes campos:
+
+|Nombre del campo|Contenido|
+|-|-|
+|`Confidence`|La puntuación de confianza de la entrada de 0,0 (ninguna confianza) a 1,0 (plena confianza)
+|`Lexical`|La forma léxica del texto reconocido: palabras reales reconocidas.
+|`ITN`|El formato de normalización inversa de texto ("canónica") del texto reconocido, con números de teléfono, números, abreviaturas ("doctor smith" a "dr smith") y otras transformaciones aplicadas.
+|`MaskedITN`| Formato ITN con enmascaramiento de palabras soeces aplicado, si se solicita.
+|`Display`| Formato de presentación del texto reconocido, con adición de signos de puntuación y mayúsculas.
+
+#### <a name="recognitionstatus"></a>RecognitionStatus
 
 El campo `RecognitionStatus` puede contener los siguientes valores.
 
@@ -148,17 +177,6 @@ El campo `RecognitionStatus` puede contener los siguientes valores.
 
 > [!NOTE]
 > Si el audio consta solo de palabras soeces y el parámetro de consulta `profanity` está establecido en `remove`, el servicio no devuelve ningún resultado de voz.
-
-
-El formato `detailed` incluye los mismos campos que el formato `simple`, además de un campo `NBest`. El campo `NBest` es una lista de interpretaciones alternativas de la misma de voz, clasificadas de la más a la menos probable. La primera entrada es la misma que el resultado de reconocimiento principal. Cada entrada contiene los siguientes campos:
-
-|Nombre del campo|Contenido|
-|-|-|
-|`Confidence`|La puntuación de confianza de la entrada de 0,0 (ninguna confianza) a 1,0 (plena confianza)
-|`Lexical`|La forma léxica del texto reconocido: palabras reales reconocidas.
-|`ITN`|El formato de normalización inversa de texto ("canónica") del texto reconocido, con números de teléfono, números, abreviaturas ("doctor smith" a "dr smith") y otras transformaciones aplicadas.
-|`MaskedITN`| Formato ITN con enmascaramiento de palabras soeces aplicado, si se solicita.
-|`Display`| Formato de presentación del texto reconocido, con adición de signos de puntuación y mayúsculas. Igual que `DisplayText` en el resultado de nivel superior.
 
 ### <a name="sample-responses"></a>Respuestas de ejemplo
 

@@ -1,6 +1,6 @@
 ---
-title: 'Interoperabilidad de ExpressRoute, VPN de sitio a sitio y emparejamiento de VNET - Análisis del plano de control: interoperabilidad de las características de conectividad de back-end de Azure | Microsoft Docs'
-description: En esta página se proporciona el análisis del plano de control de la configuración de prueba creada para analizar la interoperabilidad de las características de ExpressRoute, VPN de sitio a sitio y emparejamiento de VNET.
+title: 'Interoperabilidad de las características de conectividad de back-end de Azure: análisis del plano de control | Microsoft Docs'
+description: En este artículo se proporciona el análisis del plano de control de la configuración de prueba que puede usar para analizar la interoperabilidad entre ExpressRoute, una VPN de sitio a sitio y el emparejamiento de redes virtuales en Azure.
 documentationcenter: na
 services: networking
 author: rambk
@@ -10,90 +10,94 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: ee887da18b5666e61bc25365791b2e7dffb925e0
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 37f5399426bebd375200bbc18dae7ed83f4fde3f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49947159"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614691"
 ---
-# <a name="interoperability-of-expressroute-site-to-site-vpn-and-vnet-peering---control-plane-analysis"></a>Interoperabilidad de ExpressRoute, VPN de sitio a sitio y emparejamiento de VNET: Análisis del plano de control
+# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interoperabilidad de las características de conectividad de back-end de Azure: análisis del plano de control
 
-En este artículo, se va a analizar el análisis del plano de control de la configuración de prueba. Si quiere revisar la configuración de prueba, vea la [configuración de prueba][Setup]. Para revisar los detalles de la configuración de prueba, vea [Configuración de la prueba][Configuration].
+En este artículo se describe el análisis del plano de control de la [configuración de prueba][Setup]. También puede revisar la [configuración de la prueba][Configuration] y el [análisis del plano de control][Data-Analysis] de la configuración de prueba.
 
-En esencia, el análisis del plano de control examina las rutas que se intercambian entre las redes dentro de una topología. El análisis del plano de control ayuda a la forma que tiene cada red de ver la topología.
+En esencia, el análisis del plano de control examina las rutas que se intercambian entre las redes dentro de una topología. El análisis del plano de control puede ayudar a entender la forma en la que cada red ve la topología.
 
-##<a name="hub-and-spoke-vnet-perspective"></a>Perspectiva de red virtual de tipo hub-and-spoke
+## <a name="hub-and-spoke-vnet-perspective"></a>Perspectiva de red virtual de tipo hub-and-spoke
 
-En el diagrama siguiente se ilustra la red desde la perspectiva de la red virtual del concentrador y la red virtual de radio (resaltada en azul). En el diagrama también se muestra el número de sistema autónomo (ASN) de las redes y rutas que se intercambian entre las distintas redes. 
+En la siguiente ilustración se muestra la red desde la perspectiva de un centro de conectividad y una red virtual de radio (resaltada en azul). En la ilustración también se muestra el número de sistema autónomo (ASN) de las redes y rutas que se intercambian entre las distintas redes: 
 
 [![1]][1]
 
-Tenga en cuenta que el ASN de la puerta de enlace de ExpressRoute de la red virtual es diferente al de los enrutadores de Microsoft Enterprise Edge (MSEE). La puerta de enlace de ExpressRoute usa un ASN privado (65515) y los MSEE usan un ASN público (12076) de forma global. Al configurar el emparejamiento de ExpressRoute, como MSEE es del mismo nivel, se usa 12076 como el ASN del mismo nivel. En el lado de Azure, MSEE establece emparejamiento de EBGP con la puerta de enlace de ExpressRoute. El emparejamiento EBGP dual que el MSEE establece para cada emparejamiento de ExpressRoute es transparente en el nivel del plano de control. Por tanto, cuando se ve una tabla de enrutamiento de ExpressRoute, se ve el ASN de la puerta de enlace de ExpressRoute de la red virtual para los prefijos de la red virtual. A continuación se muestra una captura de pantalla de una tabla de rutas de ExpressRoute de ejemplo: 
+Tenga en cuenta que el ASN de la puerta de enlace de Azure ExpressRoute de la red virtual difiere del de los enrutadores de Microsoft Enterprise Edge (MSEE). Generalmente, la puerta de enlace de ExpressRoute usa un ASN privado (con valor **65515**) y los MSEE, uno público (**12076**). Al configurar el emparejamiento de ExpressRoute, como MSEE es del mismo nivel, se usa **12076** como ASN del mismo nivel. Del lado de Azure, MSEE establece emparejamiento de BGP externo con la puerta de enlace de ExpressRoute. El emparejamiento BGP externo dual que el MSEE establece para cada emparejamiento de ExpressRoute es transparente en el nivel del plano de control. Por tanto, al visualizar una tabla de enrutamiento de ExpressRoute, se ve el valor de ASN de la puerta de enlace de ExpressRoute de la red virtual para los prefijos de la esta. 
+
+En la siguiente ilustración se muestra una tabla de enrutamiento de ExpressRoute de ejemplo: 
 
 [![5]][5]
 
-Dentro de Azure, el ASN solo es significativo desde una perspectiva de emparejamiento. De forma predeterminada, el ASN de la puerta de enlace de ExpressRoute y el de la de VPN es 65515.
+En Azure, el valor de ASN solo es significativo para el emparejamiento. De forma predeterminada, el valor de ASN de la puerta de enlace tanto de ExpressRoute como de VPN en Azure VPN Gateway es **65515**.
 
-##<a name="on-premises-location-1-and-remote-vnet-perspective-via-expressroute-1"></a>Perspectiva de la Ubicación 1 local y la red virtual remota a través de ExpressRoute 1
+## <a name="on-premises-location-1-and-the-remote-vnet-perspective-via-expressroute-1"></a>Perspectiva de la ubicación 1 local y de la red virtual remota a través de ExpressRoute 1
 
-La Ubicación 1 local y la red virtual remota están conectadas a la red virtual del concentrador a través de ExpressRoute 1 y, por tanto, comparten la misma perspectiva de la topología, como se muestra en el diagrama siguiente.
+Tanto la ubicación 1 local como la red virtual remota están conectadas al centro de conectividad a través de ExpressRoute 1. Comparten la misma perspectiva de la topología, como se muestra en el siguiente diagrama:
 
 [![2]][2]
 
-##<a name="on-premises-location-1-and-branch-vnet-perspective-via-site-to-site-vpn"></a>Perspectiva de la Ubicación 1 local y la red virtual de sucursal a través de VPN de sitio a sitio
+## <a name="on-premises-location-1-and-the-branch-vnet-perspective-via-a-site-to-site-vpn"></a>Perspectiva de la ubicación 1 local y de la red virtual remota a través de ExpressRoute 1
 
-La Ubicación 1 local y la red virtual de sucursal están conectadas a la puerta de enlace de la red virtual del concentrador a través de conexiones VPN de sitio a sitio y, por tanto, comparten la misma perspectiva de la topología, como se muestra en el diagrama siguiente.
+Tanto la ubicación 1 local como la red virtual de sucursal están conectadas a una puerta de enlace de centro de conectividad a través de una VPN de sitio a sitio. Comparten la misma perspectiva de la topología, como se muestra en el siguiente diagrama:
 
 [![3]][3]
 
-##<a name="on-premises-location-2-perspective"></a>Perspectiva de la Ubicación 2 local
+## <a name="on-premises-location-2-perspective"></a>Perspectiva de la ubicación 2 local
 
-La Ubicación 2 local está conectada a la red virtual del concentrador a través del emparejamiento privado de ExpressRoute 2. 
+La ubicación 2 local está conectada al centro de conectividad a través del emparejamiento privado de ExpressRoute 2: 
 
 [![4]][4]
 
-## <a name="further-reading"></a>Lecturas adicionales
+## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Uso simultáneo de ExpressRoute y la conectividad VPN de sitio a sitio
 
-### <a name="using-expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Uso conjunto de ExpressRoute y la conectividad VPN de sitio a sitio
+###  <a name="site-to-site-vpn-over-expressroute"></a>VPN de sitio a sitio con ExpressRoute
 
-####  <a name="site-to-site-vpn-over-expressroute"></a>VPN de sitio a sitio a través de ExpressRoute
+You can configure a site-to-site VPN by using ExpressRoute Microsoft peering to privately exchange data between your on-premises network and your Azure VNets. Esta configuración le asegura un intercambio de datos con confidencialidad, autenticidad, integridad y antirreproducción. Para más información acerca de cómo configurar una VPN IPsec de sitio a sitio en modo de túnel con emparejamiento de Microsoft de ExpressRoute, consulte [Configuración de una VPN de sitio a sitio a través del emparejamiento de Microsoft de ExpressRoute][S2S-Over-ExR]. 
 
-VPN de sitio a sitio se puede configurar a través del emparejamiento de Microsoft de ExpressRoute para intercambiar datos de forma privada entre la red local y las redes virtuales de Azure con confidencialidad, antirreproducción, autenticidad e integridad. Para obtener más información sobre cómo configurar VPN IPSec de sitio a sitio en modo de túnel a través del emparejamiento de Microsoft de ExpressRoute, vea [Configuración de una VPN de sitio a sitio a través del emparejamiento de Microsoft de ExpressRoute][S2S-Over-ExR]. 
+La limitación principal de la configuración de una VPN de sitio a sitio que use el emparejamiento de Microsoft es el rendimiento. El rendimiento a través del túnel IPsec está limitado por la capacidad de la puerta de enlace de VPN. El rendimiento de la puerta de enlace de VPN es menor que el de ExpressRoute. En este escenario, el uso del túnel IPsec para el tráfico de seguridad alta y con emparejamiento privado para el tráfico restante ayuda a optimizar el uso de ancho de banda de ExpressRoute.
 
-La limitación principal de la configuración de VPN de sitio a sitio a través del emparejamiento de Microsoft es el rendimiento. El rendimiento a través del túnel IPSec está limitado por la capacidad de la puerta de enlace de VPN. El rendimiento de la puerta de enlace de VPN es menor en comparación con el rendimiento de ExpressRoute. En estos escenarios, el uso del túnel IPSec para el tráfico de seguridad alta y el emparejamiento privado para el tráfico restante ayudaría a optimizar el uso de ancho de banda de ExpressRoute.
+### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN de sitio a sitio como ruta de acceso de conmutación por error para ExpressRoute
 
-#### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>VPN de sitio a sitio como ruta de acceso de conmutación por error para ExpressRoute
-ExpressRoute se ofrece como par de circuito redundante para garantizar la alta disponibilidad. Puede configurar la conectividad de ExpressRoute con redundancia geográfica en diferentes regiones de Azure. Además, como se ha hecho en la configuración de prueba, dentro de una región determinada de Azure, si quiere una ruta de acceso de conmutación por error para la conectividad de ExpressRoute, puede hacerlo mediante VPN de sitio a sitio. Cuando se anuncian los mismos prefijos a través de ExpressRoute y VPN de sitio a sitio, Azure prefiere ExpressRoute a VPN de sitio a sitio. Para evitar el enrutamiento asimétrico entre ExpressRoute y VPN de sitio a sitio, de forma recíproca en la configuración de la red local también debe ser preferible ExpressRoute a la conectividad VPN de sitio a sitio.
+ExpressRoute sirve como par de circuito redundante para garantizar la alta disponibilidad. Puede configurar la conectividad de ExpressRoute con redundancia geográfica en diferentes regiones de Azure. Además, como se ha demostrado en la configuración de prueba, dentro de una región de Azure puede usar una VPN de sitio a sitio para crear una ruta de acceso de conmutación por error para la conectividad de ExpressRoute. Cuando se anuncian los mismos prefijos a través de ExpressRoute y VPN de sitio a sitio, Azure da prioridad a ExpressRoute. Para evitar el enrutamiento asimétrico entre ExpressRoute y VPN de sitio a sitio, la configuración de la red local también debe tener prioridad mediante el uso de la conectividad ExpressRoute antes de VPN de sitio a sitio.
 
-Para obtener más información sobre cómo configurar conexiones coexistentes de ExpressRoute y VPN de sitio a sitio, vea [Configuración de conexiones ExpressRoute y de sitio a sitio coexistentes][ExR-S2S-CoEx].
+Para más información acerca de cómo configurar conexiones coexistentes de ExpressRoute y una VPN de sitio a sitio, consulte el artículo sobre la [coexistencia de conexiones de ExpressRoute y de sitio a sitio][ExR-S2S-CoEx].
 
-### <a name="extending-backend-connectivity-to-spoke-vnets-and-branch-locations"></a>Ampliación de la conectividad de back-end a redes virtuales de radio y ubicaciones de sucursales
+## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Ampliación de la conectividad de back-end a redes virtuales de radio y ubicaciones de sucursal
 
-#### <a name="spoke-vnet-connectivity-using-vnet-peering"></a>Conectividad de red virtual de radio mediante el emparejamiento de VNET
+### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Conectividad de red virtual de radio mediante el emparejamiento de redes virtuales
 
-La arquitectura de red virtual de tipo hub-and-spoke se usa ampliamente. El concentrador (hub) es una red virtual (VNet) en Azure que actúa como un punto central de conectividad entre las redes virtuales de radio (spoke) y la red local. Los radios son redes virtuales que se emparejan con el concentrador y que se pueden usar para aislar las cargas de trabajo. El tráfico fluye entre el centro de datos local y el concentrador a través de una conexión de ExpressRoute o VPN. Para obtener más información sobre la arquitectura, vea [Implementación de una topología de red en estrella tipo hub-and-spoke en Azure][Hub-n-Spoke].
+La arquitectura de red virtual de tipo hub-and-spoke se usa ampliamente. El centro de conectividad es una red virtual de Azure que actúa como punto central de conectividad entre las redes virtuales de radio y la red local. Los radios son redes virtuales que se emparejan con el centro de conectividad y sirven para aislar las cargas de trabajo. El tráfico fluye entre el centro de datos local y el concentrador a través de una conexión de ExpressRoute o VPN. Para más información acerca de la arquitectura, consulte [Implementación de una topología de red en estrella tipo hub-and-spoke en Azure][Hub-n-Spoke].
 
-El emparejamiento de VNET dentro de una región permite que las redes virtuales de radio usen las puertas de enlace de la red virtual del concentrador (tanto de VPN como de ExpressRoute) para comunicarse con las redes remotas.
+En el emparejamiento de redes virtuales dentro de una región, las redes virtuales de radio pueden usar las puertas de enlace del centro de conectividad (tanto de VPN como de ExpressRoute) para comunicarse con las redes remotas.
 
-#### <a name="branch-vnet-connectivity-using-site-to-site-vpn"></a>Conectividad de red virtual de sucursal mediante VPN de sitio a sitio
+### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Conectividad de red virtual de sucursal mediante VPN de sitio a sitio
 
-Si quiere que las redes virtuales de sucursal (en distintas regiones) y las redes locales se comuniquen entre sí a través de una red virtual de concentrador, la solución de Azure nativa es la conectividad VPN de sitio a sitio mediante VPN. Una opción alternativa consiste en usar una Aplicación virtual de red (NVA) para el enrutamiento en el concentrador.
+You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. La solución de Azure nativa para esta configuración es la conectividad VPN de sitio a sitio mediante una VPN. Una alternativa es usar una aplicación virtual de red (NVA) para el enrutamiento en el centro de conectividad.
 
-Para configurar puertas de enlace de VPN, vea [Configuración de una instancia de VPN Gateway][VPN]. Para implementar aplicaciones virtuales de red de alta disponibilidad, vea [Implementación de aplicaciones virtuales de red de alta disponibilidad][Deploy-NVA].
+Para más información, consulte [¿Qué es VPN Gateway?][VPN] e [Implementación de aplicaciones virtuales de red de alta disponibilidad][Deploy-NVA].
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para el análisis del plano de datos de la configuración de prueba y las vistas de las características de supervisión de red de Azure, vea [Data-Plane Analysis][Data-Analysis] (Análisis del plano de datos).
+Más información acerca del [análisis del plano de datos][Data-Analysis] de la configuración de prueba y de las vistas de las características de supervisión de red de Azure.
 
-Para obtener información sobre cuántos circuitos de ExpressRoute se pueden conectar a una puerta de enlace de ExpressRoute, cuántas puertas de enlace de ExpressRoute se pueden conectar a un circuito de ExpressRoute, o bien para obtener información sobre otros límites de escala de ExpressRoute, vea [P+F de ExpressRoute][ExR-FAQ].
+Consulte [P+F de ExpressRoute][ExR-FAQ] para información acerca de:
+-   Cuántos circuitos de ExpressRoute puede conectar a una puerta de enlace de ExpressRoute.
+-   Cuántas puertas de enlace de ExpressRoute puede conectar a un circuito de ExpressRoute.
+-   Los límites de escala de ExpressRoute.
 
 
 <!--Image References-->
 [1]: ./media/backend-interoperability/HubView.png "Perspectiva de red virtual de tipo hub-and-spoke de la topología"
-[2]: ./media/backend-interoperability/Loc1ExRView.png "Perspectiva de la topología de la Ubicación 1 y la red virtual remota a través de ExpressRoute 1"
-[3]: ./media/backend-interoperability/Loc1VPNView.png "Perspectiva de la topología de la Ubicación 1 y la red virtual de sucursal a través de VPN de sitio a sitio"
-[4]: ./media/backend-interoperability/Loc2View.png "Perspectiva de la topología de la Ubicación 2"
+[2]: ./media/backend-interoperability/Loc1ExRView.png "Perspectiva de la topología de la ubicación 1 y de la red virtual remota a través de ExpressRoute 1"
+[3]: ./media/backend-interoperability/Loc1VPNView.png "Perspectiva de la ubicación 1 y de la red virtual de sucursal de la topología a través de VPN de sitio a sitio"
+[4]: ./media/backend-interoperability/Loc2View.png "Perspectiva de la ubicación 2 de la topología"
 [5]: ./media/backend-interoperability/ExR1-RouteTable.png "Tabla de rutas de ExpressRoute 1"
 
 <!--Link References-->
@@ -111,7 +115,5 @@ Para obtener información sobre cuántos circuitos de ExpressRoute se pueden con
 [Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 [Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
 [VNet-Config]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering
-
-
 
 

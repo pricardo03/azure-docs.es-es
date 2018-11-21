@@ -1,8 +1,18 @@
 ---
-Título: Habilitación de la replicación de máquinas virtuales de VMware para la recuperación ante desastres de VMware en Azure con Azure Site Recovery| Microsoft Docs Descripción: en este artículo se describe cómo habilitar la replicación de máquinas virtuales de VMware para la recuperación ante desastres en Azure, mediante Azure Site Recovery.
-autor: asgang ms.service: site-recovery ms.date: 07/06/2018 ms.topic: conceptual ms.author: asgang
-
-
+title: Habilitación de la replicación de máquinas virtuales de VMware para la recuperación ante desastres de VMware en Azure con Azure Site Recovery| Microsoft Docs'
+description: En este artículo, se describe cómo se habilita la replicación de máquinas virtuales de VMware para la recuperación ante desastres en Azure utilizando Azure Site Recovery.
+author: asgang
+ms.service: site-recovery
+ms.date: 07/06/2018
+ms.topic: conceptual
+ms.author: asgang
+ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566370"
+---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
 
@@ -68,10 +78,7 @@ Al replicar máquinas virtuales de VMware:
     ![Habilitar replicación](./media/vmware-azure-enable-replication/enable-replication7.png)
 14. Haga clic en **Enable Replication**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección**.
 
-> [!NOTE]
-> Si la máquina está preparada para la instalación de inserción, el componente Mobility Service se instala cuando la protección esté habilitada. Después de que el componente se ha instalado en la máquina, se inicia un trabajo de protección y se produce un error. Debe reiniciar manualmente cada máquina después del error. Una vez que reinicie, el trabajo de protección vuelve a comenzar y se produce la replicación inicial.
->
->
+
 
 ## <a name="view-and-manage-vm-properties"></a>Visualización y administración de las propiedades de la máquina virtual
 

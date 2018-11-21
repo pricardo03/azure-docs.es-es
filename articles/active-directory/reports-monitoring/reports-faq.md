@@ -1,6 +1,6 @@
 ---
-title: Preguntas más frecuentes sobre informes de Azure Active Directory | Microsoft Docs
-description: Preguntas más frecuentes sobre informes de Azure Active Directory.
+title: Preguntas frecuentes sobre los informes de Azure Active Directory | Microsoft Docs
+description: Preguntas frecuentes en torno a los informes de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -12,55 +12,55 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: report-monitor
-ms.date: 05/10/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5cbf0895274672c053158cf07acb344908b37831
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294227"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623475"
 ---
-# <a name="azure-active-directory-reporting-faq"></a>Preguntas más frecuentes sobre informes de Azure Active Directory
+# <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
 Este artículo incluye respuestas a preguntas más frecuentes sobre los informes de Azure Active Directory (Azure AD). Para más información, consulte [Informes de Azure Active Directory](overview-reports.md). 
 
 ## <a name="getting-started"></a>Introducción 
 
-**P.: Estoy usando las API de punto de conexión https://graph.windows.net/&lt;tenant-name&gt;/reports/ para extraer informes de uso de aplicaciones integradas y auditoría de Azure AD en los sistemas de notificación mediante programación. ¿A cuál debo cambiar?**
+**P: Actualmente uso las API de punto de conexión https://graph.windows.net/&lt;tenant-name&gt;/reports/ para extraer informes de uso de aplicaciones integradas y de auditoría de Azure AD en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
 
-**R.:** Busque nuestra [documentación de referencia de API](https://developer.microsoft.com/graph/) para ver cómo puede usar las nuevas API para tener acceso a [informes de actividad](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Este punto de conexión tiene dos informes (auditoría e inicios de sesión) que proporcionan todos los datos que se obtuvo en el punto de conexión de la anterior API. Este nuevo punto de conexión también tiene un informe de inicios de sesión con la licencia Premium de Azure AD que puede usar para obtener información del uso de aplicaciones y de dispositivos, y de inicio de sesión de usuarios.
+**R:** Consulte la [referencia de API](https://developer.microsoft.com/graph/) para ver cómo puede [usar las API para acceder a informes de actividad](concept-reporting-api.md). Este punto de conexión tiene dos informes (**auditoría** e **inicios de sesión**) que proporcionan todos los datos que obtuvo en el punto de conexión de la API anterior. Este nuevo punto de conexión también tiene un informe de inicios de sesión con la licencia Premium de Azure AD que puede usar para obtener información del uso de aplicaciones y de dispositivos, y de inicio de sesión de usuarios.
 
 --- 
 
-**P.: ¿Estoy usando las API de punto de conexión https://graph.windows.net/&lt;tenant-name&gt;/reports/ para extraer informes de seguridad de Azure AD (tipos específicos de detecciones, como las credenciales perdidas o los inicios de sesión desde direcciones IP anónimas) en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
+**P: Uso actualmente las API de punto de conexión https://graph.windows.net/&lt;tenant-name&gt;/reports/ para extraer informes de seguridad de Azure AD (tipos específicos de detecciones, como credenciales perdidas o inicios de sesión desde direcciones IP anónimas) en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
 
-**R:** Puede utilizar la [API de eventos de riesgo Identity Protection](../identity-protection/graph-get-started.md) para acceder a las detecciones de seguridad a través de Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza los eventos de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que es el estándar de Microsoft para estas API como Office 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en MS Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
+**R:** Puede usar la  [API de eventos de riesgo de Identity Protection](../identity-protection/graph-get-started.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza los eventos de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que es el estándar de Microsoft para estas API como Office 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en MS Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
 
 --- 
 
 **P: ¿Cómo puedo obtener una licencia Premium?**
 
-**R:** Vea [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para obtener una respuesta a esta pregunta.
+**R:** Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory.
 
 ---
 
 **P: ¿Cuándo se deberían ver los datos de actividades después de obtener una licencia Premium?**
 
-**R:** Si dispone ya de datos de actividades como una licencia gratuita, entonces puede ver los mismos datos. Si no tiene ningún dato, tardará uno o dos días.
+**R:** Si ya tiene datos de actividades como una licencia gratuita, entonces puede verlos inmediatamente. Si no tiene ningún dato, tardarán uno o dos días en mostrarse en los informes.
 
 ---
 
 **P: ¿Puedo ver los datos del último mes después de obtener una licencia de Azure AD Premium?**
 
-**R:** Si ha cambiado recientemente a una versión Premium (incluida una versión de prueba), inicialmente, puede ver datos de hasta siete días. Cuando se acumulan datos, verá hasta 30 días.
+**R:** Si ha cambiado recientemente a una versión Premium (incluida una versión de prueba), inicialmente, puede ver datos de hasta siete días. Cuando se acumulan datos, puede ver los datos de los últimos 30 días.
 
 ---
 
-**P: ¿Necesito ser administrador global para consultar los inicios de sesión de actividad en Azure Portal o para obtener datos a través de la API?**
+**P: ¿Tengo que ser administrador global para ver los inicios de sesión de actividad en Azure Portal o para obtener datos mediante la API?**
 
-**R:** No. Para obtener datos de informes en Azure Portal o a través de la API, debe ser **Lector de seguridad**, **Administrador de seguridad** o **Administrador global**.
+**R:** No, también puede acceder a los datos de informes mediante el portal o por medio de la API si es un **Lector de seguridad** o un **Administrador de seguridad** en el inquilino. Por supuesto, los **Administradores globales** también tendrá acceso a estos datos.
 
 ---
 
@@ -70,16 +70,21 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: ¿Cuál es la retención de datos de los registros de actividad (auditoría e inicios de sesión) en Azure Portal?** 
 
-**R.:** Consulte [durante cuánto tiempo se almacenan los datos recopilados?](reference-reports-data-retention.md#q-for-how-long-is-the-collected-data-stored) en una respuesta a esta pregunta.
+**R:** En la tabla siguiente se muestra el período de retención de datos de los registros de actividad. Para más información, consulte las [directivas de retención de datos para informes de Azure AD](reference-reports-data-retention.md).
+
+| Informe                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--                 | :--                 |
+| Registros de auditoría             | 7 días        | 30 días             | 30 días             |
+| Inicios de sesión               | N/D           | 30 días             | 30 días             |
+| Uso de Azure MFA        | 30 días       | 30 días             | 30 días             |
 
 --- 
 
 **P: ¿Cuánto tiempo debo esperar para poder ver los datos de actividad después de haber completado una tarea?**
 
-**R:** Los registros de actividad de auditoría tienen una latencia que oscila entre 15 minutos y una hora. Los registros de actividad de inicio de sesión pueden tardar desde 15 minutos hasta 2 horas para algunos registros.
+**R:** Los registros de auditoría tienen una latencia que oscila entre 15 minutos y una hora. Los registros de actividad de inicio de sesión pueden tardar desde 15 minutos hasta 2 horas para algunos registros.
 
 ---
-
 
 **P: ¿Puedo obtener información del registro de actividad de Office 365 a través de Azure Portal?**
 
@@ -87,10 +92,9 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 ---
 
-
 **P: ¿Qué API utilizo para obtener información sobre los registros de actividad de Office 365?**
 
-**R:** Use las API de Administración de Office 365 para acceder a los [registros de actividad de Office 365 a través de una API](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview).
+**R:** Use las [API de Administración de Office 365](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview) para acceder a los registros de actividad de Office 365 a través de una API.
 
 ---
 
@@ -102,39 +106,27 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 ## <a name="risky-sign-ins"></a>Inicios de sesión no seguros
 
-**P: Hay un evento de riesgo en Identity Protection, pero no veo el inicio de sesión correspondiente en todos los inicios de sesión. ¿Es normal?**
+**P: Hay un evento de riesgo en Identity Protection, pero no veo el inicio de sesión correspondiente en el informe de inicios de sesión. ¿Es normal?**
 
 **R.:** Sí, Identity Protection evalúa el riesgo de todos los flujos de autenticación si es interactivo o no interactivo. Sin embargo, el informe únicamente de todos los inicios de sesión muestra los inicios de sesión interactivos.
 
 ---
 
-**P: ¿Cómo puedo descargar el informe Usuarios marcados en riesgo en Azure Portal?**
-
-**R:**: La opción para descargar el informe *Usuarios marcados en riesgo* se agregará próximamente.
-
----
-
 **P: ¿Cómo puedo sé por qué un inicio de sesión o un usuario se marcó como en riesgo en Azure Portal?**
 
-**R:**: Los clientes de la edición Premium pueden obtener más información sobre los eventos de riesgos subyacentes haciendo clic en el usuario en "Usuarios marcados en riesgo" o haciendo clic en "Inicios de sesión en riesgo". Los clientes de edición gratuita y básica pueden ver los inicios de sesión y usuarios en riesgo sin la información de eventos de riesgo subyacentes.
+**R:** Si tiene una suscripción a **Azure AD Premium**, puede aprender más sobre los eventos de riesgo subyacentes mediante la selección de un usuario en **Usuarios marcados en riesgo** o la selección de un registro en el informe **Inicios de sesión de riesgo**. Si tiene una suscripción **gratuita** o **básica**, puede ver los usuarios en riesgo y los informes de inicios de sesión en riesgo, pero no puede ver la información de los eventos de riesgo subyacentes.
 
 ---
 
 **P: ¿Cómo se calculan las direcciones IP en los inicios de sesión y en el informe de inicios de sesión de riesgo?**
 
-**R:** Las direcciones IP se emiten de forma que no haya ninguna conexión definitiva entre una dirección IP y donde se encuentre físicamente el equipo con esa dirección. Esto se complica por factores tales como proveedores de dispositivos móviles y VPN que emiten direcciones IP desde grupos centrales, a menudo muy lejos de donde se usa realmente el dispositivo del cliente. Dado lo anterior, la conversión de la dirección IP en una ubicación física es un esfuerzo notable basado en seguimientos, datos de registro, búsquedas inversas y otra información. 
+**R:** Las direcciones IP se emiten de forma que no haya ninguna conexión definitiva entre una dirección IP y donde se encuentre físicamente el equipo con esa dirección. La asignación de direcciones IP se complica aún más por factores tales como los proveedores de dispositivos móviles y VPN que emiten direcciones IP desde grupos centrales, a menudo muy lejos de donde se usa realmente el dispositivo del cliente. Actualmente, la conversión de la dirección IP en una ubicación física en los informes de Azure AD es un esfuerzo notable basado en seguimientos, datos del Registro, búsquedas inversas y otra información. 
 
 ---
 
 **P: ¿Qué significa el evento de riesgo "Inicio de sesión con riesgo adicional detectado"?**
 
-**R.:** Para proporcionarle un detalle de todos los inicios de sesión con riesgo en su entorno, mostramos el evento de riesgo "Inicio de sesión con riesgo adicional detectado" en los inicios de sesión debido a detecciones exclusivas para los suscriptores de Azure AD Identity Protection.
-
----
-
-**P: ¿Qué significa el evento de riesgo "Inicio de sesión con riesgo adicional detectado"?**
-
-**R.:** Para proporcionarle un detalle de todos los inicios de sesión con riesgo en su entorno, mostramos el evento de riesgo "Inicio de sesión con riesgo adicional detectado" en los inicios de sesión debido a detecciones exclusivas para los suscriptores de Azure AD Identity Protection.
+**R:** Para proporcionarle información detallada de todos los inicios de sesión en riesgo en su entorno, "Inicio de sesión con riesgo adicional detectado" funciona como marcador de posición para los inicios de sesión en detecciones exclusivas de los suscriptores de Azure AD Identity Protection.
 
 ---
 

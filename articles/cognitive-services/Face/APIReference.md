@@ -1,7 +1,21 @@
-title: Referencia de API: API de Face titleSuffix: Azure Cognitive Services description: La referencia de API proporciona información sobre las API de Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management y Face Algorithms.
-services: cognitive-services author: SteveMSFT manager: cgronlun
-
-ms.service: cognitive-services ms.component: face-api ms.topic: reference ms.date: 03/01/2018 ms.author: sbowles
+---
+title: 'Referencia de API: Face API'
+titleSuffix: Azure Cognitive Services
+description: La referencia de API proporciona información sobre las API Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management y Face Algorithms.
+services: cognitive-services
+author: SteveMSFT
+manager: cgronlun
+ms.service: cognitive-services
+ms.component: face-api
+ms.topic: reference
+ms.date: 03/01/2018
+ms.author: sbowles
+ms.openlocfilehash: 283a042bb8ea32f8f6db9bebb211bc2762a3a4c1
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578083"
 ---
 # <a name="api-reference"></a>Referencia de API
 

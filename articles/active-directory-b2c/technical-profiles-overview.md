@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fe7d18cdfa88988e1c7dda7f1120d4750fa52e8c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269435"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578491"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
@@ -38,8 +38,7 @@ Un perfil técnico posibilita estos tipos de escenarios:
 - [SAML2](saml-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo SAML.
 - [Autoaserción](self-asserted-technical-profile.md): interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión, representar la página de registro o restablecer la contraseña.
 - **WsFed**: federación con cualquier proveedor de identidades del protocolo WsFed. 
-- **Administración de sesiones**: administración de distintos tipos de sesiones. 
-- **Proveedor de contexto de recorrido del usuario**
+- [Administración de sesiones](active-directory-b2c-reference-sso-custom.md): administración de distintos tipos de sesiones. 
 - **Application Insights**
 
 ## <a name="technical-profile-flow"></a>Flujo del perfil técnico

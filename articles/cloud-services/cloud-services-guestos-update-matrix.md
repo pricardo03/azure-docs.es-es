@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: raiye
-ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 35888b205822e5d7c9576c9855610bad814901b6
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978747"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346174"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -42,6 +42,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No está seguro de cómo actualizar el SO invitado? Compruebe [esto][cloud updates].
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+
+###### <a name="november-8-2018"></a>**8 de noviembre de 2018**
+Se ha publicado el SO invitado de octubre.
 
 ###### <a name="october-12-2018"></a>**12 de octubre de 2018**
 Se ha publicado el SO invitado de septiembre.
@@ -74,8 +77,9 @@ Versión de .NET Framework instalada: 3.5, 4.6.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-5.24_201810-01 |8 de noviembre de 2018 |Post 5.26 |
 | WA-GUEST-OS-5.23_201809-01 |12 de octubre de 2018 |Post 5.25 |
-| WA-GUEST-OS-5.22_201808-01 |12 de septiembre de 2018 |Post 5.24 |
+|~~WA-GUEST-OS-5.22_201808-01~~ |12 de septiembre de 2018 |8 de noviembre de 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 |~~WA-GUEST-OS-5.19_201805-01~~ |1 de junio de 2018 |3 de agosto de 2018 |
@@ -88,8 +92,9 @@ Versión de .NET Framework instalada: 3.5, 4.5.1
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-4.59_201810-01 |8 de noviembre de 2018 |Post 4.61 |
 | WA-GUEST-OS-4.58_201809-01 |12 de octubre de 2018 |Post 4.60 |
-| WA-GUEST-OS-4.57_201808-01 |12 de septiembre de 2018 |Post 4.59 |
+|~~WA-GUEST-OS-4.57_201808-01~~ |12 de septiembre de 2018 |8 de noviembre de 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 |~~WA-GUEST-OS-4.54_201805-01~~ |1 de junio de 2018 |3 de agosto de 2018 |
@@ -102,8 +107,9 @@ Versión de .NET Framework instalada: 3.5, 4.5
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-3.66_201810-01 |8 de noviembre de 2018 |Post 3.68 |
 | WA-GUEST-OS-3.65_201809-01 |12 de octubre de 2018 |Post 3.67 |
-| WA-GUEST-OS-3.64_201808-01 |12 de septiembre de 2018 |Post 3.66 |
+|~~WA-GUEST-OS-3.64_201808-01~~ |12 de septiembre de 2018 |8 de noviembre de 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 |~~WA-GUEST-OS-3.61_201805-01~~ |1 de junio de 2018 |3 de agosto de 2018 |
@@ -116,8 +122,9 @@ Versión de .NET Framework instalada: 3.5 (incluye 2.0 y 3.0)
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-2.79_201810-01 |8 de noviembre de 2018 |Post 2.81 |
 | WA-GUEST-OS-2.78_201809-01 |12 de octubre de 2018 |Post 2.80 |
-| WA-GUEST-OS-2.77_201808-01 |12 de septiembre de 2018 |Post 2.79 |
+|~~WA-GUEST-OS-2.77_201808-01~~ |12 de septiembre de 2018 |8 de noviembre de 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 |~~WA-GUEST-OS-2.74_201805-01~~ |1 de junio de 2018 |3 de agosto de 2018|
@@ -148,13 +155,13 @@ Una vez que pase la fecha de **expiración**, cualquier servicio en la nube que 
 Las familias del SO invitado se basan en versiones lanzadas de Microsoft Windows Server. El SO invitado es el sistema operativo subyacente en el que se ejecuta Azure Cloud Services. Cada SO invitado tiene un número de familia, versión y lanzamiento.
 
 * **Guest OS family**  
-  Versión del sistema operativo Windows Server en la que se basa un SO invitado. Por ejemplo, la *familia 3* se basa en Windows Server 2012.
+   Versión del sistema operativo Windows Server en la que se basa un SO invitado. Por ejemplo, la *familia 3* se basa en Windows Server 2012.
 * **Versión del SO invitado**  
   Corresponde a la imagen de la familia del SO invitado, más las revisiones pertinentes del [Centro de respuestas de seguridad de Microsoft (MSRC)][msrc] disponibles en la fecha en que se genera la nueva versión del SO invitado. Es posible que no se incluyan todas las revisiones.
 
     Los números empiezan por 0 y se incrementan en 1 cada vez que se agrega un nuevo conjunto de actualizaciones. Solo se muestran los ceros finales si es importante. Es decir, la versión 2.10 es una versión mucho más posterior y diferente que la versión 2.1.
 * **Lanzamiento del SO invitado**  
-  Relanzamiento de una versión de SO invitado. Un relanzamiento se produce si Microsoft encuentra, durante las pruebas, problemas que requieran cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. Azure Portal solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
+   Relanzamiento de una versión de SO invitado. Un relanzamiento se produce si Microsoft encuentra, durante las pruebas, problemas que requieran cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. Azure Portal solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
 
 En el ejemplo siguiente, 2 es la familia, 12 es la versión y "rel2" es el lanzamiento.
 

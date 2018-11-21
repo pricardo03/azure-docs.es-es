@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 10/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4e0f762a69451ce0dc9ec00db5992fce0707f275
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282448"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300682"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -50,7 +50,7 @@ El nivel Event Hubs estándar admite actualmente un período de retención máxi
 ### <a name="how-do-i-monitor-my-event-hubs"></a>¿Cómo puedo supervisar mi instancia de Event Hubs?
 Event Hubs emite métricas exhaustivas que proporcionan el estado de los recursos a [Azure Monitor](../azure-monitor/overview.md). También permite evaluar el estado general del servicio Event Hubs, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Obtenga información sobre la supervisión que se ofrece para [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-## <a name="apache-kakfa-integration"></a>Integración de Apache Kafka
+## <a name="apache-kafka-integration"></a>Integración de Apache Kafka
 
 ### <a name="how-do-i-integrate-my-existing-kafka-application-with-event-hubs"></a>¿Cómo se puede integrar una aplicación existente de Kafka con Event Hubs?
 Event Hubs proporciona un punto de conexión de Kafka que las aplicaciones basadas en Apache Kafka existentes pueden usar. Basta con un cambio de configuración para poder disfrutar de la experiencia de PaaS Kafka. Proporciona una alternativa a ejecutar su propio clúster de Kafka. Event Hubs admite Apache Kafka 1.0 y versiones del cliente más recientes y funciona con marcos, herramientas y aplicaciones de Kafka existentes. Para obtener más información, consulte [Event Hubs for Kafka repo](https://github.com/Azure/azure-event-hubs-for-kafka) (Event Hubs para el repositorio de Kafka).

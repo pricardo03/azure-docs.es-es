@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7d044559d72b07dc86a5ee1c2269452a9059de61
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f2fc320d0d66e19ec8a1e591377c482a7ec64d9
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471516"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626140"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
@@ -552,7 +552,7 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | --- | --- | --- |
 > | . | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Elimina el recurso del directorio B2C. |
 > | . | Microsoft.AzureActiveDirectory/b2cDirectories/read | Comprueba el recurso del directorio B2C. |
-> | . | Microsoft.AzureActiveDirectory/b2cDirectories/write | Crea o actualiza el recurso del directorio B2C. |
+> | . | Microsoft.AzureActiveDirectory/b2cDirectories/write | Creación o actualización de un recurso del directorio B2C |
 > | . | Microsoft.AzureActiveDirectory/operations/read | Lee todas las operaciones de API disponibles para el proveedor de recursos Microsoft.AzureActiveDirectory. |
 > | . | Microsoft.AzureActiveDirectory/register/action | Registra la suscripción para el proveedor de recursos Microsoft.AzureActiveDirectory. |
 
@@ -975,7 +975,7 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.ClassicNetwork/networkSecurityGroups/delete | Elimina el grupo de seguridad de red. |
 > | . | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | Lee el estado de la operación del grupo de seguridad de red. |
 > | . | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de los grupos de seguridad de red. |
-> | . | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de los grupos de seguridad de red; esta operación se complementa con el proveedor de recursos de Insights. |
+> | . | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de los grupos de seguridad de red; esta operación se complementa con el proveedor de recursos de Insights. | 
 > | . | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Obtiene los eventos del grupo de seguridad de red. |
 > | . | Microsoft.ClassicNetwork/networkSecurityGroups/read | Obtiene el grupo de seguridad de red. |
 > | . | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete | Elimina la regla de seguridad. |

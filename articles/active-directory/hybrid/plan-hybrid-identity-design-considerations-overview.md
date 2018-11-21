@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d916e884e7764a1ba5ebaf224750f38e7d7673e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308664"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344889"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Consideraciones de diseño de identidad híbrida de Azure Active Directory
 Los dispositivos basados en el consumidor proliferan en el mundo empresarial y las aplicaciones de software como servicio (SaaS) basadas en la nube son fáciles de adoptar. Como resultado, resulta difícil mantener el control de acceso a las aplicaciones de los usuarios entre centros de datos internos y plataformas en la nube.  
@@ -62,6 +62,6 @@ Al final, obtendrá el diseño que mejor se adapte a sus necesidades y solo desp
 | Plan para mejorar la seguridad de los datos mediante una solución de identidad sólida |[Determinación de los requisitos de protección de datos](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Determinación de los requisitos de administración de contenido](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Determinación de los requisitos de control de acceso](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Determinación de los requisitos de respuesta a incidentes](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Definición de la estrategia de protección de datos](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | Plan para el ciclo de vida de identidad híbrida |[Determinación de las tareas de administración de identidades híbridas](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Administración de la sincronización](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Determinación de la estrategia de adopción de administración de identidad híbrida](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
-## <a name="download-this-guide"></a>Descargar esta guía
-Puede descargar una versión pdf de la guía de consideraciones de diseño de identidad híbrida en la [galería de Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
+## <a name="next-steps"></a>Pasos siguientes
+[Determinación de los requisitos de identidad](plan-hybrid-identity-design-considerations-business-needs.md)
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f344424c372f65cd8bfe5779cc65f0e866e58a11
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252554"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633978"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Uso de entradas alternativas
 
@@ -137,8 +137,10 @@ Se van a agregar entradas alternativas al primer diálogo:
     3. Haga clic en Submit Changes (Enviar cambios).
 4. Haga clic para seleccionar "denver" en el panel izquierdo:
     1. En Add alternative input (Agregar entrada alternativa), escriba "for denver" (Para Denver).
-    2. Escriba "forecast for austin" (Previsión para Austin).
-        - Se resalta la frase completa. Haga clic en la frase y luego en la x de color rojo. Luego seleccione Austin y haga clic en la ciudad.
+    1. Escriba "forecast for austin" (Previsión para Austin).
+        - Aparece un mensaje de error: "Text Variations must contain the same detected Entities as the original input text" (Las variaciones de texto deben contener las mismas entidades detectadas que el texto de entrada original).
+        - Haga clic en la palabra "austin".
+        - Aparecerá un mensaje emergente que le permite seleccionar la entidad para "austin". Haga clic en **Ciudad**.
         - Haga clic en Submit Changes (Enviar cambios).
     1. Haga clic en Done (Listo), lo que provocará el reentrenamiento del modelo.
 

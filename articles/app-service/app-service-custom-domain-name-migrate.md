@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049983"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300173"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migración de un nombre de DNS activo a Azure App Service
 
@@ -60,6 +60,13 @@ El registro TXT que necesita depende en el registro DNS que desea migrar. Para o
 | \* (comodín) | _awverify.\*_ | _&lt;nombreaplic&gt;.azurewebsites.net_ |
 
 En la página de registros DNS, tenga en cuenta el tipo de registro del nombre DNS que desee migrar. App Service es compatible con las asignaciones de CNAME y registros A.
+
+> [!NOTE]
+> Para ciertos proveedores, como CloudFlare, `awverify.*` no es un registro válido. Use solo `*` en su lugar.
+
+> [!NOTE]
+> Los registros con el carácter comodín `*` no validarán los subdominios con un registro CNAME existente. Es posible que deba crear explícitamente un registro TXT para cada subdominio.
+
 
 ### <a name="enable-the-domain-for-your-app"></a>Habilitación del dominio para la aplicación
 

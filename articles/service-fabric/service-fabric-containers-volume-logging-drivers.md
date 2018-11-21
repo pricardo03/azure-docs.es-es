@@ -3,7 +3,7 @@ title: Controlador de volúmenes de Azure Files en Service Fabric (versión prel
 description: Service Fabric admite el uso de Azure Files para realizar copias de seguridad de los volúmenes desde su contenedor. Esto se encuentra actualmente en versión preliminar.
 services: service-fabric
 documentationcenter: other
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: twhitney, subramar
+ms.openlocfilehash: fabb44f9369dd7b7050ae353ab94263f140aae48
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239379"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346412"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de volúmenes de Azure Files en Service Fabric (versión preliminar)
 El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) para los contenedores de Docker. Este complemento de volúmenes de Docker se empaqueta como aplicación de Service Fabric que se puede implementar en clústeres de Service Fabric. Su objetivo es proporcionar volúmenes basados en Azure Files a otras aplicaciones de contenedor de Service Fabric que se implementan en el clúster.
@@ -166,12 +166,11 @@ En el elemento **Volume** en el fragmento de código anterior, el complemento de
 - **Destination**: esta etiqueta es la ubicación a la que se asigna el volumen dentro del contenedor en ejecución. Por lo tanto, el destino no puede ser una ubicación que ya exista dentro del contenedor.
 
 Como se muestra en los elementos **DriverOption** en el fragmento de código anterior, el complemento de volúmenes de Azure Files admite las siguientes opciones de controlador:
+- **shareName**: nombre del recurso compartido de archivos de Azure Files que proporciona el volumen para el contenedor.
+- **storageAccountName**: nombre de la cuenta de almacenamiento de Azure que contiene el recurso compartido de archivos de Azure Files.
+- **storageAccountKey**: clave de acceso de la cuenta de almacenamiento de Azure que contiene el recurso compartido de archivos de Azure Files.
+- **storageAccountFQDN**: nombre de dominio asociado con la cuenta de almacenamiento. Si no se especifica storageAccountFQDN, el nombre de dominio se formará utilizando el sufijo predeterminado (.file.core.windows.net) con storageAccountName.  
 
-Opciones de controlador admitidas:
-- **shareName**: nombre del recurso compartido de archivos de Azure Files que proporciona el volumen para el contenedor
-- **storageAccountName**: nombre de la cuenta de almacenamiento de Azure que contiene el recurso compartido de archivos de Azure Files
-- **storageAccountKey**: clave de acceso de la cuenta de almacenamiento de Azure que contiene el recurso compartido de archivos de Azure Files
-- **storageAccountFQDN**: nombre de dominio asociado con la cuenta de almacenamiento. Si no se especifica storageAccountFQDN, el nombre de dominio se formará utilizando el sufijo predeterminado (.file.core.windows.net) con storageAccountName. 
     ```xml
     - Example1: 
         <DriverOption Name="shareName" Value="myshare1" />
@@ -184,6 +183,7 @@ Opciones de controlador admitidas:
         <DriverOption Name="storageAccountKey" Value="mykey2" />
         <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
     ```
+
 ## <a name="using-your-own-volume-or-logging-driver"></a>Uso de su propio controlador de volumen o registro
 Service Fabric también permite el uso de sus propios controladores de [volumen](https://docs.docker.com/engine/extend/plugins_volume/) o de [registro](https://docs.docker.com/engine/admin/logging/overview/) personalizados. Si el controlador de volumen/registro de Docker no está instalado en el clúster, puede instalarlo manualmente mediante los protocolos RDP/SSH. Puede realizar la instalación con estos protocolos mediante un [script de inicio de conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o un [script SetupEntryPoint](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 

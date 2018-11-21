@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: b9b6c67930e251302f397e199c65f949997a25cf
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 72d324e0b5fe0c50dadc076306c9167c0492290a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637989"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625596"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas de Azure Storage en Azure Monitor
 
@@ -404,6 +404,10 @@ Las métricas heredades están disponibles en paralelo con las métricas de Azur
 **¿Admite Azure Storage métricas de discos administrados o no administrados?**
 
 No, Azure Compute admite las métricas en discos. Consulte el [artículo](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) para más información.
+
+**¿Cómo asignar y migrar métricas clásicas con nuevas métricas?**
+
+Puede encontrar asignaciones detalladas entre métricas clásicas y nuevas métricas en [Migración de las métricas de Azure Storage](./storage-metrics-migration.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

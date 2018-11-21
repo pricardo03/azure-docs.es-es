@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee92a5dd474cdf4f32ed2c7327d732a2cfbbbf79
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238836"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632941"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Solución de problemas al usar el SDK de Java Async con las cuentas de la API de SQL de Azure Cosmos DB
 En este artículo se tratan problemas comunes, soluciones alternativas, pasos de diagnóstico y herramientas al utilizar el [SDK de Java Async](sql-api-sdk-async-java.md) con las cuentas de la API de SQL de Azure Cosmos DB.
@@ -148,7 +148,7 @@ El certificado HTTPS del emulador de Cosmos DB es un certificado autofirmado. Pa
 
 ## <a name="enable-client-sice-logging"></a>Habilitar el registro del SDK de cliente
 
-El SDK de Async Java usa SLF4j como fachada de registro que admite el registro en plataformas populares como log4j y logback.
+El SDK de Java Async usa SLF4j como fachada de registro que admite el registro en plataformas populares como log4j y logback.
 
 Por ejemplo, si quiere usar log4j como plataforma de registro, agregue las siguientes bibliotecas en la classpath de Java:
 

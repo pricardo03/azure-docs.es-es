@@ -1,6 +1,6 @@
 ---
-title: Ejecución de trabajos de Sqoop con .NET y HDInsight en Azure
-description: Aprenda a usar el SDK de .NET para HDInsight para ejecutar tareas de importación y exportación de Sqoop entre un clúster de Hadoop y una base de datos SQL Azure.
+title: Ejecución de trabajos de Apache Sqoop con .NET y HDInsight en Azure
+description: Aprenda a usar el SDK de .NET para HDInsight para ejecutar tareas de importación y exportación de Apache Sqoop entre un clúster de Apache Hadoop y una base de datos SQL Azure.
 keywords: trabajo de Sqoop
 ms.reviewer: jasonh
 services: hdinsight
@@ -10,17 +10,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 423934dee0b490bb12522cec6d37393a1ec5e2f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014880"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633045"
 ---
-# <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Ejecución de trabajos de Sqoop con el SDK de .NET para Hadoop en HDInsight
+# <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Ejecución de trabajos de Apache Sqoop con el SDK de .NET para Apache Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Aprenda a usar el SDK de .NET para Azure HDInsight para ejecutar trabajos de Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una base de datos SQL Azure o SQL Server.
+Aprenda a usar el SDK de .NET para Azure HDInsight para ejecutar trabajos de Apache Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una base de datos SQL Azure o SQL Server.
 
 > [!NOTE]
 > Aunque puede usar los procedimientos descritos en este artículo con cualquier clúster de HDInsight basado en Windows o Linux, solo funcionan desde un cliente de Windows. Para elegir otros métodos, use el selector de fichas de la parte superior de este artículo.
