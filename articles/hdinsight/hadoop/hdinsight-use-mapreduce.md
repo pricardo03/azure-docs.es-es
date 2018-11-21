@@ -1,6 +1,6 @@
 ---
-title: MapReduce con Hadoop en HDInsight
-description: Obtenga información sobre cómo ejecutar trabajos de MapReduce en Hadoop en clústeres de HDInsight.
+title: MapReduce con Apache Hadoop en HDInsight
+description: Obtenga información sobre cómo ejecutar trabajos de MapReduce en Apache Hadoop en clústeres de HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: f9dea4c965f64576f839a39b813e4361b166ffe6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015169"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632669"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Uso de MapReduce en Hadoop en HDInsight
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Uso de MapReduce con Apache Hadoop en HDInsight
 
 Obtenga información sobre cómo ejecutar trabajos de MapReduce en clústeres de HDInsight. Utilice la tabla siguiente para conocer las distintas formas de usar MapReduce con HDInsight:
 
@@ -32,7 +32,7 @@ Obtenga información sobre cómo ejecutar trabajos de MapReduce en clústeres de
 
 ## <a id="whatis"></a>Qué es MapReduce
 
-MapReduce de Hadoop es un marco de software para escribir trabajos que procesan enormes cantidades de datos. Los datos de entrada se dividen en fragmentos independientes. Cada fragmento se procesa en paralelo en todos los nodos del clúster. Un trabajo de MapReduce consta de dos funciones:
+MapReduce de Apache Hadoop es un marco de software para escribir trabajos que procesan enormes cantidades de datos. Los datos de entrada se dividen en fragmentos independientes. Cada fragmento se procesa en paralelo en todos los nodos del clúster. Un trabajo de MapReduce consta de dos funciones:
 
 * **Asignador**: consume datos de entrada, los analiza (normalmente con un filtro y operaciones de ordenación) y emite tuplas (pares de clave-valor)
 

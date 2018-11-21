@@ -1,6 +1,6 @@
 ---
-title: Ejecución de trabajos de Sqoop con PowerShell y Azure HDInsight
-description: Aprenda a utilizar Azure PowerShell desde una estación de trabajo para ejecutar la importación y la exportación en Sqoop entre un clúster de Hadoop y una instancia de Azure SQL Database.
+title: Ejecución de trabajos de Apache Sqoop con PowerShell y Azure HDInsight
+description: Aprenda a utilizar Azure PowerShell desde una estación de trabajo para ejecutar la importación y exportación en Apache Sqoop entre un clúster de Apache Hadoop y una base de datos de Azure SQL.
 ms.reviewer: jasonh
 services: hdinsight
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 34c857ceef385e2089937b64d4f88dd434a347dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 23dae8a6f0651ee6b753c4b29112eb733103b9e1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010667"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631451"
 ---
-# <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>Ejecución de trabajos de Sqoop con Azure PowerShell para Hadoop en HDInsight
+# <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Ejecución de trabajos de Apache Sqoop con Azure PowerShell para Apache Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Aprenda a utilizar Azure PowerShell para ejecutar trabajos de Sqoop en Azure HDInsight con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una instancia de Azure SQL Database o una base de datos de SQL Server.
+Aprenda a utilizar Azure PowerShell para ejecutar trabajos de Apache Sqoop en Azure HDInsight con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una instancia de Azure SQL Database o una base de datos de SQL Server.
 
 > [!NOTE]
 > Aunque puede usar los procedimientos descritos en este artículo con cualquier clúster de HDInsight basado en Windows o Linux, solo funcionan desde un cliente de Windows. Para elegir otros métodos, use el selector de fichas de la parte superior de este artículo. 

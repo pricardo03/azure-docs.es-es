@@ -1,6 +1,6 @@
 ---
-title: Ejecución de consultas de Hive mediante el SDK de HDInsight para .NET en Azure
-description: Obtenga información sobre cómo enviar trabajos de Hadoop a HDInsight Hadoop de Azure mediante el SDK de .NET de HDInsight.
+title: 'Ejecución de consultas de Apache Hive mediante el SDK de HDInsight para .NET: Azure'
+description: Obtenga información sobre cómo enviar trabajos de Apache Hadoop a HDInsight Apache Hadoop de Azure mediante el SDK de .NET de HDInsight.
 ms.reviewer: jasonh
 services: hdinsight
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5cababaa7c808969e6e24a70581f54639f269621
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 790cc11e3d4cf1d0260b1099efd82bdddec85785
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016019"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634573"
 ---
-# <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Ejecución de consultas de Hive mediante el SDK de .NET de HDInsight
+# <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Ejecución de consultas de Apache Hive mediante el SDK de .NET para HDInsight
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Obtenga información sobre cómo enviar consultas de Hive mediante el SDK de .NET de HDInsight. Escriba un programa C# para enviar una consulta de Hive para enumerar tablas de Hive y mostrar los resultados.
+Obtenga información sobre cómo enviar consultas de Apache Hive mediante el SDK de .NET para HDInsight. Escriba un programa C# para enviar una consulta de Hive para enumerar tablas de Hive y mostrar los resultados.
 
 > [!NOTE]
 > Los pasos de este artículo deben realizarse desde un cliente de Windows. Para obtener información sobre cómo usar un cliente Linux, OS X o Unix para trabajar con Hive, utilice el selector de pestañas que se muestra en la parte superior del artículo.
@@ -27,7 +27,7 @@ Obtenga información sobre cómo enviar consultas de Hive mediante el SDK de .NE
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este artículo, debe tener los siguientes elementos:
 
-* **Un clúster de Hadoop en HDInsight**. Consulte [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Un clúster de Apache Hadoop en HDInsight**. Consulte [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](apache-hadoop-linux-tutorial-get-started.md).
 
     > [!WARNING]
     > A partir del 15 de septiembre de 2017, el SDK de .NET para HDInsight solo admite devolver resultados de consulta de Hive desde cuentas de Azure Storage. Si usa este ejemplo con un clúster de HDInsight que utilice Azure Data Lake Store como almacenamiento principal, no se pueden recuperar resultados de búsqueda mediante el SDK de .NET.

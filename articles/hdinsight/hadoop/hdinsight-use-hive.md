@@ -1,6 +1,6 @@
 ---
 title: ¿Qué son Apache Hive y HiveQL en Azure HDInsight?
-description: Apache Hive es un sistema de almacenamiento de datos para Hadoop. Puede consultar datos almacenados en Hive mediante HiveQL, que se parece a Transact-SQL. En este documento, aprenda a usar Hive y HiveQL con Azure HDInsight.
+description: Apache Hive es un sistema de almacenamiento de datos para Apache Hadoop. Puede consultar datos almacenados en Hive mediante HiveQL, que se parece a Transact-SQL. En este documento, aprenda a usar Hive y HiveQL con Azure HDInsight.
 keywords: hiveql,qué es hive,hadoop hiveql,cómo usar hive,aprender hive,qué es hive
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241113"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633723"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 
-[Apache Hive](http://hive.apache.org/) es un sistema de almacenamiento de datos para Hadoop. Hive hace posibles el resumen de los datos, las consultas y el análisis de datos. Las consultas de Hive se escriben en HiveQL, que es un lenguaje de consulta similar a SQL.
+[Apache Hive](http://hive.apache.org/) es un sistema de almacenamiento de datos para Apache Hadoop. Hive hace posibles el resumen de los datos, las consultas y el análisis de datos. Las consultas de Hive se escriben en HiveQL, que es un lenguaje de consulta similar a SQL.
 
 Hive le permite proyectar la estructura del proyecto en datos que en gran medida no están estructurados. Después de definir la estructura, puede usar HiveQL para consultar los datos sin conocimientos de Java ni MapReduce.
 

@@ -9,19 +9,19 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 02a77ef9589a42a6f33087ba7e22efc3144a8f2c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973565"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634471"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Administración de clústeres de HDInsight con Enterprise Security Package
 Aprenda sobre los usuarios y roles de Enterprise Security Package (ESP) de HDInsight y cómo administrar clústeres de ESP.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Uso de VSCode para vincular a un clúster unido a un dominio
 
-Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com).
+Puede vincular un clúster normal mediante un nombre de usuario administrado de Apache Ambari; también puede vincular un clúster de Apache Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com).
 1. Para abrir la paleta de comandos, seleccione **CTRL + MAYÚS + P** y, a continuación, escriba **HDInsight: Unlink a cluster**.
 
    ![comando de clúster de vinculación](./media/apache-domain-joined-manage/link-cluster-command.png)

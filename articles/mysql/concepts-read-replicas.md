@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/13/2018
+ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412455"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632567"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
@@ -60,12 +60,15 @@ Los servidores de réplica se crean utilizando las mismas opciones de configurac
 - Período de retención de copia de seguridad
 - Opción de redundancia de copia de seguridad
 - Versión del motor MySQL
+- Reglas de firewall
 
 Una vez creada una réplica, puede cambiar el plan de tarifa (excepto hacia Basic y desde Basic), la generación informática, los núcleos virtuales, el almacenamiento y la retención de copias de seguridad por separado del servidor maestro.
 
 ### <a name="master-server-configuration"></a>Configuración del servidor maestro
 
-Si se actualiza la configuración del servidor maestro (por ejemplo, los núcleos virtuales o el almacenamiento), la configuración de las réplicas también debe actualizarse a valores iguales o superiores. Sin esto, el servidor de réplicas no podrá mantener los cambios realizados en el servidor maestro y es posible que se bloqueen. 
+Si se actualiza la configuración del servidor maestro (por ejemplo, los núcleos virtuales o el almacenamiento), la configuración de las réplicas también debe actualizarse a valores iguales o superiores. Sin esto, el servidor de réplicas no podrá mantener los cambios realizados en el servidor maestro y es posible que se bloqueen.
+
+Las nuevas reglas de firewall que se agregan al servidor maestro una vez creado un servidor de réplica no se replican en la réplica. La réplica debe actualizarse con esta nueva regla de firewall.
 
 ### <a name="deleting-the-master-server"></a>Eliminación del servidor maestro
 
@@ -87,7 +90,4 @@ Los usuarios del servidor principal se replican en las réplicas de lectura. Sol
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante Azure Portal](howto-read-replicas-portal.md).
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- Obtenga información sobre cómo [crear y administrar réplicas de lectura mediante la CLI de Azure](howto-read-replicas-cli.md).

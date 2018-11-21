@@ -1,6 +1,6 @@
 ---
-title: 'Uso de C# con Hive y Pig en Hadoop en HDInsight: Azure'
-description: Vea cómo usar funciones definidas por el usuario de C# con el streaming de Hive y Pig en HDInsight de Azure.
+title: 'Uso de C# con Apache Hive y Apache Pig en Apache Hadoop en HDInsight: Azure'
+description: Vea cómo usar funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8011a9b8009abd2688d76dc3f1cda84ca453fde1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2ef88fff1313a0e7b1aa0abb502629512daaf636
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014693"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633842"
 ---
-# <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Usar funciones definidas por el usuario de C# con el streaming de Hive y Pig en Hadoop de HDInsight
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Usar funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Apache Hadoop de HDInsight
 
-Aprenda a usar funciones definidas por el usuario (UDF) de C# con Apache Hive y Pig en HDInsight.
+Aprenda a usar funciones definidas por el usuario (UDF) de C# con Apache Hive y Apache Pig en HDInsight.
 
 > [!IMPORTANT]
 > Los pasos de este tutorial se aplican a los clústeres de HDInsight basados tanto en Linux como en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte el artículo relativo al [control de versiones de componentes de HDInsight](../hdinsight-component-versioning.md).

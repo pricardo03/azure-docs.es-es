@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: de543798702137905ee5243c6ca8e502152f9c44
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854956"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634386"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -112,7 +112,7 @@ steps:
       [property]: [value]
 ```
 
-El tipo de paso `build` admite los siguientes parámetros:
+El tipo de paso `build` admite los parámetros de la tabla siguiente. El tipo de paso `build` también es compatible con todas las opciones del comando [compilación de docker](https://docs.docker.com/engine/reference/commandline/build/), como `--build-arg` para establecer las variables en tiempo de compilación.
 
 | Parámetro | DESCRIPCIÓN | Opcional |
 | --------- | ----------- | :-------: |
@@ -122,7 +122,7 @@ El tipo de paso `build` admite los siguientes parámetros:
 
 ### <a name="properties-build"></a>Propiedades: build
 
-El tipo de paso `build` admite las siguientes propiedades, de las que puede encontrar detalles en la sección [Propiedades de pasos de tareas](#task-step-properties) de este artículo.
+El tipo de paso `build` admite las siguientes propiedades. Puede encontrar detalles de estas propiedades en la sección [Propiedades de pasos de tareas](#task-step-properties) de este artículo.
 
 | | | |
 | -------- | ---- | -------- |

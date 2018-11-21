@@ -1,6 +1,6 @@
 ---
 title: Escalado de un clúster de Azure Service Fabric | Microsoft Docs
-description: Obtenga información acerca de cómo escalar horizontal y verticalmente clústeres de Service Fabric.
+description: Obtenga información acerca de cómo escalar horizontal y verticalmente clústeres de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,32 +12,26 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/09/2018
+ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: f199e6615109278764b9fcc75346da9ee6171cfa
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0890ce0342024229b99d92a2eddba5b49cc59595
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815654"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633944"
 ---
-# <a name="scaling-service-fabric-clusters"></a>Escalado de clústeres de Service Fabric
+# <a name="scaling-azure-service-fabric-clusters"></a>Escalado de clústeres de Azure Service Fabric
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los clústeres pueden contener potencialmente miles de nodos. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos).  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
 
 ¿Por qué escalar el clúster? Las necesidades de las aplicaciones cambian a lo largo del tiempo.  Puede necesitar aumentar los recursos del clúster para cumplir con aumentos del tráfico de red o de la carga de trabajo de la aplicación o reducir los recursos del clúster cuando la demanda baja.
 
-### <a name="scaling-in-and-out-or-horizontal-scaling"></a>Escalado horizontal
+## <a name="scaling-in-and-out-or-horizontal-scaling"></a>Escalado horizontal
 Cambia el número de nodos del clúster.  Una vez que los nuevos nodos se unen al clúster, el [Administrador de recursos del clúster](service-fabric-cluster-resource-manager-introduction.md) mueve servicios a ellos, lo que reduce la carga en los nodos existentes.  Si los nodos del clúster no se usan de forma eficaz, puede reducir el número de nodos.  Cuando los nodos abandonan el clúster, los servicios son trasladados de dichos nodos y la carga aumenta en los nodos restantes.  La reducción del número de nodos en un clúster que se ejecuta en Azure puede ahorrarle dinero, ya que se paga por el número de máquinas virtuales utilizadas y no por la carga de trabajo en esas máquinas virtuales.  
 
 - Ventajas: escala infinita, en teoría.  Si la aplicación está diseñada para ofrecer escalabilidad, puede habilitar un crecimiento ilimitado agregando más nodos.  Las herramientas de los entornos de nube permiten agregar o quitar nodos fácilmente, por lo que resulta sencillo ajustar la capacidad y solo se paga por los recursos que utiliza.  
 - Inconvenientes: las aplicaciones deben [diseñarse para ofrecer escalabilidad](service-fabric-concepts-scalability.md).  Las bases de datos y la persistencia de la aplicación pueden requerir un trabajo de arquitectura adicional para el escalado.  Las[colecciones confiables](service-fabric-reliable-services-reliable-collections.md) de los servicios con estado de Service Fabric, sin embargo, hacen mucho más fácil el escalado de los datos de la aplicación.
 
-### <a name="scaling-up-and-down-or-vertical-scaling"></a>Escalado vertical 
-Cambia los recursos (CPU, memoria o almacenamiento) de los nodos del clúster.
-- Ventajas: el software y la arquitectura de la aplicación siguen siendo los mismos.
-- Inconvenientes: escala finita, ya que hay un límite respecto a cuánto puede aumentar los recursos en los nodos individuales. Tiempo de inactividad, ya que tendrá máquinas físicas o virtuales sin conexión con el fin de agregar o quitar recursos.
-
-## <a name="scaling-an-azure-cluster-in-or-out"></a>Escalado horizontal de un clúster de Azure
 Los conjuntos de escalas de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo se puede escalar o reducir horizontalmente de forma independiente. Cada uno cuenta con diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad. 
 
 Al cambiar la escala de un clúster de Azure, tenga en cuenta las directrices siguientes:
@@ -70,23 +64,11 @@ Sin embargo, el código de escalado no tiene por qué ejecutarse como un servici
 
 En función de estas limitaciones, puede que desee [implementar modelos de escalado automático más personalizados](service-fabric-cluster-programmatic-scaling.md).
 
+## <a name="scaling-up-and-down-or-vertical-scaling"></a>Escalado vertical 
+Cambia los recursos (CPU, memoria o almacenamiento) de los nodos del clúster.
+- Ventajas: el software y la arquitectura de la aplicación siguen siendo los mismos.
+- Inconvenientes: escala finita, ya que hay un límite respecto a cuánto puede aumentar los recursos en los nodos individuales. Tiempo de inactividad, ya que tendrá máquinas físicas o virtuales sin conexión con el fin de agregar o quitar recursos.
 
-## <a name="scaling-a-standalone-cluster-in-or-out"></a>Escalado horizontal de un clúster independiente
-Los clústeres independientes le permiten implementar el clúster de Service Fabric de modo local o en el proveedor en la nube de su elección.  Los tipos de nodo están formados por máquinas físicas o virtuales, según la implementación. En comparación con los clústeres que se ejecutan en Azure, el proceso de escalado de un clúster independiente es un poco más complicado.  Debe cambiar manualmente el número de nodos del clúster y, a continuación, ejecutar una actualización de la configuración de clúster.
-
-La eliminación de nodos puede iniciar varias actualizaciones. Algunos nodos están marcados con la etiqueta `IsSeedNode=”true”` y se pueden identificar consultando el manifiesto del clúster mediante [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). La eliminación de estos nodos puede tardar más que la de otros, ya que se tendrán que mover los nodos de inicialización en estos escenarios. El clúster debe tener un mínimo de tres nodos del tipo de nodo principal.
-
-> [!WARNING]
-> Se recomienda no reducir el número de nodos por debajo del [tamaño del clúster del nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) del clúster. Esto interferirá con la capacidad de los servicios del sistema de Service Fabric para replicarse en el clúster y llegar a desestabilizar o, posiblemente, destruir el clúster.
->
-
-Al escalar un clúster independiente, tenga en cuenta las directrices siguientes:
-- Los nodos principales se deben sustituir uno por uno, en lugar de quitarlos y agregarlos de forma masiva.
-- Antes de eliminar un tipo de nodo, compruebe que no hay algún nodo que haga referencia a dicho tipo. Elimine estos nodos antes de quitar el tipo de nodo correspondiente. Una vez se han eliminado todos los nodos correspondientes, puede eliminar el valor de NodeType de la configuración del clúster y comenzar una actualización de la configuración mediante [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
-
-Para más información, consulte [Escalado de un clúster independiente](service-fabric-cluster-windows-server-add-remove-nodes.md).
-
-## <a name="scaling-an-azure-cluster-up-or-down"></a>Escalado vertical de un clúster de Azure
 Los conjuntos de escalas de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado.  El escalado vertical de un tipo de nodo implica la modificación de la SKU de las instancias de las máquinas virtuales del conjunto de escalado. 
 
 > [!WARNING]

@@ -1,6 +1,6 @@
 ---
-title: Uso de MapReduce y Curl con Hadoop en HDInsight (Azure)
-description: Obtenga información acerca de cómo ejecutar de manera remota trabajos de MapReduce con Hadoop en HDInsight con Curl.
+title: 'Uso de MapReduce y Curl con Apache Hadoop en HDInsight: Azure'
+description: Obtenga información acerca de cómo ejecutar de manera remota trabajos de MapReduce con Apache Hadoop en HDInsight con Curl.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 496b7dacdb30507fe5eb2d4d7c5602003a944269
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010905"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632301"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Ejecución de trabajos de MapReduce con Hadoop en HDInsight con REST
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Ejecución de trabajos de MapReduce con Apache Hadoop en HDInsight con REST
 
-Aprenda cómo usar la API de REST de WebHCat para ejecutar trabajos de MapReduce en un clúster de Hadoop en HDInsight. Curl se usa para demostrar cómo puede interactuar con HDInsight mediante solicitudes HTTP sin formato para ejecutar trabajos de MapReduce.
+Aprenda cómo usar la API de REST de WebHCat para ejecutar trabajos de MapReduce en un clúster de Apache Hadoop en HDInsight. Curl se usa para demostrar cómo puede interactuar con HDInsight mediante solicitudes HTTP sin formato para ejecutar trabajos de MapReduce.
 
 > [!NOTE]
 > Si ya está familiarizado con el uso de servidores de Hadoop basado en Linux, pero no conoce HDInsight, consulte el documento [Lo que necesita saber acerca de Hadoop en HDInsight basado en Linux](../hdinsight-hadoop-linux-information.md).

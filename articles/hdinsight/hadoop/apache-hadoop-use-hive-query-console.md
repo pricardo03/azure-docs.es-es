@@ -1,6 +1,6 @@
 ---
-title: 'Uso de Hive de Hadoop en la consola de consulta en HDInsight: Azure'
-description: Aprenderá a utilizar la consola de consulta basada en web para ejecutar consultas de Hive en un clúster de Hadoop de HDInsight desde el explorador.
+title: 'Uso de Apache Hive en la consola de consulta en HDInsight: Azure'
+description: Aprenderá a utilizar la consola de consulta basada en web para ejecutar consultas de Apache Hive en un clúster de Hadoop de HDInsight desde el explorador.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4083ceca8c9181c8acb1a90e782cb5bca981e684
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: da270792c8987ff43c422c5b03eb8b789b8bda5e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013979"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634599"
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>Ejecución de consultas de Hive mediante la consola de consulta
+# <a name="run-apache-hive-queries-using-the-query-console"></a>Ejecución de consultas de Apache Hive mediante la consola de consulta
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-En este artículo, aprenderá a utilizar la consola de la consulta de HDInsight para ejecutar consultas de Hive en un clúster de Hadoop de HDInsight desde el explorador.
+En este artículo, aprenderá a utilizar la consola de la consulta de HDInsight para ejecutar consultas de Apache Hive en un clúster de Hadoop de HDInsight desde el explorador.
 
 > [!IMPORTANT]
 > La consola de consulta de HDInsight solo está disponible en los clústeres de HDInsight basados en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

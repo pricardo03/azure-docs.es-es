@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4dae003b011e8e33f0ae935d6dd8399a5687dff6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958160"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633774"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
-En este artículo se proporcionan detalles sobre las alertas de registro, uno de los tipos de alerta que se admiten en [Alertas de Azure](monitoring-overview-unified-alerts.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas.
+En este artículo se proporcionan detalles sobre las alertas de registro, uno de los tipos de alerta que se admiten en [Alertas de Azure](monitoring-overview-alerts.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas.
 
 Alertas de registro consiste en reglas de búsqueda de registros creadas para [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) o [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Para obtener más información sobre su uso, consulte [creación de alertas de registro en Azure](alert-log.md).
 
@@ -106,7 +106,7 @@ Ahora, supongamos que tenemos una regla de alerta de registro denominada *Contos
 - A las 13:15 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros proporcionó 2 registros; se superó el umbral y se activó la alerta y, poco después, se desencadenó el [grupo de acciones](monitoring-action-groups.md) asociado.
 - A continuación, a la 13:20 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros produjo de nuevo 0 registros; estuvo por debajo del umbral y, por tanto, la alerta no se activó.
 
-Pero en el caso anterior, a las 13:15 h Alertas de Azure no puede determinar que persisten los problemas subyacentes de las 13:10 h ni si hay nuevos errores de red; ya que la consulta proporcionada por el usuario puede considerar los registros anteriores, las alertas de Azure no pueden determinarlo. Por tanto, para estar totalmente seguros, Contoso-Log-Alert se desencadena de nuevo a la 13:15 h a través del [grupo de acciones](monitoring-action-groups.md) configurado. A la 13:20 h, cuando no hay registros visibles: Alertas de Azure no puede asegurar que la causa de los registros se ha solucionado; por lo tanto, Contoso-Log-Alert no se cambiará a Resuelto en el panel de Alertas de Azure ni en las notificaciones que se envíen para informar de la resolución de la alerta.
+Pero en el caso anterior, a las 13:15 h Alertas de Azure no puede determinar que persisten los problemas subyacentes de la 13:10 h ni si hay nuevos errores de red; ya que la consulta proporcionada por el usuario puede considerar los registros anteriores, las alertas de Azure sí pueden determinarlo. Por tanto, para estar totalmente seguros, cuando Contoso-Log-Alert se ejecuta a la 13:15 h, el [grupo de acciones](monitoring-action-groups.md) configurado se vuelve a activar. A la 13:20 h, cuando no hay registros visibles: Alertas de Azure no puede asegurar que la causa de los registros se ha solucionado; por lo tanto, Contoso-Log-Alert no se cambiará a Resuelto en el panel de Alertas de Azure ni en las notificaciones que se envíen para informar de la resolución de la alerta.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Precios y facturación de las alertas de registro
@@ -120,6 +120,6 @@ Los precios que se aplican a las alertas de registro están disponibles en la p�
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre la [creación de alertas de registro en Azure](alert-log.md).
 * Información sobre [webhooks en alertas de registro en Azure](monitor-alerts-unified-log-webhook.md).
-* Más información acerca de las [Alertas de Azure](monitoring-overview-unified-alerts.md).
+* Más información acerca de las [Alertas de Azure](monitoring-overview-alerts.md).
 * Más información sobre [Application Insights](../application-insights/app-insights-analytics.md).
 * Más información sobre [Log Analytics](../log-analytics/log-analytics-queries.md).    
