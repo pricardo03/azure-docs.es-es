@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cdd9ad16096c85db21829840b2bfd7acaced5942
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260064"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683515"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Cómo agregrar entidades pregeneradas
 En este tutorial se muestra cómo agregar entidades "precompiladas" a un modelo de Conversation Learner.
@@ -47,24 +47,25 @@ Las entidades pregeneradas reconocen tipos comunes de entidades, tales como núm
     - Se deshabilitarán las opciones programables de tipo negable, ya que no se aplican a las entidades precompiladas.
 3. Haga clic en Crear.
 
-![](../media/tutorial7_entities.PNG)
+![](../media/tutorial7_entities_a.PNG)
 
 ### <a name="create-two-actions"></a>Crear dos acciones
 
-1. Haga clic en Acciones y, a continuación, en Nueva acción.
-2. En Respuesta, escriba "la fecha es $luis-datetimev2".
-3. Haga clic en Crear.
+1. Haga clic en Actions (Acciones) y, después, en New Action (Nueva acción).
+1. En Respuesta, escriba "la fecha es $builtin-datetimev2".
+1. En Required Entities (Entidades necesarias), escriba "$builtin-datetimev2".
+1. Haga clic en Crear.
 
-![](../media/tutorial7_actions.PNG)
+![](../media/tutorial7_actions_a.PNG)
 
 A continuación, cree la segunda acción:
 
 1. Haga clic en Acciones y en Nueva acción para crear una segunda acción.
-3. En Respuesta, escriba "¿Cuál es la fecha?".
-4. En Disqualifying Entities (Entidades descalificadas), escriba "luis datetimev2".
-4. Haga clic en Crear.
+1. En Respuesta, escriba "¿Cuál es la fecha?".
+1. En Disqualifying Entities (Entidades descalificadas), escriba "$builtin-datetimev2".
+1. Haga clic en Crear.
 
-![](../media/tutorial7_actions2.PNG)
+![](../media/tutorial7_actions2_a.PNG)
 
 Ahora tiene dos acciones.
 
@@ -78,8 +79,8 @@ Ahora tiene dos acciones.
 5. Haga clic en Score Actions (Acciones de puntuación).
     - La fecha ahora aparece en la sección Entity Memory (Memoria de la entidad). 
     - Si pasa el mouse sobre la fecha, verá los datos adicionales que proporcionó LUIS; puede usar estos datos y editarlos en el código. 
-6. Seleccione "la fecha es $luis-datetimev2".
-7. Haga clic en Done Teaching (Aprendizaje completado)
+6. Seleccione "la fecha es $builtin-datetimev2".
+7. Haga clic en Done Teaching (Aprendizaje completado).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

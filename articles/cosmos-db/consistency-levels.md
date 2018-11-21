@@ -11,26 +11,22 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2611c25764503551c4da918d06bcaabe315cbf7c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963088"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624834"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 
 Las bases de datos distribuidas que dependen de la replicación para su alta disponibilidad, su baja latencia o ambas, constituyen el compromiso fundamental entre la coherencia de lectura y la disponibilidad, la latencia y el rendimiento. La mayoría de las bases de datos distribuidas disponibles comercialmente solicitan a los desarrolladores que elijan entre los dos modelos de coherencia extrema: coherencia fuerte y posible coherencia. Aunque la  [linealizabilidad](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) o modelo de coherencia fuerte es el estándar de oro de la programación de datos, obliga a pagar el precio de una latencia más alta (en estado estable) y de una disponibilidad reducida (en caso de errores). Por otro lado, la posible coherencia ofrece una mayor disponibilidad y un mejor rendimiento, pero es difícil programar aplicaciones.
 
-Cosmos DB se aproxima a la coherencia de datos como un espectro de opciones en lugar de como dos extremos. Aunque la coherencia fuerte y la posible coherencia son los dos extremos del espectro, hay muchas opciones de coherencia a lo largo del mismo. Estas opciones de coherencia permiten a los desarrolladores elegir opciones más precisas y contrapartidas de mayor granularidad con respecto a la alta disponibilidad o al rendimiento. Cosmos DB permite a los desarrolladores elegir entre cinco modelos de coherencia bien definidos dentro del espectro de coherencia (del más fuerte al más débil): **fuerte**, **de obsolescencia limitada**, **de sesión**, **de prefijo coherente** y **posible**. Cada uno de estos modelos de coherencia está bien definido, es intuitivo y puede utilizarse para escenarios específicos del mundo real. Cada uno de los cinco modelos de coherencia ofrece [contrapartidas entre rendimiento y disponibilidad](consistency-levels-tradeoffs.md), y están respaldados por Acuerdos de Nivel de Servicio.
+Cosmos DB se aproxima a la coherencia de datos como un espectro de opciones en lugar de como dos extremos. Aunque la coherencia fuerte y la posible coherencia son los dos extremos del espectro, hay muchas opciones de coherencia a lo largo del mismo. Estas opciones de coherencia permiten a los desarrolladores elegir opciones más precisas y contrapartidas de mayor granularidad con respecto a la alta disponibilidad o al rendimiento. Cosmos DB permite a los desarrolladores elegir entre cinco modelos de coherencia bien definidos dentro del espectro de coherencia (del más fuerte al más débil): **fuerte**, **de obsolescencia limitada**, **de sesión**, **de prefijo coherente** y **posible**. Cada uno de estos modelos de coherencia está bien definido, es intuitivo y puede utilizarse para escenarios específicos del mundo real. Cada uno de los cinco modelos de coherencia ofrece [contrapartidas entre rendimiento y disponibilidad](consistency-levels-tradeoffs.md), y están respaldados por Acuerdos de Nivel de Servicio. En la siguiente imagen se muestran diferentes niveles de coherencia como un espectro:
 
 ![Coherencia como un espectro](./media/consistency-levels/five-consistency-levels.png)
 
-Los niveles de coherencia son independientes de la región. El nivel de coherencia de la cuenta de Cosmos DB está garantizado para todas las operaciones de lectura con independencia de las siguientes propiedades:
-
-- La región desde la que se proporcionan las operaciones de lectura y escritura
-- El número de regiones asociadas con su cuenta de Cosmos
-- Si su cuenta está configurada con una o varias regiones de escritura
+Los niveles de coherencia son independientes de la región. El nivel de coherencia de la cuenta de Cosmos DB está garantizado para todas las operaciones de lectura, independientemente de la región desde la que se realizan las operaciones de lectura y escritura, del número de regiones asociadas con la cuenta de Cosmos o de si la cuenta está configurada para una o varias regiones de escritura.
 
 ## <a name="scope-of-the-read-consistency"></a>El ámbito de la coherencia de lectura
 

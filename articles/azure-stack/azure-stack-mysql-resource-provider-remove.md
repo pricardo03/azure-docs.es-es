@@ -11,30 +11,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: dcd1c40717cb35fe4daa9ab9e2c66f334ffff5fe
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7d3b0e179972464a1ed857c576ca8a7c8fc2e162
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361505"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686813"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Eliminación del proveedor de recursos de MySQL
 
 Antes de quitar el proveedor de recursos de MySQL, debe quitar todas las dependencias del proveedor. También necesitará una copia del paquete de implementación que se utilizó para instalar el proveedor de recursos.
 
+  |Versión mínima de Azure Stack|MySQL RP, versión|
+  |-----|-----|
+  |Versión 1808 (1.1808.0.97)|[MySQL RP, versión 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+  |Versión 1804 (1.0.180513.1)|[MySQL RP, versión 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
+
 ## <a name="dependency-cleanup"></a>Limpieza de dependencias
 
 Hay varias tareas de limpieza que debe realizar antes de ejecutar el script DeployMySqlProvider.ps1 para quitar el proveedor de recursos.
 
-Los inquilinos son responsables de las siguientes tareas de limpieza:
+Los inquilinos de Azure Stack son responsables de las siguientes tareas de limpieza:
 
 * Eliminar todas sus bases de datos del proveedor de recursos. (Eliminar las bases de datos de inquilino no elimina los datos).
 * Anular el registro desde el espacio de nombres del proveedor.
 
-El administrador es responsable de las siguientes tareas de limpieza:
+El operador de Azure Stack es responsable de las siguientes tareas de limpieza:
 
 * Eliminar los servidores host del adaptador de MySQL.
 * Eliminar los planes que hacen referencia el adaptador de MySQL.

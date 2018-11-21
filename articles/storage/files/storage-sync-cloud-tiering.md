@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.component: files
-ms.openlocfilehash: a11e0a1c20617f3065d5b3f8cf59d67cf7aa0179
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a0f427ef84a6540522f521cd365e2422a70eb0cd
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242023"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623658"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
 La nube por niveles es una característica opcional de Azure File Sync por la que los archivos a los que se tiene acceso con frecuencia se almacenan en caché localmente en el servidor mientras que todos los demás archivos se organizan en niveles en Azure Files, según la configuración de directiva. Cuando un archivo está en capas, el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) sustituye al archivo localmente por un puntero o punto de repetición de análisis. El punto de repetición de análisis representa una dirección URL del archivo en Azure Files. Un archivo con niveles tiene los atributos “sin conexión” y FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS establecidos en NTFS para que las aplicaciones de terceros puedan identificar de forma segura archivos con niveles.
@@ -31,6 +31,8 @@ Azure File Sync no admite la organización por niveles de archivos menores de 64
 ### <a name="how-does-cloud-tiering-work"></a>¿Cómo funciona la nube por niveles?
 El filtro del sistema de Azure File Sync se basa en un “mapa térmico” del espacio de nombres en cada punto de conexión de servidor. Supervisa los accesos (operaciones de lectura y escritura) a lo largo del tiempo y después, en función de la frecuencia y la cercanía en el tiempo del acceso, asigna una puntuación de calor a todos los archivos. Un archivo al que se accede con frecuencia que se ha abierto recientemente se considerará como caliente, mientras que se considerará frío un archivo que apenas se toca y al que no se ha accedido desde hace algún tiempo. Cuando el volumen de archivos en un servidor supera el umbral de espacio disponible del volumen que estableció, organizará por niveles los archivos más fríos en Azure Files hasta que se cumpla el porcentaje de espacio libre.
 
+En las versiones 4.0 y posteriores del agente de Azure File Sync, también se puede especificar una directiva de fecha en cada punto de conexión del servidor que clasificará los archivos que no se modifiquen o a los que no se acceda en un número de días especificado.
+
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>¿Cómo funciona la directiva de organización por niveles de espacio disponible del volumen?
 El espacio disponible del volumen es la cantidad de espacio libre que desea reservar en el volumen en el que reside un punto de conexión de servidor. Por ejemplo, si el espacio disponible del volumen se establece en 20 % en un volumen que tiene un punto de conexión de servidor, hasta un 80 % del espacio de volumen permanecerá ocupado por los archivos a los que se ha accedido más recientemente, mientras que los archivos restantes que no caben dentro de este espacio se organizan en niveles en Azure. El espacio disponible del volumen se aplica en el nivel de volumen en lugar de en el nivel de directorios individuales o en lo grupos de sincronización. 
@@ -43,11 +45,21 @@ Cuando un punto de conexión de servidor acaba de aprovisionarse y conectarse a 
 ### <a name="how-is-volume-free-space-interpreted-when-i-have-multiple-server-endpoints-on-a-volume"></a>¿Cómo se interpreta el espacio disponible del volumen cuando tengo varios puntos de conexión de servidor en un volumen?
 Cuando hay más de un punto de conexión de servidor en un volumen, el umbral de espacio disponible del volumen efectivo es el mayor espacio disponible del volumen especificado en cualquier punto de conexión de servidor de ese volumen. Los archivos se pueden almacenar en capas según sus patrones de uso, independientemente de qué punto de conexión de servidor al que pertenezcan. Por ejemplo, si tiene dos puntos de conexión de servidor en un volumen, Endpoint1 y Endpoint2, donde Endpoint1 tiene un umbral de espacio disponible del volumen del 25 %, y Endpoint2 tiene un umbral de espacio disponible del volumen de 50 %, el umbral del volumen de espacio disponible para ambos puntos de conexión de servidor será el 50 %. 
 
+<a id="date-tiering-policy"></a>
+### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>¿Cómo funciona la directiva de organización por niveles basada en fechas junto con la directiva de organización por niveles del espacio disponible de volumen? 
+Cuando se habilita la nube por niveles en el punto de conexión de un servidor, se establece una directiva de espacio disponible en el volumen. Esta directiva siempre tiene prioridad sobre cualquier otra, incluidas las directivas de fecha. Si quiere, puede habilitar una directiva de fechas para cada punto de conexión de servidor en ese volumen, de forma que solo los archivos a los que accede (mediante lectura o escritura) durante el intervalo de días especificados en la directiva se mantienen de forma local, y los archivos obsoletos se organizan por niveles. Tenga en cuenta que la directiva de espacio disponible en el volumen siempre tiene prioridad, y cuando no haya espacio suficiente en el volumen para conservar todos los archivos que especifica la directiva de fechas, Azure File Sync seguirá organizando por niveles los archivos más antiguos hasta alcanzar el porcentaje de espacio libre en el volumen.
+
+Por ejemplo, supongamos que tiene una directiva de organización por niveles basada en fechas con un valor de 60 días y una directiva de espacio disponible en el volumen del 20 %. Si tras aplicar la directiva de fechas el espacio disponible en el volumen es menor al 20 %, la directiva de espacio libre se pondrá en marcha y anulará la directiva de fechas. Como resultado, se organizarán por niveles más archivos, de forma tal que la cantidad de datos almacenados en el servidor se reduzca quizá de 60 a 45 días de datos. En cambio, la directiva forzará la organización por niveles de los archivos que no coincidan con el intervalo de tiempo, incluso si no ha alcanzado el umbral de espacio libre; es decir, un archivo con una antigüedad de 61 días se organizará por niveles incluso si el volumen está vacío.
+
 <a id="volume-free-space-guidelines"></a>
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>¿Cómo se puede determinar la cantidad adecuada de espacio disponible del volumen?
 La cantidad de datos que se debe mantener en el entorno local viene determinada por una serie de factores: el ancho de banda, el patrón de acceso del conjunto de datos y su presupuesto. Si tiene una conexión con un ancho de banda bajo, desea mantener más datos en su entorno local para asegurarse de que hay un retraso mínimo para los usuarios. En caso contrario, puede basarlo en la tasa de renovación durante un período determinado. Por ejemplo, si sabe que se accede activamente o cambia aproximadamente el 10 % del conjunto de datos de 1 TB cada mes, le interesa mantener en el entorno local 100 GB para no tener que recuperar archivos con frecuencia. Si el volumen es de 2 TB, desea mantener el 5 % (o 100 GB) en el entorno local, lo que significa que el 95 % restante es el porcentaje de espacio disponible del volumen. No obstante, se recomienda que agregue un búfer para tener en cuenta los períodos de mayor renovación, es decir, partir de un porcentaje de espacio disponible del volumen inferior y ajustarlo posteriormente si es necesario. 
 
 Mantener más datos en el entorno local implica menores costos de salida ya que se recuperarán menos archivos de Azure, pero también es necesario mantener una mayor cantidad de almacenamiento local, lo que tiene su propio costo. Una vez que tenga una instancia de Azure File Sync implementada, puede mirar la salida de su cuenta de almacenamiento para valorar aproximadamente si la configuración de espacio disponible del volumen es adecuada para su uso. Suponiendo que la cuenta de almacenamiento contiene solo el archivo punto de conexión de nube de Azure File Sync (es decir, el recurso compartido de sincronización), una salida alta significa que mucho archivos se recuperan desde la nube y debe plantearse aumentar la memoria caché local.
+
+<a id="how-long-until-my-files-tier"></a>
+### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>He agregado un nuevo punto de conexión de servidor. ¿Cuánto tiempo transcurrirá para que los archivos de este servidor se organicen por niveles?
+En las versiones 4.0 y posteriores del agente de Azure File Sync, una vez que los archivos se han cargado al recurso compartido de archivos de Azure, dichos archivos se organizan por niveles según lo especificado en las directivas tan pronto como se ejecuta la siguiente sesión de organización, que se ejecuta una vez cada hora. En los agentes anteriores, la organización por niveles puede tardar hasta 24 horas en ocurrir.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>¿Cómo se puede saber si un archivo se ha organizado en niveles?

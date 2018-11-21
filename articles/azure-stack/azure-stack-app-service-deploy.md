@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166889"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614062"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Incorporación de un proveedor de recursos de App Service a Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49166889"
 Use las instrucciones de este artículo para implementar App Service en Azure Stack.
 
 > [!IMPORTANT]  
-> Aplique la actualización 1807 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack (ASDK) más reciente antes de implementar Azure App Service 1.3.
+> Aplique la actualización 1809 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack (ASDK) más reciente antes de implementar Azure App Service 1.4.
 
 Puede ofrecer a los usuarios la capacidad de crear aplicaciones web y API. Para permitir que los usuarios creen estas aplicaciones, deberá:
 
@@ -67,15 +67,15 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
 6. En la página siguiente del instalador de App Service, siga estos pasos:
 
-    a. Seleccione **Conectar** situado junto al cuadro de **suscripciones de Azure Stack**.
+     a. Seleccione **Conectar** situado junto al cuadro de **suscripciones de Azure Stack**.
 
      - Si se usa Azure Active Directory (Azure AD), escriba la cuenta de administrador y la contraseña de Azure AD que proporcionó al implementar Azure Stack. Seleccione **Iniciar sesión**.
      - Si se usan los Servicios de federación de Active Directory (AD FS), debe proporcionar la cuenta de administrador. Por ejemplo, cloudadmin@azurestack.local. Escriba la contraseña y seleccione **Iniciar sesión**.
 
    b. En el cuadro de **suscripciones de Azure Stack**, seleccione **Default Provider Subscription** (Suscripción de proveedor predeterminada).
 
-     >[!NOTE]
-     >App Service solo puede implementarse en la **suscripción de proveedor predeterminada**.
+     > [!IMPORTANT]  
+     > App Service **debe** implementarse en la **suscripción de proveedor predeterminada**.
 
    c. En **Azure Stack Locations** (Ubicaciones de Azure Stack), seleccione la ubicación que corresponda a la región en la que se va a implementar. Por ejemplo, seleccione **local** si va a implementar con el Kit de desarrollo de Azure Stack.
 
@@ -83,7 +83,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
 7. Ahora puede realizar la implementación en una red virtual existente que haya configurado [siguiendo estos pasos](azure-stack-app-service-before-you-get-started.md#virtual-network), o dejar que el instalador de App Service cree una nueva red virtual y subredes. Para crear una red virtual, siga estos pasos:
 
-   a. Seleccione **Crear una red virtual con la configuración predeterminada**, acepte los valores predeterminados y haga clic en **Siguiente**.
+    a. Seleccione **Crear una red virtual con la configuración predeterminada**, acepte los valores predeterminados y haga clic en **Siguiente**.
 
    b. O, seleccione **Usar la red virtual y las subredes existentes**. Complete las siguientes acciones:
 
@@ -103,7 +103,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
 9. En la página siguiente del instalador de App Service, siga estos pasos:
 
-   a. En el cuadro **Id. de la aplicación de identidad**, escriba el GUID de la aplicación que va a usar para la identidad (de Azure AD).
+    a. En el cuadro **Id. de la aplicación de identidad**, escriba el GUID de la aplicación que va a usar para la identidad (de Azure AD).
 
    b. En el cuadro **Identity Application certificate file** (Archivo del certificado de la aplicación de identidad) escriba (o vaya a) la ubicación del archivo del certificado.
 
@@ -168,7 +168,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
 14. En la página siguiente del instalador de App Service, siga estos pasos:
 
-     a. Escriba el nombre de usuario y la contraseña del administrador de la máquina virtual con el rol de trabajo.
+      a. Escriba el nombre de usuario y la contraseña del administrador de la máquina virtual con el rol de trabajo.
 
      b. Escriba el nombre de usuario y la contraseña del administrador de la máquina virtual con otros roles.
 
@@ -178,7 +178,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
 15. En la página de resumen del instalador de App Service, siga estos pasos:
 
-    a. Compruebe las selecciones realizadas. Para realizar cambios, use los botones **Anterior** para visitar las páginas anteriores.
+     a. Compruebe las selecciones realizadas. Para realizar cambios, use los botones **Anterior** para visitar las páginas anteriores.
 
     b. Si las configuraciones son correctas, active la casilla.
 
@@ -188,7 +188,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
 16. En la página siguiente del instalador de App Service, siga estos pasos:
 
-    a. Realice un seguimiento del progreso de la instalación. App Service en Azure Stack tarda aproximadamente 60 minutos en realizar la implementación según las selecciones predeterminadas.
+     a. Realice un seguimiento del progreso de la instalación. App Service en Azure Stack tarda aproximadamente 60 minutos en realizar la implementación según las selecciones predeterminadas.
 
     b. Después de que el instalador finalice correctamente, seleccione **Salir**.
 
@@ -198,7 +198,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
 1. En el Portal de administración de Azure Stack, vaya a **Administración - App Service**.
 
-2. En la información general del estado, compruebe que en **Estado** se muestra **Todos los roles están listos**.
+2. En la información general, debajo del estado, compruebe que en **Estado** se muestra el mensaje **Todos los roles están listos**.
 
     ![Administración de App Service](media/azure-stack-app-service-deploy/image12.png)
 

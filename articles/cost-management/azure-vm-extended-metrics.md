@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 11/13/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 5f1b4cf63379f0007b87c44164168b8510612f52
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423364"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624104"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adición de métricas extendidas a máquinas virtuales de Azure
 
@@ -67,6 +67,8 @@ Tenga en cuenta que tanto la supervisión a nivel de invitado de Azure como la d
 Cuando cree nuevas máquinas virtuales, en la pestaña Administración, seleccione **Activados** para **Diagnósticos del SO invitado**.
 
 ![Habilitar los diagnósticos del SO invitado](./media/azure-vm-extended-metrics/new-enable-diag.png)
+
+Para obtener más información acerca de cómo habilitar las métricas extendidas para las máquinas virtuales de Azure, consulte la [Información y uso del agente de Linux de Azure](../virtual-machines/extensions/agent-linux.md) y la [Información general del agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md).
 
 ## <a name="resource-manager-credentials"></a>Credenciales de Resource Manager
 

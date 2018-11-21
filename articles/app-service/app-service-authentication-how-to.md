@@ -1,5 +1,5 @@
 ---
-title: Personalización de la autenticación y autorización en Azure App Service | Microsoft Docs
+title: Uso avanzado de la autenticación y autorización en Azure App Service | Microsoft Docs
 description: Muestra cómo personalizar la autenticación y autorización en App Service y obtener las notificaciones de usuario y los diferentes tokens.
 services: app-service
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344177"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685334"
 ---
-# <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalización de la autenticación y autorización en Azure App Service
+# <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
-En este artículo se muestra cómo personalizar la [autenticación y autorización en App Service](app-service-authentication-overview.md) y cómo administrar la identidad desde la aplicación. 
+En este artículo se muestra cómo personalizar la [autenticación y autorización integradas en App Service](app-service-authentication-overview.md) y cómo administrar la identidad desde la aplicación. 
 
 Para comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
@@ -58,6 +58,48 @@ Para redirigir al usuario después del inicio de sesión a una dirección URL pe
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="validate-tokens-from-providers"></a>Validar los tokens de los proveedores
+
+En un inicio de sesión que dirige el cliente, la aplicación consigue de forma manual que el cliente inicie sesión en el proveedor y envía el token de autenticación a App Service para su validación (consulte el [flujo de autenticación](app-service-authentication-overview.md#authentication-flow)). Esta validación en sí misma no le otorga acceso a los recursos de aplicación que quiere, pero una validación exitosa le dará un token de sesión que puede usar para obtener acceso a los recursos de la aplicación. 
+
+Para validar el token del proveedor, la aplicación App Service debe configurarse primero con el proveedor que quiera usar. En el entorno de ejecución, después de recuperar el token de autenticación de su proveedor, publique el token en `/.auth/login/<provider>` para su validación. Por ejemplo:  
+
+```
+POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
+Content-Type: application/json
+
+{"id_token":"<token>","access_token":"<token>"}
+```
+
+El formato del token varía ligeramente según el proveedor. Consulte la tabla siguiente para más detalles:
+
+| Valor del proveedor | Necesario en el cuerpo de la solicitud | Comentarios |
+|-|-|-|
+| `aad` | `{"access_token":"<access_token>"}` | |
+| `microsoftaccount` | `{"access_token":"<token>"}` | La propiedad `expires_in` es opcional. <br/>Al solicitar el token de los servicios Live, solicite siempre el ámbito `wl.basic`. |
+| `google` | `{"id_token":"<id_token>"}` | La propiedad `authorization_code` es opcional. Cuando se especifica, también puede ir acompañado opcionalmente por la propiedad `redirect_uri`. |
+| `facebook`| `{"access_token":"<user_access_token>"}` | Use un [token de acceso de usuario](https://developers.facebook.com/docs/facebook-login/access-tokens) válido de Facebook. |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| | | |
+
+Si el token del proveedor se valida correctamente, la API regresa con un elemento `authenticationToken` en el cuerpo de la respuesta, que es su token de sesión. 
+
+```json
+{
+    "authenticationToken": "...",
+    "user": {
+        "userId": "sid:..."
+    }
+}
+```
+
+Una vez que tenga este token de sesión, puede obtener acceso a los recursos de aplicación protegidos agregando el encabezado `X-ZUMO-AUTH` a sus solicitudes HTTP. Por ejemplo:  
+
+```
+GET https://<appname>.azurewebsites.net/api/products/1
+X-ZUMO-AUTH: <authenticationToken_value>
 ```
 
 ## <a name="sign-out-of-a-session"></a>Cierre de sesión de una sesión
@@ -119,7 +161,7 @@ La aplicación también puede obtener detalles adicionales sobre el usuario aute
 
 Desde el código de servidor, los tokens específicos del proveedor se inyectan en el encabezado de solicitud, por lo que puede acceder a ellos fácilmente. En la siguiente tabla se muestran los posibles nombres de encabezado de token:
 
-| | |
+| Proveedor | Nombres de encabezados |
 |-|-|
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Token de Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |

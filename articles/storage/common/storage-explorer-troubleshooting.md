@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281785"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616204"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -81,7 +81,7 @@ En ocasiones, la cadena de claves de macOS puede entrar en un estado que ocasion
 * Reinicio de Explorador de Storage
 * Si la ventana de autenticación está en blanco, espere al menos un minuto antes de cerrar el cuadro de diálogo de autenticación.
 * Asegúrese de que el proxy y el certificado están configurados correctamente tanto para la máquina como para el Explorador de Storage.
-* Si está en Windows y tiene acceso a Visual Studio 2017 en la misma máquina e inicio de sesión, intente iniciar sesión en Visual Studio 2017. Después de un correcto inicio de sesión en Visual Studio 2017, debe ser capaz de abrir el Explorador de Storage y ver su cuenta en el panel de la cuenta. 
+* Si está en Windows y tiene acceso a Visual Studio 2017 en la misma máquina e inicio de sesión, intente iniciar sesión en Visual Studio 2017. Después de un correcto inicio de sesión en Visual Studio 2017, debe ser capaz de abrir el Explorador de Storage y ver su cuenta en el panel de la cuenta.
 
 Si ninguno de estos métodos funciona, [abra una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -115,6 +115,8 @@ En primer lugar, asegúrese de que la siguiente información que especificó sea
 
 * La dirección URL del proxy y el número de puerto
 * El nombre de usuario y la contraseña si los exige el proxy
+
+Tenga en cuenta que el Explorador de Storage no es compatible con los archivos .PAC para configurar el proxy.
 
 ### <a name="common-solutions"></a>Soluciones comunes
 

@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 94633ce2f11f9efa99f1ad44820abd5aecdec923
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457224"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623807"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integración y entrega continuas (CI/CD) en Azure Data Factory
 
-La integración continua es la práctica de probar cada cambio realizado en el código base automáticamente y tan pronto como sea posible. La entrega continua sigue a las pruebas realizadas durante la integración continua y envía los cambios a un sistema de ensayo o producción.
+La integración continua es la práctica de probar cada cambio realizado en el código base automáticamente y tan pronto como sea posible. La entrega continua sigue a las pruebas realizadas durante la integración continua y envía los cambios a un sistema de ensayo o producción.
 
 En Azure Data Factory, la integración y la entrega continuas implican el traslado de canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro. Para realizar la integración y la entrega continuas, puede usar la integración de la interfaz de usuario de Data Factory con plantillas de Azure Resource Manager. La interfaz de usuario de Data Factory puede generar una plantilla de Resource Manager al seleccionar las opciones de la **plantilla de ARM**. Al seleccionar **Export ARM template** (Exportar plantilla de ARM), el portal genera la plantilla de Resource Manager de la factoría de datos y un archivo de configuración que incluye todas las cadenas de conexión y otros parámetros. A continuación, debe crear un archivo de configuración para cada entorno (desarrollo, prueba o producción). El archivo de plantilla de Resource Manager principal sigue siendo el mismo para todos los entornos.
 
@@ -75,11 +75,11 @@ Estos son los pasos para configurar una versión de Azure Pipelines para que pue
 
 ### <a name="requirements"></a>Requisitos
 
--   Una suscripción a Azure vinculada a Team Foundation Server o Azure Repos que use el [*punto de conexión de servicio de Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Una suscripción a Azure vinculada a Team Foundation Server o Azure Repos que use el  [*punto de conexión de servicio de Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
 -   Una factoría de datos que tenga configurada la integración de GIT de Azure Repos.
 
--   Una instancia de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) que contenga los secretos.
+-   Una instancia de  [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)  que contenga los secretos.
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Configuración de una versión de Azure Pipelines
 
@@ -99,7 +99,7 @@ Estos son los pasos para configurar una versión de Azure Pipelines para que pue
 
 1.  Añada una tarea de implementación de Azure Resource Manager:
 
-    a.  Cree una nueva tarea, busque **Implementación de un grupo de recursos de Azure** y añádalo.
+     a.  Cree una nueva tarea, busque **Implementación de un grupo de recursos de Azure** y añádalo.
 
     b.  En la tarea de implementación, elija la suscripción, el grupo de recursos y la ubicación de la instancia de Data Factory de destino y proporcione las credenciales si es necesario.
 
@@ -832,6 +832,48 @@ else {
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usar parámetros personalizados con la plantilla de Resource Manager
 
 Puede definir parámetros personalizados para la plantilla de Resource Manager. Basta con tener un archivo denominado `arm-template-parameters-definition.json` en la carpeta raíz del repositorio. (El nombre de archivo debe coincidir exactamente con el nombre que se muestra a continuación). Data Factory intenta leer el archivo de la rama en la que esté trabajando actualmente, no solo de la rama de colaboración. Si no encuentra ningún archivo, Data Factory usa los valores y parámetros predeterminados.
+
+### <a name="syntax-of-a-custom-parameters-file"></a>Sintaxis de un archivo de parámetros personalizados
+
+Estas son algunas directrices para usar durante la creación del archivo de parámetros personalizados. Para ver ejemplos de esta sintaxis, consulte la sección siguiente, [Archivo de parámetros personalizados de ejemplo](#sample).
+
+1. Cuando especifica una matriz en el archivo de definición, se indica que la propiedad coincidente en la plantilla es una matriz. Data Factory recorre en iteración todos los objetos de la matriz mediante la definición especificada en el primer objeto de la matriz. El segundo objeto, una cadena, se convierte en el nombre de la propiedad, que se utiliza como el nombre del parámetro para cada iteración.
+
+    ```json
+    ...
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    ...
+    ```
+
+2. Si establece un nombre de propiedad en `*`, indica que quiere que la plantilla utilice todas las propiedades en ese nivel, excepto las que se definan explícitamente.
+
+3. Al establecer el valor de una propiedad como una cadena, indica que desea parametrizar la propiedad. Use el formato `<action>:<name>:<stype>`.
+    1.  `<action>` puede ser uno de los siguientes caracteres: 
+        1.  `=` significa que el valor actual debe conservarse como el valor predeterminado para el parámetro.
+        2.  `-` significa que no se debe conservar el valor predeterminado para el parámetro.
+        3.  `|` es un caso especial para los secretos de Azure Key Vault para una cadena de conexión.
+    2.  `<name>` es el nombre del parámetro. Si `<name`> está en blanco, toma el nombre del parámetro 
+    3.  `<stype>` es el tipo del parámetro. Si `<stype>` está en blanco, el tipo predeterminado es una cadena.
+4.  Si escribe un carácter `-` al principio de un nombre de parámetro, el nombre completo del parámetro de Resource Manager se reduce a `<objectName>_<propertyName>`.
+Por ejemplo, `AzureStorage1_properties_typeProperties_connectionString` se reduce a `AzureStorage1_connectionString`.
+
+
+### <a name="sample"></a> Archivo de parámetros personalizados de ejemplo
 
 En el ejemplo siguiente se muestra un archivo de parámetros de ejemplo. Use este ejemplo como referencia para crear su propio archivo de parámetros personalizado. Si el archivo que proporciona no está en el formato JSON correcto, Data Factory muestra un mensaje de error en la consola del explorador y vuelve a los parámetros y valores predeterminados mostrados en la interfaz de usuario de Data Factory.
 

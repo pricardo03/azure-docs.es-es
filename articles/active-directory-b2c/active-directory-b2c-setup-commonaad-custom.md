@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d341f7328eb4a977d266c25f6746d4173393b54e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ef0becd55df43d7ae648a4cbaa5e1a2358fc1910
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887230"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636941"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para Azure Active Directory multiinquilino mediante directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios con el punto de conexión de multiinquilino de Azure Active Directory (Azure AD) mediante [directivas personalizadas](active-directory-b2c-overview-custom.md) en Azure AD B2C. Esto permite a los usuarios de varios inquilinos de Azure AD iniciar sesión en Azure AD B2C sin tener que configurar un proveedor técnico para cada inquilino. Sin embargo, los miembros invitados en cualquiera de estos inquilinos **no** podrán iniciar sesión. Para ello, tendrá que [configurar individualmente cada inquilino](active-directory-b2c-setup-aad-custom.md).
+En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios con el punto de conexión de multiempresa de Azure Active Directory (Azure AD) mediante [directivas personalizadas](active-directory-b2c-overview-custom.md) en Azure AD B2C. Esto permite a los usuarios de varios inquilinos de Azure AD iniciar sesión en Azure AD B2C sin tener que configurar un proveedor técnico para cada inquilino. Sin embargo, los miembros invitados en cualquiera de estos inquilinos **no** podrán iniciar sesión. Para ello, tendrá que [configurar individualmente cada inquilino](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 >En las siguientes instrucciones se usa `Contoso.com` como inquilino de Azure AD de la organización y `fabrikamb2c.onmicrosoft.com` como inquilino de Azure AD B2C.
@@ -60,8 +60,8 @@ Debe almacenar la clave de la aplicación que creó en el inquilino de Azure AD 
 3. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
 4. Seleccione **Claves de directiva** y luego **Agregar**.
 5. En **Opciones**, elija `Manual`.
-6. Escriba un **Nombre** para la clave de directiva. Por ejemplo, `ContosoAppSecret`.  Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
-7. En **Secreto**, escriba la clave de aplicación que guardó previamente.
+6. Escriba un **nombre** para la clave de directiva. Por ejemplo, `ContosoAppSecret`.  Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+7. En **Secreto**, escriba la clave de la aplicación que guardó previamente.
 8. En **Uso de claves**, seleccione `Signature`.
 9. Haga clic en **Create**(Crear).
 
@@ -162,7 +162,7 @@ El proveedor de identidades ya se ha configurado, pero no está disponible en ni
 El elemento **ClaimsProviderSelection** es análogo a un botón del proveedor de identidades en una pantalla de registro o de inicio de sesión. Si agrega un elemento **ClaimsProviderSelection** a Azure AD, se muestra un nuevo botón cuando un usuario llega a la página.
 
 1. Busque el elemento **OrchestrationStep** que incluye `Order="1"` en el recorrido del usuario que ha creado.
-2. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo `AzureADExchange`:
+2. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo, `AzureADExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
@@ -179,9 +179,9 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
     
-    Actualice el valor de **TechnicalProfileReferenceId** con el **identificador** del perfil técnico que creó anteriormente. Por ejemplo, `Common-AAD`.
+    Actualice el valor de **TechnicalProfileReferenceId** al elemento **Id** del perfil técnico que creó anteriormente. Por ejemplo, `Common-AAD`.
 
-3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo para realizar el proceso de comprobación.
+3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Creación de una aplicación de Azure AD B2C
 

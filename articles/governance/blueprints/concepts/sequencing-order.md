@@ -4,16 +4,16 @@ description: Información acerca del ciclo de vida de un plano técnico y detall
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094585"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620602"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 
@@ -47,6 +47,9 @@ Dentro de cada artefacto de **grupo de recursos**, se usa el orden de secuencia 
 Al crear planos técnicos de gran tamaño, puede ser necesario que los recursos se creen en un orden específico. El patrón de uso más común de este escenario se da cuando un plano técnico incluye varias plantillas de Azure Resource Manager. Para que Blueprints controle este patrón, permite definir el orden de secuenciación.
 
 La ordenación se logra definiendo una propiedad `dependsOn` en JSON. Solo los objetos de artefacto y del plano técnico (para grupos de recursos) admiten esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crear antes de su propia creación.
+
+> [!NOTE]
+> Los artefactos de **grupo de recursos** son compatibles con la propiedad `dependsOn`, pero no pueden ser el destino de la propiedad `dependsOn` de cualquier tipo de artefacto.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>Ejemplo: plano técnico con el grupo de recursos ordenado
 

@@ -13,30 +13,30 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3a4fc814a40bf370a137a2045c6218d3ee4b8778
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395578"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625443"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Registros de actividad de Azure AD en Azure Monitor (versión preliminar)
 
-Ahora puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a su propia cuenta de almacenamiento o centro de eventos con Azure Monitor. Con la versión preliminar pública de los registros de Azure Active Directory en Azure Monitor, puede:
+Ahora puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a varios puntos de conexión para una retención a largo plazo y conclusiones de datos. La versión preliminar pública de los registros de Azure AD en Azure Monitor le permite:
 
-* Archivar los registros de auditoría para una cuenta de almacenamiento de Azure, lo que le permite conservar los datos durante mucho tiempo.
-* Hacer streaming de los registros de auditoría a un centro de eventos de Azure para analizarlos con herramientas conocidas de Administración de eventos e información de seguridad (SIEM), como Splunk y QRadar.
-* Integrar los registros de auditoría con sus propias soluciones de registro personalizadas haciendo streaming a un centro de eventos.
+* Archivar los registros de actividad de Azure AD en una cuenta de almacenamiento de Azure para conservar los datos durante mucho tiempo.
+* Hacer streaming de los registros de actividad de Azure AD a un centro de eventos de Azure para analizarlos con herramientas conocidas de Administración de eventos e información de seguridad (SIEM), como Splunk y QRadar.
+* Integrar los registros de actividad de Azure AD con sus propias soluciones de registro personalizadas haciendo streaming a un centro de eventos.
 * Envíe los registros de actividad de Azure AD a Log Analytics para permitir visualizaciones enriquecidas, supervisión y alertas sobre los datos conectados.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Informes admitidos
 
-Con esta característica, puede enrutar registros de actividad de auditoría y registros de actividad de inicio de sesión a la cuenta de almacenamiento de Azure, un centro de eventos o una solución personalizada. 
+Con esta característica, puede enrutar registros de auditoría y de inicios de sesión de Azure AD a la cuenta de almacenamiento de Azure, un centro de eventos, Log Analytics o una solución personalizada. 
 
 * **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
 * **Inicios de sesión**: con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
@@ -101,25 +101,19 @@ Para revisar los costos relacionados con la administración del área de trabajo
 
 En esta sección se responden las preguntas más frecuentes y se abordan los problemas conocidos con los registros de Azure AD en Azure Monitor.
 
-**P: ¿Por dónde debo empezar?** 
-
-**R**: Este artículo describe lo que necesita para implementar esta característica. Cuando cumpla los requisitos previos, vaya a los tutoriales que pueden ayudarle a configurar y enrutar los registros a un centro de eventos.
-
----
-
 **P: ¿Qué registros se incluyen?**
 
 **R:** Los registros de actividad de inicio de sesión y los registros de auditoría se pueden enrutar mediante esta característica, aunque actualmente no se incluyen los eventos de auditoría relacionados con B2C. Para averiguar qué tipos de registros y qué registros basados en características se admiten en la actualidad, consulte el [esquema de registro de auditoría](reference-azure-monitor-audit-log-schema.md) y el [esquema de registro de inicio de sesión](reference-azure-monitor-sign-ins-log-schema.md). 
 
 ---
 
-**P: ¿Cuánto tiempo después de una acción aparecerán los registros correspondientes en los centros de eventos?**
+**P: Después de realizar una acción, ¿cuánto tiempo pasará antes de que se muestren los registros correspondientes en el centro de eventos?**
 
 **R**: Los registros deben aparecer en el centro de eventos de dos a cinco minutos después de realizada la acción. Para más información sobre Event Hubs, consulte [¿Qué es Azure Event Hubs?](../../event-hubs/event-hubs-about.md)
 
 ---
 
-**P: ¿Cuánto tiempo después de una acción van a aparecer los registros correspondientes en las cuentas de almacenamiento?**
+**P: Después de realizar una acción, ¿cuánto tiempo pasará antes de que se muestren los registros correspondientes en las cuentas de almacenamiento?**
 
 **R**: Para las cuentas de almacenamiento de Azure, la latencia está entre 5 y 15 minutos tras realizar la acción.
 

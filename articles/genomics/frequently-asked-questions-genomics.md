@@ -9,16 +9,33 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 804076fdc653622336ac3b99c15df0bc027510d9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730157"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683907"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: preguntas frecuentes
 
 En este artículo se enumeran las principales consultas que pueden surgir en relación con Microsoft Genomics. Para más información acerca del servicio de Microsoft Genomics, consulte [¿Qué es Microsoft Genomics?](overview-what-is-genomics.md). Para más información acerca de cómo solucionar problemas, consulte el documento [Troubleshooting guide](troubleshooting-guide-genomics.md) (Guía para la solución de problemas). 
+
+## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>¿Qué es la promoción de GATK 4 del servicio de Microsoft Genomics?
+Hasta finales del año natural 2018, el servicio de Microsoft Genomics ofrece 20 ejecuciones WGS con GATK4 sin costo alguno. Para participar en esta oferta, regístrese [aquí](https://aka.ms/msgatk4). 
+
+### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>¿Cuáles son los problemas comunes que podrían producirse durante la ejecución de la promoción de GATK4 del servicio de Microsoft Genomics?
+A continuación, se incluye una lista de errores comunes que pueden surgir y su resolución recomendada:
+
+| **Mensaje**                                                                                                                                                                                    | **Causa**                                                                                                    | **Resolución**                                                                                                                                                                                                       |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `gatk4-promo` no está habilitado para la cuenta. Para obtener más información, vea https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics.                               | Está intentando ejecutar flujos de trabajo de GATK4 sin que el servicio de Microsoft Genomics esté activado.       | Vaya [aquí](https://aka.ms/msgatk4) para activar la cuenta. Tenga en cuenta que la prueba expira a finales del año natural de 2018. Tras esta fecha, no podrá activar la cuenta para las ejecuciones promocionales. |
+| Gracias por probar `gatk4-promo`. Ha finalizado el período de prueba. Para obtener más información, https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics.                  | El período de prueba de GATK4 ha expirado a finales del año natural y esta intentando invocar el process_name `gatk4-promo`.  | Cambie el parámetro process_name por `gatk4`, en lugar de `gatk4-promo`. Esta es la versión oficial de GATK4 y, si usa este parámetro, se facturará el flujo de trabajo.                                         |
+| Gracias por probar `gatk4-promo`. Ha utilizado todas las ejecuciones asignadas. Para obtener más información, vea https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics. | Ha enviado correctamente las 20 ejecuciones promocionales para GATK4.                               | Envíe cualquier ejecución nueva de GATK4 con el argumento process_name establecido en `gatk4`, en lugar de `gatk4-promo`. El flujo de trabajo se facturará cuando use este parámetro.                                                          |        
+
+
+## <a name="can-i-run-gatk4-workflows-on-microsoft-genomics-without-signing-up-for-the-gatk4-promotion"></a>¿Puedo ejecutar los flujos de trabajo de GATK4 en Microsoft Genomics sin registrarme en la promoción de GATK4?
+Sí, en el archivo config.txt del servicio de Microsoft Genomics, especifique el argumento process_name en `gatk4`. Tenga en cuenta que se le cobrará según las tarifas normales de facturación, así como que las 20 ejecuciones gratuitas no se aplicarán a la cuenta de Microsoft Genomics.
+
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>¿Qué es el SLA de Microsoft Genomics?
@@ -48,7 +65,7 @@ Vaya a Azure Portal y abra la página de la cuenta de Genomics. En el encabezado
 Vaya a Azure Portal y abra la página de la cuenta de Genomics. En el encabezado **Administración**, elija **Claves de acceso**. Allí encontrará la URL de la API y las claves de acceso.
 
 ## <a name="why-do-i-need-two-access-keys"></a>¿Por qué necesito dos claves de acceso?
-Necesita dos claves de acceso en caso de que quiera actualizarlas (regenerarlas) sin interrumpir el uso del servicio. Por ejemplo, digamos que quiere actualizar la primera clave. En ese caso, debe hacer que todos los nuevos flujos de trabajo usen la segunda clave. A continuación, espere a que los flujos de trabajo que se están ejecutando mediante la primera clave finalicen sus procesos. Entonces podrá actualizar la clave.
+Necesita dos claves de acceso en caso de que quiera actualizarlas (regenerarlas) sin interrumpir el uso del servicio. Por ejemplo, si quiere actualizar la primera clave, debe hacer que todos los flujos de trabajo nuevos usen la segunda clave. A continuación, espere a que todos los flujos de trabajo que usan la primera clave finalicen para poder actualizar dicha clave.
 
 ## <a name="do-you-save-my-storage-account-keys"></a>¿Se guardan mis claves de cuenta de almacenamiento?
 La clave de cuenta de almacenamiento se usa para crear tokens de acceso a corto plazo para el servicio de Microsoft Genomics y así poder leer los archivos de entrada y escribir en los archivos de salida. La duración predeterminada del token es de 48 horas. La duración del token se puede cambiar con la opción `-sas/--sas-duration` del comando Enviar; el valor se indica en horas.

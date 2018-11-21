@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233803"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621758"
 ---
 # <a name="azure-active-directory-faq"></a>P+F de Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -171,7 +171,7 @@ Para más información, consulte:
 * Inicio de sesión directo en aplicaciones federadas
 * Vínculos profundos a aplicaciones federadas, con contraseña o existentes
 
-Para más información, consulte [Implementación de aplicaciones integradas en Azure AD a los usuarios](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+Para obtener más información, consulte [Experiencias de usuario final para aplicaciones](../manage-apps/end-user-experiences.md).
 
 - - -
 **P: ¿Cuáles son las distintas formas en que Azure AD permite la autenticación y el inicio de sesión único en aplicaciones?**
@@ -182,7 +182,7 @@ Para más información, consulte:
 
 * [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md)
 * [Protocolos de autenticación de Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Inicio de sesión único para aplicaciones de Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **P: ¿Puedo agregar aplicaciones que ejecuto de manera local?**

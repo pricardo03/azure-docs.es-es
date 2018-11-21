@@ -5,25 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/12/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 957aa05efab68f9531fb6576de775aa9901ab44d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296166"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685810"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
 El bloqueo inteligente emplea la inteligencia de nube para bloquear a actores malintencionados que intentan adivinar las contraseñas de los usuarios o que usan métodos por la fuerza bruta para obtenerlas. Esa inteligencia puede reconocer los inicios de sesión que proceden de usuarios válidos y tratarlos de forma distinta de aquellos que provienen de atacantes y otros orígenes desconocidos. El bloqueo inteligente puede impedir el paso a los atacantes y permitir al mismo tiempo que los usuarios continúen el acceso a sus cuentas y sean productivos.
 
-De forma predeterminada, el bloqueo inteligente impide los intentos de inicio de sesión en la cuenta durante un minuto después de diez intentos incorrectos. La cuenta se bloquea de nuevo después de cada intento de inicio de sesión incorrecto, durante un minuto en el primero y más tiempo en los intentos posteriores.
+De forma predeterminada, el bloqueo inteligente impide los intentos de inicio de sesión en la cuenta durante un minuto, después de realizar diez intentos incorrectos. La cuenta se bloquea de nuevo después de cada intento de inicio de sesión incorrecto, durante un minuto en el primero y más tiempo en los intentos posteriores.
+
+* El bloqueo inteligente realiza un seguimiento de los últimos tres códigos hash de contraseña incorrecta para evitar que se vuelva a incrementar el contador de bloqueo. Si alguien escribe la misma contraseña incorrecta varias veces, este comportamiento no hará que la cuenta se bloquee.
+   * Esta funcionalidad no está disponible para los clientes que tengan habilitada la autenticación de paso a través.
 
 El bloqueo inteligente está siempre activado para todos los clientes de Azure AD con la configuración predeterminada que ofrece la combinación correcta de seguridad y facilidad de uso. Para personalizar la configuración del bloqueo inteligente con valores específicos de su organización, los usuarios necesitan una licencia de Azure AD Basic o superior.
+
+El uso del bloqueo inteligente no garantiza que nunca se bloqueará un usuario original. Cuando el bloqueo inteligente bloquea una cuenta de usuario, hacemos todo lo posible para no bloquear al usuario original. El servicio de bloqueo intenta garantizar que los actores no válidos no puedan obtener acceso a una cuenta de usuarios originales.  
+
+* Cada centro de datos de Azure Active Directory realiza un seguimiento del bloqueo de forma independiente. Un usuario tendrá cierto número de intentos (threshold_limit * datacenter_count), si el usuario visita cada centro de datos.
+* El bloqueo inteligente compara los datos de una ubicación desconocida con los de una conocida para diferenciar entre un actor no válido y el usuario original. Las ubicaciones conocidas y desconocidas tendrán contadores de bloqueo independientes.
 
 El bloqueo inteligente puede integrarse con implementaciones híbridas mediante la autenticación de hash de contraseña o la autenticación de paso a través, para impedir que los atacantes bloqueen las cuentas de Active Directory local. Mediante el establecimiento correcto de directivas de bloqueo inteligente en Azure AD, se pueden filtrar los atacantes antes de que lleguen al entorno local de Active Directory.
 

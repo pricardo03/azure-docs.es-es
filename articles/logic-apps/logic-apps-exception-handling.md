@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263759"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686269"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Control de errores y excepciones en Azure Logic Apps
 
@@ -73,7 +73,7 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
 
 | Valor | Escriba | DESCRIPCIÓN |
 |-------|------|-------------|
-| <*retry-policy-type*> | string | El tipo de directiva de reintento que desea usar: "default", "none", "fixed" o "exponential" | 
+| <*retry-policy-type*> | string | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. | 
 | <*retry-interval*> | string | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. | 
 | <*retry-attempts*> | Entero | El número de reintentos, que debe estar comprendido entre 1 y 90 | 
 ||||
@@ -221,9 +221,9 @@ Para conocer los límites en los ámbitos, consulte [Límites y configuración](
 
 ### <a name="get-context-and-results-for-failures"></a>Obtención del contexto y resultados de errores
 
-Aunque la detección de errores desde un ámbito es útil, quizás también necesite el contexto como ayuda para comprender exactamente qué acciones han producido un error y los errores o códigos de estado que se hayan devuelto. La expresión "@result()" proporciona contexto sobre el resultado de todas las acciones de un ámbito.
+Aunque la detección de errores desde un ámbito es útil, quizás también necesite el contexto como ayuda para comprender exactamente qué acciones han producido un error y los errores o códigos de estado que se hayan devuelto. La expresión `@result()` proporciona contexto sobre el resultado de todas las acciones de un ámbito.
 
-La expresión "@result()" acepta un único parámetro (el nombre del ámbito) y devuelve una matriz de todos los resultados de acción desde dentro de ese ámbito. Estos objetos de acción incluyen los mismos atributos que el objeto  **@actions()**, como la hora de inicio, la hora de finalización, el estado, las entradas, los identificadores de correlación y las salidas de la acción. Para enviar el contexto de las acciones que produjeron un error dentro de un ámbito, puede emparejar fácilmente una función **@result()** con una propiedad **runAfter**.
+La expresión `@result()` acepta un único parámetro (el nombre del ámbito) y devuelve una matriz de todos los resultados de acción desde dentro de ese ámbito. Estos objetos de acción incluyen los mismos atributos que el objeto  **@actions()**, como la hora de inicio, la hora de finalización, el estado, las entradas, los identificadores de correlación y las salidas de la acción. Para enviar el contexto de las acciones que produjeron un error dentro de un ámbito, puede emparejar fácilmente una función **@result()** con una propiedad **runAfter**.
 
 Para ejecutar una acción para cada una de las acciones de un ámbito que tenga un resultado **Failed** y filtrar la matriz de resultados para las acciones que produjeron un error, puede emparejar **@result()** con una acción **[Filtrar matriz](../connectors/connectors-native-query.md)** y un bucle [**For each**](../logic-apps/logic-apps-control-flow-loops.md). Puede tomar la matriz de resultados filtrada y realizar una acción para cada error mediante el bucle **For each**. 
 
@@ -270,22 +270,22 @@ En este ejemplo, seguido de una explicación detallada, se envía una solicitud 
 
 Este es un tutorial detallado que describe lo que sucede en este ejemplo:
 
-1. Para obtener el resultado de todas las acciones de "My_Scope", la acción **Filter Array** usa esta expresión de filtro: "@result('My_Scope')"
+1. Para obtener el resultado de todas las acciones de "My_Scope", la acción **Filter Array** usa esta expresión de filtro: `@result('My_Scope')`.
 
-2. La condición de **Filter Array** es cualquier elemento "@result()" que tenga el estado **Failed**. Esta condición filtra la matriz que contiene todos los resultados de acción de "My_Scope" a una matriz con solo los resultados de acción que hayan producido un error.
+2. La condición de **Filter Array** es cualquier elemento `@result()` que tenga el estado **Failed** (Erróneo). Esta condición filtra la matriz que contiene todos los resultados de acción de "My_Scope" a una matriz con solo los resultados de acción que hayan producido un error.
 
 3. Realiza una acción de bucle **For each** en las salidas de la *matriz filtrada*. Este paso realiza una acción para cada resultado de acción con errores que se filtrara antes.
 
    Si una sola acción del ámbito produjo un error, las acciones del bucle **For each** se ejecutan solo una vez. 
    Muchas acciones con error causan una acción por cada error.
 
-4. Envía una solicitud HTTP POST en el cuerpo de respuesta del elemento **For each**, que es la expresión "@item()['outputs']['body']". 
+4. Envía una solicitud HTTP POST en el cuerpo de respuesta del elemento **For each**, que es la expresión `@item()['outputs']['body']`. 
 
-   La forma del elemento "@result()" es la misma que la forma de "@actions()" y se puede analizar del mismo modo.
+   La forma del elemento `@result()` es la misma que la forma de `@actions()` y se puede analizar del mismo modo.
 
-5. Se incluyen dos encabezados personalizados con el nombre de la acción con errores ("@item()['name']") y el identificador de seguimiento del cliente de la ejecución con errores ("@item()['clientTrackingId']").
+5. Incluya dos encabezados personalizados con el nombre de la acción con errores (`@item()['name']`) y el id. de seguimiento de cliente de la ejecución con errores `@item()['clientTrackingId']`.
 
-Como referencia, este es un ejemplo de un único elemento "@result()", que muestra las propiedades **name**, **body** y **clientTrackingId** que se analizan en el ejemplo anterior. Fuera de una acción **For each**, "@result()" devuelve una matriz de estos objetos.
+Como referencia, este es un ejemplo de un único elemento `@result()`, que muestra las propiedades **name**, **body** y **clientTrackingId** que se analizan en el ejemplo anterior. Fuera de una acción **For each**, `@result()` devuelve una matriz de estos objetos.
 
 ```json
 {

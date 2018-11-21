@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 83a36c81ad88ccb37fe4a258f895b1e1cbe9299f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304554"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687408"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: información técnica detallada
 
@@ -79,8 +79,8 @@ El flujo de inicio de sesión en un cliente nativo es el siguiente:
 
 1. El usuario intenta acceder a una aplicación nativa (por ejemplo, el cliente Outlook) desde un dispositivo corporativo unido a un dominio dentro de la red corporativa.
 2. Si el usuario todavía no inicia sesión, la aplicación nativa recupera el nombre del usuario de la sesión de Windows del dispositivo.
-3. La aplicación envía el nombre de usuario a Azure AD y recupera el punto de conexión MEX de WS-Trust del inquilino.
-4. La aplicación entonces consulta el punto de conexión MEX de WS-Trust para ver si está disponible el punto de conexión de autenticación integrada.
+3. La aplicación envía el nombre de usuario a Azure AD y recupera el punto de conexión MEX de WS-Trust del inquilino. Este punto de conexión de WS-Trust lo utiliza exclusivamente la característica SSO de conexión directa y no es una implementación general del protocolo WS-Trust en Azure AD.
+4. La aplicación entonces consulta el punto de conexión MEX de WS-Trust para ver si está disponible el punto de conexión de autenticación integrada. El punto de conexión de autenticación integrada lo usa exclusivamente la característica SSO de conexión directa.
 5. Si el paso 4 se completa correctamente, se emite un desafío de Kerberos.
 6. Si la aplicación puede recuperar el vale de Kerberos, lo reenvía al punto de conexión de autenticación integrada de Azure AD.
 7. Azure AD descifra el vale de Kerberos y lo valida.

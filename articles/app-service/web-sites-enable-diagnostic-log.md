@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231631"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636975"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service
 ## <a name="overview"></a>Información general
 Azure integra diagnósticos para ayudar a depurar [Aplicaciones web de App Service](https://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnóstico, agregar instrumentación a la aplicación y obtener acceso a la información que registra Azure.
 
-En este artículo se usa [Azure Portal](https://portal.azure.com), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+En este artículo se usa [Azure Portal](https://portal.azure.com) y la CLI de Azure para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -65,7 +65,7 @@ Para la opción **Registro de aplicaciones**, puede activar temporalmente la opc
 
 Para la opción **Registro del servidor web**, puede seleccionar **Almacenamiento** o **Sistema de archivos**. Si selecciona **almacenamiento**, tiene la opción de seleccionar una cuenta de almacenamiento y, después, un contenedor de blobs en el que se escribirán los registros. 
 
-Si almacena registros en el sistema de archivos, es posible obtener acceso a estos archivos por FTP, o bien se pueden descargar como un archivo ZIP mediante Azure PowerShell o la Interfaz de la línea de comandos de Azure (CLI de Azure).
+Si almacena registros en el sistema de archivos, es posible obtener acceso a estos archivos por FTP, o bien se pueden descargar como un archivo ZIP mediante la CLI de Azure.
 
 De forma predeterminada, los registros no se eliminan automáticamente (con la excepción del **Registro de aplicaciones [sistema de archivos]**). Para eliminar automáticamente los registros, establezca el campo **Período de retención (días)**.
 
@@ -73,24 +73,20 @@ De forma predeterminada, los registros no se eliminan automáticamente (con la e
 > Si se [regeneran las claves de acceso de su cuenta de almacenamiento](../storage/common/storage-create-storage-account.md), deberá restablecer la configuración de registro correspondiente para usar las claves actualizadas. Para ello, siga estos pasos:
 >
 > 1. En la pestaña **Configurar**, establezca la característica de registro correspondiente de **Desactivar**. Guarde la configuración.
-> 2. Vuelva a habilitar el registro en el blob de la cuenta de almacenamiento o en la tabla. Guarde la configuración.
+> 2. Vuelva a habilitar el registro en el blob de la cuenta de almacenamiento. Guarde la configuración.
 >
 >
 
-Al mismo tiempo se puede habilitar cualquier combinación de sistema de archivos, almacenamiento de tablas o almacenamiento de blobs, y estas opciones tiene configuraciones de nivel de registro individuales. Por ejemplo, puede registrar errores y advertencias en el almacenamiento de blobs como una solución de registro a largo plazo, mientras habilita el registro en el sistema de archivos con un nivel detallado.
+Se puede habilitar cualquier combinación de sistema de archivos o almacenamiento de blobs al mismo tiempo, y estas opciones tienen configuraciones de nivel de registro individuales. Por ejemplo, puede registrar errores y advertencias en el almacenamiento de blobs como una solución de registro a largo plazo, mientras habilita el registro en el sistema de archivos con un nivel detallado.
 
-Si bien las tres ubicaciones de almacenamiento ofrecen la misma información básica de los eventos registrados, **table storage** y **blob storage** registran información adicional como el identificador de instancia, el identificador de subproceso y una marca de tiempo más pormenorizada (formato de marca de graduación) que el registro en **file system**.
+Si bien las ubicaciones de almacenamiento ofrecen la misma información básica de los eventos registrados, **blob storage** registra información adicional, como el id. de instancia, el id. del subproceso y una marca de tiempo más pormenorizada (formato de marca de graduación) que el registro en **file system**.
 
 > [!NOTE]
-> Solo se puede obtener acceso a la información almacenada en **table storage** o **blob storage** mediante una aplicación o un cliente de almacenamiento que puedan trabajar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de Storage que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso a Azure Storage mediante algunos de los [SDK de Azure](https://azure.microsoft.com/downloads/).
->
-> [!NOTE]
-> Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite** . Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
+> Solo se puede obtener acceso a la información almacenada en **blob storage** mediante una aplicación o un cliente de almacenamiento que pueda trabajar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de Storage que se puede usar para explorar Blob Storage y HDInsight puede obtener acceso a los datos almacenados en Blob Storage. También puede escribir una aplicación que obtiene acceso a Azure Storage mediante algunos de los [SDK de Azure](https://azure.microsoft.com/downloads/).
 >
 
 ## <a name="download"></a> Descarga de registros
-Se puede obtener acceso a la información de diagnóstico almacenada en el sistema de archivos de la aplicación web directamente mediante FTP. No obstante, también se puede descargar como un archivo ZIP con Azure PowerShell o mediante la interfaz de la línea de comandos de Azure.
+Se puede obtener acceso a la información de diagnóstico almacenada en el sistema de archivos de la aplicación web directamente mediante FTP. También se puede descargar como un archivo ZIP mediante la CLI de Azure.
 
 La estructura de directorios en que se almacenan los registros es la siguiente:
 
@@ -106,19 +102,7 @@ Para abrir una conexión FTP al servidor FTP de la aplicación, consulte [Implem
 
 Una vez conectado al servidor FTP/S de la aplicación web, abra la carpeta **LogFiles**, donde se almacenan los archivos de registro.
 
-### <a name="download-with-azure-powershell"></a>Descarga con Azure PowerShell
-Para descargar los archivos de registro, inicie una nueva instancia de Azure PowerShell y use el siguiente comando:
-
-    Save-AzureWebSiteLog -Name webappname
-
-Este comando guarda los registros de la aplicación web que especifica el parámetro **-Name** en un archivo denominado **logs.zip** en el directorio actual.
-
-> [!NOTE]
-> Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
-
-### <a name="download-with-azure-command-line-interface"></a>Descarga con la interfaz de la línea de comandos de Azure
+### <a name="download-with-azure-cli"></a>Descarga con la CLI de Azure
 Para descargar los archivos de registro mediante la interfaz de la línea de comandos de Azure, abra una sesión nueva del símbolo del sistema, PowerShell, Bash o Terminal y escriba el siguiente comando:
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,7 +110,7 @@ Para descargar los archivos de registro mediante la interfaz de la línea de com
 Este comando guarda los registros de la aplicación web denominada "webappname" en un archivo denominado **diagnostics.zip** en el directorio actual.
 
 > [!NOTE]
-> Si no tiene instalada la interfaz de la línea de comandos de Azure (CLI de Azure) o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo usar la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Si no tiene instalada la CLI de Azure o si no la ha configurado para que use la suscripción a Azure, consulte [Cómo usar la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -143,7 +127,7 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 [Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Registros
-Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Para ello, puede transmitir la información de registro al entorno de desarrollo con Azure PowerShell o la Interfaz de la línea de comandos de Azure.
+Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Puede transmitir información de registro al entorno de desarrollo mediante la CLI de Azure.
 
 > [!NOTE]
 > Algunos tipos de búfer de registros se escriben en el archivo de registro, lo que puede ocasionar la transmisión de eventos desordenados. Por ejemplo, una entrada de registro de aplicaciones que se genera cuando un usuario visita una página se puede visualizar en la transmisión antes de la entrada de registro HTTP correspondiente para la solicitud de la página.
@@ -153,29 +137,7 @@ Al implementar una aplicación, suele resultar útil ver la información de regi
 >
 >
 
-### <a name="streaming-with-azure-powershell"></a>Transmisión con Azure PowerShell
-Para transmitir información de registro, inicie una nueva instancia de Azure PowerShell y use el siguiente comando:
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-Este comando establecerá conexión con la aplicación web especificada por el parámetro **-Name** y comenzará a transmitir información a la ventana de PowerShell a medida que se produzcan los eventos de registro en la aplicación web. Toda la información escrita en archivos terminados en .txt, .log o .htm almacenados en el directorio /LogFiles (d:/home/logfiles) se transmite a la consola local.
-
-Para filtrar eventos específicos, como errores, use el parámetro **-Message** . Por ejemplo: 
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-Para filtrar tipos de registros específicos, como HTTP, use el parámetro **-Path** . Por ejemplo: 
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-Para ver una lista de rutas de acceso disponibles, use el parámetro -ListPath.
-
-> [!NOTE]
-> Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
->
->
-
-### <a name="streaming-with-azure-command-line-interface"></a>Transmisión con la interfaz de la línea de comandos de Azure
+### <a name="streaming-with-azure-cli"></a>Streaming con la CLI de Azure
 Para transmitir información de registro, abra una nueva sesión del símbolo del sistema, PowerShell, Bash o Terminal y escriba el siguiente comando:
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -191,13 +153,15 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--P
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Si no tiene instalada la interfaz de la línea de comandos de Azure o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo utilizar la interfaz de línea de comandos de Azure](../cli-install-nodejs.md).
+> Si no tiene instalada la CLI de Azure o si no la ha configurado para que use la suscripción a Azure, consulte [Cómo usar la CLI de Azure](../cli-install-nodejs.md).
 >
 >
 
 ## <a name="understandlogs"></a> Información sobre los registros de diagnóstico
 ### <a name="application-diagnostics-logs"></a>Registros de diagnóstico de aplicaciones
-El diagnóstico de aplicaciones almacena información con un formato específico para aplicaciones .NET, en función de si almacena los registros en el sistema de archivos, en el almacenamiento de tablas o en el almacenamiento de blobs. El conjunto base de datos almacenados es el mismo en los tres tipos de almacenamiento: la fecha y la hora en que se ha producido el evento, el identificador del proceso que ha producido el evento, el tipo de evento (información, advertencia o error) y el mensaje del evento.
+El diagnóstico de aplicaciones almacena información con un formato específico para aplicaciones .NET, en función de si almacena los registros en el sistema de archivos o en Blob Storage. 
+
+El conjunto base de datos almacenados es el mismo en ambos tipos de almacenamiento: la fecha y la hora en que se ha producido el evento, el id. del proceso que ha producido el evento, el tipo de evento (información, advertencia o error) y el mensaje del evento. El uso del sistema de archivos para el almacenamiento de registros es útil cuando necesita acceso inmediato para solucionar un problema porque los archivos de registro se actualizan casi al instante. Blob Storage se usa con fines de archivado porque los archivos se almacenan en caché y, a continuación, se vacían en el contenedor de almacenamiento según una programación.
 
 **Sistema de archivos**
 
@@ -211,27 +175,9 @@ Por ejemplo, un evento de error presentaría un formato similar al siguiente:
 
 El registro en el sistema de archivos ofrece la información más básica de los tres métodos disponibles, ya que ofrece solo la hora, el identificador del proceso, el nivel de evento y el mensaje.
 
-**Table storage**
+**Blob Storage**
 
-Al realizar registros en el almacenamiento de tabla, se usan propiedades adicionales para facilitar la búsqueda de los datos almacenados en la tabla, así como información más pormenorizada sobre el evento. Las siguientes propiedades (columnas) se usan para cada entidad (fila) almacenada en la tabla.
-
-| Nombre de propiedad | Valor/formato |
-| --- | --- |
-| PartitionKey |Fecha/hora del evento con el formato aaaaMMddHH |
-| RowKey |Un valor de GUID que identifica a esta entidad de forma exclusiva |
-| Timestamp |La fecha y la hora en que se ha producido el evento |
-| EventTickCount |La fecha y hora en que se ha producido el evento, con formato de marca de graduación (mayor precisión) |
-| ApplicationName |El nombre de la aplicación web |
-| Nivel |Nivel del evento (por ejemplo, error, advertencia, información). |
-| EventId |El identificador de este evento<p><p>El valor predeterminado es 0 si no se ha especificado ninguno |
-| InstanceId |Instancia de la aplicación web en que se ha producido el evento |
-| Pid |Identificador del proceso |
-| Tid |El identificador del subproceso que ha generado el evento |
-| Message |Mensaje detallado del evento |
-
-**Blob storage**
-
-Al realizar registros en el almacenamiento de blobs, los datos se almacenan con un formato de valores separados por comas (CSV). De manera similar al almacenamiento de tabla, se registran campos adicionales para ofrecer información más pormenorizada acerca del evento. Las siguientes propiedades se usan para cada fila con el formato CSV:
+Al realizar registros en el almacenamiento de blobs, los datos se almacenan con un formato de valores separados por comas (CSV). Se registran campos adicionales para ofrecer información más pormenorizada acerca del evento. Las siguientes propiedades se usan para cada fila con el formato CSV:
 
 | Nombre de propiedad | Valor/formato |
 | --- | --- |
@@ -251,7 +197,7 @@ Los datos almacenados en un blob serían similares a los siguientes:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> La primera línea del registro contendrá los encabezados de columna tal y como se representan en este ejemplo.
+> En el caso de ASP.NET Core, el registro se realiza mediante el proveedor [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Este proveedor deposita archivos de registro adicionales en el contenedor de blobs. Para más información, consulte el artículo sobre el [registro de ASP.NET Core en Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
 >
 >
 

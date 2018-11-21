@@ -12,20 +12,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: report-monitor
-ms.date: 05/14/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e4aa4a87bec8f737405c90bb42bdb5fc60cb379a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233004"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625273"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de riesgo de Azure Active Directory
 
-La mayoría de las infracciones de seguridad tienen lugar cuando los atacantes obtienen acceso a un entorno mediante el robo de identidad de un usuario. Descubrir las identidades en peligro no es tarea fácil. Azure Active Directory utiliza algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro denominado *evento de riesgo*.
+La mayoría de las infracciones de seguridad tienen lugar cuando los atacantes obtienen acceso a un entorno mediante el robo de identidad de un usuario. Descubrir las identidades en peligro no es tarea fácil. Azure Active Directory utiliza algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado **evento de riesgo**.
 
+Hay dos lugares donde puede revisar los eventos de riesgo informados:
+
+ - **Informes de Azure AD**: los eventos de riesgo forman parte de los informes de seguridad de Azure AD. Para más información, consulte el [informe de seguridad de usuarios en riesgo](concept-user-at-risk.md) y el [informe de seguridad de inicios de sesión riesgosos](concept-risky-sign-ins.md).
+
+ - **Azure AD Identity Protection**: los eventos de riesgo también forman parte de las funcionalidades de informes de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+    
 En la actualidad, Azure Active Directory detecta seis tipos de eventos de riesgo:
 
 - [Usuarios con credenciales perdidas](#leaked-credentials) 
@@ -35,18 +41,18 @@ En la actualidad, Azure Active Directory detecta seis tipos de eventos de riesgo
 - [Inicios de sesión desde direcciones IP con actividad sospechosa](#sign-ins-from-ip-addresses-with-suspicious-activity) 
 - [Inicios de sesión desde ubicaciones desconocidas](#sign-in-from-unfamiliar-locations) 
 
-
 ![Evento de riesgo](./media/concept-risk-events/91.png)
 
-La perspectiva que se obtiene de un evento de riesgo detectado está asociada a su suscripción de Azure AD. Con la edición de Azure AD Premium P2, obtiene la información más detallada acerca de todas las detecciones subyacentes. Con la edición de Azure AD Premium P1, las detecciones que no están cubiertas por su licencia aparecen como el evento de riesgo **Inicio de sesión con riesgo adicional detectado**.
+La perspectiva que se obtiene de un evento de riesgo detectado está asociada a su suscripción de Azure AD. 
 
+* Con la **edición de Azure AD Premium P2**, obtiene la información más detallada acerca de todas las detecciones subyacentes. 
+* Con la **edición de Azure AD Premium P1**, las detecciones que no están cubiertas por su licencia aparecen como el evento de riesgo **Inicio de sesión con riesgo adicional detectado**.
 
-En este artículo se ofrece información general detallada de los eventos de riesgo y cómo puede usarlos para proteger las identidades de Azure AD.
-
+Si bien la detección de eventos de riesgo ya representa un aspecto importante de la protección de las identidades, también tiene la opción de abordarlas manualmente o implementar respuestas automatizadas si configura directivas de acceso condicional. Para obtener más información, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## <a name="risk-event-types"></a>Tipo de evento de riesgo
 
-La propiedad de tipo de evento de riesgo es un identificador de la acción sospechosa para la que se ha creado un registro de evento de riesgo.
+La propiedad **tipo de evento de riesgo** es un identificador de la acción sospechosa para la que se ha creado un registro de evento de riesgo.
 
 Las continuas inversiones de Microsoft en procesos de detección conducirán a:
 
@@ -62,12 +68,11 @@ Cuando los cibercriminales llegan a poner en peligro las contraseñas válidas d
 - Equipos de seguridad de Microsoft
 - Otros orígenes de confianza 
 
-Cuando el servicio adquiere pares de nombre de usuario y contraseña, se comprueban con respecto a las credenciales actuales válidas de los usuarios de AAD. Cuando se encuentra una coincidencia, significa que la contraseña de un usuario está en peligro y se crea un *evento de riesgo de credenciales filtradas*.
+Cuando el servicio adquiere pares de nombre de usuario y contraseña, se comprueban con respecto a las credenciales actuales válidas de los usuarios de AAD. Cuando se encuentra una coincidencia, significa que la contraseña de un usuario está en peligro y se crea un **evento de riesgo de credenciales filtradas**.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inicios de sesión desde direcciones IP anónimas
 
 Este tipo de evento de riesgo identifica los usuarios que han iniciado sesión correctamente desde una dirección IP que se ha identificado como una dirección IP de proxy anónima. A menudo, estos servidores proxy los usan los usuarios que desean ocultar la dirección IP del dispositivo y es posible que se usen con fines malintencionados.
-
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Viaje imposible a ubicaciones inusuales
 
@@ -86,12 +91,11 @@ Identity Protection detecta inicios de sesión desde ubicaciones desconocidas ta
 Este tipo de evento de riesgo identifica los inicios de sesión desde dispositivos infectados con malware, que se sabe que se comunican activamente con un servidor bot. Esto se determina mediante la correlación de direcciones IP de dispositivos de usuarios con direcciones IP que estuvieron en contacto con un servidor bot. 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Inicios de sesión desde direcciones IP con actividad sospechosa
-Este tipo de evento de riesgo identifica las direcciones IP desde las que se ha producido un gran número de intentos fallidos de inicio de sesión, en varias cuentas de usuario, durante un corto período de tiempo. Esto compara los patrones de tráfico de direcciones IP usadas por atacantes y es un claro indicador de que las cuentas están ya o van a estar en peligro. Se trata de un algoritmo de aprendizaje automático que omite "*falsos positivos*" obvios, como las direcciones IP que utilizan con regularidad otros usuarios de la organización.  El sistema tiene un período de aprendizaje inicial de 14 días, durante el cual aprende el comportamiento de inicio de sesión de un nuevo usuario y un nuevo inquilino.
-
+Este tipo de evento de riesgo identifica las direcciones IP desde las que se ha producido un gran número de intentos fallidos de inicio de sesión, en varias cuentas de usuario, durante un corto período de tiempo. Esto compara los patrones de tráfico de direcciones IP usadas por atacantes y es un claro indicador de que las cuentas están ya o van a estar en peligro. Se trata de un algoritmo de aprendizaje automático que omite falsos positivos obvios, como las direcciones IP que utilizan con regularidad otros usuarios de la organización.  El sistema tiene un período de aprendizaje inicial de 14 días, durante el cual aprende el comportamiento de inicio de sesión de un nuevo usuario y un nuevo inquilino.
 
 ## <a name="detection-type"></a>Tipo de detección
 
-La propiedad de tipo de detección es un indicador (en tiempo real o sin conexión) del período de tiempo de detección de un evento de riesgo. Actualmente, la mayoría de los eventos de riesgo se detectan sin conexión en una operación posterior de procesamiento una vez que ya se ha producido el evento de riesgo.
+La propiedad de tipo de detección es un indicador (**en tiempo real** o **sin conexión**) del período de tiempo de detección de un evento de riesgo. Actualmente, la mayoría de los eventos de riesgo se detectan sin conexión en una operación posterior de procesamiento una vez que ya se ha producido el evento de riesgo.
 
 En la tabla siguiente se muestra la cantidad de tiempo que tarda un tipo de detección en aparecer en un informe relacionado:
 
@@ -115,7 +119,7 @@ Para los tipos de evento de riesgo que detecta Azure Active Directory, los tipos
 
 ## <a name="risk-level"></a>Nivel de riesgo
 
-La propiedad de nivel de riesgo de un evento de riesgo es un indicador (alto, medio o bajo) de la gravedad y la confianza de un evento de riesgo. Esta propiedad le ayuda a clasificar por orden de prioridad las acciones que debe realizar. 
+La propiedad de nivel de riesgo de un evento de riesgo es un indicador (**alto**, **medio** o **bajo**) de la gravedad y la confianza de un evento de riesgo. Esta propiedad le ayuda a clasificar por orden de prioridad las acciones que debe realizar. 
 
 La gravedad del evento de riesgo representa la fuerza de la señal como predicción del riesgo de la identidad. La confianza es indicador de la posibilidad de que existan falsos positivos. 
 
@@ -151,40 +155,19 @@ Las ubicaciones desconocidas pueden proporcionar una indicación clara de que un
 
 ### <a name="sign-ins-from-infected-devices"></a>Inicios de sesión desde dispositivos infectados
 
-Este evento de riesgo identifica las direcciones IP, no los dispositivos de usuarios. Si hay varios dispositivos detrás de una única dirección IP, y solo algunos son controlados por una red bot, los inicios de sesión desde otros dispositivos pueden desencadenar este evento innecesariamente, por lo que se clasifica este evento de riesgo como **Bajo**.  
+Este evento de riesgo identifica las direcciones IP, no los dispositivos de usuarios. Si hay varios dispositivos detrás de una única dirección IP, y solo algunos son controlados por una red de bot, los inicios de sesión desde otros dispositivos pueden desencadenar este evento innecesariamente, por lo que este evento de riesgo se clasifica como **Bajo**.  
 
-Se recomienda ponerse en contacto con el usuario y examinar todos sus dispositivos. También es posible que el dispositivo personal de un usuario esté infectado o, como se ha mencionado antes, que otra persona estaba usando un dispositivo infectado desde la misma dirección IP que el usuario. A menudo, los dispositivos infectados son infectados por malware que todavía no ha sido identificado por el software antivirus, y también pueden indicar unos hábitos del usuario incorrectos que pueden haber hecho que el dispositivo se infecte.
+Se recomienda ponerse en contacto con el usuario y examinar todos sus dispositivos. También es posible que el dispositivo personal de un usuario esté infectado o que otra persona usara un dispositivo infectado desde la misma dirección IP que el usuario. A menudo, los dispositivos infectados son infectados por malware que todavía no ha sido identificado por el software antivirus, y también pueden indicar cualquier hábito incorrecto del usuario que, posiblemente, hizo que el dispositivo se infectara.
 
 Para obtener más información acerca de cómo tratar infecciones de malware, consulte el [Centro de protección contra malware](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
-
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Inicios de sesión desde direcciones IP con actividad sospechosa
 
 Se recomienda ponerse en contacto con el usuario para comprobar si realmente iniciaron sesión desde una dirección IP marcada como sospechosa. El nivel de riesgo de este tipo de evento es "**Medio**" porque varios dispositivos pueden encontrarse detrás de la misma dirección IP, mientras que solo algunos pueden ser responsables de la actividad sospechosa. 
 
 
- 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los eventos de riesgo son la base para proteger las identidades de Azure AD. Azure AD actualmente puede detectar seis eventos de riesgo: 
-
-
-| Tipo de evento de riesgo | Nivel de riesgo | Tipo de detección |
-| :-- | --- | --- |
-| [Usuarios con credenciales perdidas](#leaked-credentials) | Alto | Sin conexión |
-| [Inicios de sesión desde direcciones IP anónimas](#sign-ins-from-anonymous-ip-addresses) | Mediano | Tiempo real |
-| [Viaje imposible a ubicaciones inusuales](#impossible-travel-to-atypical-locations) | Mediano | Sin conexión |
-| [Inicios de sesión desde ubicaciones desconocidas](#sign-in-from-unfamiliar-locations) | Mediano | Tiempo real |
-| [Inicios de sesión desde dispositivos infectados](#sign-ins-from-infected-devices) | Bajo | Sin conexión |
-| [Inicios de sesión desde direcciones IP con actividad sospechosa](#sign-ins-from-ip-addresses-with-suspicious-activity) | Mediano | Sin conexión|
-
-¿Dónde se pueden encontrar los eventos de riesgo que se detectaron en el entorno?
-Hay dos lugares donde puede revisar los eventos de riesgo informados:
-
- - **Informes de Azure AD**: los eventos de riesgo forman parte de los informes de seguridad de Azure AD. Para más información, consulte el [informe de seguridad de usuarios en riesgo](concept-user-at-risk.md) y el [informe de seguridad de inicios de sesión riesgosos](concept-risky-sign-ins.md).
-
- - **Azure AD Identity Protection**: los eventos de riesgo también forman parte de las funcionalidades de informes de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-    
-
-Si bien la detección de eventos de riesgo ya representa un aspecto importante de la protección de las identidades, también tiene la opción de abordarlas manualmente o, incluso, implementar respuestas automatizadas si configura directivas de acceso condicional. Para más información, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
- 
+* [Informe de seguridad sobre usuarios en riesgo](concept-user-at-risk.md)
+* [Informe de seguridad sobre inicios de sesión de riesgo](concept-risky-sign-ins.md)
+* [Azure AD Identity Protection](../active-directory-identityprotection.md).

@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 03fb56125bcc4133dd87a1dc76d4d6811ebb8f40
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740984"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685504"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 
@@ -89,7 +89,7 @@ Cree los recursos de Azure (cuenta de almacenamiento de Azure Cosmos DB, Centro 
    ```powershell
    .\deploy.ps1
    ```
-5. Cuando se le solicite, escriba su **Id. de suscripción** a Azure, **changefeedlab** como nombre del grupo de recursos y **run1** como nombre de la implementación. Puede que, una vez iniciada, la implementación de recursos tarde hasta 10 minutos en completarse.
+5. Cuando se le solicite, escriba su **id. de suscripción** a Azure, **changefeedlab** como nombre del grupo de recursos y **run1** como nombre de la implementación. Puede que, una vez iniciada, la implementación de recursos tarde hasta 10 minutos en completarse.
 
 ## <a name="create-a-database-and-the-collection"></a>Creación de una base de datos y la colección
 
@@ -180,7 +180,7 @@ Para ver cómo la fuente de cambios procesa nuevas acciones en un sitio de comer
  
 6. Espere a que el programa se ejecute. Las estrellas indican que están llegando datos. Mantenga el programa en ejecución: es importante que se recopilen grandes cantidades de datos.  
 
-7. Si navega a [Azure Portal](http://portal.azure.com/), luego a la cuenta de Cosmos DB en su grupo de recursos y luego al **Explorador de datos**, verá los datos aleatorios importados en su ** changefeedlabcollection**.
+7. Si navega a [Azure Portal](http://portal.azure.com/), luego a la cuenta de Cosmos DB en su grupo de recursos y luego al **Explorador de datos**, verá los datos aleatorios importados en su  **changefeedlabcollection**.
  
    ![Datos generados en el portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 

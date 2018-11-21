@@ -1,5 +1,5 @@
 ---
-title: 'Depuración de Hadoop en HDInsight: ver registros e interpretar mensajes de error en Azure '
+title: 'Depuración de Apache Hadoop en HDInsight: ver registros e interpretar mensajes de error (Azure) '
 description: Conozca los mensajes de error que puede recibir cuando administre HDInsight con PowerShell, así como los pasos que debe seguir para la recuperación.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261156"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634641"
 ---
 # <a name="analyze-hadoop-logs"></a>Análisis de los registros de Hadoop
 
-Cada clúster de Hadoop en HDInsight de Azure tiene una cuenta de almacenamiento de Azure que se usa como sistema de archivos predeterminado. La cuenta de almacenamiento se conoce como la cuenta de almacenamiento predeterminada. El clúster usa Azure Table Storage y Blob Storage de la cuenta de Storage predeterminada para almacenar sus registros.  Para averiguar cuál es la cuenta de almacenamiento predeterminada de su clúster, consulte [Administración de clústeres de Hadoop en HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Los registros conservan la cuenta de almacenamiento incluso después de que se elimine el clúster.
+Cada clúster de Apache Hadoop en Azure HDInsight tiene una cuenta de almacenamiento de Azure que se usa como sistema de archivos predeterminado. La cuenta de almacenamiento se conoce como la cuenta de almacenamiento predeterminada. El clúster usa Azure Table Storage y Blob Storage de la cuenta de Storage predeterminada para almacenar sus registros.  Para averiguar cuál es la cuenta de almacenamiento predeterminada de su clúster, consulte [Administración de clústeres de Hadoop en HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Los registros conservan la cuenta de almacenamiento incluso después de que se elimine el clúster.
 
 ## <a name="logs-written-to-azure-tables"></a>Registros escritos en tablas de Azure
 
@@ -131,7 +131,7 @@ Con los mensajes de error incluidos en esta sección pretendemos ayudar a los us
 
 Algunos de estos mensajes de error también podrían aparecer en el portal de Azure cuando se utiliza para administrar clústeres de HDInsight. Sin embargo, no es posible presentar de forma tan pormenorizada otros mensajes de error que pueden aparecer allí debido a las restricciones que afectan a las acciones de subsanación posibles en este contexto. Otros mensajes de error se asocian a los contextos en que la mitigación resulta obvia. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Descripción**: proporcione los datos de la base de datos SQL de Azure de al menos un componente a fin de utilizar la configuración personalizada para las tiendas de metadatos de Hive y Oozie.
 * **Mitigación**: el usuario debe facilitar una tienda de metadatos SQL de Azure válida y volver a enviar la solicitud.  
 

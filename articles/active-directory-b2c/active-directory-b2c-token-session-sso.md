@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0058ce8316fa8202cf53eaa1048a44b77efdecb5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012452"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636907"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configuración de tokens, sesiones e inicio de sesión único en Azure Active Directory B2C.
 
@@ -26,9 +26,9 @@ Esta característica ofrece un control más preciso, [por directivas](active-dir
 - Formatos de notificaciones importantes en los tokens de seguridad emitidos por Azure AD B2C.
 - El comportamiento de inicio de sesión único (SSO) entre varias aplicaciones y directivas en el inquilino Azure AD B2C.
 
-Para las directivas integradas, puede usar esta característica en el directorio de Azure AD B2C como sigue:
+Puede usar esta característica en cualquier tipo de directiva, pero en este ejemplo se muestra cómo usar la característica con una directiva de registro o inicio de sesión. Para las directivas integradas, puede usar esta característica en el directorio de Azure AD B2C como sigue:
 
-1. Haga clic en **Sign-up or sign-in policies**(Directivas de registro o de inicio de sesión). *Nota: Esta característica se puede usar en cualquier tipo de directiva, no solo en \*\*directivas de registro o de inicio de sesión*\*\*.
+1. Haga clic en **Sign-up or sign-in policies**(Directivas de registro o de inicio de sesión).
 2. Abra una directiva haciendo clic en ella. Por ejemplo, haga clic en **B2C_1_SiUpIn**.
 3. Haga clic en **Editar** en la parte superior del menú.
 4. Haga clic en **Token, session & single sign-on config** (Configuración de tokens, sesión e inicio de sesión único).

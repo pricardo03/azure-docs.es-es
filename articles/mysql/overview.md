@@ -2,23 +2,22 @@
 title: Introducción al servicio de base de datos relacional Azure Database for MySQL
 description: Información general del servicio de base de datos relacional de Azure Database for MySQL.
 services: mysql
+ms.service: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
-ms.service: mysql
-ms.topic: article
-ms.date: 06/02/2018
 ms.custom: mvc
-ms.openlocfilehash: b7af709c4175ecd6100de6d638ac9862488a7190
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.topic: article
+ms.date: 11/14/2018
+ms.openlocfilehash: 4d0d78b978f6454170b52a95f538f143b9f24505
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266353"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684807"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>¿Qué es Azure Database for MySQL?
-Azure Database for MySQL es un servicio de base de datos relacional de Microsoft Cloud basado en el motor de base de datos de [MySQL Community Edition](https://www.mysql.com/products/community/). Azure Database for MySQL ofrece lo siguiente:
+Azure Database for MySQL es un servicio de base de datos relacional de Microsoft Cloud basado en el motor de base de datos de [MySQL Community Edition](https://www.mysql.com/products/community/), versiones 5.6 y 5.7. Azure Database for MySQL ofrece lo siguiente:
 
 - Alta disponibilidad integrada sin coste adicional.
 - Rendimiento predecible, con precios de pago por uso inclusivos.
@@ -39,7 +38,7 @@ Para ver ejemplos de la CLI de Azure, consulte:
 - [Ejemplos de la CLI de Azure para Azure Database for MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar el rendimiento y la escala en cuestión de segundos
-El servicio Azure Database for MySQL ofrece varios niveles de servicio: Básico, Uso general y Optimizado para memoria. Cada nivel ofrece diferentes niveles de rendimiento y funcionalidades para admitir cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Vea los [Planes de tarifa](concepts-service-tiers.md) para obtener más información.
+El servicio Azure Database for MySQL ofrece varios niveles de servicio: Básico, Uso general y Optimizado para memoria. Cada nivel ofrece diferentes niveles de rendimiento y funcionalidades para admitir cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Para obtener más información, consulte los  [planes de tarifa](concepts-service-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 ¿Cómo se decide cuándo adaptar la velocidad? Utilice las características de supervisión y alertas de rendimiento integradas, combinadas con la clasificación del rendimiento basado en los núcleos virtuales. Con estas herramientas, puede evaluar rápidamente el impacto de ajustar la escala de los núcleos virtuales en función de sus necesidades de rendimiento actuales o futuras. Vea las [Alertas](howto-alert-on-metric.md) para obtener más información.

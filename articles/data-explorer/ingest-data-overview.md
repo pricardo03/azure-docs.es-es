@@ -8,18 +8,18 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f1df22c505bffdfaf60bf9c6eec3ad4e698fff02
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6c7d4d8d4a16e0679722f9de007870a7ec7554b0
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139533"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636006"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingesta de datos de Azure Data Explorer
 
-La ingesta de datos es el proceso que se usa para cargar los registros de datos de uno o más orígenes para crear o actualizar una tabla en Azure Data Explorer. Una vez ingeridos, los datos están disponibles para su consulta. El diagrama siguiente muestra el flujo de un extremo a otro para trabajar en Azure Data Explorer, incluida la ingesta de datos **(2)**.
+La ingesta de datos es el proceso que se usa para cargar los registros de datos de uno o más orígenes para crear o actualizar una tabla en Azure Data Explorer. Una vez ingeridos, los datos están disponibles para su consulta. El diagrama siguiente muestra el flujo de un extremo a otro para trabajar en Azure Data Explorer, incluida la ingesta de datos.
 
-![Flujo de datos global](media/ingest-data-overview/overall-data-flow.png)
+![flujo de datos](media/ingest-data-overview/data-flow.png)
 
 El servicio de administración de datos Azure Data Explorer, que es el responsable de la ingesta de datos, proporciona las siguientes funcionalidades:
 
@@ -35,16 +35,16 @@ El servicio de administración de datos Azure Data Explorer, que es el responsab
 
 1. **Confirmación de los datos de ingesta**: hace que los datos estén disponibles para consulta.
 
-> [!NOTE]
-> La directiva de retención efectiva de los datos ingeridos se deriva de la directiva de retención de la base de datos. Para información más detallada consulte [Directiva de retención](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy). La ingesta de datos requiere permisos de **Agente de ingesta de tablas** o de **Agente de ingesta de base de datos**.
-
 ## <a name="ingestion-methods"></a>Métodos de ingesta
 
-Azure Data Explorer admite varios métodos de ingesta, cada uno con sus propios escenarios de destino, ventajas y desventajas. Azure Data Explorer ofrece conectores para servicios comunes, ingesta mediante programación utilizando los SDK y acceso directo al motor para fines de exploración.
+Azure Data Explorer admite varios métodos de ingesta, cada uno con sus propios escenarios de destino, ventajas y desventajas. Azure Data Explorer ofrece canalizaciones y conectores para servicios comunes, ingesta mediante programación con los SDK y acceso directo al motor para fines de exploración.
 
-### <a name="ingestion-using-connectors"></a>Ingesta mediante conectores
+### <a name="ingestion-using-pipelines"></a>Ingesta mediante canalizaciones
 
-En la actualidad Azure Data Explorer es compatible con el conector del centro de eventos, que se puede administrar utilizando el asistente para administración en Azure Portal. Para más información consulte [Guía de inicio rápido: Ingesta de datos desde el centro de eventos en Azure Data Explorer](ingest-data-event-hub.md).
+En la actualidad, Azure Data Explorer es compatible con la canalización del centro de eventos, que se puede administrar con el asistente para administración en Azure Portal. Para más información consulte [Guía de inicio rápido: Ingesta de datos desde el centro de eventos en Azure Data Explorer](ingest-data-event-hub.md).
+
+### <a name="ingestion-using-connectors-and-plugins"></a>Ingesta mediante conectores y complementos
+Actualmente, Azure Data Explorer admite el complemento Logstash. Para obtener más información, consulte [Complemento de salida Logstash para Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
 
 ### <a name="programmatic-ingestion"></a>Ingesta mediante programación
 
@@ -54,21 +54,21 @@ Azure Data Explorer proporciona SDK que pueden usarse para la consulta e ingesta
 
 Kusto ofrece un cliente SDK que puede utilizarse para la ingesta y consulta de datos con:
 
-* [SDK de Python](https://docs.microsoft.com/azure/kusto/api/python/kusto-python-client-library)
+* [SDK de Python](/azure/kusto/api/python/kusto-python-client-library)
 
-* [SDK de .NET](https://docs.microsoft.com/azure/kusto/api/netfx/about-the-sdk)
+* [SDK de .NET](/azure/kusto/api/netfx/about-the-sdk)
 
-* [SDK de Java](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
+* [SDK de Java](/azure/kusto/api/java/kusto-java-client-library)
 
-* [SDK de Node]
+* [SDK de Node](/azure/kusto/api/node/kusto-node-client-library)
 
-* [API DE REST](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [API DE REST](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Técnicas de ingesta mediante programación**:
 
-* Ingesta de datos mediante el servicio de administración de datos Azure Data Explorer (ingesta confiable y de alto rendimiento)
+* Ingesta de datos mediante el servicio de administración de datos Azure Data Explorer (ingesta confiable y de alto rendimiento):
 
-  * [**Ingesta de lotes**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (proporcionada por el SDK): el cliente carga los datos en Azure Blob Storage (designado por el servicio de administración de datos Azure Data Explorer) y envía una notificación a una cola de Azure. Esta es la técnica recomendada para la ingesta confiable y económica de datos de gran volumen.
+  * [**Ingesta de lotes**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (proporcionada por el SDK): el cliente carga los datos en Azure Blob Storage (designado por el servicio de administración de datos Azure Data Explorer) y envía una notificación a una cola de Azure. Esta es la técnica recomendada para la ingesta confiable y económica de datos de gran volumen.
 
 * Ingesta de datos directamente en el motor de Azure Data Explorer (más adecuado para la exploración y la creación de prototipos):
 
@@ -118,16 +118,22 @@ Para todos los métodos de ingesta, salvo la ingesta de consulta, los datos tien
 > [!NOTE]
 > Cuando se produce la ingesta de datos, los tipos de datos se infieren basándose en las columnas de tabla de destino. Si un registro está incompleto o un campo no se puede analizar como tipo el de datos necesarios, las columnas de tabla correspondientes se rellenará con valores nulos.
 
+## <a name="ingestion-recommendations-and-limitations"></a>Limitaciones y recomendaciones de ingesta
+* La directiva de retención efectiva de los datos ingeridos se deriva de la directiva de retención de la base de datos. Para información más detallada consulte [Directiva de retención](/azure/kusto/concepts/retentionpolicy). La ingesta de datos requiere permisos de **Agente de ingesta de tablas** o de **Agente de ingesta de base de datos**.
+* La ingesta admite un tamaño de archivo máximo de 5 GB. Se recomienda ingerir archivos entre 100 MB y 1 GB.
+
 ## <a name="schema-mapping"></a>Asignación de esquemas
 
 La asignación de esquemas, ayuda a enlazar de forma determinista campos de datos de origen a columnas de tabla de destino.
 
-* [Asignación de CSV](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona con todos los formatos basados en ordinales y se puede pasar como el parámetro de comando de ingesta o se puede [crear previamente en la tabla](https://docs.microsoft.com/azure/kusto/management/tables?branch=master#create-ingestion-mapping) y hacerle referencia desde el parámetro de comando de ingesta.
-* [Asignación de JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master#json-mapping) (obligatorio) y [asignación de Avro](https://docs.microsoft.com/azure/kusto/management/tables#create-ingestion-mapping) (obligatorio) se puede pasar como el parámetro de comando de ingesta o se puede [crear previamente en la tabla](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master#avro-mapping) y hacerle referencia desde el parámetro de comando de ingesta.
+* [Asignación de CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona con todos los formatos basados en ordinales y se puede pasar como el parámetro de comando de ingesta o se puede [crear previamente en la tabla](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) y hacerle referencia desde el parámetro de comando de ingesta.
+* [Asignación de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatorio) y [asignación de Avro](/azure/kusto/management/tables#create-ingestion-mapping) (obligatorio) se puede pasar como el parámetro de comando de ingesta o se puede [crear previamente en la tabla](/azure/kusto/management/mappings?branch=master#avro-mapping) y hacerle referencia desde el parámetro de comando de ingesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Guía de inicio rápido: Ingesta de datos desde el centro de eventos en Azure Data Explorer](ingest-data-event-hub.md)
 
 [Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md)
+
+[Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Node de Azure Data Explorer](node-ingest-data.md)
 

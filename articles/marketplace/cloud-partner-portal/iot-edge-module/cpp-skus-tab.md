@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a216f3ddd89ad92dbbae617c51d5fc9c478c0c03
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433275"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684824"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Pestaña SKU de módulo IoT Edge
 
@@ -90,7 +90,7 @@ En la tabla siguiente se describen el propósito, el contenido y el formato de l
 
 ## <a name="sku-content"></a>Contenido de la SKU
 
-En Imágenes de módulo Edge, proporcione la información necesaria para cargar el módulo IoT Edge.
+En **Edge Module Images** (Imágenes de módulo de Edge), proporcione la información necesaria para cargar el módulo IoT Edge.
 
 Proporciónenos acceso a la instancia de [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR) que contiene la imagen del módulo IoT Edge para que podamos cargarlo y certificarlo. Una vez publicado, el módulo IoT Edge se copia y se distribuye mediante un registro de contenedor público hospedado en Azure Marketplace.
 

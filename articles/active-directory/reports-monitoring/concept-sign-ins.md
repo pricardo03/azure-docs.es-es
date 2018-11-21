@@ -13,55 +13,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc8d3525ab7cdbdf298ecbbc686ced16fa7bc77c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146005"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623803"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
-Con los informes de Azure Active Directory (Azure AD) que encontrará en [Azure Portal](https://portal.azure.com), puede obtener toda la información que necesita para determinar cómo marcha el entorno.
-
-La arquitectura de los informes de Azure Active Directory consta de los siguientes componentes:
+La arquitectura de los informes de Azure Active Directory (Azure AD) consta de los siguientes componentes:
 
 - **Actividad** 
-    - **Actividades de inicio de sesión** : información sobre el uso de las aplicaciones administradas y las actividades de inicio de sesión de usuario
-    - **Registros de auditoría**: información de la actividad del sistema sobre los usuarios y la administración de grupos, sus aplicaciones administradas y actividades de directorio.
+    - **Inicios de sesión**: información sobre el uso de aplicaciones administradas y actividades de inicio de sesión de usuario.
+    - **Registros de auditoría**: los [registros de auditoría](concept-audit-logs.md) proporcionan información de la actividad del sistema sobre la administración de usuarios y grupos, aplicaciones administradas y actividades de directorio. - 
 - **Seguridad** 
-    - **Inicios de sesión peligrosos**: un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. Para más información, consulte Inicios de no seguros.
-    - **Usuarios marcados en riesgo**: un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. Para más información, consulte la sección Usuarios marcados en riesgo.
+    - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](concept-risky-sign-ins.md) es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario.
+    - **Usuarios marcados en riesgo**: un [usuario en riesgo](concept-user-at-risk.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
 
-Este tema ofrece una visión general de las actividades de inicio de sesión.
+Este tema ofrece una visión general del reporte de inicios de sesión.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 * Usuarios de los roles Administrador de seguridad, Lector de seguridad o Lector de informes
 * Administradores globales
-* Cualquier usuario (no administradores) puede acceder a sus propios inicios de sesión 
+* Además, cualquier usuario (no administradores) puede acceder a sus propios inicios de sesión 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>¿Qué licencia de Azure AD se necesita para acceder a la actividad de inicio de sesión?
 * El inquilino debe tener una licencia de Azure AD Premium asociada para ver el informe de actividades de inicio de sesión activas
 
+## <a name="sign-ins-report"></a>Informe de inicios de sesión
 
-## <a name="sign-in-activities"></a>Actividades de inicio de sesión
-
-Con la información proporcionada por el informe de inicio de sesión del usuario, puede encontrar respuestas a preguntas tales como:
+El informe de inicios de sesión de usuario proporciona respuestas a las preguntas siguientes:
 
 * ¿Cuál es el patrón de inicio de sesión de un usuario?
 * ¿Cuántos usuarios han iniciado sesión en una semana?
 * ¿Cuál es el estado de estos inicios de sesión?
 
-El primer punto de entrada a todos los datos de actividades de inicio de sesión es **Inicios de sesión** en la sección Actividad de **Azure Active Directory**.
-
+Se puede tener acceso al informe de inicios de sesión si, desde [Azure Portal](https://portal.azure.com), selecciona **Azure Active Directory** > **Actividad** > **Inicios de sesión**.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/61.png "Actividad de inicio de sesión")
-
 
 Un registro de inicios de sesión tiene una vista de lista predeterminada que muestra:
 
@@ -82,7 +77,7 @@ Esto le permite mostrar los campos adicionales o quitar los campos que ya se est
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/02.png "Actividad de inicio de sesión")
 
-Si hace clic en un elemento de la vista de lista, puede obtener todos los detalles disponibles sobre él en una vista horizontal.
+Seleccione un elemento de la vista de lista para obtener información más detallada.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/03.png "Actividad de inicio de sesión")
 
@@ -100,7 +95,7 @@ Para restringir los datos del informe a un nivel que se adapte a sus necesidades
 - Usuario
 - Application
 - Estado de inicio de sesión
-- Estado de la detección de riesgos
+- Acceso condicional
 - Date
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/04.png "Actividad de inicio de sesión")
@@ -115,11 +110,12 @@ El filtro **estado de inicio de sesión** le permite seleccionar:
 - Correcto
 - Error
 
-El filtro **Riesgo detectado** le permite seleccionar:
+El filtro de **acceso condicional** le permite seleccionar el estado de la directiva de entidad emisora de certificados para el inicio de sesión:
 
 - Todo
-- SÍ
-- Sin 
+- No aplicado
+- Correcto
+- Error
 
 El filtro **Fecha** le permite definir un período de tiempo para los datos devueltos.  
 Los valores posibles son:
@@ -149,11 +145,14 @@ Si agrega campos adicionales a la vista de inicios de sesión, estos campos se a
 
 ## <a name="download-sign-in-activities"></a>Descarga de actividades de inicio de sesión
 
-Puede descargar los datos de las actividades de inicio de sesión si desea trabajar con ellos fuera de Azure Portal. Si hace clic en **Descargar** se crea un archivo CSV con los 5000 registros más recientes.  Además de un botón de descarga, Azure Portal también proporciona una opción para generar un script para descargar los datos.  
+Puede [descargar los datos de inicios de sesión](quickstart-download-sign-in-report.md) si quiere trabajar con ellos fuera de Azure Portal. Si hace clic en **Descargar** se crea un archivo CSV con los 5000 registros más recientes.  Además de un botón de descarga, Azure Portal también proporciona una opción para [generar un script para descargar los datos](tutorial-signin-logs-download-script.md).  
 
 ![Descargar](./media/concept-sign-ins/71.png "Descargar")
 
 Si necesita más flexibilidad, puede usar la solución de script. Si hace clic en **Script** se crea un script de PowerShell que incluye todos los filtros que ha establecido. Descargue y ejecute este script en **modo de administrador** para generar el archivo CSV. 
+
+> [!IMPORTANT]
+> El número de registros que se puede descargar también está restringido por las [directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).  
 
 ### <a name="running-the-script-on-a-windows-10-machine"></a>Ejecución del script en un equipo Windows 10
 
@@ -164,28 +163,18 @@ Si desea ejecutar el script en un equipo **Windows 10**, primero deberá realiza
 3. Ejecute **Set-ExecutionPolicy unrestricted** y seleccione **Sí a todo**. 
 4. Ahora puede ejecutar el script de PowerShell descargado en modo de administrador para generar el archivo CSV.
 
-Además de la implementación técnica, el número de registros que se puede descargar también está restringido por las [directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).  
+## <a name="sign-ins-data-shortcuts"></a>Accesos directos a los datos de inicios de sesión
 
-
-## <a name="sign-in-activities-shortcuts"></a>Métodos abreviados de las actividades de inicio de sesión
-
-Además de Azure Active Directory, Azure Portal proporciona puntos de entrada adicionales para datos de actividades de inicio de sesión:
+Además de Azure AD, Azure Portal proporciona puntos de entrada adicionales para los datos de inicios de sesión:
 
 - Información general sobre la protección de la seguridad de la identidad
 - Usuarios
 - Grupos
 - Aplicaciones empresariales
 
+### <a name="users-sign-ins-data-in-identity-security-protection"></a>Datos de inicio de sesión de usuarios en la protección de la identidad de la seguridad
 
-### <a name="users-sign-ins-activities"></a>Actividades de inicios de sesión de usuarios
-
-Con la información proporcionada por el informe de inicio de sesión del usuario, puede encontrar respuestas a preguntas tales como:
-
-- ¿Cuál es el patrón de inicio de sesión de un usuario?
-- ¿Cuántos usuarios tienen usuarios que han iniciado sesión durante una semana?
-- ¿Cuál es el estado de estos inicios de sesión?
-
-El punto de entrada a estos datos es el gráfico de inicio de sesión del usuario de la página de información general de **protección de la seguridad de la identidad**. El gráfico de inicio de sesión de usuario muestra agregaciones semanales de inicios de sesión para todos los usuarios en un período determinado. El valor predeterminado para el período es 30 días.
+El gráfico de inicio de sesión de usuario en la página de información general de la **protección de la seguridad de identidad** muestra agregaciones semanales de inicios de sesión para todos los usuarios en un período determinado. El valor predeterminado para el período es 30 días.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/06.png "Actividad de inicio de sesión")
 
@@ -211,7 +200,6 @@ Si hace clic en un elemento, obtendrá más detalles sobre la operación de inic
 - Date
 - Se requiere MFA
 - Estado de inicio de sesión
-
  
 En la página **Usuarios**, puede obtener una vista general completa de todos los inicios de sesión del usuario haciendo clic en **Inicios de sesión** en la sección **Actividad**.
 
@@ -243,9 +231,9 @@ La opción **Inicios de sesión** ofrece una descripción completa de todos los 
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/11.png "Actividad de inicio de sesión")
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea obtener más información acerca de los códigos de error de las actividades de inicio de sesión, consulte [Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory](reference-sign-ins-error-codes.md).
+* [Códigos de error de los informes de actividad de inicio de sesión](reference-sign-ins-error-codes.md)
+* [Directivas de retención de datos de Azure AD](reference-reports-data-retention.md)
+* [Latencias de informes de Azure AD](reference-reports-latencies.md)
 

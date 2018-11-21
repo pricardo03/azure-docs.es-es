@@ -11,198 +11,167 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/12/2018
 ms.author: ccompy
-ms.openlocfilehash: 5e7a2150757afeecb6b0b100f3259f1628f42074
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8a6d7fef902a3bd240b152cb15d6852a5fa0e7c6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262087"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687317"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
-En este documento, se describe la característica Integración con redes virtuales de Azure App Service y se muestra cómo configurarla con aplicaciones en el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Si no conoce las redes virtuales de Azure, se trata de una funcionalidad que le permite colocar muchos de sus recursos de Azure en una red no enrutable sin conexión a Internet cuyo acceso se controla. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre las redes virtuales de Azure, consulte: [Información general sobre Azure Virtual Network][VNETOverview]. 
+En este documento, se describe la característica Integración con redes virtuales de Azure App Service y se muestra cómo configurarla con aplicaciones en el [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet. Después, estas redes se pueden conectar a sus redes locales mediante tecnologías de VPN. 
 
 Azure App Service adopta dos formas. 
 
-1. Los sistemas multiinquilino que admiten la gama completa de planes de precios.
-2. La característica premium App Service Environment (ASE), que se implementa en su red virtual. 
+1. Los sistemas multiinquilino que admiten la gama completa de planes de precios, excepto Aislado.
+2. La característica Entorno de App Service (ASE), que se implementa en su red virtual. 
 
-Este documento pasa a través de Integración con red virtual y no de App Service Environment. Si desea obtener más información sobre la característica de ASE, comience con la información que se presenta aquí: [Introducción a App Service Environment][ASEintro].
+Este documento pasa por la característica Integración con red virtual, que está pensada para su uso en la instancia App Service multiinquilino.  Si la aplicación está en [App Service Environment][ASEintro], ya está en una red virtual y no requiere el uso de la característica Integración con red virtual para acceder a recursos en la misma red virtual.
 
 Integración con red virtual ofrece a su aplicación web acceso a los recursos de su red virtual, pero no concede acceso privado a su aplicación web desde la red virtual. El acceso al sitio privado se refiere a que la aplicación solo es accesible desde una red privada, como desde dentro de una red virtual de Azure. El acceso privado al sitio solo está disponible con un ASE configurado con un Equilibrador de carga interno (ILB). Para obtener más información sobre el uso de un ASE con un ILB, comience por leer el artículo aquí indicado: [Creación y uso de un ASE con un ILB][ILBASE]. 
 
-Un escenario habitual en el que usaría Integración con red virtual es para permitir el acceso desde su aplicación web a una base de datos o a servicios web que se ejecutan en una máquina virtual de la red virtual de Azure. Con Integración con red virtual, no es necesario exponer un punto de conexión público para las aplicaciones en su máquina virtual, sino que puede usar las direcciones privadas no enrutables sin conexión a Internet en su lugar. 
+La integración con red virtual se usa a menudo para habilitar el acceso de aplicaciones a bases de datos y servicios web que se ejecutan en su red virtual. Con Integración con red virtual, no es necesario exponer un punto de conexión público para las aplicaciones en su máquina virtual, sino que puede usar las direcciones privadas no enrutables sin conexión a Internet en su lugar. 
 
 La característica Integración con red virtual:
 
-* requiere un plan de precios Premium, Estándar o Aislado; 
+* requiere un plan de precios Estándar, Premium o PremiumV2; 
 * funciona con una red virtual clásica o de Resource Manager; 
 * es compatible con TCP y UDP;
 * funciona con aplicaciones web, móviles y de API, e instancias de Function App;
 * permite que una aplicación se conecte solo a una red virtual a la vez;
 * permite la integración con hasta cinco redes virtuales dentro de un plan de App Service; 
 * permite que varias aplicaciones de un plan de App Service usen la misma red virtual;
-* admite un SLA del 99,9 % debido al SLA de la puerta de enlace de red virtual.
+* requiere una puerta de enlace de red virtual que esté configurada con una VPN de punto a sitio;
+* admite un SLA del 99,9 % debido al SLA de la puerta de enlace.
 
 Hay algunos aspectos que Integración con red virtual no admite, como:
 
 * montar una unidad;
 * la integración de AD; 
 * NetBios;
-* el acceso privado a sitios.
+* el acceso privado a sitios;
+* el acceso a los recursos a través de ExpressRoute; 
+* el acceso a los recursos a través de puntos de conexión de servicio. 
 
 ### <a name="getting-started"></a>Introducción
 Le recordamos algunos aspectos que debe tener en cuenta antes de conectar su aplicación web a una red virtual:
 
-* Integración con red virtual solo funciona con aplicaciones en un plan de precios **Estándar**, **Premium** o **Aislado**. Si habilita la característica y después escala su plan de App Service a un plan de precios no admitido, las aplicaciones pierden la conexión a las redes virtuales que estén usando. 
-* Si su red virtual de destino ya existe, debe tener habilitada la VPN de punto a sitio con una puerta de enlace de enrutamiento dinámico para que se pueda conectar a una aplicación. Si la puerta de enlace está configurada con enrutamiento estático, no puede habilitar una red privada virtual (VPN) de punto a sitio.
+* Una red virtual de destino debe tener habilitada la VPN de punto a sitio con una puerta de enlace basada en rutas para que se pueda conectar a una aplicación. 
 * La red virtual debe compartir la misma suscripción que el plan de App Service (ASP).
-* Si la puerta de enlace ya existe con la conexión de punto a sitio habilitada y no está en el SKU básico, IKEV2 debe estar deshabilitado en la configuración de punto a sitio.
 * Las aplicaciones que se integran con una red virtual usarán el DNS que se especifique para esa red virtual.
-* De forma predeterminada, las aplicaciones que se integran solo enrutan el tráfico hacia la red virtual según las rutas definidas en la red virtual. 
 
 ## <a name="enabling-vnet-integration"></a>Habilitación de Integración con red virtual
 
-Puede conectar una aplicación a una red virtual nueva o existente. Si crea una nueva red como parte de la integración, además de crearse la red virtual, se preconfigura de forma automática una puerta de enlace de enrutamiento dinámico y se habilita la VPN de punto a sitio. 
+Hay una nueva versión de la característica Integración con red virtual que está en versión preliminar. No depende de la VPN de punto a sitio y admite el acceso a los recursos a través de ExpressRoute o de los puntos de conexión de servicio. Para obtener más información sobre la nueva funcionalidad de vista previa, vaya al final de este documento. 
 
-> [!NOTE]
-> Se puede tardar unos minutos en configurar una nueva integración con redes virtuales. 
-> 
-> 
+### <a name="set-up-a-gateway-in-your-vnet"></a>Configuración de una puerta de enlace en la red virtual ###
 
-Para habilitar la integración con red virtual, abra la configuración de la aplicación y seleccione Redes. La interfaz de usuario que se abre ofrece tres opciones de redes. En esta guía solo se va a tratar Integración con red virtual, aunque más adelante en este documento se explicarán Conexiones híbridas y a instancias de App Service Environment. 
+Si ya tiene una puerta de enlace configurada con direcciones de punto a sitio, puede pasar a configurar la integración con red virtual con su aplicación.  
+Para crear una puerta de enlace:
 
-Si la aplicación no pertenece al plan de precios correcto, la interfaz de usuario le permite escalarlo a otro superior de su elección.
+1. [Cree una subred de puerta de enlace][creategatewaysubnet] en su red virtual.  
 
-![][1]
+1. [Cree la instancia de VPN Gateway][creategateway]. Seleccione un tipo de VPN basada en rutas.
 
-### <a name="enabling-vnet-integration-with-a-pre-existing-vnet"></a>Habilitación de Integración con red virtual con una red virtual existente
-La interfaz de usuario de Integración con red virtual le permite seleccionar en una lista de redes virtuales. Las redes virtuales clásicas indican su pertenencia a esta clase con la palabra "Clásica" entre paréntesis junto al nombre de la red virtual. La lista está ordenada de tal forma que las redes virtuales de Resource Manager se muestran primero. En la imagen siguiente, se ve que solo se puede seleccionar una red virtual. Existen varias razones por las que una red virtual estará atenuada, entre otras:
+1. [Establezca las direcciones de punto a sitio][setp2saddresses]. Si la puerta de enlace no está en la SKU básica, IKEV2 debe estar deshabilitado en la configuración de punto a sitio y SSTP debe estar seleccionado. El espacio de direcciones debe estar en uno de los siguientes bloques de direcciones:
 
-* la red virtual pertenece a otra suscripción a la que su cuenta tiene acceso;
-* la red virtual no tiene la conectividad de punto a sitio habilitada;
-* la red virtual carece de una puerta de enlace de enrutamiento dinámico.
+* 10.0.0.0/8: hace referencia a un intervalo de direcciones IP de 10.0.0.0 a 10.255.255.255
+* 172.16.0.0/12: hace referencia a un intervalo de direcciones IP de 172.16.0.0 a 172.31.255.255 
+* 192.168.0.0/16: hace referencia a un intervalo de direcciones IP de 192.168.0.0 a 192.168.255.255
 
-![][2]
+Si solo está creando la puerta de enlace para su uso con la integración con red virtual de App Service, no es necesario cargar un certificado. La creación de la puerta de enlace puede tardar 30 minutos. No podrá integrar su aplicación con la red virtual hasta que la puerta de enlace esté aprovisionada. 
 
-Para habilitar la integración, haga clic en la red virtual con la que se desee realizar la integración. Después de seleccionar la red virtual, la aplicación se reinicia automáticamente para que los cambios surtan efecto. 
+### <a name="configure-vnet-integration-with-your-app"></a>Configuración de integración con red virtual con su aplicación ###
 
-##### <a name="enable-point-to-site-in-a-classic-vnet"></a>Habilitación de una conectividad de punto a sitio en una red virtual clásica
+Para habilitar la integración con red virtual en su aplicación: 
 
-Si la red virtual carece de una puerta de enlace o de conectividad de punto a sitio, primero debe configurarlas. Para configurar una puerta de enlace para una red virtual clásica, vaya al portal y muestre la lista de redes virtuales (clásicas). Seleccione la red con la que quiere realizar la integración. Seleccione conexiones VPN. Aquí puede crear la VPN de punto a sitio e incluso hacer que se cree una puerta de enlace. La puerta de enlace tarda, aproximadamente, unos 30 minutos en aparecer.
+1. Vaya a la aplicación en Azure Portal, abra la configuración de la aplicación y seleccione Redes > Integración con red virtual. Escale su plan de App Service a una SKU estándar o superior para poder configurar la integración con red virtual. 
+ ![UI de Integración con red virtual][1]
 
-![][8]
+1. Seleccione **Agregar VNET**. 
+ ![Agregar integración con red virtual][2]
 
-##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Habilitación de punto a sitio en una red virtual de Resource Manager
-Para configurar una red virtual de Resource Manager con una puerta de enlace y la conexión de punto a sitio, puede usar PowerShell tal y como se describe aquí ([Configuración de una conexión punto a sitio a una red virtual mediante PowerShell][V2VNETP2S]) o utilizar Azure Portal tal como se explica aquí ([Configuración de una conexión de punto a sitio a una red virtual mediante Azure Portal][V2VNETPortal]). La interfaz de usuario que debe realizar esta funcionalidad no está aún disponible. No necesita crear certificados para la configuración de punto a sitio. Los certificados se crean automáticamente cuando se conecta la aplicación web a la red virtual mediante el portal. 
-
-### <a name="creating-a-pre-configured-vnet"></a>Creación de una red virtual preconfigurada
-Si desea crear una nueva red virtual que esté configurada con una puerta de enlace y una conexión de punto a sitio, la interfaz de usuario de redes de App Service dispone de la funcionalidad para hacerlo, pero solo para una red virtual de Resource Manager. Si desea crear una red virtual clásica con una puerta de enlace y una conexión de punto a sitio, deberá hacerlo manualmente a través de la interfaz de usuario de redes. 
-
-Para crear una red virtual de Resource Manager a través de la interfaz de usuario de Integración con red virtual, seleccione **Crear una red virtual nueva** y especifique:
-
-* El nombre de la red virtual
-* El bloque de direcciones de la red virtual
-* Nombre de subred
-* El bloque de direcciones de la subred
-* El bloque de direcciones de la puerta de enlace
-* El bloque de direcciones de la conexión de punto a sitio
-
-Si desea que esta red virtual se conecte a cualquiera de sus otras redes, no debe elegir un espacio de direcciones IP que se solape con esas redes. 
-
-> [!NOTE]
-> La creación de una red virtual de Resource Manager con una puerta de enlace tarda unos 30 minutos y actualmente no integra la red virtual con la aplicación. Una vez creada la red virtual con la puerta de enlace, debe volver a la interfaz de usuario de Integración con red virtual de la aplicación y seleccionar la nueva red virtual.
-> 
-> 
-
-![][3]
-
-Las redes virtuales de Azure normalmente se crean dentro de direcciones de red privadas. De forma predeterminada, la característica Integración con red virtual enrutará el tráfico destinado a esos intervalos de direcciones IP hacia la red virtual. Los intervalos de direcciones IP privadas son:
-
-* 10.0.0.0/8: es igual que 10.0.0.0 - 10.255.255.255.
-* 172.16.0.0/12: es igual que 172.16.0.0 - 172.31.255.255. 
-* 192.168.0.0/16: es igual que 192.168.0.0 - 192.168.255.255.
-
-El espacio de direcciones de red virtual debe especificarse con la notación CIDR. Si desconoce la notación CIDR, es un método para especificar bloques de direcciones con una dirección IP y un entero que representa la máscara de red. Como referencia rápida, tenga en cuenta que 10.1.0.0/24 corresponde a 256 direcciones y 10.1.0.0/25, a 128. Una dirección IPv4 con un /32 sería simplemente una dirección. 
-
-Si establece aquí la información del servidor DNS, quedará establecida para la red virtual. Después de crearse la red virtual, puede editar esta información desde las experiencias de usuario de red virtual. Si cambia el DNS de la red virtual, debe realizar una operación de sincronización de red.
-
-Cuando se crea una red virtual clásica mediante la interfaz de usuario de Integración con red virtual, se crea una red virtual en el mismo grupo de recursos que la aplicación. 
+1. Seleccione su red virtual. 
+  ![Seleccionar la red virtual][8]
+  
+La aplicación se reiniciará después de este último paso.  
 
 ## <a name="how-the-system-works"></a>Funcionamiento del sistema
-Esta característica se basa en la tecnología de VPN de punto a sitio para conectar la aplicación a la red virtual. Las aplicaciones de Azure App Service tienen una arquitectura de sistema de varios inquilinos que impide el aprovisionamiento de una aplicación directamente en una red virtual como se hace con las máquinas virtuales. Al basarse en tecnología de punto a sitio, se limita el acceso a la red a únicamente la máquina virtual que hospeda la aplicación. El acceso a la red se restringe aún más en los hosts de aplicaciones para que sus aplicaciones solo puedan acceder a las redes que se configuren para ese fin. 
+La característica Integración con red virtual se basa en tecnología VPN de punto a sitio. Las aplicaciones de Azure App Service se hospedan en un sistema multiinquilino que impide el aprovisionamiento de una aplicación directamente en una red virtual. La tecnología de punto a sitio limita el acceso a la red únicamente para la máquina virtual que hospeda la aplicación. Las aplicaciones están restringidas para enviar solo tráfico a internet a través de conexiones híbridas o de la integración con red virtual. 
 
-![][4]
-
-Si no ha configurado un servidor DNS con su red virtual, la aplicación necesitará usar direcciones IP para acceder al recurso de la red virtual. Cuando use direcciones IP, recuerde que la principal ventaja de esta característica es que le permite usar las direcciones privadas dentro de la red privada. Si ha configurado la aplicación para que use direcciones IP públicas para una de las máquinas virtuales, no está usando la característica Integración con red virtual, sino que se está comunicando a través de Internet.
+![Funcionamiento de la integración con red virtual][3]
 
 ## <a name="managing-the-vnet-integrations"></a>Administración de las integraciones con redes virtuales
-La capacidad de conectarse a una red virtual y desconectarse de ella se encuentra en un nivel de aplicación. Las operaciones que pueden afectar a la integración con red virtual en varias aplicaciones se encuentran en un nivel del plan de App Service. Desde la interfaz de usuario que se muestra en el nivel de aplicación, puede obtener detalles sobre la red virtual. Gran parte de esta misma información también se muestra en el nivel de plan de servicio de aplicaciones. 
+La capacidad de conectarse a una red virtual y desconectarse de ella se encuentra en un nivel de aplicación. Las operaciones que pueden afectar a la integración con red virtual en varias aplicaciones se encuentran en un nivel del plan de App Service. Puede obtener detalles sobre la red virtual del UID de la aplicación. La misma información también se muestra en el nivel de plan de App Service. 
 
-![][5]
+ ![Detalles de VNET][4]
 
-En la página Estado de característica de red, puede ver si la aplicación está conectada a la red virtual. Si la puerta de enlace de red virtual no está disponible por cualquier razón, aparecerá como no conectada. 
+En la página Estado de característica de red, puede ver si la aplicación está conectada a la red virtual. Si la puerta de enlace de red virtual no está disponible por cualquier razón, su estado se mostrará como no conectado. 
 
 La información que tiene ahora disponible en la interfaz de usuario de Integración con red virtual en el nivel de aplicación es igual que la información detallada que se obtiene desde el plan de App Service. Esto es lo que cubre:
 
-* Nombre de red virtual: este vínculo abre la interfaz de usuario de red virtual de Azure.
-* Ubicación: esto refleja la ubicación de la red virtual. Es posible realizar la integración con una red virtual en otra ubicación.
-* Estado de certificado: hay certificados que se usan para proteger la conexión VPN entre la aplicación y la red virtual. Esto refleja una prueba para asegurarse de que estén sincronizados.
+* Nombre de red virtual: vínculos a la interfaz de usuario de la red virtual
+* Ubicación: refleja la ubicación de la red virtual. La integración con una red virtual de otra ubicación puede causar problemas de latencia de la aplicación. 
+* Estado del certificado: refleja si los certificados están sincronizados entre el plan de App Service y la red virtual.
 * Estado de la puerta de enlace: si las puertas de enlace estuvieran inactivas por algún motivo, la aplicación no podrá acceder a los recursos de la red virtual. 
-* Espacio de direcciones de red virtual: se trata del espacio de direcciones IP para la red virtual. 
-* Espacio de direcciones de punto a sitio: es el espacio de direcciones IP de punto a sitio para la red virtual. La aplicación muestra la comunicación como procedente de una de las direcciones IP de este espacio de direcciones. 
-* Espacio de direcciones de sitio a sitio: puede usar VPN de sitio a sitio para conectar la red virtual a sus recursos locales o a otras redes virtuales. Si lo tiene configurado, aquí se muestran los intervalos de direcciones IP definidos para esa conexión VPN.
-* Servidores DNS: si tiene servidores DNS configurados con la red virtual, aparecen aquí.
-* Direcciones IP enrutadas a la red virtual: hay una lista de direcciones IP para las que la red virtual tiene definido el enrutamiento y esas direcciones se muestran aquí. 
+* Espacio de direcciones de red virtual: muestra el espacio de direcciones IP de la red virtual. 
+* Espacio de direcciones de punto a sitio: muestra el espacio de direcciones IP de punto a sitio de la red virtual. Al realizar llamadas en la red virtual, la dirección De de su aplicación será una de estas. 
+* Espacio de direcciones de sitio a sitio: puede usar VPN de sitio a sitio para conectar la red virtual a sus recursos locales o a otras redes virtuales. Aquí se muestran los intervalos IP definidos con esa conexión VPN.
+* Servidores DNS: muestra los servidores DNS configurados con la red virtual.
+* Direcciones IP enrutadas a la red virtual: muestra los bloques de direcciones enrutados que se usan para dirigir el tráfico hacia la red virtual. 
 
-La única operación que puede realizar en la vista de aplicación de Integración con red virtual es desconectar la aplicación de la red virtual si está conectada a ella. Para desconectar la aplicación de una red virtual, desconecte desde la parte superior. Esta acción no cambia la red virtual. La red virtual y su configuración, incluidas las puertas de enlace, permanecen intactas. Si después desea eliminar la red virtual, debe eliminar primero los recursos que hay en ella, incluidas las puertas de enlace. 
+La única operación que puede realizar en la vista de aplicación de Integración con red virtual es desconectar la aplicación de la red virtual si está conectada a ella. Para desconectar la aplicación de una red virtual, seleccione **Desconectar**. La aplicación se reiniciará cuando se desconecte de una red virtual. La desconexión no cambia la red virtual. La red virtual y su configuración, incluidas las puertas de enlace, permanecen intactas. Si después desea eliminar la red virtual, debe eliminar primero los recursos que hay en ella, incluidas las puertas de enlace. 
 
-La vista del plan de App Service ofrece varias operaciones adicionales. Además, también se accede a ella de forma diferente desde la aplicación. Para llegar a la interfaz de usuario de Redes de ASP, abra la interfaz de usuario de ASP y desplácese hacia abajo. Seleccione "Estado de característica de red" para abrir la interfaz de usuario del estado de característica de red. Seleccione "Haga clic aquí para administrar" para mostrar las integraciones con redes virtuales en este ASP.
+Para llegar a la interfaz de usuario de integración de red virtual del plan de App Service, abra la interfaz de usuario de dicho plan y seleccione **Redes**.  En Integración con red virtual, seleccione **Haga clic aquí para configurar** para abrir la interfaz de usuario de Estado de característica de red.
 
-![][6]
+![Información de integración con red virtual del plan de App Service][5]
 
-Está bien recordar la ubicación del plan de App Service cuando se observan las ubicaciones de las redes virtuales con las que va a realizar la integración. Cuando la red virtual está en otra ubicación, es mucho más probable que se experimenten problemas de latencia. 
+La interfaz de usuario de integración de red virtual del plan de App Service le mostrará todas las redes virtuales que usan las aplicaciones de su plan de App Service. Puede tener hasta 5 redes virtuales conectadas con cualquier número de aplicaciones en su plan de App Service. Cada aplicación puede tener una sola integración configurada. Para ver más detalles sobre cada red virtual, haga clic en la red virtual que le interese. Hay dos acciones que puede realizar aquí.
 
-Las redes virtuales integradas constituyen un recordatorio de con cuántas redes virtuales están integradas sus aplicaciones en este plan de App Service y cuántas puede tener. 
+* **Sincronizar red**. La operación de sincronización de red garantiza que los certificados y la información de red estén sincronizados. Si agrega o cambia el DNS de la red virtual, debe ejecutar la operación **Sincronizar red**. Esta operación reiniciará todas las aplicaciones con esta red virtual.
+* **Agregar rutas** La adición de rutas dirigirá el tráfico saliente hacia la red virtual.
 
-Para ver más detalles sobre cada red virtual, haga clic en la red virtual que le interese. Además de los detalles que se indicaron antes, también verá una lista de las aplicaciones de este plan de App Service que usan esa red virtual. 
+**Enrutamiento** Las rutas definidas en la red virtual se usan para dirigir el tráfico desde la aplicación hacia la red virtual. Si necesita enviar más tráfico saliente a la red virtual, puede agregar aquí los bloques de direcciones.   
 
-Con respecto a las acciones, existen dos principales. La primera es la capacidad de agregar rutas que controlan el tráfico que sale de la aplicación hacia la red virtual. La segunda acción es la capacidad de sincronizar los certificados y la información de la red.
-
-![][7]
-
-**Enrutamiento** Como se indicó antes, las rutas definidas en la red virtual son lo que se usa para dirigir el tráfico desde la aplicación hacia la red virtual. Sin embargo, en algunos casos, los clientes desean enviar más tráfico saliente desde una aplicación hacia la red virtual y para ellos se proporciona esta capacidad. Lo que ocurra con el tráfico después de eso depende de cómo el cliente configure su red virtual. 
-
-**Certificados** El campo Estado de certificado refleja que App Service está llevando a cabo una comprobación para confirmar que los certificados que se estén usando para la conexión VPN sigan siendo válidos. Cuando se habilita Integración con red virtual, si es la primera integración con dicha red virtual desde las aplicaciones de este plan de App Service, se produce un intercambio obligatorio de certificados para garantizar la seguridad de la conexión. Junto con los certificados, se obtienen la configuración de DNS, las rutas y otros elementos similares que describen la red.
-Si cambian los certificados o la información de red, es necesario hacer clic en "Sincronizar red". **NOTA**: Al hacer clic en "Sincronizar red", se producirá una breve interrupción en la conectividad entre la aplicación y la red virtual. Aunque no se reinicia la aplicación, la pérdida de conectividad podría hacer que su sitio no funcione correctamente. 
+**Certificados** Cuando la integración con red virtual está habilitada, existe un intercambio necesario de certificados para garantizar la seguridad de la conexión. Junto con los certificados, se incluyen la configuración de DNS, las rutas y otros elementos similares que describen la red.
+Si los certificados o la información de red cambian, es necesario hacer clic en "Sincronizar red". Al hacer clic en "Sincronizar red", se producirá una breve interrupción en la conectividad entre la aplicación y la red virtual. Aunque no se reinicia la aplicación, la pérdida de conectividad podría hacer que su sitio no funcione correctamente. 
 
 ## <a name="accessing-on-premises-resources"></a>Obtener acceso a recursos locales
-Una de las ventajas de la característica Integración con red virtual es que, si la red virtual está conectada a la red local con una VPN de sitio a sitio, las aplicaciones pueden acceder a los recursos locales desde su aplicación. Para que esto funcione, puede que necesite actualizar la puerta de enlace de VPN local con las rutas de su intervalo de direcciones IP de punto a sitio. En la configuración inicial de la VPN de sitio a sitio, los scripts que se usan para configurarla deberían configurar las rutas, incluida la VPN de punto a sitio. Si agrega la VPN de punto a sitio después de crear la VPN de sitio a sitio, deberá actualizar las rutas manualmente. El procedimiento varía según la puerta de enlace y no se describe aquí. 
+Las aplicaciones pueden acceder a los recursos locales mediante la integración con redes virtuales que tengan conexiones de sitio a sitio. Para obtener acceso a los recursos locales, debe actualizar las rutas de VPN Gateway locales con los bloques de direcciones de punto a sitio. En la configuración inicial de la VPN de sitio a sitio, los scripts que se usan para configurarla deben configurar las rutas correctamente. Si agrega las direcciones de punto a sitio después de crear la VPN de sitio a sitio, deberá actualizar las rutas manualmente. El procedimiento varía según la puerta de enlace y no se describe aquí. Además, no puede tener BGP configurado con una conexión VPN de sitio a sitio.
 
 > [!NOTE]
-> La característica Integración con red virtual no integra una aplicación con una red virtual que tiene una puerta de enlace de ExpressRoute. Incluso si la puerta de enlace de ExpressRoute está configurada en [modo de coexistencia][VPNERCoex], Integración con red virtual no funcionará. Si necesita tener acceso a los recursos mediante una conexión de ExpressRoute, puede utilizar una instancia de [App Service Environment][ASE] que se ejecute en la red virtual.
+> La característica Integración con red virtual no integra una aplicación con una red virtual que tiene una puerta de enlace de ExpressRoute. Aunque la puerta de enlace de ExpressRoute esté configurada en [modo de coexistencia][VPNERCoex], la integración con red virtual no funcionará. Si necesita tener acceso a los recursos mediante una conexión de ExpressRoute, puede utilizar una instancia de [App Service Environment][ASE] que se ejecute en la red virtual. 
 > 
 > 
 
+## <a name="peering"></a>Emparejamiento
+Puede usar la integración con red virtual para acceder a los recursos de redes virtuales que se han emparejado con la red virtual a la que está conectado. Para configurar el emparejamiento para que funcione con su aplicación:
+
+1. Agregue una conexión de emparejamiento en la red virtual a la que se conecta su aplicación. Al agregar la conexión de emparejamiento, habilite **Permitir acceso a red virtual** y active **Permitir tráfico reenviado** y **Permitir tránsito de puerta de enlace**.
+1. Agregue una conexión de emparejamiento en la red virtual que se está emparejando con la red virtual a la que está conectado. Al agregar la conexión de emparejamiento en la red virtual de destino, habilite **Permitir acceso a red virtual** y active **Permitir tráfico reenviado** y **Allow remote gateways** (Permitir puertas de enlace remotas).
+1. Vaya a Plan de App Service > Redes > UI de Integración con red virtual en el portal.  Seleccione la red virtual a la que está conectada su aplicación. En la sección de enrutamiento, agregue el intervalo de direcciones de la red virtual que está emparejada con la red virtual a la que está conectada su aplicación.  
+
+
 ## <a name="pricing-details"></a>Detalles de precios
-Hay algunos matices sobre los precios que se deben tener en cuenta al usar la característica Integración con red virtual. El uso de esta característica comporta tres cargos:
+Hay tres cargos relacionados con el uso de la característica Integración con red virtual:
 
 * Requisitos del plan de tarifa para el plan de servicio de aplicaciones
 * Costos de la transferencia de datos
 * Costos de VPN Gateway
 
-Para que las aplicaciones puedan usar esta característica, deben pertenecer a un plan de App Service Premium o Estándar. Puede ver más detalles sobre esos costos aquí: [Precios de App Service][ASPricing]. 
+Las aplicaciones deben estar en un plan de App Service Estándar, Premium o PremiumV2. Puede ver más detalles sobre esos costos aquí: [Precios de App Service][ASPricing]. 
 
-Debido a la forma en que se controlan las VPN de punto a sitio, siempre tiene un cargo por los datos salientes a través de la conexión de Integración con red virtual, incluso si la red virtual está en el mismo centro de datos. Para ver cuáles son dichos cargos, consulte: [Detalles de precios de transferencia de datos][DataPricing]. 
+Se aplica un cargo de salida de datos, aunque la red virtual esté en el mismo centro de datos. Estos cargos se describen en la página de [detalles de precios de transferencia de datos][DataPricing]. 
 
-El último elemento es el costo de las puertas de enlace de red virtual. Si no necesita las puertas de enlace para algo diferente, como las VPN de sitio a sitio, va a pagar para que las puertas de enlace admitan la característica Integración con red virtual. Los detalles sobre esos costos están aquí: [Precios de VPN Gateway][VNETPricing]. 
+Existe un costo para la puerta de enlace de red virtual necesario para la VPN de punto a sitio. Encontrará los detalles en la página [Precios de VPN Gateway][VNETPricing].
 
 ## <a name="troubleshooting"></a>solución de problemas
-El que una característica sea fácil de configurar no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que desee, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Puede usar dos experiencias de consola. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para llegar a la consola Kudu desde la aplicación, vaya a Herramientas -> Kudu. Esto equivale a ir a [nombreDeSitio].scm.azurewebsites.net. Cuando se abra, vaya a la pestaña de consola Depurar. Para llegar a la consola hospedada en el Portal de Azure, desde su aplicación, vaya a Herramientas -> Consola. 
+El que una característica sea fácil de configurar no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que desee, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Dispone de dos consolas que puede usar. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para acceder a la consola Kudu desde la aplicación, vaya a Herramientas -> Kudu. Esto equivale a ir a [nombreDeSitio].scm.azurewebsites.net. Cuando se abra, vaya a la pestaña de consola Depurar. Para llegar a la consola hospedada en el Portal de Azure, desde su aplicación, vaya a Herramientas -> Consola. 
 
 #### <a name="tools"></a>Herramientas
-Las herramientas **ping**, **nslookup** y **tracert** no funcionarán a través de la consola por restricciones de seguridad. Para suplir esta falta, se han agregado dos herramientas independientes. Para probar la funcionalidad de DNS, agregamos una herramienta denominada nameresolver.exe. La sintaxis es:
+Las herramientas **ping**, **nslookup** y **tracert** no funcionarán a través de la consola por restricciones de seguridad. Para suplir esta falta, se han agregado dos herramientas independientes. Para probar la funcionalidad de DNS, hemos agregado una herramienta denominada nameresolver.exe. La sintaxis es:
 
     nameresolver.exe hostname [optional: DNS Server]
 
@@ -217,9 +186,9 @@ La utilidad **tcpping** indica si se puede llegar a un host y puerto específico
 #### <a name="debugging-access-to-vnet-hosted-resources"></a>Depuración del acceso a recursos hospedados en la red virtual
 Hay varias situaciones que pueden impedir que la aplicación llegue a un host y un puerto específicos. La mayoría de las veces se debe a una de estas tres causas:
 
-* **Hay un firewall en la comunicación**: si tiene un firewall en la comunicación, se agotará el tiempo de espera de TCP. En este caso, es de 21 segundos. Utilice la herramienta **tcpping** para probar la conectividad. Los tiempos de espera agotados de TCP pueden deberse a muchas causas, además de los firewalls, pero comience por comprobar los firewalls. 
-* **El DNS no está accesible**: el tiempo de espera del DNS es de tres segundos por cada servidor DNS. Si tiene dos servidores DNS, el tiempo de espera es de seis segundos. Utilice nameresolver para ver si funciona el DNS. Recuerde que no puede usar nslookup ya que este no utiliza el DNS con el que está configurada su red virtual.
-* **Intervalo IP de P2S no válido**  El intervalo IP de punto a sitio debe estar en los intervalos IP privado de RFC 1918 (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255). Si el intervalo utiliza direcciones IP externas, las cosas no funcionarán. 
+* **Existe un firewall que lo impide.** Si tiene un firewall que lo impide, se agotará el tiempo de espera de TCP. El tiempo de espera de TCP es de 21 segundos en este caso. Utilice la herramienta **tcpping** para probar la conectividad. Los tiempos de espera agotados de TCP pueden deberse a muchas causas, además de los firewalls, pero comience por comprobar los firewalls. 
+* **El DNS no es accesible.** El tiempo de espera de DNS es de tres segundos por cada servidor DNS. Si tiene dos servidores DNS, el tiempo de espera es de seis segundos. Utilice nameresolver para ver si funciona el DNS. Recuerde que no puede usar nslookup porque este no usa el DNS con el que se ha configurado la red virtual.
+* **El intervalo de direcciones de punto a sitio no es válido.** El intervalo IP de punto a sitio debe estar en los intervalos de direcciones IP privadas RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255). Si el intervalo utiliza direcciones IP externas, las cosas no funcionarán. 
 
 Si estos elementos no resuelven su problema, busque primero elementos sencillas como: 
 
@@ -227,7 +196,7 @@ Si estos elementos no resuelven su problema, busque primero elementos sencillas 
 * ¿Indican los certificados que están sincronizados?
 * ¿Cambió alguien la configuración de la red sin hacer clic en "Sincronizar red" en los planes de servicio de aplicaciones afectados? 
 
-Si la puerta de enlace está inactiva, vuelva a activarla. Si los certificados no están sincronizados, vaya a la vista del plan de App Service en Integración con red virtual y haga clic en "Sincronizar red". Si sospecha que se realizó un cambio en la configuración de la red virtual y no se sincronizó con el plan de App Service, vaya a la vista del plan de App Service de Integración con red virtual y haga clic en "Sincronizar red". Recuerde que esto causará una breve interrupción en la conexión entre la red virtual y sus aplicaciones. 
+Si la puerta de enlace está inactiva, vuelva a activarla. Si los certificados no están sincronizados, vaya a la vista del plan de App Service en Integración con red virtual y haga clic en "Sincronizar red". Si sospecha que se ha producido un cambio en su configuración de red virtual que no se ha sincronizado con sus planes de App Service, haga clic en "Sincronizar red".  La operación "Sincronizar red" reiniciará todas las aplicaciones del plan de App Service integradas con esa red virtual. 
 
 Si todo eso está bien, debe profundizar un poco más:
 
@@ -240,14 +209,14 @@ Si la respuesta a cualquiera de las anteriores preguntas es afirmativa, Integrac
 * el host de destino está inactivo;
 * la aplicación está inactiva;
 * la dirección IP o el nombre de host son incorrectos;
-* la aplicación escucha en un puerto diferente del que se esperaba. Para comprobarlo, vaya a ese host y use "netstat -aon" en el símbolo del sistema. Esto le muestra qué identificador de proceso está escuchando en qué puerto; 
+* la aplicación escucha en un puerto diferente del que se esperaba. Puede hacer coincidir el id. de proceso con el puerto de escucha usando "netstat -aon" en el host del punto de conexión. 
 * los grupos de seguridad de la red están configurados de tal manera que impiden el acceso al host y al puerto de la aplicación desde su intervalo de direcciones IP de punto a sitio.
 
 Recuerde que no sabe qué dirección IP del intervalo de direcciones IP de punto a sitio usará la aplicación, así que necesita permitir el acceso a todo el intervalo. 
 
 Otros pasos de depuración son:
 
-* conectarse a una VM de la red virtual e intentar acceder al recurso host:puerto desde ella. Para probar el acceso de TCP, use el comando de PowerShell **test-netconnection**. La sintaxis es:
+* conectarse a una VM de la red virtual e intentar acceder al recurso host:puerto desde ella. Para probar el acceso de TCP, use el comando **test-netconnection** de PowerShell. La sintaxis es:
 
       test-netconnection hostname [optional: -Port]
 
@@ -255,14 +224,14 @@ Otros pasos de depuración son:
 
 #### <a name="on-premises-resources"></a>Recursos locales ####
 
-Si la aplicación no puede conectar con un recurso local, compruebe si puede acceder al recurso desde su red virtual. Use el comando de PowerShell **test-netconnection** para hacerlo. Si la máquina virtual no puede acceder al recurso local, asegúrese de que funciona la conexión VPN de sitio a sitio. Si funciona, compruebe lo mismo que se indicó antes, así como el estado y la configuración de la puerta de enlace local. 
+Si la aplicación no puede conectar con un recurso local, compruebe si puede acceder al recurso desde su red virtual. Use el comando **test-netconnection** de PowerShell para comprobar el acceso de TCP. Si la máquina virtual no puede acceder al recurso local, asegúrese de que funciona la conexión VPN de sitio a sitio. Si funciona, compruebe lo mismo que se indicó antes, así como el estado y la configuración de la puerta de enlace local. 
 
-Si la VM hospedada en la red virtual puede acceder a su sistema local, pero la aplicación no puede, es probable que el motivo sea uno de los siguientes:
+Si la máquina virtual hospedada en la red virtual puede acceder a su sistema local, pero la aplicación no, la causa es probablemente una de las razones siguientes:
 
 * Las rutas no están configuradas con los intervalos IP de punto a sitio en la puerta de enlace local
 * Los grupos de seguridad de red están bloqueando el acceso del intervalo IP de punto a sitio.
 * Los firewalls locales están bloqueando el tráfico procedente del intervalo IP de punto a sitio.
-* Tiene una ruta definida por el usuario (UDR) en la red virtual que impide que el tráfico basado en la conectividad de punto a sitio llegue a su red local
+
 
 ## <a name="powershell-automation"></a>Automatización de PowerShell
 
@@ -275,13 +244,13 @@ Existen tres características que permiten el acceso a los recursos hospedados e
 * conexiones híbridas
 * Entornos de App Service
 
-Conexiones híbridas requiere que se instale un agente de retransmisión llamado administrador de conexiones híbridas (HCM) en la red. El HCM debe ser capaz de conectarse a Azure y también a la aplicación. Esta solución es especialmente atractiva desde una red remota como su red local o incluso otra red hospedada en la nube porque no requiere un punto de conexión accesible por Internet. El HCM solamente se ejecuta en Windows y puede tener hasta cinco instancias en ejecución para proporcionar alta disponibilidad. Sin embargo, Conexiones híbridas solo admite TCP y cada uno de sus puntos de conexión tiene que coincidir con una combinación de host:puerto específica. 
+Conexiones híbridas requiere que se instale un agente de retransmisión llamado administrador de conexiones híbridas (HCM) en la red. El HCM debe ser capaz de conectarse a Azure y también a la aplicación. Las conexiones híbridas no requieren un punto de conexión accesible de Internet entrante para la red remota, como existe una conexión VPN. El HCM solamente se ejecuta en Windows y puede tener hasta cinco instancias en ejecución para proporcionar alta disponibilidad. Sin embargo, Conexiones híbridas solo admite TCP y cada uno de sus puntos de conexión tiene que coincidir con una combinación de host:puerto específica. 
 
-La característica App Service Environment permite ejecutar una instancia de Azure App Service en la red virtual. Esto permite que sus aplicaciones accedan a recursos de la red virtual sin ningún paso adicional. Algunas de las otras ventajas de un entorno de App Service Environment es que se pueden usar trabajos dedicados Dv2 con hasta 14 GB de RAM. Otra ventaja es que se puede escalar el sistema para que satisfaga sus necesidades. A diferencia de los entornos de varios inquilinos en los que el plan de App Service se limita a 20 instancias, en un ASE puede escalar hasta 100 instancias del plan de App Service. Una de las cosas que ofrece un entorno de App Service Environment que no encontrará en Integración con red virtual es que funciona con una VPN de ExpressRoute. 
+La característica App Service Environment permite ejecutar una instancia de un solo inquilino de Azure App Service en la red virtual. Si las aplicaciones están en una instancia de App Service Environment, pueden acceder a los recursos de la red virtual sin ningún paso adicional. Con App Service Environment, las aplicaciones se ejecutan en trabajos más eficaces y pueden escalar verticalmente a hasta 100 instancias de plan de App Service. Las instancias de App Service Environment funcionan con todas las características de redes, incluido ExpressRoute y los puntos de conexión de servicio.  
 
 Aunque algunos casos de uso se solapan, ninguna de estas características puede reemplazar a las otras. Saber qué característica emplear depende de sus necesidades. Por ejemplo: 
 
-* Si es un desarrollador y quiere ejecutar un sitio en Azure y acceder a la base de datos en la estación de trabajo que suele usar, lo más fácil es usar Conexiones híbridas. 
+* Si es un desarrollador y quiere ejecutar un sitio en Azure que pueda acceder a la base de datos en la estación de trabajo que suele usar, lo más fácil es usar Conexiones híbridas. 
 * Si es una gran organización que desea colocar un gran número de propiedades web en la nube pública y administrarlas en su propia red, entonces le interesará App Service Environment. 
 * Si tiene varias aplicaciones que necesitan tener acceso a los recursos de la red virtual, la integración con la red virtual es la mejor opción. 
 
@@ -291,29 +260,51 @@ Además de las diferencias funcionales, existen también diferencias de precio. 
 
 ## <a name="new-vnet-integration"></a>Nueva integración con red virtual ##
 
-Hay una nueva versión de la funcionalidad de integración con redes virtuales que no depende de la tecnología de VPN de punto a sitio. Se trata de una versión preliminar. La nueva funcionalidad de integración con red virtual tiene las siguientes características.
+Hay una nueva versión de la funcionalidad Integración con red virtual que no depende de la tecnología de VPN de punto a sitio. A diferencia de la característica ya existente, la nueva característica en vista previa funcionará con ExpressRoute y los puntos de conexión de servicio. 
 
-- La nueva característica requiere una subred sin usar en la red virtual de Resource Manager.
-- Se usa una dirección para cada instancia del plan de App Service. Puesto que no se puede cambiar el tamaño de la subred después de la asignación, use una subred que pueda cubrir un tamaño mayor al de su escala máxima. El tamaño /27 con 32 direcciones es el recomendado, ya podría dar cabida a un plan de App Service escalado a 20 instancias.
-- Para consumir los recursos protegidos del punto de conexión de servicio, use la nueva funcionalidad de integración con red virtual. Habilite el acceso desde la subred asignada a la aplicación para configurar los puntos de conexión de servicio con la aplicación.
-- Puede tener acceso a recursos en conexiones de ExpressRoute sin ninguna configuración adicional.
-- No es necesaria ninguna puerta de enlace para usar la nueva característica de integración con red virtual.
-- El plan de App Service debe ser un plan estándar, Premium o PremiumV2.
-- La nueva funcionalidad solo está disponible en las unidades de escalado más recientes de Azure App Service. El portal le indicará si la aplicación puede usar la nueva característica de integración con red virtual. 
-- La aplicación y la red virtual deben estar en la misma región
+La nueva funcionalidad solo está disponible en las unidades de escalado más recientes de Azure App Service. Si puede escalar a PremiumV2, está en una unidad de escalado más reciente de App Service. La UI de Integración con red virtual del portal le indicará si la aplicación puede usar la nueva característica Integración con red virtual. 
 
-Inicialmente, la nueva característica de integración con red virtual solo está disponible en las regiones de Europa del Norte y este de Estados Unidos.
+La nueva versión está en versión preliminar y tiene las siguientes características.
 
+* No es necesaria ninguna puerta de enlace para usar la nueva característica de integración con red virtual.
+* Puede acceder a recursos en conexiones de ExpressRoute sin ninguna configuración adicional, aparte de la integración con la red virtual conectada a ExpressRoute.
+* La aplicación y la red virtual deben estar en la misma región
+* La nueva característica requiere una subred sin usar en la red virtual de Resource Manager.
+* El plan de App Service debe ser un plan Estándar, Premium o PremiumV2.
+* No se admiten en la nueva característica de las cargas de trabajo de producción mientras se encuentra en versión preliminar.
+* La aplicación debe estar en una implementación de Azure App Service que se pueda escalar verticalmente a Premium v2.
+* La nueva característica Integración con red virtual no funciona con aplicaciones en App Service Environment.
+* No puede eliminar una red virtual con una aplicación integrada.  
+* Las tablas de rutas y el emparejamiento global no están aún disponibles con la nueva integración con red virtual.  
+* Se usa una dirección para cada instancia del plan de App Service. Puesto que no se puede cambiar el tamaño de la subred después de la asignación, use una subred que pueda cubrir un tamaño mayor al de su escala máxima. El tamaño /27 con 32 direcciones es el recomendado, ya podría dar cabida a un plan de App Service escalado a 20 instancias.  Para consumir los recursos protegidos del punto de conexión de servicio, use la nueva funcionalidad Integración con red virtual. Para ello, habilite los puntos de conexión de servicio en la subred usada para la integración con red virtual.
+
+Para usar la nueva característica:
+
+1. Vaya a la interfaz de usuario de Redes en el portal. Si la aplicación es capaz de usar la nueva característica, verá una funcionalidad para usar la nueva característica en vista previa.  
+
+ ![Seleccione la nueva característica de en vista previa de Integración con red virtual][6]
+
+1. Seleccione **Agregar VNET (versión preliminar)**.  
+
+1. Seleccione la red virtual de Resource Manager con la que quiere realizar la integración y, a continuación, cree una nueva subred o elija una subred vacía existente. La integración tarda menos de un minuto en completarse. Durante la integración, la aplicación se reinicia.  Cuando se complete la integración, verá detalles sobre la red virtual con la que se ha integrado y un banner en la parte superior, que indica que la característica está en versión preliminar.
+
+ ![Selección de la red virtual y la subred][7]
+
+Para habilitar la aplicación, use el servidor DNS con el que se ha configurado la red virtual, cree una configuración de la aplicación para la aplicación, donde el nombre sea WEBSITE_DNS_SERVER y el valor sea la dirección IP del servidor.  Si tiene un servidor DNS secundario, cree otra configuración de la aplicación, donde el nombre sea WEBSITE_DNS_ALT_SERVER y el valor sea la dirección IP del servidor. 
+
+Para desconectar la aplicación de la red virtual, seleccione **Desconectar**. Esta acción reiniciará la aplicación web. 
+
+La nueva característica Integración con red virtual le permite usar puntos de conexión de servicio.  Para usar puntos de conexión de servicio con la aplicación, use la nueva integración con red virtual para conectarse a una red virtual seleccionada y, a continuación, configure los puntos de conexión de servicio en la subred que usó para la integración. 
 
 <!--Image references-->
-[1]: ./media/web-sites-integrate-with-vnet/vnetint-upgradeplan.png
-[2]: ./media/web-sites-integrate-with-vnet/vnetint-existingvnet.png
-[3]: ./media/web-sites-integrate-with-vnet/vnetint-createvnet.png
-[4]: ./media/web-sites-integrate-with-vnet/vnetint-howitworks.png
-[5]: ./media/web-sites-integrate-with-vnet/vnetint-appmanage.png
-[6]: ./media/web-sites-integrate-with-vnet/vnetint-aspmanage.png
-[7]: ./media/web-sites-integrate-with-vnet/vnetint-aspmanagedetail.png
-[8]: ./media/web-sites-integrate-with-vnet/vnetint-vnetp2s.png
+[1]: ./media/web-sites-integrate-with-vnet/vnetint-app.png
+[2]: ./media/web-sites-integrate-with-vnet/vnetint-addvnet.png
+[3]: ./media/web-sites-integrate-with-vnet/vnetint-howitworks.png
+[4]: ./media/web-sites-integrate-with-vnet/vnetint-details.png
+[5]: ./media/web-sites-integrate-with-vnet/vnetint-aspdetails.png
+[6]: ./media/web-sites-integrate-with-vnet/vnetint-newvnet.png
+[7]: ./media/web-sites-integrate-with-vnet/vnetint-newvnetdetails.png
+[8]: ./media/web-sites-integrate-with-vnet/vnetint-selectvnet.png
 
 <!--Links-->
 [VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
@@ -327,3 +318,6 @@ Inicialmente, la nueva característica de integración con red virtual solo est�
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
+[creategatewaysubnet]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategateway]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
+[setp2saddresses]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

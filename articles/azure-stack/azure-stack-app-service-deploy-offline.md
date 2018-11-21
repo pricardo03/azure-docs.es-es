@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718736"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614045"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Incorporación de un proveedor de recursos de App Service a un entorno de Azure Stack desconectado protegido por AD FS
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!IMPORTANT]
-> Aplique la actualización 1807 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.3.
+> Aplique la actualización 1809 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.4.
 >
 >
 
@@ -84,8 +84,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
     2. En el cuadro **Azure Stack Subscriptions** (Suscripciones de Azure Stack), seleccione **Default Provider Subscription** (Suscripción de proveedor predeterminada).
     
     > [!NOTE]
-    > App Service solo puede implementarse en la **suscripción de proveedor predeterminada** en este momento.  En una futura actualización, App Service se implementará en la nueva suscripción de medición introducida en Azure Stack 1804 y todas las implementaciones existentes se migrarán también a esta nueva suscripción.
-    >
+    > App Service solo puede implementarse en la **suscripción del proveedor predeterminado**.
     >
     
     3. En el cuadro **Azure Stack Locations** (Ubicaciones de Azure Stack), seleccione la ubicación que corresponda a la región en la que se va a implementar. Por ejemplo, seleccione **local** si va a implementar con el Kit de desarrollo de Azure Stack.
@@ -170,7 +169,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
     ![Instalador de App Service][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core no es una imagen de plataforma compatible para su uso con Azure App Service en Azure Stack.  No use imágenes de evaluación para las implementaciones de producción.  Azure App Service en Azure Stack requiere que Microsoft.Net 3.5.1 SP1 se active en la imagen utilizada para la implementación.   Las imágenes de Windows Server 2016 distribuidas en Marketplace no tienen habilitada esta característica.**
+    > **Windows Server 2016 Core no es una imagen de plataforma compatible para su uso con Azure App Service en Azure Stack.  No use imágenes de evaluación para las implementaciones de producción.  Azure App Service en Azure Stack requiere que Microsoft.Net 3.5.1 SP1 se active en la imagen utilizada para la implementación.   Las imágenes de Windows Server 2016 distribuidas por Marketplace no tienen habilitada esta característica; por lo tanto, debe crear y utilizar una imagen de Windows Server 2016 con la característica habilitada previamente.**
 
 14. En el cuadro **Select Platform Image** (Seleccionar imagen de plataforma), elija su imagen de máquina virtual Windows Server 2016 de implementación entre las que están disponibles en el proveedor de recursos de procesos para la nube de App Service. Haga clic en **Next**.
 
@@ -198,7 +197,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 
 1. En el Portal de administración de Azure Stack, vaya a **Administración - App Service**.
 
-2. En la información general del estado, compruebe que en **Estado** se muestra **Todos los roles están listos**.
+2. En la información general, debajo del estado, compruebe que en **Estado** se muestra el mensaje **Todos los roles están listos**.
 
     ![Administración de App Service](media/azure-stack-app-service-deploy/image12.png)
     

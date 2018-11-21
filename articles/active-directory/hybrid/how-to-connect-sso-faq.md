@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d445a4673245b4c6d1986d099113beba79d136bb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e3f08b80b891ad277794ae5a07c3662dab2f2c16
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310594"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687459"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -36,7 +36,7 @@ SSO de conexión directa es una característica gratuita y no es necesario usar 
 
 ## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>¿Está disponible el inicio de sesión único de conexión directa en la [nube Microsoft Azure Alemania](http://www.microsoft.de/cloud-deutschland) y en la [nube de Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
 
-No. El inicio de sesión único de conexión directa solo está disponible en la instancia mundial de Azure AD.
+ No. El inicio de sesión único de conexión directa solo está disponible en la instancia mundial de Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>¿Qué aplicaciones aprovechan la funcionalidad de parámetro `domain_hint` o `login_hint` de SSO de conexión directa?
 
@@ -46,7 +46,7 @@ La siguiente es una lista parcial de las aplicaciones que envían estos parámet
 | -- | -- |
 | Panel de acceso | https://myapps.microsoft.com/contoso.com |
 | Outlook en la Web | https://outlook.office365.com/contoso.com |
-| Portal de Office 365 | https://portal.office.com?domain_hint=contoso.com |
+| Portales de Office 365 | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
 
 Además, los usuarios obtienen una experiencia de inicio de sesión silenciosa si una aplicación envía solicitudes de inicio de sesión a los puntos de conexión con inquilino de Azure AD; es decir, https://login.microsoftonline.com/contoso.com/<..> o https://login.microsoftonline.com/<tenant_ID>/<..>, en lugar del punto de conexión común de Azure AD; es decir, https://login.microsoftonline.com/common/<...>. A continuación se incluye una lista no exhaustiva de aplicaciones que hacen estos tipos de solicitudes de inicio de sesión.
 

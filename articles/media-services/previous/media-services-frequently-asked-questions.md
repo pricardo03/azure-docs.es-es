@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: d4b7d8ec5cb162e5fc844f107fbd5eb08fb00639
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353547"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685725"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -28,7 +28,7 @@ En este artículo tratan las preguntas más frecuentes planteadas por la comunid
 
 P: ¿Cómo se hace streaming a dispositivos de Apple iOS?
 
-R: Agregue la ruta de acceso "(format=m3u8-aapl)" a la parte "/Manifest" de la dirección URL para indicar al servidor de origen de streaming que devuelva el contenido HLS para su consumo en dispositivos Apple iOS nativos (para más información, vea [entrega de contenido][media-services-deliver-content-overview.md]).
+R: Agregue la ruta de acceso "(format=m3u8-aapl)" a la parte "/Manifest" de la dirección URL para indicar al servidor de origen de streaming que devuelva el contenido HLS para su consumo en dispositivos Apple iOS nativos (para obtener más información, lea la sección de [entrega de contenido](media-services-deliver-content-overview.md)).
 
 P: ¿Cómo se escala la indización?
 

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 6c9172140691f7107d3907ab86938d879989a6c0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d1127834732a6fc82e0331370a6c4173e9f61dcf
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748245"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685419"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referencia para desarrolladores de scripts de C# de Azure Functions (.csx)
 
@@ -376,34 +376,27 @@ Para más información sobre cómo cargar archivos en su carpeta de función, co
 El directorio que contiene el archivo de script de función se inspecciona automáticamente para buscar cambios en los ensamblados. Para inspeccionar los cambios de los ensamblado en otros directorios, agréguelos a la lista `watchDirectories` en [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Uso de paquetes NuGet
+Para usar paquetes NuGet en una función de C#, cargue un archivo *extensions.csproj* en la carpeta de la función del sistema de archivos de la aplicación de función. Este es un ejemplo del archivo *extensions.csproj* en el que se agrega una referencia a la versión *1.1.0* de *Microsoft.ProjectOxford.Face*:
 
-Para usar paquetes NuGet en una función de C#, cargue un archivo *project.json* en la carpeta de la función del sistema de archivos de la aplicación de función. Este es un ejemplo de archivo *project.json* que agrega una referencia a la versión 1.1.0 de Microsoft.ProjectOxford.Face:
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.ProjectOxford.Face": "1.1.0"
-      }
-    }
-   }
-}
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net46</TargetFramework>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
+    </ItemGroup>
+</Project>
 ```
-
-En Azure Functions 1.x, solo se admite .NET Framework 4.6, así que asegúrese de que su archivo *project.json* especifique `net46` como se muestra aquí.
-
-Al cargar un archivo *project.json* , el sistema en tiempo de ejecución obtiene los paquetes y agrega automáticamente las referencias a sus ensamblados. No es necesario agregar directivas `#r "AssemblyName"` . Para usar los tipos definidos en los paquetes NuGet, basta con agregar las instrucciones `using` necesarias al archivo *run.csx*. 
-
-En el tiempo de ejecución de funciones, la restauración de NuGet funciona comparando `project.json` y `project.lock.json`. Si las marcas de fecha y hora de los archivos **no coinciden**, se ejecuta una restauración de NuGet y se descargan los paquetes actualizados. Pero si las marcas de fecha y hora de los archivos **coinciden**, NuGet no realiza una restauración. Por tanto, no debe implementarse `project.lock.json`, ya que hace que NuGet omita la restauración del paquete. Para evitar la implementación del archivo de bloqueo, agregue `project.lock.json` al archivo `.gitignore`.
 
 Para usar una fuente NuGet personalizada, especifique la fuente en un archivo *Nuget.Config* en la raíz de la aplicación la función. Para más información, vea [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Configuración del comportamiento de NuGet).
 
-### <a name="using-a-projectjson-file"></a>Uso de un archivo project.json
+### <a name="using-a-extensionscsproj-file"></a>Usar un archivo extensions.csproj
 
 1. Abra la función en Azure Portal. La pestaña de registros muestra el resultado de la instalación del paquete.
-2. Para cargar un archivo project.json, use uno de los métodos descritos en [Actualización de los archivos de aplicación de función](functions-reference.md#fileupdate) en el tema de referencia para desarrolladores de Azure Functions.
-3. Una vez cargado el archivo *project.json* , verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
+2. Para cargar un archivo *extensions.csproj*, use uno de los métodos descritos en [Actualización de los archivos de aplicación de función](functions-reference.md#fileupdate) en el tema de referencia para desarrolladores de Azure Functions.
+3. Una vez cargado el archivo *extensions.csproj*, verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -413,7 +406,7 @@ Para usar una fuente NuGet personalizada, especifique la fuente en un archivo *N
 2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
 2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
 2016-04-04T19:02:50.261
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
 2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
 2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
 2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.

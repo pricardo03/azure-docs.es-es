@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3b350deff2883761af6a3a2b3c5c9ef22235bde0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038353"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614266"
 ---
 # <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Almacenamiento del estado en una aplicación Azure Service Fabric Mesh mediante el montaje de un volumen basado en Azure Files dentro del contenedor
 
@@ -62,10 +62,10 @@ Cree la aplicación y los recursos relacionados mediante el siguiente comando, y
 
 El parámetro `storageAccountKey` de la plantilla es una cadena segura. No se mostrará en el estado de implementación y los comandos `az mesh service show`. Asegúrese de que está especificado correctamente en el siguiente comando.
 
-El siguiente comando implementa una aplicación Linux mediante la [plantilla mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). Para implementar una aplicación Windows, use la [plantilla mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Tenga en cuenta que las imágenes de contenedor más grandes pueden tardar más en implementarse.
+El siguiente comando implementa una aplicación Linux mediante la [plantilla counter.azurefilesvolume.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). Para implementar una aplicación Windows, use la [plantilla counter.azurefilesvolume.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). Tenga en cuenta que las imágenes de contenedor más grandes pueden tardar más en implementarse.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
 Pasados unos minutos, el comando debe devolver `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`

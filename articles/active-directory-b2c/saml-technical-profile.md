@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 301ae251413cc174f115479e9ebef2310aa83ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 347a437a9f45f29348e97c616c985764135e5427
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162449"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687476"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de SAML en una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedor de identidades SAML 2.0. En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado. Con el perfil técnico de SAML puede federarse con un proveedor de identidades basado en SAML, como AD FS y Salesforce, para que los usuarios puedan iniciar sesión con sus identidades sociales o empresariales existentes.
+Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedor de identidades SAML 2.0. En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado. Con el perfil técnico de SAML puede federarse con un proveedor de identidades basado en SAML, como [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) y [Salesforce](active-directory-b2c-setup-sf-app-custom.md), para que los usuarios puedan iniciar sesión con sus identidades sociales o empresariales existentes.
 
 ## <a name="metadata-exchange"></a>Intercambio de metadatos
 
-Los metadatos son información que se usa en el protocolo SAML para exponer la configuración de una entidad SAML, como un proveedor de servicios o de identidades. Los metadatos definen la ubicación de los servicios, como el inicio y el cierre de sesión, los certificados, el método de inicio de sesión y mucho más. El proveedor de identidades usa los metadatos para saber cómo comunicarse con Azure AD B2C. Los metadatos se configuran en formato XML y pueden estar firmados con una firma digital para que la otra entidad pueda validar la integridad de los metadatos. Cuando Azure AD B2C se federa con un proveedor de identidades SAML, actúa como proveedor de servicios iniciando una solicitud SAML y esperando una respuesta SAML. En algunos casos, dispensa la autenticación de SAML no solicitada, que también se conoce como autenticación iniciada por el proveedor de identidad. 
+Los metadatos son información que se usa en el protocolo SAML para exponer la configuración de una entidad SAML, como un proveedor de servicios o de identidades. Los metadatos definen la ubicación de los servicios, como el inicio y el cierre de sesión, los certificados, el método de inicio de sesión y mucho más. El proveedor de identidades usa los metadatos para saber cómo comunicarse con Azure AD B2C. Los metadatos se configuran en formato XML y pueden estar firmados con una firma digital para que la otra entidad pueda validar la integridad de los metadatos. Cuando Azure AD B2C se federa con un proveedor de identidades SAML, actúa como proveedor de servicios iniciando una solicitud SAML y esperando una respuesta SAML. En algunos casos, acepta la autenticación de SAML no solicitada, que también se conoce como autenticación iniciada por el proveedor de identidad. 
 
 Los metadatos se pueden configurar en las dos entidades como “Metadatos estáticos” o “Metadatos dinámicos”. En el modo estático, los metadatos se copian por completo de una entidad y se establecen en la otra. En el modo dinámico, se establece la URL en los metadatos mientras la otra entidad lee la configuración de forma dinámica. Los principios son los mismos: establecer los metadatos del perfil técnico de Azure AD B2C en el proveedor de identidades y establecer los metadatos del proveedor de identidades en Azure AD B2C.
 
@@ -34,12 +34,12 @@ Cada proveedor de identidades SAML sigue distintos pasos para exponer y establec
 En el ejemplo siguiente se muestra una dirección URL a los metadatos SAML de un perfil técnico de Azure AD B2C:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Reemplace los valores siguientes:
 
-- **your-tenant** por el nombre del inquilino, como inquilino.onmicrosoft.com.
+- **your-tenant-name** por su nombre de inquilino, por ejemplo, fabrikam.b2clogin.com.
 - **your-policy** por el nombre de la directiva. Use la directiva donde configura el perfil técnico del proveedor de SAML o una directiva que hereda de esa directiva.
 - **your-technical-profile** por el nombre del perfil técnico del proveedor de identidades SAML.
 

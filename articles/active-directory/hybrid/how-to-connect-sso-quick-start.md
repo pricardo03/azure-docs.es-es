@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914097"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687340"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -91,7 +91,7 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 ![Azure Portal: panel Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> SSO de conexión directa crea una cuenta de equipo llamada `AZUREADSSOACC` (que representa Azure AD) en la instancia local de Active Directory (AD) de cada bosque de AD. Esta cuenta de equipo es necesaria para que funcione la característica. Migre la cuenta de equipo `AZUREADSSOACC` a una unidad organizativa (UO) donde se almacenen otras cuentas de equipo para garantizar que se administre de la misma manera y que no se elimine.
+> SSO de conexión directa crea una cuenta de equipo llamada `AZUREADSSOACC` (que representa Azure AD) en la instancia local de Active Directory (AD) de cada bosque de AD. Esta cuenta de equipo es necesaria para que funcione la característica. Si utiliza las arquitecturas Pass-the-Hash y Credential Theft Mitigation en su entorno local, asegúrese de que la cuenta de equipo `AZUREADSSOACC` no termine en el contenedor de cuarentena. Realice los cambios adecuados para crear la cuenta de equipo en el contenedor de equipos. Una vez que el SSO de conexión directa esté habilitado correctamente en el asistente de Azure AD Connect, mueva la cuenta de equipo `AZUREADSSOACC` a una unidad organizativa (UO) donde se administren otras cuentas de equipo para asegurarse de que no se elimine accidentalmente.
 
 ## <a name="step-3-roll-out-the-feature"></a>Paso 3: Implementación de la característica
 

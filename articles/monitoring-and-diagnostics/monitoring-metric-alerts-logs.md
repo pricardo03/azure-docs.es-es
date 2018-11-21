@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 461c6e3cbdfcc5ef8207277b08ad4a8cf492f796
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 66a10cdd6324147509bcb45dad9e9b40b5335fef
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282805"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684924"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creación de alertas de métricas para registros en Azure Monitor  
 
@@ -48,7 +48,7 @@ Antes de que funcione la métrica para registros recopilada en los datos de Log 
 1. **Área de trabajo de Log Analytics activa**: debe haber un área de trabajo de Log Analytics activa y válida. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md).
 2. **Agente configurado para el área de trabajo de Log Analytics**: el agente debe configurarse para que las VM de Azure o VM locales envíen datos al área de trabajo de Log Analytics usada en el paso anterior. Para obtener más información, consulte [Log Analytics - Agent Overview](../monitoring/monitoring-overview-azure-agents.md) (Log Analytics: Introducción al agente).
 3. **Soluciones de Log Analytics admitidas instaladas**: la solución de Log Analytics debe estar configurada y enviando datos al área de trabajo de Log Analytics; las soluciones admitidas son [Contadores de rendimiento para Windows y Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), [Registros de latidos para Agent Health](../monitoring/monitoring-solution-agenthealth.md), Administración de actualizaciones y [Datos de eventos](../log-analytics/log-analytics-data-sources-windows-events.md).
-4. **Soluciones de Log Analytics configuradas para enviar registros**: la solución de Log Analytics debe tener los datos/registros correspondiente necesarios para las [métricas admitidas para las áreas de trabajo de Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) habilitadas. Por ejemplo, para el contador *% de memoria disponible*, debe configurarse primero en la solución [Contadores de rendimiento](../log-analytics/log-analytics-data-sources-performance-counters.md).
+4. **Soluciones de Log Analytics configuradas para enviar registros**: la solución de Log Analytics debe tener los datos o registros que corresponden a las [métricas admitidas para las áreas de trabajo de Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) habilitadas. Por ejemplo, para el contador *% de memoria disponible*, debe configurarse primero en la solución [Contadores de rendimiento](../log-analytics/log-analytics-data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configuración de alertas de métricas para registros
  Las alertas de métricas se pueden crear y administrar mediante Azure Portal, plantillas de Resource Manager, la API REST, PowerShell y la CLI de Azure. Dado que las alertas de métricas para registros es una variante de alertas de métricas: una vez que se cumplan los requisitos previos, se puede crear una alerta de métrica para registros para el área de trabajo de Log Analytics especificada. Todas las características y funcionalidades de [ alertas de métricas](monitoring-near-real-time-metric-alerts.md) se aplicarán a las alertas de métricas para registros, incluido el esquema de carga, los límites de cuota aplicables y el precio facturado.
@@ -101,7 +101,7 @@ Para lograr el mismo, se puede utilizar el ejemplo de la plantilla de Azure Reso
             "type": "string",
             "defaultValue": "true",
             "metadata": {
-                "description": "Specifies whether the log convertion rule is enabled"
+                "description": "Specifies whether the log conversion rule is enabled"
             }
         },
         "convertRuleMetric": {
@@ -218,9 +218,9 @@ Para lograr el mismo, se puede utilizar el ejemplo de la plantilla de Azure Reso
         }
     },
     "variables": {
-        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resouceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
+        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
         "convertRuleSourceWorkspace": {
-            "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resouceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
+            "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
         }
     },
     "resources": [

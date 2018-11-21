@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: 5707f97dff099d1ad914dcf3faa96cc287d48de9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245671"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684756"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services
 
@@ -22,7 +22,7 @@ Los clústeres de Enterprise Security Package (ESP) proporcionan acceso multiusu
 En este artículo, aprenderá a configurar un clúster de HDInsight con ESP mediante Azure Active Directory Domain Services (Azure AD-DS).
 
 >[!NOTE]
->ESP está disponible con carácter general en HDI 3.6 para Spark, Interactive y Hadoop. ESP para los tipos de clúster de HBase y Kafka se encuentra en versión preliminar.
+>ESP está disponible con carácter general en HDI 3.6 para Spark, Interactive y Apache Hadoop. ESP para los tipos de clúster de HBase y Kafka se encuentra en versión preliminar.
 
 ## <a name="enable-azure-ad-ds"></a>Habilitar Azure AD DS
 
@@ -64,6 +64,9 @@ Una vez que se crea la identidad administrada y se le asigna el rol correcto, el
 ![Asignación de roles del operador de identidades administradas de HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
 ## <a name="networking-considerations"></a>Consideraciones sobre redes
+
+> [!NOTE]
+> Azure AD DS debe implementarse en una red virtual basada en Azure Resource Manager (ARM). No se admiten redes virtuales clásicas para Azure AD DS. Consulte [Habilitación de Azure Active Directory Domain Services mediante Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) para obtener más información.
 
 Después de habilitar Azure AD DS, se ejecuta un servidor local del Servicio de nombres de dominio (DNS) en las máquinas virtuales (VM) de AD. Configure su red virtual (VNET) de Azure AD DS para usar estos servidores DNS personalizados. Para buscar las direcciones IP correctas, seleccione **Propiedades** en la categoría **Administrar** y observe las direcciones IP enumeradas debajo de la **dirección IP en la red virtual**.
 

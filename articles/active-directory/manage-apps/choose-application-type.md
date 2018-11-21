@@ -12,24 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 3a9f27a92a4bc808ff9bcf04b66523a92f1bcf03
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3fe268b6491a2a3cc1237173506ef5a91beb7d26
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355514"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625088"
 ---
-# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Cómo elegir el tipo de aplicación que se debe usar al agregar una aplicación
+# <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Elección del tipo de aplicación al agregar una aplicación a Azure Active Directory
+Obtenga información sobre los cuatro tipos de aplicaciones que puede agregar a Azure Active Directory (Azure AD). Al agregar una aplicación en Azure Active Directory, se le pedirá que elija uno de los cuatro tipos de aplicación. 
 
-Este artículo le ayuda a comprender los cuatro tipos principales de aplicaciones que se pueden integrar con Azure AD:
-
-* Qué es compatible en cada una de ellas
-* Por qué elegir una determinada aplicación
-* Cómo configurar las propiedades básicas de esas aplicaciones, por ejemplo, cómo se **aprovisionan** los usuarios o qué tecnología de **inicio de sesión único** usar.
-
-## <a name="supported-application-types-in-azure-ad"></a>Tipos de aplicaciones compatibles en Azure AD
+## <a name="what-are-the-types-of-applications"></a>¿Cuáles son los tipos de aplicaciones?
 
 Azure AD admite cuatro tipos de aplicaciones principales que puede agregar mediante la característica **Agregar** que se encuentra en **Aplicaciones empresariales**. Entre ellas se incluyen las siguientes:
 
@@ -41,7 +36,7 @@ Azure AD admite cuatro tipos de aplicaciones principales que puede agregar media
 
 -   **Aplicaciones que no son de la Galería**: ¡traiga sus propias aplicaciones! Cualquier vínculo web que quiera, o cualquier aplicación que represente un campo de nombre de usuario y contraseña, admita los protocolos SAML u OpenID Connect, o admita SCIM, que quiera integrar para el inicio de sesión único con Azure AD.
 
-## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>Características y funcionalidades admitidas por todos los tipos de aplicaciones anteriores
+## <a name="features-and-capabilities-supported-by-the-application-types"></a>Características y funcionalidades admitidas por los tipos de aplicaciones
 
 Las siguientes características se admiten en cualquiera de los 4 tipos de aplicaciones anteriores en Azure AD:
 

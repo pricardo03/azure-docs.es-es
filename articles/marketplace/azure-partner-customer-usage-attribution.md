@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280680"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685708"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
@@ -59,12 +59,13 @@ Para agregar un identificador único global (GUID), se realizas una modificació
 1. [Compruebe que el GUID es correcto en la implementación de plantillas](#verify-the-guid-deployment).
 
 ### <a name="sample-resource-manager-template-code"></a>Código de ejemplo de plantilla de Resource Manager
-Asegúrese de modificar el siguiente código de ejemplo con sus propias entradas cuando lo agregue al archivo de plantilla principal.
+
+Para habilitar el seguimiento de recursos de la plantilla, deberá agregar los siguientes recursos adicionales en la sección de recursos. Asegúrese de modificar el siguiente código de ejemplo con sus propias entradas cuando lo agregue al archivo de plantilla principal.
 El recurso solo se debe agregar al archivo **mainTemplate.json** o **azuredeploy.json**, y no a plantillas vinculadas o anidadas.
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
+{ // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
@@ -126,14 +127,14 @@ Un GUID es un número de referencia único que tiene 32 dígitos hexadecimales. 
 > [!Note]
 > Es muy recomendable usar el [formulario del generador de GUID de Azure Storage](https://aka.ms/StoragePartners) para crear su GUID. Para más información, consulte las [P+F](#faq).
 
-Cree un identificador único global único para todos los canales de distribución y ofertas. Si implementa dos soluciones mediante una plantilla y cada una de ellas está disponible en Azure Marketplace y en GitHub, deberá crear cuatro identificadores únicos globales:
+Se recomienda crear un GUID único para todos los canales de distribución y oferta de cada producto. Puede optar por usar un solo GUID para los múltiples canales de distribución del producto si no quiere que los informes se dividan. 
 
-*   Oferta A en Azure Marketplace 
-*   Oferta A en GitHub
-*   Oferta B en Azure Marketplace 
-*   Oferta B en GitHub
+Si implementa un producto mediante una plantilla y está disponible tanto en Azure Marketplace como en GitHub, puede crear y registrar 2 GUID distintos:
 
-La creación de informes se realiza por valor de asociado comercial (Id. de Partner de Microsoft) e identificador único global. 
+*   Producto A en Azure Marketplace 
+*   Producto A en GitHub
+
+La creación de informes se realiza en función del valor de asociado comercial (id. de Partner de Microsoft) y de los GUID. 
 
 Asimismo, si lo desea también puede realizar un seguimiento de los identificadores únicos globales a un nivel más detallado como el SKU donde las SKU son variantes de una oferta.
 

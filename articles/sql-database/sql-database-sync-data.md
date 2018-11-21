@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 78984cf9f73fd0cdd6e28e20e1d54d5b1198b7be
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362244"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687493"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
@@ -82,6 +82,7 @@ Data Sync no es la solución preferida para los siguientes escenarios:
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Configuración de Data Sync en Azure Portal
 
 -   [Configuración de Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   Agente de sincronización de datos: [Agente de sincronización de datos para Azure SQL Data Sync](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>Configuración de la sincronización de datos con PowerShell
 

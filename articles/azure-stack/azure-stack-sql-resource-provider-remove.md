@@ -11,31 +11,40 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: f5aa67ad0588e3f42e68056c8ffca97767975e8b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b7af23ccdd379aac9959bb9993fc1781a44e705e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361488"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684033"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Eliminación del proveedor de recursos de SQL
 
 Antes de quitar el proveedor de recursos de SQL, debe quitar todas las dependencias del proveedor. También necesitará una copia del paquete de implementación que se utilizó para instalar el proveedor de recursos.
 
-Hay varias tareas de limpieza que debe realizar antes de ejecutar el script _DeployMySqlProvider.ps1_ para quitar el proveedor de recursos.
-Los inquilinos son responsables de las siguientes tareas de limpieza:
+  |Versión mínima de Azure Stack|Versión de SQL RP|
+  |-----|-----|
+  |Versión 1808 (1.1808.0.97)|[SQL RP, versión 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+  |Versión 1804 (1.0.180513.1)|[SQL RP, versión 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
+  |     |     |
+
+## <a name="dependency-cleanup"></a>Limpieza de dependencias
+
+Hay varias tareas de limpieza que debe realizar antes de ejecutar el script DeploySqlProvider.ps1 para quitar el proveedor de recursos.
+
+Los inquilinos de Azure Stack son responsables de las siguientes tareas de limpieza:
 
 * Eliminar todas sus bases de datos del proveedor de recursos. (Eliminar las bases de datos de inquilino no elimina los datos).
-* Anular el registro desde el espacio de nombres del proveedor de recursos.
+* Anular el registro desde el espacio de nombres del proveedor.
 
-El administrador es responsable de las siguientes tareas de limpieza:
+El operador de Azure Stack es responsable de las siguientes tareas de limpieza:
 
-* Eliminar los servidores de hospedaje del proveedor de recursos SQL.
-* Eliminar los planes que hagan referencia al proveedor de recursos SQL.
-* Eliminar las cuotas asociadas al proveedor de recursos SQL.
+* Eliminar los servidores host del adaptador de MySQL.
+* Eliminar los planes que hacen referencia el adaptador de MySQL.
+* Eliminar cualquier cuota asociada al adaptador de MySQL.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Proceso para quitar el proveedor de recursos de SQL
 

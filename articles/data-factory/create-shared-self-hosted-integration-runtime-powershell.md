@@ -1,6 +1,6 @@
 ---
 title: Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory con PowerShell | Microsoft Docs
-description: Aprenda a crear un entorno de ejecución de integración autohospedado compartido en Azure Data Factory, lo que permite que varias factorías de datos accedan al entorno de ejecución de integración.
+description: Aprenda a crear un entorno de ejecución de integración autohospedado compartido en Azure Data Factory, para que varias factorías de datos puedan obtener acceso al entorno de ejecución de integración.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: d7f3fbcb3235c8c620876e68a62f3e491770779d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: b32ea4293daa9206c6b0da4bdee777677c5d340d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252037"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685521"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory con PowerShell
 
-Esta guía paso a paso muestra cómo crear un entorno de ejecución de integración autohospedado compartido en Azure Data Factory mediante Azure PowerShell. A continuación, puede usar el tiempo de ejecución de integración autohospedado compartido en otra factoría de datos. En este tutorial, realizará los siguientes pasos: 
+En esta guía paso a paso le mostraremos cómo crear un entorno de ejecución de integración autohospedado compartido en Azure Data Factory mediante Azure PowerShell. A continuación, puede usar el tiempo de ejecución de integración autohospedado compartido en otra factoría de datos. En este tutorial, realizará los siguientes pasos: 
 
 1. Creación de una factoría de datos. 
 1. Cree una instancia de Integration Runtime autohospedada.
@@ -33,18 +33,16 @@ Esta guía paso a paso muestra cómo crear un entorno de ejecución de integraci
 
 - **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
-- **Azure PowerShell**. Siga las instrucciones de [Instalación de Azure PowerShell en Windows](/powershell/azure/install-azurerm-ps). Ejecute un script con PowerShell para crear un entorno de ejecución de integración autohospedado que se pueda compartir con otras factorías de datos. 
+- **Azure PowerShell**. Siga las instrucciones de [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0) (Instalar Azure PowerShell en Windows con PowerShellGet). Ejecute un script con PowerShell para crear un entorno de ejecución de integración autohospedado que se pueda compartir con otras factorías de datos. 
 
-> [!NOTE]
-> Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
+> [!NOTE]  
+> Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. Inicie Windows PowerShell ISE.
+1. Inicie Windows PowerShell Integrated Scripting Environment (ISE).
 
-1. Cree las variables.
-
-    Copie y pegue el siguiente script y reemplace las variables (SubscriptionName, ResourceGroupName, etc.) por los valores reales. 
+1. Cree las variables. Copie y pegue el siguiente script: Reemplace las variables, como **SubscriptionName** y **ResourceGroupName**, con valores reales: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -65,20 +63,19 @@ Esta guía paso a paso muestra cómo crear un entorno de ejecución de integraci
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
 
-1. Inicie sesión y seleccione una suscripción.
-
-    Agregue el código siguiente al script para iniciar sesión y seleccione la suscripción de Azure:
+1. Inicie sesión y seleccione una suscripción. Agregue el código siguiente al script para iniciar sesión y seleccione la suscripción de Azure:
 
     ```powershell
     Connect-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-1. Cree un grupo de recursos y una instancia de Data Factory.
+1. Cree un grupo de recursos y una factoría de datos.
 
-    *(Este paso es opcional. Si ya tiene una factoría de datos, omítalo).* 
+    > [!NOTE]  
+    > Este paso es opcional. Si ya tiene una factoría de datos, omita este paso. 
 
-    Cree un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con el comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación Europa Occidental. 
+    Cree un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con el comando [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación Europa Occidental. 
 
     ```powershell
     New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -94,7 +91,8 @@ Esta guía paso a paso muestra cómo crear un entorno de ejecución de integraci
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 
-*(Este paso es opcional. Si ya tiene el entorno de ejecución de integración autohospedado que desea compartir con otras factorías de datos, omítalo).*
+> [!NOTE]  
+> Este paso es opcional. Si ya tiene el entorno de ejecución de integración autohospedado que quiere compartir con otras factorías de datos, omita este paso.
 
 Ejecute el siguiente comando para crear un entorno de ejecución de integración autohospedado:
 
@@ -132,7 +130,8 @@ La respuesta contiene la clave de autenticación para este entorno de ejecución
 
 ### <a name="create-another-data-factory"></a>Creación de otra factoría de datos
 
-*(Este paso es opcional. Si ya dispone de la factoría de datos con la que desea compartir, omítalo).*
+> [!NOTE]  
+> Este paso es opcional. Si ya dispone de la factoría de datos con la que quiere compartir contenido, omita este paso.
 
 ```powershell
 $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -141,9 +140,9 @@ $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 ### <a name="grant-permission"></a>Concesión de permiso
 
-Conceda permiso a la instancia de Data Factory que necesita tener acceso al entorno de ejecución de integración autohospedado que creó y registró.
+Conceda permiso a la factoría de datos que necesite obtener acceso al entorno de ejecución de integración autohospedado que creó y registró.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > ¡No omita este paso!
 
 ```powershell
@@ -171,7 +170,7 @@ Ahora puede usar este entorno de ejecución de integración vinculado en cualqui
 
 ## <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Revocación del uso compartido de un entorno de ejecución de integración de una factoría de datos
 
-Para revocar el acceso de una factoría de datos a un entorno de ejecución de integración compartido, puede ejecutar el comando siguiente:
+Para revocar el acceso de una factoría de datos a un entorno de ejecución de integración compartido, ejecute el comando siguiente:
 
 ```powershell
 Remove-AzureRMRoleAssignment `
@@ -193,6 +192,6 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime `
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise los conceptos del entorno de ejecución de integración en [Integration Runtime en Azure Data Factory](concepts-integration-runtime.md).
+- Revise los [conceptos del entorno de ejecución de integración en Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime).
 
-- Aprenda a crear un entorno de ejecución de integración autohospedado en Azure Portal en [Creación y configuración de un entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md).
+- Aprenda a [crear un entorno de ejecución de integración autohospedado en Azure Portal](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime).
