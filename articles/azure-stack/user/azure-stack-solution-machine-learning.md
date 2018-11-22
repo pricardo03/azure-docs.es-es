@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8a5ca4f94a6f1186b6d1a26b1c7e12357cd9e799
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616374"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285125"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de aprendizaje automático de Edge con Azure y Azure Stack
 
@@ -89,7 +89,7 @@ Se requieren conocimientos previos de Azure y Azure Stack. Para más informació
 
  -  Un sistema integrado de Azure Stack o la implementación del kit de desarrollo de Azure Stack.
 
-    - Encontrará instrucciones para la instalación de Azure Stack en [Instalación del Kit de desarrollo de Azure Stack](/articles/azure-stack/asdk/asdk-install).
+    - Encontrará instrucciones para la instalación de Azure Stack en [Instalación del Kit de desarrollo de Azure Stack](../asdk/asdk-install.md).
      - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Esta instalación puede tardar algunas horas en completarse.
 
  -  Implementación de servicios PaaS de [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) en Azure Stack
@@ -202,7 +202,7 @@ Coloque la nueva DSVM en el mismo grupo de recursos que la cuenta de almacenamie
 
 1.  En Configuración, configure las características opcionales.
 
-    a.  Seleccione la **cuenta de almacenamiento** que creó anteriormente.
+     a.  Seleccione la **cuenta de almacenamiento** que creó anteriormente.
 
     b.  Cree una **red virtual**, una **subred** y una **dirección IP pública**; se creará de forma predeterminada un nombre basado en el nombre del grupo de recursos.
 
