@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 336949d3c3c23041d1907ae2b2a9151ca626d94f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 81a2f444012085782c377de050e7cb5445f8ebb3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834648"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344661"
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Descubrimiento de cuadernos de Jupyter en la Galería de Azure AI
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="jupyter-notebooks"></a>Jupyter Notebooks
-**[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)**: los cuadernos de Jupyter Notebook incluyen código, visualizaciones de datos y documentación en un único lienzo interactivo.
+Los **[cuadernos de Jupyter Notebook](https://gallery.cortanaintelligence.com/notebooks)** en [Azure AI Gallery](http://gallery.cortanaintelligence.com) incluyen código, visualizaciones de datos y documentación en un único lienzo interactivo.
 Los cuadernos de notas en la Galería proporcionan tutoriales y explicaciones detalladas de las técnicas y las soluciones avanzadas de aprendizaje automático.
 
 ## <a name="discover"></a>Descubra
