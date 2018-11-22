@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e879e096fb990e4567b43b1938909449820edd42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412727"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262064"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Búsqueda de puntos cercanos de interés mediante Azure Maps
 
@@ -178,7 +178,7 @@ En esta sección se muestra cómo usar Search API de Azure Maps para buscar un p
      client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. A continuación, agregue el siguiente bloque de script para compilar la consulta de búsqueda. Este fragmento de código usa Fuzzy Search Service, que es una API de búsqueda básica de Search Service. Fuzzy Search Service controla la mayoría de las entradas aproximadas como, por ejemplo, direcciones, lugares y puntos de interés (POI). Este código busca gasolineras cercanas dentro del radio especificado. Después, la respuesta se analiza en formato GeoJSON y se agrega al origen de datos, lo cual automáticamente da como resultado la representación de los datos en el mapa mediante la capa de símbolos. La última parte del script permite establecer la vista de cámaras del mapa mediante el rectángulo delimitador de los resultados con la propiedad [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) de Map. Se agrega un relleno para compensar las dimensiones de píxeles de los iconos de símbolos ya que el rectángulo delimitador se calcula en función de las coordenadas. 
+2. A continuación, agregue el siguiente bloque de script para compilar la consulta de búsqueda. Este fragmento de código usa Fuzzy Search Service, que es una API de búsqueda básica de Search Service. Fuzzy Search Service controla la mayoría de las entradas aproximadas como, por ejemplo, direcciones, lugares y puntos de interés (POI). Este código busca gasolineras cercanas dentro del radio especificado. Después, la respuesta se analiza en formato GeoJSON y se agrega al origen de datos, lo cual automáticamente da como resultado la representación de los datos en el mapa mediante la capa de símbolos. La última parte del script permite establecer la vista de cámaras del mapa mediante el rectángulo delimitador de los resultados con la propiedad [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de Map. Se agrega un relleno para compensar las dimensiones de píxeles de los iconos de símbolos ya que el rectángulo delimitador se calcula en función de las coordenadas. 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.

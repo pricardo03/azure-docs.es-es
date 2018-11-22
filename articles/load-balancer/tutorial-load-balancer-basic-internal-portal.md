@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c1e56b7c94c51a00fabdac56dd2d8c3eb621ae0
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a5b6ae833fcd340a639c068156940e6b9ad469ca
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42139601"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711997"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Tutorial: Equilibrio de la carga de tráfico interno de las máquinas virtuales con Load Balancer básico mediante Azure Portal
 
@@ -102,7 +102,7 @@ En esta sección, se crean dos máquinas virtuales para el grupo de back-end de 
 
 ## <a name="create-basic-load-balancer-resources"></a>Creación de recursos de Load Balancer Básico
 
-En esta sección se configuran los valores del equilibrador de carga para un grupo de direcciones de back-end y un sondeo de mantenimiento, y se especifica el equilibrador de carga y las reglas NAT.
+En esta sección, va a configurar el equilibrador de carga para un grupo de direcciones de back-end y un sondeo de mantenimiento, y a especificar las reglas del equilibrador de carga.
 
 
 ### <a name="create-a-backend-address-pool"></a>Creación de un grupo de direcciones de back-end

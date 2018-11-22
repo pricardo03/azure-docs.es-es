@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 92e200f358098d5516246d057d1cef406750e326
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623211"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264689"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>¿Qué es la supervisión de Azure Active Directory? (versión preliminar)
 
@@ -32,6 +32,8 @@ Actualmente, puede enrutar los registros a:
 - Una cuenta de almacenamiento de Azure.
 - Un centro de eventos de Azure, para que pueda integrarlo con sus instancias de Splunk y Sumologic.
 - Un área de trabajo de Azure Log Analytics, donde puede analizar los datos, crear un panel y alertar sobre eventos específicos.
+
+> [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="diagnostic-settings-configuration"></a>Configuración de opciones de diagnóstico
 

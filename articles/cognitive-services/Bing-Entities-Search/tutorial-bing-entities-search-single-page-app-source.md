@@ -3,19 +3,19 @@ title: 'Tutorial: Aplicación web de página única de Bing Entity Search (códi
 titlesuffix: Azure Cognitive Services
 description: Código fuente del tutorial que muestra cómo usar Bing Entity Search API en una aplicación web de página única.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: tutorial
 ms.date: 10/04/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 09cb10002be43d65ff10e3c238a880cf138aa064
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 774c61f3a089b2ee54f60d654bb1ef7c251cbdb7
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815059"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165040"
 ---
 # <a name="tutorial-single-page-web-app-source"></a>Tutorial: Código fuente de aplicación web de página única
 

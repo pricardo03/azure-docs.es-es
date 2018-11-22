@@ -3,19 +3,19 @@ title: 'Guía de inicio rápido: Llamada al punto de conexión mediante Python e
 titlesuffix: Azure Cognitive Services
 description: Esta guía de inicio rápido muestra cómo solicitar los resultados de la búsqueda a la instancia de búsqueda personalizada usando Python para llamar al punto de conexión de Bing Custom Search.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: d16b7354b0ef727ba3c670b97105e1bd6f99034e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: e3e4256d3654f532f16d33c77f4c7e8cb7e93dd4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815467"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162643"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-python"></a>Guía de inicio rápido: Llamada a un punto de conexión de Bing Custom Search (Python)
 

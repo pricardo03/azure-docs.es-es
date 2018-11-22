@@ -9,13 +9,13 @@ ms.date: 08/07/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
-manager: dougeby
-ms.openlocfilehash: e49be3d61cfbbf71a0e9cbeef4c171f3af222544
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 4b0c0a6fdf8d84b6519d1228f148342b8486c282
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979563"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276404"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrar una suscripción individual de Azure y ver los datos de costo
 
@@ -25,7 +25,7 @@ Puede usar su suscripción de Azure para registrarse con Cloudyn. Este registro 
 
 - Inicie sesión en Azure Portal en http://portal.azure.com.
 
-## <a name="register-with-cloudyn"></a>Registrarse con Cloudyn
+## <a name="register-with-cloudyn"></a>Registrarse en Cloudyn
 
 1. En Azure Portal, haga clic en **Administración de costos + facturación** en la lista de servicios.
 2. En **Introducción** haga clic en **Cloudyn**  
@@ -47,7 +47,7 @@ Para ver un tutorial en vídeo sobre cómo registrar su suscripción de Azure, c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, usó la información de suscripción de Azure para registrarse con Cloudyn. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para obtener más información acerca de Cloudyn, continúe con el tutorial de Cloudyn.
+En esta guía de inicio rápido, usó la información de suscripción de Azure para registrarse con Cloudyn. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para más información sobre Cloudyn, continúe con el tutorial de Cloudyn.
 
 > [!div class="nextstepaction"]
 > [Revisión del uso y los costos](./tutorial-review-usage.md)

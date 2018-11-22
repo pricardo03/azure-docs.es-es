@@ -9,25 +9,25 @@ ms.date: 09/14/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
-manager: dougeby
-ms.openlocfilehash: bed1ea3785c35d1053a0ff2147c3bdd797e28581
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996645"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273580"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar un Contrato Enterprise de Azure y ver datos de costo
 
 Use el Contrato Enterprise de Azure para registrarse en Cloudyn. Este registro le proporciona acceso al portal de Cloudyn. En esta guía de inicio rápido se detalla el proceso de registro necesario para crear una suscripción de evaluación de Cloudyn e iniciar sesión en el portal de Cloudyn. También se muestra cómo empezar a ver inmediatamente los datos de costo.
 
-Azure Cost Management ofrece una funcionalidad similar a Cloudyn. Azure Cost Management es una solución de administración de costos de Azure nativa. Le ayuda a analizar costos, crear y administrar presupuestos, exportar datos, y revisar y actuar sobre recomendaciones de optimización para ahorrar dinero. Para más información, vea [Azure Cost Management](overview-cost-mgt.md).
+Azure Cost Management ofrece una funcionalidad similar a Cloudyn. Azure Cost Management es una solución de administración de costos de Azure nativa. Le ayuda a analizar costos, crear y administrar presupuestos, exportar datos, y revisar y actuar sobre recomendaciones de optimización para ahorrar dinero. Para más información, consulte [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 - Inicie sesión en Azure Portal en http://portal.azure.com.
 
-## <a name="register-with-cloudyn"></a>Registrarse con Cloudyn
+## <a name="register-with-cloudyn"></a>Registrarse en Cloudyn
 
 1. En Azure Portal, haga clic en **Administración de costos + facturación** en la lista de servicios.
 2. En **Introducción** haga clic en **Cloudyn**  
@@ -50,7 +50,7 @@ Para ver un tutorial en vídeo sobre cómo registrar su contrato Enterprise, vea
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, usó la información del Contrato Enterprise de Azure para registrarse con Cloudyn. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para obtener más información acerca de Cloudyn, continúe con el tutorial de Cloudyn.
+En este tutorial, usó la información del Contrato Enterprise de Azure para registrarse con Cloudyn. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para más información sobre Cloudyn, continúe con el tutorial de Cloudyn.
 
 > [!div class="nextstepaction"]
 > [Revisión del uso y los costos](./tutorial-review-usage.md)

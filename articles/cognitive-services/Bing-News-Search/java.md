@@ -3,19 +3,19 @@ title: 'Guía de inicio rápido: Bing News Search API con Java'
 titlesuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayudarán a empezar a usar Bing News Search API en Microsoft Cognitive Services en Azure.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: f7011ceb51d4fb4a5a92c6aeb56a0c26e7d86388
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: aahi
+ms.openlocfilehash: 7cd15addcb5e717a0dd3f13b3979b4f342fe9f0a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803637"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162592"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-java"></a>Inicio rápido para Bing News Search API con Java
 

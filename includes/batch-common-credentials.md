@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: batch
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 7d90ccf55b10eff4299692b481a25ba4cdf41b8a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279925"
+---
 ## <a name="get-account-credentials"></a>Obtención de credenciales de la cuenta
 
 En este ejemplo, debe especificar las credenciales de las cuentas de Batch y Storage. Azure Portal es una manera sencilla de obtener las credenciales necesarias. (también se pueden obtener mediante las API de Azure o las herramientas de línea de comandos).

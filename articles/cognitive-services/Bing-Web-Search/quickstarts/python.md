@@ -3,19 +3,19 @@ title: 'Inicio rápido: Realizar una búsqueda con Python - Bing Web Search API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, aprenderá a realizar la primera llamada a Bing Web Search API con Python y recibir una respuesta JSON.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
-ms.openlocfilehash: 22dc88d2b924587818f7767105872f01f2e43faf
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: 2f034bd60747282ac9724250ab260e06122def6f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129155"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161001"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Inicio rápido: Uso de Python para llamar a Bing Web Search API  
 
