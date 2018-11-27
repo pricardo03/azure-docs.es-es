@@ -90,7 +90,7 @@ en-IE | Inglés (Irlanda) |Hombre | "Microsoft Server Speech Text to Speech Voic
 en-IN | Inglés (India) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 | | |Mujer | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 | | |Hombre | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
-es-ES | Inglés (EE. UU.) |Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
+en-US | Inglés (EE. UU.) |Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
 | | |Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
 | | |Hombre | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
 | | |Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
