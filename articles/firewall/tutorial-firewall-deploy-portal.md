@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8a3a9e4019be0b6039fe43df11a5f6093545f9cd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1d7c880a56c79d516c3904c3f532eb7006f0b68c
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685372"
+ms.locfileid: "51705844"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -115,7 +115,7 @@ Ahora cree las máquinas virtuales de salto y de cargas de trabajo, y colóquela
 9. En **Dirección IP pública**, haga clic en **Crear nueva**.
 10. Escriba **Srv-Jump-PIP** para el nombre de la dirección IP pública y haga clic en **Aceptar**.
 11. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.
-12. Haga clic en **Deshabilitar** para deshabilitar los diagnósticos de arranque. Acepte los valores predeterminados y haga clic en **Revisar y crear**.
+12. Haga clic en **Desactivar** para deshabilitar los diagnósticos de arranque. Acepte los otros valores predeterminados y haga clic en **Revisar y crear**.
 13. Revise la configuración en la página de resumen y haga clic en **Crear**.
 
 Repita este proceso para crear otra máquina virtual denominada **Srv-Work**.

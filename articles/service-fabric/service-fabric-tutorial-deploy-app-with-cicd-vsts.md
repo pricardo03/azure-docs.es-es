@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2017
+ms.date: 11/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7f14151224a9e2baa74183696c92bca06695bf4f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380155"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853750"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementación de una aplicación con CI/CD en un clúster de Service Fabric
 
@@ -94,23 +94,23 @@ Una canalización de versión de Azure DevOps describe un flujo de trabajo que i
 
 Abra un explorador web y vaya hasta el nuevo proyecto en: [https://&lt;micuenta&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Seleccione la pestaña **Compilación y versión**, después **Compilaciones** y, finalmente, **+ Nueva canalización**.
+Seleccione la pestaña **Canalizaciones**, después **Compilaciones** y, finalmente, **Nueva canalización**.
 
 ![Nueva canalización][new-pipeline]
 
-Seleccione **Azure DevOps Git** como origen, el proyecto **Voting**, el repositorio **Voting** y la rama predeterminada **maestra** o compilaciones manuales y programadas.  A continuación, haga clic en **Continue** (Continuar).
+Seleccione **Azure Repos Git** como origen, el proyecto de equipo **Voting**, el repositorio **Voting** y la rama predeterminada **maestra** o compilaciones manuales y programadas.  A continuación, haga clic en **Continue** (Continuar).
+
+![Seleccionar repositorio][select-repo]
 
 En **Seleccionar una plantilla**, seleccione la plantilla de la **aplicación de Azure Service Fabric** y haga clic en **Apply** (Aplicar).
 
 ![Elegir la plantilla de compilación][select-build-template]
 
-En **Tareas**, escriba "VS2017 hospedado" como **Cola del agente**.
+En **Tareas**, escriba "VS2017 hospedado" como **Grupo de agentes**.
 
 ![Seleccionar tareas][save-and-queue]
 
-En **Desencadenadores**, habilite la integración continua, para lo que debe seleccionar **Habilitar la integración continua**. En **Filtros de rama**, haga clic en **+ Agregar**y el valor predeterminado de **Especificación de rama** será **maestro**. Seleccione **Guardar y poner en cola** para iniciar manualmente una compilación.
-
-En el **cuadro de diálogo Guardar y poner en cola la canalización de compilación**, haga clic en **Guardar y poner en cola**.
+En **Desencadenadores**, habilite la integración continua, para lo que debe seleccionar **Habilitar la integración continua**. En **Filtros de rama**, la **especificación de rama** es **maestro** de forma predeterminada. Seleccione **Guardar y poner en cola** para iniciar manualmente una compilación.
 
 ![Seleccionar desencadenadores][save-and-queue2]
 
@@ -118,7 +118,7 @@ Las compilaciones también se desencadenan después de una inserción o una prot
 
 ### <a name="create-a-release-pipeline"></a>Creación de una canalización de versión
 
-Seleccione la pestaña **Compilación y versión**, luego, **Versiones** y, finalmente, **+ Nueva canalización**.  En **Seleccionar una plantilla**, seleccione la plantilla **Implementación de Azure Service Fabric** de la lista y haga clic en **Aplicar**.
+Seleccione la pestaña **Canalizaciones**, luego, **Versiones** y, finalmente, **+ Nueva canalización**.  En **Seleccionar una plantilla**, seleccione la plantilla **Implementación de Azure Service Fabric** de la lista y haga clic en **Aplicar**.
 
 ![Elegir la versión de la plantilla][select-release-template]
 
@@ -198,6 +198,7 @@ Avance hasta el siguiente tutorial:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
+[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

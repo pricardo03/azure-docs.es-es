@@ -1,25 +1,25 @@
 ---
 title: 'Guía de inicio rápido: publicación de la base de conocimiento con REST y C# en QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido basada en REST se explica el proceso de publicación de la base de conocimiento que le permite insertar la versión más reciente probada en un índice de Azure Search especializado que representa la base de conocimiento publicada. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
+description: En esta guía de inicio rápido basada en REST se explica el proceso de publicación de la base de conocimiento que le permite insertar la versión más reciente probada en un índice de Azure Search dedicado que representa la base de conocimiento publicada. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/18/2018
 ms.author: diberry
-ms.openlocfilehash: ce027abb75423d0174a7175c3bbafe5c0fb3e157
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e48f493c08ee96b75c1d418fdbef1d36672a48a3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646269"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163901"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Guía de inicio rápido: publicación de una base de conocimiento en QnA Maker con C#
 
-Esta guía de inicio rápido describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
+En esta guía de inicio rápido basada en REST se describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
 
 En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 * [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe): esta API no requiere ninguna información en el cuerpo de la solicitud.
@@ -32,99 +32,47 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 
     ![Identificador de base de conocimiento de QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-Si aún no tiene una base de conocimiento, puede crear una de ejemplo para usar en esta guía de inicio rápido: [Creación de una nueva base de conocimiento](create-new-kb-csharp.md).
+    Si aún no tiene una base de conocimiento, puede crear una de ejemplo para usar en esta guía de inicio rápido: [Creación de una nueva base de conocimiento](create-new-kb-csharp.md).
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+> [!NOTE] 
+> Los archivos de la solución completa están disponibles en el repositorio [**Azure-Samples/cognitive-services-qnamaker-csharp** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-knowledge-base-project"></a>Creación del proyecto de base de conocimiento
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
+1. Abra Visual Studio 2017 Community Edition.
+1. Cree un nuevo proyecto de **aplicación de consola (.Net Core)** y asígnele el nombre `QnaMakerQuickstart`. Acepte los valores predeterminados del resto de la configuración.
 
 ## <a name="add-required-dependencies"></a>Incorporación de las dependencias necesarias
 
-[!INCLUDE [Add required dependencies to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-dependencies.md)] 
+En la parte superior de Program.cs, reemplace la instrucción using por las líneas siguientes para agregar las dependencias necesarias al proyecto:
+
+[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=1-2 "Add the required dependencies")]
 
 ## <a name="add-required-constants"></a>Incorporación de las constantes necesarias
 
-[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-constants.md)]  
+En el método **Main**, agregue las constantes necesarias para acceder a QnA Maker. Reemplace los valores por los suyos.
 
-## <a name="add-knowledge-base-id"></a>Incorporación del identificador de la base de conocimiento
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=11-14 "Add the required constants")]
 
-[!INCLUDE [Add knowledge base ID as constant](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-kb-id.md)] 
+## <a name="add-post-request-to-publish-knowledge-base"></a>Incorporación de una solicitud POST para publicar la base de conocimiento
 
-## <a name="add-supporting-functions-and-structures"></a>Incorporación de estructuras y funciones auxiliares
+Tras las constantes requeridas, agregue el siguiente código, que realiza una solicitud HTTPS a QnA Maker API para publicar una base de conocimiento y recibe la respuesta:
 
-Agregue el siguiente bloque de código dentro de la clase Program:
+[!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=16-29&dedent=8 "Add HTTP Post request and response")]
 
-```csharp
-static string PrettyPrint(string s)
-{
-    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
-}
-```
-
-## <a name="add-post-request-to-publish-kb"></a>Incorporación de la solicitud POST para publicar la base de conocimiento
-
-El código siguiente realiza una solicitud HTTPS a QnA Maker API para publicar una base de conocimiento y recibe la respuesta:
-
-```csharp
-async static void PublishKB()
-{
-    string responseText;
-
-    var uri = host + service + method + kb;
-    Console.WriteLine("Calling " + uri + ".");
-    using (var client = new HttpClient())
-    using (var request = new HttpRequestMessage())
-    {
-        request.Method = HttpMethod.Post;
-        request.RequestUri = new Uri(uri);
-        request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-        var response = await client.SendAsync(request);
-
-        // successful status doesn't return an JSON so create one
-        if (response.IsSuccessStatusCode)
-        {
-            responseText = "{'result' : 'Success.'}";
-        }
-        else
-        {
-            responseText =  await response.Content.ReadAsStringAsync();
-        }
-    }
-    Console.WriteLine(PrettyPrint(responseText));
-    Console.WriteLine("Press any key to continue.");
-}
-```
-
-La llamada API devuelve un estado 204 en caso de publicación correcta sin ningún contenido en el cuerpo de la respuesta. El código agrega el contenido para las respuestas 204.
-
-Para cualquier otra respuesta, esa respuesta se devuelve sin modificar.
+La llamada API devuelve un estado 204 en caso de publicación correcta sin ningún contenido en el cuerpo de la respuesta. 
  
-## <a name="add-the-publishkb-method-to-main"></a>Incorporación del método PublishKB a Main
-
-Cambie el método Main por la llamada al método CreateKB:
-
-```csharp
-static void Main(string[] args)
-{
-
-    // Call the PublishKB() method to publish a knowledge base.
-    PublishKB();
-
-    // The console waits for a key to be pressed before closing.
-    Console.ReadLine();
-}
-```
-
 ## <a name="build-and-run-the-program"></a>Compilar y ejecutar el programa
 
-Compile y ejecute el programa. Este enviará automáticamente la solicitud a QnA Maker API para publicar la base de conocimiento y, a continuación, la respuesta se imprimirá en la ventana de consola.
+Compile y ejecute el programa. Este enviará automáticamente la solicitud a QnA Maker API para publicar la base de conocimiento y, después, la respuesta se imprimirá en la ventana de la consola.
 
 Una vez publicada la base de conocimiento, puede realizar consultas en ella desde el punto de conexión con una aplicación cliente o un bot de chat. 
 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+
 ## <a name="next-steps"></a>Pasos siguientes
+
+Después de publicar la base de conocimiento, es preciso que la dirección URL del punto de conexión [ genere una respuesta](../Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
 > [Referencia de QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

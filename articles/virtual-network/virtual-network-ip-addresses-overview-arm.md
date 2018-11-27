@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: 65dc420b6832b7b0a4cf14d63203d4c66e2a4254
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6b8bf4a0bc6b5e5e9b9ad7f91ba409aaf922e8e9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993602"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822243"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -75,7 +75,7 @@ Las direcciones IP públicas de SKU estándar:
 
 - Solo se asignan con el método de asignación estática.
 - Son seguras de forma predeterminada y se cierran al tráfico de entrada. Debe especificar de forma explícita la lista blanca de que permite el tráfico de entrada con un [grupo de seguridad de red](security-overview.md#network-security-groups).
-- Se asignan a interfaces de red o equilibradores de carga estándar públicos. Para más información sobre Azure Load Balancer Estándar, consulte [Azure Load Balancer Estándar](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Se asignan a interfaces de red, equilibradores de carga estándar públicos, puertas de enlace de aplicaciones o puertas de enlace VPN. Para más información sobre Azure Load Balancer Estándar, consulte [Azure Load Balancer Estándar](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Tienen redundancia de zona de forma predeterminada. Se pueden crear de forma zonal y garantizada en una zona de disponibilidad específica. Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad).
  
 > [!NOTE]
@@ -132,8 +132,8 @@ La siguiente tabla muestra la propiedad específica a través de la cual una dir
 | --- | --- | --- | --- |
 | Máquina virtual |interfaz de red |SÍ |SÍ |
 | Equilibrador de carga accesible desde Internet |Configuración de front-end |SÍ |SÍ |
-| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |SÍ |Sin  |
-| puerta de enlace de aplicaciones |Configuración de front-end |SÍ |Sin  |
+| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |SÍ |SÍ |
+| puerta de enlace de aplicaciones |Configuración de front-end |SÍ |SÍ |
 
 ## <a name="private-ip-addresses"></a>Direcciones IP privadas
 Las direcciones IP privadas permiten que los recursos de Azure se comuniquen con otros recursos en una [red virtual](virtual-networks-overview.md) , o en la red local a través de una puerta de enlace de VPN o un circuito ExpressRoute, sin usar una dirección IP accesible desde Internet.

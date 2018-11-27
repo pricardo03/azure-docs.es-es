@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: a5223b026705cef5abbcd0be6f64cf0c98fd0930
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309032"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283968"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Guía de inicio rápido: Uso de C# para llamar a Text Analytics de Cognitive Services
 <a name="HOLTop"></a>
 
-En este artículo se muestra cómo detectar el idioma, analizar sentimiento y extraer frases clave mediante [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) con C#. El código se escribió para que funcione en una aplicación de .NET Core, con las referencias mínimas a bibliotecas externas, por lo que también se podría ejecutar en Linux o MacOS.
+En este artículo se muestra cómo detectar el idioma, analizar las opiniones y extraer las frases clave mediante  [instancias de Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711)  con C#. El código se escribió para que funcione en una aplicación de .NET Core, con las referencias mínimas a bibliotecas externas, por lo que también se podría ejecutar en Linux o MacOS.
 
 Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) para obtener la documentación técnica de las API.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Text Analytics API**. Puede usar el **nivel gratuito de 5000 transacciones al mes** para completar este inicio rápido.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 También debe tener la [clave de acceso y punto de conexión](../How-tos/text-analytics-how-to-access-key.md) que se generó automáticamente durante el registro. 
 

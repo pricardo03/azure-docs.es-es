@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741035"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706983"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Tutorial: Migración de los datos a una cuenta de la API de MongoDB para Azure Cosmos DB
 
@@ -36,13 +36,13 @@ Antes de migrar datos a la cuenta de la API de MongoDB, asegúrese de que tiene 
 
 1. Cree previamente las colecciones y escálelas:
         
-    * De forma predeterminada, Azure Cosmos DB aprovisiona una nueva colección de MongoDB con 1000 unidades de solicitud por segundo (RU/s). Antes de empezar la migración mediante mongoimport o mongorestore, cree todas las colecciones en [Azure Portal](https://portal.azure.com) o mediante los controladores y herramientas de MongoDB. Si el tamaño de los datos supera los 10 GB, asegúrese de crear una [colección con particiones](partition-data.md) con una clave de partición adecuada.
+   * De forma predeterminada, Azure Cosmos DB aprovisiona una nueva colección de MongoDB con 1000 unidades de solicitud por segundo (RU/s). Antes de empezar la migración mediante mongoimport o mongorestore, cree todas las colecciones en [Azure Portal](https://portal.azure.com) o mediante los controladores y herramientas de MongoDB. Si el tamaño de los datos supera los 10 GB, asegúrese de crear una [colección con particiones](partition-data.md) con una clave de partición adecuada. MongoDB recomienda almacenar los datos de entidad en colecciones. Puede ubicar conjuntamente las entidades de tamaño y rendimiento de aprovisionamiento comparables en el nivel de base de datos de Azure Cosmos.
 
-    * En [Azure Portal](https://portal.azure.com), aumente el rendimiento de las colecciones desde 1000 RU/s para una colección con una sola partición y 2500 RU/s para una colección con particiones simplemente para la migración. Gracias al mayor rendimiento, puede evitar la limitación de velocidad y realizar la migración en menos tiempo. Para ahorrar costos, puede reducir el rendimiento inmediatamente después de la migración.
+   * En [Azure Portal](https://portal.azure.com), aumente el rendimiento de las colecciones de 1000 RU/s para una colección con una sola partición y 2500 RU/s para una colección con particiones simplemente durante la migración. Gracias al mayor rendimiento, puede evitar la limitación de velocidad y realizar la migración en menos tiempo. Para ahorrar costos, puede reducir el rendimiento inmediatamente después de la migración.
 
-    * Además de aprovisionar las RU/s en el nivel de colección, también puede aprovisionar RU/s para un conjunto de colecciones en el nivel de base de datos primaria. Para ello es necesario crear previamente la base de datos y las colecciones, así como definir una clave de partición para cada colección.
+   * Además de aprovisionar las RU/s en el nivel de colección, también puede aprovisionar RU/s para un conjunto de colecciones en el nivel de base de datos primaria. Para ello es necesario crear previamente la base de datos y las colecciones, así como definir una clave de partición para cada colección.
 
-    * Puede crear colecciones con particiones con su herramienta, controlador o SDK favoritos. En este ejemplo, se usará el shell de Mongo para crear la colección:
+   * Puede crear colecciones con particiones con su herramienta, controlador o SDK favoritos. En este ejemplo, se usará el shell de Mongo para crear la colección:
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
@@ -60,7 +60,7 @@ Antes de migrar datos a la cuenta de la API de MongoDB, asegúrese de que tiene 
 
 1. Calcule la carga de RU aproximada para una sola operación de escritura de documento:
 
-   a. Conéctese a la cuenta de MongoDB API de Azure Cosmos DB desde el shell de MongoDB. Encontrará instrucciones en [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Conectar una aplicación de MongoDB a Azure Cosmos DB).
+    a. Conéctese a la cuenta de MongoDB API de Azure Cosmos DB desde el shell de MongoDB. Encontrará instrucciones en [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Conectar una aplicación de MongoDB a Azure Cosmos DB).
     
    b. Ejecute un comando de inserción de ejemplo en uno de los documentos de ejemplo desde el shell de MongoDB:
    
@@ -85,7 +85,7 @@ Antes de migrar datos a la cuenta de la API de MongoDB, asegúrese de que tiene 
     
 1. Determine la latencia del equipo en el servicio en la nube de Azure Cosmos DB:
     
-    a. Habilite el registro detallado desde el shell de MongoDB mediante este comando: ```setVerboseShell(true)```.
+     a. Habilite el registro detallado desde el shell de MongoDB mediante este comando: ```setVerboseShell(true)```.
     
     b. Ejecute una consulta simple en la base de datos: ```db.coll.find().limit(1)```. Recibirá una respuesta similar a la siguiente:
 

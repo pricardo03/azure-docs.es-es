@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: 949fb2487c3ca519c1d7022c1434d0a029ed20bb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cb713ac53b399d8ba79d003ee6d948bb5af5220b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626583"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975779"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Guía de inicio rápido: Compilación, implementación y uso de un modelo personalizado para la traducción
 
@@ -26,7 +26,7 @@ En este artículo se proporcionan instrucciones detalladas para compilar un sist
 
 2. Una suscripción a Translator Text API a través de Azure Portal. Necesitará la clave de suscripción de Translator Text API para asociarla con el área de trabajo de Custom Translator. Consulte [Cómo suscribirse a Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
-3. Cuando disponga de todo lo anterior, inicie sesión en el portal de [Custom Translator](https://portal.customtranslator.azure.ai). Una vez allí, vaya a la página Configuración en la que podrá asociar la clave de suscripción de Microsoft Translator Text API con el área de trabajo. 
+3. Cuando disponga de todo lo anterior, inicie sesión en el portal de [Custom Translator](https://portal.customtranslator.azure.ai). Una vez allí, vaya a la página Configuración en la que podrá asociar la clave de suscripción de Microsoft Translator Text API con el área de trabajo.
 
 ## <a name="create-a-project"></a>Crear un proyecto
 

@@ -1,24 +1,19 @@
 ---
-title: Streaming en Azure Event Hubs para Apache Kafka | Microsoft Docs
+title: Streaming en Azure Event Hubs para Apache Kafka
 description: Streaming en Event Hubs mediante el protocolo y las API de Kafka.
 services: event-hubs
-documentationcenter: ''
 author: basilhariri
-manager: timlt
+ms.author: bahariri
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/01/2018
-ms.author: bahariri
-ms.openlocfilehash: 18224c3ebf3b5dd9920dcc4b4868ee8bb42e5f91
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 748ed7dde98d81de6e1d2661c6ce50d10357ba3d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418796"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975318"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Streaming en Event Hubs para Apache Kafka
 En esta guía de inicio rápido se muestra cómo transmitir a instancias de Event Hubs habilitadas para Kafka sin cambiar los clientes del protocolo o ejecutar sus propios clústeres. Va a aprender a usar sus productores y consumidores para hablar con instancias de Event Hubs habilitadas para Kafka con un simple cambio de configuración en sus aplicaciones. Azure Event Hubs admite [Apache Kafka versión 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -47,7 +42,7 @@ Para completar esta guía de inicio rápido, asegúrese de cumplir los siguiente
  
 3. Proporcione un nombre único y habilite a Kafka en el espacio de nombres. Haga clic en **Create**(Crear).
     
-    ![Creación de un espacio de nombres](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Creación de un espacio de nombres](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. Una vez que se crea el espacio de nombres, en la pestaña **Configuración**, haga clic en **Directivas de acceso compartido** para obtener la cadena de conexión.
 

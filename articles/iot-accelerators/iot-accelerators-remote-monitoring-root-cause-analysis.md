@@ -5,15 +5,15 @@ author: aditidugar
 ms.author: adugar
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/11/2018
+ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8258c8f34b4b9a1b216d9d497dcdf7d3b8db1373
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369518"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284577"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: realización de un análisis de causas principales en una alerta
 
@@ -40,7 +40,7 @@ Para seleccionar los dispositivos conectados que se muestran en la página **Pan
 
 [![Filtro de los camiones en el panel](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
-Cuando aplica un filtro, solo los dispositivos que coinciden con las condiciones de filtro aparecen en el mapa y en el panel de telemetría de la página **Panel**. Puede ver que hay dos camiones conectados al acelerador de soluciones, incluido **truck-02**.
+Cuando aplica un filtro, solo los dispositivos que coinciden con las condiciones de filtro aparecen en el mapa y en el panel de telemetría del **Panel**. Puede ver que hay dos camiones conectados al acelerador de soluciones, incluido **truck-02**.
 
 ## <a name="view-real-time-telemetry"></a>Ver la telemetría en tiempo real
 
@@ -62,11 +62,11 @@ Cuando se inicie el explorador, verá todos los dispositivos:
 
 [![Vista inicial del Explorador de TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-expanded.png#lightbox)
 
-Filtre los dispositivos escribiendo **delivery-truck** en el cuadro de filtro y seleccione **temperatura** como **Medida** en el panel izquierdo:
+Filtre los dispositivos; para ello, escriba **delivery-truck** en el cuadro de filtro y seleccione **temperature** (temperatura) en **Measure** (Medida) en el panel izquierdo:
 
 [![Temperatura del camión en el explorador de TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
-Verá la misma vista del panel de supervisión remota, y ahora puede acercarse al período de tiempo en el que se activó la alerta:
+Verá la misma vista que vio en el panel de supervisión remota. Además, ahora puede acercar la vista en estrecha cercanía al período de tiempo en que se desencadenó la alerta:
 
 [![Zoom del explorador de TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
@@ -74,13 +74,13 @@ También puede agregar otros flujos de telemetría procedentes de los camiones. 
 
 [![Explorador de TSI con el nuevo panel](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-expanded.png#lightbox)
 
-En el nuevo panel, cambie el nombre de la nueva etiqueta a **Dispositivos** para que coincida con el anterior. Seleccione **altitud** como **Medida** y **iothub-connection-device-id** como valor para **Dividir por** a fin de agregar la telemetría de altitud en la vista:
+En el nuevo panel, cambie el nombre de la nueva etiqueta a **Dispositivos** para que coincida con el anterior. Seleccione **altitude** en **Measure** (Medida) y **iothub-connection-device-id** como valor para **Split By** (Dividir por) a fin de agregar la telemetría de altitud en la vista:
 
 [![Explorador de TSI con la temperatura y la altitud](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
 
 ## <a name="diagnose-the-alert"></a>Diagnóstico de la alerta
 
-Al examinar las secuencias en la vista actual, puede ver que los perfiles de altitud de los dos camiones son muy diferentes. Además, la caída de temperatura en **delivery-truck-02** ocurre cuando la camioneta alcanza un gran altitud. Le sorprende este hallazgo, puesto que los camiones están programados para tomar la misma ruta.
+Al examinar las secuencias en la vista actual, puede ver que los perfiles de altitud de los dos camiones son diferentes. Además, la caída de temperatura en **delivery-truck-02** ocurre cuando la camioneta alcanza un gran altitud. Le sorprende este hallazgo, puesto que los camiones están programados para tomar la misma ruta.
 
 Para confirmar la sospecha de que los camiones tomaron diferentes rutas, agregue otro panel al panel lateral usando el botón **Agregar**. En el nuevo panel, cambie el nombre de la nueva etiqueta a **Dispositivos** para que coincida con el anterior. Seleccione **longitud** como **Medida** y **iothub-connection-device-id** como valor de **Dividir por** para agregar la telemetría de longitud a la vista. Puede constatar que los camiones tomaron rutas diferentes al consultar la diferencia entre los flujos de **longitud**:
 
@@ -88,7 +88,7 @@ Para confirmar la sospecha de que los camiones tomaron diferentes rutas, agregue
 
 ## <a name="create-a-new-rule"></a>Crear una nueva regla
 
-Si bien las rutas de los camiones suelen estar optimizadas de antemano, es consciente de que los patrones de tráfico, el clima y otros eventos impredecibles pueden causar retrasos y dejar las decisiones de ruta de último momento a criterio de los conductores. Sin embargo, puesto que la temperatura de sus activos dentro del vehículo es fundamental, debe crear una regla adicional en la solución de supervisión remota para asegurarse de recibir una advertencia si la altitud promedio en un intervalo de 1 minuto sube por encima de 350 pies:
+Si bien las rutas de los camiones suelen estar optimizadas de antemano, es consciente de que los patrones de tráfico, el clima y otros eventos impredecibles pueden causar retrasos y dejar las decisiones de ruta de último momento a criterio de los conductores. Sin embargo, puesto que la temperatura de sus recursos dentro del vehículo es fundamental, debe crear una regla adicional en la solución de supervisión remota. Esta regla es para asegurarse de que recibe una advertencia si la altitud media durante un intervalo de 1 minuto está por encima de 350 pies:
 
 [![Regla de altitud establecida en la pestaña de reglas de supervisión remota](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 

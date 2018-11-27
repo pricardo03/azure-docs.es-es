@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299426"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711538"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cuota en Azure Stack
 
@@ -32,9 +32,11 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 | **Tipo** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
 | Número máximo de máquinas virtuales | 50 | El número máximo de máquinas virtuales que puede crear una suscripción en esta ubicación. |
-| Número máximo de núcleos de máquinas virtuales | 100 | El número máximo de núcleos que puede crear una suscripción en esta ubicación (por ejemplo, una máquina virtual A3 tiene cuatro núcleos). |
+| Número máximo de núcleos de máquina virtual | 100 | El número máximo de núcleos que puede crear una suscripción en esta ubicación (por ejemplo, una máquina virtual A3 tiene cuatro núcleos). |
 | Número máximo de conjuntos de disponibilidad | 10 | El número máximo de conjuntos de disponibilidad que se pueden crear en esta ubicación. |
 | Número máximo de conjuntos de escalado de máquinas virtuales | 100 | El número máximo de conjuntos de escalado de máquinas virtuales que se pueden crear en esta ubicación. |
+| Capacidad máxima (en GB) de disco administrado estándar | 2048 | La capacidad máxima de los discos administrados estándar que se pueden crear en esta ubicación. |
+| Capacidad máxima (en GB) de disco administrado premium | 2048 | La capacidad máxima de discos administrados premium que se pueden crear en esta ubicación. |
 
 ## <a name="storage-quota-types"></a>Tipos de cuotas de almacenamiento 
 | **Elemento** | **Valor predeterminado** | **Descripción** |
@@ -54,7 +56,7 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 | Número máximo de puertas de enlace de red virtual |1 |El número máximo de puertas de enlace de red virtual (puertas de enlace de VPN) que puede crear una suscripción en esta ubicación. |
 | Número máximo de conexiones de red |2 |El número máximo de conexiones de red (punto a punto o sitio a sitio) que puede crear una suscripción en todas las puertas de enlace de red virtual de esta ubicación. |
 | Número máximo de equilibradores de carga |50 |El número máximo de equilibradores de carga que puede crear una suscripción en esta ubicación. |
-| Nº máx. NIC |100 |El número máximo de interfaces de red que puede crear una suscripción en esta ubicación. |
+| Número máximo de NIC |100 |El número máximo de interfaces de red que puede crear una suscripción en esta ubicación. |
 | Número máximo de grupos de seguridad de red |50 |El número máximo de grupos de seguridad de red que puede crear una suscripción en esta ubicación. |
 
 ## <a name="view-an-existing-quota"></a>Visualización de una cuota existente

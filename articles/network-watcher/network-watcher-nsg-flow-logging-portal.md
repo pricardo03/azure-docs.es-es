@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41918152"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822473"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: registrar el tráfico de red hacia y desde una máquina virtual mediante Azure Portal
 
@@ -36,6 +36,9 @@ Un grupo de seguridad de red (NSG) le permite filtrar el tráfico entrante y el 
 > * Ver los datos registrados.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+> [!NOTE] 
+> La versión 2 de los registros de flujo solo está disponible en la región Centro-oeste de EE. UU. La configuración está disponible mediante Azure Portal y API REST. Si habilita los registros de la versión 2 en una región no admitida, hará que los registros de la versión 1 se guarden en su cuenta de almacenamiento.
 
 ## <a name="create-a-vm"></a>Crear una VM
 
@@ -100,8 +103,9 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
 
 6. En la lista de NSG, seleccione el NSG denominado **myVm-nsg**.
 7. En **Configuración de los registros de flujo**, seleccione **Activada**.
-8. Seleccione la cuenta de almacenamiento que creó anteriormente en el paso 3:
-9. Establezca el valor de **Retención (días)** en 5 y, a continuación, seleccione **Guardar**.
+8. Seleccione la versión del registro de flujos. La versión 2 contiene estadísticas de la sesión de flujo (Bytes y paquetes). ![Seleccionar la versión de los registros de flujo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+9. Seleccione la cuenta de almacenamiento que creó anteriormente en el paso 3:
+10. Establezca el valor de **Retención (días)** en 5 y, a continuación, seleccione **Guardar**.
 
 ## <a name="download-flow-log"></a>Descargar el registro de flujos
 
@@ -126,6 +130,7 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
 
 El siguiente formato JSON es un ejemplo de lo que verá en el archivo PT1H.json para cada flujo en el que se registran los datos:
 
+### <a name="version-1-flow-log-event"></a>Evento de registro de flujo de la versión 1
 ```json
 {
     "time": "2018-05-01T15:00:02.1713710Z",
@@ -135,29 +140,83 @@ El siguiente formato JSON es un ejemplo de lo que verá en el archivo PT1H.json 
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 1,
-        "flows": [{
-            "rule": "UserRule_default-allow-rdp",
-            "flows": [{
-                "mac": "000D3A170C69",
-                "flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
-            }]
-        }]
+        "flows": [
+            {
+                "rule": "UserRule_default-allow-rdp",
+                "flows": [
+                    {
+                        "mac": "000D3A170C69",
+                        "flowTuples": [
+                            "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
 ```
+### <a name="version-2-flow-log-event"></a>Evento de registro de flujo de la versión 2
+```json
+{
+    "time": "2018-11-13T12:00:35.3899262Z",
+    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 2,
+        "flows": [
+            {
+                "rule": "DefaultRule_DenyAllInBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                            "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                            "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                        ]
+                    }
+                ]
+            },
+            {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                            "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                            "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                            "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
 
 El valor de **mac** en la salida anterior es la dirección MAC de la interfaz de red que se creó cuando creó la máquina virtual. La información separada por comas de **flowTuples** tiene el siguiente aspecto:
 
 | Datos de ejemplo | Qué representan los datos   | Explicación                                                                              |
 | ---          | ---                    | ---                                                                                      |
-| 1525186745   | Marca de tiempo             | La marca de tiempo de cuando se produjo el flujo en formato UNIX EPOCH. En el ejemplo anterior, la fecha se convierte en el 1 de mayo de 2018 a las 2:59:05 P.M. GMT.                                                                                    |
-| 192.168.1.4  | Dirección IP de origen      | La dirección IP de origen en la que se ha originado el flujo.
-| 10.0.0.4     | Dirección IP de destino | La dirección IP de destino a la que se destina el flujo. 10.0.0.4 es la dirección IP privada de la VM que creó en el paso [Crear una máquina virtual](#create-a-vm).                                                                                 |
-| 55960        | Puerto de origen            | El puerto de origen en el que se ha originado el flujo.                                           |
-| 3389         | Puerto de destino       | El puerto de destino al que se destina el flujo. Puesto que el tráfico se destinó al puerto 3389, la regla denominada **UserRule_default-allow-rdp**, en el archivo de registro, es la que procesa el flujo.                                                |
+| 1542110377   | Marca de tiempo             | La marca de tiempo de cuando se produjo el flujo en formato UNIX EPOCH. En el ejemplo anterior, la fecha se convierte en el 1 de mayo de 2018 a las 2:59:05 P.M. GMT.                                                                                    |
+| 10.0.0.4  | Dirección IP de origen      | La dirección IP de origen en la que se ha originado el flujo. 10.0.0.4 es la dirección IP privada de la VM que creó en el paso [Crear una máquina virtual](#create-a-vm).
+| 13.67.143.118     | Dirección IP de destino | La dirección IP de destino a la que se destina el flujo.                                                                                  |
+| 44931        | Puerto de origen            | El puerto de origen en el que se ha originado el flujo.                                           |
+| 443         | Puerto de destino       | El puerto de destino al que se destina el flujo. Puesto que el tráfico se destinó al puerto 443, la regla denominada **UserRule_default-allow-rdp**, en el archivo de registro, es la que procesa el flujo.                                                |
 | T            | Protocolo               | Si el protocolo del flujo es TCP (T) o UDP (U).                                  |
-| I            | Dirección              | Si el tráfico es entrante (I) o saliente (O).                                     |
-| Una             | .                 | Si el tráfico está permitido (A) o si está denegado (D).                                           |
+| O            | Dirección              | Si el tráfico es entrante (I) o saliente (O).                                     |
+| Una             | .                 | Si el tráfico está permitido (A) o si está denegado (D).  
+| C            | Estado de flujo **solo versión 2** | Captura el estado del flujo. Los posibles estados son: **B**: inicio, cuando se crea el flujo. No se proporcionan las estadísticas. **C**: continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: final, cuando termina el flujo. Se proporcionan las estadísticas. |
+| 30 | Paquetes enviados: origen a destino **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. |
+| 16978 | Bytes enviados: origen a destino **solo versión 2** | El número total de bytes de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete. | 
+| 24 | Paquetes enviados: destino a origen **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el destino al origen desde la última actualización. |
+| 14008| Bytes enviados: destino a origen **solo versión 2** | El número total de bytes de paquetes TCP y UDP enviados desde el destino al origen desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete.| |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

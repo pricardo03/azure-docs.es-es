@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: c675b6d50cf6bf5c4e7ea064f3741cae7a091946
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c21d5618b3e3223297ddd97dc5c98e5eb8c18c0b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578326"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974825"
 ---
 # <a name="get-started"></a>Guía de inicio rápido: Creación de un equilibrador de carga público con Azure PowerShell
 En esta guía de inicio rápido, se explica cómo crear un equilibrador de carga básico utilizando Azure PowerShell. Para probar el equilibrador de carga, implemente dos máquinas virtuales que ejecuten Windows Server y equilibre la carga de una aplicación web entre ellas.
@@ -44,7 +44,7 @@ Para obtener acceso a la aplicación en Internet, necesita una dirección IP pú
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
+  -AllocationMethod "Static" `
   -Name "myPublicIP"
 ```
 ## <a name="create-basic-load-balancer"></a>Creación de un equilibrador de carga básico
@@ -251,7 +251,7 @@ Establezca un nombre de usuario de administrador y una contraseña para las máq
 $cred = Get-Credential
 ```
 
-Ahora puede crear las máquinas virtuales con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente, se crean dos máquinas virtuales y los componentes de red virtual necesarios, si aún no existen:
+Ahora puede crear las máquinas virtuales con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente, se crean dos máquinas virtuales y los componentes de red virtual necesarios, si aún no existen. Durante la creación de la máquina virtual del ejemplo siguiente, las NIC que se crearon anteriormente están asociadas a las máquinas virtuales puesto que se les asignan la misma red virtual (*myVnet*) y subred (*mySubnet*):
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)

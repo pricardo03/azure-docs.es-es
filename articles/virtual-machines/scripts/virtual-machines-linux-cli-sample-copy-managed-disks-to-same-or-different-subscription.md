@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 65d0d6848534326bb3ef43f1bd8bc700971603e6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: a514359edcf21d5882b2361d10c06214d8e39502
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636805"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274876"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Copia de discos administrados en la misma suscripción o en otra con CLI
 
-Este script copia un disco administrado en la misma suscripción o en otra, pero dentro de la misma región. Debe ser un administrador de inquilinos de AAD Global de ambas suscripciones para ejecutar este script.
+Este script copia un disco administrado en la misma suscripción o en otra, pero dentro de la misma región. La copia solo funciona si las suscripciones forman parte del mismo inquilino de AAD.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

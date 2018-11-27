@@ -1,5 +1,5 @@
 ---
-title: Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell
+title: 'Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell'
 description: En este tutorial, aprenderá a implementar y configurar Azure Firewall mediante Azure Portal.
 services: firewall
 author: vhorne
@@ -7,32 +7,44 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 3c225e6fbfb13c04d650b8e6b72ee18d23139a8e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 781365e32ce5602e9fb99b620e068ddf68de8c44
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158965"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854176"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell
+
+Cuando conecta la red local a una red virtual de Azure para crear una red híbrida, la capacidad de controlar el acceso a los recursos de la red de Azure es parte importante de un plan de seguridad global.
+
+Puede usar Azure Firewall para controlar el acceso de red en una red híbrida con reglas que definen el tráfico de red que se permite o que se rechaza.
+
+En este tutorial se crearán tres redes virtuales:
+
+- **VNet-Hub**: el firewall está en esta red virtual.
+- **VNet-Spoke**: la red virtual Spoke representa la carga de trabajo ubicada en Azure.
+- **VNet-Onprem**: la red virtual local representa una red local. En una implementación real, puede estar conectado por una conexión ExpressRoute o VPN. Para simplificar, este tutorial usa una conexión de puerta de enlace de VPN y una red virtual ubicada en Azure para representar una red local.
+
+![Firewall en una red híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configuración del entorno de red
+> * Declaración de las variables
+> * Crear la red virtual del centro de firewall
+> * Crear la red virtual de tipo hub-and-spoke
+> * Crear la red virtual local
 > * Configuración e implementación del firewall
+> * Creación y conexión de las puertas de enlace de VPN
+> * Emparejar las redes virtuales de tipo hub-and-spoke
 > * Creación de las rutas
 > * Creación de las máquinas virtuales
 > * Probar el firewall
 
-En este tutorial se crearán tres redes virtuales:
-- **VNet-Hub**: el firewall está en esta red virtual.
-- **VNet-Spoke**: la red virtual Spoke representa la carga de trabajo ubicada en Azure.
-- **VNet-Onprem**: la red virtual Onprem representa una red local. En una implementación real, puede estar conectado por una conexión ExpressRoute o VPN. Para simplificar, este tutorial usa una conexión de puerta de enlace de VPN y una red virtual ubicada en Azure para representar una red local.
+## <a name="prerequisites"></a>Requisitos previos
 
-![Firewall en una red híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
-
-## <a name="key-requirements"></a>Requisitos principales
+En este tutorial es necesario ejecutar PowerShell de forma local. Debe tener instalado el módulo Azure PowerShell, versión 6.12.0 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzureRmAccount` para crear una conexión con Azure.
 
 Hay tres requisitos clave para que este escenario funcione correctamente:
 
@@ -45,11 +57,9 @@ Consulte la sección [Creación de rutas](#create-routes) en este tutorial para 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
 ## <a name="declare-the-variables"></a>Declaración de las variables
 
-En el ejemplo siguiente se declaran las variables con los valores para este tutorial. En la mayoría de los casos, deberá reemplazar los valores por los suyos propios. No obstante, puede usar estas variables si está practicando los pasos para familiarizarse con este tipo de configuración. Si es necesario, modifique las variables y después cópielas y péguelas en la consola de PowerShell.
+En el ejemplo siguiente se declaran las variables con los valores para este tutorial. En algunos casos, puede que tenga que reemplazar algunos valores por los suyos propios para trabajar en su suscripción. Si es necesario, modifique las variables y después cópielas y péguelas en la consola de PowerShell.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -67,7 +77,7 @@ $GWHubpipName = "VNet-hub-GW-pip"
 $GWIPconfNameHub = "GW-ipconf-hub"
 $ConnectionNameHub = "hub-to-Onprem"
 
-# Variables for the spoke VNet
+# Variables for the spoke virtual network
 
 $VnetNameSpoke = "VNet-Spoke"
 $SNnameSpoke = "SN-Workload"
@@ -75,7 +85,7 @@ $VNetSpokePrefix = "10.6.0.0/16"
 $SNSpokePrefix = "10.6.0.0/24"
 $SNSpokeGWPrefix = "10.6.1.0/24"
 
-# Variables for the OnPrem VNet
+# Variables for the on-premises virtual network
 
 $VNetnameOnprem = "Vnet-Onprem"
 $SNNameOnprem = "SN-Corp"
@@ -90,15 +100,14 @@ $GWOnprempipName = "VNet-Onprem-GW-pip"
 $SNnameGW = "GatewaySubnet"
 ```
 
-## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos en el que se incluirán todos los recursos necesarios para este tutorial:
+## <a name="create-the-firewall-hub-virtual-network"></a>Crear la red virtual del centro de firewall
+
+En primer lugar, cree el grupo de recursos en el que se incluirán los recursos de este tutorial:
 
 ```azurepowershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
-
-## <a name="create-and-configure-the-firewall-hub-vnet"></a>Creación y configuración de la red virtual del concentrador de firewall
 
 Defina las subredes que se incluirán en la red virtual:
 
@@ -107,7 +116,7 @@ $FWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameHub -AddressPrefix $
 $GWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWHubPrefix
 ```
 
-Ahora, cree la red virtual del concentrador de firewall:
+Ahora, cree la red virtual del centro de firewall:
 
 ```azurepowershell
 $VNetHub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
@@ -121,23 +130,23 @@ Solicite que se asigne una dirección IP pública a la puerta de enlace de VPN q
   -Location $Location1 -AllocationMethod Dynamic
 ```
 
-## <a name="create-and-configure-the-spoke-vnet"></a>Creación y configuración de la red virtual de radio
+## <a name="create-the-spoke-virtual-network"></a>Crear la red virtual de tipo hub-and-spoke
 
-Defina las subredes que se incluirán en la red virtual de radio:
+Defina las subredes que se incluirán en la red virtual de tipo hub-and-spoke:
 
 ```azurepowershell
 $Spokesub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameSpoke -AddressPrefix $SNSpokePrefix
 $GWsubSpoke = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNSpokeGWPrefix
 ```
 
-Cree la red virtual de radio:
+Cree la red virtual de tipo hub-and-spoke:
 
 ```azurepowershell
 $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>Creación y configuración de la red virtual local
+## <a name="create-the-on-premises-virtual-network"></a>Crear la red virtual local
 
 Defina las subredes que se incluirán en la red virtual:
 
@@ -162,7 +171,7 @@ Solicite que se asigne una dirección IP pública a la puerta de enlace que crea
 
 ## <a name="configure-and-deploy-the-firewall"></a>Configuración e implementación del firewall
 
-Ahora, implemente el firewall en la red virtual de concentrador.
+Ahora, implemente el firewall en la red virtual de centro.
 
 ```azurepowershell
 # Get a Public IP for the firewall
@@ -198,9 +207,9 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Creación y conexión de las puertas de enlace de VPN
 
-Las redes virtuales de centro y local se conectan mediante una puerta de enlace de VPN.
+Las redes virtuales de centro y local están conectadas mediante puertas de enlace VPN.
 
-### <a name="create-a-vpn-gateway-for-the-hub-vnet"></a>Creación de una puerta de enlace de VPN para la red virtual de concentrador
+### <a name="create-a-vpn-gateway-for-the-hub-virtual-network"></a>Creación de una puerta de enlace VPN para la red virtual de centro
 
 Establezca la configuración de la puerta de enlace de VPN. La configuración de la puerta de enlace de VPN define la subred y la dirección IP pública.
 
@@ -211,7 +220,7 @@ Establezca la configuración de la puerta de enlace de VPN. La configuración de
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
 
-Ahora, cree la puerta de enlace de VPN para la red virtual de concentrador. Las configuraciones VNet a VNet requieren un VpnType RouteBased. La creación de una puerta de enlace de VPN suele tardar 45 minutos o más, según la SKU de la puerta de enlace de VPN seleccionada.
+Cree la puerta de enlace VPN para la red virtual de centro. Las configuraciones de red a red requieren un VpnType RouteBased. La creación de una puerta de enlace de VPN suele tardar 45 minutos o más, según la SKU de la puerta de enlace de VPN seleccionada.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
@@ -219,7 +228,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
 -VpnType RouteBased -GatewaySku basic
 ```
 
-### <a name="create-a-vpn-gateway-for-the-onprem-vnet"></a>Creación de una puerta de enlace de VPN para la red virtual local
+### <a name="create-a-vpn-gateway-for-the-on-premises-virtual-network"></a>Creación de una puerta de enlace VPN para la red virtual local
 
 Establezca la configuración de la puerta de enlace de VPN. La configuración de la puerta de enlace de VPN define la subred y la dirección IP pública.
 
@@ -230,7 +239,7 @@ $gwipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfNameOnprem 
   -Subnet $subnet2 -PublicIpAddress $gwOnprempip
   ```
 
-Ahora, cree la puerta de enlace de VPN para la red virtual local. Las configuraciones VNet a VNet requieren un VpnType RouteBased. La creación de una puerta de enlace de VPN suele tardar 45 minutos o más, según la SKU de la puerta de enlace de VPN seleccionada.
+Cree la puerta de enlace VPN para la red virtual local. Las configuraciones de red a red requieren un VpnType RouteBased. La creación de una puerta de enlace de VPN suele tardar 45 minutos o más, según la SKU de la puerta de enlace de VPN seleccionada.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
@@ -240,7 +249,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
 
 ### <a name="create-the-vpn-connections"></a>Creación de las conexiones
 
-Ahora puede crear las conexiones de VPN entre las puertas de enlace de concentrador y local.
+Ahora puede crear las conexiones de VPN entre las puertas de enlace de centro y local.
 
 #### <a name="get-the-vpn-gateways"></a>Obtención de las puertas de enlace de VPN
 
@@ -251,14 +260,14 @@ $vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGr
 
 #### <a name="create-the-connections"></a>Crear las conexiones
 
-En este paso, cree la conexión desde la red virtual de concentrador a la red virtual local. Verá una clave compartida a la que se hace referencia en los ejemplos. Puede utilizar sus propios valores para la clave compartida. Lo importante es que la clave compartida coincida en ambas conexiones. Se tardará unos momentos en terminar de crear la conexión.
+En este paso va a crear la conexión entre la red virtual de centro y la red virtual local. Verá una clave compartida a la que se hace referencia en los ejemplos. Puede utilizar sus propios valores para la clave compartida. Lo importante es que la clave compartida coincida en ambas conexiones. Se tardará unos momentos en terminar de crear la conexión.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1 `
 -VirtualNetworkGateway1 $vnetHubgw -VirtualNetworkGateway2 $vnetOnpremgw -Location $Location1 `
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 ```
-Cree la conexión entre la red virtual local y la red virtual de concentrador. Este paso es similar al anterior, excepto que se crea una conexión desde la red virtual local a la red virtual de concentrador. Asegúrese de que coincidan las claves compartidas. Después de unos minutos, se habrá establecido la conexión.
+Cree la conexión de red entre la red virtual local y la red virtual de centro. Este paso es similar al anterior, excepto que se crea una conexión desde la red virtual local a la red virtual de centro. Asegúrese de que coincidan las claves compartidas. Después de unos minutos, se habrá establecido la conexión.
 
   ```azurepowershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameOnprem -ResourceGroupName $RG1 `
@@ -282,9 +291,9 @@ Cuando el cmdlet termine, consulte los valores. En el ejemplo siguiente, el esta
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="peer-the-hub-and-spoke-vnets"></a>Emparejamiento de las redes virtuales de concentrador y de radio
+## <a name="peer-the-hub-and-spoke-virtual-networks"></a>Emparejar las redes virtuales de tipo hub-and-spoke
 
-Ahora, empareje las redes virtuales de concentrador y de radio.
+Ahora, empareje las redes virtuales de tipo hub-and-spoke.
 
 ```azurepowershell
 # Peer hub to spoke
@@ -294,7 +303,7 @@ Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -Remo
 Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
 
-## <a name="create-routes"></a>Creación de rutas
+## <a name="create-the-routes"></a>Creación de las rutas
 
 A continuación, cree un par de rutas:
 
@@ -302,7 +311,7 @@ A continuación, cree un par de rutas:
 - Una ruta predeterminada desde la subred de radio mediante la dirección IP del firewall.
 
 > [!NOTE]
-> Azure Firewall aprende sus redes locales mediante BGP. Esto puede incluir una ruta predeterminada, que enrutará el tráfico de Internet a través de la red local. Si en vez de eso desea que el tráfico de Internet se envíe directamente desde el firewall a Internet, agregue una ruta predeterminada definida por el usuario (0.0.0.0/0) en AzureFirewallSubnet con el tipo de próximo salto **Internet**. Al tráfico con destino local todavía se le fuerza a realizar la tunelización a través de la puerta de enlace VPN o ExpressRoute con las rutas más específicas aprendidas de BGP.
+> Azure Firewall aprende sus redes locales mediante BGP. Esto puede incluir una ruta predeterminada, que enrutará el tráfico de Internet a través de la red local. En una implementación de producción, es posible que quiera que el tráfico de Internet se envíe directamente desde el firewall a Internet. Puede agregar una ruta predeterminada definida por el usuario (0.0.0.0/0) en AzureFirewallSubnet con **Internet** de tipo de próximo salto. Al tráfico con destino local todavía se le fuerza a realizar la tunelización a través de la puerta de enlace VPN o ExpressRoute con las rutas más específicas aprendidas de BGP.
 
 ```azurepowershell
 #Create a route table
@@ -363,11 +372,11 @@ Set-AzureRmVirtualNetwork
 
 ## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-Ahora, cree las máquinas virtuales de local y de cargas de trabajo de radio, y colóquelas en las subredes adecuadas.
+Ahora, cree la carga de trabajo de tipo hub-and-spoke y las máquinas virtuales locales, y colóquelas en las subredes adecuadas.
 
 ### <a name="create-the-workload-virtual-machine"></a>Creación de la máquina virtual de cargas de trabajo
 
-Cree una máquina virtual en la red virtual de radio, que ejecute IIS, sin ninguna dirección IP pública y que permita que se haga ping en ella.
+Cree una máquina virtual en la red virtual de tipo hub-and-spoke, que ejecute IIS, sin ninguna dirección IP pública y que permita que se haga ping en ella.
 Cuando se le solicite, escriba el nombre de usuario y la contraseña de la máquina virtual.
 
 ```azurepowershell
@@ -415,7 +424,7 @@ Set-AzureRmVMExtension `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
     -Location $Location1--->
 
-### <a name="create-the-onprem-virtual-machine"></a>Creación de la máquina virtual local
+### <a name="create-the-on-premises-virtual-machine"></a>Creación de la máquina virtual local
 
 Se trata de una máquina virtual sencilla con una dirección IP pública a la que se puede conectar mediante Escritorio remoto. Desde allí, puede conectarse al servidor local a través del firewall. Cuando se le solicite, escriba el nombre de usuario y la contraseña de la máquina virtual.
 
@@ -438,23 +447,23 @@ En primer lugar, obtenga y anote la dirección IP privada de la máquina virtual
 $NIC.IpConfigurations.privateipaddress
 ```
 
-1. En Azure Portal, conéctese a la máquina virtual **VM-Onprem**.
+En Azure Portal, conéctese a la máquina virtual **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-2. Abra un explorador web en **VM-Onprem** y vaya a http://\<VM-spoke-01 private IP\>.
+Abra un explorador web en **VM-Onprem** y vaya a http://\<VM-spoke-01 private IP\>.
 
-   Verá la página predeterminada de Internet Information Services.
+Verá la página predeterminada de Internet Information Services.
 
-3. En **VM-Onprem**, abra un escritorio remoto a **VM-spoke-01** en la dirección IP privada.
+En **VM-Onprem**, abra un escritorio remoto a **VM-spoke-01** en la dirección IP privada.
 
-   Se realizará la conexión y podrá iniciar sesión con el nombre de usuario y la contraseña elegidos.
+Se realizará la conexión y podrá iniciar sesión con el nombre de usuario y la contraseña elegidos.
 
 Con ello, ha comprobado que funcionan las reglas de firewall:
 
 <!---- You can ping the server on the spoke VNet.--->
-- Puede examinar el servidor web en la red virtual de radio.
-- Puede conectarse al servidor en la red virtual de radio mediante RDP.
+- Puede examinar el servidor web en la red virtual de tipo hub-and-spoke.
+- Puede conectarse al servidor en la red virtual de tipo hub-and-spoke mediante RDP.
 
 A continuación, cambie la acción de recopilación de la regla de red del firewall a **Deny** (Denegar) para comprobar que las reglas del firewall funcionan según lo previsto. Ejecute el siguiente script para cambiar la acción de recopilación de la regla a **Deny** (Denegar).
 
@@ -472,15 +481,6 @@ Ahora, ejecute de nuevo las pruebas. Esta vez, todas producirán un error. Cierr
 Puede conservar los recursos relacionados con el firewall para el siguiente tutorial o, si ya no los necesita, eliminar el grupo de recursos **FW-Hybrid-Test** para eliminarlos todos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Configuración del entorno de red
-> * Configuración e implementación del firewall
-> * Creación de las rutas
-> * Creación de las máquinas virtuales
-> * Probar el firewall
 
 A continuación, puede supervisar los registros de Azure Firewall.
 

@@ -8,146 +8,100 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 83390ace8d9747d218fdd5c6b50ba9bdc6d11957
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 58d34aa84d57c8c69a146666f23ce9f769554f88
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648826"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165601"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Guía de inicio rápido: Publicación de una base de conocimiento en QnA Maker con Java
 
-Esta guía de inicio rápido describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
+En esta guía de inicio rápido basada en REST se describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
 
 En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 * [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe): esta API no requiere ninguna información en el cuerpo de la solicitud.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+## <a name="prerequisites"></a>Requisitos previos
 
-1. Cree un nuevo proyecto de Java en su IDE favorito.
-2. Agregue el código que se proporciona a continuación.
-3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
-4. Ejecute el programa.
+* [JDK SE](https://aka.ms/azure-jdks) (Kit de desarrollo de Java, Standard Edition)
+* Este ejemplo utiliza el [cliente HTTP](http://hc.apache.org/httpcomponents-client-ga/) Apache desde HTTP Components. Es preciso agregar las siguientes bibliotecas de cliente HTTP Apache al proyecto: 
+    * httpclient-4.5.3.jar
+    * httpcore-4.4.6.jar
+    * commons-logging-1.2.jar
+* [Visual Studio Code](https://code.visualstudio.com/)
+* Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave, seleccione **Claves** en **Administración de recursos** en el panel de Azure del recurso de QnA Maker. . 
+* Identificador de la base de conocimiento (KB) de QnA Maker encontrado en la dirección URL en el parámetro de cadena de consulta de KBID, como se muestra a continuación.
 
-```java
-import java.io.*;
-import java.lang.reflect.Type;
-import java.net.*;
-import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+    ![Identificador de base de conocimiento de QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *    <dependency>
- *      <groupId>com.google.code.gson</groupId>
- *      <artifactId>gson</artifactId>
- *      <version>2.8.1</version>
- *    </dependency>
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
+    Si aún no tiene una base de conocimiento, puede crear una de ejemplo para usar en esta guía de inicio rápido: [Creación de una nueva base de conocimiento](create-new-kb-csharp.md).
 
-/* NOTE: To compile and run this code:
-1. Save this file as PublishKB.java.
-2. Run:
-    javac PublishKB.java -cp .;gson-2.8.1.jar -encoding UTF-8
-3. Run:
-    java -cp .;gson-2.8.1.jar PublishKB
-*/
+> [!NOTE] 
+> Los archivos de la solución completa están disponibles en el repositorio [**Azure-Samples/cognitive-services-qnamaker-java** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
+## <a name="create-a-java-file"></a>Creación de un archivo Java
+
+Abra VSCode y cree un archivo llamado `PublishKB.java`.
+
+## <a name="add-the-required-dependencies"></a>Incorporación de las dependencias necesarias
+
+En la parte superior de `PublishKB.java`, encima de la clase, agregue las líneas siguientes para agregar las dependencias necesarias al proyecto:
+
+[!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=1-13 "Add the required dependencies")]
+
+## <a name="create-publishkb-class-with-main-method"></a>Creación de la clase PublishKB con el método main
+
+Después de las dependencias agregue la siguiente clase:
+
+```Go
 public class PublishKB {
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace this with a valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
-
-// Replace this with a valid knowledge base ID.
-    static String kb = "ENTER ID HERE";
-
-    static String host = "https://westus.api.cognitive.microsoft.com";
-    static String service = "/qnamaker/v4.0";
-    static String method = "/knowledgebases/";
-
-    public static String PrettyPrint (String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-// Send an HTTP POST request.
-    public static String Post (URL url, String content) throws Exception {
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Content-Length", content.length() + "");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setDoOutput(true);
-
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-        byte[] encoded_content = content.getBytes("UTF-8");
-        wr.write(encoded_content, 0, encoded_content.length);
-        wr.flush();
-        wr.close();
-
-        if (connection.getResponseCode() == 204)
-        {
-            return "{'result' : 'Success.'}";
-        }
-        else {
-            StringBuilder response = new StringBuilder ();
-            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getErrorStream(), "UTF-8"));
-
-            String line;
-            while ((line = in.readLine()) != null) {
-                response.append(line);
-            }
-            in.close();
-
-            return response.toString();
-        }
-    }
-
-// Sends the request to publish the knowledge base.
-    public static String PublishKB (String kb) throws Exception {
-        URL url = new URL(host + service + method + kb);
-        System.out.println ("Calling " + url.toString() + ".");
-        return Post(url, "");
-    }
-
-    public static void main(String[] args) {
-        try {
-            String response = PublishKB (kb);
-            System.out.println (PrettyPrint (response));
-        }
-        catch (Exception e) {
-            System.out.println (e.getCause().getMessage());
-        }
+    public static void main(String[] args) 
+    {
     }
 }
 ```
 
-## <a name="the-publish-a-knowledge-base-response"></a>Respuesta de la publicación de una base de conocimiento
+## <a name="add-required-constants"></a>Incorporación de las constantes necesarias
 
-Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo:
+En el método **main**, agregue las constantes necesarias para acceder a QnA Maker. Reemplace los valores por los suyos.
 
-```json
-{
-  "result": "Success."
-}
-```
+[!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=27-30 "Add the required constants")]
+
+## <a name="add-post-request-to-publish-knowledge-base"></a>Incorporación de una solicitud POST para publicar la base de conocimiento
+
+Tras las constantes requeridas, agregue el siguiente código, que realiza una solicitud HTTPS a QnA Maker API para publicar una base de conocimiento y recibe la respuesta:
+
+[!code-java[Add a POST request to publish knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=32-44 "Add a POST request to publish knowledge base")]
+
+La llamada API devuelve un estado 204 en caso de publicación correcta sin ningún contenido en el cuerpo de la respuesta. El código agrega el contenido para las respuestas 204.
+
+Para cualquier otra respuesta, esa respuesta se devuelve sin modificar.
+
+## <a name="build-and-run-the-program"></a>Compilar y ejecutar el programa
+
+Compile y ejecute el programa desde la línea de comandos. Este enviará automáticamente la solicitud a QnA Maker API y luego la imprimirá en la ventana de la consola.
+
+1. Compile el archivo:
+
+    ```bash
+    javac -cp "lib/*" PublishKB.java
+    ```
+
+1. Ejecute el archivo:
+
+    ```bash
+    java -cp ".;lib/*" PublishKB
+    ```
+
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Después de publicar la base de conocimiento, es preciso que la dirección URL del punto de conexión [ genere una respuesta](../Tutorials/create-publish-answer.md#generating-an-answer).  
 
 > [!div class="nextstepaction"]
 > [Referencia de QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

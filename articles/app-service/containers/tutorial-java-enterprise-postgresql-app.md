@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 40bee31b7880a323a48e92912ee323c43c3a97da
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634776"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165465"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Compilación de una aplicación web Java EE y Postgres en Azure
 
@@ -51,13 +51,38 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 Actualice el archivo POM de Maven con el grupo de recursos y el nombre deseado de la instancia de App Service. Estos valores se insertarán en el complemento de Azure, que aparece más abajo en el archivo _pom.xml_. No es necesario crear el plan o la instancia de App Service de antemano. El complemento de Maven creará el grupo de recursos y la instancia de App Service si aún no existen.
 
+Puede desplazarse hacia abajo a la sección `<plugins>` de _pom.xml_ para inspeccionar el complemento de Azure. La sección de la configuración de `<plugin>` en el archivo _pom.xml_ debe azure-webapp-maven-plugin debe incluir la siguiente configuración:
+
+```xml
+      <!--*************************************************-->
+      <!-- Deploy to WildFly in App Service Linux           -->
+      <!--*************************************************-->
+ 
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <configuration>
+ 
+          <!-- Web App information -->
+          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
+          <appName>${WEBAPP_NAME}</appName>
+          <region>${REGION}</region>
+ 
+          <!-- Java Runtime Stack for Web App on Linux-->
+          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+ 
+        </configuration>
+      </plugin>
+```
+
 Reemplace los marcadores de posición por los nombres de recurso que desee:
 ```xml
 <azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
 <azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
 ```
 
-Puede desplazarse hacia abajo a la sección `<plugins>` de _pom.xml_ para inspeccionar el complemento de Azure.
 
 ## <a name="build-and-deploy-the-application"></a>Compilar e implementar la aplicación
 

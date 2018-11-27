@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 09bddd1c1d9589dbba0acf319ba43ea54c0c737b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 14a6e295eebcc3a7cb3f190a09afd65b0e959d7e
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221469"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265345"
 ---
 # <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
 En este artículo se explica cómo usar Azure Portal para realizar una copia de seguridad de los [recursos compartidos de archivos de Azure](../storage/files/storage-files-introduction.md) y restaurarla.
@@ -31,7 +31,7 @@ En esta guía, aprenderá a:
 Antes de realizar una copia de seguridad de un recurso compartido de archivos de Azure, asegúrese de que se encuentra en uno de los [tipos de cuenta de almacenamiento admitidos](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Cuando haya comprobado esto, puede proteger los recursos compartidos de archivos.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitaciones de la copia de seguridad de recursos compartidos de archivos de Azure en la versión preliminar
-La copia de seguridad de los recursos compartidos de archivos de Azure está en versión preliminar. No se admiten los siguientes escenarios de copia de seguridad para los recursos compartidos de archivos de Azure:
+La copia de seguridad de los recursos compartidos de archivos de Azure está en versión preliminar. Los recursos compartidos de archivos de Azure se admiten en cuentas de almacenamiento de uso general v1 y uso general v2. No se admiten los siguientes escenarios de copia de seguridad para los recursos compartidos de archivos de Azure:
 - No puede proteger los recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia geográfica con acceso de lectura](../storage/common/storage-redundancy-grs.md) (RA-GRS)*.
 - No puede proteger los recursos compartidos de archivos de Azure en cuentas de almacenamiento que tienen las redes virtuales o el firewall habilitados.
 - Ni PowerShell ni la CLI están disponibles para proteger Azure Files mediante Azure Backup.
@@ -39,10 +39,11 @@ La copia de seguridad de los recursos compartidos de archivos de Azure está en 
 - El número máximo de copias de seguridad a petición al día es cuatro.
 - Use los [bloqueos de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) de la cuenta de almacenamiento para impedir la eliminación accidental de copias de seguridad del almacén de Recovery Services.
 - No elimine las instantáneas que crea Azure Backup. La eliminación de instantáneas puede provocar la pérdida de puntos de recuperación o errores de restauración.
+- No elimine los recursos compartidos de archivos que estén protegidos por Azure Backup. La solución actual eliminará todas las instantáneas realizadas por Azure Backup una vez que se elimina el recurso compartido de archivos y, por consiguiente, se pierden todos los puntos de restauración
 
 \*Recursos compartidos de archivos de Azure en cuentas de almacenamiento con la función de replicación de [almacenamiento con redundancia geográfica con acceso de lectura](../storage/common/storage-redundancy-grs.md) (RA-GRS) como GRS y facturado a precios de GRS.
 
-La copia de seguridad para recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) solo se encuentra disponible actualmente en las regiones de Centro de EE. UU. (CUS), Este de EE. UU. 2 (EUS2), Europa del Norte (NE), Sudeste Asiático (SEA) y Europa Occidental (WE).
+La copia de seguridad de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) solo se encuentra disponible actualmente en las regiones de Centro de EE. UU. (CUS), Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Europa del Norte (NE), Sudeste Asiático (SEA), Europa Occidental (WE) y Oeste de EE. UU. 2 (WUS2).
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configuración de la copia de seguridad de un recurso compartido de archivos de Azure
 Todos los datos de copia de seguridad se almacenan en almacenes de Recovery Services. En este tutorial se da por supuesto que ya ha establecido un recurso compartido de archivos de Azure. Para realizar una copia de seguridad del recurso compartido de archivos de Azure, siga estos pasos:

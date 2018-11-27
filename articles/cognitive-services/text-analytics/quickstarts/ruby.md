@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 39aeef8b8c88737a7e50f7dc1db5e874279176c0
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8495d003113b2ba607dada7b8f5624d8281d3583
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784662"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284411"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Guía de inicio rápido: Uso de Ruby para llamar a Text Analytics de Cognitive Services
 <a name="HOLTop"></a>
 
-En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar opiniones](#SentimentAnalysis), [extraer frases clave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) mediante [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) con Ruby.
+En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las opiniones](#SentimentAnalysis), [extraer las frases clave](#KeyPhraseExtraction) e [identificar las entidades vinculadas](#Entities) mediante  [instancias de Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711)  con Ruby.
 
 Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) para obtener la documentación técnica de las API.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Text Analytics API**. Puede usar el **nivel gratuito de 5000 transacciones al mes** para completar este inicio rápido.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 También debe tener la [clave de acceso y punto de conexión](../How-tos/text-analytics-how-to-access-key.md) que se generó automáticamente durante el registro. 
 

@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: b7cba2959bead5eeed72a87219c70f896b5a48b8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 76e6bc006ff6049b631409a3515628fbd169f713
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51682969"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976985"
 ---
 # <a name="what-is-custom-translator-preview"></a>¿Qué es Custom Translator (versión preliminar)?
 
@@ -32,7 +32,7 @@ Custom Translator proporciona diferentes características a la hora de compilar 
 |---------|---------|
 |[Aprovechamiento de la tecnología de traducción automática neuronal](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Mejora la traducción aprovechando la traducción automática neuronal (NMT) que proporciona Custom Translator.       |
 |[Creación de sistemas que conocen la terminología del negocio](what-are-parallel-documents.md)     |  Personalice y compile sistemas de traducción mediante documentos paralelos que comprendan la terminología usada en su propia empresa y sector.       |
-|[Uso del diccionario para compilar los modelos](what-is-dictionary.md)     |   Si no tiene un conjunto de datos de aprendizaje, puede entrenar un modelo solo con datos de diccionario.       |
+|[Uso de un diccionario para compilar los modelos](what-is-dictionary.md)     |   Si no tiene un conjunto de datos de aprendizaje, puede entrenar un modelo solo con datos de diccionario.       |
 |[Colaboración con otros usuarios](how-to-manage-settings.md#share-your-workspace)     |   Colabore con su equipo compartiendo su trabajo con diferentes personas.     |
 |[Acceso al modelo de traducción personalizado](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Se puede acceder al modelo de traducción personalizado en cualquier momento mediante las aplicaciones y programas existentes a través de Microsoft Translator Text API V3.       |
 

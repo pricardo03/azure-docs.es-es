@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: e1e349f4ddbebdd9df38d7f0babf50d726241d4f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3d96beee881df560fc616cd975502f062275e9eb
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648741"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162031"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Guía de inicio rápido: Publicación de una base de conocimiento en QnA Maker mediante Node.js
 
-Esta guía de inicio rápido describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
+En esta guía de inicio rápido basada en REST se describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
 
 En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 * [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe): esta API no requiere ninguna información en el cuerpo de la solicitud.
@@ -32,9 +32,11 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 
     ![Identificador de base de conocimiento de QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-Si aún no tiene una base de conocimiento, puede crear una de ejemplo para usar en esta guía de inicio rápido: [Creación de una nueva base de conocimiento](create-new-kb-nodejs.md).
+    Si aún no tiene una base de conocimiento, puede crear una de ejemplo para usar en esta guía de inicio rápido: [Creación de una nueva base de conocimiento](create-new-kb-nodejs.md).
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+
+> [!NOTE] 
+> Los archivos de la solución completa están disponibles en el repositorio [**Azure-Samples/cognitive-services-qnamaker-nodejs** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short).
 
 ## <a name="create-a-knowledge-base-nodejs-file"></a>Creación de un archivo de base de conocimiento de Node.js
 
@@ -44,49 +46,27 @@ Cree un archivo llamado `publish-knowledge-base.js`.
 
 En la parte superior de `publish-knowledge-base.js`, agregue las líneas siguientes para agregar las dependencias necesarias al proyecto:
 
-[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=1-4 "Add the dependencies")]
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base-short/publish-knowledge-base.js?range=1-3 "Add the dependencies")]
 
 ## <a name="add-required-constants"></a>Incorporación de las constantes necesarias
 
-Después de las dependencias necesarias anteriores, agregue las constantes necesarias para acceder a QnA Maker. Sustituya el valor de la variable `subscriptionKey` por su propia clave de QnA Maker. 
+Después de las dependencias necesarias anteriores, agregue las constantes necesarias para acceder a QnA Maker. Reemplace los valores por los suyos.
 
-[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=10-17 "Add required constants")]
+[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base-short/publish-knowledge-base.js?range=11-14 "Add required constants")]
 
-## <a name="add-knowledge-base-id"></a>Incorporación del identificador de la base de conocimiento
+## <a name="add-post-request-to-publish-knowledge-base"></a>Incorporación de una solicitud POST para publicar la base de conocimiento
 
-Después de las constantes anteriores, agregue el identificador de la base de conocimiento y agréguelo a la ruta de acceso:
+Tras las constantes requeridas, agregue el siguiente código, que realiza una solicitud HTTPS a QnA Maker API para publicar una base de conocimiento y recibe la respuesta:
 
-[!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=19-23 "Add knowledge base ID")]
+[!code-nodejs[Add a POST request to publish knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base-short/publish-knowledge-base.js?range=16-47 "Add a POST request to publish knowledge base")]
 
-## <a name="add-supporting-functions"></a>Incorporación de funciones auxiliares
+La llamada API devuelve un estado 204 en caso de publicación correcta sin ningún contenido en el cuerpo de la respuesta. El código agrega el contenido para las respuestas 204.
 
-A continuación, agregue las siguientes funciones auxiliares.
-
-1. Agregue la siguiente función para imprimir el código JSON en un formato legible:
-
-   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=25-28 "Add supporting functions, step 1")]
-
-2. Agregue las siguientes funciones para administrar la respuesta HTTP y obtener el estado de la operación de creación:
-
-   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=30-52 "Add supporting functions, step 2")]
-
-## <a name="add-the-publishkb-function-and-main-function"></a>Incorporación de la función publish_kb y la función principal
-
-El código siguiente realiza una solicitud HTTPS a QnA Maker API para publicar una base de conocimiento y recibe la respuesta:
-
-[!code-nodejs[Add POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=54-71 "Add POST request to publish KB")]
-
-[!code-nodejs[Add the publish_kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=73-91 "Add the publish_kb function and main function")]
-
-## <a name="add-the-main-function"></a>Incorporación de la función principal
-
-Agregue la siguiente función para administrar la solicitud y la respuesta:
-
-[!code-nodejs[Add the main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=94-97 "Add the main function")]
+Para cualquier otra respuesta, esa respuesta se devuelve sin modificar.
 
 ## <a name="run-the-program"></a>Ejecución del programa
 
-Compile y ejecute el programa. Este enviará automáticamente la solicitud a QnA Maker API para publicar la base de conocimiento y, a continuación, la respuesta se imprimirá en la ventana de consola.
+Compile y ejecute el programa. Este enviará automáticamente la solicitud a QnA Maker API para publicar la base de conocimiento y, después, la respuesta se imprimirá en la ventana de la consola.
 
 Una vez publicada la base de conocimiento, puede realizar consultas en ella desde el punto de conexión con una aplicación cliente o un bot de chat. 
 
@@ -94,7 +74,11 @@ Una vez publicada la base de conocimiento, puede realizar consultas en ella desd
 node publish-knowledge-base.js
 ```
 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+
 ## <a name="next-steps"></a>Pasos siguientes
+
+Después de publicar la base de conocimiento, es preciso que la dirección URL del punto de conexión [ genere una respuesta](../Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
 > [Referencia de QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

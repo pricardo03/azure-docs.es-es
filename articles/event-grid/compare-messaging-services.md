@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003754"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852204"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Elija entre los servicios de Azure de entrega de mensajes.
 
@@ -43,7 +43,7 @@ Un mensaje son datos sin procesar producidos por un servicio que se consumen o a
 
 ## <a name="comparison-of-services"></a>Comparación de servicios
 
-| Servicio | Propósito | type | Cuándo se deben usar |
+| Servicio | Propósito | Escriba | Cuándo se deben usar |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programación reactiva | Distribución de eventos (discretos) | Reacción ante los cambios de estado |
 | Event Hubs | Canalización de macrodatos | Streaming de eventos (serie) | Streaming de datos distribuidos y telemetría |
@@ -54,6 +54,8 @@ Un mensaje son datos sin procesar producidos por un servicio que se consumen o a
 Event Grid es un panel posterior de eventos que habilita la programación orientada a eventos y reactiva. Utiliza un modelo de publicación-suscripción. Los publicadores emiten eventos, pero no tienen expectativas sobre qué eventos se administran. Los suscriptores deciden qué eventos quieren administrar.
 
 Event Grid está totalmente integrado con los servicios de Azure y puede integrarse con servicios de terceros. Simplifica el consumo de eventos y reduce los costos mediante la eliminación de la necesidad de un sondeo constante. Event Grid enruta de forma eficiente y fiable eventos desde recursos de Azure y que no son de Azure. Distribuye los eventos a los puntos de conexión del suscriptor registrado. El mensaje de evento tiene la información que necesita para reaccionar a los cambios en los servicios y aplicaciones. Event Grid no es una canalización de datos y no entrega el objeto real que se ha actualizado.
+
+Event Grid admite colas de mensajes fallidos para los eventos que no se pueden entregar en un punto de conexión.
 
 Tiene las siguientes características:
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 7bfcbf2c72dbe33727097841f34f3f6869e9d2d8
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 79196e2e89ec28236b7256571ccaa087866c2e76
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053138"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706473"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación de consola de la API MongoDB con Golang y Azure Portal
 
@@ -42,7 +42,7 @@ En otras palabras, la aplicación Golang solo sabe que se está conectando a una
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) y conocimientos básicos sobre el lenguaje [Go](https://golang.org/).
-- Un IDE: [Gogland](https://www.jetbrains.com/go/) de Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) de Microsoft o [Atom](https://atom.io/). En este tutorial, utilizo Goglang.
+- Un IDE: [GoLand](https://www.jetbrains.com/go/) de Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) de Microsoft o [Atom](https://atom.io/). En este tutorial, utilizo Goglang.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
@@ -65,7 +65,7 @@ Clonar la aplicación de ejemplo e instalar los paquetes de requisitos.
     go get gopkg.in/mgo.v2
     ```
 
-El controlador [mgo](http://labix.org/mgo) (pronunciado *mango*) es un controlador [MongoDB](http://www.mongodb.org/) para el [lenguaje Go](http://golang.org/) que implementa una selección bien probada y enriquecida de características en una API muy sencilla que sigue giros estándar de Go.
+El controlador [mgo](http://labix.org/mgo) es un controlador de [MongoDB](http://www.mongodb.org/) para el [lenguaje Go](http://golang.org/) que implementa una selección de características completa y debidamente probada bajo una API muy sencilla que sigue los giros estándar de Go.
 
 <a id="connection-string"></a>
 

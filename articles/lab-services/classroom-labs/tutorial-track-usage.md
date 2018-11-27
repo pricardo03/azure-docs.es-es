@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 710d157dcf4c6d060e59bcfbb69455e2ddc91bdd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d5761e3e37e1265938d1f1b27324de667a13ca
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450137"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707102"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Seguimiento del uso de un laboratorio en Azure Lab Services
 Este tutorial muestra cómo un creador o propietario de un laboratorio puede realizar un seguimiento de su uso.
@@ -44,23 +44,19 @@ En este tutorial realizará lo siguiente:
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Visualización del uso de las máquinas virtuales en el laboratorio 
 
 1. Seleccione **Máquinas virtuales** en el menú de la izquierda. 
-2. Confirme que ve el estado de las máquinas virtuales y el número de horas que han estado en ejecución. El tiempo que emplea en una máquina virtual de un alumno no se cuenta con respecto al tiempo de uso que se muestra en la última columna. 
+2. Confirme que ve el estado de las máquinas virtuales y el número de horas que han estado en ejecución. El tiempo empleado en una máquina virtual de un estudiante no cuenta para el tiempo de uso que se muestra en la última columna. 
 
     ![Uso de máquinas virtuales](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Administración de máquinas virtuales de estudiantes 
-A medida que mantenga el mouse sobre una fila en la lista de máquinas virtuales, verá los controles para realizar las tareas siguientes: 
+Cuando mantenga el mouse sobre una fila en la lista de máquinas virtuales, verá los controles para realizar las siguientes tareas (como se muestra en la imagen de la sección anterior): 
 
 - Conexión a una máquina virtual
 - Inicio de una máquina virtual
 - Detención de una máquina virtual
 - Eliminación de una máquina virtual
 
-![Controles de máquinas virtuales](../media/tutorial-track-usage/vm-controls.png) 
-
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, aprendió a encontrar los usuarios que se han registrado en el laboratorio, a supervisar el uso de máquinas virtuales en el laboratorio y a administrarlas.
-
-Para más información acerca de los laboratorios educativos, consulte los temas enumerados en [Guías de procedimientos](how-to-manage-lab-accounts.md).
+Para más información sobre los laboratorios educativos, consulte los artículos enumerados en [Guías de procedimientos](how-to-manage-lab-accounts.md).

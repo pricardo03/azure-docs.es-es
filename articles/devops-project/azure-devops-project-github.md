@@ -1,6 +1,6 @@
 ---
-title: Creación de una canalización de CI/CD para el código existente con Azure DevOps Projects | Tutorial de Azure DevOps Services
-description: Azure DevOps Projects facilita empezar a usar Azure. Le ayuda a usar su propio código y repositorio GitHub para iniciar una aplicación en un servicio Azure de su elección en pocos pasos rápidos.
+title: 'Tutorial: Creación de una canalización de CI/CD para el código existente mediante Azure DevOps Projects'
+description: Con Azure DevOps Projects es fácil empezar a usar Azure. DevOps Projects le ayuda a usar su propio código y repositorio GitHub para iniciar una aplicación en un servicio Azure de su elección en pocos pasos rápidos.
 services: vsts
 documentationcenter: vs-devops-build
 ms.author: mlearned
@@ -17,157 +17,192 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 02b6823a46c94edb0ba28c7a2a8b9ae0efc44ae8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 88ee15a3b5cc53542d9e098dee485b8a526bb9a6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406099"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161761"
 ---
-# <a name="tutorial--create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Tutorial: Creación de una canalización de CI/CD para el código existente con Azure DevOps Projects
+# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Tutorial: Creación de una canalización de CI/CD para el código existente mediante Azure DevOps Projects
 
-Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
+Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una aplicación de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
 
 Podrá:
 
 > [!div class="checklist"]
-> * Crear un proyecto de Azure DevOps
-> * Configurar el acceso al repositorio de GitHub y elegir un marco de trabajo
-> * Configuración de Azure DevOps Services y una suscripción de Azure 
+> * Usar DevOps Projects para crear una canalización de CI/CD
+> * Configurar el acceso a un repositorio de GitHub y elegir un marco
+> * Configurar Azure DevOps y una suscripción de Azure 
 > * Confirmar cambios en GitHub e implementarlos automáticamente en Azure
-> * Examen de la canalización de CI/CD de Azure DevOps Services
+> * Examen de la canalización de CI/CD de Azure Pipelines
 > * Configurar la supervisión de Azure Application Insights
+> * Limpieza de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
-* Acceso a un GitHub o repositorio Git externo que contenga código.NET, Java, PHP, Node, Python o código web estático.
+* Acceda a un repositorio de GitHub o a un repositorio de Git externo que contenga código .NET, Java, PHP, Node, Python o código web estático.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-El proyecto de Azure DevOps crea una canalización de CI/CD en Azure DevOps Services.  Puede crear una organización de **Azure DevOps Services nueva** o usar una **existente**.  Azure DevOps Projects también crea **recursos de Azure** en la **suscripción de Azure** de su elección.
+Azure DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. Azure DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
 
-1. Inicie sesión en [Microsoft Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-1. Elija el icono **+ Nuevo** en la barra de navegación izquierda y busque **Proyecto de DevOps**.  Seleccione **Create**.
+1. En el panel izquierdo, seleccione **Nuevo**.
 
-    ![Inicio de la entrega continua](_img/azure-devops-project-github/fullbrowser.png)
+1. En el cuadro de búsqueda, escriba **DevOps Projects** y, después, seleccione **Crear**.
 
-1. Seleccione **Traiga su propio código**.  Cuando termine, elija **Siguiente**.
+    ![El panel de DevOps Projects](_img/azure-devops-project-github/fullbrowser.png)
 
-## <a name="configure-access-to-your-github-repository-and-choose-a-framework"></a>Configurar el acceso al repositorio de GitHub y elegir un marco de trabajo
+1. Seleccione **Traiga su propio código** y, después, **Siguiente**.
 
-1. Seleccione **GitHub**.  Si lo desea, puede elegir un **repositorio Git externo**.  Elija el **repositorio** y la **rama** que contiene la aplicación.
+## <a name="configure-access-to-your-github-repo-and-choose-a-framework"></a>Configuración del acceso a un repositorio de GitHub y elección de un marco
 
-1. Seleccione su **marco web**.  Cuando termine, elija **Siguiente**.
+1. Seleccione **GitHub** o un repositorio Git externo y, después, seleccione el repositorio y la rama que contiene la aplicación.
+
+1. Seleccione su marco web y, después, seleccione **Siguiente**.
 
     ![Marco .NET](_img/azure-devops-project-github/webframework.png)
 
-1. El marco de trabajo de la aplicación que eligió en los pasos anteriores, determina el tipo de destino de implementación del servicio de Azure disponible aquí.  Seleccione el **servicio de destino** de su elección.  Cuando termine, elija **Siguiente**.
-
-## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Configuración de Azure DevOps Services y una suscripción de Azure 
-
-1. Cree una **nueva** organización de Azure DevOps Services o elija una **existente**.  Elija un **nombre** para el proyecto de Azure DevOps.  Seleccione la **suscripción de Azure**, la **ubicación** y elija un **nombre** para la aplicación.  Cuando termine, elija **Listo**.
-
-1. En unos minutos, el **panel de proyectos de Azure DevOps** se carga en Azure Portal.  Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps Services, se ejecuta una compilación y la aplicación se implementa en Azure.  Este panel proporciona visibilidad sobre el **repositorio de código** de GitHub, la **canalización de CI/CD de Azure DevOps Services** y su **aplicación en Azure**.  En el lado derecho del panel, seleccione **Examinar** para ver la aplicación en ejecución.
-
-    ![Vista de panel](_img/azure-devops-project-github/dashboardnopreview.png) 
+    El marco de trabajo de la aplicación que ha elegido antes determina el tipo de destino de implementación del servicio de Azure que está disponible aquí. 
     
-El proyecto de Azure DevOps configura automáticamente una compilación de CI y un desencadenador de versión.  El código permanece en el GitHub o en otro repositorio externo.  
+1. Seleccione el servicio de destino y, después, seleccione **Siguiente**.
 
-## <a name="commit-changes-to-github-and-automatically-deploy-to-azure"></a>Confirmar cambios en GitHub e implementarlos automáticamente en Azure 
+## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configuración de Azure DevOps y una suscripción de Azure 
 
-Ahora ya puede colaborar con un equipo en una aplicación de Java con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.  Cada cambio que se realiza en el repositorio GitHub inicia una compilación en Azure DevOps y una canalización de CD de DevOps ejecuta una implementación en Azure.
+1. Cree una organización de Azure DevOps o elija una existente.
 
-1.  Realice un cambio en la aplicación y **confirme** el cambio en el repositorio de GitHub.
-2.  En unos instantes, se inicia una compilación en Azure DevOps Services.  Puede supervisar el estado de compilación con el panel del proyecto de Azure DevOps o en el explorador con la organización de Azure DevOps Services.
-3.  Una vez completada la compilación, **actualícela** en el explorador para comprobar que ve los cambios.
+     a. Escriba el nombre del proyecto en Azure DevOps. 
+    
+    b. Seleccione la suscripción de Azure y la ubicación, escriba el nombre de la aplicación y seleccione **Listo**.
 
-## <a name="examine-the-azure-devops-services-cicd-pipeline"></a>Examen de la canalización de CI/CD de Azure DevOps Services
+    En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad sobre el repositorio de código de GitHub, la canalización de CI/CD y la aplicación de Azure. 
+    
+1. Seleccione **Examinar** para ver la aplicación en ejecución.
 
-El proyecto de Azure DevOps configuró automáticamente una canalización de CI/CD de Azure DevOps Services en la organización de Azure DevOps Services.  Explore y personalice la canalización según sea necesario.  Siga estos pasos para familiarizarse con la canalización de compilación de Azure DevOps Services y las canalizaciones de versión.
+    ![Vista del panel de DevOps Projects](_img/azure-devops-project-github/dashboardnopreview.png) 
+    
+Azure DevOps Projects configura automáticamente una compilación de integración continua y un desencadenador de versión. El código permanece en el repositorio de GitHub o en otro repositorio externo. 
 
-1. Seleccione **Compilar canalizaciones** en la **parte superior** del panel de proyectos de Azure DevOps.  Este vínculo abre una pestaña del explorador y la canalización de compilación de Azure DevOps Services para el nuevo proyecto.
+## <a name="commit-changes-to-github-and-automatically-deploy-them-to-azure"></a>Confirmación de cambios en GitHub y su implementación automática en Azure 
 
-1. Mueva el cursor a la derecha de la canalización de compilación junto al campo **Estado**. Seleccione los **puntos suspensivos** que aparecen.  Esta acción abre un menú en el que se pueden iniciar varias actividades, como poner en cola una nueva compilación, pausar una compilación y editar la canalización de compilación.
+A partir de ese momento ya puede empezar a colaborar con un equipo en una aplicación mediante el uso de un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web. Cada cambio que se realiza en el repositorio de GitHub inicia una compilación en Azure DevOps y una canalización de CD ejecuta una implementación en Azure.
+
+1. Realice un cambio en la aplicación y confírmelo en el repositorio de GitHub.  
+    Poco después se inicia una compilación en Azure Pipelines. El estado de dicha compilación se puede supervisar en el panel de DevOps Projects, pero también se puede supervisar en el explorador con la organización de Azure DevOps.
+
+1. Una vez que se complete la compilación, actualice la aplicación para comprobar los cambios.
+
+## <a name="examine-the-azure-pipelines-cicd-pipeline"></a>Examen de la canalización de CI/CD de Azure Pipelines
+
+Azure DevOps Projects configura automáticamente una canalización de CI/CD en Azure Pipelines. Explore y personalice la canalización según sea necesario. Para familiarizarse con las canalizaciones de compilación y de versión, siga estos pasos:
+
+1. En la parte superior del panel de DevOps Projects, seleccione **Compilar canalizaciones**.  
+    Una pestaña del explorador muestra la canalización de compilación del nuevo proyecto.
+
+1. Elija el campo **Estado** y seleccione los puntos suspensivos (...).  
+    Un menú muestra varias opciones, como poner en cola una nueva compilación, poner en pausa una compilación y editar la canalización de compilación.
 
 1. Seleccione **Editar**.
 
-1. Desde esta vista, **examine las diversas tareas** de la canalización de compilación.  La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio Git, restaurar dependencias y publicar salidas usadas para implementaciones.
+1. En este panel puede examinar las distintas tareas de la canalización de compilación.  
+    La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio Git, restaurar dependencias y publicar salidas usadas para implementaciones.
 
-1. En la parte superior de la canalización de compilación, seleccione el **nombre de esta**.
+1. En la parte superior de la canalización de compilación, seleccione el nombre de esta.
 
-1. Cambie el **nombre** de la canalización de compilación por algo más descriptivo.  Seleccione **Guardar y poner en cola** y, después, seleccione **Guardar**.
+1. Cambie el nombre de la canalización de compilación por otro más descriptivo, seleccione **Guardar y poner en cola** y, luego, **Guardar**.
 
-1. En el nombre de la canalización de compilación, seleccione **Historial**.  Verá un registro de auditoría de los cambios recientes de la compilación.  Azure DevOps Services realiza un seguimiento de los cambios realizados en la canalización de compilación y permite comparar las versiones.
+1. En el nombre de la canalización de compilación, seleccione **Historial**.  
+    Verá un registro de auditoría de los cambios recientes de la compilación. Azure DevOps realiza un seguimiento de los cambios realizados en la canalización de compilación y permite comparar las versiones.
 
-1. Seleccione **Desencadenadores**.  El proyecto de Azure DevOps ha creado automáticamente un desencadenador de CI y cada confirmación al repositorio da inicio a una nueva compilación.  Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
+1. Seleccione **Desencadenadores**.  
+    Azure DevOps Projects crea automáticamente un desencadenador de integración continua y cada confirmación al repositorio inicia una compilación. Opcionalmente, puede elegir incluir o excluir ramas del proceso de integración continua.
 
-1. Seleccione **Retención**.  En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
+1. Seleccione **Retención**.  
+        En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
 
-1. Seleccione **Compilación y versión** y, después, elija **Versiones**.  El proyecto de Azure DevOps creó una canalización de versión de Azure DevOps Services para administrar las implementaciones en Azure.
+1. Seleccione **Compilación y versión** y, después, **Versiones**.  
+    Azure DevOps Projects crea una canalización de versión para administrar implementaciones en Azure.
 
-1. En el lado izquierdo del explorador, seleccione los **puntos suspensivos** junto a la canalización de versión y elija **Editar**.
+1. Seleccione los puntos suspensivos (...) que se encuentran junto a la canalización de versión, y, después, **Editar**.  
+    La canalización de versión contiene una *canalización*, que define el proceso de lanzamiento. 
+    
+1. En **Artefactos**, seleccione **Colocar**.  
+    La canalización de compilación que ha examinado en los pasos anteriores genera la salida que se usa para el artefacto. 
 
-1. La canalización de versión contiene una **canalización**, que define el proceso de lanzamiento.  En **Artefactos**, seleccione **Colocar**.  La canalización de compilación que ha examinado en los pasos anteriores genera la salida usada por el artefacto. 
+1. Al lado del icono **Colocar**, seleccione **Desencadenador de implementación continua**.  
+    Esta canalización de versión tiene un desencadenador de CD habilitado, que ejecuta una implementación cada vez que hay un nuevo artefacto de compilación disponible. Opcionalmente, puede deshabilitar el desencadenador, con lo que las implementaciones van a requerir una ejecución manual. 
 
-1. En el lado derecho del icono **Colocar**, seleccione el **desencadenador de implementación continua**.  Esta canalización de versión tiene un desencadenador de CD habilitado, que ejecuta una implementación cada vez que hay un nuevo artefacto de compilación disponible.  Opcionalmente, puede deshabilitar el desencadenador, por lo que las implementaciones van a requerir una ejecución manual. 
+1. En el lado izquierdo, seleccione **Tareas**.  
+    Las tareas son las actividades que ejecuta el proceso de implementación. En este ejemplo, se crea una tarea para implementarse en Azure App Service.
 
-1. En el lado izquierdo del explorador, seleccione **Tareas**.  Las tareas son las actividades que realiza el proceso de implementación.  En este ejemplo, se crea una tarea para implementarse en **Azure App Service**.
+1. A la derecha, seleccione **Ver versiones** para mostrar un historial de las versiones.
 
-1. En el lado derecho del explorador, seleccione **Ver versiones**.  Esta vista muestra un historial de versiones.
+1. Seleccione los puntos suspensivos (...) que se encuentran junto a una de las versiones y, después, **Abrir**.  
+    Hay varios menús para explorar, como un resumen de versiones, elementos de trabajo asociados y pruebas.
 
-1. Seleccione los **puntos suspensivos** junto a una de las versiones y elija **Abrir**.  Hay varios menús para explorar desde esta vista, como un resumen de versiones, elementos de trabajo asociados y pruebas.
+1. Seleccione **Confirmaciones**.  
+    Esta vista muestra las confirmaciones de código que están asociadas a esta implementación. 
 
-1. Seleccione **Confirmaciones**.  Esta vista muestra las confirmaciones de código asociadas a la implementación específica. 
-
-1. Seleccione **Registros**.  Los registros contienen información útil sobre el proceso de implementación.  Pueden verse durante y después de las implementaciones.
+1. Seleccione **Registros**.  
+    Los registros contienen información útil sobre el proceso de implementación. Se pueden ver tanto durante las implementaciones como después de ellas.
 
 ## <a name="configure-azure-application-insights-monitoring"></a>Configurar la supervisión de Azure Application Insights
 
-Con Azure Application Insights puede supervisar fácilmente el rendimiento y la utilización de la aplicación.  El proyecto de Azure DevOps configuró automáticamente un recurso de Application Insights para su aplicación.  Puede seguir configurando diversas alertas y supervisando las funcionalidades según sea necesario.
+Con Azure Application Insights puede supervisar fácilmente el rendimiento y la utilización de la aplicación. Azure DevOps Projects configura automáticamente un recurso de Application Insights para la aplicación. Puede seguir configurando diversas alertas y supervisando las funcionalidades según sea necesario.
 
-1. Vaya al panel **Azure DevOps Projects** en Azure Portal.  En la esquina inferior derecha del panel, elija el vínculo **Application Insights** para la aplicación.
+1. En Azure Portal, vaya al panel de DevOps Projects. 
 
-1. La hoja **Application Insights** en Azure Portal.  Esta vista contiene información sobre la supervisión de la disponibilidad, el rendimiento y el uso de la aplicación.
+1. En la parte inferior derecha, seleccione el vínculo de **Application Insights** para la aplicación.  
+    Se abre el panel **Application Insights**. Esta vista contiene información sobre la supervisión de la disponibilidad, el rendimiento y el uso de la aplicación.
 
-    ![Application Insights](_img/azure-devops-project-github/appinsights.png) 
+    ![El panel Application Insights](_img/azure-devops-project-github/appinsights.png) 
 
-1. Seleccione **Intervalo de tiempo** y, a continuación, elija **Última hora**.  Seleccione **Actualización** para filtrar los resultados.  Ahora ve toda la actividad de los últimos 60 minutos.  Seleccione la **x** para salir del intervalo de tiempo.
+1. Seleccione **Intervalo de tiempo** y, después, elija **Última hora**. Para filtrar los resultados, seleccione **Actualizar**.  
+    Ya puede ver toda la actividad de los últimos 60 minutos. Para salir del intervalo de tiempo, seleccione **x**.
 
-1. Seleccione **Alertas** y, a continuación, seleccione **+ Agregar alerta de métrica**.  
+1. Seleccione **Alertas** y, después, **Agregar alerta de métrica**. 
 
-1. Escriba un **nombre** para la alerta.
+1. Escriba el nombre de la alerta.
 
-1. Seleccione la lista desplegable para **Source Alter on** (Modificación del origen en).  Elija su **recurso de App Service.**
-<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->
-1. La alerta predeterminada es para un **tiempo de respuesta de servidor mayor de 1 segundo**.  Seleccione el cuadro desplegable **Métrica** para examinar las distintas métricas de alertas.  Puede configurar fácilmente diversas alertas para mejorar las funcionalidades de supervisión de la aplicación.
+1. En la lista desplegable **Source Alter on** (Alteración de origen en), seleccione su **recurso de App Service**. <!-- Please confirm whether this should be "Source Alter on" or "Source Alert on" -->
 
-1. Seleccione la casilla **Notify via Email owners, contributors, and readers** (Notificar a través de correo electrónico a lectores, colaboradores y propietarios).  Si lo desea, puede realizar acciones adicionales cuando se desencadene una alerta mediante la ejecución de una aplicación de lógica de Azure.
+1. En la lista desplegable **Métrica**, examine las distintas métricas de alertas.  
+    La alerta predeterminada es para un **tiempo de respuesta de servidor mayor de 1 segundo**. Puede configurar fácilmente diversas alertas para mejorar las funcionalidades de supervisión de la aplicación.
 
-1. Elija **Aceptar** para crear la alerta.  En unos instantes, aparece como activa en el panel.  **Salga** del área de alertas y vuelva a la **hoja Application Insights**.
+1. Seleccione la casilla **Notify via Email owners, contributors, and readers** (Notificar a través de correo electrónico a lectores, colaboradores y propietarios).  
+    Si lo desea, puede realizar acciones adicionales cuando se muestre una alerta mediante la ejecución de una aplicación de lógica de Azure.
 
-1. Seleccione **Disponibilidad** y, a continuación, **+ Agregar prueba**. 
+1. Seleccione **Aceptar** para crear la alerta.  
+    Poco después la alerta aparece como activa en el panel.
+    
+1. Salga del área **Alertas** y vuelva al panel **Application Insights**.
 
-1. Escriba un **Nombre de la prueba** y, a continuación, elija **Crear**.  Así se crea la prueba de ping simple para comprobar la disponibilidad de la aplicación.  Después de unos minutos, los resultados de la prueba están disponibles y el panel de Application Insights muestra un estado de disponibilidad.
+1. Seleccione **Disponibilidad** y, después, **Agregar prueba**. 
+
+1. Escriba el nombre de una prueba y seleccione **Crear**.  
+    Así se crea la prueba de ping simple para comprobar la disponibilidad de la aplicación. Después de unos minutos, los resultados de la prueba están disponibles y el panel de Application Insights muestra un estado de disponibilidad.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no sea necesario, puede eliminar Azure App Service y los recursos relacionados creados en esta guía de inicio rápido mediante la funcionalidad **Eliminar**, que se encuentra en el panel de Azure DevOps Projects.
+Cuando dejen de ser necesarios, puede eliminar Azure App Service y los recursos relacionados que ha creado en este tutorial. Para ello, utilice la funcionalidad de **eliminación** del panel de DevOps Projects.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cuando configuró el proceso de CI/CD en este tutorial, se creó automáticamente una canalización de compilación y de versión en el proyecto de Azure DevOps. Puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. Ha aprendido a:
+Cuando configuró el proceso de CI/CD en este tutorial, se crearon automáticamente una canalización de compilación y una canalización de versión en Azure DevOps Projects. Puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. Ha aprendido a:
 
 > [!div class="checklist"]
-> * Crear un proyecto de Azure DevOps
-> * Configurar el acceso al repositorio de GitHub y elegir un marco de trabajo
-> * Configuración de Azure DevOps Services y una suscripción de Azure 
+> * Usar DevOps Projects para crear una canalización de CI/CD
+> * Configurar el acceso a un repositorio de GitHub y elegir un marco
+> * Configurar Azure DevOps y una suscripción de Azure 
 > * Confirmar cambios en GitHub e implementarlos automáticamente en Azure
-> * Examen de la canalización de CI/CD de Azure DevOps Services
+> * Examen de la canalización de CI/CD de Azure Pipelines
 > * Configurar la supervisión de Azure Application Insights
+> * Limpieza de recursos
 
-Para más información sobre la canalización de CI/CD de Azure DevOps Services, consulte este tutorial:
+Para más información acerca de la canalización de CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Personalización del proceso de CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definición de la canalización de implementación continua (CD) en varias fases](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

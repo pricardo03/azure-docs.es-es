@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 5319584d892c261dcc6290703e9ca6518640cc94
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685487"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852680"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Creación de una aplicación WPF para presentar los datos del rostro en una imagen
 
@@ -67,7 +67,7 @@ Abra *MainWindow.xaml.cs* y agregue los espacios de nombres de la biblioteca cli
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-Luego, inserte el código siguiente en la clase **MainWindow**. Así se crea una instancia de **FaceClient** mediante la clave de suscripción, que debe escribir usted mismo. También debe establecer la cadena de la región en `faceEndpoint` a la región correcta de su suscripción.
+Luego, inserte el código siguiente en la clase **MainWindow**. Así se crea una instancia de **FaceClient** mediante la clave de suscripción, que debe escribir usted mismo. También debe establecer la cadena de región en `faceEndpoint` para la región correcta de la suscripción (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones).
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 

@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222156"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821083"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configuración y administración de dispositivos conectados a una solución de supervisión
 
@@ -63,7 +63,7 @@ Para ver los diagnósticos detallados, desplácese hacia abajo en el panel **Det
 
 ## <a name="act-on-a-device"></a>Acción en un dispositivo
 
-Para probar que el dispositivo de motor simulado responde correctamente a las acciones iniciadas desde el panel, ejecute el método **FirmwareUpdate**. Para actuar en un dispositivo ejecutando un método, seleccione el dispositivo en la lista de dispositivos y, a continuación, haga clic en **Trabajos**. Puede seleccionar más de un dispositivo, si desea actuar en varios. En el panel **Trabajos**, seleccione **Ejecutar método**. El modelo de dispositivo **Motor** especifica tres métodos: **FirmwareUpdate**, **FillTank** y **EmptyTank**:
+Para probar que el dispositivo de motor simulado responde correctamente a las acciones iniciadas desde el panel, ejecute el método **FirmwareUpdate**. Para actuar en un dispositivo ejecutando un método, seleccione el dispositivo en la lista de dispositivos y, a continuación, haga clic en **Trabajos**. Puede seleccionar más de un dispositivo, si desea actuar en varios. En el panel **Trabajos**, seleccione **Métodos**. El modelo de dispositivo **Motor** especifica tres métodos: **FirmwareUpdate**, **FillTank** y **EmptyTank**:
 
 [![Métodos de motor](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -81,7 +81,7 @@ Si selecciona varios dispositivos de diferentes tipos en la página **Dispositiv
 
 ## <a name="reconfigure-a-device"></a>Nueva configuración de un dispositivo
 
-Para comprobar si puede actualizar las propiedades de configuración del motor, selecciónelo en la lista de dispositivos de la página **Dispositivos**. A continuación, haga clic en **Trabajos** y, a continuación, elija **Volver a configurar**. El panel de trabajos muestra los valores de propiedad del dispositivo seleccionado que se pueden actualizar:
+Para comprobar si puede actualizar las propiedades de configuración del motor, selecciónelo en la lista de dispositivos de la página **Dispositivos**. A continuación, haga clic en **Trabajos** y, a continuación, elija **Propiedades**. El panel de trabajos muestra los valores de propiedad del dispositivo seleccionado que se pueden actualizar:
 
 [![Nueva configuración de un dispositivo](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 

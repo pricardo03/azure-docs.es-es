@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b6c05382a3a40aa9157fd64a7f0192c58e79b0ee
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578053"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853785"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST de Face y cURL
 
@@ -40,7 +40,7 @@ Reemplace `<Subscription Key>` por una clave de suscripción de Face API válida
 
 ### <a name="face-endpoint-url"></a>Dirección URL del punto de conexión de Face
 
-La dirección URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica el punto de conexión de Azure Face para las consultas. Deberá cambiar la primera parte de esta dirección URL para que coincida con la región que corresponde a la clave de suscripción (a menos que ya sea correcta).
+La dirección URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica el punto de conexión de Azure Face para las consultas. Deberá cambiar la primera parte de esta dirección URL para que coincida con la región que corresponde a la clave de suscripción (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones).
 
 ### <a name="url-query-string"></a>Cadena de consulta de URL
 

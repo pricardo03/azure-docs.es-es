@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/23/2018
 ms.author: pareshmu
-ms.openlocfilehash: 14529ede47d69e30102a74a0f5ed84573ea108f9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 817dd1ec5cd047035099fb88d998f79cd8c39078
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025215"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276064"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -40,18 +40,19 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Regiones de Azure para ubicaciones de ExpressRoute dentro de una región geopolítica.
 La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaciones de ExpressRoute dentro de una región geopolítica.
 
-| **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
-| --- | --- | --- |
-| **Norteamérica** |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Ciudad de Quebec, Toronto |
-| **Sudamérica** |Sur de Brasil |Sao Paulo |
-| **Europa** |Centro de Francia, Sur de Francia, Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Ámsterdam2, Dublín, Londres, Marsella, Newport (Gales), París |
-| **Asia** |Este de Asia y Sudeste de Asia |Hong Kong, Kuala Lumpur, Singapur, Singapur2 |
-| **Japón** |Oeste de Japón y Este de Japón |Osaka, Tokyo |
-| **Australia** |Este de Australia y Sudeste de Australia |Melbourne, Sidney |
-| **Australia Government** | Centro de Australia, Centro de Australia 2 |Canberra, Canberra 2 | 
-| **India** |India occidental, India central, India del Sur |Madrás, Madrás2, Bombay, Bombay2 |
-| **Corea del Sur** |Corea Central, Corea del Sur |Busan, Seúl |
-| **Sudáfrica** |[Oeste de Sudáfrica+, Norte de Sudáfrica+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Ciudad del cabo, Johannesburgo |
+| **Región geopolítica** | **Zona** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
+| --- | --- | --- | --- |
+| **Australia Government** |Zona 1 | Centro de Australia, Centro de Australia 2 |Canberra, Canberra 2 |
+| **Europa** |Zona 1 |Centro de Francia, Sur de Francia, Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Ámsterdam2, Dublín, Londres, Marsella, Newport (Gales), París |
+| **Norteamérica** |Zona 1 |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Ciudad de Quebec, Toronto |
+| **Asia** |Zona 2 |Este de Asia y Sudeste de Asia |Hong Kong, Kuala Lumpur, Singapur, Singapur2 |
+| **Australia** |Zona 2 |Este de Australia y Sudeste de Australia |Melbourne, Sidney | 
+| **India** |Zona 2 |India occidental, India central, India del Sur |Madrás, Madrás2, Bombay, Bombay2 |
+| **Japón** |Zona 2 |Oeste de Japón y Este de Japón |Osaka, Tokyo |
+| **Corea del Sur** |Zona 2 |Corea Central, Corea del Sur |Busan, Seúl|
+| **Sudáfrica** |Zona 3 |[Oeste de Sudáfrica+, Norte de Sudáfrica+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Ciudad del cabo, Johannesburgo |
+| **Sudamérica** |Zona 3 |Sur de Brasil |Sao Paulo |
+
 
  **+** indica próximamente
 

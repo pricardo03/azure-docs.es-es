@@ -12,21 +12,21 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: afee50db98b361b11371e9ac382060e200a1f62f
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 928339a245525933ae142a5d73137ce699cf1f7c
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688254"
+ms.locfileid: "51712337"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual Linux de Azure en .NET
 
 Azure Key Vault ayuda a proteger secretos como las claves de API, las cadenas de conexión de base de datos necesarias para acceder a las aplicaciones, los servicios y los recursos de TI.
 
-En este tutorial, siga los pasos necesarios para conseguir que una aplicación web de Azure lea información de Azure Key Vault mediante identidades administradas para los recursos de Azure. Este tutorial se basa en [Azure Web Apps](../app-service/app-service-web-overview.md). A continuación aprenderá a:
+En este tutorial, seguirá los pasos necesarios para conseguir que una aplicación de consola lea información de Azure Key Vault mediante Managed Identities for Azure Resources. Este tutorial se basa en [Azure Web Apps](../app-service/app-service-web-overview.md). A continuación aprenderá a:
 
 > [!div class="checklist"]
-> * Crear un almacén de claves.
+> * Cree un almacén de claves.
 > * Almacenar un secreto en el almacén de claves.
 > * Recuperar un secreto del almacén de claves.
 > * Crear una máquina virtual de Azure.
@@ -259,8 +259,7 @@ Luego, cambie el archivo de clase para que contenga el siguiente código. Este e
                 String responseString = reader.ReadToEnd();
 
                 JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];
-                Console.WriteLine(ojObject.Value);                
+                JValue ojObject = (JValue)joResponse[tokenName];   
                 token = ojObject.Value.ToString();
             }
             return token;

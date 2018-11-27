@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 11/18/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8dc6b7da77988a789de04578d6653b192f58afa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cff6d38867ef8ecaf1435fd4c4cc22fe63d70575
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261730"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283253"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure
 
@@ -29,8 +29,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres en una re
 > * Habilitación de la replicación para una máquina virtual
 
 > [!NOTE]
-> Este tutorial está diseñado para guiar al usuario en los pasos para habilitar la replicación con la personalización mínima; en caso de que desee obtener más información acerca de los diversos aspectos asociados con la recuperación ante desastres, incluidas las consideraciones de red, la automatización o la solución de problemas, consulte los documentos de procedimientos para las máquinas virtuales de Azure.
-
+> En este artículo se proporcionan instrucciones para implementar la recuperación ante desastres con la configuración más sencilla. Si desea obtener información acerca de la configuración personalizada, consulte los artículos de [esta sección](azure-to-azure-how-to-enable-replication.md). o
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -55,20 +54,21 @@ Cree el almacén en cualquier región, excepto en la de origen.
 
 ## <a name="verify-target-resources"></a>Comprobación de los recursos de destino
 
-1. Compruebe que su suscripción de Azure permite crear máquinas virtuales en la región de destino que se usa para la recuperación ante desastres. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
-
-2. Asegúrese de que su suscripción tiene suficientes recursos para admitir máquinas virtuales con tamaños que se correspondan con las máquinas virtuales de origen. Site Recovery elige el mismo tamaño para la máquina virtual de destino o el más cercano posible.
+1. Compruebe que su suscripción de Azure permite crear máquinas virtuales en la región de destino. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
+2. Asegúrese de que su suscripción tiene suficientes recursos para admitir tamaños de máquinas virtuales que se correspondan con las máquinas virtuales de origen. Site Recovery elige el mismo tamaño para la máquina virtual de destino o el más cercano posible.
 
 ## <a name="configure-outbound-network-connectivity"></a>Configuración de la conectividad de red saliente
 
-Para que Site Recovery funcione de la forma esperada, debe realizar algunos cambios en la conectividad de red de salida desde las máquinas virtuales que desee replicar.
+Para que Site Recovery funcione de la forma esperada, debe modificar la conectividad de red de salida de las máquinas virtuales que desee replicar.
 
-- Site Recovery no admite el uso de un servidor proxy de autenticación para la conectividad de la red de control.
-- Si tiene un servidor proxy de autenticación, no se puede habilitar la replicación.
+> [!NOTE]
+> Site Recovery no admite el uso de un proxy de autenticación para controlar la conectividad de la red.
+
+
 
 ### <a name="outbound-connectivity-for-urls"></a>Conectividad de salida para las direcciones URL
 
-Si usa un proxy de firewall basado en la dirección URL para controlar la conectividad de salida, permita el acceso a las siguientes direcciones URL usadas por Site Recovery.
+Si usa un proxy de firewall basado en dirección URL para controlar la conectividad de salida, debe permitir acceder a estas direcciones URL.
 
 | **URL** | **Detalles** |
 | ------- | ----------- |
@@ -79,7 +79,7 @@ Si usa un proxy de firewall basado en la dirección URL para controlar la conect
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 
-Si desea controlar la conectividad de salida con direcciones IP en lugar de con direcciones URL, incluya en la lista de permitidos los intervalos del centro de datos correspondientes, las direcciones de Office 365 y las direcciones de los puntos de conexión de servicio para los firewall basados en IP, el servidor proxy o las reglas de NSG.
+Si desea controlar la conectividad de salida mediante direcciones IP, en lugar de direcciones URL, permita dichas direcciones en los firewalls basados en IP, el proxy o las reglas del grupo de seguridad de red.
 
   - [Intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Intervalos de direcciones IP del centro de datos de Windows Azure en Alemania](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -87,14 +87,13 @@ Si desea controlar la conectividad de salida con direcciones IP en lugar de con 
   - [Direcciones URL e intervalos de direcciones IP de Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Direcciones IP de puntos de conexión del servicio Site Recovery](https://aka.ms/site-recovery-public-ips)
 
-Puede utilizar este [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) para crear las reglas NSG requeridas.
+Puede utilizar este [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) para crear las reglas del grupo de seguridad de red requeridas.
 
 ## <a name="verify-azure-vm-certificates"></a>Comprobación de los certificados de la máquina virtual de Azure
 
-Asegúrese de que todos los certificados raíz más recientes estén presentes en la máquina virtual de Windows o Linux que desee replicar. Si los certificados raíz más recientes no están, la máquina virtual no se puede registrar en Site Recovery debido a restricciones de seguridad.
+Compruebe que las máquinas virtuales que desea replicar tienen los certificados raíz más recientes. Si nos los tienen, la máquina virtual no se puede registrar en Site Recovery debido a las restricciones de seguridad.
 
 - Para las máquinas virtuales de Windows, instale las actualizaciones de Windows más recientes en la máquina virtual, de modo que todos los certificados raíz de confianza estén en ella. En un entorno desconectado, siga los procesos estándar de actualización de certificados y de Windows Update en su organización.
-
 - En las máquinas virtuales Linux, para obtener los certificados raíz de confianza y la lista de revocación de certificados en la máquina virtual, siga las instrucciones proporcionadas por su distribuidor de Linux.
 
 ## <a name="set-permissions-on-the-account"></a>Obtención de permisos en la cuenta
@@ -107,7 +106,7 @@ Azure Site Recovery proporciona tres roles integrados para controlar las operaci
 
 - **Lector de Site Recovery**: este rol tiene permisos para ver todas las operaciones de administración de Site Recovery. Este rol es ideal para un ejecutivo de supervisión de TI que puede supervisar el estado actual de protección y crear vales de soporte.
 
-Más información sobre [roles integrados del control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md)
+Más información acerca de los [roles integrados del control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md)
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
@@ -116,10 +115,9 @@ Más información sobre [roles integrados del control de acceso basado en rol de
 1. En los almacenes de Recovery Services, haga clic en el nombre del almacén y > **+Replicar**. 
 2. En **Origen**, seleccione **Azure**.
 3. En **Ubicación de origen**, seleccione la región de Azure de origen donde se ejecutan actualmente sus máquinas virtuales.
-4. Seleccione el **modelo de implementación de las máquinas virtuales de Azure**: **Resource Manager** o **Clásico**.
-5. Seleccione la **suscripción de origen** donde se ejecutan las máquinas virtuales. Puede tratarse de cualquier suscripción dentro del mismo inquilino de Azure Active Directory donde exista el almacén de Recovery Services.
-6. Seleccione el **grupo de recursos de origen** para las máquinas virtuales de Resource Manager o el **servicio en la nube** para las máquinas virtuales clásicas.
-7. Haga clic en **Aceptar** para guardar la configuración.
+4. Seleccione la **suscripción de origen** donde se ejecutan las máquinas virtuales. Puede tratarse de cualquier suscripción dentro del mismo inquilino de Azure Active Directory donde exista el almacén de Recovery Services.
+5. Seleccione el **grupo de recursos de origen** para las máquinas virtuales de Resource Manager o el **servicio en la nube** para las máquinas virtuales clásicas.
+6. Haga clic en **Aceptar** para guardar la configuración.
 
 ### <a name="select-the-vms"></a>Seleccione las máquinas virtuales
 
@@ -130,7 +128,7 @@ Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscr
 
 ### <a name="configure-replication-settings"></a>Configuración de las opciones de replicación
 
-Site Recovery crea la configuración predeterminada y la directiva de replicación para la región de destino. Puede cambiar la configuración para ajustarla a sus requisitos.
+Site Recovery crea la configuración predeterminada y la directiva de replicación para la región de destino. La configuración se puede cambiar cuando sea necesario.
 
 1. Haga clic en **Configuración** para ver la configuración de destino y de replicación.
 2. Para invalidar la configuración de destino predeterminada, haga clic en **Personalizar** junto a **Grupo de recursos, red, almacenamiento y conjuntos de disponibilidad**.
@@ -138,65 +136,62 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
   ![Definición de la configuración](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
-- **Suscripción de destino**: la suscripción de destino utilizada para la recuperación ante desastres. De forma predeterminada, la suscripción de destino será la misma que la suscripción de origen. Haga clic en "Personalizar" para seleccionar una suscripción de destino diferente dentro del mismo inquilino de Azure Active Directory.
+3. Personalice la configuración de destino como se indica a continuación:
 
-- **Ubicación de destino**: la región de destino que se usa para la recuperación ante desastres. Se recomienda que la ubicación de destino coincida con la ubicación del almacén de Site Recovery.
+    - **Suscripción de destino**: la suscripción de destino utilizada para la recuperación ante desastres. De forma predeterminada, la suscripción de destino será la misma que la suscripción de origen. Haga clic en "Personalizar" para seleccionar una suscripción de destino diferente dentro del mismo inquilino de Azure Active Directory.
+    - **Ubicación de destino**: la región de destino que se usa para la recuperación ante desastres. Se recomienda que la ubicación de destino coincida con la ubicación del almacén de Site Recovery.
+    - **Grupo de recursos de destino**: el grupo de recursos en la región de destino que contiene las máquinas virtuales de Azure después de la conmutación por error. De forma predeterminada, Site Recovery crea un nuevo grupo de recursos en la región de destino con un sufijo "asr". La ubicación del grupo de recursos de destino puede ser cualquier región excepto la región donde se hospedan las máquinas virtuales de origen.
+    - **Red virtual de destino**: la red en la región de destino en la que las máquinas virtuales se encuentran después de la conmutación por error.
+      De forma predeterminada, Site Recovery crea una nueva red (y subredes) virtual en la región de destino con un sufijo "asr".
+    - **Cuentas de almacenamiento en caché**: Site Recovery utiliza una cuenta de almacenamiento en la región de origen. Los cambios en las máquinas virtuales de origen se envían a esta cuenta, antes de la replicación en la ubicación de destino.
+      >[!NOTE]
+      >Si usa la cuenta de almacenamiento en caché con firewall habilitado, asegúrese de seleccionar "Permitir servicios de Microsoft de confianza". [Más información.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+      >
 
-- **Grupo de recursos de destino**: el grupo de recursos en la región de destino que contiene las máquinas virtuales de Azure después de la conmutación por error. De forma predeterminada, Site Recovery crea un nuevo grupo de recursos en la región de destino con un sufijo "asr". La ubicación del grupo de recursos de destino puede ser cualquier región excepto la región donde se hospedan las máquinas virtuales de origen.
+    - **Cuentas de almacenamiento de destino (si la VM de origen no usa discos administrados)**: de forma predeterminada, Site Recovery crea una nueva cuenta de almacenamiento en la región de destino, para reflejar la cuenta de almacenamiento de la máquina virtual de origen.
+      >[!NOTE]
+      >Si usa una cuenta de almacenamiento de origen o destino con firewall habilitado, asegúrese de seleccionar "Permitir servicios de Microsoft de confianza". [Más información.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+      >
 
-- **Red virtual de destino**: la red en la región de destino en la que las máquinas virtuales se encuentran después de la conmutación por error.
-  De forma predeterminada, Site Recovery crea una nueva red (y subredes) virtual en la región de destino con un sufijo "asr".
+    - **Discos administrados de réplica (si la VM de origen utiliza discos administrados)**: de manera predeterminada, Site Recovery crea discos administrados de réplica en la región de destino para crear el reflejo de discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (Standard o Premium) que el disco administrado de la VM de origen.
+    - **Conjuntos de disponibilidad de destino**: de forma predeterminada, Site Recovery crea un nuevo conjunto de disponibilidad en la región de destino con el sufijo "asr". Solo puede agregar conjuntos de disponibilidad si las máquinas virtuales forman parte de un conjunto en la región de origen.
 
-- **Cuentas de almacenamiento en caché**: Site Recovery utiliza una cuenta de almacenamiento en la región de origen. Los cambios en las máquinas virtuales de origen se envían a esta cuenta, antes de la replicación en la ubicación de destino.
+4. Para personalizar la configuración de la directiva de replicación, haga clic en **Personalizar** junto a **Directiva de replicación** y modifique los siguientes valores según sea necesario:
 
-- **Cuentas de almacenamiento de destino (si la VM de origen no usa discos administrados)**: de forma predeterminada, Site Recovery crea una nueva cuenta de almacenamiento en la región de destino, para reflejar la cuenta de almacenamiento de la máquina virtual de origen.
+    - **Nombre de la directiva de replicación**: Nombre de la directiva.
+    - **Retención del punto de recuperación**: de forma predeterminada, Site Recovery conserva los puntos de recuperación durante 24 horas. Puede configurar un valor entre 1 y 72 horas.
+    - **Frecuencia de instantáneas coherentes con la aplicación**: de forma predeterminada, Site Recovery toma una instantánea coherente con la aplicación cada cuatro horas. Puede configurar cualquier valor entre 1 y 12 horas. Una instantánea coherente con la aplicación es una instantánea en un momento dado de los datos de la aplicación dentro de la máquina virtual. El Servicio de instantáneas de volumen (VSS) garantiza que la aplicación en la máquina virtual se encuentre en un estado coherente cuando se toma la instantánea.
+    - **Grupo de replicación**: si la aplicación necesita coherencia de múltiples máquinas virtuales entre varias máquinas virtuales, puede crear un grupo de replicación para estas máquinas virtuales. De forma predeterminada, las máquinas virtuales seleccionadas no forman parte de ningún grupo de replicación.
 
-- **Discos administrados de réplica (si la VM de origen utiliza discos administrados)**: de manera predeterminada, Site Recovery crea discos administrados de réplica en la región de destino para crear el reflejo de discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (Standard o Premium) que el disco administrado de la VM de origen.
+5. En **Personalizar**, seleccione **Sí** para lograr coherencia entre varias máquinas virtuales si desea agregar máquinas virtuales a un grupo de replicación nuevo o existente. para que las máquinas virtuales formen parte de un grupo de replicación. A continuación, haga clic en **Aceptar**.
 
-- **Conjuntos de disponibilidad de destino**: de forma predeterminada, Site Recovery crea un nuevo conjunto de disponibilidad en la región de destino con el sufijo "asr". Solo puede agregar conjuntos de disponibilidad si las máquinas virtuales forman parte de un conjunto en la región de origen.
-
-Para invalidar la configuración de directiva de replicación predeterminada, haga clic en **Personalizar** junto a **Directiva de replicación**.  
-
-- **Nombre de la directiva de replicación**: Nombre de la directiva.
-
-- **Retención del punto de recuperación**: de forma predeterminada, Site Recovery conserva los puntos de recuperación durante 24 horas. Puede configurar un valor entre 1 y 72 horas.
-
-- **Frecuencia de instantáneas coherentes con la aplicación**: de forma predeterminada, Site Recovery toma una instantánea coherente con la aplicación cada cuatro horas. Puede configurar cualquier valor entre 1 y 12 horas. Una instantánea coherente con la aplicación es una instantánea en un momento dado de los datos de la aplicación dentro de la máquina virtual. El Servicio de instantáneas de volumen (VSS) garantiza que la aplicación en la máquina virtual se encuentre en un estado coherente cuando se toma la instantánea.
-
-- **Grupo de replicación**: si la aplicación necesita coherencia de múltiples máquinas virtuales entre varias máquinas virtuales, puede crear un grupo de replicación para estas máquinas virtuales. De forma predeterminada, las máquinas virtuales seleccionadas no forman parte de ningún grupo de replicación.
-
-  Haga clic en **Personalizar** junto a **Directiva de replicación** y seleccione **Sí** para la coherencia entre varias máquinas virtuales y que estas formen parte de un grupo de replicación. Puede crear un grupo de replicación nuevo o utilizar uno existente. Seleccione las máquinas virtuales que van a formar parte del grupo de replicación y haga clic en **Aceptar**.
-
-> [!IMPORTANT]
-  Todas las máquinas de un grupo de replicación tendrán puntos de recuperación compartidos coherentes con los bloqueos y coherentes con la aplicación cuando conmutan por error. Habilitar la coherencia de múltiples máquinas virtuales puede afectar al rendimiento de la carga de trabajo y solo debe utilizarse si las máquinas ejecutan la misma carga de trabajo y necesita coherencia entre varias máquinas.
-
-> [!IMPORTANT]
-  Si habilita la coherencia entre varias máquinas virtuales, las máquinas del grupo de replicación se comunican entre sí a través del puerto 20004. Asegúrese de que no haya ninguna aplicación de firewall que bloquee la comunicación interna entre las máquinas virtuales en el puerto 20004. Si desea que las máquinas virtuales de Linux formen parte de un grupo de replicación, asegúrese de que el tráfico saliente en el puerto 20004 se abra manualmente según las instrucciones de la versión específica de Linux.
+    - Todas las máquinas de un grupo de replicación tendrán puntos de recuperación compartidos coherentes con los bloqueos y coherentes con la aplicación cuando conmutan por error. Habilitar la coherencia de múltiples máquinas virtuales puede afectar al rendimiento de la carga de trabajo y solo debe utilizarse si las máquinas ejecutan la misma carga de trabajo y necesita coherencia entre varias máquinas.
+    - Si habilita la coherencia entre varias máquinas virtuales, las máquinas del grupo de replicación se comunican entre sí a través del puerto 20004. Asegúrese de que no haya ninguna aplicación de firewall que bloquee la comunicación interna entre las máquinas virtuales en el puerto 20004. Si desea que las máquinas virtuales de Linux formen parte de un grupo de replicación, asegúrese de que el tráfico saliente en el puerto 20004 se abra manualmente según las instrucciones de la versión específica de Linux.
 
 ### <a name="configure-encryption-settings"></a>Configuración de los valores del cifrado
 
-Si la máquina virtual de origen tiene Azure Disk Encryption (ADE) habilitado, aparecerá la sección de configuración del cifrado siguiente.
+Si la máquina virtual de origen tiene Azure Disk Encryption (ADE) habilitado, se mostrará la configuración del cifrado:
 
-- **Almacenes de claves de cifrado de disco**: de forma predeterminada, Azure Site Recovery crea un almacén de claves en la región de destino cuyo nombre tiene el sufijo "asr" en función de las claves de cifrado de disco de la máquina virtual de origen. Si el almacén de claves que ha creado Azure Site Recovery ya existe, se vuelve a usar.
-- **Almacenes de claves de cifrado de claves**: de forma predeterminada, Azure Site Recovery crea un almacén de claves en la región de destino cuyo nombre tiene el sufijo "asr" en función de las claves de cifrado de claves de la máquina virtual de origen. Si el almacén de claves que ha creado Azure Site Recovery ya existe, se vuelve a usar.
+1. Examine la configuración del cifrado.
+    - **Almacenes de claves de cifrado de disco**: de forma predeterminada, Azure Site Recovery crea un almacén de claves en la región de destino cuyo nombre tiene el sufijo "asr" en función de las claves de cifrado de disco de la máquina virtual de origen. Si el almacén de claves que ha creado Azure Site Recovery ya existe, se vuelve a usar.
+    - **Almacenes de claves de cifrado de claves**: de forma predeterminada, Azure Site Recovery crea un almacén de claves en la región de destino cuyo nombre tiene el sufijo "asr" en función de las claves de cifrado de claves de la máquina virtual de origen. Si el almacén de claves que ha creado Azure Site Recovery ya existe, se vuelve a usar.
 
-Haga clic en "Personalizar" junto a la configuración de cifrado para reemplazar los valores predeterminados y seleccionar los almacenes de claves personalizados.
+2. Haga clic en **Personalizar** para seleccionar los almacenes de claves personalizados.
 
 >[!NOTE]
->Actualmente, Azure Site Recovery solo admite máquinas virtuales Azure con el sistema operativo Windows y que estén [habilitadas para el cifrado con la aplicación de Azure AD](https://aka.ms/ade-aad-app).
+>Actualmente, Azure Site Recovery solo admite máquinas virtuales Azure con sistemas operativos Windows y que estén [habilitadas para el cifrado con la aplicación de Azure AD](https://aka.ms/ade-aad-app).
 >
 
 ### <a name="track-replication-status"></a>Seguimiento del estado de replicación
 
 1. En **Configuración**, haga clic en **Actualizar** para obtener el estado más reciente.
-
-2. Puede hacer un seguimiento del progreso del trabajo **Habilitar la protección** en **Configuración**>**Trabajos**>**Trabajos de Site Recovery**.
-
-3. En **Configuración** > **Elementos replicados**, puede ver el estado de las máquinas virtuales y el progreso inicial de la replicación. Haga clic en la máquina virtual para ir a los detalles de su configuración.
+2. Realice un seguimiento de estado y progreso como se indica a continuación:
+    - Realice un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**.
+    - En **Configuración** > **Elementos replicados**, puede ver el estado de las máquinas virtuales y el progreso inicial de la replicación. Haga clic en la máquina virtual para ir a los detalles de su configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial se configuró la recuperación ante desastres para una máquina virtual de Azure. El paso siguiente es probar la configuración; para ello inicie una exploración de DR.
+En este tutorial se configuró la recuperación ante desastres para una máquina virtual de Azure. Ya puede iniciar la exploración de la recuperación ante desastres para comprobar que la conmutación por error funciona como cabría esperar.
 
 > [!div class="nextstepaction"]
 > [Exploración de la recuperación ante desastres](azure-to-azure-tutorial-dr-drill.md)

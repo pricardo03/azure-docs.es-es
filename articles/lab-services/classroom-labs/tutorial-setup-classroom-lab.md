@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/05/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856647"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706014"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio de clase 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -81,7 +81,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
         > [!WARNING]
         > Una vez que publique, no se puede cancelar la publicación. 
-    2. Para publicar más adelante, seleccione **Guardar para más adelante**. Puede publicar la plantilla de máquina virtual una vez finalizado el asistente. Para más información sobre cómo configurar y publicar una vez finalizado el asistente, consulte la sección [Publicación de la plantilla](how-to-manage-classroom-labs.md#publish-the-template) del artículo [Administración de laboratorios educativos](how-to-manage-classroom-labs.md).
+    2. Para publicar más adelante, seleccione **Guardar para más adelante**. Puede publicar la plantilla de máquina virtual una vez finalizado el asistente. Para más información sobre cómo configurar y publicar una vez finalizado el asistente, consulte la sección [Publicación de la plantilla](how-to-create-manage-template.md#publish-the-template-vm) del artículo [Administración de laboratorios educativos](how-to-manage-classroom-labs.md).
 
         ![Publicar plantilla](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Puede ver el **progreso de la publicación** de la plantilla. Este proceso puede tardar hasta una hora. 
@@ -97,17 +97,33 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
     ![Máquinas virtuales en estado detenido](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+## <a name="add-users-to-the-lab"></a>Incorporación de usuarios al laboratorio
+
+1. En el menú izquierdo, seleccione **Users** (Usuarios). De forma predeterminada, está habilitada la opción **Restrict access** (Restringir acceso). Cuando esta opción está activada, los usuarios no se pueden registrar en el laboratorio aunque tengan el vínculo de registro si no aparecen en la lista de usuarios. Solo los usuarios de la lista pueden registrarse en el laboratorio mediante el vínculo de registro enviado. En este procedimiento, agregará usuarios a la lista. Como alternativa, puede desactivar **Restrict access** (Restringir acceso), que permite que los usuarios se registren en el laboratorio, siempre y cuando tengan el vínculo de registro. 
+2. Seleccione **Add users** (Agregar usuarios) en la barra de herramientas. 
+3. En la página **Add users** (Agregar usuarios), escriba las direcciones de correo electrónico de los usuarios en líneas independientes, o bien en una sola línea separadas por punto y coma. 
+
+    ![Incorporación de direcciones de correo electrónico de usuarios](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Seleccione **Guardar**. Verá las direcciones de correo electrónico de los usuarios y sus estados (registrados o no) en la lista. 
+
+    ![Lista de usuarios](../media/how-to-configure-student-usage/users-list-new.png)
+
+
 ## <a name="send-registration-link-to-students"></a>Envío del vínculo de registro a los estudiantes
 
-1. Cambie a la vista **Panel** seleccionando **Panel** en el menú de la izquierda. 
-2. Seleccione el icono **Registro de usuario**.
+1. Cambie a la vista **Users** (Usuarios) si aún no está en la página. 
+2. Seleccione el icono **Get registration link** (Obtener vínculo de registro).
 
     ![Vínculo de registro del estudiante](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. En el cuadro de diálogo **Registro de usuario**, seleccione el botón **Copiar**. El vínculo se copia en el Portapapeles. Péguelo en un editor de correo electrónico y envíe un correo electrónico al estudiante. 
+1. En el cuadro de diálogo **Registro de usuario**, seleccione el botón **Copiar**. El vínculo se copia en el Portapapeles. 
 
     ![Vínculo de registro del estudiante](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. En el cuadro de diálogo **Registro de usuario**, seleccione **Cerrar**. 
-3. Comparta el vínculo de registro con un alumno para que este se pueda registrar para la clase. 
+4. Comparta el vínculo de registro con un alumno para que este se pueda registrar para la clase. Si tiene habilitada la opción **Restrict access** (Restringir acceso) y tiene una lista de usuarios en la lista, realice las siguientes acciones:
+    1. Seleccione la **dirección de correo electrónico** del usuario de la lista. 
+    2. Verá una ventana desde el programa de correo electrónico predeterminado que tiene relleno el campo **PARA**. 
+    3. Pegue la **dirección URL de registro** que copió anteriormente. 
+    4. Envíe el **correo electrónico**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

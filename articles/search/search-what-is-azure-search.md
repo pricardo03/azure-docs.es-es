@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: bf616dda602edff6add5070ad1f1ab85b6a21380
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568978"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285142"
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Azure Search?
 Azure Search es una solución de búsqueda como servicio en la nube que ofrece a los desarrolladores las API y herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para dispositivos móviles y empresariales. La ejecución de consultas se realiza sobre un índice definido por el usuario.
@@ -91,7 +91,7 @@ Las principales ventajas incluyen:
 
 Entre nuestros clientes, los que son capaces de utilizar la gama más amplia de características de Azure Search pueden usar catálogos en línea, programas de línea de negocio y aplicaciones de detección de documentos.
 
-## <a name="rest-api--net-sdk"></a>API de REST | .Net SDK
+## <a name="rest-api--net-sdk"></a>API REST |SDK de .NET
 
 Aunque muchas tareas se pueden realizar en el portal, Azure Search está diseñado para desarrolladores que desean integrar la funcionalidad de búsqueda en aplicaciones ya existentes. Las siguientes interfaces de programación están disponibles.
 

@@ -3,18 +3,18 @@ title: Rutas múltiples con Azure Maps | Microsoft Docs
 description: Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/29/2018
+ms.date: 11/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 67b68489f2e06b9149f842f293a769fa7f688be0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412710"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705286"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 
@@ -291,12 +291,7 @@ Puede acceder al ejemplo de código de este tutorial, aquí:
 
 [Consulte este ejemplo aquí](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
-Para más información sobre la cobertura y las funcionalidades de Azure Maps:
+En el siguiente tutorial se muestra el proceso de creación de un localizador de almacenamiento sencillo mediante Azure Maps.
 
 > [!div class="nextstepaction"]
-> [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md)
-
-Para ver más ejemplos de código y una experiencia interactiva de codificación:
-
-> [!div class="nextstepaction"]
-> [Uso del control de mapa](how-to-use-map-control.md)
+> [Creación de un localizador de almacén mediante Azure Maps](./tutorial-create-store-locator.md)

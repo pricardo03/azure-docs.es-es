@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 29d673f48671ec917e45b7ff76feeebf0b868c4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.date: 11/21/2018
+ms.openlocfilehash: 76436da1013c6747e9167c006e0d7c5e89ec8d9c
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426896"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284751"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático en el servicio Azure Machine Learning
 
@@ -34,7 +34,10 @@ Aprenderá a:
 > * Revisar los resultados del entrenamiento
 > * Registro del mejor modelo
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLfree) antes de empezar.
+
+>[!NOTE]
+> El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 0.1.79
 
 ## <a name="get-the-notebook"></a>Obtención del cuaderno
 
@@ -214,7 +217,7 @@ Explore los resultados del experimento con un widget de Jupyter o al examinar el
 Use el widget de cuaderno de Jupyter para ver un grafo y una tabla de todos los resultados.
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 

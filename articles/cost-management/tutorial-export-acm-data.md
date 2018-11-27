@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913570"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822371"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
-Si lee el tutorial de análisis de costos, estará familiarizado con la descarga manual de los datos de Cost Management. Sin embargo, puede crear una tarea periódica diaria para exportar automáticamente los datos de Cost Management en el almacenamiento de Azure. Los datos exportados están en formato CSV y contienen toda la información recopilada por Cost Management. A continuación, puede usar los datos exportados en el almacenamiento de Azure con sistemas externos y combinarlos con sus propios datos personalizados. También puede usar los datos exportados en un sistema externo, como un panel u otro sistema financiero.
+Si lee el tutorial de análisis de costos, estará familiarizado con la descarga manual de los datos de Cost Management. Sin embargo, puede crear una tarea periódica para exportar automáticamente los datos de Cost Management en el almacenamiento de Azure con una periodicidad diaria, semanal o mensual. Los datos exportados están en formato CSV y contienen toda la información recopilada por Cost Management. A continuación, puede usar los datos exportados en el almacenamiento de Azure con sistemas externos y combinarlos con sus propios datos personalizados. También puede usar los datos exportados en un sistema externo, como un panel u otro sistema financiero.
 
 Los ejemplos de este tutorial le guiarán durante la exportación de los datos de administración de costos y la comprobación de que los datos se exporten correctamente.
 
@@ -48,11 +48,17 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 Cost Management + facturación &gt;Cost Management &gt; seleccione una suscripción o grupo de recursos de una suscripción &gt; Exportar &gt; **Agregar**.
 
-Escriba un nombre para la exportación y especifique la suscripción, la cuenta de almacenamiento de Azure, el contenedor y el directorio de almacenamiento de archivos o el contenedor de blobs. Después, haga clic en **Crear**.
+Escriba un nombre para la exportación y seleccione la opción "Exportación diaria de costos desde ese mes hasta la fecha actual". Haga clic en **Next**.
 
-![Nueva exportación](./media/tutorial-export-acm-data/new-export01.png)
+![Nueva exportación: tipo de exportación](./media/tutorial-export-acm-data/basics_exports.png)
 
-La exportación nueva aparece en la lista de exportaciones. De forma predeterminada, se habilitan nuevas exportaciones y se ejecutan todos los días. Si quiere deshabilitar o eliminar una exportación programada, haga clic en cualquier elemento de la lista y, después, haga clic en **Deshabilitar** o **Eliminar**.
+Especifique la suscripción de su cuenta de almacenamiento de Azure y, luego, seleccione la cuenta de almacenamiento.  Especifique el contenedor de almacenamiento y la ruta del directorio al que desea que vaya el archivo de exportación.  Haga clic en **Next**.
+
+![Nueva exportación: almacenamiento](./media/tutorial-export-acm-data/storage_exports.png)
+
+Revise los detalles de la exportación y haga clic en **Crear**.
+
+La exportación nueva aparece en la lista de exportaciones. De forma predeterminada, se habilitan las nuevas exportaciones. Si quiere deshabilitar o eliminar una exportación programada, haga clic en cualquier elemento de la lista y, después, haga clic en **Deshabilitar** o **Eliminar**.
 
 Al principio la exportación puede tardar una o dos horas en ejecutarse. Sin embargo, pueden pasar hasta cuatro horas antes de que se muestren los datos en los archivos exportados.
 

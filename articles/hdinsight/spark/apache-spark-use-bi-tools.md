@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Análisis de datos de Apache Spark mediante Power BI en Azure HDInsight '
-description: Use Microsoft Power BI para visualizar datos de Spark almacenados en clústeres de HDInsight
+description: Uso de Microsoft Power BI para visualizar datos de Apache Spark almacenados en clústeres de HDInsight
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 341346b290fc3dab94773f75f2269cc147e71b82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252469"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712422"
 ---
-# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Análisis de datos de Apache Spark mediante Power BI en HDInsight 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Análisis de datos de Apache Spark mediante Power BI en Azure HDInsight 
 
 Aprenda a utilizar Microsoft Power BI para visualizar datos de un clúster de Apache Spark en Azure HDInsight.
 
@@ -78,7 +78,7 @@ Los primeros pasos para trabajar con Spark pasan por conectarse al clúster de P
     ![Obtención de datos en Power BI Desktop desde HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Obtención de datos en Power BI desde Apache Spark BI")
 
 
-2. Escriba `Spark` en el cuadro de búsqueda, seleccione **Azure HDInsight Spark (Beta)** y haga clic en **Conectar**.
+2. Escriba `Spark` en el cuadro de búsqueda, seleccione **Azure HDInsight Spark** y, luego, haga clic en **Conectar**.
 
     ![Obtención de datos en Power BI desde Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Obtención de datos en Power BI desde Apache Spark BI")
 

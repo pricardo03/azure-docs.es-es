@@ -3,23 +3,23 @@ title: 'Guía de inicio rápido: Bing Spell Check API con PHP'
 titlesuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Spell Check API.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: b35545cbf8e814cd1a175b722fd46367ca7558e4
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: aahi
+ms.openlocfilehash: cb72cfa75acd543086dc4743dc1f99a618e60aaa
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801138"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161623"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-php"></a>Guía de inicio rápido para Bing Spell Check API con PHP 
 
-En este artículo se muestra cómo usar [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) con PHP. Spell Check API devuelve una lista de palabras que no reconoce, junto con los reemplazos sugeridos. Normalmente, enviaría texto a esta API y, luego, realizaría los reemplazos sugeridos en el texto o los mostraría al usuario de la aplicación para que pueda decidir si realizarlos no. En este artículo se muestra cómo enviar una solicitud que contiene el texto "Hollo wrld!" Los reemplazos sugeridos son "Hello" y "world".
+En este artículo se muestra cómo usar [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) con PHP. Spell Check API devuelve una lista de palabras que no reconoce, junto con los reemplazos sugeridos. Normalmente, enviaría texto a esta API y, luego, realizaría los reemplazos sugeridos en el texto o los mostraría al usuario de la aplicación para que pueda decidir si realizarlos no. En este artículo se muestra cómo enviar una solicitud que contiene el texto "Hollo wrld!" Los reemplazos sugeridos son "Hello" y "world".
 
 ## <a name="prerequisites"></a>Requisitos previos
 

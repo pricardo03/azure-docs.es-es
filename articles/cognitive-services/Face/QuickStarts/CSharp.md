@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ca8702cfd70b245c10df9251b6ced9ac1bc40bba
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 24b506b0dd22b388a57f88f1105742660b02269c
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578075"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854023"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST de Face y C#
 
@@ -51,7 +51,7 @@ using System.Text;
 
 ### <a name="add-essential-fields"></a>Adición de los campos esenciales
 
-Agregue los campos siguientes a la clase **Program** . Estos datos especifican cómo conectarse al servicio Face y dónde obtener los datos de entrada. Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y es posible que deba cambiar la cadena `uriBase` para que contenga el identificador de la región correcta.
+Agregue los campos siguientes a la clase **Program** . Estos datos especifican cómo conectarse al servicio Face y dónde obtener los datos de entrada. Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y es posible que deba cambiar la cadena `uriBase` para que contenga el identificador de la región correcta (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones).
 
 
 ```csharp
@@ -63,7 +63,7 @@ const string subscriptionKey = "<Subscription Key>";
 // subscription keys from westus, replace "westcentralus" in the URL
 // below with "westus".
 //
-// Free trial subscription keys are generated in the westcentralus region.
+// Free trial subscription keys are generated in the "westus" region.
 // If you use a free trial subscription key, you shouldn't need to change
 // this region.
 const string uriBase =

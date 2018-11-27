@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: be2c68922221af848c9e484d03527d02808c071a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 68c8c3767ff3a3d2873c1ff50928ab8d2cada4b1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283825"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263758"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Administración de los niveles de coherencia en Azure Cosmos DB
 
@@ -34,7 +34,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-El ejemplo siguiente crea una cuenta de Cosmos DB con una arquitectura multimaestro habilitada en las regiones Este de EE. UU. y Oeste de EE. UU., lo que establece la directiva de coherencia predeterminada como obsolescencia limitada con un intervalo de obsolescencia máximo de 10 segundos y el número máximo de solicitudes obsoletas toleradas en 200.
+El ejemplo siguiente crea una cuenta de Cosmos DB con arquitectura multimaestro habilitada en las regiones Este de EE. UU. y Oeste de EE. UU. y establece la directiva de coherencia predeterminada en Sesión.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -42,9 +42,7 @@ $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
 
 $iprangefilter = ""
 
-$consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness";
-                       "maxIntervalInSeconds"= "10";
-                       "maxStalenessPrefix"="200"}
+$consistencyPolicy = @{"defaultConsistencyLevel"="Session"}
 
 $CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
                         "locations"=$locations;
@@ -70,7 +68,7 @@ Para ver o modificar el nivel de coherencia predeterminado, inicie sesión en Az
 
 Los clientes pueden invalidar el nivel de coherencia predeterminado establecido por el servicio. Esto puede hacerse para todo el cliente completo o por solicitud.
 
-### <a id="override-default-consistency-dotnet"></a>.NET SDK
+### <a id="override-default-consistency-dotnet"></a>SDK para .NET
 
 ```csharp
 // Override consistency at the client level
@@ -135,7 +133,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 Si desea administrar manualmente tokens de sesión, puede obtenerlos desde las respuestas y establecerlos por solicitud. Si no tiene la necesidad de administrar manualmente los tokens de sesión, no es necesario que utilice los ejemplos siguientes. El SDK realizará un seguimiento de forma automática de los tokens de sesión y usará el token de sesión más reciente, si el usuario no establece el token de sesión.
 
-### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
+### <a id="utilize-session-tokens-dotnet"></a>SDK para .NET
 
 ```csharp
 var response = await client.ReadDocumentAsync(

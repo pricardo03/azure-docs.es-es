@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b03681e6205b7db24960c99a87a3c84c213884d2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: dbd4b1cc7c1ec2a6d612020a99367138cada24a8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240297"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161018"
 ---
 # <a name="about-site-recovery"></a>Acerca de Site Recovery
 
@@ -56,7 +56,7 @@ Site Recovery puede administrar la replicación de:
 
 **Compatible** | **Detalles**
 --- | ---
-**Escenarios de replicación** | Replique las máquinas virtuales de Azure de una región de Azure a otra.<br/><br/>  Replique las máquinas virtuales Hyper-V, los servidores físicos (Windows y Linux), las máquinas virtuales Azure4 Stack y las máquinas virtuales VMware locales en Azure.<br/><br/> Replique las máquinas virtuales locales de VMware, de Hyper-V administradas por System Center VMM y los servidores físicos en un sitio secundario.
+**Escenarios de replicación** | Replique las máquinas virtuales de Azure de una región de Azure a otra.<br/><br/>  Replique las máquinas virtuales de VMware locales, las máquinas virtuales de Hyper-V, los servidores físicos (Windows y Linux) y las máquinas de virtuales Azure Stack en Azure.<br/><br/> Replique las máquinas virtuales locales de VMware, de Hyper-V administradas por System Center VMM y los servidores físicos en un sitio secundario.
 **Regiones** | Revise las [regiones admitidas](https://azure.microsoft.com/regions/services/) para Site Recovery. |
 **Máquinas replicadas** | Revise los requisitos de la replicación de [máquinas virtuales de Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), [máquinas virtuales y servidores físicos de VMware locales](vmware-physical-azure-support-matrix.md#replicated-machines) y los [máquinas virtuales de Hyper-V locales](hyper-v-azure-support-matrix.md#replicated-vms).
 **Cargas de trabajo** | Puede replicar cualquier carga de trabajo que se ejecute en una máquina que se admita para la replicación. Además, el equipo de Site Recovery ha realizado pruebas específicas para [diversas aplicaciones](site-recovery-workload.md#workload-summary).
