@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140864"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824785"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guía de inicio rápido: Prueba de una solución de supervisión remota basada en la nube
 
@@ -32,7 +32,7 @@ Al implementar el acelerador de soluciones para la suscripción de Azure, debe e
 
 Inicie sesión en [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) con las credenciales de su cuenta de Azure.
 
-Haga clic en **Try Now** (Probar ahora) en el icono **Remote Monitoring** (Supervisión remota).
+Haga clic en el icono **Supervisión remota**. En la página **Supervisión remota**, haga clic en **Probar ahora**:
 
 ![Elección de Supervisión remota](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
@@ -40,9 +40,10 @@ En la página **Create Remote Monitoring solution** (Crear solución de supervis
 
 Elija **.NET** como lenguaje. Las implementaciones de Java y de .NET tienen las mismas características.
 
-Escriba un valor único de **Nombre de la solución** para el acelerador de soluciones de supervisión remota. En este inicio rápido, llamamos al nuestro **contoso-rm2**.
+Escriba un valor único de **Nombre de la solución** para el acelerador de soluciones de supervisión remota. En esta guía de inicio rápido, llamamos a nuestro **contoso-rm**.
 
-Seleccione la **Suscripción** y la **Región** que desea usar para implementar el acelerador de soluciones. Generalmente, elegirá la región más cercana. En esta guía de inicio rápido, vamos a usar **Visual Studio Enterprise** y **Europa Occidental**. Debe ser un [administrador global o un usuario](iot-accelerators-permissions.md) en la suscripción.
+Seleccione la **Suscripción** y la **Región** que desea usar para implementar el acelerador de soluciones. Generalmente, elegirá la región más cercana. Para este tutorial, vamos a usar **Este de EE. UU**.
+Puede elegir **Visual Studio Enterprise**, pero debe ser un [administrador o usuario global](iot-accelerators-permissions.md) para hacerlo.
 
 Haga clic en **Crear solución** para comenzar la implementación. Este proceso tarda al menos cinco minutos en ejecutarse:
 
