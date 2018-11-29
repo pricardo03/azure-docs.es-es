@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 82d7e5ab57d9cf12c6917386282182faacb07725
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282397"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423425"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Tutorial 3: Extracción de datos con formato correcto
 En este tutorial, modifique la aplicación de recursos humanos para extraer datos con formato de forma coherente desde una expresión con la entidad **Expresión regular**.
@@ -48,7 +48,7 @@ Una expresión regular es una buena opción para este tipo de datos cuando:
 > * Publicar
 > * Obtener intenciones y entidades del punto de conexión
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usar una aplicación existente
 Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
@@ -63,7 +63,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 
 ## <a name="findform-intent"></a>Intención FindForm
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Haga clic en **Create new intent** (Crear intención). 
 
@@ -90,7 +90,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 
     La aplicación tiene una entidad de número creada previamente agregada del tutorial anterior, por lo que cada número de formulario está etiquetado. Esto puede ser suficiente para la aplicación cliente, pero el número no se etiquetará con el tipo de número. La creación de una nueva entidad con un nombre apropiado permite a la aplicación cliente procesar la entidad apropiadamente cuando se devuelve desde LUIS.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="regular-expression-entity"></a>Entidad de expresión regular 
 La entidad de expresión regular para que coincida con el número de formulario es `hrf-[0-9]{6}`. Esta expresión regular coincide con los caracteres literales `hrf-` pero omite variantes de mayúsculas y minúsculas y la referencia cultural. Coincide exactamente con dígitos de 0 a 9, para 6 dígitos exactamente.

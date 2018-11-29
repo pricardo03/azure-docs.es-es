@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281819"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424819"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial: 8: Extracción de frases clave de expresiones
 En este tutorial, va a usar una entidad keyPhrase pregenerada que muestra cómo extraer los temas principales clave de las expresiones. No necesita etiquetar ninguna expresión con entidades pregeneradas. La entidad se detecta automáticamente.
@@ -56,7 +56,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 ## <a name="add-keyphrase-entity"></a>Adición de la entidad KeyPhrase 
 Agregue la entidad predefinida keyPhrase para extraer los temas principales de las expresiones.
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Seleccione **Entities** (Entidades) en el menú izquierdo.
 

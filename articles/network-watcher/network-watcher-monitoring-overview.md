@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 983b966ad304afb467df26193dd609f6f21a1b32
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614284"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427036"
 ---
 # <a name="what-is-azure-network-watcher"></a>¿Qué es Azure Network Watcher?
 
@@ -37,7 +37,7 @@ Si un punto de conexión queda inaccesible, la solución de problemas de conexi�
 
 Monitor de conexión también proporciona la latencia mínima, media y máxima observada con el tiempo. Después de conocer la latencia de una conexión, es posible que usted pueda reducir la latencia moviendo los recursos de Azure a diferentes regiones de Azure. Obtenga más información sobre cómo determinar las [latencias relativas entre las regiones de Azure y los proveedores de acceso a Internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) y cómo supervisar la comunicación entre una máquina virtual y un punto de conexión con [monitor de conexión](connection-monitor.md). Si, no obstante, prefiere probar una conexión en un punto determinado en el tiempo, en lugar de supervisar la conexión con el tiempo, como se hace con monitor de conexión, use la funcionalidad [solución de problemas de conexión](#connection-troubleshoot).
 
-Network Performance Monitor es una solución de supervisión de red híbrida basada en la nube que le ayuda a supervisar el rendimiento de red entre distintos puntos en la infraestructura de red. También le permite supervisar la conectividad de red con los puntos de conexión del servicio y la aplicación, y supervisar el rendimiento de Azure ExpressRoute. Network Performance Monitor detecta posibles problemas de red, como enrutamiento del tráfico a "agujeros negros", errores de enrutamiento y problemas que los métodos de supervisión de red convencionales no pueden encontrar. La solución genera alertas y le notifica cómo y cuándo se supera un umbral en un vínculo de red. También garantiza la detección oportuna de los problemas de rendimiento de red y localiza el origen del problema en un segmento o dispositivo de red determinado. Más información sobre [Network Performance Monitor](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Network Performance Monitor es una solución de supervisión de red híbrida basada en la nube que le ayuda a supervisar el rendimiento de red entre distintos puntos en la infraestructura de red. También le permite supervisar la conectividad de red con los puntos de conexión del servicio y la aplicación, y supervisar el rendimiento de Azure ExpressRoute. Network Performance Monitor detecta posibles problemas de red, como enrutamiento del tráfico a "agujeros negros", errores de enrutamiento y problemas que los métodos de supervisión de red convencionales no pueden encontrar. La solución genera alertas y le notifica cómo y cuándo se supera un umbral en un vínculo de red. También garantiza la detección oportuna de los problemas de rendimiento de red y localiza el origen del problema en un segmento o dispositivo de red determinado. Más información sobre [Network Performance Monitor](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Visualización de recursos de una red virtual y sus relaciones
 
@@ -97,7 +97,7 @@ Más información acerca de los registros de flujo NSG siguiendo el tutorial [Re
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visualización de registros de diagnóstico de recursos de red
 
-Puede habilitar el registro de diagnóstico de recursos de red de Azure, como grupos de seguridad de red, direcciones IP públicas, equilibradores de carga, puertas de enlace de red virtual y puertas de enlace de aplicación. La funcionalidad *Registros de diagnóstico* proporciona una única interfaz para habilitar y deshabilitar los registros de diagnóstico de recursos de red de cualquier recurso de red existente que genera un registro de diagnóstico. Puede ver registros de diagnóstico con herramientas como Microsoft Power BI y Azure Log Analytics. Para obtener más información sobre el análisis de registros de diagnóstico de red de Azure, vea [Soluciones de supervisión de redes de Azure en Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Puede habilitar el registro de diagnóstico de recursos de red de Azure, como grupos de seguridad de red, direcciones IP públicas, equilibradores de carga, puertas de enlace de red virtual y puertas de enlace de aplicación. La funcionalidad *Registros de diagnóstico* proporciona una única interfaz para habilitar y deshabilitar los registros de diagnóstico de recursos de red de cualquier recurso de red existente que genera un registro de diagnóstico. Puede ver registros de diagnóstico con herramientas como Microsoft Power BI y Azure Log Analytics. Para obtener más información sobre el análisis de registros de diagnóstico de red de Azure, vea [Soluciones de supervisión de redes de Azure en Log Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Habilitación automática de Network Watcher
 Al crear o actualizar una red virtual en su suscripción, Network Watcher se habilitará automáticamente en la región de Virtual Network. El hecho de habilitar Network Watcher de forma automática no afecta a sus recursos ni a los cargos asociados. Para más información, consulte [Creación de una instancia de Network Watcher](network-watcher-create.md).

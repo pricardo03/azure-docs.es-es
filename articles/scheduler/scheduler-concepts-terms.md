@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981168"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334234"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceptos, terminología y entidades de Azure Scheduler
 
@@ -319,5 +319,5 @@ Por ejemplo:
 * [Conceptos, terminología y jerarquía de entidades](scheduler-concepts-terms.md)
 * [Creación de programaciones complejas y periodicidad avanzada](scheduler-advanced-complexity.md)
 * [Límites, cuotas, valores predeterminados y códigos de error](scheduler-limits-defaults-errors.md)
-* [Referencia de API de REST de Azure Scheduler](https://docs.microsoft.com/rest/api/schedule)
+* [Referencia de API de REST de Azure Scheduler](/rest/api/scheduler)
 * [Referencia de cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md)

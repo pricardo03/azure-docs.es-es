@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282278"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424713"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: Extracción de datos relacionados contextualmente
 En este tutorial, busque datos relacionados en función del contexto. Por ejemplo, las ubicaciones de origen y destino para un traslado físico de un edificio y oficina a otro edificio y oficina están relacionadas. Para generar un pedido de trabajo, ambos datos pueden ser necesarios y están relacionados entre sí.  
@@ -57,7 +57,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Eliminación de la entidad de número creada previamente de la aplicación
 Para ver la expresión completa y marcar los elementos secundarios jerárquicos, quite temporalmente la entidad numérica creada previamente.
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Seleccione **Entities** (Entidades) en el menú izquierdo.
 
@@ -83,7 +83,7 @@ Para ver la expresión completa y marcar los elementos secundarios jerárquicos,
 
     En el tutorial de [lista de entidades](luis-quickstart-intent-and-list-entity.md), se designa a un empleado por nombre, dirección de correo electrónico, extensión telefónica, número de teléfono móvil o número del seguro social federal de Estados Unidos. Estos números de empleado se utilizan en las expresiones. Las expresiones de ejemplo anteriores incluyen diferentes maneras de anotar las ubicaciones de origen y destino, marcadas en negrita. Un par de expresiones solo tienen destinos de forma intencionada. Esto ayuda a LUIS a entender cómo se colocan esas ubicaciones en la expresión cuando no se especifica el origen.     
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Creación de una entidad de ubicación
 LUIS necesita entender lo que es una localización mediante el etiquetado del origen y del destino en las expresiones. Si necesita ver el enunciado en la vista de token (sin formato), seleccione el conmutador en la barra encima de las expresiones etiquetadas como **Entities View** (Vista de entidades). Después de cambiar el modificador, el control tiene la etiqueta **Tokens View** (Vista de tokens).

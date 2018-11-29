@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 6eb06a2a4e83c9c293474f1692c2d33d4d0dfb36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995744"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427022"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guía de inicio rápido: inicie sesión por los usuarios y llame a Microsoft Graph API desde una aplicación de Android
 
@@ -29,7 +29,7 @@ ms.locfileid: "46995744"
 
 En esta guía de inicio rápido hay código de ejemplo que muestra cómo una aplicación de Android puede iniciar sesión en cuentas personales, de trabajo y educativas, obtener un token de acceso y llamar a Microsoft Graph API.
 
-![Funcionamiento de la aplicación de ejemplo generada por esta guía de inicio rápido](media/quickstart-v2-android/android-intro.png)
+![Funcionamiento de la aplicación de ejemplo que se genera en esta guía de inicio rápido](media/quickstart-v2-android/android-intro.png)
 
 > [!NOTE]
 > **Requisitos previos**
@@ -38,7 +38,7 @@ En esta guía de inicio rápido hay código de ejemplo que muestra cómo una apl
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Registro y descarga
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registro y descarga de la aplicación y código de ejemplo
+> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registro y configuración de la aplicación y código de ejemplo
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registro de la aplicación
 > Para registrar la aplicación y agregar la información de registro de aplicación a la solución, siga estos pasos:
 > 1. Vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar una aplicación.
@@ -115,7 +115,7 @@ En esta guía de inicio rápido hay código de ejemplo que muestra cómo una apl
     > ```
 
 > [!div renderon="docs"]
-> <span>6.</span> Reemplace `<ENTER_THE_APPLICATION_ID_HERE>` con el *id. de aplicación* de su aplicación. Si necesita encontrar el *id. de aplicación*, vaya a la página *Información general*.
+> <span>6.</span> Reemplace `<ENTER_THE_APPLICATION_ID_HERE>` por el *id. de aplicación* de su aplicación. Si necesita encontrar el *id. de aplicación*, vaya a la página *Información general*.
 
 ## <a name="more-information"></a>Más información
 
@@ -123,7 +123,7 @@ Lea las secciones siguientes para obtener más información acerca de esta guía
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)) es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar tokens de acceso a una API protegida por Microsoft Azure Active Directory (Azure AD). Puede usar Gradle para instalarla si agrega lo siguiente en la sección **Dependencies** (Dependencias) de **Gradle Scripts** > **build.gradle (Module: app)**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar tokens de acceso a una API protegida por Microsoft Azure Active Directory (Azure AD). Puede usar Gradle para instalarla si agrega lo siguiente en la sección **Dependencies** (Dependencias) de **Gradle Scripts** > **build.gradle (Module: app)**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -187,7 +187,7 @@ sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Obtenga información sobre los pasos para crear la aplicación que se usa en esta guía de inicio rápido
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Más información sobre los pasos para crear la aplicación que se usa en esta guía de inicio rápido
 
 Visite el tutorial de Android para acceder a una guía completa paso a paso sobre la creación de aplicaciones y nuevas características, que incluye una explicación completa de esta guía de inicio rápido.
 

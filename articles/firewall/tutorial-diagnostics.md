@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987445"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426174"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: Métricas y registros de Azure Firewall
 
 Puede supervisar Azure Firewall mediante los registros del firewall. También puede usar los registros de actividad para auditar las operaciones de los recursos de Azure Firewall. Con las métricas, puede ver los contadores de rendimiento en el portal. 
 
-Se puede acceder a algunos de estos registros mediante el portal. Los registros se pueden enviar a [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage y Event Hubs, y se pueden analizar en Log Analytics o mediante distintas herramientas como Excel y Power BI.
+Se puede acceder a algunos de estos registros mediante el portal. Los registros se pueden enviar a [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Storage y Event Hubs, y se pueden analizar en Log Analytics o mediante distintas herramientas como Excel y Power BI.
 
 En este tutorial, aprenderá a:
 
@@ -94,7 +94,7 @@ Puede ver y analizar los datos del registro de actividades con cualquiera de los
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ver y analizar los registros de la regla de red y de aplicación
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) recopila los archivos de registro de contadores y eventos. Incluye visualizaciones y eficaces funciones de búsqueda para analizar los registros.
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) recopila los archivos de registro de contadores y eventos. Incluye visualizaciones y eficaces funciones de búsqueda para analizar los registros.
 
 Para las consultas de ejemplo de Log Analytics de Azure Firewall, consulte [Azure Firewall Log Analytics samples](log-analytics-samples.md) (Ejemplos de Log Analytics de Azure Firewall).
 
@@ -111,7 +111,7 @@ Navegue a una instancia de Azure Firewall y, en **Supervisión** haga clic en **
 Ahora que ha configurado el firewall para recopilar registros, puede explorar Log Analytics para ver los datos.
 
 > [!div class="nextstepaction"]
-> [Soluciones de supervisión de redes en Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
+> [Soluciones de supervisión de redes en Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png
