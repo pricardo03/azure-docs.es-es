@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: c590c9d1ccbbb84a76ba09021a97464ec85c5784
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507216"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852986"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Instalación y configuración del proxy inverso en Azure Service Fabric
 El proxy inverso es un servicio opcional de Azure Service Fabric que ayuda a los microservicios que se ejecutan en un clúster de Service Fabric a detectar otros servicios que tienen puntos de conexión HTTP y a comunicarse con ellos. Para más información, consulte [Proxy inverso en Azure Service Fabric](service-fabric-reverseproxy.md). Este artículo muestra cómo instalar y configurar el proxy inverso en el clúster. 
@@ -231,7 +231,7 @@ Los pasos siguientes muestran la configuración que se usará para habilitar el 
 
    Para más información sobre la configuración y administración de certificados para un clúster independiente, así como más detalles acerca de cómo configurar los certificados usados para el proxy inverso seguro, consulte [Seguridad basada en certificados X509](./service-fabric-windows-cluster-x509-security.md).
 
-Cuando haya modificado el archivo ClusterConfig.json para habilitar el proxy inverso, siga las instrucciones de [Actualización de la configuración del clúster](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) para insertar los cambios en el clúster.
+Cuando haya modificado el archivo ClusterConfig.json para habilitar el proxy inverso, siga las instrucciones de [Actualización de la configuración del clúster](service-fabric-cluster-config-upgrade-windows-server.md) para insertar los cambios en el clúster.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Exposición de un proxy inverso en un puerto público mediante Azure Load Balancer
@@ -332,10 +332,10 @@ Por ejemplo, puede establecer el valor de **DefaultHttpRequestTimeout** para est
    }
    ``` 
 
-Para más información acerca de cómo actualizar la configuración del tejido para clústeres de Azure, consulte [Personalización de la configuración de clústeres mediante plantillas de Resource Manager](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). Para los clústeres independientes, consulte [Personalización de la configuración de clúster de clústeres independientes](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+Para más información acerca de cómo actualizar la configuración del tejido para clústeres de Azure, consulte [Personalización de la configuración de clústeres mediante plantillas de Resource Manager](service-fabric-cluster-config-upgrade-azure.md). Para los clústeres independientes, consulte [Personalización de la configuración de clúster de clústeres independientes](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Varias configuraciones de tejido se usan para establecer una comunicación segura entre el proxy inverso y los servicios. Para información detallada sobre esta configuración, consulte [Conexión a un servicio seguro con el proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Configuración del reenvío al servicio HTTP seguro con el proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md)
+* [Configuración del reenvío para proteger el servicio HTTP con el proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md)
 * Para opciones de configuración del proxy inverso, consulte la [sección de ApplicationGateway/Http en Personalización de la configuración del clúster de Service Fabric](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).

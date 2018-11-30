@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 442aa7034c3fec57b3b9394e6b0f46d4dec47849
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954320"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633119"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Incorporación, cambio o eliminación de una subred de red virtual
 
@@ -69,7 +69,7 @@ La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener as
 4. En la lista de subredes, seleccione la subred para la que desea modificar la configuración. Puede cambiar la configuración siguiente:
 
     - **Intervalo de direcciones:** si no hay recursos implementados dentro de la subred, es posible modificar el intervalo de direcciones. Si existe algún recurso en la subred, primero deberá moverlos a otra subred o eliminarlos. Los pasos necesarios para mover o eliminar un recurso varían según el recurso. Para información sobre cómo mover o eliminar los recursos que se encuentran en las subredes, lea la documentación de cada tipo de recurso que desea mover o eliminar. Consulte cuáles son las restricciones para **Intervalo de direcciones** en el paso 5 de [Incorporación de una subred](#add-a-subnet).
-    - **Usuarios**: puede controlar el acceso a la subred con los roles integrados u otros personalizados. Para obtener más información sobre la asignación de roles y usuarios para el acceso a la subred, consulte [Asignación de roles para administrar el acceso a los recursos de Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
+    - **Usuarios**: puede controlar el acceso a la subred con los roles integrados u otros personalizados. Para obtener más información sobre la asignación de roles y usuarios para el acceso a la subred, consulte [Asignación de roles para administrar el acceso a los recursos de Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Grupo de seguridad de red** y **Tabla de rutas**: vea el paso 5 de [Agregar una subred](#add-a-subnet).
     - **Puntos de conexión de servicio**: vea los puntos de conexión de servicio del paso 5 de [Agregar una subred](#add-a-subnet). A la hora de habilitar un punto de conexión de servicio para una red existente, asegúrese de que no se esté ejecutando ninguna tarea crítica en ningún recurso de la subred. Los puntos de conexión de servicio cambian las rutas en cada interfaz de red de la subred: pasan de usar la ruta predeterminada con el prefijo de dirección *0.0.0.0/0* y el tipo de próximo salto *Internet* a usar una ruta nueva con los prefijos de dirección del servicio y el tipo de próximo salto *VirtualNetworkServiceEndpoint*. Durante el cambio se puede terminar cualquier conexión TCP que esté abierta. El punto de conexión de servicio no se habilita hasta que los flujos de tráfico al servicio de todas las interfaces de red se actualicen con la nueva ruta. Para más información sobre el enrutamiento, vea la [introducción al enrutamiento](virtual-networks-udr-overview.md).
     - **Delegación de subred**: vea los puntos de conexión de servicio del paso 5 de [Agregar una subred](#add-a-subnet). La delegación de subred se puede modificar a varias delegaciones habilitadas para él o a ninguna. Si un recurso para un servicio ya está implementado en la subred, la delegación de subred no se puede quitar hasta que se quiten los todos los recursos para el servicio. Para delegar a otro servicio, seleccione el servicio al que desea delegar en la lista **Servicios**. 

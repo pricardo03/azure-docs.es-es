@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tamram
+ms.openlocfilehash: aff0ac5f2b761047a3e365e8e6702909a673e464
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440455"
+---
 Ahora que está familiarizado con los aspectos básicos de Almacenamiento de tablas de Azure, use estos vínculos para obtener más información sobre tareas de almacenamiento más complejas.
 
 * Consulte la documentación de referencia de Table service en la referencia [Biblioteca de cliente de Azure Storage para .NET](https://go.microsoft.com/fwlink/?LinkID=390731) para obtener información detallada acerca de las API disponibles.

@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: tulasim
-ms.openlocfilehash: f48b4b7da4990de0efb9b7de5d97731d748f0e7f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1fe39cf9e4a1e58a0d37cc8ebf9fe02c6ad7eed5
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040455"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334625"
 ---
 # <a name="key-management"></a>Administración de claves
 
-El servicio QnA Maker trabaja con dos tipos de claves: **claves de suscripción** y **claves de punto de conexión**.
+El servicio QnA Maker trabaja con dos tipos de claves, **claves de suscripción** y **claves de punto de conexión**.
 
 ![Administración de claves](../media/qnamaker-how-to-key-management/key-management.png)
 

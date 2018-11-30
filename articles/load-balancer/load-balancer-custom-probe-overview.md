@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 134c7ab8156f3acb558e8b8a2da343961a6aad4e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 58bc0c0669992b8b3884e24c39862f47412b9110
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419340"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584662"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -201,7 +201,6 @@ La instancia pública de Basic Load Balancer expone el estado del sondeo de esta
 ## <a name="limitations"></a>Limitaciones
 
 -  Los sondeos HTTPS no admiten la autenticación mutua con un certificado de cliente.
--  SDK, PowerShell no admiten los sondeos HTTPS en la actualidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

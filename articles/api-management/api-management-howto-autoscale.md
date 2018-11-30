@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 1d996469c01640a70b68d70e8c24c617e0defd64
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250781"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444809"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Escalado automático de una instancia de Azure API Management  
 
@@ -32,6 +32,8 @@ Para seguir los pasos de este artículo, debe:
 + Tener una instancia de Azure API Management. Para más información, vea [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 + Comprender el concepto de [Capacidad de una instancia de Azure API Management](api-management-capacity.md).
 + Comprender el [proceso de escalado manual de una instancia de Azure API Management](upgrade-and-scale.md), incluidas las consecuencias de costos.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Limitaciones de escalado automático de Azure API Management
 

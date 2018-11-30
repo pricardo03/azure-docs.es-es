@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347790"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422260"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
 
@@ -32,7 +32,7 @@ Se recomienda instalar la [Extensión de inicio de sesión seguro de mis aplicac
 Para descargar e instalar la extensión de inicio de sesión seguro de mis aplicaciones, utilice uno de los siguientes vínculos.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 
@@ -75,7 +75,7 @@ Para resolver el error sin la instalación de la Extensión de inicio de sesión
     - Una instrucción que identifica la causa principal del problema.
 2.  Vuelva a Azure AD y busque la hoja **Probar el inicio de sesión único**.
 3.  En el cuadro de texto situado encima de **Get resolution guidance** (Obtener instrucciones para la resolución), pegue el mensaje de error.
-3.  Haga clic en **Get resolution guidance** (Obtener instrucciones para la resolución) para mostrar los pasos para resolver el problema. Las instrucciones pueden requerir información de la solicitud SAML o la respuesta de SAML. Si no usa la Extensión de inicio de sesión seguro de mis aplicaciones, puede que necesite una herramienta como [Fiddler](http://www.telerik.com/fiddler) para recuperar la solicitud y la respuesta de SAML.
+3.  Haga clic en **Get resolution guidance** (Obtener instrucciones para la resolución) para mostrar los pasos para resolver el problema. Las instrucciones pueden requerir información de la solicitud SAML o la respuesta de SAML. Si no usa la Extensión de inicio de sesión seguro de mis aplicaciones, puede que necesite una herramienta como [Fiddler](https://www.telerik.com/fiddler) para recuperar la solicitud y la respuesta de SAML.
 4.  Compruebe que el destino de la solicitud SAML se corresponde con la dirección URL del servicio de inicio de sesión único de SAML obtenido en Azure Active Directory.
 5.  Compruebe que el emisor de la solicitud SAML es el mismo identificador que ha configurado para la aplicación en Azure Active Directory. Azure AD usa al emisor para buscar una aplicación en el directorio.
 6.  Compruebe que AssertionConsumerServiceURL es la dirección en la que la aplicación espera recibir el token SAML de Azure Active Directory. Puede configurar este valor en Azure Active Directory, pero no es obligatorio si forma parte de la solicitud SAML.
@@ -90,7 +90,7 @@ Para resolver el error:
 1. Si la aplicación se encuentra en la galería de Azure AD, compruebe que ha seguido todos los pasos para la integración de la aplicación con Azure AD. Para buscar las instrucciones de integración de la aplicación, consulte la [lista de tutoriales sobre la integración de aplicaciones de SaaS](../saas-apps/tutorial-list.md).
 2. Recupere la respuesta SAML.
     - Si se ha instalado la extensión de inicio de sesión seguro de mis aplicaciones, en la hoja **Probar el inicio de sesión único**, haga clic en **download the SAML response** (Descargar respuesta SAML).
-    - Si no se ha instalado la extensión, use una herramienta como [Fiddler](http://www.telerik.com/fiddler) para recuperar la respuesta SAML. 
+    - Si no se ha instalado la extensión, use una herramienta como [Fiddler](https://www.telerik.com/fiddler) para recuperar la respuesta SAML. 
 3. Observe estos elementos en el token de la respuesta SAML:
     - Identificador único del usuario del valor NameID y formato
     - Notificaciones emitidas en el token

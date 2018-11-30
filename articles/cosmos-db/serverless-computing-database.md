@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623167"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582792"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -124,7 +124,7 @@ Azure Functions ofrece la capacidad de crear unidades de trabajo escalables, o p
 
 Azure Cosmos DB es la base de datos recomendada para la arquitectura de informática sin servidor por los motivos siguientes:
 
-* **Acceso instantáneo a todos los datos**: tiene acceso pormenorizado a cada valor almacenado porque Azure Cosmos DB [indexa automáticamente](indexing-policies.md) todos los datos de manera predeterminada y permite que esos índices estén disponibles de inmediato. Esto significa que puede consultar, actualizar y agregar elementos nuevos constantemente a la base de datos y tiene acceso instantánea vía Azure Functions.
+* **Acceso instantáneo a todos los datos**: tiene acceso pormenorizado a cada valor almacenado porque Azure Cosmos DB [indexa automáticamente](index-policy.md) todos los datos de manera predeterminada y permite que esos índices estén disponibles de inmediato. Esto significa que puede consultar, actualizar y agregar elementos nuevos constantemente a la base de datos y tiene acceso instantánea vía Azure Functions.
 
 * **Sin esquema**. Azure Cosmos DB no tiene esquemas, por lo que es capaz de forma exclusiva de controlar cualquier salida de datos de una instancia de Azure Function. Este enfoque de "controlar todo" permite que el proceso de crear una variedad de instancias de Functions que tengan salida a Azure Cosmos DB sea sencillo.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 7fb69fd52c03300ee554fd903cba1670f2aa2421
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 10b2b6e67c22efaf1dcab2cfe8abdd42b7576dbc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318612"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426074"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
@@ -359,7 +359,7 @@ Para realizar opciones avanzadas de solución de problemas, consulte los archivo
 
 Para obtener una descripción de estos archivos de registro, consulte [Interpretación de los archivos de registro de formato de la base de datos de NPS](https://technet.microsoft.com/library/cc771748.aspx). Las entradas de estos archivos de registro pueden ser difíciles de interpretar sin importarlos en una hoja de cálculo o una base de datos. Puede encontrar varios analizadores de IAS en línea que le ayudarán a interpretar los archivos de registro. 
 
-La imagen siguiente muestra la salida de una [aplicación shareware](http://www.deepsoftware.com/iasviewer) que se puede descargar. 
+La imagen siguiente muestra la salida de una [aplicación shareware](https://www.deepsoftware.com/iasviewer) que se puede descargar. 
 
 ![Aplicación shareware](./media/howto-mfa-nps-extension-rdg/image35.png)
 

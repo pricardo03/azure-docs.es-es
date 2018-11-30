@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231539"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426261"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cuaderno de estrategias de la plantilla de soluciones de Cortana Intelligence para la previsión de la demanda de energía
 ## <a name="executive-summary"></a>Resumen ejecutivo
@@ -122,7 +122,7 @@ Como se puede ver en esta tabla, es muy importante distinguir entre escenarios d
 ### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Caso de uso de ejemplo 1: eSmart Systems (optimización de la sobrecarga)
 Un rol importante de una [red de distribución inteligente de electricidad](https://en.wikipedia.org/wiki/Smart_grid) es optimizar y ajustar de forma dinámica y constante los cambiantes patrones de consumo. El consumo de energía puede verse afectado por los cambios a corto plazo que suelen causar principalmente las fluctuaciones de temperatura (*por ejemplo,*, se usa más electricidad para la calefacción o el aire condición). Al mismo tiempo, el consumo eléctrico también se ve influenciado por las tendencias a largo plazo. Dichas tendencias pueden incluir los efectos de las estacionalidad, los días festivos nacionales, el crecimiento del consumo a largo plazo e incluso factores económicos como el índice de consumo, el precio de petróleo y el PIB.
 
-En este caso de uso, [eSmart](http://www.esmartsystems.com/) deseaba implementar una solución basada en la nube que permitiera predecir la tendencia de una situación de sobrecarga en cualquier subestación dada de la red de distribución de electricidad. En concreto, eSmart deseaba identificar las subestaciones que probablemente se sobrecarguen en la próxima hora, con el fin de poderse tomar una acción inmediata para evitar dicha situación, o resolverla.
+En este caso de uso, [eSmart](https://www.esmartsystems.com/) deseaba implementar una solución basada en la nube que permitiera predecir la tendencia de una situación de sobrecarga en cualquier subestación dada de la red de distribución de electricidad. En concreto, eSmart deseaba identificar las subestaciones que probablemente se sobrecarguen en la próxima hora, con el fin de poderse tomar una acción inmediata para evitar dicha situación, o resolverla.
 
 Una predicción precisa y rápida del funcionamiento requiere la implementación de tres modelos predictivos:
 
@@ -365,7 +365,7 @@ Una vez que se ha determinado la fase de modelado y se ha validado el rendimient
 En el contexto de la previsión de la demanda energética, nuestro objetivo es invocar previsiones periódicas y continuadas, al mismo que nos aseguramos que hay datos nuevos disponibles para el modelo y que los datos de la previsión se devuelven al cliente que los consume.
 
 ### <a name="web-services-deployment"></a>Implementación de servicios web
-El principal bloque de creación que se puede implementar en Aprendizaje automático de Azure es el servicio web. Esta es la manera más eficaz de permitir el consumo de un modelo predictivo en la nube. El servicio web encapsula el modelo con una API (interfaz de programación de aplicaciones) de [RESTful](http://www.restapitutorial.com/) API. La API se puede usar como parte de cualquier código de cliente, como se muestra en el diagrama siguiente.
+El principal bloque de creación que se puede implementar en Aprendizaje automático de Azure es el servicio web. Esta es la manera más eficaz de permitir el consumo de un modelo predictivo en la nube. El servicio web encapsula el modelo con una API (interfaz de programación de aplicaciones) de [RESTful](https://www.restapitutorial.com/) API. La API se puede usar como parte de cualquier código de cliente, como se muestra en el diagrama siguiente.
 
 ![Implementación y consumo de servicio web](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 
