@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 97ca4f69f4bf2aa814d51cc17970c1aead8399e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e8d0522dc4cc218792569498c149b32b3de652cb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414410"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443583"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -43,6 +43,8 @@ Los pasos siguientes proporcionan una visión general sobre el proceso de admini
 5. Implementar los cambios desde el repositorio en la base de datos de configuración del servicio
 
 Este artículo describe cómo habilitar y usar Git para administrar la configuración del servicio y sirve como referencia para los archivos y las carpetas del repositorio Git.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="access-git-configuration-in-your-service"></a>Acceso a la configuración de Git en el servicio
 

@@ -2,25 +2,21 @@
 title: Crear características para datos en un clúster de Hadoop mediante consultas de Hive | Microsoft Docs
 description: Ejemplos de consultas de Hive que generan características en datos almacenados en un clúster de Hadoop de HDInsight de Azure.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 97283b75b24cbdaf40e7dffd05d9826ce7e88af4
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: f63e1aeaca6e19eacb10ed7dc68d311234a31666
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344916"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444553"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creación de características para los datos en un clúster de Hadoop mediante consultas de Hive
 Este documento muestra cómo crear características para los datos almacenados en un clúster de Hadoop para HDInsight de Azure mediante consultas de Hive. Estas consultas de Hive usan funciones definidas por el usuario (UDF) insertadas, cuyos scripts se proporcionan.
@@ -29,7 +25,7 @@ Las operaciones necesarias para crear características pueden consumir mucha mem
 
 También se ofrecen ejemplos de las consultas que son específicos de escenarios de [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) en el [repositorio de GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución. En la última sección, también se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de Hive.
 
-Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ha:

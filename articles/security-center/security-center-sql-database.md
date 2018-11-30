@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: d8be831469659993da4f9f392e23b9408eb283e3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 2b16bc98c456c9c85d8e49e01171086933533707
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302227"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312636"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Servicios Azure Security Center y Azure SQL Database
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) ayuda a evita y a detectar las amenazas, además de a responder a ellas. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
@@ -60,7 +60,7 @@ Puede establecer una directiva para mostrar recomendaciones de cifrado de datos 
 Para establecer una directiva de seguridad, haga clic en el icono de **Directiva** de la hoja Security Center. En la hoja **Directiva de seguridad**, seleccione la suscripción en la que quiera habilitar la directiva de seguridad. Seleccione **Directiva de prevención** y **active** las recomendaciones de seguridad que quiera usar en esta suscripción.
 ![Directiva de seguridad][3]
 
-Para obtener más información, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md).
+Para obtener más información, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md).
 
 ## <a name="manage-security-recommendation"></a>Administración de recomendaciones de seguridad
 El Centro de seguridad analiza periódicamente el estado de seguridad de los recursos de Azure. Cuando el Centro de seguridad identifica vulnerabilidades de seguridad potenciales, crea recomendaciones. Las recomendaciones le guían en el proceso de configuración de los controles necesarios.
@@ -85,7 +85,7 @@ Siga los pasos de [SQL Database Threat Detection in the Azure portal](../sql-dat
 Para obtener más información sobre las recomendaciones, consulte el artículo sobre cómo [administrar recomendaciones de seguridad](security-center-recommendations.md).
 
 ## <a name="monitor-security-health"></a>Supervisión del estado de la seguridad
-Después de habilitar las [directivas de seguridad](security-center-policies.md) para los recursos de una suscripción, Security Center analizará la seguridad de los recursos para identificar vulnerabilidades potenciales.  Puede consultar el estado de seguridad de sus recursos en el icono de **Estado de seguridad del recurso**. Al hacer clic en la opción **Datos** del icono de **Estado de seguridad del recurso**, se abrirá la hoja de **recursos de datos** con recomendaciones de SQL para problemas como que no estén habilitados la auditoría ni el cifrado de datos transparente. También tiene las recomendaciones sobre el estado general de la base de datos.
+Después de habilitar las [directivas de seguridad](security-center-azure-policy.md) para los recursos de una suscripción, Security Center analizará la seguridad de los recursos para identificar vulnerabilidades potenciales.  Puede consultar el estado de seguridad de sus recursos en el icono de **Estado de seguridad del recurso**. Al hacer clic en la opción **Datos** del icono de **Estado de seguridad del recurso**, se abrirá la hoja de **recursos de datos** con recomendaciones de SQL para problemas como que no estén habilitados la auditoría ni el cifrado de datos transparente. También tiene las recomendaciones sobre el estado general de la base de datos.
 ![Estado de seguridad de los recursos][6]
 
 Para obtener más información, consulte el artículo sobre cómo [supervisar el estado de seguridad](security-center-monitoring.md).

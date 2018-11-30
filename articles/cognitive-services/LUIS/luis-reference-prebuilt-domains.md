@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040047"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335630"
 ---
 # <a name="prebuilt-domain-reference"></a>Referencia de dominio creado previamente
 Esta referencia ofrece información sobre los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md), que son colecciones creadas previamente de intenciones y entidades que LUIS ofrece.
@@ -27,27 +27,27 @@ LUIS ofrece veinte dominios creados previamente.
 
 | Dominio creado previamente | DESCRIPCIÓN | Idiomas admitidos |
 | ---------------- |-----------------------|:------:|
-| Calendario | El dominio del calendario ofrece intenciones y entidades para agregar, eliminar o editar una cita, comprobar la disponibilidad de los participantes y encontrar información sobre un evento de calendario.| es-ES<br/> zh-CN |
-| Cámara | El dominio de la cámara ofrece intenciones y entidades para captar imágenes, grabar vídeos y difundir vídeos a una aplicación.| es-ES |
-| Comunicación | Envío de mensajes y realización de llamadas telefónicas.| es-ES <br/> zh-CN |
-| Entretenimiento  | Control de consultas relacionadas con música, películas y TV.| es-ES |
-| Eventos | Reservar entradas para conciertos, festivales, eventos deportivos y espectáculos de comedia.| es-ES |
-| Fitness | Control de solicitudes relacionadas con la supervisión de actividades de fitness.| es-ES |
-| Juegos | Control de solicitudes relacionadas con una partida de un juego multijugador.| es-ES |
-| HomeAutomation | Control de dispositivos domésticos inteligentes, como las luces y los electrodomésticos.| es-ES<br/> zh-CN |
-| MovieTickets | Reserva de entradas para ver películas en el cine.| es-ES |
-| Música | Reproducción de música en un reproductor.| es-ES<br/> zh-CN |
-| Nota: | El dominio de notas ofrece intenciones y entidades relacionadas con la creación, edición y búsqueda de notas.| es-ES<br/> zh-CN |
-| OnDevice | El dominio OnDevice ofrece intenciones y entidades relacionadas con el control del dispositivo.| es-ES<br/> zh-CN |
-| Lugares  | Control de consultas relacionadas con lugares, como empresas, instituciones, restaurantes, espacios públicos y direcciones.| es-ES<br/> zh-CN |
-| Reminder | Control de solicitudes relacionadas con la creación, edición y búsqueda de recordatorios.| es-ES<br/> zh-CN |
-| RestaurantReservation | Control de solicitudes para administrar reservas en restaurantes.| es-ES<br/> zh-CN |
-| Taxi | Control de reservas de un taxi.| es-ES<br/> zh-CN |
-| Traducir | Traducción de texto a otro idioma.| es-ES<br/> zh-CN |
-| TV | Control de TV.| es-ES |
-| Sectores públicos  | Control de solicitudes que son comunes en muchos dominios, como "ayuda", "repetir" o "volver a empezar".| es-ES |
-| Tiempo | Obtener informes y previsiones meteorológicos.| es-ES<br/> zh-CN |
-| Web | Navegar a un sitio web.| es-ES<br/> zh-CN |
+| Calendario | El dominio del calendario ofrece intenciones y entidades para agregar, eliminar o editar una cita, comprobar la disponibilidad de los participantes y encontrar información sobre un evento de calendario.| en-US<br/> zh-CN |
+| Cámara | El dominio de la cámara ofrece intenciones y entidades para captar imágenes, grabar vídeos y difundir vídeos a una aplicación.| en-US |
+| Comunicación | Envío de mensajes y realización de llamadas telefónicas.| en-US <br/> zh-CN |
+| Entretenimiento  | Control de consultas relacionadas con música, películas y TV.| en-US |
+| Eventos | Reservar entradas para conciertos, festivales, eventos deportivos y espectáculos de comedia.| en-US |
+| Fitness | Control de solicitudes relacionadas con la supervisión de actividades de fitness.| en-US |
+| Juegos | Control de solicitudes relacionadas con una partida de un juego multijugador.| en-US |
+| HomeAutomation | Control de dispositivos domésticos inteligentes, como las luces y los electrodomésticos.| en-US<br/> zh-CN |
+| MovieTickets | Reserva de entradas para ver películas en el cine.| en-US |
+| Música | Reproducción de música en un reproductor.| en-US<br/> zh-CN |
+| Nota: | El dominio de notas ofrece intenciones y entidades relacionadas con la creación, edición y búsqueda de notas.| en-US<br/> zh-CN |
+| OnDevice | El dominio OnDevice ofrece intenciones y entidades relacionadas con el control del dispositivo.| en-US<br/> zh-CN |
+| Lugares  | Control de consultas relacionadas con lugares, como empresas, instituciones, restaurantes, espacios públicos y direcciones.| en-US<br/> zh-CN |
+| Reminder | Control de solicitudes relacionadas con la creación, edición y búsqueda de recordatorios.| en-US<br/> zh-CN |
+| RestaurantReservation | Control de solicitudes para administrar reservas en restaurantes.| en-US<br/> zh-CN |
+| Taxi | Control de reservas de un taxi.| en-US<br/> zh-CN |
+| Traducir | Traducción de texto a otro idioma.| en-US<br/> zh-CN |
+| TV | Control de TV.| en-US |
+| Sectores públicos  | Control de solicitudes que son comunes en muchos dominios, como "ayuda", "repetir" o "volver a empezar".| en-US |
+| Tiempo | Obtener informes y previsiones meteorológicos.| en-US<br/> zh-CN |
+| Web | Navegar a un sitio web.| en-US<br/> zh-CN |
 
 Para obtener más detalles sobre cada dominio, vea las secciones siguientes.
 

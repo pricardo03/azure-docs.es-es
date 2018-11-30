@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c330171f0c85bce6451b8f342203e2eeeccb3c5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798702"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425149"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
 
-Azure Cosmos DB proporciona una [API de SQL para consultar datos](sql-api-sql-query.md), sin necesidad de índices de esquema o secundarios. En este artículo se proporciona la siguiente información para los desarrolladores:
+Azure Cosmos DB proporciona una [API de SQL para consultar datos](how-to-sql-query.md), sin necesidad de índices de esquema o secundarios. En este artículo se proporciona la siguiente información para los desarrolladores:
 
 * Detalles de alto nivel sobre cómo funciona la ejecución de consultas SQL de Azure Cosmos DB
 * Detalles sobre cómo consultar encabezados de solicitud y respuesta y opciones del SDK de cliente
@@ -218,7 +218,7 @@ Para saber cómo configurar la distribución global y conectarse a la región m�
 La sección sobre métricas de ejecución de consultas explica cómo recuperar el tiempo de ejecución del servidor de consultas ( `totalExecutionTimeInMs`), de modo que pueda diferenciar entre el tiempo invertido en la ejecución de la consulta y el tiempo empleado en el tránsito de la red.
 
 ### <a name="indexing-policy"></a>Directiva de indexación
-Para información sobre las rutas de indexación, las clases y los modos y cómo afectan a la ejecución de consultas, consulte [Configuración de la directiva de indexación](indexing-policies.md). De forma predeterminada, la directiva de indexación usa la indexación de valores hash para las cadenas, que resulta eficaz para las consultas de igualdad, aunque no así para las consultas de intervalo y las consultas ORDER BY. Si tiene consultas de intervalo para las cadenas, se recomienda especificar el tipo de índice de intervalo para todas las cadenas. 
+Para información sobre las rutas de indexación, las clases y los modos y cómo afectan a la ejecución de consultas, consulte [Configuración de la directiva de indexación](index-policy.md). De forma predeterminada, la directiva de indexación usa la indexación de valores hash para las cadenas, que resulta eficaz para las consultas de igualdad, aunque no así para las consultas de intervalo y las consultas ORDER BY. Si tiene consultas de intervalo para las cadenas, se recomienda especificar el tipo de índice de intervalo para todas las cadenas. 
 
 ## <a name="query-execution-metrics"></a>Métricas de ejecución de consultas
 Para obtener métrica detalladas sobre la ejecución de consultas, pase el encabezado opcional `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` en el SDK de .NET). El valor devuelto en `x-ms-documentdb-query-metrics` tiene los siguientes pares de clave-valor pensados para la solución avanzada de problemas de la ejecución de consultas. 
@@ -274,8 +274,8 @@ Estos son algunos ejemplos de consultas y cómo interpretar algunas de las métr
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para conocer los operadores de consulta y palabras clave SQL admitidos, consulte [Consultas SQL](sql-api-sql-query.md). 
+* Para conocer los operadores de consulta y palabras clave SQL admitidos, consulte [Consultas SQL](how-to-sql-query.md). 
 * Para aprender más sobre las unidades de solicitud, consulte [Unidades de solicitud](request-units.md).
-* Para aprender más sobre la directiva de indexación, consulte [Directiva de indexación](indexing-policies.md) 
+* Para aprender más sobre la directiva de indexación, consulte [Directiva de indexación](index-policy.md) 
 
 

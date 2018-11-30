@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666951"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584159"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumen de las características de solicitud de datos de cliente
 
@@ -39,9 +39,9 @@ Para obtener más información, consulte [Administración de inscripciones de di
 
 También se pueden realizar operaciones para eliminar inscripciones y datos de registros mediante las API de REST:
 
-* Para eliminar la información de inscripción de un único dispositivo, puede usar [Device Enrollment - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete) (Inscripción de dispositivos: Eliminar).
-* Para eliminar la información de inscripción de un grupo de dispositivos, puede usar [Device Enrollment Group - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete) (Grupo de inscripción de dispositivos: Eliminar).
-* Para eliminar la información sobre los dispositivos que se hayan aprovisionado, puede usar [Registration State - Delete Registration State](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate) (Estado de registro: Eliminar estado de registro).
+* Para eliminar la información de inscripción de un único dispositivo, puede usar [Device Enrollment - Delete](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment) (Inscripción de dispositivos: Eliminar).
+* Para eliminar la información de inscripción de un grupo de dispositivos, puede usar [Device Enrollment Group - Delete](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup) (Grupo de inscripción de dispositivos: Eliminar).
+* Para eliminar la información sobre los dispositivos que se hayan aprovisionado, puede usar [Registration State - Delete Registration State](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate) (Estado de registro: Eliminar estado de registro).
 
 ## <a name="exporting-customer-data"></a>Exportación de los datos de cliente
 
@@ -53,9 +53,9 @@ Consulte [Administración de inscripciones de dispositivos con Azure Portal](how
 
 También es posible realizar operaciones de exportación para inscripciones y datos de registro a través de las API de REST:
 
-* Para exportar la información de inscripción de un único dispositivo, puede usar [Device Enrollment - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get) (Inscripción de dispositivos: Obtener).
-* Para exportar la información de inscripción de un grupo de dispositivos, puede usar [Device Enrollment Group - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get) (Grupo de inscripción de dispositivos: Obtener).
-* Para eliminar la información sobre los dispositivos que se hayan aprovisionado, puede usar [Registration State - Get Registration State](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate) (Estado de registro: Eliminar estado de registro).
+* Para exportar la información de inscripción de un único dispositivo, puede usar [Device Enrollment - Get](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment) (Inscripción de dispositivos: Obtener).
+* Para exportar la información de inscripción de un grupo de dispositivos, puede usar [Device Enrollment Group - Get](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup) (Grupo de inscripción de dispositivos: Obtener).
+* Para eliminar la información sobre los dispositivos que se hayan aprovisionado, puede usar [Registration State - Get Registration State](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate) (Estado de registro: Eliminar estado de registro).
 
 > [!NOTE]
 > Cuando se usan servicios para empresas de Microsoft, Microsoft genera cierta información, conocida como registros generados por el sistema. Los administradores de inquilinos no pueden acceder a ciertos registros generados por el sistema de Device Provisioning Service ni exportarlos. Estos registros constituyen acciones objetivas que se realizan en el servicio y datos de diagnóstico relacionados con dispositivos individuales.

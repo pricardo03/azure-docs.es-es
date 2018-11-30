@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: d462ba0955a362c27b786ee6a5670eec20c52a22
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e1dec182f09eccebfe03ab9727018dbf34128acd
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206426"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275255"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Supervisión de diagnósticos y rendimiento de Reliable ServiceRemoting
 El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores de rendimiento](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estos ofrecen información sobre cómo está funcionando Reliable ServiceRemoting y le ayudarán con la solución de problemas y la supervisión de rendimiento.
@@ -100,5 +100,5 @@ Cuando un cliente invoca un método a través de un objeto de proxy de servicio,
 | Servicio de Service Fabric |Promedio de milisegundos para la deserialización de una respuesta |Tiempo necesario (en milisegundos) para serializar el mensaje de respuesta de servicio en el servicio antes de que la respuesta se envíe al cliente |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
+* [Código de ejemplo](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric&sort=0)
 * [Proveedores de EventSource en PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

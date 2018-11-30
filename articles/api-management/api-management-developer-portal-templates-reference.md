@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0f339984a9db1a337f97e6db24571004cc34f679
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26128756"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445487"
 ---
 # <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores
 
@@ -27,11 +27,13 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).  
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ##  <a name="DeveloperPortalTemplates"></a>Plantillas del portal para desarrolladores  
   
 -   [API](api-management-api-templates.md)  
     -   [API list](api-management-api-templates.md#APIList)  
-    -   [Operación](api-management-api-templates.md#Product)  
+    -   [operación](api-management-api-templates.md#Product)  
     -   [Ejemplos de código](api-management-api-templates.md#CodeSamples)  
         -   [Curl](api-management-api-templates.md#Curl)  
         -   [C#](api-management-api-templates.md#CSharp)  
@@ -52,7 +54,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 -   [Perfil de usuario](api-management-user-profile-templates.md)  
     -   [Perfil](api-management-user-profile-templates.md#Profile)  
     -   [Subscriptions](api-management-user-profile-templates.md#Subscriptions)  
-    -   [Applications](api-management-user-profile-templates.md#Applications)  
+    -   [Aplicaciones](api-management-user-profile-templates.md#Applications)  
     -   [Update account info](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [Pages](api-management-page-templates.md)  
     -   [Sign in](api-management-page-templates.md#SignIn)  

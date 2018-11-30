@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a5deccbe87bc8de6f6438259c2a43cc4618c24ab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016716"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633153"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Conexión de Configuration Manager con Log Analytics
 Puede conectar el entorno de System Center Configuration Manager a Azure Log Analytics para sincronizar los datos de recopilación del dispositivo y hacer referencia a estas recopilaciones en Log Analytics y Azure Automation.  
@@ -57,7 +57,7 @@ En el procedimiento siguiente, concede el rol *Colaborador* del área de trabajo
 6. En la lista desplegable **Asignar acceso a**, seleccione la aplicación de Configuration Manager que creó en AD anteriormente y, a continuación, haga clic en **Aceptar**.  
 
 ## <a name="download-and-install-the-agent"></a>Descarga e instalación del agente
-Revise el artículo [Conexión de equipos Windows al servicio Log Analytics de Azure](log-analytics-agent-windows.md) para entender los métodos disponibles a la hora de instalar Microsoft Monitoring Agent en el equipo que hospeda el rol del sistema de sitio de punto de conexión del servicio Configuration Manager.  
+Revise el artículo [Conexión de equipos Windows al servicio Log Analytics de Azure](../azure-monitor/platform/agent-windows.md) para entender los métodos disponibles a la hora de instalar Microsoft Monitoring Agent en el equipo que hospeda el rol del sistema de sitio de punto de conexión del servicio Configuration Manager.  
 
 ## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Agregar una conexión de Log Analytics a Configuration Manager
 Para agregar una conexión de Log Analytics, el entorno de Configuration Manager necesita tener un [punto de conexión de servicio](https://technet.microsoft.com/library/mt627781.aspx) configurado para el modo en línea.

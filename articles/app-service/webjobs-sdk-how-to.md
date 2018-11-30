@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577018"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335221"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -462,7 +462,7 @@ Le recomendamos que eche un vistazo a la plataforma de registro que se desarroll
 
 ### <a name="log-filtering"></a>Filtrado de registros
 
-Cada registro que creó una instancia `ILogger` tiene asociados los valores `Category` y `Level`. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) es una enumeración y el código entero indica la importancia relativa:
+Cada registro que creó una instancia `ILogger` tiene asociados los valores `Category` y `Level`. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) es una enumeración y el código entero indica la importancia relativa:
 
 |LogLevel    |Código|
 |------------|---|
@@ -474,7 +474,7 @@ Cada registro que creó una instancia `ILogger` tiene asociados los valores `Cat
 |Crítico    | 5 |
 |None        | 6 |
 
-Cada categoría se puede filtrar por separado a un elemento [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel) determinado. Por ejemplo, es posible que quiera ver todos los registros referentes al procesamiento del desencadenador de blobs, pero solo el valor `Error` y superiores para todo lo demás.
+Cada categoría se puede filtrar por separado a un elemento [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) determinado. Por ejemplo, es posible que quiera ver todos los registros referentes al procesamiento del desencadenador de blobs, pero solo el valor `Error` y superiores para todo lo demás.
 
 Para que sea más fácil especificar las reglas de filtrado, el SDK de WebJobs ofrece `LogCategoryFilter`, que se puede pasar a varios proveedores de registro ya existentes, incluyendo Application Insights y Console.
 

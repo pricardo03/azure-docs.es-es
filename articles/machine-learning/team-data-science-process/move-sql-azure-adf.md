@@ -2,25 +2,21 @@
 title: Movimiento de datos desde un servidor SQL Server local hasta SQL Azure con Azure Data Factory de Azure | Microsoft Docs
 description: Configure una canalización de ADF que componga dos actividades de migración de datos que se combinen para mover datos diariamente entre bases de datos locales y de nube.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 36837c83-2015-48be-b850-c4346aa5ae8a
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 0afa8d92aaa60cd70f378595054506c8e9f7daee
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: bddb54d9a00c5ec88fcebe498d7f959c0f8e3dbf
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344695"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447043"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Movimiento de datos desde un servidor SQL Server local hasta SQL Azure con Azure Data Factory
 

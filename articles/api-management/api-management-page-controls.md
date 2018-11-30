@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: da68c9b7ebbb1880e35bd60b12db9f920f51e13c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936174"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445369"
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página de Azure API Management
 Azure API Management proporciona los siguientes controles para su uso en las plantillas del portal para desarrolladores.  
@@ -31,7 +31,9 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
   
  Los valores de los parámetros se pasan como parte del modelo de datos de la plantilla. En la mayoría de los casos, puede pegarlos simplemente en el ejemplo proporcionado para cada control para que funcione correctamente. Para más información sobre los valores de parámetros, puede ver la sección del modelo de datos de cada plantilla en la que se puede usar un control.  
   
- Para obtener más información sobre el trabajo con plantillas, consulte [Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ## <a name="developer-portal-template-page-controls"></a>Controles de página de las plantillas del portal para desarrolladores  
   
@@ -57,14 +59,14 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
   
 ### <a name="parameters"></a>Parámetros  
   
-|.|DESCRIPCIÓN|  
+|Parámetro|DESCRIPCIÓN|  
 |---------------|-----------------|  
 |appId|Identificador de la aplicación.|  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
  El control `app-actions` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
--   [Applications](api-management-user-profile-templates.md#Applications)  
+-   [Aplicaciones](api-management-user-profile-templates.md#Applications)  
   
 ##  <a name="basic-signin"></a> basic-signin  
  El control `basic-signin` ofrece un control para la recolección de información de inicio de sesión del usuario en la página de inicio de sesión del portal para desarrolladores.  
@@ -201,7 +203,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
   
 ### <a name="parameters"></a>Parámetros  
   
-|.|DESCRIPCIÓN|  
+|Parámetro|DESCRIPCIÓN|  
 |---------------|-----------------|  
 |subscriptionId|Identificador de la suscripción para cancelar.|  
 |cancelUrl|Dirección URL de cancelación de la suscripción.|  

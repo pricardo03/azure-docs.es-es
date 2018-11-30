@@ -1,3 +1,16 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: rogarana
+ms.openlocfilehash: aa701ada917811382351fee9469a5cfa9a7599b8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279935"
+---
 Una máquina virtual de Azure admite la conexión de varios discos de datos. En este artículo, se describen los objetivos de escalabilidad y rendimiento de los discos de datos de la máquina virtual. Use estos destinos para decidir el número y tipo de disco que necesita para satisfacer sus necesidades de capacidad y rendimiento. 
 
 > [!IMPORTANT]
@@ -7,13 +20,12 @@ Una máquina virtual de Azure admite la conexión de varios discos de datos. En 
 
 > | Recurso | Límite predeterminado | Límite máximo |
 > | --- | --- | --- |
-> | Discos administrados estándar | 10.000 | 50.000 |
-> | Managed Disks SSD Estándar | 10.000 | 50.000 |
-> | Managed Disks Premium | 10.000 | 50.000 |
-> | Instantáneas Standard_LRS | 10.000 | 50.000 |
-> | Instantáneas Standard_ZRS | 10.000 | 50.000 |
-> | Instantáneas Premium_LRS | 10.000 | 50.000 |
-> | Imagen administrada | 10.000 | 50.000 |
+> | Discos administrados estándar | 10 000 | 50.000 |
+> | Managed Disks SSD Estándar | 10 000 | 50.000 |
+> | Managed Disks Premium | 10 000 | 50.000 |
+> | Instantáneas Standard_LRS | 10 000 | 50.000 |
+> | Instantáneas Standard_ZRS | 10 000 | 50.000 |
+> | Imagen administrada | 10 000 | 50.000 |
 
 * **En el caso de cuentas de almacenamiento estándar:** una cuenta de almacenamiento estándar tiene una tasa total máxima de solicitudes de 20 000 E/S por segundo. El número total de E/S por segundo en todos los discos de máquina virtual de una cuenta de almacenamiento estándar no debe superar este límite.
   

@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: df680469541885ab6413800ee3b9806975e34dba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258670"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582461"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB
 
@@ -236,7 +236,7 @@ Antes de cerrar el Diseñador de aplicaciones lógicas, copie la dirección URL 
 
 En esta sección, va a configurar IoT Hube para publicar eventos cuando se produzcan. 
 
-1. En Azure Portal, navegue hasta el centro de IoT. 
+1. En Azure Portal, vaya hasta el centro de IoT. 
 
 2. Seleccione **Eventos**.
 
@@ -315,7 +315,7 @@ Puede ver los resultados del procedimiento almacenado ejecutado en el documento 
 
 ## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
-En lugar de usar [Azure Portal](http://portal.azure.com), puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](https://docs.microsoft.com/cli/azure/iot/device).
+En lugar de usar [Azure Portal](http://portal.azure.com), puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

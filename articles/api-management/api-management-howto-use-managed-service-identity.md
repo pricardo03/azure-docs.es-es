@@ -11,16 +11,18 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 98aa70935a3efbbe2edb07aade85fa3ea17ce786
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 38c54995c5db90df11e57181e21347bee43a439a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150437"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445829"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Uso de Azure Managed Service Identity en Azure API Management
 
 En este artículo se muestra cómo crear una identidad de servicio administrada para una instancia de servicio de API Management y cómo acceder a otros recursos. Una identidad de servicio administrada generada por Azure Active Directory (Azure AD) permite a la instancia de API Management acceder de forma fácil y segura a otros recursos protegidos de Azure AD, como Azure Key Vault. Esta identidad de servicio administrada está administrada por Azure y no requiere que aprovisione o rote los secretos. Para más información sobre Azure Managed Service Identity, vea [Managed Service Identity (MSI) para recursos de Azure](../active-directory/msi-overview.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>Creación de una identidad de servicio administrada para una instancia de API Management
 
@@ -85,21 +87,21 @@ Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el a
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Obtención de un certificado en Azure Key Vault
 
-#### <a name="prerequisites"></a>requisitos previos
+#### <a name="prerequisites"></a>Requisitos previos
 1. El almacén de claves que contiene los certificados pfx debe estar en la misma suscripción de Azure y el mismo grupo de recursos que el servicio API Management. Se trata de un requisito de la plantilla de Azure Resource Manager. 
 2. El tipo de contenido del secreto debe ser *application/x-pkcs12*. Puede usar el siguiente script para cargar el certificado:
 
 ```powershell
-$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
-$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
-$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
-$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
-$collection.Import($pfxFilePath, $pwd, $flag) 
-$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
-$clearBytes = $collection.Export($pkcs12ContentType) 
-$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
-$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
-$secretContentType = 'application/x-pkcs12' 
+$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
+$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
+$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
+$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
+$collection.Import($pfxFilePath, $pwd, $flag) 
+$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
+$clearBytes = $collection.Export($pkcs12ContentType) 
+$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
+$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
+$secretContentType = 'application/x-pkcs12' 
 Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -SecretValue $Secret -ContentType $secretContentType
 ```
 

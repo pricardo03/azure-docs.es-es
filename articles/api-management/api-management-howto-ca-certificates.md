@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9d3399ba6ee724d91117486744ad1431f53edbce
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053074"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444703"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Incorporación de un certificado de entidad de certificación personalizado a Azure API Management
 
 Azure API Management permite instalar los certificados de entidad de certificación en la máquina dentro de los almacenes de certificados intermedio y raíz de confianza. Esta funcionalidad debe usarse si los servicios requieren un certificado de entidad de certificación personalizado.
 
 En este artículo se muestra cómo administrar certificados de entidad de certificación de una instancia del servicio Azure API Management en Azure Portal.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>Carga de un certificado de entidad de certificación
 

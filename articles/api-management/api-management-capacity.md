@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 4983854a14a6efe9214692dc677dedeada73933b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 31959cc1bef6b6434f6d3f586052a845837aa438
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296802"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442598"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidad de una instancia de Azure API Management
 
@@ -24,7 +24,7 @@ La **capacidad** la [métrica de Azure Monitor](api-management-howto-use-azure-m
 
 En este artículo se explica lo que es la **capacidad** y su comportamiento. Muestra cómo acceder a la métrica de **capacidad** en Azure Portal y sugiere cuándo hay que considerar la posibilidad de escalar o actualizar una instancia de API Management.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir los pasos de este artículo, debe tener:
 
@@ -33,6 +33,8 @@ Para seguir los pasos de este artículo, debe tener:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + Una instancia de APIM. Para más información, vea [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="what-is-capacity"></a>¿Qué es la capacidad?
 

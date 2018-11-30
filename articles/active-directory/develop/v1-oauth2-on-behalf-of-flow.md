@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: ab9f2638de6f74944eb27f024be3000209554cdf
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345143"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422752"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios que usan la identidad de usuarios delegada en el flujo de On-Behalf-Of
 
@@ -181,7 +181,7 @@ Una respuesta correcta es una respuesta de OAuth 2.0 de JSON con los parámetros
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
-| token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para obtener más información sobre los tokens de portador, vea [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) [Marco de autorización de OAuth 2.0: uso del token de portador (RFC 6750)]. |
+| token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para obtener más información sobre los tokens de portador, vea [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) [Marco de autorización de OAuth 2.0: uso del token de portador (RFC 6750)]. |
 | ámbito |Ámbito de acceso concedido en el token. |
 | expires_in |Período de validez del token de acceso (en segundos). |
 | expires_on |La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché. |
@@ -272,7 +272,7 @@ La respuesta contiene un token SAML codificado con UTF8 y Base64url.
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
-| token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para obtener más información sobre los tokens de portador, consulte [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)[Marco de autorización de OAuth2.0: uso del token de portador (RFC 6750)]. |
+| token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para obtener más información sobre los tokens de portador, consulte [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)[Marco de autorización de OAuth2.0: uso del token de portador (RFC 6750)]. |
 | ámbito |Ámbito de acceso concedido en el token. |
 | expires_in |Período de validez del token de acceso (en segundos). |
 | expires_on |La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché. |

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
-ms.locfileid: "29345377"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446386"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado 
 
@@ -25,7 +25,7 @@ Cuando se crea una instancia de API Management (APIM), Azure la asigna a un subd
 > [!WARNING]
 > Los clientes que deseen usar la asignación de certificados para mejorar la seguridad de sus aplicaciones deben usar un nombre de dominio personalizado > y el certificado que administran, no el certificado predeterminado. Los clientes que asignen el certificado predeterminado en su lugar tendrán > una gran dependencia de las propiedades del certificado que no controlen, no siendo esto una práctica recomendada.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -36,6 +36,8 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 + Una instancia de APIM. Para más información, consulte [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 + Nombre de dominio personalizado que sea de su propiedad. El nombre de dominio personalizado que desee usar debe adquirirse por separado y hospedarse en un servidor DNS. Este tema no contiene instrucciones acerca de cómo hospedar un nombre de dominio personalizado.
 + Debe tener un certificado válido con una clave pública y privada (. PFX). El firmante o el nombre alternativo del firmante (SAN) debe coincidir con el nombre de dominio; de este modo, APIM puede exponer de forma segura direcciones URL a través de SSL.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Uso de Azure Portal para configurar un nombre de dominio personalizado
 
@@ -63,6 +65,6 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Actualización y escalado del servicio](upgrade-and-scale.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740389"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262081"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Gobierno de la infraestructura de Azure DevTest Labs: recursos
 Este artículo aborda la alineación y la administración de recursos de DevTest Labs dentro de su organización. 
@@ -35,7 +35,7 @@ Antes de que una organización empiece a usar Azure para desarrollo de aplicacio
 - ¿La segmentación es necesaria para separar los entornos de producción y desarrollo? 
 - ¿Qué controles se introducen para facilitar la administración, la estabilidad y el crecimiento a largo plazo?
 
-La **primera práctica recomendada** consiste en revisar la taxonomía de Azure de las organizaciones donde se describen las divisiones entre las suscripciones de desarrollo y producción. En el diagrama siguiente, la taxonomía sugerida permite una separación lógica de los entornos de desarrollo y pruebas y producción. Con este enfoque, una organización puede introducir códigos de facturación para realizar un seguimiento de los costos asociados con cada entorno por separado. Para más información, vea [Gobierno de suscripción prescriptivo](/architecture/cloud-adoption/appendix/azure-scaffold). Además, puede usar [etiquetas de Azure](../azure-resource-manager/resource-group-using-tags.md) para organizar recursos para fines de facturación y seguimiento.
+La **primera práctica recomendada** consiste en revisar la taxonomía de Azure de las organizaciones donde se describen las divisiones entre las suscripciones de desarrollo y producción. En el diagrama siguiente, la taxonomía sugerida permite una separación lógica de los entornos de desarrollo y pruebas y producción. Con este enfoque, una organización puede introducir códigos de facturación para realizar un seguimiento de los costos asociados con cada entorno por separado. Para más información, vea [Gobierno de suscripción prescriptivo](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Además, puede usar [etiquetas de Azure](../azure-resource-manager/resource-group-using-tags.md) para organizar recursos para fines de facturación y seguimiento.
 
 La **segunda práctica recomendada** consiste en habilitar la suscripción a DevTest dentro del portal de Azure Enterprise. Permite que una organización ejecute sistemas operativos cliente que no están disponibles normalmente en una suscripción de Azure Enterprise. A continuación, use software empresarial donde solo paga por el proceso sin tener que preocuparse por las licencias. Esto garantiza que la facturación por servicios designados, incluidas las imágenes de la galería en IaaS, como Microsoft SQL Server, se base solo en el consumo. Puede encontrar detalles sobre la suscripción de Azure DevTest [aquí](https://azure.microsoft.com/offers/ms-azr-0148p/) para los clientes con Contrato Enterprise (EA) y [aquí](https://azure.microsoft.com/offers/ms-azr-0023p/) para los clientes de pago por uso.
 

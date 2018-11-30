@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: c37492a42322ffc386751c4c63b981c9d93a72f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 8ff99b8c5cf839afb8c8e73c18c2c413998ba64a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633383"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261725"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -83,7 +83,7 @@ La diferencia de funcionalidades admitidas entre los niveles Basic y Estándar d
 | [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | SÍ | SÍ |
 | Enviar eventos de módulo | SÍ | SÍ |
 | [Actualizar estado de la carga de archivo](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | SÍ | SÍ |
-| [Operación de dispositivos en bloque](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | Sí, excepto las funcionalidades de IoT Edge | SÍ | 
+| [Operación de dispositivos en bloque](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentoperation) | Sí, excepto las funcionalidades de IoT Edge | SÍ | 
 | [Purgar cola de comandos](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | SÍ |
 | [Obtener dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | SÍ |
 | Obtener módulo gemelo |   | SÍ |

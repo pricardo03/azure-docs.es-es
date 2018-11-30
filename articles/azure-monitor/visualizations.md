@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7a3545e3fdf37f33db4c3b77be6cf6d5db0f6aef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4200accee94840a8a4455308f24a857fd5d7034a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973582"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632983"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
-En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos almacenados en Azure Monitor. Esto incluye las [métricas del almacén de métricas de Azure](../monitoring/monitoring-data-collection.md#metrics) y los [datos de registro de Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
+En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos almacenados en Azure Monitor. Esto incluye las [métricas del almacén de métricas de Azure](../azure-monitor/platform/data-collection.md#metrics) y los [datos de registro de Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
 
 Visualizaciones como gráficos y diagramas pueden ayudarlo a analizar los datos de supervisión para explorar en profundidad los problemas e identificar patrones. Según la herramienta que utilice, es posible que también tenga la opción de compartir visualizaciones con otros usuarios dentro y fuera de su organización.
 
@@ -50,7 +50,7 @@ Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnol
 - Exploración en profundidad contextual limitada.
 
 ## <a name="azure-monitor-views"></a>Vistas de Azure Monitor
-Las [vistas de Azure Monitor](../log-analytics/log-analytics-view-designer.md) le permiten crear visualizaciones personalizadas con datos de registro almacenados en Log Analytics. Las [soluciones de supervisión](../monitoring/monitoring-solutions.md) las utilizan para presentar los datos recopilados.
+Las [vistas de Azure Monitor](../azure-monitor/platform/view-designer.md) le permiten crear visualizaciones personalizadas con datos de registro almacenados en Log Analytics. Las [soluciones de supervisión](../azure-monitor/insights/solutions.md) las utilizan para presentar los datos recopilados.
 
 ![Ver](media/visualizations/view.png)
 
@@ -58,7 +58,7 @@ Las [vistas de Azure Monitor](../log-analytics/log-analytics-view-designer.md) l
 - Visualizaciones enriquecidas para los datos de Log Analytics.
 - Exporte e importe las vistas para transferirlas a otros grupos de recursos y suscripciones.
 - Se integran en el modelo de administración de Log Analytics con áreas de trabajo y soluciones de supervisión.
-- [Filtran](../log-analytics/log-analytics-view-designer-filters.md) los parámetros personalizados.
+- [Filtran](../azure-monitor/platform/view-designer-filters.md) los parámetros personalizados.
 - Interactivas, admiten varios niveles de obtención de detalles (vista que explora otra vista)
 
 ### <a name="limitations"></a>Limitaciones
@@ -138,9 +138,9 @@ Puede tener acceso a datos de métricas de Azure y Log Analytics a través de su
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga información sobre los [datos que Azure Monitor recopila](../monitoring/monitoring-data-collection.md).
+- Obtenga información sobre los [datos que Azure Monitor recopila](../azure-monitor/platform/data-collection.md).
 - Obtenga información sobre los [paneles de Azure](../azure-portal/azure-portal-dashboards.md).
-- Obtenga información sobre las [vistas de Azure Monitor](../log-analytics/log-analytics-view-designer.md).
+- Obtenga información sobre las [vistas de Azure Monitor](../azure-monitor/platform/view-designer.md).
 - Obtenga información sobre los [libros de Application Insights](../application-insights/app-insights-usage-workbooks.md).
 - Obtenga información sobre cómo [importar datos de registro en Power BI](../log-analytics/log-analytics-powerbi.md).
 - Obtenga información sobre el [complemento de origen de datos de Azure Monitor en Grafana](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

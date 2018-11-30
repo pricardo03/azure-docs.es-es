@@ -1,18 +1,18 @@
 ---
 title: Eliminación de servidores y deshabilitación de la protección | Microsoft Docs
 description: En este artículo se describe cómo anular el registro de servidores desde un almacén de Site Recovery y deshabilitar la protección para máquinas virtuales y servidores físicos.
-author: rayne-wiselman
-manager: carmonm
+author: rajani-janaki-ram
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: raynew
-ms.openlocfilehash: d7dcf27e106f73c828c2c46d4d7180b1f906e4d8
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: rajani-janaki-ram
+ms.openlocfilehash: e5a77117b21c889a72b9dd65b072ce3aa5c34314
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614861"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976277"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Quitar servidores y deshabilitar la protección
 

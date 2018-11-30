@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: ed0c387f9785336fbf18b3fd3c0cd9a7b09df633
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279934"
+---
 Transacciones clave (N.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup>):
 
 |Tipo de clave|Clave HSM<br>Clave CREAR|Clave HSM<br>Las restantes transacciones|Clave de software<br>Clave CREAR|Clave de software<br>Las restantes transacciones|

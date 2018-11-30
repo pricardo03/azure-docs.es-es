@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 27a4bccfbac73c7c8c902a59fdd4cafe0c420c31
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634930"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634547"
 ---
 # <a name="install-and-run-containers"></a>Instalación y ejecución de contenedores
 
@@ -58,9 +58,6 @@ Realice los pasos siguientes para crear y recuperar información de un recurso d
 
 1. Cree un recurso de Face en Azure Portal.  
    Si quiere usar el contenedor de Face, primero debe crear un recurso correspondiente de Face en Azure Portal. Para obtener más información, consulte [Guía de inicio rápido: crear una cuenta de Cognitive Services en Azure Portal](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > El recurso de Face debe usar el plan de tarifa F0.
 
 1. Obtenga la dirección URL del punto de conexión y la clave de suscripción para el recurso de Azure.  
    Una vez creado el recurso de Azure, debe usar la clave de suscripción y la dirección URL del punto de conexión de ese recurso para crear una instancia del contenedor correspondiente de Face. Puede copiar la dirección URL del punto de conexión y la clave de suscripción de las páginas Inicio rápido y Claves, respectivamente, del recurso de Face en Azure Portal.

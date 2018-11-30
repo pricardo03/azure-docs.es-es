@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5917cd7a5e4fcc2733765f642ad0958092372c1
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ab9e04b8a9eb4290891b3c7d55f8262c4ba64d44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616221"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584053"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Compilación e implementación de modelos de clasificación de imágenes con Azure Machine Learning
 
@@ -37,7 +37,7 @@ Al compilar e implementar este modelo con AMLPCV, realiza los pasos siguientes:
 7. Implementación del servicio web
 8. Prueba de carga del servicio web
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) se usa como el marco de aprendizaje profundo, el entrenamiento se realiza de manera local en una máquina con tecnología GPU, como la máquina virtual de ciencia de datos de aprendizaje profundo ([Deep learning Data Science VM ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)) y la implementación usa la CLI de operacionalización de Azure ML.
+[CNTK](https://docs.microsoft.com/cognitive-toolkit/) se usa como el marco de aprendizaje profundo, el entrenamiento se realiza de manera local en una máquina con tecnología GPU, como la máquina virtual de ciencia de datos de aprendizaje profundo ([Deep learning Data Science VM ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)) y la implementación usa la CLI de operacionalización de Azure ML.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -175,7 +175,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Aumento de imágenes
 
-El [`augmentation`módulo](https://docs.microsoft.com/python/api/cvtk.augmentation) proporciona la funcionalidad para aumentar un objeto de conjunto de datos con todas las transformaciones que se describen en la biblioteca [imgaug](https://github.com/aleju/imgaug). Las transformaciones de imágenes se pueden agregar en una sola canalización, en cuyo caso todas las transformaciones de la canalización se aplican simultáneamente a cada imagen. 
+El [`augmentation`módulo](/python/api/cvtk/cvtk.augmentation.augmentation) proporciona la funcionalidad para aumentar un objeto de conjunto de datos con todas las transformaciones que se describen en la biblioteca [imgaug](https://github.com/aleju/imgaug). Las transformaciones de imágenes se pueden agregar en una sola canalización, en cuyo caso todas las transformaciones de la canalización se aplican simultáneamente a cada imagen. 
 
 Si quisiera aplicar distintos pasos de aumento por separado o de una manera distinta, puede definir varias canalizaciones y pasarlas a la función *augment_dataset*. Para más información y ejemplos del aumento de imágenes, consulte la [documentación de imgaug](https://github.com/aleju/imgaug).
 

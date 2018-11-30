@@ -2,28 +2,24 @@
 title: 'Ciencia de datos escalables con Azure Data Lake: tutorial completo | Microsoft Docs'
 description: Uso de Azure Data Lake para realizar tareas de exploración de datos y clasificación binaria en un conjunto de datos.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 91a8207f-1e57-4570-b7fc-7c5fa858ffeb
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 6688432342ff08d2ca177570cc6bbbe0095ccbe0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 52518f8c9295f00b93dee0ea356513605450aed7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229072"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443566"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciencia de datos escalables con Azure Data Lake: tutorial completo
-En este tutorial se muestra cómo utilizar Azure Data Lake para realizar las tareas de exploración de datos y clasificación binaria en un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York para predecir si se dará una propina por tarifa. Le guía por los pasos de todo el [proceso de la ciencia de datos en equipos](https://aka.ms/datascienceprocess), desde la adquisición de los datos al entrenamiento del modelo y, a continuación, a la implementación de un servicio web que publique el modelo.
+En este tutorial se muestra cómo utilizar Azure Data Lake para realizar las tareas de exploración de datos y clasificación binaria en un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York para predecir si se dará una propina por tarifa. Le guía por los pasos de todo el [proceso de la ciencia de datos en equipos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), desde la adquisición de los datos al entrenamiento del modelo y, a continuación, a la implementación de un servicio web que publique el modelo.
 
 ### <a name="azure-data-lake-analytics"></a>Análisis con Azure Data Lake
 [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) ofrece todas las funcionalidades necesarias para facilitar a los científicos de datos el almacenamiento de datos de cualquier tamaño, forma y velocidad, y llevar a cabo el procesamiento de datos, análisis avanzado y modelado del aprendizaje automático con alta escalabilidad de una manera rentable.   Se paga por trabajo, solo cuando se procesan los datos. Análisis de Azure Data Lake incluye U-SQL, un lenguaje que mezcla la naturaleza declarativa de SQL con la potencia expresiva de C# para proporcionar una funcionalidad de consulta distribuida escalable. Permite procesar datos sin estructura mediante la aplicación de un esquema al leer, la inserción de lógica personalizada y funciones definidas por el usuario (UDF) e incluye extensibilidad para habilitar un control más preciso sobre la ejecución a escala. Para más información acerca de la filosofía de diseño tras U-SQL, consulte esta [entrada del blog de Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
@@ -684,7 +680,7 @@ Poco después se muestra el panel del servicio web:
 Al completar este tutorial, ha creado un entorno de ciencia de datos para generar soluciones completas escalables en Azure Data Lake. Este entorno se usó para analizar un conjunto de datos público grande. Para ello se recorrieron los pasos canónicos del proceso de ciencia de datos, desde la adquisición de datos y el entrenamiento del modelo hasta la implementación del modelo como servicio web. Se usó U-SQL para procesar, explorar y muestrear los datos. Se utilizaron Python y Hive con Azure Machine Learning Studio para generar e implementar modelos predictivos.
 
 ## <a name="whats-next"></a>Pasos siguientes
-La ruta de aprendizaje del [proceso de ciencia de datos en equipos (TDSP)](https://aka.ms/datascienceprocess) proporciona vínculos a temas que describen cada paso del proceso de análisis avanzado. Hay una serie de tutoriales en la página [Tutoriales del proceso de ciencia de datos en equipos](walkthroughs.md) que muestran cómo usar los recursos y servicios en diversos escenarios de análisis predictivo:
+La ruta de aprendizaje del [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) proporciona vínculos a temas que describen cada paso del proceso de análisis avanzado. Hay una serie de tutoriales en la página [Tutoriales del proceso de ciencia de datos en equipos](walkthroughs.md) que muestran cómo usar los recursos y servicios en diversos escenarios de análisis predictivo:
 
 * [Proceso de ciencia de datos en equipos en acción: uso de SQL Data Warehouse](sqldw-walkthrough.md)
 * [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight](hive-walkthrough.md)

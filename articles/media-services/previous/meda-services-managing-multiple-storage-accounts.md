@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89d1838eb9fed1751581b026d82b06bc20de4ecc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aa9386182f521119012ea59fe6b64fb31099169e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783274"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620275"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Administración de recursos de Media Services entre varias cuentas de almacenamiento
 A partir de Microsoft Azure Media Services  2.2, puede asociar varias cuentas de almacenamiento a una sola cuenta de Media Services. La capacidad de asociar varias cuentas de almacenamiento a una cuenta de Media Services ofrece las siguientes ventajas:
@@ -26,7 +26,7 @@ A partir de Microsoft Azure Media Services  2.2, puede asociar varias cuentas de
 * Equilibrio de carga de sus activos entre varias cuentas de almacenamiento.
 * Escalado de Media Services para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB). 
 
-En este artículo se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Media Services mediante [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](/powershell/module/azurerm.media). También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Media Services. 
+En este artículo se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Media Services mediante [API de Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) y [PowerShell](/powershell/module/azurerm.media). También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Media Services. 
 
 ## <a name="considerations"></a>Consideraciones
 Al asociar varias cuentas de almacenamiento a su cuenta de Media Services, se aplican las siguientes consideraciones:
@@ -42,7 +42,7 @@ Los Media Services usan el valor de la propiedad **IAssetFile.Name** al generar 
 
 ## <a name="to-attach-storage-accounts"></a>Para asociar cuentas de almacenamiento  
 
-Para asociar cuentas de almacenamiento a su cuenta de AMS, use [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](/powershell/module/azurerm.media), como se muestra en el ejemplo siguiente:
+Para asociar cuentas de almacenamiento a su cuenta de AMS, use [API de Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) y [PowerShell](/powershell/module/azurerm.media), como se muestra en el ejemplo siguiente:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

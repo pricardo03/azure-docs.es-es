@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 344423ea9943e04dc5f02ebee0903d179be90bbd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 83c5a788f85fcc47c221f5c8f9e6944c4448fbf9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887588"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712133"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Paquete Azure Machine Learning Hardware Acceleration
 
@@ -32,7 +32,7 @@ El paquete Azure Machine Learning Hardware Acceleration es una extensión que se
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+1. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLfree) antes de empezar.
 
 1. Una cuenta de Administración de modelos de Azure Machine Learning. Para más información sobre cómo crear la cuenta, consulte el documento de [instalación de Workbench y el inicio rápido de Azure Machine Learning](../desktop-workbench/quickstart-installation.md). 
 

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 16b7de909ce57a7f8d3cea54a59996dc6f0a6ba0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469926"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712014"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Uso de "Text to Speech" en el servicio Voz
 
@@ -92,7 +92,7 @@ Si se produce un error, se usan los siguientes códigos de estado. El cuerpo de 
 429|Demasiadas solicitudes|Ha superado la cuota o la tasa de solicitudes permitidas para su suscripción.
 |502|Puerta de enlace incorrecta    | Problema de red o de servidor. Podría indicar también encabezados no válidos.
 
-Para más información sobre la API REST de Text to Speech, consulte [API REST](rest-apis.md#text-to-speech).
+Para más información sobre la API REST de Text to Speech, consulte [API REST](rest-apis.md#text-to-speech-api).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

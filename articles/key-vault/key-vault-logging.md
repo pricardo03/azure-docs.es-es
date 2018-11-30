@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e86d68107278641e40346327fa3a8cb7059b7d71
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 9790cd7c79efa1b64220f9e128de9a3b8eb902c0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159595"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426951"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 Azure Key Vault está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -265,7 +265,7 @@ En la tabla siguiente se muestra el operationName y el comando de API de REST co
 
 ## <a id="loganalytics"></a>Uso de Log Analytics
 
-Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los registros AuditEvents de Azure Key Vault. Para más información, incluido cómo configurar esta opción, consulte [Solución Azure Key Vault en Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). En este artículo también se incluyen instrucciones si necesita migrar desde la solución Key Vault anterior que se ofrecía durante la versión preliminar de Log Analytics, cuando enrutó por primera vez los registros a una cuenta de Azure Storage y configuró Log Analytics para que leyera desde ahí.
+Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los registros AuditEvents de Azure Key Vault. Para más información, incluido cómo configurar esta opción, consulte [Solución Azure Key Vault en Log Analytics](../azure-monitor/insights/azure-key-vault.md). En este artículo también se incluyen instrucciones si necesita migrar desde la solución Key Vault anterior que se ofrecía durante la versión preliminar de Log Analytics, cuando enrutó por primera vez los registros a una cuenta de Azure Storage y configuró Log Analytics para que leyera desde ahí.
 
 ## <a id="next"></a>Pasos siguientes
 Para ver un tutorial que use Azure Key Vault en una aplicación web, consulte [Uso de Azure Key Vault desde una aplicación web](key-vault-use-from-web-application.md).

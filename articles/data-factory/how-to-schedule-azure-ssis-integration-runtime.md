@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7e93e83f7594d30d223d37454e09943beba6d3ce
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114001"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976744"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención del entorno de ejecución para la integración de SSIS en Azure según una programación
 En este artículo se describe cómo programar el inicio y la detención de una instancia de Integration Runtime (IR) de SSIS en Azure mediante Azure Automation y Azure Data Factory. La ejecución de una instancia de Integration Runtime (IR) para la integración de SSIS (SQL Server Integration Services) en Azure lleva un costo asociado. Por lo tanto, normalmente es preferible ejecutar la instancia de Integration Runtime solo cuando haya que ejecutar paquetes de SSIS en Azure y detenerla cuando ya no se necesite. Puede usar la interfaz de usuario de Data Factory o Azure PowerShell para [iniciar o detener manualmente una instancia de IR de SSIS en Azure](manage-azure-ssis-integration-runtime.md)).
@@ -347,7 +347,7 @@ Después de crear y probar la canalización, cree un desencadenador de programac
     6. Haga clic con el botón derecho en el paquete de SSIS y seleccione **Informes** -> **Informes estándar** -> **Todas las ejecuciones**. 
     7. Compruebe que se ejecuta el paquete de SSIS. 
 
-        ![Comprobación de la ejecución del paquete de SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verfiy-ssis-package-run.png)
+        ![Comprobación de la ejecución del paquete de SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
 
 ### <a name="schedule-the-pipeline"></a>Programación de la canalización 
 Ahora que la canalización funciona de la manera prevista, puede crear un desencadenador para ejecutar esta canalización en una cadencia especificada. Para más información acerca de cómo asociar un desencadenador de programación a una canalización, consulte [Desencadenamiento de la canalización de forma programada](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 0a4a31a4905de38de444604c8ffdf4d4a2e632d4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e4deb40f2c9dfb080739f4426129223b152baea9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515869"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335664"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Consola serie de máquina virtual para Windows
 
@@ -133,7 +133,7 @@ De forma predeterminada, todas las suscripciones tienen el acceso a la consola s
 > Para habilitar o deshabilitar la consola serie en una suscripción, debe tener permisos de escritura en la suscripción. Estos permisos incluyen, entre otros, los roles de administrador o propietario. Los roles personalizados también pueden tener permisos de escritura.
 
 ### <a name="subscription-level-disable"></a>Deshabilitación a nivel de supervisión
-La consola serie puede deshabilitarse para toda una suscripción a través de la [llamada API REST Disable Console](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). Puede usar la función **Probarlo** disponible en la página de documentación de la API para deshabilitar y habilitar la consola serie para una suscripción. Escriba el identificador de suscripción para **subscriptionId**, escriba "default" para el valor **predeterminado** y, a continuación, seleccione **Ejecutar**. Los comandos de la CLI de Azure aún no están disponibles.
+La consola serie puede deshabilitarse para toda una suscripción a través de la [llamada API REST Disable Console](/rest/api/serialconsole/console/disableconsole). Puede usar la función **Probarlo** disponible en la página de documentación de la API para deshabilitar y habilitar la consola serie para una suscripción. Escriba el identificador de suscripción para **subscriptionId**, escriba "default" para el valor **predeterminado** y, a continuación, seleccione **Ejecutar**. Los comandos de la CLI de Azure aún no están disponibles.
 
 ![Probarlo en API REST](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

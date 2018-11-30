@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 6a45ffa13ead40b72fd1a0a3c2696a6e6829a4d5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.topic: conceptual
+ms.openlocfilehash: 699a9b7a371a004213419567d0672f56b5365598
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956415"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620121"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
 
@@ -29,7 +29,7 @@ Puede crear el grupo de administración mediante el portal, PowerShell o la CLI 
 
 ### <a name="create-in-portal"></a>Crear en el portal
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Seleccione **Todos los servicios** > **Grupos de administración**.
 
@@ -76,8 +76,8 @@ az account management-group create --name 'Contoso'
 
 Para más información sobre los grupos de administración, consulte:
 
-- [Organización de los recursos con grupos de administración de Azure](overview.md)
+- [Creación de grupos de administración para organizar los recursos de Azure](create.md)
 - [Cambio, eliminación y administración de los grupos de administración](manage.md)
-- [Instalación del módulo Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Revisión de las especificaciones de API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Instalación de la extensión de la CLI de Azure](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Revisión de grupos de administración en el módulo de recursos de Azure PowerShell](https://aka.ms/mgPSdocs)
+- [Revisión de grupos de administración en la API REST](https://aka.ms/mgAPIdocs)
+- [Revisión de grupos de administración en la CLI de Azure](https://aka.ms/mgclidoc)

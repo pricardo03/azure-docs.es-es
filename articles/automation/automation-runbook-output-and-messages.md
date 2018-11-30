@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aff3ce4bc290f6e4ad2fb11a586372862d0c1462
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9602b8ff4d0df15b030626d5e2cfeca9bcc2bd5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240739"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284121"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en Azure Automation
-La mayoría de los runbooks de Azure Automation generan alguna forma de salida, como el mensaje de error que verá el usuario o un objeto complejo que será consumido por otro flujo de trabajo. Windows PowerShell le ofrece [varios flujos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar la salida desde un script o flujo de trabajo. Azure Automation funciona con cada uno de estos flujos de forma diferente, y es aconsejable que siga los procedimientos recomendados sobre cómo usar cada uno de ellos cuando cree un runbook.
+La mayoría de los runbooks de Azure Automation generan alguna forma de salida, como el mensaje de error que verá el usuario o un objeto complejo que será consumido por otro flujo de trabajo. Windows PowerShell le ofrece [varios flujos](https://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar la salida desde un script o flujo de trabajo. Azure Automation funciona con cada uno de estos flujos de forma diferente, y es aconsejable que siga los procedimientos recomendados sobre cómo usar cada uno de ellos cuando cree un runbook.
 
 En la siguiente tabla verá una breve descripción de cada uno de los flujos y su comportamiento en Azure Portal, cuando se ejecuta un runbook publicado y cuando se [prueba un runbook](automation-testing-runbook.md). Asimismo, en las siguientes secciones se proporciona más información sobre cada flujo.
 
@@ -64,13 +64,17 @@ Workflow Test-Runbook
 
 El flujo de salida del trabajo del runbook sería:
 
-    Output inside of function
-    Output outside of function
+```output
+Output inside of function
+Output outside of function
+```
 
 El flujo detallado del trabajo del runbook sería:
 
-    Verbose outside of function
-    Verbose inside of function
+```output
+Verbose outside of function
+Verbose inside of function
+```
 
 Una vez que haya publicado el Runbook y antes de iniciarlo, debe activar también el registro detallado en la configuración del Runbook para obtener la salida de flujo detallada.
 
@@ -131,7 +135,7 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 ```
 
 ### <a name="verbose-stream"></a>Flujo detallado
-El flujo de mensajes detallados se usa para proporcionar información general acerca del funcionamiento del runbook. Como los runbooks no tienen disponible el [Flujo de depuración](#Debug) , debe usar mensajes detallados para proporcionar información referente a la depuración. De forma predeterminada, los mensajes detallados de los runbooks publicados no se almacenan en el historial de trabajos. Para almacenar mensajes detallados, configure los runbooks publicados mediante la opción “Escribir registros detallados” que se encuentra en la pestaña “Configurar” del runbook, en el Portal de administración de Azure. En la mayoría de los casos, deberá mantener la configuración predeterminada y no escribir los registros detallados de un runbook por motivos de rendimiento. Active esta opción solo para solucionar problemas o para depurar un runbook.
+El flujo de mensajes detallados se usa para proporcionar información general acerca del funcionamiento del runbook. Como los runbooks no tienen disponible el [Flujo de depuración](#debug-stream) , debe usar mensajes detallados para proporcionar información referente a la depuración. De forma predeterminada, los mensajes detallados de los runbooks publicados no se almacenan en el historial de trabajos. Para almacenar mensajes detallados, configure los runbooks publicados mediante la opción “Escribir registros detallados” que se encuentra en la pestaña “Configurar” del runbook, en el Portal de administración de Azure. En la mayoría de los casos, deberá mantener la configuración predeterminada y no escribir los registros detallados de un runbook por motivos de rendimiento. Active esta opción solo para solucionar problemas o para depurar un runbook.
 
 Cuando se [prueba un runbook](automation-testing-runbook.md), los mensajes detallados no se muestran aunque el runbook esté configurado para escribir registros detallados. Para mostrar mensajes detallados al [probar un runbook](automation-testing-runbook.md), debe establecer la variable $VerbosePreference en “Continue”. Cuando esa variable está establecida, los mensajes detallados se muestran en el panel de salida de la prueba del Portal de Azure.
 

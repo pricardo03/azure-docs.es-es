@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 11/14/2018
 ms.author: trinadhk
-ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011330"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704654"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
@@ -41,7 +41,7 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 | | Colaborador de la máquina virtual | Recurso de máquina virtual |
 | Copia de seguridad a petición de VM | Operador de copias de seguridad | Recurso de almacén de recuperación |
 | Restaurar VM | Operador de copias de seguridad | Almacén de Recovery Services |
-| | Colaborador de la máquina virtual | Grupo de recursos en el que se implementará la máquina virtual |
+| | Colaborador | Grupo de recursos en el que se implementará la máquina virtual |
 | | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |
 | Restaurar la copia de seguridad de la máquina virtual de discos no administrados | Operador de copias de seguridad | Recurso de almacén de recuperación |
 | | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |

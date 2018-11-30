@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0bd93e0732b0e822fae68b4ac2cc5e28fb246808
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016971"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316657"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protección de las aplicaciones y las máquinas en Azure Security Center
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios. Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, equipos, aplicaciones, redes, SQL e identidad y acceso.
@@ -206,7 +206,7 @@ Hay tres tipos de iconos representados en esta lista:
 |Recursos de proceso (Batch)|5|Habilitar los registros de diagnóstico en las cuentas de Batch|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
 |Recursos de proceso (Centro de eventos)|5|Habilitar los registros de diagnósticos en el Centro de eventos|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
 |Recursos de proceso (Logic Apps)|5|Habilitar los registros de diagnóstico en Logic Apps|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Máquina|30|Instalar una solución de evaluación de la vulnerabilidad en sus máquinas virtuales|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
+|Máquina|30|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
 |Máquina|15|Agregar un firewall de aplicaciones web| Implementar una solución de firewall de aplicaciones web para proteger las aplicaciones web. |
 |Máquina|30|Corregir vulnerabilidades mediante una solución de evaluación de vulnerabilidades|Las máquinas virtuales para las que se implementa una solución de evaluación de vulnerabilidades de terceros se evalúan de forma continua en relación con las vulnerabilidades de la aplicación y del sistema operativo. Cada vez que se encuentran vulnerabilidades de este tipo, es posible obtener más información sobre ellas como parte de la recomendación.|
 |Recursos de proceso (Service Fabric)|15|Establecer la propiedad ClusterProtectionLevel en EncryptAndSign en Service Fabric|Service Fabric proporciona tres niveles de protección (None, Sign y EncryptAndSign) para la comunicación de nodo a nodo mediante un certificado de clúster principal.  Establezca el nivel de protección para asegurarse de que todos los mensajes de nodo a nodo se cifran y se firman digitalmente. |
@@ -223,7 +223,7 @@ Hay tres tipos de iconos representados en esta lista:
 |Recursos de proceso (Service Bus)|1|Quitar todas las reglas de autorización excepto RootManageSharedAccessKey del espacio de nombres del Service Bus |Los clientes de Service Bus no deben usar una directiva de acceso de nivel de espacio de nombres que proporciona acceso a todas las colas y temas de un espacio de nombres. Para alinearse con el modelo de seguridad con privilegios mínimos, debe crear directivas de acceso a nivel de entidad para que las colas y los temas proporcionen acceso solo a la entidad específica.|
 |Recursos de proceso (Centro de eventos)|1|Quitar todas las reglas de autorización excepto RootManageSharedAccessKey del espacio de nombres del Centro de eventos |Los clientes del Centro de eventos no deben usar una directiva de acceso de nivel de espacio de nombres que proporciona acceso a todas las colas y temas de un espacio de nombres. Para alinearse con el modelo de seguridad con privilegios mínimos, debe crear directivas de acceso a nivel de entidad para que las colas y los temas proporcionen acceso solo a la entidad específica.|
 |Recursos de proceso (Centro de eventos)|5|Definir las reglas de autorización en la entidad de Centro de eventos|Audite las reglas de autorización en la entidad de Centro de eventos para conceder acceso con privilegios mínimos.|
-|Máquina|30|Instalar una solución de evaluación de la vulnerabilidad en sus máquinas virtuales|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
+|Máquina|30|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
 |App Service|20|Recomendación de que CORS no permita que todos los recursos accedan a las aplicaciones web|Permita solo que los dominios requeridos interactúen con la aplicación web. El uso compartido de recursos entre orígenes (CORS) no debe permitir que todos los dominios accedan a la aplicación web.|
 |App Service|20|CORS no debe permitir que todos los recursos accedan a Function App| Permita solo que los dominios requeridos interactúen con la aplicación de función. El uso compartido de recursos entre orígenes (CORS) no debe permitir que todos los dominios accedan a la aplicación de función.|
 |Máquina|15|Agregar un firewall de aplicaciones web| Implementar una solución de firewall de aplicaciones web para proteger las aplicaciones web. |
@@ -249,7 +249,7 @@ Para obtener más información sobre las recomendaciones que se aplican a otros 
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 

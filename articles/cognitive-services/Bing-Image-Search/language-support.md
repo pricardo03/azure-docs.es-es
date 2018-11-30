@@ -3,19 +3,19 @@ title: 'Idiomas admitidos: Bing Image Search API'
 titleSuffix: Azure Cognitive Services
 description: Averigüe qué países o regiones e idiomas se admiten en Bing Image Search API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: db9e1acec881a182b111cb1c913da607e4f8311a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: aahi
+ms.openlocfilehash: e5c9a4291501c657a94509aec2edd90d00ab795d
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435370"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160434"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Compatibilidad de idiomas y regiones para Bing Image Search API
 
@@ -115,7 +115,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Taiwán|Chino tradicional|zh-TW|
 |Turquía|Turco|tr-TR|
 |Reino Unido|English|en-GB|
-|Estados Unidos|English|es-ES|
+|Estados Unidos|English|en-US|
 |Estados Unidos|Español|es-US|
 
 ## <a name="next-steps"></a>Pasos siguientes

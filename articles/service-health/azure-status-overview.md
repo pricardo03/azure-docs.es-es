@@ -3,7 +3,7 @@ title: Introducción al estado de Azure | Microsoft Docs
 description: Una visión global del estado de los servicios de Azure.
 services: Azure status
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shtabriz
-ms.openlocfilehash: 6bb67fa17ace2e662091c6b66a774baf9d7d8bfd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: be3c8d10ef034a4bd03f178bc1334b8a9eeb2f58
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181827"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282913"
 ---
 # <a name="azure-status"></a>Estado de Azure
 [Estado de Azure](https://azure.microsoft.com/status/) proporciona una visión global del estado de los servicios de Azure. Con el estado de Azure, puede obtener información actualizada sobre la disponibilidad del servicio. Todos los usuarios tienen acceso al estado de Azure y pueden ver todos los servicios que notifican su estado. 
@@ -37,7 +37,7 @@ Aunque la página de estado de Azure siempre muestra la información de estado m
 Allí puede ver eventos de hasta 90 días atrás, como una causa principal preliminar, mitigación y pasos siguientes para Azure.
 
 ## <a name="rss-feed"></a>Fuente RSS
-El estado de Azure también proporciona [una fuente RSS](https://azure.microsoft.com/status/feed/) de los cambios en el estado de los servicios de Azure a los que se puede suscribir.
+El estado de Azure también proporciona [una fuente RSS](https://azure.microsoft.com/en-us/status/feed/) de los cambios en el estado de los servicios de Azure a los que se puede suscribir.
 
 # <a name="next-steps"></a>Pasos siguientes
 * Aprenda a conseguir una vista más personalizada del estado de Azure con [Service Health](./service-health-overview.md).

@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+ms.openlocfilehash: 7c9c52c5cda258908ac8463dd06044e244c75ee2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331472"
+---
 Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Cuando se separa un disco de la máquina virtual, el disco no lo elimina del almacenamiento. Si desea volver a usar los datos existentes en el disco, puede volver a conectarlo a la misma máquina virtual (o a otra).  
 
 > [!NOTE]

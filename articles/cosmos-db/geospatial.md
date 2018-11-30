@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1de97ef34ab2db79ef7eaeca66cb8d0598ae9262
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961915"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284496"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Uso de datos geoespaciales de ubicación y de GeoJSON con la cuenta de SQL API de Azure Cosmos DB
 
@@ -151,7 +151,7 @@ Si no dispone de la información de latitud y longitud, pero tiene los nombres d
 Ahora que ya hemos visto cómo insertar datos geoespaciales, echemos un vistazo a cómo consultar estos datos mediante Azure Cosmos DB con SQL y LINQ.
 
 ### <a name="spatial-sql-built-in-functions"></a>Funciones integradas SQL espaciales
-Azure Cosmos DB admite las siguientes funciones integradas de Open Geospatial Consortium (OGC) para realizar consultas geoespaciales. Para más información sobre el conjunto completo de funciones integradas en el lenguaje SQL, vea [Consultas de Azure Cosmos DB](sql-api-sql-query.md).
+Azure Cosmos DB admite las siguientes funciones integradas de Open Geospatial Consortium (OGC) para realizar consultas geoespaciales. Para más información sobre el conjunto completo de funciones integradas en el lenguaje SQL, vea [Consultas de Azure Cosmos DB](how-to-sql-query.md).
 
 <table>
 <tr>
@@ -392,6 +392,6 @@ Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en 
 
 * Comenzar a codificar con los [ejemplos de código geoespacial .NET en GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Empezar a realizar consultas geoespaciales en el [Área de consultas de Azure Cosmos DB](http://www.documentdb.com/sql/demo#geospatial)
-* Obtener más información sobre [Consultar Azure Cosmos DB](sql-api-sql-query.md)
-* Obtener más información sobre [Directivas de indexación de Azure Cosmos DB](indexing-policies.md)
+* Obtener más información sobre [Consultar Azure Cosmos DB](how-to-sql-query.md)
+* Obtener más información sobre [Directivas de indexación de Azure Cosmos DB](index-policy.md)
 

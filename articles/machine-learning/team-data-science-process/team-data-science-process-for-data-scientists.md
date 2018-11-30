@@ -2,25 +2,21 @@
 title: Proceso de ciencia de datos en equipo para científicos de datos | Microsoft Docs
 description: Proporciona una guía para comprender una carga de trabajo de análisis mediante el uso del Proceso de ciencia de datos en equipo y Microsoft Azure Machine Learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 80f006c4e8f051c3f744168be114f1c9fb3b1a0f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ddf73f15dc7c269ba3bf9a2912c3713fd4e847f2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092498"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497585"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Proceso de ciencia de datos en equipo para científicos de datos
 
@@ -65,7 +61,7 @@ Puede usar los elementos de la tabla siguiente para que le guíen en su aprendiz
 | Uso de Power BI para visualizar los resultados                                                         | [Power BI](https://powerbi.microsoft.com/guided-learning/)                                                                                     | Power BI es la herramienta de visualización de datos de Microsoft. Está disponible en varias plataformas: web, dispositivos móviles y equipos de escritorio. En este artículo aprenderá a trabajar con la salida de la solución que ha creado, para lo cual se accederá a los resultados desde Azure Storage y se crearán visualizaciones mediante Power BI.                                                                                                                                                                                                                                                                                                                             | [Realice este tutorial en Power BI.](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) A continuación, conecte Power BI al archivo CSV de blob durante la ejecución de un experimento.                                                                                                                                                                                                                                                                       |
 | Supervisión de la solución                                                                     | [Application Insights](../../application-insights/app-insights-overview.md)                                            | Existen varias herramientas que puede usar para supervisar la solución final. Azure Application Insights facilita la integración de la supervisión en la solución.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [Configure Application Insights para supervisar una aplicación](https://cmatskas.com/visual-studio-code-integration-with-azure-application-insights/).                                                                                                                                                                                                                                                                                                                  |
 |                                                                                           | [Azure Log Analytics](../../log-analytics/log-analytics-overview.md)                                                   | Otro método para supervisar la aplicación consiste en integrarla en el proceso de DevOps. El sistema de Azure Log Analytics proporciona un amplio conjunto de características que le ayudan a inspeccionar sus soluciones de análisis después de implementarlas.                                                                                                                                                                                                                                                                                                                                                                                                                       | [Realice este tutorial](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) sobre el uso de Azure Log Analytics.                                                                                                                                                                                                                                                                                                       |
-| Realización de esta ruta de aprendizaje                                                               | Proyectos adicionales para probar                                                                                                                           | Felicidades. Ha completado esta ruta de aprendizaje. Aún queda mucho por aprender. Existe un ejemplo más avanzado donde se crea un modelo de abandono de clientes en el servicio Azure Machine Learning. [Pruébelo aquí](../desktop-workbench/scenario-churn-prediction.md).                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| Realización de esta ruta de aprendizaje                                                               |                                                                                                                           | Felicidades. Ha completado esta ruta de aprendizaje. Aún queda mucho por aprender.                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Team Data Science Process for Developer Operations](team-data-science-process-for-devops.md) (Proceso de ciencia de datos en equipo para operaciones de desarrollador) En este artículo se exploran las funciones de operaciones de desarrollo (DevOps) que son específicas de la implementación de una solución de análisis avanzado y Cognitive Services. 

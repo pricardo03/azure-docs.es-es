@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8ae1a4b7b8ce2e82856b63bd108e44a111dfd3fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7b633b1787fc34658a84a2810de6673f9530cbf3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246589"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310657"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Adición de un firewall de aplicaciones web en el Centro de seguridad de Azure
 Azure Security Center puede recomendarle agregar Firewall de aplicaciones web (WAF) de un asociado de Microsoft para proteger las aplicaciones web. Este documento guía a través de un ejemplo de cómo aplicar esta recomendación.
@@ -73,7 +73,7 @@ En este documento, mostramos cómo implementar la recomendación "Adición de un
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : aprenda a administrar y responder a alertas de seguridad.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que le ayudan a proteger los recursos de Azure.

@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 3d9a4454a1b3f65b42a46a26e8d483fad83f65f6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 827f8eb7491c6f64b275dee83345c29d51c0933d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307405"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442504"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Administración de cuentas de usuario en Azure API Management
+
 En Administración de API, los desarrolladores son los usuarios de las API que se exponen mediante Administración de API. En esta guía se muestra cómo crear desarrolladores e invitarlos a usar las API y los productos que usted pone a su disposición con la instancia de API Management. Para obtener información acerca de cómo administrar cuentas de usuario mediante programación, consulte la documentación de [Entidad de usuario](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) en la referencia sobre [REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 
-## <a name="prerequisites"></a>requisitos previos
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Complete las tareas de este artículo: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 

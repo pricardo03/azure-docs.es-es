@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 3163d4d61dba958cdf71dd0470b943bba69b0191
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237205"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427172"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -95,7 +95,7 @@ El siguiente fragmento de código muestra un ejemplo de la respuesta:
 
 ## <a name="diagnostic-logging"></a>Registros de diagnóstico
 
-Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Application Gateway. Se puede acceder a algunos de estos registros mediante el portal. Se pueden extraer todos los registros de Azure Blob Storage y visualizarse en distintas herramientas, como [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información sobre los diferentes tipos de registros en la lista siguiente:
+Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Application Gateway. Se puede acceder a algunos de estos registros mediante el portal. Se pueden extraer todos los registros de Azure Blob Storage y visualizarse en distintas herramientas, como [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información sobre los diferentes tipos de registros en la lista siguiente:
 
 * **Registro de actividades:** puede usar el [registro de actividades de Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a sus suscripciones de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
 * **Registro de acceso** : este registro se puede utilizar para ver los patrones de acceso de Application Gateway y analizar información importante, como la dirección IP del autor de llamada, la dirección URL solicitada, la latencia de la respuesta, el código de retorno y los bytes de entrada y de salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway puede identificarse por la propiedad instanceId.
@@ -303,7 +303,7 @@ Puede ver y analizar los datos del registro de actividades con cualquiera de los
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visualización y análisis de los registros de acceso, rendimiento y firewall
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) puede recopilar los archivos de registro de eventos y contadores de la cuenta de Blob Storage. Incluye visualizaciones y eficaces funciones de búsqueda para analizar los registros.
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) puede recopilar los archivos de registro de eventos y contadores de la cuenta de Blob Storage. Incluye visualizaciones y eficaces funciones de búsqueda para analizar los registros.
 
 También puede conectarse a la cuenta de almacenamiento y recuperar las entradas del registro de JSON de los registros de acceso y rendimiento. Después de descargar los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, PowerBI o cualquier otra herramienta de visualización de datos.
 
@@ -379,7 +379,7 @@ Para conocer más detalles sobre los webhooks y cómo usarlos con las alertas, v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Visualice el contador y los registros de eventos con [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
+* Visualice el contador y los registros de eventos con [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
 * Consulte la entrada de blog [Visualize your Azure Activity Logs with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar los registros de actividades de Azure con Power BI).
 * Consulte la entrada de blog [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Consulta y análisis de registros de auditoría de Azure en Power BI y más).
 

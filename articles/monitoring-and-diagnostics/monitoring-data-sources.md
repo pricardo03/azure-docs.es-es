@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: b01dafcda9ed8fe14e3f0d50daf25bae1658faee
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e5b2f071370ec6551e05960c708e2b83918d83ff
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282635"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821385"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consume monitoring data from Azure (Consumo de datos de supervisión de Azure)
 
@@ -46,6 +46,6 @@ En toda la plataforma Azure, reunimos datos de supervisión en un solo lugar con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre las [métricas de Azure Monitor](../monitoring/monitoring-data-collection.md)
+- Más información sobre las [métricas de Azure Monitor](../azure-monitor/platform/data-collection.md)
 - Más información sobre [el registro de actividad de Azure](monitoring-overview-activity-logs.md)
 - Más información sobre los [registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)

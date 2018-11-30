@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685181"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262914"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 
 La implementación de un modelo de Azure Machine Learning como un servicio web crea una API REST. Puede enviar datos a esta API y recibir la predicción que devuelve el modelo. En este documento aprenderá a crear clientes para el servicio web usando C #, Go, Java y Python.
 
-Se crea un servicio web cuando se implementa una imagen en una instancia de Azure Container, Azure Kubernetes Service o Project Brainwave (matrices de puertas programables). Las imágenes se crean a partir de modelos registrados y archivos de puntuación. El URI que se usa para obtener acceder a un servicio web se puede recuperar gracias al [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Si la autenticación está habilitada, también puede usar el SDK para obtener las claves de autenticación.
+Se crea un servicio web cuando se implementa una imagen en una instancia de Azure Container, Azure Kubernetes Service o Project Brainwave (matrices de puertas programables). Las imágenes se crean a partir de modelos registrados y archivos de puntuación. El URI que se usa para obtener acceder a un servicio web se puede recuperar gracias al [SDK de Azure Machine Learning](https://aka.ms/aml-sdk). Si la autenticación está habilitada, también puede usar el SDK para obtener las claves de autenticación.
 
 El flujo de trabajo general al crear un cliente que usa un servicio web de Machine Learning es:
 

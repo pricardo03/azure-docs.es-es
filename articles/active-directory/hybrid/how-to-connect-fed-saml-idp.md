@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08d9566c3ce8f486465f0ed7fb5aab4419e592d8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e3bd48cf56650e266f5002a179d20177b3127f25
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228596"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426416"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único
 
@@ -60,11 +60,11 @@ En el mensaje de respuesta de SAML, el nodo de firma contiene información sobre
 
 1. El propio nodo de aserción debe estar firmado.
 2.  El algoritmo RSA-sha1 debe usarse como DigestMethod. No se aceptan otros algoritmos de firma digital.
-   `<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>`
+   `<ds:DigestMethod Algorithm="https://www.w3.org/2000/09/xmldsig#sha1"/>`
 3.  También puede firmar el documento XML. 
-4.  El algoritmo Transform debe coincidir con los valores del ejemplo siguiente:    `<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
-       <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.  El algoritmo SignatureMethod debe coincidir con el ejemplo siguiente:    `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+4.  El algoritmo Transform debe coincidir con los valores del ejemplo siguiente:    `<ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+       <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#"/>`
+9.  El algoritmo SignatureMethod debe coincidir con el ejemplo siguiente:    `<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>Enlaces admitidos
 Los enlaces son los parámetros de comunicación relacionados con el transporte que son necesarios. Los siguientes requisitos se aplican a los enlaces:
@@ -103,21 +103,21 @@ Lo siguiente es un mensaje de respuesta de ejemplo que se envía desde el provee
     </samlp:Status>
     <Assertion ID="_7e3c1bcd-f180-4f78-83e1-7680920793aa" IssueInstant="2014-01-31T15:36:31.279Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
     <Issuer>http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
-    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       <ds:SignedInfo>
-        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
-        <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+        <ds:CanonicalizationMethod Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#" />
+        <ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1" />
         <ds:Reference URI="#_7e3c1bcd-f180-4f78-83e1-7680920793aa">
           <ds:Transforms>
-            <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
-            <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            <ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+            <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#" />
           </ds:Transforms>
-          <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+          <ds:DigestMethod Algorithm="https://www.w3.org/2000/09/xmldsig#sha1" />
           <ds:DigestValue>CBn/5YqbheaJP425c0pHva9PhNY=</ds:DigestValue>
         </ds:Reference>
       </ds:SignedInfo>
       <ds:SignatureValue>TciWMyHW2ZODrh/2xrvp5ggmcHBFEd9vrp6DYXp+hZWJzmXMmzwmwS8KNRJKy8H7XqBsdELA1Msqi8I3TmWdnoIRfM/ZAyUppo8suMu6Zw+boE32hoQRnX9EWN/f0vH6zA/YKTzrjca6JQ8gAV1ErwvRWDpyMcwdYCiWALv9ScbkAcebOE1s1JctZ5RBXggdZWrYi72X+I4i6WgyZcIGai/rZ4v2otoWAEHS0y1yh1qT7NDPpl/McDaTGkNU6C+8VfjD78DrUXEcAfKvPgKlKrOMZnD1lCGsViimGY+LSuIdY45MLmyaa5UT4KWph6dA==</ds:SignatureValue>
-      <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
         <ds:X509Data>
           <ds:X509Certificate>MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyhBREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDTE1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9ybWVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/+3ZWxd9T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEMb2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvyJOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBySx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==</ds:X509Certificate>
         </ds:X509Data>
@@ -167,7 +167,7 @@ Deberá habilitar la comunicación entre el proveedor de identidades de SAML 2.0
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Instalación de Windows PowerShell para el inicio de sesión con el proveedor de identidades de SAML 2.0
 Después de que ha configurado el proveedor de identidades de SAML 2.0 para su uso con el inicio de sesión de Azure AD, el siguiente paso consiste en descargar e instalar el Módulo Azure Active Directory para Windows PowerShell. Una vez instalado, usará estos cmdlets para configurar los dominios de Azure AD como dominios federados.
 
-El Módulo Azure Active Directory para Windows PowerShell es una descarga para administrar los datos de la organización en Azure AD. Este módulo instala un conjunto de cmdlets en Windows PowerShell; esos cmdlets se ejecutan para configurar el acceso de inicio de sesión único a Azure AD y, a su vez, a todos los servicios en la nube que están suscritos a él. Para instrucciones sobre cómo descargar e instalar los cmdlets, consulte [http://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
+El Módulo Azure Active Directory para Windows PowerShell es una descarga para administrar los datos de la organización en Azure AD. Este módulo instala un conjunto de cmdlets en Windows PowerShell; esos cmdlets se ejecutan para configurar el acceso de inicio de sesión único a Azure AD y, a su vez, a todos los servicios en la nube que están suscritos a él. Para instrucciones sobre cómo descargar e instalar los cmdlets, consulte [https://technet.microsoft.com/library/jj151815.aspx](httpss://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Configuración de una relación de confianza entre el proveedor de identidades de SAML y Azure AD
 Antes de configurar la federación en un dominio de Azure AD, debe tener configurado un dominio personalizado. No se puede federar el dominio predeterminado proporcionado por Microsoft. El dominio predeterminado de Microsoft finaliza con "onmicrosoft.com".
@@ -188,14 +188,14 @@ En el procedimiento siguiente se explica cómo convertir un dominio estándar ex
 
 3.  Puede obtener la cadena codificada en base64 del certificado de firma de su archivo de metadatos de IDP. Aunque se ha proporcionado un ejemplo de esta ubicación, puede ser algo diferente dependiendo de su implementación.
 
-    `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
+    `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Para más información sobre "Set-MsolDomainAuthentication", consulte: [http://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
+Para más información sobre "Set-MsolDomainAuthentication", consulte: [https://technet.microsoft.com/library/dn194112.aspx](httpss://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
 >Solo debe ejecutar "$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"" si configura una extensión ECP para el proveedor de identidades. Los clientes de Exchange Online, excepto Outlook Web Application (OWA), dependen de un punto de conexión activo basado en POST. Si el STS de SAML 2.0 implementa un punto de conexión activo de forma similar a ECP de Shibboleth, es posible que estos clientes enriquecidos puedan interactuar con el servicio Exchange Online.
 
-Una vez configurada la federación, puede cambiar de nuevo a "no federado" (o "administrado"); sin embargo, este cambio tarda hasta dos horas en realizarse y requiere la asignación de nuevas contraseñas aleatorias para el inicio de sesión basado en la nube de cada usuario. Volver a cambiar a "administrado" puede ser necesario en algunos escenarios para restablecer un error de la configuración. Para más información sobre la conversión de dominios, consulte: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Una vez configurada la federación, puede cambiar de nuevo a "no federado" (o "administrado"); sin embargo, este cambio tarda hasta dos horas en realizarse y requiere la asignación de nuevas contraseñas aleatorias para el inicio de sesión basado en la nube de cada usuario. Volver a cambiar a "administrado" puede ser necesario en algunos escenarios para restablecer un error de la configuración. Para más información sobre la conversión de dominios, consulte: [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Aprovisionamiento de entidades de seguridad de usuario en Azure AD y Office 365
 Antes de poder autenticar a los usuarios en Office 365, debe aprovisionar Azure AD con entidades de seguridad de usuario que correspondan a la aserción en la notificación de SAML 2.0. Si Azure AD no conoce estas entidades de seguridad de usuario de antemano, no se podrán usar para el inicio de sesión federado. Se puede usar Azure AD Connect o Windows PowerShell para aprovisionar a las entidades de seguridad de usuario.
@@ -218,7 +218,7 @@ Este procedimiento muestra cómo agregar un único usuario a Azure AD.
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" `. 
 
-Para obtener más información sobre "New-MsolUser", consulte [http://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx).
+Para obtener más información sobre "New-MsolUser", consulte [https://technet.microsoft.com/library/dn194096.aspx](httpss://technet.microsoft.com/library/dn194096.aspx).
 
 >[!NOTE]
 >El valor "UserPrinciplName" debe coincidir con el valor que se enviará para "IDPEmail" en la notificación de SAML 2.0, y el valor "ImmutableID" debe coincidir con el valor enviado en la aserción "NameID".

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 74a6c0c4a66de75dd9e50d7b81e7e6ae7bf7519a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7a059cd5c22306c42adc4c7c8fcc4e52c3ebcd00
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244617"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313578"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Habilitación del Agente de máquina virtual en Azure Security Center
 El agente de máquina virtual debe instalarse en máquinas virtuales para [habilitar la recopilación de datos](security-center-enable-data-collection.md).  Azure Security Center permite ver qué máquinas virtuales requieren el Agente de máquina virtual y recomienda habilitarlo en esas máquinas virtuales.
@@ -40,7 +40,7 @@ De manera predeterminada, el agente de máquina virtual está instalado en las m
 ## <a name="see-also"></a>Otras referencias
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que lo ayudan a proteger los recursos de Azure.
 * [Supervisión del estado de seguridad en Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.

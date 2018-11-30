@@ -1,25 +1,21 @@
 ---
 title: 'Tareas del administrador de grupo del proceso de ciencia de datos en equipo: Azure | Microsoft Docs'
 description: Esquema de las tareas de un administrador de grupo en un proyecto en equipo de ciencia de datos.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: a89c0f916f67de1bae81a5e1b3dcfc2cae41d248
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ee10f17f76f7c3745cb32223c58b0d2d12f7d6b6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304193"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446354"
 ---
 # <a name="group-manager-tasks"></a>Tareas del administrador de grupo
 
@@ -56,7 +52,7 @@ En este tutorial se usan abreviaturas de los nombres de repositorios y directori
  
 - Git debe estar instalado en la máquina. Si usa una instancia de Data Science Virtual Machine (DSVM), Git se ha instalado previamente y está listo para continuar. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).  
 - Si usa una **DSVM de Windows**, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en su máquina. En el archivo README.md, desplácese a la sección **Descargar e instalar** y haga clic en el *instalador más reciente*. Este paso le lleva a la página más reciente del instalador. Descargue al instalador .exe desde aquí y ejecútelo. 
-- Si usa una instancia de **DSVM de Linux**, cree una clave pública SSH en su DSVM y agréguela a Azure DevOps Services del grupo. Para más información acerca de SSH, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
+- Si usa una instancia de **DSVM de Linux**, cree una clave pública SSH en su DSVM y agréguela a la instancia de Azure DevOps Services del grupo. Para más información acerca de SSH, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
 
 
 ## <a name="1-create-account-on-azure-devops-services"></a>1. Creación de una cuenta en Azure DevOps Services

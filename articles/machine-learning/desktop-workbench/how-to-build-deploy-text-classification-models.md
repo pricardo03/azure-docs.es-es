@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 97d988332a2c5234cb260cef29f195f0fecfee45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73f95280cc02b6f891c4ef67cd11084768d7d282
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994945"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853020"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Compilación e implementación de modelos de clasificación de texto con Azure Machine Learning
 
@@ -436,7 +436,7 @@ Por lo general, los parámetros se establecen antes de ajustar un modelo.
 
 En los ejemplos de código siguientes se muestra cómo entrenar el modelo con los parámetros predeterminados de canalización y modelo. 
 
-Para ver los parámetros que se incluyen para "text_word_ngrams", use [get_step_param_names_by_name](https://docs.microsoft.com/python/api/tatk.core.base_text_model.basetextmodel). Esta función devuelve los parámetros como lowercase, input_col, output_col, etc. 
+Para ver los parámetros que se incluyen para "text_word_ngrams", use [get_step_param_names_by_name](/python/api/msft-tatk/tatk.core.base_text_model.basetextmodel#get-step-param-names-by-name). Esta función devuelve los parámetros como lowercase, input_col, output_col, etc. 
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
@@ -625,7 +625,7 @@ Aplique el clasificador de texto entrenado en el conjunto de datos de prueba par
 </div>
 
 ## <a name="evaluate-model-performance"></a>Evaluación del rendimiento del modelo
-El [módulo de evaluación](https://docs.microsoft.com/python/api/tatk.evaluation) evalúa la precisión del clasificador de texto entrenado en el conjunto de datos de prueba. La función de evaluación genera una matriz de confusión y brinda una puntuación macro-F1.
+El [módulo de evaluación](/python/api/msft-tatk/tatk.evaluation) evalúa la precisión del clasificador de texto entrenado en el conjunto de datos de prueba. La función de evaluación genera una matriz de confusión y brinda una puntuación macro-F1.
 
 ```python
  text_classifier.evaluate(df_test)          

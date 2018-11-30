@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222070"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262625"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -268,8 +268,8 @@ Cuando está establecido en true, este valor configura el codificador en directo
 Opcional. Especifica el identificador del recurso de Media Services que contiene la imagen de pizarra. El valor predeterminado es null. 
 
 
->[!NOTE] 
->Antes de crear el canal, la imagen de careta debe cargarse con las siguientes restricciones como activo dedicado (no debe haber ningún otro archivo en este activo). Esta imagen solo se utiliza cuando el codificador en directo está insertando una careta debido a una pausa publicitaria o porque se ha indicado expresamente. El codificador en directo también puede adoptar un modo de careta durante ciertas condiciones de error; por ejemplo, si se pierde la señal de entrada. Actualmente, no existe la posibilidad de utilizar una imagen personalizada cuando el codificador en directo entra en un estado de 'pérdida de señal de entrada'. Puede votar por esta característica [aquí](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+> [!NOTE] 
+> Antes de crear el canal, la imagen de careta debe cargarse con las siguientes restricciones como activo dedicado (no debe haber ningún otro archivo en este activo). Esta imagen solo se utiliza cuando el codificador en directo está insertando una careta debido a una pausa publicitaria o porque se ha indicado expresamente. Actualmente, no existe la posibilidad de utilizar una imagen personalizada cuando el codificador en directo entra en un estado de 'pérdida de señal de entrada'. Puede votar por esta característica [aquí](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 
 * Máximo 1920x1080 de resolución.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684824"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276047"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Pestaña SKU de módulo IoT Edge
 
@@ -125,7 +125,7 @@ En la tabla siguiente se describen el propósito, el contenido y el formato de l
 
 |  **Campo**       |     **Descripción**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Rutas predeterminadas**        | Cada nombre de ruta predeterminado y valor debe tener menos de 512 caracteres. Puede definir hasta cinco rutas predeterminadas. Asegúrese de usar una [sintaxis de ruta](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) correcta en el valor de ruta. Para hacer referencia al módulo, use el nombre de módulo predeterminado, que será el **Título de la SKU** sin espacios ni caracteres especiales. Para hacer referencia a otros módulos aún no conocidos, use la convención `<FROM_MODULE_NAME>` para que los clientes sepan que deben actualizar esta información. Obtenga más información sobre [rutas de IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Por ejemplo, si el módulo `ContosoModule` escucha las entradas de `ContosoInput` y saca los datos en `ContosoOutput`, tiene sentido definir las dos rutas predeterminadas siguientes:<br/>- Nombre n. º 1: `ToContosoModule`<br/>- Valor n. º 1: `FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- Nombre n. º 2: `FromContosoModuleToCloud`<br/>- Valor n. º 2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOuput INTO $upstream`<br/>  |
+| **Rutas predeterminadas**        | Cada nombre de ruta predeterminado y valor debe tener menos de 512 caracteres. Puede definir hasta cinco rutas predeterminadas. Asegúrese de usar una [sintaxis de ruta](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) correcta en el valor de ruta. Para hacer referencia al módulo, use el nombre de módulo predeterminado, que será el **Título de la SKU** sin espacios ni caracteres especiales. Para hacer referencia a otros módulos aún no conocidos, use la convención `<FROM_MODULE_NAME>` para que los clientes sepan que deben actualizar esta información. Obtenga más información sobre [rutas de IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Por ejemplo, si el módulo `ContosoModule` escucha las entradas de `ContosoInput` y saca los datos en `ContosoOutput`, tiene sentido definir las dos rutas predeterminadas siguientes:<br/>- Nombre n. º 1: `ToContosoModule`<br/>- Valor n. º 1: `FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- Nombre n. º 2: `FromContosoModuleToCloud`<br/>- Valor n. º 2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
 | **Propiedades deseadas gemelas predeterminadas**      | Cada nombre y valor de propiedad deseada gemela predeterminada debe tener menos de 512 caracteres. Puede definir hasta cinco nombres o valores de propiedades deseadas gemelas. Los valores de las propiedades deseadas gemelas deben ser un JSON válido, sin escape, sin matrices y con una jerarquía máxima de cuatro. Obtenga más información sobre [propiedades deseadas gemelas](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> Por ejemplo, si un módulo admite una frecuencia de actualización configurable dinámicamente a través de propiedades deseadas gemelas, tiene sentido definir la siguiente propiedad deseada gemela predeterminada:<br/> - Nombre n. º 1: `RefreshRate`<br/>- Valor n. º 1: `60`|
 | **Variables de entorno predeterminadas**  | Cada nombre y valor de variable de entorno predeterminada debe tener menos de 512 caracteres. Puede definir hasta cinco nombres o valores de variables de entorno. <br/>Por ejemplo, si un módulo exige aceptar los términos de uso para iniciarse, puede definir la variable de entorno siguiente:<br/> - Nombre n. º 1: `ACCEPT_EULA`<br/>- Valor n. º 1: `Y`|
 | **Elemento createOptions predeterminado**  | createOptions debe tener menos de 512 caracteres. Debe ser un JSON válido, sin escape. Obtenga más información sobre [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> Por ejemplo, si un módulo exige enlazar un puerto, puede definir el siguiente elemento createOptions:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c27c9c16e493dc596856288c4dbecff655e89396
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054361"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976356"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 En este artículo se proporciona información sobre el desencadenador de programación y los pasos para crear, iniciar y supervisar un desencadenador de programación. Para otros tipos de desencadenadores, consulte [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -325,10 +325,10 @@ En la tabla siguiente se muestra una descripción general de los elementos del e
 
 | Propiedad JSON | Escriba | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Sí | None | Fechas-horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Objeto | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | SÍ | None | Fechas-horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Objeto | SÍ | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | Sin  | 1 | De 1 a 1000 | `"interval":10` |
-| **endTime** | string | Sí | None | Valor de fecha y hora que representa un período de tiempo en el futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | string | SÍ | None | Valor de fecha y hora que representa un período de tiempo en el futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Objeto | Sin  | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propiedad startTime

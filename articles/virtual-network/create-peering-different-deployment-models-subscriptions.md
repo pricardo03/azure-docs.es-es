@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 01e8b5c518931411ba6e2d75168de6753bf55260
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971729"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311252"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Crear un emparejamiento de redes virtuales de Azure: diferentes modelos de implementación y suscripciones
 
@@ -97,7 +97,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 
 ## <a name="cli"></a>Creación de emparejamiento: CLI de Azure
 
-En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB. Complete los pasos siguientes mediante la CLI de Azure clásica y la CLI de Azure. Puede completar los pasos desde Azure Cloud Shell. Para ello solo tiene que seleccionar el botón **Try it** (Pruébelo) en cualquiera de los pasos siguientes o instalar la [CLI clásica](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y la [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), y ejecutar los comandos en el equipo local.
+En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB. Complete los pasos siguientes mediante la CLI de Azure clásica y la CLI de Azure. Puede completar los pasos desde Azure Cloud Shell. Para ello solo tiene que seleccionar el botón **Try it** (Pruébelo) en cualquiera de los pasos siguientes o instalar la [CLI clásica](/cli/azure/install-classic-cli) y la [CLI](/cli/azure/install-azure-cli), y ejecutar los comandos en el equipo local.
 
 1. Si usa Cloud Shell, vaya al paso 2, ya que Cloud Shell inicia automáticamente la sesión de Azure. Abra una sesión de comandos e inicie sesión en Azure mediante el comando `azure login`.
 2. Ejecute la CLI clásica en modo de Administración de servicios escribiendo el comando `azure config mode asm`.

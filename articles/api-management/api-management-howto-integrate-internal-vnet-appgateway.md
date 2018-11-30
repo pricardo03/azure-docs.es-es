@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319870"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444622"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -32,6 +32,8 @@ La combinación de una instancia de API Management aprovisionada en una red virt
 * Utilizar el mismo recurso de API Management para su uso por los consumidores internos y los consumidores externos.
 * Utilizar un único recurso de API Management y tener definido un subconjunto de API en API Management disponible para los consumidores externos.
 * Proporcionar una solución de llave en mano para activar y desactivar el acceso a API Management desde la red Internet pública.
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

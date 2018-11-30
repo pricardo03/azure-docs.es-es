@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8aabcf342cde6de9fd4438014c9c400b28470e9b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612580"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632677"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Extensión de alertas de Log Analytics en Alertas de Azure
 Hasta hace poco, Azure Log Analytics incluía su propia funcionalidad de alerta, que podía informarle proactivamente de las condiciones en función de datos de Log Analytics. Las reglas de alertas se administraban en el portal de Microsoft Operations Management Suite. La nueva experiencia de alertas integra ahora las alertas en distintos servicios de Microsoft Azure. Está disponible como **Alertas** en Azure Monitor en Azure Portal e incluye las alertas de registros de actividad, las métricas y los registros tanto de Log Analytics como de Azure Application Insights. 
@@ -55,7 +55,7 @@ Cuando intente modificar una alerta existente o crear una alerta en el portal de
 > Asegúrese de que los permisos que asigne a las personas que han de agregar o editar alertas se hayan asignado correctamente en Azure. Para entender qué permisos tiene que conceder, vea [permisos de uso de Azure Monitor y Alertas de Azure](monitoring-roles-permissions-security.md).  
 > 
 
-Aún puede crear alertas de la [API de Log Analytics](../log-analytics/log-analytics-api-alerts.md) y [plantilla de recursos de Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md). Debe incluir grupos de acciones cuando lo haga.
+Aún puede crear alertas de la [API de Log Analytics](../azure-monitor/platform/api-alerts.md) y [plantilla de recursos de Log Analytics](../azure-monitor/insights/solutions-resources-searches-alerts.md). Debe incluir grupos de acciones cuando lo haga.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

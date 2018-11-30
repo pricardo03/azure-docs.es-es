@@ -10,17 +10,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032128"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333503"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Pruebas por lotes con un conjunto de expresiones de ejemplo
+
  Las pruebas por lotes son una prueba completa en el modelo entrenado actual para medir su rendimiento en LUIS. 
 
 <a name="batch-testing"></a>
+
 ## <a name="import-a-dataset-file-for-batch-testing"></a>Importar un archivo de conjunto de datos para las pruebas por lotes
 
 1. Seleccione **Prueba** en la barra superior y, después, seleccione el **panel Pruebas por lotes**.
@@ -36,6 +38,7 @@ ms.locfileid: "47032128"
 4. Seleccione **Listo**. Se agrega el archivo del conjunto de datos.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Ejecutar, cambiar el nombre, exportar o eliminar el conjunto de datos
+
 Para ejecutar, cambiar el nombre, exportar o eliminar el conjunto de datos, use el botón de puntos suspensivos (***...***) al final de la fila del conjunto de datos.
 
 ![Acciones del conjunto de datos](./media/luis-how-to-batch-test/batch-testing-options.png)
@@ -55,7 +58,9 @@ El conjunto de datos que se puede descargar es el mismo archivo que se cargó pa
 |![Icono de preparado para la prueba](./media/luis-how-to-batch-test/batch-test-result-blue.png)|La prueba está lista para ejecutarse.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
+
 ## <a name="view-batch-test-results"></a>Ver los resultados de la prueba por lotes 
+
 Para revisar los resultados de la prueba por lotes, seleccione **Ver resultados**.
 
 ![Resultados de la prueba por lotes](./media/luis-how-to-batch-test/run-test-results.png)
@@ -64,6 +69,7 @@ Para revisar los resultados de la prueba por lotes, seleccione **Ver resultados*
 
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
+
 ## <a name="filter-chart-results"></a>Filtrado de los resultados del gráfico
 
 Para filtrar el gráfico por una intención o entidad específica, seleccione la intención o entidad en el panel de filtrado del lado derecho. Los puntos de datos y su distribución se actualizan en el gráfico según su selección. 
@@ -71,6 +77,7 @@ Para filtrar el gráfico por una intención o entidad específica, seleccione la
 ![Resultado de la prueba por lotes visualizado](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
 ## <a name="view-single-point-utterance-data"></a>Ver los datos de expresión de un único punto
+
 En el gráfico, mantenga el puntero sobre un punto de datos para ver la puntuación de exactitud de la predicción. Seleccione un punto de datos para recuperar su expresión correspondiente en la lista de expresiones en la parte inferior de la página. 
 
 ![Expresión seleccionada](./media/luis-how-to-batch-test/selected-utterance.png)
@@ -78,7 +85,9 @@ En el gráfico, mantenga el puntero sobre un punto de datos para ver la puntuaci
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="view-section-data"></a>Ver los datos de la sección
+
 En el gráfico de cuatro secciones, seleccione el nombre de sección, como **Falso positivo** en la parte superior derecha del gráfico. Debajo del gráfico se muestran todas las expresiones de esa sección en una lista. 
 
 ![Expresiones seleccionadas por la sección](./media/luis-how-to-batch-test/selected-utterances-by-section.png)

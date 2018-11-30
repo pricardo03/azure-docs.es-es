@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: d1bb7da3ad3862e5b15f6440b4c607143b3c5b2a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: ad1a89c69d34dbb48b87a75778e18c9a995f749a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683237"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853564"
 ---
 # <a name="update-the-sql-resource-provider"></a>Actualización del proveedor de recursos de SQL
 
@@ -27,8 +27,8 @@ ms.locfileid: "51683237"
 
 Es posible que cuando Azure Stack se actualice a una nueva compilación, se lance un nuevo proveedor de recursos de SQL. Aunque el adaptador existente continúa funcionando, se recomienda actualizar a la compilación más reciente lo antes posible.
 
->[!IMPORTANT]
->Debe instalar las actualizaciones en el orden en que se lancen. No se puede saltar ninguna versión. Consulte la lista de versiones en [Requisitos previos para implementar el proveedor de recursos](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+> [!IMPORTANT]
+> Debe instalar las actualizaciones en el orden en que se lancen. No se puede saltar ninguna versión. Consulte la lista de versiones en [Requisitos previos para implementar el proveedor de recursos](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="overview"></a>Información general
 

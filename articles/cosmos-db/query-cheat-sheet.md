@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230876"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160977"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Hojas de referencia rápida de consultas Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Descargue las [hojas de referencia rápida de consultas Azure Cosmos DB con tama
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más ayuda para escribir consultas, vea los artículos siguientes:
-* Para las consultas de la API de SQL, consulte [Tutorial: Consulta de Azure Cosmos DB mediante la API de SQL](tutorial-query-sql-api.md), [Consultas SQL para Azure Cosmos DB](sql-api-sql-query.md), y [Referencia de la sintaxis SQL de Azure Cosmos DB](sql-api-sql-query-reference.md).
+* Para las consultas de la API de SQL, consulte [Tutorial: Consulta de Azure Cosmos DB mediante la API de SQL](tutorial-query-sql-api.md), [Consultas SQL para Azure Cosmos DB](how-to-sql-query.md), y [Referencia de la sintaxis SQL de Azure Cosmos DB](sql-api-sql-query-reference.md).
 * Para las consultas de MongoDB, consulte [Tutorial: Consulta de Azure Cosmos DB mediante MongoDB API](tutorial-query-mongodb.md) y [Compatibilidad de la API de MongoDB con la sintaxis y las características de MongoDB](mongodb-feature-support.md).
 * Para las consultas de Gremlin API, consulte [Tutorial: Consulta de la Graph API de Azure Cosmos DB mediante Gremlin](tutorial-query-graph.md) y [Compatibilidad de Azure Cosmos DB con grafos Gremlin](gremlin-support.md).
 * Para las consultas de Table API, vea [Tutorial: Consulta de Azure Cosmos DB mediante Table API](tutorial-query-table.md).

@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 08/07/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 44bf1d9cd270394720aee71862c1e65118084259
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 45baefbea3d2bd03098c045c42dc67dccceba8c2
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978238"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275374"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Conectarse a una cuenta de Amazon Web Services
 
@@ -193,4 +193,4 @@ Algunos de los informes de optimización pueden requerir datos de varios días p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información acerca de Cloudyn, siga al tutorial [Revisión del uso y los costos](tutorial-review-usage.md) para Cloudyn.
+- Para obtener más información acerca de Cloudyn, consulte el tutorial [Revisión del uso y los costos](tutorial-review-usage.md) de Cloudyn.

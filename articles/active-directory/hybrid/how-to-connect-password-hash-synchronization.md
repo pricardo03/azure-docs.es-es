@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3579a17ab28bd39ddad5008e1d0f8f7834237807
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5936157a46643ff76b5e1cc11d636aa6be9175ff
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282006"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427478"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -80,7 +80,7 @@ El gráfico siguiente describe con detalle cómo funciona la sincronización de 
 
 
 1. Cada dos minutos, el agente de sincronización de hash de contraseñas en el servidor de AD Connect solicita hashes de contraseña almacenados (el atributo unicodePwd) desde un controlador de dominio a través protocolo de replicación [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) estándar que se utiliza para sincronizar datos entre controladores de dominio. La cuenta de servicio debe tener los permisos para replicar cambios de directorio y para replicar cambios de directorio en todos los AD (se conceden de manera predeterminada en la instalación) para obtener los hashes de contraseña.
-2. Antes del envío, el controlador de dominio cifra el hash de contraseña MD4 mediante una clave que es un hash de [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) de la clave de sesión RPC y valor sal. Después envía el resultado al agente de sincronización de hash de contraseñas a través de RPC. El controlador de dominio también pasa el valor sal al agente de sincronización mediante el protocolo de replicación del controlador de dominio, por lo que el agente podrá descifrar el sobre.
+2. Antes del envío, el controlador de dominio cifra el hash de contraseña MD4 mediante una clave que es un hash de [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) de la clave de sesión RPC y valor sal. Después envía el resultado al agente de sincronización de hash de contraseñas a través de RPC. El controlador de dominio también pasa el valor sal al agente de sincronización mediante el protocolo de replicación del controlador de dominio, por lo que el agente podrá descifrar el sobre.
 3.  Cuando el agente de sincronización de hash de contraseñas tiene el sobre cifrado, usa [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) y el valor sal para generar una clave para descifrar los datos recibidos en su formato original de MD4. En ningún momento el agente de sincronización de hash de contraseñas tiene acceso a la contraseña de texto no cifrado. El uso del agente de sincronización de hash de contraseñas de MD5 es estrictamente para compatibilidad del protocolo de replicación con el controlador de dominio y solo se usa en local entre el controlador de dominio y el agente de sincronización de hash de contraseñas.
 4.  El agente de sincronización de hash de contraseñas amplía el hash de contraseña binario de 16 bits a 64 bytes al convertir en primer lugar el hash con una cadena hexadecimal de 32 bytes y, después, convertir esta cadena de nuevo en binario con codificación UTF-16.
 5.  El agente de sincronización de hash de contraseñas agrega un valor sal por usuario, que consta de un valor sal de longitud de 10 bytes, al archivo binario de 64 bits para proteger aún más el valor hash original.

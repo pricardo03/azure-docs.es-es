@@ -14,26 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145747"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446524"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
 * Externo
 * Interno
 
-
 Cuando API Management se implementa en el modo de red virtual interna, todos los puntos de conexión de servicio (puerta de enlace, portal del desarrollador, Azure Portal, administración directa y Git) solamente están visibles en una red virtual en la que usted controla el acceso. Ninguno de los puntos de conexión de servicio está registrado en el servidor DNS público.
 
 Si utiliza API Management en modo interno, puede conseguir los siguientes escenarios:
+
 * Puede conseguir que terceras personas puedan obtener acceso de forma segura a las API hospedadas en el centro de datos privado desde fuera de este centro utilizando conexiones de sitio a sitio o conexiones de VPN de Azure ExpressRoute.
 * Puede permitir escenarios de nube híbrida exponiendo las API basadas en la nube y las API locales a través de una puerta de enlace común.
 * Puede administrar las API hospedadas en varias ubicaciones geográficas mediante un único punto de conexión de puerta de enlace. 
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

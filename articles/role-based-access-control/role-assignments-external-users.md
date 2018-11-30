@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304448"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284530"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Administración del acceso de usuarios externos mediante RBAC
 
@@ -45,7 +45,7 @@ En Azure Portal, una vez que inicie sesión como administrador, seleccione "Susc
 ![Hoja Suscripciones en Azure Portal](./media/role-assignments-external-users/0.png) De forma predeterminada, si el usuario administrador adquirió la suscripción de Azure, el usuario aparecerá como **Administrador de la cuenta**, siendo este el rol de la suscripción. Para más información sobre los roles de la suscripción de Azure, consulte [Agregar o cambiar los administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 En este ejemplo, el usuario "alflanigan@outlook.com" es el **Propietario** de la suscripción "Free Trial" en el inquilino de AAD "Default tenant Azure". Dado que este usuario es el creador de la suscripción de Azure con la cuenta de Microsoft "Outlook" inicial (cuenta Microsoft = Outlook, Live, etc.), el nombre de dominio predeterminado para todos los demás usuarios agregados en este inquilino será **"\@alflaniganuoutlook.onmicrosoft.com"**. Por diseño, la sintaxis del nuevo dominio se forma uniendo el nombre de usuario y el nombre de dominio del usuario que creó el inquilino y agregando la extensión **".onmicrosoft.com"**.
-Además, los usuarios pueden iniciar sesión con un nombre de dominio personalizado en el inquilino después de añadirlo y comprobarlo para el nuevo inquilino. Para más información sobre cómo comprobar un nombre de dominio personalizado en un inquilino de Azure Active Directory, consulte [Agregar un nombre de dominio personalizado a su directorio](/active-directory/active-directory-add-domain).
+Además, los usuarios pueden iniciar sesión con un nombre de dominio personalizado en el inquilino después de añadirlo y comprobarlo para el nuevo inquilino. Para más información sobre cómo comprobar un nombre de dominio personalizado en un inquilino de Azure Active Directory, consulte [Agregar un nombre de dominio personalizado a su directorio](../active-directory/fundamentals/add-custom-domain.md).
 
 En este ejemplo, el directorio "Default tenant Azure" contiene solo usuarios con el nombre de dominio "\@alflanigan.onmicrosoft.com".
 
@@ -85,7 +85,7 @@ Al ser un invitado en el directorio, el usuario externo puede administrar todos 
 
 ![Acceso restringido a Azure Active Directory en Azure Portal](./media/role-assignments-external-users/9.png)
 
-Azure Active Directory y una suscripción de Azure no tienen una relación de primario-secundario como tienen otros recursos de Azure (por ejemplo: las máquinas virtuales, las redes virtuales, las aplicaciones web, el almacenamiento, etc.) en una suscripción de Azure. Todo lo anterior se crea, administra y factura en una suscripción de Azure, mientras que se usa una suscripción de Azure para administrar el acceso a un directorio de Azure. Para más información, consulte [Cómo se relaciona una suscripción de Azure a Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
+Azure Active Directory y una suscripción de Azure no tienen una relación de primario-secundario como tienen otros recursos de Azure (por ejemplo: las máquinas virtuales, las redes virtuales, las aplicaciones web, el almacenamiento, etc.) en una suscripción de Azure. Todo lo anterior se crea, administra y factura en una suscripción de Azure, mientras que se usa una suscripción de Azure para administrar el acceso a un directorio de Azure. Para más información, consulte [Cómo se relaciona una suscripción de Azure a Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 De todos los roles integrados de RBAC, **Propietario** y **Colaborador** ofrecen acceso administrativo completo a todos los recursos del entorno, la diferencia radica en que un colaborador no puede crear y eliminar nuevos roles RBAC. Otros roles integrados, como **Colaborador de la máquina virtual**, ofrecen acceso de administración completa solo a los recursos indicados por el nombre, con independencia del **Grupo de recursos** en el que se creen.
 

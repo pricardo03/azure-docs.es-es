@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: terrylan
-ms.openlocfilehash: 978ef8087665edb3f0bfaa0bd0a55f4d8ab9a12d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3640e4affe42986106791cba50f6cbfd97906806
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251515"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308331"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso de las recomendaciones de Azure Security Center para mejorar la seguridad
 Puede reducir las posibilidades de que se produzca un incidente de seguridad importante configurando una directiva de seguridad y, luego, implementando las recomendaciones de Azure Security Center. En este artículo se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad.
@@ -30,7 +30,7 @@ Puede reducir las posibilidades de que se produzca un incidente de seguridad imp
 >
 
 ## <a name="managing-security-recommendations"></a>Administración de recomendaciones de seguridad
-Las directivas de seguridad definen el conjunto de controles recomendados para los recursos de la suscripción o el grupo de recursos especificados. En Security Center, se definen directivas de acuerdo con los requisitos de seguridad de la compañía. Para aprender más, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md).
+Las directivas de seguridad definen el conjunto de controles recomendados para los recursos de la suscripción o el grupo de recursos especificados. En Security Center, se definen directivas de acuerdo con los requisitos de seguridad de la compañía. Para aprender más, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md).
 
 Las directivas de seguridad de este grupo de recursos se heredan del nivel de suscripción.
 

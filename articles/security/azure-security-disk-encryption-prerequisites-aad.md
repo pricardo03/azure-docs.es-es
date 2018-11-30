@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 54aef992e95454387ee2fda1d1b34d6dcae3e21e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d81925589eefa0ea5851180c83db5bc3540aabda
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959118"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262693"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Requisitos previos Azure Disk Encryption (versión anterior)
 
@@ -118,7 +118,7 @@ Puede encontrar un ejemplo de los comandos que se pueden usar para montar los di
 
 ## <a name="bkmk_CLI"></a> CLI de Azure
 
-La [CLI de Azure 2.0](/cli/azure) es una herramienta de línea de comandos para administrar recursos de Azure. La CLI está diseñada para flexibilizar los datos de consulta, admitir operaciones de larga duración (como los procesos sin bloqueo) y facilitar la realización de scripts. Se puede usar en el explorador con [Azure Cloud Shell](/cloud-shell/overview.md), o lo puede instalar en el equipo local y usarlo en cualquier sesión de PowerShell.
+La [CLI de Azure 2.0](/cli/azure) es una herramienta de línea de comandos para administrar recursos de Azure. La CLI está diseñada para flexibilizar los datos de consulta, admitir operaciones de larga duración (como los procesos sin bloqueo) y facilitar la realización de scripts. Se puede usar en el explorador con [Azure Cloud Shell](../cloud-shell/overview.md), o lo puede instalar en el equipo local y usarlo en cualquier sesión de PowerShell.
 
 1. [Instale la CLI de Azure](/cli/azure/install-azure-cli) para su uso en el equipo local (opcional):
 
@@ -166,7 +166,7 @@ Azure Disk Encryption se integra con [Azure Key Vault](https://azure.microsoft.c
 Puede crear un almacén de claves con Azure PowerShell mediante el cmdlet [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault). Para otros cmdlets de Key Vault, consulte [AzureRM.KeyVault](/powershell/module/azurerm.keyvault/). 
 
 1. Si es necesario, [conéctese a su suscripción de Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH). 
-2. Cree un nuevo grupo de recursos, si es necesario, con [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup).  Para enumerar las ubicaciones de los centro de datos, use [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocationn). 
+2. Cree un nuevo grupo de recursos, si es necesario, con [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup).  Para enumerar las ubicaciones de los centro de datos, use [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). 
      
      ```azurepowershell-interactive
      # Get-AzureRmLocation 
@@ -186,7 +186,7 @@ Puede crear un almacén de claves con Azure PowerShell mediante el cmdlet [New-A
 Puede administrar el almacén de claves con la CLI de Azure mediante el comando [az keyvault](/cli/azure/keyvault#commands). Para crear un almacén de claves, use [crear az keyvault](/cli/azure/keyvault#az-keyvault-create).
 
 1. Si es necesario, [conéctese a su suscripción de Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
-2. Cree un nuevo grupo de recursos, si es necesario, con [crear grupo az](/cli/azure/groupt#az-group-create). Para enumerar las ubicaciones, use [az account list-locations](/cli/azure/account#az-account-list). 
+2. Cree un nuevo grupo de recursos, si es necesario, con [crear grupo az](/cli/azure/group#az-group-create). Para enumerar las ubicaciones, use [az account list-locations](/cli/azure/account#az-account-list). 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
@@ -272,7 +272,7 @@ La aplicación de Azure AD necesita derechos de acceso a las claves o secretos d
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Establecer la directiva de acceso del almacén de claves para la aplicación de Azure AD con la CLI de Azure
-Use [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) para establecer la directiva de acceso. Para más información, consulte [Administración de Key Vault mediante CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
+Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) para establecer la directiva de acceso. Para más información, consulte [Administración de Key Vault mediante CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 1. Si es necesario, [conéctese a su suscripción de Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Conceda a la entidad de servicio que creó mediante la CLI de Azure accesp para obtener los secretos y encapsular las claves con el comando siguiente:

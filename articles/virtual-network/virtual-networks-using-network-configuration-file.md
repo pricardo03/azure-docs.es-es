@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 5267ce5c50e8a57843f0bc54165289b38013ad91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2baae0a1932bdcb7fa5e29ac06dd8ae7a7020a30
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986122"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421851"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configuración de una red virtual (clásica) mediante un archivo de configuración de red
 > [!IMPORTANT]
@@ -134,7 +134,7 @@ Puede usar PowerShell o la CLI clásica para importar un archivo de configuraci�
 
 ### <a name="azure-classic-cli"></a>CLI de Azure clásica
 
-1. [Instale la CLI de Azure clásica](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Realice el resto de pasos desde el símbolo del sistema de una CLI clásica.
+1. [Instale la CLI de Azure clásica](/cli/azure/install-classic-cli). Realice el resto de pasos desde el símbolo del sistema de una CLI clásica.
 2. Inicie sesión en Azure especificando el comando `azure login`.
 3. Asegúrese de que está en el modo de asm escribiendo el comando `azure config mode asm`.
 4. Cambie el directorio y el nombre de archivo en el siguiente comando según sea necesario. A continuación, ejecute el comando para importar el archivo de configuración de red:

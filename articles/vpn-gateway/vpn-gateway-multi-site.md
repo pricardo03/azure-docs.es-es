@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399379"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160875"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente (clásico)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [portal de Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (clásico)](vpn-gateway-multi-site.md)
 >
 >
@@ -36,7 +36,7 @@ Este artículo le guiará a través del uso de PowerShell para agregar conexione
 
 ### <a name="deployment-models-and-methods"></a>Modelos de implementación y métodos
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Esta tabla se actualiza cada vez que hay nuevos artículos y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde esta tabla.
 
@@ -138,7 +138,7 @@ Abra el archivo de configuración de red que descargó en el último paso. Use e
 ## <a name="4-add-multiple-site-references"></a>4. Agregar referencias de varios sitios
 Cuando agregue o quite la información de referencia del sitio, realizará cambios de configuración en ConnectionsToLocalNetwork/LocalNetworkSiteRef. Si se agrega una nueva referencia a sitio local se activa Azure para la creación de un nuevo túnel. En el ejemplo siguiente, la configuración de red es para una conexión de sitio único. Cuando haya terminado de realizar los cambios, guarde el archivo.
 
-```
+```xml
   <Gateway>
     <ConnectionsToLocalNetwork>
       <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
@@ -148,7 +148,7 @@ Cuando agregue o quite la información de referencia del sitio, realizará cambi
 
 Para agregar referencias a sitios adicionales (crear una configuración de varios sitios), basta con agregar líneas "LocalNetworkSiteRef" adicionales, como se muestra en el ejemplo siguiente:
 
-```
+```xml
   <Gateway>
     <ConnectionsToLocalNetwork>
       <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
@@ -207,6 +207,6 @@ Valor devuelto del ejemplo:
     OperationStatus           : Succeeded
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre las VPN Gateway, consulte [Acerca de las VPN Gateway](vpn-gateway-about-vpngateways.md).

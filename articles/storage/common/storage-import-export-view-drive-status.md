@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 49a2c03664ba39a624871b24c0b86a968a67eddb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a0fcb95ed34ed3d98c6b25b475c0866135897f3
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521530"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584679"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualización del estado de los trabajos de Azure Import/Export
 
@@ -23,7 +23,6 @@ Este artículo proporciona información sobre cómo visualizar el estado de la u
 Puede realizar el seguimiento del estado de sus trabajos de importación y exportación desde Azure Portal. Haga clic en la pestaña **Import/Export**. Aparece una lista de los trabajos en la página.
 
 ![Visualización del estado del trabajo](./media/storage-import-export-service/jobstate.png)
-
 
 ## <a name="view-job-status"></a>Ver estado del trabajo
 
@@ -74,7 +73,7 @@ La cantidad de tiempo que tarda en procesar un trabajo de importación o exporta
 -  Tipo de trabajo y tamaño de los datos copiados
 -  Número de discos en un trabajo. 
 
-El servicio Import/Export no tiene un Acuerdo de Nivel de Servicio, pero se esfuerza por completar la copia en un período de tiempo de entre siete y diez días después de que se reciben los discos. Además de para el estado publicado en Azure Portal, las API de REST pueden usarse para realizar el seguimiento del progreso del trabajo. El parámetro de porcentaje completo de la llamada API de la operación de [enumeración de trabajos]() proporciona el porcentaje del progreso de copia.
+El servicio Import/Export no tiene un Acuerdo de Nivel de Servicio, pero se esfuerza por completar la copia en un período de tiempo de entre siete y diez días después de que se reciben los discos. Además de para el estado publicado en Azure Portal, las API de REST pueden usarse para realizar el seguimiento del progreso del trabajo. El parámetro de porcentaje completo de la llamada API de la operación de [enumeración de trabajos](/previous-versions/azure/dn529083(v=azure.100)) proporciona el porcentaje del progreso de copia.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -82,4 +81,3 @@ El servicio Import/Export no tiene un Acuerdo de Nivel de Servicio, pero se esfu
 * [Configuración de la herramienta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferencia de datos con la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 * [Ejemplo de API de REST de Azure Import/Export](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-

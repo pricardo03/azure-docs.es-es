@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: e9f082b795325349001b5231304588e5297a1443
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fe1557a6f9e5fd4e463af254fa1dd52726e73024
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960725"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713051"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmisión de registros de Azure Diagnostics a Log Analytics
 
@@ -96,7 +96,7 @@ El argumento `--resource-group` solo es obligatorio si `--workspace` no es un id
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>¿Cómo se consultan los datos en Log Analytics?
 
-En la hoja Búsqueda de registros del portal o en la experiencia de análisis avanzado como parte de Log Analytics, puede consultar los registros de diagnóstico como parte de la solución Log Management en la tabla AzureDiagnostics. También hay [varias soluciones para recursos de Azure](../monitoring/monitoring-solutions.md) que se pueden instalar para obtener información inmediata sobre los datos del registro que va a enviar a Log Analytics.
+En la hoja Búsqueda de registros del portal o en la experiencia de análisis avanzado como parte de Log Analytics, puede consultar los registros de diagnóstico como parte de la solución Log Management en la tabla AzureDiagnostics. También hay [varias soluciones para recursos de Azure](../azure-monitor/insights/solutions.md) que se pueden instalar para obtener información inmediata sobre los datos del registro que va a enviar a Log Analytics.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

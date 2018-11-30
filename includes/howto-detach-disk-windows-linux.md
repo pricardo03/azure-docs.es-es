@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331470"
+---
 Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Al desasociar un disco se quita de la máquina virtual, pero no se elimina de la cuenta de Azure Storage.
 
 Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuevo a la misma máquina virtual (o a otra).  
@@ -9,7 +22,7 @@ Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuev
 ## <a name="find-the-disk"></a>Buscar el disco
 Si no conoce el nombre del disco o desea comprobarlo antes de desconectarlo, siga estos pasos.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. Haga clic en **Máquinas virtuales**y, a continuación, seleccione la VM correspondiente.
 

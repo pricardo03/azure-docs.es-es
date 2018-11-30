@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118231"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446966"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas
 
@@ -31,7 +31,10 @@ Existen tres maneras fundamentales de personalizar el portal para desarrolladore
 
 Las plantillas se usan para personalizar el contenido de las páginas del portal para desarrolladores generadas por el sistema (por ejemplo, documentos de API, productos, autenticación de usuario, etc.). Mediante la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y un conjunto proporcionado de recursos de cadena localizada, iconos y controles de página, dispone de una gran flexibilidad para configurar el contenido de las páginas según le convenga.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="developer-portal-templates-overview"></a>Información general sobre las plantillas del portal para desarrolladores
+
 La edición de las reglas de estilo se realiza en el **portal para desarrolladores** durante el inicio de sesión como administrador. Para llegar hasta allí, primero abra Azure Portal y haga clic en **Portal para desarrolladores** en la barra de herramientas de servicios de su instancia de API Management.
 
 Para acceder a las plantillas del portal para desarrolladores, haga clic en el icono de personalización de la izquierda para mostrar el menú de personalización y haga clic en **Plantillas**.
@@ -180,7 +183,7 @@ Para restaurar todas las plantillas a las versiones predeterminadas, haga clic e
 
 Las plantillas restauradas deben publicarse individualmente o a la vez siguiendo los pasos descritos en [Para publicar una plantilla](#to-publish-a-template).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener información de referencia sobre plantillas del portal para desarrolladores, recursos de cadena, iconos y controles de página, consulte la [referencia de plantillas del portal para desarrolladores de API Management](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md

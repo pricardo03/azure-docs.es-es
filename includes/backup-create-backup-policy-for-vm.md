@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: backup
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: raynew
+ms.openlocfilehash: e62771096bc59bc05879ce7b7e2da19f050b27b0
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279931"
+---
 ## <a name="defining-a-backup-policy"></a>Definición de una directiva de copia de seguridad
 Una directiva de copia de seguridad define una matriz del momento en que se toman las instantáneas de datos y cuánto tiempo se retienen las instantáneas. Al definir una directiva para la copia de seguridad de una máquina virtual, puede desencadenar un trabajo de copia de seguridad *una vez al día*. Cuando se crea una nueva directiva, se aplica al almacén. La interfaz de la directiva de copia de seguridad tiene el siguiente aspecto:
 

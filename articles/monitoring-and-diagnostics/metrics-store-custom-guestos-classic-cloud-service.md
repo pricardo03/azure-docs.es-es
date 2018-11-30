@@ -8,14 +8,15 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 30b08062aa360c4a43dc1bfe9f574447b58521f5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7f10495e22cf6750fdc5891d760885a238175da8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095218"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711792"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envío de métricas de SO invitado al almacén de métricas de Azure Monitor en Cloud Services clásico 
+
 Con la [extensión Diagnostics](azure-diagnostics.md) de Azure Monitor, puede recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
 En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para Cloud Services clásico de Azure al almacén de métricas de Azure Monitor. A partir de Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar. 
@@ -23,16 +24,14 @@ En este artículo se describe el proceso de envío de métricas de rendimiento d
 Almacenarlas en esta ubicación permite tener acceso a las mismas acciones disponibles para las métricas de la plataforma. Las acciones incluyen la generación de alertas casi en tiempo real, la creación de gráficos, el enrutamiento, el acceso desde una API REST y mucho más.  Anteriormente, la extensión Diagnostics se escribía en Azure Storage, pero no en el almacén de datos de Azure Monitor.  
 
 El proceso descrito en este artículo solo funciona para los contadores de rendimiento en Azure Cloud Services. No funciona para otras métricas personalizadas. 
-   
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Debe ser [administrador de servicios o administrador](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) en su suscripción de Azure. 
+- Debe ser [administrador de servicios o administrador](~/articles/billing/billing-add-change-azure-subscription-administrator.md) en su suscripción de Azure. 
 
 - La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
 - Debe tener instalado [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
-
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Aprovisionamiento de un servicio en la nube y una cuenta de almacenamiento 
 
@@ -42,15 +41,13 @@ El proceso descrito en este artículo solo funciona para los contadores de rendi
 
    ![Claves de cuenta de almacenamiento](./media/metrics-store-custom-guestos-classic-cloud-service/storage-keys.png)
 
-
-
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio 
 
 Cree una entidad de servicio en su inquilino de Azure Active Directory siguiendo las instrucciones de [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tenga en cuenta lo siguiente al realizar este proceso: 
 
-  - Puede colocar cualquier dirección URL como dirección URL de inicio de sesión.  
-  - Cree un nuevo secreto de cliente para esta aplicación.  
-  - Guarde la clave y el identificador de cliente para usarlos en pasos posteriores.  
+- Puede colocar cualquier dirección URL como dirección URL de inicio de sesión.  
+- Cree un nuevo secreto de cliente para esta aplicación.  
+- Guarde la clave y el identificador de cliente para usarlos en pasos posteriores.  
 
 Asigne los permisos *Supervisión del publicador de métricas* a la aplicación que creó en el paso anterior para el recurso frente al cual quiere emitir métricas. Si va a usar la aplicación para emitir métricas personalizadas frente a muchos recursos, puede conceder estos permisos en el nivel de suscripción o de grupo de recursos.  
 
@@ -136,7 +133,7 @@ Por último, en la configuración privada, agregue la sección *Azure Monitor Ac
     </AzureMonitorAccount> 
 </PrivateConfig> 
 ```
- 
+
 Guarde este archivo de diagnóstico localmente.  
 
 ## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Implementación de la extensión Diagnostics en el servicio en la nube 
@@ -153,19 +150,19 @@ Use los siguientes comandos para almacenar los detalles de la cuenta de almacena
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
- 
+
 De igual modo, establezca la ruta de acceso del archivo de diagnóstico en una variable mediante el comando siguiente:
 
 ```PowerShell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
- 
+
 Implemente la extensión Diagnostics en el servicio en la nube con el archivo de diagnóstico y el receptor de Azure Monitor configurado mediante el siguiente comando:  
 
 ```PowerShell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
- 
+
 > [!NOTE] 
 > Sigue siendo obligatorio proporcionar una cuenta de almacenamiento como parte de la instalación de la extensión Diagnostics. Todos los registros o contadores de rendimiento especificados en el archivo de configuración de diagnóstico se escribirán en la cuenta de almacenamiento especificada.  
 
@@ -190,7 +187,5 @@ Puede usar las funcionalidades de división y de filtrado de dimensiones para ve
  ![Métricas en Azure Portal](./media/metrics-store-custom-guestos-classic-cloud-service/metrics-graph.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Más información acerca de las [métricas personalizadas](metrics-custom-overview.md).
-
-
-

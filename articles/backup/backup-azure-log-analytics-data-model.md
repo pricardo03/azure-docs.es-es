@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32ce9cb456e302647e2e09db6ed549cd4795fed7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448397"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635159"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 Use el modelo de datos de Log Analytics para crear informes. Con el modelo de datos, puede crear consultas y paneles personalizados o puede personalizar los datos Azure Backup, como lo prefiera.
@@ -44,8 +44,8 @@ Esta tabla proporciona detalles acerca de los campos relacionados con la alerta.
 | VaultUniqueId_s |Texto |Identificador único del almacén protegido asociado a la alerta |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
 | ResourceId |Texto |Identificador único para el recurso sobre el que se recopilan los datos. Por ejemplo, el id. del recurso del almacén de Recovery Services |
-| SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej. Almacén de Recovery Services) para el que se recopilan los datos |
-| ResourceGroup |Texto |Grupo de recursos del recurso (p. ej. Almacén de Recovery Services) para el que se recopilan los datos |
+| SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
+| ResourceGroup |Texto |Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceProvider |Texto |Proveedor de recursos para el que se recopilan los datos. Por ejemplo, Microsoft.RecoveryServices. |
 | ResourceType |Texto |Tipo de recurso para el que se recopilan los datos. Por ejemplo: almacenes |
 
@@ -84,7 +84,7 @@ Esta tabla proporciona detalles acerca de las asociaciones de elementos de copia
 | BackupItemUniqueId_s |Texto |Identificador exclusivo del elemento de copia de seguridad |
 | SchemaVersion_s |Texto |Este campo indica la versión actual del esquema; es **V1** |
 | State_s |Texto |Estado actual del objeto de la asociación del elemento de copia de seguridad, por ejemplo, Active o Deleted |
-| BackupManagementType_s |Texto |Tipo de proveedor para el servidor que realiza la tarea de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
+| BackupManagementType_s |Texto |Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
 | nombreOperación |Texto |Este campo representa el nombre de la operación actual: BackupItemAssociation |
 | Categoría |Texto |Este campo representa la categoría de datos de diagnóstico insertada en Log Analytics; es AzureBackupReport |
 | Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
@@ -281,4 +281,4 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacé
 | ResourceType |Texto |Tipo de recurso para el que se recopilan los datos. Por ejemplo: almacenes |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Cuando revise el modelo de datos para crear informes de Azure Backup, puede comenzar a [crear un panel](../log-analytics/log-analytics-dashboards.md) en Log Analytics.
+Cuando revise el modelo de datos para crear informes de Azure Backup, puede comenzar a [crear un panel](../azure-monitor/platform/dashboards.md) en Log Analytics.

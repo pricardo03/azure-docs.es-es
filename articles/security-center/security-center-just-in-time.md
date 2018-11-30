@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 72acf0f06bbed0129ff322b10a7faf16fd94f712
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320346"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314752"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administrar el acceso a máquina virtual mediante Just-In-Time
 
@@ -262,7 +262,7 @@ En este artículo, ha aprendido cómo el acceso a máquina virtual Just-In-Time 
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-- [Establecimiento de directivas de seguridad](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Establecimiento de directivas de seguridad](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 - [Administración de recomendaciones de seguridad](security-center-recommendations.md): conozca una serie de recomendaciones que le ayudarán a proteger los recursos de Azure.
 - [Supervisión del estado de seguridad](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
 - [Administración y respuesta a las alertas de seguridad](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.

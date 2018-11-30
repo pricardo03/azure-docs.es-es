@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 4b7192b0c406d2c5df42e3bb3e604f26c56c7bd4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d4d2ce4dcda9ea72d4a33ee363efd3519c2118aa
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235197"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635839"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
 En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
@@ -51,14 +51,14 @@ Los certificados se componen de tres recursos interrelacionados vinculados entre
 
 **Paso 3**: un administrador, junto con un empleado de Contoso (usuario de Key Vault) propietario de certificados que, dependiendo de la entidad de certificación, puede obtener un certificado del administrador o directamente desde la cuenta con la entidad de certificación.  
 
--   Comience una operación de incorporación de credenciales a un almacén de claves mediante el establecimiento de un recurso de [emisor de certificados](/rest/api/keyvault/setcertificateissuer). Un emisor de certificados es una entidad que se representa en Azure Key Vault (KV) como un recurso CertificateIssuer. Se utiliza para proporcionar información sobre el origen de un certificado de KV; el nombre del emisor, el proveedor, las credenciales y otros detalles administrativos.
+-   Comience una operación de incorporación de credenciales a un almacén de claves mediante el establecimiento de un recurso de [emisor de certificados](/rest/api/keyvault/setcertificateissuer/setcertificateissuer). Un emisor de certificados es una entidad que se representa en Azure Key Vault (KV) como un recurso CertificateIssuer. Se utiliza para proporcionar información sobre el origen de un certificado de KV; el nombre del emisor, el proveedor, las credenciales y otros detalles administrativos.
     -   Ejemplo: MyDigiCertIssuer  
         -   Proveedor  
         -   Credenciales: credenciales de la cuenta de la entidad de certificación. Cada entidad de certificación tiene sus datos específicos propios.  
 
      Para más información acerca de la creación de cuentas con proveedores de entidades de certificación, consulte la entrada correspondiente en el [blog de Key Vault](https://aka.ms/kvcertsblog).  
 
-**Paso 3.1**: configure [contactos de certificados](/rest/api/keyvault/setcertificatecontacts) para las notificaciones. Este es el contacto del usuario de Key Vault. Key Vault no aplica este paso.  
+**Paso 3.1**: configure [contactos de certificados](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para las notificaciones. Este es el contacto del usuario de Key Vault. Key Vault no aplica este paso.  
 
 Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repetir.  
 
@@ -83,7 +83,7 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
       -   Información de renovación - > p. ej. 90 días hasta la expiración  
 
   - La creación de certificados suele ser un proceso asincrónico e implica el sondeo de estado de la operación de creación del certificado en el almacén de claves.  
-[Operación de obtención de certificado](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
+[Operación de obtención de certificado](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Estado: completado, erróneo con la información del error, o cancelado  
       -   Si la creación se retrasa, se puede iniciar una operación de cancelación. Puede que la cancelación se lleve a cabo o no.  
 

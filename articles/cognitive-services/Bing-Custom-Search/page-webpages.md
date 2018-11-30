@@ -3,19 +3,19 @@ title: 'Paginación por páginas web disponibles: Bing Custom Search'
 titlesuffix: Azure Cognitive Services
 description: Se muestra cómo paginar por todas las páginas web que puede devolver Bing Custom Search.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: fea0e4d640f42909b33ae418315c460946544256
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: e020a8c13915fee32d00c30ec47921335a5f377e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739590"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160514"
 ---
 # <a name="paging-webpages"></a>Paginación de páginas web 
 

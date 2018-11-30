@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2ba7039fe42e3b5638b99161e12e9888bc852f87
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634936"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634649"
 ---
 # <a name="install-and-run-containers"></a>Instalación y ejecución de contenedores
 
@@ -60,9 +60,6 @@ Realice los pasos siguientes para crear y recuperar información de un recurso d
 
 1. Cree un recurso de Azure en Azure Portal.  
    Si quiere usar el contenedor de Reconocer texto, primero debe crear un recurso correspondiente de Computer Vision en Azure Portal. Para obtener más información, consulte [Guía de inicio rápido: crear una cuenta de Cognitive Services en Azure Portal](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > El recurso de Computer Vision debe usar el plan de tarifa F0.
 
 1. Obtenga la dirección URL del punto de conexión y la clave de suscripción para el recurso de Azure.  
    Una vez creado el recurso de Azure, debe usar la clave de suscripción y la dirección URL del punto de conexión de ese recurso para crear una instancia del contenedor correspondiente de Reconocer texto. Puede copiar la dirección URL del punto de conexión y la clave de suscripción de las páginas Inicio rápido y Claves, respectivamente, del recurso de Computer Vision en Azure Portal.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230859"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308995"
 ---
 # <a name="view-service-fabric-health-reports"></a>Vista de los informes de estado de Service Fabric
 Azure Service Fabric presenta un [modelo de mantenimiento](service-fabric-health-introduction.md) con entidades de estado en las que componentes y guardianes del sistema pueden notificar las condiciones locales que están supervisando. El [almacén de estado](service-fabric-health-introduction.md#health-store) agrega todos los datos de mantenimiento para determinar si las entidades son correctas.
@@ -613,7 +613,7 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Puede obtener el mantenimiento de la partición con una [solicitud GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) o una [solicitud POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) que incluye las directivas de mantenimiento descritas en el cuerpo.
+Puede obtener el mantenimiento de la partición con una [solicitud GET](/rest/api/servicefabric/sfclient-api-getpartitionhealth) o una [solicitud POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) que incluye las directivas de mantenimiento descritas en el cuerpo.
 
 ## <a name="get-replica-health"></a>Obtención del mantenimiento de réplica
 Devuelve el mantenimiento de una réplica de servicio con estado o una instancia de servicio sin estado. Entrada:

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0be10c155398133887fadb1fe9954068f3afb9d9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568121"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282539"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adición de un elemento emergente al mapa
 
@@ -33,7 +33,7 @@ El segundo bloque de código crea un objeto de origen de datos con la clase [Dat
 
 Una [capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto o iconos para representar los datos basados en puntos encapsulados en [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos en el mapa.  En el tercer bloque de código, se crea una capa de símbolos. El origen de datos se agrega a la capa de símbolos y, después, esta se agrega al mapa.
 
-El cuarto bloque de código crea un [objeto Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) mediante `new atlas.Popup()`. Las propiedades del elemento emergente, como pixelOffset y la posición, forman parte de [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest). PopupOptions se puede definir en el constructor del elemento emergente o a través de la función [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la clase Popup. A continuación, se crea un agente de escucha de eventos `mouseover` para la capa de símbolos.
+El cuarto bloque de código crea un [objeto Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) mediante `new atlas.Popup()`. Las propiedades del elemento emergente, como pixelOffset y la posición, forman parte de [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions). PopupOptions se puede definir en el constructor del elemento emergente o a través de la función [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la clase Popup. A continuación, se crea un agente de escucha de eventos `mouseover` para la capa de símbolos.
 
 El último bloque de código crea una función que desencadena el agente de escucha de eventos `mouseover`. Establece las propiedades de la ventana emergente y el contenido, y agrega el objeto del elemento emergente al mapa.
 

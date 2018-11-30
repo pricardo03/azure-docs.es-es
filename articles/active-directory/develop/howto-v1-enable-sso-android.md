@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c7d1665eece966053f52e118bb0d6f7f5ec4cba6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957870"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422854"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Habilitación de SSO entre aplicaciones en Android mediante ADAL
 
@@ -130,7 +130,7 @@ Este identificador URI se puede registrar en la aplicación mediante [Azure Port
 
 #### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Paso 3: Configurar los permisos correctos en la aplicación
 
-La aplicación de agente en Android utiliza la característica de administrador de cuentas del sistema operativo Android para administrar las credenciales entre aplicaciones. Para utilizar el agente en Android el manifiesto de la aplicación debe tener permisos para usar cuentas del administrador de cuentas. Estos permisos se explican con todo detalle en la [documentación de Google para el administrador de cuentas que puede encontrar aquí](http://developer.android.com/reference/android/accounts/AccountManager.html)
+La aplicación de agente en Android utiliza la característica de administrador de cuentas del sistema operativo Android para administrar las credenciales entre aplicaciones. Para utilizar el agente en Android el manifiesto de la aplicación debe tener permisos para usar cuentas del administrador de cuentas. Estos permisos se explican con todo detalle en la [documentación de Google para el administrador de cuentas que puede encontrar aquí](https://developer.android.com/reference/android/accounts/AccountManager.html)
 
 En concreto, estos permisos son:
 

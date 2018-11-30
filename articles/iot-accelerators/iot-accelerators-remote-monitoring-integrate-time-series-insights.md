@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: ba6d79661a2c07ba3eef1f16a117992a858830b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3ae41ff4cf501a58668d25b16027029f6bae4749
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605936"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317502"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integración de Azure Time Series Insights con Supervisión remota
 
@@ -292,6 +292,6 @@ Configure el entorno de la implementación `standard`para los microservicios act
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre cómo explorar los datos y diagnosticar una alerta en el explorador de Time Series Insights, consulte nuestro tutorial sobre cómo [llevar a cabo un análisis de causa principal](/tutorials).
+* Para obtener información sobre cómo explorar los datos y diagnosticar una alerta en el explorador de Time Series Insights, consulte nuestro tutorial sobre cómo [llevar a cabo un análisis de causa principal](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
 * Para obtener información sobre cómo explorar y consultar datos en el explorador de Time Series Insights, consulte la documentación sobre el [Explorador de Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

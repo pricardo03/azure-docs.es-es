@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2018
 ms.author: billmath
-ms.openlocfilehash: d76905df230fe9d1a61186cc22d14bb44028e00b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ca200c76596dc1a4f31bf36f00bb1661d12d19f7
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252097"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426373"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Cambio del algoritmo hash de firma para usuarios de confianza de Office 365
 ## <a name="overview"></a>Información general
@@ -45,7 +45,7 @@ Después de haber establecido el algoritmo de firma con uno de los dos procesos 
 1. En cualquier servidor de AD FS, abra PowerShell con privilegios de administrador.
 2. Establezca el algoritmo hash seguro mediante el cmdlet **Set-AdfsRelyingPartyTrust** .
    
-   <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
+   <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'https://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ## <a name="also-read"></a>Consulte también
 * [Reparación de la confianza de Office 365 con Azure AD Connect](how-to-connect-fed-management.md#repairthetrust)

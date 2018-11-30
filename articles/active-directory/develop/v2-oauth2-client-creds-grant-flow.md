@@ -17,18 +17,18 @@ ms.date: 11/13/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3ecf837af735b97e269eb3fdc01d2e56ec40fb6e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be10af7096a11fb27971af9dc28036df4a4b0968
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624512"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423565"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Puede usar la [concesión de credenciales de cliente de OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4) especificada en RFC 6749 y a veces denominada *OAuth de dos días*, para acceder a recursos hospedados en la web mediante la identidad de una aplicación. Este tipo de concesión se usa principalmente para interacciones de servidor a servidor que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. A menudo, estos tipos de aplicaciones se conocen como *demonios* o *cuentas de servicio*.
+Puede usar la [concesión de credenciales de cliente de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.4) especificada en RFC 6749 y a veces denominada *OAuth de dos días*, para acceder a recursos hospedados en la web mediante la identidad de una aplicación. Este tipo de concesión se usa principalmente para interacciones de servidor a servidor que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. A menudo, estos tipos de aplicaciones se conocen como *demonios* o *cuentas de servicio*.
 
 El flujo de concesión de credenciales de cliente de OAuth 2.0 permite que un servicio web (cliente confidencial) use sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. En este escenario, el cliente es normalmente un servicio web de nivel intermedio, un servicio demonio o un sitio web. Para conseguir un mayor nivel de control, Azure Active Directory (Azure AD) también permite que el servicio que realiza la llamada use un certificado (en lugar de un secreto compartido) como credencial.
 

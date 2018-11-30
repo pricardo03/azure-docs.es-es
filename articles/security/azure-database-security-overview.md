@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262206"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584781"
 ---
 # <a name="azure-database-security-overview"></a>Introducción a la seguridad de base de datos de Azure
 
@@ -199,7 +199,7 @@ SQL Advanced Threat Protection (ATP) proporciona un conjunto de funcionalidades 
 - Acceso desde una aplicación potencialmente dañina 
 - Ataques por fuerza bruta a las credenciales de Azure Database for PostgreSQL 
 
-[Advanced Threat Protection para Azure Database for MySQL](/mysql/concepts-data-access-and-security-threat-protection.md) proporciona una protección similar a la protección avanzada de PostgreSQL.  
+[Advanced Threat Protection para Azure Database for MySQL](../mysql/concepts-data-access-and-security-threat-protection.md) proporciona una protección similar a la protección avanzada de PostgreSQL.  
 
 ## <a name="centralized-security-management"></a>Administración de seguridad centralizada
 
@@ -220,7 +220,7 @@ El Centro de seguridad admite el acceso basado en rol.
 
 Además, calcula la confidencialidad del conjunto de resultados de las consultas SQL, para que las consultas que extraen datos confidenciales se puedan auditar explícitamente y se protejan los datos. Para obtener más detalles acerca de SQL Information Protection, consulte Clasificación y detección de datos de Azure SQL Database.
 
-Puede configurar las [directivas de SQL Information Protection](/security-center/security-center-info-protection-policy.md) en Azure Security Center.
+Puede configurar las [directivas de SQL Information Protection](../security-center/security-center-info-protection-policy.md) en Azure Security Center.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

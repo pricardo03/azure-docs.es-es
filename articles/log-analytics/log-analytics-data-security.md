@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2b04853e8d01ae559ce4ad982daba2928a6cd130
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4220af0a93bd48074c29c7b8e25a822d28a8161b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244481"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712388"
 ---
 # <a name="log-analytics-data-security"></a>Seguridad de datos de Log Analytics
 Este documento está diseñado para proporcionar información específica sobre Log Analytics, que es una característica de Azure Monitor, para complementar la información que se halla en el [Centro de confianza de Azure](../security/security-microsoft-trust-center.md).  
@@ -158,7 +158,7 @@ En lo que respecta a Operations Manager, el grupo de administración de este est
 
 Toda la comunicación se cifra entre sistemas conectados y el servicio Log Analytics. El protocolo TLS (HTTPS) se utiliza para el cifrado.  Se sigue el proceso del SDL de Microsoft para garantizar que el servicio Log Analytics está actualizado con los últimos avances en protocolos criptográficos.
 
-Cada tipo de agente recopila datos para Log Analytics. El tipo de datos recopilados depende de los tipos de soluciones usadas. Puede ver un resumen del proceso de recolección de datos en el artículo [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../monitoring/monitoring-solutions.md). Además, hay información más detallada disponible sobre este tema para la mayoría de las soluciones. Una solución es una agrupación de vistas predefinidas, consultas de búsqueda de registros, reglas de recopilación de datos y lógica de procesamiento. Solo los administradores pueden usar Log Analytics para importar una solución. Una vez importada, la solución se transfiere a los servidores de administración de Operations Manager (en caso de utilizarse) y, después, a los agentes que haya elegido. Posteriormente, los agentes recopilan los datos.
+Cada tipo de agente recopila datos para Log Analytics. El tipo de datos recopilados depende de los tipos de soluciones usadas. Puede ver un resumen del proceso de recolección de datos en el artículo [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../azure-monitor/insights/solutions.md). Además, hay información más detallada disponible sobre este tema para la mayoría de las soluciones. Una solución es una agrupación de vistas predefinidas, consultas de búsqueda de registros, reglas de recopilación de datos y lógica de procesamiento. Solo los administradores pueden usar Log Analytics para importar una solución. Una vez importada, la solución se transfiere a los servidores de administración de Operations Manager (en caso de utilizarse) y, después, a los agentes que haya elegido. Posteriormente, los agentes recopilan los datos.
 
 ## <a name="2-send-data-from-agents"></a>2. Envío de datos desde agentes
 El registro de todos los tipos de agentes se efectúa con una clave de inscripción y se establece una conexión segura entre el agente en cuestión y el servicio Log Analytics mediante la autenticación basada en certificados y SSL con el puerto 443. Log Analytics utiliza un almacén secreto para generar y mantener las claves. Las claves privadas se alternan cada 90 días, y se almacenan en Azure y administran a través de las operaciones de Azure que siguen las estrictas prácticas regulatorias y de cumplimiento normativo.

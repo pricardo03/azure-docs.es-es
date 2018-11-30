@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 2786de150307b21b06b624914d5fea55ded6e3c7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4068ce42babb786ca33e1b0d41fdfefc7d3f78be
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249829"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282779"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creación de tareas de monitor de Azure Automation para realizar un seguimiento de los cambios de archivo en un equipo local
 
@@ -103,13 +103,13 @@ Para probar si el monitor función según lo previsto, debe crear un archivo de 
 
 Remoto en Hybrid Worker. Abra **PowerShell** y cree un archivo de prueba en la carpeta.
   
-   ```PowerShell-interactive
-   New-Item -Name ExampleFile1.txt
-   ```
+```azurepowerShell-interactive
+New-Item -Name ExampleFile1.txt
+```
 
 En el siguiente ejemplo se muestra la salida esperada.
 
-```
+```output
     Directory: D:\examplefiles
 
 
@@ -129,7 +129,7 @@ Mode                LastWriteTime         Length Name
 
 La salida esperada cuando se encuentra el archivo nuevo puede verse en el ejemplo siguiente:
 
-```
+```output
 Message is Process new file...
 
 

@@ -3,7 +3,7 @@ title: Conexión de Microsoft Advanced Threat Analytics con Azure Security Cente
 description: Obtenga información acerca de cómo integrar Azure Security Center con Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
-ms.author: yurid
-ms.openlocfilehash: 6129c83e33d046c2fc9ce1724a27efce5efdfa0e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: bcd9b006c5451cb2d251cd5ff9e6ae5e0bd17f3c
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258806"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634020"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Conexión de Microsoft Advanced Threat Analytics con Azure Security Center
 Este documento le ayuda a configurar la integración entre Microsoft Advanced Threat Analytics y Azure Security Center.
 
 ## <a name="why-add-advanced-threat-analytics-data"></a>¿Por qué agregar datos de Advanced Threat Analytics?
-[Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) es una plataforma local que ayuda a detectar comportamientos sospechosos de usuario. Cuando se conecta, puede ver las acciones sospechosas detectadas por ATA en Security Center. Esta integración permite ver, poner en correlación e investigar todas las alertas de seguridad relacionadas con las cargas de trabajo de nube híbrida en Security Center. 
+[Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) es una plataforma local que ayuda a detectar comportamientos sospechosos de usuario. Cuando se conecta, puede ver las acciones sospechosas detectadas por ATA en Security Center. Esta integración permite ver, poner en correlación e investigar todas las alertas de seguridad relacionadas con las cargas de trabajo de nube híbrida en Security Center.
 
 ## <a name="how-do-i-configure-this-integration"></a>¿Cómo se puede configurar esta integración?
 Si damos por hecho que ya tiene instalado de forma local ATA y en correcto funcionamiento, siga estos pasos para configurar esta integración:
@@ -46,7 +46,7 @@ Si damos por hecho que ya tiene instalado de forma local ATA y en correcto funci
 8. En **Advanced Threat Analytics**, haga clic en **Agregar**.
 
     ![ATA](./media/security-center-ata-integration/security-center-ata-integration-fig3.png)
-    
+
 9. Vaya al último paso y haga clic en **Descargar agente**.
 
     ![ATA](./media/security-center-ata-integration/security-center-ata-integration-fig4.png)
@@ -62,13 +62,13 @@ Si damos por hecho que ya tiene instalado de forma local ATA y en correcto funci
 12. Instale el agente en el Centro de ATA. Durante la instalación, asegúrese de seleccionar la opción **Conectar el agente a Azure Log Analytics** y proporcione el  *de área de trabajo* y *clave principal* cuando se solicite.
 
 
-Una vez que finaliza la instalación, se completa la integración y podrá ver las alertas nuevas que se envían desde ATA a Security Center en el resultado de la **búsqueda**. La solución aparece en la página **Soluciones de seguridad**, en **Soluciones conectadas**. 
+Una vez que finaliza la instalación, se completa la integración y podrá ver las alertas nuevas que se envían desde ATA a Security Center en el resultado de la **búsqueda**. La solución aparece en la página **Soluciones de seguridad**, en **Soluciones conectadas**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento ha aprendido a conectar Microsoft ATA con Security Center. Para más información sobre Security Center, consulte los siguientes artículos:
 
 * [Conexión de Azure Active Directory Identity Protection con Azure Security Center](security-center-aadip-integration.md)
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md) : recomendaciones que lo ayudan a proteger los recursos de Azure.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga más información sobre cómo supervisar el estado de sus recursos en Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
@@ -76,5 +76,3 @@ En este documento ha aprendido a conectar Microsoft ATA con Security Center. Par
 - [Seguridad de datos de Azure Security Center](security-center-data-security.md): aprenda cómo se administran y protegen los datos en Security Center.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/) : obtenga las últimas noticias e información sobre la seguridad en Azure.
-
-

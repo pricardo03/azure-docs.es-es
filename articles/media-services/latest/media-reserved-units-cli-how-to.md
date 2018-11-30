@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: db1915f23c33b5cc0d504f8fcc21b9533228247f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: dd587e5fc2082d1e496fbc05d5b25cf6692413bc
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634403"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713068"
 ---
 # <a name="scaling-media-processing"></a>Escalado de procesamiento de elementos multimedia
 
-Azure Media Services le permite escalar el procesamiento de elementos multimedia en su cuenta mediante la administración de unidades reservadas de multimedia (MRU). Para información más detallada, consulte el [escalado de procesamiento de medios](../previous/media-services-scale-media-processing-overview.md). En este artículo se muestra cómo usar la [CLI de Media Services v3](https://aka.ms/ams-v3-cli-ref) para escalar las MRU.
+Azure Media Services le permite escalar el procesamiento de elementos multimedia en su cuenta mediante la administración de unidades reservadas de multimedia (MRU). Para información más detallada, consulte el [escalado de procesamiento de medios](../previous/media-services-scale-media-processing-overview.md). 
 
-> [!IMPORTANT]
-> Revise las consideraciones descritas en [esta sección](#considerations).  
-> 
->
+En este artículo se muestra cómo usar la [CLI de Media Services v3](https://aka.ms/ams-v3-cli-ref) para escalar las MRU.
+
+> [!NOTE]
+> Para los trabajos de análisis de audio y vídeo desencadenados por Media Services v3 o Video Indexer, se recomienda encarecidamente aprovisionar la cuenta con 10 MRU S3. <br/>Si necesita más de 10 MRU S3, abra una incidencia de soporte técnico desde [Azure Portal](https://portal.azure.com/).
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
@@ -44,11 +44,6 @@ El comando [mru de la cuenta de ams az](https://docs.microsoft.com/cli/azure/ams
 ```azurecli
 az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
-
-## <a name="considerations"></a>Consideraciones
-
-- Para los trabajos de análisis de audio y vídeo desencadenados por Media Services v3 o Video Indexer, se recomienda encarecidamente aprovisionar la cuenta con 10 MRU S3.
-- Si necesita más de 10 MRU S3, abra una incidencia de soporte técnico desde [Azure Portal](https://portal.azure.com/).
 
 ## <a name="billing"></a>Facturación
 

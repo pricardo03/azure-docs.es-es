@@ -17,18 +17,18 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466723"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424959"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimiento: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
 Hoy en día, Azure Active Directory (Azure AD) admite el inicio de sesión único con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación a través de Azure AD con el protocolo SAML 2.0, Azure AD envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como "notificaciones".
 
-Una *notificación* es información que un proveedor de identidades declara sobre un usuario dentro del token que se emite para dicho usuario. En [token SAML](http://en.wikipedia.org/wiki/SAML_2.0), estos datos suelen incluirse en la instrucción SAML Attribute. El identificador único del usuario suele representarse en SAML Subject, también denominado NameIdentifier.
+Una *notificación* es información que un proveedor de identidades declara sobre un usuario dentro del token que se emite para dicho usuario. En [token SAML](https://en.wikipedia.org/wiki/SAML_2.0), estos datos suelen incluirse en la instrucción SAML Attribute. El identificador único del usuario suele representarse en SAML Subject, también denominado NameIdentifier.
 
 De forma predeterminada, Azure AD emite un token SAML a la aplicación que contiene una notificación NameIdentifier, con un valor de nombre de usuario del usuario (también llamado nombre principal de usuario) en Azure AD. Este valor solo puede identificar al usuario. El token SAML también contiene notificaciones adicionales con la dirección de correo electrónico, el nombre y el apellido del usuario.
 

@@ -2,25 +2,21 @@
 title: Limpieza y preparación de datos para Azure Machine Learning | Microsoft Docs
 description: Prepocese y limpie datos para prepararlos para el aprendizaje automático.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: bdf659ec-4881-4324-8b9c-747cbfa0c3cd
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: deguhath
-ms.openlocfilehash: 127c51b9a2617c6b8520d972a3cd4b6c3bbcddd1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 52457e19cede5d8d2b74d9c3d81ebf35e3ad06c4
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837701"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446567"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tareas para preparar los datos para el aprendizaje automático mejorado
 El preprocesamiento y la limpieza de datos son tareas importantes que normalmente se deben llevar a cabo para que el conjunto de datos se pueda usar de forma eficaz para el aprendizaje automático. Los datos sin procesar son a menudo ruidosos no confiables y es posible que les falten valores. El uso de estos datos para el modelado puede producir resultados engañosos. Estas tareas forman parte del proceso de ciencia de datos en equipos (TDSP) y normalmente siguen una exploración inicial de un conjunto de datos que se usa para detectar y planear el procesamiento previo necesario. Para obtener instrucciones más detalladas sobre el proceso TDSP, consulte los pasos que se describen en el [proceso de ciencia de datos en equipos](overview.md).

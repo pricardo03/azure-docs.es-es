@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 79bf6892c823da282c3e763921e830f986419854
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 71a8077f2423dd170d08d540edd307c08ed886cc
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23123843"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165525"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación clásica
 
-La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a Internet de vuelta a su ubicación local a través de un túnel VPN de sitio a sitio para inspección y auditoría. Se trata de un requisito de seguridad crítico en la mayoría de las directivas de las empresas de TI. Sin la tunelización forzada, el tráfico vinculado a Internet desde las máquinas virtuales en Azure siempre irá desde la infraestructura de red de Azure directamente a Internet, sin la opción que permite inspeccionar o auditar el tráfico. Un acceso no autorizado a Internet puede provocar la divulgación de información u otros tipos de infracciones de seguridad.
+La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a Internet de vuelta a su ubicación local a través de un túnel VPN de sitio a sitio con fines de inspección y auditoría. Se trata de un requisito de seguridad crítico en la mayoría de las directivas de las empresas de TI. Sin la tunelización forzada, el tráfico vinculado a Internet desde las máquinas virtuales en Azure siempre irá desde la infraestructura de red de Azure directamente a Internet, sin la opción que permite inspeccionar o auditar el tráfico. Un acceso no autorizado a Internet puede provocar la divulgación de información u otros tipos de infracciones de seguridad.
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Este artículo le guiará a través del proceso de configuración de la tunelización forzada para redes virtuales creadas mediante el modelo de implementación clásica. La tunelización forzada puede configurarse mediante el uso de PowerShell, no a través del portal. Si desea configurar la tunelización forzada para el modelo de implementación de Resource Manager, seleccione el artículo clásico de la lista desplegable siguiente:
 
@@ -66,7 +66,7 @@ Antes de comenzar con la configuración, comprueba que dispones de los elementos
 ## <a name="configure-forced-tunneling"></a>Configuración de la tunelización forzada
 El siguiente procedimiento lo ayudará a especificar la tunelización forzada en una red virtual. Los pasos de configuración corresponden al archivo de configuración de red virtual.
 
-```
+```xml
 <VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
       <AddressPrefix>10.1.0.0/16</AddressPrefix>

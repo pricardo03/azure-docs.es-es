@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6303fe4313f68d4f38151ce9ba85eae2d6de96ca
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006539"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427002"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recopilación de registros y métricas de Azure para servicios de Log Analytics
 
@@ -34,7 +34,7 @@ Hay cuatro maneras diferentes de recopilar registros y métricas para servicios 
 
 | Servicio                 | Tipo de recurso                           | Registros        | Métricas     | Solución |
 | --- | --- | --- | --- | --- |
-| Puertas de enlace de aplicaciones    | Microsoft.Network/applicationGateways   | Diagnóstico | Diagnóstico | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| Puertas de enlace de aplicaciones    | Microsoft.Network/applicationGateways   | Diagnóstico | Diagnóstico | [Azure Application Gateway Analytics](../azure-monitor/insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application Insights    |                                         | Conector   | Conector   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (versión preliminar) |
 | Cuentas de Automation     | Microsoft.Automation/AutomationAccounts | Diagnóstico |             | [Más información](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Cuentas de Batch          | Microsoft.Batch/batchAccounts           | Diagnóstico | Diagnóstico | |
@@ -44,10 +44,10 @@ Hay cuatro maneras diferentes de recopilar registros y métricas para servicios 
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | Diagnóstico |             | |
 | Espacio de nombres del Centro de eventos     | Microsoft.EventHub/namespaces           | Diagnóstico | Diagnóstico | |
 | IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnóstico | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Diagnóstico |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnóstico |             | [KeyVault Analytics](../azure-monitor/insights/azure-key-vault.md) |
 | Equilibradores de carga          | Microsoft.Network/loadBalancers         | Diagnóstico |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnóstico | Diagnóstico | |
-| Grupos de seguridad de red | Microsoft.Network/networksecuritygroups | Diagnóstico |             | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Grupos de seguridad de red | Microsoft.Network/networksecuritygroups | Diagnóstico |             | [Azure Network Security Group Analytics](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Almacenes de recuperación         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (versión preliminar)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Servicios de búsqueda         | Microsoft.Search/searchServices         | Diagnóstico | Diagnóstico | |
 | Espacio de nombres de Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnóstico | Diagnóstico | [Service Bus Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
@@ -158,5 +158,5 @@ La galería de plantillas de Azure tiene [ejemplos del uso de Azure Automation](
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) (Uso de Blob Storage para IIS y de Table Storage para eventos) para aprender a leer los registros para servicios de Azure que escriben diagnósticos en Table Storage o registros ISS en Blob Storage.
-* [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../monitoring/monitoring-solutions.md) para más información sobre los datos.
+* [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../azure-monitor/insights/solutions.md) para más información sobre los datos.
 * [Búsquedas de registros en Log Analytics](log-analytics-queries.md) para analizar los datos.

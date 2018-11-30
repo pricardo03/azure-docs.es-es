@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27bfd3176ecad847f9bba2a62abd66b55484443b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42143891"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443022"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Implementación de una instancia del servicio Azure API Management en varias regiones de Azure
 
@@ -26,11 +26,10 @@ Azure API Management admite la implementación en varias regiones, lo que permit
 
 Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][unit] en una única región de Azure, la región primaria. Pueden agregarse otras regiones fácilmente mediante Azure Portal. El servidor de puerta de enlace de API Management se implementa en cada región y el tráfico de llamada se enruta a la puerta de enlace más cercana. Cuando una región se queda sin conexión, el tráfico se redirige automáticamente a la siguiente puerta de enlace más cercana.
 
-> [!IMPORTANT]
-> La implementación en varias regiones solo está disponible en el nivel **[Premium][Premium]**.
-
 > [!NOTE]
 > Azure API Management replica solo el componente de la puerta de enlace de API entre regiones. El componente de administración de servicio se hospeda solo en la región primaria. En caso de interrupción en la región primaria, no se pueden aplicar cambios de configuración en una instancia del servicio Azure API Management, incluidas las configuraciones y las actualizaciones de directivas.
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"></a>Implementación de una instancia del servicio Administración de API en una nueva región
 

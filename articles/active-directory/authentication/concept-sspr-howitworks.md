@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296403"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426211"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Cómo funciona el autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -189,7 +189,7 @@ El restablecimiento y el cambio de contraseña son totalmente compatibles con to
    * **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que se asocia usó la característica de [registro de autoservicio](../users-groups-roles/directory-self-service-signup.md) para acceder a un inquilino, le permitimos el restablecimiento de contraseña con el correo electrónico que registró.
    * **Usuarios B2B**: los nuevos usuarios B2B creados mediante las nuevas [funcionalidades B2B de Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) también podrán restablecer sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
 
-Para probar este escenario, vaya a http://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Si tienen un correo electrónico alternativo o de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.
+Para probar este escenario, vaya a https://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Si tienen un correo electrónico alternativo o de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.
 
 > [!NOTE]
 > Las cuentas de Microsoft a las que se ha concedido acceso de invitado para su inquilino de Azure AD, como las de Hotmail.com, Outlook.com u otras direcciones de correo electrónico personales, no pueden usar SSPR de Azure AD. Para restablecer su contraseña, se debe usar la información que se encuentra en el artículo [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

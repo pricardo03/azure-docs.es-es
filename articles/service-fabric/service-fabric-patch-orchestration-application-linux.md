@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746724"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285159"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Linux en el clúster de Service Fabric
 
@@ -147,7 +147,7 @@ El comportamiento de la aplicación de orquestación de revisiones puede configu
 
 1. Finalice todos los pasos de requisitos previos para preparar el clúster.
 2. Implemente la aplicación de orquestación de revisiones como cualquier otra aplicación de Service Fabric. Puede implementar la aplicación mediante PowerShell o mediante la CLI de Azure Service Fabric. Siga los pasos de [Implementación y eliminación de aplicaciones con PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) o [Implementación de una aplicación mediante la CLI de Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)
-3. Para configurar la aplicación en el momento de la implementación, pase el parámetro `ApplicationParamater` al cmdlet `New-ServiceFabricApplication` o a los scripts proporcionados. Para su comodidad, junto con la aplicación se proporcionan los scripts de PowerShell (Deploy.ps1) y bash (Deploy.sh). Para usar el script:
+3. Para configurar la aplicación en el momento de la implementación, pase el parámetro `ApplicationParameter` al cmdlet `New-ServiceFabricApplication` o a los scripts proporcionados. Para su comodidad, junto con la aplicación se proporcionan los scripts de PowerShell (Deploy.ps1) y bash (Deploy.sh). Para usar el script:
 
     - Conéctese a un clúster de Service Fabric.
     - Ejecute el script de implementación. De modo opcional, puede pasar el parámetro de la aplicación al script. Por ejemplo: .\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} o bien ./Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 

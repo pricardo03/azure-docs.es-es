@@ -1,20 +1,21 @@
 ---
 title: Implementación del servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery | Microsoft Docs
-description: En este artículo se describe cómo implementar un servidor de configuración para realizar la recuperación ante desastres de VMware a Azure con Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+description: En este artículo se describe cómo implementar un servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery
+services: site-recovery
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: raynew
-ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 11/18/2018
+ms.author: ramamill
+ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233164"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162609"
 ---
-# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Implementación de un servidor de configuración para la recuperación ante desastres de VMware en Azure
+# <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
 Cuando se usa [Azure Site Recovery](site-recovery-overview.md) para realizar la recuperación ante desastres de servidores físicos y máquinas virtuales de VMware en Azure, se implementa un servidor de configuración local. El servidor de configuración coordina la comunicación entre Azure y VMware local. También administra la replicación de datos. Este artículo lo guiará por los pasos necesarios para implementar el servidor de configuración a la hora de replicar máquinas virtuales VMware en Azure. [Siga este artículo](physical-azure-set-up-source.md) si necesita configurar un servidor de configuración para la replicación del servidor físico.
 

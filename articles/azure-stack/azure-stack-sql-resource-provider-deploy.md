@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8a1bae4a05a0054960771b61ac186c1a48c3aea1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 633597785d42f8bdd150a3b4a839a9595ebde7a4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686252"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852578"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implementación del proveedor de recursos de SQL Server en Azure Stack
 
@@ -37,10 +37,11 @@ Hay varios requisitos previos que se deben cumplir antes de implementar el prove
 - Agregue la máquina virtual Windows Server Core a Marketplace de Azure Stack mediante la descarga de la imagen **Windows Server 2016 Datacenter - Server Core**.
 - Descargue el archivo binario del proveedor de recursos SQL y ejecute el extractor automático para extraer el contenido en un directorio temporal. El proveedor de recursos tiene una compilación mínima correspondiente de Azure Stack.
 
-    |Versión mínima de Azure Stack|Versión de SQL RP|
-    |-----|-----|
-    |Versión 1808 (1.1808.0.97)|[SQL RP, versión 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-    |     |     |
+  |Versión mínima de Azure Stack|Versión de SQL RP|
+  |-----|-----|
+  |Versión 1808 (1.1808.0.97)|[SQL RP, versión 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+  |Versión 1804 (1.0.180513.1)|[SQL RP, versión 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
+  |     |     |
 
 - Asegúrese de que se cumplen los requisitos previos de la integración del centro de datos:
 

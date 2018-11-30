@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a0f472d32e878412532927327a36fe674d4cf6bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7daefc1de06ac704f0449d065ed748bbe0f1ac61
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261679"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307662"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adición de un firewall de próxima generación en Azure Security Center
 Azure Security Center puede recomendarle agregar un firewall de próxima generación (NGFW) de un asociado de Microsoft para aumentar la protección. Este documento le ofrece un ejemplo de cómo hacerlo:
@@ -62,7 +62,7 @@ En este documento se muestra cómo implementar la recomendación de Azure Securi
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md) : aprenda a configurar directivas de seguridad.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que le ayudan a proteger los recursos de Azure.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.

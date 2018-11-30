@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d9bdc35e732a84920800424a260610fd6f068c94
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3bc7dd8103bed9a5a04566d08a1daec0708a59c4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626097"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285040"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>¿Qué es la herramienta What If en el acceso condicional de Azure Active Directory?
 
@@ -51,9 +51,6 @@ Como próximo paso, puede iniciar una ejecución de la simulación que evalúe l
 
 Cuando la evaluación finaliza, la herramienta genera un informe de las directivas afectadas.
 
-
-> [!NOTE]
-> Actualmente, la herramienta What If no admite los grupos anidados. Si un usuario está en un grupo y ese grupo es miembro de otro grupo que se usa en una directiva de acceso condicional, entonces la herramienta What If no muestra correctamente el efecto que esa directiva tiene en el usuario. 
 
 
 ## <a name="running-the-tool"></a>Ejecución de la herramienta

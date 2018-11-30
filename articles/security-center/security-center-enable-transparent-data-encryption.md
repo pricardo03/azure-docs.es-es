@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1f49930449c5ca342159f2a4eca3d7167dfed925
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 765a3a985a2198951ed17292dc376b25adfccc03
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244651"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314815"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Habilitación del Cifrado de datos transparente en Azure Security Center
 Azure Security Center recomienda que habilite el Cifrado de datos transparente (TDE) en bases de datos SQL si aún no lo ha hecho. TDE protege los datos y le ayuda a cumplir con los requisitos normativos cifrando la base de datos, las copias de seguridad asociadas y los archivos de registro de transacciones en reposo sin requerir cambios en la aplicación. Para obtener más información, consulte [Cifrado de datos transparente con Azure SQL Database](https://msdn.microsoft.com/library/dn948096).
@@ -51,7 +51,7 @@ En este artículo mostramos cómo implementar la recomendación "Habilitar el ci
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que le ayudan a proteger los recursos de Azure.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.

@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e87cd3742a5dcd52c3a447bb66ea9089c18d5aee
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214688"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976195"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con inteligencia artificial para supervisar y solucionar problemas de rendimiento de base de datos
 
@@ -41,7 +41,7 @@ Intelligent Insights es una funcionalidad única de inteligencia integrada de Az
 
 Intelligent Insights analiza el rendimiento de la base de datos comparando la carga de trabajo de la base de datos de la última hora con la de referencia de los últimos siete días. La carga de trabajo de la base de datos se compone de consultas determinadas para que sean las más significativas para el rendimiento de la base de datos, como las consultas más repetidas y de mayor tamaño. Dado que cada base de datos es única según su estructura, datos, uso y aplicación, cada referencia de carga de trabajo generada es específica y única para una instancia individual. Intelligent Insights, que es independiente de la referencia de la carga de trabajo, también supervisa umbrales operativos absolutos y detecta problemas con los tiempos de espera excesivos, las excepciones críticas y los problemas con parametrizaciones de consulta que podrían afectar al rendimiento.
 
-Una vez detectado un problema de degradación del rendimiento de varias métricas observadas mediante el uso de inteligencia artificial, se lleva a cabo el análisis. Se genera un registro de diagnóstico con una valoración inteligente de lo que sucede con la base de datos. Intelligent Insights facilita la realización de un seguimiento del problema de rendimiento de la base de datos desde su primera aparición hasta la resolución. Cada problema detectado se sigue a través de su ciclo de vida desde la detección inicial del mismo y la comprobación de la mejora en el rendimiento hasta su finalización. Las actualizaciones se proporcionan en el registro de diagnóstico cada 15 minutos.
+Una vez detectado un problema de degradación del rendimiento de varias métricas observadas mediante el uso de inteligencia artificial, se lleva a cabo el análisis. Se genera un registro de diagnóstico con una valoración inteligente de lo que sucede con la base de datos. Intelligent Insights facilita la realización de un seguimiento del problema de rendimiento de la base de datos desde su primera aparición hasta la resolución. Cada problema detectado se sigue a través de su ciclo de vida desde la detección inicial del mismo y la comprobación de la mejora en el rendimiento hasta su finalización.
 
 ![Flujo de trabajo del análisis del rendimiento de las bases de datos](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 

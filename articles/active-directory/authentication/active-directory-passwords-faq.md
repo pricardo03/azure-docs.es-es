@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 50edabb395380c8b0185736205834dd65e47317f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160749"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425274"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -35,7 +35,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
 * **P: ¿Mis usuarios pueden registrar sus propios datos de restablecimiento de contraseña?**
 
-  > **R:** Sí. Siempre que el restablecimiento de contraseña esté habilitado y los usuarios cuenten con licencia, pueden ir al portal de registro de restablecimiento de contraseña (https://aka.ms/ssprsetup) para registrar su información de autenticación. Los usuarios también pueden registrarse a través del Panel de acceso (http://myapps.microsoft.com). Para ello, deben seleccionar su imagen de perfil y, después, **Perfil** y la opción  **Registrarme para restablecer la contraseña**.
+  > **R:** Sí. Siempre que el restablecimiento de contraseña esté habilitado y los usuarios cuenten con licencia, pueden ir al portal de registro de restablecimiento de contraseña (https://aka.ms/ssprsetup) para registrar su información de autenticación. Los usuarios también pueden registrarse a través del Panel de acceso (https://myapps.microsoft.com). Para ello, deben seleccionar su imagen de perfil y, después, **Perfil** y la opción  **Registrarme para restablecer la contraseña**.
   >
   >
 * **P: Si habilito el restablecimiento de contraseña de un grupo y decido habilitarla para todo el mundo, ¿deben volver a registrarse mis usuarios?**

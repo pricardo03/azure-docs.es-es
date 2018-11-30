@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6e6db7ef2f2de075aea41a29e69b2c674efafa17
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279116"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635363"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor  
 
@@ -132,7 +132,7 @@ Por lo tanto, la sección siguiente proporcionan detalles sobre el uso de la pla
 ### <a name="azure-resource-template-for-log-analytics"></a>Plantilla de recursos de Azure para Log Analytics
 Las reglas de alerta que ejecutan una búsqueda guardada a intervalos regulares crean alertas de Log Analytics. Si los resultados de la consulta coinciden con los criterios especificados, se crea un registro de alertas y se ejecutan una o varias acciones. 
 
-Existen plantillas de recursos para la búsqueda guardada de Log Analytics y alertas de Log Analytics disponibles en la sección Log Analytics de la documentación. Para más información, consulte [Adding Log Analytics saved searches and alerts](../monitoring/monitoring-solutions-resources-searches-alerts.md) (Adición de búsquedas y alertas guardadas de Log Analytics), que incluye ejemplos ilustrativos además de detalles del esquema.
+Existen plantillas de recursos para la búsqueda guardada de Log Analytics y alertas de Log Analytics disponibles en la sección Log Analytics de la documentación. Para más información, consulte [Adding Log Analytics saved searches and alerts](../azure-monitor/insights/solutions-resources-searches-alerts.md) (Adición de búsquedas y alertas guardadas de Log Analytics), que incluye ejemplos ilustrativos además de detalles del esquema.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Plantilla de recursos de Azure para Application Insights
 Las alertas de recursos de Application Insights tienen un tipo de `Microsoft.Insights/scheduledQueryRules/`. Para más información sobre este tipo de recurso, vea [Azure Monitor: referencia de la API de reglas de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -223,7 +223,7 @@ Por lo tanto, en la sección siguiente se proporcionan detalles sobre el uso de 
 ### <a name="powershell-cli-or-api-for-log-analytics"></a>PowerShell, CLI o API para Log Analytics
 La API de REST de alertas de Log Analytics es de tipo RESTful y se tiene acceso a ella mediante la API de REST de Azure Resource Manager. Luego se puede obtener acceso a la API desde una línea de comandos de PowerShell y se generarán resultados de la búsqueda en formato JSON, lo que le permite usar los resultados de muchas formas distintas mediante programación.
 
-Obtenga más información al respecto en [Creación y administración de reglas de alerta de Log Analytics con la API de REST](../log-analytics/log-analytics-api-alerts.md); que incluye ejemplos de acceso a la API de Powershell.
+Obtenga más información al respecto en [Creación y administración de reglas de alerta de Log Analytics con la API de REST](../azure-monitor/platform/api-alerts.md); que incluye ejemplos de acceso a la API de Powershell.
 
 ### <a name="powershell-cli-or-api-for-application-insights"></a>PowerShell, CLI o API para Application Insights
 [Azure Monitor: la API de reglas de consulta programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) es una API de REST totalmente compatible con la API de REST de Azure Resource Manager. Por lo tanto, se puede utilizar a través de Powershell con el cmdlet de Resource Manager y con la CLI de Azure.

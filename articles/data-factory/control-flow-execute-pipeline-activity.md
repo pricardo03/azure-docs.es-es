@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2aa25004fb9c2e914cd8c669095953e174686197
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aace01fedd0c2ab538d4e11b418907f962128d0e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051770"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163131"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Actividad de ejecución de canalización en Azure Data Factory
 La actividad de ejecución de canalización permite que una canalización de Data Factory invoque otra canalización.
@@ -62,9 +62,9 @@ La actividad de ejecución de canalización permite que una canalización de Dat
 ## <a name="type-properties"></a>Propiedades de tipo
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad de ejecución de canalización. | string | Sí
-Tipo | Se debe establecer en **ExecutePipeline**. | string | Sí
-pipeline | Referencia a la canalización dependiente que invoca esta canalización. Un objeto de referencia de canalización tiene dos propiedades: **referenceName** y **type**. La propiedad referenceName especifica el nombre de la canalización de referencia. La propiedad type se debe establecer en PipelineReference. | PipelineReference | Sí
+Nombre | Nombre de la actividad de ejecución de canalización. | string | SÍ
+Tipo | Se debe establecer en **ExecutePipeline**. | string | SÍ
+pipeline | Referencia a la canalización dependiente que invoca esta canalización. Un objeto de referencia de canalización tiene dos propiedades: **referenceName** y **type**. La propiedad referenceName especifica el nombre de la canalización de referencia. La propiedad type se debe establecer en PipelineReference. | PipelineReference | SÍ
 parameters | Parámetros que se deben pasar a la canalización invocada | Objeto JSON que asigna nombres de parámetro a los valores de argumento | Sin 
 waitOnCompletion | Define si la ejecución de la actividad espera que finalice la ejecución de la canalización dependiente. | El valor predeterminado es false. | boolean | Sin 
 
@@ -93,7 +93,7 @@ Este escenario consta de dos canalizaciones:
               "value": "@pipeline().parameters.masterSourceBlobContainer",
               "type": "Expression"
             },
-            "sinkBlobCountainer": {
+            "sinkBlobContainer": {
               "value": "@pipeline().parameters.masterSinkBlobContainer",
               "type": "Expression"
             }
@@ -245,7 +245,7 @@ La canalización principal reenvía estos valores a la canalización invocada, c
           "value": "@pipeline().parameters.masterSourceBlobContainer",
           "type": "Expression"
         },
-        "sinkBlobCountainer": {
+        "sinkBlobContainer": {
           "value": "@pipeline().parameters.masterSinkBlobContainer",
           "type": "Expression"
         }

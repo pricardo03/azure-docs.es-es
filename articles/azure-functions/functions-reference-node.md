@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 44a2cb196e1a89b0abe229f478c0b76b146aa268
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567152"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620632"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -70,8 +70,6 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### <a name="exporting-an-async-function"></a>Exportación de una función asincrónica
-Cuando se usa la declaración [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) de JavaScript o se devuelve una [promesa](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) de JavaScript (no disponible con Functions v1.x), no tiene que llamar explícitamente a la devolución de llamada [`context.done`](#contextdone-method) para indicar que la función se ha completado. La función se completa cuando la función asincrónica o la promesa exportada se completa.
-
 Cuando se usa la declaración [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) o las [promesas](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) de JavaScript sin formato en la versión 2.x del tiempo de ejecución de Functions, no tiene que llamar explícitamente a la devolución de llamada [`context.done`](#contextdone-method) para indicar que la función se ha completado. La función se completa cuando la función asincrónica o la promesa exportada se completa. Para las funciones destinadas a la versión 1.x del tiempo de ejecución, debe llamar a [`context.done`](#contextdone-method) cuando el código finalice la ejecución.
 
 El ejemplo siguiente es una función simple que registra que se ha desencadenado y completa la ejecución inmediatamente.

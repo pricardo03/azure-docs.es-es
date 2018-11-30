@@ -2,25 +2,21 @@
 title: Fase de modelado del ciclo de vida del Proceso de ciencia de datos en equipo| Microsoft Docs
 description: Los objetivos, las tareas y los resultados de la fase de modelado de los proyectos de ciencia de datos.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 4043ae4cf8ab7d9716db834fed0019456f2a52d4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b486083e4dc76f6d9ebc5e24e7d52b5ef3b99f3a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227542"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442420"
 ---
 # <a name="modeling"></a>Modelado
 
@@ -94,4 +90,4 @@ Estos son los vínculos a cada uno de los pasos del ciclo de vida del Proceso de
 
 Proporcionamos tutoriales completos que muestran todos los pasos del proceso en escenarios concretos. El artículo con [tutoriales de ejemplo](walkthroughs.md) proporciona una lista de los escenarios con vínculos y descripciones de miniatura. En los tutoriales se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente. 
 
-Para obtener ejemplos de cómo ejecutar pasos en TDSP que usan Microsoft Azure Machine Learning Studio, consulte [Uso del Proceso de ciencia de los datos en equipos con Azure Machine Learning](https://aka.ms/datascienceprocess). 
+Para obtener ejemplos de cómo ejecutar pasos en TDSP que usan Microsoft Azure Machine Learning Studio, consulte [Uso del Proceso de ciencia de los datos en equipos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985733"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422038"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Descripción del flujo de concesión implícita de OAuth2 de Azure Active Directory (AD)
 
@@ -34,7 +34,7 @@ La concesión implícita de OAuth2 es conocida por tratarse de la lista más amp
 
 La [concesión de código de autorización de OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.1) por antonomasia es la concesión de autorización que utiliza dos puntos de conexión independientes. El punto de conexión de autorización se utiliza para la fase de interacción del usuario, lo que resulta en un código de autorización. El cliente usa entonces el punto de conexión de token para intercambiar el código para un token de acceso y, a menudo, también para un token de actualización. Las aplicaciones web son necesarias para presentar sus propias credenciales de aplicación al punto de conexión de token para que el servidor de autorización pueda autenticar al cliente.
 
-La [concesión implícita de OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) es una variante de otras concesiones de autorización. Permite a un cliente obtener un token de acceso (y el id_token, cuando se usa [OpenId Connect](http://openid.net/specs/openid-connect-core-1_0.html)) directamente desde el punto de conexión de autorización, sin establecer contacto con el punto de conexión del token ni autenticar al cliente. Esta variante se diseñó para las aplicaciones basadas en JavaScript que se ejecutan en un explorador web: en la especificación de OAuth2 original, los tokens se devuelven en un fragmento de URI. De este modo, los bits de token estarán disponibles en el código JavaScript del cliente, pero garantiza que no se incluirán en las redirecciones hacia el servidor. La devolución de tokens a través del explorador se redirigen directamente desde el punto de conexión de autorización. También tiene la ventaja de eliminar los requisitos para llamadas entre orígenes, que son necesarios si se requiere la aplicación JavaScript para ponerse en contacto con el punto de conexión de token.
+La [concesión implícita de OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) es una variante de otras concesiones de autorización. Permite a un cliente obtener un token de acceso (y el id_token, cuando se usa [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) directamente desde el punto de conexión de autorización, sin establecer contacto con el punto de conexión del token ni autenticar al cliente. Esta variante se diseñó para las aplicaciones basadas en JavaScript que se ejecutan en un explorador web: en la especificación de OAuth2 original, los tokens se devuelven en un fragmento de URI. De este modo, los bits de token estarán disponibles en el código JavaScript del cliente, pero garantiza que no se incluirán en las redirecciones hacia el servidor. La devolución de tokens a través del explorador se redirigen directamente desde el punto de conexión de autorización. También tiene la ventaja de eliminar los requisitos para llamadas entre orígenes, que son necesarios si se requiere la aplicación JavaScript para ponerse en contacto con el punto de conexión de token.
 
 Una característica importante de la concesión implícita de OAuth2 es el hecho de que los flujos nunca devuelven tokens de actualización al cliente. En la sección siguiente se muestra como esto no es realmente necesario y, de hecho, supondría un problema de seguridad.
 

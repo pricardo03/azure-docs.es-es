@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409363"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285057"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -167,7 +167,7 @@ El comportamiento de la aplicación de orquestación de revisiones puede configu
 
 1. Finalice todos los pasos de requisitos previos para preparar el clúster.
 2. Implemente la aplicación de orquestación de revisiones como cualquier otra aplicación de Service Fabric. Puede implementar la aplicación mediante PowerShell. Siga los pasos descritos en [Implementación y eliminación de aplicaciones con PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-3. Para configurar la aplicación en el momento de la implementación, pase el `ApplicationParamater` al cmdlet `New-ServiceFabricApplication`. Para su comodidad, hemos proporcionado el script Deploy.ps1 junto con la aplicación. Para usar el script:
+3. Para configurar la aplicación en el momento de la implementación, pase el `ApplicationParameter` al cmdlet `New-ServiceFabricApplication`. Para su comodidad, hemos proporcionado el script Deploy.ps1 junto con la aplicación. Para usar el script:
 
     - Conéctese a un clúster de Service Fabric mediante `Connect-ServiceFabricCluster`.
     - Ejecute el script de PowerShell Deploy.ps1 con el valor adecuado de `ApplicationParameter`.

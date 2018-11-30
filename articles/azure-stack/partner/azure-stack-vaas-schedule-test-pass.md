@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: How to
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1fbda6c0351287b9bc7574d100c0862b172a0aed
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650974"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426934"
 ---
 # <a name="schedule-your-first-test"></a>Programación de la primera prueba
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Programe una prueba en el portal de validación como servicio (VaaS) para su solución de Azure Stack. Una solución VaaS representa una solución de Azure Stack con una lista de materiales de hardware en particular. Puede programar una prueba para comprobar que el hardware puede ejecutar Azure Stack.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 18e668249c50ffbc1020aa12455fdfb87dcb8a24
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855398"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282556"
 ---
 # <a name="message-deferral"></a>Aplazamiento de mensajes
 
@@ -40,7 +40,6 @@ Para recuperar un mensaje aplazado, su propietario es responsable de recordar la
 
 Si no se puede procesar un mensaje porque un recurso concreto para controlar ese mensaje no está disponible temporalmente, pero el procesamiento de mensajes no debe suspenderse sumariamente, una forma de apartar ese mensaje durante unos minutos es recordar la propiedad **SequenceNumber** de un [mensaje programado](message-sequencing.md) que se vaya a publicar en unos minutos y volver a recuperar el mensaje aplazado cuando llega el mensaje programado. Tenga en cuenta que, si un controlador de mensajes depende de una base de datos para todas las operaciones y esa base de datos no está disponible temporalmente, esta no debe usar el aplazamiento, sino que, en su lugar, debe suspender la recepción de mensajes por completo hasta que la base de datos vuelva a estar disponible.
 
-El aplazamiento de mensajes no afecta a la expiración de los mensajes, lo que significa que los mensajes diferidos todavía expiran en el momento inicialmente programado y, después, se mueven a la cola de mensajes fallidos, si está configurada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

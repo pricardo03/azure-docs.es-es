@@ -2,30 +2,26 @@
 title: Ingeniería de características en ciencia de datos | Microsoft Docs
 description: Explica el propósito del diseño de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 3fde69e8-5e7b-49ad-b3fb-ab8ef6503a4d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: fd3f010c3fccca679daa6639c1427d17ae64a0d1
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 80e925fddf1aebd9f699ee8e22b96cc496faeba6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51343999"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446682"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingeniería de características en ciencia de datos
 En este artículo se explica el propósito del diseño de características y se ofrecen ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Los ejemplos usados para ilustrar este proceso se extraen de Azure Machine Learning Studio. 
 
-Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 La ingeniería de características intenta aumentar la eficacia predictiva de los algoritmos de aprendizaje creando características de los datos sin procesar que facilitan el proceso de aprendizaje. La ingeniería y la selección de características forman parte del proceso TDSP descrito en [¿Cuál es el ciclo de vida de la ciencia de datos en equipos (TDSP)?](overview.md) La selección y la ingeniería de características son partes del paso del **desarrollo de características** del TDSP. 
 

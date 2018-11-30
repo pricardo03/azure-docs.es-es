@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963122"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499499"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](http://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](app-insights-overview.md).
@@ -109,7 +109,6 @@ Si la reducción del conjunto de datos que procede de la consulta de Analytics n
    * Reemplace **https://management.azure.com/subscriptions/...**
    * por **https://api.applicationinsights.io/beta/apps/...**
 3. Por último, actualice las credenciales al modo básico y use su clave de API.
- �
 
 **Script existente**
  ```

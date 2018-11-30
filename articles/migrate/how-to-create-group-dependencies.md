@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 2d2688799b1a0b4518b9c91bbc530936c834c5e3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d79513569b53d2b8958f44fbfac3839c91caaff8
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407443"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634309"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinación de un grupo con la asignación de dependencias de grupo
 
@@ -39,7 +39,7 @@ Si quiere aprovechar la visualización de dependencias, necesita asociar un áre
 > No se puede cambiar el área de trabajo asociada a un proyecto de migración.
 
 ### <a name="download-and-install-the-vm-agents"></a>Descarga e instalación de los agentes en máquinas virtuales
-Para ver las dependencias de un grupo, debe descargar e instalar agentes en cada máquina local que forma parte del grupo. Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la [puerta de enlace de Log Analytics](../log-analytics/log-analytics-oms-gateway.md).
+Para ver las dependencias de un grupo, debe descargar e instalar agentes en cada máquina local que forma parte del grupo. Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la [puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md).
 
 1. En **Introducción**, haga clic en **Administrar** > **Grupos** y vaya al grupo requerido.
 2. En la lista de máquinas, en la columna **Agente de dependencias**, haga clic en **Requiere instalación** para ver las instrucciones para descargar e instalar los agentes.
@@ -71,7 +71,7 @@ Para instalar al agente en una máquina Linux, siga estos pasos:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Obtenga más información sobre la compatibilidad de Dependency Agent para los sistemas operativos [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems)y [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems).
+Obtenga más información sobre la compatibilidad de Dependency Agent para los sistemas operativos [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems)y [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Restricción del grupo basada en la visualización de dependencias
 Después de instalar agentes en todas las máquinas del grupo, puede visualizar las dependencias del grupo y restringirlo siguiendo los pasos indicados a continuación.

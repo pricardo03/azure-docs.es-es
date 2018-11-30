@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 8986f18b9f1f2953ad0612679d31996628870cb1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a965cd70e3eba04f278cf432196b9386b537462d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988230"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424347"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Inquilinos en Azure Active Directory
 
@@ -29,15 +29,15 @@ Azure Active Directory (Azure AD), organiza los objetos como usuarios y aplicaci
 
 ## <a name="who-can-sign-in-to-your-app"></a>¿Quién puede iniciar sesión en su aplicación?
 
-En cuanto al desarrollo de aplicaciones, los desarrolladores pueden elegir configurar su aplicación para que sea de un único inquilino o multiinquilino durante el registro de la misma en [Azure Portal](http://portal.azure.com).
+En cuanto al desarrollo de aplicaciones, los desarrolladores pueden elegir configurar su aplicación para que sea de un único inquilino o multiinquilino durante el registro de la misma en [Azure Portal](https://portal.azure.com).
 * Las aplicaciones de inquilino único solo están disponibles en el inquilino en el que se han registrado, que también se conoce como su inquilino principal.
 * Las aplicaciones de varios inquilinos están disponibles para los usuarios en su inquilino principal y en otros inquilinos.
 
 En Azure Portal, puede configurar la aplicación para que sea de inquilino único o multiinquilino. Para ello, debe establecer la audiencia como se indica a continuación.
 
-| Audiencia | Inquilino único/multiinquilino | Quién puede iniciar sesión | 
+| Público | Inquilino único/multiinquilino | Quién puede iniciar sesión | 
 |----------|--------| ---------|
-| Solo las cuentas de este directorio | Inquilino único | Todas las cuentas de usuario y de invitados del directorio pueden usar la aplicación o la API.<br>*Esta opción se usa si la audiencia de destino está dentro de la organización.* |
+| Solo las cuentas de este directorio | Un solo inquilino | Todas las cuentas de usuario y de invitados del directorio pueden usar la aplicación o la API.<br>*Esta opción se usa si la audiencia de destino está dentro de la organización.* |
 | Las cuentas de cualquier directorio de Azure AD | Multiinquilino | Todos los usuarios e invitados con una cuenta profesional o educativa de Microsoft pueden usar la aplicación o API, incluidos los centros educativos y las empresas que usen Office 365.<br>*Use esta opción si la audiencia de destino son clientes empresariales o del sector educativo.* |
 | Las cuentas de cualquier directorio de Azure AD y las cuentas personales de Microsoft (por ejemplo, las de Skype, Xbox, Outlook.com) | Multiinquilino | Cualquier usuario con una cuenta profesional o educativa, o bien con una cuenta Microsoft personal puede usar la aplicación o API, se incluyen los centros educativos y las empresas que usen Office 365, así como las cuentas personales que se usan para iniciar sesión en servicios como Xbox y Skype.<br>*Use esta opción para establecer como destino el mayor conjunto posible de cuentas de Microsoft.* | 
 

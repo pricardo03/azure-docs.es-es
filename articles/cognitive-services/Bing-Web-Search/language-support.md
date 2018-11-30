@@ -3,19 +3,19 @@ title: 'Idiomas admitidos: Bing Web Search API'
 titleSuffix: Azure Cognitive Services
 description: Una lista de los idiomas naturales, países y regiones admitidos por Bing News Search API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: erhopf
-ms.openlocfilehash: c15e1ddd35e625a713ff569f26e9312d9dcd0bc8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: aahi
+ms.openlocfilehash: 6d7b227ac182ca2cd30d6a6eaa428ea86757214c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435423"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164407"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Compatibilidad de idiomas y regiones para Bing Web Search API
 
@@ -108,5 +108,5 @@ Si lo desea, también puede especificar el mercado con el parámetro de consulta
 |Taiwán|Chino tradicional|zh-TW|
 |Turquía|Turco|tr-TR|
 |Reino Unido|English|en-GB|
-|Estados Unidos|English|es-ES|
+|Estados Unidos|English|en-US|
 |Estados Unidos|Español|es-US|

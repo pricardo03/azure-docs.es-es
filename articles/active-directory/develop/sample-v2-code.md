@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4a2cb6fa310cc56b4c5ccb1cb625b88431f70783
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6b6dd80f649b0c92aacdb5711e88d7710db5f51b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633859"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424449"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Ejemplos de código de Azure Active Directory (punto de conexión v2.0)
 
@@ -73,7 +73,7 @@ Los siguientes ejemplos muestran aplicaciones cliente público (aplicaciones de 
 
 Aplicación cliente | Plataforma | Flujo y concesión | Llama a Microsoft Graph | Llamada a una API web de ASP.NET Core 2.0
 ------------------ | -------- |  ----------| ---------- | -------------------------
-Escritorio (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | interactiva | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Escritorio (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | interactiva | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 Escritorio (consola)   | ![.NET/C# (escritorio)](media/sample-v2-code/logo_NET.png) | Autenticación integrada de Windows |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 Escritorio (consola)   | ![.NET/C# (escritorio)](media/sample-v2-code/logo_NETcore.png) | Nombre de usuario/contraseña |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 Móvil (UWP)   | ![.NET/C# (UWP)](media/sample-v2-code/logo_windows.png) | interactiva |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |

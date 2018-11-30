@@ -1,18 +1,18 @@
 ---
 title: Configuración de un servidor de procesos en Azure para conmutar por recuperación máquinas virtuales de VMware y servidores físicos con Azure Site Recovery durante la recuperación ante desastres | Microsoft Docs
 description: En este artículo se describe cómo configurar un servidor de procesos en Azure, para conmutar por recuperación máquinas virtuales de VMware y servidores físicos desde Azure hacia el entorno local durante la recuperación ante desastres.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
-ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/19/2018
+ms.author: ramamill
+ms.openlocfilehash: 50d1170f64ae199f4a1bf4b852c1ed3232df4d42
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212240"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974811"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Escala para la conmutación por recuperación con servidores de procesos adicionales
 
@@ -41,6 +41,7 @@ Donde cada máquina de origen protegida está configurada con 3 discos de 100 GB
 En la tabla siguiente se resumen los requisitos previos para el servidor de procesos adicional.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
 
 
 ## <a name="download-installation-file"></a>Descarga del archivo de instalación

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5ea8718b90a82e904f54e5569d36f27146ffe5f1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253166"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316624"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Administración de recomendaciones de seguridad en el Centro de seguridad de Azure
 En este documento se explica cómo usar las recomendaciones del Centro de seguridad de Azure para proteger los recursos de Azure.
@@ -34,13 +34,13 @@ El Centro de seguridad analiza periódicamente el estado de seguridad de los rec
 
 ## <a name="implementing-security-recommendations"></a>Implementación de recomendaciones de seguridad
 ### <a name="set-recommendations"></a>Obtención de recomendaciones
-En [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md), aprenderá lo siguiente:
+En [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md), aprenderá lo siguiente:
 
 * Configurar directivas de seguridad.
 * Activar la recopilación de datos.
 * Elegir las recomendaciones que verá como parte de la directiva de seguridad.
 
-Las recomendaciones de directiva actuales se centran en las actualizaciones del sistema, las reglas de línea de base, los programas antimalware, los [grupos de seguridad de red](../virtual-network/security-overview.md) en subredes y las interfaces de red, la auditoría de bases de datos de SQL, el cifrado de datos transparente de bases de datos de SQL y los firewalls de aplicaciones web.  [Establecimiento de directivas de seguridad](security-center-policies.md) proporciona una descripción de cada opción de recomendación.
+Las recomendaciones de directiva actuales se centran en las actualizaciones del sistema, las reglas de línea de base, los programas antimalware, los [grupos de seguridad de red](../virtual-network/security-overview.md) en subredes y las interfaces de red, la auditoría de bases de datos de SQL, el cifrado de datos transparente de bases de datos de SQL y los firewalls de aplicaciones web.  [Establecimiento de directivas de seguridad](security-center-azure-policy.md) proporciona una descripción de cada opción de recomendación.
 
 ### <a name="monitor-recommendations"></a>Supervisión de recomendaciones
 Después de establecer una directiva de seguridad, el Centro de seguridad analiza el estado de seguridad de los recursos, con el fin de identificar vulnerabilidades potenciales. El icono **Recomendaciones** de **Información general** permite conocer el número total de recomendaciones que identifica Security Center.
@@ -135,7 +135,7 @@ En la tabla de las recomendaciones anteriores, seleccione una recomendación y t
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, se han presentando las recomendaciones de seguridad del Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga más información sobre cómo supervisar el estado de sus recursos en Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md) : aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.

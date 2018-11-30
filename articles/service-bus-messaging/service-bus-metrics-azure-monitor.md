@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: f02fa8ff80915c23f70db09a1dee393010795132
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1627e6bc5290277329633aa086d0fdbbbb12d971
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277451"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821300"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de Azure Service Bus en Azure Monitor (versión preliminar)
 
@@ -27,7 +27,7 @@ Azure Monitor proporciona interfaces de usuario unificadas para la supervisión 
 
 ## <a name="access-metrics"></a>Acceso a la métrica
 
-Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com), o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como Log Analytics y Event Hubs. Para más información, vea [Datos de supervisión recopilados por Azure Monitor](../monitoring/monitoring-data-collection.md).
+Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com), o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como Log Analytics y Event Hubs. Para más información, vea [Datos de supervisión recopilados por Azure Monitor](../azure-monitor/platform/data-collection.md).
 
 De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un periodo mayor, se pueden archivar en una cuenta de Azure Storage. Este valor se configura en la [configuración de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) de Azure Monitor.
 

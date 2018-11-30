@@ -1,3 +1,16 @@
+---
+author: devinrader
+ms.service: multiple
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: MicrosoftHelp@twilio.com
+ms.openlocfilehash: 8acb75f1cac83595da88a4a5ffa33102136266f2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427888"
+---
 ## <a name="AdditionalServices"></a>Uso de servicios Twilio adicionales
 Además de los ejemplos aquí mostrados, Twilio ofrece API basadas en web que puede utilizar para aprovechar las funciones adicionales de Twilio desde su aplicación de Azure. Para obtener los detalles completos, vea la [Documentación de la API de Twilio][twilio_api_documentation].
 

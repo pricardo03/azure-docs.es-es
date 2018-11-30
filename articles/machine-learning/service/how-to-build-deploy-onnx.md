@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 97350c90ab4ce9c3623a293c3a6637edc65ced08
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345477"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706065"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX y Azure Machine Learning: creación e implementación de modelos de inteligencia artificial interoperables
 
-El formato [Open Neural Network Exchange](http://onnx.ai) (ONNX) es un estándar abierto para representar modelos de aprendizaje automático. ONNX tiene el apoyo de una [comunidad de asociados](http://onnx.ai/supported-tools), incluido Microsoft, que crean herramientas y marcos compatibles. Microsoft se compromete con una inteligencia artificial abierta e interoperable para que los desarrolladores y científicos de datos puedan:
+El formato [Open Neural Network Exchange](https://onnx.ai) (ONNX) es un estándar abierto para representar modelos de aprendizaje automático. ONNX tiene el apoyo de una [comunidad de asociados](https://onnx.ai/supported-tools), incluido Microsoft, que crean herramientas y marcos compatibles. Microsoft se compromete con una inteligencia artificial abierta e interoperable para que los desarrolladores y científicos de datos puedan:
 
 + Usar el marco que quieran para crear y entrenar modelos.
 + Implementar modelos multiplataforma con el mínimo trabajo de integración.
@@ -207,6 +207,6 @@ Obtenga estos cuadernos:
 ## <a name="more-info"></a>Más información
 
 Obtenga más información sobre ONNX o contribuya al proyecto:
-+ [Sitio web del proyecto de ONNX](http://onnx.ai)
++ [Sitio web del proyecto de ONNX](https://onnx.ai)
 
 + [Código de ONNX en GitHub](https://github.com/onnx/onnx)

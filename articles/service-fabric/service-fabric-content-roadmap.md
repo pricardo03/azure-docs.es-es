@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 6cf2aa31e8a7207b041b9789ddde23b616f47150
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 58db410fe5a6c2b081507eae2ccad3a258ec0864
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258455"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427597"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Sin embargo, Service Fabric tiene un área expuesta de gran tamaño, y hay mucho por aprender.  En este artículo se proporciona una sinopsis de Service Fabric y se describen los conceptos principales, los modelos de programación, el ciclo de vida de la aplicación, las pruebas, los clústeres y la supervisión del estado. Lea [Información general](service-fabric-overview.md) y [¿Qué son los microservicios?](service-fabric-overview-microservices.md) para obtener una introducción y conocer cómo se puede utilizar Service Fabric para crear microservicios. Este artículo no contiene una lista completa de contenido, pero incluye vínculos a información general y artículos de introducción de cada área de Service Fabric. 
@@ -104,7 +104,7 @@ Un [ejecutable de invitado](service-fabric-guest-executables-introduction.md) es
 ## <a name="application-lifecycle"></a>Ciclo de vida de aplicación
 Al igual que sucede con otras plataformas, una aplicación en Service Fabric normalmente pasa por las siguientes fases: diseño, desarrollo, prueba, implementación, actualización, mantenimiento y eliminación. Service Fabric ofrece compatibilidad de primera clase para todo el ciclo de vida de aplicación de las aplicaciones de nube: desde el desarrollo hasta la implementación, la administración diaria, el mantenimiento y, finalmente, la retirada. El modelo de servicio habilita varios roles distintos para participar de manera independiente en el ciclo de vida de la aplicación. En [Ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md) se proporciona información general de las API y cómo las utilizan los distintos roles durante todas las fases del ciclo de vida de la aplicación de Service Fabric. 
 
-El ciclo de vida completo de la aplicación se puede administrar con [cmdlets de PowerShell](/powershell/module/ServiceFabric/), [comandos de la CLI](service-fabric-sfctl.md), [API de C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [API de Java](/java/api/system.fabric._application_management_client) y [API de REST](/rest/api/servicefabric/). También puede configurar canalizaciones de implementación continua e integración continua con herramientas como [Azure Pipelines](service-fabric-set-up-continuous-integration.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+El ciclo de vida completo de la aplicación se puede administrar con [cmdlets de PowerShell](/powershell/module/ServiceFabric/), [comandos de la CLI](service-fabric-sfctl.md), [API de C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [API de Java](/java/api/overview/azure/servicefabric) y [API de REST](/rest/api/servicefabric/). También puede configurar canalizaciones de implementación continua e integración continua con herramientas como [Azure Pipelines](service-fabric-set-up-continuous-integration.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 En el siguiente vídeo de la Academia virtual de Microsoft describe cómo administrar el ciclo de vida de la aplicación: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

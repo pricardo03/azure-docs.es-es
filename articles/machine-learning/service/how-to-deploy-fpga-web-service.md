@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 10/29/2018
-ms.openlocfilehash: 35b24dc2f21e2504432521c53e2d0f41caa0eeb7
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c6bf3c50958085f45c52ec2fa3cbdfba8adbe35f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344066"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711725"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Implementación de un modelo como servicio web en una FPGA con Azure Machine Learning
 
@@ -22,7 +22,7 @@ Puede implementar un modelo como un servicio web en [Field-programmable Gate Arr
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://aka.ms/AMLfree) antes de empezar.
 
 - Un área de trabajo del servicio Azure Machine Learning y el SDK de Azure Machine Learning para Python instalado. Descubra cómo obtener estos requisitos previos con el documento [How to configure a development environment](how-to-configure-environment.md) (Cómo configurar un entorno de desarrollo).
  
@@ -176,4 +176,4 @@ Obtenga este cuaderno:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de cómo [Consume a ML Model deployed as a web service ](how-to-consume-web-service.md) (Consumir un modelo de ML implementado como servicio web).
+Obtenga información en el artículo [Consume a ML Model deployed as a web service ](how-to-consume-web-service.md) (Consumir un modelo de ML implementado como servicio web).

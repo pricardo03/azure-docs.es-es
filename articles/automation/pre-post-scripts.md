@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956632"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584628"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Administración de scripts previos y posteriores (versión preliminar)
 
@@ -220,8 +220,6 @@ if ($summary.Type -eq "Error")
 ## <a name="known-issues"></a>Problemas conocidos
 
 * No se pueden pasar objetos o matrices a parámetros al usar los scripts previos y posteriores. Se producirá un error en el runbook.
-* Los runbooks que no están publicados se muestran como elementos seleccionables cuando se elige un script previo o posterior. Solo los runbooks que se publican deben elegirse ya que los runbooks no publicados no se pueden llamar y producirán un error.
-* Los equipos agregados a una implementación mediante [Grupos dinámicos (versión preliminar)](automation-update-management.md#using-dynamic-groups) no forman parte actualmente del parámetro **SoftwareUpdateConfigurationRunContext** que se pasa a los scripts previos y posteriores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

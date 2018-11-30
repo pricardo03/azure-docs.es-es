@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238869"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427070"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guía técnica de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía
 ## <a name="overview"></a>**Información general**
@@ -159,14 +159,14 @@ Una vez iniciado el Generador de datos, la canalización comienza a hidratarse y
 En esta sección se describe cómo configurar el panel de Power BI para visualizar los datos en tiempo real de Azure Stream Analytics (análisis en caliente), así como los resultados de previsión de Azure Machine Learning (análisis en frío).
 
 ### <a name="setup-hot-path-dashboard"></a>Configuración del panel de análisis en caliente
-Los siguientes pasos lo guiarán en el proceso para visualizar la salida de datos en tiempo real de los trabajos de Stream Analytics que se generaron en el momento de la implementación de la solución. Se necesita una cuenta de [Power BI en línea](http://www.powerbi.com/) para realizar los pasos siguientes. Si no tiene una cuenta, puede [crear una](https://powerbi.microsoft.com/pricing).
+Los siguientes pasos lo guiarán en el proceso para visualizar la salida de datos en tiempo real de los trabajos de Stream Analytics que se generaron en el momento de la implementación de la solución. Se necesita una cuenta de [Power BI en línea](https://www.powerbi.com/) para realizar los pasos siguientes. Si no tiene una cuenta, puede [crear una](https://powerbi.microsoft.com/pricing).
 
 1. Agregue una salida de Power BI en Azure Stream Analytics (ASA).
 
    * Debe seguir las instrucciones descritas en [Azure Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos](stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar la salida del trabajo de Azure Stream Analytics como panel de Power BI.
    * Busque el trabajo de Stream Analytics en [Azure Portal](https://portal.azure.com). El nombre del trabajo debe ser: SuNombreDeSolución+"streamingjob"+número aleatorio+"asapbi" (es decir, demostreamingjob123456asapbi).
    * Agregue una salida de Power BI para el trabajo ASA. Establezca el **Alias de salida** como **'PBIoutput'**. Configure **Nombre de conjunto de datos** y **Nombre de tabla** como **"EnergyStreamData"**. Una vez agregada la salida, haga clic en **"Iniciar"** en la parte inferior de la página para iniciar el trabajo de Stream Analytics. Recibirá un mensaje de confirmación (por ejemplo, "Se ha iniciado correctamente el trabajo de análisis de transmisiones myteststreamingjob12345asablob").
-2. Inicie sesión en [Power BI en línea](http://www.powerbi.com)
+2. Inicie sesión en [Power BI en línea](https://www.powerbi.com)
 
    * En la sección Conjuntos de datos del panel izquierdo, en Mi área de trabajo, debería poder ver un nuevo conjunto de datos en el panel izquierdo de Power BI. Son los datos de transmisión que insertó desde Azure Stream Analytics en el paso anterior.
    * Asegúrese de que el panel ***Visualizaciones*** está abierto y se muestra en el lado derecho de la pantalla.
@@ -207,7 +207,7 @@ En la canalización de datos de análisis en frío, el objetivo principal es obt
    * En la ventana emergente, reemplace **"Servidor"** y **"Base de datos"** por sus propios nombres de servidor y base de datos y, después, haga clic en **"Aceptar"**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**SuNombreDeSolución.database.windows.net, 1433**). Ignore los mensajes de advertencia que aparezcan en la pantalla.
    * En la siguiente ventana emergente, verá dos opciones en el panel izquierdo (**Windows** y **Base de datos**). Haga clic en **"Base de datos"**, escriba su **"Nombre de usuario"** y **"Contraseña"** (que es el nombre de usuario y la contraseña que escribió la primera vez que implementó la solución y creó una instancia de Azure SQL Database). En ***Seleccionar en qué nivel hay que aplicar estos valores***, active la opción de nivel de base de datos. Después, haga clic en **"Conectar"**.
    * Una vez que se le dirija a la página anterior, cierre la ventana. Aparece un mensaje. Haga clic en **Aplicar**. Finalmente, haga clic en el botón **Guardar** para guardar los cambios. El archivo de Power BI ha establecido ya la conexión con el servidor. Si las visualizaciones están vacías, asegúrese de borrar todas las selecciones para poder visualizar todos los datos haciendo clic en el icono de borrador de la esquina superior derecha de las leyendas. Utilice el botón Actualizar para reflejar los nuevos datos en las visualizaciones. Inicialmente, solo verá los datos de inicialización en las visualizaciones ya que la factoría de datos está programada para actualizarse cada tres horas. Después de tres horas, verá nuevas predicciones reflejadas en las visualizaciones al actualizar los datos.
-3. (Opcional) Publique el panel de la ruta de acceso en frío en [Power BI en línea](http://www.powerbi.com/). Tenga en cuenta que este paso necesita una cuenta de Power BI (o la cuenta de Office 365).
+3. (Opcional) Publique el panel de la ruta de acceso en frío en [Power BI en línea](https://www.powerbi.com/). Tenga en cuenta que este paso necesita una cuenta de Power BI (o la cuenta de Office 365).
 
    * Haga clic en **"Publicar"** y unos segundos más tarde aparecerá una ventana con un mensaje que indicará que la publicación en Power BI se ha realizado correctamente. y con una marca de verificación verde. Haga clic en el vínculo siguiente "Abrir demoprediction.pbix en Power BI". Para obtener instrucciones detalladas, consulte [Publicar desde Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Para crear un nuevo panel: haga clic en el signo **+** junto a la sección **Paneles** del panel izquierdo. Escriba el nombre "Demostración de previsión de demanda" para este nuevo panel.

@@ -1,25 +1,21 @@
 ---
 title: Plataformas y herramientas para proyectos de equipo de ciencia de datos en Azure | Microsoft Docs
 description: Detalla y describe los recursos de datos y análisis disponibles para las empresas y que están normalizados en el proceso de ciencia de datos en equipo.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 5cfe86414473f352673f39850a34f8ef265c91f5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258908"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446456"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
 
@@ -152,4 +148,4 @@ Si se usan máquinas Linux (CentOS) para ejecutar los comandos de GIT, tendrá q
 
 También se proporcionan tutoriales completos que muestran todos los pasos del proceso en **escenarios concretos** . Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplos](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente. 
 
-Para ver ejemplos de ejecución de los pasos en el Proceso de ciencia de datos en equipo que usan Azure Machine Learning Studio, consulte la ruta de aprendizaje [Con Azure ML](https://aka.ms/datascienceprocess).
+Para ver ejemplos de ejecución de los pasos en el Proceso de ciencia de datos en equipo que usan Azure Machine Learning Studio, consulte la ruta de aprendizaje [Con Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
