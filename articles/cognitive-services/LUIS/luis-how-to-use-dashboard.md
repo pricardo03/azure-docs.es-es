@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212821"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335017"
 ---
 # <a name="application-dashboard"></a>Panel de la aplicación
 El panel de la aplicación permite supervisar la aplicación de un solo vistazo. El **Panel** se muestra cuando se abre una aplicación al hacer clic en el nombre de la aplicación en la página **My Apps** (Mis aplicaciones) y después en **Dashboard** (Panel) en el panel superior. 
@@ -26,15 +26,7 @@ El panel de la aplicación permite supervisar la aplicación de un solo vistazo.
 > * Usar la clave de punto de conexión de LUIS para todas las solicitudes de punto de conexión incluida la [API](https://aka.ms/luis-endpoint-apis) de LUIS y el bot.
 > * Usar otra clave de punto de conexión para cada aplicación de LUIS. No use la misma clave de punto de conexión para todas las aplicaciones. El seguimiento de la clave de punto de conexión se realiza en el nivel de clave, no en el nivel de aplicación.  
 
-En la página **Dashboard** (Panel) se proporciona una visión general de la aplicación de LUIS incluido el modelo actual, así como el uso del [punto de conexión](luis-glossary.md#endpoint) en el tiempo. <!--The following image shows the **Dashboard** page.-->
-
-<!-- TBD: Get a working screen shot
-![The Dashboard](./media/luis-how-to-use-dashboard/dashboard.png)
--->
-
-<!-- TBD: IS THIS STILL TRUE?
-At the top of the **Dashboard** page, a contextual notification bar constantly displays notifications to update you on the required or recommended actions appropriate for the current state of your app. It also provides useful tips and alerts as needed. A detailed description of the data reported on the **Dashboard** page follows.
--->
+En la página **Dashboard** (Panel) se proporciona una visión general de la aplicación de LUIS incluido el modelo actual, así como el uso del [punto de conexión](luis-glossary.md#endpoint) en el tiempo. 
   
 ## <a name="app-status"></a>Estado de la aplicación
 En el panel se muestra el estado de entrenamiento y publicación de la aplicación, incluida la fecha y hora de la última vez que se entrenó y publicó.  
@@ -49,7 +41,6 @@ En el panel se muestra el número total de intenciones, entidades y expresiones 
 ## <a name="endpoint-hits"></a>Visitas del punto de conexión
 En el panel se muestra el total de visitas del punto de conexión que recibe la aplicación de LUIS y permite mostrar las visitas dentro del período que se especifique. El número total de visitas que se muestra es la suma de las visitas del punto de conexión que usan una [clave de punto de conexión](./luis-concept-keys.md#endpoint-key) y las que usan una [clave de creación](./luis-concept-keys.md#authoring-key).
 
-<!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Visitas del punto de conexión](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
 
 > [!NOTE] 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6448e592db8024d911831b0b3634dabb4ed3b101
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063122"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443413"
 ---
 # <a name="suspended-domains"></a>Dominios suspendidos
 Cuando Azure Active Directory Domain Services (Azure AD DS) no puede atender un dominio administrado durante un largo período de tiempo, coloca el dominio administrado en un estado suspendido. En este artículo se explica por qué se suspenden los dominios administrados y cómo corregir un dominio suspendido.
@@ -43,7 +43,7 @@ Un dominio administrado que está configurado correctamente y que funciona de ma
 
 
 ### <a name="needs-attention-state"></a>Estado "Requiere atención"
-Un dominio administrado tiene el estado **Requiere atención** si uno o más problemas requieren que un administrador tome medidas. La página de estado del dominio administrado muestra una o varias alertas con este estado. 
+Un dominio administrado tiene el estado **Requiere atención** si uno o más problemas requieren que un administrador tome medidas. La página de estado del dominio administrado muestra una o varias alertas con este estado.
 
 Por ejemplo, si configuró un NSG restrictivo para la red virtual, es posible que Microsoft no pueda actualizar ni supervisar el dominio administrado. Esta configuración no válida, desencadena una alerta que coloca el dominio administrado en el estado "Requiere atención".
 

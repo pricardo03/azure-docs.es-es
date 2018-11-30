@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 6cbcb42ee8c77ff0c8ded966b4f04af8815ca726
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614962"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633000"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Extensión de alertas de Log Analytics a Alertas de Azure
 Alertas de Azure está reemplazando la característica de alertas de Azure Log Analytics. Como parte de esta transición, las alertas que ha configurado originalmente en Log Analytics se extenderán a Azure. Si no quiere esperar a que se trasladen automáticamente a Azure, puede iniciar el proceso:
@@ -150,7 +150,7 @@ Si la solicitud POST se realiza correctamente, devuelve un estado HTTP 200 OK, j
 }
 ```
 
-Esta respuesta indica que las alertas se han extendido correctamente a Alertas de Azure. Esta propiedad de versión es solo para comprobar si las alertas se han extendido a Azure y no tienen relación a [Search API de Log Analytics](../log-analytics/log-analytics-api-alerts.md). Cuando las alertas se extienden a Azure correctamente, se envía un informe a cualquier dirección de correo electrónico proporcionada con la solicitud POST. Si todas las alertas en el área de trabajo especificado ya están programadas para su extensión, la respuesta a la solicitud POST es que el intento se ha prohibido (un código de estado 403). Para ver los mensajes de error o para entender si el proceso está bloqueado, puede enviar una solicitud GET. Si hay un mensaje de error, este se devuelve junto con la información de resumen.
+Esta respuesta indica que las alertas se han extendido correctamente a Alertas de Azure. Esta propiedad de versión es solo para comprobar si las alertas se han extendido a Azure y no tienen relación a [Search API de Log Analytics](../azure-monitor/platform/api-alerts.md). Cuando las alertas se extienden a Azure correctamente, se envía un informe a cualquier dirección de correo electrónico proporcionada con la solicitud POST. Si todas las alertas en el área de trabajo especificado ya están programadas para su extensión, la respuesta a la solicitud POST es que el intento se ha prohibido (un código de estado 403). Para ver los mensajes de error o para entender si el proceso está bloqueado, puede enviar una solicitud GET. Si hay un mensaje de error, este se devuelve junto con la información de resumen.
 
 ```json
 {

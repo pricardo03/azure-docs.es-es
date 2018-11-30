@@ -2,25 +2,21 @@
 title: 'Profundización en la predicción del estado de vehículo y los hábitos de conducción: Azure | Microsoft Docs'
 description: Aproveche las posibilidades de Cortana Intelligence para obtener información en tiempo real y predictiva del estado de los vehículos y los hábitos de conducción.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b1c01bcd15c5cfc63eae7c2b1983fc9075d4220c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300955"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444391"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Cuaderno de estrategias de la solución Vehicle Telemetry Analytics: profundización en la solución
 
@@ -670,7 +666,7 @@ Este documento contiene un desglose detallado de la solución de análisis de te
 ### <a name="references"></a>Referencias
 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-* [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Azure Data Factory](https://docs.microsoft.com/rest/api/datafactory/)
 * [SDK de Azure Event Hubs para la ingesta de flujos](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Funcionalidades de movimiento de datos de Azure Data Factory](../../data-factory/copy-activity-overview.md)
 * [Actividad .NET en Azure Data Factory](../../data-factory/transform-data-using-dotnet-custom-activity.md)

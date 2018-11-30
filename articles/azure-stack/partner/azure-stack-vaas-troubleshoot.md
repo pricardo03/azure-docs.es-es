@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 60cfc4a2b20d3c443562a1f66e9c205244d0beef
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: c6884ff0949949c03787ff5c0b8c7f8c1397400f
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645599"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334030"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Solución de problemas de la validación como servicio
 
@@ -101,7 +101,7 @@ Si el entorno está en buen estado, cargue manualmente las 5 imágenes de VM nec
     |---------|---------|
     | Publicador | Microsoft Windows Server |
     | Oferta | Windows Server |
-    | OS Type (Tipo de SO) | Windows |
+    | OS Type (Tipo de SO) |  Windows |
     | SKU | Centro de datos de 2012-R2 |
     | Versión | 1.0.0 |
     | URI del blob de disco de sistema operativo | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
@@ -113,9 +113,9 @@ Las propiedades de las 5 imágenes de VM son las siguientes:
 
 | Publicador  | Oferta  | OS Type (Tipo de SO) | SKU | Versión | URI del blob de disco de sistema operativo |
 |---------|---------|---------|---------|---------|---------|
-| Microsoft Windows Server| Windows Server | Windows | Centro de datos de 2012-R2 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
-| Microsoft Windows Server | Windows Server | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| Microsoft Windows Server | Windows Server | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
+| Microsoft Windows Server| Windows Server |  Windows | Centro de datos de 2012-R2 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+| Microsoft Windows Server | Windows Server |  Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
+| Microsoft Windows Server | Windows Server |  Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
 | Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
 | Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
 

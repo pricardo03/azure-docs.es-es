@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614062"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635380"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Incorporación de un proveedor de recursos de App Service a Azure Stack
 
@@ -202,17 +202,17 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Administración de App Service](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >Si va a realizar la implementación en una red virtual existente y a usar una dirección IP interna para conectarse al servidor de archivos, debe agregar una regla de seguridad de salida. Esta regla habilita el tráfico SMB entre la subred de trabajo y el servidor de archivos.  Para ello, vaya a WorkersNsg en el Portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:<br>
-    >  - Origen: Cualquiera
-    >  - Intervalo de puertos de origen: *
-    >  - Destino: Direcciones IP
-    >  - Intervalo de direcciones IP de destino: intervalo de direcciones IP para el servidor de archivos
-    >  - Intervalo de puertos de destino: 445
-    >  - Protocolo: TCP
-    >  - Acción: Permitir
-    >  - Prioridad: 700
-    >  - Nombre: Outbound_Allow_SMB445
+    Si va a realizar la implementación en una red virtual existente y a usar una dirección IP interna para conectarse al servidor de archivos, debe agregar una regla de seguridad de salida. Esta regla habilita el tráfico SMB entre la subred de trabajo y el servidor de archivos.  Para ello, vaya a WorkersNsg en el Portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:
+
+    - Origen: Cualquiera
+    - Intervalo de puertos de origen: *
+    - Destino: Direcciones IP
+    - Intervalo de direcciones IP de destino: intervalo de direcciones IP para el servidor de archivos
+    - Intervalo de puertos de destino: 445
+    - Protocolo: TCP
+    - Acción: Permitir
+    - Prioridad: 700
+    - Nombre: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Prueba de App Service en Azure Stack
 

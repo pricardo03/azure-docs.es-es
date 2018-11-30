@@ -2,25 +2,21 @@
 title: Identificación de escenarios de análisis avanzados para Azure Machine Learning | Microsoft Docs
 description: Seleccione los escenarios adecuados para el proceso de análisis predictivo avanzado con el proceso de ciencia de datos en equipos.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: bf5ee52c98c173dbdde0a00c5657b8694b363279
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 16d8457e5605ce0e3c10ed95296b5a883a4c602c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143782"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444841"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Escenarios para análisis avanzado en Azure Machine Learning
 En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el [proceso de ciencia de datos en equipos (TDSP)](overview.md). El TDSP proporciona un enfoque sistemático a los equipos que colaboran en la compilación de aplicaciones inteligentes. Los escenarios que se exponen aquí muestran las opciones disponibles en el flujo de trabajo de procesamiento de datos en función de las características de datos, las ubicaciones de origen y los repositorios de destino de Azure.
@@ -37,7 +33,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 > **Para todos los escenarios siguientes, debe:**
 > <br/>
 > 
-> * [crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md)
+> * [Cree una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md)
 >   <br/>
 > * [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md)
 > 
@@ -117,7 +113,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Cargue datos en un contenedor de almacenamiento de Azure.
 1. (Opcional) Preprocese y limpie los datos.
    
-   a.  Preprocese y limpie datos en IPython Notebook obteniendo acceso desde Azure
+    a.  Preprocese y limpie datos en IPython Notebook obteniendo acceso desde Azure
    
        blobs.
    
@@ -126,7 +122,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
    c.  Guarde datos en archivos locales de máquina virtual (IPython Notebook se ejecuta en una máquina virtual; las unidades locales hacen referencia a unidades de máquina virtual).
 1. Cargue datos en la base de datos de SQL Server que se ejecuta en una máquina virtual de Azure.
    
-   a.  Inicie sesión en la máquina virtual de SQL Server.
+    a.  Inicie sesión en la máquina virtual de SQL Server.
    
    b.  Si los datos todavía no están guardados, descargue los archivos de datos desde Azure
    
@@ -164,7 +160,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Cargue archivos de volcado de memoria en el contenedor de almacenamiento de Azure.
 1. Cargue los datos en una base de datos de SQL Server que se ejecute en una máquina virtual de Azure.
    
-   a.  Inicie sesión en la máquina virtual de SQL Server.
+    a.  Inicie sesión en la máquina virtual de SQL Server.
    
    b.  Descargue los archivos de datos desde un contenedor de almacenamiento de Azure a la carpeta de la máquina virtual local.
    
@@ -206,7 +202,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 1. Cree un clúster de Hadoop de HDInsight de Azure.
 1. (Opcional) Preprocese y limpie los datos.
    
-   a.  Preprocese y limpie datos en IPython Notebook obteniendo acceso desde Azure
+    a.  Preprocese y limpie datos en IPython Notebook obteniendo acceso desde Azure
    
        blobs.
    
@@ -216,7 +212,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 1. Cargue datos en el contenedor predeterminado del clúster de Hadoop que seleccionó en el paso 2.
 1. Cargue datos en la base de datos de Hive en el clúster de Hadoop de HDInsight de Azure.
    
-   a.  Inicie sesión en el nodo principal del clúster de Hadoop.
+    a.  Inicie sesión en el nodo principal del clúster de Hadoop.
    
    b.  Abra la línea de comandos de Hadoop.
    
@@ -230,7 +226,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
    > 
 1. Explore datos y cree características según sea necesario en la línea de comandos de Hadoop. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
    
-   a.  Inicie sesión en el nodo principal del clúster de Hadoop.
+    a.  Inicie sesión en el nodo principal del clúster de Hadoop.
    
    b.  Abra la línea de comandos de Hadoop.
    

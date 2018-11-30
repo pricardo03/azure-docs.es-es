@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dab6b87c2785d3331817d6c191be64d406683a51
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312247"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852391"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -33,10 +33,10 @@ En el ejemplo siguiente, un tipo de notificación llamada `correlationId` se def
 </ClaimType>
 ```
 
-En el perfil técnico, asigne el solucionador de notificaciones al tipo de notificación. Azure AD B2C rellena el valor del solucionador de notificaciones `{context:corelationId}` en la notificación `correlationId` y envía la notificación al perfil técnico.
+En el perfil técnico, asigne el solucionador de notificaciones al tipo de notificación. Azure AD B2C rellena el valor del solucionador de notificaciones `{Context:CorrelationId}` en la notificación `correlationId` y envía la notificación al perfil técnico.
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## <a name="claim-resolver-types"></a>Tipos de solucionadores de notificaciones
@@ -50,7 +50,7 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 | {Culture:LanguageName} | Código ISO de dos letras para el idioma. | en |
 | {Culture:LCID}   | El identificador de configuración regional del código de idioma. | 1033 |
 | {Culture:RegionName} | Código ISO de dos letras para la región. | US |
-| {Culture:RFC5646} | Código de idioma RFC5646. | es-ES |
+| {Culture:RFC5646} | Código de idioma RFC5646. | en-US |
 
 ### <a name="policy"></a>Directiva
 

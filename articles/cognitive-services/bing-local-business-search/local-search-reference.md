@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 100d2a6163c6b2b7a7bf8a557e69e1082b48eaee
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: b985521fdcfc5ca67b6410719ad72c0962004df6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979223"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499595"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referencia de Bing Local Business Search API v7
 
@@ -157,7 +157,7 @@ Define la información acerca de un negocio local como un restaurante o un hotel
 |address|La dirección postal del lugar en el que se encuentra la entidad.|[PostalAddress](#postaladdress)|  
 |entityPresentationInfo|Información adicional acerca de la entidad, como sugerencias que puede usar para determinar el tipo de entidad. Por ejemplo, si es un restaurante o un hotel. El campo `entityScenario` se establece en ListItem.|[EntityPresentationInfo](#entitypresentationinfo)|  
 |Nombre|El nombre de la entidad.|string|  
-|teléfono|El número de teléfono de la entidad.|string|  
+|telephone|El número de teléfono de la entidad.|string|  
 |URL|La dirección URL del sitio web de la entidad.<br /><br /> Use esta dirección URL junto con el nombre de la entidad para crear un hipervínculo en el que hacer clic lleva al usuario al sitio web de la entidad.|string|  
 |webSearchUrl|La dirección URL del resultado de búsqueda de Bing para este sitio.|string| 
   

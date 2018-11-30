@@ -3,19 +3,19 @@ title: 'Preguntas más frecuentes (P+F): Bing Image Search API'
 titleSuffix: Azure Cognitive Services
 description: Encuentre respuestas a preguntas habituales sobre conceptos, código y escenarios relacionados con Bing Image Search API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: cdc8d8cad26ce4807c8f7bf8fe1d33f13d5799c1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.author: aahi
+ms.openlocfilehash: ab67769aee5347fdf21a58c6af5b9af02b4f36ba
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232943"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161232"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Preguntas más frecuentes (P+F) sobre Bing Image Search API
 
@@ -55,7 +55,7 @@ Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya
 
 El enfoque de proxy CORS que se describe en la respuesta anterior es adecuado para desarrollo, pruebas y aprendizaje.
 
-Sin embargo, en un entorno de producción, debe hospedar un script del lado servidor en el mismo dominio que la página web que usa Bing Web Search API. Este script debería realizar en realidad las llamadas API tras la solicitud del código de JavaScript de la página web y pasar nuevamente al cliente todos los resultados, incluidos los encabezados. Dado que los dos recursos (página y script) comparten un origen, CORS no se aplica y los encabezados especiales son accesibles para el código de JavaScript en la página web.
+Sin embargo, en un entorno de producción, debe hospedar un script del lado servidor en el mismo dominio que la página web que usa Bing Web Search API. Este script debería realizar en realidad las llamadas API tras la solicitud del código de JavaScript de la página web y pasar nuevamente al cliente todos los resultados, incluidos los encabezados. Dado que los dos recursos (página y script) comparten un origen, no se aplica CORS y el código de JavaScript puede acceder a los encabezados especiales en la página web.
 
 Este enfoque también protege la clave de API de una exposición pública, ya que solo la necesita el script del lado servidor. El script puede usar otro método (por ejemplo, el origen de referencia de HTTP) para asegurarse de que la solicitud está autorizada.
 

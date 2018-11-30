@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387284"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311460"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
@@ -255,7 +255,7 @@ Sin embargo, para que los usuarios de B2B puedan iniciar sesión en la aplicaci�
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>¿Funciona el aprovisionamiento automático de usuarios para aplicaciones SaaS con grupos dinámicos en Azure AD?
 
-Sí. Si está configurado para "sincronizar solo usuarios y grupos asignados", el servicio de aprovisionamiento de usuarios de Azure AD puede aprovisionar o desaprovisionar los usuarios de una aplicación SaaS en función de que sean miembros, o no, de un [grupo dinámico](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Los grupos dinámicos también funcionan con la opción "sincronizar todos los usuarios y grupos".
+Sí. Si está configurado para "sincronizar solo usuarios y grupos asignados", el servicio de aprovisionamiento de usuarios de Azure AD puede aprovisionar o desaprovisionar los usuarios de una aplicación SaaS en función de que sean miembros, o no, de un [grupo dinámico](../users-groups-roles/groups-create-rule.md). Los grupos dinámicos también funcionan con la opción "sincronizar todos los usuarios y grupos".
 
 Sin embargo, el uso de grupos dinámicos puede afectar al rendimiento general del aprovisionamiento de usuarios de un extremo a otro desde Azure AD a las aplicaciones SaaS. Cuando use grupos dinámicos, tenga en cuenta estas advertencias y recomendaciones:
 
@@ -265,7 +265,7 @@ Sin embargo, el uso de grupos dinámicos puede afectar al rendimiento general de
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>¿Funciona el aprovisionamiento automático de usuarios para aplicaciones SaaS con grupos anidados en Azure AD?
 
-No. Cuando se configura para "sincronizar solo los usuarios y grupos asignados", el servicio de aprovisionamiento de usuarios de Azure AD no puede leer ni aprovisionamiento usuarios que estén en grupos anidados. Solo puede leer y aprovisionar aquellos usuarios que son miembros inmediatos del grupo asignado explícitamente.
+ No. Cuando se configura para "sincronizar solo los usuarios y grupos asignados", el servicio de aprovisionamiento de usuarios de Azure AD no puede leer ni aprovisionamiento usuarios que estén en grupos anidados. Solo puede leer y aprovisionar aquellos usuarios que son miembros inmediatos del grupo asignado explícitamente.
 
 Esta es una limitación de las "asignaciones basadas en grupos a aplicaciones" que también afecta al inicio de sesión único y se describe en [Uso de un grupo para administrar el acceso a aplicaciones SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 

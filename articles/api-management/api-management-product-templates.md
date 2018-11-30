@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: dae757231d8f2ff7fcd8e032d941c0fa9f192796
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22983350"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443634"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Plantillas de producto en Azure API Management
+
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
   
  Las plantillas de esta sección le permiten personalizar el contenido de las páginas de producto en el portal para desarrolladores.  
@@ -32,6 +33,8 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 > [!NOTE]
 >  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="ProductList"></a> Product list  
  La plantilla **Product list** le permite personalizar el cuerpo de la página de lista de productos en el portal para desarrolladores.  
@@ -75,7 +78,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 ### <a name="data-model"></a>Modelo de datos  
   
-|Propiedad|Escriba|Descripción|  
+|Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
 |Paginación|Entidad [Paging](api-management-template-data-model-reference.md#Paging).|La información de paginación de la colección de productos.|  
 |Filtros|Entidad [Filtering](api-management-template-data-model-reference.md#Filtering).|La información de filtrado de la página de lista de productos.|  
@@ -200,7 +203,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 ### <a name="data-model"></a>Modelo de datos  
   
-|Propiedad|Escriba|Descripción|  
+|Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
 |Producto|[Producto](api-management-template-data-model-reference.md#Product)|El producto especificado.|  
 |IsDeveloperSubscribed|boolean|Si el usuario actual está suscrito a este producto.|  

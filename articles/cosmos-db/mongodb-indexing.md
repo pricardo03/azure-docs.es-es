@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: a3dadfc4257d43f9df1b93f5d486e5577b7889d6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055318"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312704"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexación en Azure Cosmos DB: API de MongoDB
 
@@ -99,5 +99,5 @@ El comando anterior provocará la eliminación de todos los documentos de la col
 Actualmente, solo se pueden crear índices únicos cuando la colección no contiene documentos. Las herramientas de migración de MongoDB más populares intentan crear los índices únicos después de importar los datos. Para prevenir este problema, se recomienda que los usuarios creen manualmente las colecciones y los índices únicos correspondientes en lugar de permitir que lo haga la herramienta de migración (con ```mongorestore```, este comportamiento se logra mediante la marca --noIndexRestore en la línea de comandos).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [¿Cómo indexa los datos Azure Cosmos DB?](../cosmos-db/indexing-policies.md)
+* [¿Cómo indexa los datos Azure Cosmos DB?](../cosmos-db/index-policy.md)
 * [Expiración automática de los datos de las colecciones de Azure Cosmos DB con período de vida](../cosmos-db/time-to-live.md)

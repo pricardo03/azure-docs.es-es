@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604372"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705929"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Inicio rápido: bloquear el acceso cuando se detecta riesgo en una sesión con el acceso condicional de Azure Active Directory  
 
@@ -107,7 +107,7 @@ En esta sección se muestra cómo crear la directiva de acceso condicional que s
 
     ![Acceso condicional](./media/app-sign-in-risk/107.png)
 
-    a. Haga clic en **Seleccionar usuarios y grupos** y, luego, seleccione **Usuarios y grupos**.
+     a. Haga clic en **Seleccionar usuarios y grupos** y, luego, seleccione **Usuarios y grupos**.
 
     b. Haga clic en **Seleccionar**.
 
@@ -123,7 +123,7 @@ En esta sección se muestra cómo crear la directiva de acceso condicional que s
 
     ![Acceso condicional](./media/app-sign-in-risk/109.png)
 
-    a. Haga clic en **All cloud apps** (Todas las aplicaciones en la nube).
+     a. Haga clic en **All cloud apps** (Todas las aplicaciones en la nube).
 
     b. Haga clic en **Done**(Listo).
 
@@ -135,7 +135,7 @@ En esta sección se muestra cómo crear la directiva de acceso condicional que s
 
     ![Nivel de riesgo del inicio de sesión](./media/app-sign-in-risk/21.png)
 
-    a. Haga clic en **Riesgo de inicio de sesión**.
+     a. Haga clic en **Riesgo de inicio de sesión**.
  
     b. En **Configurar**, haga clic en **Sí**.
 
@@ -155,7 +155,7 @@ En esta sección se muestra cómo crear la directiva de acceso condicional que s
 
     ![Acceso condicional](./media/app-sign-in-risk/105.png)
 
-    a. Seleccione **Block access** (Bloquear acceso).
+     a. Seleccione **Block access** (Bloquear acceso).
 
     b. Haga clic en **Seleccionar**.
 
@@ -212,7 +212,7 @@ Cuando no sea necesario, elimine el usuario de prueba, Tor Browser y la directiv
 
     ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
 
-- Para obtener instrucciones para quitar Tor Browser, consulte [Uninstalling](https://tb-manual.torproject.org/en-US/uninstalling.html) (Desinstalación).
+- Para obtener instrucciones para quitar Tor Browser, consulte [Uninstalling](https://tb-manual.torproject.org/uninstalling/) (Desinstalación).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

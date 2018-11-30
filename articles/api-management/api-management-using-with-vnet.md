@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959050"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443532"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -27,7 +27,8 @@ Azure API Management se puede implementar dentro de la red virtual (VNET), por l
 
 > [!NOTE]
 > Azure API Management admite redes virtuales clásicas y de Azure Resource Manager.
->
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,7 +39,6 @@ Para seguir los pasos que se describen en este artículo, debe tener:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + Una instancia de APIM. Para más información, vea [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ La conectividad de VNET está disponible únicamente en los niveles Premium y Desarrollador. Cambie a uno de estos niveles siguiendo las instrucciones del tema sobre [actualización y escalado](upgrade-and-scale.md#upgrade-and-scale).
 
 ## <a name="enable-vpn"></a>Habilitar la conexión de VNET
 

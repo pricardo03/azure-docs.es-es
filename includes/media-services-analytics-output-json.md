@@ -1,3 +1,16 @@
+---
+author: Juliako
+ms.service: media-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: juliako
+ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52272336"
+---
 El trabajo genera un archivo de salida JSON que contiene metadatos de los rostros detectados y de los que se ha realizado seguimiento. Los metadatos incluyen coordenadas que indican tanto la ubicación de los rostros como un número de identificación de rostro, que indica que se realiza un seguimiento de dicha persona. Los números de identificación de cara son propensos a restablecerse en circunstancias en las que la cara de frente se pierde o se superpone en el fotograma, lo que provoca que a algunas personas se les asigne varios identificadores.
 
 La salida JSON incluye los siguientes elementos:

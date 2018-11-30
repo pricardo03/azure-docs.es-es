@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: ddd78e2fad401add35bc246a64236e2679c33cbc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023552"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620530"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicación remota del servicio en C# con Reliable Services
 
@@ -98,7 +98,7 @@ La creación del proxy de servicio es una operación ligera, por lo que se puede
 
 ### <a name="service-proxy-factory-lifetime"></a>Duración de la fábrica de proxy de servicio
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) es una fábrica que crea instancias de proxy para interfaces remotas diferentes. Si usa la API `ServiceProxy.Create` para crear un proxy, el marco de trabajo crea un proxy de servicio singleton.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) es una fábrica que crea instancias de proxy para interfaces remotas diferentes. Si usa la API `ServiceProxyFactory.CreateServiceProxy` para crear un proxy, el marco de trabajo crea un proxy de servicio singleton.
 Es útil crear uno manualmente cuando necesite invalidar las propiedades [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory).
 La creación de fábricas es una operación costosa. Una fábrica de proxy de servicio mantiene una caché interna del cliente de comunicación.
 Un procedimiento recomendado consiste en almacenar en caché la fábrica de proxy de servicio tanto como sea posible.
@@ -202,7 +202,7 @@ Para actualizar de V1 a V2, se requieren actualizaciones en dos pasos. Siga los 
 1. Actualice el servicio V1 al servicio V2 mediante este atributo.
 Este cambio garantiza que el servicio escucha en el agente de escucha V1 y V2.
 
-    a. Agregue un recurso de punto de conexión con el nombre "ServiceEndpointV2" en el manifiesto de servicio.
+     a. Agregue un recurso de punto de conexión con el nombre "ServiceEndpointV2" en el manifiesto de servicio.
       ```xml
       <Resources>
         <Endpoints>
@@ -324,7 +324,7 @@ Para actualizar de V1 a V2 (compatible con interfaz, conocido como V2_1), se req
 1. Actualice el servicio V1 al servicio V2_1 mediante el atributo siguiente.
 Este cambio garantiza que el servicio escucha en el agente de escucha V1 y V2_1.
 
-    a. Agregue un recurso de punto de conexión con el nombre "ServiceEndpointV2_1" en el manifiesto de servicio.
+     a. Agregue un recurso de punto de conexión con el nombre "ServiceEndpointV2_1" en el manifiesto de servicio.
       ```xml
       <Resources>
         <Endpoints>

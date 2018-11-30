@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 81728e7963767cd90bf2486a35fbce55043a76f7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685946"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633476"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solución de Supervisión de contenedores de Azure Log Analytics
 
@@ -36,7 +36,7 @@ La solución muestra qué contenedores están en ejecución, qué imagen de cont
 - Service Fabric
 - Red Hat OpenShift
 
-Si está interesado en supervisar el rendimiento de las cargas de trabajo implementadas en entornos de Kubernetes hospedado en Azure Kubernetes Service (AKS), consulte [Monitor Azure Kubernetes Service](../monitoring/monitoring-container-insights-overview.md) (Supervisión de Azure Kubernetes Service). La solución de supervisión de contenedores no incluye compatibilidad con la supervisión de esa plataforma.  
+Si está interesado en supervisar el rendimiento de las cargas de trabajo implementadas en entornos de Kubernetes hospedado en Azure Kubernetes Service (AKS), consulte [Monitor Azure Kubernetes Service](../azure-monitor/insights/container-insights-overview.md) (Supervisión de Azure Kubernetes Service). La solución de supervisión de contenedores no incluye compatibilidad con la supervisión de esa plataforma.  
 
 En el siguiente diagrama se muestran las relaciones entre varios hosts y agentes de contenedor con Log Analytics.
 
@@ -97,7 +97,7 @@ En la tabla siguiente se hace un resumen de la compatibilidad de supervisión de
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
 
-1. Agregue la solución de contenedor al área de trabajo de Log Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o mediante el proceso descrito en [Adición de soluciones de Log Analytics desde la galería de soluciones](../monitoring/monitoring-solutions.md).
+1. Agregue la solución de contenedor al área de trabajo de Log Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o mediante el proceso descrito en [Adición de soluciones de Log Analytics desde la galería de soluciones](../azure-monitor/insights/solutions.md).
 
 2. Instale y use Docker con un agente de Log Analytics. En función de su sistema operativo y del orquestador de Docker, puede usar los métodos siguientes para configurar el agente.
   - Para hosts independientes:
@@ -126,7 +126,7 @@ Después de instalar Docker, use la siguientes opciones para el host de contened
 
 **Para todos los hosts de contenedores de Linux excepto CoreOS:**
 
-- Para obtener más información y conocer los pasos para instalar el agente de Log Analytics para Linux, consulte [Log Analytics agent overview](log-analytics-agent-overview.md) (Información general sobre el agente de Log Analytics).
+- Para obtener más información y conocer los pasos para instalar el agente de Log Analytics para Linux, consulte [Log Analytics agent overview](../azure-monitor/platform/log-analytics-agent.md) (Información general sobre el agente de Log Analytics).
 
 **Para todos los hosts de contenedores de Linux incluido CoreOS:**
 
@@ -524,9 +524,9 @@ Para más información sobre la configuración del demonio de Docker usada con c
 
 #### <a name="install-windows-agents"></a>Instalación de agentes de Windows
 
-Para habilitar la supervisión de contenedores de Hyper-V y Windows, instale Microsoft Monitoring Agent (MMA) en equipos Windows que sean hosts de contenedores. Para equipos con Windows en su entorno local, consulte [Conexión de equipos Windows a Log Analytics](log-analytics-agent-windows.md). Para máquinas virtuales que se ejecutan en Azure, conéctelas a Log Analytics mediante la [extensión de máquina virtual](log-analytics-quick-collect-azurevm.md).
+Para habilitar la supervisión de contenedores de Hyper-V y Windows, instale Microsoft Monitoring Agent (MMA) en equipos Windows que sean hosts de contenedores. Para equipos con Windows en su entorno local, consulte [Conexión de equipos Windows a Log Analytics](../azure-monitor/platform/agent-windows.md). Para máquinas virtuales que se ejecutan en Azure, conéctelas a Log Analytics mediante la [extensión de máquina virtual](log-analytics-quick-collect-azurevm.md).
 
-Puede supervisar los contenedores de Windows que se ejecutan en Service Fabric. Sin embargo, actualmente solo las [máquinas virtuales que se ejecutan en Azure](log-analytics-quick-collect-azurevm.md) y en [equipos Windows de su entorno local](log-analytics-agent-windows.md) son compatibles con Service Fabric.
+Puede supervisar los contenedores de Windows que se ejecutan en Service Fabric. Sin embargo, actualmente solo las [máquinas virtuales que se ejecutan en Azure](log-analytics-quick-collect-azurevm.md) y en [equipos Windows de su entorno local](../azure-monitor/platform/agent-windows.md) son compatibles con Service Fabric.
 
 Puede comprobar que la solución de Supervisión de contenedores está configurada correctamente para Windows. Para comprobar si el módulo de administración se descargó correctamente, busque *ContainerManagement.xxx*. Los archivos deben estar en la carpeta C:\Archivos de programa\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
@@ -543,7 +543,7 @@ La solución de Supervisión de contenedores recopila diversos datos de registro
 Los siguientes tipos de agente recopilan los datos cada tres minutos.
 
 - [Agente de Log Analytics para Linux](log-analytics-quick-collect-linux-computer.md)
-- [Agente de Windows](log-analytics-agent-windows.md)
+- [Agente de Windows](../azure-monitor/platform/agent-windows.md)
 - [Extensión de VM de Log Analytics](log-analytics-quick-collect-azurevm.md)
 
 

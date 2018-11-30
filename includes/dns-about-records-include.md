@@ -1,3 +1,16 @@
+---
+author: vhorne
+ms.service: dns
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: victorh
+ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331471"
+---
 ### <a name="record-names"></a>Nombres de registro
 
 En DNS de Azure, los registros se especifican mediante el uso de nombres relativos. En un nombre de dominio *completo* (FQDN) se incluye el nombre de zona, mientras que uno *relativo*, no. Por ejemplo, el nombre de registro relativo "www" de la zona "contoso.com" proporciona el nombre de registro completo "www.contoso.com".

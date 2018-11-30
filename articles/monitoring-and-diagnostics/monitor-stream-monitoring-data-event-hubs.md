@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4c6765e54dc881c35e344f111e82721be0852052
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961830"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823765"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -71,7 +71,7 @@ Para enviar datos del registro de actividad de Azure a un espacio de nombres de 
 
 Los recursos de Azure emiten dos tipos de datos de supervisión:
 1. [Registros de diagnóstico de recursos](./monitoring-overview-of-diagnostic-logs.md)
-2. [Métricas](../monitoring/monitoring-data-collection.md)
+2. [Métricas](../azure-monitor/platform/data-collection.md)
 
 Ambos tipos de datos se envían a un centro de eventos mediante la configuración de diagnóstico de recursos. [Siga esta guía](./monitoring-stream-diagnostic-logs-to-event-hubs.md) para definir una configuración de diagnóstico en un recurso concreto. Establezca una configuración de diagnóstico en cada recurso del que quiera recopilar registros.
 

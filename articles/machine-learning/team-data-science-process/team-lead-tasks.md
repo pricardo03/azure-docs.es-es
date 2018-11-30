@@ -1,25 +1,21 @@
 ---
 title: 'Tareas del responsable de equipo del Proceso de ciencia de datos en equipo: Azure | Microsoft Docs'
 description: Un esquema de las tareas de un responsable de equipo en un proyecto de ciencia de datos en equipo.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 86ab49cb0acd9ffee47fb1f8f531c3a0cd6e6730
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297968"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443856"
 ---
 # <a name="team-lead-tasks"></a>Tareas del responsable de equipo
 

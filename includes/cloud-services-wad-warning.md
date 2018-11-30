@@ -1,3 +1,16 @@
+---
+author: jpconnock
+ms.service: cloud-services
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: jeconnoc
+ms.openlocfilehash: f23d5246401f23694755e63a51c52da5dbf5ac1b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331477"
+---
 > [!WARNING]
 > Cuando se habilita el diagnóstico para un rol existente, todas las extensiones que se hayan establecido ya se deshabilitan al implementar el paquete. Entre ellas se incluyen las siguientes:
 >

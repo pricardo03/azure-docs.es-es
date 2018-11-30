@@ -1,26 +1,22 @@
 ---
 title: 'DevOps para aplicaciones de inteligencia artificial (IA): creación de canalización de integración continua en Azure mediante una aplicación de Docker, Kubernetes y Python Flask'
 description: 'DevOps para aplicaciones de inteligencia artificial (IA): creación de canalización de integración continua en Azure mediante Docker y Kubernetes'
-services: machine-learning, team-data-science-process
-documentationcenter: ''
-author: jainr
-manager: deguhath
+services: machine-learning
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: jainr
-ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=jainr, ms.author=jainr)
+ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094404"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496739"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps para aplicaciones de inteligencia artificial (IA): creación de canalización de integración continua en Azure mediante Docker y Kubernetes
 Para una aplicación de IA, suele haber dos flujos de trabajo: los científicos de datos, que crean modelos de aprendizaje automático, y los desarrolladores de aplicaciones, que crean la aplicación y la exponen a los usuarios finales para que la consuman. En este artículo, se muestra cómo implementar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de IA. Una aplicación de IA es una combinación de código de aplicación insertado con un modelo de aprendizaje automático (ML) previamente entrenado. Para este artículo, obtenemos un modelo previamente entrenado de una cuenta de almacenamiento de blobs de Azure privada; también podría ser una cuenta de AWS S3. Usaremos una aplicación web sencilla de Python Flask para el artículo.
@@ -55,7 +51,7 @@ La arquitectura de canalización se indica a continuación.
 1. El programador trabaja en el IDE que prefiere en el código de aplicación.
 2. Confirman el código en el control de código fuente que eligen (Azure DevOps tiene buena compatibilidad con diversos controles de código fuente).
 3. Por separado, los científicos de datos trabajan en el desarrollo de su modelo.
-4. Una vez satisfechos, publican el modelo en un repositorio de modelos; en este caso, usamos una cuenta de almacenamiento de blobs. Esto se puede reemplazar fácilmente con el servicio de administración de modelos de Azure ML Workbench a través de sus API REST.
+4. Una vez satisfechos, publican el modelo en un repositorio de modelos; en este caso, usamos una cuenta de almacenamiento de blobs. 
 5. Se inicia una compilación en Azure DevOps según la confirmación en GitHub.
 6. La canalización de compilación de Azure DevOps extrae el último modelo del contenedor de blobs y crea un contenedor.
 7. Azure DevOps inserta la imagen en el repositorio de imágenes privado en Azure Container Registry.

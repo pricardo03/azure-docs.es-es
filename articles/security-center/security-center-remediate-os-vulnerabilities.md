@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238784"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317507"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corregir las configuraciones de seguridad en Azure Security Center
 Azure Security Center analiza diariamente el sistema operativo (SO) de sus máquinas virtuales (VM) y equipos en busca de alguna configuración que pueda hacer que estos sean más vulnerables frente a los ataques. Security Center recomienda resolver las vulnerabilidades cuando la configuración del sistema operativo no coincida con las reglas de configuración de seguridad recomendadas y realizar cambios en la configuración para hacer frente a estas vulnerabilidades.
@@ -101,7 +101,7 @@ Consulte la [lista de reglas de configuración recomendadas](https://gallery.tec
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * Para obtener una lista de máquinas virtuales de Windows y Linux compatibles, consulte [Plataformas compatibles con Azure Security Center](security-center-os-coverage.md).
-* Para aprender a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md).
+* Para aprender a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md).
 * Para saber qué recomendaciones pueden ayudarle a proteger los recursos de Azure, consulte [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 * Para saber cómo supervisar el mantenimiento de los recursos de Azure, consulte [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md).
 * Para aprender a administrar y responder a alertas de seguridad, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).

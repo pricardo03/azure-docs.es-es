@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 17029f51be9fed8fc36c5f919ece84acbf0461d9
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 9c614d18b96c182fa166a4bc43fb1bb2f8d5d6f5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42143524"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976745"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Grupos de agentes de DC/OS para Azure Container Service
 Los clústeres de DC/OS en Azure Container Service contienen nodos de agente en dos grupos, uno público y otro privado. Una aplicación se puede implementar en cualquier grupo, lo que afecta a la accesibilidad entre las máquinas del servicio de contenedores. Las máquinas pueden estar expuestas a Internet (públicas) o mantenerse internas (privadas). En este artículo se ofrece una breve descripción de por qué hay grupos públicos y privados.
@@ -37,7 +37,7 @@ Los grupos de agentes de DC/OS de Azure Container Service se crean de la manera 
 El grupo privado y el grupo público son conjuntos de escalado de máquinas virtuales de Azure. Puede cambiar el tamaño de estos grupos después de la implementación.
 
 ## <a name="use-agent-pools"></a>Uso de grupos de agentes
-De forma predeterminada, **Marathon** implementa cualquier nueva aplicación en los nodos de agente *privado* . Tendrá que implementar explícitamente la aplicación en el nodo *público* durante la creación de la aplicación. Seleccione la pestaña **Opcional** y escriba **slave_public** en el valor **Accepted Resource Roles** (Roles de recursos aceptados). Este proceso se describe [aquí](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) y en la documentación de [DC\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/).
+De forma predeterminada, **Marathon** implementa cualquier nueva aplicación en los nodos de agente *privado* . Tendrá que implementar explícitamente la aplicación en el nodo *público* durante la creación de la aplicación. Seleccione la pestaña **Opcional** y escriba **slave_public** en el valor **Accepted Resource Roles** (Roles de recursos aceptados). Este proceso se describe [aquí](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) y en la documentación de [DC\OS](https://docs.mesosphere.com/1.7/administration/installing/oss/custom/create-public-agent/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Lea sobre cómo [administrar los contenedores de DC/OS](container-service-mesos-marathon-ui.md).

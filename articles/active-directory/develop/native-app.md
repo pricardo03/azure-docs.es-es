@@ -16,16 +16,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8879cc331c5d0e8c6aab24e8c6178d96ab23bf9d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8738205aec8e0b00115a185886ca293b2f96033c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955408"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422378"
 ---
 # <a name="native-apps"></a>Aplicaciones nativas
 
-Las aplicaciones nativas son aplicaciones que llaman a una API web en nombre de un usuario. Este escenario se basa en el tipo de concesión de código de autorización OAuth 2.0 con un cliente público, tal como se describe en la sección 4.1 de la [especificación de OAuth 2.0](http://tools.ietf.org/html/rfc6749). La aplicación nativa obtiene un token de acceso para el usuario mediante el protocolo OAuth 2.0. Este token de acceso se envía después en la respuesta a la API web, que autoriza al usuario y devuelve el recurso deseado.
+Las aplicaciones nativas son aplicaciones que llaman a una API web en nombre de un usuario. Este escenario se basa en el tipo de concesión de código de autorización OAuth 2.0 con un cliente público, tal como se describe en la sección 4.1 de la [especificación de OAuth 2.0](https://tools.ietf.org/html/rfc6749). La aplicación nativa obtiene un token de acceso para el usuario mediante el protocolo OAuth 2.0. Este token de acceso se envía después en la respuesta a la API web, que autoriza al usuario y devuelve el recurso deseado.
 
 ## <a name="diagram"></a>Diagrama
 
