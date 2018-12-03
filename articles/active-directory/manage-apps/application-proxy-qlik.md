@@ -51,8 +51,8 @@ Siga estos pasos para publicar la aplicación. Para obtener un tutorial más det
 ### <a name="application-2"></a>Aplicación n.º 2: 
 Siga los mismos pasos que para la aplicación n.º 1, con las siguientes excepciones: 
 
-**Paso n.º 5**: la dirección URL interna ahora debe ser la dirección URL de QlikSense con el puerto de autenticación que utiliza la aplicación. El valor predeterminado es **4244** para HTTPS y 4248 para HTTP. Por ejemplo, **https&#58;//demo.qlik.com:4244**</br></br> 
-**Paso n º 10:** no configure SSO y deje el **Inicio de sesión único deshabilitado**
+**Paso n.º 5**: la dirección URL interna ahora debe ser la dirección URL de QlikSense con el puerto de autenticación que utiliza la aplicación. El valor predeterminado es **4244** para HTTPS y 4248 para HTTP. Por ejemplo, **https&#58;//demo.qlik.com:4244**</br></br>**Paso n º 10:** no configure SSO y deje el **Inicio de sesión único deshabilitado** 
+
  
  
 ## <a name="testing"></a>Prueba 

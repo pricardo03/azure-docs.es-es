@@ -1145,7 +1145,7 @@ Para configurar el clúster de Clústeres de conmutación por error de Windows p
 
   ![Figura 28: No active la casilla][sap-ha-guide-figure-3017]
 
-  _**Figura 28:****NO** active la casilla_
+  _**Figura 28:** **NO** active la casilla_
 
   Puede pasar por alto las advertencias sobre el cuórum y los discos. Establecerá el cuórum y compartirá el disco más adelante, tal como se describe en [Instalación de SIOS DataKeeper Cluster Edition para un disco compartido de clúster de ASCS/SCS de SAP][sap-ha-guide-8.12.3].
 

@@ -866,7 +866,7 @@ Para configurar el clúster de Clústeres de conmutación por error de Windows p
 
   ![Figura 28: No active la casilla][sap-ha-guide-figure-3017]
 
-  _**Figura 28:****NO** active la casilla_
+  _**Figura 28:** **NO** active la casilla_
 
   Puede pasar por alto las advertencias sobre el cuórum y los discos. Establecerá el cuórum y compartirá el disco más adelante, tal como se describe en [Instalación de SIOS DataKeeper Cluster Edition para un disco compartido de clúster de ASCS/SCS de SAP][sap-ha-guide-8.12.3].
 
@@ -1154,9 +1154,9 @@ Para instalar SAP con una instancia de ASCS/SCS de alta disponibilidad, siga est
 1.  Ejecute la opción de primer nodo del clúster en el nodo de clúster A, por ejemplo, en el host **pr1-ascs-0**.
 2.  Para mantener los puertos predeterminados para el equilibrador de carga interno de Azure, seleccione:
 
-  * **Sistema ABAP**: número de instancia de **ASCS****00**
-  * **Sistema Java**: número de instancia de **SCS****01**
-  * **Sistema ABAP+Java**: número de instancia de **ASCS****00** y número de instancia de **SCS****01**
+  * **Sistema ABAP**: número de instancia de **ASCS** **00**
+  * **Sistema Java**: número de instancia de **SCS** **01**
+  * **Sistema ABAP+Java**: número de instancia de **ASCS** **00** y número de instancia de **SCS** **01**
 
   Para usar números de instancia diferentes de 00 para la instancia de ASCS de ABAP y 01 para la instancia de SCS de Java, primero debe cambiar las reglas predeterminadas de equilibrio de carga del equilibrador de carga interno de Azure, tal como se describe en [Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure][sap-ha-guide-8.9].
 
