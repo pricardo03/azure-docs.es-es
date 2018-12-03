@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5f5143800c423bdbaac9994b55e500723018dce4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283451"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634360"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Preguntas comunes para la transición desde el portal de OMS a Azure Portal para los usuarios de Log Analytics
 Log Analytics inicialmente usaba su propio portal denominado portal de OMS para administrar su configuración y analizar los datos recopilados.  Toda la funcionalidad de este portal se ha movido a Azure Portal, donde continuará desarrollándose.
@@ -82,9 +82,9 @@ Administre la mayoría de las configuraciones de orígenes conectados en el men�
 | Servidores Linux   | Menú **Configuración avanzada** para el área de trabajo. |
 | Azure Storage     | Menú **Configuración avanzada** para el área de trabajo. |
 | System Center     | Menú **Configuración avanzada** para el área de trabajo. |
-| Office 365        | Consulte la [documentación de solución de administración de Office 365](../monitoring/monitoring-solution-office-365.md) para obtener detalles de configuración. |
+| Office 365        | Consulte la [documentación de solución de administración de Office 365](../azure-monitor/insights/solution-office-365.md) para obtener detalles de configuración. |
 | Telemetría de Windows | Menú de configuración de la solución. Para ver los detalles de la configuración, consulte [Windows Analytics en Azure Portal](/windows/deployment/update/windows-analytics-azure-portal). |
-| Conector ITSM    | Consulte [Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI](../log-analytics/log-analytics-itsmc-connections.md) para instrucciones sobre cómo conectar el servicio ITSM con Log Analytics. |
+| Conector ITSM    | Consulte [Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI](../log-analytics/../azure-monitor/platform/itsmc-connections.md) para instrucciones sobre cómo conectar el servicio ITSM con Log Analytics. |
 
 ### <a name="data"></a>Datos
 Administre la mayoría de las configuraciones de datos en el menú **Configuración avanzada** para el área de trabajo. En la tabla siguiente se proporcionan detalles para cada sección de este menú.
@@ -107,13 +107,13 @@ Administre la mayoría de las configuraciones de datos en el menú **Configuraci
 Administre las soluciones del menú **Soluciones** para el área de trabajo. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>¿Cómo instalo y quito las soluciones de administración?
-En el portal de OMS, las soluciones de administración se instalan desde la Galería de soluciones y se quitan de **Configuración**. En Azure Portal, [instale soluciones de administrador](../monitoring/monitoring-solutions.md#install-a-management-solution) desde Azure Marketplace. [Quite soluciones](../monitoring/monitoring-solutions.md#remove-a-management-solution) de la lista de soluciones instaladas.
+En el portal de OMS, las soluciones de administración se instalan desde la Galería de soluciones y se quitan de **Configuración**. En Azure Portal, [instale soluciones de administrador](../azure-monitor/insights/solutions.md#install-a-management-solution) desde Azure Marketplace. [Quite soluciones](../azure-monitor/insights/solutions.md#remove-a-management-solution) de la lista de soluciones instaladas.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>¿Cómo creo y administro alertas?
 Las reglas de alerta basadas en consultas de Log Analytics ahora se administran en la [experiencia de alertas unificada](../monitoring-and-diagnostics/alert-metric.md). Consulte [cómo extender alertas desde Log Analytics en alertas de Azure](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) para detalles sobre cómo configurar y usar las alertas en Azure Portal.
 
 ## <a name="how-do-i-access-my-dashboards"></a>¿Cómo accedo a mis paneles?
-La característica [Mi panel](../log-analytics/log-analytics-dashboards.md) de Log Analytics ha quedado en desuso. Esta característica le permitía tener una colección privada de elementos del Diseñador de vistas y se ha reemplazado por la funcionalidad integrada del panel de Azure. Puede seguir visualizando datos en Log Analytics con [Diseñador de vistas](../log-analytics/log-analytics-view-designer.md) para vistas compartidas. También puede anclar visualizaciones de estas vistas o, en el caso de [consultas individuales](../log-analytics/log-analytics-tutorial-dashboards.md), en paneles de Azure.
+La característica [Mi panel](../log-analytics/../azure-monitor/platform/dashboards.md) de Log Analytics ha quedado en desuso. Esta característica le permitía tener una colección privada de elementos del Diseñador de vistas y se ha reemplazado por la funcionalidad integrada del panel de Azure. Puede seguir visualizando datos en Log Analytics con [Diseñador de vistas](../log-analytics/../azure-monitor/platform/view-designer.md) para vistas compartidas. También puede anclar visualizaciones de estas vistas o, en el caso de [consultas individuales](../log-analytics/log-analytics-tutorial-dashboards.md), en paneles de Azure.
 
 ## <a name="how-do-i-check-my-usage"></a>¿Cómo puedo comprobar el uso?
 Ahora puede ver y administrar fácilmente su uso y el costo de Log Analytics seleccionando **Uso y costos estimados** en el área de trabajo.
@@ -126,5 +126,5 @@ Durante un tiempo limitado, es posible acceder al portal a través de esta direc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Buscar e instalar soluciones de administración](../monitoring/monitoring-solutions.md) mediante Azure Portal.
+- [Buscar e instalar soluciones de administración](../azure-monitor/insights/solutions.md) mediante Azure Portal.
 - Más información sobre la [búsqueda de registros en Azure Portal](log-analytics-log-search-portals.md).
