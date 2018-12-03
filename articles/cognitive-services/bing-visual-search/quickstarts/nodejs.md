@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 3490f7722ca0c1331ccea26cd18398cff1317aee
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 553d068d70f7e722f3c8e4de3978f3583b941963
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887421"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442541"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>Inicio rápido: Su primera consulta de Bing Visual Search en JavaScript
 
@@ -27,7 +27,7 @@ Si carga una imagen local, a continuación verá los datos del formulario que de
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -35,10 +35,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 En este artículo se incluye una aplicación simple de consola que envía una solicitud de Bing Visual Search API y muestra los resultados de búsqueda de JSON. Si bien esta aplicación está escrita en JavaScript, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON. 
 
 ## <a name="prerequisites"></a>Requisitos previos
+Para esta guía de inicio rápido, sera preciso iniciar una suscripción en el nivel de precios S9 como se muestra en [Precios de Cognitive Services: Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar una suscripción en Azure Portal:
+1. Escriba "BingSearchV7" en el cuadro de texto de la parte superior de Azure Portal que dice `Search resources, services, and docs`.  
+2. En Marketplace en la lista desplegable, seleccione `Bing Search v7`.
+3. Escriba `Name` para el nuevo recurso.
+4. Seleccione la suscripción `Pay-As-You-Go`.
+5. Seleccione el plan de tarifa `S9`.
+6. Haga clic en `Enable` para iniciar la suscripción.
 
 Necesita [Node.js 6](https://nodejs.org/en/download/) para ejecutar este código.
-
-Para realizar este tutorial de inicio rápido, puede usar una clave de suscripción de [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una clave de suscripción de pago.
 
 ## <a name="running-the-application"></a>Ejecución de la aplicación
 

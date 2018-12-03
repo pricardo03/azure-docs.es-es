@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0bb79c9d85e56308d9872baeb10868be8eaf7a5a
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964193"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824921"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor. Otras métricas pueden estar disponibles en el portal o mediante las API heredadas. La siguiente lista incluye solo las métricas disponibles con la canalización de métricas consolidada de Azure Monitor. Para consultar estas métricas y acceder a ellas, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
@@ -692,23 +692,23 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Solicitudes correctas (versión preliminar)|Recuento|Total|Solicitudes correctas de Microsoft.EventHub. (versión preliminar)|EntityName|
-|ServerErrors|Errores del servidor. (versión preliminar)|Recuento|Total|Errores del servidor de Microsoft.EventHub. (versión preliminar)|EntityName|
-|UserErrors|Errores de usuario. (versión preliminar)|Recuento|Total|Errores de usuario de Microsoft.EventHub. (versión preliminar)|EntityName|
-|QuotaExceededErrors|Cuota de errores superada. (versión preliminar)|Recuento|Total|Cuota de errores superada de Microsoft.EventHub. (versión preliminar)|EntityName|
-|ThrottledRequests|Solicitudes limitadas. (versión preliminar)|Recuento|Total|Solicitudes limitadas de Microsoft.EventHub. (versión preliminar)|EntityName|
-|IncomingRequests|Solicitudes entrantes (versión preliminar)|Recuento|Total|Solicitudes entrantes de Microsoft.EventHub. (versión preliminar)|EntityName|
-|IncomingMessages|Mensajes entrantes (versión preliminar)|Recuento|Total|Mensajes entrantes de Microsoft.EventHub. (versión preliminar)|EntityName|
-|OutgoingMessages|Mensajes salientes (versión preliminar)|Recuento|Total|Mensajes salientes de Microsoft.EventHub. (versión preliminar)|EntityName|
-|IncomingBytes|Bytes entrantes. (versión preliminar)|Bytes|Total|Bytes entrantes de Microsoft.EventHub. (versión preliminar)|EntityName|
-|OutgoingBytes|Bytes salientes. (versión preliminar)|Bytes|Total|Bytes salientes de Microsoft.EventHub. (versión preliminar)|EntityName|
-|ActiveConnections|ActiveConnections (versión preliminar)|Recuento|Media|Total de conexiones activas de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|ConnectionsOpened|Conexiones abiertas. (versión preliminar)|Recuento|Media|Conexiones abiertas de Microsoft.EventHub. (versión preliminar)|EntityName|
-|ConnectionsClosed|Conexiones cerradas. (versión preliminar)|Recuento|Media|Conexiones cerradas de Microsoft.EventHub. (versión preliminar)|EntityName|
-|CaptureBacklog|Capturar el trabajo pendiente. (versión preliminar)|Recuento|Total|Capturar el trabajo pendiente de Microsoft.EventHub. (versión preliminar)|EntityName|
-|CapturedMessages|Mensajes capturados. (versión preliminar)|Recuento|Total|Mensajes capturados de Microsoft.EventHub. (versión preliminar)|EntityName|
-|CapturedBytes|Bytes capturados. (versión preliminar)|Bytes|Total|Bytes capturados de Microsoft.EventHub. (versión preliminar)|EntityName|
-|Tamaño|Tamaño (vista previa)|Bytes|Media|Tamaño de EventHub en bytes. (versión preliminar)|EntityName|
+|SuccessfulRequests|Solicitudes correctas (versión preliminar)|Recuento|Total|Solicitudes correctas de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|ServerErrors|Errores del servidor.  (versión preliminar)|Recuento|Total|Errores del servidor de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|UserErrors|Errores de usuario.  (versión preliminar)|Recuento|Total|Errores de usuario de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|QuotaExceededErrors|Cuota de errores superada.  (versión preliminar)|Recuento|Total|Cuota de errores superada de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|ThrottledRequests|Solicitudes limitadas.  (versión preliminar)|Recuento|Total|Solicitudes limitadas de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|IncomingRequests|Solicitudes entrantes (versión preliminar)|Recuento|Total|Solicitudes entrantes de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|IncomingMessages|Mensajes entrantes (versión preliminar)|Recuento|Total|Mensajes entrantes de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|OutgoingMessages|Mensajes salientes (versión preliminar)|Recuento|Total|Mensajes salientes de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|IncomingBytes|Bytes entrantes.  (versión preliminar)|Bytes|Total|Bytes entrantes de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|OutgoingBytes|Bytes salientes.  (versión preliminar)|Bytes|Total|Bytes salientes de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|ActiveConnections|ActiveConnections (versión preliminar)|Recuento|Media|Total de conexiones activas de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|ConnectionsOpened|Conexiones abiertas.  (versión preliminar)|Recuento|Media|Conexiones abiertas de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|ConnectionsClosed|Conexiones cerradas.  (versión preliminar)|Recuento|Media|Conexiones cerradas de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|CaptureBacklog|Capturar el trabajo pendiente.  (versión preliminar)|Recuento|Total|Capturar el trabajo pendiente de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|CapturedMessages|Mensajes capturados.  (versión preliminar)|Recuento|Total|Mensajes capturados de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|CapturedBytes|Bytes capturados.  (versión preliminar)|Bytes|Total|Bytes capturados de Microsoft.EventHub.  (versión preliminar)|EntityName|
+|Tamaño|Tamaño (vista previa)|Bytes|Media|Tamaño de EventHub en bytes.  (versión preliminar)|EntityName|
 |INREQS|Solicitudes entrantes|Recuento|Total|Total de solicitudes de envío entrantes de un espacio de nombres|Sin dimensiones|
 |SUCCREQ|Solicitudes correctas|Recuento|Total|Número total de solicitudes correctas para un espacio de nombres|Sin dimensiones|
 |FAILREQ|Solicitudes con error|Recuento|Total|Número total de solicitudes erróneas para un espacio de nombres|Sin dimensiones|
@@ -731,22 +731,22 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Solicitudes correctas (versión preliminar)|Recuento|Total|Solicitudes correctas de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|ServerErrors|Errores del servidor. (versión preliminar)|Recuento|Total|Errores del servidor de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|UserErrors|Errores de usuario. (versión preliminar)|Recuento|Total|Errores de usuario de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|QuotaExceededErrors|Cuota de errores superada. (versión preliminar)|Recuento|Total|Cuota de errores superada de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|ThrottledRequests|Solicitudes limitadas. (versión preliminar)|Recuento|Total|Solicitudes limitadas de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|IncomingRequests|Solicitudes entrantes (versión preliminar)|Recuento|Total|Solicitudes entrantes de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|IncomingMessages|Mensajes entrantes (versión preliminar)|Recuento|Total|Mensajes entrantes de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|OutgoingMessages|Mensajes salientes (versión preliminar)|Recuento|Total|Mensajes salientes de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|IncomingBytes|Bytes entrantes. (versión preliminar)|Bytes|Total|Bytes entrantes de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|OutgoingBytes|Bytes salientes. (versión preliminar)|Bytes|Total|Bytes salientes de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|ActiveConnections|ActiveConnections (versión preliminar)|Recuento|Media|Total de conexiones activas de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|ConnectionsOpened|Conexiones abiertas. (versión preliminar)|Recuento|Media|Conexiones abiertas de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|ConnectionsClosed|Conexiones cerradas. (versión preliminar)|Recuento|Media|Conexiones cerradas de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|CaptureBacklog|Capturar el trabajo pendiente. (versión preliminar)|Recuento|Total|Capturar el trabajo pendiente de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|CapturedMessages|Mensajes capturados. (versión preliminar)|Recuento|Total|Mensajes capturados de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
-|CapturedBytes|Bytes capturados. (versión preliminar)|Bytes|Total|Bytes capturados de Microsoft.EventHub. (versión preliminar)|Sin dimensiones|
+|SuccessfulRequests|Solicitudes correctas (versión preliminar)|Recuento|Total|Solicitudes correctas de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|ServerErrors|Errores del servidor.  (versión preliminar)|Recuento|Total|Errores del servidor de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|UserErrors|Errores de usuario.  (versión preliminar)|Recuento|Total|Errores de usuario de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|QuotaExceededErrors|Cuota de errores superada.  (versión preliminar)|Recuento|Total|Cuota de errores superada de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|ThrottledRequests|Solicitudes limitadas.  (versión preliminar)|Recuento|Total|Solicitudes limitadas de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|IncomingRequests|Solicitudes entrantes (versión preliminar)|Recuento|Total|Solicitudes entrantes de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|IncomingMessages|Mensajes entrantes (versión preliminar)|Recuento|Total|Mensajes entrantes de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|OutgoingMessages|Mensajes salientes (versión preliminar)|Recuento|Total|Mensajes salientes de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|IncomingBytes|Bytes entrantes.  (versión preliminar)|Bytes|Total|Bytes entrantes de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|OutgoingBytes|Bytes salientes.  (versión preliminar)|Bytes|Total|Bytes salientes de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|ActiveConnections|ActiveConnections (versión preliminar)|Recuento|Media|Total de conexiones activas de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|ConnectionsOpened|Conexiones abiertas.  (versión preliminar)|Recuento|Media|Conexiones abiertas de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|ConnectionsClosed|Conexiones cerradas.  (versión preliminar)|Recuento|Media|Conexiones cerradas de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|CaptureBacklog|Capturar el trabajo pendiente.  (versión preliminar)|Recuento|Total|Capturar el trabajo pendiente de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|CapturedMessages|Mensajes capturados.  (versión preliminar)|Recuento|Total|Mensajes capturados de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
+|CapturedBytes|Bytes capturados.  (versión preliminar)|Bytes|Total|Bytes capturados de Microsoft.EventHub.  (versión preliminar)|Sin dimensiones|
 |CPU|CPU (versión preliminar)|Percent|Máxima|Uso de la CPU para el clúster del centro de eventos como porcentaje|Rol|
 |AvailableMemory|Memoria disponible (versión preliminar)|Recuento|Máxima|Memoria disponible para el clúster del centro de eventos en bytes|Rol|
 
@@ -819,7 +819,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |IsEngineAnsweringQuery|Mantener conexión|Recuento|Media|La comprobación de integridad indica las respuestas del clúster a las consultas|Sin dimensiones|
 |IngestCommandOriginalSizeInMb|Volumen de ingesta (en MB)|Recuento|Total|Volumen global de la ingesta de datos del clúster (en MB)|Sin dimensiones|
 |EventAgeSeconds|Latencia de la ingesta (en segundos)|Segundos|Media|Tiempo de ingesta del origen (p. ej., el mensaje está en el centro de eventos) al clúster en segundos|Sin dimensiones|
-|EventRecievedFromEventHub|Eventos procesados (para Event Hubs)|Recuento|Total|Número de eventos que ha procesado el clúster en la ingesta desde el centro de eventos|Sin dimensiones|
+|EventReceivedFromEventHub|Eventos procesados (para Event Hubs)|Recuento|Total|Número de eventos que ha procesado el clúster en la ingesta desde el centro de eventos|Sin dimensiones|
 |IngestionResult|Resultado de la ingesta|Recuento|Recuento|Número de operaciones de ingesta|IngestionResultDetails|
 |EngineCPU|CPU|Percent|Media|Nivel de uso de CPU|Sin dimensiones|
 
@@ -1121,8 +1121,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Average_Disk Read Bytes/sec|Bytes de lectura de disco/s |Recuento|Media|Average_Disk Read Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Reads/sec|Lecturas de disco/s |Recuento|Media|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Transfers/sec|Transferencias de disco/s|Recuento|Media|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Write Bytes/sec| Bytes de escritura en disco/s|Recuento|Media|Average_Disk Write Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Writes/sec|Escrituras en disco/s|Recuento|Media|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Write Bytes/sec|  Bytes de escritura en disco/s|Recuento|Media|Average_Disk Write Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec| Escrituras en disco/s|Recuento|Media|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Free Megabytes|Megabytes libres|Recuento|Media|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Logical Disk Bytes/sec|Bytes de disco lógico/s|Recuento|Media|Average_Logical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Available Memory|% de memoria disponible|Recuento|Media|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1172,7 +1172,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Average_Current Disk Queue Length|Longitud actual de cola de disco|Recuento|Media|Average_Current Disk Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Reads/sec|Lecturas de disco/s |Recuento|Media|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Transfers/sec|Transferencias de disco/s|Recuento|Media|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Writes/sec|Escrituras en disco/s|Recuento|Media|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec| Escrituras en disco/s|Recuento|Media|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Free Megabytes|Megabytes libres|Recuento|Media|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Free Space|% de espacio libre|Recuento|Media|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Available MBytes|MB disponibles|Recuento|Media|Average_Available MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1228,16 +1228,16 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
 |SuccessfulRequests|Solicitudes correctas (versión preliminar)|Recuento|Total|Número total de solicitudes correctas para un espacio de nombres (versión preliminar)|EntityName|
-|ServerErrors|Errores del servidor. (versión preliminar)|Recuento|Total|Errores del servidor para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|UserErrors|Errores de usuario. (versión preliminar)|Recuento|Total|Errores de usuario para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|ThrottledRequests|Solicitudes limitadas. (versión preliminar)|Recuento|Total|Solicitudes limitadas para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|IncomingRequests|Solicitudes entrantes (versión preliminar)|Recuento|Total|Solicitudes entrantes para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|IncomingMessages|Mensajes entrantes (versión preliminar)|Recuento|Total|Mensajes entrantes para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|OutgoingMessages|Mensajes salientes (versión preliminar)|Recuento|Total|Mensajes salientes para Microsoft.ServiceBus. (versión preliminar)|EntityName|
-|ActiveConnections|ActiveConnections (versión preliminar)|Recuento|Total|Total de conexiones activas para Microsoft.ServiceBus. (versión preliminar)|Sin dimensiones|
-|Tamaño|Tamaño (vista previa)|Bytes|Media|Tamaño de cola/tema en bytes. (versión preliminar)|EntityName|
-|error de Hadoop|Recuento de mensajes de una cola/tema. (versión preliminar)|Recuento|Media|Recuento de mensajes de una cola/tema. (versión preliminar)|EntityName|
-|ActiveMessages|Recuento de mensajes activos de una cola/tema. (versión preliminar)|Recuento|Media|Recuento de mensajes activos de una cola/tema. (versión preliminar)|EntityName|
+|ServerErrors|Errores del servidor.  (versión preliminar)|Recuento|Total|Errores del servidor para Microsoft.ServiceBus.  (versión preliminar)|EntityName|
+|UserErrors|Errores de usuario.  (versión preliminar)|Recuento|Total|Errores de usuario para Microsoft.ServiceBus.  (versión preliminar)|EntityName|
+|ThrottledRequests|Solicitudes limitadas.  (versión preliminar)|Recuento|Total|Solicitudes limitadas para Microsoft.ServiceBus.  (versión preliminar)|EntityName|
+|IncomingRequests|Solicitudes entrantes (versión preliminar)|Recuento|Total|Solicitudes entrantes para Microsoft.ServiceBus.  (versión preliminar)|EntityName|
+|IncomingMessages|Mensajes entrantes (versión preliminar)|Recuento|Total|Mensajes entrantes para Microsoft.ServiceBus.  (versión preliminar)|EntityName|
+|OutgoingMessages|Mensajes salientes (versión preliminar)|Recuento|Total|Mensajes salientes para Microsoft.ServiceBus.  (versión preliminar)|EntityName|
+|ActiveConnections|ActiveConnections (versión preliminar)|Recuento|Total|Total de conexiones activas para Microsoft.ServiceBus.  (versión preliminar)|Sin dimensiones|
+|Tamaño|Tamaño (vista previa)|Bytes|Media|Tamaño de cola/tema en bytes.  (versión preliminar)|EntityName|
+|error de Hadoop|Recuento de mensajes de una cola/tema.  (versión preliminar)|Recuento|Media|Recuento de mensajes de una cola/tema.  (versión preliminar)|EntityName|
+|ActiveMessages|Recuento de mensajes activos de una cola/tema.  (versión preliminar)|Recuento|Media|Recuento de mensajes activos de una cola/tema.  (versión preliminar)|EntityName|
 |CPUXNS|Uso de CPU por espacio de nombres|Percent|Máxima|Métrica de uso de CPU de espacio de nombres premium de Service Bus|Sin dimensiones|
 |WSXNS|Uso de tamaño de memoria por espacio de nombres|Percent|Máxima|Métrica de uso de memoria de espacio de nombres premium de Service Bus|Sin dimensiones|
 
@@ -1570,6 +1570,6 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MemoryPercentage|Porcentaje de memoria|Percent|Media|Porcentaje de memoria|Instance|
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Lea información sobre las métricas en Azure Monitor](../monitoring/monitoring-data-collection.md)
+* [Lea información sobre las métricas en Azure Monitor](../azure-monitor/platform/data-collection.md)
 * [Creación de alertas basadas en métricas](monitoring-overview-alerts.md)
 * [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](monitoring-overview-of-diagnostic-logs.md)

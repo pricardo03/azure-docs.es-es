@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: d4852c78b7f85c568bb34aaf86ada09fdc2c3ff0
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 714f28166b8d24a5b8a69fe4f76ba1737de56e1d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161489"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315093"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Inicio rápido para Bing News Search API con Ruby
 
@@ -27,7 +27,7 @@ Consulte la [referencia de la API](https://docs.microsoft.com/rest/api/cognitive
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Search APIs**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Necesitará la clave de acceso que se le proporcionó al activar la versión de evaluación gratuita, o puede usar una clave de suscripción de pago desde su panel de Azure.
+Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Search APIs**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Necesitará la clave de acceso proporcionada al activar la evaluación gratuita. Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="bing-news-search"></a>Bing News Search
 

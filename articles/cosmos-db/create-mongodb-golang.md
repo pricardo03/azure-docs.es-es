@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 79196e2e89ec28236b7256571ccaa087866c2e76
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7c5f718836fbad2fb0df6ae00bcb1535e6ae9c5f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706473"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423786"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación de consola de la API MongoDB con Golang y Azure Portal
 
@@ -42,7 +42,7 @@ En otras palabras, la aplicación Golang solo sabe que se está conectando a una
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) y conocimientos básicos sobre el lenguaje [Go](https://golang.org/).
-- Un IDE: [GoLand](https://www.jetbrains.com/go/) de Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) de Microsoft o [Atom](https://atom.io/). En este tutorial, utilizo Goglang.
+- Un IDE: [GoLand](https://www.jetbrains.com/go/) de Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) de Microsoft o [Atom](https://atom.io/). En este tutorial voy a usar GoLand.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos

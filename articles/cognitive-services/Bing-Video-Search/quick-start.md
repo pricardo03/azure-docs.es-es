@@ -10,16 +10,16 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: abeeec95755a566216ac65b2edf5c831a8ab93b6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 5b1ac98ee9ad5625d8db9790a3be10d42236874b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225521"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307464"
 ---
 # <a name="quickstart-your-first-video-search-query"></a>Inicio rápido: Su primera consulta de búsqueda de vídeo
 
-Para poder realizar la primera llamada, debe obtener una clave de suscripción de Cognitive Services para Bing Search. Para obtener una clave, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api).
+Obtenga una [clave de acceso de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) en **Buscar**.  Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para obtener resultados de la búsqueda de vídeo, debe enviar una solicitud GET al punto de conexión siguiente:  
   

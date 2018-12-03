@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/12/2018
 ms.author: jroth
-ms.openlocfilehash: 905caa7d0de514ae9fd13cb058b2b7826b8b6abf
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 141a65032d3d97a7977bb3e725edb47b6f25d55c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003678"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496670"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>¿Qué es SQL Server en máquinas virtuales de Azure? (Windows)
 
@@ -67,8 +67,13 @@ En la tabla siguiente se proporciona la matriz de imágenes de SQL SErver de pag
 
 Para ver las imágenes de máquinas virtuales Linux con SQL Server disponibles, consulte [Overview of SQL Server on Azure Virtual Machines (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md) [Introducción a SQL Server en máquinas virtuales de Azure (Linux)].
 
+> [!NOTE]
+> Ya puede cambiar el modelo de licencias de una máquina virtual con SQL Server de pago por uso para usar su propia licencia. Para más información, consulte [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md) (Cambio del modelo de licencia de una máquina virtual SQL). 
+
 ### <a id="BYOL"></a> Traiga su propia licencia
 También puede traer su propia licencia (BYOL). En este escenario, solo paga por la máquina virtual sin ningún cargo adicional de licencia de SQL Server.  Aportar su propia licencia puede ahorrar dinero con el tiempo en cargas de trabajo de producción continuas. Para más información, consulte [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md#byol) (Guía de precios de máquinas virtuales de Azure con SQL Server).
+
+Para usar su propia licencia, puede convertir una VM con SQL de pago por uso existente, o bien implementar una imagen con **{BYOL}** con prefijo. Para más información acerca de cómo cambiar el modelo de licencia entre pago por uso y BYOL, consulte [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md) (Cambio del modelo de licencia de una máquina virtual con SQL). 
 
 | Versión | Sistema operativo | Edition |
 | --- | --- | --- |
@@ -77,7 +82,6 @@ También puede traer su propia licencia (BYOL). En este escenario, solo paga por
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-En el portal, los nombres de las imágenes van precedidos de **{BYOL}**.
 
 ### <a name="connect-to-the-vm"></a>Conexión a la máquina virtual
 Después de crear la máquina virtual con SQL Server, conéctese a ella desde aplicaciones o herramientas tales como SQL Server Management Studio (SSMS). Consulte las instrucciones en [Conexión a una máquina virtual de Azure con SQL Server (Resource Manager)](virtual-machines-windows-sql-connect.md).
@@ -101,7 +105,7 @@ De manera predeterminada, el Programa para la mejora de la experiencia del clien
 ### <a name="networking"></a>Redes
 * [Información general sobre Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [Direcciones IP en Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Creación de un nombre de dominio completo en Azure Portal](../portal-create-fqdn.md)
+* [Crear un nombre de dominio completo en el Portal de Azure](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [Documentación de SQL Server](https://docs.microsoft.com/sql/index)

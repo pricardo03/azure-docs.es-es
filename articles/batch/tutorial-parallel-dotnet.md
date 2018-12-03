@@ -2,21 +2,21 @@
 title: 'Ejecución de una carga de trabajo paralela: .NET de Azure Batch'
 description: 'Tutorial: Transcodificación de archivos multimedia en paralelo con ffmpeg en Azure Batch con la biblioteca cliente de .NET de Batch'
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/07/2018
-ms.author: danlep
+ms.date: 11/20/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 02b715ade9a9a537f6bd0e476ada299140bff4bb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815518"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423616"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de .NET
 
@@ -41,7 +41,7 @@ En este tutorial, convertiremos archivos multimedia MP4 a formato MP3 en paralel
 
 * Una cuenta de Batch y una cuenta de Azure Storage vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
-* [Versión de 64 bits de Windows de ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Descargue el archivo zip en el equipo local. Para este tutorial solo se necesita el archivo zip. No es necesario descomprimir el archivo ni instalarlo localmente. 
+* [Versión de 64 bits de Windows de ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Descargue el archivo zip en el equipo local. Para este tutorial solo se necesita el archivo zip. No es necesario descomprimir el archivo ni instalarlo localmente.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Vaya al directorio que contiene el archivo `BatchDotNetFfmpegTutorial.sln` de la solución de Visual Studio.
 
-Abra el archivo de la solución en Visual Studio y actualice las cadenas de credenciales de `program.cs` con los valores obtenidos para las cuentas. Por ejemplo: 
+Abra el archivo de la solución en Visual Studio y actualice las cadenas de credenciales de `Program.cs` con los valores obtenidos para las cuentas. Por ejemplo: 
 
 ```csharp
 // Batch account credentials
@@ -104,7 +104,7 @@ Compile y ejecute la aplicación en Visual Studio o en la línea de comandos con
 A continuación, ejecútelo. Al ejecutar la aplicación de ejemplo, la salida de la consola es similar a la siguiente. Durante la ejecución, se experimenta una pausa en `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` mientras se inician los nodos de proceso del grupo. 
 
 ```
-Sample start: 12/12/2017 3:20:21 PM
+Sample start: 11/19/2018 3:20:21 PM
 
 Container [input] created.
 Container [output] created.
@@ -120,17 +120,15 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Success! All tasks completed successfully within the specified timeout period.
 Deleting container [input]...
 
-Sample end: 12/12/2017 3:29:36 PM
+Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
-
 
 Vaya a la cuenta de Batch de Azure Portal para supervisar el grupo, los nodos de proceso, el trabajo y las tareas. Por ejemplo, para ver un mapa térmico de los nodos de proceso del grupo, haga clic en **Grupos** > *WinFFmpegPool*.
 
 Con las tareas en ejecución, el mapa térmico es similar al siguiente:
 
 ![Mapa térmico de grupo](./media/tutorial-parallel-dotnet/pool.png)
-
 
 El tiempo de ejecución típico es de aproximadamente **10 minutos** al ejecutar la aplicación con la configuración predeterminada. La creación del grupo es lo que más tarda.
 
@@ -178,7 +176,7 @@ A continuación, los archivos se cargan al contenedor de entrada desde la carpet
 En la carga de los archivos participan dos métodos de `Program.cs`:
 
 * `UploadResourceFilesToContainerAsync`: devuelve una colección de objetos ResourceFile y llama internamente a `UploadResourceFileToContainerAsync` para cargar todos los archivos que se pasan en el parámetro `inputFilePaths`.
-* `UploadResourceFileToContainerAsync`: carga los archivos como blobs en el contenedor de entrada. Después de cargar el archivo, obtiene una firma de acceso compartido (SAS) para el blob y devuelve un objeto ResourceFile que lo representa. 
+* `UploadResourceFileToContainerAsync`: carga los archivos como blobs en el contenedor de entrada. Después de cargar el archivo, obtiene una firma de acceso compartido (SAS) para el blob y devuelve un objeto ResourceFile que lo representa.
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -198,9 +196,9 @@ Para más información sobre cómo cargar archivos como blobs en una cuenta de a
 
 Después, en el ejemplo se crea un grupo de nodos de proceso en la cuenta de Batch con una llamada a `CreatePoolIfNotExistAsync`. Este método definido usa el método [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) para establecer el número de nodos, el tamaño de la máquina virtual y la configuración del grupo. En este caso, un objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) especifica un valor de [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) en una imagen de Windows Server publicada en Azure Marketplace. Batch es compatible con una amplia gama de imágenes de máquina virtual de Azure Marketplace, así como con las imágenes de máquina virtual personalizadas.
 
-El número de nodos y el tamaño de la máquina virtual se establecen mediante constantes definidas. Batch admite nodos especializados y [nodos de prioridad baja](batch-low-pri-vms.md), y en los grupos puede utilizar ambos. Los nodos dedicados están reservados para el grupo. Los nodos de prioridad baja se ofrecen a precio reducido por la capacidad sobrante de las máquinas virtuales de Azure. Los nodos de prioridad baja dejan de estar disponibles si Azure no tiene capacidad suficiente. En el ejemplo, de forma predeterminada se crea un grupo que contiene solo 5 nodos de baja prioridad con el tamaño *Standard_A1_v2*. 
+El número de nodos y el tamaño de la máquina virtual se establecen mediante constantes definidas. Batch admite nodos especializados y [nodos de prioridad baja](batch-low-pri-vms.md), y en los grupos puede utilizar ambos. Los nodos dedicados están reservados para el grupo. Los nodos de prioridad baja se ofrecen a precio reducido por la capacidad sobrante de las máquinas virtuales de Azure. Los nodos de prioridad baja dejan de estar disponibles si Azure no tiene capacidad suficiente. En el ejemplo, de forma predeterminada se crea un grupo que contiene solo 5 nodos de baja prioridad con el tamaño *Standard_A1_v2*.
 
-La aplicación ffmpeg se implementa en los nodos de proceso mediante la incorporación de un valor [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) a la configuración del grupo. 
+La aplicación ffmpeg se implementa en los nodos de proceso mediante la incorporación de un valor [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) a la configuración del grupo.
 
 El método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) envía el grupo al servicio Batch.
 
@@ -208,7 +206,7 @@ El método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2012-R2-Datacenter-smalldisk",
+    sku: "2016-Datacenter-smalldisk",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =
@@ -220,7 +218,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: DedicatedNodeCount,
     targetLowPriorityComputeNodes: LowPriorityNodeCount,
-    virtualMachineSize: PoolVMSize,                                                
+    virtualMachineSize: PoolVMSize,
     virtualMachineConfiguration: virtualMachineConfiguration);
 
 pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
@@ -234,7 +232,7 @@ await pool.CommitAsync();
 
 ### <a name="create-a-job"></a>Creación de un trabajo
 
-Un trabajo de Batch especifica un grupo en el que ejecutar tareas y valores de configuración opcionales, como la prioridad y la programación del trabajo. En el ejemplo se crea un trabajo con una llamada a `CreateJobAsync`. Este método definido usa el método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para crear un trabajo en el grupo. 
+Un trabajo de Batch especifica un grupo en el que ejecutar tareas y valores de configuración opcionales, como la prioridad y la programación del trabajo. En el ejemplo se crea un trabajo con una llamada a `CreateJobAsync`. Este método definido usa el método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para crear un trabajo en el grupo.
 
 El método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) envía el trabajo al servicio Batch. Inicialmente, el trabajo no tiene tareas.
 
@@ -252,7 +250,7 @@ En el ejemplo se crean tareas en el trabajo con una llamada al método `AddTasks
 
 En el ejemplo se crea un objeto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) para el archivo MP3 después de ejecutar la línea de comandos. Los archivos de salida de la tarea (en este caso, uno) se cargan en un contenedor en la cuenta de Storage vinculada mediante la propiedad [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) de la tarea.
 
-A continuación, en el ejemplo se agregan tareas al trabajo con el método [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), que las pone en cola para que se ejecuten en los nodos de proceso. 
+A continuación, en el ejemplo se agregan tareas al trabajo con el método [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), que las pone en cola para que se ejecuten en los nodos de proceso.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -289,7 +287,7 @@ return tasks
 
 ### <a name="monitor-tasks"></a>Supervisión de las tareas
 
-Cuando Batch agrega tareas a un trabajo, las pone en cola automáticamente y las programa para que se ejecuten en nodos de proceso del grupo asociado. Según la configuración que especifique, Batch controla la administración de las colas, la programación, los reintentos y otras labores de administración de tareas. 
+Cuando Batch agrega tareas a un trabajo, las pone en cola automáticamente y las programa para que se ejecuten en nodos de proceso del grupo asociado. Según la configuración que especifique, Batch controla la administración de las colas, la programación, los reintentos y otras labores de administración de tareas.
 
 Existen varios enfoques para supervisar la ejecución de tareas. En este ejemplo se define un método `MonitorTasks` para informar solo de los estados de finalización y de tarea correcta o incorrecta. El código `MonitorTasks` especifica un valor de [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) para seleccionar eficazmente solo la información mínima sobre las tareas. A continuación, crea [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor), que proporciona utilidades de aplicación auxiliar para supervisar los estados de la tarea. En `MonitorTasks`, el ejemplo espera que todas las tareas alcancen el estado `TaskState.Completed` en un tiempo determinado. A continuación, finaliza el trabajo e informa de las tareas que se completaran, pero que puedan haber producido errores, como un código de salida distinto de cero.
 

@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 8ad8f04b3afa7ed020eaba64d639fb4dbfbeee37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50a746510d758d12354ee81e7ceaf3993729262a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257527"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497418"
 ---
-# <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>Inicio rápido: Creación de un clúster de Spark en HDInsight con una plantilla
+# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Guía de inicio rápido: Creación de un clúster de Apache Spark en HDInsight mediante una plantilla
 
-Aprenda cómo crear clústeres de Apache Spark en Azure HDInsight y cómo ejecutar consultas SQL de Spark en tablas de Hive. Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para obtener información sobre Spark en HDInsight, consulte [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md).
+Aprenda a crear clústeres de [Apache Spark](https://spark.apache.org/) en Azure HDInsight y a ejecutar consultas SQL de Spark en tablas de [Apache Hive](https://hive.apache.org/). Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para obtener información sobre Spark en HDInsight, consulte [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md).
 
 En esta guía de inicio rápido, usará una plantilla de Resource Manager para crear un clúster de Spark en HDInsight. El clúster usa Azure Storage Blob como almacenamiento de clústeres. Para más información sobre el uso de Data Lake Storage Gen2, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
@@ -53,14 +53,14 @@ Cree un clúster de Spark en HDInsight mediante una plantilla de Azure Resource 
 Si surge un problema con la creación de clústeres de HDInsight, podría deberse a que no tiene los permisos adecuados para hacerlo. Para más información, consulte [Requisitos de control de acceso](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="install-intellijeclipse-for-spark-application"></a>Instalación de IntelliJ/Eclipse para una aplicación Spark
-Use el kit de herramientas de Azure para el complemento de IntelliJ/Eclipse para desarrollar aplicaciones Spark escritas en Scala y enviarlas a continuación a un clúster de Azure HDInsight Spark directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ/Eclipse. Para más información, consulte [Uso de IntelliJ para crear y enviar una aplicación Spark](./apache-spark-intellij-tool-plugin.md) y [Uso de Eclipse para crear y enviar una aplicación Spark](./apache-spark-eclipse-tool-plugin.md).
+Use el complemento Azure Toolkit for IntelliJ/Eclipse para desarrollar aplicaciones Spark escritas en [Scala](https://www.scala-lang.org/) y enviarlas a continuación a un clúster de Azure HDInsight Spark directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ/Eclipse. Para más información, consulte [Uso de IntelliJ para crear y enviar una aplicación Spark](./apache-spark-intellij-tool-plugin.md) y [Uso de Eclipse para crear y enviar una aplicación Spark](./apache-spark-eclipse-tool-plugin.md).
 
 ## <a name="install-vscode-for-pysparkhive-applications"></a>Instalación de VSCode para aplicaciones PySpark y Hive
 Aprenda a usar las Herramientas de Azure HDInsight para Visual Studio Code (VS Code) para crear y enviar trabajos por lotes de Hive, consultas interactivas de Hive, lotes de PySpark y scripts interactivos de PySpark. Las herramientas de Azure HDInsight se pueden instalar en las plataformas compatibles con VSCode. Entre ellas se incluyen Windows, Linux y macOS. Para más información, consulte [Uso de VSCode para crear y enviar una aplicación PySpark](../hdinsight-for-vscode.md).
 
 ## <a name="create-a-jupyter-notebook"></a>Creación de un cuaderno de Jupyter
 
-Jupyter Notebook es un entorno de cuaderno interactivo que admite varios lenguajes de programación. El cuaderno le permite interactuar con los datos, combinar código con el texto de marcado y realizar visualizaciones básicas. 
+[Jupyter Notebook](https://jupyter.org/) es un entorno de cuaderno interactivo que admite varios lenguajes de programación. El cuaderno le permite interactuar con los datos, combinar código con el texto de marcado y realizar visualizaciones básicas. 
 
 1. Abra [Azure Portal](https://portal.azure.com).
 2. Seleccione **Clústeres de HDInsight** y, a continuación, seleccione el clúster que creó.
@@ -126,6 +126,6 @@ También puede seleccionar el nombre del grupo de recursos para abrir la página
 En esta guía de inicio rápido, ha aprendido a crear un clúster de HDInsight Spark y a ejecutar una consulta básica de Spark SQL. Continúe hasta el siguiente tutorial para obtener información sobre cómo usar un clúster de Spark de HDInsight para ejecutar consultas interactivas en datos de ejemplo.
 
 > [!div class="nextstepaction"]
->[Ejecución de consultas interactivas en Spark](./apache-spark-load-data-run-query.md)
+>[Ejecución de consultas interactivas en Apache Spark](./apache-spark-load-data-run-query.md)
 
 

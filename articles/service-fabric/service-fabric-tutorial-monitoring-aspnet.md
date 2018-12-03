@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b592ac10d483bbf0ca058e87f819b8f67847c54e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296115"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444791"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Supervisión y diagnóstico de una aplicación de ASP.NET Core de Service Fabric mediante Application Insights
 
@@ -38,7 +38,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * [Implementar la aplicación en un clúster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Agregar un punto de conexión HTTPS a un servicio de front-end de ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Configurar CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configuración de CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurar la supervisión y el diagnóstico para la aplicación
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -79,6 +79,8 @@ Siga estos pasos para configurar Application Insights para los servicios VotingW
 1. Haga clic con el botón derecho en el nombre del servicio y, a continuación, en **Configurar Application Insights...** .
 
     ![Configurar AI](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>En función del tipo de proyecto, al hacer clic con el botón derecho en el nombre del servicio, es posible que tenga que hacer clic en Agregar -> Telemetría de Application Insights...
 
 2. Haga clic en **Comenzar gratis**.
 3. Inicie sesión en su cuenta (con la que configuró la suscripción a Azure) y seleccione la suscripción en la que creó el recurso de Application Insights. Busque el recurso en la sección *Recurso existente de Application Insights*, en la lista desplegable "Recurso". Haga clic en **Registrar** para agregar Application Insights al servicio.

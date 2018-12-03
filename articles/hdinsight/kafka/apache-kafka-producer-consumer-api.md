@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277739"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313842"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Uso de Producer API y Consumer API de Apache Kafka
 
-Aprenda a usar Producer API y Consumer API de Kafka con Kafka en HDInsight.
+Aprenda a usar Producer y Consumer API de Apache Kafka con Kafka en HDInsight.
 
 Producer API de Kafka permite a las aplicaciones enviar flujos de datos al clúster de Kafka. Consumer API de Kafka permite a las aplicaciones leer flujos de datos del clúster.
 
@@ -171,7 +171,7 @@ El archivo [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. Para obtener tanto los hosts del agente de Kafka como los hosts de Zookeeper, use los siguientes comandos. Cuando se le solicite, escriba la contraseña de administrador del clúster.
+    2. Para obtener tanto los hosts del agente de Kafka como los hosts de Apache Zookeeper, use los siguientes comandos. Cuando se le solicite, escriba la contraseña de administrador del clúster.
     
         ```bash
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
@@ -227,8 +227,8 @@ Los registros almacenados en Kafka se almacenan en el orden en que se reciben de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, aprendió a usar Producer y Consumer API de Kafka con Kafka en HDInsight. Para más información sobre cómo trabajar con Kafka:
+En este documento, aprendió a usar Producer y Consumer API de Apache Kafka con Kafka en HDInsight. Para más información sobre cómo trabajar con Kafka:
 
-* [Análisis de los registros de Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Réplica de datos entre clústeres de Kafka](apache-kafka-mirroring.md)
-* [Streams API de Kafka con HDInsight](apache-kafka-streams-api.md)
+* [Análisis de registros de Apache Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Réplica de datos entre clústeres de Apache Kafka](apache-kafka-mirroring.md)
+* [Streams API de Apache Kafka con HDInsight](apache-kafka-streams-api.md)

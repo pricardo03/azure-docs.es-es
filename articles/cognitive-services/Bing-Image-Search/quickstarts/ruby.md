@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 4c2c91b42af46ba42bdda84d7b8b77987c7ea818
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d5772b46c167b873ed4f5d60a110d31a5c8308a5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297339"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315943"
 ---
 # <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Guía de inicio rápido: Envío de consultas de búsqueda con la API REST y Ruby
 
@@ -29,6 +29,8 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
 * [La última versión de Ruby](https://www.ruby-lang.org/en/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Creación e inicialización de la aplicación
 

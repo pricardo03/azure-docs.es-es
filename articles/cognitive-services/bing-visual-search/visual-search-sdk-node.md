@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 77b8f956ca2a6985121cb5dbfebc2755fa73a35c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: cca39fb16c47eb13887f6198833dafc64974d301
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685980"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444467"
 ---
 # <a name="quickstart-bing-visual-search-sdk-node"></a>Guía de inicio rápido: SDK de Bing Visual Search, Node 
 
@@ -28,7 +28,15 @@ Los escenarios de código se documentan en los siguientes encabezados:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Se requiere una clave de API de Cognitive Services para autenticar las llamadas del SDK. Regístrese para obtener una [clave de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). La clave de evaluación es válida durante siete días con una llamada por segundo. Para escenarios de producción, [compre una clave de acceso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte también la [información sobre precios](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Para esta guía de inicio rápido, sera preciso iniciar una suscripción en el nivel de precios S9 como se muestra en [Precios de Cognitive Services: Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar una suscripción en Azure Portal:
+1. Escriba "BingSearchV7" en el cuadro de texto de la parte superior de Azure Portal que dice `Search resources, services, and docs`.  
+2. En Marketplace en la lista desplegable, seleccione `Bing Search v7`.
+3. Escriba `Name` para el nuevo recurso.
+4. Seleccione la suscripción `Pay-As-You-Go`.
+5. Seleccione el plan de tarifa `S9`.
+6. Haga clic en `Enable` para iniciar la suscripción.
 
 ## <a name="application-dependencies"></a>Dependencias de aplicaciones
 

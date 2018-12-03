@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: f1dd07756ca484171a3d662df35493efbe5a5ee7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6b93c26918b4f70eb23e7055db813f35d3787d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415626"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445742"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -24,9 +24,9 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 
 | Versión de Windows        | Versión de SMB | Se puede montar en una máquina virtual de Azure | Se puede montar en el entorno local |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019 (versión preliminar)<sup>1</sup> | SMB 3.0 | SÍ | SÍ |
-| Windows 10<sup>2</sup> | SMB 3.0 | SÍ | SÍ |
-| Canal semestral de Windows Server<sup>3</sup> | SMB 3.0 | SÍ | SÍ |
+| Windows Server 2019    | SMB 3.0 | SÍ | SÍ |
+| Windows 10<sup>1</sup> | SMB 3.0 | SÍ | SÍ |
+| Canal semestral de Windows Server<sup>2</sup> | SMB 3.0 | SÍ | SÍ |
 | Windows Server 2016    | SMB 3.0     | SÍ                   | SÍ                  |
 | Windows 8.1            | SMB 3.0     | SÍ                   | SÍ                  |
 | Windows Server 2012 R2 | SMB 3.0     | SÍ                   | SÍ                  |
@@ -34,9 +34,8 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 | Windows 7              | SMB 2.1     | SÍ                   | Sin                    |
 | Windows Server 2008 R2 | SMB 2.1     | SÍ                   | Sin                    |
 
-<sup>1</sup>Windows Server 2019 está disponible en versión preliminar mediante el [programa Windows Server Insiders](https://insider.windows.com/for-business-getting-started-server/). Aunque Windows Server 2019 no se admite aún para su uso en producción, díganos si tiene problemas para conectarse a los recursos compartidos de archivos de Azure, que no se tratan en la [guía de solución de problemas de Windows](storage-troubleshoot-windows-file-connection-problems.md).  
-<sup>2</sup>Windows 10, versiones 1507, 1607, 1703, 1709 y 1803.  
-<sup>3</sup>Windows Server, versión 1709 y 1803.
+<sup>1</sup>Windows 10, versiones 1507, 1607, 1703, 1709, 1803 y 1809.  
+<sup>2</sup>Windows Server, versión 1709 y 1803.
 
 > [!Note]  
 > Siempre se recomienda disponer de la KB más reciente para su versión de Windows.

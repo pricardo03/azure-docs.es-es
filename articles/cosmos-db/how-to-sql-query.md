@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f9ec8ff1fbd5f6341d2d949d15d963f8abe15200
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166621"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444452"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Consultar los datos de Azure Cosmos DB con consultas de SQL
 
@@ -400,9 +400,18 @@ También se admiten los operadores unarios +,-, ~ y NOT, y se pueden usar dentro
 Además de los operadores unarios y binarios, también se permiten referencias de propiedad. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el elemento JSON que contiene la propiedad `isRegistered` en la que el valor de la propiedad es igual al valor `true` JSON. Cualquier otro valor (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>`, etc.) hace que el elemento de origen se excluya del resultado. 
 
 ### <a name="equality-and-comparison-operators"></a>Operadores de igualdad y de comparación
+
 En la siguiente tabla se muestra el resultado de las comparaciones de igualdad en la API de SQL entre dos tipos JSON cualesquiera.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** | | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | | **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined | | **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | | **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | | **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | | **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | | **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
+|---|---|---|---|---|---|---|---|
+| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** |
 
 En cuanto a otros operadores de comparación como >, >=, !=, < y <=, se aplican las siguientes reglas:
 

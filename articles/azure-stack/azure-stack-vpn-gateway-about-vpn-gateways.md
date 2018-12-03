@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300156"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496199"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Acerca de VPN Gateway para Azure Stack
 
@@ -117,6 +117,10 @@ En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento
 *Nota (1)*: El rendimiento de la VPN no está garantizado para las conexiones entre locales a través de Internet. Es el valor máximo posible del rendimiento.  
 *Nota (2)*: El número de túneles máximo es el total por cada implementación de Azure Stack para TODAS las suscripciones.  
 *Nota (3)*: el enrutamiento de BGP no es compatible con la SKU Básica.
+
+>[!NOTE]
+>Solo se puede crear una conexión VPN de sitio a sitio entre dos implementaciones de Azure Stack.  Esto se debe a una limitación en la plataforma, que no permitirá más de una conexión VPN a la misma dirección IP.  Dado que Azure Stack aprovecha la puerta de enlace multiinquilino que usa una sola dirección IP pública para todas las puertas de enlace de la VPN del sistema de Azure Stack, no puede haber más de una conexión VPN entre dos sistemas de Azure Stack.  Esta limitación se aplica también a la existencia de más de una conexión VPN de sitio a sitio a cualquier puerta de enlace de VPN que use una única dirección IP.  Azure Stack no permitirá que se cree más de un recurso de puerta de enlace de red local con la misma dirección IP.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

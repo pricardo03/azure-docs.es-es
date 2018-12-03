@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 935241d5574a59edfa256b74db3a0aeab2f7bf91
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9f2a6d9b75ccf704862d169b96ea1a1f2edb9815
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458112"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445693"
 ---
 # <a name="quickstart-bing-visual-search-sdk-python"></a>Inicio rápido: SDK de Bing Visual Search en Python
 
@@ -30,7 +30,16 @@ Los escenarios de código se documentan en los siguientes encabezados:
 * [Etiquetas, acciones y actionType](#tags-actions)
 
 ## <a name="application-dependencies"></a>Dependencias de aplicaciones
-* Se requiere una clave de API de Cognitive Services para autenticar las llamadas de SDK. Regístrese para obtener una [clave de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). La clave de evaluación es válida durante siete días con una llamada por segundo. Para escenarios de producción, [compre una clave de acceso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte también la [información sobre precios](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Para esta guía de inicio rápido, sera preciso iniciar una suscripción en el nivel de precios S9 como se muestra en [Precios de Cognitive Services: Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar una suscripción en Azure Portal:
+1. Escriba "BingSearchV7" en el cuadro de texto de la parte superior de Azure Portal que dice `Search resources, services, and docs`.  
+2. En Marketplace en la lista desplegable, seleccione `Bing Search v7`.
+3. Escriba `Name` para el nuevo recurso.
+4. Seleccione la suscripción `Pay-As-You-Go`.
+5. Seleccione el plan de tarifa `S9`.
+6. Haga clic en `Enable` para iniciar la suscripción.
+ 
 * Si aún no lo tiene, instale Python. El SDK es compatible con Python 2.7, 3.3, 3.4, 3.5 y 3.6.
 * La recomendación general para el desarrollo de Python es usar un [entorno virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialice el entorno virtual con el [módulo venv](https://pypi.python.org/pypi/virtualenv). Instale virtualenv para Python 2.7.
 ```

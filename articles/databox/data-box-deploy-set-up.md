@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/17/2018
+ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393837"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427529"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cableado y conexión de un dispositivo Azure Data Box
 
@@ -30,7 +30,9 @@ En este tutorial, aprenderá a:
 Antes de comenzar, asegúrese de que:
 
 1. Ha completado el [Tutorial: Pedido de Azure Data Box](data-box-deploy-ordered.md).
-2. Ha recibido su dispositivo Data Box y el estado del pedido en el portal se actualiza a **Delivered** (Entregado). Hay una etiqueta de envío en el bolsillo transparente adherida al dispositivo bajo la etiqueta actual. Manténgala en un lugar seguro, ya que la usará para el envío de devolución.
+2. Ha recibido su dispositivo Data Box y el estado del pedido en el portal se actualiza a **Delivered** (Entregado). 
+    - Hay una etiqueta de envío en el bolsillo transparente adherida al dispositivo bajo la etiqueta actual. Manténgala en un lugar seguro, ya que la usará para el envío de devolución.
+    - Algunas regiones de Europa pueden recibir el dispositivo empaquetado en una caja. Asegúrese de desempaquetar el dispositivo y guarde la caja para posibles devoluciones.
 3. Ha revisado la [directrices de seguridad de Data Box](data-box-safety.md).
 4. Ha recibido un cable con toma de tierra para usar con el dispositivo de almacenamiento de 100 TB.
 5. Tiene un equipo host con los datos que desea copiar en su dispositivo Data Box. El equipo host debe:

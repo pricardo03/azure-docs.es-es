@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4cb6e79b563ac0172f93b3a721b79c230a96a1d5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 25b01de47767e335d614aa0a8cf32c344c7305d8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457993"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442853"
 ---
 # <a name="quickstart-bing-visual-search-sdk-c"></a>Inicio rápido: SDK de Bing Visual Search en C#
 
@@ -33,7 +33,16 @@ Los escenarios de código se documentan en los siguientes títulos:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Visual Studio 2017. Si es necesario, puede descargar la versión gratuita de la comunidad aquí: https://www.visualstudio.com/vs/community/.
-* Se requiere una clave de API de Cognitive Services para autenticar las llamadas de SDK. Regístrese para obtener una [clave de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). La clave de evaluación es válida durante siete días con una llamada por segundo. Para escenarios de producción, [compre una clave de acceso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte también la [información sobre precios](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Para esta guía de inicio rápido, sera preciso iniciar una suscripción en el nivel de precios S9 como se muestra en [Precios de Cognitive Services: Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar una suscripción en Azure Portal:
+1. Escriba "BingSearchV7" en el cuadro de texto de la parte superior de Azure Portal que dice `Search resources, services, and docs`.  
+2. En Marketplace en la lista desplegable, seleccione `Bing Search v7`.
+3. Escriba `Name` para el nuevo recurso.
+4. Seleccione la suscripción `Pay-As-You-Go`.
+5. Seleccione el plan de tarifa `S9`.
+6. Haga clic en `Enable` para iniciar la suscripción.
+
 * La capacidad para ejecutar el SDK de .Net Core, aplicaciones de .Net Core 1.1. Puede obtener CORE, Framework y Runtime aquí: https://www.microsoft.com/net/download/.
 
 ## <a name="application-dependencies"></a>Dependencias de aplicaciones

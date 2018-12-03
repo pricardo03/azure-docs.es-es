@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4c20ab78ba4da44d4746ef6f68674fe494392347
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 135de641458a1c3b193069b3d9bc94e88080eb55
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633995"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310293"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desarrollo de un módulo IoT Edge con C# en el dispositivo simulado
 
@@ -54,16 +54,31 @@ Recursos de desarrollo:
 
 
 ## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
-En este tutorial, puede usar la extensión de Azure IoT Edge para VS Code a fin de generar un módulo y crear una **imagen de contenedor** a partir de los archivos. Después, insertará esta imagen en un **Registro** donde se almacenan y administran las imágenes. Por último, implementará la imagen en el Registro para que se ejecute en el dispositivo IoT Edge.  
 
-En este tutorial, puede usar cualquier Registro compatible con Docker. Dos de los servicios de Docker Registry más populares que están disponibles en la nube son [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) y [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). En este tutorial, utilizaremos Azure Container Registry. 
+En este tutorial, puede usar la extensión de Azure IoT Edge para Visual Studio Code a fin de generar un módulo y crear una **imagen de contenedor** a partir de los archivos. Después, insertará esta imagen en un **Registro** donde se almacenan y administran las imágenes. Por último, implementará la imagen en el Registro para que se ejecute en el dispositivo IoT Edge.  
 
-1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Contenedores** > **Azure Container Registry**.
-2. Asigne un nombre al Registro, seleccione una suscripción, elija un grupo de recursos y establezca la SKU en el nivel **Básico**. 
-3. Seleccione **Crear**.
-4. Una vez que se haya creado el Registro de contenedor, desplácese hasta él y seleccione **Claves de acceso**. 
-5. Establezca **Usuario administrador** en **Habilitar**.
-6. Copie los valores de **Servidor de inicio de sesión**, **Nombre de usuario** y **Contraseña**. Usará estos valores más adelante en este tutorial al publicar la imagen de Docker en el Registro y al agregar las credenciales del Registro al entorno de ejecución de Azure IoT Edge. 
+Puede usar cualquier registro compatible con Docker para almacenar las imágenes de contenedor. Dos de los servicios de registro de Docker más conocidos son [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) y [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). En este tutorial, utilizaremos Azure Container Registry. 
+
+Si no dispone de un registro de contenedores, siga estos pasos para crear uno nuevo en Azure:
+
+1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Contenedores** > **Container Registry**.
+
+2. Especifique los siguientes valores para crear un registro de contenedor:
+
+   | Campo | Valor | 
+   | ----- | ----- |
+   | Nombre de registro | Especifique un nombre único. |
+   | Subscription | Seleccione una suscripción en la lista desplegable. |
+   | Grupos de recursos | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las guías de inicio rápido y los tutoriales de IoT Edge. Por ejemplo, **IoTEdgeResources**. |
+   | Ubicación | Elija una ubicación cercana a usted. |
+   | Usuario administrador | Seleccione **Habilitar**. |
+   | SKU | Seleccione **Básica**. | 
+
+5. Seleccione **Crear**.
+
+6. Una vez que se haya creado el Registro de contenedor, desplácese hasta él y seleccione **Claves de acceso**. 
+
+7. Copie los valores de **Servidor de inicio de sesión**, **Nombre de usuario** y **Contraseña**. Utilice estos valores más adelante en el tutorial para proporcionar acceso al registro de contenedor. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Creación de un proyecto de módulo IoT Edge
 En los siguientes pasos creará un proyecto de módulo IoT Edge basado en el SDK de .NET Core 2.0 mediante Visual Studio Code y la extensión de Azure IoT Edge.
@@ -76,21 +91,25 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
 
 2. En la paleta de comandos, escriba y ejecute el comando **Azure: Sign in** (Azure: iniciar sesión) y siga las instrucciones para iniciar sesión en la cuenta de Azure. Si ya ha iniciado sesión, puede omitir este paso.
 
-3. En la paleta de comandos, escriba el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución de IoT Edge) y ejecútelo. En la paleta de comandos, proporcione la siguiente información para crear la solución: 
+3. En la paleta de comandos, escriba el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución de IoT Edge) y ejecútelo. Para crear la solución, siga las indicaciones de la paleta de comandos.
 
-   1. Seleccione la carpeta en la que desea crear la solución. 
-   2. Proporcione un nombre para la solución o acepte el valor predeterminado **EdgeSolution**.
-   3. Elija el **módulo de C#** como la plantilla del módulo. 
-   4. Reemplace el nombre de módulo predeterminado por **CSharpModule**. 
-   5. Especifique la instancia de Azure Container Registry que creó en la sección anterior como el repositorio de imágenes del primer módulo. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión que copió. La cadena final se parece a \<nombre del registro\>.azurecr.io/csharpmodule.
-
+   | Campo | Valor |
+   | ----- | ----- |
+   | Seleccionar carpeta | Elija la ubicación en el equipo de desarrollo en la que VS Code creará los archivos de la solución. |
+   | Proporcionar un nombre de la solución | Escriba un nombre descriptivo para la solución o acepte el valor predeterminado **EdgeSolution**. |
+   | Seleccionar plantilla del módulo | Elija **Módulo C#**. |
+   | Proporcionar un nombre de módulo | Asigne al módulo el nombre **CSharpModule**. |
+   | Proporcionar repositorio de imágenes de Docker del módulo | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente a partir del último paso. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. La cadena final se parece a \<nombre del registro\>.azurecr.io/csharpmodule. |
+ 
    ![Especificación del repositorio de imágenes de Docker](./media/tutorial-csharp-module/repository.png)
 
-El área de trabajo de la solución de IoT Edge se carga en la ventana de Visual Studio Code. El área de trabajo de la solución contiene cinco componentes de nivel superior. En este tutorial no se editarán la carpeta **\.vscode** ni el archivo **\.gitignore**. La carpeta **modules** contiene el código de C# del módulo, así como archivos Dockerfile para compilar el módulo como una imagen de contenedor. El archivo **\.env** almacena las credenciales del registro de contenedor. El archivo **deployment.template.json** contiene la información que usa el entorno de ejecución de IoT Edge para implementar módulos en un dispositivo. 
+El área de trabajo de la solución de IoT Edge se carga en la ventana de Visual Studio Code. El área de trabajo de la solución contiene cinco componentes de nivel superior. La carpeta **modules** contiene el código de C# del módulo, así como archivos Dockerfile para compilar el módulo como una imagen de contenedor. El archivo **\.env** almacena las credenciales del registro de contenedor. El archivo **deployment.template.json** contiene la información que usa el entorno de ejecución de IoT Edge para implementar módulos en un dispositivo. Y el archivo **deployment.debug.template.json** contiene la versión de depuración de los módulos. En este tutorial no se editarán la carpeta **\.vscode** ni el archivo **\.gitignore**.
 
 Si no especificó un registro de contenedor al crear la solución y aceptó el valor predeterminado localhost:5000, no tendrá un archivo \.env. 
 
-   ![Área de trabajo de la solución de C#](./media/tutorial-csharp-module/workspace.png)
+<!--
+   ![C# solution workspace](./media/tutorial-csharp-module/workspace.png)
+-->
 
 ### <a name="add-your-registry-credentials"></a>Adición de las credenciales del Registro
 
@@ -249,6 +268,29 @@ El archivo del entorno almacena las credenciales del registro de contenedor y la
 
 11. Guarde este archivo.
 
+12. En el explorador de VS Code, abra el archivo **deployment.template.json** en el área de trabajo de la solución de IoT Edge. Este archivo indica a **$edgeAgent** que implemente los dos módulos: **tempSensor** y **CSharpModule**. La plataforma predeterminada de la instancia de IoT Edge está establecida en **amd64** en la barra de estado de VS Code, lo que significa que **CSharpModule** está establecido en la versión Linux amd64 de la imagen. Cambie la plataforma predeterminada en la barra de estado de **amd64** a **arm32v7** o **windows-amd64** si esa es la arquitectura del dispositivo de IoT Edge. 
+
+   Compruebe que la plantilla tiene el nombre de módulo correcto, no el nombre **SampleModule** predeterminado que cambió cuando creó la solución de IoT Edge.
+
+   Para más información sobre los manifiestos de implementación, consulte esta [descripción acerca de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).
+
+   En el archivo deployment.template.json, la sección **registryCredentials** almacena las credenciales de Registro de Docker. Los pares reales de nombre de usuario y contraseña se almacenan en el archivo .env, que Git pasa por alto.  
+
+13. Agregue el módulo gemelo **CSharpModule** al manifiesto de implementación. Inserte el siguiente contenido JSON en la parte inferior de la sección **modulesContent**, después del módulo gemelo **$edgeHub**: 
+
+   ```json
+       "CSharpModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
+
+   ![Adición de un módulo gemelo a una plantilla de implementación](./media/tutorial-csharp-module/module-twin.png)
+
+14. Guarde este archivo.
+
+
 ## <a name="build-your-iot-edge-solution"></a>Compilación de la solución de IoT Edge
 
 En la sección anterior se ha creado una solución de IoT Edge y se ha agregado código a **CSharpModule** para filtrar los mensajes en los que la temperatura registrada de la máquina está por debajo del umbral aceptable. Ahora, tiene que compilar la solución como una imagen de contenedor e insertarla en el registro de contenedor. 
@@ -260,26 +302,7 @@ En la sección anterior se ha creado una solución de IoT Edge y se ha agregado 
    ```
    Utilice el nombre de usuario, la contraseña y el servidor de inicio de sesión que copió de Azure Container Registry en la primera sección. También puede recuperar estos valores en la sección **Claves de acceso** del registro en Azure Portal.
 
-2. En el explorador de VS Code, abra el archivo deployment.template.json en el área de trabajo de la solución de IoT Edge. Este archivo indica a **$edgeAgent** que implemente los dos módulos: **tempSensor** y **CSharpModule**. El valor **CSharpModule.image** se establece en una versión para Linux amd64 de la imagen. 
-
-   Compruebe que la plantilla tiene el nombre de módulo correcto, no el nombre **SampleModule** predeterminado que cambió cuando creó la solución de IoT Edge.
-
-   Para más información sobre los manifiestos de implementación, consulte esta [descripción acerca de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).
-
-3. En el archivo deployment.template.json, la sección **registryCredentials** almacena las credenciales de Registro de Docker. Los pares reales de nombre de usuario y contraseña se almacenan en el archivo .env, que Git pasa por alto.  
-
-4. Agregue el módulo gemelo **CSharpModule** al manifiesto de implementación. Inserte el siguiente contenido JSON en la parte inferior de la sección **modulesContent**, después del módulo gemelo **$edgeHub**: 
-    ```json
-        "CSharpModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
-
-4. Guarde este archivo.
-
-5. En el explorador de VS Code, haga clic con el botón derecho en el archivo deployment.template.json y seleccione **Build and Push IoT Edge solution** (Compilar e insertar solución de IoT Edge). 
+2. En el explorador de VS Code, haga clic con el botón derecho en el archivo deployment.template.json y seleccione **Build and Push IoT Edge solution** (Compilar e insertar solución de IoT Edge). 
 
 Cuando le indica a Visual Studio Code que compile la solución, esta herramienta primero toma la información de la plantilla de implementación y genera un archivo deployment.json en una nueva carpeta denominada **config**. Después, ejecuta dos comandos en el terminal integrado: `docker build` y `docker push`. Estos dos comandos compilan el código, empaquetan CSharpModule.dll en contenedores e insertan el código en el registro de contenedor que especificó cuando inicializó la solución. 
 

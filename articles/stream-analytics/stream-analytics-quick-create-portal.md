@@ -4,21 +4,20 @@ description: En esta guía de inicio rápido se muestra cómo empezar a crear un
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 08/20/2018
+ms.date: 11/21/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: 15f465bf2aaf7c8b3a4a49819548c8db0b2ea014
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958863"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311932"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal
 
-En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de Stream Analytics. Se define un trabajo de Stream Analytics que lee datos de un sensor de muestra y filtra las filas que tienen una temperatura media superior a 100 cada 30 segundos. En este artículo se pueden leer datos del almacenamiento de blobs, transformar los datos y volver a escribirlos en otro contenedor del mismo almacenamiento de blobs. El archivo de datos de entrada usado en esta guía de inicio rápido contiene datos estáticos solo con fines ilustrativos. En un escenario real, se usan datos de entrada de streaming para los trabajos de Stream Analytics.
+En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de Stream Analytics. En esta guía de inicio rápido va a definir un trabajo de Stream Analytics que lee datos de streaming en tiempo real y filtra mensajes que indican una temperatura superior a 27. El trabajo de Stream Analytics lee los datos de un dispositivo de IoT Hub, los transforma y los escribe a su vez en un contenedor de Blob Storage. Un simulador en línea de Raspberry Pi genera los datos de entrada de esta guía de inicio rápido. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -28,33 +27,54 @@ En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de S
 
 ## <a name="prepare-the-input-data"></a>Preparación de los datos de entrada
 
-Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se configuran como entrada en el trabajo. Para preparar los datos de entrada que requiere el trabajo, siga estos pasos:
+Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se configuran más adelante como entrada del trabajo. Para preparar los datos de entrada que requiere el trabajo, siga estos pasos:
 
-1. Descargue los [datos de ejemplo del sensor](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) desde GitHub. Los datos de ejemplo contienen información sobre el sensor en el siguiente formato JSON:  
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-   ```json
-   {
-     "time": "2018-08-19T21:18:52.0000000",
-     "dspl": "sensorC",
-     "temp": 87,
-     "hmdt": 44
-   }
-   ```
-2. Inicie sesión en el [Azure Portal](https://portal.azure.com/).  
+2. Seleccione **Crear un recurso** > **Internet de las cosas** > **IoT Hub**.
 
-3. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**. Rellene la página del trabajo de la cuenta de almacenamiento. En **Nombre**, escriba "asaquickstartstorage", en **Ubicación**, escriba "Oeste de EE. UU. 2" y en **Grupo de recursos**, escriba "asaquickstart-resourcegroup" (para conseguir un mejor rendimiento, hospede la cuenta de almacenamiento en el mismo grupo de recursos que el trabajo de streaming). El resto de la configuración se puede dejar con sus valores predeterminados.  
+3. En el panel **Centro de IoT**, escriba la siguiente información:
+   
+   |**Configuración**  |**Valor sugerido**  |**Descripción**  |
+   |---------|---------|---------|
+   |Subscription  | \<Su suscripción\> |  Seleccione la suscripción de Azure que quiera usar. |
+   |Grupos de recursos   |   asaquickstart-resourcegroup  |   Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta. |
+   |Region  |  \<Seleccione la región más cercana a los usuarios\> | Seleccione la ubicación geográfica donde puede hospedar la instancia de IoT Hub. Use la ubicación más cercana a los usuarios. |
+   |Nombre de la instancia de IoT Hub  | MyASAIoTHub  |   Seleccione un nombre para la instancia de IoT Hub.   |
 
-   ![Crear cuenta de almacenamiento](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
+   ![Creación de un IoT Hub](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. En la página **Todos los recursos**, busque la cuenta de almacenamiento que creó en el paso anterior. Abra la página **Información general** y seleccione el icono **Blobs**.  
+4. Seleccione **Next: Set size and scale** (Siguiente: Establecer tamaño y escala).
 
-5. En la página **Blob Service**, seleccione **Contenedor**, especifique un **nombre** para el contenedor, como *container1* y cambie la opción **Nivel de acceso público** a Privado (sin acceso anónimo) y, por último, haga clic en **Aceptar**.  
+5. Seleccione su **Nivel de precios y de escala**. En esta guía de inicio rápido, seleccione el nivel **F1 - Free** (F1: gratis) si aún está disponible en la suscripción. Para más información, consulte [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   ![Crear un contenedor](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
+   ![Tamaño y escala de la instancia de IoT Hub](./media/stream-analytics-quick-create-portal/iot-hub-size-and-scale.png)
 
-6. Vaya al contenedor que creó en el paso anterior. Seleccione **Cargar** y cargue los datos del sensor que obtuvo en el primer paso.  
+6. Seleccione **Revisar + crear**. Revise la información de IoT Hub y haga clic en **Crear**. La instancia de IoT Hub puede tardar varios minutos en crearse. Puede ver el progreso en el panel **Notificaciones**.
 
-   ![Carga de los datos de ejemplo en el blob](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
+7. En el menú de navegación de IoT Hub, haga clic en **Agregar** en **Dispositivos IoT**. Agregue un **identificador de dispositivo** y haga clic en **Guardar**.
+
+   ![Agregar un dispositivo a IoT Hub](./media/stream-analytics-quick-create-portal/add-device-iot-hub.png)
+
+8. Después de crear el dispositivo, ábralo desde la lista **Dispositivos de IoT**. Copie el valor de **Cadena de conexión: clave principal** y guárdelo en el Bloc de notas para usarlo más adelante.
+
+   ![Copiar cadena de conexión del dispositivo de IoT Hub](./media/stream-analytics-quick-create-portal/save-iot-device-connection-string.png)
+
+## <a name="create-blob-storage"></a>Creación de un almacenamiento de blobs
+
+1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**.
+
+2. En el panel **Crear cuenta de almacenamiento**, escriba un nombre, una ubicación y un grupo de recursos para la cuenta de almacenamiento. Elija la misma ubicación y grupo de recursos que los de la instancia de IoT Hub que creó. A continuación, haga clic en **Revisar y crear** para crear la cuenta.
+
+   ![Crear cuenta de almacenamiento](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+
+3. Una vez creada la cuenta de almacenamiento, seleccione el icono **Blobs** en el panel de **información general**.
+
+   ![Introducción a las cuentas de almacenamiento](./media/stream-analytics-quick-create-portal/blob-storage.png)
+
+4. En la página **Blob Service**, seleccione **Contenedor** y proporcione un nombre para el contenedor, como *contenedor1*. Deje la opción **Nivel de acceso público** en **Privado (sin acceso anónimo)** y seleccione **Aceptar**.
+
+   ![Creación de un contenedor de blobs](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
 
@@ -68,47 +88,44 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
-   |Nombre del trabajo   |  myasajob   |   Escriba un nombre para identificar el trabajo de Stream Analytics. Debe tener una longitud de entre 3 y 63 caracteres, y solo puede incluir caracteres alfanuméricos, guiones y guiones bajos. |
+   |Nombre del trabajo   |  MyASAJob   |   Escriba un nombre para identificar el trabajo de Stream Analytics. Debe tener una longitud de entre 3 y 63 caracteres, y solo puede incluir caracteres alfanuméricos, guiones y guiones bajos. |
    |Subscription  | \<Su suscripción\> |  Seleccione la suscripción de Azure que quiere usar para este trabajo. |
-   |Grupos de recursos   |   asaquickstart-resourcegroup  |   Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta. |
+   |Grupos de recursos   |   asaquickstart-resourcegroup  |   Seleccione el mismo grupo de recursos que el de IoT Hub. |
    |Ubicación  |  \<Seleccione la región más cercana a los usuarios\> | Seleccione la ubicación geográfica donde puede hospedar su trabajo de Stream Analytics. Para obtener un mejor rendimiento y reducir el costo de la transferencia de datos, use la ubicación más cercana a los usuarios. |
    |Unidades de streaming  | 1  |   Las unidades de streaming representan los recursos informáticos que se necesitan para ejecutar un trabajo. De forma predeterminada, este valor se establece en 1. Para información sobre el escalado de unidades de streaming, consulte el artículo [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md).   |
    |Entorno de hospedaje  |  Nube  |   Los trabajos de Stream Analytics se pueden implementar en la nube o en dispositivos perimetrales. Si elige la nube, podrá implementar en la nube de Azure y si elige implementar en un dispositivo perimetral, podrá hacerlo en un dispositivo de IoT Edge. |
 
-   ![Creación del trabajo](./media/stream-analytics-quick-create-portal/create-job.png)
+   ![Creación del trabajo](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
 5. Active la casilla **Anclar al panel** para colocar su trabajo en el panel y, luego, seleccione **Crear**.  
 
-6. Verá un mensaje que dice "Implementación en curso..." en la parte superior derecha de la ventana del explorador. 
+6. Verá una notificación que dice *Implementación en curso...* en la parte superior derecha de la ventana del explorador. 
 
-## <a name="configure-input-to-the-job"></a>Configuración de la entrada al trabajo
+## <a name="configure-job-input"></a>Configuración de la entrada del trabajo
 
-En esta sección, configurará el almacenamiento de blobs como entrada al trabajo de Stream Analytics. Antes de configurar la entrada, cree una cuenta de Blob Storage.  
-
-### <a name="add-the-input"></a>Adición de la entrada 
+En esta sección, configurará una entrada de dispositivo de IoT Hub al trabajo de Stream Analytics. Use la instancia de IoT Hub que creó en la sección anterior de la guía de inicio rápido.
 
 1. Vaya a su trabajo de Stream Analytics.  
 
-2. Seleccione **Entradas** > **Add Stream input** >  (Agregar entrada de flujo) **Blob Storage**.  
+2. Seleccione **Entradas** > **Add Stream input** >  (Agregar entrada de flujo) **IoT Hub**.  
 
-3. Rellene la página **Blob Storage** con los siguientes valores:
+3. Rellene la página **IoT Hub** con los siguientes valores:
 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
-   |Alias de entrada  |  BlobInput   |  Escriba un nombre para identificar la entrada del trabajo.   |
+   |Alias de entrada  |  IoTHubInput   |  Escriba un nombre para identificar la entrada del trabajo.   |
    |Subscription   |  \<Su suscripción\> |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
-   |Cuenta de almacenamiento  |  myasastorageaccount |  Elija o escriba el nombre de la cuenta de almacenamiento. Los nombres de cuenta de almacenamiento se detectan automáticamente si se crean en la misma suscripción. |
-   |Contenedor  | Contenedor1 | Elija el nombre del contenedor que tiene los datos de ejemplo. Los nombres de contenedor se detectan automáticamente si se crean en la misma suscripción. |
+   |IoT Hub  |  MyASAIoTHub |  Escriba el nombre de la instancia de IoT Hub que creó en la sección anterior. |
 
 4. Deje el resto de opciones con los valores predeterminados y seleccione **Guardar** para guardar la configuración.  
 
-   ![Configuración de los datos de entrada](./media/stream-analytics-quick-create-portal/configure-input.png)
+   ![Configuración de los datos de entrada](./media/stream-analytics-quick-create-portal/configure-asa-input.png)
  
-## <a name="configure-output-to-the-job"></a>Configuración de la salida al trabajo
+## <a name="configure-job-output"></a>Configuración de la salida del trabajo
 
 1. Vaya al trabajo de Stream Analytics que creó anteriormente.  
 
-2. Seleccione **Salidas > Agregar > Blob storage**.  
+2. Seleccione **Salidas** > **Agregar** > **Blob Storage**.  
 
 3. Rellene la página **Blob Storage** con los siguientes valores:
 
@@ -118,11 +135,10 @@ En esta sección, configurará el almacenamiento de blobs como entrada al trabaj
    |Subscription  |  \<Su suscripción\>  |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
    |Cuenta de almacenamiento |  asaquickstartstorage |   Elija o escriba el nombre de la cuenta de almacenamiento. Los nombres de cuenta de almacenamiento se detectan automáticamente si se crean en la misma suscripción.       |
    |Contenedor |   Contenedor1  |  Seleccione el contenedor existente que creó en la cuenta de almacenamiento.   |
-   |Patrón de la ruta de acceso |   output  |  Escriba un nombre para que actúe como la ruta de acceso dentro del contenedor existente de la salida.   |
 
 4. Deje el resto de opciones con los valores predeterminados y seleccione **Guardar** para guardar la configuración.  
 
-   ![Configuración de la salida](./media/stream-analytics-quick-create-portal/configure-output.png)
+   ![Configuración de la salida](./media/stream-analytics-quick-create-portal/configure-asa-output.png)
  
 ## <a name="define-the-transformation-query"></a>Definir la consulta de transformación
 
@@ -131,43 +147,35 @@ En esta sección, configurará el almacenamiento de blobs como entrada al trabaj
 2. Seleccione **Consulta** y actualice la consulta de la manera siguiente:  
 
    ```sql
-   SELECT 
-   System.Timestamp AS OutputTime,
-   dspl AS SensorName,
-   Avg(temp) AS AvgTemperature
-   INTO
-     BlobOutput
-   FROM
-     BlobInput TIMESTAMP BY time
-   GROUP BY TumblingWindow(second,30),dspl
-   HAVING Avg(temp)>100
+   SELECT *
+   INTO BlobOutput
+   FROM IoTHubInput
+   HAVING Temperature > 27
    ```
 
-3. En este ejemplo, la consulta lee los datos del blob y los copia en un archivo nuevo del blob. A continuación, seleccione **Guardar**.  
+3. En este ejemplo, la consulta lee los datos de IoT Hub y los copia en un archivo nuevo del blob. Seleccione **Guardar**.  
 
-   ![Configuración de la transformación del trabajo](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+   ![Configuración de la transformación del trabajo](./media/stream-analytics-quick-create-portal/add-asa-query.png)
 
-## <a name="configure-late-arrival-policy"></a>Configuración de la directiva de llegada tardía
+## <a name="run-the-iot-simulator"></a>Ejecutar el simulador
 
-1. Vaya al trabajo de Stream Analytics que creó anteriormente.
+1. Abra el [simulador en línea de Raspberry Pi para Azure IoT](https://azure-samples.github.io/raspberry-pi-web-simulator/).
 
-2. En **Configurar**, seleccione **Ordenación de eventos**.
+2. Reemplace el marcador de posición de la línea 15 con la cadena de conexión del dispositivo de Azure IoT Hub que guardó en la sección anterior.
 
-3. Establezca **Eventos que llegan tarde** en 20 días y seleccione **Guardar**.
+3. Haga clic en **Ejecutar**. La salida debe mostrar los datos y mensajes del sensor que se envían a la instancia de IoT Hub.
 
-   ![Configuración de la directiva de llegada tardía](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
+   ![Simulador en línea de Raspberry Pi para Azure IoT](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Inicio del trabajo de Stream Analytics y consulta de la salida
 
 1. Vuelva a la página de información general del trabajo y seleccione **Iniciar**.
 
-2. En **Iniciar trabajo**, seleccione **Personalizado** en el campo **Hora de inicio**. Seleccione `2018-01-24` como fecha de inicio, pero no cambie la hora. Esta fecha de inicio se elige porque es anterior a la marca de tiempo del evento de los datos del ejemplo. Cuando finalice, seleccione **Guardar**.
+2. En **Iniciar trabajo**, seleccione **Ahora**, en el campo **Hora de inicio de la salida del trabajo**. A continuación, seleccione **Iniciar** para iniciar el trabajo.
 
-   ![Inicio del trabajo](./media/stream-analytics-quick-create-portal/start-the-job.png)
+3. Al cabo de unos minutos, en el portal, busque la cuenta de almacenamiento y el contenedor que ha configurado como salida para el trabajo. Ahora puede ver el archivo de salida en el contenedor. El trabajo tarda unos minutos en iniciarse por primera vez; una vez iniciado, continuará ejecutándose a medida que llegan los datos.  
 
-3. Al cabo de unos minutos, en el portal, busque la cuenta de almacenamiento y el contenedor que ha configurado como salida para el trabajo. Seleccione la ruta de acceso de salida. Ahora puede ver el archivo de salida en el contenedor. El trabajo tarda unos minutos en iniciarse por primera vez; una vez iniciado, continuará ejecutándose a medida que llegan los datos.  
-
-   ![Salida transformada](./media/stream-analytics-quick-create-portal/transformed-output.png)
+   ![Salida transformada](./media/stream-analytics-quick-create-portal/check-asa-results.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

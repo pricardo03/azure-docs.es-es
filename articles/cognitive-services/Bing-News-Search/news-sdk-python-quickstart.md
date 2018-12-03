@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 8e4343b053835c0fc2219373ad60f96c7b80636a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6e029b7e830b6ec157d03d17dc24e65282a9c742
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803348"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316810"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-python"></a>Guía de inicio rápido: SDK de Bing News Search con Python
 
@@ -24,6 +24,8 @@ El SDK de News Search contiene la funcionalidad de la API REST para consultas we
 El [código fuente de los ejemplos del SDK de Bing News Search para Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py) está disponible en GitHub.
 
 ## <a name="application-dependencies"></a>Dependencias de aplicaciones
+Obtenga una [clave de acceso de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) en **Buscar**.  Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
 Si aún no lo tiene, instale Python. El SDK es compatible con Python 2.7, 3.3, 3.4, 3.5 y 3.6.
 
 La recomendación general para el desarrollo de Python es usar un [entorno virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialice el entorno virtual con el [módulo venv](https://pypi.python.org/pypi/virtualenv). Debe instalar virtualenv para Python 2.7.

@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9811c51485ec30e7fe692c52f4e65cefd93e5cb0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277144"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499083"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Supervisión de Azure AD Connect sync con Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de sincronización de Azure AD Connect (Sync) con Azure AD Connect Health.  Para obtener información sobre la supervisión de AD FS con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -62,7 +62,7 @@ Esta característica proporciona una tendencia gráfica del número de cambios q
 
 ![Latencia de sincronización](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## <a name="object-level-synchronization-error-report-preview"></a>Informe de errores de sincronización de nivel de objeto (vista previa)
+## <a name="object-level-synchronization-error-report"></a>Informe de errores de sincronización de nivel de objeto
 Esta característica proporciona un informe sobre los errores de sincronización que pueden producirse cuando se sincronizan datos de identidad entre Windows Server AD y Azure AD con Azure AD Connect.
 
 * El informe contiene los errores registrados por el cliente de sincronización (Azure AD Connect versión 1.1.281.0 o superior).
@@ -74,7 +74,7 @@ Esta característica proporciona un informe sobre los errores de sincronización
   * Lista de objetos con error por categoría
   * Todos los datos sobre los errores en un solo lugar
   * Comparación en paralelo de objetos con error debido a un conflicto
-  * Descarga del informe de errores como archivo CVS (próximamente)
+  * Descarga del informe de errores como archivo CVS
 
 ### <a name="categorization-of-errors"></a>Categorización de errores
 El informe clasifica los errores de sincronización existentes en las siguientes categorías:

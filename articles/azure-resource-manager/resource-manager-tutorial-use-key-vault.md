@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3ca6422bf5335604e561b71db6c75a889a74586
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615762"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334217"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
@@ -93,7 +93,7 @@ Para crear una instancia de Key Vault:
     * **Nombre del almacén de claves**: asigne un nombre único. 
     * **Id. de inquilino**: la función de plantilla recupera automáticamente el identificador del inquilino.  No cambie el valor predeterminado
     * **Id. de usuario de AD**: escriba el identificador del objeto de usuario de Azure AD que recuperó del último procedimiento.
-    * **Nombre de secreto**: el nombre predeterminado es **mAdminPassword**. Si cambia el nombre de secreto aquí, deberá actualizar el nombre de secreto al implementar la máquina virtual.
+    * **Nombre de secreto**: el nombre predeterminado es **vmAdminPassword**. Si cambia el nombre de secreto aquí, deberá actualizar el nombre de secreto al implementar la máquina virtual.
     * **Valor de secreto**: escriba el secreto.  El secreto es la contraseña utilizada para iniciar sesión en la máquina virtual. Se recomienda usar la contraseña generada que creó en el último procedimiento.
     * **Acepto los términos y condiciones anteriores**: seleccionar.
 3. Seleccione **Editar parámetros** en la parte superior para echar un vistazo a la plantilla.

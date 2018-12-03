@@ -9,12 +9,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 44cc556e68234fb9957c01fa9f04861293e96e6a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a51935300238235338ec30ec7061101745b0e0e5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298173"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314395"
 ---
 # <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Guía de inicio rápido: Envío de consultas de búsqueda con la API REST y Python
 
@@ -32,6 +32,8 @@ Además, el código fuente del ejemplo está disponible en [GitHub](https://gith
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="running-the-quickstart"></a>Ejecución del inicio rápido
 

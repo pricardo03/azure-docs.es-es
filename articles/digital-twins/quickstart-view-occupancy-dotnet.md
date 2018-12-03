@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: 590a7aa875f5f8c40576d69d7e73bdfc31fffbf8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636261"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582401"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guía de inicio rápido: Búsqueda de salas disponibles mediante Azure Digital Twins
 
@@ -134,7 +134,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 | NOMBRE | Reemplazar por |
 | --- | --- |
-| YOUR_INSTANCE_NAME | El nombre de la instancia de Digital Twins |
+| YOUR_INSTANCE_NAME | El nombre de la instancia de Digital Twins. |
 | YOUR_LOCATION | La región de servidor en la que está hospedada la instancia |
 
 O para mayor comodidad, vaya a [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
@@ -150,6 +150,10 @@ Para poder seguir con los tutoriales, no elimine los recursos que se crearon en 
 
 1. Elimine la carpeta que se creó al descargar el repositorio de ejemplo.
 1. Seleccione **Todos los recursos** en el menú de la izquierda de [Azure Portal](http://portal.azure.com). A continuación, seleccione el recurso de Digital Twins. En la parte superior del panel **Todos los recursos**, seleccione **Eliminar**.
+   
+    > [!TIP]
+    > Si tiene problemas al eliminar una instancia de Digital Twins, se ha incorporado una actualización del servicio con la corrección. Vuelva a intentar eliminar la instancia.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

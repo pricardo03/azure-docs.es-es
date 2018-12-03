@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244086"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495774"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carga de datos y ejecución de consultas en un clúster de Apache Spark en Azure HDInsight
 
-En este tutorial, aprenderá a crear una trama de datos desde un archivo CSV y a ejecutar consultas de Spark SQL interactivas en un clúster de Apache Spark en Azure HDInsight. En Spark, una trama de datos es una colección distribuida de datos que se organizan en columnas con nombre. Una trama de datos es conceptualmente equivalente a una tabla de una base de datos relacional o a una trama de datos de R/Python.
+En este tutorial, aprenderá a crear una trama de datos a partir de un archivo CSV y a ejecutar consultas SQL de Spark interactivas en un clúster de [Apache Spark](https://spark.apache.org/) en Azure HDInsight. En Spark, una trama de datos es una colección distribuida de datos que se organizan en columnas con nombre. Una trama de datos es conceptualmente equivalente a una tabla de una base de datos relacional o a una trama de datos de R/Python.
  
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -99,10 +99,10 @@ También puede seleccionar el nombre del grupo de recursos para abrir la página
 
 En este tutorial aprendió lo siguiente:
 
-* Crear una trama de datos de Spark.
+* A crear una trama de datos de Apache Spark.
 * Ejecutar Spark SQL en la trama de datos.
 
-En el siguiente artículo podrá ver cómo extraer en una herramienta de análisis de BI, como Power BI, los datos que registró en Spark. 
+En el siguiente artículo podrá ver cómo extraer en una herramienta de análisis de BI, como Power BI, los datos que registró en Apache Spark. 
 > [!div class="nextstepaction"]
 > [Análisis de datos mediante herramientas de inteligencia empresarial](apache-spark-use-bi-tools.md)
 

@@ -10,16 +10,16 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 29ee7cb4ee648d20b425939553ba31cd9ac150f0
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4af90c0e1ffd6dbadcb31eb6141bc24f746d01f9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804198"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316419"
 ---
 # <a name="quickstart-your-first-spell-check-request"></a>Guía de inicio rápido: La primera solicitud de revisión ortográfica
 
-Para poder realizar la primera llamada, debe obtener una clave de suscripción de Cognitive Services. Para obtener una clave, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Obtenga una [clave de acceso de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) en **Buscar**.  Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para buscar en una cadena de texto existente errores ortográficos y gramaticales, enviaría una solicitud GET al punto de conexión siguiente:  
   

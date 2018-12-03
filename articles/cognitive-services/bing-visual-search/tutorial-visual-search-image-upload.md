@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2e65313207e2bb29ae269425012cc6c340261ba4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888346"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443464"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutorial: División de la carga en Bing Visual Search
 
@@ -23,6 +23,15 @@ En este tutorial, se va a dividir el proceso de cargar una imagen en Bing y obte
 
 Este tutorial está destinado al desarrollador que desee explorar el contenido de la respuesta de Bing Visual Search. No aplica todos los requisitos de uso y visualización (por ejemplo, no proporciona un vínculo a la directiva de privacidad de Microsoft). Para conocer todos los requisitos de uso, consulte [Requisitos de uso y visualización de Bing](./use-and-display-requirements.md).
 
+Para este tutorial, sera preciso iniciar una suscripción en el nivel de precios S9 como se muestra en [Precios de Cognitive Services: Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar una suscripción en Azure Portal:
+1. Escriba "BingSearchV7" en el cuadro de texto de la parte superior de Azure Portal que dice `Search resources, services, and docs`.  
+2. En Marketplace en la lista desplegable, seleccione `Bing Search v7`.
+3. Escriba `Name` para el nuevo recurso.
+4. Seleccione la suscripción `Pay-As-You-Go`.
+5. Seleccione el plan de tarifa `S9`.
+6. Haga clic en `Enable` para iniciar la suscripción.
 
 ## <a name="where-to-start"></a>¿Por dónde empezar?
 

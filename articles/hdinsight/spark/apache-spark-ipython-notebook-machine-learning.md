@@ -9,22 +9,22 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eac44d3b8daae27afec8aa24f4767bdb5dbf991a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239566"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580577"
 ---
-# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>Tutorial: Compilación de aplicaciones de aprendizaje automático de Spark en HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Tutorial: Compilación de aplicaciones de aprendizaje automático de Apache Spark en HDInsight 
 
-En este tutorial, aprenderá a usar Jupyter Notebook para crear una aplicación de aprendizaje de automático de Azure Spark para Apache HDInsight. 
+En este tutorial, aprenderá a usar [Jupyter Notebook](https://jupyter.org/) para compilar una aplicación de aprendizaje de automático de [Azure Spark](https://spark.apache.org/) para Apache HDInsight. 
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html): es una biblioteca de aprendizaje automático escalable de Spark que consta de algoritmos y utilidades de aprendizaje comunes, como la clasificación, la regresión, la agrupación en clústeres, el filtrado colaborativo, la reducción de dimensionalidad, y las primitivas de optimización subyacentes.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-> * Desarrollo de una aplicación de aprendizaje automático de Spark
+> * Desarrollar una aplicación de aprendizaje automático de Apache Spark
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -190,7 +190,7 @@ Los clústeres Apache Spark de HDInsight incluyen bibliotecas de Anaconda. Tambi
 
 En este tutorial aprendió lo siguiente:
 
-* Desarrollo de una aplicación de aprendizaje automático de Spark
+* Desarrollar una aplicación de aprendizaje automático de Apache Spark
 
 Para aprender a usar IntelliJ IDEA para trabajos de Spark, pase al siguiente tutorial. 
 
