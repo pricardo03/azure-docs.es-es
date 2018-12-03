@@ -5,6 +5,8 @@ items:
   items:
   - name: Descripción de la factura
     href: billing-understand-your-bill.md
+  - name: 'Descripción de la factura: solo EA'
+    href: billing-understand-your-bill-ea.md
   - name: Obtención de factura y datos de uso
     href: billing-download-azure-invoice-daily-usage-date.md
   - name: Cargos por servicios de terceros
@@ -18,6 +20,8 @@ items:
   items:
   - name: Prevención de costos inesperados
     href: billing-getting-started.md
+  - name: Ver precios de EA
+    href: billing-ea-pricing.md
   - name: Uso de etiquetas de recurso
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: 'Inicio del análisis de costos: solo EA'
@@ -82,6 +86,8 @@ items:
     href: billing-how-to-change-azure-account-profile.md
   - name: Concesión de acceso a la facturación
     href: billing-manage-access.md
+  - name: Roles de EA en Azure
+    href: billing-understand-ea-roles.md
   - name: Vinculación de Id. de partner
     href: billing-partner-admin-link-started.md
   - name: Visualización de cuentas de facturación
@@ -112,7 +118,9 @@ items:
     href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
   - name: Mover recursos de Azure
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
-  - name: Creación de suscripciones Enterprise
+  - name: Creación de suscripciones adicionales
+    href: billing-create-subscription.md
+  - name: Creación de suscripciones de Enterprise mediante programación
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Información sobre la exportación de suscripciones
     href: billing-export-subscriptions.md
@@ -180,9 +188,9 @@ items:
     items:
     - name: Enterprise Reporting REST API
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 88e6864df13312c1963e39ff2c23eb63fde50bc2
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 5de05f7b1426a959c046b1e651f09c2f8e584b8a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268147"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497828"

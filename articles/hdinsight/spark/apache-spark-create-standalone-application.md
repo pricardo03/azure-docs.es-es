@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 529dc37187f6709ecfa93bf3a6d71f053ba49103
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008970"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499322"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Tutorial: Creación de una aplicación de Scala Maven para Spark en HDInsight mediante IntelliJ
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Creación de una aplicación de Scala Maven para Apache Spark en HDInsight mediante IntelliJ
 
-En este tutorial aprenderá a crear una aplicación de Spark escrita en Scala mediante Maven con IntelliJ IDEA. En el artículo se utiliza Apache Maven como el sistema de compilación y comienza con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA.  Crear una aplicación de Scala en IntelliJ IDEA conlleva los pasos siguientes:
+En este tutorial aprenderá a crear una aplicación de [Apache Spark](https://spark.apache.org/) escrita en [Scala](https://www.scala-lang.org/) mediante [Apache Maven](https://maven.apache.org/) con IntelliJ IDEA. En el artículo se utiliza Apache Maven como el sistema de compilación y comienza con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA.  Crear una aplicación de Scala en IntelliJ IDEA conlleva los pasos siguientes:
 
 * Use Maven como el sistema de compilación.
 * Actualice el archivo del modelo de objetos de proyectos (POM) para resolver las dependencias de módulo de Spark.
@@ -27,7 +27,7 @@ En este tutorial aprenderá a crear una aplicación de Spark escrita en Scala me
 * Ejecute la aplicación en un clúster Spark mediante Livy.
 
 > [!NOTE]
-> HDInsight también proporciona una herramienta de complemento IntelliJ IDEA para facilitar el proceso de creación y envío de aplicaciones a un clúster de HDInsight Spark en Linux. Para más información, vea [Uso del complemento Herramientas de HDInsight para IntelliJ IDEA para crear aplicaciones Spark en Scala para clúster HDInsight Spark Linux](apache-spark-intellij-tool-plugin.md).
+> HDInsight también proporciona una herramienta de complemento IntelliJ IDEA para facilitar el proceso de creación y envío de aplicaciones a un clúster de HDInsight Spark en Linux. Para más información, consulte [Uso del complemento Herramientas de HDInsight para IntelliJ IDEA para crear aplicaciones Apache Spark en Scala para clúster HDInsight Spark Linux](apache-spark-intellij-tool-plugin.md).
 > 
 
 En este tutorial, aprenderá a:
@@ -47,7 +47,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. Inicie IntelliJ IDEA y, después, cree un proyecto. En el cuadro de diálogo **Nuevo proyecto** , haga lo siguiente: 
 
-   a. Seleccione **HDInsight** > **Spark en HDInsight (Scala)**.
+    a. Seleccione **HDInsight** > **Spark en HDInsight (Scala)**.
 
    b. En la lista de **herramientas de compilación**, seleccione cualquiera de las siguientes, según sus necesidades:
 
@@ -70,7 +70,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     ![Selección del SDK de Spark](./media/apache-spark-create-standalone-application/hdi-new-project.png)
 
-   a. Escriba un nombre y una ubicación de proyecto.
+    a. Escriba un nombre y una ubicación de proyecto.
 
    b. En la lista desplegable **SDK de proyecto**, seleccione **Java 1.8** para el clúster Spark 2.x, o bien **Java 1.7** para el clúster Spark 1.x.
 
@@ -183,16 +183,16 @@ Para instalar el complemento Scala, siga estos pasos:
        
         ![Crear archivo JAR](./media/apache-spark-create-standalone-application/output.png)
 
-## <a name="run-the-application-on-the-spark-cluster"></a>Ejecución de la aplicación en el clúster Spark
+## <a name="run-the-application-on-the-apache-spark-cluster"></a>Ejecución de la aplicación en el clúster de Apache Spark
 Para ejecutar la aplicación en el clúster, puede usar los siguientes enfoques:
 
-* **Copie el archivo jar de la aplicación en el blob de almacenamiento de Azure** asociado con el clúster. Puede usar [**AzCopy**](../../storage/common/storage-use-azcopy.md), una utilidad de línea de comandos, para hacerlo. Hay muchos otros clientes que se pueden utilizar también para cargar datos. Puede encontrar más información al respecto en [Carga de datos para trabajos de Hadoop en HDInsight](../hdinsight-upload-data.md).
-* **Use Livy para enviar un trabajo de la aplicación de manera remota** al clúster Spark. Los clústeres Spark en HDInsight incluye Livy, que expone los puntos de conexión REST para enviar trabajos de Spark de forma remota. Para obtener más información, vea [Envío remoto de trabajos de Spark mediante la utilización de Livy con clústeres Spark en HDInsight](apache-spark-livy-rest-interface.md).
+* **Copie el archivo jar de la aplicación en el blob de almacenamiento de Azure** asociado con el clúster. Puede usar [**AzCopy**](../../storage/common/storage-use-azcopy.md), una utilidad de línea de comandos, para hacerlo. Hay muchos otros clientes que se pueden utilizar también para cargar datos. Puede encontrar más información al respecto en [Carga de datos para trabajos de Apache Hadoop en HDInsight](../hdinsight-upload-data.md).
+* **Use Apache Livy para enviar un trabajo de la aplicación de manera remota** al clúster Spark. Los clústeres Spark en HDInsight incluye Livy, que expone los puntos de conexión REST para enviar trabajos de Spark de forma remota. Para más información, consulte [Envío remoto de trabajos de Apache Spark mediante la utilización de Apache Livy con clústeres Spark en HDInsight](apache-spark-livy-rest-interface.md).
 
 ## <a name="next-step"></a>Paso siguiente
 
-En este artículo ha aprendido a crear una aplicación en Scala para Spark. Vaya al siguiente artículo para aprender a ejecutar esta aplicación en un clúster de HDInsight Spark con Livy.
+En este artículo ha aprendido a crear una aplicación en Scala para Apache Spark. Vaya al siguiente artículo para aprender a ejecutar esta aplicación en un clúster de HDInsight Spark con Livy.
 
 > [!div class="nextstepaction"]
->[Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](./apache-spark-livy-rest-interface.md)
+>[Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Apache Livy](./apache-spark-livy-rest-interface.md)
 

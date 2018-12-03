@@ -25,12 +25,14 @@ items:
       href: iot-accelerators-remote-monitoring-monitor.md
     - name: Detección de problemas de dispositivos
       href: iot-accelerators-remote-monitoring-automate.md
-    - name: Configuración y administración de dispositivos
+    - name: Configuración de dispositivos
       href: iot-accelerators-remote-monitoring-manage.md
     - name: Realización de un análisis de causas principales en una alerta
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
     - name: Uso de alertas y corrección de problemas de los dispositivos
       href: iot-accelerators-remote-monitoring-maintain.md
+    - name: Actualización de configuración de dispositivos masiva
+      href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
     - name: Detección de anomalías en el perímetro
       href: iot-accelerators-remote-monitoring-edge.md
   - name: Simulación de dispositivo
@@ -81,6 +83,8 @@ items:
       href: iot-accelerators-remote-monitoring-add-edge-device.md
     - name: Importación de un paquete de IoT Edge
       href: iot-accelerators-remote-monitoring-import-edge-package.md
+    - name: Importación del paquete de administración automática de dispositivos
+      href: iot-accelerators-remote-monitoring-import-adm-package.md
     - name: Integración de datos de SIM
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: 'Cree un dispositivo simulado:'
@@ -225,9 +229,9 @@ items:
     href: iot-accelerators-faq-cf.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-ms.openlocfilehash: bdd52d0023fbf43343cc5108216c6f11e35b89aa
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b36278d1e2a85cd7759d81b022fb1883b7ca2aa6
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824853"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680946"

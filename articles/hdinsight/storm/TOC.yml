@@ -1,7 +1,7 @@
 items:
 - name: Documentación de Azure HDInsight
   href: /azure/hdinsight
-- name: Storm en HDInsight
+- name: Apache Storm en HDInsight
   items:
   - name: Información general
     href: apache-storm-overview.md
@@ -13,7 +13,7 @@ items:
     maintainContext: true
 - name: Introducción
   items:
-  - name: Creación de un clúster de Storm
+  - name: Creación de un clúster de Apache Storm
     href: apache-storm-tutorial-get-started-linux.md
   - name: Instalación de aplicaciones de HDInsight
     href: ../hdinsight-apps-install-applications.md
@@ -23,7 +23,7 @@ items:
     maintainContext: true
 - name: Procedimientos
   items:
-  - name: Desarrollar topologías de Storm
+  - name: Desarrollo topologías de Apache Storm
     items:
     - name: Desarrollar topologías con Java
       href: apache-storm-develop-java-topology.md
@@ -33,22 +33,22 @@ items:
       href: apache-storm-develop-csharp-visual-studio-topology.md
     - name: Guía de programación de SCP.NET
       href: apache-storm-scp-programming-guide.md
-    - name: Ejemplos de Storm
+    - name: Ejemplos de Apache Storm
       href: apache-storm-example-topology.md
   - name: Implementación y supervisión de topologías
     href: apache-storm-deploy-monitor-topology-linux.md
   - name: Creación de canalizaciones de streaming
     items:
-    - name: Kafka y Storm (Java)
+    - name: Apache Kafka y Apache Storm (Java)
       href: ../hdinsight-apache-storm-with-kafka.md
       maintainContext: true
     - name: Event Hub, Storage y Data Lake Store (Java)
       href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
-    - name: Event Hub y Storm (C# y Java)
+    - name: Event Hub y Apache Storm (C# y Java)
       href: apache-storm-develop-csharp-event-hub-topology.md
     - name: Azure Storage/Data Lake Store (Java)
       href: apache-storm-write-data-lake-store.md
-    - name: Event Hub, HBase (Java)
+    - name: Centro de eventos, Apache HBase (Java)
       href: apache-storm-sensor-data-analysis.md
   - name: Extensión de los clústeres
     items:
@@ -124,7 +124,7 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       maintainContext: true
-    - name: Administración de clústeres de Hadoop
+    - name: Administración de clústeres de Apache Hadoop
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: Uso del SDK de .NET
@@ -137,13 +137,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: Administración de clústeres con la interfaz de usuario web de Ambari
+    - name: Administración de clústeres con la interfaz de usuario web de Apache Ambari
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Optimización de clústeres con la interfaz de usuario web de Ambari
+      - name: Optimización de clústeres con la interfaz de usuario web de Apache Ambari
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Uso de la API de REST de Ambari
+      - name: Uso de la API REST de Apache Ambari
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -153,13 +153,13 @@ items:
     - name: Adición de cuentas de almacenamiento
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Carga de datos para trabajos Hadoop
+    - name: Carga de datos para trabajos de Apache Hadoop
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: Varios clústeres de HDInsight con Data Lake Store
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
-    - name: Importación y exportación de datos con Sqoop
+    - name: Importación y exportación de datos con Apache Sqoop
       href: ../hdinsight-use-sqoop.md
       items:
       - name: Conexión con SSH
@@ -175,10 +175,10 @@ items:
         href: ../hdinsight-hadoop-use-sqoop-powershell.md
         maintainContext: true
       maintainContext: true
-    - name: Uso de Oozie para flujos de trabajo
+    - name: Uso de Apache Oozie para flujos de trabajo
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: Uso de coordinadores de Oozie basados en de tiempo
+    - name: Uso de coordinadores de Apache Oozie basados en tiempo
       href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: Puertos y URI de servicio y clúster
@@ -202,12 +202,12 @@ items:
     - name: Solución de problemas de un clúster de HDInsight lento o con errores
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: Solución de problemas de HDFS
+    - name: Solución de problemas de Apache Hadoop HDFS
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: Solución de problemas de STORM
+    - name: Solución de problemas de Apache STORM
       href: apache-troubleshoot-storm.md
-    - name: Solución de problemas de YARN
+    - name: Solución de problemas de YARN en Apache Hadoop
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: Recursos
@@ -215,13 +215,13 @@ items:
       - name: Información sobre el uso de HDInsight en Linux
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Rendimiento y memoria de Hadoop
+      - name: Rendimiento y memoria de Apache Hadoop
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
       - name: Acceso a registros de aplicaciones de YARN en Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Habilitación de volcados del montón para servicios de Hadoop
+      - name: Habilitación de volcados del montón para servicios de Apache Hadoop
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
     maintainContext: true
@@ -263,13 +263,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Temas relacionados
   items:
@@ -281,15 +281,15 @@ items:
     - name: Migración de soluciones .NET a clústeres de Linux
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: Implementación y administración de topologías de Storm
+    - name: Implementación y administración de topologías de Apache Storm
       href: apache-storm-deploy-monitor-topology.md
-    - name: Uso de Maven para crear aplicaciones Java
+    - name: Uso de Apache Maven para crear aplicaciones Java
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
     - name: Personalización con la acción de script
       href: ../hdinsight-hadoop-customize-cluster.md
       maintainContext: true
-    - name: Acceso a registros de aplicaciones en YARN
+    - name: Acceso a los registros de aplicaciones de YARN en Apache Hadoop
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Desarrollo acciones de script
@@ -298,7 +298,7 @@ items:
     - name: Administración de clústeres con Azure Portal
       href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
-    - name: Supervisión de clústeres con la API de Ambari
+    - name: Supervisión de clústeres con la API de Apache Ambari
       href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: Recursos
@@ -316,9 +316,9 @@ items:
   - name: Herramientas de Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 056413070b6b268db215a119dd216d8ad711ffb7
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 2d3a2999c69833f759cbaab0241136609e068bf2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365482"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496238"

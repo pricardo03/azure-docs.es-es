@@ -1,5 +1,5 @@
 ---
-title: Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure
+title: Creación de una asignación de directiva para identificar recursos no compatibles en Azure
 description: Este artículo lo guiará por los pasos para crear una definición de directiva para identificar los recursos no compatibles.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 60b8663c5b465fecd3275def7d1e85f4511a23e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ee22208f9f55840b80392ef2b0a9fce0da4c4db7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954269"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584696"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure
 
@@ -35,7 +35,7 @@ En esta guía de inicio rápido, se crea una asignación de directiva y se le as
 
 1. Seleccione **Asignaciones** en el panel izquierdo de la página de Azure Policy. Una asignación es una directiva que se asignó para que se lleve a cabo dentro de un ámbito específico.
 
-   ![Seleccione Asignaciones.](./media/assign-policy-portal/select-assignments.png)
+   ![Seleccione Asignaciones](./media/assign-policy-portal/select-assignments.png)
 
 1. Seleccione **Asignar directiva** en la parte superior de la página **Policy - Asignaciones**.
 

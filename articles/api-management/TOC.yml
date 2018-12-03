@@ -5,6 +5,8 @@ items:
   items:
   - name: Acerca de API Management
     href: api-management-key-concepts.md
+  - name: Disponibilidad de características de API Management
+    href: api-management-features.md
 - name: Guías de inicio rápido
   items:
   - name: 'Creación de una instancia: Portal'
@@ -48,6 +50,8 @@ items:
       href: api-management-howto-policies.md
     - name: Índice de referencia de directiva
       href: api-management-policies.md
+  - name: Suscripciones
+    href: api-management-subscriptions.md
   - name: Administrar mediante automatización
     href: automation-manage-api-management.md
   - name: Control de errores
@@ -56,7 +60,7 @@ items:
     href: api-management-api-import-restrictions.md
 - name: Guías de procedimientos
   items:
-  - name: 'Definición de API '
+  - name: Definición de API
     items:
     - name: Adición manual de una API
       href: add-api-manually.md
@@ -90,6 +94,14 @@ items:
     items:
     - name: Agregar almacenamiento en caché para mejorar el rendimiento
       href: api-management-howto-cache.md
+    - name: Uso de una caché externa
+      href: api-management-howto-cache-external.md
+  - name: Protección de las API
+    items:
+    - name: Creación de suscripciones
+      href: api-management-howto-create-subscriptions.md
+    - name: Protección de API mediante la autenticación de certificado de cliente
+      href: api-management-howto-mutual-certificates-for-clients.md
   - name: Proteger el back-end
     items:
     - name: Protección de una API con Azure AD
@@ -138,8 +150,6 @@ items:
       href: api-management-sample-send-request.md
     - name: Administrar secretos mediante propiedades
       href: api-management-howto-properties.md
-    - name: Protección de API mediante la autenticación de certificado de cliente
-      href: api-management-howto-mutual-certificates-for-clients.md
     - name: Directivas de restricción de acceso
       href: api-management-access-restriction-policies.md
     - name: Directivas avanzadas
@@ -232,9 +242,9 @@ items:
     href: http://aka.ms/apimblog
   - name: Solicitudes de características
     href: http://aka.ms/apimwish
-ms.openlocfilehash: bbd98974e763ae98d7f754e9d8e690d0a8c62870
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 93a5457286e5e69e504e6858d6b9f0e8491b3c30
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339402"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620054"

@@ -1,6 +1,7 @@
 # Información general
 ## [Acerca de las máquinas virtuales Windows con SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [Notas de la versión](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # Guías de inicio rápido
 ## [Creación de máquinas virtuales de SQL: Portal](quickstart-sql-vm-create-portal.md)
 ## [Creación de máquinas virtuales de SQL: PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -40,6 +41,7 @@
 #### [Varias regiones](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Instancia de clúster de conmutación por error
 #### [Configuración](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+## [Cambio en el modelo de licencias para una máquina virtual de SQL](virtual-machines-windows-sql-ahb.md)
 
 # Referencia
 ## [Azure PowerShell](/powershell/azure/overview)
@@ -57,4 +59,4 @@
 ## [Herramientas de SQL Server](https://docs.microsoft.com/sql/tools/overview-sql-tools)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
-## [Desbordamiento de la pila](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)

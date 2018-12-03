@@ -43,6 +43,8 @@ items:
       href: autogen-bitrate-ladder.md
   - name: Examen de entidades
     items:
+    - name: Filtros de cuenta y recurso
+      href: filters-dynamic-manifest-overview.md
     - name: Recursos
       href: assets-concept.md
     - name: Directivas de claves de contenido
@@ -65,8 +67,17 @@ items:
       href: content-protection-overview.md
     - name: Sistema con DRM múltiple con control de acceso
       href: design-multi-drm-system-with-access-control.md
-  - name: Streaming en vivo
+  - name: Streaming de eventos en vivo
     href: live-streaming-overview.md
+    items:
+    - name: Uso de un DVR en la nube
+      href: live-event-cloud-dvr.md
+    - name: Comparación de tipos
+      href: live-event-types-comparison.md
+    - name: Estados y facturación
+      href: live-event-states-billing.md
+    - name: Latencia
+      href: live-event-latency.md
 - name: Guías de procedimientos
   items:
   - name: Migración de v2 a v3
@@ -81,6 +92,14 @@ items:
       href: job-input-from-http-how-to.md
     - name: 'Desde un archivo local: .NET'
       href: job-input-from-local-file-how-to.md
+  - name: Creación de filtros
+    items:
+    - name: Con .NET
+      href: filters-dynamic-manifest-dotnet-howto.md
+    - name: Con REST
+      href: filters-dynamic-manifest-rest-howto.md
+    - name: Con la CLI
+      href: filters-dynamic-manifest-cli-howto.md
   - name: Codificación
     items:
     - name: 'Personalización de los valores preestablecidos de transformación: .NET Core'
@@ -163,9 +182,9 @@ items:
     href: limits-quotas-constraints.md
   - name: Preguntas más frecuentes
     href: frequently-asked-questions.md
-ms.openlocfilehash: bd33adb7a9ed7f20b1d0ff0172f31023239dee9b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 499be85399b338ba12a4904cc06be4ffd9bdc06c
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631477"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633034"
