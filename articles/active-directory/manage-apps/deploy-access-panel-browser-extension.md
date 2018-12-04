@@ -40,7 +40,7 @@ En primer lugar, debe colocar el paquete del instalador en una ubicación de red
 2. En la ventana **Administrador del servidor**, vaya a **Servicios de archivos y almacenamiento**.
    
     ![Abra Servicios de archivos y almacenamiento.](./media/deploy-access-panel-browser-extension/files-services.png)
-3. Vaya a la pestaña **Recursos compartidos** . A continuación, haga clic en Tareas****Nuevo recurso compartido...**.
+3. Vaya a la pestaña **Recursos compartidos** . A continuación, haga clic en **Tareas** > **Nuevo recurso compartido...**.
    
     ![Abra Servicios de archivos y almacenamiento.](./media/deploy-access-panel-browser-extension/shares.png)
 4. Complete el **Asistente para nuevo recurso compartido** y establezca permisos para asegurarse de que se pueda acceder desde los equipos de los usuarios. [Más información acerca de los recursos compartidos.](https://technet.microsoft.com/library/cc753175.aspx)
