@@ -600,7 +600,7 @@ Para detener la secuencia de registro en cualquier momento, escriba `Ctrl`+`C`.
 > [!TIP]
 > Las aplicaciones PHP pueden usar el elemento estándar [error_log()](http://php.net/manual/function.error-log.php) para enviar información a la consola. La aplicación de ejemplo usa este enfoque en _app/Http/routes.php_.
 >
-> Como marco web, [Laravel usa Monolog](https://laravel.com/docs/5.4/errors) como proveedor de registros. Para conocer cómo hace Monolog para enviar mensajes a la consola, consulte [PHP: How to use monolog to log to console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out) (PHP: Uso de Monolog para iniciar sesión en la consola [php://out]).
+> Como marco web, [Laravel usa Monolog](https://laravel.com/docs/5.4/errors) como proveedor de registros. Para conocer cómo hace Monolog para enviar mensajes a la consola, consulte [PHP: Uso de Monolog para iniciar sesión en la consola (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 
