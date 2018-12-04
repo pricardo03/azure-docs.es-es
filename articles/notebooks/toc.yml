@@ -1,0 +1,55 @@
+items:
+- name: Documentación sobre Azure Notebooks
+  href: index.yml
+- name: Información general
+  items:
+  - name: ¿Qué es Azure Notebooks?
+    href: azure-notebooks-overview.md
+- name: Guías de inicio rápido
+  items:
+  - name: Inicio de sesión y establecimiento de un identificador de usuario
+    href: quickstart-sign-in-azure-notebooks.md
+  - name: Creación y uso compartido de un cuaderno
+    href: quickstart-create-share-jupyter-notebook.md
+  - name: Clonación de un cuaderno
+    href: quickstart-clone-jupyter-notebook.md
+  - name: Migración de un cuaderno de Jupyter Notebook local
+    href: quickstart-migrate-local-jupyter-notebook.md
+  - name: Uso de un entorno personalizado
+    href: quickstart-create-jupyter-notebook-project-environment.md
+- name: Tutoriales
+  items:
+  - name: Creación y ejecución de un cuaderno
+    href: tutorial-create-run-jupyter-notebook.md
+- name: Ejemplos
+  items:
+  - name: Cuadernos de ejemplo
+    href: azure-notebooks-samples.md
+- name: Conceptos
+  items:
+  - name: Cuentas
+    href: azure-notebooks-user-account.md
+  - name: Perfiles
+    href: azure-notebooks-user-profile.md
+- name: Guías de procedimientos
+  items:
+  - name: Creación y clonación de proyectos
+    href: create-clone-jupyter-notebooks.md
+  - name: Administración y configuración de proyectos
+    href: configure-manage-azure-notebooks-projects.md
+  - name: Instalación de paquetes en un cuaderno
+    href: install-packages-jupyter-notebook.md
+  - name: Presentación
+    href: present-jupyter-notebooks-slideshow.md
+  - name: Uso de archivos de datos
+    href: work-with-project-data-files.md
+  - name: Acceso a recursos de datos
+    href: access-data-resources-jupyter-notebooks.md
+  - name: Uso de Azure Machine Learning Services
+    href: use-machine-learning-services-jupyter-notebooks.md
+ms.openlocfilehash: 95122e9ec45fb606e07a29e474e411d6e49278c0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52852415"
