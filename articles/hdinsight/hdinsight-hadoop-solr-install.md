@@ -156,7 +156,7 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
           </response>
       ```
       
-   2. En la sesión remota, vaya a {SOLR_HOME}\{Collection}\data. Para el clúster creado a través del script de comandos, debe ser `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. En esta ubicación, verá una carpeta de instantáneas creada con un nombre similar a **snapshot.* timestamp***.
+   2. En la sesión remota, vaya a {SOLR_HOME}\{Collection}\data. Para el clúster creado a través del script de comandos, debe ser `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. En esta ubicación, verá una carpeta de instantáneas creada con un nombre similar a **snapshot.\*timestamp**\*.
    
    3. Comprima la carpeta de instantáneas y cárguela al almacenamiento de blobs de Azure. En la línea de comandos de Hadoop, use el comando siguiente para ir a la ubicación de la carpeta de instantáneas:
 

@@ -42,7 +42,7 @@ A continuación, elija la organización en la que desea instalar la extensión.
 
 Ahora que la extensión está instalada, inicie sesión en la cuenta de Azure DevOps y busque el proyecto en el panel. Puede agregar una [canalización de compilación](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) al proyecto o modificar una existente. Si ya dispone de una canalización de compilación, puede pasar directamente al apartado de [incorporación de una tarea de compilación del emulador a una definición de compilación](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Para crear una definición de compilación, vaya a la pestaña **Compilaciones** de Azure DevOps. Seleccione **+Nuevo.** > **Nueva canalización de compilación**
+1. Para crear una definición de compilación, vaya a la pestaña **Compilaciones** de Azure DevOps. Seleccione **+Nuevo.** >  **Nueva canalización de compilación**
 
    ![Creación de una canalización de compilación](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
