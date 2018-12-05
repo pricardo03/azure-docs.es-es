@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210693"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706813"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona el servicio Azure Machine Learning: arquitectura y conceptos
 
@@ -156,9 +156,9 @@ Un experimento es una agrupación de varias ejecuciones de un script determinado
 
 Para obtener un ejemplo del uso de un experimento, vea el documento [Guía de inicio rápido: Introducción al servicio Azure Machine Learning](quickstart-get-started.md).
 
-## <a name="pipelines"></a>Procesos
+## <a name="pipeline"></a>Canalización
 
-Las canalizaciones se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático. Por ejemplo, una canalización podría incluir las fases de preparación de los datos, entrenamiento del modelo, implementación de modelo e inferencia. Cada fase puede estar formada por varios pasos, cada uno de los cuales puede ejecutarse en modo desatendido en varios destinos de proceso.
+Las canalizaciones de aprendizaje automático se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático. Por ejemplo, una canalización podría incluir las fases de preparación de los datos, entrenamiento del modelo, implementación de modelo e inferencia. Cada fase puede estar formada por varios pasos, cada uno de los cuales puede ejecutarse en modo desatendido en varios destinos de proceso.
 
 Para más información sobre las canalizaciones de aprendizaje automático con este servicio, consulte el artículo [Canalizaciones y Azure Machine Learning](concept-ml-pipelines.md).
 

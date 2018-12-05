@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4206301296c94bd0d24743854756ac6dd1d712dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014337"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495362"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicación de una aplicación de HDInsight en Azure Marketplace
 Puede instalar una aplicación de Azure HDInsight en un clúster de HDInsight basado en Linux. En este artículo, aprenderá a publicar una aplicación de HDInsight en Azure Marketplace. Para obtener información general sobre cómo publicar en Azure Marketplace, consulte [Publicación de una oferta en Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -102,6 +102,6 @@ Para publicar una aplicación de HDInsight:
 * Aprenda a [instalar aplicaciones de HDInsight](hdinsight-apps-install-applications.md) en sus clústeres.
 * Aprenda a [instalar aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md) y a implementar una aplicación de HDInsight sin publicar en HDInsight.
 * Aprenda a [usar acciones de script para personalizar clústeres de HDInsight basados en Linux](hdinsight-hadoop-customize-cluster-linux.md) y a agregar más aplicaciones. 
-* Aprenda a [crear clústeres de Hadoop basados en Linux en HDInsight mediante plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Aprenda a [crear clústeres de Apache Hadoop basados en Linux en HDInsight mediante plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Aprenda a [usar un nodo perimetral vacío en HDInsight](hdinsight-apps-use-edge-node.md) para acceder a clústeres de HDInsight y probar y hospedar aplicaciones de HDInsight.
 

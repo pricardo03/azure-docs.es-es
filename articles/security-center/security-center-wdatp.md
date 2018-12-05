@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068339"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316997"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Protección contra amenazas avanzada de Windows Defender con Azure Security Center
 
@@ -99,12 +99,12 @@ Para generar una alerta de prueba inofensiva de ATP de Windows Defender:
 
 3. Si el comando se ejecuta correctamente, verá una nueva alerta en el panel de Azure Security Center y el portal de ATP de Windows Defender. Esta alerta puede tardar unos minutos en aparecer.
 
-4. Para revisar la alerta en Security Center, vaya a **Alertas de seguridad** >  **línea de comandos de Powershell sospechosa**.
+4. Para revisar la alerta en Security Center, vaya a **Security Alerts (Alertas de seguridad)** >  **Suspicious Powershell CommandLine (Línea de comandos de Powershell Sospechosa)**.
 
 5. En la ventana de la investigación, seleccione el vínculo para ir al portal de ATP de Windows Defender.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 - [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): aprenda cómo las recomendaciones lo ayudan a proteger los recursos de Azure.
 - [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.

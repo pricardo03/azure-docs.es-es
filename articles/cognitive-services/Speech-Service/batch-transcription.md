@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035958"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495593"
 ---
-# <a name="use-batch-transcription"></a>Uso de la transcripción de lotes
+# <a name="why-use-batch-transcription"></a>¿Por qué usar la transcripción de lotes?
 
-La transcripción de Batch resulta muy conveniente si tiene grandes cantidades de audio en almacenamiento. Mediante la API REST, puede apuntar a archivos de audio por URI de firma de acceso compartido (SAS) y recibir las transcripciones de forma asincrónica.
+La transcripción de Batch resulta muy conveniente si tiene grandes cantidades de audio en almacenamiento. Mediante la API REST dedicada, puede apuntar a archivos de audio por URI de firma de acceso compartido (SAS) y recibir las transcripciones de forma asincrónica.
 
 ## <a name="the-batch-transcription-api"></a>Transcription API de Azure Batch
 
@@ -36,16 +36,16 @@ Transcription API de Batch ofrece la transcripción asincrónica de voz a texto,
 
 Transcription API de Batch admite los siguientes formatos:
 
-NOMBRE| Canal  |
-----|----------|
-mp3 |   Mono   |   
-mp3 |  Estéreo  | 
-wav |   Mono   |
-wav |  Estéreo  |
-Opus|   Mono   |
-Opus|  Estéreo  |
+| Formato | Códec | Bitrate | Velocidad de muestreo |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16 bits | 8 o 16 kHz, mono, estéreo |
+| MP3 | PCM | 16 bits | 8 o 16 kHz, mono, estéreo |
+| OGG | OPUS | 16 bits | 8 o 16 kHz, mono, estéreo |
 
-Si se trata de secuencias de audio estéreo, la transcripción de lotes divide el canal izquierdo y derecho durante la transcripción. Los dos archivos JSON con el resultado se crean desde un único canal. Las marcas de tiempo por expresión permiten al desarrollador crear una transcripción final ordenada. La salida de un canal, incluidas las propiedades para configurar el filtro de obscenidad y el modelo de puntuación, se muestra en el siguiente ejemplo de JSON:
+> [!NOTE]
+> Batch Transcription API requiere una clave de S0 (nivel de pago). No funciona con una clave gratuita (f0).
+
+Si se trata de secuencias de audio estéreo, Batch Transcription API divide los canales izquierdo y derecho durante la transcripción. Los dos archivos JSON con el resultado se crean desde un único canal. Las marcas de tiempo por expresión permiten al desarrollador crear una transcripción final ordenada. En el siguiente ejemplo de JSON se muestra la salida de un canal, incluidas las propiedades para configurar el filtro de obscenidad y el modelo de puntuación.
 
 ```json
 {
@@ -62,6 +62,16 @@ Si se trata de secuencias de audio estéreo, la transcripción de lotes divide e
 
 > [!NOTE]
 > Transcription API de Batch usa un servicio REST para solicitar transcripciones, su estado y los resultados asociados. Puede usar la API con cualquier lenguaje. En la siguiente sección se describe cómo se usa la API.
+
+### <a name="query-parameters"></a>Parámetros de consulta
+
+Estos parámetros podrían incluirse en la cadena de consulta de la solicitud de REST.
+
+| Parámetro | DESCRIPCIÓN | Obligatorio u opcional |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | Especifica cómo controlar las palabras soeces en los resultados del reconocimiento. Los valores aceptados son `none`, que deshabilita el filtrado de palabras soeces; `masked`, que reemplaza las palabras soeces con asteriscos; `removed`, que quita todas las palabras soeces del resultado; o `tags`, que agrega etiquetas de "palabras soeces". La configuración predeterminada es `masked`. | Opcional |
+| `PunctuationMode` | Especifica cómo controlar la puntuación en los resultados del reconocimiento. Los valores aceptados son: `none`, que deshabilita la puntuación; `dictated`, que implica puntuación explícita; `automatic`, que permite que el descodificador se ocupe de la puntuación; o `dictatedandautomatic`, que implica signos de puntuación dictados o puntuación automática. | Opcional |
+
 
 ## <a name="authorization-token"></a>Token de autorización
 

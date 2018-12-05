@@ -3,7 +3,7 @@ title: Introducción a Azure Resource Health | Microsoft Docs
 description: Introducción a Azure Resource Health
 services: Resource health
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shawn.tabrizi
-ms.openlocfilehash: 99e996f182aac774f2e2565d87fd0debaba1b2d1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263129"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309436"
 ---
 # <a name="azure-resource-health-overview"></a>Introducción a Azure Resource Health
  
@@ -28,7 +28,7 @@ Azure Resource Health ayuda a diagnosticar aquellos casos en los que un problema
 Mientras que [Estado de Azure](https://status.azure.com) le informa sobre problemas de servicio que afectan a un amplio conjunto de clientes de Azure, Resource Health le proporciona un panel personalizado del mantenimiento de los recursos. Resource Health muestra todas las veces que los recursos no estuvieron disponibles en el pasado debido a problemas de servicio de Azure. Así resulta fácil comprender si se infringió un Acuerdo de Nivel de Servicio. 
 
 ## <a name="resource-definition-and-health-assessment"></a>Definición de recurso y evaluación de mantenimiento
-Un recurso es una instancia específica de un servicio de Azure, por ejemplo, una máquina virtual, una aplicación web o una base de datos SQL.
+Un recurso es una instancia específica de un servicio de Azure; por ejemplo, una máquina virtual, una aplicación web o una base de datos SQL.
 
 Resource Health se basa en las señales que emiten los distintos servicios de Azure para evaluar si el mantenimiento de un recurso es correcto o no. Si el mantenimiento de un recurso no es correcto, Resource Health analiza información adicional para determinar el origen del problema. También identifica las acciones que lleva a cabo Microsoft para corregir el problema o las acciones que usted puede realizar para solucionar la causa del problema. 
 

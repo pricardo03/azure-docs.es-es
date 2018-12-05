@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 11/15/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 44cc582bfa0a6940de7eeea9b54e3979735c07e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bd2efce831fa98b3a4543d67d247d04dc8fc9d04
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998255"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853190"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Creación de un emparejamiento de red virtual: distintos modelos de implementación, la misma suscripción
 
@@ -42,7 +42,7 @@ Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la
 
 ## <a name="create-peering---azure-portal"></a>Creación de emparejamiento: Azure Portal
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#requirements-and-constraints).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#requirements-and-constraints).
 2. Haga clic en **+ Nuevo**, **Redes** y, luego, en **Red virtual**.
 3. En la hoja **Crear red virtual**, escriba o seleccione valores para la configuración siguiente y, luego, haga clic en **Crear**:
     - **Nombre**: *myVnet1*
@@ -52,7 +52,7 @@ Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la
     - **Suscripción**: seleccione la suscripción
     - **Grupo de recursos**: seleccione **Crear nuevo** y escriba *myResourceGroup*
     - **Ubicación**: *este de EE. UU.*
-4. Haga clic en **+ Nuevo**. En el campo **Buscar en el Marketplace**, escriba *Red virtual*. Haga clic en **Red virtual** cuando aparezca en los resultados de búsqueda. 
+4. Haga clic en **+ Nuevo**. En el campo **Buscar en el Marketplace**, escriba *Red virtual*. Haga clic en **Red virtual** cuando aparezca en los resultados de búsqueda.
 5. En la hoja **Red virtual**, seleccione **Clásica** en el cuadro **Seleccionar un modelo de implementación** y haga clic en **Crear**.
 6. En la hoja **Crear red virtual**, escriba o seleccione valores para la configuración siguiente y, luego, haga clic en **Crear**:
     - **Nombre**: *myVnet2*
@@ -68,7 +68,7 @@ Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la
 10. En la hoja **myVnet1 - Peerings** (myVnet1: emparejamientos) que aparece, haga clic en **+ Agregar**
 11. En la hoja **Agregar emparejamiento** que aparece, escriba o seleccione las opciones siguientes y, luego, haga clic en **Aceptar**:
      - **Nombre**: *myVnet1ToMyVnet2*
-     - **Modelo de implementación de red virtual**: seleccione **Clásico**. 
+     - **Modelo de implementación de red virtual**: seleccione **Clásico**.
      - **Suscripción**: seleccione la suscripción
      - **Red virtual**: haga clic en **Elegir una red virtual** y, luego, en **myVnet2**.
      - **Permitir acceso a red virtual:** asegúrese de que esté seleccionada la opción **Habilitado**.
@@ -81,7 +81,7 @@ Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la
 
 ## <a name="cli"></a>Creación de emparejamiento: CLI de Azure
 
-Complete los pasos siguientes mediante la CLI de Azure clásica y la CLI de Azure. Puede completar los pasos desde Azure Cloud Shell. Para ello solo debe seleccionar el botón **Try it** (Pruébelo) en cualquiera de los pasos siguientes o instalar la [CLI clásica](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y la [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), y ejecutar los comandos en el equipo local.
+Complete los pasos siguientes mediante la CLI de Azure clásica y la CLI de Azure. Puede completar los pasos desde Azure Cloud Shell. Para ello solo tiene que seleccionar el botón **Try it** (Pruébelo) en cualquiera de los pasos siguientes o instalar la [CLI clásica](/cli/azure/install-cli-version-1.0?toc=%2fazure%2fvirtual-network%2ftoc.json) y la [CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), y ejecutar los comandos en el equipo local.
 
 1. Si usa Cloud Shell, vaya al paso 2, ya que Cloud Shell inicia automáticamente la sesión de Azure. Abra una sesión de comandos e inicie sesión en Azure mediante el comando `azure login`.
 2. Ejecute la CLI en modo de administración de servicios escribiendo el comando `azure config mode asm`.
@@ -112,7 +112,7 @@ Complete los pasos siguientes mediante la CLI de Azure clásica y la CLI de Azur
 5. Use la CLI para crear un emparejamiento de redes virtuales entre las dos redes virtuales creadas mediante los diferentes modelos de implementación. Copie el script siguiente en un editor de texto del equipo. Reemplace `<subscription id>` con el Id. de suscripción. Si no conoce el Id. de suscripción, escriba el comando `az account show`. El valor de **id** en la salida es el identificador de la suscripción. Pegue el script modificado en la sesión de CLI y después pulse `Enter`.
 
    ```azurecli-interactive
-   # Get the id for VNet1.
+   # Get the ID for VNet1.
    vnet1Id=$(az network vnet show \
      --resource-group myResourceGroup \
      --name myVnet1 \
@@ -163,7 +163,7 @@ Complete los pasos siguientes mediante la CLI de Azure clásica y la CLI de Azur
     ```
 
     > [!WARNING]
-    > Importar un archivo de configuración de red modificada puede producir cambios en las redes virtuales (clásicas) existentes en la suscripción. Asegúrese de agregar solo la red virtual anterior y que no cambia o quita ninguna red virtual existente de la suscripción. 
+    > Importar un archivo de configuración de red modificada puede producir cambios en las redes virtuales (clásicas) existentes en la suscripción. Asegúrese de agregar solo la red virtual anterior y que no cambia o quita ninguna red virtual existente de la suscripción.
 5. Inicie sesión en Azure para crear la red virtual (Resource Manager) escribiendo el comando `Connect-AzureRmAccount`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#requirements-and-constraints).
 6. Cree un grupo de recursos y una red virtual (Resource Manager). Copie el script, péguelo en PowerShell y, a continuación, pulse `Enter`.
 
@@ -204,8 +204,9 @@ Complete los pasos siguientes mediante la CLI de Azure clásica y la CLI de Azur
 
 9. **Opcional**: Si bien este tutorial no aborda la creación de máquinas virtuales, puede crear una máquina virtual en cada red virtual y conectar de una máquina virtual a la otra para así validar la conectividad.
 10. **Opcional**: para eliminar los recursos que crea en este tutorial, complete los pasos que aparecen en la sección [Eliminar recursos](#delete-powershell) de este artículo.
- 
+
 ## <a name="delete"></a>Eliminación de recursos
+
 Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos que creó en el tutorial, para no incurrir en gastos de uso. Al eliminar un grupo de recursos se eliminan también todos los recursos contenidos en el mismo.
 
 ### <a name="delete-portal"></a>Azure Portal
@@ -254,7 +255,7 @@ Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos
     ```
 
     > [!WARNING]
-    > Importar un archivo de configuración de red modificada puede producir cambios en las redes virtuales (clásicas) existentes en la suscripción. Asegúrese de quitar solo la red virtual anterior y que no cambia o quita ninguna red virtual existente de la suscripción. 
+    > Importar un archivo de configuración de red modificada puede producir cambios en las redes virtuales (clásicas) existentes en la suscripción. Asegúrese de quitar solo la red virtual anterior y que no cambia o quita ninguna red virtual existente de la suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edddc40b17adde685f875dfaa6b20879c6e61b15
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259163"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495470"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Preguntas más frecuentes para SQL Server en máquinas virtuales de Windows en Azure
 
@@ -39,7 +39,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Qué imágenes de la galería de máquinas virtuales de SQL Server están disponibles?**
 
-   Azure mantiene imágenes de máquinas virtuales para todas las versiones principales de SQL Server admitidas en todas las ediciones para Windows y Linux. Para más información, consulte la lista completa de [imágenes de máquinas virtuales Windows](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) e [imágenes de máquinas virtuales Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
+   Azure mantiene imágenes de máquinas virtuales para todas las versiones principales de SQL Server admitidas en todas las ediciones para Windows y Linux. Para obtener más información, consulte la lista completa de [imágenes de VM de Windows](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) e [imágenes de VM de Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
 1. **¿Están actualizadas las imágenes existentes de la galería de máquinas virtuales de SQL Server?**
 
@@ -55,7 +55,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Es posible configurar configuraciones que no aparecen en la galería de máquinas virtuales (por ejemplo, Windows 2008 R2 + SQL Server 2012)?**
 
-   No. En el caso de las imágenes de la galería de máquinas virtuales que incluyen SQL Server, debe seleccionar una de las imágenes que se proporcionan.
+    No. En el caso de las imágenes de la galería de máquinas virtuales que incluyen SQL Server, debe seleccionar una de las imágenes que se proporcionan.
 
 ## <a name="creation"></a>Creación
 
@@ -73,14 +73,46 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
    Existen dos formas de hacerlo. Puede aprovisionar una de las [imágenes de máquina virtual que admita licencias](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), lo que también se conoce como traiga su propia licencia (BYOL). También existe la posibilidad de copiar los medios de instalación de SQL Server en la máquina virtual de Windows Server y, luego, instalar SQL Server en la máquina virtual. En cambio, si instala manualmente SQL Server, no habrá ninguna integración del portal y no se admitirá la extensión del agente de IaaS de SQL Server, por lo que las características como Copia de seguridad automática y Aplicación de revisiones no funcionarán en este escenario. Por este motivo, se recomienda usar una de las imágenes de la galería de BYOL. Para usar BYOL o sus propios medios de SQL Server en una máquina virtual de Azure, debe tener [Movilidad de licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/). Para más información, vea [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Orientación de precios de máquinas virtuales de SQL Server Azure).
 
-1. **¿Puedo cambiar una máquina virtual para usar mi propia licencia de SQL Server si se ha creado desde una de las imágenes de la galería de pago por uso?**
-
-   No. No puede cambiar de licencias de pago por segundo a usar su propia licencia. Cree una máquina virtual de Azure nueva usando una de las [imágenes BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) y, luego, migre las bases de datos al nuevo servidor con las [técnicas de migración de datos](virtual-machines-windows-migrate-sql.md) estándar.
 
 1. **¿Tengo que pagar para obtener una licencia de SQL Server en una máquina virtual de Azure si solo se usa para conmutación por error o en modo en espera?**
 
-   No tiene que pagar por obtener una licencia de SQL Server, como réplica secundaria pasiva en una implementación de alta disponibilidad, si dispone de Software Assurance y usa la Movilidad de Licencias como se describe en [P+F sobre licencias de máquinas virtuales](https://azure.microsoft.com/pricing/licensing-faq/). En caso contrario, deberá pagar para adquirir la licencia.
+   Si dispone de Software Assurance y usa la Movilidad de Licencias como se describe en P+F sobre licencias de Virtual Machines (https://azure.microsoft.com/pricing/licensing-faq/)), no tiene que pagar por obtener una licencia de SQL Server como réplica secundaria pasiva en una implementación de alta disponibilidad. En caso contrario, deberá pagar para adquirir la licencia.
 
+1. **¿Puedo cambiar una máquina virtual para usar mi propia licencia de SQL Server si se ha creado desde una de las imágenes de la galería de pago por uso?**
+
+   Sí. Puede moverse fácilmente entre los dos modelos de licencias, independientemente de la imagen implementada originalmente. Para obtener más información, consulte [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md) (Cambio del modelo de licencia de una VM de SQL).
+
+1. **¿Debo usar imágenes de BYOL o RP de VM de SQL para crear la nueva VM de SQL?**
+
+   Las imágenes de traiga su propia licencia (BYOL) solo están disponibles para clientes de EA. Otros clientes que tengan Software Assurance deben usar el proveedor de recursos de VM de SQL para crear una VM de SQL con [Ventaja híbrida de Azure (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
+
+1. **¿El cambio de modelos de licencia requerirá un tiempo de inactividad para SQL Server?**
+
+    No. El [cambio del modelo de licencias](virtual-machines-windows-sql-ahb.md) no requiere ningún tiempo de inactividad para SQL Server, ya que el cambio es efectivo de inmediato y no requiere un reinicio de la VM. 
+
+1. **¿Las suscripciones de CSP pueden activar la Ventaja híbrida de Azure?**
+
+   Sí. El [cambio del modelo de licencias](virtual-machines-windows-sql-ahb.md) está disponible para las suscripciones de CSP. 
+
+1. **¿El registro de mi VM con el nuevo proveedor de recursos de VM de SQL implicará costos adicionales?**
+
+    No. El proveedor de recursos de VM de SQL simplemente permite la capacidad de administración adicional para SQL Server en VM de Azure sin cargos adicionales. 
+
+1. **¿El proveedor de recursos de VM de SQL está disponible para todos los clientes?**
+ 
+   Sí. Todos los clientes pueden registrarse con el nuevo proveedor de recursos de VM de SQL. Sin embargo, solo los clientes con el Beneficio de Software Assurance pueden activar la [Ventaja híbrida de Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (o BYOL) en una VM con SQL Server. 
+
+1. **¿Qué ocurre con el recurso _* Microsoft.SqlVirtualMachine_* si se mueve o se coloca el recurso de la VM?** 
+
+   Cuando el recurso Microsoft.Compute/VirtualMachine se coloca o se mueve, se envía una notificación al recurso Microsoft.SqlVirtualMachine asociado para replicar de forma asincrónica la operación.
+
+1. **¿Qué ocurre con la VM si se coloca el recurso _* Microsoft.SqlVirtualMachine_?**
+
+   El recurso Microsoft.Compute/VirtualMachine no se ve afectado cuando se coloca el recurso Microsoft.SqlVirtualMachine. Sin embargo, los cambios en las licencias devolverán el valor predeterminado al origen de la imagen original. 
+
+1. **¿Es posible registrar VM de SQL Server implementadas automáticamente con el proveedor de recursos de VM de SQL?**
+
+   Sí. Si ha implementado SQL Server desde sus propios medios, puede registrar la VM de SQL con el proveedor de recursos para obtener las ventajas de capacidad de administración proporcionadas por la extensión SQL IaaS. Sin embargo, no es posible convertir una VM de SQL implementada automáticamente a PAYG. 
 
 ## <a name="administration"></a>Administración
 

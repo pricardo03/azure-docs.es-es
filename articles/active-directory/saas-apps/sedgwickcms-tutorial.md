@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ff9f3186602b9047e53fb78edbf52c2c0d9ee574
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 796ed1cb0fde6b29a931099336fd91e2e931fc29
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423596"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Tutorial: Integración de Azure Active Directory con Sedgwick CMS
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Sedgwick CMS](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL: 
+     a. En el cuadro de texto **Identificador**, escriba la dirección URL: 
     | |
     |--|
     | `expresspreview.sedgwickcms.net/voe/sso` |
@@ -134,7 +134,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Configurar inicio de sesión único](./media/sedgwickcms-tutorial/tutorial_general_400.png)
 
-1. Para configurar el inicio de sesión único en **Sedgwick CMS**, es preciso enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Sedgwick CMS](https://www.sedgwick.com/contact/Pages/contactform.aspx). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para configurar el inicio de sesión único en **Sedgwick CMS**, es preciso enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Sedgwick CMS](https://www.sedgwick.com/help). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,7 +163,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/sedgwickcms-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -173,7 +173,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
   
 ### <a name="create-a-sedgwick-cms-test-user"></a>Creación de un usuario de prueba en Sedgwick CMS
 
-En esta sección, creará un usuario llamado Britta Simon en Sedgwick CMS. Colabore con el [equipo de soporte técnico de Sedgwick CMS](https://www.sedgwick.com/contact/Pages/contactform.aspx) para agregar los usuarios a la plataforma de Sedgwick CMS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.  
+En esta sección, creará un usuario llamado Britta Simon en Sedgwick CMS. Colabore con el  [equipo de soporte técnico de Sedgwick CMS](https://www.sedgwick.com/help)  para agregar los usuarios a la plataforma de Sedgwick CMS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -210,7 +210,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Sedgwick CMS en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Sedgwick CMS.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

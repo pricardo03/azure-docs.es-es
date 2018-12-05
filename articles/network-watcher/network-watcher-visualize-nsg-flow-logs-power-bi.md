@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: bcd67d2e879d199296289dbaef2141ba659b2412
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032691"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822881"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualización de registros de flujo del grupo de seguridad de red con Power BI
 
 Los registros de flujo del grupo de seguridad de red le permiten visualizar información sobre el tráfico IP de entrada y salida en los grupos de seguridad de red. Estos registros de flujo muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen y de destino, puerto de origen y de destino, protocolo), y si se permitió o denegó el tráfico.
 
 Puede ser difícil obtener información sobre los datos de registro de flujo mediante la búsqueda manual de los archivos de registro. En este artículo se proporcionan una solución para visualizar los registros de flujo más recientes y obtener información sobre el tráfico en la red.
+
+> [!Warning]  
+> En los pasos siguientes se trabajará con la versión 1 de los registros de flujo. Para obtener más detalles, vea [Introducción al registro de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md). Las siguientes instrucciones no funcionarán con la versión 2 de los archivos de registro, sin ninguna modificación.
 
 ## <a name="scenario"></a>Escenario
 

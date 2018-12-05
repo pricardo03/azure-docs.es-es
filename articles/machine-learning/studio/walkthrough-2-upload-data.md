@@ -1,10 +1,11 @@
 ---
-title: 'Paso 2: Carga de datos en un experimento de Machine Learning | Microsoft Docs'
+title: 'Paso 2: Cargar datos en un experimento de Machine Learning Studio - Azure | Microsoft Docs'
 description: 'Paso 2 del tutorial Desarrollo de una solución predictiva: carga de datos públicos almacenados en Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: dfa6ae8011da0299c270035b8b781d70a8e80119
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835797"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311983"
 ---
-# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>Paso 2 del tutorial: Carga de los datos existentes en un experimento de Azure Machine Learning
+# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Paso 2 del tutorial: Cargar los datos existentes en un experimento de Azure Machine Learning Studio
 Este es el segundo paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md)

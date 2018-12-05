@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260013"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852697"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Inicio rápido: Cómo familiarizarse con Content Moderator
 
@@ -54,11 +54,11 @@ Revise las etiquetas de moderación aplicadas. Puede ver qué etiquetas se aplic
 
 En un proyecto, usted o su equipo de revisión pueden cambiar estas etiquetas o agregar más según sea necesario. Los cambios se envían con el botón **Siguiente**. Dado que la aplicación empresarial llama a las API de Moderator, el contenido etiquetado se apilará en la cola y estará listo para que los equipos de usuarios revisores lo examinen. Con este enfoque, puede revisar rápidamente grandes volúmenes de contenido.
 
-Hasta ahora, ha utilizado la herramienta de revisión Content Moderator para ver ejemplos de lo que puede hacer el servicio Content Moderator. A continuación, puede obtener más información acerca de la herramienta de revisión y cómo integrarla en un proyecto de software mediante las API de revisión, o puede ir a la sección [Pasos siguientes](#next-steps) para obtener información sobre cómo usar las API de moderación en la aplicación.
+Hasta ahora, ha usado la herramienta de revisión Content Moderator para ver ejemplos de lo que puede hacer el servicio Content Moderator. A continuación, puede obtener más información acerca de la herramienta de revisión y cómo integrarla en un proyecto de software mediante las API de revisión, o puede ir a la sección [Pasos siguientes](#next-steps) para obtener información sobre cómo usar las API de moderación en la aplicación.
 
 ## <a name="learn-more-about-the-review-tool"></a>Más información sobre la herramienta de revisión
 
-Para obtener más información sobre cómo usar la herramienta de revisión de Content Moderator, eche un vistazo a la guía [Revisión humana en bucle](Review-Tool-User-Guide/human-in-the-loop.md) y examine las API de la herramienta de revisión para aprender a ajustar la experiencia de revisión humana:
+Para obtener más información sobre cómo usar la herramienta de revisión de Content Moderator, eche un vistazo a la guía [Herramienta de revisión](Review-Tool-User-Guide/human-in-the-loop.md) y examine las API de la herramienta de revisión para aprender a ajustar la experiencia de revisión humana:
 - La [API de trabajos](try-review-api-job.md) examina el contenido con las API de moderación y genera las revisiones en la herramienta de revisión. 
 - La [API de revisiones](try-review-api-review.md) crea directamente revisiones de imágenes, texto o vídeos para moderadores humanos sin examinar antes el contenido. 
 - La [API de flujos de trabajo](try-review-api-workflow.md) crea, actualiza y obtiene información detallada sobre los flujos de trabajo personalizados que crea el equipo.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4e5561c4846889f53723ed8df82d7c6268aee180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241623"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495153"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Creación de clústeres de Apache Hadoop en HDInsight con plantillas de Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -32,7 +32,7 @@ Para seguir las instrucciones de este artículo, necesita:
 ### <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 Una plantilla de Resource Manager facilita la creación de los siguientes recursos de la aplicación en una única operación coordinada:
 * Clústeres de HDInsight y sus recursos dependientes (por ejemplo, la cuenta de almacenamiento predeterminada)
-* Otros recursos (por ejemplo, Azure SQL Database para usar Apache Sqoop)
+* Otros recursos (por ejemplo, Azure SQL Database para usar [Apache Sqoop](http://sqoop.apache.org/))
 
 En la plantilla, se definen los recursos que son necesarios para la aplicación. También se especifican los parámetros de implementación para introducir los valores para los diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
 

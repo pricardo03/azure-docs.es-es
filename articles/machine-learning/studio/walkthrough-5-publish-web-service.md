@@ -1,10 +1,11 @@
 ---
-title: 'Paso 5: implementación del servicio web Machine Learning | Microsoft Docs'
+title: 'Paso 5: implementar el servicio web de Machine Learning Studio | Microsoft Docs'
 description: 'Paso 5 del tutorial Desarrollo de una solución predictiva: implementación de un experimento predictivo en Machine Learning Studio como servicio web.'
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 436656195e00311dd350a5526b01fffa56ac02ca
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 33965270c2be6f70614def79a49f1c4aa1a8fbbc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246743"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309936"
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Paso 5 del tutorial: Implementar el servicio web de Azure Machine Learning
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Paso 5 del tutorial: implementar el servicio web de Azure Machine Learning Studio
 Este es el quinto paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md)

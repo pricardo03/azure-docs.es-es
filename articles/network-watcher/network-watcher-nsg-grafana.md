@@ -15,16 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142972"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819041"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Administración y análisis de registros de flujo de grupo de seguridad de red con Network Watcher y Grafana
 
 Los [registros de flujo de grupo de seguridad de red (NSG)](network-watcher-nsg-flow-logging-overview.md) proporcionan información que se puede usar para comprender el tráfico IP de entrada y salida en interfaces de red. Estos registros de flujo muestran los flujos de entrada y salida en función de cada regla de NSG, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen y de destino, puerto de origen y de destino, protocolo) y si se permitió o denegó el tráfico.
+
+> [!Warning]  
+> En los pasos siguientes se trabajará con la versión 1 de los registros de flujo. Para obtener más detalles, vea [Introducción al registro de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md). Las siguientes instrucciones no funcionarán con la versión 2 de los archivos de registro, sin ninguna modificación.
 
 Puede tener varios grupos de seguridad de red en la red con el registro de flujo habilitado. Con esta cantidad de datos de registro resulta complicado analizar y obtener información de los registros. En este artículo se proporciona una solución para administrar de forma centralizada estos registros de flujo de grupos de seguridad de red mediante Grafana, una herramienta de creación de gráficos de código abierto, Elasticsearch, un motor de análisis y búsqueda distribuida, y Logstash, que es una canalización de procesamiento de datos en el servidor de código abierto.  
 

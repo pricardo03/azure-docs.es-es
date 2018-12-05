@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016053"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311813"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -49,7 +49,7 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
 1. Defina una lista de acciones proporcionando los siguientes valores para cada acción:
 
-    a. **Nombre**: escriba un identificador único para esta acción.
+     a. **Nombre**: escriba un identificador único para esta acción.
 
     b. **Tipo de acción**: seleccionar correo electrónico, SMS, notificación push, voz, aplicación lógica, webhook, ITSM o runbook de Automation.
 
@@ -76,6 +76,8 @@ En un grupo de acciones puede tener hasta 1000 acciones de correo electrónico. 
 **ITSM**: puede tener hasta 10 acciones de administración de servicios de TI en un grupo de acciones, que necesitan conexión para ITSM. Aprenda cómo crear una [conexión de ITSM](../log-analytics/log-analytics-itsmc-overview.md).
 
 **Aplicación lógica**: en un grupo de acciones puede tener hasta 10 acciones de aplicación lógica.
+
+**Function App**: las teclas de función para las instancias de Function App configuradas como acciones se leen a través de Functions API, que actualmente requiere las aplicaciones de función v2 para poder configurar las opción de la aplicación "AzureWebJobsSecretStorageType" a "archivos";consulte [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets) (Cambios en la administración de claves de Functions V2) para obtener más información.
 
 **Runbook**: puede tener hasta 10 acciones de runbook en un grupo de acciones. Consulte los [límites de servicio de suscripción de Azure](../azure-subscription-service-limits.md) para más información sobre las cargas de runbook
 

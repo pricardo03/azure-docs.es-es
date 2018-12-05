@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f34b0015a4a6d7b8c2c23f539cf21232adaec58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5d5eee525c6f071840d186cb6bd54faf9bf2787b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304674"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310674"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Solución de problemas de conectividad con Azure AD Connect
 Este artículo explica cómo funciona la conectividad entre Azure AD Connect y Azure AD y cómo solucionar los problemas de conectividad. Estos problemas suelen aparecer en un entorno con un servidor proxy.
@@ -46,7 +46,7 @@ De ellas, la tabla siguiente es el mínimo necesario para poder conectarse a Azu
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Se usa para descargar listas CRL. |
 | \*.verisign.com |HTTP/80 |Se usa para descargar listas CRL. |
-| \*.entrust.com |HTTP/80 |Se utiliza para descargar listas CRL de MFA. |
+| \*.entrust.net |HTTP/80 |Se utiliza para descargar listas CRL de MFA. |
 | \*.windows.net |HTTPS/443 |Se utiliza para iniciar sesión en Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Se utiliza para MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Se utiliza para configurar el directorio de Azure AD, así como para importar y exportar datos. |

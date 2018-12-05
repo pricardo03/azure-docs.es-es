@@ -1,41 +1,30 @@
 ---
-title: Credenciales de implementación de Azure App Service | Microsoft Docs
+title: Configuración de credenciales de implementación para Azure App Service | Microsoft Docs
 description: Aprenda a usar las credenciales de implementación de Azure App Service.
 services: app-service
 documentationcenter: ''
-author: dariagrigoriu
-manager: erikre
-editor: mollybos
+author: cephalin
+manager: jpconnoc
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/05/2016
-ms.author: dariagrigoriu
-ms.openlocfilehash: 79841887ce8413970cb7dff0ca0099d4e0745a68
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/22/2018
+ms.author: cephalin
+ms.openlocfilehash: a04057023308087adbf449b8f91af6a473c11c1e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259316"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312102"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configuración de credenciales de implementación para Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) admite dos tipos de credenciales para la [implementación de GIT local](app-service-deploy-local-git.md) y la [implementación FTP/S](app-service-deploy-ftp.md). Estas credenciales no son las mismas que las de Azure Active Directory.
 
-* **Credenciales de nivel de usuario**: un conjunto de credenciales para toda la cuenta de Azure. Se puede utilizar para implementar App Service en cualquier aplicación o suscripción para la que la cuenta de Azure tenga permiso de acceso. Este es el conjunto de credenciales predeterminado que se configura en **App Services** > **&lt;nombre_aplicación>** > **Credenciales de implementación**. Este es también el conjunto predeterminado que aparece en la interfaz gráfica de usuario del portal (como la **información general** y las **propiedades** de la [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de la aplicación).
+* **Credenciales de nivel de usuario**: un conjunto de credenciales para toda la cuenta de Azure. Se puede utilizar para implementar App Service en cualquier aplicación o suscripción para la que la cuenta de Azure tenga permiso de acceso. Este es también el conjunto predeterminado que aparece en la interfaz gráfica de usuario del portal (como la **información general** y las **propiedades** de la [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de la aplicación). Cuando a un usuario se le otorga acceso a la aplicación a través del Control de acceso basado en rol (RBAC) o mediante permisos de coadministrador, ese usuario puede usar sus propias credenciales de nivel de usuario hasta que se le revoque el acceso. No comparta estas credenciales con otros usuarios de Azure.
 
-    > [!NOTE]
-    > Al delegar el acceso a recursos de Azure a través del control de acceso basado en rol (RBAC) o de permisos de coadministrador, cada usuario de Azure que recibe acceso a una aplicación puede usar sus credenciales de nivel de usuario personales hasta que se revoca el acceso. Estas credenciales de implementación no deben compartirse con otros usuarios de Azure.
-    >
-    >
-
-* **Credenciales de nivel de aplicación**: un conjunto de credenciales para cada aplicación. Se puede utilizar para implementar únicamente en esa aplicación. Las credenciales para cada aplicación se generan automáticamente al crear la aplicación y se encuentran en el perfil de publicación de la aplicación. Las credenciales no se pueden configurar manualmente, pero se pueden restablecer para una aplicación en cualquier momento.
-
-    > [!NOTE]
-    > Para dar a alguien acceso a estas credenciales a través de Control de acceso basado en roles (RBAC), es preciso convertirlo en colaborador, o cualquier rol superior, en la aplicación web. A los lectores no se les permite publicar, por lo que no pueden acceder a dichas credenciales.
-    >
-    >
+* **Credenciales de nivel de aplicación**: un conjunto de credenciales para cada aplicación. Se puede utilizar para implementar únicamente en esa aplicación. Las credenciales de cada aplicación se generan automáticamente cuando se crea la aplicación. Recuerde que no se pueden configurar manualmente, pero se pueden restablecer en cualquier momento. Para que un usuario obtenga acceso a las credenciales de nivel de aplicación a través del control de acceso basado en rol, ese usuario debe ser un colaborador o tener un rol superior en la aplicación. A los lectores no se les permite publicar contenido y no pueden obtener acceso a dichas credenciales.
 
 ## <a name="userscope"></a>Establecimiento y restablecimiento de credenciales de nivel de usuario
 
@@ -43,12 +32,11 @@ Puede configurar las credenciales de nivel de usuario en cualquier [página de r
 
 Para configurar las credenciales de nivel de usuario:
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > **&lt;cualquier_aplicación >** > **Credenciales de implementación**.
+1. En [Azure Portal](https://portal.azure.com), en el menú de la izquierda, haga clic en **App Services** > **&lt;any_app>**  > **Centro de implementaciones** > **Credenciales de implementación**.
 
-    > [!NOTE]
-    > En el portal, debe tener al menos una aplicación para acceder a la página de credenciales de implementación. Sin embargo, con la [CLI de Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), puede configurar las credenciales de nivel de usuario sin tener ninguna aplicación.
+    En el portal, debe tener al menos una aplicación para acceder a la página de credenciales de implementación. Sin embargo, con la [CLI de Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), puede configurar las credenciales de nivel de usuario sin tener ninguna aplicación.
 
-2. Configure el nombre de usuario y la contraseña y, a continuación, haga clic en **Guardar**.
+2. Haga clic en **Credenciales de usuario**, configure el nombre de usuario y la contraseña, y luego haga clic en **Guardar credenciales**.
 
     ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
 
@@ -61,35 +49,20 @@ y el nombre de usuario de implementación de *FTP* en las **propiedades** de la 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 
 > [!NOTE]
-> Azure no muestra la contraseña de la implementación de nivel de usuario. Si olvida la contraseña, no podrá recuperarla. Sin embargo, podrá restablecer las credenciales siguiendo los pasos descritos en esta sección.
+> Azure no muestra la contraseña de la implementación de nivel de usuario. Si se le olvida la contraseña, podrá restablecer las credenciales siguiendo los pasos descritos en esta sección.
 >
 >  
 
 ## <a name="appscope"></a>Obtención y restablecimiento de las credenciales de nivel de aplicación
-Para cada aplicación de App Service, sus credenciales de nivel de aplicación se almacenan en el perfil de publicación XML.
-
 Para obtener las credenciales de nivel de aplicación:
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > **&lt;cualquier_aplicación >** > **Información general**.
+1. En [Azure Portal](https://portal.azure.com), en el menú de la izquierda, haga clic en **App Services** > **&lt;any_app>**  > **Centro de implementaciones** > **Credenciales de implementación**.
 
-2. Haga clic en **... Más** > **Obtener perfil de publicación** para que comience la descarga de un archivo .PublishSettings.
+2. Haga clic en **Credenciales de la aplicación** y en el vínculo **Copiar** para copiar el nombre de usuario o la contraseña.
 
-    ![](./media/app-service-deployment-credentials/publish_profile_get.png)
+    ![](./media/app-service-deployment-credentials/deployment_credentials_app_level.png)
 
-3. Abra el archivo .PublishSettings y busque la etiqueta `<publishProfile>` con el atributo `publishMethod="FTP"`. A continuación, obtenga sus atributos `userName` y `password`.
-Estas son las credenciales de nivel de aplicación.
-
-    ![](./media/app-service-deployment-credentials/publish_profile_editor.png)
-
-    De manera similar a las credenciales de nivel de usuario, el nombre de usuario de implementación FTP se encuentra en el formato de `<app_name>\<username>`, y el nombre de usuario de implementación de GIT es simplemente `<username>` sin la parte `<app_name>\` del principio.
-
-Para restablecer las credenciales de nivel de aplicación:
-
-1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > **&lt;cualquier_aplicación >** > **Información general**.
-
-2. Haga clic en **... Más** > **Restablecer perfil de publicación**. Haga clic en **SÍ** para confirmar el restablecimiento.
-
-    La acción de restablecimiento invalida cualquier archivo .PublishSettings anteriormente descargado.
+Para restablecer las credenciales a nivel de aplicación, haga clic en **Restablecer credenciales** en el mismo cuadro de diálogo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

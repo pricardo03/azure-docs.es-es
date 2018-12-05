@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 428b9970471c9365812639e251810c571698a574
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425967"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713272"
 ---
 # <a name="change-a-maintenance-schedule"></a>Cambiar una programación de mantenimiento 
 
 ## <a name="portal"></a>Portal
 Una programación de mantenimiento puede actualizarse o cambiarse en cualquier momento. Si la instancia seleccionada está en un ciclo de mantenimiento activo, se guardará la configuración. Se activará durante el siguiente período de mantenimiento identificado. [Obtenga más información](https://docs.microsoft.com/azure/service-health/resource-health-overview) sobre cómo supervisar el almacenamiento de datos durante un evento de mantenimiento activo. 
 
-Mientras las programaciones de mantenimiento de Azure estén en versión preliminar, podrá seleccionar dos ventanas de mantenimiento durante un período de siete días. Cada ventana de mantenimiento puede ser de tres a ocho horas. El mantenimiento puede realizarse en cualquier momento dentro de una ventana de mantenimiento, pero no se realizará fuera estos períodos de tiempo sin notificación previa. También experimentará una breve pérdida de conectividad a medida que el servicio implementa el nuevo código en el almacenamiento de datos. 
+Para usar las programaciones de mantenimiento, deberá seleccionar dos ventanas de mantenimiento durante un período de siete días. Cada ventana de mantenimiento puede ser de tres a ocho horas. El mantenimiento puede realizarse en cualquier momento dentro de una ventana de mantenimiento, pero no se realizará fuera estos períodos de tiempo sin notificación previa. También experimentará una breve pérdida de conectividad a medida que el servicio implementa el nuevo código en el almacenamiento de datos. 
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identificar las ventanas principales y secundarias
 

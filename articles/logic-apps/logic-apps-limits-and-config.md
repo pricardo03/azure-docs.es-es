@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 11/16/2018
+ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346710"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853836"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -323,9 +323,10 @@ Todas las aplicaciones lógicas de una región usan el mismo intervalo de direcc
 
 ### <a name="managed-connectors"></a>Conectores administrados
 
-Para admitir las llamadas que realizan los [conectores administrados de Microsoft](../connectors/apis-list.md), establezca las opciones de configuración del firewall de modo que incluyan estas direcciones IP salientes, en función de las regiones donde estén las aplicaciones lógicas.
+Para admitir las llamadas que realizan los [conectores administrados de Microsoft](../connectors/apis-list.md), establezca las opciones de configuración del firewall de modo que incluyan todas las direcciones IP salientes especificadas para las regiones donde estén las aplicaciones lógicas. Para [Azure Government](/azure-government/documentation-government-welcome) y [Azure China 21Vianet](/azure/china/china-welcome), las direcciones IP reservadas para los conectores no están disponibles actualmente.
 
 > [!IMPORTANT]
+> 
 > Si ya tiene algunas opciones de configuración, actualícelas **tan pronto como le sea posible antes del 1 de septiembre de 2018** para que incluyan y coincidan con las direcciones IP de esta lista de las regiones donde están las aplicaciones lógicas. 
 > 
 > Logic Apps no admite la conexión directa a las cuentas de Azure Storage a través de firewalls. Para acceder a estas cuentas de almacenamiento, use cualquiera de estas opciones: 

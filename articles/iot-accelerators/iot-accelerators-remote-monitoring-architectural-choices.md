@@ -8,53 +8,81 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 09c5981701ffdee5f2e5dba47cc98c91d5df7526
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 94641796fa77e03efc7158bc3aaf4bde9385c899
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603913"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824275"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Opciones de arquitectura de supervisión remota
 
-El acelerador de la solución Supervisión remota de Azure IoT es un acelerador de soluciones con licencia MIT y de código abierto que presenta los escenarios comunes de IoT, como la conectividad de dispositivos, la administración de dispositivos y el procesamiento de flujos, a fin de que los clientes puedan agilizar el proceso de desarrollo.  La solución Supervisión remota sigue la arquitectura de referencia recomendada de Azure IoT publicada [aquí](https://aka.ms/iotrefarchitecture).  
+El acelerador de soluciones de Supervisión remota de Azure IoT es un acelerador de soluciones con licencia MIT y de código abierto. Para ayudar a acelerar el proceso de desarrollo de IoT, muestra escenarios comunes de IoT, como:
 
-En este artículo, se describen las opciones de arquitectura y técnicas realizadas en cada uno de los subsistemas de la solución Supervisión remota y se tratan las alternativas consideradas.  Es importante tener en cuenta que las opciones técnicas realizadas en la solución Supervisión remota no son la única forma de implementar una solución de IoT de supervisión remota.  La implementación técnica es una línea base para crear una aplicación apropiada y debe modificarse para ajustarse a las cualificaciones, la experiencia y las necesidades de aplicación vertical para la implementación de una solución de cliente.
+- Conectividad de dispositivos
+- Administración de dispositivos
+- Procesamiento de flujos
+
+La solución de Supervisión remota sigue la [arquitectura de referencia recomendada de Azure IoT](https://aka.ms/iotrefarchitecture).
+
+En este artículo, se describen las opciones de arquitectura y técnicas realizadas en cada uno de los subsistemas de la solución de Supervisión remota y se tratan las alternativas consideradas. Sin embargo, las opciones técnicas de Microsoft en la solución de Supervisión remota no son la única forma de implementar una solución de IoT de supervisión remota. Se debe considerar la implementación técnica como una línea de base para la compilación de una aplicación correcta y debe modificarla para:
+
+- Adaptar las habilidades y experiencia disponibles en su organización.
+- Satisfacer las necesidades de aplicación vertical.
 
 ## <a name="architectural-choices"></a>Opciones de la arquitectura
 
-### <a name="microservices-serverless-and-cloud-native"></a>Microservicios, sin servidor y nativa en la nube
+La arquitectura que Microsoft recomienda para una aplicación de IoT es nativa en la nube, basada en microservicios y sin servidor. Debe compilar los diferentes subsistemas de una aplicación de IoT como servicios discretos que se pueden implementar y escalar de forma independiente. Estos atributos permiten mayor escala, más flexibilidad para actualizar los subsistemas individuales y proporcionan la flexibilidad para elegir la tecnología apropiada para cada subsistema.
 
-La arquitectura recomendada para aplicaciones IoT es nativa en la nube, basada en microservicios y sin servidor.  Los diferentes subsistemas de una aplicación IoT deben crearse como servicios discretos que se pueden implementar de forma independiente y que se puedan escalar también por separado.  Estos atributos permiten mayor escala, más flexibilidad para actualizar los subsistemas individuales y proporcionan la flexibilidad para elegir la tecnología apropiada por cada subsistema.  Los microservicios pueden implementarse con varias tecnologías. Por ejemplo, usar la tecnología de contenedores como Docker con la tecnología sin servidor, como Azure Functions, o hospedar microservcios en servicios PaaS, como Azure App Services.
+Puede implementar microservicios con más de una tecnología. Por ejemplo, puede elegir cualquiera de las siguientes opciones para implementar un microservicio:
 
-## <a name="core-subsystem-technology-choices"></a>Opciones tecnológicas del subsistema principal
+- Usar tecnología de contenedor, como Docker, con tecnología sin servidor, como Azure Functions.
+- Hospedar sus microservicios en servicios de PaaS como Azure App Services.
+
+## <a name="technology-choices"></a>Opciones de tecnología
 
 En esta sección, se detallan las opciones de tecnología realizadas en la solución Supervisión remota para cada subsistema principal.
 
-![Diagrama principal](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png) 
+![Diagrama principal](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png)
 
 ### <a name="cloud-gateway"></a>Puerta de enlace en la nube
-Azure IoT Hub se usa como la puerta de enlace en la nube de la solución Supervisión remota.  IoT Hub ofrece una comunicación segura y bidireccional con los dispositivos. Puede obtener más información sobre IoT Hub [aquí](https://azure.microsoft.com/services/iot-hub/). Para la conectividad de dispositivos IoT, se usan los SDK de .NET Core e IoT Hub de Java.  Los SDK ofrecen contenedores en torno a la API REST de IoT Hub y controlan escenarios como los reintentos.
+
+Azure IoT Hub se usa como la puerta de enlace en la nube de la solución de supervisión remota. [IoT Hub](https://azure.microsoft.com/services/iot-hub/) ofrece una comunicación segura y bidireccional con los dispositivos.
+
+Para la conectividad de dispositivos IoT, puede usar:
+
+- [SDK de dispositivos de IoT Hub](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) para implementar una aplicación cliente nativa para el dispositivo. Los SDK ofrecen contenedores en torno a la API REST de IoT Hub y controlan escenarios como los reintentos.
+- La integración con Azure IoT Edge en el Acelerador de soluciones para implementar y administrar módulos personalizados que se ejecutan en contenedores en los dispositivos.
 
 ### <a name="stream-processing"></a>Procesamiento de flujos
-Para el procesamiento de flujos, la solución Supervisión remota usa Azure Stream Analytics para el procesamiento de reglas complejas.  Para los clientes que desean reglas más sencillas, también tenemos un microservicio personalizado con compatibilidad para el procesamiento de reglas sencillas, aunque esta configuración no forma parte de la implementación predefinida. La arquitectura de referencia recomienda usar Azure Functions para el procesamiento de reglas sencillas y Azure Stream Analytics (ASA) para el procesamiento de reglas complejas.  
+
+Para el procesamiento de flujos, la solución de supervisión remota usa Azure Stream Analytics para el procesamiento de reglas complejas. Si quiere usar reglas más sencillas, existe un microservicio personalizado con compatibilidad para el procesamiento de reglas sencillas, aunque esta configuración no forma parte de la implementación predefinida. La arquitectura de referencia recomienda usar Azure Functions para el procesamiento de reglas sencillas y Azure Stream Analytics para el procesamiento de reglas complejas.
 
 ### <a name="storage"></a>Storage
-Para el almacenamiento, el acelerador de soluciones de Supervisión remota usa tanto Azure Time Series Insights como Azure Cosmos DB. Azure Time Series Insights almacena los mensajes entrantes a través de IoT Hub desde los dispositivos conectados. El acelerador de soluciones usa Azure Cosmos DB para todo el almacenamiento restante, como el almacenamiento en frío, las definiciones de reglas, las alarmas y las opciones de configuración. Azure Cosmos DB es la solución de almacenamiento en caliente de uso general recomendada para aplicaciones IoT, aunque las soluciones como Azure Time Series Insights y Azure Data Lake son apropiadas para muchos casos de uso. Con Azure Time Series Insights, puede obtener conclusiones más detalladas de los datos de los sensores de serie temporal mediante una detección de tendencias y anomalías, lo que permite realizar análisis de las causas principales y evitar caros tiempos de inactividad. 
+
+Para el almacenamiento, el acelerador de soluciones de Supervisión remota usa tanto Azure Time Series Insights como Azure Cosmos DB. Azure Time Series Insights almacena los mensajes entrantes a través de IoT Hub desde los dispositivos conectados. El acelerador de soluciones usa Azure Cosmos DB para todo el almacenamiento restante, como el almacenamiento en frío, las definiciones de reglas, las alarmas y las opciones de configuración.
+
+Azure Cosmos DB es la solución de almacenamiento en caliente de uso general recomendada para aplicaciones IoT, aunque las soluciones como Azure Time Series Insights y Azure Data Lake son apropiadas para muchos casos de uso. Con Azure Time Series Insights, puede obtener conclusiones más detalladas de los datos de los sensores de serie temporal mediante una detección de tendencias y anomalías. Esta característica le permite realizar análisis de causa principal y evitar costosos tiempos de inactividad.
 
 > [!NOTE]
 > Time Series Insights actualmente no está disponible en la nube de Azure China. Las nuevas implementaciones del acelerador de soluciones de Supervisión remota en la nube de Azure China usan Cosmos DB para todo el almacenamiento.
 
 ### <a name="business-integration"></a>Integración de negocios
-Integración de negocios en la solución Supervisión remota se limita a la generación de alarmas, que se hospedan en el almacenamiento en caliente. Se pueden realizar más integraciones de negocios mediante la integración de la solución con Azure Logic Apps.
+
+Integración de negocios en la solución de supervisión remota se limita a la generación de alarmas, que se hospedan en el almacenamiento en caliente. Conecte la solución con Azure Logic Apps para implementar escenarios de integración empresarial más profundos.
 
 ### <a name="user-interface"></a>Interfaz de usuario
-La interfaz de usuario web se compila con JavaScript React.  React ofrece un marco de interfaz de usuario web de uso común en el sector y es similar a otros marcos populares como Angular.  
+
+La interfaz de usuario web se compila con JavaScript React. React ofrece un marco de interfaz de usuario web de uso común en el sector y es similar a otros marcos populares como Angular.
 
 ### <a name="runtime-and-orchestration"></a>Automatización y orquestación
-El tiempo de ejecución de la aplicación elegido para la implementación de subsistemas en la solución Supervisión remota se corresponde con contenedores de Docker con Kubernetes como el orquestador del escalado horizontal.  Esta arquitectura permite la definición de escala individual por subsistema; sin embargo, incurre en costos de DevOps al mantener máquinas virtuales y contenedores actualizados desde una perspectiva de seguridad.  Las alternativas a Docker y Kubernetes abarcan el hospedaje de microservicios en servicios PaaS (por ejemplo, Azure App Service) o el uso de Service Fabric, DCOS, Swarm, etc. como orquestador.
+
+La solución de Supervisión remota usa contenedores de Docker para ejecutar subsistemas con Kubernetes como el orquestador del escalado horizontal. Esta arquitectura permite definiciones de escala individual para cada subsistema. Sin embargo, esta arquitectura incurre en costos de DevOps para mantener las máquinas virtuales y contenedores actualizados y seguros.
+
+Las alternativas a Docker incluyen el hospedaje de microservicios en servicios de PaaS como Azure App Service. Las alternativas a Kubernetes incluyen orquestadores como Service Fabric, DC/OS o Swarm.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Implemente la solución Supervisión remota [aquí](https://www.azureiotsolutions.com/).
 * Explore el código de GitHub en [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) y [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
 * Obtenga más información sobre la arquitectura de referencia de IoT [aquí](https://aka.ms/iotrefarchitecture).

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364302"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820229"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configuración de controles de acceso basado en rol en el acelerador de soluciones de supervisión remota
 
@@ -23,29 +23,33 @@ En este artículo se proporciona información sobre cómo configurar los control
 
 Al implementar la solución de supervisión remota por primera vez, hay dos roles: **Administrador** y **Solo lectura**.
 
-Cualquier usuario con el rol **Administrador** tiene acceso completo a la solución. Un usuario con el rol **Solo lectura** no puede realizar ninguna de las siguientes tareas:
+Cualquier usuario en el rol **Administrador** tiene acceso completo a la solución, incluidos los permisos siguientes. Un usuario en el rol **Solo lectura** solo tendrá acceso a la vista de la solución.
 
-- Actualizar alarmas
-- Eliminar alarmas
-- Crear dispositivos
-- Actualizar dispositivos
-- Eliminar dispositivos
-- Crear grupos de dispositivos
-- Actualizar grupos de dispositivos
-- Eliminar grupos de dispositivos
-- Creación de reglas
-- Actualizar reglas
-- Eliminar reglas
-- Creación de trabajos
-- Actualizar la administración de SIM
+| Permiso            | Administración | Solo lectura |
+|----------------       |-------|-----------|
+| Vista de la solución         | SÍ   | SÍ       |
+| Actualizar alarmas         | SÍ   | Sin         |
+| Eliminar alarmas         | SÍ   | Sin         |
+| Crear dispositivos        | SÍ   | Sin         |
+| Actualizar dispositivos        | SÍ   | Sin         |
+| Eliminar dispositivos        | SÍ   | Sin         |
+| Crear grupos de dispositivos  | SÍ   | Sin         |
+| Actualizar grupos de dispositivos  | SÍ   | Sin         |
+| Eliminar grupos de dispositivos  | SÍ   | Sin         |
+| Creación de reglas          | SÍ   | Sin         |
+| Actualizar reglas          | SÍ   | Sin         |
+| Eliminar reglas          | SÍ   | Sin         |
+| Creación de trabajos           | SÍ   | Sin         |
+| Actualizar la administración de SIM | SÍ   | Sin         |
 
-A la persona que implementa la solución de supervisión remota se le asigna automáticamente el rol **Administrador** y es propietario de la aplicación Azure Active Directory. Como propietario de la aplicación, puede asignar roles a otros usuarios en Azure Portal.
+De manera predeterminada, al usuario que implementa la solución se le asigna automáticamente el rol **Administrador** y es propietario de la aplicación de Azure Active Directory. Como propietario de la aplicación, puede asignar roles a otros usuarios en Azure Portal. Si quiere que otros usuarios asignen roles en la solución, también se deben establecer como propietarios de la aplicación en Azure Portal.
 
-Si quiere que otros usuarios asignen roles en la solución, también se deben establecer como propietarios de la aplicación en Azure Portal.
+> [!NOTE]
+> El usuario que implementó la solución es la **única persona** que puede verla inmediatamente una vez creada. Para conceder a otros usuarios acceso para ver la aplicación con los roles de Solo lectura, Administrador o Personalizado, vea las instrucciones siguientes acerca de cómo agregar o eliminar usuarios.
 
 ## <a name="add-or-remove-users"></a>Incorporación o eliminación de usuarios
 
-Use Azure Portal para agregar o quitar usuarios de la solución de supervisión remota. En los pasos siguientes se usa la [aplicación empresarial de Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) que se creó cuando implementó la solución de supervisión remota.
+Como propietario de la aplicación de Azure Active Directory, puede usar Azure Portal para agregar un usuario a un rol o quitarlo desde la solución de supervisión remota. En los pasos siguientes se usa la [aplicación empresarial de Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) que se creó cuando implementó la solución de supervisión remota.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 

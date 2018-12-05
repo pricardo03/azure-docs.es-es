@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584173"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820314"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
 
@@ -54,21 +54,21 @@ Realice los pasos siguientes para preparar las unidades de disco.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
     - **Para importar una carpeta**: todos los archivos y carpetas bajo *MyFolder2* se copiarán en el recurso compartido de archivos de forma recursiva. Se mantiene la estructura de carpetas.
 
         ```
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            
+            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
         ```
     Se pueden realizar varias entradas en el mismo archivo correspondiente a las carpetas o archivos que se importan. 
 
         ```
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-                        
+                        
         ```
     Obtenga más información sobre cómo [preparar el archivo CSV de conjunto de datos](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
@@ -139,7 +139,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
     
     - Cargar los archivos de diario que creó con anterioridad en [Paso 1: Preparación de las unidades de disco](#step-1-prepare-the-drives). 
     - Seleccione la cuenta de almacenamiento en la que se importarán los datos. 
-    - La ubicación de llegada se rellena automáticamente según la región de la cuenta de almacenamiento seleccionada.
+    - La ubicación de la entrega se rellena automáticamente según la región de la cuenta de almacenamiento seleccionada.
    
        ![Creación del trabajo de importación: Paso 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

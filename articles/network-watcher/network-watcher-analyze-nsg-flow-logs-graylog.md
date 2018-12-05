@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414784"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823051"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Graylog.
 
 Los [registros de flujo de grupo de seguridad de red](network-watcher-nsg-flow-logging-overview.md) proporcionan información que se usa para comprender el tráfico IP de entrada y salida para las interfaces de red de Azure. Los registros de flujo muestran los flujos de entrada y salida en función de cada regla de grupo de seguridad de red, la interfaz de red a la que se aplica el flujo, información de 5-tupla (IP de origen y de destino, puerto de origen y de destino, protocolo) sobre el flujo, y si se permitió o denegó el tráfico.
 
 Puede tener varios grupos de seguridad de red en la red con el registro de flujo habilitado. Puede resultar complicado analizar varios grupos de seguridad de red con el registro de flujo habilitado y obtener información de los registros. En este artículo se proporciona una solución para administrar de forma centralizada estos registros de flujo de grupo de seguridad de red mediante Graylog, una herramienta de análisis y administración de registros de código abierto y Logstash, una canalización de procesamiento de datos en el servidor de código abierto.
+
+> [!Warning]
+> En los pasos siguientes se trabajará con la versión 1 de los registros de flujo. Para obtener más detalles, vea [Introducción al registro de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md). Las siguientes instrucciones no funcionarán con la versión 2 de los archivos de registro, sin ninguna modificación.
 
 ## <a name="scenario"></a>Escenario
 

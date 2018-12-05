@@ -1,10 +1,11 @@
 ---
-title: 'Paso 1: Creación de un área de trabajo de Machine Learning | Microsoft Docs'
+title: 'Paso 1: Crear un área de trabajo de Azure Machine Learning Studio | Microsoft Docs'
 description: 'Paso 1 del tutorial Desarrollo de una solución predictiva: carga de datos públicos almacenados en Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: f6f6ed67a1ddde3d8f3102a8f7032dc03b0e91b9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0990fb6f8166be516b32e1f457f868be16dedcb2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835821"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316975"
 ---
-# <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Paso 1 del tutorial: Creación de un área de trabajo de Machine Learning
+# <a name="walkthrough-step-1-create-a-machine-learning-studio-workspace"></a>Paso 1 del tutorial: Crear un área de trabajo de Machine Learning Studio
 Este es el primer paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
 1. **Creación de un área de trabajo de Machine Learning**

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1a64e40b13b05fc7f9fdb6f5aa99c8d8cc47c471
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d0d1efcdaab07e77d835319544fc70eb8687702f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251617"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316351"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Solucionar los errores HTTP de "502 Puerta de enlace no válida" y "503 Servicio no disponible" en las aplicaciones web de Azure
 "502 Puerta de enlace no válida" y "503 Servicio no disponible" son errores comunes de su aplicación web hospedada en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Este artículo le ayuda a solucionar estos errores.
@@ -74,22 +74,10 @@ Para más información, consulte:
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. Recopilación de datos
-#### <a name="use-the-azure-app-service-support-portal"></a>Uso del Portal de soporte técnico de Azure App Service
-El servicio Web Apps ofrece la posibilidad de solucionar los problemas relacionados con su aplicación web con solo examinar los registros HTTP, los registros de eventos, los volcados de proceso, etc. Puede tener acceso a toda esta información con nuestro Portal de soporte técnico en **http://&lt;Nombre de la aplicación>.scm.azurewebsites.net/Support**.
+#### <a name="use-the-diagnostics-tool"></a>Uso de la herramienta de diagnósticos
+App Service proporciona una experiencia inteligente e interactiva que le ayuda a solucionar los problemas de su aplicación web sin necesidad de configurar nada. Cuando surgen problemas con la aplicación web, la herramienta de diagnóstico le indicará lo que pasa y le guiará a la información correcta de forma que pueda solucionar el problema de la manera más fácil y rápida.
 
-El Portal de soporte técnico de Azure App Service le proporciona tres pestañas distintas correspondientes a los tres pasos de un escenario común de solución de problemas:
-
-1. Observación del comportamiento actual
-2. Análisis mediante la recopilación de información de diagnóstico y la ejecución de los analizadores integrados
-3. Mitigación
-
-Si el problema está sucediendo justo ahora, haga clic en **Analizar** > **Diagnósticos** > **Diagnosticar ahora** para crear una sesión de diagnóstico, que recopilará registros HTTP, registros del visor de eventos, volcados de memoria, registros de errores PHP e informes de procesos PHP.
-
-Después de la recopilación de los datos, también se ejecuta un análisis de ellos y se proporciona un informe HTML.
-
-En caso de que quiera descargar los datos, de forma predeterminada se almacenarían en la carpeta D:\home\data\DaaS.
-
-Para obtener más información sobre el Portal de soporte técnico de Azure App Service, consulte [Nuevas actualizaciones de la extensión de sitios de soporte técnico para Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+Para acceder al diagnóstico de App Service, vaya a la aplicación de App Service o del entorno de App Service en [Azure Portal](https://portal.azure.com). En el panel izquierdo, haga clic en **Diagnosticar y solucionar problemas**.
 
 #### <a name="use-the-kudu-debug-console"></a>Uso de la consola de depuración Kudu
 El servicio Web Apps incluye una consola de depuración que puede usar para depurar, explorar o cargar archivos, e incluye también puntos de conexión JSON para obtener información sobre su entorno. A esto se le denomina *Consola Kudu* o *Panel SCM* para la aplicación web.

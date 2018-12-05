@@ -2,8 +2,7 @@
 title: Instalación de controladores de GPU de la serie N de Azure para Windows | Microsoft Docs
 description: Instalación de controladores de GPU de NVIDIA para máquinas virtuales de la serie N que se ejecutan en Windows Server o Windows en Azure
 services: virtual-machines-windows
-documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 551d9da51abaeddfd22c72748a552ba0ae155de6
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033267"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707018"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalación de controladores de GPU de NVIDIA en VM de la serie N con Windows 
 
@@ -51,7 +50,7 @@ Para consultar el estado del dispositivo de GPU, ejecute la utilidad de línea d
 
 1. Abra un símbolo del sistema y cambie al directorio **C:\Program Files\NVIDIA Corporation\NVSMI**.
 
-2. Ejecute `nvidia-smi`. Si el controlador está instalado, obtendrá un resultado parecido al siguiente. Tenga en cuenta que **GPU-Util** muestra **0 %** a no ser que esté ejecutando actualmente una carga de trabajo de la GPU en la máquina virtual. La versión del controlador y los detalles de GPU pueden ser diferentes de los que se muestran.
+2. Ejecute `nvidia-smi`. Si el controlador está instalado, verá una salida parecida a la siguiente. La utilidad **GPU-Util** muestra **0 %**, salvo que se esté ejecutando una carga de trabajo de GPU en la máquina virtual. La versión del controlador y los detalles de GPU pueden ser diferentes de los que se muestran.
 
 ![Estado del dispositivo de NVIDIA](./media/n-series-driver-setup/smi.png)  
 

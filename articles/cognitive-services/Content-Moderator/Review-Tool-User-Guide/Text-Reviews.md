@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: cb8774395b7374677e8de3b80630a2d4abf490f9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380102"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852102"
 ---
 # <a name="review-text"></a>Revisar el texto
 
@@ -32,4 +32,4 @@ La herramienta de revisión llama primero a Text Moderation API. A continuación
 
 Aparecen resultados detallados en las ventanas. Los resultados incluyen etiquetas detectadas y términos devueltos por Text Moderation API. Para alternar el estado de selección de una etiqueta, seleccione la etiqueta. También puede trabajar con etiquetas personalizadas que haya creado.
 
-![Revisar los resultados de texto](images/3-review-text-2.png)
+![Captura de pantalla de la herramienta de revisión que muestra el texto marcado en una ventana del explorador Chrome](../images/reviewresults_text.png)

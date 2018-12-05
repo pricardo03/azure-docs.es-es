@@ -1,5 +1,5 @@
 ---
-title: Información sobre los resultados de la comprobación del agente de Azure Update Management
+title: Información sobre los resultados de la comprobación del agente de Windows en Azure Update Management
 description: Obtenga información acerca de la solución de problemas con el agente de Update Management.
 services: automation
 author: georgewallace
@@ -9,60 +9,56 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 20323afe79ad3de1e3dfccd4752c4f7e28d22266
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 61ff50cda6ec523964ccf8f885f07c39020fbc88
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095378"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335153"
 ---
-# <a name="understand-the-agent-check-results-in-update-management"></a>Información sobre los resultados de la comprobación del agente de Update Management
+# <a name="understand-the-windows-agent-check-results-in-update-management"></a>Información sobre los resultados de la comprobación del agente de Windows en Update Management
 
-Puede haber muchas razones por las que la máquina que no es de Azure no muestra el estado **Listo** en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas desde Azure Portal y en escenarios sin conexión.
+Hay muchas razones por las que una máquina de Azure podría no mostrar un estado **Listo** en Azure Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Worker para determinar un problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas de Update Management desde Azure Portal y en escenarios sin conexión.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar el solucionador de problemas
 
-Si hace clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, abra la página **Solucionar problemas del Agente de actualización**. Esta página muestra los problemas con el agente y un vínculo a este artículo para ayudarle a solucionar sus problemas.
+En Azure Portal, la página **Solucionar problemas del Agente de actualización** muestra los problemas que hayan surgido con el agente. En la página, hay un vínculo a este artículo que le ayudará a resolver problemas. Para ir a la página **Solucionar problemas del Agente de actualización**, seleccione el vínculo de **solución de problemas** en la columna **Update Agent Readiness** (Preparación del Agente de actualización).
 
-![Página de Lista de VM](../media/update-agent-issues/vm-list.png)
+![Actualizar la lista de administración de máquinas virtuales](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> Las comprobaciones requieren que la máquina esté en ejecución. Si la máquina virtual no se encuentra en ejecución, aparece un botón para **Iniciar la máquina virtual**.
+> Para comprobar el estado de un agente, la máquina virtual debe estar en ejecución. Si la máquina virtual no se está ejecutando, aparecerá el botón **Start the VM** (Iniciar la máquina virtual).
 
-En la página **Solucionar problemas del Agente de actualización**, haga clic en **Ejecutar comprobaciones** para iniciar el solucionador de problemas. El solucionador de problemas usa el [Comando Ejecutar](../../virtual-machines/windows/run-command.md) para ejecutar un script en la máquina a fin de verificar las dependencias que el agente tiene. Una vez completado el solucionador de problemas, devuelve el resultado de las comprobaciones.
+En la página **Solucionar problemas del Agente de actualización**, haga clic en **Ejecutar comprobaciones** para iniciar el solucionador de problemas. El solucionador de problemas usa el [Comando Run](../../virtual-machines/windows/run-command.md) para ejecutar un script en la máquina a fin de verificar las dependencias que el agente tiene. Una vez completado el proceso del solucionador de problemas, devuelve el resultado de las comprobaciones.
 
-![Página de solución de problemas](../media/update-agent-issues/troubleshoot-page.png)
+![Página de solución de problemas del Agente de actualización](../media/update-agent-issues/troubleshoot-page.png)
 
-Una vez finalizada la operación, los resultados se devuelven en la ventana. En las [secciones de comprobación](#pre-requisistes-checks) se ofrece información sobre qué se busca en cada comprobación.
+Los resultados se muestran en la página cuando haya terminado el proceso. Las [secciones de las comprobaciones](#prerequisiste-checks) muestran lo que está incluido en cada una de ellas.
 
-![Página de comprobaciones del agente de actualización](../media/update-agent-issues/update-agent-checks.png)
+![Comprobaciones de la solución de problemas del Agente de actualización](../media/update-agent-issues/update-agent-checks.png)
 
 ## <a name="prerequisite-checks"></a>Comprobaciones de requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-La comprobación del sistema operativo comprueba si el Hybrid Runbook Worker ejecuta alguno de los siguientes sistemas operativos:
+La comprobación del sistema operativo comprueba si Hybrid Runbook Worker está ejecutando alguno de los siguientes sistemas operativos:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Solo admite evaluaciones de actualización.         |
-|Windows Server 2008 R2 SP1 y posterior     |Se requiere .NET Framework 4.5.1 o cualquier versión posterior. ([Descargar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Se requiere Windows PowerShell 4.0 o posterior. ([Descargar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Se recomienda Windows PowerShell 5.1 para aumentar la confiabilidad.  ([Descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
-|CentOS 6 (x86/x64) y 7 (x64)      | Los agentes de Linux deben tener acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere "yum" para devolver los datos de seguridad que CentOS no tiene de forma nativa.         |
-|Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
-|Ubuntu 14.04 LTS, 16.04 LTS y 18.04 LTS (x86/x64)      |Los agentes de Linux deben tener acceso a un repositorio de actualización.         |
+|Windows Server 2008 R2 RTM, Windows Server 2008 | Solo admite evaluaciones de actualización.         |
+|Windows Server 2008 R2 SP1 y posterior |Se requiere .NET Framework 4.5.1 o cualquier versión posterior. ([Descargar .NET Framework](/dotnet/framework/install/guide-for-developers)).<br/> Se requiere Windows PowerShell 4.0 o posterior. ([Descargar Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br/> Se recomienda Windows PowerShell 5.1 para aumentar la confiabilidad.  ([Descargar Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).        |
 
 ### <a name="net-451"></a>.NET 4.5.1
 
-La comprobación de .NET Framework verifica si en el sistema existe la versión mínima de [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653).
+La comprobación de .NET Framework verifica si el sistema tiene instalada la versión mínima de [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653).
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-La comprobación de WMF verifica si el sistema tiene la versión requerida de Windows Management Framework. [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) es la versión mínima que admite. Se recomienda que instale [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) para ofrecer mayor confiabilidad del Hybrid Runbook Worker.
+La comprobación de WMF verifica si el sistema tiene la versión requerida de Windows Management Framework (WMF). [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) es la versión más reciente admitida. Se recomienda que instale [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) para tener mayor confiabilidad en Hybrid Runbook Worker.
 
 ### <a name="tls-12"></a>TLS 1.2
 
-Esta comprobación determina si usa TLS 1.2 para cifrar las comunicaciones. TLS 1.0 ya no es compatible con la plataforma y se recomienda que los clientes usen TLS 1.2 para comunicarse con Update Management.
+Esta comprobación determina si usa TLS 1.2 para cifrar las comunicaciones. TLS 1.0 ya no es compatible con la plataforma. Se recomienda que los clientes usen TLS 1.2 para comunicarse con Update Management.
 
 ## <a name="connectivity-checks"></a>Comprobaciones de conectividad
 
@@ -70,27 +66,27 @@ Esta comprobación determina si usa TLS 1.2 para cifrar las comunicaciones. TLS 
 
 Esta comprobación determina si el agente puede comunicarse correctamente con el servicio del agente.
 
-Las configuraciones de proxy y firewall deben permitir que el agente de Hybrid Runbook Worker se comunique con el punto de conexión de registro. Para obtener una lista de direcciones y puertos que deben abrirse, vea [Planeación de red para Hybrid Worker](../automation-hybrid-runbook-worker.md#network-planning)
+Las configuraciones de proxy y firewall deben permitir que el agente de Hybrid Runbook Worker se comunique con el punto de conexión de registro. Para obtener una lista de direcciones y puertos que deben abrirse, vea [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning) (Planificación de red para instancias de Hybrid Worker).
 
 ### <a name="operations-endpoint"></a>Punto de conexión de las operaciones
 
 Esta comprobación determina si el agente puede comunicarse correctamente con el servicio de datos en tiempo de ejecución del trabajo.
 
-Las configuraciones de proxy y firewall deben permitir que el agente de Hybrid Runbook Worker se comunique con el servicio de datos en tiempo de ejecución del trabajo. Para obtener una lista de direcciones y puertos que deben abrirse, vea [Planeación de red para Hybrid Worker](../automation-hybrid-runbook-worker.md#network-planning)
+Las configuraciones de proxy y firewall deben permitir que el agente de Hybrid Runbook Worker se comunique con el servicio de datos en tiempo de ejecución del trabajo. Para obtener una lista de direcciones y puertos que deben abrirse, vea [Network planning for Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning) (Planificación de red para instancias de Hybrid Worker).
 
 ## <a name="vm-service-health-checks"></a>Comprobaciones del estado de servicio de las máquinas virtuales
 
 ### <a name="monitoring-agent-service-status"></a>Supervisión del estado de servicio del agente
 
-Esta comprobación determina si Microsoft Monitoring Agent `HealthService` se ejecuta en la máquina.
+Esta comprobación determina si Microsoft Monitoring Agent (`HealthService`) se ejecuta en la máquina.
 
 Para más información sobre cómo solucionar problemas del servicio, vea [No se está ejecutando Microsoft Monitoring Agent](hybrid-runbook-worker.md#mma-not-running).
 
-Para volver a instalar Microsoft Monitoring Agent, vea [Instalación y configuración de Microsoft Monitoring Agent](/log-analytics/log-analytics-concept-hybrid.md#install-and-configure-agent)
+Para volver a instalar Microsoft Monitoring Agent, consulte [Instalación y configuración de Microsoft Monitoring Agent](../../log-analytics/log-analytics-quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Supervisión de eventos de servicio del agente
 
-Esta comprobación determina si se ha producido algún evento `4502` en el registro de Operations Manager en la maquina durante las veinticuatro últimas horas.
+Esta comprobación determina si se ha producido algún evento `4502` en el registro de Azure Operations Manager de la maquina durante las veinticuatro últimas horas.
 
 Para más información sobre este evento, vea la [guía de solución de problemas](hybrid-runbook-worker.md#event-4502) para este evento.
 
@@ -98,11 +94,11 @@ Para más información sobre este evento, vea la [guía de solución de problema
 
 ### <a name="machinekeys-folder-access"></a>Acceso a la carpeta MachineKeys
 
-La comprobación de acceso a la carpeta criptográfica determina si la cuenta del sistema local tiene acceso a `C:\ProgramData\Microsoft\Crypto\RSA`
+La comprobación del acceso a la carpeta Crypto determina si la cuenta del sistema local tiene acceso a C:\ProgramData\Microsoft\Crypto\RSA.
 
 ## <a name="troubleshoot-offline"></a>Solución de problemas sin conexión
 
-Puede utilizar el solucionador de problemas sin conexión en un Hybrid Runbook Worker mediante la ejecución local del script. El script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) puede encontrarse en la Galería de PowerShell. En el ejemplo siguiente se muestra un ejemplo del resultado de este script:
+Puede usar el solucionador de problemas en una instancia sin conexión de Hybrid Runbook Worker si ejecuta el script de forma local. El script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) puede encontrarse en la Galería de PowerShell. El resultado de este script tendrá un aspecto similar al del siguiente ejemplo:
 
 ```output
 RuleId                      : OperatingSystemCheck
@@ -198,4 +194,4 @@ CheckResultMessageArguments : {}
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para solucionar problemas adicionales con los Hybrid Runbook Workers, vea [Solución de problemas de Hybrid Runbook Worker](hybrid-runbook-worker.md).
+Para solucionar problemas adicionales con las instancias de Hybrid Runbook Worker, consulte [Solución de problemas de Hybrid Runbook Worker](hybrid-runbook-worker.md).

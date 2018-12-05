@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3cd27438247b801e384b80d96ba288896b4c5aae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234229"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499399"
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Creación de una canalización de aprendizaje automático de Spark
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Creación de una canalización de aprendizaje automático de Apache Spark
 
 La biblioteca de aprendizaje automático (MLlib) escalable de Apache Spark ofrece funcionalidades de modelado a un entorno distribuido. El paquete de Spark [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) es un conjunto de API de alto nivel basadas en DataFrames. Estas API permiten crear y ajustar prácticas canalizaciones de aprendizaje automático.  *Aprendizaje automático de Spark* hace referencia a esta API basada en la DataFrame de MLlib, no a la antigua API de canalización basada en RDD.
 
@@ -131,4 +131,4 @@ Ahora puede usarse el objeto `model` para realizar predicciones. Para obtener el
 
 ## <a name="see-also"></a>Otras referencias
 
-* [Ciencia de datos mediante Scala y Spark en Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Ciencia de datos mediante Scala y Apache Spark en Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

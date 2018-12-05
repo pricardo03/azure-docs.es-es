@@ -12,28 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128056"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706609"
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET 
+# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Una manera de guardar los datos de tareas consiste en usar la [biblioteca de convenciones de archivo para .NET de Azure Batch][nuget_package]. La biblioteca de convenciones de archivo simplifica el proceso de almacenamiento de los datos de salida de tareas en Azure Storage y su recuperación posterior. Puede usarla en el código de tarea y en el de cliente.&mdash;En el código de tarea, para almacenar los archivos y en el código de cliente, para mostrarlos y recuperarlos. El código de la tarea también puede usar la biblioteca para recuperar las salidas de las tareas precedentes de la cadena, como en un escenario con [dependencias entre tareas](batch-task-dependencies.md). 
+Una manera de guardar los datos de tareas consiste en usar la [biblioteca de convenciones de archivo para .NET de Azure Batch][nuget_package]. La biblioteca de convenciones de archivo simplifica el proceso de almacenamiento de los datos de salida de tareas en Azure Storage y su recuperación posterior. Puede usarla en el código de tarea y en el de cliente.&mdash;En el código de tarea, para almacenar los archivos y en el código de cliente, para mostrarlos y recuperarlos. El código de la tarea también puede usar la biblioteca para recuperar las salidas de las tareas precedentes de la cadena, como en un escenario con [dependencias entre tareas](batch-task-dependencies.md).
 
 Para recuperar los archivos de salida con la biblioteca de convenciones de archivo, puede buscar los archivos de un trabajo o tarea determinados enumerándolos por identificador y finalidad. No es necesario conocer los nombres o ubicaciones de los archivos. Por ejemplo, puede usar la biblioteca de convenciones de archivo para mostrar todos los archivos intermedios de una tarea determinada u obtener un archivo de vista previa de un trabajo determinado.
 
 > [!TIP]
 > Empezando por la versión del 1 de mayo de 2017, la API del servicio Batch permite guardar datos de salida en Azure Storage para tareas simples y tareas de administrador de trabajos que se ejecutan en los grupos creados con la configuración de máquina virtual. La API del servicio Batch proporciona una manera sencilla para guardar la salida desde dentro del código que permite crear una tarea y que actúa como una alternativa a la biblioteca de convenciones de archivo. Puede modificar las aplicaciones de cliente de Batch para guardar la salida sin necesidad de actualizar la aplicación que la tarea está ejecutando. Para más información, consulte [Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch](batch-task-output-files.md).
-> 
-> 
 
 ## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>¿Cuándo se puede usar la biblioteca de convenciones de archivo para guardar salidas de tareas?
 
@@ -42,27 +40,27 @@ Azure Batch proporciona más de una manera de guardar las salidas de tareas. Las
 - Puede modificar fácilmente el código de la aplicación que la tarea está ejecutando para guardar los archivos mediante la biblioteca de convenciones de archivo.
 - Quiere transmitir datos a Azure Storage mientras la tarea está aún en funcionamiento.
 - Quiere almacenar los datos de grupos creados con la configuración de servicios en la nube o la configuración de máquina virtual.
-- La aplicación cliente u otras tareas del trabajo deben encontrar y descargar los archivos de salida de tarea por identificador o finalidad. 
+- La aplicación cliente u otras tareas del trabajo deben encontrar y descargar los archivos de salida de tarea por identificador o finalidad.
 - Quiere ver la salida de tarea en Azure Portal.
 
-Si su escenario es diferente de los mencionados anteriormente, considere la adopción de un enfoque diferente. Para más información sobre otras opciones para guardar la salida de tareas, consulte [Guardar salidas de trabajos y tareas en Azure Storage](batch-task-output.md). 
+Si su escenario es diferente de los mencionados anteriormente, considere la adopción de un enfoque diferente. Para más información sobre otras opciones para guardar la salida de tareas, consulte [Guardar salidas de trabajos y tareas en Azure Storage](batch-task-output.md).
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>¿Qué es el estándar de convenciones de archivo de Batch?
 
 El [estándar de convenciones de archivo de Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) proporciona un esquema de nombres para los contenedores de destino y las rutas de acceso de blob en los que se escriben los archivos de salida. Los archivos guardados en Azure Storage que cumplen el estándar de convenciones de archivo están automáticamente disponibles para su visualización en Azure Portal. El portal es compatible con la convención de nomenclatura y, por eso, puede mostrar los archivos que lo cumplen.
 
-La biblioteca de convenciones de archivo para .NET asigna automáticamente nombres a los contenedores de almacenamiento y a los archivos de salidas de tareas según el estándar de convenciones de archivo. La biblioteca de convenciones de archivo también proporciona métodos para consultar los archivos de salida en Azure Storage según el identificador de trabajo, de tarea o la finalidad.   
+La biblioteca de convenciones de archivo para .NET asigna automáticamente nombres a los contenedores de almacenamiento y a los archivos de salidas de tareas según el estándar de convenciones de archivo. La biblioteca de convenciones de archivo también proporciona métodos para consultar los archivos de salida en Azure Storage según el identificador de trabajo, de tarea o la finalidad.
 
-Si va a desarrollar con un lenguaje distinto de. NET, puede implementar el estándar de convenciones de archivo en su aplicación. Para más información, consulte [Acerca del estándar de convenciones de archivo de Batch](batch-task-output.md#about-the-batch-file-conventions-standard).
+Si va a desarrollar con un lenguaje distinto de. NET, puede implementar el estándar de convenciones de archivo en su aplicación. Para más información, consulte [Implementar el estándar Batch File Conventions](batch-task-output.md#implement-the-batch-file-conventions-standard).
 
 ## <a name="link-an-azure-storage-account-to-your-batch-account"></a>Vinculación de una cuenta de Azure Storage a la cuenta de Batch
 
 Para guardar los datos de salida en Azure Storage mediante la biblioteca de convenciones de archivo y poder verlos en Azure Portal, debe vincular primero una cuenta de Azure Storage a su cuenta de Batch. Si aún no lo ha hecho, vincule una cuenta de Azure Storage a la cuenta de Batch mediante [Azure Portal](https://portal.azure.com):
 
-1. Vaya a la cuenta de Batch en Azure Portal. 
-2. En **Configuración**, seleccione **Cuenta de Storage**.
-3. Si no dispone de una cuenta de Storage asociada con su cuenta de Batch, haga clic en **Storage Account (None)** [Cuenta de Storage (ninguna)].
-4. Seleccione una cuenta de Storage de la lista para su suscripción. Para obtener el mejor rendimiento, utilice una cuenta de Azure Storage que esté en la misma región que la cuenta de Batch en la que se ejecutan las tareas.
+1. Vaya a la cuenta de Batch en Azure Portal.
+1. En **Configuración**, seleccione **Cuenta de Storage**.
+1. Si no dispone de una cuenta de Storage asociada con su cuenta de Batch, haga clic en **Storage Account (None)** [Cuenta de Storage (ninguna)].
+1. Seleccione una cuenta de Storage de la lista para su suscripción. Para obtener el mejor rendimiento, utilice una cuenta de Azure Storage que esté en la misma región que la cuenta de Batch en la que se ejecutan las tareas.
 
 ## <a name="persist-output-data"></a>Guardar datos de salida
 
@@ -72,12 +70,10 @@ Para más información sobre el trabajo con contenedores y blobs en Azure Storag
 
 > [!WARNING]
 > Todas las salidas de trabajos y tareas guardados con la biblioteca de convenciones de archivo se almacenan en el mismo contenedor. Si un gran número de tareas intenta guardar archivos al mismo tiempo, se pueden aplicar [límites de almacenamiento](../storage/common/storage-performance-checklist.md#blobs).
-> 
-> 
 
 ### <a name="create-storage-container"></a>Creación de contenedores de almacenamiento
 
-Para guardar las salidas de tareas en Azure Storage, primero cree un contenedor mediante una llamada a [CloudJob][net_cloudjob].[ PrepareOutputStorageAsync][net_prepareoutputasync]. Este método de extensión toma un objeto [CloudStorageAccount][net_cloudstorageaccount] como parámetro. Crea un contenedor denominado según el estándar convenciones de archivo, por lo que su contenido es reconocible para Azure Portal y los métodos de recuperación que se describen más adelante en este artículo.
+Para guardar las salidas de tareas en Azure Storage, primero cree un contenedor mediante una llamada a [CloudJob][net_cloudjob].[ PrepareOutputStorageAsync][net_prepareoutputasync]. Este método de extensión toma un objeto [CloudStorageAccount][net_cloudstorageaccount] como parámetro. Crea un contenedor denominado según el estándar File Conventions, por lo que su contenido es reconocible para Azure Portal y los métodos de recuperación que se describen más adelante en este artículo.
 
 Normalmente se coloca el código para crear un contenedor en la aplicación cliente &mdash;, la aplicación que crea los grupos, los trabajos y las tareas.
 
@@ -120,8 +116,6 @@ Estos tipos de salidas le permiten especificar qué tipo de salidas se deben mos
 
 > [!TIP]
 > La variante de salida también determina en qué lugar de Azure Portal aparece un archivo determinado. Los archivos categorizados como *TaskOutput* aparecen en **Archivos de salida de tarea**, y los archivos *TaskLog*, en **Registros de tareas**.
-> 
-> 
 
 ### <a name="store-job-outputs"></a>Almacenamiento de salidas de trabajos
 
@@ -174,8 +168,6 @@ El agente de nodo es un programa que se ejecuta en cada nodo del grupo y proporc
 
 > [!NOTE]
 > Si habilita el seguimiento de archivos con **SaveTrackedAsync**, solo se guardan en Azure Storage los *anexos* al archivo de seguimiento. Utilice este método solo para el seguimiento de archivos de registro no rotatorios u otros archivos escritos con operaciones de anexión al final del archivo.
-> 
-> 
 
 ## <a name="retrieve-output-data"></a>Recuperación de datos de salidas
 
@@ -206,7 +198,7 @@ Azure Portal muestra los archivos de salidas y los registros de las tareas que s
 Para habilitar la presentación de los archivos de salidas en el portal, debe cumplir con los siguientes requisitos:
 
 1. [Vincular una cuenta de Azure Storage](#requirement-linked-storage-account) a la cuenta de Batch.
-2. Cumplir las convenciones de nomenclatura predefinidas para los contenedores y archivos de almacenamiento al guardar salidas. Puede encontrar la definición de estas convenciones en el archivo [LÉAME][github_file_conventions_readme] de la biblioteca de convenciones de archivo. Si utiliza la biblioteca de [convenciones de archivo de Azure Batch][nuget_package] para guardar la salida, los archivos se guardarán según el estándar de convenciones de archivo.
+1. Cumplir las convenciones de nomenclatura predefinidas para los contenedores y archivos de almacenamiento al guardar salidas. Puede encontrar la definición de estas convenciones en el archivo [LÉAME][github_file_conventions_readme] de la biblioteca de convenciones de archivo. Si utiliza la biblioteca de [convenciones de archivo de Azure Batch][nuget_package] para guardar la salida, los archivos se guardarán según el estándar de convenciones de archivo.
 
 Para ver los archivos de salidas y registros de las tareas en Azure Portal, navegue hasta la tarea en cuya salida está interesado y, después, haga clic en **Archivos de salida guardados** o **Registros guardados**. Esta imagen muestra los **archivos de salida guardados** para la tarea con identificador "007":
 

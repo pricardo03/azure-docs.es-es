@@ -11,14 +11,14 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 39995ca44573fe50bf0c2a2510c2c19fb227ff1d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 99d48e2abdc166fe6472195c86d890c3c1060cfa
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241130"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863795"
 ---
-# <a name="what-is-the-web-language-model-api-preview"></a>¿Qué es Web Language Model API? (versión preliminar)
+# <a name="what-is-the-web-language-model-api-preview"></a>¿Qué es Web Language Model API?  (versión preliminar)
 
 > [!IMPORTANT]
 > El 9 de agosto de 2018 se retiró la versión preliminar de Web Language Model. Para el procesamiento y el análisis de texto, se recomienda usar los [módulos de análisis de texto de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
@@ -44,7 +44,7 @@ Web Language Model API es compatible con cuatro operaciones de búsqueda:
 1. Suscríbase al servicio.
 2. Descargue el [SDK](https://www.github.com/microsoft/cognitive-weblm-windows).
 3. Ejecute el código de ejemplo del SDK.
-4. Consulte la [referencia de API](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104) para obtener detalles completos de los puntos de conexión, incluidos los fragmentos de código en una variedad de lenguajes.
+4. Consulte la [referencia de API](http://web.archive.org/web/20170503191852/ https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) para obtener detalles completos de los puntos de conexión, incluidos los fragmentos de código en una variedad de lenguajes.
 
 ## <a name="underlying-technology"></a>Tecnología subyacente
 

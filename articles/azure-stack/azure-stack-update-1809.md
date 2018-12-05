@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 11/23/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567917"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314684"
 ---
 # <a name="azure-stack-1809-update"></a>Actualización de Azure Stack 1809
 
@@ -84,7 +84,11 @@ Esta actualización incluye las siguientes correcciones para Azure Stack:
 
 ### <a name="changes"></a>Cambios
 
-Ninguno.
+<!-- 2635202 - IS, ASDK -->
+- El servicio de copia de seguridad de la infraestructura se traslada de la [red de infraestructura pública](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) a la [red VIP pública](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Los clientes deberán asegurarse de que el servicio tenga acceso a la ubicación de almacenamiento de la copia de seguridad desde la red VIP pública.  
+
+> [!IMPORTANT]  
+> Si tiene un firewall que no permite las conexiones desde la red VIP pública al servidor de archivos, este cambio hará que se produzca un error en las copias de seguridad de la infraestructura que se indicará como "Error 53: No se encontró la ruta de acceso a la red". Este es un cambio importante que no tiene una solución alternativa razonable. Según los comentarios de los clientes, Microsoft revertirá este cambio en una revisión. Revise la sección en la que se encuentran [los pasos posteriores a la actualización](#post-update-steps) para obtener más información sobre las revisiones disponibles para 1809. Una vez que la revisión esté disponible, asegúrese de aplicarla después de actualizar a 1809 solo si las políticas de su red no permiten que la red VIP pública obtenga acceso a los recursos de infraestructura. En 1811, este cambio se aplicará a todos los sistemas. Si aplicó la revisión en 1809, no es necesario que haga ninguna otra acción.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Puntos vulnerables y exposiciones comunes
 
@@ -169,7 +173,7 @@ Para obtener más información acerca de estos puntos vulnerables, haga clic en 
 > Prepare la implementación de Azure Stack para el host de extensiones que se habilita en la siguiente actualización. Prepare el sistema mediante la guía siguiente: [Preparación de un host de extensiones de Azure Stack](azure-stack-extension-host-prepare.md).
 
 Después de instalar esta actualización, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).  
-- [KB 4471993: Revisión de Azure Stack 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849: Revisión de Azure Stack 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## <a name="known-issues-post-installation"></a>Problemas conocidos (posteriores a la instalación)
 
@@ -222,7 +226,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
    
   Vuelva a ejecutar el cmdlet [Test-AzureStack](azure-stack-diagnostic-test.md) para comprobar el estado de las instancias de rol de infraestructura y los nodos de la unidad de escalado. Si [Test-AzureStack](azure-stack-diagnostic-test.md) no detecta ningún problema, puede ignorar estas alertas. Si se detecta un problema, puede intentar iniciar la instancia de rol de infraestructura o un nodo utilizando el portal de administración o PowerShell.
 
-  Este problema se corrigió en la versión más reciente de la [revisión 1809](https://support.microsoft.com/help/4471993/), así que asegúrese de instalarla si está experimentando el problema. 
+  Este problema se corrigió en la versión más reciente de la [revisión 1809](https://support.microsoft.com/help/4477849/), así que asegúrese de instalarla si está experimentando el problema. 
 
 <!-- 1264761 - IS ASDK -->  
 - Es posible que vea alertas del componente **Controlador de mantenimiento** con los siguientes detalles:  

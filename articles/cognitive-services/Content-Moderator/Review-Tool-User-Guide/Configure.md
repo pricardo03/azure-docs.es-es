@@ -9,14 +9,14 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a3432a1d8f424fbe78570f47b774c6e7942e16b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2ffed5e561cf9988ec10ecb7e10318d148281057
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380095"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851545"
 ---
-# <a name="about-review-tool-settings"></a>Acerca de la configuración de la herramienta de revisión #
+# <a name="review-tool-settings"></a>Configuración de la herramienta de revisión #
 
 Mediante la pestaña de configuración del panel de la herramienta de revisión, es fácil definir y cambiar muchos componentes.
 

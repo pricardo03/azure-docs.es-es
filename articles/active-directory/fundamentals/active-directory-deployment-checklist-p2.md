@@ -10,28 +10,28 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 7931cd8a6f8b3de826e8dd563a837f80fc15d88a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310414"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705658"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Lista de comprobación de la característica de licencia de Azure Active Directory Premium P2
 
-Puede parecer muy complicado implementar Azure Active Directory (Azure AD) para su organización y mantener la seguridad. En este artículo se identifican algunas tareas comunes que los clientes encuentran útiles para completar a lo largo de 30 días, 90 días o más para mejorar su posición de seguridad. Incluso las organizaciones que ya han implementado Azure AD pueden usar esta lista de comprobación para asegurarse de que sacan el máximo partido de su inversión.
+Puede parecer abrumador implementar Azure Active Directory (Azure AD) para su organización y mantener la seguridad. En este artículo se identifican algunas tareas comunes que los clientes encuentran útiles. Normalmente, los clientes completan estas tareas en un período de 30 días, 90 días o más para mejorar su posición de seguridad. Incluso las organizaciones que ya han implementado Azure AD pueden usar esta lista de comprobación para asegurarse de que sacan el máximo partido de su inversión.
 
 Una infraestructura de identidades bien planeada y ejecutada prepara el terreno para que únicamente los usuarios y los dispositivos autenticados obtengan acceso de forma más segura a los datos y a las cargas de trabajo de productividad.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En esta guía, se supone que dispone de las licencias de Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5 o un conjunto de licencias equivalente.
+En esta guía, se supone que dispone de las licencias de Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5 o un conjunto de licencias similar.
 
 [Licencias de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Microsoft 365 Enterprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+[Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
 ## <a name="plan-and-deploy-day-1-30"></a>Planeamiento e implementación: del día 1 al 30
 
@@ -77,7 +77,7 @@ En esta guía, se supone que dispone de las licencias de Azure AD Premium P2, En
 
 ## <a name="plan-and-deploy-day-90-and-beyond"></a>Planeamiento e implementación: a partir del día 90
 
-- [Administración de identidades con privilegios de Azure AD](../privileged-identity-management/pim-configure.md)
+- [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
    - [Configuración de roles de directorio de Azure AD en PIM](../privileged-identity-management/pim-how-to-change-default-settings.md)
    - [Asignación de roles de directorio de Azure AD en PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md)
 - [Completar una revisión de acceso para los roles de directorio de Azure AD en PIM](../privileged-identity-management/pim-how-to-start-security-review.md)

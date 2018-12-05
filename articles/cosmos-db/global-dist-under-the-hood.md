@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 463c74638b0e50348b8c9454334b7457e7b570e6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283893"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423354"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Distribución global de Azure Cosmos DB: aspectos técnicos
 
@@ -72,7 +72,7 @@ En las bases de datos de Cosmos configuradas con varias regiones de escritura, e
 
 Independientemente de si configura su base de datos de Cosmos con una o con varias regiones de escritura, puede elegir entre cinco modelos de coherencia bien definidos. Con la recién agregada compatibilidad para permitir varias regiones de escritura, a continuación se indican algunos aspectos notables de los niveles de coherencia:  
 
-Como antes, la coherencia de obsolescencia limitada garantiza que todas las lecturas van a estar dentro de prefijos k o segundos t desde la última escritura en cualquiera de las regiones. Además, se garantiza que las lecturas con coherencia de obsolescencia limitada son monotónicas y con garantías de prefijo coherente. El protocolo de antientropía funciona con limitación de frecuencia y garantiza que los prefijos no se acumulen y que la resistencia en los escritos no tenga que aplicarse. Como antes, la coherencia de sesión garantiza las garantías de lectura monotónica, de escritura monotónica, de lectura de sus propias escrituras (RYW), de escritura tras lectura y de prefijo coherente en todo el mundo. En las bases de datos configuradas con coherencia alta, el sistema vuelve a una sola región de escritura designando a un líder en cada uno de los conjuntos de particiones. 
+Como antes, la coherencia de obsolescencia limitada garantiza que todas las lecturas van a estar dentro de prefijos k o segundos t desde la última escritura en cualquiera de las regiones. Además, se garantiza que las lecturas con coherencia de obsolescencia limitada son monotónicas y con garantías de prefijo coherente. El protocolo de antientropía funciona con limitación de frecuencia y garantiza que los prefijos no se acumulen y que la resistencia en los escritos no tenga que aplicarse. Como antes, la coherencia de sesión garantiza las garantías de lectura monotónica, de escritura monotónica, de lectura de sus propias escrituras (RYW), de escritura tras lectura y de prefijo coherente en todo el mundo. Para las bases de datos configuradas con una gran coherencia, los beneficios de la arquitectura multimaestro (esto es, baja latencia de escritura y alta disponibilidad de escritura) no se aplican debido a la replicación sincrónica entre regiones.
 
 La semántica de los cinco modelos de consistencia en Cosmos DB se describe [aquí](consistency-levels.md) y se muestra matemáticamente con especificaciones de TLA+ de alto nivel [aquí](https://github.com/Azure/azure-cosmos-tla).
 
@@ -81,5 +81,5 @@ La semántica de los cinco modelos de consistencia en Cosmos DB se describe [aqu
 A continuación, aprenda a configurar la distribución global mediante los siguientes artículos:
 
 * [Configuración de los clientes para el hospedaje múltiple](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Incorporación o eliminación de regiones de una base de datos](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Agregar o eliminar regiones de una cuenta de base de datos](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Creación de una directiva personalizada de resolución de conflictos para cuentas de API SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

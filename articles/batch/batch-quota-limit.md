@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282788"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263611"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -56,7 +56,7 @@ Si creó una cuenta de Batch con el modo de asignación de grupo establecido en 
 | Nodos dedicados | 2000 |
 | Nodos de prioridad baja | 1000 |
 
-<sup>1</sup> Para los grupos que tienen habilitada la comunicación de notas entre nodos.
+<sup>1</sup> Para los grupos que no tienen habilitada la comunicación entre nodos.
 
 ## <a name="other-limits"></a>Otros límites
 
@@ -91,7 +91,7 @@ Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o
 1. Seleccione **Nueva solicitud de soporte técnico** > **Básico**.
 1. En **Aspectos básicos**:
    
-    a. **Tipo de problema** > **Cuota**
+     a. **Tipo de problema** > **Cuota**
    
     b. Seleccione su suscripción.
    
@@ -102,14 +102,14 @@ Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o
     Haga clic en **Next**.
 1. En **Problema**:
    
-    a. Seleccione una de las opciones en **Gravedad** según su [impacto en el negocio][support_sev].
+     a. Seleccione una de las opciones en **Gravedad** según su [impacto en el negocio][support_sev].
    
     b. En **Detalles**, especifique cada cuota que desee cambiar, el nombre de cuenta de Batch y el nuevo límite.
    
     Haga clic en **Next**.
 1. En **Información de contacto**:
    
-    a. Seleccione un valor en **Método de contacto preferido**.
+     a. Seleccione un valor en **Método de contacto preferido**.
    
     b. Compruebe y especifique los detalles de contacto necesarios.
    

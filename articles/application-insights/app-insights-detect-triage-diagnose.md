@@ -9,17 +9,16 @@ ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 41c8fd0092af035153b3161c4a6c3eb5c5ef3f1d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cb106abaff2446fdbc2d025ae96c95745bc53150
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958906"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728062"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Información general de Application Insights para DevOps
 
@@ -176,20 +175,20 @@ Cuando haya respuestas lentas, compare la tabla de solicitudes de respuesta más
 ## <a name="diagnose-issues"></a>Diagnosticar problemas
 El diagnóstico no es exactamente lo mismo que la depuración. Antes de iniciar el seguimiento a través del código, debe tener una idea aproximada de por qué, dónde y cuándo se está produciendo el problema.
 
-**¿Cuándo sucede?** La vista histórica proporcionada por los gráficos de eventos y métricas facilita la creación de una correlación entre los efectos y las posibles causas. Si hay picos intermitentes en las tasas de excepción o de tiempo de respuesta, examine el número de solicitudes: si alcanza el máximo al mismo tiempo, parece un problema de recursos. ¿Es necesario asignar más CPU o memoria? ¿O se trata de una dependencia que no puede administrar la carga?
+**¿Cuándo sucede?**  La vista histórica proporcionada por los gráficos de eventos y métricas facilita la creación de una correlación entre los efectos y las posibles causas. Si hay picos intermitentes en las tasas de excepción o de tiempo de respuesta, examine el número de solicitudes: si alcanza el máximo al mismo tiempo, parece un problema de recursos. ¿Es necesario asignar más CPU o memoria? ¿O se trata de una dependencia que no puede administrar la carga?
 
-**¿Somos nosotros?**  Si tiene un descenso repentino en el rendimiento de un tipo concreto de solicitud, por ejemplo cuando el cliente desea un extracto de cuenta, hay una posibilidad de que sea un subsistema externo en lugar de la aplicación web. En el Explorador de métricas, seleccione la tasa de errores de dependencia y las tasas de duración de dependencia y compare sus historiales de las pasadas horas o días con el problema que ha detectado. Si hay cambios que se correlacionan, es posible que un subsistema externo sea el culpable.  
+**¿Somos nosotros?**   Si tiene un descenso repentino en el rendimiento de un tipo concreto de solicitud, por ejemplo cuando el cliente desea un extracto de cuenta, hay una posibilidad de que sea un subsistema externo en lugar de la aplicación web. En el Explorador de métricas, seleccione la tasa de errores de dependencia y las tasas de duración de dependencia y compare sus historiales de las pasadas horas o días con el problema que ha detectado. Si hay cambios que se correlacionan, es posible que un subsistema externo sea el culpable.  
 
 
 ![Gráficos de errores de dependencia y duración de llamadas a dependencias](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 Algunos problemas de dependencia lenta son problemas de ubicación geográfica. Fabrikam Bank usa máquinas virtuales de Azure, y descubrieron que habían ubicado sin darse cuenta el servidor web y el servidor de cuentas en distintos países. Migrando uno de ellos, se obtuvo una mejora considerable.
 
-**¿Qué hicimos?** Si el problema no parece estar en una dependencia, y no ha estado siempre ahí, es probable que se deba a un cambio reciente. La perspectiva histórica proporcionada por los gráficos de métricas y eventos facilita la correlación de cualquier cambio repentino con las implementaciones. De esta forma se limita la búsqueda del problema. Para identificar las líneas del código de aplicación que han ralentizado el rendimiento, habilite Application Insights Profiler. Consulte [Introducción a la supervisión de aplicaciones web de Azure con Application Insights](./app-insights-profiler.md). Una vez habilitado Application Insights Profiler, verá un seguimiento similar al siguiente. En este ejemplo se ve claramente que el método *GetStorageTableData* ha provocado el problema.  
+**¿Qué hicimos?**  Si el problema no parece estar en una dependencia, y no ha estado siempre ahí, es probable que se deba a un cambio reciente. La perspectiva histórica proporcionada por los gráficos de métricas y eventos facilita la correlación de cualquier cambio repentino con las implementaciones. De esta forma se limita la búsqueda del problema. Para identificar las líneas del código de aplicación que han ralentizado el rendimiento, habilite Application Insights Profiler. Consulte [Introducción a la supervisión de aplicaciones web de Azure con Application Insights](./app-insights-profiler.md). Una vez habilitado Application Insights Profiler, verá un seguimiento similar al siguiente. En este ejemplo se ve claramente que el método *GetStorageTableData* ha provocado el problema.  
 
 ![Seguimiento de Application Insights Profiler](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
-**¿Qué está ocurriendo?** Algunos problemas se producen solo en raras ocasiones y pueden ser difíciles de rastrear mediante pruebas sin conexión. Todo lo que podemos hacer es intentar capturar el error cuando se produzca en vivo. Puede inspeccionar los volcados de pila en los informes de excepciones. Además, puede escribir llamadas de seguimiento con su plataforma de registro favorita o con TrackTrace() o TrackEvent().  
+**¿Qué está ocurriendo?**  Algunos problemas se producen solo en raras ocasiones y pueden ser difíciles de rastrear mediante pruebas sin conexión. Todo lo que podemos hacer es intentar capturar el error cuando se produzca en vivo. Puede inspeccionar los volcados de pila en los informes de excepciones. Además, puede escribir llamadas de seguimiento con su plataforma de registro favorita o con TrackTrace() o TrackEvent().  
 
 Fabrikam tenía un problema intermitente con las transferencias entre cuentas, pero solo con determinados tipos de cuenta. Para entender mejor lo que estaba ocurriendo, insertaron llamadas a TrackTrace() en los puntos clave del código y asociaron el tipo de cuenta como una propiedad para cada llamada. De esta forma fue fácil filtrar solo esos seguimientos en la búsqueda de diagnóstico. También asociaron valores de parámetros como propiedades y medidas a las llamadas de seguimiento.
 

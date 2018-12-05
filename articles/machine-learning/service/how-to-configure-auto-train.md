@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a539aebc9b1ccb5f52f89d511fc992ee6a24c81
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5c75b462c3b1201eb70c1028c748def5da114b92
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008953"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823306"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configuración del experimento de aprendizaje automático automatizado
 
@@ -192,7 +192,7 @@ Propiedad |  DESCRIPCIÓN | Valor predeterminado
 `max_time_sec` |    Limita la cantidad de tiempo (segundos) que tarda una iteración determinada. Si una iteración supera la cantidad especificada, se cancela. Si no se establece, la iteración continúa ejecutándose hasta que finaliza. |   None
 `n_cross_validations`   |Número de divisiones de validación cruzada| None
 `validation_size`   |Tamaño del conjunto de validación establecido como porcentaje de toda la muestra de aprendizaje.|  None
-`preprocess` | True/False <br/>True permite al experimento realizar el procesamiento previo en la entrada. A continuación se incluye un subconjunto de procesamiento previo<li>Faltan datos: imputa los datos que faltan (numérico con promedio, texto más repetido) </li><li>Valores de categorías: si el tipo de datos es numérico y el número de valores únicos es inferior al 5 %, se convierte a codificación "one-hot" </li><li>Etc. Para obtener una lista completa, visite [el repositorio de GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: Si los datos están dispersos no se puede usar preprocess = true | False | 
+`preprocess` | True/False <br/>True permite al experimento realizar el procesamiento previo en la entrada. A continuación se incluye un subconjunto de procesamiento previo<li>Faltan datos: imputa los datos que faltan (numérico con promedio, texto más repetido) </li><li>Valores de categorías: si el tipo de datos es numérico y el número de valores únicos es inferior al 5 %, se convierte a codificación "one-hot" </li><li>Etc. Para obtener una lista completa, visite [el repositorio de GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: Si los datos están dispersos no se puede usar preprocess = true |  False | 
 `blacklist_algos`   | El experimento de ML automatizado prueba muchos algoritmos diferentes. Configure el ML automatizado para excluir determinados algoritmos del experimento. Resulta útil si es consciente de que los algoritmos no funcionan bien para su conjunto de datos. La exclusión de algoritmos puede ahorrarle recursos de procesos y tiempo de aprendizaje.<br/>Valores permitidos para la clasificación<br/><li>regresión logística</li><li>Clasificador SGD</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>árboles adicionales</li><li>potenciación del gradiente</li><li>lgbm_classifier</li><br/>Valores permitidos para la regresión<br/><li>Red elástica</li><li>Regresor de potenciación del gradiente</li><li>Regresor DT</li><li>Regresor kNN</li><li>Lazo LARS</li><li>Regresor SGD</li><li>Regresor RF</li><li>regresor de árboles adicionales</li>|   None
 `verbosity` |Controla el nivel de registro: INFO es el más detallado y CRITICAL, el menos detallado.<br/>Los valores permitidos son:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
 `X` | Todas las características que se usan para el aprendizaje |  None

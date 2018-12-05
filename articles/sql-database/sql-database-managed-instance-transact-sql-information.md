@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: c51df7aeef136fee42b061cd422cc62d67f33e96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258925"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712150"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
 
@@ -75,7 +75,7 @@ Instancia administrada realiza copias de seguridad automáticas y permite a los 
   - No se admiten las opciones de cinta `REWIND`, `NOREWIND`, `UNLOAD` y `NOUNLOAD`.
   - No se admiten las opciones específicas de registro `NORECOVERY`, `STANDBY` y `NO_TRUNCATE`.
 
-Limitaciones:  
+ Limitaciones:  
 
 - Instancia administrada puede copiar una base de datos en una copia de seguridad con hasta 32 franjas, que es suficiente para bases de datos de hasta 4 TB si se utiliza la compresión de copia de seguridad.
 - El tamaño máximo de franja de copia de seguridad es 195 GB (tamaño máximo de blob). Aumente el número de franjas en el comando de copia de seguridad para reducir el tamaño de cada franja y permanecer dentro de este límite.
@@ -317,7 +317,7 @@ Las siguientes opciones de base de datos se establecen o invalidan, y no se pued
 - Se cambia el nombre de todos los grupos de archivos optimizados para memoria existentes a XTP.  
 - Las opciones `SINGLE_USER` y `RESTRICTED_USER` se convierten en `MULTI_USER`
 
-Limitaciones:  
+ Limitaciones:  
 
 - Los archivos `.BAK` que contienen varios conjuntos de copia de seguridad no se pueden restaurar.
 - Los archivos `.BAK` que contienen varios archivos de registro no se pueden restaurar.
@@ -427,7 +427,7 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 
 Cada instancia administrada tiene hasta 35 TB de almacenamiento reservado para el espacio en disco premium de Azure, y cada archivo de base de datos se coloca en un disco físico independiente. Los posibles tamaños de disco son: 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. El espacio no utilizado en el disco no se cobra, pero la suma total de los tamaños de disco Premium de Azure no puede superar los 35 TB. En algunos casos, una instancia administrada que no necesita 8 TB en total puede superar los 35 TB de límite de Azure en tamaño de almacenamiento debido a la fragmentación interna.
 
-Por ejemplo, una instancia administrada podría tener un archivo de 1,2 TB de tamaño que se coloca en un disco de 4 TB y 248 archivos de 1 GB de tamaño cada uno y que se colocan en discos independientes de 128 GB. En este ejemplo:
+Por ejemplo, una instancia administrada podría tener un archivo de 1,2 TB de tamaño que se coloca en un disco de 4 TB y 248 archivos de 1 GB de tamaño cada uno y que se colocan en discos independientes de 128 GB. En este ejemplo:
 
 - el tamaño de almacenamiento total del disco es de 1 x 4 TB + 248 x 128 GB = 35 TB.
 - el espacio total reservado para las bases de datos en la instancia es de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.

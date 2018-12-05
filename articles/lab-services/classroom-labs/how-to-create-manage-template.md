@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 3ecbef3b3063ceb413b852f8000b44a85d28d08e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8bd64aaa51faf968c0c7ae374daad3de4ca3a343
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142925"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706864"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creación y administración de plantillas educativas en Azure Lab Services
 En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Luego, publique la plantilla si desea que las instancias de la plantilla de máquina virtual estén disponibles para los usuarios del laboratorio. Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en el laboratorio mediante la plantilla. El número de máquinas virtuales creadas en este proceso es igual al número máximo de usuarios permitidos en el laboratorio, que se puede establecer en la política de uso del laboratorio. Todas las máquinas virtuales tienen la misma configuración que la plantilla.
@@ -88,16 +88,14 @@ En primer lugar, puede configurar y publicar una plantilla al crear un laborator
 ## <a name="set-up-a-template-after-creating-a-lab"></a>Configuración de una plantilla después de crear un laboratorio 
 También puede configurar una plantilla después de crear el laboratorio.   
 
-### <a name="set-template-title-and-description"></a>Establecimiento del título y descripción de la plantilla
-1. En la sección **Plantilla**, seleccione **Editar** (icono de lápiz) para la plantilla. 
-2. En la ventana **Vista de usuario**, escriba un **título** para la plantilla.
-3. Escriba la **descripción** para la plantilla.
-4. Seleccione **Guardar**.
+## <a name="set-or-update-template-title-and-description"></a>Establecimiento o actualización del título y la descripción de la plantilla
+Use los pasos siguientes para establecer el título y la descripción por primera vez y actualizarlos más adelante. 
 
-    ![Descripción del laboratorio de clase](../media/how-to-manage-classroom-labs/lab-description.png)
+1. En la sección **Plantilla**, mueva el mouse sobre el **nombre** o la **descripción** de la plantilla y selecciónelo. 
+2. Escriba el **nuevo nombre** o la **nueva descripción** para la plantilla y presione **ENTRAR**.
 
-### <a name="set-up-the-template-vm"></a>Configuración de la plantilla de máquina virtual
- Puede conectarse a la plantilla de máquina virtual e instalar todo el software necesario en la misma antes de hacerla disponible para los alumnos. 
+## <a name="set-up-or-update-a-template-vm"></a>Configuración o actualización de una plantilla de VM
+ Puede conectarse a la plantilla de máquina virtual e instalar todo el software necesario en la misma antes de hacerla disponible para los alumnos. Siga estos pasos para configurar una plantilla de máquina virtual por primera vez o para actualizar la máquina virtual. 
 
 1. Espere hasta que la plantilla de máquina virtual esté lista. Una vez que esté lista, el botón **Iniciar** debe estar habilitado. Para iniciar la máquina virtual, seleccione **Iniciar**.
 
@@ -112,7 +110,7 @@ También puede configurar una plantilla después de crear el laboratorio.
     ![Detención de la plantilla de máquina virtual](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-## <a name="publish-the-template"></a>Publicación de la plantilla 
+## <a name="publish-the-template-vm"></a>Publicación de la plantilla de máquina virtual
 Si no publica la plantilla al crear el laboratorio, puede hacerlo más adelante. Antes de la publicación, puede conectarse a la plantilla de máquina virtual y actualizarla con cualquier software. Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en el laboratorio mediante la plantilla. El número de máquinas virtuales creadas en este proceso es igual al número máximo de usuarios permitidos en el laboratorio, que se puede establecer en la política de uso del laboratorio. Todas las máquinas virtuales tienen la misma configuración que la plantilla. 
 
 1. Seleccione **Publicar** en la sección **Plantilla**. 
@@ -125,7 +123,7 @@ Si no publica la plantilla al crear el laboratorio, puede hacerlo más adelante.
 4. Cambie a la página **Máquinas virtuales** y confirme que ve las máquinas virtuales que tienen el estado **Sin asignar**. Estas máquinas virtuales no están asignadas a los alumnos todavía. 
 
     ![Máquinas virtuales](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Espere hasta que se creen las máquinas virtuales. Deberían estar en estado **Detenida**. En esta pagina, puede iniciar una máquina virtual de un alumno, conectarse a la máquina virtual, detener la máquina virtual y eliminar la máquina virtual. Puede iniciarlas en esta página o dejar que los alumnos inicien las máquinas virtuales. 
+5. Espere hasta que se creen las máquinas virtuales. Deberían estar en estado **Detenida**. En esta pagina, puede iniciar una máquina virtual de un alumno, conectarse a la máquina virtual, detener la máquina virtual y eliminar la máquina virtual. Puede iniciarlas en esta página o permitir que los alumnos inicien las máquinas virtuales. 
 
     ![Máquinas virtuales en estado detenido](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -147,7 +145,9 @@ Después de publicar una plantilla, puede seguir conectándose a la plantilla de
     ![Nueva publicación correcta](../media/how-to-create-manage-template/republish-success.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Introducción a la configuración de un laboratorio con Azure Lab Services:
+Consulte los artículos siguientes:
 
-- [Configuración de un laboratorio educativo](how-to-manage-classroom-labs.md)
-- [Configuración de un laboratorio](../tutorial-create-custom-lab.md)
+- [Como administrador, crear y administrar cuentas de laboratorio](how-to-manage-lab-accounts.md)
+- [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)
+- [Como propietario del laboratorio, configurar y controlar el uso de un laboratorio](how-to-configure-student-usage.md)
+- [Como usuario del laboratorio, obtener acceso a laboratorios educativos](how-to-use-classroom-lab.md)

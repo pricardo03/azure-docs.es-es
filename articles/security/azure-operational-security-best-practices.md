@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: d005dd01de0dff0136c0a4e9775001dbe018228f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ae6eeb2506eb82160c68e15e17eeb95c1e2ec046
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035290"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853626"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 Por seguridad operativa de Azure, se entienden los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Azure. La seguridad operativa de Azure se basa en un marco que incorpora el conocimiento adquirido a través de diversas funcionalidades exclusivas de Microsoft, incluido el [ciclo de vida de desarrollo de seguridad (SDL)](https://www.microsoft.com/sdl), el programa [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) y un conocimiento en profundidad del panorama de amenazas de ciberseguridad.
@@ -55,38 +55,38 @@ Los clientes crean una red de un extremo a otro en Azure mediante la combinació
 
 A continuación se ofrecen procedimientos recomendados para la supervisión de redes y se indican las herramientas disponibles.
 
-**Procedimiento recomendado**: automatizar la supervisión de redes remota con captura de paquetes.   
+**Procedimiento recomendado**: automatizar la supervisión de redes remota con captura de paquetes.  
 **Detalle**: supervise y diagnostique problemas de red sin iniciar sesión en las máquinas virtuales mediante Network Watcher. Desencadene la [captura de paquetes](../network-watcher/network-watcher-alert-triggered-packet-capture.md) estableciendo alertas y obtenga acceso a información de rendimiento en tiempo real en el ámbito de paquete. Cuando vea un problema, podrá investigar en detalle para mejorar los diagnósticos.
 
-**Procedimiento recomendado**: extraer conclusiones sobre el tráfico de la red mediante registros de flujo.   
+**Procedimiento recomendado**: extraer conclusiones sobre el tráfico de la red mediante registros de flujo.  
 **Detalle**: conozca al detalle los patrones de tráfico de red mediante los [registros de flujo del grupo de seguridad de red](../network-watcher/network-watcher-nsg-flow-logging-overview.md). La información de los registros de flujo le ayuda a recopilar datos para el cumplimiento, la auditoría y la supervisión del perfil de seguridad de red.
 
-**Procedimiento recomendado**: diagnosticar problemas de conectividad de VPN.   
+**Procedimiento recomendado**: diagnosticar problemas de conectividad de VPN.  
 **Detalle**: use Network Watcher para [diagnosticar los problemas más comunes de conexión y VPN Gateway](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). No solo puede identificar el problema, sino también usar registros detallados para investigar más.
 
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>Implementación segura mediante herramientas de DevOps comprobadas
 Use los siguientes procedimientos recomendados de DevOps para garantizar que la empresa y los equipos sean productivos y eficientes.
 
-**Procedimiento recomendado**: automatizar la compilación e implementación de servicios.   
-**Detalle**: [Infraestructura como código](https://en.wikipedia.org/wiki/Infrastructure_as_Code) es un conjunto de técnicas y procedimientos que ayudan a los profesionales de TI a eliminar la carga que supone la compilación y administración cotidianas de una infraestructura modular. Permite a los profesionales de TI compilar y mantener sus entornos de servidores modernos de forma similar a como los desarrolladores de software compilan y mantienen el código de las aplicaciones.
+**Procedimiento recomendado**: automatizar la compilación e implementación de servicios.  
+**Detalle**: [Infraestructura como código](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) es un conjunto de técnicas y procedimientos que ayudan a los profesionales de TI a eliminar la carga que supone la compilación y administración cotidianas de una infraestructura modular. Permite a los profesionales de TI compilar y mantener sus entornos de servidores modernos de forma similar a como los desarrolladores de software compilan y mantienen el código de las aplicaciones.
 
 Puede usar [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) para aprovisionar las aplicaciones mediante una plantilla declarativa. En una plantilla, puede implementar varios servicios junto con sus dependencias. Use la misma plantilla para implementar la aplicación de forma repetida durante cada fase de su ciclo de vida.
 
-**Procedimiento recomendado**: compilar e implementar automáticamente en aplicaciones web o servicios en la nube de Azure.   
-**Detalle**: puede configurar los proyectos de equipo de Visual Studio Team Services (VSTS) para que se [compilen y se implementen automáticamente](https://www.visualstudio.com/docs/build/overview) en las aplicaciones web de Azure o en los servicios en la nube. VSTS implementa automáticamente los archivos binarios después de realizar una compilación en Azure tras cada comprobación de código. El proceso de compilación del paquete es equivalente al comando Package de Visual Studio y los pasos de publicación son equivalentes al comando Publish de Visual Studio.
+**Procedimiento recomendado**: compilar e implementar automáticamente en aplicaciones web o servicios en la nube de Azure.  
+**Detalle**: puede usar Azure Pipelines para [compilar e implementar automáticamente](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) en aplicaciones web o servicios en la nube de Azure. Azure Pipelines implementa automáticamente los archivos binarios después de realizar una compilación en Azure tras cada inserción del código en el repositorio. El proceso de compilación del paquete es equivalente al comando Package de Visual Studio y los pasos de publicación son equivalentes al comando Publish de Visual Studio.
 
-**Procedimiento recomendado**: automatizar la administración de versiones.   
-**Detalle**: Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) es una solución para automatizar la implementación en varias fases y la administración del proceso de publicación. Cree canalizaciones de implementación continua y administrada con el fin de que el lanzamiento sea rápido, sencillo y frecuente. Con Release Management, puede automatizar el proceso de publicación y tener flujos de trabajo de aprobación predefinidos. Realice la implementación de forma local y en la nube, amplíela y personalícela según sea necesario.
+**Procedimiento recomendado**: usar la implementación continua.  
+**Detalle**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) es una solución para automatizar la implementación en varias fases y la administración del proceso de publicación. Cree canalizaciones de implementación continua y administrada con el fin de que el lanzamiento sea rápido, sencillo y frecuente. Con Azure Pipelines, puede automatizar el proceso de publicación y tener flujos de trabajo de aprobación predefinidos. Realice la implementación de forma local y en la nube, amplíela y personalícela según sea necesario.
 
-**Procedimiento recomendado**: comprobar el rendimiento de la aplicación antes de iniciarla o de implementar actualizaciones en producción.   
-**Detalle**: ejecute [pruebas de carga](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) basadas en la nube mediante VSTS para:
+**Procedimiento recomendado**: comprobar el rendimiento de la aplicación antes de iniciarla o de implementar actualizaciones en producción.  
+**Detalle**: ejecute [pruebas de carga](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) basadas en la nube mediante Azure Test Plans para:
 
 - Detectar problemas de rendimiento en la aplicación.
 - Mejorar la calidad de implementación.
 - Asegurarse de que la aplicación siempre está disponible.
 - Asegurarse de que la aplicación puede controlar el tráfico de la siguiente campaña de marketing o el siguiente lanzamiento.
 
-**Procedimiento recomendado**: supervisar el rendimiento de la aplicación.   
+**Procedimiento recomendado**: supervisar el rendimiento de la aplicación.  
 **Detalle**: [Azure Application Insights](../application-insights/app-insights-overview.md) es un servicio de administración del rendimiento de las aplicaciones (APM) extensible para desarrolladores web en varias plataformas. Use Application Insights para supervisar la aplicación web en vivo. Se detectan automáticamente las anomalías de rendimiento. Incluye herramientas de análisis que le ayudan a diagnosticar problemas y a comprender lo que hacen realmente los usuarios con la aplicación. Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Mitigar y proteger frente a DDoS
@@ -96,19 +96,19 @@ Diseñar y compilar para la resistencia frente a DDoS requiere planear y diseña
 
 Estos son los procedimientos recomendados para compilar servicios resistentes a DDoS en Azure.
 
-**Procedimiento recomendado**: asegurarse de que la seguridad sea prioritaria durante todo el ciclo de vida de una aplicación, desde su diseño e implementación hasta la implementación y las operaciones. Las aplicaciones pueden tener errores que permiten que un volumen relativamente bajo de solicitudes usen muchos recursos y produzcan una interrupción del servicio.    
+**Procedimiento recomendado**: asegurarse de que la seguridad sea prioritaria durante todo el ciclo de vida de una aplicación, desde su diseño e implementación hasta la implementación y las operaciones. Las aplicaciones pueden tener errores que permiten que un volumen relativamente bajo de solicitudes usen muchos recursos y produzcan una interrupción del servicio.  
 **Detalle**: para ayudar a proteger un servicio que se ejecuta en Microsoft Azure, debe conocer bien la arquitectura de la aplicación y centrarse en los [cinco pilares de calidad del software](https://docs.microsoft.com/azure/architecture/guide/pillars). Debe conocer los volúmenes de tráfico típicos, el modelo de conectividad entre la aplicación y otras aplicaciones, y los puntos de conexión del servicio expuestos a la red pública de Internet.
 
 Es de vital importancia garantizar que una aplicación sea lo suficientemente resistente para tratar con un ataque de denegación de servicio dirigido a la propia aplicación. La seguridad y la privacidad están integradas en la plataforma Azure, comenzando por el [ciclo de vida del desarrollo de la seguridad (SDL)](https://www.microsoft.com/en-us/sdl). El SDL aborda la seguridad en cada fase de desarrollo y se asegura de que Azure se actualice continuamente para que sea aún más seguro.
 
-**Procedimiento recomendado**: diseñar las aplicaciones para que se puedan [escalar horizontalmente](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) a fin de satisfacer la demanda de una carga mayor, específicamente en caso de un ataque de DDoS. Si la aplicación depende de una única instancia de un servicio, crea un único punto de error. El aprovisionamiento de varias instancias hace que el sistema sea más resistente y más escalable.   
+**Procedimiento recomendado**: diseñar las aplicaciones para que se puedan [escalar horizontalmente](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) a fin de satisfacer la demanda de una carga mayor, específicamente en caso de un ataque de DDoS. Si la aplicación depende de una única instancia de un servicio, crea un único punto de error. El aprovisionamiento de varias instancias hace que el sistema sea más resistente y más escalable.  
 **Detalle**: en [Azure App Service](../app-service/app-service-value-prop-what-is.md), seleccione un [plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) que ofrezca varias instancias.
 
 Para Azure Cloud Services, configure cada uno de los roles para utilizar [varias instancias](../cloud-services/cloud-services-choose-me.md).
 
 En el caso de [Azure Virtual Machines](../virtual-machines/windows/overview.md), asegúrese de que la arquitectura de las máquinas virtuales incluya más de una máquina virtual y de que cada una de ellas se incluya en un [conjunto de disponibilidad](../virtual-machines/virtual-machines-windows-manage-availability.md). Se recomienda usar conjuntos de escalado de máquinas virtuales para contar con funcionalidades de escalado automático.
 
-**Procedimiento recomendado**: disponer en niveles la defensa de la seguridad en una aplicación reduce las probabilidades de éxito de un ataque. Implemente diseños seguros para las aplicaciones con las funcionalidades integradas de la plataforma Azure.   
+**Procedimiento recomendado**: disponer en niveles la defensa de la seguridad en una aplicación reduce las probabilidades de éxito de un ataque. Implemente diseños seguros para las aplicaciones con las funcionalidades integradas de la plataforma Azure.  
 **Detalle**: el riesgo de ataque aumenta con el tamaño (área expuesta) de la aplicación. Puede reducir el área expuesta mediante la creación de listas blancas para cerrar el espacio de direcciones IP expuesto y los puertos de escucha que no sean necesarios en los equilibradores de carga ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) y [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)).
 
 Los [grupos de seguridad de red](../virtual-network/security-overview.md) constituyen otra manera de reducir el área expuesta a ataques. Puede usar [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) y [grupos de seguridad de la aplicación](../virtual-network/security-overview.md#application-security-groups) para minimizar la complejidad de la creación de reglas de seguridad y configurar la seguridad de la red como una extensión natural de la estructura de una aplicación.
@@ -127,6 +127,6 @@ Azure tiene dos [ofertas de servicio](../virtual-network/ddos-protection-overvie
 ## <a name="next-steps"></a>Pasos siguientes
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.
 
-Los siguientes recursos proporcionan más información general sobre la seguridad de Azure y los servicios de Microsoft relacionados:
-* [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/): para obtener información actualizada sobre lo último en seguridad de Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): aquí puede notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o mediante correo electrónico a secure@microsoft.com
+En los siguientes recursos se ofrece más información general sobre la seguridad de Azure y los servicios de Microsoft relacionados:
+* [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/): ofrece información actualizada sobre lo último en seguridad de Azure
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): aquí podrá notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a secure@microsoft.com.

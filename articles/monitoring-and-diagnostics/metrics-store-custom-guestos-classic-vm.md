@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0b1209c1d8d92b08d15cfbfd6e323b7bd748e2f5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958634"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316929"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Envío de métricas de SO invitado al almacén de datos de Azure Monitor para una máquina virtual Windows (clásica)
 
@@ -27,7 +27,7 @@ El proceso descrito en este artículo solo funciona para máquinas virtuales cl�
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Debe ser [administrador de servicios o administrador](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) en su suscripción de Azure. 
+- Debe ser [administrador de servicios o administrador](../billing/billing-add-change-azure-subscription-administrator.md) en su suscripción de Azure. 
 
 - La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
@@ -36,7 +36,7 @@ El proceso descrito en este artículo solo funciona para máquinas virtuales cl�
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Creación de una máquina virtual clásica y una cuenta de almacenamiento
 
 1. Cree una máquina virtual clásica mediante Azure Portal.
-   ![Creación de una máquina virtual clásica](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
+   ![Crear una máquina virtual clásica](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
 
 1. Al crear esta máquina virtual, elija la opción para crear una nueva cuenta de almacenamiento clásica. Usaremos esta cuenta de almacenamiento en pasos posteriores.
 

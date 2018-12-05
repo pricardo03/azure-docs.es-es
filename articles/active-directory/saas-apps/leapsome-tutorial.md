@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441942"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: Integración de Azure Active Directory con Leapsome
 
@@ -107,7 +107,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Leapsome](./media/leapsome-tutorial/tutorial_leapsome_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://www.leapsome.com`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://www.leapsome.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`.
 
@@ -134,9 +134,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | picture | URL de una fotografía del empleado | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
-    > El valor del atributo picture no es real. Actualice este valor con la URL de la imagen real. Para obtener este valor, póngase en contacto con el [equipo de soporte técnico de Leapsome](mailto:support@leapsome.com).
+    > El valor del atributo picture no es real. Actualice este valor con la URL de la imagen real. Para obtener este valor, póngase en contacto con el  [equipo de soporte técnico de Fuse](mailto:support@leapsome.com).
     
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/leapsome-tutorial/tutorial_attribute_04.png)
 
@@ -172,7 +172,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![SAML de Leapsome](./media/leapsome-tutorial/tutorial_leapsome_samlsettings.png)
 
-    a. Seleccione **Enable SAML-based single sign-on** (Habilitar inicio de sesión único basado en SAML).
+     a. Seleccione **Enable SAML-based single sign-on** (Habilitar inicio de sesión único basado en SAML).
 
     b. Copie el valor **Login URL (point your users here to start login)** [URL de inicio de sesión (apuntar a los usuarios aquí para iniciar el inicio de sesión)] y péguelo en el cuadro de texto **URL de inicio de sesión** en la sección **Dominio y direcciones URL de Leapsome**  de Azure Portal.
 
@@ -208,7 +208,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/leapsome-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -218,7 +218,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-leapsome-test-user"></a>Creación de un usuario de prueba de Leapsome
 
-En esta sección, creará un usuario llamado Britta Simon en Leapsome. Colabore con el [equipo de soporte técnico de Leapsome](mailto:support@leapsome.com) para agregar los usuarios o el dominio que debe incluirse en la lista blanca en la plataforma de Leapsome. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de Leapsome. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado Britta Simon en Leapsome. Colabore con el  [equipo de soporte técnico de Leapsome](mailto:support@leapsome.com)  para agregar los usuarios o el dominio que debe incluirse en la lista blanca en la plataforma de Leapsome. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de Leapsome. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -255,7 +255,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Leapsome en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Leapsome.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

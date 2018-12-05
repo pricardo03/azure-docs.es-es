@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041516"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314378"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Aporte su propia clave para Apache Kafka en Azure HDInsight (versión preliminar)
 
@@ -83,7 +83,7 @@ Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén d
 
    Durante la creación del clúster, proporcione la dirección URL completa de la clave, de forma que incluya también la versión de la clave. Por ejemplo, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. También deberá asignar la identidad administrada al clúster y proporcionar el URI de la clave.
 
-## <a name="faq-for-byok-to-kafka"></a>Preguntas más frecuentes de BYOK a Kafka
+## <a name="faq-for-byok-to-apache-kafka"></a>Preguntas más frecuentes de BYOK a Apache Kafka
 
 **¿Cómo accede el clúster de Kafka a mi almacén de claves?**
 
@@ -107,7 +107,7 @@ Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén d
 
 **¿Los discos de sistema operativo o los de recursos también se cifran?**
 
-   No. No se cifran los discos del sistema operativo ni los discos de recursos.
+    No. No se cifran los discos del sistema operativo ni los discos de recursos.
 
 **¿Si un clúster se escala verticalmente, los agentes nuevos admitirán BYOK a la perfección?**
 

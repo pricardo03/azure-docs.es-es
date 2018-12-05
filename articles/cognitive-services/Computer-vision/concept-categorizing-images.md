@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 602ea8028cf89b23df692d5c2fb9b781f64bcad4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341691"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333486"
 ---
 # <a name="categorizing-images"></a>Categorización de imágenes
 
@@ -25,7 +25,7 @@ Además de etiquetas y descripciones, Computer Vision devuelve categorías basad
 
 Una imagen se puede clasificar de lo más amplio a lo más específico mediante la lista de 86 conceptos en el siguiente diagrama. Consulte la taxonomía completa en formato de texto en [Taxonomía de las categorías](category-taxonomy.md).
 
-![Análisis de categorías](./Images/analyze_categories.png)
+![listas agrupadas de todas las categorías correspondientes a la taxonomía de categoría](./Images/analyze_categories-v2.png)
 
 ## <a name="image-categorization-examples"></a>Ejemplos de categorización de imágenes
 

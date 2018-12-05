@@ -1,41 +1,41 @@
 ---
-title: 'Guía de inicio rápido de Azure: Creación de un blob en el almacenamiento de objetos con el SDK de Storage para Java V7 | Microsoft Docs'
-description: En esta guía de inicio rápido, creará una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, puede usar la biblioteca de clientes de almacenamiento para Java a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
+title: Creación de un blob en Azure Storage con el SDK de Storage para Java v7 | Microsoft Docs
+description: Cree una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, puede usar la biblioteca de clientes de Azure Storage para Java V7 a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 10/23/2018
+ms.topic: conceptual
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 8aa56d8363fe96d58d6fb12f163f468e37dd0462
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 342b19927d290f5ff519d3fae5b84bcfa2b9d9cf
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961864"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711759"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Guía de inicio rápido: Carga, descarga y enumeración de blobs mediante Java SDK V7
+# <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Cómo cargar, descargar y enumerar blobs mediante el SDK para Java v7
 
-En este tutorial de inicio rápido, aprenderá a usar Java para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage.
+En esta guía paso a paso, aprenderá a usar Java para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar esta guía de inicio rápido:
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+Cree también una cuenta de almacenamiento de Azure en [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Si necesita ayuda para crearla, consulte [Creación de una cuenta de almacenamiento](../common/storage-quickstart-create-account.md).
+
+Asegúrese de que cumple los siguientes requisitos previos:
 
 * Instale un IDE que tenga la integración de Maven.
 
 * También puede instalar y configurar Maven para que funcione desde la línea de comandos.
 
-En este tutorial se usa [Eclipse](http://www.eclipse.org/downloads/) con la configuración de "Eclipse IDE para desarrolladores de Java".
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+En esta guía se usa [Eclipse](http://www.eclipse.org/downloads/) con la configuración del "IDE de Eclipse para desarrolladores de Java".
 
 ## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
 
-La [aplicación de ejemplo](https://github.com/Azure-Samples/storage-blobs-java-quickstart) utilizada en este tutorial de inicio rápido es una aplicación de consola básica.  
+La [aplicación de ejemplo](https://github.com/Azure-Samples/storage-blobs-java-quickstart) es una aplicación de consola básica.  
 
 Use [git](https://git-scm.com/) para descargar una copia de la aplicación en su entorno de desarrollo. 
 
@@ -130,9 +130,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Carga de blobs al contenedor
 
-Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los blobs en bloques son los que se usan con más frecuencia y serán los que utilicemos en este tutorial de inicio rápido. 
-
-Para cargar un archivo a un blob, obtenga una referencia al blob en el contenedor de destino. Cuando tenga la referencia de blob, puede cargar datos en él mediante [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long). Esta operación crea el blob si todavía no existe o lo sobrescribe si ya existe.
+Para cargar un archivo a un blob en bloques, obtenga una referencia al blob en el contenedor de destino. Cuando tenga la referencia de blob, puede cargar datos en él mediante [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long). Esta operación crea el blob si todavía no existe o lo sobrescribe si ya existe.
 
 El código de ejemplo crea un archivo local que se usará para la carga y descarga, almacenando el archivo que se va a cargar como **source** y el nombre del blob en **blob**. En el ejemplo siguiente se carga el archivo al contenedor llamado **quickstartcontainer**.
 
@@ -184,7 +182,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya no necesita los blobs cargados en este tutorial de inicio rápido, puede eliminar todo el contenedor mediante [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). Este método también elimina los archivos del contenedor.
+Si ya no necesita los blobs cargados, puede eliminar todo el contenedor mediante [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). Este método también elimina los archivos del contenedor.
 
 ```java
 try {
@@ -205,7 +203,7 @@ sourceFile.deleteOnExit();
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Java. Para más información sobre cómo trabajar con Java, vaya a nuestro repositorio de código fuente de GitHub.
+En este artículo aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Java. Para más información sobre cómo trabajar con Java, vaya a nuestro repositorio de código fuente de GitHub.
 
 > [!div class="nextstepaction"]
 > [SDK de Azure Storage para Java](https://github.com/azure/azure-storage-java) 

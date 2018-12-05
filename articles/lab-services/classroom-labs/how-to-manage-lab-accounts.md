@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140830"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707136"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Administración de cuentas de laboratorio en Azure Lab Services 
 En Azure Lab Services, una cuenta de laboratorio es un contenedor para laboratorios administrados, como los laboratorios de clase. Los administradores configuran una cuenta de laboratorio con Azure Lab Services y proporcionan acceso a los propietarios del laboratorio que pueden crear laboratorios en la cuenta. En este artículo se describe cómo crear o eliminar una cuenta de laboratorio y cómo ver todas las cuentas de laboratorio.
@@ -114,7 +114,9 @@ Siga las instrucciones que aparecen en la sección anterior para ver una lista d
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Introducción a la configuración de un laboratorio con Azure Lab Services:
+Consulte los artículos siguientes:
 
-- [Configuración de un laboratorio educativo](tutorial-setup-classroom-lab.md)
-- [Configuración de un laboratorio](../tutorial-create-custom-lab.md)
+- [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)
+- [Como propietario del laboratorio, configurar y publicar plantillas](how-to-create-manage-template.md)
+- [Como propietario del laboratorio, configurar y controlar el uso de un laboratorio](how-to-configure-student-usage.md)
+- [Como usuario del laboratorio, obtener acceso a laboratorios educativos](how-to-use-classroom-lab.md)

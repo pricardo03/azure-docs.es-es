@@ -1,11 +1,12 @@
 ---
-title: Importación de datos a Machine Learning Studio desde orígenes de datos en línea | Microsoft Docs
-description: Cómo importar datos de entrenamiento a Azure Machine Learning Studio desde varios orígenes en línea.
+title: Importar datos a Machine Learning Studio desde orígenes de datos en línea - Azure | Microsoft Docs
+description: En este artículo se describe la compatibilidad con la importación de datos en línea desde varios orígenes y la información necesaria para mover los datos desde estos orígenes a un experimento de Azure Machine Learning Studio.
 keywords: importar datos, formato de datos, tipos de datos, orígenes de datos, datos de entrenamiento
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
@@ -16,15 +17,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 87a7e968073d8625375ea837f9377145b6dfb45a
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 89e2414b32dfb3cc6773d09dcdc3e711e56492ef
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344868"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315037"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importación de datos a Azure Machine Learning Studio desde varios orígenes de datos en línea con el módulo Importar datos
-En este artículo se describe la compatibilidad con la importación de datos en línea desde varios orígenes y la información necesaria para mover los datos desde estos orígenes a un experimento de Azure Machine Learning.
+En este artículo se describe la compatibilidad con la importación de datos en línea desde varios orígenes y la información necesaria para mover los datos desde estos orígenes a un experimento de Azure Machine Learning Studio.
 
 > [!NOTE]
 > En este artículo se proporciona información general sobre el módulo [Importar datos][import-data]. Para obtener más información sobre los tipos de datos a los que puede acceder, los formatos, los parámetros y las respuestas a las preguntas más comunes, consulte el tema de referencia del módulo [Importar datos][import-data].

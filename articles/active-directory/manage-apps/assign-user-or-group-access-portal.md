@@ -2,25 +2,21 @@
 title: Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory | Microsoft Docs
 description: Procedimiento para seleccionar una aplicación empresarial para asignarla a un usuario o un grupo en la versión preliminar de Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b6b7408b4efe4c3271ea2ddeb63a499bee670976
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037981"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711317"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory
 Para asignar un usuario o un grupo a una aplicación empresarial, debe contar con los permisos adecuados para administrar dicha aplicación, y debe ser administrador global del directorio.
@@ -32,7 +28,7 @@ Para asignar un usuario o un grupo a una aplicación empresarial, debe contar co
 > Con aplicaciones de Microsoft (por ejemplo, aplicaciones de Office 365), use PowerShell para asignar usuarios a una aplicación empresarial.
 
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>¿Cómo se asigna el acceso de usuario a una aplicación empresarial en Azure Portal?
+## <a name="assign-a-user-to-an-app---portal"></a>Asignación de un usuario a una aplicación: portal
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Todos los servicios**, escriba Azure Active Directory en el cuadro de texto y seleccione **Entrar**.
 3. Seleccione **Aplicaciones empresariales**.
@@ -51,7 +47,25 @@ Para asignar un usuario o un grupo a una aplicación empresarial, debe contar co
 10. En la hoja **Agregar asignación**, seleccione **Rol**. Después, en la hoja **Seleccionar rol**, seleccione el rol que desea aplicar a los usuarios o grupos seleccionados, y luego haga clic en el botón **Aceptar** de la parte inferior de la hoja.
 11. En la hoja **Agregar asignación**, haga clic en el botón **Asignar** de la parte inferior de la hoja. Los usuarios o grupos asignados tienen definidos los permisos por el rol seleccionado para esta aplicación empresarial.
 
-## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>¿Cómo se asigna un usuario a una aplicación empresarial mediante PowerShell?
+## <a name="allow-all-users-to-access-an-app---portal"></a>Permitir a los usuarios tener acceso a una aplicación: portal
+Para permitir a los usuarios tener acceso a una aplicación:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
+2. Seleccione **Todos los servicios**, escriba Azure Active Directory en el cuadro de texto y seleccione **Entrar**.
+3. Seleccione **Aplicaciones empresariales**.
+4. En la hoja **Aplicaciones empresariales**, seleccione **Todas las aplicaciones**. A continuación se muestran las aplicaciones que se pueden administrar.
+5. En la hoja **Enterprise applications (Aplicaciones empresariales) - Todas las aplicaciones** , seleccione una aplicación.
+6. En la hoja ***appname***, seleccione **Propiedades**.
+7. En la hoja ***appname* -Propiedades**, establezca la opción de configuración **¿Asignación de usuarios?** en **No**. 
+
+La opción **¿Asignación de usuarios?**:
+
+- No afecta a si una aplicación aparece o no en el panel de acceso de la aplicación. Para mostrar la aplicación en el panel de acceso, debe asignar un grupo o usuario adecuado a la aplicación.
+- Solo las funciones con las aplicaciones en la nube configuradas para el inicio de sesión único de SAML, y aplicaciones locales configuradas con el proxy de aplicación. Vea [Inicio de sesión único para aplicaciones](what-is-single-sign-on.md).
+- Requiere que los usuarios den su consentimiento a una aplicación. Un administrador puede conceder consentimiento para todos los usuarios.  Vea [Configure el modo en que los usuarios finales dan su consentimiento a una aplicación](configure-user-consent.md).
+
+
+## <a name="assign-a-user-to-an-app---powershell"></a>Asignación de un usuario a una aplicación: PowerShell
 
 1. Abra un símbolo del sistema de Windows PowerShell con privilegios elevados.
 

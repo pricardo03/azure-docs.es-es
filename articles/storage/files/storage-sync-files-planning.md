@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625307"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335187"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -109,10 +109,11 @@ Para mostrar los resultados en CSV:
 ```
 
 ### <a name="system-requirements"></a>Requisitos del sistema
-- Un servidor que ejecute Windows Server 2012 R2 o Windows Server 2016:
+- Un servidor que ejecute Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019:
 
     | Versión | SKU compatibles | Opciones de implementación compatibles |
     |---------|----------------|------------------------------|
+    | Windows Server 2019 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
     | Windows Server 2016 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
     | Windows Server 2012 R2 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
 
@@ -198,10 +199,10 @@ Las soluciones de antivirus internas de Microsoft, Windows Defender y System Cen
 ### <a name="backup-solutions"></a>Soluciones de copia de seguridad
 Al igual que sucede con las soluciones antivirus, las soluciones de backup pueden provocar la recuperación de archivos con niveles. Se recomienda usar una solución de backup en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure en lugar de usar un producto de backup local.
 
-Si está utilizando una solución de copia de seguridad local, las copias de seguridad deben realizarse en un servidor del grupo de sincronización que tenga los niveles en la nube deshabilitados. Al restaurar los archivos dentro de la ubicación del punto de conexión del servidor, utilice la opción de restauración en el nivel de archivo. Los archivos restaurados se sincronizarán en todos los puntos de conexión del grupo de sincronización y los archivos existentes se sustituirán por la versión restaurada de la copia de seguridad.
+Si está utilizando una solución de copia de seguridad local, las copias de seguridad deben realizarse en un servidor del grupo de sincronización que tenga los niveles en la nube deshabilitados. Al realizar una restauración, use las opciones de restauración de nivel de volumen o de archivo. Los archivos restaurados con la opción de restauración a nivel de archivo se sincronizarán con todos los puntos de conexión del grupo de sincronización y los archivos existentes se reemplazarán con la versión restaurada desde la copia de seguridad.  Las restauraciones a nivel de volumen no reemplazarán las versiones de archivo más recientes en el recurso compartido de archivos de Azure u otros puntos de conexión del servidor.
 
 > [!Note]  
-> Las opciones de restauración con reconocimiento de aplicaciones, de nivel de volumen y completas (BMR) pueden provocar resultados inesperados y actualmente no se admiten. Estas opciones de restauración se admitirán en una versión futura.
+> La reconstrucción completa (BMR) puede causar resultados inesperados y actualmente no se admite.
 
 ### <a name="encryption-solutions"></a>Soluciones de cifrado
 La compatibilidad con soluciones de cifrado depende de cómo se implementen. Está comprobado que Azure File Sync funciona con:

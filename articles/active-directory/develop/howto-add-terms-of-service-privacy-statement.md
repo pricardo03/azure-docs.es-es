@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 2195a43665f99e8388b13fc6dc3e528496bd3901
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b1276ab227f4bf65483fb2cdec57c759573bc7c5
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242694"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853598"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Condiciones del servicio y declaración de privacidad de las aplicaciones registradas de Azure Active Directory
 
@@ -64,10 +64,10 @@ Cuando las condiciones del servicio y la declaración de privacidad estén prepa
 
 Siga estos pasos si ha registrado su aplicación en Azure Portal.
 
-1. Inicie sesión en  [Azure Portal](https://portal.azure.com/).
-2. Vaya a la sección  **Registros de aplicaciones**  y seleccione su aplicación.
-3. Abra la sección  **Propiedades**  de la aplicación.
-4. Rellene los campos  **Dirección URL de Condiciones del servicio**  y  **URL de la declaración de privacidad** .
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+2. Navegue hasta la sección **Registros de aplicaciones** y seleccione la aplicación.
+3. Abra la sección **Propiedades** de la aplicación.
+4. Rellene los campos **URL de las condiciones del servicio** y **URL de la declaración de privacidad**.
 5. Guarde los cambios.
 
     ![Sección de propiedades de aplicación con URL de las condiciones del servicio y de la declaración de privacidad](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
@@ -76,9 +76,9 @@ Siga estos pasos si ha registrado su aplicación en Azure Portal.
 
 Siga estos pasos si ha registrado su aplicación en el Portal de registro de aplicaciones o el Centro de desarrollo.
 
-1. Inicie sesión en el  [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/).
-2. Seleccione la aplicación y desplácese a la sección  **Perfil** .
-3. Rellene los campos  **Dirección URL de Condiciones del servicio**  y  **URL de la declaración de privacidad** .
+1. Inicie sesión en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/).
+2. Seleccione la aplicación y desplácese a la sección **Perfil**.
+3. Rellene los campos **URL de las condiciones del servicio** y **URL de la declaración de privacidad**.
 4. Guarde los cambios.
 
     ![Sección de perfil de aplicación con URL de las condiciones del servicio y de la declaración de privacidad](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)

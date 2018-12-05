@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: f68bf05ef9749794c78898e4464489e7cfb358ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231391"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820008"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementación de la aplicación en Azure App Service mediante FTP/S
 
@@ -66,7 +66,7 @@ Para mejorar la seguridad, permita solo FTP a través de SSL. También puede des
 
 En la página de recursos de la aplicación de [Azure Portal](https://portal.azure.com), seleccione **Configuración de la aplicación** en el panel de navegación izquierdo.
 
-Para deshabilitar FTP sin cifrar, seleccione **Solo FTPS**. Para deshabilitar completamente el FTP y FTPS, seleccione **Deshabilitar**. Cuando termine, haga clic en **Guardar**. Si utiliza **Solo FTPS** debe exigir TLS 1.1 o posterior; para ello, navegue a la hoja **Configuración de SSL** de la aplicación web. TLS 1.0 no es compatible con **Solo FTPS**.
+Para deshabilitar FTP sin cifrar, seleccione **Solo FTPS**. Para deshabilitar completamente el FTP y FTPS, seleccione **Deshabilitar**. Cuando termine, haga clic en **Guardar**. Si usa **Solo FTPS** debe exigir TLS 1.2 o posterior; para ello, navegue a la hoja **Configuración de SSL** de la aplicación web. TLS 1.0 y 1.1 no son compatibles con **Solo FTPS**.
 
 ![Deshabilitación de FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

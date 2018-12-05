@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 59c89c81f618876de48de66a38e1063eb658fba4
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d3d42a3c81153d54690f0825368eaa950dbac18e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742960"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314786"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Versión preliminar: protección con contraseña de Azure AD local: preguntas más frecuentes
 
@@ -50,7 +50,7 @@ Para obtener más información, consulte los artículos siguientes:
 
 [The Case for Migrating sysvol replication to DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr) (El caso de migrar la replicación de SYSVOL a DFSR)
 
-[The End is Nigh for DRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs) (El final de DRS está cerca)
+[The End is Nigh for FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs) (El final de FRS está cerca)
 
 **P: ¿Por qué se requiere un reinicio para instalar o actualizar el software del agente del controlador de dominio?**
 
@@ -58,7 +58,7 @@ Este requisito lo causa un comportamiento principal de Windows.
 
 **P: ¿Existe alguna forma de configurar un agente de controlador de dominio para que use un servidor proxy específico?**
 
-No.
+ No.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

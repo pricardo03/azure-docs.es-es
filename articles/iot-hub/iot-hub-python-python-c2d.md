@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: kgremban
-ms.openlocfilehash: cab3e5ee64ced59e9eb861e468f7a3c1dc600e8e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8c8cf77107f87522f9ae121845f53d8993449651
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220745"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824802"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envío de mensajes de nube a dispositivo con IoT Hub (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -35,7 +35,7 @@ Encontrará más información sobre los mensajes de nube a dispositivo en la [Gu
 
 Al final de este tutorial tendrá dos aplicaciones de consola de Python:
 
-* **SimulatedDevice.py**, versión modificada de la aplicación creada en [Introducción a Iot Hub], que se conecta a IoT Hub y recibe mensajes de nube a dispositivo.
+* **SimulatedDevice.py**, versión modificada de la aplicación creada en [Introducción a IoT Hub], que se conecta a IoT Hub y recibe mensajes de nube a dispositivo.
 * **SendCloudToDeviceMessage.py**, que envía un mensaje de la nube a la aplicación de dispositivo simulado mediante IoT Hub y, luego, recibe su confirmación de entrega.
 
 > [!NOTE]
@@ -73,7 +73,7 @@ En esta sección, creará una aplicación de consola de Python para simular el d
     RECEIVE_CALLBACKS = 0
     ```
 
-1. Agregue el código siguiente al archivo **SimulatedDevice.py**. Sustituya el valor de marcador de posición "{deviceConnectionString}" por la cadena de conexión del dispositivo para el dispositivo que creó en el tutorial [Introducción a Iot Hub]:
+1. Agregue el código siguiente al archivo **SimulatedDevice.py**. Sustituya el valor de marcador de posición "{deviceConnectionString}" por la cadena de conexión del dispositivo para el dispositivo que creó en el tutorial [Introducción a IoT Hub]:
    
     ```python
     # choose AMQP or AMQP_WS as transport protocol
@@ -184,7 +184,7 @@ En esta sección, escribirá una aplicación de consola de Python que envía men
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-1. Agregue el código siguiente al archivo **SendCloudToDeviceMessage.py**. Sustituya el valor de marcador de posición "{IoTHubConnectionString}" por la cadena de conexión de IoT Hub que creó en el tutorial [Introducción a Iot Hub]. Sustituya el marcador de posición "{deviceId}" por el identificador del dispositivo que agregó en el tutorial [Introducción a Iot Hub]:
+1. Agregue el código siguiente al archivo **SendCloudToDeviceMessage.py**. Sustituya el valor de marcador de posición "{IoTHubConnectionString}" por la cadena de conexión de IoT Hub que creó en el tutorial [Introducción a IoT Hub]. Sustituya el marcador de posición "{deviceId}" por el identificador del dispositivo que agregó en el tutorial [Introducción a IoT Hub]:
    
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -291,7 +291,7 @@ Ahora está preparado para ejecutar las aplicaciones.
    
 1. Anote el mensaje que recibirá en el dispositivo.
 
-    ![Mensaje recibido][img-message-recieved]
+    ![Mensaje recibido][img-message-received]
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -304,7 +304,7 @@ Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, c
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-python-python-c2d/simulated-device.png
 [img-send-command]:  media/iot-hub-python-python-c2d/send-command.png
-[img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
+[img-message-received]: media/iot-hub-python-python-c2d/message-received.png
 
 <!-- Links -->
 [lnk-python-download]: https://www.python.org/downloads/

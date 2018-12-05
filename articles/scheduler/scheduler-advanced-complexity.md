@@ -9,13 +9,13 @@ ms.reviewer: klam
 ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
-ms.date: 08/18/2016
-ms.openlocfilehash: f5a8b929cf5af6e4e43c6003e6b622d04a50b93e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/14/2018
+ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980947"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712065"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Creación de programaciones avanzadas y periodicidades para trabajos en Azure Scheduler
 
@@ -32,7 +32,7 @@ En un trabajo de [Azure Scheduler](../scheduler/scheduler-intro.md), la programa
 
 * **Procesamiento de imágenes**: cree un trabajo de día laboral que se ejecute fuera de las horas punta y use informática en nube para comprimir las imágenes cargadas durante el día.
 
-En este artículo se describen trabajos de ejemplo que puede crear con Scheduler y la [API REST de Azure Scheduler](https://docs.microsoft.com/rest/api/schedule) y se incluye la definición de la notación de objetos JavaScript (JSON) de cada programación. 
+En este artículo se describen trabajos de ejemplo que puede crear con Scheduler y la [API REST de Azure Scheduler](/rest/api/scheduler) y se incluye la definición de la notación de objetos JavaScript (JSON) de cada programación. 
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -43,7 +43,7 @@ Estos ejemplos muestran la gama de escenarios que admite Azure Scheduler y la cr
 * Ejecutar inmediatamente y repetir.
 * Ejecutar y repetir cada *n* minutos, horas, días, semanas o meses a partir de un período de tiempo específico.
 * Ejecutar y repetir con frecuencia semanal o mensual, pero solo en días específicos de la semana o del mes.
-* Ejecutar y repetir varias veces durante un tiempo específico. Por ejemplo, el último viernes y último lunes de cada mes, o a las 5:15 y a las 17:15 todos los días.
+* Ejecutar y repetir más de una vez durante un tiempo específico. Por ejemplo, el último viernes y último lunes de cada mes, o a las 5:15 y a las 17:15 todos los días.
 
 Más adelante en este artículo se describen estos escenarios con mayor detalle.
 
@@ -51,7 +51,7 @@ Más adelante en este artículo se describen estos escenarios con mayor detalle.
 
 ## <a name="create-schedule-with-rest-api"></a>Creación de programaciones con las API REST
 
-Para crear una programación básica con la [API REST de Azure Scheduler](https://docs.microsoft.com/rest/api/schedule), siga estos pasos:
+Para crear una programación básica con la [API REST de Azure Scheduler](/rest/api/scheduler), siga estos pasos:
 
 1. Registre su suscripción de Azure con un proveedor de recursos mediante la [operación de registro con la API REST de Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). El nombre del proveedor para el servicio Azure Scheduler es **Microsoft.Scheduler**. 
 
@@ -96,7 +96,7 @@ Por ejemplo, este esquema JSON describe una programación básica y la periodici
 
 * Las fechas en los trabajos de Scheduler incluyen solo la fecha y siguen la [especificación ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-* La fecha y hora en los trabajos de Scheduler incluyen la fecha y la hora, siguen la [especificación ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) y se consideran en la zona horaria UTC si no se especifica diferencia horaria con UTC. 
+* La fecha y hora en los trabajos de Scheduler incluyen la fecha y la hora, siguen la [especificación ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) y se consideran como parte de la zona horaria UTC si no se especifica diferencia horaria con UTC. 
 
 Para más información, consulte [Conceptos, terminología y entidades de Azure Scheduler](../scheduler/scheduler-concepts-terms.md).
 
@@ -108,9 +108,9 @@ En la siguiente tabla se describe cómo **startTime** controla la forma en la qu
 
 | startTime | Sin periodicidad | Periodicidad, sin programación | Periodicidad con programación |
 |-----------|---------------|-------------------------|--------------------------|
-| **Sin hora de inicio** | Ejecutar inmediatamente una vez. | Ejecutar inmediatamente una vez. Realiza ejecuciones posteriores calculadas desde la última hora de ejecución. | Ejecutar inmediatamente una vez. Realiza las sucesivas ejecuciones según una programación de periodicidad. | 
-| **Hora de inicio en el pasado** | Ejecutar inmediatamente una vez. | Calcula la hora de la primera ejecución tras la hora de inicio y realiza la ejecución a esa hora. <p>Realiza ejecuciones posteriores calculadas desde la última hora de ejecución. <p>Consulte el ejemplo a continuación de esta tabla. | Inicie el trabajo *como pronto* a la hora de inicio especificada. La primera repetición se basa en la programación que se calcula a partir de la hora de inicio. <p>Realiza las sucesivas ejecuciones según una programación de periodicidad. | 
-| **Hora de inicio en el futuro o la hora actual** | Se ejecuta una vez a la hora de inicio especificada. | Se ejecuta una vez a la hora de inicio especificada. <p>Realiza ejecuciones posteriores calculadas desde la última hora de ejecución. | Inicie el trabajo *como pronto* a la hora de inicio especificada. La primera aparición se basa en la programación que se calcula a partir de la hora de inicio. <p>Realiza las sucesivas ejecuciones según una programación de periodicidad. |
+| **Sin hora de inicio** | Ejecutar inmediatamente una vez. | Ejecutar inmediatamente una vez. Realizar ejecuciones posteriores calculadas desde la última hora de ejecución. | Ejecutar inmediatamente una vez. Realizar ejecuciones posteriores según una programación de periodicidad. | 
+| **Hora de inicio en el pasado** | Ejecutar inmediatamente una vez. | Calcula la hora de la primera ejecución tras la hora de inicio y realiza la ejecución a esa hora. <p>Realizar ejecuciones posteriores calculadas desde la última hora de ejecución. <p>Consulte el ejemplo a continuación de esta tabla. | Inicie el trabajo *como pronto* a la hora de inicio especificada. La primera repetición se basa en la programación que se calcula a partir de la hora de inicio. <p>Realizar ejecuciones posteriores según una programación de periodicidad. | 
+| **Hora de inicio en el futuro o la hora actual** | Se ejecuta una vez a la hora de inicio especificada. | Se ejecuta una vez a la hora de inicio especificada. <p>Realizar ejecuciones posteriores calculadas desde la última hora de ejecución. | Inicie el trabajo *como pronto* a la hora de inicio especificada. La primera aparición se basa en la programación que se calcula a partir de la hora de inicio. <p>Realizar ejecuciones posteriores según una programación de periodicidad. |
 ||||| 
 
 Supongamos que este ejemplo cumple estas condiciones: una hora de inicio en el pasado con periodicidad, pero sin programación.
@@ -125,16 +125,16 @@ Supongamos que este ejemplo cumple estas condiciones: una hora de inicio en el p
 }
 ```
 
-* La fecha y la hora actuales son "2015-04-08 13:00".
+* La fecha y la hora actuales son "8 de abril de 2015 a la 13:00".
 
-* La fecha y la hora de inicio son "2015-04-07 14:00", lo cual es anterior a la fecha y la hora actuales.
+* La fecha y la hora de inicio son"7 de abril de 2015 a las 14:00", lo cual es anterior a la fecha y la hora actuales.
 
 * La periodicidad es de cada dos días.
 
-1. En estas condiciones, la primera ejecución será el 2015-04-09 a las 14:00. 
+1. En estas condiciones, la primera ejecución será el 9 de abril de 2015 a las 14:00. 
 
    Scheduler calcula las ejecuciones en función de la hora de inicio, descarta las instancias pasadas y utiliza la siguiente instancia futura. 
-   En este caso, **startTime** es 2015-04-07 a las 14:00, por lo que la siguiente instancia es dos días a partir de ese momento, es decir, el 2015-04-09 a las 14:00.
+   En este caso, **startTime** es el 7 de abril de 2015 a las 14:00, por lo que la siguiente instancia es dos días a partir de ese momento, es decir, el 9 de abril de 2015 a las 14:00.
 
    La primera ejecución es la misma si **startTime** es 2015-04-05 14:00 o 2015-04-01 14:00. Después de la primera ejecución, las ejecuciones posteriores se calculan en función de la programación. 
    
@@ -155,7 +155,7 @@ Puede usar **schedule** para *limitar* el número de ejecuciones de trabajos. Po
 
 También puede usar **schedule** para *expandir* el número de ejecuciones de trabajos. Por ejemplo, si un trabajo con un valor de **frequency** de "mes" tiene una programación que se ejecuta los días 1 y 2 del mes, el trabajo se ejecuta en los días primero y segundo del mes en lugar de solo una vez al mes.
 
-Si especifica varios elementos de programación, el orden de evaluación es de mayor a menor: número de semana, mes, día, día de la semana, hora y minuto.
+Si especifica más de un elemento de programación, el orden de evaluación es de mayor a menor: número de semana, mes, día, día de la semana, hora y minuto.
 
 En la siguiente tabla se describen los elementos de schedule con detalle:
 
@@ -181,7 +181,7 @@ Estas programaciones asumen que **interval** está establecido en 1\.. Los ejemp
 | `{"minutes":[15,45], "hours":[5,17]}` |Se ejecuta a las 5:15 a. m., 5:45 a. m., 5:15 p. m. y 5:45 p. m. todos los días. |
 | `{"minutes":[0,15,30,45]}` |Se ejecuta cada 15 minutos. |
 | `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Se ejecuta cada hora.<br /><br />Este trabajo se ejecuta cada hora. El minuto viene controlado por el valor **startTime**, si se especifica. Si no se especifica ningún valor **startTime**, el minuto lo controla la hora de creación. Por ejemplo, si la hora de inicio o la hora de creación (lo que se aplique) es 12:25 p. m., el trabajo se ejecutará a las 00:25, 01:25, 02:25, …, 23:25.<br /><br />La programación equivale a un trabajo con un valor de **frequency** de "hora", un valor de **interval** de 1 y ningún valor de **schedule**. La diferencia es que esta programación puede usarse con diferentes valores en **frequency** e **interval** para crear también otros trabajos. Por ejemplo, si el valor de **frequency** fuera “mes”, la programación se ejecutaría solo una vez al mes en lugar de todos los días (como sucedería si **frequency** fuera “día”). |
-| `{minutes:[0]}` |Se ejecuta cada hora durante la hora.<br /><br />Este trabajo también se ejecuta cada hora, pero a la hora exacta (por ejemplo, 12 a. m., 1 a. m., 2 a. m., etc.) Esto es equivalente a un trabajo con un valor de **frecuency** de "hora", un valor de **startTime** de cero minutos y ningún valor de **schedule**, si la frecuencia es "día". No obstante, si el valor de **frequency** es "semana" o "mes", la programación se ejecuta únicamente un día a la semana o un día al mes, respectivamente. |
+| `{minutes:[0]}` |Se ejecuta cada hora durante la hora.<br /><br />Este trabajo también se ejecuta cada hora, pero a la hora exacta (por ejemplo, 12 a. m., 1 a. m., 2 a. m., etc.) Esta programación es equivalente a un trabajo con un valor de **frecuency** de "hora", un valor de **startTime** de cero minutos y ningún valor de **schedule**, si la frecuencia es "día". No obstante, si el valor de **frequency** es "semana" o "mes", la programación se ejecuta únicamente un día a la semana o un día al mes, respectivamente. |
 | `{"minutes":[15]}` |Se ejecuta a "y cuarto" cada hora.<br /><br />Se ejecuta cada hora a partir de las 00:15 a. m., 1:15 a. m., 2:15 a. m., y así sucesivamente. Finaliza a las 11:15 p. m. |
 | `{"hours":[17], "weekDays":["saturday"]}` |Se ejecuta a las 5 p. m. los sábados de cada semana. |
 | `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Se ejecuta a las 5 p. m. los lunes, miércoles y viernes de cada semana. |
@@ -192,18 +192,18 @@ Estas programaciones asumen que **interval** está establecido en 1\.. Los ejemp
 | `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Se ejecuta cada 15 minutos los días laborables entre las 9 a. m. y las 4:45 p.m. |
 | `{"weekDays":["sunday"]}` |Se ejecuta los domingos a la hora de inicio. |
 | `{"weekDays":["tuesday", "thursday"]}` |Se ejecuta los martes y los jueves a la hora de inicio. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Se ejecuta a las 6 a. m. del día 28 de cada mes (suponiendo un valor de **frequency** de "mes"). |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Se ejecuta a las 6 a. m. del día 28 de cada mes (suponiendo un valor de **frequency** de mes). |
 | `{"minutes":[0], "hours":[6], "monthDays":[-1]}` |Se ejecuta a las 6 a. m. el último día del mes.<br /><br />Si desea ejecutar un trabajo en el último día del mes, use -1 en lugar de día 28, 29, 30 o 31. |
 | `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` |Se ejecuta a las 6 a. m. el primer y el último día del mes. |
 | `{monthDays":[1,-1]}` |Se ejecuta el primer y último día de cada mes a la hora de inicio. |
-| `{monthDays":[1,14]}` |Se ejecuta el primer y decimocuarto día de cada mes a la hora de inicio. |
+| `{monthDays":[1,14]}` |Se ejecuta el primer y el catorceavo día de cada mes a la hora de inicio. |
 | `{monthDays":[2]}` |Se ejecuta el segundo día del mes a la hora de inicio. |
 | `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Se ejecuta el primer viernes de cada mes a las 5 a. m. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Se ejecuta el primer viernes de cada mes a la hora de inicio. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` |Se ejecuta el tercer viernes desde el final del mes, todos los meses, a la hora de inicio. |
 | `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Se ejecuta el primer viernes de cada mes a las 5:15 a. m. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Se ejecuta el primer y último viernes de cada mes a la hora de inicio. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` |Se ejecuta el quinto viernes de cada mes a la hora de inicio.<br /><br />Si no existe quinto viernes en un mes, el trabajo no se ejecuta. Puede considerar usar -1 en lugar de 5 para la repetición si desea ejecutar el trabajo en el último viernes del mes. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` |Se ejecuta el quinto viernes de cada mes a la hora de inicio.<br /><br />Si no existe el quinto viernes en un mes, el trabajo no se ejecuta. Puede considerar usar -1 en lugar de 5 para la repetición si desea ejecutar el trabajo en el último viernes del mes. |
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Se ejecuta cada 15 minutos el último viernes del mes. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Se ejecuta a las 5:15 a. m., 5:45 a. m., 5:15 a. m. y las 5:45 a. m. el tercer miércoles de cada mes. |
 

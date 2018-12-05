@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430041"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853360"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -135,8 +135,9 @@ El código de error es un número de 6 dígitos que combina el código de estado
 | 403000| No se permite la operación.|
 | 403001| No se permite la operación porque la suscripción superó su cuota disponible.|
 | 405000| No se admite el método de solicitud para el recurso solicitado.|
+| 408001| El sistema de traducción personalizado solicitado aún no está disponible. Vuelva a intentarlo en unos minutos.|
 | 415000| Falta el encabezado Content-Type o no es válido.|
 | 429000, 429001, 429002| El servidor rechazó la solicitud porque el cliente envía demasiadas solicitudes. Reduzca la frecuencia de las solicitudes para evitar la limitación.|
-| 500000| Se ha producido un error inesperado. Si el error continúa, notifíquelo con la fecha y hora del error, con identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
+| 500000| Se ha producido un error inesperado. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 | 503000| El servicio no está disponible temporalmente. Inténtelo de nuevo. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 

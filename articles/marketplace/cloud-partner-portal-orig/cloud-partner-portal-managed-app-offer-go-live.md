@@ -1,5 +1,5 @@
 ---
-title: TÍTULO | Microsoft Docs
+title: Publicación de la oferta de aplicación de Azure en Azure Marketplace | Microsoft Docs
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 643b7d674de3d51f98b69d6f0659478c9893e3b1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 18a8e6ae8ab3bd4299c6a014f938e73a2a021492
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807782"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263601"
 ---
 <a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Publicación de la oferta de aplicación de Azure en Azure Marketplace 
 ===========================================================
@@ -33,19 +33,22 @@ Analicemos este proceso más detalladamente para entender mejor lo que sucede du
 <a name="publishing-process"></a>Proceso de publicación 
 ------------------
 
-Debe hacer clic en \"Publicar\" en la pestaña Editor para iniciar el proceso de publicación.
+Debe hacer clic en \"Publicar\" en la pestaña **Editor** para iniciar el proceso de publicación.
 
 ![Secuencia 1 de publicación de la oferta: publicación](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
 
-En la pestaña Estado, verá los pasos de publicación y en qué paso se encuentra la oferta.
+En la pestaña **Estado**, verá los pasos de publicación y en qué paso se encuentra la oferta.
 
 ![Secuencia 2 de publicación de la oferta: flujo de trabajo](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_workflow.png)
 
-En cualquier punto del proceso de publicación, también puede iniciar sesión y hacer clic en la pestaña Todas las ofertas para ver el estado más reciente de cualquiera de las ofertas. Puede hacer clic directamente en el estado de su oferta y ver los detalles relativos al punto en que su oferta se encuentra en el proceso de publicación.
+En cualquier punto del proceso de publicación, también puede iniciar sesión y hacer clic en la pestaña **Todas las ofertas** para ver el estado más reciente de cualquiera de las ofertas. Puede hacer clic directamente en el estado de su oferta y ver los detalles relativos al punto en que su oferta se encuentra en el proceso de publicación.
 
-Vamos a analizar cada uno de los pasos de publicación, explicar lo que sucede en cada uno de ellos y examinar su duración estimada.
+> [!WARNING]
+> Si la atribución de uso del cliente no está habilitada, obtendrá el siguiente mensaje de error durante el proceso de publicación: "Azure partner customer usage attribution missing in one or more Azure Resource Manager templates. To resolve, add a tracking GUID to the Azure Resource Manager template in mainTemplate.json packages for the following plan: servicenow. For more details, see http://aka.ms/customerusageattribution" (Falta la atribución de uso del cliente para asociado de Azure en una o varias plantillas de Azure Resource Manager. Para resolver, agregue un GUID de seguimiento a la plantilla de Azure Resource Manager en paquetes mainTemplate.json para el siguiente plan: servicenow. Para obtener información, consulte http://aka.ms/customerusageattribution). 
 
-### <a name="validate-pre-requisites-1-day"></a>Validar los requisitos previos (\<1 día) 
+Vamos a analizar cada uno de los pasos de publicación, y explicar lo que sucede en cada uno de ellos y examinar su duración estimada.
+
+### <a name="validate-prerequisites-1-day"></a>Validar requisitos previos (\<1 día) 
 
 Al hacer clic en \"Publicar\", se llevará a cabo una comprobación automatizada para comprobar que ha rellenado todos los campos obligatorios de su oferta. Si no se ha completado alguno de los campos, aparecerá una advertencia junto al campo en cuestión y tendrá que rellenarlo con la información pertinente. A continuación, haga clic de nuevo en \'Publicar\'.
 
@@ -63,7 +66,7 @@ Dado que este paso puede tardar varios días, puede cerrar sesión en Cloud Part
 
 Durante esta fase, combinaremos el contenido técnico y de marketing en lo que será la página del producto en el sitio web.
 
-### <a name="offer-available-in-preview"></a>Oferta disponible en vista previa 
+### <a name="offer-available-in-preview"></a>Oferta disponible en versión preliminar 
 
 Recibirá un correo electrónico de notificación informando de que su oferta ha completado correctamente los pasos necesarios para tener acceso a su vista previa. En este paso, debe obtener una vista previa de la oferta y asegurarse de que todo se ve correctamente. Compruebe si la VM se implementó correctamente en el entorno de ensayo.
 

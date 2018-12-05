@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 212e7ea7bb2ffea63c7ba210195df0da38aa8f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22983790"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444774"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
 Azure API Management proporciona los siguientes tipos de recursos para su uso en las plantillas del portal para desarrolladores.  
@@ -27,6 +27,8 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 -   [Recursos de cadena](#strings)  
   
 -   [Recursos de glifo](#glyphs)  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="strings"></a> Recursos de cadena  
  API Management proporciona un conjunto completo de recursos de cadena para su uso en el portal para desarrolladores. Estos recursos están localizados en todos los idiomas admitidos por API Management. El conjunto predeterminado de plantillas utiliza estos recursos para encabezados de páginas etiquetas y cualquier cadena constante que se muestren en el portal para desarrolladores. Para usar un recurso de cadena en sus plantillas, especifique el prefijo de la cadena del recurso seguido por el nombre de la cadena, como se muestra en el siguiente ejemplo.  
@@ -87,13 +89,13 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |PageTitleApis|API existentes|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Versión preliminar de la aplicación|  
 |WebApplicationsRequirementsHeader|Requisitos|  
@@ -102,13 +104,13 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|¿Está seguro de que desea quitar la aplicación?|  
 |WebDevelopersAppNotPublished|No publicado|  
 |WebDevelopersAppNotSubminted|No enviado|  
 |WebDevelopersAppTableCategoryHeader|Categoría|  
-|WebDevelopersAppTableNameHeader|Nombre|  
+|WebDevelopersAppTableNameHeader|NOMBRE|  
 |WebDevelopersAppTableStateHeader|Estado|  
 |WebDevelopersEditLink|Edit|  
 |WebDevelopersRegisterAppLink|Registre la aplicación|  
@@ -118,13 +120,13 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
-|WebApplicationsHeader|Aplicaciones|  
+|WebApplicationsHeader|APLICACIONES|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |NoItemsToDisplay|No se encontró ningún resultado.|  
 |GeneralExceptionMessage|Se ha producido algún problema. Podría ser un problema temporal o un error. Vuelva a intentarlo.|  
@@ -135,10 +137,10 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |ButtonLabelCancel|Cancelar|  
-|ButtonLabelSave|Guardar|  
+|ButtonLabelSave|Save|  
 |GeneralExceptionMessage|Se ha producido algún problema. Podría ser un problema temporal o un error. Vuelva a intentarlo.|  
 |NoItemsToDisplay|No hay ningún elemento para mostrar.|  
 |PagerButtonLabelFirst|Primero|  
@@ -159,22 +161,22 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="Documentation"></a> Documentation  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
-|WebDocumentationInvalidHeaderErrorMessage|Encabezado no válido "{0}"|  
+|WebDocumentationInvalidHeaderErrorMessage|Encabezado "{0}" no válido|  
 |WebDocumentationInvalidRequestErrorMessage|Dirección URL de solicitud no válida|  
 |TextboxLabelAccessToken|Token de acceso*|  
-|DropdownOptionPrimaryKeyFormat|Principal: {0}|  
-|DropdownOptionSecondaryKeyFormat|Secundario: {0}|  
+|DropdownOptionPrimaryKeyFormat|Primary-{0}|  
+|DropdownOptionSecondaryKeyFormat|Secondary-{0}|  
 |WebDocumentationSubscriptionKeyText|Su clave de suscripción|  
 |WebDocumentationTemplatesAddHeaders|Agregue los encabezados HTTP necesarios.|  
 |WebDocumentationTemplatesBasicAuthSample|Ejemplo de autorización básica|  
 |WebDocumentationTemplatesCurlForBasicAuth|Para la autorización básica, use lo siguiente: --user {nombre de usuario}: {contraseña}|  
 |WebDocumentationTemplatesCurlValuesForPath|Especifique valores para los parámetros de ruta de acceso (que se muestran como {...}), la clave de la suscripción y valores para los parámetros de consulta.|  
 |WebDocumentationTemplatesDeveloperKey|Especifique la clave de suscripción.|  
-|WebDocumentationTemplatesJavaApache|Esta muestra usa al cliente de Apache HTTP de HTTP Components (http://hc.apache.org/httpcomponents-client-ga/).|  
+|WebDocumentationTemplatesJavaApache|Este ejemplo utiliza el cliente HTTP Apache desde HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Especifique valores para los parámetros opcionales, según se requiera.|  
-|WebDocumentationTemplatesPhpPackage|Esta muestra utiliza el paquete HTTP_Request2. (Para obtener más información, visite http://pear.php.net/package/HTTP_Request2).|  
+|WebDocumentationTemplatesPhpPackage|Esta muestra utiliza el paquete HTTP_Request2. (para obtener más información: http://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Especifique valores para los parámetros de ruta de acceso (que se muestran como {...}) y el cuerpo de la solicitud, si así se requiere.|  
 |WebDocumentationTemplatesRequestBody|Especifique el cuerpo de la solicitud.|  
 |WebDocumentationTemplatesRequiredParams|Especifique valores para los siguientes parámetros requeridos.|  
@@ -307,7 +309,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |LinkLabelBack|atrás|  
 |LinkLabelHomePage|página principal|  
@@ -318,25 +320,25 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |TextblockPotentialCauseTechnicalProblem|Es posible que haya un problema técnico por nuestra parte.|  
 |TextblockPotentialSolutionRefresh|Pruebe a actualizar la página.|  
 |TextblockPotentialSolutionStartOver|Empiece de nuevo desde nuestro {0}.|  
-|TextblockPotentialSolutionTryAgain|Vaya a {0} e intente la acción que realizando de nuevo.|  
-|TextReportProblem|{0} donde se describa el error y lo analizaremos lo antes posible.|  
+|TextblockPotentialSolutionTryAgain|Vaya a {0} e intente de nuevo la acción que realizó.|  
+|TextReportProblem|{0} en el que se describa el error y lo analizaremos lo antes posible.|  
 |TitlePotentialCause|Causa posible|  
 |TitlePotentialSolution|Es posible que se trate únicamente de un problema temporal. Hay varias soluciones que puede probar.|  
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemas|  
 |WebIssuesNoActiveSubscriptions|No tiene ninguna suscripción activa. Debe suscribirse a un producto para informar de un problema.|  
 |WebIssuesNotSignin|No ha iniciado sesión. {0} para informar de un problema o publicar un comentario.|  
 |WebIssuesReportIssueButton|Informar sobre un problema|  
 |WebIssuesSignIn|iniciar sesión|  
-|WebIssuesStatusReportedBy|Estado: {0} &#124; Notificado por {1}|  
+|WebIssuesStatusReportedBy|Estado: {0} &#124; notificado por {1}|  
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |LinkLabelHomePage|página principal|  
 |LinkLabelSendUsEmail|envíenos un correo electrónico|  
@@ -345,13 +347,13 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |TextblockPotentialCauseOldLink|El vínculo en el que ha hecho clic puede ser antiguo y no apuntar ya al sitio correcto.|  
 |TextblockPotentialSolutionRetype|Pruebe a volver a escribir la URL.|  
 |TextblockPotentialSolutionStartOver|Empiece de nuevo desde nuestro {0}.|  
-|TextReportProblem|{0} donde se describa el error y lo analizaremos lo antes posible.|  
+|TextReportProblem|{0} en el que se describa el error y lo analizaremos lo antes posible.|  
 |TitlePotentialCause|Causa posible|  
 |TitlePotentialSolution|Posible solución|  
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebProductsAgreement|Al suscribirse al producto {0}, acepta los `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Términos de uso|  
@@ -373,13 +375,13 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |PageTitleProducts|Productos|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Los administradores han deshabilitado el inicio de sesión actualmente.|  
 |TextboxExternalIdentitiesSigninInvitation|O bien inicie sesión con|  
@@ -387,14 +389,14 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |PrincipalNotFound|No se encuentra la entidad de seguridad o la firma no es válida.|  
 |ErrorSsoAuthenticationFailed|Error de autenticación SSO.|  
 |ErrorSsoAuthenticationFailedDetailed|Se ha proporcionado un token no válido o no se ha podido comprobar la firma.|  
 |ErrorSsoTokenInvalid|El token SSO no es válido.|  
-|ValidationErrorSpecificEmailAlreadyExists|La dirección de correo electrónico "{0}" ya está registrada.|  
-|ValidationErrorSpecificEmailInvalid|La dirección de correo electrónico "{0}" no es válida.|  
+|ValidationErrorSpecificEmailAlreadyExists|El correo electrónico "{0}" ya está registrado.|  
+|ValidationErrorSpecificEmailInvalid|El correo electrónico "{0}" no es válido.|  
 |ValidationErrorPasswordInvalid|La contraseña no es válida. Corrija los errores y vuelva a intentarlo.|  
 |PropertyTooShort|La propiedad {0} es demasiado corta.|  
 |WebAuthenticationAddresserEmailInvalidErrorMessage|La dirección de correo electrónico no es válida.|  
@@ -409,7 +411,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|Debe especificar un correo electrónico.|  
 |WebAuthenticationErrorNoticeHeader|Error|  
-|WebAuthenticationFieldLengthErrorMessage|{0} debe tener una extensión máxima de {1}.|  
+|WebAuthenticationFieldLengthErrorMessage|{0} debe tener una extensión máxima de {1}|  
 |TextboxLabelEmailFirstName|Nombre|  
 |ValidationErrorFirstNameRequired|Debe especificar un nombre.|  
 |ValidationErrorFirstNameInvalid|Nombre no válido|  
@@ -432,7 +434,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebAuthenticationPasswordCompareErrorMessage|Las contraseñas no coinciden.|  
 |WebAuthenticationPasswordConfirmLabel|Confirmar contraseña|  
 |ValidationErrorPasswordInvalidDetailed|La contraseña es demasiado poco segura.|  
-|WebAuthenticationPasswordLabel|Password|  
+|WebAuthenticationPasswordLabel|Contraseña|  
 |ValidationErrorPasswordRequired|Se requiere una contraseña.|  
 |WebAuthenticationPasswordResetSendNotice|El mensaje de correo electrónico de confirmación del cambio de contraseña va de camino a {0}. Siga las instrucciones incluidas en el mensaje de correo electrónico para continuar con el proceso de cambio de la contraseña.|  
 |WebAuthenticationPasswordResetSendNoticeHeader|La solicitud de restablecimiento de contraseña se ha procesado correctamente.|  
@@ -440,7 +442,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebAuthenticationRequestNotFoundNotice|Solicitud no encontrada|  
 |WebAuthenticationSenderEmailRequiredErrorMessage|El campo del correo electrónico del remitente de las notificaciones está vacío.|  
 |WebAuthenticationSigninPasswordLabel|Confirme el cambio especificando una contraseña.|  
-|WebAuthenticationSignupConfirmNotice|Se ha enviado un correo electrónico de confirmación del registro a {0}.<br /\> Siga las instrucciones incluidas en el correo electrónico para activar la cuenta.<br /\> Si no recibe el correo electrónico en su bandeja de entrada en los próximos minutos, consulte su carpeta de correo no deseado.|  
+|WebAuthenticationSignupConfirmNotice|Se ha enviado un correo electrónico de confirmación del registro a {0}.<br /\> Siga las instrucciones incluidas en el correo electrónico para activar la cuenta.<br /\> Si no recibe el correo electrónico en la bandeja de entrada en los próximos minutos, consulte la carpeta de correo no deseado.|  
 |WebAuthenticationSignupConfirmNoticeHeader|La cuenta se ha creado correctamente.|  
 |WebAuthenticationSignupConfirmNoticeRepeatHeader|Se ha vuelto a enviar el mensaje de correo electrónico de confirmación de registro.|  
 |WebAuthenticationSignupConfirmNoticeTitle|Cuenta creada|  
@@ -463,7 +465,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |ValidationErrorAllowedTenantIsRequired|Se requiere un inquilino permitido.|  
 |ValidationErrorTenantIsNotValid|El inquilino de Azure Active Directory "{0}" no es válido.|  
 |WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  
-|WebAuthenticationLoginUsingYourProvider|Inicie sesión con su cuenta de {0}.|  
+|WebAuthenticationLoginUsingYourProvider|Inicie sesión con la cuenta de {0}.|  
 |WebAuthenticationUserLimitNotice|Este servicio ha alcanzado el número máximo de usuarios permitidos. `<a href="mailto:{0}"\>contact the administrator</a\>` para actualizar su servicio y volver a habilitar el registro de usuarios.|  
 |WebAuthenticationUserLimitNoticeHeader|Registro de usuarios deshabilitado|  
 |WebAuthenticationUserLimitNoticeTitle|Registro de usuarios deshabilitado|  
@@ -483,7 +485,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|¿Ha olvidado la contraseña?|  
 |WebAuthenticationIfAdministrator|Si es administrador, debe iniciar sesión en `<a href="{0}"\>here</a\>`.|  
@@ -495,7 +497,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |PageTitleSignup|Suscripción|  
 |WebAuthenticationAlreadyAMember|¿Ya es miembro?|  
@@ -505,7 +507,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|¿Está seguro de que desea cancelar esta suscripción?|  
 |SubscriptionRenewConfirmation|¿Está seguro de que desea renovar esta suscripción?|  
@@ -517,7 +519,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |ButtonLabelRenewSubscription|Renovación|  
 |WebDevelopersSubscriptionReqested|Solicitud realizada el {0}|  
 |WebDevelopersSubscriptionRequestedState|Solicitada|  
-|WebDevelopersSubscriptionTableNameHeader|Nombre|  
+|WebDevelopersSubscriptionTableNameHeader|NOMBRE|  
 |WebDevelopersSubscriptionTableStateHeader|Estado|  
 |WebDevelopersUsageStatisticsLink|Informes de análisis|  
 |WebDevelopersYourSubscriptions|Sus suscripciones|  
@@ -528,7 +530,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |SectionHeadingCloseAccount|¿Desea para cerrar su cuenta?|  
 |PageTitleDeveloperProfile|Perfil|  
@@ -539,14 +541,14 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Actualizar perfil|  
 |PageTitleUpdateProfile|Actualizar información de cuenta|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|Nombre|Texto|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Cambiar información de la cuenta|  
 |ButtonLabelChangePassword|Cambiar contraseña|  
@@ -562,8 +564,8 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |SubscriptionStateRejected|Rechazada|  
 |SubscriptionStateRequested|Solicitada|  
 |SubscriptionStateSuspended|Suspended|  
-|DefaultSubscriptionNameTemplate|{0} (predeterminado)|  
-|SubscriptionNameTemplate|Acceso de desarrollador n.º {0}|  
+|DefaultSubscriptionNameTemplate|{0} (valor predeterminado)|  
+|SubscriptionNameTemplate|Acceso de desarrollador n.º{0}|  
 |TextboxLabelSubscriptionName|Nombre de la suscripción|  
 |ValidationMessageSubscriptionNameRequired|El nombre de suscripción no puede estar vacío.|  
 |ApiManagementUserLimitReached|Este servicio ha alcanzado el número máximo de usuarios permitidos. Actualice a un plan de tarifa superior.|  

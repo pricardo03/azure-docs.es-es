@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configuración de Netsuite para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
-description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y NetSuite.
+title: 'Tutorial: Configuración de NetSuite OneWorld para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+description: Más información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y NetSuite OneWorld.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e14f74f3dd6d49b882dedcb2ae01029a50a459a3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 81e590297283a8fe88d9257e201259056a3e3744
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346753"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823864"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Netsuite para el aprovisionamiento automático de usuarios
 
-El objetivo de este tutorial es explicar los pasos que hay que realizar en Netsuite y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en Netsuite.
+El objetivo de este tutorial es explicar los pasos que hay que realizar en NetSuite OneWorld y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en NetSuite.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 *   Un inquilino de Azure Active Directory.
-*   Una suscripción habilitada para el inicio de sesión único en Netsuite.
-*   Una cuenta de usuario de Netsuite con permisos de administrador de equipo.
+*   Una suscripción a NetSuite OneWorld. Tenga en cuenta que el aprovisionamiento automático de usuarios solo es compatible con NetSuite OneWorld.
+*   Una cuenta de usuario de NetSuite con permisos de administrador.
 
-## <a name="assigning-users-to-netsuite"></a>Asignación de usuarios a Netsuite
+## <a name="assigning-users-to-netsuite-oneworld"></a>Asignación de usuarios a NetSuite OneWorld
 
 Azure Active Directory usa un concepto que se denomina "asignaciones" para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto de aprovisionamiento automático de cuentas de usuario, solo se sincronizarán los usuarios y grupos que se han "asignado" a una aplicación en Azure AD.
 
@@ -41,7 +41,7 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 
 [Asignar un usuario o grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-netsuite"></a>Sugerencias importantes para asignar usuarios a Netsuite
+### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Sugerencias importantes para asignar usuarios a NetSuite OneWorld
 
 *   Se recomienda asignar un único usuario de Azure AD a Netsuite para probar la configuración de aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
 
@@ -70,7 +70,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 1. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
    
-    a. En el cuadro de texto **Nombre de usuario administrador**, escriba un nombre de cuenta de Netsuite que tenga asignado el perfil **Administrador del sistema** en Netsuite.com.
+     a. En el cuadro de texto **Nombre de usuario administrador**, escriba un nombre de cuenta de Netsuite que tenga asignado el perfil **Administrador del sistema** en Netsuite.com.
    
     b. En el cuadro de texto **Contraseña de administrador**, escriba la contraseña de esta cuenta.
       

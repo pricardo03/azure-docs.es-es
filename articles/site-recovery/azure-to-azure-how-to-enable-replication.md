@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 2f4721155610da3be3ff0db3608d7c1e163aa344
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e73659dca034c0333a73786788c8f342b57598da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211849"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314679"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales de Azure en otra región de Azure
 
@@ -53,7 +53,15 @@ Habilite la replicación. En este procedimiento se supone que la región princip
     - **Cuentas de almacenamiento de destino (si la VM de origen no utiliza discos administrados)**: de forma predeterminada, Site Recovery crea la cuenta de almacenamiento de destino mediante la imitación de la configuración de almacenamiento de la VM de origen. En caso de que ya exista una cuenta de almacenamiento, esta se vuelve a usar.
     - **Discos administrados de réplica (si la VM de origen utiliza discos administrados)**: Site Recovery crea nuevos discos administrados de réplica en la región de destino para crear el reflejo de discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (Standard o Premium) que el disco administrado de la VM de origen.
     - **Cuentas de almacenamiento en caché**: Site Recovery necesita una cuenta de almacenamiento adicional denominada almacenamiento en caché en la región de origen. Todos los cambios que se producen en las máquinas virtuales de origen se siguen y se envían a la cuenta de almacenamiento en caché antes de su replicación en la ubicación de destino.
-    - **Conjunto de disponibilidad**: de forma predeterminada, Azure Site Recovery crea un conjunto de disponibilidad en la región de destino con un nombre con el sufijo "asr". En caso de que el conjunto de disponibilidad que cree Azure Site Recovery ya exista, se vuelve a usar.
+    - **Conjuntos de disponibilidad de destino**: de forma predeterminada, Azure Site Recovery crea un conjunto de disponibilidad en la región de destino con un nombre con el sufijo "asr" para la parte de máquina virtual de un conjunto de disponibilidad de la región de origen. En caso de que el conjunto de disponibilidad que cree Azure Site Recovery ya exista, se vuelve a usar.
+    - **Zonas de disponibilidad de destino**: de forma predeterminada, Site Recovery asigna el mismo número de zona que la región de origen en la región de destino si esta admite zonas de disponibilidad.
+
+    Si la región de destino no admite zonas de disponibilidad, las máquinas virtuales de destino se configurarán como instancias únicas de forma predeterminada. Si es necesario, puede configurar esas máquinas virtuales para que formen parte de los conjuntos de disponibilidad de la región de destino. Para ello, haga clic en "Personalizar".
+
+    >[!NOTE]
+    >No puede cambiar el tipo de disponibilidad (instancia única, zona de disponibilidad o conjunto de disponibilidad) después de habilitar la replicación. Tendrá que deshabilitar y habilitar la replicación para cambiar el tipo de disponibilidad.
+    >
+    
     - **Directiva de replicación**: define la configuración del historial de retención del punto de recuperación y de la frecuencia de instantánea coherente con la aplicación. De manera predeterminada, Azure Site Recovery crea una directiva de replicación nueva con la configuración predeterminada de 24 horas para la retención del punto de recuperación y 60 minutos para la frecuencia de instantánea coherente con la aplicación.
 
     ![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)

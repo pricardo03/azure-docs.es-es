@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 4f4caec33414a9bf644e1b1860686247697b3fb4
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8b14550adf89f866cf3b736db049cc671db5b765
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042291"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314514"
 ---
-# <a name="bulk-load-data-into-phoenix-using-psql"></a>Carga masiva de datos en Phoenix mediante psql
+# <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carga masiva de datos en Apache Phoenix mediante psql
 
-[Apache Phoenix](http://phoenix.apache.org/) es una base de datos relacional de código abierto y masivamente paralela que se basa en [HBase](../hbase/apache-hbase-overview.md). Phoenix proporciona consultas de tipo SQL a través de HBase. Phoenix usa controladores JDBC para permitir a los usuarios crear, eliminar y modificar índices, vistas, secuencias y tablas SQL, así como realizar operaciones de upsert en filas de forma individual o masiva. Phoenix utiliza la compilación nativa de NoSQL (en lugar de usar MapReduce para compilar consultas) para crear aplicaciones de baja latencia a partir de HBase. Phoenix agrega coprocesadores para admitir la ejecución de código proporcionado por clientes en el espacio de direcciones del servidor, ejecutando el código colocado con los datos. Esto minimiza la transferencia de datos de cliente/servidor.  Para trabajar con datos mediante Phoenix en HDInsight, primero debe crear tablas y, después, cargar datos en ellas.
+[Apache Phoenix](http://phoenix.apache.org/) es una base de datos relacional de código abierto y masivamente paralela que se basa en [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix proporciona consultas de tipo SQL a través de HBase. Phoenix usa controladores JDBC para permitir a los usuarios crear, eliminar y modificar índices, vistas, secuencias y tablas SQL, así como realizar operaciones de upsert en filas de forma individual o masiva. Phoenix utiliza la compilación nativa de NoSQL (en lugar de usar MapReduce para compilar consultas) para crear aplicaciones de baja latencia a partir de HBase. Phoenix agrega coprocesadores para admitir la ejecución de código proporcionado por clientes en el espacio de direcciones del servidor, ejecutando el código colocado con los datos. Esto minimiza la transferencia de datos de cliente/servidor.  Para trabajar con datos mediante Phoenix en HDInsight, primero debe crear tablas y, después, cargar datos en ellas.
 
-## <a name="bulk-loading-with-phoenix"></a>Carga masiva con Phoenix
+## <a name="bulk-loading-with-apache-phoenix"></a>Carga de datos masiva con Apache Phoenix
 
 Hay varias maneras de obtener datos en HBase, incluido el uso de API de cliente, un trabajo MapReduce con TableOutputFormat, o la introducción de datos manualmente con el shell de HBase. Phoenix proporciona dos métodos para cargar datos CSV en tablas de Phoenix: una herramienta de carga de cliente denominada `psql` y una herramienta de carga masiva basada en MapReduce.
 
@@ -28,7 +28,7 @@ La herramienta `psql` tiene un subproceso único y es perfecta para cargar megab
 
 La carga masiva con MapReduce se usa para volúmenes de datos mucho más grandes, normalmente en escenarios de producción, ya que usa varios subprocesos.
 
-Antes de iniciar la carga de datos, compruebe que Phoenix está habilitado y que la configuración de tiempo de espera de consulta es la prevista.  Acceda al panel de Ambari del clúster de HDInsight, seleccione HBase y, después, la pestaña Configuración.  Desplácese hacia abajo para comprobar que Apache Phoenix está establecido en `enabled` tal como se muestra:
+Antes de iniciar la carga de datos, compruebe que Phoenix está habilitado y que la configuración de tiempo de espera de consulta es la prevista.  Acceda al panel de [Apache Ambari](https://ambari.apache.org/) del clúster de HDInsight, seleccione HBase y, después, la pestaña Configuración.  Desplácese hacia abajo para comprobar que Apache Phoenix está establecido en `enabled` tal como se muestra:
 
 ![Configuración del clúster de Apache Phoenix HDInsight](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
 
@@ -74,7 +74,7 @@ Antes de iniciar la carga de datos, compruebe que Phoenix está habilitado y que
     ```
 
     > [!NOTE] 
-    > Para determinar el nombre `ZookeeperQuorum`, busque la cadena de cuórum de ZooKeeper en el archivo `/etc/hbase/conf/hbase-site.xml` con el nombre de la propiedad `hbase.zookeeper.quorum`.
+    > Para determinar el nombre `ZookeeperQuorum`, busque la cadena de cuórum de [Apache ZooKeeper](https://zookeeper.apache.org/) en el archivo `/etc/hbase/conf/hbase-site.xml` con el nombre de la propiedad `hbase.zookeeper.quorum`.
 
 5. Una vez finalizada la operación `psql`, debería ver un mensaje en la ventana de comandos:
 
@@ -142,6 +142,6 @@ Para las cargas de mayor rendimiento distribuidas en el clúster, use la herrami
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Bulk Data Loading with Apache Phoenix](http://phoenix.apache.org/bulk_dataload.html) (Carga de datos masiva con Apache Phoenix)
-* [Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [Usar Apache Phoenix con clústeres de Apache HBase basados en Linux en HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
 * [Salted Tables](https://phoenix.apache.org/salted.html) (Tablas cifradas)
 * [Phoenix Grammar](http://phoenix.apache.org/language/index.html) (Gramática de Phoenix)

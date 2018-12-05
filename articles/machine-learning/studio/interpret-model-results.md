@@ -1,10 +1,11 @@
 ---
-title: Cómo interpretar los resultados del modelo de Machine Learning | Microsoft Docs
+title: Cómo interpretar los resultados del modelo de Machine Learning Studio - Azure | Microsoft Docs
 description: Cómo elegir el conjunto de parámetros óptimo para un algoritmo que use y visualice resultados del modelo de puntuación.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: e62f4716a95a6c1840afde27361eeb756abff335
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c06b05989270b4199e5d97ca399a1411b73a702b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837011"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310276"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning"></a>Cómo interpretar los resultados del modelo de Azure Machine Learning
+# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretar los resultados del modelo en Azure Machine Learning Studio
 En este tema se explica cómo ver e interpretar los resultados de predicción en Azure Machine Learning Studio. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
@@ -116,7 +117,7 @@ Al visualizar los resultados del módulo [Puntuar modelo][score-model] haciendo 
 
 ![Resultados del modelo de puntuación](./media/interpret-model-results/7.png)
 
-Ilustración 7. Visualización de los resultados del modelo de puntuación en una clasificación multiclase
+ Ilustración 7. Visualización de los resultados del modelo de puntuación en una clasificación multiclase
 
 **Interpretación de resultados**
 

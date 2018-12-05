@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240110"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821096"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -82,9 +82,9 @@ La fase 1 de la hoja de ruta se centra en tareas críticas que se implementan de
 
 #### <a name="turn-on-azure-ad-privileged-identity-management"></a>Activación de Azure AD Privileged Identity Management
 
-Si aún no ha activado Azure AD Privileged Identity Management (PIM), hágalo en el inquilino de producción. Tras activar Privileged Identity Management, recibirá mensajes de correo electrónico de notificación si se producen cambios en el rol de acceso con privilegios. Estas notificaciones advierten rápidamente cuando se agregan más usuarios a roles con privilegios elevados en el directorio.
+Si aún no ha activado Azure AD Privileged Identity Management (PIM), hágalo en el inquilino de producción. Tras activar Privileged Identity Management, recibirá mensajes de correo electrónico de notificación si se producen cambios en el rol de acceso con privilegios. Estas notificaciones muestran una advertencia anticipada cuando se agregan más usuarios a roles con privilegios elevados en el directorio.
 
-Azure AD Privileged Identity Management se incluye en Azure AD Premium P2 o EMS E5. Estas soluciones le ayudan a proteger el acceso a aplicaciones y recursos tanto en el entorno local como en la nube. Si aún no tiene Azure AD Premium P2 o EMS E5, y desea evaluar varias de las capacidades a las que se hace referencia en esta guía, suscríbase a la [evaluación gratuita de 90 días de Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Use estas licencias de prueba para probar AD Privileged Identity Management de Azure y Azure AD Identity Protection para supervisar la actividad mediante las alertas, las auditorías y los informes de seguridad avanzados de Azure AD.
+Azure AD Privileged Identity Management se incluye en Azure AD Premium P2 o EMS E5. Estas soluciones le ayudan a proteger el acceso a aplicaciones y recursos tanto en el entorno local como en la nube. Si aún no tiene Azure AD Premium P2 o EMS E5, y quiere evaluar varias de las características a las que se hace referencia en esta guía, suscríbase a la [evaluación gratuita de 90 días de Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Use estas licencias de prueba para probar AD Privileged Identity Management de Azure y Azure AD Identity Protection para supervisar la actividad mediante las alertas, las auditorías y los informes de seguridad avanzados de Azure AD.
 
 Una vez que haya activado Azure AD Privileged Identity Management:
 
@@ -102,7 +102,7 @@ A la primera persona que use Azure AD Privileged Identity Management en el inqui
 
 Después de activar Azure AD Privileged Identity Management, vea los usuarios que están en los roles de directorio Administrador global, Administrador de rol con privilegios, Administrador de Exchange Online y Administrador de SharePoint Online. Si no tiene Azure AD Privileged Identity Management en su inquilino, puede usar la [API de PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Comience con el rol de administrador global, ya que este rol es genérico: un usuario al que se haya asignado este rol de administrador tiene los mismos permisos en todos los servicios en la nube a los que se haya suscrito la organización, independientemente de que el rol se haya asignado en el Portal de Office 365, en Azure Portal o por medio del módulo de Azure AD para Microsoft PowerShell. 
 
-Quite todas las cuentas que no sean necesarias en los roles y clasifique las restantes que estén asignadas a roles de administrador:
+Quite las cuentas que ya no sean necesarias en esos roles. A continuación, clasifique las restantes que están asignadas a roles de administrador:
 
 * Asignadas individualmente a usuarios administrativos y que también puedan usarse para fines no administrativos (por ejemplo, correo electrónico personal)
 * Asignadas individualmente a usuarios administrativos y designadas solo para fines administrativos
@@ -113,7 +113,7 @@ Quite todas las cuentas que no sean necesarias en los roles y clasifique las res
 
 #### <a name="define-at-least-two-emergency-access-accounts"></a>Definición de un mínimo de dos de cuentas de acceso de emergencia 
 
-Asegúrese de que no llegará a una situación en la que se les podría bloquear accidentalmente de la administración de su inquilino de Azure AD debido a su incapacidad para iniciar sesión o activar la cuenta de un usuario individual existente como administrador. Por ejemplo, si la organización está federada en un proveedor de identidades local, es posible que este no esté disponible, por lo que los usuarios no pueden iniciar sesión en el entorno local. El impacto de una falta involuntaria de acceso administrativo se puede mitigar mediante el almacenamiento de dos o más cuentas de acceso de emergencia en el inquilino.
+Asegúrese de que no llegará a una situación en la que se las podría bloquear accidentalmente de la administración de su inquilino de Azure AD debido a su incapacidad para iniciar sesión o activar la cuenta de un usuario individual existente como administrador. Por ejemplo, si la organización está federada en un proveedor de identidades local, es posible que este no esté disponible, por lo que los usuarios no pueden iniciar sesión en el entorno local. El impacto de una falta involuntaria de acceso administrativo se puede mitigar mediante el almacenamiento de dos o más cuentas de acceso de emergencia en el inquilino.
 
 Las cuentas de acceso de emergencia ayudan a las organizaciones a restringir el acceso con privilegios en un entorno de Azure Active Directory existente. Estas cuentas tienen privilegios elevados y no se asignan a usuarios específicos. Las cuentas de acceso de emergencia se limitan a situaciones "excepcionales" o de emergencia en las que no se pueden usar las cuentas administrativas normales. Las organizaciones deben asegurarse el objetivo de controlar y reducir el uso de las cuentas de emergencia solo para aquellos casos en los que sea necesario. 
 
@@ -127,11 +127,11 @@ Requiera Azure Multi-Factor Authentication (MFA) en el inicio de sesión a todos
 
 ![Fase 2](./media/directory-admin-roles-secure/stage-two.png)
 
-La fase 2 de la hoja de ruta se centra en mitigar las técnicas de ataque que se usan con más frecuencia para el robo y uso de credenciales y está diseñada para que se implementen en aproximadamente 2 a 4 semanas. Esta fase de la hoja de ruta del acceso con privilegios protegido incluye las siguientes acciones.
+La fase 2 de la hoja de ruta se centra en mitigar las técnicas de ataque que se usan con más frecuencia para el robo y uso de credenciales y puede implementarse en aproximadamente 2 a 4 semanas. Esta fase de la hoja de ruta del acceso con privilegios protegido incluye las siguientes acciones.
 
 ### <a name="general-preparation"></a>Preparación general
 
-#### <a name="conduct-a-inventory-of-services-owners-and-admins"></a>Realice un inventario de los servicios, propietarios y administradores
+#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>Realice un inventario de los servicios, propietarios y administradores
 
 Con el aumento de las directivas de bring-your-own-device (BYOD) y de trabajo desde casa y el crecimiento de la conectividad inalámbrica en las empresas, es fundamental supervisar quiénes se conectan a la red. Una auditoría de seguridad eficaz suele revelar aquellos dispositivos, aplicaciones y programas que se ejecutan en la red y que no tienen el soporte técnico de TI y, por lo tanto, son potencialmente no seguros. Para más información, consulte [Información general sobre la administración y la supervisión de la seguridad en Azure](../../security/security-management-and-monitoring-overview.md). Asegúrese de que incluye las tareas siguientes en el proceso de inventario. 
 
@@ -337,7 +337,7 @@ Además de administrar las cuentas de acceso con privilegios, es aconsejable que
 * Conceda acceso con privilegios solo cuando estrictamente necesario y revóquelo inmediatamente después (Just-In-Time).
 * Conserve y revise toda la actividad de auditoría relacionada con las cuentas con privilegios.
 
-Para más información acerca de cómo crear toda una hoja de ruta de seguridad, consulte [Recursos de arquitectura de TI de la nube de Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para más información acerca de cómo interactuar con los servicios de Microsoft para que le ayuden con cualquiera de estos temas, póngase en contacto con su representante de Microsoft o consulte [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx) (Creación de ciberdefensas críticas que protejan su empresa).
+Para más información acerca de cómo crear toda una hoja de ruta de seguridad, consulte [Recursos de arquitectura de TI de la nube de Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para más información acerca de cómo interactuar con los servicios de Microsoft para que le ayuden con cualquiera de estos temas, póngase en contacto con su representante de Microsoft o consulte [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx) (Creación de ciberdefensas críticas que protejan su empresa).
 
 Esta fase final de la hoja de ruta del acceso con privilegios protegido incluye los siguientes componentes.
 

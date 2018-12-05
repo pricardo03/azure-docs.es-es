@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 11/23/2018
 ms.author: jingwang
-ms.openlocfilehash: c67f6c14dc396367e0179fe5bdb4663fcb7725da
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1e0bbfafcda77ca48fb22ad919c5848a7670a102
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045973"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309681"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copia de datos de ServiceNow con Azure Data Factory
 
@@ -42,11 +42,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de ServiceN
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **ServiceNow**. | Sí |
-| endpoint | El punto de conexión del servidor de ServiceNow (`http://<instance>.service-now.com`).  | Sí |
-| authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Basic** y **OAuth2**. | Sí |
-| nombre de usuario | Nombre de usuario utilizado para conectarse al servidor de ServiceNow para la autenticación Basic y OAuth2.  | Sí |
-| contraseña | Contraseña correspondiente al nombre de usuario para la autenticación Basic y OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| Tipo | La propiedad type debe establecerse en: **ServiceNow**. | SÍ |
+| punto de conexión | El punto de conexión del servidor de ServiceNow (`http://<instance>.service-now.com`).  | SÍ |
+| authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Basic** y **OAuth2**. | SÍ |
+| nombre de usuario | Nombre de usuario utilizado para conectarse al servidor de ServiceNow para la autenticación Basic y OAuth2.  | SÍ |
+| contraseña | Contraseña correspondiente al nombre de usuario para la autenticación Basic y OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
 | clientId | Id. de cliente para la autenticación OAuth2.  | Sin  |
 | clientSecret | Secreto de cliente para la autenticación OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
@@ -104,16 +104,17 @@ Para copiar datos de ServiceNow, establezca el tipo de origen de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **ServiceNowSource**. | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Actual.alm_asset"`. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **ServiceNowSource**. | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Actual.alm_asset"`. | SÍ |
 
-Cuando se especifica el esquema y la columna para ServiceNow en la consulta, tenga en cuenta lo siguiente:
+Tenga en cuenta lo siguiente cuando especifique el esquema y la columna para ServiceNow en la consulta, y **consulte los [consejos de rendimiento](#performance-tips) en la implicación de rendimiento de copia**.
 
-- **Esquema:** especifica el esquema como `Actual` o `Display` en la consulta de ServiceNow, que puede considerar como el parámetro de `sysparm_display_value` verdadero o falso al llamar a las [API Restful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Esquema:** especifica el esquema como `Actual` o `Display` en la consulta de ServiceNow, que puede considerar como el parámetro de `sysparm_display_value` verdadero o falso al llamar a las [API Restful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Columna:** el nombre de columna del valor real del esquema `Actual` es `[columne name]_value`, mientras que el valor de visualización del esquema `Display` es `[columne name]_display_value`. Tenga en cuenta que el nombre de columna se debe asignar al esquema que se usa en la consulta.
 
 **Consulta de ejemplo:**
-`SELECT col_value FROM Actual.alm_asset` O `SELECT col_display_value FROM Display.alm_asset`
+`SELECT col_value FROM Actual.alm_asset` O 
+`SELECT col_display_value FROM Display.alm_asset`
 
 **Ejemplo:**
 
@@ -146,6 +147,17 @@ Cuando se especifica el esquema y la columna para ServiceNow en la consulta, ten
     }
 ]
 ```
+## <a name="performance-tips"></a>Consejos de rendimiento
+
+### <a name="schema-to-use"></a>Esquema que se va a usar
+
+ServiceNow tiene dos esquemas diferentes: uno se denomina **"Real"**, ya que devuelve los datos reales y el otro se denomina **"Mostrar"**, ya que devuelve los valores de visualización de datos. 
+
+Si tiene un filtro en su consulta, use el esquema "Real" que tenga un mejor rendimiento de copia. Al realizar una consulta con el esquema "Real", ServiceNow admite de forma nativa el filtro al obtener los datos que usará para devolver solo el conjunto de resultados filtrado; asimismo, al consultar el esquema "Mostrar", ADF recupera todos los datos y aplica el filtro internamente.
+
+### <a name="index"></a>Índice
+
+El índice de la tabla de ServiceNow puede ayudarle a mejorar el rendimiento de las consultas; para ello, consulte [Create a table index](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html) (Crear un índice de tabla).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/08/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f3086f09e29664b816ba709fc5cda75d7b11d1b4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb41331228e700c55da21c627d617d16faa2dcb9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035256"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335407"
 ---
 # <a name="manage-account-and-authoring-key"></a>Administración de cuenta y clave de creación
 Los dos elementos clave de información de una cuenta de LUIS son la cuenta de usuario y la clave de creación. La información de inicio de sesión se administra en [account.microsoft.com](https://account.microsoft.com). La clave de creación se administra en la página **Settings** (Configuración) del sitio web de [LUIS](luis-reference-regions.md). 
@@ -24,7 +24,7 @@ Los dos elementos clave de información de una cuenta de LUIS son la cuenta de u
 
 Esta clave de creación única y específica de la región, de la página **Settings** (Configuración), le permite crear todas sus aplicaciones desde el sitio web de [LUIS](luis-reference-regions.md) y las [API de creación](https://aka.ms/luis-authoring-api). Para su comodidad, la clave de creación puede realizar un número [limitado](luis-boundaries.md) de consultas de punto de conexión al mes. 
 
-![Página de configuración de LUIS](./media/luis-how-to-account-settings/account-settings.png)
+[![Página de configuración de LUIS](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
 La clave de creación se usa para cualquier aplicación de su propiedad, así como para cualquier aplicación en la que aparezca como colaborador.
 

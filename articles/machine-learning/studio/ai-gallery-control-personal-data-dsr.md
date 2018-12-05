@@ -1,21 +1,22 @@
 ---
-title: Visualización y eliminación de los datos de Azure AI Gallery | Microsoft Docs
+title: Ver y eliminar los datos de Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
 description: Puede exportar y eliminar los datos de usuario integrados de Azure AI Gallery con la interfaz o con la API Catalog de AI Gallery. Este artículo le muestra cómo.
 services: machine-learning
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: bc6ffa912d7914c8662dbde623e04947540ac149
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6603428599a84a265566fb98da0b151ab4962f81
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660069"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314463"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visualización y eliminación de los datos de usuario integrados de Azure AI Gallery
 

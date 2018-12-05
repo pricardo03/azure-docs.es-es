@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3f0f087c98f2b6594ab7e841f92ffac7ffe4003e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807822"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974474"
 ---
 <a name="retrieve-operations"></a>Retrieve operations
 ===================
@@ -189,7 +189,7 @@ Recupera todas las operaciones en la oferta u obtiene una determinada operación
 |  submissionType              | Identifica el tipo de operación sobre el que informa la oferta, por ejemplo `Publish/GGoLive`.      |
 |  createdDateTime             | Datetime de UTC cuando se creó la operación.                                                       |
 |  lastActionDateTime          | Datetime de UTC cuando se realizó la última actualización en la operación.                                       |
-|  status                      | Estado de la operación, ya sea “no iniciado | en ejecución | con errores | completado`. Only one operation can have status `ejecutando” a la vez. |
+|  status                      | Estado de la operación, que puede ser: `not started` \| `running` \| `failed` \| o `completed`. Solo una operación puede tener el estado `running` a la vez. |
 |  error                       | Mensaje de error de las operaciones incorrectas                                                               |
 |  |  |
 
@@ -199,7 +199,7 @@ Recupera todas las operaciones en la oferta u obtiene una determinada operación
 | **Código**  |   **Descripción**                                                                                  |
 |  -------- |   -------------------------------------------------------------------------------------------------|
 |  200      | `OK`: la solicitud se ha procesado correctamente y se han devuelto las operaciones que se solicitaron.        |
-|  400      | `Bad/Malformed request`: el cuerpo de la respuesta del error puede contener más información.                    |
-|  403      | `Forbidden`: el cliente no tiene acceso al espacio de nombres especificado.                          |
-|  404      | `Not found`: la entidad especificada no existe.                                                 |
+|  400      | `Bad/Malformed request`: El cuerpo de la respuesta del error puede contener más información.                    |
+|  403      | `Forbidden`: El cliente no tiene acceso al espacio de nombres especificado.                          |
+|  404      | `Not found`: La entidad especificada no existe.                                                 |
 |  |  |

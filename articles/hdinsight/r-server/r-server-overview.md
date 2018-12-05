@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 74d8629eb8fc29f3cb572be0b1ccb8b6149ab971
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016291"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499464"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introducción a las funcionalidades de ML Services y R de código abierto en HDInsight
 
@@ -27,7 +27,7 @@ Microsoft Machine Learning Server está disponible como opción de implementaci�
 
 ML Services en HDInsight proporciona las funcionalidades más recientes para realizar análisis basados en R de conjuntos de datos de prácticamente cualquier tamaño, cargados en el almacenamiento de Data Lake o Azure Blob Storage. Dado que el clúster ML Services se ha creado sobre R de código abierto, las aplicaciones basadas en R que compile pueden sacar provecho de más de 8000 paquetes de R de código abierto. También están disponibles las rutinas de ScaleR, un paquete de análisis de macrodatos de Microsoft.
 
-El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de ScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster utilizando los contextos de proceso de Spark o Hadoop MapReduce de ScaleR.
+El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de ScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster utilizando los contextos de proceso de Apache Spark o Hadoop MapReduce de ScaleR.
 
 Los modelos o las predicciones que se generen a partir de los análisis pueden descargarse y utilizarse en el entorno local. También pueden emplearse en otro lugar de Azure, en concreto a través del [servicio web](../../machine-learning/studio/publish-a-machine-learning-web-service.md) [Azure Machine Learning Studio](http://studio.azureml.net).
 
@@ -114,7 +114,7 @@ Si simplemente usa rutinas de la biblioteca ScaleR en el clúster, normalmente n
 
 En estos casos, los paquetes adicionales pueden instalarse con una acción de script después de crear el clúster. Para más información, consulte [Administración de ML Services en un clúster de HDInsight](r-server-hdinsight-manage.md).
 
-### <a name="change-hadoop-mapreduce-memory-settings"></a>Cambio de la configuración de memoria de Hadoop MapReduce
+### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Cambio de la configuración de memoria de Apache Hadoop MapReduce
 
 Los clústeres pueden modificarse para cambiar la cantidad de memoria disponible en ML Services cuando se ejecuta un trabajo de MapReduce. Para ello, use la IU de Apache Ambari, que se encuentra disponible a través de la hoja del Portal de Azure de su clúster. Para ver instrucciones para acceder a la IU de Ambari de su clúster, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](../hdinsight-hadoop-manage-ambari.md).
 

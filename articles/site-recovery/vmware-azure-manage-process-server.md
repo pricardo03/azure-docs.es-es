@@ -2,16 +2,17 @@
 title: Administración de un servidor de procesos para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery | Microsoft Docs
 description: En este artículo se describe la administración de un servidor de procesos configurado para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 180d84f40f3d439419f9667b246b8c4b5c69814a
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568859"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974195"
 ---
 # <a name="manage-process-servers"></a>Administración de servidores de proceso
 
@@ -31,7 +32,41 @@ Un servidor de procesos que se ejecuta de forma local o en Azure (para fines de 
 > [!NOTE]
   Normalmente, al usar la imagen de la galería de Azure para crear un servidor de procesos en Azure para fines de conmutación por recuperación, se estará utilizando la versión más reciente disponible. Los equipos de Site Recovery publican periódicamente correcciones y mejoras y se recomienda mantener actualizados los servidores de procesos.
 
+## <a name="balance-the-load-on-process-server"></a>Equilibrar la carga en el servidor de procesos
 
+Para equilibrar la carga entre dos servidores de procesos:
+
+1. Navegue a **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **For VMware & Physical machines** > **Configuration Servers** (Almacén de Recovery Services > Administrar > Infraestructura de Site Recovery > Para VMWare y máquinas físicas > Servidores de configuración).
+2. Haga clic en el servidor de configuración en el que están registrados los servidores de procesos.
+3. Lista de los servidores de procesos registrados en los servidores de configuración disponibles en la página.
+4. Haga clic en el servidor de procesos en el que quiere modificar la carga de trabajo.
+
+    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+
+5. Puede usar las opciones **Load Balance** (Equilibrar la carga) o **Switch** (Cambiar), tal como se explica a continuación, según los requisitos.
+
+### <a name="load-balance"></a>Equilibrador de carga
+
+A través de esta opción, puede seleccionar una o más máquinas virtuales y transferirlas a otro servidor de procesos.
+
+1. Haga clic en **Load Balance** (Equilibrar la carga), y seleccione el servidor de procesos de destino en la lista desplegable. Haga clic en **Aceptar**
+
+    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
+2. Haga clic en **Seleccionar máquinas**, y elija las máquinas virtuales que quiere mover desde el servidor de procesos actual para el servidor de procesos de destino. Los detalles del cambio promedio de datos se muestran en cada máquina virtual.
+3. Haga clic en **OK**. Supervise el progreso del trabajo en **Almacén de Recovery Services** > **Supervisión** > **Trabajos de Site Recovery**.
+4. Los cambios tardan 15 minutos en reflejarse después de que finalice correctamente esta operación o también puede [actualizar el servidor de configuración](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para un efecto inmediato.
+
+### <a name="switch"></a>Switch
+
+A través de esta opción, toda la carga de trabajo protegida en un servidor de procesos se traslada a un servidor de procesos diferente.
+
+1. Haga clic en **Switch** (Cambiar), seleccione el servidor de procesos de destino y haga clic en **Aceptar**.
+
+    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+
+2. Supervise el progreso del trabajo en **Almacén de Recovery Services** > **Supervisión** > **Trabajos de Site Recovery**.
+3. Los cambios tardan 15 minutos en reflejarse después de que finalice correctamente esta operación o también puede [actualizar el servidor de configuración](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para un efecto inmediato.
 
 ## <a name="reregister-a-process-server"></a>Volver a registrar un servidor de procesos
 

@@ -1,5 +1,5 @@
 ---
-title: No se puede establecer el escritorio remoto en Azure Virtual Machines porque la NIC está deshabilitada | Microsoft Docs
+title: No se puede establecer conexión de forma remota con Azure Virtual Machines porque el adaptador de red está deshabilitado | Microsoft Docs
 description: Obtenga información sobre cómo solucionar un problema en el que se produce un error con RDP porque la NIC está deshabilitada en VM de Azure | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6b14530bd6b4c1b6617cb1d5c88d710a32e5372c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f9e4731146409f51d16a8c92c01d07a8ff11a7ea
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634839"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314531"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>No se puede establecer el escritorio remoto en una VM porque la interfaz de red está deshabilitada
 
-En este artículo se muestra cómo resolver un problema en el que no se puede establecer el escritorio remoto en Azure Windows Virtual Machines (VM) porque la interfaz de red está deshabilitada.
+En este artículo se muestra cómo resolver un problema en el que no se puede establecer la conexión del escritorio remoto en Azure Windows Virtual Machines (VM) si la interfaz de red está deshabilitada.
 
 > [!NOTE] 
 > Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se explica el uso del modelo de implementación de Resource Manager, que es el que se recomienda usar para las nuevas implementaciones, en lugar del modelo de implementación clásica. 
@@ -51,7 +51,7 @@ Para habilitar la interfaz para la VM, use el control de serie o [restablezca la
 
         netsh interface set interface name="interface Name" admin=enabled
 
-    Por ejemplo, si la interfaz de red se denomina "Ethernet 2", ejecute el siguiente comando:
+    Por ejemplo, si la interfaz de red se llama "Ethernet 2", ejecute el siguiente comando:
 
         netsh interface set interface name=""Ethernet 2" admin=enabled
     
@@ -60,10 +60,10 @@ Para habilitar la interfaz para la VM, use el control de serie o [restablezca la
 
         netsh interface show interface
 
-    No tiene que reiniciar la VM en este momento. La VM volverá a ser accesible.
+    No tiene que reiniciar la VM en este momento. La máquina virtual volverá a ser accesible.
         
-5.  Conéctese a la VM y compruebe si el problema se resuelve.
+5.  Conéctese a la máquina virtual y compruebe si el problema se resuelve.
 
 ## <a name="reset-network-interface"></a>Restablecimiento de la interfaz de red
 
-Para restablecer la interfaz de red, cambie la dirección IP a otra que esté disponible en la subred mediante Azure Portal o Azure PowerShell. Para más información, consulte el artículo sobre cómo [restablecer la interfaz de red](reset-network-interface.md). 
+Para restablecer la interfaz de red, cambie la dirección IP a otra dirección IP que esté disponible en la subred. Para ello, use Azure Portal o Azure PowerShell. Para obtener más información, consulte el artículo sobre cómo [restablecer la interfaz de red](reset-network-interface.md). 

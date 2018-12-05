@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013333"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821555"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -364,7 +364,7 @@ El mensaje de solicitud tiene las siguientes propiedades de la aplicación:
 | operación |Sin  |string |**put-token** |
 | Tipo |Sin  |string |Tipo del token que se coloca. |
 | Nombre |Sin  |string |El "público" al que se aplica el token. |
-| expiration |SÍ |timestamp |La hora de expiración del token. |
+| expiration |SÍ | timestamp |La hora de expiración del token. |
 
 La propiedad *name* identifica la entidad a la que se va a asociar el token. En Service Bus es la ruta de acceso a la cola, el tema o la suscripción. La propiedad *type* identifica el tipo de token:
 

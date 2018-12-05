@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269418"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707187"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Aceleración de análisis de macrodatos mediante el conector de Apache Spark a Azure Cosmos DB
  
@@ -83,7 +83,7 @@ Ejecute estos pasos para conectar Spark con Azure Cosmos DB mediante el SDK de p
 
 6. En el cuadro de diálogo **Create Notebook** (Crear cuaderno), escriba un nombre descriptivo y elija **Python** como lenguaje. En la lista desplegable, seleccione el clúster que creó anteriormente y seleccione **Create** (Crear).  
 
-7. Ejecute algunas consultas de Spark con los datos de ejemplo de vuelos hospedados en la cuenta "doctorwho" de Azure Cosmos DB. (Esta cuenta es de acceso público). El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda la versión HTML del cuaderno. Descargue los archivos del repositorio y vaya a `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. Puede importar el cuaderno a su cuenta de Azure Databricks y ejecutarlo. En la sección siguiente se explica detalladamente la funcionalidad de los bloques de código.
+7. Ejecute algunas consultas de Spark con los datos de ejemplo de vuelos hospedados en la cuenta "doctorwho" de Azure Cosmos DB. Esta cuenta es de acceso público. El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda el cuaderno [Read_Batch_PyDocumentDB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_PyDocumentDB.ipynb). Puede importar el cuaderno a su cuenta de Azure Databricks y ejecutarlo. En la sección siguiente se explica detalladamente la funcionalidad de los bloques de código.
 
 El fragmento de código siguiente muestra la importancia del SDK de pyDocumentDB y cómo ejecutar una consulta en el contexto de Spark. Como se indica en el fragmento de código, el SDK de pyDocumentDB contiene los parámetros de conexión necesarios para conectarse a la cuenta de Azure Cosmos DB. Importa las bibliotecas necesarias, y configura la clave maestra y el host para crear el cliente de Azure Cosmos DB (pydocumentdb.document_client).
 
@@ -209,7 +209,7 @@ En este artículo se muestra el uso del SDK de Java del conector de Spark en los
 
 ### <a name="read-twitter-data-from-azure-cosmos-db"></a>Lectura de datos de Twitter desde Azure Cosmos DB
  
-En esta sección se ejecutan consultas de Spark para leer un lote de datos de Twitter desde Azure Cosmos DB. El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda la versión HTML del cuaderno. Descargue los archivos del repositorio y vaya a `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html`. Puede importar el cuaderno a la cuenta de Azure Databricks y actualizar el URI de la cuenta, la clave maestra, la base de datos y los nombres de colección. Puede ejecutar el cuaderno o crearlo de la manera siguiente:
+En esta sección se ejecutan consultas de Spark para leer un lote de datos de Twitter desde Azure Cosmos DB. El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda el cuaderno [Read_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_Twitter_Data.ipynb). Puede importar el cuaderno a la cuenta de Azure Databricks y actualizar el URI de la cuenta, la clave maestra, la base de datos y los nombres de colección. Puede ejecutar el cuaderno o crearlo de la manera siguiente:
 
 1. Vaya a la cuenta de Azure Databricks y seleccione **Workspace** > **Create** > **Notebook** (Área de trabajo > Crear > Cuaderno). 
 
@@ -268,7 +268,7 @@ Según el escenario, use distintos valores de configuración para optimizar el r
 
 ### <a name="read-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Lectura de datos de Twitter que se transmiten en streaming a Azure Cosmos DB
 
-En esta sección, ejecutará consultas de Spark para leer una fuente de cambios de streaming de datos de Twitter. Cuando ejecute las consultas de esta sección, asegúrese de que la aplicación de fuente de Twitter esté en ejecución y que suministre datos a Azure Cosmos DB. El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda la versión HTML del cuaderno. Descargue los archivos del repositorio y vaya a `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html`. Puede importar el cuaderno a la cuenta de Azure Databricks y actualizar el URI de la cuenta, la clave maestra, la base de datos y los nombres de colección. Puede ejecutar el cuaderno o crearlo de la manera siguiente:
+En esta sección, ejecutará consultas de Spark para leer una fuente de cambios de streaming de datos de Twitter. Cuando ejecute las consultas de esta sección, asegúrese de que la aplicación de fuente de Twitter esté en ejecución y que suministre datos a Azure Cosmos DB. El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda el cuaderno [Read_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Stream_Twitter_Data.scala). Puede importar el cuaderno a la cuenta de Azure Databricks y actualizar el URI de la cuenta, la clave maestra, la base de datos y los nombres de colección. Puede ejecutar el cuaderno o crearlo de la manera siguiente:
 
 1. Vaya a la cuenta de Azure Databricks y seleccione **Workspace** > **Create** > **Notebook** (Área de trabajo > Crear > Cuaderno).  
 
@@ -335,7 +335,7 @@ El SDK de Java es compatible con los valores de conexión siguientes:
 
 ### <a name="write-twitter-data-to-azure-cosmos-db"></a>Escritura de datos de Twitter en Azure Cosmos DB 
 
-En esta sección, ejecutará consultas de Spark para escribir un lote de datos de Twitter en una nueva colección en la misma base de datos. El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda la versión HTML del cuaderno. Descargue los archivos del repositorio y vaya a `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html`. Puede importar el cuaderno a la cuenta de Azure Databricks y actualizar el URI de la cuenta, la clave maestra, la base de datos y los nombres de colección. Puede ejecutar el cuaderno o crearlo de la manera siguiente:
+En esta sección, ejecutará consultas de Spark para escribir un lote de datos de Twitter en una nueva colección en la misma base de datos. El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda el cuaderno [Write_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Batch_Twitter_Data.ipynb). Puede importar el cuaderno a la cuenta de Azure Databricks y actualizar el URI de la cuenta, la clave maestra, la base de datos y los nombres de colección. Puede ejecutar el cuaderno o crearlo de la manera siguiente:
 
 1. Vaya a la cuenta de Azure Databricks y seleccione **Workspace** > **Create** > **Notebook** (Área de trabajo > Crear > Cuaderno).  
 
@@ -428,7 +428,7 @@ El SDK de Java admite los valores siguientes para la asignación de configuraci�
 
 ### <a name="write-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Escritura de datos de Twitter que se transmiten en streaming a Azure Cosmos DB 
 
-En esta sección, ejecutará consultas de Spark para escribir una fuente de cambios de datos de Twitter de streaming en una nueva colección en la misma base de datos. El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda la versión HTML del cuaderno. Descargue los archivos del repositorio y vaya a `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html`. Puede importar el cuaderno a la cuenta de Azure Databricks y actualizar el URI de la cuenta, la clave maestra, la base de datos y los nombres de colección. Puede ejecutar el cuaderno o crearlo de la manera siguiente:
+En esta sección, ejecutará consultas de Spark para escribir una fuente de cambios de datos de Twitter de streaming en una nueva colección en la misma base de datos. El repositorio de GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda el cuaderno [Write_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Stream_Data.scala). Puede importar el cuaderno a la cuenta de Azure Databricks y actualizar el URI de la cuenta, la clave maestra, la base de datos y los nombres de colección. Puede ejecutar el cuaderno o crearlo de la manera siguiente:
 
 1. Vaya a la cuenta de Azure Databricks y seleccione **Workspace** > **Create** > **Notebook** (Área de trabajo > Crear > Cuaderno).  
 

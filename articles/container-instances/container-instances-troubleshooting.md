@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978185"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820365"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
@@ -205,6 +205,9 @@ Este error indica que, debido a una carga elevada en la región en la que está 
 ## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>No se puede conectar a la API de Docker subyacente ni ejecutar contenedores con privilegios
 
 Azure Container Instances no expone acceso directo a la infraestructura subyacente que hospeda los grupos de contenedores. Esto incluye el acceso a la API de Docker que se ejecuta en el host del contenedor y la ejecución de contenedores con privilegios elevados. Si se requiere la interacción de Docker, compruebe la [documentación de referencia de REST](https://aka.ms/aci/rest) para ver lo que admite la API de ACI. Si falta algo, envíe una solicitud en los [foro de comentarios de ACI](https://aka.ms/aci/feedback).
+
+## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>Las direcciones IP pueden no estar accesibles debido a que los puertos no coinciden
+Azure Container Instances no admite actualmente la asignación de puertos con la configuración normal de docker; sin embargo, esta revisión está en la hoja de ruta. Si encuentra direcciones IP no accesibles que cree que deberían serlo, asegúrese de que ha configurado la imagen de contenedor para que escuche a los mismos puertos que expone en el grupo de contenedores con la propiedad `ports`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre cómo [recuperar eventos y registros de contenedor](container-instances-get-logs.md) para ayudar a depurar los contenedores.

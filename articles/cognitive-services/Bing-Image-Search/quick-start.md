@@ -10,16 +10,16 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9e211cf5acd17ab80948d0b7161bdd2a9220c4a6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5742efb2dca02565735cf308d9ede9316ce6d12e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380171"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314871"
 ---
 # <a name="your-first-images-search-query"></a>La primara consulta de búsqueda de imágenes
 
-Para poder realizar la primera llamada, debe obtener una clave de suscripción de Cognitive Services para Bing Search. Para obtener una clave, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+Para poder realizar la primera llamada, debe obtener una clave de suscripción de Cognitive Services para Bing Search. Para obtener una clave, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).  Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para obtener resultados de búsqueda de imágenes, enviaría una solicitud GET al punto de conexión siguiente:  
   
@@ -44,7 +44,7 @@ Los encabezados de IP y ubicación del cliente son importantes para devolver con
 
 Para ver una lista de todos los encabezados de solicitud y respuesta, consulte [Encabezados](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
 
-## <a name="the-request"></a>La solicitud
+## <a name="the-request"></a>Solicitud
 
 A continuación se muestra una solicitud de búsqueda que incluye todos los encabezados y parámetros de consulta sugeridos. Si es la primera vez que llama a cualquiera de las API de Bing, no incluya el encabezado de identificador de cliente. Solo debe incluir el identificador de cliente si se ha llamado previamente a una API de Bing y Bing ha devuelto un identificador de cliente para esa combinación de usuario y dispositivo. 
   

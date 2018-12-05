@@ -1,10 +1,11 @@
 ---
-title: Guía sobre el lenguaje de especificación de redes neuronales de Net# - Azure Machine Learning | Microsoft Docs
-description: Sintaxis del lenguaje de especificación de redes neuronales de Net#, junto con ejemplos de cómo crear un modelo de red neuronal personalizada con Net#
+title: Redes neuronales con Net# - Azure Machine Learning Studio | Microsoft Docs
+description: Sintaxis del lenguaje de especificación de redes neuronales de Net#, junto con ejemplos de cómo crear un modelo de red neuronal personalizada mediante Net# con Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 8a96cfdedcde9b4037627f3e61af862c0600ca20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258484"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315314"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net#  para Azure Machine Learning
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Azure Machine Learning Studio
 
 Net# es un lenguaje desarrollado por Microsoft que se utiliza para definir las arquitecturas de red neuronal. El uso de Net# para definir la estructura de una red neuronal posibilita la definición de estructuras complejas como redes neuronales profundas o convoluciones de dimensiones arbitrarias, que se sabe que mejoran el aprendizaje en datos tales como imágenes, audio o vídeo.
 

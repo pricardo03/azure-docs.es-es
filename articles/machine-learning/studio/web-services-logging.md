@@ -1,10 +1,11 @@
 ---
-title: Registro para servicios web Machine Learning | Microsoft Docs
+title: Registro para los servicios web de Machine Learning Studio | Microsoft Docs
 description: Aprenda cómo habilitar el registro para los servicios web de Machine Learning. El registro proporciona información adicional para ayudar a solucionar las API.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 4e1545c8fd05795c683b24c029376a3d1e6d85b8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5ac8712b1f5dbea4ed3225e87b1a6f51312c3529
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835838"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310419"
 ---
-# <a name="enable-logging-for-machine-learning-web-services"></a>Habilitar el registro para los servicios web de Machine Learning
+# <a name="enable-logging-for-machine-learning-studio-web-services"></a>Habilitar el registro para los servicios web de Machine Learning Studio
 Este documento proporciona información sobre la funcionalidad de registro de los servicios web Machine Learning. El registro ofrece información adicional, más allá de simplemente un número de error y un mensaje, que puede ayudarle a solucionar problemas con las llamadas a las API de Machine Learning.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Habilitación del registro para un servicio web

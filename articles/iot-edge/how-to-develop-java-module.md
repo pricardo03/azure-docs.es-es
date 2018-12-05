@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d72ffd849f9e1e6e661b0e54b7182b02a16c8024
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3e50bf42076132f69fcb655da61a790fe207b949
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568995"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444416"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos de Java para Azure IoT Edge
 
@@ -64,7 +64,7 @@ En los siguientes pasos puede ver cómo crear un módulo de IoT Edge basado en J
 7. Elija **Java Module** como plantilla del primer módulo de la solución.
 8. Especifique un nombre para el módulo. Elija un nombre que sea único dentro del registro de contenedor. 
 8. Proporcione un valor para groupId o acepte el valor predeterminado **com.edgemodule**.
-9. Especifique el repositorio de imágenes del módulo. VS Code rellena automáticamente el nombre del módulo, por lo que solo tiene que reemplazar **localhost:5000** por la información de su propio registro. Si usa un registro de Docker local para realizar pruebas, localhost puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a **\<nombre del registro\>.azurecr.io**. Reemplace solo la parte de localhost de la cadena, no elimine el nombre del módulo.
+9. Especifique el repositorio de imágenes del módulo. VS Code rellena automáticamente el nombre del módulo, por lo que solo tiene que reemplazar **localhost:5000** por la información de su propio registro. Si usa un registro de Docker local para realizar pruebas, localhost puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a **\<nombre del registro\>.azurecr.io**. Reemplace solo la parte de localhost de la cadena, no elimine el nombre del módulo. La cadena final se parece a \<registry name\>.azurecr.io/\<modulename\>.
 
    ![Especificación del repositorio de imágenes de Docker](./media/how-to-develop-node-module/repository.png)
 
@@ -79,6 +79,8 @@ En la solución tiene tres elementos:
    >Solo se crea el archivo de entorno si proporciona un repositorio de imágenes para el módulo. Si aceptó los valores predeterminados de localhost para probar y depurar localmente, no es necesario declarar las variables de entorno. 
 
 * Un archivo **deployment.template.json** muestra el nuevo módulo junto con un módulo **tempSensor** de ejemplo que simula los datos que puede usar para realizar pruebas. Para más información sobre el funcionamiento de los manifiestos de implementación, consulte [Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).
+* Un archivo **deployment.debug.template.json** contiene la versión de depuración de las imágenes del módulo con las opciones de contenedor adecuadas.
+
 
 ## <a name="develop-your-module"></a>Desarrollo de su módulo
 
@@ -90,6 +92,14 @@ Visual Studio Code es compatible con Java. Obtenga más información acerca de [
 
 ## <a name="launch-and-debug-module-code-without-container"></a>Inicio y depuración del código del módulo sin contenedor
 El módulo Java de IoT Edge depende del SDK de dispositivo de Java de Azure IoT. En el código del módulo predeterminado, se inicializa un **ModuleClient** con la configuración del entorno y el nombre de entrada, lo que significa que el módulo de IoT Edge Java requiere iniciar y ejecutar la configuración del entorno y que se envíen o enruten mensajes a los canales de entrada. El módulo predeterminado de Java solo contiene un canal de entrada, que se llama **input1**.
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>Configuración del simulador de IoT Edge para la solución de IoT Edge
+
+En la máquina de desarrollo, puede iniciar el simulador de IoT Edge en lugar de instalar el demonio de seguridad de IoT Edge para ejecutar la solución de IoT Edge. 
+
+1. En el explorador de dispositivos del lado izquierdo, haga clic con el botón secundario en el identificador de dispositivo IoT Edge y seleccione **Setup IoT Edge Simulator** (Configurar el simulador de IoT Edge) para iniciar el simulador con la cadena de conexión del dispositivo.
+
+2. Puede ver que el simulador de IoT Edge se ha configurado correctamente en el terminal integrado.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Configuración del simulador de IoT Edge para la aplicación de módulo único
 
@@ -132,7 +142,7 @@ El módulo Java de IoT Edge depende del SDK de dispositivo de Java de Azure IoT.
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Compilación del contenedor de módulo para la depuración y depuración en modo de agregación
 
-La solución predeterminada contiene dos módulos, uno es un módulo de sensor de temperatura simulado y el otro es el módulo de canalización de Java. El sensor de temperatura simulado continúa mandando mensajes al módulo de canalización de Java y dichos mensajes se canalizan a IoT Hub. En la carpeta de módulo que se creó, hay varios archivos de Docker para diferentes tipos de contenedor. Use cualquiera de estos archivos que acaban con la extensión **.debug** para compilar el módulo de pruebas. Actualmente, los módulos de Java solo admiten la depuración en contenedores de linux-amd64 y linux-arm32v7.
+La solución predeterminada contiene dos módulos, uno es un módulo de sensor de temperatura simulado y el otro es el módulo de canalización de Java. El sensor de temperatura simulado continúa mandando mensajes al módulo de canalización de Java y dichos mensajes se canalizan a IoT Hub. En la carpeta de módulo que se creó, hay varios archivos de Docker para diferentes tipos de contenedor. Use cualquiera de estos archivos que acaban con la extensión **.debug** para compilar el módulo de pruebas. De manera predeterminada, el archivo **deployment.debug.template.json** contiene la versión de depuración de la imagen. Actualmente, los módulos de Java solo admiten la depuración en contenedores de linux-amd64 y linux-arm32v7. Puede cambiar la plataforma predeterminada de Azure IoT Edge en la barra de estado de VS Code.
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>Configuración del simulador de IoT Edge para la solución de IoT Edge
 
@@ -144,12 +154,9 @@ En la máquina de desarrollo, puede iniciar el simulador de IoT Edge en lugar de
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Compilación y ejecución del contenedor para la depuración y depuración en modo de agregación
 
-1. En VS Code, vaya al archivo `deployment.template.json`. Para actualizar la dirección URL de la imagen del módulo, agregue **.debug** al final.
+1. Vaya a `App.java`. Agregue un punto de interrupción en este archivo.
 
-2. Reemplace el módulo createOptions de Java en el archivo **deployment.template.json** por el siguiente contenido y guarde este archivo: 
-    ```json
-    "createOptions":"{\"HostConfig\":{\"PortBindings\":{\"5005/tcp\":[{\"HostPort\":\"5005\"}]}}}"
-    ```
+2. En el explorador de archivos de VS Code, seleccione el archivo `deployment.debug.template.json` para su solución y, en el menú contextual, haga clic en **Build and Run IoT Edge solution in Simulator** (Compilar y ejecutar la solución de IoT Edge en el simulador). Puede inspeccionar todos los registros del contenedor del módulo en la misma ventana. También puede navegar hasta el explorador de Docker para observar el estado del contenedor.
 
 5. Vaya a la vista de depuración de VS Code. Seleccione el archivo de configuración de depuración de su módulo. El nombre de la opción de depuración debe ser similar a to **ModuleName Remote Debug (Java)**.
 

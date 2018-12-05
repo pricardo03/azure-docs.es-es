@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256279"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422803"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparación para copias de seguridad de máquinas virtuales de Azure
 
@@ -34,7 +34,7 @@ Si estas condiciones ya existen en su entorno, vaya al artículo [Copia de segur
 
 ## <a name="supported-operating-systems-for-backup"></a>Sistemas operativos compatibles para copia de seguridad
 
- * **Linux**: Azure Backup admite [una lista de distribuciones que Azure aprueba](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), con la excepción de CoreOS Linux. Para obtener la lista de sistemas operativos Linux que admiten la restauración de archivos, consulte [Recuperación de archivos desde una copia de seguridad de máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: Azure Backup admite [una lista de distribuciones que Azure aprueba](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), con la excepción de CoreOS Linux y el sistema operativo de 32 bits. Para obtener la lista de sistemas operativos Linux que admiten la restauración de archivos, consulte [Recuperación de archivos desde una copia de seguridad de máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > Otras distribuciones del tipo "traiga su propio Linux" podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python. Sin embargo, estas distribuciones no se admiten.
@@ -49,13 +49,14 @@ Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:
 * No se admite la copia de seguridad de máquinas virtuales Linux en las que se ha usado el cifrado LUKS (Linux Unified Key Setup).
 * No se recomienda realizar copias de seguridad de máquinas virtuales que contengan la configuración de volúmenes compartidos de clúster (CSV) o de Servidor de archivos de escalabilidad horizontal. Si hace esto, se espera un error de los escritores de CSV. Requieren que en una tarea de instantánea haya que implicar todas las máquinas virtuales incluidas en la configuración del clúster. Azure Backup no es compatible con la coherencia entre varias VM.
 * Los datos de la copia de seguridad no incluyen unidades montadas de red conectadas a una máquina virtual.
-* No se admite el reemplazo de una máquina virtual existente durante la restauración. Si intenta restaurar la máquina virtual cuando ya existe, la operación de restauración dará error.
+* La opción **Reemplazar el existente**  en la sección **Restaurar configuración** le permite reemplazar los discos existentes en la máquina virtual actual por el punto de restauración seleccionado. Esta operación puede realizarse solo si existe la VM actual. 
 * No se admiten la restauración y la copia de seguridad entre regiones.
 * Al configurar la copia de seguridad, asegúrese de que la configuración de la cuenta de almacenamiento **Firewalls y redes virtuales** de la cuenta de almacenamiento permite el acceso desde Todas las redes.
 * Para las redes seleccionadas, después de configurar los valores del firewall y de la red virtual para la cuenta de almacenamiento, seleccione **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** como una excepción para permitir al servicio Azure Backup acceder a la cuenta de almacenamiento restringida. No se admite la recuperación en el nivel de elemento para cuentas de almacenamiento con la red restringida.
 * Puede realizar copias de seguridad de máquinas virtuales en todas las regiones públicas de Azure (consulte la [lista de comprobación](https://azure.microsoft.com/regions/#services) de las regiones admitidas). Si la región que busca no se admite, no aparecerá en la lista desplegable durante la creación del almacén.
 * La restauración de una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio solo se admite a través de PowerShell. Para más información, consulte [Restauración de máquinas virtuales de controlador de dominio](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * No se admite la instantánea en el disco habilitado para el Acelerador de escritura. Esta restricción bloquea la capacidad que el servicio de Azure Backup tiene para realizar una instantánea coherente con la aplicación de todos los discos de la máquina virtual.
+* Azure Backup no admite el ajuste automático del reloj para los cambios de horario de verano para realizar copias de seguridad de Azure VM. Si es necesario, modifique la directiva para realizar el cambio de horario de verano en la cuenta.
 * Solo se admite la restauración de las máquinas virtuales que tienen las siguientes configuraciones especiales de red a través de PowerShell. Las máquinas virtuales que se crean a través del flujo de trabajo de restauración en la interfaz de usuario no tendrán estas configuraciones de red cuando se complete la operación de restauración. Si desea obtener más información, consulte [Restauración de máquinas virtuales con configuraciones de red especiales](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Máquinas virtuales con la configuración del equilibrador de carga (interna y externa).
   * Máquinas virtuales con varias direcciones IP reservadas.
@@ -123,7 +124,7 @@ Antes de registrar una máquina virtual en un almacén de Recovery Services, eje
 
 1. Si ya tiene abierto un almacén de Recovery Services vaya al paso 2. Si no tiene ningún almacén de Recovery Services abierto, abra [Azure Portal](https://portal.azure.com/). En el menú **izquierdo**, seleccione **Más servicios**.
 
-   a. En la lista de recursos, escriba **Recovery Services**. En cuanto empiece a escribirlo, la entrada filtra la lista. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
+    a. En la lista de recursos, escriba **Recovery Services**. En cuanto empiece a escribirlo, la entrada filtra la lista. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
 
       ![Escribir en el cuadro y seleccionar "Almacenes de Recovery Services" en los resultados](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 

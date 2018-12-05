@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: f85ab05e785ea559962490b43e75b196d1602159
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016223"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711062"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Conexión y autenticación en las API
 
@@ -35,39 +35,18 @@ La biblioteca de autenticación de Azure para Windows ofrece muchas alternativas
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Llamada a Digital Twins desde una API web de nivel intermedio
 
-Cuando los desarrolladores diseñan soluciones de Digital Twins, normalmente crean una aplicación o API web de nivel intermedio. La aplicación o la API, a continuación, llama a la API de Digital Twins de un nivel inferior. Los usuarios se autentican primero en la aplicación de nivel intermedio y, a continuación, se usa un flujo de token en el nombre de otra persona durante la llamada al nivel inferior. Para obtener instrucciones sobre cómo coordinar el flujo en el nombre de otra persona, visite [esta página](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). También puede ver ejemplos de código en [esta página](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+Cuando los desarrolladores diseñan soluciones de Digital Twins, normalmente crean una aplicación o API web de nivel intermedio. La aplicación o la API, a continuación, llama a la API de Digital Twins de un nivel inferior. Para admitir la arquitectura de la solución web estándar, asegúrese de que los usuarios primero:
 
+1. Se autentiquen con la aplicación de nivel intermedio.
 
-## <a name="test-with-the-postman-client"></a>Pruebas con el cliente de Postman
+1. Adquieran un token en nombre de OAuth 2.0 durante la autenticación.
 
-Para empezar a trabajar con las API de Digital Twins, puede usar un cliente como Postman como entorno de API. Postman le ayuda a crear rápidamente solicitudes HTTP complejas. Los pasos siguientes muestran cómo obtener un token de Azure AD que se necesita para llamar a Digital Twins dentro de la interfaz de usuario de Postman.
+1. A continuación, el token adquirido se usa para autenticarse con API o para llamar a API que están en niveles inferiores con el flujo "en nombre de".
 
-
-1. Vaya a https://www.getpostman.com/ para descargar la aplicación
-1. Siga los pasos de [este inicio rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para crear una aplicación de Azure AD. O bien, puede volver a usar un registro existente. 
-1. En **Permisos necesarios**, agregue "Azure Digital Twins" y seleccione **Permisos delegados**. A continuación, seleccione **Conceder permisos**.
-1. Abra el manifiesto de aplicación y establezca **oauth2AllowImplicitFlow** en true.
-1. Configure una dirección URL de respuesta a [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback).
-1. Seleccione la **pestaña Autorización**, seleccione **OAuth 2.0** y luego **Get New Access Token** (Obtener nuevo token de acceso).
-
-    |**Campo**  |**Valor** |
-    |---------|---------|
-    | Tipo de concesión | Implícita |
-    | Dirección URL de devolución de llamadas | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | Dirección URL de autenticación | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
-    | Id. de cliente | Use el identificador de aplicación para la aplicación de Azure AD que se creó o se reutilizó del paso 2. |
-    | Ámbito | déjelo en blanco. |
-    | Estado | déjelo en blanco. |
-    | Autenticación de clientes | Se envía como encabezado de autenticación básico. |
-
-1. Seleccione **Request Token** (Solicitar token).
-
-    >[!NOTE]
-    >Si recibe el mensaje de error "No se pudo completar OAuth 2", pruebe lo siguiente:
-    > * Cierre Postman, vuelva a abrirlo e inténtelo de nuevo.
-   
-1. Desplácese hacia abajo y seleccione **Use Token** (Usar token).
+Para obtener instrucciones sobre cómo coordinar el flujo en el nombre de otra persona, vea [Flujo en nombre de OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). También puede ver ejemplos de código en [Calling a downstream web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/) (Llamada a una API web de bajada).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Para configurar y probar Azure Digital Twins mediante el flujo de concesión implícita de OAuth 2.0, lea [Configure Postman](./how-to-configure-postman.md) (Configurar Postman).
 
 Para obtener información acerca de la seguridad en Azure Digital Twins, consulte [Create and manage role assignments](./security-create-manage-role-assignments.md) (Creación y administración de las asignaciones de roles).

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0d78ae294cea383fbe59a1f7968d8bf18b1942d1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420530"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422963"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Uso de Azure Portal para restaurar máquinas virtuales
 Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Recovery Services. Si es necesario reparar o recompilar una máquina virtual, puede restaurarla desde cualquiera de los puntos de recuperación guardados. Cuando restaura un punto de recuperación, puede:
@@ -113,7 +113,7 @@ El portal proporciona una opción **Creación rápida** para la máquina virtual
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Creación de una nueva máquina virtual desde el punto de restauración
 1. En la hoja **Restaurar configuración**, mencionada en la sección anterior, escriba o seleccione valores en cada uno de los siguientes campos:
 
-    a. **Tipo de restauración**. Cree una máquina virtual.
+     a. **Tipo de restauración**. Cree una máquina virtual.
 
     b. **Nombre de la máquina virtual**. Escriba un nombre de VM que no exista en la suscripción.
 
@@ -151,13 +151,13 @@ En la hoja **Restore configuration** (Configuración de restauración), haga cli
 La **restauración en contexto** se realiza a través de la pestaña **Reemplazar el existente**.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Reemplazar discos existentes desde un punto de restauración
-La opción **Reemplazar el existente** ayuda a reemplazar los discos existentes en la VM actual por el punto de restauración seleccionado. Esta operación puede realizarse solo si existe la VM actual. Si se ha eliminado por algún motivo, no se puede realizar esta operación; como alternativa, se recomienda usar la opción **Crear nuevo** para crear máquinas virtuales o discos para continuar con las operaciones de restauración. Durante las operaciones de reemplazo de discos existentes, como medida de precaución, realizamos la copia de seguridad de los datos antes de iniciar dichas operaciones. Si el punto de restauración tiene más o menos discos que la máquina virtual actual, el número de discos del punto de restauración solo se reflejará en la VM. La opción **Reemplazar el existente** actualmente no es compatible con discos no administrados y máquinas virtuales cifradas. Tampoco se admite para [máquinas virtuales generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) y para máquinas virtuales creadas mediante [imágenes personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
+La opción **Reemplazar el existente** ayuda a reemplazar los discos existentes en la VM actual por el punto de restauración seleccionado. Esta operación puede realizarse solo si existe la VM actual. Si se ha eliminado por algún motivo, no se puede realizar esta operación; como alternativa, se recomienda usar la opción **Crear nuevo** para crear máquinas virtuales o discos para continuar con las operaciones de restauración. Durante esta operación y como medida de precaución, realizamos la copia de seguridad de los datos antes de iniciar las operaciones para reemplazar los discos. Esta operación crea una instantánea y un punto de recuperación en el almacén con el período de retención que se haya programado en la directiva de copia de seguridad configurada. Si el punto de restauración tiene más o menos discos que la máquina virtual actual, el número de discos del punto de restauración solo se reflejará en la VM. La opción **Reemplazar el existente** actualmente no es compatible con discos no administrados y máquinas virtuales cifradas. Tampoco se admite para [máquinas virtuales generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) y para máquinas virtuales creadas mediante [imágenes personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  En la hoja **Restaurar configuración**, la única entrada que debe seleccionarse es **Ubicación de ensayo**.
 
    ![Opción Reemplazar el existente del asistente para configuración de restauración](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
- a. **Tipo de restauración**. Reemplace los discos que representan que el punto de restauración seleccionado reemplazará los discos en la VM existente.
+  a. **Tipo de restauración**. Reemplace los discos que representan que el punto de restauración seleccionado reemplazará los discos en la VM existente.
 
  b. **Ubicación de ensayo**. Las cuentas de almacenamiento son la ubicación de ensayo. Este menú muestra la lista de cuentas de almacenamiento de la misma ubicación que el almacén de Recovery Services. No se admiten cuentas de almacenamiento con redundancia de zona. Si no hay ninguna cuenta de almacenamiento con la misma ubicación que el almacén de Recovery Services, debe crear una antes de iniciar la operación de restauración. El tipo de replicación de la cuenta de almacenamiento se muestra entre paréntesis.
 
@@ -236,7 +236,7 @@ Con el fin de volver a crear completamente las máquinas virtuales después de r
 
 1. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell. Úsela para crear la máquina virtual con la configuración deseada:
 
-   a. Cree una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
+    a. Cree una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 
    b. Cree una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 

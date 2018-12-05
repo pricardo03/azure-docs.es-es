@@ -1,10 +1,11 @@
 ---
-title: Creación de varios modelos a partir de un experimento | Microsoft Docs
+title: Crear varios modelos a partir de un experimento - Azure Machine Learning Studio | Microsoft Docs
 description: Use PowerShell para crear varios modelos de Machine Learning y puntos de conexión de servicio web con el mismo algoritmo pero con conjuntos de datos de entrenamiento distintos.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
@@ -15,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: dcf4e9fa9435d8f20784b20f3873d408adb78c20
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469833"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316572"
 ---
-# <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Creación de varios modelos de Machine Learning y puntos de conexión de servicio web a partir de un experimento mediante PowerShell
+# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Azure Machine Learning Studio: Usar PowerShell para crear varios modelos y puntos de conexión de servicio web a partir de un experimento
+
 Este es un problema común del aprendizaje automático: quiere crear muchos modelos que tienen el mismo flujo de trabajo de entrenamiento y utilizan el mismo algoritmo. Pero desea que tengan conjuntos de datos de entrenamiento distintos como entrada. Este artículo muestra cómo hacer esto a escala en Azure Machine Learning Studio simplemente con un solo experimento.
 
 Por ejemplo, digamos que posee una empresa de franquicias de alquiler de bicicletas global. Desea crear un modelo de regresión para predecir la demanda de alquiler basada en datos históricos. Dispone de mil ubicaciones de alquiler en todo el mundo y ha recopilado un conjunto de datos para cada ubicación. Incluyen características importantes como la fecha, la hora e información meteorológica y sobre el tráfico que son específicas de cada ubicación.

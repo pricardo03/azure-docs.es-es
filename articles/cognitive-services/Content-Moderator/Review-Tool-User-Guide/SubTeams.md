@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: sajagtap
-ms.openlocfilehash: 161c7cd8bac07d5ffc138297d98a40317a8d88fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6e1fc08af1062ae8962ba33c6df980182175264b
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380118"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852153"
 ---
 # <a name="team-and-subteams"></a>Equipo y subequipos #
 
@@ -58,6 +58,6 @@ Si quiere asignar una imagen individual a un subequipo, haga clic en los puntos 
 
 ## <a name="switch-between-subteams-to-review-assigned-content"></a>Cambiar entre subequipos para revisar contenido asignado ##
 
-Si es miembro de uno o varios subequipos, puede cambiar entre ellos desde el panel de herramientas de revisión. Para ver todas revisiones pendientes actuales que pertenecen a un subequipo, seleccione Choose Subteam (Elegir subequipo) en la pestaña Image (Imagen).
+Si es miembro de uno o varios subequipos, puede cambiar entre ellos desde el panel de la herramienta de revisión. Para ver todas revisiones pendientes actuales que pertenecen a un subequipo, seleccione Choose Subteam (Elegir subequipo) en la pestaña Image (Imagen).
 
 ![Cambiar entre subequipos](images/3-review-image-subteam-2.png)

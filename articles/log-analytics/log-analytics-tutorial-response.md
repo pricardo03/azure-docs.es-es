@@ -10,17 +10,16 @@ ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2fbf3c902416935f0b1fff0bc423a2535f3ba077
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 90faa1d3a24a77743beb5109373b1b6ba0bb4156
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013003"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722112"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Respuesta a eventos con las alertas de Azure Monitor
 Las alertas de Azure Monitor pueden identificar información importante en el repositorio de Log Analytics. Se crean mediante reglas de alerta que ejecutan automáticamente búsquedas de registro en intervalos regulares y, si los resultados de la búsqueda de registro coinciden con criterios determinados, se crea un registro de alerta y se puede configurar para realizar una respuesta automatizada.  Este tutorial es la continuación del tutorial [Creación y uso compartido de paneles de datos de Log Analytics](log-analytics-tutorial-dashboards.md).   
@@ -46,7 +45,7 @@ En el ejemplo siguiente, se crea una regla de alertas de medidas de métricas ba
 3. Como primer paso, en la sección **Crear alerta**, seleccione el área de trabajo de Log Analytics como el recurso, ya que se trata de una señal de alerta basada en el registro.  Filtre los resultados seleccionando la **Suscripción** específica en la lista desplegable si tiene más de una, la cual contiene la máquina virtual y el área de trabajo de Log Analytics creados anteriormente.  Filtre el **Tipo de recurso** seleccionando **Log Analytics** en la lista desplegable.  Por último, seleccione el **Recurso** **DefaultLAWorkspace** y, a continuación, haga clic en **Listo**.<br><br> ![Tarea del paso 1 de creación de alertas](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
 4. En la sección **Criterios de alerta**, haga clic en **Agregar criterios** para seleccionar la consulta guardada y, a continuación, especifique la lógica que sigue la regla de alertas.  En el panel **Configurar lógica de señal**, seleccione *Máquinas virtuales de Azure: uso de procesador* en la lista.  El panel se actualiza para presentar los valores de configuración de la alerta.  En la parte superior, se muestran los resultados de los últimos 30 minutos de la señal seleccionada y la propia consulta de búsqueda.  
 5. Configure la alerta con la siguiente información:  
-   a. En la lista desplegable **Basado en**, seleccione **Unidades métricas**.  Una medida de métricas creará una alerta por cada objeto de la consulta con un valor que supere el umbral especificado.  
+    a. En la lista desplegable **Basado en**, seleccione **Unidades métricas**.  Una medida de métricas creará una alerta por cada objeto de la consulta con un valor que supere el umbral especificado.  
    b. Para **Condición**, seleccione **Mayor que** y escriba **90** para **Umbral**.  
    c. En la sección Desencadenar alerta según, seleccione **Infracciones consecutivas** y, en la lista desplegable, seleccione **Mayor que** y escriba un valor de 3.  
    d. En la sección Evaluation based on (Evaluación basada en), modifique el valor de **Period** (Período) a **30** minutos. La regla se ejecutará cada cinco minutos y devolverá los registros que se crearon dentro de los últimos 30 minutos desde la hora actual.  El hecho de establecer el período de tiempo en una ventana más amplia justifica la posibilidad de latencia en los datos y garantiza que la consulta devuelve datos para evitar un falso negativo en aquellos casos en los que la alerta nunca se activa.  
@@ -54,7 +53,7 @@ En el ejemplo siguiente, se crea una regla de alertas de medidas de métricas ba
 7. Ahora, en el segundo paso, proporcione un nombre para la alerta en el campo **Nombre de la regla de alertas**, como **Porcentaje de CPU supera el 90%**.  Especifique una **Descripción** con los detalles específicos de la alerta y seleccione **Crítico (Gravedad 0)** para el valor **Gravedad** de las opciones proporcionadas.<br><br> ![Configurar los detalles de la alerta](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)<br>
 8. Para activar inmediatamente la regla de alertas en la creación, acepte el valor predeterminado de **Habilitar regla tras la creación**.
 9. En el paso tercero y último, especifique un **Grupo de acciones**, lo que garantiza que se realizan las mismas acciones cada vez que se desencadena una alerta y se puede utilizar para cada regla que se define.  Configure un nuevo grupo de acciones con la información siguiente:  
-   a. Seleccione **Nuevo grupo de acciones** y aparecerá el panel **Agregar grupo de acciones**.  
+    a. Seleccione **Nuevo grupo de acciones** y aparecerá el panel **Agregar grupo de acciones**.  
    b. En **Nombre del grupo de acciones**, especifique un nombre, como **Notificar las operaciones de TI -** y un **Nombre corto**, como **itops-n**.  
    c. Compruebe que los valores predeterminados de **Suscripción** y **Grupo de recursos** son correctos. Si no es así, seleccione los valores correctos en la lista desplegable.   
    d. En la sección Acciones, especifique un nombre para la acción, como **Enviar correo electrónico** y en **Tipo de acción**, seleccione **Correo electrónico/SMS/Push/Voz** en la lista desplegable. El panel de propiedades **Correo electrónico/SMS/Push/Voz** se abrirá a la derecha para proporcionar información adicional.  
