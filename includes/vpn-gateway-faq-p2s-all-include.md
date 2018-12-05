@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 07/30/2018
+ms.date: 11/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3a4e45aa2c1aca461ef32ebec2cfb50a470037ed
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 709a8eb9b5e2ab1a3a9deb10e35a5e996c8f9d93
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060455"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585824"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>¿Cuántos puntos de conexión de cliente VPN puedo tener en mi configuración punto a sitio?
 
-Se admiten hasta 128 clientes VPN para poder conectarse al mismo tiempo a una red virtual.
+Depende de la SKU de puerta de enlace. Para más información sobre el número de conexiones admitidas, consulte [SKU de puerta de enlace](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
 ### <a name="supportedclientos"></a>¿Qué sistemas operativos de cliente puedo usar para las conexiones de punto a sitio?
 
@@ -58,7 +58,7 @@ Sí. Para el modelo de implementación de Resource Manager, debe tener un tipo d
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>¿Puedo configurar un cliente de punto a sitio para conectarse a varias redes virtuales al mismo tiempo?
 
-No. Un cliente de punto a sitio solo puede conectarse a los recursos de la red virtual en la que reside la puerta de enlace de red virtual.
+ No. Un cliente de punto a sitio solo puede conectarse a los recursos de la red virtual en la que reside la puerta de enlace de red virtual.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>¿Qué rendimiento puedo esperar en las conexiones de sitio a sitio o de punto a sitio?
 
@@ -66,7 +66,7 @@ Es difícil de mantener el rendimiento exacto de los túneles VPN. IPsec y SSTP 
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>¿Puedo usar cualquier software de cliente VPN para punto a sitio que admita SSTP o IKEv2?
 
-No. Solo puede usar el cliente VPN nativo en Windows para SSTP y el cliente VPN nativo en Mac para IKEv2. Consulte la lista de sistemas operativos cliente compatibles.
+ No. Solo puede usar el cliente VPN nativo en Windows para SSTP y el cliente VPN nativo en Mac para IKEv2. Consulte la lista de sistemas operativos cliente compatibles.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>¿Azure admite VPN IKEv2 con Windows?
 

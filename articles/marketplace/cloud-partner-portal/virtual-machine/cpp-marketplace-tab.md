@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa43a6f1f7c757366e321e7da0fb1e47d4928cee
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: b68f7004366dcb502ffc8332cf8266a434c7ecfb
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639361"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977155"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Pestaña Marketplace de la máquina virtual
 
@@ -40,7 +40,8 @@ En la tabla siguiente se describen la finalidad y el contenido de estos campos.
 | **Descripción**           | Descripción de la solución.  La longitud máxima es de 3000 caracteres y admite el formato HTML simple. |
 | **Identificador de marketing**  | Dirección URL única para asociar a esta oferta, normalmente incluye la organización y el nombre de la solución, longitud máxima de 50 caracteres.  Por ejemplo:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Id. de suscripción de versión preliminar** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta una vez publicada, antes de su lanzamiento. |
-| **Vínculos útiles**          | Selección múltiple de categorías empresariales y técnicas con las que mejor se puede asociar la oferta.  Se permite un máximo de cinco.  |
+| **Vínculos útiles**          | Agregue direcciones URL a la documentación, notas de la versión y preguntas más frecuentes, entre otros. |
+| **Categorías sugeridas (5 como máximo)** | Selección múltiple de categorías empresariales y técnicas con las que mejor se puede asociar la oferta.  Se permite un máximo de cinco.  |
 |  |  |
 
 

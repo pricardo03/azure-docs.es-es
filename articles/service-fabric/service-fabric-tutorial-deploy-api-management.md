@@ -15,18 +15,23 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 0d7c3691b3496da7c178f7dc13b981abdff48d4a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 207dad0386ec53be1e8a860a85fe6670d8542043
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255019"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422650"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar API Management con Service Fabric en Azure
 
 La implementación de Azure API Management con Service Fabric es un escenario avanzado.  API Management es útil cuando es necesario publicar API con un completo conjunto de reglas de enrutamiento para los servicios de Service Fabric de back-end. Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado diseñado para la entrada de tráfico, como una aplicación ASP.NET Core, Event Hubs, IoT Hub o Azure API Management.
 
 En este artículo se muestra cómo configurar [Azure API Management](../api-management/api-management-key-concepts.md) con Service Fabric para enrutar el tráfico a un servicio de back-end de Service Fabric.  Cuando haya terminado, habrá implementado API Management en una red virtual y configurado una operación de API para enviar tráfico a servicios sin estado de back-end. Para más información sobre escenarios de Azure API Management con Service Fabric, consulte el artículo de [introducción](service-fabric-api-management-overview.md).
+
+## <a name="availability"></a>Disponibilidad
+
+> [!IMPORTANT]
+> Esta característica ya está disponible en los niveles **Premium** y **Developer** de API Management debido a la compatibilidad requerida con redes virtuales.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

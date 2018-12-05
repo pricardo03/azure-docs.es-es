@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577001"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635074"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
 
@@ -100,8 +100,6 @@ Ahora que hemos registrado dos aplicaciones que representan la API y la consola 
 
 > [!NOTE]
 > Si **Azure Active Directory** no aparece en los permisos para otras aplicaciones, haga clic en **Agregar** y agréguelo desde la lista.
-> 
-> 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Habilitación de la autorización de usuario OAuth 2.0 en la consola del desarrollador
 
@@ -109,7 +107,7 @@ En este punto ya se han creado nuestras aplicaciones en Azure AD y se han conced
 
 En este ejemplo, la consola del desarrollador es la aplicación cliente. En los pasos siguientes se describe la habilitación de la autorización de usuario OAuth 2.0 en la consola del desarrollador. 
 
-1. Vaya a la instancia de API Management.
+1. En Azure Portal, vaya a la instancia de API Management.
 
 2. Seleccione **OAuth 2.0** > **Agregar**.
 
@@ -120,6 +118,9 @@ En este ejemplo, la consola del desarrollador es la aplicación cliente. En los 
 5. En **Tipos de concesión de autorización**, seleccione **Código de autorización**.
 
 6. Especifique la **URL del punto de conexión de autorización** y la **URL del punto de conexión de token**. Recupere estos valores desde la página **Puntos de conexión** del inquilino de Azure AD. Vaya a la página **Registros de aplicaciones** de nuevo y seleccione **Puntos de conexión**.
+
+    >[!NOTE]
+    > Use aquí los puntos de conexión de **v1**
 
 7. Copie el **punto de conexión de autorización de OAuth 2.0** y péguelo en el cuadro de texto **URL de punto de conexión de autorización**.
 
@@ -154,6 +155,9 @@ El paso siguiente consiste en habilitar la autorización de usuario de OAuth 2.0
 5. Seleccione **Guardar**.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Llamada correcta a la API desde el portal para desarrolladores
+
+> [!NOTE]
+> Esta sección no es aplicable al nivel de **consumo**, que no es compatible con el portal para desarrolladores.
 
 Ahora que la autorización de usuario OAuth 2.0 está habilitada en `Echo API`, la consola del desarrollador obtiene un token de acceso para el usuario antes de llamar a la API.
 

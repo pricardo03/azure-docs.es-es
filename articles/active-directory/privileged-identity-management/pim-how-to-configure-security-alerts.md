@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/01/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e7204c223681b9a33c439b0d9fc653167422384a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011704"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291222"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configuración de alertas de seguridad para roles de directorio de Azure AD en PIM
 
@@ -34,6 +34,47 @@ En esta sección se enumeran todas las alertas de seguridad de roles de director
 * **Media**: no requiere acción inmediata, pero indica una posible infracción de una directiva.
 * **Baja**: no requiere acción inmediata pero sugiere un cambio de directiva preferible.
 
+### <a name="administrators-arent-using-their-privileged-roles"></a>Los administradores no están usando sus roles con privilegios
+
+| | |
+| --- | --- |
+| **Gravedad** | Bajo |
+| **¿Por qué se recibe esta alerta?** | El hecho de que los usuarios tengan asignados roles con privilegios que no necesitan aumenta la probabilidad de un ataque. También es más fácil para los atacantes permanecer desapercibidos en cuentas que no se usan activamente. |
+| **Solución** | Revise los usuarios de la lista y quíteles los roles con privilegios que no necesiten. |
+| **Prevención** | Asigne roles con privilegios solo a los usuarios que tengan una justificación comercial. </br>Programe [revisiones de acceso](pim-how-to-start-security-review.md) periódicas para comprobar que los usuarios todavía necesitan el acceso. |
+| **Acción de mitigación en el portal** | Quítele a la cuenta su rol con privilegios. |
+| **Desencadenador** | Se desencadena si un usuario pasa un cierto tiempo sin activar un rol. |
+| **Número de días** | Este valor especifica el número de días, de 0 a 100, que un usuario puede pasar sin activar un rol.|
+
+### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>No se necesita la autenticación multifactor para la activación de los roles
+
+| | |
+| --- | --- |
+| **Gravedad** | Bajo |
+| **¿Por qué se recibe esta alerta?** | Sin MFA, los usuarios en peligro pueden activar roles con privilegios. |
+| **Solución** | Revise la lista de roles y [exija MFA](pim-how-to-change-default-settings.md) para cada rol. |
+| **Prevención** | [Exija MFA](pim-how-to-change-default-settings.md) para cada rol.  |
+| **Acción de mitigación en el portal** | Permite que se exija MFA para la activación del rol con privilegios. |
+
+### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>El inquilino no dispone de Azure AD Premium P2.
+
+| | |
+| --- | --- |
+| **Gravedad** | Bajo |
+| **¿Por qué se recibe esta alerta?** | El inquilino actual no dispone de Azure AD Premium P2. |
+| **Solución** | Revise la información sobre las [ediciones de Azure AD](../fundamentals/active-directory-whatis.md). Actualice a Azure AD Premium P2. |
+
+### <a name="potential-stale-accounts-in-a-privileged-role"></a>Posibles cuentas obsoletas en un rol con privilegios
+
+| | |
+| --- | --- |
+| **Gravedad** | Mediano |
+| **¿Por qué se recibe esta alerta?** | Las cuentas que no han cambiado su contraseña recientemente podrían ser cuentas de servicio o compartidas en las que no se realiza mantenimiento. Estas cuentas en roles con privilegios son vulnerables a los atacantes. |
+| **Solución** | Revise las cuentas de la lista. Si ya no necesitan acceso, quíteles sus roles con privilegios. |
+| **Prevención** | Asegúrese de que las cuentas que se comparten tengan contraseñas seguras que rotan cuando se produce un cambio en los usuarios que conocen la contraseña. </br>Revise con regularidad las cuentas con roles con privilegios mediante [revisiones de acceso](pim-how-to-start-security-review.md) y quite las asignaciones de roles que ya no sean necesarias. |
+| **Acción de mitigación en el portal** | Quítele a la cuenta su rol con privilegios. |
+| **procedimientos recomendados** | Las cuentas compartidas, de servicio y de emergencia que se autentican mediante una contraseña y tienen asignados roles administrativos con privilegios elevados, como Administrador global o Administrador de seguridad, deben tener sus contraseñas giradas en los casos siguientes:<ul><li>Después de un incidente de seguridad que implique usos indebidos o riesgos de los derechos de acceso administrativos.</li><li>Después de cambiar los privilegios del usuario de modo que deje de ser un administrador (por ejemplo, cuando un empleado que era administrador deja el departamento de TI o abandona la organización).</li><li>A intervalos regulares (por ejemplo, trimestral o anualmente), incluso si no se ha producido ninguna infracción conocida o cambio en el personal de TI.</li></ul>Dado que varias personas tienen acceso a las credenciales de estas cuentas, se deben girar las credenciales para garantizar que las personas que dejan sus roles no puedan seguir accediendo a las cuentas. [Más información](https://aka.ms/breakglass) |
+
 ### <a name="roles-are-being-assigned-outside-of-pim"></a>Los roles se asignan fuera de PIM
 
 | | |
@@ -43,28 +84,6 @@ En esta sección se enumeran todas las alertas de seguridad de roles de director
 | **Solución** | Revise los usuarios de la lista y quíteles los roles con privilegios asignados fuera de PIM. |
 | **Prevención** | Investigue dónde se están asignando a los usuarios roles con privilegios fuera de PIM y prohíba las asignaciones futuras a partir de ahí. |
 | **Acción de mitigación en el portal** | Quítele a la cuenta su rol con privilegios. |
-
-### <a name="potential-stale-accounts-in-a-privileged-role"></a>Posibles cuentas obsoletas en un rol con privilegios
-
-| | |
-| --- | --- |
-| **Gravedad** | Mediano |
-| **¿Por qué se recibe esta alerta?** | Las cuentas que no han cambiado su contraseña recientemente podrían ser cuentas de servicio o compartidas en las que no se realiza mantenimiento. Estas cuentas en roles con privilegios son vulnerables a los atacantes. |
-| **Solución** | Revise las cuentas de la lista. Si ya no necesitan acceso, quíteles sus roles con privilegios. |
-| **Prevención** | Asegúrese de que las cuentas que se comparten tengan contraseñas seguras que rotan cuando se produce un cambio en los usuarios que conocen la contraseña. </br>Revise con regularidad las cuentas con roles con privilegios mediante revisiones de acceso y quite las asignaciones de roles que ya no sean necesarias. |
-| **Acción de mitigación en el portal** | Quítele a la cuenta su rol con privilegios. |
-
-### <a name="users-arent-using-their-privileged-roles"></a>Los usuarios no están usando sus roles con privilegios
-
-| | |
-| --- | --- |
-| **Gravedad** | Bajo |
-| **¿Por qué se recibe esta alerta?** | El hecho de que los usuarios tengan asignados roles con privilegios que no necesitan aumenta la probabilidad de un ataque. También es más fácil para los atacantes permanecer desapercibidos en cuentas que no se usan activamente. |
-| **Solución** | Revise los usuarios de la lista y quíteles los roles con privilegios que no necesiten. |
-| **Prevención** | Asigne roles con privilegios solo a los usuarios que tengan una justificación comercial. </br>Programe revisiones de acceso periódicas para comprobar que los usuarios todavía necesitan el acceso. |
-| **Acción de mitigación en el portal** | Quítele a la cuenta su rol con privilegios. |
-| **Desencadenador** | Se desencadena si un usuario pasa un cierto tiempo sin activar un rol. |
-| **Número de días** | Este valor especifica el número de días, de 0 a 100, que un usuario puede pasar sin activar un rol.|
 
 ### <a name="there-are-too-many-global-administrators"></a>Hay demasiados administradores globales
 
@@ -91,16 +110,6 @@ En esta sección se enumeran todas las alertas de seguridad de roles de director
 | **Desencadenador** | Se desencadena si un usuario activa el mismo rol con privilegios varias veces dentro de un período especificado. Puede configurar el período de tiempo y el número de activaciones. |
 | **Período de tiempo de renovación de activaciones** | Esta opción especifica el período de tiempo, en días, horas, minutos y segundos, que quiere usar para realizar el seguimiento de renovaciones sospechosas. |
 | **Number of activation renewals** (Número de renovaciones de activación) | Esta opción especifica el número de activaciones, de 2 a 100, que merece la pena tener en cuenta, en el período de tiempo que eligió. Puede cambiar este valor moviendo el control deslizante o escribiendo un número en el cuadro de texto. |
-
-### <a name="roles-dont-require-mfa-for-activation"></a>Los roles no requieren MFA para la activación
-
-| | |
-| --- | --- |
-| **Gravedad** | Bajo |
-| **¿Por qué se recibe esta alerta?** | Sin MFA, los usuarios en peligro pueden activar roles con privilegios. |
-| **Solución** | Revise la lista de roles y [exija MFA](pim-how-to-change-default-settings.md) para cada rol. |
-| **Prevención** | [Exija MFA](pim-how-to-change-default-settings.md) para cada rol.  |
-| **Acción de mitigación en el portal** | Permite que se exija MFA para la activación del rol con privilegios. |
 
 ## <a name="configure-security-alert-settings"></a>Configuración de alertas de seguridad
 

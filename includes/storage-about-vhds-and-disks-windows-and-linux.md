@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7f36f297e4d167954f9fdc600357d84efb73296d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 76ccbb3eabbf7186498ad0d57753314bdeffc2ea
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263328"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585830"
 ---
 ## <a name="about-vhds"></a>Acerca de los discos duros virtuales
 
@@ -71,6 +71,6 @@ En la tabla siguiente se ofrece una comparación de los discos HDD estándar, SS
 | Tipo de disco | Unidades de estado sólido (SSD) | Unidades de estado sólido (SSD) | Unidades de disco duro (HDD)  
 | Información general  | Compatibilidad con discos de alto rendimiento y baja latencia basados en SSD para máquinas virtuales que ejecutan cargas de trabajo intensivas de E/S o que hospedan un entorno de producción crítico |Rendimiento y fiabilidad más coherentes que los discos HDD. Optimizados para cargas de trabajo de bajas IOPS| Discos rentables basados en unidades de disco duro para acceso poco frecuente
 | Escenario  | Cargas de trabajo confidenciales de producción y rendimiento |Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas| Copia de seguridad, no crítico, acceso poco frecuente
-| Tamaño del disco | P4: 32 GiB (solo discos administrados)<br>P6: 64 GiB (solo discos administrados)<br>P10: 128 GiB<br>P15: 256 GiB (solo discos administrados)<br>P20: 512 GiB<br>P30: 1 024 GiB<br>P40: 2 048 GiB<br>P50: 4095 GiB<br>P60: 8192 GiB * (8 TiB)<br>P70: 16 384 GiB * (16 TiB)<br>P80: 32 767 GiB * (32 TiB) |Solo discos administrados:<br>E10: 128 GiB<br>E15: 256 GiB<br>E20: 512 GiB<br>E30: 1 024 GiB<br>E40: 2 048 GiB<br>E50: 4 095 GiB<br>E60: 8192 GiB * (8 TiB)<br>E70: 16 384 GiB * (16 TiB)<br> E80: 32 767 GiB * (32 TiB) | Discos no administrados: 1 GiB a 4 TiB (4 095 GiB) <br><br>Discos administrados:<br> S4: 32 GiB <br>S6: 64 GiB <br>S10: 128 GiB <br>S15: 256 GiB <br>S20: 512 GiB <br>S30: 1 024 GiB <br>S40: 2 048 GiB<br>S50: 4 095 GiB<br>S60: 8192 GiB * (8 TiB)<br>S70: 16 384 GiB * (16 TiB)<br>S80: 32 384 GiB * (32 TiB)
-| Rendimiento máximo por disco | P4: 25 MiB/s<br> P6: 50 MiB/s<br> P10: 100 MiB/s<br> P15: 200 MiB/s<br> P20: 150 MiB/s<br> P30: 200 MiB/s<br> P40-P50: 250 MiB/s<br> P60: 480 MiB/s *<br> P70-P80: 750 MiB/s * | E10-E50: hasta 60 MiB/s<br> E60: hasta 300 MiB/s *<br> E70-E80: 500 MiB/s *| S4 - S50: Hasta 60 MiB/s<br> S60: hasta 300 MiB/s *<br> S70-S80: hasta 500 MiB/s *
+| Tamaño del disco | P4: 32 GiB (solo discos administrados)<br>P6: 64 GiB (solo discos administrados)<br>P10: 128 GiB<br>P15: 256 GiB (solo discos administrados)<br>P20: 512 GiB<br>P30: 1 024 GiB<br>P40: 2 048 GiB<br>P50: 4095 GiB<br>P60: 8192 GiB * (8 TiB)<br>P70: 16 384 GiB * (16 TiB)<br>P80: 32 767 GiB * (32 TiB) |Solo discos administrados:<br>E10: 128 GiB<br>E15: 256 GiB<br>E20: 512 GiB<br>E30: 1 024 GiB<br>E40: 2 048 GiB<br>E50: 4 095 GiB<br>E60: 8192 GiB * (8 TiB)<br>E70: 16 384 GiB * (16 TiB)<br> E80: 32 767 GiB * (32 TiB) | Discos no administrados: 1 GiB a 4 TiB (4 095 GiB) <br><br>Discos administrados:<br> S4: 32 GiB <br>S6: 64 GiB <br>S10: 128 GiB <br>S15: 256 GiB <br>S20: 512 GiB <br>S30: 1 024 GiB <br>S40: 2 048 GiB<br>S50: 4 095 GiB<br>S60: 8192 GiB * (8 TiB)<br>S70: 16 384 GiB * (16 TiB)<br>S80: 32 767 GiB * (32 TiB)
+| Rendimiento máximo por disco | P4: 25 MiB/s<br> P6: 50 MiB/s<br> P10: 100 MiB/s<br> P15: 125 MiB/s<br> P20: 150 MiB/s<br> P30: 200 MiB/s<br> P40-P50: 250 MiB/s<br> P60: 480 MiB/s *<br> P70-P80: 750 MiB/s * | E10-E50: hasta 60 MiB/s<br> E60: hasta 300 MiB/s *<br> E70-E80: 500 MiB/s *| S4 - S50: Hasta 60 MiB/s<br> S60: hasta 300 MiB/s *<br> S70-S80: hasta 500 MiB/s *
 | IOPS máximas por disco | P4: 120 IOPS<br> P6: 240 IOPS<br> P10: 500 IOPS<br> P15: 1100 IOPS<br> P20: 2300 IOPS<br> P30: 5000 IOPS<br> P40-P50: 7500 IOPS<br> P60: 12 500 IOPS *<br> P70: 15 000 IOPS *<br> P80: 20 000 IOPS * | E10-E50: hasta 500 IOPS<br> E60: hasta 1300 IOPS *<br> E70-E80: hasta 2000 IOPS * | S4-S50: hasta 500 IOPS<br> S60: hasta 1300 IOPS *<br> S70-S80: hasta 2000 IOPS *

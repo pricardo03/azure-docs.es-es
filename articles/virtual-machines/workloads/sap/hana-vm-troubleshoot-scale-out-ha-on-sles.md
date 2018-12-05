@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 6c0d6397246e8b8db1d59c26229e37a722d49f48
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f86107c5fcd4c0175d59689718dca15736aa3b17
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184734"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497356"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificación y solución de problemas de configuración de alta disponibilidad con escalabilidad horizontal de SAP HANA en SLES 12 SP3 
 
@@ -35,34 +35,35 @@ ms.locfileid: "47184734"
 [sles-12-for-sap]:https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 
 
-Este artículo se escribió para ayudar a comprobar la configuración del clúster de Pacemaker para SAP HANA con escalabilidad horizontal que se ejecuta en máquinas virtuales de Azure. El clúster se configuró al combinar SAP HANA System Replication (HSR) y SAPHanaSR-ScaleOut del paquete SUSE RPM. Todas las pruebas se realizaron únicamente en SUSE SLES 12 SP3. En las distintas secciones se abordan distintas áreas y se incluyen comandos de ejemplo y citas de los archivos de configuración. Estos ejemplos se recomiendan como método para verificar y comprobar toda la configuración del clúster.
+Este artículo ayuda a comprobar la configuración del clúster de Pacemaker para SAP HANA con escalabilidad horizontal que se ejecuta en máquinas virtuales de Azure. El clúster se configuró al combinar SAP HANA System Replication (HSR) y SAPHanaSR-ScaleOut del paquete SUSE RPM. Todas las pruebas se realizaron únicamente en SUSE SLES 12 SP3. En las distintas secciones del artículo se abordan distintas áreas y se incluyen comandos de ejemplo y citas de los archivos de configuración. Estos ejemplos se recomiendan como método para comprobar toda la configuración del clúster.
 
 
 
 ## <a name="important-notes"></a>Notas importantes
 
-Todas las pruebas de SAP HANA de escalabilidad horizontal en combinación con SAP HANA System Replication y Pacemaker se realizaron únicamente con SAP HANA 2.0. La versión del sistema operativo fue SUSE Linux Enterprise Server 12 SP3 for SAP Applications. Además, se usó la versión más reciente de SAPHanaSR-ScaleOut del paquete RPM de SUSE para configurar el clúster de Pacemaker.
-SUSE ha publicado una descripción detallada de esta configuración optimizada para rendimiento que se encuentra [aquí][sles-hana-scale-out-ha-paper]
+Todas las pruebas de SAP HANA de escalabilidad horizontal en combinación con SAP HANA System Replication y Pacemaker se realizaron únicamente con SAP HANA 2.0. La versión del sistema operativo fue SUSE Linux Enterprise Server 12 SP3 for SAP Applications. Se usó la versión más reciente de SAPHanaSR-ScaleOut del paquete RPM de SUSE para configurar el clúster de Pacemaker.
+SUSE ha publicado una [descripción detallada de esta configuración optimizada para rendimiento][sles-hana-scale-out-ha-paper].
 
-Para conocer los tipos de máquina virtual que admiten el escalado horizontal de SAP HANA compruebe el [directorio de IaaS certificado para SAP HANA][sap-hana-iaas-list]
+Para conocer los tipos de máquina virtual que admiten el escalado horizontal de SAP HANA compruebe el [directorio de IaaS certificado para SAP HANA][sap-hana-iaas-list].
 
 Se produjo un problema técnico con el escalado horizontal de SAP HANA en combinación con varias subredes y NIC virtuales, así como al configurar HSR. Es obligatorio usar las últimas revisiones de SAP HANA 2.0 donde este problema está solucionado. Se admiten las siguientes versiones de SAP HANA: 
 
-**rev2.00.024.04 o posterior y rev2.00.032 o posterior.**
+* rev2.00.024.04 o superior 
+* rev2.00.032 o superior
 
-En caso de problemas que requieran servicio técnico de SUSE, siga esta [guía][suse-pacemaker-support-log-files]. Recopile toda la información sobre el clúster de alta disponibilidad de SAP HANA como se describe en el artículo. El servicio técnico de SUSE necesita esta información para profundizar en el análisis.
+Si necesita soporte técnico por parte de SUSE, siga este [guía][suse-pacemaker-support-log-files]. Recopile toda la información sobre el clúster de alta disponibilidad de SAP HANA como se describe en el artículo. El servicio técnico de SUSE necesita esta información para profundizar en el análisis.
 
-Durante las pruebas internas, la configuración del clúster se confundió con un apagado de máquina virtual correcto normal mediante Azure Portal. Por lo tanto, se recomienda probar la conmutación por error del clúster por otros métodos. Use métodos como forzar una alerta de pánico, apagar las redes o migrar el recursos **msl** (consulte los detalles en las siguientes secciones). Se presupone que un apagado estándar se produce a propósito. El mejor ejemplo de apagado a propósito es el mantenimiento (consulte los detalles en la sección sobre mantenimiento planeado).
+Durante las pruebas internas, la configuración del clúster se confundió con un apagado de máquina virtual correcto normal mediante Azure Portal. Por lo tanto, se recomienda probar la conmutación por error del clúster por otros métodos. Use métodos como forzar una alerta de pánico, apagar las redes o migrar el recurso **msl**. Vea los detalles en las secciones siguientes. Se presupone que un apagado estándar se produce a propósito. El mejor ejemplo de un apagado intencionado es por motivos de mantenimiento. Consulte los detalles en [Mantenimiento planeado](#planned-maintenance).
 
-Durante las pruebas internas la configuración del clúster se confundió tras una adquisición manual de SAP HANA con el clúster en modo de mantenimiento. Se recomienda revertir el cambio manualmente antes de finalizar el modo de mantenimiento del clúster. Otra opción consiste en desencadenar una conmutación por error antes de poner el clúster en modo de mantenimiento (consulte la sección sobre mantenimiento planeado para más detalles). En la documentación de SUSE se describe la manera de restablecer el clúster en este aspecto mediante el comando crm. Pero el enfoque mencionado antes parecía sólido durante las pruebas internas y nunca han aparecido efectos secundarios inesperados.
+Además, durante las pruebas internas la configuración del clúster se confundió tras una adquisición manual de SAP HANA con el clúster en modo de mantenimiento. Se recomienda cambiarlo de nuevo manualmente antes de finalizar el modo de mantenimiento del clúster. Otra opción consiste en desencadenar una conmutación por error antes de poner el clúster en modo de mantenimiento. Para obtener más información, consulte [Mantenimiento planeado](#planned-maintenance). En la documentación de SUSE se describe la manera de restablecer el clúster en este aspecto mediante el comando **crm**. Pero el enfoque mencionado antes parecía sólido durante las pruebas internas y nunca han aparecido efectos secundarios inesperados.
 
-Al usar el comando migrate de crm no olvide eliminar la configuración del clúster. Agrega restricciones de ubicación que quizá desconozca. Estas restricciones afectan al comportamiento del clúster (consulte más detalles en la sección sobre mantenimiento planeado).
+Cuando se usa el comando **crm migrate**, asegúrese de limpiar la configuración del clúster. Agrega restricciones de ubicación que quizá desconocía. Estas restricciones afectan el comportamiento del clúster. Consulte más detalles en [Mantenimiento planeado](#planned-maintenance).
 
 
 
 ## <a name="test-system-description"></a>Descripción del sistema de prueba
 
-Para la verificación y la certificación de la alta disponibilidad de la escalabilidad horizontal de SAP HANA se utilizó una configuración formada por dos sistemas con tres nodos de SAP HANA cada uno: uno maestro y dos de trabajo. Esta es la lista de nombres de máquina virtual y las direcciones IP internas. Todos los ejemplos de verificación a continuación se realizaron en estas máquinas virtuales. Estos nombres de máquina virtual y direcciones IP de los ejemplos de comandos deberían ayudar a comprender mejor los comandos y sus salidas.
+ Para la certificación y comprobación de la alta disponibilidad de SAP HANA con escalabilidad horizontal, se usó una configuración. Constaba de dos sistemas con tres nodos de SAP HANA: uno maestro y dos trabajos. En la siguiente tabla se enumeran los nombres de máquina virtual y las direcciones IP internas. Todos los ejemplos de comprobación siguientes se realizaron en estas máquinas virtuales. Estos nombres de máquina virtual y direcciones IP de los ejemplos de comandos deberían ayudar a comprender mejor los comandos y sus salidas:
 
 
 | Tipo de nodo | Nombre de la máquina virtual | Dirección IP |
@@ -85,24 +86,24 @@ Para la verificación y la certificación de la alta disponibilidad de la escala
 
 ## <a name="multiple-subnets-and-vnics"></a>Varias subredes y NIC virtuales
 
-Según las recomendaciones de red de SAP HANA, se crearon tres subredes en una red virtual de Azure. La escalabilidad horizontal de SAP HANA en Azure debe instalarse en modo no compartido, lo que significa que los nodos usan volúmenes de disco locales para **/hana/data** y **/hana/log**. Como se usan volúmenes de disco locales, no es necesario definir una subred independiente para el almacenamiento:
+Según las recomendaciones de red de SAP HANA, se crearon tres subredes en una red virtual de Azure. SAP HANA con escalabilidad horizontal en Azure debe estar instalado en modo no compartido. Es decir, cada nodo usa volúmenes de disco locales para **/hana/data** y **/hana/log**. Como los nodos solo usan volúmenes de disco locales, no es necesario definir una subred independiente para el almacenamiento:
 
 - 10.0.2.0/24 para la comunicación entre nodos de SAP HANA
 - 10.0.1.0/24 para System Replication HSR de SAP HANA
 - 10.0.0.0/24 para todo lo demás
 
-Para información sobre la configuración de SAP HANA relativa al uso de varias redes, consulte la sección **global.ini** más abajo.
+Para obtener información sobre la configuración de SAP HANA relativa al uso de varias redes, consulte [SAP HANA global.ini](#sap-hana-globalini).
 
-En concordancia con el número de subredes, las máquinas virtuales del clúster tienen tres NIC virtuales. En [este][azure-linux-multiple-nics] artículo se describe un posible problema de enrutamiento en Azure al implementar una máquina virtual Linux. Este tema específico de enrutamiento se aplica solo al uso de varias NIC virtuales. El problema se resuelve en SUSE de forma predeterminada en SLES 12 SP3. El artículo de SUSE acerca de este tema se encuentra [aquí][suse-cloud-netconfig].
+Las máquinas virtuales del clúster tienen tres NIC virtuales que se corresponden con el número de subredes. En [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red][azure-linux-multiple-nics] se describe un posible problema de enrutamiento en Azure al implementar una máquina virtual Linux. Este artículo sobre enrutamiento se aplica solo al uso de varias NIC virtuales. El problema se resuelve en SUSE de forma predeterminada en SLES 12 SP3. Para obtener más información, consulte [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig] (Varias NIC con cloud-netconfig en EC2 y Azure).
 
 
-Como comprobación básica para verificar si SAP HANA está configurado correctamente para varias redes, simplemente ejecute los comandos siguientes. El primer paso es comprobar de nuevo en el nivel de sistema operativo que las tres direcciones IP internas de las tres subredes estén activas. En caso de que haya definido las subredes con distintos intervalos de direcciones IP, debe adaptar los comandos:
+Para comprobar que SAP HANA está configurado correctamente para utilizar varias redes, ejecute los siguientes comandos. El primer paso es comprobar de nuevo en el nivel de sistema operativo que las tres direcciones IP internas de las tres subredes estén activas. En caso de que haya definido las subredes con distintos intervalos de direcciones IP, debe adaptar los comandos:
 
 <pre><code>
 ifconfig | grep "inet addr:10\."
 </code></pre>
 
-Esta es una salida de ejemplo del segundo nodo de trabajo del sitio 2. Puede ver tres direcciones IP internas distintas, de eth0, eth1 y eth2:
+A continuación, se muestra una salida de ejemplo del segundo nodo de trabajo del sitio 2. Puede ver tres direcciones IP internas distintas, de eth0, eth1 y eth2:
 
 <pre><code>
 inet addr:10.0.0.42  Bcast:10.0.0.255  Mask:255.255.255.0
@@ -111,23 +112,23 @@ inet addr:10.0.2.42  Bcast:10.0.2.255  Mask:255.255.255.0
 </code></pre>
 
 
-El segundo paso es la verificación de los puertos de SAP HANA para el servidor de nombres y HSR. SAP HANA debe escuchar en las subredes correspondientes. Deberá adaptar los comandos en función del número de instancia de SAP HANA. Para el sistema de prueba, el número de instancia era **00**. Hay diferentes formas de averiguar qué puertos se usan. 
+A continuación, compruebe los puertos de SAP HANA para el servidor de nombres y HSR. SAP HANA debe escuchar en las subredes correspondientes. Deberá adaptar los comandos en función del número de instancia de SAP HANA. Para el sistema de prueba, el número de instancia era **00**. Hay diferentes formas de averiguar qué puertos se usan. 
 
-A continuación verá una instrucción SQL que devuelve el identificador y el número de instancia, entre otros datos:
+La siguiente instrucción SQL devuelve el identificador de instancia, el número de instancia y otra información:
 
 <pre><code>
 select * from "SYS"."M_SYSTEM_OVERVIEW"
 </code></pre>
 
-Para buscar los números de puerto correctos, puede buscar, por ejemplo, en HANA Studio en "**Configuration**" (Configuración) o mediante una instrucción SQL:
+Para buscar los números de puerto correctos, puede buscar, por ejemplo, en HANA Studio en **Configuration** (Configuración) o mediante una instrucción SQL:
 
 <pre><code>
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
 </code></pre>
 
-Para buscar todos los puertos que se utilizan en la pila de software SAP, incluido SAP HANA, busque [aquí][sap-list-port-numbers].
+Para buscar todos los puertos que se utilizan en la pila de software SAP, incluido SAP HANA, busque [TCP/IP ports of all SAP products][sap-list-port-numbers] (Puertos TCP/IP de todos los productos de SAP).
 
-Dado el número de instancia **00** en el sistema de prueba de SAP HANA 2.0, el número de puerto del servidor de nombres es **30001**. El número de puerto para la comunicación de metadatos de HSR es **40002**. Una opción es iniciar sesión un nodo de trabajo y comprobar los servicios del nodo maestro. Aquí, la comprobación se realizó en el nodo de trabajo 2 del sitio 2 para intentar conectar con el nodo maestro del sitio 2.
+Dado el número de instancia **00** en el sistema de prueba de SAP HANA 2.0, el número de puerto del servidor de nombres es **30001**. El número de puerto para la comunicación de metadatos de HSR es **40002**. Una opción es iniciar sesión un nodo de trabajo y comprobar los servicios del nodo maestro. En este artículo, la comprobación se realizó en el nodo de trabajo 2 del sitio 2 para intentar conectar con el nodo maestro del sitio 2.
 
 Compruebe el puerto del servidor de nombres:
 
@@ -168,11 +169,11 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 ## <a name="corosync"></a>Corosync
 
 
-El archivo de configuración corosync tiene que ser correcto en todos los nodos del clúster, incluido el nodo creador mayoritario. En caso de que la combinación de clúster de un nodo no funcionara según lo previsto, cree o copie **/etc/corosync/corosync.conf** manualmente en todos los nodos y reinicie el servicio.
+El archivo de configuración **corosync** tiene que ser correcto en todos los nodos del clúster, incluido el nodo creador mayoritario. En caso de que la combinación de clúster de un nodo no funcionara según lo previsto, cree o copie **/etc/corosync/corosync.conf** manualmente en todos los nodos y reinicie el servicio. 
 
 Este es el contenido de **corosync.conf** del sistema de prueba a modo de ejemplo.
 
-La primera sección es **totem**, tal como se describe en esta [documentación][sles-pacemaker-ha-guide] (paso 11 de la sección de instalación del clúster). Puede omitir el valor de **mcastaddr**. Simplemente, conserve la entrada existente. Las entradas de **token** y **consensus** debe establecerse según la documentación de SAP HANA de Microsoft Azure, que encontrará [aquí][sles-pacemaker-ha-guide]
+La primera sección es **totem**, tal como se describe en el paso 11 de la sección [Instalación del clúster](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation). Puede omitir el valor de **mcastaddr**. Simplemente, conserve la entrada existente. Las entradas de **token** y **consensus** deben establecerse según la [documentación de SAP HANA de Microsoft Azure][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -202,7 +203,7 @@ totem {
 }
 </code></pre>
 
-En la segunda sección **logging** no se han cambiado los valores predeterminados:
+En la segunda sección, **logging**, no se han cambiado los valores predeterminados:
 
 <pre><code>
 logging {
@@ -220,7 +221,7 @@ logging {
 }
 </code></pre>
 
-En la tercera sección aparece **nodelist**. Todos los nodos del clúster tienen que mostrarse con el identificador de nodo:
+En la tercera sección aparece **nodelist**. Todos los nodos del clúster tienen que mostrarse con el **identificador de nodo**:
 
 <pre><code>
 nodelist {
@@ -279,9 +280,9 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>Dispositivo SBD
 
-La documentación sobre la configuración de un dispositivo SBD en una máquina virtual de Azure se describe [aquí][sles-pacemaker-ha-guide] (sección sbd-fencing).
+La configuración de un dispositivo SBD en una máquina virtual de Azure se describe en la sección [Vallado de SBD](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
 
-Lo primero que debe comprobar de nuevo es si en la máquina virtual del servidor SBD existen entradas de lista de control de acceso para todos los nodos del clúster. En la máquina virtual del servidor SBD, ejecute el siguiente comando:
+Primero compruebe si en la máquina virtual del servidor SBD existen entradas de lista de control de acceso para todos los nodos del clúster. En la máquina virtual del servidor SBD, ejecute el siguiente comando:
 
 
 <pre><code>
@@ -289,7 +290,7 @@ targetcli ls
 </code></pre>
 
 
-En el sistema de prueba, la salida del comando era similar al siguiente ejemplo. Los nombres de la lista de control de acceso de tipo **iqn.2006-04.hso-db-0.local:hso-db-0** deben especificarse como el nombre del iniciador correspondiente en las máquinas virtuales. Cada máquina virtual necesita un distinto.
+En el sistema de prueba, la salida del comando es similar al siguiente ejemplo. Los nombres de la lista de control de acceso de tipo **iqn.2006-04.hso-db-0.local:hso-db-0** deben especificarse como el nombre del iniciador correspondiente en las máquinas virtuales. Cada máquina virtual necesita un distinto.
 
 <pre><code>
  | | o- sbddbhso ................................................................... [/sbd/sbddbhso (50.0MiB) write-thru activated]
@@ -322,7 +323,7 @@ Después, compruebe que los nombres de iniciador de todas las máquinas virtuale
 cat /etc/iscsi/initiatorname.iscsi
 </code></pre>
 
-La salida era similar al siguiente ejemplo:
+La salida tendrá un aspecto similar al siguiente ejemplo:
 
 <pre><code>
 ##
@@ -338,13 +339,13 @@ La salida era similar al siguiente ejemplo:
 InitiatorName=iqn.2006-04.hso-db-1.local:hso-db-1
 </code></pre>
 
-A continuación, compruebe si **discovery** funciona correctamente y ejecute el siguiente comando en cada nodo del clúster con la dirección IP de la máquina virtual del servidor SBD:
+A continuación, compruebe si **discovery** funciona correctamente. Ejecute el siguiente comando en cada nodo del clúster con la dirección IP de la máquina virtual del servidor SBD:
 
 <pre><code>
 iscsiadm -m discovery --type=st --portal=10.0.0.19:3260
 </code></pre>
 
-La salida debe parecerse al siguiente ejemplo:
+La salida debe tener un aspecto similar al siguiente ejemplo:
 
 <pre><code>
 10.0.0.19:3260,1 iqn.2006-04.dbhso.local:dbhso
@@ -356,13 +357,13 @@ El siguiente punto de comprobación es verificar que el nodo ve el dispositivo S
 lsscsi | grep dbhso
 </code></pre>
 
-La salida debe parecerse al siguiente ejemplo. Tenga en cuenta que los nombres pueden ser diferentes (el nombre de dispositivo también puede cambiar después del reinicio de la máquina virtual):
+La salida debe tener un aspecto similar al siguiente ejemplo. Sin embargo, los nombres podrían diferir. También podría cambiar el nombre del dispositivo después de reiniciar la máquina virtual:
 
 <pre><code>
 [6:0:0:0]    disk    LIO-ORG  sbddbhso         4.0   /dev/sdm
 </code></pre>
 
-Dependiendo del estado del sistema, a veces puede ser útil reiniciar los servicios de iscsi para solucionar problemas. Luego, ejecute los siguientes comandos:
+Dependiendo del estado del sistema, a veces puede ser útil reiniciar los servicios de iSCSI para solucionar problemas. Luego, ejecute los siguientes comandos:
 
 <pre><code>
 systemctl restart iscsi
@@ -370,7 +371,7 @@ systemctl restart iscsid
 </code></pre>
 
 
-Desde cualquier nodo, puede comprobar si todos los nodos están **clear**. Simplemente preste atención para usar el nombre de dispositivo correcto en un nodo específico:
+Desde cualquier nodo, puede comprobar si todos los nodos están **clear**. Asegúrese de usar el nombre de dispositivo correcto en un nodo específico:
 
 <pre><code>
 sbd -d /dev/sdm list
@@ -389,7 +390,7 @@ La salida debe mostrar **clear** en todos los nodos del clúster:
 </code></pre>
 
 
-Otra comprobación de SBD es la opción **dump** del comando sbd. Este es un comando de ejemplo y la salida del nodo creador mayoritario donde el nombre de dispositivo no era **sdm** sino **sdd**:
+Otra comprobación de SBD es la opción **dump** del comando **sbd**. Este es un comando de ejemplo y la salida del nodo creador mayoritario donde el nombre de dispositivo no era **sdm**, sino **sdd**:
 
 <pre><code>
 sbd -d /dev/sdd dump
@@ -416,15 +417,15 @@ Una comprobación más de SBD consiste en poder enviar un mensaje a otro nodo. E
 sbd -d /dev/sdm message hso-hana-vm-s2-2 test
 </code></pre>
 
-Del lado de la máquina virtual, que era **hso-hana-vm-s2-2** en este ejemplo, puede encontrar la siguiente entrada en **/var/log/messages**:
+En la máquina virtual de destino, que era **hso-hana-vm-s2-2** en este ejemplo, puede encontrar la siguiente entrada en **/var/log/messages**:
 
 <pre><code>
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Vuelva a comprobar si las entradas de **/etc/sysconfig/sbd** corresponden a la descripción de nuestra [documentación][sles-pacemaker-ha-guide] (sección sbd-fencing). Verifique que la configuración de inicio en **/etc/iscsi/iscsid.conf** está establecida en automático.
+Compruebe que las entradas de **/etc/sysconfig/sbd** se corresponden con la descripción de [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Verifique que la configuración de inicio en **/etc/iscsi/iscsid.conf** está establecida en automático.
 
-Entradas importantes en **/etc/sysconfig/sbd** (adapte el valor del identificador si es necesario):
+Las entradas siguientes son importantes en **/etc/sysconfig/sbd**. Adapte el valor de **id** si es necesario:
 
 <pre><code>
 SBD_DEVICE="/dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68;"
@@ -434,33 +435,33 @@ SBD_WATCHDOG=yes
 </code></pre>
 
 
-Otro elemento para comprobar es la configuración de inicio de **/etc/iscsi/iscsid.conf**. Con el comando **iscsiadm** que se muestra a continuación debería aparecer la configuración necesaria, que se describe en la documentación. Sería conveniente verificarla y quizá adaptarla manualmente con **vi** si difiere.
+Compruebe la configuración de inicio en **/etc/iscsi/iscsid.conf**. Con el comando **iscsiadm** debería aparecer la configuración necesaria, que se describe en la documentación. Compruébela y adáptela manualmente con **vi** si es diferente.
 
-Comando para establecer el comportamiento de inicio:
+Este comando establece el comportamiento de inicio:
 
 <pre><code>
 iscsiadm -m node --op=update --name=node.startup --value=automatic
 </code></pre>
 
-Entrada en **/etc/iscsi/iscsid.conf**:
+Cree esta entrada en **/etc/iscsi/iscsid.conf**:
 
 <pre><code>
 node.startup = automatic
 </code></pre>
 
-Durante las pruebas y la verificación ocurrió varias veces que después de reiniciar una máquina virtual, el dispositivo SBD dejaba de ser visible. Se produjo una discrepancia entre la configuración de inicio y lo que mostraba yast2. Para volver a comprobar la configuración, siga estos pasos:
+Durante las pruebas y la verificación, después de reiniciar una máquina virtual, el dispositivo SBD dejaba de ser visible en algunos casos. Se produjo una discrepancia entre la configuración de inicio y lo que mostraba YaST2. Para comprobar la configuración, siga estos pasos:
 
-1. Inicie yast2
-2. Seleccione **Network Services** en el panel izquierdo
-3. Desplácese hacia abajo en el lado derecho a **iSCSI Initiator** (Iniciador de iSCI) y selecciónelo
-4. En la siguiente pantalla, en la pestaña **Service** (Servicio), debería ver el nombre de iniciador único del nodo
-5. Encima del nombre del iniciador, asegúrese de que el valor **Service Start** (Iniciar servicio) está establecido en **When Booting** (Al arrancar)
-6. Si no es así, establézcalo en **When Booting** (Al arrancar) en lugar de **Manually** (Manualmente)
-7. A continuación, cambie la pestaña superior a **Connected Targets** (Destinos conectados)
-8. En la pantalla de destinos conectado verá una entrada para el dispositivo SBD como en este ejemplo: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**
-9. Compruebe si el valor de inicio está establecido en "**onboot**"
-10. Si no, elija **Edit** (Editar) y cámbielo
-11. Guarde los cambios y salga de yast2
+1. Inicie YaST2.
+2. Seleccione **Network Services** en el panel izquierdo.
+3. Desplácese hacia abajo en el lado derecho a **iSCSI Initiator** (Iniciador de iSCI) y selecciónelo.
+4. En la siguiente pantalla, en la pestaña **Service** (Servicio), debe ver el nombre de iniciador único del nodo.
+5. Encima del nombre del iniciador, asegúrese de que el valor **Service Start** (Iniciar servicio) está establecido en **When Booting** (Al arrancar).
+6. Si no es así, establézcalo en **When Booting** (Al arrancar) en lugar de **Manually** (Manualmente).
+7. A continuación, cambie la pestaña superior a **Connected Targets** (Destinos conectados).
+8. En la pantalla de **destinos conectados** verá una entrada para el dispositivo SBD como en este ejemplo: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
+9. Compruebe si el valor de **inicio** está establecido en **onboot**.
+10. Si no, elija **Edit** (Editar) y cámbielo.
+11. Guarde los cambios y salga de YaST2.
 
 
 
@@ -472,7 +473,7 @@ Con todo configurado correctamente, puede ejecutar el siguiente comando en los n
 systemctl status pacemaker
 </code></pre>
 
-La parte superior de la salida debe parecerse al siguiente ejemplo. Es importante que el estado después de **Active** se muestre como **loaded** y **active (running)**. El estado después de que se debe mostrar "Loaded" como **enabled**.
+La parte superior de la salida debe parecerse al siguiente ejemplo. Es importante que el estado después de **Active** se muestre como **loaded** y **active (running)**. El estado después de que se debe mostrar **Loaded** como **enabled**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -504,7 +505,7 @@ Para ver todos los recursos configurados en Pacemaker, ejecute el siguiente coma
 crm status
 </code></pre>
 
-La salida debe parecerse al siguiente ejemplo. No importa que los recursos cln y msl aparezcan como detenidos en la mayoría de máquinas virtuales creadoras (**hso-hana-dm**). No hay ninguna instalación de SAP HANA en la mayoría de nodo creador. Por lo tanto, los recursos **cln** y **msl** se muestren como detenidos. Es importante que se muestre el total correcto de máquinas virtuales (**7**). Todas las máquinas virtuales que forman parte del clúster deben aparecer con estado **Online** (En línea). El nodo maestro principal actual se debe reconocerse correctamente (en este ejemplo es **hso-hana-vm-s1-0**).
+La salida debe tener un aspecto similar al siguiente ejemplo. No importa que los recursos **cln** y **msl** aparezcan como detenidos en la mayoría de las máquinas virtuales creadoras (**hso-hana-dm**). No hay ninguna instalación de SAP HANA en la mayoría de nodo creador. Por lo tanto, los recursos **cln** y **msl** se muestren como detenidos. Es importante que se muestre el total correcto de máquinas virtuales (**7**). Todas las máquinas virtuales que forman parte del clúster deben aparecer con estado **Online** (En línea). El nodo maestro principal actual se debe reconocer correctamente. En este ejemplo es **hso-hana-vm-s1-0**:
 
 <pre><code>
 Stack: corosync
@@ -532,14 +533,14 @@ Full list of resources:
      rsc_nc_HSO_HDB00   (ocf::heartbeat:anything):      Started hso-hana-vm-s1-0
 </code></pre>
 
-Una característica importante de Pacemaker es su modo de mantenimiento. Este modo permite realizar modificaciones (por ejemplo, reiniciar una máquina virtual) sin causar una acción inmediata del clúster. Un caso de uso típico sería el mantenimiento planeado de la infraestructura de Azure o del sistema operativo (vea también la sección independiente sobre mantenimiento planeado). Use el siguiente comando para que Pacemaker pase a modo de mantenimiento:
+Una característica importante de Pacemaker es su modo de mantenimiento. En este modo, puede realizar modificaciones sin provocar una acción inmediata del clúster. Un ejemplo es un reinicio de máquina virtual. Un caso de uso típico sería el mantenimiento planeado de la infraestructura de Azure o del sistema operativo. Consulte [Mantenimiento planeado](#planned-maintenance). Use el siguiente comando para que Pacemaker pase a modo de mantenimiento:
 
 <pre><code>
 crm configure property maintenance-mode=true
 </code></pre>
 
 Al realizar comprobaciones con **crm estado**, observe que en la salida todos los recursos están marcados como **unmanaged** (no administrados). En este estado, el clúster no reacciona a los cambios del tipo inicio y detención de SAP HANA.
-Esta es una salida de ejemplo del comando **crm estado** con el clúster en modo de mantenimiento:
+A continuación, se muestra una salida de ejemplo del comando **crm status** con el clúster en modo de mantenimiento:
 
 <pre><code>
 Stack: corosync
@@ -579,14 +580,14 @@ Full list of resources:
 </code></pre>
 
 
-Y en el siguiente comando de ejemplo se muestra cómo finalizar el modo de mantenimiento del clúster:
+Este comando de ejemplo se muestra cómo finalizar el modo de mantenimiento del clúster:
 
 <pre><code>
 crm configure property maintenance-mode=false
 </code></pre>
 
 
-Otro comando crm permite obtener la configuración de clúster completa en un editor para posibles modificaciones. Después de guardar los cambios, el clúster inicia las acciones apropiadas:
+Otro comando **crm** obtiene la configuración del clúster completa en un editor, por lo que se puede editar. Después de guardar los cambios, el clúster inicia las acciones apropiadas:
 
 <pre><code>
 crm configure edit
@@ -600,7 +601,7 @@ crm configure show
 
 
 
-Tras errores en los recursos de clúster, el comando **crm status** muestra una lista **Failed Actions**. Consulte un ejemplo de esta salida a continuación:
+Tras errores en los recursos de clúster, el comando **crm status** muestra una lista **Failed Actions**. Verá la salida de ejemplo siguiente:
 
 
 <pre><code>
@@ -633,7 +634,7 @@ Failed Actions:
     last-rc-change='Wed Sep 12 17:01:28 2018', queued=0ms, exec=277663ms
 </code></pre>
 
-Tras los errores es necesario limpiar el clúster. Simplemente use el comando crm de nuevo y la opción del comando **cleanup** para deshacerse de estas entradas de acción errónea al indicar el nombre del recurso de clúster, tal como se muestra a continuación:
+Tras los errores es necesario limpiar el clúster. Simplemente use el comando **crm** de nuevo y la opción del comando **cleanup** para deshacerse de estas entradas de acción errónea. Indique el nombre del recurso del clúster correspondiente como sigue:
 
 <pre><code>
 crm resource cleanup rsc_SAPHanaCon_HSO_HDB00
@@ -654,9 +655,11 @@ Waiting for 7 replies from the CRMd....... OK
 
 
 
-## <a name="failover--takeover"></a>Conmutación por error / adquisición
+## <a name="failover-or-takeover"></a>Conmutación por error o adquisición
 
-Como ya se mencionó en la primera sección con información importante, no debe usar el apagado estable estándar para probar la conmutación por error de clúster ni la adquisición de HSR de SAP HANA. En su lugar, se recomienda que, por ejemplo, desencadene una alerta de pánico de kernel o fuerce una migración de recursos, o quizás apague todas las redes a nivel de sistema operativo en una máquina virtual. Otro método sería el comando **crm \<node\> standby**. Consulte también el documento de SUSE que se encuentra [aquí][sles-12-ha-paper]. A continuación se encuentran tres comandos de ejemplo para forzar una conmutación por error de clúster:
+Como ya se mencionó en [Notas importantes](#important-notes), no debe usar el apagado estable estándar para probar la conmutación por error de clúster ni la adquisición de HSR de SAP HANA. En su lugar, se recomienda que desencadene una alerta de pánico de kernel, fuerce una migración de recursos o quizás apague todas las redes en el nivel de sistema operativo de una máquina virtual. Otro método sería el comando **crm \<node\> standby**. Consulte el [documento de SUSE][sles-12-ha-paper]. 
+
+A continuación, se encuentran tres comandos de ejemplo para forzar una conmutación por error de clúster:
 
 <pre><code>
 echo c &gt /proc/sysrq-trigger
@@ -670,15 +673,17 @@ wicked ifdown eth2
 wicked ifdown eth&ltn&gt
 </code></pre>
 
-Como se describe también en la sección sobre mantenimiento planeado, una buena forma de supervisar las actividades del clúster es ejecutar **SAPHanaSR showAttr** con el comando **watch**:
+Como se describe en [Mantenimiento planeado](#planned-maintenance), una buena forma de supervisar las actividades del clúster es ejecutar **SAPHanaSR showAttr** con el comando **watch**:
 
 <pre><code>
 watch SAPHanaSR-showAttr
 </code></pre>
 
-Además, ayuda a examinar el estado general de SAP HANA a partir de un script de Python de SAP. Este valor de estado es el que busca la configuración del clúster. Esto se clarifica al pensar en un error de nodo de trabajo. Si este deja de funcionar, SAP HANA no devuelve inmediatamente un error de estado de todo el sistema de escalabilidad horizontal. Se pueden realizar varios reintentos para evitar conmutaciones por error innecesarias. El clúster reacciona solo si el estado cambia de correcto (valor devuelto de 4) a error (valor devuelto de 1). Por lo tanto es correcto si la salida de **SAPHanaSR showAttr** muestra una máquina virtual con estado **offline** pero no hay actividad aún para cambiar entre principal y secundario. No se desencadena actividad en el clúster hasta que SAP HANA devuelva un error.
+Además, ayuda a examinar el estado general de SAP HANA a partir de un script de Python de SAP. La configuración del clúster busca este valor de estado. Esto se clarifica al pensar en un error de nodo de trabajo. Si este deja de funcionar, SAP HANA no devuelve inmediatamente un error de estado de todo el sistema de escalabilidad horizontal. 
 
-Puede supervisar el estado general de SAP HANA como usuario \<HANA SID\>adm mediante una llamada al script de Python se SAP de esta manera (quizá deba adaptar la ruta de acceso):
+Se pueden realizar varios reintentos para evitar conmutaciones por error innecesarias. El clúster reacciona solo si el estado cambia de **correcto** (valor devuelto de **4**) a **error** (valor devuelto de **1**). Por lo tanto, es correcto si la salida de **SAPHanaSR showAttr** muestra una máquina virtual con el estado **offline** (sin conexión). Pero no hay ninguna actividad aún para cambiar el principal y el secundario. No se desencadena actividad en el clúster hasta que SAP HANA devuelva un error.
+
+Puede supervisar el estado general de SAP HANA como usuario **\<HANA SID\>adm** mediante una llamada al script de Python se SAP de esta manera. Es posible que deba adaptar la ruta de acceso:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -700,7 +705,7 @@ overall host status: ok
 </code></pre>
 
 
-Hay otro comando para comprobar las actividades actuales del clúster. Consulte a continuación el comando y el final de la salida tras la eliminación del nodo maestro del sitio principal. Puede ver la lista de acciones de transición, como la **promoción** del antiguo nodo maestro secundario (**hso-hana-vm-s2-0**) al nuevo maestro principal. Si todo es correcto y todas las actividades han finalizado, la lista **Transition Summary** debe estar vacía.
+Hay otro comando para comprobar las actividades actuales del clúster. Consulte el siguiente comando y el final de la salida tras la eliminación del nodo maestro del sitio principal. Puede ver la lista de acciones de transición, como la **promoción** del antiguo nodo maestro secundario (**hso-hana-vm-s2-0**) al nuevo maestro principal. Si todo es correcto y todas las actividades han finalizado, la lista **Transition Summary** debe estar vacía.
 
 <pre><code>
  crm_simulate -Ls
@@ -721,37 +726,35 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Mantenimiento planeado 
 
 Hay distintos casos de uso en cuanto a mantenimiento planeado. Una de las consideraciones es, por ejemplo, si se trata solo de mantenimiento de la infraestructura, como cambios a nivel de sistema operativo y configuración de disco, o de una actualización de HANA.
-Puede encontrar información adicional en los documentos de SUSE, [aquí][sles-zero-downtime-paper] o [aquí][sles-12-for-sap]. Estos documentos también incluyen ejemplos de cómo migrar manualmente un sitio principal.
+Puede encontrar información adicional en los documentos de SUSE como [Towards Zero Downtime][sles-zero-downtime-paper] (Hacia el tiempo de inactividad cero) o [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap] (Escenario optimizada para rendimiento de SAP HANA SR). Estos documentos también incluyen ejemplos de cómo migrar manualmente un sitio principal.
 
 Se han realizado pruebas internas minuciosas para verificar el caso de uso de mantenimiento de la infraestructura. Para evitar cualquier tipo de problema relacionado con la migración de la réplica principal, se decidió migrarla siempre antes de que el clúster pase a modo de mantenimiento. De este modo no es necesario que el clúster olvide la situación anterior (qué lado era principal y qué lado era secundario).
 
 En este sentido, hay dos situaciones diferentes:
 
-1. Mantenimiento planeado en el sitio secundario actual. 
-   En este caso, el clúster puede pasar a modo de mantenimiento y se realiza el trabajo en el sitio secundario sin que ello afecte al clúster
+- **Mantenimiento planeado en el sitio secundario actual**. En este caso, el clúster puede pasar a modo de mantenimiento y se realiza el trabajo en el sitio secundario sin que ello afecte al clúster.
 
-2. Mantenimiento planeado en el sitio principal actual. 
-   Para permitir que los usuarios sigan trabajando durante el mantenimiento, es necesario forzar una conmutación por error. Con este enfoque debe desencadenar la conmutación por error del clúster mediante Pacemaker y no solo a nivel de HSR de SAP HANA. La configuración de Pacemaker desencadena automáticamente la adquisición de SAP HANA. Además, es necesario realizar la conmutación por error antes de que el clúster pase a modo de mantenimiento.
+- **Mantenimiento planeado en el sitio principal actual**. Para que los usuarios pueden seguir trabajando durante el mantenimiento, deberá forzar una conmutación por error. Con este enfoque debe desencadenar la conmutación por error del clúster mediante Pacemaker y no solo a nivel de HSR de SAP HANA. La configuración de Pacemaker desencadena automáticamente la adquisición de SAP HANA. También debe realizar la conmutación por error antes de que el clúster pase a modo de mantenimiento.
 
-El procedimiento de mantenimiento en el sitio secundario actual seguiría los pasos a continuación:
+El procedimiento de mantenimiento en el sitio secundario actual es el siguiente:
 
-1. Pase a modo de mantenimiento del clúster
-2. Realice el trabajo en el sitio secundario 
-3. Termine el modo de mantenimiento del clúster
+1. Pase a modo de mantenimiento del clúster.
+2. Realice el trabajo en el sitio secundario. 
+3. Termine el modo de mantenimiento del clúster.
 
 El procedimiento de mantenimiento en el sitio principal actual es más complejo:
 
-1. Desencadene manualmente una conmutación por error o adquisición de SAP HANA mediante la migración de recursos de Pacemaker (consulte los detalles a continuación)
-2. SAP HANA en el sitio principal anterior se apaga a causa de la configuración del clúster
-3. Pase a modo de mantenimiento del clúster
-4. Una vez terminado el mantenimiento, registre el sitio principal anterior como el nuevo sitio secundario
-5. Elimine la configuración del clúster (consulte los detalles más adelante)
-6. Termine el modo de mantenimiento del clúster
+1. Desencadene manualmente una conmutación por error o adquisición de SAP HANA mediante la migración de recursos de Pacemaker. Consulte los detalles siguientes.
+2. SAP HANA en el sitio principal anterior se apaga a causa de la configuración del clúster.
+3. Pase a modo de mantenimiento del clúster.
+4. Una vez terminado el mantenimiento, registre el sitio principal anterior como el nuevo sitio secundario.
+5. Limpie la configuración del clúster. Consulte los detalles siguientes.
+6. Termine el modo de mantenimiento del clúster.
 
 
-Con la migración de un recurso (por ejemplo, para forzar una conmutación por error) se agrega una entrada a la configuración del clúster. Tendrá que eliminar estas entradas para finalizar el modo de mantenimiento. Este es un ejemplo:
+Con la migración de un recurso se agrega una entrada a la configuración del clúster. Por ejemplo, forzar una conmutación por error. Tendrá que eliminar estas entradas antes de finalizar el modo de mantenimiento. Consulte el ejemplo siguiente.
 
-El primer paso es forzar la conmutación por error del clúster mediante la migración del recurso msl al nodo maestro secundario actual. El siguiente comando emite una advertencia de que se ha creado una restricción de movimiento.
+El primer paso es forzar la conmutación por error del clúster mediante la migración del recurso **msl** al nodo maestro secundario actual. Este comando emite una advertencia de que se ha creado una **restricción de movimiento**:
 
 <pre><code>
 crm resource migrate msl_SAPHanaCon_HSO_HDB00 force
@@ -760,13 +763,13 @@ INFO: Move constraint created for msl_SAPHanaCon_HSO_HDB00
 </code></pre>
 
 
-Compruebe el proceso de conmutación por error con el comando **SAPHanaSR-showAttr**. Lo que ayuda a supervisar el estado del clúster es abrir una ventana del shell específica e iniciar el comando con **watch**:
+Compruebe el proceso de conmutación por error con el comando **SAPHanaSR-showAttr**. Para supervisar el estado del clúster es abrir una ventana del shell específica e iniciar el comando con **watch**:
 
 <pre><code>
 watch SAPHanaSR-showAttr
 </code></pre>
 
-La salida debe reflejar la conmutación por error manual. El nodo maestro secundario anterior consiguió el estado **promoted** (en este ejemplo, **hso-hana-vm-s2-0**) y el sitio principal anterior se detuvo (valor **lss** de **1** para el nodo maestro principal anterior **hso-hana-vm-s1-0**): 
+La salida debe reflejar la conmutación por error manual. El nodo maestro secundario anterior se **promovió**, en este ejemplo, **hso-hana-vm-s2-0**. El sitio principal anterior se detuvo; el valor de **lss** **1** del nodo maestro principal anterior, **hso-hana-vm-s1-0**: 
 
 <pre><code>
 Global cib-time                 prim  sec srHook sync_state
@@ -791,7 +794,7 @@ hso-hana-vm-s2-1 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS
 hso-hana-vm-s2-2 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS2
 </code></pre>
 
-Después de la conmutación por error del clúster y la adquisición de SAP HANA, pase al modo de mantenimiento del clúster como se describe en la sección de Pacemaker.
+Después de la conmutación por error del clúster y la adquisición de SAP HANA, pase al modo de mantenimiento del clúster como se describe en [Pacemaker](#pacemaker).
 
 Los comandos **SAPHanaSR-showAttr** y **crm status** no indican nada sobre las restricciones creadas por la migración de recursos. Una opción para ver estas restricciones es mostrar toda la configuración de los recursos del clúster con el siguiente comando:
 
@@ -799,13 +802,13 @@ Los comandos **SAPHanaSR-showAttr** y **crm status** no indican nada sobre las r
 crm configure show
 </code></pre>
 
-En la configuración del clúster, encontrará una nueva restricción de ubicación provocada por la migración de recursos manual anterior. Este es un ejemplo (entrada que empieza por **location cli-**):
+En la configuración del clúster, encontrará una nueva restricción de ubicación provocada por la migración de recursos manual anterior. Esta entrada de ejemplo empieza por **location cli-**:
 
 <pre><code>
 location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0
 </code></pre>
 
-Desgraciadamente estas restricciones podrían afectar al comportamiento general del clúster. Por lo tanto, es obligatorio para quitarlas antes de volver a poner todo el sistema en funcionamiento de nuevo. Con el comando **unmigrate** se eliminan las restricciones de ubicación que se crearon anteriormente. La nomenclatura puede resultar un poco confusa. No significa que intente devolver el recurso de nuevo a la máquina virtual original de la migración. Simplemente elimina las restricciones de ubicación y devuelve la información correspondiente al ejecutar el comando:
+Lamentablemente, estas restricciones podrían afectar al comportamiento general del clúster. Por lo tanto, es obligatorio para quitarlas antes de volver a poner todo el sistema en funcionamiento de nuevo. Con el comando **unmigrate** se eliminan las restricciones de ubicación que se crearon anteriormente. La nomenclatura puede resultar un poco confusa. No intente devolver el recurso de nuevo a la máquina virtual original de la migración. Simplemente elimina las restricciones de ubicación y devuelve la información correspondiente al ejecutar el comando:
 
 
 <pre><code>
@@ -814,19 +817,19 @@ crm resource unmigrate msl_SAPHanaCon_HSO_HDB00
 INFO: Removed migration constraints for msl_SAPHanaCon_HSO_HDB00
 </code></pre>
 
-Al final del trabajo de mantenimiento, detenga el modo de mantenimiento del clúster tal como se muestra en la sección Pacemaker.
+Al final del trabajo de mantenimiento, detenga el modo de mantenimiento del clúster tal como se muestra en [Pacemaker](#pacemaker).
 
 
 
 ## <a name="hbreport-to-collect-log-files"></a>hb_report para recopilar los archivos de registro
 
-Para analizar problemas de clúster de Pacemaker, resulta útil (y el soporte técnico SUSE lo pide) ejecutar la utilidad **hb_report**. Recopila todos los archivos de registro importantes para poder analizar lo sucedido. Este es un ejemplo de llamada con las horas inicial y final de un incidente específico (consulte también la primera sección sobre información importante):
+Para analizar problemas de clúster de Pacemaker, resulta útil (y el soporte técnico SUSE lo pide) ejecutar la utilidad **hb_report**. Recopila todos los archivos de registro importantes que necesita para analizar qué ocurrió. Esta llamada de ejemplo usa un tiempo de inicio y finalización donde se ha producido un incidente específico. Consulte también [Notas importantes](#important-notes):
 
 <pre><code>
 hb_report -f "2018/09/13 07:36" -t "2018/09/13 08:00" /tmp/hb_report_log
 </code></pre>
 
-El comando lo vierte donde puso los archivos de registro comprimidos:
+El comando indica dónde puso los archivos de registro comprimidos:
 
 <pre><code>
 The report is saved in /tmp/hb_report_log.tar.bz2
@@ -839,7 +842,7 @@ Puede extraer los distintos archivos mediante el comando **tar** estándar:
 tar -xvf hb_report_log.tar.bz2
 </code></pre>
 
-Al buscar en los archivos extraídos se encuentran todos archivos de registro. La mayoría de ellos se han puesto en directorios independientes para cada nodo del clúster:
+Al buscar en los archivos extraídos se encuentran todos los archivos de registro. La mayoría de ellos se han puesto en directorios independientes para cada nodo del clúster:
 
 <pre><code>
 -rw-r--r-- 1 root root  13655 Sep 13 09:01 analysis.txt
@@ -880,7 +883,7 @@ En este intervalo de tiempo se eliminó el nodo maestro **hso-hana-vm-s1-0** act
 2018-09-13T07:38:03+0000 hso-hana-vm-s2-1 su[93494]: pam_unix(su-l:session): session closed for user hsoadm
 </code></pre>
 
-Otro ejemplo es el archivo de registro de Pacemaker del nodo maestro secundario que se convirtió en el nuevo maestro principal. Este es un extracto que muestra que el estado del nodo maestro principal eliminado se estableció en **offline**.
+Otro ejemplo es el archivo de registro de Pacemaker del nodo maestro secundario que se convirtió en el nuevo maestro principal. Este extracto que muestra que el estado del nodo maestro principal eliminado se estableció en **offline**:
 
 <pre><code>
 Sep 13 07:38:02 [4178] hso-hana-vm-s2-0 stonith-ng:     info: pcmk_cpg_membership:      Node 3 still member of group stonith-ng (peer=hso-hana-vm-s1-2, counter=5.1)
@@ -901,7 +904,7 @@ Sep 13 07:38:02 [4184] hso-hana-vm-s2-0       crmd:     info: pcmk_cpg_membershi
 ## <a name="sap-hana-globalini"></a>global.ini de SAP HANA
 
 
-A continuación verá extractos del archivo global.ini de SAP HANA en el clúster del sitio 2 a modo de ejemplo para mostrar las entradas de resolución del nombre de host para el uso de distintas redes para la comunicación entre nodos de SAP HANA y HSR:
+Los extractos siguientes provienen del archivo **global.ini** de SAP HANA en el sitio 2 del clúster. Este ejemplo muestra las entradas de resolución de nombres de host para el uso de distintas redes para la comunicación entre nodos de SAP HANA y HSR:
 
 <pre><code>
 [communication]
@@ -942,39 +945,39 @@ listeninterface = .internal
 
 ## <a name="hawk"></a>HAWK
 
-La solución de clúster también proporciona una interfaz de explorador que ofrece una interfaz gráfica de usuario agradable para los usuarios que prefieren los menús y los gráficos en comparación con todos los comandos a nivel de shell.
-Para usar la interfaz del explorador, tome la dirección URL que se muestra a continuación, reemplace **\<node\>** por un nodo de SAP HANA real y escriba las credenciales del clúster (usuario **hacluster**):
+La solución de clúster proporciona una interfaz de explorador que ofrece una interfaz gráfica de usuario para los usuarios que prefieren los menús y los gráficos en comparación con todos los comandos a nivel de shell.
+Para usar la interfaz del explorador, reemplace **\<node\>** por un nodo de SAP HANA real en la siguiente dirección URL. A continuación, escriba las credenciales del clúster (usuario **clúster**):
 
 <pre><code>
 https://&ltnode&gt:7630
 </code></pre>
 
-En la siguiente captura de pantalla se muestra el panel del clúster:
+Esta captura de pantalla muestra el panel del clúster:
 
 
 ![Panel del clúster HAWK](media/hana-vm-scale-out-HA-troubleshooting/hawk-1.png)
 
 
-En la segunda captura de pantalla puede ver un ejemplo de las restricciones de ubicación que provoca la migración de recursos de clúster como se explica en la sección de mantenimiento planeado:
+Este ejemplo muestra las restricciones de ubicación que provoca la migración de recursos de clúster como se explica en [Mantenimiento planeado](#planned-maintenance):
 
 
 ![Lista de restricciones de HAWK](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-Otra característica interesante es la posibilidad de cargar una salida **hb_report** (consulte la sección sobre **hb_report**) en **HAWK** en el **historial**, tal como se muestra en la siguiente captura de pantalla:
+También puede cargar la salida **hb_report** en HAWK, en **History** (Historial), como se indica a continuación. Consulte [hb_report para recopilar los archivos de registro](#hbreport-to-collect-log-files): 
 
 ![Salida de hb_report de la carga de HAWK](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
-Entonces **History Explorer** (Explorador del historial) permite pasar por todas las transiciones del clúster incluidas en la salida **hb_report**:
+Con **History Explorer** (Explorador del historial), puede pasar por todas las transiciones del clúster incluidas en la salida **hb_report**:
 
-![HAWK tiene en cuenta las transiciones de la salida hb_report](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
+![Transiciones de HAWK en la salida hb_report](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 
-En la última captura de pantalla puede ver la sección de detalles de una única transición que muestra que el clúster reaccionó ante un bloqueo del nodo maestro principal (nodo **hso-hana-vm-s1-0**) y ahora se promociona el nodo secundario como nuevo maestro (**hso-hana-vm-s2-0**):
+Esta captura de pantalla final muestra la sección **Detalles** de una única transición. El clúster reaccionó en un bloqueo del nodo maestro principal, nodo **hso-hana-vm-s1-0**. Ahora está promocionando el nodo secundario como el nuevo maestro, **hso-hana-vm-s2-0**:
 
-![HAWK tiene en cuenta una única transición](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
+![Transición única de HAWK](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Esta guía de solución de problemas es sobre la alta disponibilidad para SAP HANA en una configuración de escalabilidad horizontal. Otro componente importante dentro de un entorno de SAP, además de la base de datos, es la pila de SAP NetWeaver. A continuación debe leer sobre la alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure con SUSE Enterprise Linux Server en [este][sap-nw-ha-guide-sles] artículo.
+Esta guía de solución de problemas describe la alta disponibilidad para SAP HANA en una configuración de escalabilidad horizontal. Además de la base de datos, otro componente importante dentro de un entorno de SAP es la pila de SAP NetWeaver. Obtenga información sobre la [alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure con SUSE Enterprise Linux Server][sap-nw-ha-guide-sles].
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: eea981800147f24025e01826f7550a95041c107f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395137"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427308"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Habilite prácticas de implementación segura con Azure Deployment Manager (versión preliminar privada)
 
@@ -34,6 +34,8 @@ Para usar Deployment Manager, es preciso crear cuatro archivos:
 * Archivo de parámetros para lanzamiento
 
 La plantilla de topología se implementar antes que la de lanzamiento.
+
+Puede encontrar la referencia de la API REST de Azure Deployment Manager [aquí](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 ## <a name="supported-locations"></a>Ubicaciones admitidas
 
@@ -116,7 +118,7 @@ En el siguiente ejemplo se muestra el formato general del recurso de la topolog�
 
 Para más información, consulte la [referencia de la plantilla serviceTopologies](/azure/templates/Microsoft.DeploymentManager/serviceTopologies).
 
-### <a name="services"></a>Servicios
+### <a name="services"></a>Services
 
 En el siguiente ejemplo se muestra el formato general del recurso de los servicios. En cada servicio, especifique la ubicación y el identificador de la suscripción de Azure que se usan para implementar el servicio. Para realizar la implementación en varias regiones, defina un servicio para cada una de ellas. El servicio depende de la topología del servicio.
 

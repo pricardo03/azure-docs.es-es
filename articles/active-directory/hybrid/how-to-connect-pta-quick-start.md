@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 70c19b394b5c5702a0ec0f18aa3bbd0c05e39dfd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249802"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582755"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticación de paso a través de Azure Active Directory: inicio rápido
 
@@ -29,7 +29,7 @@ ms.locfileid: "51249802"
 La autenticación de paso a través de Azure Active Directory (Azure AD) permite a los usuarios iniciar sesión en aplicaciones basadas en la nube y locales con las mismas contraseñas. Con la autenticación de paso a través, los usuarios inician sesión mediante la validación de sus contraseñas directamente en la instancia de Active Directory local.
 
 >[!IMPORTANT]
->Si va a migrar desde AD FS (u otra tecnología de federación) a la autenticación de paso a través, es muy recomendable que siga nuestra guía de implementación detallada publicada [aquí](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>Si va a migrar desde AD FS (u otra tecnología de federación) a la autenticación de paso a través, es muy recomendable que siga nuestra guía de implementación detallada publicada [aquí](https://aka.ms/adfstoPTADPDownload).
 
 Siga estas instrucciones para implementar la autenticación de paso a través en su inquilino:
 
@@ -44,13 +44,13 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
 
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
-1. Identifique un servidor con Windows Server 2012 R2 o posterior en el que ejecutar Azure AD Connect. Agregue el servidor al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
+1. Identifique un servidor con Windows Server 2012 R2 o posterior en el que ejecutar Azure AD Connect. [Habilite TLS 1.2 en el servidor](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect) si todavía no está habilitado. Agregue el servidor al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
 2. Instale la [última versión de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) en el servidor identificado en el paso anterior. Si ya tiene Azure AD Connect en ejecución, asegúrese de que la versión es 1.1.750.0 o posterior.
 
     >[!NOTE]
     >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ pretende utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
-3. Identifique uno o más servidores adicionales (que ejecute Windows Server 2012 R2 o versiones posteriores) en el que poder ejecutar los agentes de autenticación independientes. Estos servidores adicionales son necesarios para garantizar la alta disponibilidad de las solicitudes de inicio de sesión. Agregue los servidores al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
+3. Identifique uno o más servidores adicionales (que ejecute Windows Server 2012 R2 o versiones posteriores, con TLS 1.2 habilitado) en el que poder ejecutar los agentes de autenticación independientes. Estos servidores adicionales son necesarios para garantizar la alta disponibilidad de las solicitudes de inicio de sesión. Agregue los servidores al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
 
     >[!IMPORTANT]
     >En entornos de producción, se recomienda tener un mínimo de 3 agentes de autenticación en ejecución en el inquilino. Hay un límite de sistema de 12 agentes de autenticación por inquilino. Y, como procedimiento recomendado, trate todos los servidores que ejecutan los agentes de autenticación como sistemas de nivel 0 (consulte la [referencia](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
@@ -85,7 +85,7 @@ Si ya tiene instalado Azure AD Connect mediante la ruta de [instalación rápida
 ![Azure AD Connect: Cambiar inicio de sesión de usuario](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->La autenticación de paso a través es una característica de nivel de inquilino. Su activación afecta al inicio de sesión de los usuarios en _todos_ los dominios administrados del inquilino. Si va a cambiar de Active Directory Federation Services (AD FS) a la autenticación de paso a través, debe esperar al menos doce horas antes de apagar la infraestructura de AD FS. Este tiempo de espera sirve para garantizar que los usuarios mantengan iniciada la sesión en Exchange ActiveSync durante la transición. Para obtener más ayuda sobre la migración de AD FS a la autenticación de paso a través, consulte nuestra guía de implementación detallada publicada [aquí](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>La autenticación de paso a través es una característica de nivel de inquilino. Su activación afecta al inicio de sesión de los usuarios en _todos_ los dominios administrados del inquilino. Si va a cambiar de Active Directory Federation Services (AD FS) a la autenticación de paso a través, debe esperar al menos doce horas antes de apagar la infraestructura de AD FS. Este tiempo de espera sirve para garantizar que los usuarios mantengan iniciada la sesión en Exchange ActiveSync durante la transición. Para más ayuda sobre la migración de AD FS a la autenticación de paso a través, consulte nuestro plan de implementación detallado publicado [aquí](https://aka.ms/adfstoptadpdownload).
 
 ## <a name="step-3-test-the-feature"></a>Paso 3: Prueba de la característica
 

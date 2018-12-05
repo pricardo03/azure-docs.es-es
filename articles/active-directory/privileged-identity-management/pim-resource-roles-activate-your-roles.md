@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 08/31/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 59bce2c61db5838bb21a29757d4e354311ecffd5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 249680f60b3c2ee10ff3f3f1eb39d4bf74e57cd9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666254"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497322"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Activación de mis roles de recursos de Azure en PIM
 
@@ -67,9 +67,25 @@ Cuando necesite asumir un rol de recursos de Azure, puede solicitar la activaci�
 
 1. Haga clic en **Activar**.
 
-    Si el rol no requiere aprobación, se activa ahora y aparece en la lista de roles activos. Si el [rol requiere aprobación](pim-resource-roles-approval-workflow.md) para activarse, aparecerá una notificación en la esquina superior del explorador que le informa de que la solicitud está pendiente de aprobación.
+    Si el rol no requiere aprobación, se activa y se agrega a la lista de roles activos. Si quiere usar el rol de inmediato, siga los pasos de la siguiente sección.
+
+    Si el [rol requiere aprobación](pim-resource-roles-approval-workflow.md) para activarse, aparecerá una notificación en la esquina superior del explorador que le informa de que la solicitud está pendiente de aprobación.
 
     ![Notificación de solicitud pendiente](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+
+## <a name="use-a-role-immediately-after-activation"></a>Uso de un rol inmediatamente después de la activación
+
+Cuando se activa un rol en PIM, transcurren al menos 10 minutos antes de que pueda acceder al portal de administración deseado o realizar funciones en una carga de trabajo administrativa específica. Para forzar una actualización de sus permisos, use la página **Acceso a la aplicación** como se describe en los pasos siguientes.
+
+1. Abra Azure AD Privileged Identity Management.
+
+1. Haga clic en la página **Acceso a la aplicación**.
+
+    ![Acceso a la aplicación de PIM: captura de pantalla](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. Haga clic en **Recursos de Azure** para volver a abrir el portal en la página **Todos los recursos**.
+
+    Al hacer clic en este vínculo, se invalida el token actual y se fuerza a Azure Portal a obtener un nuevo token que debe contener los permisos actualizados.
 
 ## <a name="view-the-status-of-your-requests"></a>Visualización del estado de las solicitudes
 
@@ -82,20 +98,6 @@ Puede ver el estado de las solicitudes pendientes de activación.
     ![Roles de directorio de Azure AD y roles de recursos de Azure: Mis roles](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Desplácese a la derecha para ver la columna **Estado de solicitud**.
-
-## <a name="use-a-role-immediately-after-activation"></a>Uso de un rol inmediatamente después de la activación
-
-El almacenamiento en caché es el responsable de que las activaciones no se produzcan inmediatamente en Azure Portal sin una actualización. Si necesita reducir la posibilidad de retrasos tras la activación de un rol, puede usar la página **Acceso a la aplicación** del portal. Las aplicaciones a las que se accede desde esta página comprueban si hay nuevas asignaciones de roles de inmediato.
-
-1. Abra Azure AD Privileged Identity Management.
-
-1. Haga clic en la página **Acceso a la aplicación**.
-
-    ![Acceso a la aplicación de PIM: captura de pantalla](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
-
-1. Haga clic en **Recursos de Azure** para volver a abrir el portal en la página **Todos los recursos**.
-
-    Al hacer clic en este vínculo, se fuerza la actualización y se comprueba si hay nuevas asignaciones de roles de recursos de Azure.
 
 ## <a name="cancel-a-pending-request"></a>Cancelación de una solicitud pendiente
 
@@ -110,6 +112,21 @@ Si no necesita activar un rol que requiera aprobación, puede cancelar una solic
     Al hacer clic en Cancelar, la solicitud se cancelará. Para volver a activar el rol, tendrá que enviar una nueva solicitud de activación.
 
    ![Cancelación de una solicitud pendiente](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+### <a name="permissions-not-granted-after-activating-a-role"></a>Permisos no concedidos después de activar un rol
+
+Cuando se activa un rol en PIM, transcurren al menos 10 minutos antes de que pueda acceder al portal de administración deseado o realizar funciones en una carga de trabajo administrativa específica. Para forzar una actualización de sus permisos, use la página **Acceso a la aplicación** como se describió anteriormente en [Uso de un rol inmediatamente después de la activación](#use-a-role-immediately-after-activation).
+
+Si necesita pasos de solución de problemas adicionales, consulte el artículo sobre la [solución de problemas de permisos elevados](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
+
+### <a name="cannot-activate-a-role-due-to-a-resource-lock"></a>No se puede activar un rol debido a un bloqueo de recursos
+
+Si recibe un mensaje de que un recurso de Azure está bloqueado al intentar activar un rol, es posible que un recurso dentro del ámbito de una asignación de roles tenga un bloqueo de recurso. Los bloqueos protegen los recursos de la eliminación accidental o de cambios inesperados. Un bloqueo también impide que PIM quite una asignación de roles en el recurso al final del período de activación. Puesto que PIM no puede funcionar correctamente cuando se aplica un bloqueo, PIM impide a los usuarios la activación de roles en el recurso. Hay dos maneras de solucionar este problema:
+
+- Elimine el bloqueo, como se describe en [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/resource-group-lock-resources.md).
+- Si desea mantener el bloqueo, realice la asignación de roles permanente o use una cuenta de emergencia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

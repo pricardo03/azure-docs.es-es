@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035312"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497109"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Incorporación de bibliotecas personalizadas de Apache Hive al crear el clúster de HDInsight
 
-Obtenga información sobre cómo cargar previamente las bibliotecas de Apache Hive en HDInsight. Este documento contiene información sobre el uso de una acción de script para cargar previamente bibliotecas durante la creación del clúster. Las bibliotecas que se agregan mediante los pasos de este documento están disponibles globalmente en Hive: no hace falta usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para cargarlos.
+Obtenga información sobre cómo cargar previamente las bibliotecas de [Apache Hive](https://hive.apache.org/) en HDInsight. Este documento contiene información sobre el uso de una acción de script para cargar previamente bibliotecas durante la creación del clúster. Las bibliotecas que se agregan mediante los pasos de este documento están disponibles globalmente en Hive: no hace falta usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para cargarlos.
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -93,4 +93,4 @@ Una vez finalizada la creación del clúster, podrá utilizar los archivos JAR a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca del trabajo con Hive, consulte [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+Para obtener más información acerca del uso con Hive, consulte [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)

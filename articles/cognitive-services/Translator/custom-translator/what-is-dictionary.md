@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a92e41ad9611981777012cd231845587a6f947b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 18260de82125c2e582e9c817ef733dd3757790b3
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627155"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975099"
 ---
 # <a name="what-is-a-dictionary"></a>¿Qué es un diccionario?
 
@@ -32,7 +32,7 @@ El diccionario de oraciones le permite especificar una traducción exacta de des
 Puede entrenar un modelo usando solo los datos de un diccionario. Para ello, seleccione solo el documento de diccionario (o los documentos de diccionario) que quiere incluir y pulse en Crear modelo. Ya que se trata de un entrenamiento de solo diccionario, no hay un número mínimo de oraciones de aprendizaje necesarias. Normalmente, el modelo completará el entrenamiento mucho más rápido que un entrenamiento estándar.  Los modelos resultantes utilizarán los modelos base de Microsoft para la traducción, con la adición de los diccionarios que ha agregado.  No obtendrá un informe de pruebas.
 
 >[!Note]
->Custom Translator no alinea las oraciones en los archivos de diccionario, por lo que es importante que los documentos de diccionario incluyan el mismo número de frases u oraciones tanto de origen como de destino, y que estén perfectamente alineados.
+>Custom Translator no alinea las oraciones en los archivos de diccionario, por lo que es importante que dichos documentos incluyan el mismo número de frases u oraciones (tanto de origen como de destino) y que estén perfectamente alineados.
 
 ## <a name="recommendations"></a>Recomendaciones
 

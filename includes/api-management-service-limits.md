@@ -9,26 +9,37 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: b40e2ba448236bcef72ffe501b4b14fa0dd64e1c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e01eebe41010135d0dc0a2cb4170e6b6687ff546
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756106"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52292711"
 ---
 | Recurso | Límite |
 | --- | --- |
-| Unidades de escala | 10 por región<sup>1</sup> |
-| Memoria caché | 5 GB por unidad<sup>1</sup> |
-| Conexiones simultáneas de back-end<sup>2</sup> por autoridad HTTP | 2048 por unidad<sup>3</sup> |
-| Tamaño máximo de respuestas en caché | 10 MB |
-| Tamaño máximo del documento de directiva | 256 KB |
-| Número máximo de dominios de puerta de enlace personalizada | 20 por instancia de servicio<sup>4</sup> |
+| Número máximo de unidades de escalado | 10 por región<sup>1</sup> |
+| Tamaño de memoria caché | 5 GB por unidad<sup>2</sup> |
+| Conexiones simultáneas de back-end<sup>3</sup> por autoridad HTTP | 2048 por unidad<sup>4</sup> |
+| Tamaño máximo de respuestas en caché | 2 MB |
+| Tamaño máximo del documento de directiva | 256 KB<sup>5</sup> | 
+| Dominios de puerta de enlace personalizados máximos por cada instancia de servicio<sup>6</sup> | 20 | 
+| Número máximo de instancias de servicio por suscripción<sup>7</sup> | 5 | 
+| Número máximo de suscripciones por instancia de servicio<sup>7</sup> | 500 |
+| Número máximo de certificados de cliente por instancia de servicio<sup>7</sup> | 50 | 
+| Número máximo de API por instancia de servicio<sup>7</sup> | 50 | 
+| Número máximo de operaciones de API por instancia de servicio<sup>7</sup> | 1000 | 
+| Duración total máxima de la solicitud<sup>7</sup> | 30 segundos | 
+| Tamaño de carga útil máximo en búfer<sup>7</sup> | 2 MB | 
 
 
-<sup>1</sup>Los límites de Administración de API son diferentes para cada nivel de precios. Para ver los planes de tarifa y sus límites de escalado, vaya a [Precios de API Management](https://azure.microsoft.com/pricing/details/api-management/).
-<sup>2</sup> Las conexiones se agrupan y se vuelven a utilizar, a menos que el back-end las cierre explícitamente.
-<sup>3</sup> Por unidad de niveles Básico, Estándar y Premium. El nivel de desarrollador está limitado a 1024.
-<sup>4</sup> Disponible solo en el nivel Premium.
+<sup>1</sup> Los límites de escalado dependen del plan de tarifa. Para ver los planes de tarifa y sus límites de escalado, vaya a [Precios de API Management](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>2</sup> El tamaño de la caché por unidad depende del plan de tarifa. Para ver los planes de tarifa y sus límites de escalado, vaya a [Precios de API Management](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>3</sup> Las conexiones se agrupan y se vuelven a utilizar, a menos que el back-end las cierre explícitamente.<br/>
+<sup>4</sup> Por unidad de los planes Básico, Estándar y Premium. El plan de desarrollador está limitado a 1024. No se aplica al plan de consumo.<br/> 
+<sup>5</sup> En los planes Básico, Estándar y Premium. En el plan de consumo, el tamaño del documento de directiva se limita a 4 KB.<br/>
+<sup>6</sup> Disponible solo en el plan Premium.<br/>
+<sup>7</sup> Aplicable solo al plan de consumo.<br/>
+
 
 

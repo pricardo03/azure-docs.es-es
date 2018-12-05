@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402767"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582503"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -63,7 +63,38 @@ Si no se muestra ninguna salida, póngase en contacto con el administrador de la
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>¿Qué regiones de Azure están disponibles en Análisis de tráfico?
 
-Puede usar Análisis de tráfico para grupos de seguridad de red en cualquiera de las siguientes regiones admitidas: Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro y norte de EE. UU., Centro y Sur de EE. UU., Centro de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sur de Reino Unido, Este de Australia, Sudeste de Australia y Sudeste Asiático. El área de trabajo de Log Analytics debe encontrarse en las regiones Centro-oeste de EE. UU., Este de EE. UU., Europa Occidental, Sur de Reino Unido, Sudeste de Australia o Sudeste Asiático.
+Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes regiones admitidas:
+- Centro de Canadá
+- Centro occidental de EE.UU.
+- Este de EE. UU
+- Este de EE. UU. 2
+- Centro-Norte de EE. UU
+- Centro-Sur de EE. UU
+- Centro de EE. UU.
+- Oeste de EE. UU.
+- Oeste de EE. UU. 2
+- Europa occidental
+- Europa del Norte
+- Sur de Brasil
+- Oeste de Reino Unido
+- Sur de Reino Unido 2
+- Este de Australia
+- Sudeste de Australia 
+- Sudeste asiático
+- India Central
+- Sur de la India
+- Este de Japón
+
+El área de trabajo de Log Analytics debe existir en las siguientes regiones:
+- Centro de Canadá
+- Centro occidental de EE.UU.
+- Este de EE. UU
+- Europa occidental
+- Sur de Reino Unido 2
+- Sudeste de Australia
+- Sudeste asiático 
+- India Central
+- Este de Japón
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>¿Los grupos de seguridad de red en los que he habilitado los registros de flujo pueden estar en otras regiones que no sean las de mi área de trabajo?
 
@@ -83,7 +114,7 @@ Sí, la cuenta de Azure Storage puede estar en una suscripción y el área de tr
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>¿Puedo almacenar registros sin formato en una cuenta diferente?
 
-No. Puede almacenar registros sin formato en cualquier cuenta de almacenamiento en la que esté habilitado un grupo de seguridad de red para los registros de flujo. No obstante, la cuenta de almacenamiento y los registros sin formato se deben encontrar en la misma región y suscripción.
+ No. Puede almacenar registros sin formato en cualquier cuenta de almacenamiento en la que esté habilitado un grupo de seguridad de red para los registros de flujo. No obstante, la cuenta de almacenamiento y los registros sin formato se deben encontrar en la misma región y suscripción.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>¿Qué sucede si no puedo configurar un grupo de seguridad de red para Análisis de tráfico debido a un error del tipo "No se encuentra"?
 
@@ -91,11 +122,11 @@ Seleccione una región compatible. Si selecciona una región que no es compatibl
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>¿Qué sucede si recibo el estado "No se pudo cargar" en la página de registros de flujo del grupo de seguridad de red?
 
-Para que los registros de flujo funcionen correctamente, el proveedor Microsoft.Insight debe estar registrado. Si no sabe con seguridad si el proveedor Microsoft.Insights está registrado en su suscripción, sustituya *xxxxx-xxxxx-xxxxxx-xxxx* en el siguiente comando y ejecute los siguientes comandos en PowerShell:
+Para que los registros de flujo funcionen correctamente, el proveedor Microsoft.Insight debe estar registrado. Si no sabe con seguridad si el proveedor Microsoft.Insights está registrado en su suscripción, sustituya *xxxxx-xxxxx-xxxxxx-xxxx* en el siguiente comando y ejecute los siguientes comandos en PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>He configurado la solución. ¿Por qué no veo nada en el panel?

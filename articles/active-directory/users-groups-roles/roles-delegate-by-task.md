@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: b4704e9f078b248ef1835babb3b63c378b011c4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516632"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445028"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Roles de administrador por tarea de identidad en Azure Active Directory
 
@@ -147,7 +147,7 @@ Asignación de la licencia | Administrador de cuenta de usuario |
 Crear grupo | Administrador de cuenta de usuario | 
 Crear, actualizar o eliminar revisión de acceso de un grupo o de una aplicación | Administrador de cuenta de usuario | 
 Administrar expiración de grupos | Administrador de cuenta de usuario | 
-Administración de la configuración de grupo | Administrador de cuenta de usuario | 
+Administración de la configuración de grupo | Administrador global | 
 Leer toda la configuración (excepto pertenencia oculta) | Lectores de directorios | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Leer pertenencias ocultas | Miembro del grupo | Propietario del grupo, Administrador de contraseñas, Administrador de Exchange, Administrador de SharePoint, Administrador de equipos, Administrador de cuentas de usuario
 Leer pertenencia a grupos con pertenencia oculta | Administrador del departamento de soporte técnico | Administrador de cuentas de usuario, Administrador de equipos

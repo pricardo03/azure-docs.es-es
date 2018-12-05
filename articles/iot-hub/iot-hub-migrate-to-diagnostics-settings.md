@@ -5,14 +5,14 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 11/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 3cb0f91f3143e6a4828548f3a15678b3814cba17
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 236adb45ec6663ad361df1afbf6389a449f2a529
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154868"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159906"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migración de la supervisión de operaciones de IoT Hub a la configuración de diagnóstico
 
@@ -49,6 +49,10 @@ Además, la configuración de diagnóstico ofrece el seguimiento de cinco catego
 * Métodos directos
 
 Para las estructuras de esquema específicas, consulte la [información sobre el esquema de la configuración de diagnóstico](iot-hub-monitor-resource-health.md#understand-the-logs).
+
+## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>Supervisión de los eventos de conexión y desconexión del dispositivo con baja latencia
+
+Para supervisar los eventos de conexión y desconexión del dispositivo, se recomienda suscribirse al [evento **dispositivo desconectado**](iot-hub-event-grid.md#event-types) en Event Grid para obtener alertas y supervisar el estado de conexión del dispositivo. Siga este [tutorial](iot-hub-how-to-order-connection-state-events.md) para aprender a integrar eventos de dispositivo conectado y dispositivo desconectado de IoT Hub en la solución de IoT.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

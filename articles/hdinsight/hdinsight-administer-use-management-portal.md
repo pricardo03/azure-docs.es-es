@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 651a03f69a7664b68ce3fe5c512c59c01762a505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 378f52f0418c8c99e9ce6ca393ca10a77504698d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282482"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499582"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Apache Hadoop basados en Windows en HDInsight mediante la utilización de Azure Portal
 
-Con [Azure Portal][azure-portal], puede crear clústeres de Apache Hadoop basados en Windows en Azure HDInsight, cambiar la contraseña de usuario de Hadoop y habilitar el Protocolo de escritorio remoto (RDP) para que pueda tener acceso a la consola de comandos de Hadoop en el clúster.
+Con [Azure Portal][azure-portal], puede crear clústeres de [Apache Hadoop](https://hadoop.apache.org/) basados en Windows en Azure HDInsight, cambiar la contraseña de usuario de Hadoop y habilitar el Protocolo de escritorio remoto (RDP) para que pueda tener acceso a la consola de comandos de Hadoop en el clúster.
 
-La información de este artículo solo se aplica a los clústeres de HDInsight para Windows. Para más información sobre la administración de clústeres basados en Linux, consulte [Administración de clústeres de Hadoop en HDInsight mediante el portal de Azure](hdinsight-administer-use-portal-linux.md).
+La información de este artículo solo se aplica a los clústeres de HDInsight para Windows. Para más información sobre la administración de clústeres basados en Linux, consulte [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md).
 
 [!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
@@ -49,11 +49,11 @@ Antes de empezar este artículo, debe tener lo siguiente:
 ## <a name="create-clusters"></a>Creación de clústeres
 Para obtener instrucciones sobre la creación mediante el Portal, consulte [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la lista de los componentes que han sido comprobados y admitidos, consulte [¿Qué versión de Hadoop tiene HDInsight de Azure?](hdinsight-component-versioning.md). Puede personalizar HDInsight mediante una de las opciones siguientes:
+HDInsight trabaja con una amplia gama de componentes de Apache Hadoop. Para ver la lista de los componentes que han sido comprobados y admitidos, consulte [¿Qué versión de Apache Hadoop tiene HDInsight de Azure?](hdinsight-component-versioning.md). Puede personalizar HDInsight mediante una de las opciones siguientes:
 
 * Use Generar script de acción para ejecutar scripts que pueden personalizar un clúster para cambiar la configuración del clúster o para instalar los componentes personalizados, como Giraph o Solr. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante Generar acción de script](hdinsight-hadoop-customize-cluster.md).
 * Use los parámetros de personalización de clústeres de .NET SDK de HDInsight o de Azure PowerShell durante la creación de los clústeres. Estos cambios de configuración se conservan durante toda la vida del clúster y no se ven afectados por el restablecimiento de imágenes de nodos del clúster que la plataforma Azure realiza periódicamente para su mantenimiento. Para obtener más información acerca del uso de los parámetros de personalización de clústeres, consulte [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* Algunos de los componentes nativos de Java, como Mahout y Cascading, se pueden ejecutar en el clúster como archivos JAR. Estos archivos JAR se pueden distribuir al almacenamiento de blobs de Azure y enviarse a los clústeres de HDInsight usando los mecanismos de envío de trabajo de Hadoop. Para obtener más información, consulte [Envío de trabajos de Hadoop mediante programación](hadoop/submit-apache-hadoop-jobs-programmatically.md).
+* Algunos de los componentes nativos de Java, como [Apache Mahout](https://mahout.apache.org/) y [Cascading](https://www.cascading.org/), se pueden ejecutar en el clúster como archivos JAR. Estos archivos JAR se pueden distribuir al almacenamiento de blobs de Azure y enviarse a los clústeres de HDInsight usando los mecanismos de envío de trabajo de Hadoop. Para más información, consulte [Envío de trabajos de Apache Hadoop mediante programación](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
   > Si tiene problemas con la implementación de los archivos JAR en los clústeres de HDInsight o con la llamada de los archivos JAR en los clústeres de HDInsight, póngase en contacto con [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
@@ -91,7 +91,7 @@ La instalación de software personalizado en el clúster mediante la Conexión a
    * **Vistas de Ambari**: se trata de vínculos a la página web de Ambari.
 
      > [!IMPORTANT]
-     > Para administrar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para obtener más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md).
+     > Para administrar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Apache Ambari](hdinsight-hadoop-manage-ambari.md).
      >
      >
 
@@ -106,7 +106,7 @@ La instalación de software personalizado en el clúster mediante la Conexión a
    * **Identidad AAD de clúster**:
    * **Claves de Azure Storage**: consulte la cuenta de almacenamiento predeterminada y su clave. La cuenta de almacenamiento se configura durante el proceso de creación del clúster.
    * **Inicio de sesión de clúster**: cambie el nombre de usuario y la contraseña HTTP del clúster.
-   * **Tiendas de metadatos externas**: consulte las tiendas de metadatos de Hive y Oozie. Las tiendas de metadatos solo pueden configurarse durante el proceso de creación del clúster.
+   * **Tiendas de metadatos externas**: consulte las tiendas de metadatos de [Apache Hive](https://hive.apache.org/) y [Apache Oozie](https://oozie.apache.org/). Las tiendas de metadatos solo pueden configurarse durante el proceso de creación del clúster.
    * **Escalar clúster**: aumente o disminuya el número de nodos de trabajo del clúster.
    * **Escritorio remoto**: habilite y deshabilite el acceso de Escritorio remoto (RDP) y configure el nombre de usuario de RDP.  El nombre de usuario de RDP debe ser diferente del nombre de usuario de HTTP.
    * **Socio de registro**:
@@ -152,12 +152,12 @@ La característica de escalado de clústeres permite cambiar la cantidad de nodo
 
 A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de datos de cada tipo de clúster compatible con HDInsight:
 
-* Hadoop
+* Apache Hadoop
 
     Puede aumentar sin ningún problema la cantidad de nodos de trabajo en un clúster de Hadoop que se encuentre en ejecución, sin que afecte a ningún trabajo pendiente o en ejecución. También se pueden enviar trabajos nuevos mientras la operación está en curso. Los errores que puedan surgir en una operación de escalado se enfrentan oportunamente, por lo que el clúster siempre queda en estado funcional.
 
     Cuando se realiza la reducción vertical de un clúster de Hadoop al disminuir la cantidad de nodos de datos, se reinician algunos de los servicios del clúster. Esto provoca que todos los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puede volver a enviar los trabajos una vez finalizada la operación.
-* HBase
+* HBase Apache
 
     Puede agregar nodos sin problemas al clúster de HBase mientras se encuentra en ejecución, así como eliminarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Sin embargo, puede equilibrar manualmente los servidores regionales iniciando sesión en el nodo principal del clúster y ejecutando los comandos siguientes desde una ventana del símbolo del sistema:
 
@@ -166,13 +166,13 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
         >balancer
 
     Para más información sobre el uso del shell HBase, consulte []
-* Storm
+* Apache Storm
 
     Puede agregar o quitar sin problemas nodos de datos de su clúster de Storm mientras se encuentra en ejecución. Sin embargo, después de finalizar correctamente la operación de escalado, deberá volver a equilibrar la topología.
 
     Esto se puede realizar de dos formas:
 
-  * La interfaz de usuario web de Storm
+  * Interfaz de usuario web de Apache Storm
   * La herramienta de la interfaz de línea de comandos (CLI)
 
     Consulte la [documentación de Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obtener más detalles.
@@ -206,7 +206,7 @@ Hay muchas maneras de programar el proceso:
 * Usar Azure Data Factory. Consulte [Servicios vinculados de Azure HDInsight](../data-factory/compute-linked-services.md) y [Transformación y análisis mediante Azure Data Factory](../data-factory/transform-data.md) para conocer los servicios vinculados de HDInsight a petición y definidos por el usuario.
 * Usar Azure PowerShell.  Vea [Análisis de datos de retrasos de vuelos](hdinsight-analyze-flight-delay-data.md).
 * Use la CLI de Azure clásica. Consulte [Administración de clústeres de HDInsight con la CLI de Azure clásica](hdinsight-administer-use-command-line.md).
-* Usar .NET SDK de HDInsight. Vea [Envío de trabajos de Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
+* Usar .NET SDK de HDInsight. Consulte [Envío de trabajos de Apache Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Para información sobre precios, vea [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Para eliminar un clúster desde el portal, vea [Eliminación de clústeres](#delete-clusters)
 
@@ -264,7 +264,7 @@ Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>Apertura de la consola de consulta de HDInsight
 La consola de consulta de HDInsight incluye las siguientes características:
 
-* **Editor Hive**: interfaz de web de GUI para el envío de trabajos de Hive.  Vea [Ejecución de consultas de Hive mediante la consola de consulta](hadoop/apache-hadoop-use-hive-query-console.md).
+* **Editor Hive**: interfaz de web de GUI para el envío de trabajos de Hive.  Consulte [Ejecución de consultas de Apache Hive mediante la consola de consulta](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Historial de trabajos**: supervise los trabajos de Hadoop.  
@@ -301,7 +301,7 @@ También puede usar la utilidad **Examinar el sistema de archivos** de la **IU d
 La sección **Uso** de la hoja del clúster de HDInsight muestra información sobre el número de núcleos disponibles con la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y cómo se asignan a los nodos de este clúster. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
 > [!IMPORTANT]
-> Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para obtener más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md)
+> Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 >
 >
 
@@ -347,7 +347,7 @@ Para conectarse al clúster mediante el Escritorio remoto y usar la línea de co
 
     ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
-    Para obtener más información acerca de los comandos de Hadoop, consulte [Referencia de comandos de Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
+    Para más información acerca de los comandos de Hadoop, consulte [Referencia de comandos de Apache Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
 En la captura de pantalla anterior, el nombre de la carpeta tiene el número de versión de Hadoop incrustado. El número de versión puede cambiar según la versión de los componentes de Hadoop instalados en el clúster. Puede usar las variables de entorno de Hadoop para referirse a esas carpetas. Por ejemplo: 
 
@@ -359,14 +359,14 @@ En la captura de pantalla anterior, el nombre de la carpeta tiene el número de 
     cd %hcatalog_home%
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Portal y a abrir la herramienta de línea de comandos de Hadoop. Para obtener más información, consulte los artículos siguientes:
+En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Portal y a abrir la herramienta de línea de comandos de Apache Hadoop. Para obtener más información, consulte los artículos siguientes:
 
 * [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md)
 * [Administración de HDInsight con la CLI de Azure clásica](hdinsight-administer-use-command-line.md)
 * [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-* [Envío de trabajos de Hadoop mediante programación](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Envío de trabajos de Apache Hadoop mediante programación](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Introducción a HDInsight de Azure](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [¿Qué versión de Hadoop tiene HDInsight de Azure?](hdinsight-component-versioning.md)
+* [¿Qué versión de Apache Hadoop tiene en Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"

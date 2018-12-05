@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 3616183b5ea34b8a14712d2c449de87950443111
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954513"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581942"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight (versión preliminar)
 
-La memoria caché de E/S es un servicio de almacenamiento en caché de datos para Azure HDInsight que mejora el rendimiento de trabajos de Apache Spark. La memoria caché de E/S también funciona con cargas de trabajo Tez e Hive, que se pueden ejecutar en clústeres de Spark. La memoria caché de E/S usa un componente de almacenamiento en caché de código abierto denominado RubiX. RubiX es una caché de disco local para su uso con los motores de análisis de macrodatos que tienen acceso a datos desde sistemas de almacenamiento en la nube. RubiX es único entre los sistemas de almacenamiento en caché, porque utiliza unidades de estado sólido (SSD) en lugar de reservar memoria operativa para el almacenamiento en caché. El servicio de memoria caché de E/S inicia y administra servidores de los metadatos de RubiX en cada nodo de trabajo del clúster. También configura todos los servicios del clúster para su uso transparente de la memoria caché de RubiX.
+La memoria caché de E/S es un servicio de almacenamiento en caché de datos para Azure HDInsight que mejora el rendimiento de trabajos de Apache Spark. La memoria caché de E/S también funciona con cargas de trabajo de [Apache TEZ](https://tez.apache.org/) y [Apache Hive](https://hive.apache.org/), que se pueden ejecutar en clústeres de [Apache Spark](https://spark.apache.org/). La memoria caché de E/S usa un componente de almacenamiento en caché de código abierto denominado RubiX. RubiX es una caché de disco local para su uso con los motores de análisis de macrodatos que tienen acceso a datos desde sistemas de almacenamiento en la nube. RubiX es único entre los sistemas de almacenamiento en caché, porque utiliza unidades de estado sólido (SSD) en lugar de reservar memoria operativa para el almacenamiento en caché. El servicio de memoria caché de E/S inicia y administra servidores de los metadatos de RubiX en cada nodo de trabajo del clúster. También configura todos los servicios del clúster para su uso transparente de la memoria caché de RubiX.
 
 La mayoría de discos SSD proporciona más de 1 GB por segundo de ancho de banda. Este ancho de banda, complementado por la memoria caché de archivos en memoria del sistema operativo, es suficiente para cargar los motores de procesamiento de cálculo de macrodatos, como Apache Spark. La memoria operativa queda disponible para que Apache Spark procese tareas muy dependientes de la memoria, como órdenes aleatorios. El hecho de disponer del uso exclusivo de la memoria operativa permite a Apache Spark alcanzar un uso óptimo de los recursos.  
 
@@ -52,7 +52,7 @@ La memoria caché de E/S de Azure HDInsight está desactivada de forma predeterm
   
 Es posible que aparezcan errores de espacio en disco al ejecutar trabajos de Spark después de habilitar la memoria caché de E/S. Estos errores se producen porque Spark también usa el almacenamiento en disco local para almacenar datos durante el orden aleatorio de las operaciones. Spark puede quedarse sin espacio en el disco SSD una vez que la memoria caché de E/S esté habilitada y se reduzca el espacio de almacenamiento de Spark. La cantidad de espacio utilizado por la memoria caché de E/S se establece de manera predeterminada en la mitad del espacio total de SSD. El uso de espacio en disco para la memoria caché de E/S es configurable en Ambari. Si recibe errores de espacio en disco, reduzca la cantidad de espacio de SSD usado para la memoria caché de E/S y reinicie el servicio. Para cambiar el espacio configurado para la memoria caché de E/S, realice los pasos siguientes:
 
-1. En Ambari, seleccione el servicio **HDFS** a la izquierda.
+1. En Apache Ambari, seleccione el servicio **HDFS** a la izquierda.
 
 1. Seleccione las pestañas **Configs** (Configuraciones) y **Advanced** (Opciones avanzadas).
 

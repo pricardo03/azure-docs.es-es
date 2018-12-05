@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1fcb72d75dca99b6670ca3ff536403a6268554a2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4dde10c5cb4a764a268b8b9d3ebfaebc008e13ed
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238155"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162536"
 ---
 # <a name="set-environment-variables"></a>Establecimiento de variables de entorno
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Para modificar la salida, inicie un segundo contenedor con el argumento `--environment-variables` agregado, especificando valores para las variables *NumWords* y *MinLength*:
+Para modificar la salida, inicie un segundo contenedor con el argumento `--environment-variables` agregado y especifique valores para las variables *NumWords* y *MinLength*. (En este ejemplo, se supone que está ejecutando la CLI en un shell de Bash o en Azure Cloud Shell. Si usa el símbolo del sistema de Windows, especifique las variables con comillas dobles, como `--environment-variables "NumWords"="5" "MinLength"="8"`).
 
 ```azurecli-interactive
 az container create \

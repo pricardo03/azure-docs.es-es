@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145025"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495961"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de NVIDIA para Windows
 
 ## <a name="overview"></a>Información general
 
-Esta extensión instala los controladores de GPU de NVIDIA en VM de la serie N de Windows. En función de la familia de VM, la extensión instala los controladores CUDA o GRID. Al instalar controladores de NVIDIA mediante esta extensión, acepta y está de acuerdo con los términos del contrato de licencia de usuario final de NVIDIA. Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
+Esta extensión instala los controladores de GPU de NVIDIA en VM de la serie N de Windows. En función de la familia de VM, la extensión instala los controladores CUDA o GRID. Al instalar controladores de NVIDIA mediante esta extensión, acepta y está de acuerdo con los términos del [contrato de licencia de usuario final de NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
 
 También hay disponible una extensión para instalar controladores de GPU de NVIDIA en [VM de la serie N para Linux](hpccompute-gpu-linux.md).
-
-Los términos de licencia del usuario final de NVIDIA se encuentran aquí: https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -71,7 +69,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 }
 ```
 
-### <a name="property-values"></a>Valores de propiedad
+### <a name="properties"></a>Properties (Propiedades)
 
 | NOMBRE | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
@@ -80,6 +78,14 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 | Tipo | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
+### <a name="settings"></a>Configuración
+
+Todos los parámetros son opcionales. El comportamiento predeterminado es instalar el controlador compatible más reciente según corresponda.
+
+| NOMBRE | DESCRIPCIÓN | Valor predeterminado | Valores válidos | Tipo de datos |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV: versión del controlador de GRID<br> NC o ND: versión del controlador de CUDA | más reciente | GRID: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | string |
+| installGridND | Instalación de controladores de GRID en máquinas virtuales de la serie NV | false | true, false | boolean |
 
 ## <a name="deployment"></a>Implementación
 
@@ -129,6 +135,8 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
+El siguiente ejemplo refleja el ejemplo anterior de PowerShell y ARM y también agrega una configuración personalizada de ejemplo para la instalación del controlador no predeterminado. En concreto, instala un controlador específico de GRID, incluso si se está aprovisionando una VM de la serie ND.
+
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -137,6 +145,8 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 

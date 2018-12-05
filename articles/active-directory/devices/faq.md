@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515648"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309351"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -93,6 +93,7 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 >[!Note] 
 >En el caso de los dispositivos inscritos, se recomienda borrar el dispositivo para asegurarse de que los usuarios no pueden acceder a los recursos. Para más información, consulte [Inscripción de dispositivos para la administración en Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+
 ---
 
 # <a name="azure-ad-join-faq"></a>P+F de Unión a Azure AD
@@ -103,6 +104,20 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 - Para dispositivos unidos a Azure AD híbrido, asegúrese de desactivar el registro automático para que la tarea programada no registre el dispositivo nuevamente. A continuación, abra un símbolo del sistema como administrador y escriba `dsregcmd.exe /debug /leave`. O bien, se puede ejecutar este comando como un script en varios dispositivos para realizar la separación de forma masiva.
 
 - Para dispositivos unidos a Azure AD puros, asegúrese de tener una cuenta de administrador local sin conexión o cree una, ya que no podrá iniciar sesión con credenciales de usuario de Azure AD. A continuación, vaya a **Configuración** > **Cuentas** > **Obtener acceso a trabajo o escuela**. Seleccione su cuenta y haga clic en **Desconectar**. Siga las indicaciones y proporcione las credenciales de administrador local cuando se le solicite. Reinicie el dispositivo para completar el proceso de separación.
+
+---
+
+**P: ¿Mis usuarios pueden iniciar sesión en dispositivos unidos a Azure AD que se han eliminado o deshabilitado en Azure AD?**
+**R:** Sí. Windows ha almacenado en caché la funcionalidad de inicio de sesión para permitir que los usuarios que han iniciado la sesión anteriormente accedan al escritorio rápidamente, incluso sin conectividad de red. Cuando un dispositivo se elimina o deshabilita en Azure AD, el dispositivo Windows no lo reconoce. Por lo tanto, los usuarios que han iniciado la sesión anteriormente pueden seguir accediendo al escritorio con el inicio de sesión almacenado en caché. Sin embargo, dado que el dispositivo se ha eliminado o deshabilitado, los usuarios no pueden acceder a los recursos protegidos con el acceso condicional basado en el dispositivo. 
+
+Los usuarios que todavía no han iniciado sesión no pueden acceder al dispositivo porque no tienen ningún inicio de sesión almacenado en caché habilitado. 
+
+---
+
+**P: ¿Los usuarios deshabilitados o eliminados pueden iniciar sesión en dispositivos unidos a Azure AD?**
+**R:** Sí, pero solo durante un tiempo limitado. Cuando un usuario se elimina o deshabilita en Azure AD, el dispositivo Windows no lo reconoce inmediatamente. Por lo tanto, los usuarios que han iniciado la sesión anteriormente pueden acceder al escritorio con el inicio de sesión almacenado en caché. Cuando el dispositivo conozca el estado del usuario (normalmente en menos de 4 horas), Windows impedirá que esos usuarios accedan al escritorio. Dado que el usuario se ha eliminado o deshabilitado en Azure AD, se revocarán todas sus tokens, por lo que no podrán acceder a los recursos. 
+
+Los usuarios eliminados o deshabilitados que no han iniciado sesión anteriormente no pueden acceder al dispositivo porque no tienen ningún inicio de sesión almacenado en caché habilitado. 
 
 ---
 

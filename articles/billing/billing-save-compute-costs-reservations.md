@@ -4,7 +4,7 @@ description: Obtenga información sobre Azure Reservations y precios para ahorra
 services: billing
 documentationcenter: ''
 author: yashesvi
-manager: yashesvi
+manager: yashar
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: a0fb5eccf14aee07005ab345f1af293f341f9215
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 27b31b6dec480fee417bf9ccb241199204f28f96
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422956"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582656"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
@@ -94,6 +94,6 @@ Para obtener más información acerca de Azure Reservations, consulte los siguie
 - [Costos de software de Windows no incluidos con reservas](billing-reserved-instance-windows-software-costs.md)
 - [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

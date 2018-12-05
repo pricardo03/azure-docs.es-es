@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: da98873b133d69d78271494b991b67caea1d5a11
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283077"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307481"
 ---
-# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network
+# <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conexión con Apache Kafka en HDInsight mediante una instancia de Azure Virtual Network
 
-Aprenda a conectarse directamente a Kafka en HDInsight mediante una instancia de Azure Virtual Network. En este documento se proporciona información sobre la conexión a Kafka mediante las siguientes configuraciones:
+Aprenda a conectarse directamente a Apache Kafka en HDInsight mediante una instancia de Azure Virtual Network. En este documento se proporciona información sobre la conexión a Kafka mediante las siguientes configuraciones:
 
 * Desde recursos de una red local. Esta conexión se establece mediante un dispositivo de red privada virtual (software o hardware) en la red local.
 * Desde un entorno de desarrollo con un cliente de software de red privada virtual.
@@ -37,7 +37,7 @@ HDInsight no permite la conexión directa a Kafka a través de la red pública d
     4. Configure el reenvío entre el servidor DNS de cada red.
     5. Cree una instancia de Kafka en un clúster de HDInsight en la red virtual.
 
-    Para más información, vea la sección [Conexión a Kafka desde una red local](#on-premises). 
+    Para más información, vea la sección [Conexión a Apache Kafka desde una red](#on-premises). 
 
 * Conectar equipos individuales a la red virtual mediante una puerta de enlace de red privada virtual y un cliente de red privada virtual. Para habilitar esta configuración, realice las siguientes tareas:
 
@@ -47,7 +47,7 @@ HDInsight no permite la conexión directa a Kafka a través de la red pública d
     4. Configurar Kafka para anunciar direcciones IP. Esta configuración permite al cliente conectarse mediante direcciones IP de agente en lugar de nombres de dominio.
     5. Descargue y use el cliente de VPN en el sistema de desarrollo.
 
-    Para más información, vea la sección [Conexión a Kafka con un cliente VPN](#vpnclient).
+    Para más información, vea la sección [Conexión a Apache Kafka con un cliente VPN](#vpnclient).
 
     > [!WARNING]
     > Esta configuración solo se recomienda para fines de desarrollo debido a las limitaciones siguientes:
@@ -57,7 +57,7 @@ HDInsight no permite la conexión directa a Kafka a través de la red pública d
 
 Para más información sobre cómo usar HDInsight en una máquina virtual, consulte [Extensión de HDInsight con redes virtuales de Azure](../hdinsight-extend-hadoop-virtual-network.md).
 
-## <a id="on-premises"></a> Conexión a Kafka desde una red local
+## <a id="on-premises"></a> Conexión a Apache Kafka desde una red local
 
 Para crear un clúster de Kafka que se comunique con la red local, siga los pasos del documento [Connect HDInsight to your on-premises network (Conexión de HDInsight a la red local)](./../connect-on-premises-network.md).
 
@@ -73,7 +73,7 @@ Estos pasos crean la siguiente configuración:
 
 Para comprobar que un cliente de Kafka puede conectarse al clúster desde el entorno local, siga los pasos de la sección [Ejemplo: cliente de Python](#python-client).
 
-## <a id="vpnclient"></a> Conexión a Kafka con un cliente VPN
+## <a id="vpnclient"></a> Conexión a Apache Kafka con un cliente VPN
 
 Use los pasos de esta sección para crear la configuración siguiente:
 
@@ -237,7 +237,7 @@ Use los pasos de esta sección para crear la configuración siguiente:
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Configuración de Kafka para anunciar direcciones IP
 
-De manera predeterminada, Zookeeper devuelve el nombre de dominio de los agentes de Kafka a los clientes. Esta configuración no funciona con el cliente de software de VPN, ya que no puede usar la resolución de nombres para entidades de la red virtual. Para esta configuración, use los pasos siguientes para configurar Kafka con el fin de anunciar direcciones IP en lugar de nombres de dominio:
+De manera predeterminada, Apache Zookeeper devuelve el nombre de dominio de los agentes de Kafka a los clientes. Esta configuración no funciona con el cliente de software de VPN, ya que no puede usar la resolución de nombres para entidades de la red virtual. Para esta configuración, use los pasos siguientes para configurar Kafka con el fin de anunciar direcciones IP en lugar de nombres de dominio:
 
 1. Vaya a https://CLUSTERNAME.azurehdinsight.net desde un explorador web. Reemplace __CLUSTERNAME__ por el nombre del clúster de Kafka en HDInsight.
 
@@ -371,7 +371,7 @@ Para más información sobre cómo crear una instancia de Azure Virtual Network 
 
 * [Configuración de una conexión de punto a sitio mediante Azure PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-Para más información sobre cómo trabajar con Kafka en HDInsight, consulte los documentos siguientes:
+Para más información sobre cómo trabajar con Apache Kafka en HDInsight, consulte los documentos siguientes:
 
-* [Introducción a Kafka en HDInsight](apache-kafka-get-started.md)
-* [Uso de creación de reflejos con Kafka en HDInsight](apache-kafka-mirroring.md)
+* [Introducción a Apache Kafka en HDInsight](apache-kafka-get-started.md)
+* [Uso de creación de reflejos con Apache Kafka en HDInsight](apache-kafka-mirroring.md)

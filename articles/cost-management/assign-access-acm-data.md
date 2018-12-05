@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: e32e281509da32d4816c9e137a462553891c82f1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686150"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582605"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
@@ -42,7 +42,7 @@ Un usuario debe tener al menos acceso de lectura a uno o varios de los siguiente
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Habilitar el acceso a los costos en el portal de EA
 
-El ámbito de la cuenta de facturación requiere que la opción **AD: ver los cargos** esté **habilitada** en el portal de EA. Todos los demás ámbitos deben tener la opción **PC: ver los cargos** **habilitada** en el portal de EA.
+El ámbito del departamento requiere que la opción **AD: ver los cargos** esté **habilitada** en el portal de EA. Todos los demás ámbitos deben tener la opción **PC: ver los cargos** **habilitada** en el portal de EA.
 
 Para habilitar una opción:
 
@@ -75,7 +75,7 @@ Pueden pasar hasta 30 minutos antes de que el nuevo usuario pueda obtener acceso
 
 ### <a name="assign-department-scope-access"></a>Asignar acceso al ámbito del departamento
 
-Para obtener acceso al ámbito del departamento es necesario tener acceso de administrador del departamento (AD: ver los cargos) en el portal de EA. El administrador del departamento tiene acceso para ver los datos de costos y uso asociados con un departamento o con varios de ellos.  Los datos del departamento incluyen todas las suscripciones que pertenecen a una cuenta de inscripción que esté vinculada al departamento. No es necesario hacer nada más en Azure Portal.
+Para obtener acceso al ámbito del departamento es necesario tener acceso de administrador del departamento (AD: ver los cargos) en el portal de EA. El administrador del departamento tiene acceso para ver los datos de costos y uso asociados con un departamento o con varios de ellos. Los datos del departamento incluyen todas las suscripciones que pertenecen a una cuenta de inscripción que esté vinculada al departamento. No es necesario hacer nada más en Azure Portal.
 
 1. Inicie sesión en el portal de EA en [https://ea.azure.com](https://ea.azure.com) con una cuenta de administrador de empresa.
 2. Seleccione **Manage** (Administrar) en el panel izquierdo.
@@ -89,7 +89,7 @@ Para obtener acceso al ámbito del departamento es necesario tener acceso de adm
 
 ## <a name="assign-enrollment-account-scope-access"></a>Asignar acceso al ámbito de la cuenta de inscripción
 
-Para obtener acceso al ámbito de la cuenta de inscripción es necesario tener acceso de propietario de la cuenta (PC: ver los cargos) en el portal de EA. El propietario de la cuenta puede ver los datos de los costos y de uso asociados con una cuenta de inscripción. Los datos en la cuenta de inscripción incluyen todas las suscripciones de Azure asociadas a la inscripción. No es necesario hacer nada más en Azure Portal.
+Para obtener acceso al ámbito de la cuenta de inscripción es necesario tener acceso de propietario de la cuenta (PC: ver los cargos) en el portal de EA. El propietario de la cuenta puede ver los datos de costos y de uso asociados con las suscripciones que se crean a partir de esa cuenta de inscripción. No es necesario hacer nada más en Azure Portal.
 
 1. Inicie sesión en el portal de EA en [https://ea.azure.com](https://ea.azure.com) con una cuenta de administrador de empresa.
 2. Seleccione **Manage** (Administrar) en el panel izquierdo.
@@ -101,9 +101,11 @@ Para obtener acceso al ámbito de la cuenta de inscripción es necesario tener a
 8. Haga clic en **Add** (Agregar) para crear la cuenta.  
     ![Cuadro para agregar una cuenta](./media/assign-access-acm-data/add-account.png)
 
+Después de completar los pasos anteriores, la cuenta de usuario se convierte en una cuenta de inscripción en Enterprise Portal y puede crear suscripciones. El usuario puede tener acceso a los datos de costo y uso para las suscripciones que crea.
+
 ## <a name="assign-management-group-scope-access"></a>Asignar el acceso al ámbito de grupo de administración
 
-Para obtener acceso al ámbito de grupo de administración es necesario tener al menos permiso de lector de Cost Management. Debe configurar el permiso del grupo de administración en Azure Portal. Asimismo, debe tener al menos permiso de colaborador en el grupo de administración para poder otorgar acceso a otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
+Para obtener acceso al ámbito de grupo de administración es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos de un grupo de administración en Azure Portal. Debe tener al menos el permiso de acceso de usuario administrador (o propietario) para el grupo de Administrador de acceso de usuario (o Propietario) del grupo de administración para habilitar el acceso de otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
 1. Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
 2. Seleccione **All Services** (Todos los servicios)en la barra lateral, busque los _grupos de administración_ y, a continuación, seleccione los **grupos de administración** que necesite.
@@ -119,7 +121,7 @@ Para obtener acceso al ámbito de grupo de administración es necesario tener al
 
 ## <a name="assign-subscription-scope-access"></a>Asignar acceso de ámbito de suscripción
 
-Para obtener acceso a la suscripción es necesario tener al menos permiso de lector de Cost Management (Lector). Debe configurar el permiso a una suscripción en Azure Portal. Asimismo, debe tener al menos permiso de colaborador en la suscripción para poder otorgar acceso a otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
+Para obtener acceso a la suscripción, es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos a una suscripción en Azure Portal. Debe tener al menos el permiso de Administrador de acceso de usuario (o Propietario) de la suscripción para habilitar el acceso de otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
 1. Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
 2. Seleccione **All Services** (Todos los servicios) en la barra lateral, busque _suscripciones_ y , a continuación, seleccione la opción **Subscriptions** (Suscripciones).
@@ -133,7 +135,7 @@ Para obtener acceso a la suscripción es necesario tener al menos permiso de lec
 
 ## <a name="assign-resource-group-scope-access"></a>Asignar el acceso al ámbito de grupo de recursos
 
-Para obtener acceso al grupo de recursos es necesario tener al menos permiso de lector de Cost Management (Lector). Debe configurar el permiso del grupo de recursos en Azure Portal. Asimismo, debe tener al menos permiso de colaborador en el grupo de recursos para poder otorgar acceso a otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
+Para obtener acceso al grupo de recursos es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos de un grupo de recursos en Azure Portal. Debe tener al menos el permiso de Administrador de acceso de usuario (o Propietario) del grupo de recursos para habilitar el acceso de otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
 1. Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
 2. Seleccione **All Services** (Todos los servicios)en la barra lateral, busque los _grupos de recursos_ y, a continuación, seleccione la opción **Resource groups** (Grupos de recursos).

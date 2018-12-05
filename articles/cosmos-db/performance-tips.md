@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 3e724301d235db49ab9332dedc877d7315460ecc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 91da40613e940b3dd577362273cf14e68d019f26
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256177"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442499"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugerencias de rendimiento para Azure Cosmos DB y .NET
 
@@ -104,7 +104,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     Las solicitudes de Azure Cosmos DB se realizan a través de HTTPS o REST cuando se usa el modo de puerta de enlace, y están condicionadas por los límites de conexión predeterminados por nombre de host o dirección IP. Puede que deba establecer MaxConnections en un valor mayor (100-1000) para que la biblioteca del cliente pueda utilizar varias conexiones simultáneas para Azure Cosmos DB. En el SDK 1.8.0 de .NET o versiones superiores, el valor predeterminado de [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) es 50 y para cambiar el valor, debe establecer [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) en un valor más alto.   
 4. **Ajuste de consultas paralelas en colecciones particionadas**
 
-     A partir de la versión 1.9.0 del SDK de .NET para SQL se admiten consultas paralelas que permiten consultar una colección con particiones en paralelo (consulte [Trabajar con los SDK](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) y los [ejemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados para más información). Las consultas paralelas están diseñadas para mejorar la latencia y el rendimiento de la consulta en todos sus homólogos seriales. Las consultas paralelas proporcionan dos parámetros que los usuarios pueden adaptar según sus necesidades: (a) MaxDegreeOfParallelism, para controlar el número máximo de particiones que se pueden consultar en paralelo, y (b) MaxBufferedItemCount, para controlar el número de resultados recuperados previamente.
+     A partir de la versión 1.9.0 del SDK de .NET para SQL se admiten consultas paralelas que permiten consultar una colección con particiones en paralelo. Para obtener más información, consulte los [ejemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados para trabajar con los SDK. Las consultas paralelas están diseñadas para mejorar la latencia y el rendimiento de la consulta en todos sus homólogos seriales. Las consultas paralelas proporcionan dos parámetros que los usuarios pueden adaptar según sus necesidades: (a) MaxDegreeOfParallelism, para controlar el número máximo de particiones que se pueden consultar en paralelo, y (b) MaxBufferedItemCount, para controlar el número de resultados recuperados previamente.
 
     (a) La consulta paralela ***Tuning MaxDegreeOfParallelism\:*** realiza consultas en varias particiones en paralelo. Sin embargo, los datos de una recopilación con particiones individual se capturan en serie con respecto a la consulta. Por lo tanto, establecer el parámetro MaxDegreeOfParallelism en el número de particiones tiene la máxima probabilidad de conseguir el mejor rendimiento de consulta, siempre y cuando el resto de las demás condiciones del sistema permanezcan invariables. Si no conoce el número de particiones, puede establecer MaxDegreeOfParallelism en un número alto y el sistema elegirá el mínimo (número de particiones, entrada proporcionada por el usuario) como el valor de MaxDegreeOfParallelism.
 
@@ -172,7 +172,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
     ```
 
-    Para más información, consulte [Directivas de indexación de Azure Cosmos DB](indexing-policies.md).
+    Para más información, consulte [Directivas de indexación de Azure Cosmos DB](index-policy.md).
 
 ## <a name="throughput"></a>Throughput
 <a id="measure-rus"></a>

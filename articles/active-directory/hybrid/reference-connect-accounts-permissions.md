@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a3bce69236586bcd0a250c47f1129ac0d94e8b26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231489"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308790"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
 
@@ -39,7 +39,10 @@ Azure AD Connect usa 3 cuentas para sincronizar la información de un entorno lo
 
 Además de estas tres cuentas usadas para ejecutar Azure AD Connect, también necesitará las siguientes cuentas adicionales para instalar Azure AD Connect.  Dichos componentes son:
 
-- **Cuenta de administrador de empresa de AD DS**: usada para instalar Azure AD Connect
+- **Cuenta de administrador local**: administrador que está instalando Azure AD Connect y que tiene permisos de administrador local en el equipo.
+
+- **Cuenta de administrador de empresa de AD DS**: se usa de manera opcional para crear la "cuenta de conector de AD DS" anterior.
+
 - **Cuenta de administrador global de Azure AD**: utilizada para crear la cuenta del conector de Azure AD y configurar Azure AD.
 
 - **Cuenta de SA de SQL (opcional)**: usada para crear la base de datos ADSync cuando se usa la versión completa de SQL Server.  Este servidor SQL Server puede ser local o remoto a la instalación de Azure AD Connect.  Esta cuenta puede ser la misma cuenta que la del administrador de empresa.  El administrador de SQL puede realizar ahora el aprovisionamiento de la base de datos fuera de banda y luego el administrador de Azure AD Connect puede instalarla con derechos de propietario de la base de datos.  Para más información, consulte [Instalación de Azure AD Connect con permisos de administrador delegado de SQL](how-to-connect-install-sql-delegation.md)

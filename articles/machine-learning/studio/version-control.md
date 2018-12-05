@@ -1,11 +1,12 @@
 ---
-title: ALM en Azure Machine Learning| Microsoft Docs
+title: 'Administración del ciclo de vida de las aplicaciones: Azure Machine Learning Studio | Microsoft Docs'
 description: Aplicar procedimientos recomendados de administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio
 keywords: ALM, AML, Azure ML, administración del ciclo de vida de las aplicaciones, control de versiones
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 ms.assetid: 1be6577d-f2c7-425b-b6b9-d5038e52b395
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: d201d8848891038355fad01f610070259ad1e42a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e0255d43828b49e98494f8f8e9ee998c1af90685
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259197"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307260"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio
 Azure Machine Learning Studio es una herramienta para desarrollar experimentos de Machine Learning y que se hacen operativos en la plataforma de nube de Azure. Es como IDE de Visual Studio y servicio en la nube escalable combinados en una sola plataforma. Es posible incorporar a Azure Machine Learning Studio prácticas de administración del ciclo de vida de las aplicaciones (ALM) estándar, desde el control de versiones de diversos recursos a la ejecución e implementación automatizadas. En este artículo se analizan algunas de las opciones y enfoques.

@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ca05941a499d6bc3e183919de7b407cfba53038d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d60f2aca912f279f84710863e5f6ce507de64cb0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958260"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309181"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Guía de inicio rápido: Envío de una consulta a Bing Local Business Search API mediante Node.js
 
@@ -29,7 +29,7 @@ Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para 
 
 * La [biblioteca de solicitudes de JavaScript](https://github.com/request/request).
 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con las API de Bing. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Utilice la clave de acceso proporcionada por la evaluación gratuita.
+Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con las API de Bing. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Utilice la clave de acceso proporcionada por la evaluación gratuita.  Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ##<a name="code-scenario"></a>Escenario de código
 El código siguiente obtiene, define y envía la solicitud. Se implementa en los pasos siguientes:
@@ -56,7 +56,7 @@ let path = '/v7.0/localbusinesses/search';
 let mkt = 'en-US';
 let q = 'hotel in Bellevue';
 
-let params = '?q=' + encodeURI(q) + "&appid=" + accessKey + "&traffictype=Internal_monitor&mkt=" + mkt;
+let params = '?q=' + encodeURI(q) + "&mkt=" + mkt;
 
 let response_handler = function (response) {
     let body = '';

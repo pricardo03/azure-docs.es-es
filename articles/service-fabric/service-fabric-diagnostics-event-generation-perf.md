@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408020"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290780"
 ---
 # <a name="performance-metrics"></a>Métricas de rendimiento
 
@@ -31,14 +31,15 @@ Para las máquinas del clúster, considere la posibilidad de recopilar los sigui
 
 | Categoría de contador | Nombre del contador |
 | --- | --- |
+| Disco lógico | Espacio disponible en el disco lógico |
 | Disco físico (por disco) | Prom. Longitud de la cola de lectura de disco |
 | Disco físico (por disco) | Prom. Longitud de la cola de escritura de disco |
 | Disco físico (por disco) | Prom. Segundos de disco/lecturas |
 | Disco físico (por disco) | Prom. Segundos de disco/escrituras |
 | Disco físico (por disco) | Lecturas de disco/s  |
 | Disco físico (por disco) | Bytes de lectura de disco/s  |
-| Disco físico (por disco) | Escrituras en disco/s |
-| Disco físico (por disco) |  Bytes de escritura en disco/s |
+| Disco físico (por disco) |  Escrituras en disco/s |
+| Disco físico (por disco) |   Bytes de escritura en disco/s |
 | Memoria | MB disponibles |
 | Archivo de paginación | % de uso |
 | Procesador (total) | % de tiempo de procesador |
@@ -49,6 +50,9 @@ Para las máquinas del clúster, considere la posibilidad de recopilar los sigui
 | Proceso (por servicio) | Bytes virtuales |
 | Proceso (por servicio) | Espacio de trabajo |
 | Proceso (por servicio) | Espacio de trabajo privado |
+| Interfaz de red (todas las instancias) | Bytes leídos |
+| Interfaz de red (todas las instancias) | Bytes enviados |
+| Interfaz de red (todas las instancias) | Total de bytes |
 | Interfaz de red (todas las instancias) | Longitud de la cola de salida |
 | Interfaz de red (todas las instancias) | Paquetes de salida descartados |
 | Interfaz de red (todas las instancias) | Paquetes recibidos descartados |
@@ -65,6 +69,8 @@ Recopile los contadores siguientes si va a implementar servicios de .NET en el c
 | Memoria CLR de .NET (por servicio) | Número total de bytes confirmados |
 | Memoria CLR de .NET (por servicio) | Número total de bytes reservados |
 | Memoria CLR de .NET (por servicio) | Número de bytes en todos los montones |
+| Memoria CLR de .NET (por servicio) | Tamaño del montón del objeto grande |
+| Memoria CLR de .NET (por servicio) | Número de identificadores del GC |
 | Memoria CLR de .NET (por servicio) | Número de colecciones de gen. 0 |
 | Memoria CLR de .NET (por servicio) | Número de colecciones de gen. 1 |
 | Memoria CLR de .NET (por servicio) | Número de colecciones de gen. 2 |
@@ -76,7 +82,7 @@ Service Fabric genera una cantidad considerable de contadores de rendimiento per
 
 En las aplicaciones que está implementando en el clúster, si usa Reliable Actors, agregue los contadores de las categorías `Service Fabric Actor` y `Service Fabric Actor Method` (consulte [Diagnóstico de Reliable Actors de Service Fabric](service-fabric-reliable-actors-diagnostics.md)).
 
-Si usa Reliable Services, del mismo modo tenemos las categorías de contadores `Service Fabric Service` y `Service Fabric Service Method` desde las cuales se deben recopilar los contadores. 
+Si usa Reliable Services o la comunicación remota de servicio, también tenemos las categorías de contadores `Service Fabric Service` y `Service Fabric Service Method` de las que debería recopilar los contadores de rendimiento. Consulte los temas de [supervisión con la comunicación remota de servicio](service-fabric-reliable-serviceremoting-diagnostics.md) y [contadores de rendimiento de Reliable Services](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
 Si usa Reliable Collections, se recomienda agregar `Avg. Transaction ms/Commit` desde `Service Fabric Transactional Replicator` para recopilar la latencia promedio de confirmación por cada métrica de transacción.
 

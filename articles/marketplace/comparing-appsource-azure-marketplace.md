@@ -14,18 +14,22 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3aadd39a3c85b89c3626b838f15ea5e6e58fdfb8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 926fc46a4afd4e434e9769802ac096347b4ce4f0
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668756"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620088"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparación de AppSource y Azure Marketplace
 Los escaparates de [Azure Marketplace](https://azuremarketplace.microsoft.com) y [Microsoft AppSource](https://appsource.microsoft.com) atienden los requisitos únicos de los clientes. Utilice los escaparates para dirigirse a los clientes por rol. Puede ofrecer la solución o el servicio correctos en función del cliente.
 
 ## <a name="understanding-the-differences-between-storefronts"></a>Diferencias entre escaparates
 La elección de un escaparate empieza por identificar la audiencia de destino de su oferta. Si sus audiencias de destino se encuentran en varios escaparates, puede publicar una sola vez para vender en varios escaparates.
+
+| Azure Marketplace | AppSource |
+|:--- |:--- |
+| Desarrolladores y profesionales de TI | Responsables de toma de decisiones empresariales |
  
 En las tablas siguientes se describen las ventajas del uso de un escaparate:
 

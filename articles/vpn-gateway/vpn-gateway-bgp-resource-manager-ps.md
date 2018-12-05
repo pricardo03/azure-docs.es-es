@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 4eb62786522dd1ad7cbf1d5668a4c4493028733c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684348"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632592"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Configuración de BGP para Azure VPN Gateway con PowerShell
 Este artículo le guiará por los pasos para habilitar BGP en una conexión de VPN de sitio a sitio (S2S) entre locales y una conexión de red virtual a red virtual mediante el modelo de implementación de Resource Manager y PowerShell.
@@ -167,7 +167,7 @@ $BGPPeerIP5 = "10.52.255.254"
 Un par de cosas a tener en cuenta con respecto a los parámetros de la puerta de enlace de red local:
 
 * La puerta de enlace de red local puede estar en la misma ubicación y grupo de recursos que la puerta de enlace de VPN o en otros distintos. Este ejemplo los muestra en distintos grupos de recursos en diferentes ubicaciones.
-* El prefijo mínimo que debe declarar para la puerta de enlace de red local es la dirección del host de la dirección IP del par BGP en el dispositivo VPN. En este caso, es un prefijo /32 de "10.52.255.254/32".
+* El prefijo que debe declarar para la puerta de enlace de red local es la dirección del host de la dirección IP del par BGP en el dispositivo VPN. En este caso, es un prefijo /32 de "10.52.255.254/32".
 * Como recordatorio, debe usar diferentes ASN de BGP entre las redes locales y la red virtual de Azure. Si son iguales, tiene que cambiar el ASN de la red virtual si el dispositivo VPN local ya utiliza el ASN para emparejarse con otros vecinos de BGP.
 
 Antes de continuar, asegúrese de que sigue conectado a la suscripción 1.

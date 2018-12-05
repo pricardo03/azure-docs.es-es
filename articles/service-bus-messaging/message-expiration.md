@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 11/29/2018
 ms.author: spelluru
-ms.openlocfilehash: e2efe2bfb26fa7a14a9e80c26fba1322f82cb0eb
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c5df5f43c4f01013cc44a2497203947f303f3e81
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856928"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634836"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiración de mensajes (período de vida)
 
-La carga dentro de un mensaje, o un comando o una consulta que transmite un mensaje a un receptor, casi siempre está sujeta a alguna forma de fecha límite de expiración de nivel de aplicación. Después de esta fecha límite, el contenido ya no se entrega o la operación solicitada ya no se ejecuta.
+La carga de un mensaje, o un comando o una consulta que transmite un mensaje a un receptor, casi siempre está sujeta a alguna forma de fecha límite de expiración de nivel de aplicación. Después de esta fecha límite, el contenido ya no se entrega o la operación solicitada ya no se ejecuta.
 
 En los entornos de desarrollo y pruebas en los que las colas y los temas se usan a menudo en el contexto de ejecuciones parciales de aplicaciones o partes de aplicaciones, también conviene que los mensajes de prueba perdidos se recopilen automáticamente como elementos no utilizados para que la siguiente serie de pruebas pueda comenzar de forma limpia.
 
-La expiración de los mensajes individuales puede controlarse mediante la propiedad del sistema [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), que especifica una duración relativa. La expiración se convierte en un instante absoluto cuando el mensaje se pone en cola en la entidad. En ese momento, la propiedad [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) toma el valor [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+La expiración de los mensajes individuales puede controlarse mediante la propiedad del sistema [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), que especifica una duración relativa. La expiración se convierte en un instante absoluto cuando el mensaje se pone en cola en la entidad. En ese momento, la propiedad [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) toma el valor [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). La configuración de período de vida (TTL) en un mensaje asincrónico no se aplica cuando no hay ningún cliente que escuche activamente.
 
 Tras el instante **ExpiresAtUtc**, los mensajes se vuelven inteligibles para la recuperación. La expiración no afecta a los mensajes que están bloqueados actualmente para la entrega; esos mensajes aún se gestionan normalmente. Si el bloqueo expira o se abandona el mensaje, la expiración surte efecto inmediato.
 
@@ -44,15 +44,37 @@ La combinación de [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.t
 
 Por ejemplo, imagine un sitio web que necesita ejecutar trabajos de forma confiable en un back-end con restricción de escala, y que experimenta de vez en cuando picos de tráfico o quiere aislarse contra episodios de ese back-end. En el caso normal, el controlador del lado servidor de los datos de usuario enviados inserta la información en una cola y, como consecuencia, recibe una respuesta para confirmar que se ha gestionado correctamente la transacción a una cola de respuestas. Si hay un aumento del tráfico y el controlador de back-end no puede procesar sus elementos de trabajo pendiente a tiempo, los trabajos que han expirado se devuelven a la cola de mensajes fallidos. El usuario interactivo puede recibir la notificación de que la operación solicitada tardará un poco más de lo normal, y la solicitud se puede colocar entonces en una cola diferente en una ruta de acceso de procesamiento donde el resultado final de dicho procesamiento se envía al usuario por correo electrónico. 
 
+
 ## <a name="temporary-entities"></a>Entidades temporales
 
 Las colas, los temas y las suscripciones de Service Bus se pueden crear como entidades temporales, que se eliminan automáticamente cuando no se han usado durante un período de tiempo especificado.
  
 La limpieza automática resulta útil en escenarios de desarrollo y pruebas en los que las entidades se crean dinámicamente y no se limpian tras su uso debido a alguna interrupción de la ejecución de la depuración o prueba. También es útil cuando una aplicación crea entidades dinámicas, como una cola de respuestas, para volver a recibir respuestas en un proceso de servidor web, o en otro objeto de duración relativamente corta donde resulta difícil limpiar esas entidades de forma confiable cuando la instancia del objeto desaparece.
 
-La característica se habilita mediante la propiedad [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues), que se establece en el período durante el cual una entidad debe estar inactiva (sin usar) antes de que se elimine automáticamente. La duración mínima es de 5 minutos.
+Esta característica se habilita con la propiedad [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues). Esta propiedad se establece en el período durante el cual una entidad debe estar inactiva (sin usar) antes de que se elimine automáticamente. El valor mínimo para esta propiedad es de 5.
  
-La propiedad **autoDeleteOnIdle** debe establecerse mediante una operación de Azure Resource Manager o a través de las API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) del cliente de .NET Framework. No se puede establecer mediante el portal.
+La propiedad **autoDeleteOnIdle** debe establecerse mediante una operación de Azure Resource Manager o a través de las API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) del cliente de .NET Framework. No se puede establecer en el portal.
+
+## <a name="idleness"></a>Inactividad
+
+Esto es lo que se considera inactividad de las entidades (colas, temas y suscripciones):
+
+- Colas
+    - No envía  
+    - No recibe  
+    - No hay actualizaciones a la cola  
+    - No hay mensajes programados  
+    - No hay navegación o inspección 
+- Temas  
+    - No envía  
+    - No hay actualizaciones al tema  
+    - No hay mensajes programados 
+- Suscripciones
+    - No recibe  
+    - No hay actualizaciones a la suscripción  
+    - No se han agregado nuevas reglas a la suscripción  
+    - No hay navegación o inspección  
+ 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

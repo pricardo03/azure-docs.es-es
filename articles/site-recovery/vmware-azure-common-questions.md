@@ -4,15 +4,15 @@ description: En este artículo se resumen las preguntas comunes al configurar la
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636822"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162490"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -47,14 +47,20 @@ Si es administrador de una suscripción, ya tiene los permisos de replicación q
 ## <a name="on-premises"></a>Local
 
 ### <a name="what-do-i-need-on-premises"></a>¿Qué necesito tener en el entorno local?
-En el entorno local, necesita los componentes de Site Recovery, instalados en una sola máquina virtual de VMware. También necesita una infraestructura de VMware, con al menos un host ESXi, y le recomendamos que tenga un servidor vCenter. Además, necesita una o varias máquinas virtuales de VMware para realizar la replicación. [Más información](vmware-azure-architecture.md) sobre la arquitectura de VMware en Azure.
 
-El servidor de configuración local se puede implementar de una de las dos maneras siguientes:
+En un entorno local, es preciso tener:
+- Los componentes de Site Recovery, instalados en una sola máquina virtual de VMware.
+- Una infraestructura de VMware con al menos un host ESXi; además, se recomienda que tenga un servidor vCenter.
+- Una o varias máquinas virtuales de VMware para realizar la replicación.
 
-1. Implementarlo mediante una plantilla de máquina virtual con el servidor de configuración preinstalado. [Obtenga más información aquí.](vmware-azure-tutorial.md#download-the-vm-template)
-2. Implementarlo con el programa de instalación en una máquina de Windows Server 2016 de su elección. [Obtenga más información aquí.](physical-azure-disaster-recovery.md#set-up-the-source-environment)
+[Más información](vmware-azure-architecture.md) sobre la arquitectura de VMware en Azure.
 
-Para conocer los pasos necesarios para implementar el servidor de configuración en sus propias máquinas de Windows Server, en el objetivo Protección de habilitar la protección, elija **To Azure > Not virtualized/Others** (A Azure > No virtualizados/Otros).
+El servidor de configuración local se puede implementar de la siguiente manera:
+
+- Se recomienda que implemente el servidor de configuración como una máquina virtual de VMware mediante una plantilla de OVA con el servidor de configuración preinstalado.
+- Si por algún motivo no puede usar una plantilla, puede configurar el servidor de configuración manualmente. [Más información](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>¿A dónde se replican las máquinas virtuales locales?
 Los datos se replican a Azure Storage. Cuando se ejecuta una conmutación por error, Site Recovery crea automáticamente máquinas virtuales de Azure a partir de la cuenta de almacenamiento.

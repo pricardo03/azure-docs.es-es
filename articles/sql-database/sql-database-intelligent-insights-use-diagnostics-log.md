@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166901"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977104"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Uso del registro de diagnóstico de rendimiento de Azure SQL Database de Intelligent Insights
 
@@ -39,9 +39,7 @@ El encabezado del registro es común y consta de la marca de tiempo (TimeGenerat
 
 ## <a name="issue-id-and-database-affected"></a>Identificador del problema y base de datos afectada
 
-La propiedad de identificación del problema (issueId_d) proporciona un método exclusivo de seguimiento de los problemas de rendimiento hasta su resolución. Intelligent Insights observa el ciclo de vida de cada problema como: activo ("Active"), comprobando ("Verifying") y completado ("Completed"). Mediante cada una de estas fases de estado, Intelligent Insights puede registrar varios registros de eventos en el registro. En cada una de estas entradas, el número de identificación del problema es único. Intelligent Insights realiza un seguimiento del problema a través de su ciclo de vida y genera datos en el registro de diagnóstico cada 15 minutos.
-
-Después de que se detecta un problema de rendimiento y mientras existe, el problema se notifica como "Active" en la propiedad de estado (status_s). Una vez que se mitiga un problema detectado, se comprueba y notifica como "Verifying" en la propiedad de estado (status_s). Si el problema ya no existe, la propiedad de estado (status_s) informa de este problema como "Completed".
+La propiedad de identificación del problema (issueId_d) proporciona un método exclusivo de seguimiento de los problemas de rendimiento hasta su resolución. En el registro que notifica el estado de un mismo problema, varios registros de eventos compartirán el mismo identificador de problema.
 
 Junto con el identificador del problema, el registro de diagnóstico notifica las marcas de tiempo de inicio (intervalStartTime_t) y finalización (intervalEndTme_t) del evento concreto relacionado con un problema notificado en el registro de diagnóstico.
 

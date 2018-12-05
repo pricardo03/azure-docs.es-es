@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624884"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422361"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Orígenes de datos para el contenido de QnA Maker
 
@@ -29,6 +29,10 @@ En la tabla siguiente se resumen los tipos de contenido y los formatos de archiv
 |PDF/DOC|Preguntas más frecuentes, manual de producto, prospectos, documento, folleto, directiva, guía de soporte técnico, preguntas y respuestas estructuradas, etc.|[Preguntas y respuestas estructuradas.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Manual de producto de ejemplo.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [Ejemplo semiestructurado.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Documento técnico de ejemplo.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
 |Excel|Archivo de preguntas y respuestas estructurado (incluyendo compatibilidad con HTML, RTF)|[Preguntas más frecuentes de preguntas y respuestas de ejemplo.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Archivo de preguntas y respuestas estructurado|[Charla de ejemplo.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+
+## <a name="data-source-locations"></a>Ubicaciones de orígenes de datos
+
+Solo son válidas las direcciones URL públicas para todos los orígenes de datos. No envíe orígenes de datos que requieran autenticación. Puede descargar el archivo desde el sitio autenticado y luego utilizar la opción de carga de archivos para extraer preguntas y respuestas.
 
 ## <a name="faq-urls"></a>Preguntas más frecuentes sobre las direcciones URL
 

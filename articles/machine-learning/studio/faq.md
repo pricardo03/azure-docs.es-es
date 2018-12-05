@@ -1,11 +1,12 @@
 ---
-title: Preguntas más frecuentes (P+F) sobre Azure Machine Learning | Microsoft Docs
-description: 'Introducción a Azure Machine Learning: preguntas más frecuentes sobre facturación, capacidades y limitaciones de un servicio de nube para un modelado de predicción optimizado.'
+title: 'Preguntas más frecuentes (P+F) sobre Machine Learning Studio: Azure | Microsoft Docs'
+description: 'Azure Machine Learning Studio: preguntas más frecuentes sobre facturación, funcionalidades y limitaciones de un servicio en la nube para un modelado de predicción optimizado.'
 keywords: introducción de aprendizaje automático, modelo predictivo, qué es el aprendizaje automático
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
 ms.component: studio
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247779"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309147"
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Preguntas más frecuentes sobre Azure Machine Learning: facturación, funcionalidades, limitaciones y soporte técnico
+# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Preguntas más frecuentes sobre Azure Machine Learning Studio: facturación, funcionalidades, limitaciones y soporte técnico
 Estas son algunas de las preguntas más frecuentes (P+F) y las respuestas correspondientes sobre Azure Machine Learning, un servicio en la nube para el desarrollo de modelos predictivos y la aplicación de soluciones mediante servicios web. Estas preguntas más frecuentes incluyen cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
 
 **¿Tiene una pregunta que no se encuentra aquí?**
@@ -29,12 +30,6 @@ Estas son algunas de las preguntas más frecuentes (P+F) y las respuestas corres
 Azure Machine Learning cuenta con un foro en MSDN, donde los miembros de la comunidad de las ciencias de los datos pueden plantear preguntas sobre Azure Machine Learning. El equipo de Azure Machine Learning supervisa el foro. Vaya al [foro de Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para buscar respuestas o publicar una pregunta nueva.
 
 ## <a name="general-questions"></a>Preguntas generales
-**¿Qué es Azure Machine Learning?**
-
-Azure Machine Learning es un servicio completamente administrado que sirve para crear, probar, utilizar y administrar soluciones de análisis predictivo en la nube. Con solo un explorador, puede iniciar sesión, cargar datos y comenzar rápidamente experimentos de aprendizaje automático. Un modelo predictivo basado en la funcionalidad de arrastrar y soltar, una gran paleta de módulos y una biblioteca de plantillas de inicio convierten las tareas de aprendizaje automático comunes en algo sencillo y rápido. Para obtener más información, consulte [Descripción general del servicio de Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Para ver una introducción al aprendizaje automático donde se explica terminología y conceptos clave, consulte [Introducción a Azure Machine Learning](what-is-machine-learning.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **¿Qué es Machine Learning Studio?**
 
 Machine Learning Studio es un entorno de trabajo al que se puede acceder mediante un explorador web. Machine Learning Studio hospeda una gran paleta de módulos en una interfaz de composición visual que ayuda a crear un flujo de trabajo completo de ciencia de los datos en forma de experimento.
@@ -173,7 +168,7 @@ No. Actualmente solo se admite el reentrenamiento mediante programación.
 
 **¿Puedo visualizar las capas de un modelo de red neuronal con el módulo integrado?**
 
-No.
+ No.
 
 **¿Puedo crear mis propios módulos en C# o algún otro lenguaje?**
 
@@ -210,7 +205,7 @@ Use las API de reentrenamiento. Para obtener más información, consulte [Volver
 ### <a name="create"></a>Crear
 **¿Puedo implementar el modelo de forma local o en una aplicación sin conexión a Internet?**
 
-No.
+ No.
 
 **¿Cabe esperar una latencia de línea de base para todos los servicios web?**
 
@@ -251,7 +246,7 @@ En la actualidad, el punto de conexión predeterminado se ha aprovisionado con 2
 
 **¿Los trabajos de R se reparten entre nodos?**
 
-No.  
+ No.  
 
 **¿Cuántos datos se pueden usar para el entrenamiento?**
 
@@ -280,7 +275,7 @@ Las filas y las columnas están limitadas a la limitación .NET de Máx. int.: 2
 
 **¿Se puede ajustar el tamaño de la máquina virtual que ejecuta el servicio web?**
 
-No.  
+ No.  
 
 ## <a name="security-and-availability"></a>Seguridad y disponibilidad
 **¿Quién puede acceder de forma predeterminada al punto de conexión http del servicio web? ¿Cómo se restringe el acceso al punto de conexión?**

@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f72490169149d247a43e2760815d757c3606f1b3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979138"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163731"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminología de Service Fabric Mesh
 
@@ -32,7 +32,7 @@ Azure Service Fabric Mesh es un servicio totalmente administrado que permite a l
 
 **Aplicación**: una aplicación de Service Fabric Mesh es la unidad de implementación, control de versiones y duración de una aplicación de Mesh. Además, el ciclo de vida de cada instancia de aplicación se puede administrar de forma independiente.  Las aplicaciones se componen de uno o más paquetes y configuraciones de código de servicio. Una aplicación se define mediante el esquema de modelo de recursos de Azure (RM).  Los servicios se describen como propiedades del recurso de aplicación en una plantilla de RM.  La aplicación hace referencia a las redes y volúmenes utilizados por la aplicación.  Al crear una aplicación, la aplicación, los servicios, la red y los volúmenes se modelan mediante el modelo de recursos de Service Fabric.
 
-**Servicio**: en una aplicación, un servicio representa un microservicio y realiza una función completa e independiente. Cada servicio se compone de uno o más paquetes de código que describen todo lo necesario para ejecutar la imagen de contenedor asociada con el paquete de código.  El número de servicios en una aplicación se puede escalar verticalmente y reducir verticalmente.
+**Servicio**: en una aplicación, un servicio representa un microservicio y realiza una función completa e independiente. Cada servicio se compone de uno o más paquetes de código que describen todo lo necesario para ejecutar la imagen de contenedor asociada con el paquete de código.  El número de réplicas de servicio en una aplicación se puede reducir y escalar horizontalmente.
 
 **Paquete de código**: los paquetes de código describen todo lo necesario para ejecutar la imagen de contenedor asociada con el paquete de código, incluidos los siguientes elementos:
 

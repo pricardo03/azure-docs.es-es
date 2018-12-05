@@ -4,7 +4,7 @@ description: Obtenga información acerca de cómo evitar cargos inesperados en l
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 3e7af4039ca5cd8aaadc36d3f87900e2127af7ab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c19769dda281f4346c23b823ea00eac83790b618
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255666"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582537"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
@@ -167,7 +167,8 @@ Para ver si usted es el administrador de la cuenta, vaya a la [hoja de suscripci
 
 Si no es el administrador de la cuenta, posiblemente alguien le dio acceso parcial mediante el [control de acceso basado en roles de Azure Active Directory](../role-based-access-control/role-assignments-portal.md) (RBAC). Para administrar suscripciones y cambiar la información de facturación [averigüe quién es el administrador de la cuenta](billing-subscription-transfer.md#whoisaa) y pídale que realice las tareas o que le [transfiera la suscripción](billing-subscription-transfer.md).
 
-Si el administrador de la cuenta ya no está en su organización y necesita administrar la facturación, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
+Si el administrador de la cuenta ya no está en su organización y necesita administrar la facturación, [póngase en contacto con nosotros](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-Si necesita ayuda, [póngase en contacto con soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

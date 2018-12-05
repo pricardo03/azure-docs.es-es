@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956449"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976815"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -92,7 +92,7 @@ En lugar de tener que preocuparse de crear y administrar una aplicación complet
 
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita la compilación, el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. También proporciona capacidades de administración de aplicaciones completas para el aprovisionamiento, la implementación, la supervisión, la actualización/aplicación de revisiones y eliminación de aplicaciones implementadas. Las aplicaciones, que se ejecutan en un grupo compartido de máquinas, pueden empezar con pocas máquinas y escalar hasta cientos o miles de máquinas si es necesario.
 
-Service Fabric admite WebAPI con Open Web Interface para .NET (OWIN) y ASP.NET Core. Ofrece varios SDK para compilar servicios en Linux tanto en .NET Core como Java. Para más información acerca de Service Fabric, consulte la [ruta de aprendizaje de Service Fabric](https://azure.microsoft.com/documentation/learning-paths/service-fabric/).
+Service Fabric admite WebAPI con Open Web Interface para .NET (OWIN) y ASP.NET Core. Ofrece varios SDK para compilar servicios en Linux tanto en .NET Core como Java. Para obtener más información acerca de Service Fabric, consulte la [documentación de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/).
 
 >**Cuándo se usa**: Service Fabric es una buena opción si se va a crear una aplicación o se va a volver a escribir una aplicación existente para que use una arquitectura de microservicios. Use Service Fabric cuando necesite más control sobre la infraestructura subyacente, o acceso directo a ella.
 

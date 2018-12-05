@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 9a75ae8645503366a490dbc0ea65d2fdc73d7c61
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: c10a933f371bfc84b863413134f2fdf5ff9c0e34
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167297"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161844"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-by-using-azure-data-factory"></a>Copia de datos hacia o desde Azure Cosmos DB mediante Azure Data Factory
 
@@ -56,7 +56,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Co
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** debe establecerse en **CosmosDb**. | SÍ |
-| connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure Cosmos DB.<br /><br />**Nota**: Debe especificar la información de la base de datos en la cadena de conexión como se muestra en los ejemplos siguientes. Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacen referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
+| connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure Cosmos DB.<br /><br />**Nota**: Debe especificar la información de la base de datos en la cadena de conexión como se muestra en los ejemplos siguientes. Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
 | connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica esta propiedad, se usa el valor predeterminado de Azure Integration Runtime. |Sin  |
 
 **Ejemplo**
@@ -182,8 +182,11 @@ La sección **source** de la actividad de copia admite las siguientes propiedade
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** del receptor de la actividad de copia debe establecerse en **DocumentDbCollectionSink**. |SÍ |
 | writeBehavior |Describe cómo escribir datos en Azure Cosmos DB. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo identificador; en caso contrario, inserta el documento.<br /><br />**Nota**: Data Factory genera automáticamente un identificador para un documento si no se especifica un identificador en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |Sin <br />(el valor predeterminado es **insert**) |
-| writeBatchSize | Data Factory usa la [biblioteca BulkExecutor en Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escribir datos en Azure Cosmos DB. La propiedad **writeBatchSize** controla el tamaño de los documentos que se proporcionan a la biblioteca. Puede intentar aumentar el valor de **writeBatchSize** para mejorar el rendimiento. |Sin <br />(el valor predeterminado es **10 000**) |
+| writeBatchSize | Data Factory usa la [biblioteca BulkExecutor en Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escribir datos en Azure Cosmos DB. La propiedad **writeBatchSize** controla el tamaño de los documentos que se proporcionan a la biblioteca. Puede aumentar el valor de **writeBatchSize** para mejorar el rendimiento y reducir el valor si el documento tiene un tamaño grande: a continuación encontrará sugerencias. |Sin <br />(el valor predeterminado es **10 000**) |
 | nestingSeparator |Un carácter especial en el nombre de columna de **origen** que indica que se necesita un documento anidado. <br/><br/>Por ejemplo, `Name.First` en la estructura del conjunto de datos de salida genera la siguiente estructura JSON en el documento de Azure Cosmos DB cuando **nestedSeparator** es punto **.** (punto): `"Name": {"First": "[value maps to this column from source]"}`  |Sin <br />(el valor predeterminado es **.** (punto)) |
+
+>[!TIP]
+>Cosmos DB limita el tamaño de las solicitudes únicas a 2 MB. La fórmula es Tamaño de la solicitud = tamaño de documento único x tamaño de lote de escritura. Si aparece un error con el texto **"El tamaño de solicitud es demasiado grande."** , **reduzca el valor de `writeBatchSize`** en la configuración del receptor de copia.
 
 **Ejemplo**
 

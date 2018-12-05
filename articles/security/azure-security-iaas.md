@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 057c98d4bac87b4e43e5beb8268d3d3bdbe3ec85
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364268"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498345"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 
@@ -51,7 +51,7 @@ Si su organización tiene varias suscripciones, podría necesitar una manera de 
 
 - [Colaborador de la máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): puede administrar máquinas virtuales, pero no la red virtual ni la cuenta de almacenamiento a la que están conectadas.
 - [Colaborador de la máquina virtual clásica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): puede administrar máquinas virtuales creadas con el modelo de implementación clásico, pero no la cuenta de almacenamiento ni la red virtual a la que están conectadas.
-- [Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-manager): puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales.
+- [Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-admin): Solo en Security Center: puede ver las directivas de seguridad, ver los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones.
 - [Usuario de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): puede ver todo el contenido, así como conectar, iniciar, reiniciar y apagar las máquinas virtuales.
 
 Los administradores y coadministradores de la suscripción pueden cambiar esta configuración, convirtiéndose en administradores de todas las máquinas virtuales de una suscripción. Asegúrese de que confía en todos los administradores y coadministradores de la suscripción para iniciar sesión en cualquiera de las máquinas.
@@ -170,5 +170,5 @@ Cuando se aplica Azure Disk Encryption, puede atender las siguientes necesidades
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.
 
 En los siguientes recursos se ofrece más información general sobre la seguridad de Azure y los servicios de Microsoft relacionados:
-* [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/): ofrece información actualizada sobre lo último en seguridad de Azure.
+* [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/): ofrece información actualizada sobre lo último en seguridad de Azure
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): aquí podrá notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a secure@microsoft.com.

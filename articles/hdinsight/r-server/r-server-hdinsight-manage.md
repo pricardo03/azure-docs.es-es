@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255411"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497542"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Administración de clústeres de ML Services en Azure HDInsight
 
@@ -33,7 +33,7 @@ Para habilitar varios usuarios simultáneos para un clúster de ML Services en H
 
 ![Usuario simultáneo 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
-- **Nombre de usuario de inicio de sesión del clúster**: un usuario HTTP para la autenticación a través de la puerta de enlace de HDInsight que se usa para proteger los clústeres de HDInsight que ha creado. Este usuario HTTP se utiliza para acceder a la interfaz de usuario de Ambari, a la interfaz de usuario de YARN y a otros componentes de la interfaz de usuario.
+- **Nombre de usuario de inicio de sesión del clúster**: un usuario HTTP para la autenticación a través de la puerta de enlace de HDInsight que se usa para proteger los clústeres de HDInsight que ha creado. Este usuario HTTP se utiliza para acceder a la interfaz de usuario de Apache Ambari, a la interfaz de usuario de Apache Hadoop YARN y a otros componentes de la interfaz de usuario.
 - **Nombre de usuario de Secure Shell (SSH)**: un usuario SSH para acceder al clúster a través de Secure Shell. Este es un usuario del sistema Linux para todos los nodos principales, nodos de trabajo y nodos perimetrales. Por consiguiente, puede usar Secure Shell para acceder a cualquiera de los nodos de un clúster remoto.
 
 La versión de comunidad de R Studio Server que se usa en el clúster de ML Services en HDInsight acepta únicamente el nombre de usuario y la contraseña de Linux como mecanismo de inicio de sesión. No admite tokens de paso. Por lo tanto, al tratar de obtener acceso a R Studio por primera vez en un clúster de ML Services, debe iniciar sesión dos veces.
@@ -52,7 +52,7 @@ Dado que RStudio se ejecuta en el nodo perimetral del clúster, hay que dar vari
 
 ### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Paso 1: Uso del usuario de SSH creado para iniciar sesión en el nodo perimetral
 
-Siga las instrucciones que se proporcionan en [Conexión a través de SSH con HDInsight (Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md) para acceder al nodo perimetral. La dirección del nodo perimetral para el clúster de ML Services en HDInsight es `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
+Siga las instrucciones que se proporcionan en [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md) para acceder al nodo perimetral. La dirección del nodo perimetral para el clúster de ML Services en HDInsight es `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>Paso 2: Adición de más usuarios de Linux al nodo perimetral
 
@@ -104,7 +104,7 @@ Puede configurar el acceso al contexto de proceso de HDInsight Spark desde una i
       consoleOutput= TRUE
     )
 
-Para más información, consulte la sección "Using Microsoft Machine Learning Server as a Hadoop Client" (Uso de Microsoft Machine Learning Server como cliente de Hadoop) de [How to use RevoScaleR in a Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Uso de RevoScaleR en un contexto de proceso de Spark)
+Para más información, consulte la sección "Using Microsoft Machine Learning Server as a Apache Hadoop Client" (Uso de Microsoft Machine Learning Server como cliente de Apache Hadoop) de [How to use RevoScaleR in a Apache Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Uso de RevoScaleR en un contexto de proceso de Apache Spark)
 
 ## <a name="use-a-compute-context"></a>Usar un contexto de proceso
 
@@ -250,7 +250,7 @@ Si aún usa el contexto de Spark, este comando devuelve el valor nodename de los
         nodename
     "wn3-mymlser"
 
-## <a name="access-data-in-hive-and-parquet"></a>Acceso a datos en Hive y Parquet
+## <a name="access-data-in-apache-hive-and-parquet"></a>Acceso a datos en Apache Hive y Parquet
 
 ML Services de HDInsight permite el acceso directo a los datos en Hive y Parquet para usarlos en funciones ScaleR en el contexto de proceso de Spark. Estas funcionalidades están disponibles por medio de las nuevas funciones de origen de datos ScaleR llamadas RxHiveData y RxParquetData. Estas emplean Spark SQL para cargar datos directamente en un elemento DataFrame de Spark para analizarlos con ScaleR.
 

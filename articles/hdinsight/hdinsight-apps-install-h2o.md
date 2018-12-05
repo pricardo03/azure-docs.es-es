@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 60b80843ce343c667413be55b59d02ac14b349f3
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d2aeb41c2fcc11c37ec56707932eabcf63e026a0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037522"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497203"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Instalación de aplicación publicada: H2O Sparkling Water
 
-En este artículo se describe cómo instalar y ejecutar la aplicación de Apache Hadoop publicada [H20 Sparkling Water](http://www.h2o.ai/) en Azure HDInsight. Para información general de la plataforma de aplicaciones HDInsight y una lista de las aplicaciones publicadas de fabricantes de software independiente (ISV) disponibles, consulte [Instalación de aplicaciones de Hadoop de terceros](hdinsight-apps-install-applications.md). Para obtener instrucciones sobre cómo instalar su propia aplicación, consulte [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
+En este artículo se describe cómo instalar y ejecutar la aplicación de [Apache Hadoop](https://hadoop.apache.org/) publicada [H20 Sparkling Water](http://www.h2o.ai/) en Azure HDInsight. Para información general de la plataforma de aplicaciones HDInsight y una lista de las aplicaciones publicadas de fabricantes de software independiente (ISV) disponibles, consulte [Instalación de aplicaciones de Hadoop de terceros](hdinsight-apps-install-applications.md). Para obtener instrucciones sobre cómo instalar su propia aplicación, consulte [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-h2o-sparkling-water"></a>Información sobre H2O Sparkling Water
 
-H2O Sparkling Water es una plataforma de aprendizaje automático en memoria de código abierto completamente distribuida con escalabilidad lineal. H2O Sparkling Water permite combinar los algoritmos de aprendizaje automático escalables y rápidos de H2O con las funcionalidades de Spark. Con Sparkling Water, los usuarios pueden impulsar el cálculo de Scala, R y Python con la interfaz de usuario de H2O Flow.
+H2O Sparkling Water es una plataforma de aprendizaje automático en memoria de código abierto completamente distribuida con escalabilidad lineal. H2O Sparkling Water permite combinar los algoritmos de aprendizaje automático escalables y rápidos de H2O con las funcionalidades de [Apache Spark](https://spark.apache.org/). Con Sparkling Water, los usuarios pueden impulsar el cálculo de [Scala](https://www.scala-lang.org/), R y Python con la interfaz de usuario de H2O Flow.
 
 H2O Sparkling Water ofrece:
 
@@ -49,11 +49,11 @@ Para instalar esta aplicación en un clúster de HDInsight nuevo o en un clúste
 
 ## <a name="install-the-h2o-sparkling-water-published-application"></a>Instalación de la aplicación publicada H2O Sparkling Water
 
-Para instrucciones paso a paso sobre cómo instalar esta aplicación y otras aplicaciones de ISV disponibles, lea [Instalación de aplicaciones de Hadoop de terceros](hdinsight-apps-install-applications.md).
+Para instrucciones paso a paso sobre cómo instalar esta aplicación y otras aplicaciones de ISV disponibles, lea [Instalación de aplicaciones de Apache Hadoop de terceros](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-h2o-sparkling-water"></a>Inicio de H2O Sparkling Water
 
-1. Después de la instalación, puede comenzar a usar H2O Sparkling Water (h2o-sparklingwater) desde su clúster en Azure Portal para abrir Jupyter Notebooks (`https://<ClusterName>.azurehdinsight.net/jupyter`). Para llegar a Jupyter, también puede seleccionar **Cluster dashboard** (panel de clúster) en el panel del clúster del portal y seleccionar **Jupyter Notebook**. Se le pedirá escribir sus credenciales. Escriba las credenciales de Hadoop del clúster tal como se especificó en la creación del clúster.
+1. Después de la instalación, puede comenzar a usar H2O Sparkling Water (h2o-sparklingwater) desde su clúster en Azure Portal para abrir [Jupyter Notebooks](https://jupyter.org/) (`https://<ClusterName>.azurehdinsight.net/jupyter`). Para llegar a Jupyter, también puede seleccionar **Cluster dashboard** (panel de clúster) en el panel del clúster del portal y seleccionar **Jupyter Notebook**. Se le pedirá escribir sus credenciales. Escriba las credenciales de Hadoop del clúster tal como se especificó en la creación del clúster.
 
 2. En Jupyter verá tres carpetas: H2O-PySparkling-Examples, PySpark Examples y Scala Examples. Seleccione la carpeta **H2O-PySparkling-Examples**.
 

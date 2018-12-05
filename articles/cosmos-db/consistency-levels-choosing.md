@@ -7,14 +7,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9234a57bdec3dfd7a1ccdba00b90a5c853dc1c5a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 42128a05ad9f82ff6b202eb6566c1fea60caa760
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960975"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162444"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>Elección del nivel de coherencia adecuado para la aplicación
 
@@ -52,7 +52,7 @@ Es posible que obtenga mayores garantías de coherencia en la práctica. Las gar
 
 * Para los tres niveles de coherencia restantes, la ventana de obsolescencia depende en gran medida la carga de trabajo. Por ejemplo, si no hay ninguna operación de escritura en la base de datos, una operación de lectura con los niveles de coherencia **posible**, **sesión** o **prefijo coherente** es probable que produzca los mismos resultados que una operación de lectura con el nivel de coherencia alto.
 
-Si su cuenta de Cosmos DB está configurada con un nivel de coherencia que no es el de coherencia alta, puede averiguar la probabilidad de que los clientes obtengan lecturas de coherencia alta para sus cargas de trabajo consultando la métrica de obsolescencia limitada de probabilidad (PBS). Esta métrica se expone en Azure Portal. Para más información, consulte el artículo acerca de [cómo usar la métrica PBS](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Si su cuenta de Cosmos DB está configurada con un nivel de coherencia que no es el de coherencia alta, puede averiguar la probabilidad de que los clientes obtengan lecturas de coherencia alta para sus cargas de trabajo consultando la métrica de obsolescencia limitada de probabilidad (PBS). Esta métrica se expone en Azure Portal; para obtener más información, consulte [Supervisión de la métrica de obsolescencia limitada de manera probabilística (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
 La obsolescencia limitada de probabilidad muestra cómo de posible es la coherencia final. Esta métrica proporciona una visión general de la frecuencia con la que puede obtener una coherencia mayor que el nivel de coherencia que tiene configurado actualmente en su cuenta de Cosmos DB. En otras palabras, puede ver la probabilidad (en milisegundos) de obtener lecturas con coherencia alta para una combinación de regiones de escritura y lectura.
 
@@ -63,4 +63,4 @@ Obtenga más información acerca de los niveles de coherencia en los siguientes 
 * [Consistency level mapping across Cosmos DB APIs](consistency-levels-across-apis.md) (Asignación de niveles de coherencia en las API de Cosmos DB)
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
 * [How to manage the session token for your application](how-to-manage-consistency.md#utilize-session-tokens) (Cómo administrar el token de sesión de su aplicación)
-* [How to monitor the Probabilistically Bounded Staleness (PBS) metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric) (Cómo supervisar la métrica de obsolescencia limitada de manera probabilística (PBS))
+* [Supervisión de la métrica de obsolescencia limitada de manera probabilística (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

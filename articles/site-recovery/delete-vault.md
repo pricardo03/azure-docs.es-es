@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 6827bcc561ced0d346d79e60b3f2b2fde83bc2d8
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212427"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977061"
 ---
-# <a name="delete-a-site-recovery-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services para Site Recovery
+# <a name="delete-a-site-recovery-services-vault"></a>Eliminación de un almacén de Site Recovery Services
 
 Las dependencias pueden evitar la eliminación de un almacén de Azure Site Recovery. Las acciones que hay que llevar a cabo varían en función del escenario de Site Recovery. Para eliminar un almacén de Azure Backup, consulte el artículo sobre la [eliminación de un almacén de Azure Backup](../backup/backup-azure-delete-vault.md).
 

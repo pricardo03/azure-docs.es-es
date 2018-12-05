@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 9ad7330960540e0bddc0130736265df402d582ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1df23a35e16d4ba3562ebbc9d89a7a8003afc784
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009339"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498936"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configuración del almacenamiento y la escalabilidad de Apache Kafka en HDInsight
 
-Aprenda a configurar el número de discos administrados usados por Apache Kafka en HDInsight.
+Aprenda a configurar el número de discos administrados usados por [Apache Kafka](https://kafka.apache.org/) en HDInsight.
 
 Kafka en HDInsight utiliza el disco local de las máquinas virtuales del clúster de HDInsight. Como Kafka tiene muchas E/S, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) se utiliza para proporcionar un alto rendimiento y un mayor espacio de almacenamiento por nodo. Si los discos duros virtuales (VHD) tradicionales se utilizaron para Kafka, cada nodo se limita a 1 TB. Con Managed Disks, puede utilizar varios discos para lograr hasta 16 TB para cada nodo del clúster.
 
@@ -53,11 +53,11 @@ Puede encontrar una plantilla completa que muestra cómo configurar discos admin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo trabajar con Kafka en HDInsight, consulte los documentos siguientes:
+Para más información sobre cómo trabajar con Apache Kafka en HDInsight, consulte los documentos siguientes:
 
-* [Uso de MirrorMaker para crear una réplica de Kafka en HDInsight](apache-kafka-mirroring.md)
-* [Uso de Apache Kafka con Storm en HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Uso de Apache Spark con Kafka en HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Conexión a Kafka a través de una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
+* [Uso de MirrorMaker para crear una réplica de Apache Kafka en HDInsight](apache-kafka-mirroring.md)
+* [Uso de Apache Storm con Apache Kafka en HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Uso de Apache Spark con Apache Kafka en HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Conexión a Apache Kafka a través de una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
 
-* [Blog de HDInsight en Managed Disks con Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)
+* [Blog de HDInsight sobre los discos administrados con Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)

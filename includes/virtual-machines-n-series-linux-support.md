@@ -2,24 +2,24 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 11/08/2018
-ms.author: danlep
+ms.date: 11/27/2018
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: c829b8d6fedaabfb9b43c6352c8188128cf36701
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: df7d8815eeb588e4e99041844642b6721e25dad7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333789"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585827"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuciones y controladores admitidos
 
 ### <a name="nvidia-cuda-drivers"></a>Controladores NVIDIA CUDA
 
-Los controladores NVIDIA CUDA para máquinas virtuales de las series NC, NCv2, NCv3 y ND (y opcionales para la serie NV) solo se admiten en las distribuciones de Linux enumeradas en la tabla siguiente. La información sobre los controladores de CUDA está actualizada en el momento de su publicación. Para ver los controladores de CUDA más recientes, visite el sitio web de [NVIDIA](https://developer.nvidia.com/cuda-zone). Asegúrese de instalar o actualizar los controladores más recientes de CUDA para su distribución. 
+Los controladores NVIDIA CUDA para máquinas virtuales de las series NC, NCv2, NCv3, ND y NDv2 (y opcionales para la serie NV) solo se admiten en las distribuciones de Linux enumeradas en la tabla siguiente. La información sobre los controladores de CUDA está actualizada en el momento de su publicación. Para ver los controladores de CUDA más recientes, visite el sitio web de [NVIDIA](https://developer.nvidia.com/cuda-zone). Asegúrese de instalar o actualizar los controladores más recientes de CUDA para su distribución. 
 
 > [!TIP]
 > Como alternativa a la instalación manual de controladores de CUDA en una máquina virtual Linux, puede implementar una imagen de [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) de Azure. Las ediciones de DSVM para Ubuntu 16.04 LTS o CentOS 7.4 preinstalan los controladores NVIDIA CUDA, la biblioteca CUDA Deep Neural Network Library y otras herramientas.
@@ -34,7 +34,7 @@ Microsoft redistribuye los instaladores del controlador NVIDIA GRID para VM de l
 
 | Distribución | Controlador |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 o 7.4<br/><br/>Basado en CentOS 7.3 o 7.4 | NVIDIA GRID 6.2, rama de controlador R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 o 7.4<br/><br/>Basado en CentOS 7.3 o 7.4 | NVIDIA GRID 7, rama de controlador R410|
 
 > [!WARNING] 
 > La instalación de software de terceros en productos de Red Hat puede afectar a los términos de soporte técnico de Red Hat. Vea el [artículo de Knowledgebase de Red Hat](https://access.redhat.com/articles/1067).

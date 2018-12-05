@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 79b3b84695bd547d6a4b12665aff822b21dfb781
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d389b3b7e50c83246542fd6b446827055a5a002a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354230"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583473"
 ---
 # <a name="prepay-for-azure-cosmos-db-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de Azure Cosmos DB con capacidad reservada
 
@@ -85,7 +85,7 @@ El descuento de la reserva se aplica automáticamente a los recursos de Microsof
    * [Información sobre el uso de reservas para suscripciones de pago por uso](../billing/billing-understand-reserved-instance-usage.md)
    * [Reservas de Azure en el programa CSP del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

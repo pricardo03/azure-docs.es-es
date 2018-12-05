@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441658"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582894"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas
 
@@ -23,7 +23,7 @@ ms.locfileid: "37441658"
 
 Mediante el uso de las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C), puede enviar un parámetro en una cadena de consulta. Al pasar dicho parámetro al punto de conexión HTML, puede cambiar de forma dinámica el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Este artículo se centra en cómo personalizar la interfaz de usuario de Azure AD B2C con *contenido dinámico* utilizando directivas personalizadas. Para empezar, consulte el artículo sobre [personalización de la interfaz de usuario en una directiva personalizada](active-directory-b2c-ui-customization-custom.md). 
 
 >[!NOTE]
@@ -178,7 +178,7 @@ Ubique el elemento `<img>` que contiene el valor de `ID` *background_background_
 
 3. En la ventana **CORS** en el cuadro **Orígenes permitidos**, realice una de las siguientes acciones:
 
-    * Escriba las direcciones URL desde las que desea permitir que procedan las llamadas de JavaScript.
+    * Escriba las direcciones URL desde las que desea permitir que procedan las llamadas de JavaScript. Las direcciones URL que escriba solo pueden incluir minúsculas.
     * También puede escribir un asterisco (*) para especificar que se aceptan todos los dominios de origen.
 
 4. Seleccione **Guardar**.
@@ -319,7 +319,7 @@ Modifique el método `unified` de HomeController para aceptar el parámetro camp
 Si selecciona el vínculo **Regístrese ahora** en la página de inicio de sesión, el explorador muestra la imagen de fondo predeterminada, no la imagen que ha definido. Este comportamiento se produce porque ha cambiado la página de registro o de inicio de sesión. Para cambiar el resto de las definiciones de contenido de autoaserción:
 1. Vuelva al "Paso 2" y haga lo siguiente:
 
-    a. Descargue el archivo *selfasserted*.
+     a. Descargue el archivo *selfasserted*.
 
     b. Copie el contenido del archivo.
 
@@ -329,7 +329,7 @@ Si selecciona el vínculo **Regístrese ahora** en la página de inicio de sesi�
 
 2. Vuelva al "Paso 4" y haga lo siguiente: 
 
-    a. En la directiva de extensión, busque el nodo `<ContentDefinition>` que incluye `Id="api.selfasserted"`, `Id="api.localaccountsignup"` y `Id="api.localaccountpasswordreset"`.
+     a. En la directiva de extensión, busque el nodo `<ContentDefinition>` que incluye `Id="api.selfasserted"`, `Id="api.localaccountsignup"` y `Id="api.localaccountpasswordreset"`.
 
     b. Establezca el atributo `LoadUri` en el URI de *selfasserted*.
 

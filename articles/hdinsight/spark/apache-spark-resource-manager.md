@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 166d52322504e57e01a4bd798252fc956c1a3e44
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3536fb21d50dd54ec71615eba25c2d60fc727f34
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014591"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583302"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Administración de recursos de un clúster Apache Spark en Azure HDInsight 
 
-Aprenda a acceder a interfaces como la interfaz de usuario de Ambari, la de YARN y el servidor de historial de Spark asociadas al clúster de Spark, y a ajustar la configuración del clúster para optimizar el rendimiento.
+Aprenda a acceder a interfaces como la interfaz de usuario de [Apache Ambari](https://ambari.apache.org/), la de [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) y el servidor de historial de Spark asociadas al clúster de [Apache Spark](https://spark.apache.org/), y a ajustar la configuración del clúster para optimizar el rendimiento.
 
 **Requisitos previos:**
 
@@ -26,7 +26,7 @@ Aprenda a acceder a interfaces como la interfaz de usuario de Ambari, la de YARN
 
 ## <a name="open-the-ambari-web-ui"></a>Apertura de la interfaz de usuario web de Ambari
 
-Apache Ambari se usa para supervisar el clúster y realizar cambios de configuración. Para más información, consulte [Administración de clústeres de Hadoop en HDInsight mediante Azure Portal](../hdinsight-administer-use-portal-linux.md#open-the-ambari-web-ui).
+Apache Ambari se usa para supervisar el clúster y realizar cambios de configuración. Para más información, consulte [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](../hdinsight-administer-use-portal-linux.md#open-the-apache-ambari-web-ui).
 
 ## <a name="open-the-spark-history-server"></a>Apertura del servidor de historial de Spark
 
@@ -158,19 +158,19 @@ Inicie la interfaz de usuario web de Yarn tal como se muestra al principio del a
 
 ### <a name="for-data-analysts"></a>Para analistas de datos
 
-* [Creación de aplicaciones de Machine Learning con Apache Spark en HDInsight de Azure](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Análisis del registro del sitio web con Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
-* [Análisis de datos de telemetría de Application Insights con Spark en HDInsight](apache-spark-analyze-application-insight-logs.md)
+* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para analizar la temperatura de un edificio mediante datos de HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md) (Análisis de registros de sitios web mediante Apache Spark en HDInsight)
+* [Análisis de datos de telemetría de Application Insights con Apache Spark en HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Uso de Caffe en Azure HDInsight Spark para el aprendizaje profundo distribuido](apache-spark-deep-learning-caffe.md)
 
-### <a name="for-spark-developers"></a>Para desarrolladores de Spark
+### <a name="for-apache-spark-developers"></a>Para los desarrolladores de Apache Spark
 
 * [Crear una aplicación independiente con Scala](apache-spark-create-standalone-application.md)
-* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](apache-spark-livy-rest-interface.md)
+* [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Livy](apache-spark-livy-rest-interface.md)
 * [Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones de Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Apache Spark de forma remota)
+* [Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels disponible para Jupyter Notebook en clústeres Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](apache-spark-jupyter-notebook-install-locally.md)

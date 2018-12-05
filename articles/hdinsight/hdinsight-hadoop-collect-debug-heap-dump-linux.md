@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037723"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498680"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Habilitar los volcados de montón de los servicios de Apache Hadoop en HDInsight basado en Linux
 
@@ -39,7 +39,7 @@ También puede habilitar los volcados de montón para los procesos de asignació
 
 ## <a name="configuration"></a>Información sobre cómo configurar el volcado de montón
 
-Son las opciones de paso (también conocidas como opciones o parámetros) las que habilitan los volcados de montón en JVM cuando se inicia un servicio. En la mayoría de los servicios de Hadoop, puede modificar el script de shell empleado para iniciar el servicio para pasar estas opciones.
+Son las opciones de paso (también conocidas como opciones o parámetros) las que habilitan los volcados de montón en JVM cuando se inicia un servicio. En la mayoría de los servicios de [Apache Hadoop](https://hadoop.apache.org/), puede modificar el script de shell empleado para iniciar el servicio para pasar estas opciones.
 
 En cada script hay una exportación de **\*\_OPTS** que contiene las opciones que se pasan a JVM. Por ejemplo, en el script **hadoop env.sh**, la línea que comienza con `export HADOOP_NAMENODE_OPTS=` contiene las opciones del servicio NameNode.
 
@@ -49,7 +49,7 @@ La asignación y reducción de procesos son tareas ligeramente diferentes, ya qu
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> Se recomienda usar Apache Ambari para modificar los scripts y la configuración de mapred-site.xml, puesto que Ambari controla la replicación de los cambios en los nodos del clúster. Consulte la sección [Uso de Ambari](#using-ambari) para obtener los pasos específicos que debe dar.
+> Se recomienda usar [Apache Ambari](https://ambari.apache.org/) para modificar los scripts y la configuración de mapred-site.xml, puesto que Ambari controla la replicación de los cambios en los nodos del clúster. Consulte la sección [Uso de Apache Ambari](#using-apache-ambari) para obtener los pasos específicos que debe dar.
 
 ### <a name="enable-heap-dumps"></a>Habilitar los volcados de montón
 
@@ -77,11 +77,11 @@ También puede desencadenar un script cuando se produzca un error **OutOfMemoryE
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> Puesto que Hadoop es un sistema distribuido, debe colocar cualquier script que use en todos los nodos del clúster que ejecute el servicio.
+> Puesto que Apache Hadoop es un sistema distribuido, debe colocar cualquier script que use en todos los nodos del clúster que ejecute el servicio.
 > 
 > Asimismo, el script debe estar en una ubicación que sea accesible para la cuenta con la cual se ejecuta el servicio y deberá proporcionar permisos de ejecución. A modo de ejemplo, es posible que desee almacenar los scripts en `/usr/local/bin` y usar `chmod go+rx /usr/local/bin/filename.sh` para conceder permisos de ejecución y lectura.
 
-## <a name="using-ambari"></a>Uso de Ambari
+## <a name="using-apache-ambari"></a>Uso de Apache Ambari
 
 Para modificar la configuración de un servicio, siga estos pasos:
 

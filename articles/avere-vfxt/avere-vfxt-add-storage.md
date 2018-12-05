@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: aba023667094fb00647861fb2dd300eda64e4897
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669962"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163178"
 ---
 # <a name="configure-storage"></a>Configurar el almacenamiento
 
@@ -48,15 +48,20 @@ Los siguientes pasos agregan un archivador principal de NAS:
 
 1. En el panel de control de Avere, haga clic en la ficha **Settings** (Configuración) que se encuentra en la parte superior.
 
-2. Haga clic en **Core Filer (Archivador principal)** > **Manage Core Filers (Administrar archivadores principales)** a la izquierda.
+1. Haga clic en **Core Filer (Archivador principal)** > **Manage Core Filers (Administrar archivadores principales)** a la izquierda.
 
-3. Haga clic en **Create**(Crear).
+1. Haga clic en **Create**(Crear).
 
-   ![Captura de pantalla de la página para agregar un nuevo archivador principal con el nombre del archivador principal y su nombre de dominio completo](media/avere-vfxt-add-core-filer.png)
+   ![Captura de pantalla de la página para agregar un nuevo archivador principal con un cursor sobre el botón Crear](media/avere-vfxt-add-core-filer-start.png)
+
+1. Rellene la información necesaria en el asistente: 
 
    * Póngale nombre a su archivador principal.
    * Proporcione el nombre de dominio completo (FQDN) si estuviera disponible. En caso contrario, proporcione una dirección IP o el nombre de host que se resuelve en su archivador principal.
    * Elija la clase de archivador de la lista. Si no está seguro, elija **Other** (Otro).
+
+     ![Captura de pantalla de la página para agregar un nuevo archivador principal con el nombre del archivador principal y su nombre de dominio completo](media/avere-vfxt-add-core-filer.png)
+  
    * A continuación, haga clic en **Next** (Siguiente) y elija una directiva de caché. 
    * Haga clic en **Add filer** (Agregar archivador).
    * Para obtener más información, consulte [Adding a new NAS core filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) (Agregar un nuevo archivador principal de NAS) en la guía de configuración del clúster de Avere.
@@ -110,7 +115,7 @@ Para agregar Blob Storage después de crear el clúster, siga estos pasos.
 
 1. Abra el panel de control de Avere para el clúster. Haga clic en **Settings** (Configuración) y abra la opción **Cluster (Clúster)** > **Cloud Credentials (Credenciales en la nube)** en el panel de navegación izquierdo. En la página de credenciales en la nube, haga clic en **Add Credential** (Agregar credencial).
 
-   ![Haga clic en el botón para agregar las credenciales; este se encuentra en la página de configuración de credenciales en la nube](media/avere-vfxt-new-credential-button.png)
+   ![Haga clic en el botón Add Credential (Agregar credencial); este se encuentra en la página de configuración de credenciales en la nube](media/avere-vfxt-new-credential-button.png)
 
 1. Rellene la información siguiente para crear una credencial para el archivador principal en la nube: 
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578644"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164330"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementación del clúster de vFXT
 
@@ -286,7 +286,7 @@ RESOURCE_GROUP=
 * Nombre de subred
 * Nombre de rol en tiempo de ejecución de Azure AD: Si ha seguido el ejemplo de [Creación del rol de acceso del nodo de clúster](#create-the-cluster-node-access-role), use ``avere-cluster``. 
 * Nombre de la cuenta de almacenamiento (si crea un nuevo contenedor de blobs)
-* Nombre del clúster: No puede tener dos clústeres de vFXT con el mismo nombre en el mismo grupo de recursos. 
+* Nombre del clúster: No puede tener dos clústeres de vFXT con el mismo nombre en el mismo grupo de recursos. El procedimiento recomendado es asignar un nombre único a cada clúster.
 * Contraseña administrativa: Elija una contraseña segura para supervisar y administrar el clúster. Esta contraseña se asigna al usuario ``admin``. 
 * Tipo de instancia del nodo: Consulte [vFXT node sizes](avere-vfxt-deploy-plan.md#vfxt-node-sizes) (Tamaños de nodo vFXT) para más información.
 * Tamaño de caché del nodo: Consulte [vFXT node sizes](avere-vfxt-deploy-plan.md#vfxt-node-sizes) (Tamaños de nodo vFXT) para más información.

@@ -1,5 +1,5 @@
 ---
-title: 'Exportación de datos de seguridad de Azure a SIEM: configuración de canalización [versión preliminar] | Microsoft Docs'
+title: 'Exportación de datos de seguridad de Azure a SIEM: configuración de canalización | Microsoft Docs'
 description: En este artículo se documenta el proceso de obtención de registros de Azure Security Center a una solución SIEM.
 services: security-center
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 11/26/2018
 ms.author: barclayn
-ms.openlocfilehash: aede60a729fe9c0594ded485e189c0b467e34271
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4cc9478197b39198a94ace1cbefab81de3cdb32b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298240"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306733"
 ---
-# <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Exportación de datos de seguridad de Azure a SIEM: configuración de canalización [versión preliminar]
+# <a name="azure-security-data-export-to-siem-pipeline-configuration"></a>Exportación de datos de seguridad de Azure a SIEM: configuración de canalización
 
 En este documento se describe el procedimiento para exportar datos de seguridad de Azure Security Center a una solución SIEM.
 
@@ -37,11 +37,11 @@ Información general de alto nivel
 
 ## <a name="what-is-the-azure-security-data-exposed-to-siem"></a>¿Qué datos de seguridad de Azure se exponen a SIEM?
 
-En esta versión preliminar, se exponen las [alertas de seguridad.](../security-center/security-center-managing-and-responding-alerts.md) En las próximas versiones, ampliaremos el conjunto de datos con recomendaciones de seguridad.
+En esta versión, se exponen las [alertas de seguridad.](../security-center/security-center-managing-and-responding-alerts.md) En las próximas versiones, ampliaremos el conjunto de datos con recomendaciones de seguridad.
 
-## <a name="how-to-setup-the-pipeline"></a>¿Cómo se configura la canalización? 
+## <a name="how-to-setup-the-pipeline"></a>Proceso de configuración de la canalización
 
-### <a name="create-an-event-hub"></a>Creación de un Centro de eventos 
+### <a name="create-an-event-hub"></a>Creación de un Centro de eventos
 
 Antes de empezar, debe [crear un espacio de nombres de Event Hubs](../event-hubs/event-hubs-create.md). El espacio de nombres y el centro de eventos son el destino de todos los datos de supervisión.
 

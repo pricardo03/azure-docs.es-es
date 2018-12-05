@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d29f01c7f953ed211b429e41b844a01c67e41054
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282386"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160671"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Escalado del rendimiento para contenedores de Azure Cosmos DB
 
@@ -23,7 +23,7 @@ En Azure Cosmos DB, el rendimiento aprovisionado se representa como unidades de 
 
 Puede aprovisionar RU en un contenedor de Cosmos o en una base de datos de Cosmos. Las RU aprovisionadas en un contenedor están disponibles exclusivamente para las operaciones que se realicen en ese contenedor. Las RU aprovisionadas en una base de datos se comparten entre todos los contenedores de esa base de datos (excepto con los contenedores con RU asignadas exclusivamente).
 
-Para escalar elásticamente el rendimiento, puede aumentar o disminuir el valor de RU/s aprovisionado en cualquier momento. Para obtener más información, consulte [How-to provision throughput](set-throughput.md) (Cómo aprovisionar rendimiento) y escalar elásticamente las bases de datos y contenedores de Cosmos. Para escalar globalmente el rendimiento, puede agregar o quitar regiones de su cuenta de Cosmos en cualquier momento. Para obtener más información, consulte [How-to add or remove regions](how-to-manage-database-account.md#addremove-regions-from-your-database-account) (Cómo agregar o quitar regiones) en su cuenta de Cosmos. En muchos escenarios, es importante asociar varias regiones con una cuenta de Cosmos para lograr una latencia baja y [alta disponibilidad](high-availability.md) en todo el mundo.
+Para escalar elásticamente el rendimiento, puede aumentar o disminuir el valor de RU/s aprovisionado en cualquier momento. Para obtener más información, consulte [How-to provision throughput](set-throughput.md) (Cómo aprovisionar rendimiento) y escalar elásticamente las bases de datos y contenedores de Cosmos. Para escalar globalmente el rendimiento, puede agregar o quitar regiones de su cuenta de Cosmos en cualquier momento. Para obtener más información, consulte [Incorporación o eliminación de regiones de una cuenta de base de datos](how-to-manage-database-account.md#addremove-regions-from-your-database-account). En muchos escenarios, es importante asociar varias regiones con una cuenta de Cosmos para lograr una latencia baja y [alta disponibilidad](high-availability.md) en todo el mundo.
 
 ## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>Cómo se distribuye el rendimiento aprovisionado entre las regiones
 

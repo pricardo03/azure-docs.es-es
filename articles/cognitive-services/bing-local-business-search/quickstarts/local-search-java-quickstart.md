@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: e55c06c7e8a2d0952cac809b622fa9a63ccee399
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 533e8b30bf59010f71df477b96b5441c83c34be7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959807"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307115"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guía de inicio rápido: Envío de una consulta a Bing Local Business Search API mediante Java
 
@@ -27,7 +27,7 @@ Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para 
 
 * [Kit de desarrollo de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con Bing Search APIs. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Necesitará la clave de acceso proporcionada al activar la evaluación gratuita.
+Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con Bing Search APIs. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Necesitará la clave de acceso proporcionada al activar la evaluación gratuita.  Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Esta aplicación de ejemplo obtiene los datos de respuesta local de la consulta de un *hotel en Bellevue*.
 
@@ -37,9 +37,9 @@ El siguiente código crea una instancia de `WebRequest`, establece el encabezado
 
 ````
     // construct URL of search request (endpoint + query string)
-     URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "appid=AEA845921DC03F506DC317A90EDDBF33074523F7&traffictype=Internal_monitor&market=en-us");
+     URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-    //connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
     // receive JSON body
     InputStream stream = connection.getInputStream();
@@ -100,10 +100,9 @@ public class LocalSearchCls {
 
         public static SearchResults SearchLocal (String searchQuery) throws Exception {
             // construct URL of search request (endpoint + query string)
-            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + 
-                         "&appid=" + subscriptionKey + "&traffictype=Internal_monitor&market=en-us");
+            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "&mkt=en-us");
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-            //connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
             // receive JSON body
             InputStream stream = connection.getInputStream();
@@ -168,4 +167,4 @@ public class LocalSearchCls {
 ## <a name="next-steps"></a>Pasos siguientes
 - [Guía de inicio rápido de Local Business Search](local-quickstart.md)
 - [Guía de inicio rápido de Local Business Search con Node](local-search-node-quickstart.md)
-- [Guía de inicio rápido de Local Business Search en Python](local-search-python-quickstart.md)
+- [Guía de inicio rápido de Local Business Search para Python](local-search-python-quickstart.md)

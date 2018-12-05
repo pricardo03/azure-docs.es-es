@@ -1,10 +1,11 @@
 ---
-title: Ampliación de la simultaneidad en servicios web de Azure Machine Learning | Microsoft Docs
-description: Aprenda a ampliar la simultaneidad en los servicios web de Azure Machine Learning incorporando puntos de conexión adicionales.
+title: 'Escalado de un servicio web de Azure Machine Learning Studio: Azure | Microsoft Docs'
+description: Aprenda a ampliar la simultaneidad en los servicios web de Azure Machine Learning Studio incorporando puntos de conexión adicionales.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 keywords: aprendizaje automático de azure, servicios web, operacionalización, escalado, punto de conexión, simultaneidad
@@ -16,16 +17,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.openlocfilehash: 2f950d93c0d923e20451eb1622dd4b1393f343a7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3077afc99e7879b14c36e16cdbed8afb3a07bdb3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835906"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312188"
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Escalado de un servicio web de Azure Machine Learning mediante la incorporación de puntos de conexión adicionales
 > [!NOTE]
-> En este tema se describen técnicas que se aplican a un servicio web Machine Learning **clásico**. 
+> En este tema se describen técnicas que se aplican a un servicio web de Machine Learning **Clásico**. 
 > 
 > 
 

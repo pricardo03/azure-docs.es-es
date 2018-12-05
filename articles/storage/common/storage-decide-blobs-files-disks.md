@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091729"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498762"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
 
@@ -42,7 +42,7 @@ En la tabla siguiente se compara Azure Files con Azure Blobs.
 |Puntos de conexión|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Directorios|Espacio de nombres plano|Objetos de directorio verdaderos|  
 |Distingue mayúsculas de minúsculas en los nombres|Distingue mayúsculas de minúsculas|No distingue mayúsculas de minúsculas, pero las conserva|  
-|Capacity|Hasta 500 contenedores TiB|Recursos compartidos de archivos de 5 TiB|  
+|Capacity|Límite de cuenta de hasta 2 PiB |Recursos compartidos de archivos de 5 TiB|  
 |Throughput|Hasta 60 MiB/s por blob en bloques|Hasta 60 MiB/s por recurso compartido|  
 |Tamaño de objeto|Hasta aproximadamente 4,75 TiB por blob en bloques|Hasta 1 TiB por archivo|  
 |Capacidad facturada|En función de los bytes escritos|Según el tamaño de archivo|  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f6a818e0f628924342ddd50322bb54bf1d1d6079
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624784"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976668"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure y de los equipos que no son de Azure para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. Asimismo, copia los archivos de volcado de memoria en dicha área de trabajo.
@@ -48,7 +48,7 @@ Si el aprovisionamiento automático está habilitado, Security Center aprovision
 
 Para habilitar el aprovisionamiento automático de Microsoft Monitoring Agent:
 1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
-2. Seleccione la suscripción.
+2. Haga clic en **Editar configuración** en la columna Configuración de la suscripción deseada en la lista.
 
   ![Selección de la suscripción][7]
 
@@ -135,7 +135,7 @@ Para seleccionar un área de trabajo existente de Log Analytics:
 
      a.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.
      
-    b.  Seleccione el área de trabajo deseada en la que se quiere conectar al agente.
+    b.  Para seleccionar el área de trabajo deseada en la que quiere conectar el agente, haga clic en **Editar configuración** en la columna de Configuración de la suscripción deseada en la lista.
         ![Selección del área de trabajo][8] c. Establezca el plan de tarifa.
         ![Selección del plan de tarifa][9] 
    

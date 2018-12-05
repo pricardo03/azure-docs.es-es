@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bebe9b6565d618cb773de0379122a17bf7f70403
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914301"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165431"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Traducción
 
@@ -83,6 +83,11 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
   <tr>
     <td>toScript</td>
     <td>*Parámetro opcional*.<br/>Especifica el script del texto traducido.</td>
+  </tr>
+  <tr>
+    <td>allowFallback</td>
+    <td>*Parámetro opcional*.<br/>Especifica que el servicio puede recurrir a un sistema general cuando no existe un sistema personalizado. Los valores posibles son `true` (valor predeterminado) o `false`.<br/><br/>`allowFallback=false` especifica que la traducción solo debe usar sistemas entrenados para la `category` especificada por la solicitud. Si una traducción del idioma X al idioma Y requiere de encadenamiento a través de un idioma puente E, entonces todos los sistemas de la cadena (X -> E y E -> Y) deberán estar personalizados y tener la misma categoría. Si no se encuentra ningún sistema con la categoría específica, la solicitud devolverá un código de estado de 400. `allowFallback=true` especifica que el servicio puede recurrir a un sistema general cuando no existe un sistema personalizado.
+</td>
   </tr>
 </table> 
 
@@ -164,6 +169,21 @@ Una respuesta correcta es una matriz JSON con un resultado para cada cadena en l
 
 En la sección de [ejemplos](#examples) se proporcionan ejemplos de respuestas JSON.
 
+## <a name="response-headers"></a>Encabezados de respuesta
+
+<table width="100%">
+  <th width="20%">encabezados</th>
+  <th>DESCRIPCIÓN</th>
+    <tr>
+    <td>X-RequestId</td>
+    <td>Valor generado por el servicio para identificar la solicitud. Se usa para solucionar problemas.</td>
+  </tr>
+  <tr>
+    <td>Sistema X-MT</td>
+    <td>Especifica el tipo de sistema que se usó para la traducción en cada idioma de 'destino' solicitado para la traducción. El valor es una lista de cadenas separadas por comas. Cada cadena indica un tipo:<br/><ul><li>Custom: la solicitud incluye un sistema personalizado y se usó al menos un sistema personalizado durante la traducción.</li><li>Team: todas las demás solicitudes.</li></td>
+  </tr>
+</table> 
+
 ## <a name="response-status-codes"></a>Códigos de estado de respuesta
 
 A continuación se indican los códigos de estado HTTP posibles que devuelve una solicitud. 
@@ -186,6 +206,10 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   <tr>
     <td>403</td>
     <td>La solicitud no está autenticada. Compruebe los detalles del mensaje de error. Esto a menudo indica que todas las traducciones gratuitas que proporciona la suscripción de prueba se han agotado.</td>
+  </tr>
+  <tr>
+    <td>408</td>
+    <td>No se pudo satisfacer la solicitud porque falta un recurso. Compruebe los detalles del mensaje de error. Cuando se usa una `category` personalizada, a menudo, esto indica que el sistema de traducción personalizada todavía no está disponible para atender las solicitudes. Se debe reintentar la solicitud tras un período de espera (por ejemplo, 1 minuto).</td>
   </tr>
   <tr>
     <td>429</td>

@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/07/2018
+ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: f7784883bca4773d69d94b04e7ec24a89ecd88c1
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 3483a2cf30421e96bc408516bab5c3c304fdce0d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300703"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632515"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca BulkExecutor en Java: información de descarga
 
@@ -44,8 +44,8 @@ ms.locfileid: "36300703"
 
 <tr><td>**Documentación de la API**</td><td>[Documentación de referencia de API de .NET](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)</td></tr>
 
-<tr><td>**Introducción**</td><td>[Introducción al SDK de Java para la biblioteca BulkExecutor](bulk-executor-java.md)</td></tr>
+<tr><td>**Primeros pasos**</td><td>[Introducción al SDK de Java para la biblioteca BulkExecutor](bulk-executor-java.md)</td></tr>
 
-<tr><td>**Tiempo de ejecución mínimo admitido**</td><td>JDK 7</td></tr>
+<tr><td>**Tiempo de ejecución mínimo admitido**</td><td>[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 

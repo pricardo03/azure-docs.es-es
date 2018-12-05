@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50f8fea04da3b1e414917a6404cb3f6e838bf716
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244532"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284819"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Incorporación de máquinas para su administración mediante Azure Automation State Configuration
 
@@ -42,7 +42,7 @@ Con Azure Automation State Configuration, puede incorporar fácilmente máquinas
 
 ### <a name="azure-portal"></a>Azure Portal
 
-En [Azure Portal](http://portal.azure.com/) , haga clic en **Examinar** -> **Virtual Machines (clásico)**. Seleccione la máquina virtual de Windows que desea incorporar. En la hoja del panel de la máquina virtual, haga clic en **Toda la configuración** -> **Extensiones** -> **Agregar** -> **DSC de Azure Automation** -> **Crear**.
+En [Azure Portal](https://portal.azure.com/) , haga clic en **Examinar** -> **Virtual Machines (clásico)**. Seleccione la máquina virtual de Windows que desea incorporar. En la hoja del panel de la máquina virtual, haga clic en **Toda la configuración** -> **Extensiones** -> **Agregar** -> **DSC de Azure Automation** -> **Crear**.
 Escriba los [valores del Administrador de configuración local de DSC de PowerShell](/powershell/dsc/metaconfig4) necesarios para su caso de uso, la clave de registro de su cuenta de Automation y la dirección URL de registro, así como, opcionalmente, una configuración de nodo para asignarla a la máquina virtual.
 
 ![Extensiones de máquina virtual de Azure para DSC](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
@@ -132,7 +132,7 @@ Si la máquina no tiene instalada la extensión de estado deseada de PowerShell 
 
 En **Registro**, escriba los [valores del Administrador de configuración local de DSC de PowerShell](/powershell/dsc/metaconfig4) necesarios para su caso de uso, así como, opcionalmente, una configuración de nodo para asignarla a la máquina virtual.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![incorporación](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 

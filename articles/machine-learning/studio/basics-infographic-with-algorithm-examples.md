@@ -1,11 +1,12 @@
 ---
-title: 'Infografía: Conceptos básicos de aprendizaje automático - Ejemplos de algoritmos | Microsoft Docs'
+title: 'Infografía: Conceptos básicos de aprendizaje automático (ejemplos de algoritmos) - Azure Machine Learning Studio | Microsoft Docs'
 description: Una introducción fácil de comprender de principios básicos de aprendizaje automático incluye ejemplos de algoritmos. La infografía descargable trata la mayoría de las preguntas sobre aprendizaje automático.
 keywords: conceptos básicos de aprendizaje automático,ejemplos de algoritmo, aprendizaje automático para principiantes,preguntas sobre aprendizaje automático,algoritmos populares,infografía de algoritmos
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 8ef67add44428e08a1851a039e7e8c2c747e930d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ccbe152901ff7f59548239a1d59e585b8e356c23
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253863"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308009"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos
 Descargue esta introducción infográfica de comprender sobre conceptos básicos de aprendizaje automático para aprender sobre populares utilizados para responder a preguntas comunes sobre el aprendizaje automático. Los ejemplos de algoritmos ayudan a los que empiezan a usar el aprendizaje automático a comprender qué algoritmos usar y para qué.

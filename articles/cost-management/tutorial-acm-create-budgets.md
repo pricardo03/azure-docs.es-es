@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 49341b320df98bb08ee4f5c4ee061a51bec29ff2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb8eb4eae192cf0dd3a3555a3b1209705dd83aaf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686167"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583698"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -33,13 +33,15 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Los presupuestos están disponibles para todos los clientes de EA de Azure. Debe tener acceso de lectura a una suscripción de EA de Azure para crear y administrar presupuestos. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no se pueden crear presupuestos para cuentas de facturación de EA.
+Los presupuestos están disponibles para todos los clientes de EA de Azure. Debe tener acceso de lectura a los presupuestos de visualización de suscripción de EA de Azure. Para crear y administrar presupuestos, debe tener permiso de colaborador. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no se pueden crear presupuestos para cuentas de facturación de EA.
 
 Se admiten los siguientes permisos de Azure por suscripción para los presupuestos por usuario y grupo:
 
 - Propietario: puede crear, modificar o eliminar los presupuestos para una suscripción.
-- Colaborador: puede crear, modificar o eliminar sus propios presupuestos. Puede modificar el importe presupuestario para los presupuestos creados por otros usuarios.
-- Lector: puede ver los presupuestos para los que tiene permiso.
+- Colaborador y Colaborador de Cost Management: puede crear, modificar o eliminar sus propios presupuestos. Puede modificar el importe presupuestario para los presupuestos creados por otros usuarios.
+- Lector y Lector de Cost Management: puede ver los presupuestos para los que tiene permiso.
+
+Para más información sobre cómo asignar permisos a los datos de Cost Management, consulte [Asignación del acceso a los datos de Cost Management](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

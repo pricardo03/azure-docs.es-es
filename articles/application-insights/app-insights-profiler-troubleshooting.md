@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fa6e70fe58e5066fcf308425a4c0d104c072a756
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978849"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164310"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solución de problemas de activación o visualización de Application Insights Profiler
 
@@ -46,9 +46,6 @@ El generador de perfiles escribe mensajes de seguimiento y eventos personalizado
 
 1. Si hay solicitudes durante el período de tiempo en el que se ejecutó el generador de perfiles, asegúrese de que la parte de la aplicación que tiene habilitado el generador de perfiles es la que controla las solicitudes. A veces, las aplicaciones constan de varios componentes pero Profiler está habilitado solo para algunos de los componentes, no para todos. La página Configurar Application Insights Profiler muestra los componentes que han cargado seguimientos.
 
-### <a name="net-core-21-bug"></a>Error de .Net Core 2.1
-Hay un error en el agente del generador de perfiles que le impide cargar los seguimientos realizados desde las aplicaciones que se ejecutan en ASP.NET Core 2.1. Estamos trabajando en una solución y estará preparada en breve. La corrección para este error se implementará a finales de octubre.
-
 ### <a name="other-things-to-check"></a>Otros aspectos que hay que comprobar:
 * Que la aplicación se ejecuta en .Net Framework 4.6.
 * Si la aplicación web es una aplicación de ASP.NET Core, debe ejecutar al menos ASP.NET Core 2.0.
@@ -69,10 +66,11 @@ Envíe una incidencia de soporte técnico desde el portal. Asegúrese de incluir
 ## <a name="troubleshooting-profiler-on-app-services"></a>Solución de problemas de Profiler en App Services
 ### <a name="for-the-profiler-to-work-properly"></a>Para que el generador de perfiles funcione correctamente:
 * El plan de servicio de aplicación web tiene que ser de nivel Básico o superior.
-* La aplicación web tiene que tener instalada la extensión de Application Insights para App Services (2.6.5).
+* La aplicación web debe tener Application Insights habilitado.
 * La aplicación web tiene que tener el valor **APPINSIGHTS_INSTRUMENTATIONKEY** configurado con la misma clave de instrumentación que usa el SDK de Application Insights.
 * La aplicación web tiene que tener el valor de aplicación **APPINSIGHTS_PROFILERFEATURE_VERSION** definido y configurado en 1.0.0.
-* El trabajo web **ApplicationInsightsProfiler2** tiene que estar ejecutándose. Para comprobar el trabajo web acuda a [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)y abra el **panel de WebJobs** en el menú Herramientas. Como puede observar en las capturas de pantalla a continuación, al hacer clic en el vínculo ApplicationInsightsProfiler2, verá los detalles del trabajo web, incluido el registro.
+* La aplicación web debe tener definida la configuración de aplicación **DiagnosticServices_EXTENSION_VERSION** y el valor debe ser aproximadamente 3.
+* El trabajo web **ApplicationInsightsProfiler3** tiene que estar ejecutándose. Para comprobar el trabajo web acuda a [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)y abra el **panel de WebJobs** en el menú Herramientas. Como puede observar en las capturas de pantalla a continuación, al hacer clic en el vínculo ApplicationInsightsProfiler2, verá los detalles del trabajo web, incluido el registro.
 
     Este es el vínculo en el que tiene que hacer clic para ver los detalles del trabajo web: 
 
@@ -91,11 +89,7 @@ Cuando se configura Profiler, se realizan las siguientes actualizaciones en la c
 1. Establezca **Siempre activado** en **Activado**.
 1. Agregue el valor de configuración de la aplicación **APPINSIGHTS_INSTRUMENTATIONKEY** y establezca el valor en la misma clave de instrumentación que usó el SDK.
 1. Agregue el valor de aplicación **APPINSIGHTS_PROFILERFEATURE_VERSION** y establezca el valor en 1.0.0.
-1. Abra **Herramientas avanzadas**.
-1. Seleccione **Ir** para abrir el sitio web de Kudu.
-1. En el sitio web de Kudu, seleccione **Site extensions** (Extensiones de sitio).
-1. Instale **Application Insights** desde la galería de aplicaciones web de Azure.
-1. Reinicie la aplicación web.
+1. Agregue la configuración de aplicación **DiagnosticServices_EXTENSION_VERSION** y establezca el valor en aproximadamente 3.
 
 ### <a name="too-many-active-profiling-sessions"></a>Hay demasiadas sesiones de generación de perfiles activas
 

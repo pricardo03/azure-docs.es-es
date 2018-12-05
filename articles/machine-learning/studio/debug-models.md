@@ -1,10 +1,11 @@
 ---
-title: Depurar el modelo en Azure Machine Learning | Microsoft Docs
-description: Cómo depurar los errores producidos por los módulos Entrenar modelo y Puntuar modelo en Azure Machine Learning.
+title: Depuración de su modelo en Azure Machine Learning Studio | Microsoft Docs
+description: Cómo depurar los errores producidos por los módulos Entrenar modelo y Puntuar modelo en Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.openlocfilehash: 144edca6d2e6fc8d0d8e59e6cff1d3f37eb233aa
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: bb1a3e778dcbcfacbc9e605ebf2d855786d71510
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834318"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312602"
 ---
-# <a name="debug-your-model-in-azure-machine-learning"></a>Depurar el modelo en Azure Machine Learning
+# <a name="debug-your-model-in-azure-machine-learning-studio"></a>Depuración del modelo en Azure Machine Learning Studio
 
 En este artículo se explican las posibles razones por las cuales podría encontrar uno de los dos siguientes errores al ejecutar un modelo:
 

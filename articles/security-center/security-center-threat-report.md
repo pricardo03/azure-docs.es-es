@@ -3,7 +3,7 @@ title: Informe de inteligencia frente a amenazas de Azure Security Center | Micr
 description: Este documento le ayuda a usar los informes inteligentes de amenazas de Azure Security Center durante una investigación para más información respecto a una alerta de seguridad.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: yurid
-ms.openlocfilehash: f0c1588633f548b740e6b9f6a7a3121ef791500a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 90cf57e22c4bb86ed9a784731480bc3fb8d3025d
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234262"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619969"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Informe de inteligencia frente a amenazas de Azure Security Center
 En este documento se explica cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudarle a aprender más sobre una amenaza que ha generado una alerta de seguridad.
@@ -48,7 +48,7 @@ Security Center tiene tres tipos de informes de amenazas, que pueden variar seg�
 * **Informe de campaña**: se centra en los detalles de campañas de ataque específicas.
 * **Informe de resumen de amenazas**: cubre todos los elementos de los dos informes anteriores.
 
-Este tipo de información es muy útil durante los procesos de [respuesta a incidentes](security-center-incident-response.md), donde hay una investigación en curso para comprender el origen del ataque, las motivaciones del atacante y lo que se debe hacer para mitigar este problema más adelante.
+Este tipo de información es resulta útil durante los procesos de [respuesta a incidentes](security-center-incident-response.md), donde hay una investigación en curso para comprender el origen del ataque, las motivaciones del atacante y lo que se debe hacer para mitigar este problema más adelante.
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>¿Cómo acceder al informe de inteligencia frente a amenazas?
 Puede revisar las alertas actuales en el icono **Alertas de seguridad** . Abra Azure Portal y siga los pasos siguientes para ver más detalles sobre cada alerta:
@@ -59,7 +59,7 @@ Puede revisar las alertas actuales en el icono **Alertas de seguridad** . Abra A
     ![Alertas de seguridad](./media/security-center-threat-report/security-center-threat-report-fig1.png)
 3. En este caso, la hoja **Suspicious process executed** (Proceso sospechoso ejecutado) muestra los detalles sobre la alerta, como se puede ver en la siguiente ilustración:
 
-    ![Detalles de alerta de seguridad](./media/security-center-threat-report/security-center-threat-report-fig2.png)
+    ![Detalles de alertas de seguridad](./media/security-center-threat-report/security-center-threat-report-fig2.png)
 4. La cantidad de información disponible para cada alerta de seguridad variará según el tipo de alerta. En el campo **INFORMES** hay un vínculo al informe de inteligencia frente a amenazas. Haga clic en él. Aparecerá otra ventana del explorador con el archivo PDF.
 
    ![Selección de almacenamiento](./media/security-center-threat-report/security-center-threat-report-fig3.png)

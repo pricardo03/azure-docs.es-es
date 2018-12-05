@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457415"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443039"
 ---
 # <a name="traffic-analytics"></a>Análisis del tráfico
 
@@ -53,9 +53,39 @@ Análisis de tráfico examina los registros de flujo sin formato del grupo de se
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Puede usar Análisis de tráfico para grupos de seguridad de red en cualquiera de las siguientes regiones: Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro y norte de EE. UU., Centro y Sur de EE. UU., Centro de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro de Canadá, Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sur de Reino Unido, Este de Japón, Centro de la India, Este de Australia, Sudeste de Australia y Sudeste Asiático. 
+Puede usar Análisis de tráfico para NSG en cualquiera de las siguientes regiones admitidas:
 
-El área de trabajo de Log Analytics debe encontrarse en las regiones Centro-oeste de EE. UU., Este de EE. UU., Europa Occidental, Sur de Reino Unido, Centro de Canadá, Este de Japón, Centro de la India, Sudeste de Australia o Sudeste Asiático.
+* Centro de Canadá
+* Centro occidental de EE.UU.
+* Este de EE. UU
+* Este de EE. UU. 2
+* Centro-Norte de EE. UU
+* Centro-Sur de EE. UU
+* Centro de EE. UU.
+* Oeste de EE. UU.
+* Oeste de EE. UU. 2
+* Europa occidental
+* Europa del Norte
+* Sur de Brasil
+* Oeste de Reino Unido
+* Sur de Reino Unido 2
+* Este de Australia
+* Sudeste de Australia
+* Sudeste asiático
+* India Central
+* Sur de la India
+* Este de Japón 
+
+El área de trabajo de Log Analytics debe existir en las siguientes regiones:
+* Centro de Canadá
+* Centro occidental de EE.UU.
+* Este de EE. UU
+* Europa occidental
+* Sur de Reino Unido 2
+* Sudeste de Australia
+* Sudeste asiático
+* India Central
+* Este de Japón
 
 ## <a name="prerequisites"></a>Requisitos previos
 

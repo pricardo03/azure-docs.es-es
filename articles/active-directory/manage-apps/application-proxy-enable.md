@@ -8,34 +8,52 @@ manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 11/14/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 683b5b24fe8e7da086e000ff38411d3eb1c2f781
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034973"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495741"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Empezar a trabajar con el proxy de aplicación e instalar el conector
-En este artículo se explican los pasos para habilitar el proxy de aplicación de Microsoft Azure AD en el directorio en la nube de Azure AD.
+En este artículo se explican los pasos para habilitar el proxy de aplicación en Azure Active Directory (Azure AD).
 
 Si aún no conoce los beneficios de seguridad y productividad que el proxy de aplicación aporta a su organización, obtenga más información sobre [cómo proporcionar acceso remoto seguro a aplicaciones locales](application-proxy.md).
 
-## <a name="application-proxy-prerequisites"></a>Requisitos previos del proxy de la aplicación
-Antes de poder habilitar y usar los servicios del proxy de la aplicación, debe tener lo siguiente:
+## <a name="prerequisites"></a>Requisitos previos
+Para habilitar el proxy de aplicación, necesita lo siguiente:
 
-* Una [suscripción Basic o Premium a Microsoft Azure AD](../fundamentals/active-directory-whatis.md) y un directorio de Azure AD del que sea administrador global.
-* Un servidor en el que se ejecute Windows Server 2012 R2 o 2016 y en el que se pueda instalar el conector del proxy de aplicación. El servidor necesita tener la capacidad de conectarse a los servicios del proxy de aplicación en la nube y a las aplicaciones locales que va a publicar.
-  * Para habilitar el inicio de sesión único en las aplicaciones publicadas mediante la delegación limitada de kerberos, esta máquina debe estar unida al mismo dominio de AD que las aplicaciones que va a publicar. Para obtener información, vea la información sobre [la delegación limitada de kerberos para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-with-kcd.md).
-* TLS 1.2 en ejecución en el sistema operativo subyacente. Para cambiar a TLS 1.2, siga los pasos indicados en [Habilitación de TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Mientras que el contenido es para Azure AD Connect, este procedimiento es el mismo para todos los clientes .NET.
+* Una [suscripción Basic o Premium a Microsoft Azure AD](https://azure.microsoft.com/pricing/details/active-directory). 
+* Una cuenta de administrador de aplicaciones.
 
-Si su organización usa servidores proxy para conectarse a Internet, lea [Trabajo con servidores proxy locales existentes](application-proxy-configure-connectors-with-proxy-servers.md) para más información sobre cómo configurarlos antes de comenzar a usar el proxy de aplicación.
+### <a name="windows-server"></a>Windows Server
+Se necesita un servidor en el que se ejecute Windows Server 2012 R2 o superior en el que se pueda instalar el conector del proxy de la aplicación. El servidor necesita tener la capacidad de conectarse a los servicios del proxy de aplicación en Azure y a las aplicaciones locales que va a publicar.
+
+El servidor de Windows debe tener habilitado TLS 1.2 antes de instalar el conector del proxy de aplicación. Los conectores existentes con versiones anteriores a 1.5.612.0 seguirán funcionando en versiones anteriores de TLS hasta nuevo aviso. Para habilitar TLS 1.2, siga estos pasos:
+
+1. Establezca las siguientes claves del Registro:
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. Reinicio del servidor
+
+Para usar el inicio de sesión único en aplicaciones que usan delegación restringida de Kerberos (KCD), el servidor de Windows y las aplicaciones que se van a publicar deben estar en el mismo dominio de Active Directory. Para obtener más información, consulte el artículo sobre[la KCD para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-with-kcd.md).
+  
+### <a name="proxy-servers"></a>Servidores proxy
+
+Si su organización usa servidores proxy para conectarse a Internet, deberá configurarlos para el proxy de aplicación.  Para obtener más información, consulte [Trabajo con servidores proxy locales existentes](application-proxy-configure-connectors-with-proxy-servers.md). 
+
+
 
 ## <a name="open-your-ports"></a>Apertura de los puertos
 

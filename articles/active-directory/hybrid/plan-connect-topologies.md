@@ -12,15 +12,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 74b2cea8e3adfb6689d4ac7049e7892f8f0ecf4a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158863"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582640"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -84,7 +84,9 @@ Para más información, consulte la [descripción de la configuración predeterm
 
 No se puede tener más de un servidor de Azure AD Connect Sync conectado a un único inquilino de Azure AD. La excepción es el uso de un [servidor provisional](#staging-server).
 
-### <a name="multiple-forests-separate-topologies"></a>Varios bosques: topologías independientes
+Esta topología difiere de la siguiente en que no se admiten **varios servidores de sincronización** conectados a una única instancia del inquilino de Azure AD.
+
+### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>Varios bosques, un solo servidor de sincronización, los usuarios se representan en un único directorio.
 ![Opción para representar los usuarios una sola vez en todos los directorios](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
 ![Representación de varios bosques y topologías independientes](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)

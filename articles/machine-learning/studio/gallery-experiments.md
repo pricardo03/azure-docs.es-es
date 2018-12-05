@@ -1,10 +1,11 @@
 ---
-title: Experimentos de la Galería de Azure AI | Microsoft Docs
+title: 'Experimentos de Azure AI Gallery: Azure Machine Learning Studio | Microsoft Docs'
 description: Descubra y comparta experimentos en la Galería de Azure AI.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
@@ -15,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 22432a98a7ac5ecba46201d0166940e069f6031b
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346446"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317473"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Descubrimiento de experimentos en la Galería de Azure AI
 
-[Azure AI Gallery](http://gallery.cortanaintelligence.com) tiene una amplia variedad de [experimentos](https://gallery.cortanaintelligence.com/experiments) que se han desarrollado en [Azure Machine Learning Studio](https://studio.azureml.net). Van desde experimentos rápidos de prueba de concepto que muestran una técnica específica de aprendizaje automático, hasta soluciones totalmente desarrolladas para problemas de aprendizaje automático complejos.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) tiene numerosos [experimentos](https://gallery.cortanaintelligence.com/experiments) que se han desarrollado en [Azure Machine Learning Studio](https://studio.azureml.net). Van desde experimentos rápidos de prueba de concepto que muestran una técnica específica de aprendizaje automático, hasta soluciones totalmente desarrolladas para problemas de aprendizaje automático complejos.
 
 > [!NOTE]
 > Un ***experimento*** es un lienzo de Machine Learning Studio que se puede usar para crear un modelo de análisis predictivo. El modelo se crea al conectar datos con diversos módulos analíticos. Puede probar diferentes ideas, realizar pruebas y finalmente implementar el modelo como un servicio web en Azure. Para ver un ejemplo de creación de un experimento básico, vea [Tutorial de aprendizaje automático: creación del primer experimento de ciencia de datos en Azure Machine Learning Studio](create-experiment.md). Para ver un tutorial más completo sobre la creación de una solución de análisis predictivo, vea [Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md).

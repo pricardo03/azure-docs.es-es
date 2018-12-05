@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 93bc3db2b7cf3002efc93f1e8006c5362eddab9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d60053de98e93d7414b1df3d80aff41ffe1e4756
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959978"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620173"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory
 
@@ -41,7 +41,7 @@ Azure AD define dos tipos de permisos:
 
 Los permisos efectivos son los permisos que la aplicación tendrá al realizar solicitudes a una API. 
 
-* En el caso de los permisos delegados, los permisos efectivos de la aplicación serán la intersección con menos privilegios de los permisos delegados que se le han concedido a la aplicación (mediante consentimiento) y los privilegios del usuario que tiene iniciada la sesión actualmente. La aplicación nunca puede tener más privilegios que el usuario que tiene la sesión iniciada. Dentro de las organizaciones, los privilegios del usuario que tiene la sesión iniciada pueden determinarse mediante directivas o pertenencia a uno o varios roles de administrador. Para más información acerca de los roles de administrador, vea [Asignación de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* En el caso de los permisos delegados, los permisos efectivos de la aplicación serán la intersección con menos privilegios de los permisos delegados que se le han concedido a la aplicación (mediante consentimiento) y los privilegios del usuario que tiene iniciada la sesión actualmente. La aplicación nunca puede tener más privilegios que el usuario que tiene la sesión iniciada. Dentro de las organizaciones, los privilegios del usuario que tiene la sesión iniciada pueden determinarse mediante directivas o pertenencia a uno o varios roles de administrador. Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
     Por ejemplo, suponga que a su aplicación se le ha concedido el permiso delegado `User.ReadWrite.All` en Microsoft Graph. Este permiso concede a su aplicación de forma nominal un permiso para leer y actualizar el perfil de cada usuario de una organización. Si el usuario que inició sesión es un administrador global, la aplicación podrá actualizar el perfil de cada usuario de la organización. Sin embargo, si el usuario con la sesión iniciada no pertenece a un rol de administrador, la aplicación podrá actualizar solo el perfil del usuario que tiene la sesión iniciada. No podrá actualizar los perfiles de otros usuarios de la organización, porque el usuario para el que tiene permiso para actuar en su nombre no tiene tales privilegios.
 * Para los permisos de aplicación, los permisos efectivos de la aplicación son el nivel completo de privilegios que concede el permiso. Por ejemplo, una aplicación que tiene el permiso de aplicación `User.ReadWrite.All` puede actualizar el perfil de cada usuario de la organización.
 

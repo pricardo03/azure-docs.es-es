@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d249753dd954ba610a757a88060c6c0f7c58ad95
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 03dd056363cd99f5354dc10ed5ae328eb39c3ec2
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427100"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291069"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Autenticación con Azure Active Directory desde una aplicación para acceder a blobs y colas (versión preliminar)
 
@@ -169,10 +169,25 @@ StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
 // Create a block blob using those credentials
 CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
+
+blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
 ```
 
 > [!NOTE]
 > La integración de Azure AD con Azure Storage requiere que se utilice HTTPS para las operaciones de Azure Storage.
+
+En el ejemplo anterior, la biblioteca cliente de .NET controla la autorización de la solicitud para crear el blob en bloques. Otras bibliotecas cliente de almacenamiento también controlan la autorización de la solicitud por usted. Sin embargo, si llama a una operación de Azure Storage con un token de OAuth mediante la API de REST, deberá autorizar la solicitud con el token de OAuth.   
+
+Para llamar a las operaciones Blob y Queue service con tokens de acceso de OAuth, pase el token de acceso del encabezado **Autorización** con el esquema **Portador** y especifique una versión de servicio 2017-11-09 o superior, como se muestra en el ejemplo siguiente:
+
+```
+GET /container/file.txt HTTP/1.1
+Host: mystorageaccount.blob.core.windows.net
+x-ms-version: 2017-11-09
+Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
+```
+
+Para más información sobre la autorización de operaciones de Azure Storage desde REST, consulte [Authenticate with Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory) [Autenticación mediante Azure Active Directory (versión preliminar)].
 
 ## <a name="next-steps"></a>Pasos siguientes
 

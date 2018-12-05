@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: dea343dee65ab66d52b431614fd334fd6e380f50
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628750"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165295"
 ---
-# <a name="working-with-azure-cosmos-db-accounts"></a>Uso de cuentas de Azure Cosmos DB
+# <a name="working-with-azure-cosmos-account"></a>Uso de la cuenta de Azure Cosmos
 
-Azure Cosmos DB es una plataforma como servicio (PaaS) totalmente administrada. Para empezar a usar Azure Cosmos DB, debe crear primero una cuenta de Azure Cosmos DB en su suscripción de Azure. La cuenta de Azure Cosmos contiene un nombre DNS único y puede administrar una cuenta mediante Azure portal, la CLI de Azure o mediante el uso de diferentes SDK específicos del idioma. Para más información, consulte [cómo administrar su cuenta de Azure Cosmos](how-to-manage-database-account.md).
+Azure Cosmos DB es una plataforma como servicio (PaaS) totalmente administrada. Para empezar a usar Azure Cosmos DB, debe crear primero una cuenta de Azure Cosmos en su suscripción de Azure. La cuenta de Azure Cosmos contiene un nombre DNS único y puede administrar una cuenta mediante Azure portal, la CLI de Azure o mediante el uso de diferentes SDK específicos del idioma. Para más información, consulte [cómo administrar su cuenta de Azure Cosmos](how-to-manage-database-account.md).
 
-La cuenta de Azure Cosmos DB es la unidad fundamental de distribución global y alta disponibilidad. Para distribuir globalmente los datos y el rendimiento entre varias regiones de Azure, puede agregar y quitar regiones de Azure en su cuenta de Azure Cosmos en cualquier momento. Puede configurar la cuenta de Azure Cosmos para que tenga una única región de escritura o varias. Para más información, consulte [como agregar y quitar regiones de Azure en la cuenta de Azure Cosmos](how-to-manage-database-account.md). Puede configurar el [nivel de coherencia predeterminado](consistency-levels.md) de la cuenta de Azure Cosmos. Azure Cosmos DB proporciona Acuerdos de Nivel de Servicio completos que abarcan rendimiento, latencia en el percentil 99, coherencia y alta disponibilidad. Para más información, consulte [Contrato de nivel de servicio para Azure Cosmos DB](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_2/).
+La cuenta de Azure Cosmos es la unidad fundamental de distribución global y alta disponibilidad. Para distribuir globalmente los datos y el rendimiento entre varias regiones de Azure, puede agregar y quitar regiones de Azure en su cuenta de Azure Cosmos en cualquier momento. Puede configurar la cuenta de Azure Cosmos para que tenga una única región de escritura o varias. Para más información, consulte [como agregar y quitar regiones de Azure en la cuenta de Azure Cosmos](how-to-manage-database-account.md). Puede configurar el [nivel de coherencia predeterminado](consistency-levels.md) de la cuenta de Azure Cosmos. Azure Cosmos DB proporciona Acuerdos de Nivel de Servicio completos que abarcan rendimiento, latencia en el percentil 99, coherencia y alta disponibilidad. Para más información, consulte [Contrato de nivel de servicio para Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
 Para administrar de forma segura el acceso a todos los datos de la cuenta de Azure Cosmos, puede usar las claves maestras asociadas con su cuenta. Para proteger aún más el acceso a sus datos, puede configurar un punto de conexión de servicio de red virtual y un firewall para direcciones IP en la cuenta de Azure Cosmos. 
 
@@ -41,4 +41,4 @@ Ahora puede continuar y aprender a administrar su cuenta de Azure Cosmos o consu
 * [Punto de conexión de servicio de red virtual para la cuenta de Azure Cosmos](firewall-support.md)
 * [Firewall para direcciones IP para la cuenta de Azure Cosmos](vnet-service-endpoint.md)
 * [Como agregar y quitar regiones de Azure en la cuenta de Azure Cosmos](how-to-manage-database-account.md).
-* [Contratos de nivel de servicio para Azure Cosmos DB](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_2/)
+* [Contratos de nivel de servicio para Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

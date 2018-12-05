@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: caef9a93e7d388ab55939876b7cc8344ce6370d0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f890fc6e854f1d56d396c56ddfd8cc5a0481282f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012520"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976951"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotección de máquinas virtuales de Azure conmutadas por error en la región principal
 
@@ -83,4 +83,4 @@ Cuando se desencadena un trabajo de reprotección y la máquina virtual y los di
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez protegida la máquina virtual, se puede iniciar una conmutación por error. La conmutación por error apaga la máquina virtual en la región secundaria y se crea y arranca la máquina virtual en la región principal, con un breve tiempo de inactividad. Se recomienda elegir una hora según corresponda y ejecutar una prueba de conmutación por error, pero iniciar una conmutación por error completa al sitio principal. [Más información](site-recovery-failover.md) sobre la conmutación por error
+Una vez protegida la máquina virtual, se puede iniciar una conmutación por error. La conmutación por error apaga la máquina virtual en la región secundaria y se crea y arranca la máquina virtual en la región principal, con un breve tiempo de inactividad. Se recomienda elegir una hora según corresponda y ejecutar una prueba de conmutación por error antes de iniciar una conmutación por error completa al sitio principal. [Más información](site-recovery-failover.md) sobre la conmutación por error

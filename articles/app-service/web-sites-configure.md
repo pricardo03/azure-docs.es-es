@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115529"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443515"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configuración de aplicaciones web en Azure App Service
 
@@ -78,6 +78,8 @@ Esta sección contiene los pares de nombre y valor que la aplicación web cargar
 
 La configuración de la aplicación siempre se cifra cuando se almacena (cifrado en reposo).
 
+La configuración de la aplicación se puede resolver desde Key Vault mediante las [referencias de Key Vault](app-service-key-vault-references.md).
+
 ### <a name="connection-strings"></a>Cadenas de conexión
 Cadenas de conexión para los recursos vinculados. 
 
@@ -93,6 +95,8 @@ En las aplicaciones PHP, Python, Java y Node, estas configuraciones estarán dis
 Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de  `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
 
 Las cadenas de conexión siempre se cifran cuando se almacenan (cifrado en reposo).
+
+Las cadenas de conexión se pueden resolver desde Key Vault mediante las [referencias de Key Vault](app-service-key-vault-references.md).
 
 ### <a name="default-documents"></a>Documentos predeterminados
 El documento predeterminado es la página web que se muestra en la dirección URL raíz de un sitio web.  Se usa el primer archivo coincidente en la lista. 

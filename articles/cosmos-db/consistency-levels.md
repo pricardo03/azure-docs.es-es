@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 01a52941a452ae7e4fa283959b071d31d3ad80c7
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624834"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162368"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Los Acuerdos de Nivel de Servicio que proporciona Azure Cosmos DB garantizan que
 
   La obsolescencia limitada ofrece un orden global total, excepto dentro de la "ventana de obsolescencia". La garantía de lectura monotónica existe dentro de una región, tanto dentro como fuera de la "ventana de obsolescencia". La coherencia fuerte tiene la misma semántica que la que ofrece la obsolescencia limitada pero con una "ventana de obsolescencia" igual a cero. La obsolescencia limitada también se conoce como **linealizabilidad retardada**. Cuando un cliente realiza operaciones de lectura en una región que acepta las escrituras, las garantías que proporciona la obsolescencia limitada son idénticas a las que proporciona la coherencia fuerte.
 
-- **Nivel de coherencia = "de sesión"**: se garantiza que las lecturas respetan las garantías de prefijo coherente, lecturas monotónicas, escrituras monotónicas, lectura de la escritura y escritura tras las lecturas. La coherencia de sesión se limita a una sesión de cliente.
+- **Nivel de coherencia = "de sesión"**: se garantiza que las lecturas respetan las garantías de prefijo coherente (suponiendo que hay una sesión de "escritor" única), lecturas monotónicas, escrituras monotónicas, lectura de la escritura y escritura tras las lecturas. La coherencia de sesión se limita a una sesión de cliente.
 
 - **Nivel de coherencia = "de prefijo coherente"**: las actualizaciones devueltas contienen algunos prefijos de todas las actualizaciones, sin espacios. El prefijo coherente garantiza que las lecturas nunca vean escrituras desordenadas.
 

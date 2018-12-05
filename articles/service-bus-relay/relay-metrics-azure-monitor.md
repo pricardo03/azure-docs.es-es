@@ -12,24 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 11/28/2018
 ms.author: spelluru
-ms.openlocfilehash: cffc84cdb86c01f5ca892b987a23dc3ded611dd9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ca4535afb44238380cb6db55953072598130fae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986964"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582367"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Métricas de Azure Relay en Azure Monitor (versión preliminar)
-
 Las métricas de Azure Relay le permiten conocer el estado de los recursos de su suscripción de Azure. Con un amplio conjunto de datos de métricas, puede evaluar el estado general de los recursos de Relay, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Estas estadísticas pueden ser importantes, ya que le ayudan a supervisar el estado de Azure Relay. Las métricas también pueden ayudarle a solucionar problemas de causa principal sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
 Azure Monitor proporciona interfaces de usuario unificadas para la supervisión de distintos servicios de Azure. Para obtener más información, vea [Supervisión de Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) y el ejemplo [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) (Recuperación de métricas de Azure Monitor con .NET) en GitHub.
 
+> [!IMPORTANT]
+> Este artículo solo se aplica a la característica Conexiones híbridas de Azure Relay, no a WCF Relay. 
+
 ## <a name="access-metrics"></a>Acceso a la métrica
 
-Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com), o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como Operation Management Suite y Event Hubs. Para más información, consulte [Datos de supervisión recopilados por Azure Monitor](../monitoring/monitoring-data-collection.md).
+Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com), o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como Operation Management Suite y Event Hubs. Para más información, vea [Datos de supervisión recopilados por Azure Monitor](../azure-monitor/platform/data-collection.md).
 
 De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un periodo mayor, se pueden archivar en una cuenta de Azure Storage. Esto se configura en la [configuración de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) de Azure Monitor.
 
@@ -39,7 +41,7 @@ Una vez transcurrido un tiempo, las métricas se pueden supervisar en [Azure Por
 
 ![][1]
 
-También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y, después, haga clic en **Metrics (Preview)** (Métricas [Versión preliminar]). 
+También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y haga clic en **Métrica (vista previa)**. 
 
 Para ver métricas que admitan las dimensiones, debe filtrar por el valor de la dimensión que desee.
 

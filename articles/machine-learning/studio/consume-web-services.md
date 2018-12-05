@@ -1,10 +1,11 @@
 ---
-title: Cómo consumir un servicio web Azure Machine Learning | Microsoft Docs
-description: Una vez implementado un servicio de aprendizaje automático, se puede consumir el servicio web RESTFul facilitado como servicio de solicitud-respuesta en tiempo real o como servicio de ejecución por lotes.
+title: Cómo consumir un servicio web de Azure Machine Learning Studio | Microsoft Docs
+description: Una vez implementado un servicio de aprendizaje automático desde Azure Machine Learning Studio, se puede consumir el servicio web RESTFul como servicio de solicitud-respuesta en tiempo real o como servicio de ejecución por lotes.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: b89fb0fbb499fa06c9e56f02937b1c586efde9b6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833398"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309113"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Cómo consumir un servicio web Azure Machine Learning
+# <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Cómo consumir un servicio web de Azure Machine Learning Studio
 
 Una vez que implemente un modelo predictivo de Azure Machine Learning como servicio web, puede usar una API de REST para enviarle datos y obtener predicciones. Puede enviar los datos en tiempo real o por lotes.
 

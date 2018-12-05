@@ -7,13 +7,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 4209ce8d15bf53381825e8bb3e47f0a16366a436
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 5124e06296962f1b673c77bfe318ff48d7fb11aa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346630"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291330"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solución de problemas en las salidas de Azure Stream Analytics
 
@@ -29,7 +29,7 @@ En esta página se describen problemas comunes con las conexiones de salida y c�
       - Si el trabajo usa un centro de eventos, compruebe si el cuerpo del mensaje es *Null*.
       
     - Si Errores de conversión de datos > 0 y subiendo, puede cumplirse lo siguiente:
-      - El trabajo podría no ser capaz de deserializar los eventos.
+      - El evento de salida no se ajusta al esquema del receptor. 
       - El esquema de eventos podría no coincidir con el esquema definido o esperado de los eventos en la consulta.
       - Los tipos de datos de algunos de los campos del evento podrían no coincidir con las expectativas.
       

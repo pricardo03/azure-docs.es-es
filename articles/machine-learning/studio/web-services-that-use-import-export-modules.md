@@ -1,10 +1,11 @@
 ---
-title: Uso de importación y exportación de datos en servicios web Azure Machine Learning | Microsoft Docs
+title: Uso de importación y exportación de datos en servicios web de Azure Machine Learning Studio | Microsoft Docs
 description: Aprenda a usar los módulos de importación y exportación de datos para enviar y recibir datos de un servicio web.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 27873930ebef75923088f8bf2170c8e6a383cfa8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ee7d0fb4792983099dc6192de8f85338daee357f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837419"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306954"
 ---
-# <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web del aprendizaje automático de Azure que usan módulos de importación y exportación de datos
+# <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web de Azure Machine Learning Studio que usan módulos de importación y exportación de datos
 
 Cuando se crea un experimento predictivo, normalmente se agregan una entrada y una salida de servicio web. Al implementar el experimento, los consumidores pueden enviar y recibir datos desde el servicio web a través de las entradas y salidas. En algunas aplicaciones, los datos del consumidor pueden estar disponibles desde una fuente de datos o ya residir en un origen de datos externo, como el Almacenamiento de blobs de Azure. En estos casos, no se requiere que lean y escriban datos mediante entradas y salidas del servicio web. En su lugar, pueden utilizar el servicio de ejecución por lotes (BES) para leer los datos del origen de datos mediante un módulo de importación de datos y escribir los resultados de puntuación en una ubicación de datos diferente mediante un módulo de exportación de datos.
 

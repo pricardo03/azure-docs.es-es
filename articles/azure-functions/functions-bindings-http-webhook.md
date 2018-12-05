@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 333e73af3578cdc363e7ede08ca52207cfd0fdb0
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248922"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446796"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces y desencadenadores HTTP de Azure Functions
 
@@ -157,7 +157,7 @@ public static string Run(CustomObject req, ILogger log)
 }
 
 public class CustomObject {
-     public String name {get; set;}
+     public string name {get; set;}
 }
 ```
 
@@ -434,6 +434,45 @@ De forma predeterminada, todas las rutas de la función tienen el prefijo *api*.
 }
 ```
 
+### <a name="working-with-client-identities"></a>Uso de identidades de cliente
+
+Si la aplicación de función está usando la [autenticación/autorización de App Service](../app-service/app-service-authentication-overview.md), puede ver información sobre los clientes autenticados desde el código. Esta información está disponible como [encabezados de solicitud insertados por la plataforma](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+
+También puede leer esta información desde los datos de enlace. Esta funcionalidad solo está disponible para el entorno de ejecución de Functions 2.x. Actualmente, también está disponible para lenguajes .NET.
+
+En lenguajes .NET, esta información está disponible como [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). ClaimsPrincipal está disponible como parte del contexto de solicitud, tal como se muestra en el ejemplo siguiente:
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+
+public static IActionResult Run(HttpRequest req, ILogger log)
+{
+    ClaimsPrincipal identities = req.HttpContext.User;
+    // ...
+    return new OkResult();
+}
+```
+
+Como alternativa, ClaimsPrincipal se puede incluir como un parámetro adicional en la firma de función:
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
+{
+    // ...
+    return;
+}
+
+```
+
 ### <a name="authorization-keys"></a>Claves de autorización
 
 Functions permite usar claves para dificultar el acceso a los puntos de conexión de función HTTP durante el desarrollo.  Un desencadenador HTTP estándar puede necesitar que haya una clave de API de este tipo en la solicitud. 
@@ -483,7 +522,7 @@ Puede permitir solicitudes anónimas, que no requieren claves. También puede ex
 
 Para proteger totalmente los puntos de conexión de función en producción, considere la posibilidad de implementar una de las siguientes opciones de seguridad de nivel de aplicación de función:
 
-* Activar la autenticación o autorización de App Service para la aplicación de función. La plataforma App Service permite usar Azure Active Directory (AAD) y varios proveedores de identidades de terceros para autenticar a los clientes. Se puede usar para implementar reglas de autorización personalizadas para las funciones y permite trabajar con información de usuario desde el código de función. Para obtener más información, vea [Autenticación y autorización en Azure App Service](../app-service/app-service-authentication-overview.md).
+* Activar la autenticación o autorización de App Service para la aplicación de función. La plataforma App Service permite usar Azure Active Directory (AAD) y varios proveedores de identidades de terceros para autenticar a los clientes. Se puede usar para implementar reglas de autorización personalizadas para las funciones y permite trabajar con información de usuario desde el código de función. Para obtener más información, vea [Autenticación y autorización en Azure App Service](../app-service/app-service-authentication-overview.md) y [Uso de identidades de cliente](#working-with-client-identities).
 
 * Usar Azure API Management (APIM) para autenticar las solicitudes. APIM proporciona una serie de opciones de seguridad de API para las solicitudes entrantes. Para obtener más información, vea [Directivas de autenticación de Azure API Management](../api-management/api-management-authentication-policies.md). Con APIM, puede configurar la aplicación de función de modo que solo acepte solicitudes de la dirección IP de la instancia de APIM. Para obtener más información, vea [Restricciones de las direcciones IP](ip-addresses.md#ip-address-restrictions).
 

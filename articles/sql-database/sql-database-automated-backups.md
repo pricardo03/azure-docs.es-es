@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 36099a49cc9e6c810727606bb73d2669f1e0df79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985699"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422517"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Más información sobre copias de seguridad automáticas de SQL Database
 
@@ -42,7 +42,7 @@ Puede utilizar estas copias de seguridad para realizar lo siguiente:
 
 ## <a name="how-long-are-backups-kept"></a>Cuánto tiempo se conservan las copias de seguridad
 
-Cada copia de seguridad de SQL Database tiene un período de retención predeterminado que se basa en el nivel de servicio de la base de datos y es diferente al [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y al [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). Puede actualizar el período de retención de copia de seguridad de una base de datos. Vea [Cambiar el período de retención de copia de seguridad](#how-to-change-backup-retention-period) para obtener más detalles.
+Cada instancia de SQL Database tiene un período de retención de copia de seguridad predeterminado de entre 7 y 35 días que depende del [modelo de compra y el nivel de servicio](#pitr-retention-period). Puede actualizar el período de retención de copia de seguridad para una base de datos en el servidor lógico de Azure (esta característica se habilitará próximamente en Instancia administrada). Vea [Cambiar el período de retención de copia de seguridad](#how-to-change-backup-retention-period) para obtener más detalles.
 
 Si elimina una base de datos, SQL Database mantendrá las copias de seguridad de la misma manera que para una base de datos en línea. Por ejemplo, si elimina una base de datos básica que tiene un período de retención de siete días, una copia de seguridad con cuatro días de antigüedad se guarda durante tres días más.
 

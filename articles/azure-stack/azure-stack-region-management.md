@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/19/2018
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 401b81ceb7ab71528a4ad11bc7d8944b4d732933
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9a10d4fc90b916b3cb1eda7b9bac99c5d5f9deba
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078875"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160790"
 ---
 # <a name="region-management-in-azure-stack"></a>Administración de regiones en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Azure Stack usa el concepto de regiones, que son entidades lógicas que constan de los recursos de hardware que conforman la infraestructura de Azure Stack. En Region Management (Administración de regiones), puede buscar todos los recursos necesarios para usar correctamente la infraestructura de Azure Stack.
+Azure Stack usa el concepto de *regiones*, entidades lógicas que constan de los recursos de hardware que conforman la infraestructura de Azure Stack. En la administración de regiones, puede buscar todos los recursos necesarios para usar correctamente la infraestructura de Azure Stack.
 
 Una implementación de sistema integrada (lo que se conoce como una *nube de Azure Stack*) constituye una región única. Cada Kit de desarrollo de Azure Stack tiene una región, llamada **local**. Si implementa un segundo sistema integrado de Azure Stack o configura otra instancia del kit de desarrollo en otro hardware, esta nube de Azure Stack es una región diferente.
 
@@ -34,21 +34,21 @@ Una implementación de sistema integrada (lo que se conoce como una *nube de Azu
 
 Azure Stack tiene un conjunto de funciones de administración de regiones disponibles en la ventana **Region management** (Administración de regiones). Este icono está disponible para un nuevo operador de Azure Stack en el panel predeterminado del portal de administrador. A través de este icono, puede supervisar y actualizar su región de Azure Stack y sus componentes, que son específicos de cada región.
 
- ![Icono Region Management](media/azure-stack-manage-region/image1.png)
+![Icono Region Management](media/azure-stack-manage-region/image1.png)
 
- Si hace clic en una región en el icono Region Management (Administración de regiones), puede tener acceso a la siguiente información:
+Si hace clic en una región en el icono **Region Management** (Administración de regiones), puede tener acceso a la siguiente información:
 
-  ![Descripción de los paneles en la hoja Region Management](media/azure-stack-manage-region/image2.png)
+![Descripción de los paneles en la hoja Region Management](media/azure-stack-manage-region/image2.png)
 
-1. **El menú de recursos**. Aquí, puede tener acceso a áreas de administración de infraestructura específicas y ver y administrar recursos de usuario, como cuentas de almacenamiento y redes virtuales.
+1. **El menú de recursos**. Acceda a áreas de administración de infraestructura específicas y vea y administre recursos de usuario, como cuentas de almacenamiento y redes virtuales.
 
-2. **Alertas**. Muestra las alertas de todo el sistema y proporciona detalles sobre cada una.
+2. **Alertas**. Le muestra las alertas de todo el sistema y proporciona detalles sobre cada una.
 
-3. **Actualizaciones**. Aquí puede ver la versión actual de la infraestructura de Azure Stack, las actualizaciones disponibles y el historial de actualizaciones. También puede actualizar el sistema integrado.
+3. **Actualizaciones**. Visualice la versión actual de la infraestructura de Azure Stack, las actualizaciones disponibles y el historial de actualizaciones. También puede actualizar el sistema integrado.
 
-4. **Proveedores de recursos**. Este es el lugar donde administrar la funcionalidad para los usuarios proporcionada por los componentes necesarios para ejecutar Azure Stack. Cada proveedor de recursos viene con una experiencia administrativa. Esta experiencia puede incluir las alertas para el proveedor específico, métricas y otras funcionalidades de administración concretas para el proveedor de recursos.
+4. **Proveedores de recursos**. Administre la funcionalidad para los usuarios proporcionada por los componentes necesarios para ejecutar Azure Stack. Cada proveedor de recursos viene con una experiencia administrativa. Esta experiencia puede incluir las alertas para el proveedor específico, métricas y otras funcionalidades de administración concretas para el proveedor de recursos.
 
-5. **Infrastructure roles** (Roles de infraestructura). Son los componentes necesarios para ejecutar Azure Stack. Se enumeran solo los roles de infraestructura que notifican alertas. Si selecciona un rol, puede ver las alertas asociadas a él y las instancias de rol en que se ejecuta.
+5. **Infrastructure roles** (Roles de infraestructura). Componentes necesarios para ejecutar Azure Stack. Se enumeran solo los roles de infraestructura que notifican alertas. Si selecciona un rol, puede ver las alertas asociadas a él y las instancias de rol en que se ejecuta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

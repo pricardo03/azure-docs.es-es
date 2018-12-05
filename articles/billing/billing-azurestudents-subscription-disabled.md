@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: cwatson
 ROBOTS: NOINDEX
-ms.openlocfilehash: d7bf1d06c598dd7e548c109f68d0996c0be2b6b8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c8d78d51425ea5a5fc2f3b326710b3c2ad5a6a06
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391375"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581857"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>¿Por qué está deshabilitada mi suscripción a Azure for Students y cómo reactivarla?
 
@@ -57,6 +57,6 @@ El crédito de Azure for Students expira luego de 12 meses. Una vez que el créd
 
 Si canceló accidentalmente la suscripción a Azure for Students, puede ponerse en contacto con el [soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para reactivarla. Una vez que la reactive, seguirá teniendo acceso a servicios gratuitos y al crédito restante durante 12 meses a contar de la fecha de suscripción.
 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

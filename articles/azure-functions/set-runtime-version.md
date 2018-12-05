@@ -2,19 +2,18 @@
 title: Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions
 description: Azure Functions admite varias versiones del runtime. Obtenga información sobre cómo especificar la versión en tiempo de ejecución de una aplicación de función hospedada en Azure.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: 6d89746c0a2d4642e5025789d352803195c0a3b9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886814"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498392"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions
 
@@ -37,23 +36,13 @@ Los valores que puede establecer en la configuración de la aplicación `FUNCTIO
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Visualización y actualización de la versión actual del entorno de ejecución
 
-Utilice el siguiente procedimiento para ver la versión del runtime que utiliza una aplicación de función.
+Puede cambiar la versión del runtime que la aplicación de función usa. Debido a la posibilidad de cambios importantes, debería cambiar solo la versión del runtime antes de crear cualquier función en la aplicación de función. Si bien la versión del runtime la determina la configuración `FUNCTIONS_EXTENSION_VERSION`, este cambio se debe hacer en Azure Portal y no cambiando directamente la configuración. Esto se debe a que el portal valida los cambios y hace cambios relacionados adicionales según sea necesario.
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la aplicación de función.
+### <a name="from-the-azure-portal"></a>Desde Azure Portal
 
-1. En **Características configuradas**, elija **Configuración de la aplicación de función**.
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-    ![Seleccionar Configuración de Function App](./media/set-runtime-version/add-update-app-setting.png)
-
-1. En la pestaña **Configuración de Function App**, busque la **versión del runtime**. Observe la versión específica del runtime y la versión principal solicitada. En el ejemplo siguiente, la versión se establece en `~2`.
-
-   ![Seleccionar Configuración de Function App](./media/set-runtime-version/function-app-view-version.png)
-
-1. Para anclar la aplicación de función a la versión 1.x del entorno de ejecución, elija **~1** en **Versión en tiempo de ejecución**. Este modificador está deshabilitado cuando tiene funciones en la aplicación.
-
-1. Si ha cambiado la versión del entorno de ejecución, vuelva a la pestaña **Información general** y elija **Reiniciar** para reiniciar la aplicación.  La aplicación de función se reinicia y se ejecuta en la versión 1.x del entorno de ejecución y se usan las plantillas de la versión 1.x al crear las funciones.
-
-## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Visualización y actualización de la versión del entorno de ejecución con la CLI de Azure
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Desde la CLI de Azure
 
 `FUNCTIONS_EXTENSION_VERSION` también se puede visualizar y establecer desde la CLI de Azure.
 

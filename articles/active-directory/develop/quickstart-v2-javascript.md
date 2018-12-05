@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986295"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317354"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Inicio rápido: inicio de sesión y adquisición de un token de acceso por parte de los usuarios desde una aplicación de JavaScript
 
@@ -43,7 +43,7 @@ En esta guía de inicio rápido aprenderá a usar un código de ejemplo que mues
 > 1. Seleccione la plataforma **Web** en la sección **URI de redirección** y establezca el valor en `http://localhost:30662/`.
 > 1. Cuando termine, seleccione **Registrar**.  En la página de **Información general** de la aplicación, anote el valor en **Id. de aplicación (cliente)**.
 > 1. Para esta guía, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). En el panel de navegación izquierdo de la aplicación registrada, seleccione **Autenticación**.
-> 1. En **Configuración avanzada**, vaya a **Concesión implícita** y habilite las casillas de **Tokens de id.** y **Tokens de acceso**. Los tokens de identificador y los tokens de acceso son necesarios ya que esta aplicación debe iniciar la sesión de los usuarios y llamar a una API.
+> 1. En **Configuración avanzada**, vaya a **Concesión implícita** y habilite las casillas **Tokens de id.** y **Tokens de acceso**. Los tokens de identificador y los tokens de acceso son necesarios, ya que esta aplicación debe iniciar la sesión de los usuarios y llamar a una API.
 > 1. Seleccione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -66,7 +66,7 @@ Extraiga el archivo ZIP en una carpeta local (por ejemplo, **C:\Azure-Samples**)
 #### <a name="step-3-configure-your-javascript-app"></a>Paso 3: Configuración de la aplicación de JavaScript
 
 > [!div renderon="docs"]
-> Edite `index.html` y reemplace `Enter_the_Application_Id_here` en `applicationConfig` por el identificador de la aplicación que acaba de registrar.
+> Edite `index.html` y establezca los valores `clientID` y `authority` bajo `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Edite `index.html` y reemplace `applicationConfig` por:
@@ -74,13 +74,25 @@ Extraiga el archivo ZIP en una carpeta local (por ejemplo, **C:\Azure-Samples**)
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> Donde:
+> - `Enter_the_Application_Id_here`: es el **identificador de aplicación (cliente)** de la aplicación que registró.
+> - `Enter_the_Tenant_Info_Here` se establece como una de las opciones siguientes:
+>   - Si la aplicación admite **Accounts in this organizational directory** (Cuentas en este directorio de la organización), reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com)
+>   - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`
+>   - Si la aplicación admite **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio organizativo y cuentas Microsoft personales), reemplace este valor por `common`
+>
+> > [!TIP]
+> > Para buscar los valores de **Identificador de aplicación (cliente)**, **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
+
 > [!NOTE]
->Si usa [Node.js](https://nodejs.org/en/download/), el archivo *server.js* está configurado para que el servidor empiece a escuchar en el puerto 30662.
-> Si usa [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), el archivo *.csproj* del ejemplo de código está configurado para que el servidor empiece a escuchar en el puerto 30662.
+> El servidor está configurado para escuchar en el puerto 30662 en el archivo *server.js* en el proyecto [Node.js](https://nodejs.org/en/download/) y el archivo *.csproj* en el proyecto de [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 >
 
 #### <a name="step-4-run-the-project"></a>Paso 4: Ejecución del proyecto
@@ -121,7 +133,7 @@ npm install msal
 El código de la guía de inicio de sesión también muestra cómo inicializar la biblioteca:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Where  |  |

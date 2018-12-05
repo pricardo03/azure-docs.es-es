@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042370"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497268"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Uso del Servidor de historial de Spark extendido para depurar y diagnosticar las aplicaciones de Spark
+# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uso del servidor de historial de Apache Spark extendido para depurar y diagnosticar las aplicaciones de Spark
 
-En este artículo se proporcionan instrucciones sobre cómo usar el Servidor de historial de Spark para depurar y diagnosticar las aplicaciones Spark en ejecución y completadas. La extensión incluye la pestaña de datos, la pestaña de gráfico y la pestaña de diagnóstico. En la pestaña **Data** (Datos), los usuarios pueden comprobar los datos de entrada y salida del trabajo de Spark. En la pestaña **Graph** (Gráfico), los usuarios pueden comprobar el flujo de datos y reproducir el gráfico del trabajo. En la pestaña **Diagnosis** (Diagnóstico), el usuario puede consultar la **Asimetría de datos**, el **Desfase horario** y el **Análisis de uso del ejecutor**.
+En este artículo se proporcionan instrucciones sobre cómo usar el Servidor de historial de Apache Spark para depurar y diagnosticar las aplicaciones Spark en ejecución y completadas. La extensión incluye la pestaña de datos, la pestaña de gráfico y la pestaña de diagnóstico. En la pestaña **Data** (Datos), los usuarios pueden comprobar los datos de entrada y salida del trabajo de Spark. En la pestaña **Graph** (Gráfico), los usuarios pueden comprobar el flujo de datos y reproducir el gráfico del trabajo. En la pestaña **Diagnosis** (Diagnóstico), el usuario puede consultar la **Asimetría de datos**, el **Desfase horario** y el **Análisis de uso del ejecutor**.
 
-## <a name="get-access-to-spark-history-server"></a>Acceso al Servidor de historial de Spark
+## <a name="get-access-to-apache-spark-history-server"></a>Acceso al servidor de historial de Apache Spark
 
-Servidor de historial de Spark es la interfaz de usuario web para aplicaciones de Spark completadas y en ejecución. 
+El servidor de historial de Apache Spark es la interfaz de usuario web para aplicaciones de Spark completadas y en ejecución. 
 
-### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Apertura de la interfaz de usuario web del Servidor de historial de Spark desde Azure Portal
+### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Apertura de la interfaz de usuario web del servidor de historial de Apache Spark desde Azure Portal
 
 1. En [Azure Portal](https://portal.azure.com/), abra el clúster de Spark. Para obtener más información, consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. En **Vínculos rápidos**, haga clic en **Panel de clúster** y después en **Servidor de historial de Spark**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark. 
@@ -87,7 +87,7 @@ Seleccione el identificador del trabajo y haga clic en **Data** (Datos) en el me
     ![Comentarios de gráfico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="graph-tab-in-spark-history-server"></a>Pestaña de Gráfico en el Servidor de historial de Spark
+## <a name="graph-tab-in-apache-spark-history-server"></a>Pestaña Gráfico en el servidor de historial de Apache Spark
 Seleccione el identificador del trabajo y haga clic en **Graph** (Gráfico) en el menú de herramientas para obtener la vista gráfica del trabajo.
 
 + Puede consultar la información general del trabajo mediante el gráfico generado. 
@@ -158,7 +158,7 @@ Seleccione el identificador del trabajo y haga clic en **Graph** (Gráfico) en e
     ![Comentarios de gráfico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="diagnosis-tab-in-spark-history-server"></a>Pestaña de Diagnóstico en el Servidor de historial de Spark
+## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Pestaña Diagnóstico en el servidor de historial de Apache Spark
 Seleccione el identificador del trabajo y haga clic en **Diagnosis** (Diagnóstico) en el menú de herramientas para obtener la vista de diagnóstico del trabajo. La pestaña de diagnóstico incluye **Data Skew** (Asimetría de datos), **Time Skew** (Desfase horario) y **Executor Usage Analysis** (Análisis de uso del ejecutor).
     
 + Seleccione las pestañas correspondientes para comprobar la **Asimetría de datos**, el **Desfase horario** y el **Análisis de uso del ejecutor**.
@@ -326,8 +326,8 @@ Si quiere actualizar con la revisión, use el siguiente script que actualizará 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Administración de recursos de un clúster Spark en HDInsight](apache-spark-resource-manager.md)
-* [Configuración de opciones de Spark](apache-spark-settings.md)
+* [Administración de recursos de un clúster Apache Spark en HDInsight](apache-spark-resource-manager.md)
+* [Configuración de opciones de Apache Spark](apache-spark-settings.md)
 
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros

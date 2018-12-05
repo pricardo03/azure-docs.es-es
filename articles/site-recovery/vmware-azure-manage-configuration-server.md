@@ -1,18 +1,18 @@
 ---
 title: Administración del servidor de configuración para la recuperación ante desastres de VMware y servidores físicos con Azure Site Recovery | Microsoft Docs
 description: En este artículo se describe cómo administrar un servidor de configuración existente para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure con el servicio Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
-ms.author: raynew
-ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.author: ramamill
+ms.openlocfilehash: a58de808816bf80cf950d7b032ca042c7913a2e5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568461"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976391"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres de la VM de VMware
 
@@ -222,7 +222,14 @@ En lo que respecta a las implementaciones de servidores de configuración antes 
 2. La fecha de expiración aparece en **Configuration Server health** (Mantenimiento del servidor de configuración).
 3. Haga clic en **Renew Certificates** (Renovar certificados).
 
-## <a name="update-windows-licence"></a>Licencia de Windows Update
+## <a name="refresh-configuration-server"></a>Actualización del servidor de configuración
+
+1. En Azure Portal, navegue a **Almacén de Recovery Services** > **Administrar** > **Infraestructura de Site Recovery** > **For VMware & Physical machines** (Para máquinas físicas y de VMware) > **Servidores de configuración**.
+2. Haga clic en el servidor de configuración que quiere actualizar.
+3. En la hoja con detalles del servidor de configuración elegido, haga clic en **Más** > **Actualizar servidor**.
+4. Supervise el progreso del trabajo en **Almacén de Recovery Services** > **Supervisión** > **Trabajos de Site Recovery**.
+
+## <a name="update-windows-license"></a>Actualización de la licencia de Windows
 
 La licencia que se proporciona con la plantilla de OVF es una licencia de evaluación válida durante 180 días. Para el uso ininterrumpido, debe activar Windows con una licencia adquirida.
 

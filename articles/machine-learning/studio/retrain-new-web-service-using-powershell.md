@@ -1,10 +1,11 @@
 ---
-title: Reciclaje de un nuevo servicio web Azure Machine Learning con PowerShell | Microsoft Docs
+title: 'Volver a entrenar un nuevo servicio web de Machine Learning Studio con PowerShell: Azure | Microsoft Docs'
 description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning con los cmdlets de PowerShell para administración de aprendizaje automático.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: abef73a477355d89236b1f62cffc1f3d05ba03d0
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 59d12ae91f8c75ab0fdd2058057cc8de158897e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687238"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314191"
 ---
-# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reciclaje de un servicio web nuevo basado en Resource Manager mediante los cmdlets de PowerShell para administración de Machine Learning
+# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-studio-management-powershell-cmdlets"></a>Volver a entrenar un servicio web nuevo basado en Resource Manager mediante los cmdlets de PowerShell para administración de Machine Learning Studio
 Al volver a entrenar un servicio web nuevo, actualice la definición del servicio web predictiva para hacer referencia al nuevo modelo entrenado.
 
 ## <a name="prerequisites"></a>Requisitos previos

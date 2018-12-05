@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3e792eb9ab2e2902bfc9c84db7c1c344fb0cf67f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 93929df86057b48e132048a0879bc7347402652a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622353"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497755"
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Análisis de datos de retraso de vuelos con Hive en HDInsight
-Hive ofrece un modo de ejecutar trabajos de MapReduce de Apache Hadoop mediante un lenguaje de scripting de tipo SQL, denominado *[HiveQL][hadoop-hiveql]*, que se puede usar para resumir, consultar y analizar grandes volúmenes de datos.
+# <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Análisis de datos de retraso de vuelos con Apache Hive en HDInsight
+[Apache Hive](https://hive.apache.org/) ofrece un modo de ejecutar trabajos de [MapReduce de Apache Hadoop](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) mediante un lenguaje de scripting de tipo SQL, denominado *[HiveQL][hadoop-hiveql]*, que se puede usar para resumir, consultar y analizar grandes volúmenes de datos.
 
 > [!IMPORTANT]
-> Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para conocer el procedimiento que funciona con un clúster basado en Linux, vea [Análisis de datos de retraso de vuelos con Hive en HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para conocer el procedimiento que funciona con un clúster basado en Linux, consulte [Análisis de datos de retraso de vuelos con Apache Hive en HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 Una de las principales ventajas de HDInsight de Azure es la separación del almacenamiento de datos y el proceso. HDInsight usa el almacenamiento de blobs de Azure para almacenar datos. Un trabajo típico implica tres partes:
 
 1. **Almacenar los datos en el almacenamiento de blobs de Azure.**  Por ejemplo, los datos meteorológicos, datos de sensores, registros web y, en este caso, datos de retraso de vuelos se guardan en el almacenamiento de blobs de Azure.
-2. **Ejecutar trabajos.** Cuando llega el momento de procesar los datos, ejecuta un script de Windows PowerShell (o una aplicación cliente) para crear un clúster de HDInsight, ejecutar los trabajos y eliminar el clúster. Los trabajos guardan los datos de salida en el almacenamiento de blobs de Azure. Los datos de salida se conservan incluso después de eliminar el clúster. De este modo, solo paga por lo que ha consumido.
+2. **Ejecutar trabajos.**  Cuando llega el momento de procesar los datos, ejecuta un script de Windows PowerShell (o una aplicación cliente) para crear un clúster de HDInsight, ejecutar los trabajos y eliminar el clúster. Los trabajos guardan los datos de salida en el almacenamiento de blobs de Azure. Los datos de salida se conservan incluso después de eliminar el clúster. De este modo, solo paga por lo que ha consumido.
 3. **Recuperar la salida del almacenamiento de blobs**o, en este tutorial, exportar los datos a una base de datos SQL de Azure.
 
 El diagrama siguiente muestra el escenario y la estructura de este tutorial:
@@ -44,7 +44,7 @@ La parte principal del tutorial le muestra cómo usar un script de Windows Power
 En los apéndices, puede encontrar instrucciones para cargar los datos del retraso del vuelo, crear o cargar cadenas de consulta de Hive y preparar la base de datos SQL de Azure para el trabajo de Sqoop.
 
 > [!NOTE]
-> Los pasos descritos en este documento son específicos de los clústeres de HDInsight basados en Windows. Para conocer el procedimiento que funciona con un clúster basado en Linux, vea [Análisis de datos de retraso de vuelos con Hive en HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> Los pasos descritos en este documento son específicos de los clústeres de HDInsight basados en Windows. Para conocer el procedimiento que funciona con un clúster basado en Linux, consulte [Análisis de datos de retraso de vuelos con Apache Hive en HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
@@ -76,7 +76,7 @@ La siguiente tabla enumera los archivos utilizados en este tutorial:
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Creación de clústeres y ejecución de trabajos de Hive/Sqoop
 Hadoop MapReduce se está procesando por lotes. La forma más rentable de ejecutar un trabajo de Hive es crear un clúster para el trabajo y eliminar el trabajo una vez completado. El siguiente script cubre todo el proceso.
-Para obtener más información sobre la creación de un clúster de HDInsight y la ejecución de trabajos de Hive, consulte [Creación de clústeres de Hadoop en HDInsight][hdinsight-provision] y [Uso de Hive con HDInsight][hdinsight-use-hive].
+Para obtener más información sobre la creación de un clúster de HDInsight y la ejecución de trabajos de Hive, consulte [Creación de clústeres de Apache Hadoop en HDInsight][hdinsight-provision] y [Uso de Apache Hive con HDInsight][hdinsight-use-hive].
 
 **Para ejecutar las consultas de Hive con Azure PowerShell**
 
@@ -237,10 +237,10 @@ Para obtener más información sobre la creación de un clúster de HDInsight y 
 - - -
 
 ## <a id="appendix-a"></a>Apéndice A: Carga de datos de retraso de vuelos en el almacenamiento de blobs de Azure
-La carga del archivo de datos y los archivos de script de HiveQL (consulte el [Apéndice B](#appendix-b)) requiere planificación. La idea es almacenar los archivos de datos y el archivo HiveQL antes de crear un clúster de HDInsight y ejecutar el trabajo de Hive. Tiene dos opciones:
+La carga del archivo de datos y los archivos de script de [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) (consulte el [Apéndice B](#appendix-b)) requiere planificación. La idea es almacenar los archivos de datos y el archivo HiveQL antes de crear un clúster de HDInsight y ejecutar el trabajo de Hive. Tiene dos opciones:
 
 * **Use la misma cuenta de Azure Storage que usará el clúster de HDInsight como sistema de archivos predeterminado.** Como el clúster de HDInsight tendrá la clave de acceso de la cuenta de Almacenamiento, no es necesario realizar cambios adicionales.
-* **Use una cuenta de Azure Storage diferente desde el sistema de archivos predeterminado del clúster de HDInsight.** Si este es el caso, debe modificar la parte de creación del script de PowerShell que se encuentra en [Creación de clústeres de HDInsight y ejecución de trabajos de Hive/Sqoop](#runjob) para vincular la cuenta de Almacenamiento como una cuenta de Almacenamiento adicional. Para instrucciones, vea [Creación de clústeres de Hadoop en HDInsight][hdinsight-provision]. De esta manera, el clúster de HDInsight conoce la clave de acceso de la cuenta de Almacenamiento.
+* **Use una cuenta de Azure Storage diferente desde el sistema de archivos predeterminado del clúster de HDInsight.** Si este es el caso, debe modificar la parte de creación del script de PowerShell que se encuentra en [Creación de clústeres de HDInsight y ejecución de trabajos de Apache Hive/Sqoop](#runjob) para vincular la cuenta de Almacenamiento como una cuenta de Almacenamiento adicional. Para instrucciones, vea [Creación de clústeres de Apache Hadoop en HDInsight][hdinsight-provision]. De esta manera, el clúster de HDInsight conoce la clave de acceso de la cuenta de Almacenamiento.
 
 > [!NOTE]
 > La ruta de acceso al almacenamiento de blobs para el archivo de datos está codificada de forma rígida en el archivo de script de HiveQL. Debe actualizarse en consecuencia.
@@ -359,7 +359,7 @@ La ruta de acceso tutorials/flightdelay/data es la carpeta virtual que creó al 
 - - -
 
 ## <a id="appendix-b"></a>Apéndice B: Creación y carga de un script de HiveQL
-Con Azure PowerShell, puede ejecutar varias instrucciones HiveQL a la vez, o empaquetar la instrucción de HiveQL en un archivo script. Esta sección muestra cómo crear un script de HiveQL y cargarlo en el almacenamiento de blobs de Azure usando PowerShell de Azure. Hive requiere que los scripts de HiveQL se almacenen en el almacenamiento de blobs de Azure.
+Con Azure PowerShell, puede ejecutar varias instrucciones [HiveQL ](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)a la vez, o empaquetar la instrucción de HiveQL en un archivo script. Esta sección muestra cómo crear un script de HiveQL y cargarlo en el almacenamiento de blobs de Azure usando PowerShell de Azure. Hive requiere que los scripts de HiveQL se almacenen en el almacenamiento de blobs de Azure.
 
 El script de HiveQL realizará lo siguiente:
 
@@ -367,9 +367,9 @@ El script de HiveQL realizará lo siguiente:
 2. **Crear la tabla externa de Hive delays_raw** que apunta a la ubicación de Blob Storage con los archivos de retraso de los vuelos. Esta consulta especifica que los campos están delimitados por "," y que las líneas terminan en "\n". Esto plantea un problema cuando los valores de campo contienen comas porque Hive no distingue entre una coma que es un delimitador de campo y una que es parte de un valor de campo (que es el caso de los valores de campo de ORIGIN\_CITY\_NAME y DEST\_CITY\_NAME). Para solucionar este problema, la consulta crea columnas TEMP para contener datos que se dividen incorrectamente en columnas.
 3. **Anular la tabla de retrasos**, en caso de que la tabla ya exista.
 4. **Crear la tabla de retrasos**. Es útil realizar una limpieza de los datos antes de realizar un procesamiento adicional. Esta consulta crea una tabla nueva, *delays*, a partir de la tabla delays_raw. Tenga en cuenta que las columnas TEMP no se copian (como se mencionó anteriormente) y que la función **substring** se usa para quitar las comillas de los datos.
-5. **Procesa el retraso promedio a causa del tiempo y agrupa los resultados por nombre de la ciudad.** También producirá los resultados en el almacenamiento de blobs. Tenga en cuenta que la consulta eliminará los apóstrofes de los datos y excluirá las filas donde el valor de **weather_delay** es null. Esto es necesario porque Sqoop, que se usa más adelante en este tutorial, no trata estos valores correctamente de forma predeterminada.
+5. **Procesa el retraso promedio a causa del tiempo y agrupa los resultados por nombre de la ciudad.**  También producirá los resultados en el almacenamiento de blobs. Tenga en cuenta que la consulta eliminará los apóstrofes de los datos y excluirá las filas donde el valor de **weather_delay** es null. Esto es necesario porque Sqoop, que se usa más adelante en este tutorial, no trata estos valores correctamente de forma predeterminada.
 
-Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de definición de datos de Hive][hadoop-hiveql]. Cada comando de HiveQL debe terminar con un punto y coma.
+Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de definición de datos de Apache Hive][hadoop-hiveql]. Cada comando de [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) debe terminar con un punto y coma.
 
 **Para crear un archivo de script de HiveQL**
 
@@ -712,13 +712,13 @@ Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de
 5. Valide la salida del script. Asegúrese de que el script se ejecutó correctamente.
 
 ## <a id="nextsteps"></a> Pasos siguientes
-Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo rellenar una tabla de Hive con los datos del almacenamiento de blobs de Azure, cómo ejecutar consultas de Hive y cómo usar Sqoop para exportar datos de HDFS a la Base de datos SQL de Azure. Para obtener más información, consulte los artículos siguientes:
+Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo rellenar una tabla de Apache Hive con los datos del almacenamiento de blobs de Azure, cómo ejecutar consultas de Hive y cómo usar Sqoop para exportar datos de HDFS de [Apache Hadoop](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) a la Base de datos SQL de Azure. Para obtener más información, consulte los artículos siguientes:
 
 * [Introducción a HDInsight][hdinsight-get-started]
-* [Uso de Hive con HDInsight][hdinsight-use-hive]
-* [Uso de Oozie con HDInsight][hdinsight-use-oozie]
-* [Uso de Sqoop con HDInsight][hdinsight-use-sqoop]
-* [Uso de Pig con HDInsight][hdinsight-use-pig]
+* [Uso de Apache Hive con HDInsight][hdinsight-use-hive]
+* [Uso de Apache Oozie con HDInsight][hdinsight-use-oozie]
+* [Uso de Apache Sqoop con HDInsight][hdinsight-use-sqoop]
+* [Uso de Apache Pig con HDInsight][hdinsight-use-pig]
 * [Desarrollo de programas MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

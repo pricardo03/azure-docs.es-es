@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 53cec59841fbda49e4e410f069882ea76996f9fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428298"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: integración de Azure Active Directory con MobileIron
 
@@ -106,22 +106,21 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
     ![Cuadro de diálogo Inicio de sesión único](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-1. En la sección **Dominio y direcciones URL de MobileIron**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
+1. En la sección **Dominio y direcciones URL de MobileIron**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por  **IDP** :
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de MobileIron](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.mobileiron.com/<key>`
+    1. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.mobileiron.com/<key>`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`.
+    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`.
 
-1. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Active  **Mostrar configuración avanzada de URL**  y siga estos pasos si desea configurar la aplicación en el modo iniciado por  **SP** :
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de MobileIron](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<host>.mobileiron.com/user/login.html`.
+    En el cuadro de texto  **URL de inicio de sesión** , escriba la dirección URL con el siguiente patrón: `https://<host>.mobileiron.com/user/login.html`
     
-    > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Obtendrá los valores de clave y host desde el portal de administración de MobileIron, como se explica más adelante en el tutorial.
+    > [!NOTE]  Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Obtendrá los valores de clave y host desde el portal de administración de MobileIron, como se explica más adelante en el tutorial.
 
 1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -174,13 +173,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/mobileiron-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+    1. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
+    1. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    1. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    d. Haga clic en **Create**(Crear).
+    1. Haga clic en **Create**(Crear).
   
 ### <a name="create-a-mobileiron-test-user"></a>Creación de un usuario de prueba de MobileIron
 
@@ -199,13 +198,13 @@ En el caso de MobileIron, el aprovisionamiento es una tarea manual.
 
     ![Botón Configurar agregar usuario de inicio de sesión único](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. En el cuadro de texto **E-mail Address** (Dirección de correo electrónico), escriba el correo electrónico del usuario, en este caso, brittasimon@contoso.com.
+    1. En el cuadro de texto **E-mail Address** (Dirección de correo electrónico), escriba el correo electrónico del usuario, en este caso, brittasimon@contoso.com.
 
-    b. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso Britta.
+    1. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso Britta.
 
-    c. En el cuadro de texto **Last Name** (Apellidos), escriba el nombre de usuario, en este caso Simon.
+    1. En el cuadro de texto **Last Name** (Apellidos), escriba el nombre de usuario, en este caso Simon.
     
-    d. Haga clic en **Done**(Listo).  
+    1. Haga clic en **Done**(Listo).  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -242,7 +241,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de MobileIron en el panel de acceso, debería iniciar sesión automáticamente en la aplicación MobileIron.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

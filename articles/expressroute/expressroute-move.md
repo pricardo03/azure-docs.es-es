@@ -1,25 +1,18 @@
 ---
 title: Transición de circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager | Microsoft Docs
 description: Esta página proporciona una visión general de lo que necesita saber sobre cómo realizar la transición del modelo de implementación clásica al modelo de implementación de Resource Manager.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
-editor: ''
-ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b9ac7408f83677ed9898dc37fc234b9b9a6386f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710072"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977036"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager
 En este artículo se ofrece información general de lo que significa mover un circuito Azure ExpressRoute del modelo de implementación clásica al de Azure Resource Manager.
@@ -64,7 +57,7 @@ Cuando se define en TRUE el parámetro **allowClassicOperations** , en un circui
 * Crear, actualizar, obtener y eliminar vínculos a redes virtuales clásicas
 * Crear, actualizar, obtener y eliminar autorizaciones de vínculo de red virtual para la conectividad entre suscripciones
 
-Cuando se define en TRUE el parámetro **allowClassicOperations** , no se pueden realizar las siguientes operaciones clásicas:
+Sin embargo, cuando **allowClassicOperations** se define en TRUE, no se pueden realizar las siguientes operaciones clásicas:
 
 * Crear, actualizar, obtener y eliminar emparejamientos de Border Gateway Protocol (BGP) para emparejamientos públicos y privados de Azure y emparejamientos de Microsoft
 * Eliminar circuitos ExpressRoute

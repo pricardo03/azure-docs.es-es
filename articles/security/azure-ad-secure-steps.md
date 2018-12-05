@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567957"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165652"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -77,6 +77,9 @@ Si la organización utiliza una solución de identidad híbrida con federación 
 * Si se produce una interrupción en el entorno local (por ejemplo, si sufre un ataque de ransomware), podrá cambiar a la [autenticación en la nube mediante la sincronización del hash de contraseñas](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Este método de autenticación de copias de seguridad le permitirá continuar accediendo a las aplicaciones configuradas, gracias a la autenticación con Azure Active Directory, incluyendo Office 365. En este caso, el personal de TI no necesitará recurrir a las cuentas de correo electrónico personales para compartir los datos hasta que la interrupción del entorno local se resuelva.
 
 Obtenga más información sobre el funcionamiento de la [sincronización del hash de contraseñas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
+
+> [!NOTE]
+> Si habilita la sincronización de hash de contraseñas y usa Azure AD Domain Services, los hash de Kerberos (AES 256) y, opcionalmente, de NTLM (RC4, sin valor "salt") se cifrarán y sincronizarán con Azure AD. 
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementación del bloqueo inteligente de la extranet de AD FS
 

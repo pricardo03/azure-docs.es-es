@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: fbca9c746863b852a9ddd46d00a65d4133961718
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984380"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620547"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
-> * [Administrador de recursos de Azure](service-fabric-cluster-creation-via-arm.md)
+> * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
@@ -117,13 +117,13 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 1. Elija un nombre para el tipo de nodo (con una longitud de 1 a 12 caracteres y que contenga solamente letras y números).
 2. El **tamaño** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **durabilidad** que elija para el clúster. El valor predeterminado del nivel de durabilidad es Bronze. Para obtener más información sobre la durabilidad, consulte [Elección de los niveles de durabilidad del clúster de Service Fabric][service-fabric-cluster-durability].
 3. Seleccione el **tamaño de la máquina virtual**. Las máquinas virtuales de la serie D tienen unidades SSD y son muy recomendables para aplicaciones con estado. No use cualquier SKU de VM que tenga núcleos parciales o menos de 10 GB de capacidad de disco disponible. Consulte el documento [Consideraciones de planeación de capacidad del clúster de Service Fabric][service-fabric-cluster-capacity] para obtener ayuda con la selección del tamaño de VM.
-4. Elija la **capacidad inicial del conjunto de escalado de la máquina virtual** para el tipo de nodo. Puede escalar o reducir verticalmente el número de VM en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo necesario para cargas de trabajo de producción es de cinco máquinas. Otros tipos de nodo pueden tener una máquina virtual como mínimo. El **número** mínimo de máquinas virtuales para el tipo de nodo principal afecta al nivel de **confiabilidad** que elija.  
-5. Los **clúster de un solo nodo y clústeres de tres nodos** están diseñados únicamente con fines de prueba. Estos clústeres no se admiten para la ejecución de cargas de trabajo de producción.
+4.  Los **clúster de un solo nodo y clústeres de tres nodos** están diseñados únicamente con fines de prueba. Estos clústeres no se admiten para la ejecución de cargas de trabajo de producción.
+5. Elija la **capacidad inicial del conjunto de escalado de la máquina virtual** para el tipo de nodo. Puede escalar o reducir verticalmente el número de VM en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo necesario para cargas de trabajo de producción es de cinco máquinas. Otros tipos de nodo pueden tener una máquina virtual como mínimo. El **número** mínimo de máquinas virtuales para el tipo de nodo principal afecta al nivel de **confiabilidad** que elija.  
 6. Configure los **puntos de conexión personalizados**. Este campo le permite especificar una lista de puertos separados por coma que quiere exponer mediante Azure Load Balancer a la Internet pública para sus aplicaciones. Por ejemplo, si planea implementar una aplicación web en el clúster, escriba aquí "80" para permitir el paso del tráfico del puerto 80 al clúster. Para obtener más información sobre los puntos de conexión, consulte la [comunicación con las aplicaciones][service-fabric-connect-and-communicate-with-services].
 7. **Habilitación del proxy inverso**.  El [proxy inverso de Service Fabric](service-fabric-reverseproxy.md) ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con dichos servicios.
-8. En **+ Mostrar configuración opcional**, configure los **diagnósticos** del clúster. De forma predeterminada, los diagnósticos se habilitan en el clúster para ayudar a solucionar los problemas. Si quiere deshabilitar los diagnósticos, cambie el botón de alternancia **Estado** a **Desactivado**. **No** se recomienda desactivar los diagnósticos. Si ya creó el proyecto de Application Insights, proporcione su clave para que los rastros de la aplicación se enruten hacia ella.
+8. En la hoja **Configuración del clúster**, en **+Mostrar configuración opcional**, configure el **diagnóstico** del clúster. De forma predeterminada, los diagnósticos se habilitan en el clúster para ayudar a solucionar los problemas. Si quiere deshabilitar los diagnósticos, cambie el botón de alternancia **Estado** a **Desactivado**. **No** se recomienda desactivar los diagnósticos. Si ya creó el proyecto de Application Insights, proporcione su clave para que los rastros de la aplicación se enruten hacia ella.
 9. **Inclusión del servicio DNS**.  El [servicio DNS](service-fabric-dnsservice.md) es un servicio opcional que le permite buscar otros servicios mediante el protocolo DNS.
-10. Seleccione el **modo de actualización de Fabric** que desea establecer en el clúster. Seleccione **Automático**si desea que el sistema coja la última versión disponible automáticamente e intente actualizar el clúster con ella. Establezca el modo en **Manual**si desea elegir una versión compatible. Para obtener más información sobre el modo de actualización de Service Fabric, consulte el [documento de actualización de un clúster de Service Fabric.][service-fabric-cluster-upgrade]
+10. Seleccione el **modo de actualización de Fabric** que desea establecer en el clúster. Seleccione **Automático**si desea que el sistema coja la última versión disponible automáticamente e intente actualizar el clúster con ella. Establezca el modo en **Manual**si desea elegir una versión compatible. Para más información sobre el modo de actualización de Service Fabric, consulte el [documento de actualización de un clúster de Service Fabric.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
 > Se admiten solo los clústeres que ejecutan versiones compatibles de Service Fabric. Si selecciona el modo **Manual** , está aceptando la responsabilidad de actualizar el clúster a una versión compatible.
@@ -158,10 +158,10 @@ Omita esta sección si ya realizó los pasos descritos en la opción **Básico**
 
 ![SecurityCustomOption]
 
-Necesita la información de CertificateThumbprint, SourceVault y CertificateURL para completar la página de seguridad. Si no dispone de estos datos, abra otra ventana del explorador y haga lo siguiente:
+Necesita la información sobre el almacén de claves de origen, la dirección URL del certificado y la huella digital del certificado para completar la página de seguridad. Si no dispone de estos datos, abra otra ventana del explorador y, en Azure Portal, haga lo siguiente
 
-1. Navegue hasta el almacén de claves y seleccione el certificado. 
-2. Seleccione la ficha "Propiedades" y copie el "Id. del recurso" a "Almacén de claves de origen" en la otra ventana del explorador. 
+1. Vaya a su servicio de almacén de claves.
+2. Seleccione la pestaña "Propiedades" y copia el valor de "RESOURCE ID" a"Almacén de claves de origen" en la otra ventana del explorador. 
 
     ![CertInfo0]
 
@@ -171,7 +171,7 @@ Necesita la información de CertificateThumbprint, SourceVault y CertificateURL 
 
     ![CertInfo1]
 
-6. Ahora debería estar en una pantalla como la que se muestra a continuación. Copie la "huella digital" en "Huella digital del certificado" en la otra ventana del explorador.
+6. Ahora debería estar en una pantalla como la que se muestra a continuación. Copie la huella digital SHA-1 hexadecimal en "Huella digital del certificado" en la otra ventana del explorador.
 7. Copie la información de "Identificador secreto" en "Dirección URL del certificado" en otra ventana del explorador.
 
     ![CertInfo2]
@@ -186,7 +186,7 @@ Para completar la creación del clúster, haga clic en **Crear**. De manera opci
 
 ![Resumen]
 
-Puede ver el progreso de creación en las notificaciones. (Haga clic en el icono de la "campana" cerca de la barra de estado en la parte superior derecha de la pantalla). Si hizo clic en **Anclar a Panel de inicio** al crear el clúster, verá **Deploying Service Fabric Cluster** (Implementando clúster de Service Fabric) anclado al panel de **Inicio**.
+Puede ver el progreso de creación en las notificaciones. (Haga clic en el icono de la "campana" cerca de la barra de estado en la parte superior derecha de la pantalla). Si hizo clic en **Anclar a Panel de inicio** al crear el clúster, verá **Deploying Service Fabric Cluster** (Implementando clúster de Service Fabric) anclado al panel de **Inicio**. Este proceso puede tardar un tiempo. 
 
 Para realizar operaciones de administración en el clúster con Powershell o la CLI, deberá conectarse a su clúster. Puede obtener más información al respecto en [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md).
 

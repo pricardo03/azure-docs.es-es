@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/12/2018
-ms.openlocfilehash: 04e47e15206e22e7965121c6c277e4032ea04ddf
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a03ead5e577b261b99e635addf6f9a98d8f3cadd
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621061"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619704"
 ---
 # <a name="supported-postgresql-database-versions"></a>Versiones de base de datos de PostgreSQL admitidas
 Microsoft tiene la intención de admitir versiones n-2 del motor de PostgreSQL en el servicio Azure Database for PostgreSQL. Estas versiones serían la versión principal actual en Azure (n) y las dos versiones principales anteriores (-2).
@@ -31,7 +31,7 @@ Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/9.6/s
 Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/9.5/static/release-9-5-14.html) para obtener información sobre las mejoras y correcciones de esta versión secundaria.
 
 ## <a name="managing-updates-and-upgrades"></a>Administración de actualizaciones
-Azure Database for PostgreSQL administra automáticamente la aplicación de revisiones de versiones secundarias. Actualmente, no se admite la actualización de versión principal. Por ejemplo, no se admite la actualización de PostgreSQL 9.5 a PostgreSQL 9.6. Si quiere actualizar a la siguiente versión principal, realice un [volcado y restáurelo ](./howto-migrate-using-dump-and-restore.md) a un servidor que se haya creado con la nueva versión del motor.
+Azure Database for PostgreSQL administra automáticamente la aplicación de revisiones de versiones secundarias. Actualmente, no se admite la actualización de versión principal. Por ejemplo, no se admite la actualización de PostgreSQL 9.5 a PostgreSQL 9.6. Si quiere actualizar a la siguiente versión principal, cree un [volcado de base de datos y restáurelo ](./howto-migrate-using-dump-and-restore.md) a un servidor que se haya creado con la nueva versión del motor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información sobre la compatibilidad de las distintas extensiones de PostgreSQL, vea [Extensiones de PostgreSQL](concepts-extensions.md).

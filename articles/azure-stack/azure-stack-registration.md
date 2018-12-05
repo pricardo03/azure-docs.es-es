@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: be88e84c48ba31ce564c31eca1f54f164aeb9f93
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8d737c9fbf149051a8142f5ff546ea88e648541b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288244"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976373"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure
 
@@ -431,7 +431,7 @@ Para ejecutar el cmdlet, necesitará:
 | ResourceGroupName | string |  |
 | ResourceGroupLocation | string |  |
 | BillingModel | string | Es el modelo de facturación que usa la suscripción. Los valores que se permiten en este parámetro son: Capacity, PayAsYouUse y Development. |
-| MarketplaceSyndicationEnabled |  |  |
+| MarketplaceSyndicationEnabled | True/False | Determina si la característica de administración de Marketplace está disponible o no en el portal. Se establece en true si se registra con conectividad a Internet. Se establece en false si se registra en entornos sin conexión. Para los registros sin conexión, puede usar la [herramienta de redifusión sin conexión](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) para descargar elementos de Marketplace. |
 | UsageReportingEnabled | True/False | Azure Stack informa de las métricas de uso de forma predeterminada. Los operadores que tienen usos de capacidad o admiten un entorno desconectado deben desactivar los informes de uso. Los valores permitidos para este parámetro son True o False. |
 | AgreementNumber | string |  |
 | RegistrationName | string | Establezca un nombre único para el registro si ejecuta el script de registro en más de una instancia de Azure Stack mediante el mismo identificador de suscripción de Azure. El valor predeterminado del parámetro es **AzureStackRegistration**. Sin embargo, si usa el mismo nombre en más de una instancia de Azure Stack, el script no se ejecutará correctamente. |

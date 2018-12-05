@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.author: danlep
-ms.openlocfilehash: e2f0d90a0a4384560c0a4126c028761765cb9e45
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e03a35b31c9089abe973c7e4388b508f668a3970
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288873"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619850"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
@@ -44,6 +44,7 @@ Aunque esta característica está en versión preliminar, las siguientes limitac
 
 Regiones **admitidas**:
 
+* Europa del Norte (northeurope)
 * Europa Occidental (westeurope)
 * Oeste de EE. UU. (westus)
 
@@ -72,7 +73,7 @@ La subred que usó para los grupos de contenedores puede contener solo grupos de
 
 Un perfil de red es una plantilla de configuración de red para los recursos de Azure. Especifica determinadas propiedades de red para el recurso, por ejemplo, la subred en la que debe implementarse. La primera vez que usa el comando [az container create][az-container-create] para implementar un grupo de contenedores en una subred (y, por tanto, en una red virtual), Azure crea un perfil de red para usted. A continuación, puede usar ese perfil de red para implementaciones futuras en la subred. 
 
-Para usar una plantilla de Resource Manager, el archivo YAML o un método de programación para implementar un grupo de contenedores en una subred, deberá proporcionar el identificador de recurso de Resource Manager completo de un perfil de red. Puede usar un perfil que creó previamente mediante [a container create][az-container-create] o bien crear un perfil mediante una plantilla de Resource Manager (consulte la [referencia](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Para obtener el identificador de un perfil creado anteriormente, use el comando [az network profile list][az-network-profile-list]. 
+Para usar una plantilla de Resource Manager, el archivo YAML o un método de programación para implementar un grupo de contenedores en una subred, deberá proporcionar el identificador de recurso de Resource Manager completo de un perfil de red. Puede usar un perfil que creó previamente mediante [az container create][az-container-create] o bien crear un perfil mediante una plantilla de Resource Manager (consulte el [ejemplo de plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) y la [referencia](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Para obtener el identificador de un perfil creado anteriormente, use el comando [az network profile list][az-network-profile-list]. 
 
 En el diagrama siguiente, se han implementado varios grupos de contenedores en una subred delegada en Azure Container Instances. Una vez implementado un grupo de contenedores en una subred, puede implementar grupos de contenedores adicionales en él si especifica el mismo perfil de red.
 
@@ -295,6 +296,9 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Para implementar una nueva red virtual, subred, perfil de red y grupo de contenedores mediante una plantilla de Resource Manager, consulte el artículo sobre la [creación de un grupo de contenedores de Azure con VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+).
 
 En este artículo se trataron varios recursos de red virtual y características, aunque de forma breve. La documentación de Azure Virtual Network trata estos temas ampliamente:
 

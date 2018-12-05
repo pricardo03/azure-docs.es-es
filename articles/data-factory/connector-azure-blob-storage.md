@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 3109cad0e00b6ec5af47210f2c8d094659bd4553
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 999f7265cc62236fa085a0c2fb90a68707891dd4
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345783"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620409"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ En concreto, este conector de Blob Storage admite las siguientes operaciones:
 
 - Copia de blobs con cuentas de Azure Storage de uso general y almacenamiento de blobs en frío y en caliente como orígenes y destinos. 
 - Copia de blobs mediante el uso de una clave de cuenta, una firma de acceso compartido de servicio, una entidad de servicio o identidades administradas paras las autenticaciones de recursos de Azure.
-- Copia de blobs desde blobs en bloques, blobs con anexos o blobs en páginas y copia de datos solo a blobs en bloques. Azure Premium Storage no es compatible como receptor porque está respaldado por blobs en páginas.
+- Copia de blobs desde blobs en bloques, blobs con anexos o blobs en páginas y copia de datos solo a blobs en bloques.
 - Copia de blobs tal cual, o análisis o generación de los mismos con [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
@@ -207,7 +207,7 @@ Para usar identidades administradas para la autenticación de recursos de Azure,
 
 1. [Recupere la identidad de servicio de Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando el valor del id. de la aplicación de identidad de servicio que se genera con la factoría.
 
-2. Conceda a la entidad de servicio el permiso adecuado en Azure Blob Storage. Consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC](../storage/common/storage-auth-aad-rbac.md) con más detalles sobre los roles.
+2. Conceda el permiso de propiedad de identidad administrada en Azure Blob Storage. Consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC](../storage/common/storage-auth-aad-rbac.md) con más detalles sobre los roles.
 
     - **Como origen**, en el control de acceso (IAM), conceda al menos el rol **Lector de datos de blobs de almacenamiento**.
     - **Como receptor**, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de blobs de almacenamiento**.

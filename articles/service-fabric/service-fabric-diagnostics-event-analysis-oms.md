@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/29/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 6dee895ba9fc024baac0500619b7d6cc62167b6d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 332939710517e99aaa77642dc5e67256b476bd66
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404484"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634582"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Análisis y visualización de eventos con Log Analytics
-Log Analytics recopila y analiza la telemetría de las aplicaciones y los servicios hospedados en la nube y proporciona herramientas de análisis para ayudarle a maximizar su disponibilidad y rendimiento. En este artículo se describe cómo ejecutar consultas en Log Analytics para obtener información de lo que está sucediendo en el clúster y solucionar problemas. Se tratan las siguientes preguntas habituales:
+ Log Analytics recopila y analiza la telemetría de las aplicaciones y los servicios hospedados en la nube y proporciona herramientas de análisis para ayudarle a maximizar su disponibilidad y rendimiento. En este artículo se describe cómo ejecutar consultas en Log Analytics para obtener información de lo que está sucediendo en el clúster y solucionar problemas. Se tratan las siguientes preguntas habituales:
 
 * ¿Cómo se solucionan los eventos de mantenimiento?
 * ¿Cómo se puede saber si un nodo deja de funcionar?
@@ -30,9 +30,12 @@ Log Analytics recopila y analiza la telemetría de las aplicaciones y los servic
 
 ## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
 
+>[!NOTE] 
+>Mientras que el almacenamiento de diagnóstico está habilitado de forma predeterminada en el momento de creación del clúster, debe configurar el área de trabajo de Log Analytics para que lea desde el almacenamiento de diagnósticos.
+
 Log Analytics recopila datos de recursos administrados, incluidos un agente o una tabla de almacenamiento de Azure, y los mantiene en un repositorio central. Estos datos pueden utilizarse posteriormente para análisis, alertas, visualizaciones y tareas ulteriores de exportación. Log Analytics admite eventos, datos de rendimiento u otros datos personalizados. Consulte los [pasos para configurar la extensión de diagnósticos para agregar eventos](service-fabric-diagnostics-event-aggregation-wad.md) y los [pasos para crear un área de trabajo de Log Analytics para leer de los eventos de almacenamiento](service-fabric-diagnostics-oms-setup.md) para asegurarse de que los datos fluyen en Log Analytics.
 
-Después de que Log Analytics recibe los datos, Azure dispone de varias *soluciones de administración*, que son soluciones preempaquetadas para supervisar los datos entrantes, personalizados para varios escenarios. Puede tratarse de una solución de *Service Fabric Analytics* y una solución de *Containers*, que son las dos opciones más importantes para diagnosticar y supervisar el uso de los clústeres de Service Fabric. En este artículo se describe cómo utilizar la solución de Service Fabric Analytics, que se crea con el área de trabajo.
+Después de que Log Analytics recibe los datos, Azure dispone de varias *soluciones de administración*, que son soluciones preempaquetadas o paneles operativos para supervisar los datos entrantes, personalizados para varios escenarios. Puede tratarse de una solución de *Service Fabric Analytics* y una solución de *Containers*, que son las dos opciones más importantes para diagnosticar y supervisar el uso de los clústeres de Service Fabric. En este artículo se describe cómo utilizar la solución de Service Fabric Analytics, que se crea con el área de trabajo.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Acceso a la solución de Service Fabric Analytics
 
@@ -40,7 +43,7 @@ Después de que Log Analytics recibe los datos, Azure dispone de varias *solucio
 
 2. Seleccione el recurso **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. En resumen, verá iconos en forma de grafo para cada una de las soluciones habilitadas, entre ellos uno para Service Fabric. Haga clic en el grafo **Service Fabric** (primera imagen abajo) para continuar con la solución de Service Fabric Analytics (segunda imagen abajo).
+2. En `Summary`, verá iconos en forma de grafo para cada una de las soluciones habilitadas, entre ellos uno para Service Fabric. Haga clic en el grafo **Service Fabric** (primera imagen abajo) para continuar con la solución de Service Fabric Analytics (segunda imagen abajo).
 
     ![Solución Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
@@ -48,12 +51,12 @@ Después de que Log Analytics recibe los datos, Azure dispone de varias *solucio
 
 La imagen anterior es la página principal de la solución de Service Fabric Analytics. Se trata de una vista de instantánea de lo que sucede en el clúster. Si habilitó el diagnóstico durante la creación del clúster, puede ver eventos de 
 
-* [Canal operativo](service-fabric-diagnostics-event-generation-operational.md): operaciones de nivel superior que realiza la plataforma Service Fabric (colección de servicios del sistema).
+* [Eventos de clúster de Service Fabric](service-fabric-diagnostics-event-generation-operational.md)
 * [Eventos del modelo de programación de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Eventos del modelo de programación de Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->Además del canal operativo, se pueden recopilar eventos del sistema más detallados mediante la [actualización de la configuración de la extensión de diagnósticos](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
+>Además de los eventos de Service Fabric estándar, se pueden recopilar eventos del sistema más detallados mediante la [actualización de la configuración de la extensión de diagnósticos](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visualización de eventos de Service Fabric, como acciones en nodos
 
@@ -105,7 +108,7 @@ El lenguaje de consulta Kusto es eficaz. Otra consulta valiosa que puede ejecuta
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para habilitar la supervisión de la infraestructura, es decir, los contadores de rendimiento, vea cómo [agregar el agente de Log Analytics](service-fabric-diagnostics-oms-agent.md). El agente recopila los contadores de rendimiento y los agrega al área de trabajo existente.
-* Si se trata de clústeres locales, Log Analytics ofrece una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a Log Analytics. Para obtener más información, vea [Conexión de equipos sin acceso a Internet a Log Analytics mediante la puerta de enlace de Log Analytics](../log-analytics/log-analytics-oms-gateway.md).
+* Si se trata de clústeres locales, Log Analytics ofrece una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a Log Analytics. Para obtener más información, vea [Conexión de equipos sin acceso a Internet a Log Analytics mediante la puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md).
 * Configure [alertas automáticas](../log-analytics/log-analytics-alerts.md) para facilitar la detección y el diagnóstico.
 * Familiarícese con las funciones de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de Log Analytics.
 * Para obtener más información sobre Log Analytics y lo que ofrece, vea [¿Qué es Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)

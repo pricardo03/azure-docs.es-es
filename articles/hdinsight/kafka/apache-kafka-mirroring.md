@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 21fa41db2e205a7b17deae6d018308fe6e7ff213
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006777"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309045"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight
 
@@ -25,11 +25,11 @@ En este ejemplo, la creación de reflejo se usa para replicar temas entre dos cl
 > [!WARNING]
 > La creación de reflejo no debe considerarse como un medio para conseguir tolerancia a errores. El desplazamiento a los elementos de un tema es diferentes entre los clústeres de origen y de destino, por lo que los clientes no puede usar los dos indistintamente.
 >
-> Si le preocupa la tolerancia a errores, establezca la replicación para los temas en el clúster. Para más información, consulte [Get started with Kafka on HDInsight](apache-kafka-get-started.md) (Introducción a Kafka en HDInsight).
+> Si le preocupa la tolerancia a errores, establezca la replicación para los temas en el clúster. Para obtener más información, vea [Introducción a Apache Kafka en HDInsight](apache-kafka-get-started.md).
 
-## <a name="how-kafka-mirroring-works"></a>Funcionamiento de la creación de reflejo de Kafka
+## <a name="how-apache-kafka-mirroring-works"></a>Funcionamiento de la creación de reflejo de Apache Kafka
 
-La creación de reflejo se realiza mediante la herramienta MirrorMaker (parte de Apache Kafka), que consume registros de temas del clúster de origen y crea una copia local en el clúster de destino. MirrorMaker usa uno o más *consumidores* que leen desde el clúster de origen y un *productor* que escribe en el clúster local (de destino).
+La creación de reflejo se realiza mediante la herramienta [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) (parte de Apache Kafka), que consume registros de temas del clúster de origen y crea una copia local en el clúster de destino. MirrorMaker usa uno o más *consumidores* que leen desde el clúster de origen y un *productor* que escribe en el clúster local (de destino).
 
 En el siguiente diagrama se ilustra el proceso de reflejo:
 
@@ -56,7 +56,7 @@ Si tiene que crear un reflejo entre los clústeres Kafka en distintas redes, exi
 
 Para más información sobre cómo conectar dos instancias de Azure Virtual Network, consulte [Configuración de una conexión de red virtual a red virtual](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-## <a name="create-kafka-clusters"></a>Creación de clústeres Kafka
+## <a name="create-apache-kafka-clusters"></a>Creación de clústeres de Apache Kafka
 
 Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka, resulta más sencillo con una plantilla de Azure Resource Manager. Siga los pasos que se indican a continuación para implementar una red virtual de Azure y dos clústeres Kafka en la suscripción de Azure.
 
@@ -106,7 +106,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka, r
 
     Para más información, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use los comandos siguientes para buscar los hosts de Zookeeper para el clúster de origen:
+2. Use los comandos siguientes para buscar los hosts de Apache Zookeeper para el clúster de origen:
 
     ```bash
     # Install jq if it is not installed
@@ -295,10 +295,10 @@ Como el procedimiento descrito en este documento crea los dos clústeres en el m
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, aprendió a utilizar MirrorMaker para crear una réplica de un clúster de Kafka. Utilice los vínculos siguientes para conocer otras formas de trabajar con Kafka:
+En este documento, aprendió a utilizar [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para crear una réplica de un clúster de [Apache Kafka](https://kafka.apache.org/). Utilice los vínculos siguientes para conocer otras formas de trabajar con Kafka:
 
 * [Documentación de Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) en cwiki.apache.org.
 * [Introducción a Apache Kafka en HDInsight](apache-kafka-get-started.md)
-* [Uso de Apache Spark con Kafka en HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Uso de Apache Kafka con Storm en HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Conexión a Kafka a través de una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
+* [Uso de Apache Spark con Apache Kafka en HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Uso de Apache Storm con Apache Kafka en HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Conectarse a Apache Kafka a través de una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

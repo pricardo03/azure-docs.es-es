@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 183f8fd47ea5239e31f03f3aecf420cfb5842098
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6c1307fcb472f6c66a95b76ad3c1b1686ce4f998
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009834"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308947"
 ---
-# <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creación de clústeres de HBase en HDInsight en Azure Virtual Network
-Aprenda a crear clústeres de HBase de HDInsight de Azure en una [Azure Virtual Network][1].
+# <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creación de clústeres de Apache HBase en HDInsight en Azure Virtual Network
+Aprenda a crear clústeres de Apache HBase de Azure HDInsight en [Azure Virtual Network][1].
 
-Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase. Entre las ventajas se incluye lo siguiente:
+Con la integración de Virtual Network, los clústeres de Apache HBase se pueden implementar en la misma red virtual que sus aplicaciones para que estas puedan comunicarse directamente con HBase. Entre las ventajas se incluye lo siguiente:
 
 * Conectividad directa entre la aplicación web y los nodos del clúster de HBase, lo cual permite la comunicación mediante las API de llamada a procedimiento remoto (RPC) de Java de HBase.
 * Rendimiento mejorado gracias a que el tráfico ya no tiene que examinar varias puertas de enlace y equilibradores de carga.
@@ -31,8 +31,8 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Una estación de trabajo con Azure PowerShell**. Consulte [Install and use Azure PowerShell (Instalación y uso de Azure PowerShell)](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-## <a name="create-hbase-cluster-into-virtual-network"></a>Creación de un clúster de HBase en red virtual
-En esta sección, crea un clúster de HBase basado en Linux con la cuenta de Azure Storage dependiente en una red virtual de Azure mediante el uso de una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md). Para conocer otros métodos de creación de clústeres y la descripción de la configuración, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para más información acerca de cómo utilizar la plantilla para crear clústeres de Hadoop en HDInsight, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight mediante plantillas de Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+## <a name="create-apache-hbase-cluster-into-virtual-network"></a>Creación de un clúster de Apache HBase en Virtual Network
+En esta sección, crea un clúster de Apache HBase basado en Linux con la cuenta de Azure Storage dependiente en Azure Virtual Network mediante una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md). Para conocer otros métodos de creación de clústeres y la descripción de la configuración, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para más información acerca de cómo utilizar una plantilla para crear clústeres de Apache Hadoop en HDInsight, consulte [Creación de clústeres de Apache Hadoop en HDInsight con plantillas de Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 > [!NOTE]
 > Algunas propiedades se han codificado de forma rígida en la plantilla. Por ejemplo: 
@@ -64,11 +64,11 @@ En esta sección, crea un clúster de HBase basado en Linux con la cuenta de Azu
    * **Acepto los términos y condiciones indicados anteriormente**: (Seleccionar)
 3. Haga clic en **Comprar**. Tarda aproximadamente 20 minutos en crear un clúster. Una vez creado el clúster, puede hacer clic en la hoja del clúster en el portal para abrirlo.
 
-Después de completar el tutorial, quizá desee eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando. Para ver instrucciones sobre cómo eliminar un clúster, consulte [Administración de clústeres de Hadoop en HDInsight mediante Azure Portal](../hdinsight-administer-use-management-portal.md#delete-clusters).
+Después de completar el tutorial, quizá desee eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando. Para ver instrucciones sobre cómo eliminar un clúster, consulte [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](../hdinsight-administer-use-management-portal.md#delete-clusters).
 
-Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimientos que encontrará en [Introducción al uso de HBase con Hadoop en HDInsight](./apache-hbase-tutorial-get-started-linux.md).
+Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimientos que encontrará en [Introducción al uso de Apache HBase con Apache Hadoop en HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
-## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>Conexión al clúster de HBase mediante las API de RPC de Java de HBase
+## <a name="connect-to-the-apache-hbase-cluster-using-apache-hbase-java-rpc-apis"></a>Conexión al clúster de Apache HBase mediante las API de RPC de Java de Apache HBase
 1. Cree una máquina virtual de infraestructura como servicio (IaaS) en la misma red virtual de Azure y la misma subred. Para obtener instrucciones sobre cómo crear una nueva máquina virtual de IaaS consulte el tutorial sobre la [creación de una máquina virtual que ejecuta Windows Server](../../virtual-machines/windows/quick-create-portal.md). Al seguir los pasos descritos en este documento, tiene que usar los valores siguientes para la configuración de red:
 
    * **Red virtual**: &lt;Nombre del clúster&gt;-vnet
@@ -83,7 +83,7 @@ Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimien
 
 2. Cuando use una aplicación Java para conectarse a HBase en modo remoto, debe usar el nombre de dominio completo (FQDN). Para determinarlo, debe obtener el sufijo DNS específico de la conexión del clúster de HBase. Para ello, use uno de los siguientes métodos:
 
-   * Utilice un explorador web para realizar una llamada Ambari:
+   * Utilice un explorador web para realizar una llamada [Apache Ambari](https://ambari.apache.org/):
 
      Vaya a https://&lt;Nombre del clúster>.azurehdinsight.net/api/v1/clusters/&lt;Nombre del clúster>/hosts?minimal_response=true. Convierte un archivo JSON con los sufijos DNS.
    * Utilice el sitio web de Ambari:
@@ -225,7 +225,7 @@ Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimien
 
 Para comprobar que la máquina virtual puede comunicarse con el clúster de HBase, use el comando `ping headnode0.<dns suffix>` desde la máquina virtual. Por ejemplo, haga ping a headnode0.mycluster.b1.cloudapp.net
 
-Para usar esta información en una aplicación Java, puede seguir los pasos que se indican en [Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) para crear una aplicación. Para que la aplicación se conecte a un servidor HBase remoto, modifique el archivo **hbase-site.xml** de este ejemplo para que use el FQDN de ZooKeeper. Por ejemplo: 
+Para usar esta información en una aplicación Java, puede seguir los pasos que se indican en [Uso de Apache Maven para crear aplicaciones Java que utilicen Apache HBase con HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) para crear una aplicación. Para que la aplicación se conecte a un servidor HBase remoto, modifique el archivo **hbase-site.xml** de este ejemplo para que use el FQDN de ZooKeeper. Por ejemplo: 
 
     <property>
         <name>hbase.zookeeper.quorum</name>
@@ -238,13 +238,13 @@ Para usar esta información en una aplicación Java, puede seguir los pasos que 
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido a crear un clúster de HBase. Para obtener más información, consulte:
+En este tutorial, ha aprendido a crear un clúster de Apache HBase. Para obtener más información, consulte:
 
 * [Introducción a HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Uso de nodos perimetrales vacíos en HDInsight](../hdinsight-apps-use-edge-node.md)
-* [Configuración de la replicación de HBase en HDInsight](apache-hbase-replication.md)
-* [Consulte Creación de clústeres de Hadoop en HDInsight.](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Introducción al uso de HBase con Hadoop en HDInsight](./apache-hbase-tutorial-get-started-linux.md)
+* [Configuración de la replicación de Apache HBase en HDInsight](apache-hbase-replication.md)
+* [Creación de clústeres de Apache Hadoop en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
+* [Introducción al uso de Apache HBase con Apache Hadoop en HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Información general sobre redes virtuales](../../virtual-network/virtual-networks-overview.md)
 
 [1]: http://azure.microsoft.com/services/virtual-network/

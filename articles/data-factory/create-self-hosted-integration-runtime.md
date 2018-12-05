@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038475"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284836"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -101,7 +101,7 @@ Para instalar el entorno de ejecución de integración autohospedado, descargue 
     ```
 11. En la página **Registro de Integration Runtime (autohospedado)** de Microsoft Integration Runtime Configuration Manager que se ejecuta en el equipo, siga estos pasos:
 
-    a. Pegue la clave de autenticación en el área de texto.
+     a. Pegue la clave de autenticación en el área de texto.
 
     b. Si lo desea, seleccione **Show authentication key** (Mostrar clave de autenticación) para ver el texto de la clave.
 
@@ -198,7 +198,9 @@ Si desea ver una demostración y una introducción de doce minutos de esta carac
 
 * La versión de Azure PowerShell que admite esta característica es la 6.6.0 o posterior (AzureRM.DataFactoryV2, 0.5.7 o posterior).
 
-* Para conceder permiso, el usuario necesitará el rol propietario o el rol propietario heredado en la factoría de datos en la que exista el entorno de ejecución de integración compartido. 
+* Para conceder permiso, el usuario necesitará el rol propietario o el rol propietario heredado en la factoría de datos en la que exista el entorno de ejecución de integración compartido.
+
+* La característica de uso compartido solo funciona para las instancias de Data Factory dentro del mismo inquilino de Azure Active Directory.
 
 * Para los [usuarios invitados](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) de Active Directory, la funcionalidad de búsqueda (lista de todas las factorías de datos mediante el uso de una palabra clave de búsqueda) en la interfaz de usuario [no funciona](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Pero siempre y cuando el usuario invitado sea el propietario de la factoría de datos, puede compartir el entorno de ejecución de integración sin la funcionalidad de búsqueda. Para ello, debe escribir directamente la instancia de MSI de la factoría de datos con el que el entorno de ejecución de integración debe compartirse en el cuadro de texto**Asignar permiso** y seleccionar **Agregar** en la interfaz de usuario de Azure Data Factory. 
 

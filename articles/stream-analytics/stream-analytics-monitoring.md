@@ -2,19 +2,18 @@
 title: Descripción de la supervisión de trabajos en Azure Stream Analytics
 description: En este artículo se describe cómo analizar los registros de diagnóstico en Azure Stream Analytics.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 4b048705c80b7776ab0ab6823e27659a01eedeb5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 11/21/2018
+ms.openlocfilehash: 200df7602f94f70f3fb9c62ad81a0710923184c7
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907458"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291426"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Descripción de la supervisión del trabajo de Stream Analytics y cómo supervisar consultas
 
@@ -30,18 +29,22 @@ Se mostrará la siguiente ventana:
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponibles para Stream Analytics
 | Métrica                 | Definición                               |
 | ---------------------- | ---------------------------------------- |
-| SU % uso       | El uso de las unidades de streaming asignadas a un trabajo en la pestaña Escala del trabajo. Si este indicador llega o supera el 80 %, existe una gran probabilidad de que el procesamiento de eventos se retrase o deje de avanzar. |
-| Eventos de entrada           | Cantidad de datos recibidos por el trabajo de Stream Analytics, en términos de recuento de eventos. Puede usarse para validar que los eventos que se envían al origen de entrada. |
-| Eventos de salida          | Cantidad de datos enviados por el trabajo de Stream Analytics al destino de salida, en términos de recuento de eventos. |
-| Eventos que no funcionan    | Número de eventos recibidos fuera de orden que se eliminan o se les asigna una marca de tiempo ajustada, según la Directiva de ordenación de eventos. Puede verse afectado por la configuración del ajuste de Período de tolerancia de fuera de servicio. |
-| Errores de conversión de datos | Número de errores de conversión de datos que produce un trabajo de Stream Analytics. |
-| Errores de tiempo de ejecución         | El número total de errores relacionados con el procesamiento de consultas (sin incluir los errores encontrados durante la ingesta de eventos o los resultados de salida) |
-| Eventos de entrada retrasada      | Número de eventos que llegan tarde del origen y que se han eliminado o cuya marca de tiempo se ha ajustado, en función de la configuración de la Directiva de ordenación de eventos del ajuste del Período de tolerancia de fuera de servicio. |
-| Solicitudes de función      | Número de llamadas a la función Azure Machine Learning (si corresponde). |
+| Eventos de entrada pendientes       | Número de eventos de entrada que están pendientes. |
+| Errores de conversión de datos | Número de eventos de salida que no se pudieron convertir al esquema de salida previsto. |
+| Primeros eventos de entrada       | Número de eventos recibidos primero. |
 | Solicitudes de función con errores | Número de llamadas a la función Azure Machine Learning con error (si corresponde). |
 | Eventos de función        | Número de eventos enviados a la función Azure Machine Learning (si corresponde). |
+| Solicitudes de función      | Número de llamadas a la función Azure Machine Learning (si corresponde). |
+| Errores de deserialización de entrada       | Número de eventos que no se pudieron deserializar.  |
 | Bytes del evento de entrada      | Cantidad de datos recibidos por el trabajo de Stream Analytics, en bytes. Puede usarse para validar que los eventos que se envían al origen de entrada. |
-
+| Eventos de entrada           | Cantidad de datos recibidos por el trabajo de Stream Analytics, en términos de recuento de eventos. Puede usarse para validar que los eventos que se envían al origen de entrada. |
+| Orígenes de entrada recibidos       | Número de eventos procedentes de un origen de entrada. |
+| Eventos de entrada retrasada      | Número de eventos que llegan tarde del origen y que se han eliminado o cuya marca de tiempo se ha ajustado, en función de la configuración de la Directiva de ordenación de eventos del ajuste del Período de tolerancia de fuera de servicio. |
+| Eventos que no funcionan    | Número de eventos recibidos fuera de orden que se eliminan o se les asigna una marca de tiempo ajustada, según la Directiva de ordenación de eventos. Puede verse afectado por la configuración del ajuste de Período de tolerancia de fuera de servicio. |
+| Eventos de salida          | Cantidad de datos enviados por el trabajo de Stream Analytics al destino de salida, en términos de recuento de eventos. |
+| Errores de tiempo de ejecución         | El número total de errores relacionados con el procesamiento de consultas (sin incluir los errores encontrados durante la ingesta de eventos o los resultados de salida) |
+| SU % uso       | El uso de las unidades de streaming asignadas a un trabajo en la pestaña Escala del trabajo. Si este indicador llega o supera el 80 %, existe una gran probabilidad de que el procesamiento de eventos se retrase o deje de avanzar. |
+| Retraso de la marca de agua       | Retraso máximo de la marca de agua en todas las particiones de todas las salidas del trabajo. |
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Personalización de la supervisión en Azure Portal
 Puede ajustar el tipo de gráfico, las métricas que se muestran y el intervalo de tiempo en la configuración de Editar gráfico. Para obtener detalles, vea [Personalización de la supervisión](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).

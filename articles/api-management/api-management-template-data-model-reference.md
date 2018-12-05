@@ -14,18 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8c21ed737cab98c9136e1c1991997ff3931a4c9d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29378163"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447204"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referencia de modelo de datos de la plantilla de Azure API Management
 Este tema describe las representaciones de entidad y tipo de elementos comunes que se usan en los modelos de datos en las plantillas de portal para desarrolladores de Azure API Management.  
   
- Para obtener más información sobre el trabajo con plantillas, consulte [Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
-  
+ Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+El portal para desarrolladores no está disponible en el nivel Consumo.
+
+## <a name="reference"></a>Referencia
+
 -   [API](#API)  
 -   [Resumen de API](#APISummary)  
 -   [Aplicación](#Application)  
@@ -159,7 +165,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Propiedad|DESCRIPCIÓN|Escriba|  
 |--------------|-----------------|----------|  
 |Nombre|string|Nombre del parámetro.|  
-|Descripción|string|Descripción del parámetro.|  
+|description|string|Descripción del parámetro.|  
 |value|string|Valor del encabezado.|  
 |typeName|string|Tipo de datos del valor del encabezado.|  
 |options|string|Opciones.|  
@@ -171,7 +177,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
   
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|Descripción|string|Descripción de la solicitud de operación.|  
+|description|string|Descripción de la solicitud de operación.|  
 |Encabezados|matriz de entidades [Header](#Header).|Encabezados de solicitud.|  
 |parameters|matriz de [Parameter](#Parameter)|Colección de parámetros de solicitud de operación.|  
 |representations|matriz de [Representation](#Representation)|Colección de representaciones de solicitud de operación.|  
@@ -182,7 +188,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
 |statusCode|número entero positivo|Código de estado de la respuesta de la operación.|  
-|Descripción|string|Descripción de la respuesta de la operación.|  
+|description|string|Descripción de la respuesta de la operación.|  
 |representations|matriz de [Representation](#Representation)|Colección de representaciones de respuesta de operación.|  
   
 ##  <a name="Operation"></a> Operation  
@@ -236,7 +242,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Propiedad|DESCRIPCIÓN|Escriba|  
 |--------------|-----------------|----------|  
 |Nombre|string|Nombre del parámetro.|  
-|Descripción|string|Descripción del parámetro.|  
+|description|string|Descripción del parámetro.|  
 |value|string|Valor del parámetro.|  
 |options|matriz de cadena|Valores definidos para los valores de parámetro de consulta.|  
 |requerido|boolean|Especifica si el parámetro es necesario o no.|  
@@ -315,7 +321,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Nombre|string|Nombre. No debe estar vacía. La longitud máxima es de 100 caracteres.|  
 |Apellidos|string|Apellidos. No debe estar vacía. La longitud máxima es de 100 caracteres.|  
 |Email|string|Dirección de correo electrónico. No debe estar vacía y debe ser única dentro de la instancia de servicio. La longitud máxima es de 254 caracteres.|  
-|Password|string|Contraseña de la cuenta de usuario.|  
+|Contraseña|string|Contraseña de la cuenta de usuario.|  
 |NameIdentifier|string|Identificador de cuenta, es igual al correo electrónico del usuario.|  
 |ProviderName|string|Nombre del proveedor de autenticación.|  
 |IsBasicAccount|boolean|Es True si esta cuenta se registró mediante un correo electrónico y una contraseña; False si la cuenta se registró con un proveedor.|  
@@ -326,7 +332,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
 |Email|string|Dirección de correo electrónico. No debe estar vacía y debe ser única dentro de la instancia de servicio. La longitud máxima es de 254 caracteres.|  
-|Password|string|Contraseña de la cuenta de usuario.|  
+|Contraseña|string|Contraseña de la cuenta de usuario.|  
 |ReturnUrl|string|Dirección URL de la página donde el usuario hizo clic en el vínculo de inicio de sesión.|  
 |RememberMe|boolean|Especifica si se desea guardar la información del usuario actual.|  
 |RegistrationEnabled|boolean|Especifica si el registro se ha habilitado.|  
@@ -344,7 +350,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
 |PasswordConfirm|boolean|Valor utilizado por el control de inicio de sesión [sign-up](api-management-page-controls.md#sign-up).|  
-|Password|string|Contraseña de la cuenta de usuario.|  
+|Contraseña|string|Contraseña de la cuenta de usuario.|  
 |PasswordVerdictLevel|número|Valor utilizado por el control de inicio de sesión [sign-up](api-management-page-controls.md#sign-up).|  
 |UserRegistrationTerms|string|Condiciones que un usuario debe aceptar para poder iniciar sesión.|  
 |UserRegistrationTermsOptions|número|Valor utilizado por el control de inicio de sesión [sign-up](api-management-page-controls.md#sign-up).|  

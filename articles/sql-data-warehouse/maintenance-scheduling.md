@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 09/20/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: c2ed79673af3563ae62f516057a174770cda99e9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d626fd9b083b9ca2c55c286a1dd806620a639434
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427869"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498029"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Uso de programaciones de mantenimiento para administrar las actualizaciones del servicio y el mantenimiento
 
-Programación de mantenimiento de Azure SQL Data Warehouse está ahora en versión preliminar. Esta característica integra las notificaciones de mantenimiento planeado de Service Health, el monitor de comprobación de Resource Health y el servicio de programación de mantenimiento de Azure SQL Data Warehouse.
+Los programas de mantenimiento están ahora disponibles en todas las regiones de Azure SQL Data Warehouse. Esta característica integra las notificaciones de mantenimiento planeado de Service Health, el monitor de comprobación de Resource Health y el servicio de programación de mantenimiento de Azure SQL Data Warehouse.
 
 Use programación de mantenimiento para elegir un período de tiempo en el que sea conveniente recibir las nuevas características, actualizaciones y revisiones. Elija una ventana de mantenimiento principal y una secundaria en un período de siete días. Un ejemplo es una ventana principal de sábado a las 22:00 a domingo a la 01:00, y una ventana secundaria el miércoles de 19:00 a 22:00. Si SQL Data Warehouse no puede realizar el mantenimiento durante la ventana de mantenimiento principal, se intentará nuevamente durante la ventana de mantenimiento secundaria.
 
@@ -27,7 +27,7 @@ Todos las instancias de Azure SQL Data Warehouse recién creadas tendrán una pr
 
 Cada ventana de mantenimiento puede ser de tres a ocho horas. El mantenimiento puede producirse en cualquier momento dentro de la ventana. Experimentará una breve pérdida de conectividad a medida que el servicio implementa el nuevo código en el almacenamiento de datos. 
 
-Durante la versión preliminar de la característica, identificará las ventanas principales y secundarias en intervalos de días diferentes. Todas las operaciones de mantenimiento deben finalizar dentro de las ventanas de mantenimiento programadas. Sin notificación previa, no se llevará a cabo mantenimiento fuera de las ventanas de mantenimiento especificadas. Si el almacenamiento de datos se pausa durante un período de mantenimiento programado, se actualizará durante la operación de reanudación.  
+Para utilizar esta característica, deberá identificar una ventana principal y una secundaria dentro de intervalos de días separados. Todas las operaciones de mantenimiento deben finalizar dentro de las ventanas de mantenimiento programadas. Sin notificación previa, no se llevará a cabo mantenimiento fuera de las ventanas de mantenimiento especificadas. Si el almacenamiento de datos se pausa durante un período de mantenimiento programado, se actualizará durante la operación de reanudación.  
 
 
 ## <a name="alerts-and-monitoring"></a>Supervisión y alertas
@@ -51,6 +51,7 @@ Aunque Programación de mantenimiento no esté aún disponible en la región sel
 - [Obtenga más información](changing-maintenance-schedule.md) sobre cómo cambiar una programación de mantenimiento.
 - [Obtenga más información](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sobre cómo crear, ver y administrar alertas mediante Azure Monitor.
 - [Obtenga más información](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre las acciones del webhook para las reglas de alerta de registro.
+- [Obtenga más información](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) sobre la creación y administración de grupos de acciones.
 - [Obtenga más información](https://docs.microsoft.com/azure/service-health/service-health-overview) acerca de Azure Service Health.
 
 

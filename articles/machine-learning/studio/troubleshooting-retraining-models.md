@@ -1,10 +1,11 @@
 ---
-title: Solución de problemas de reciclaje de un servicio web clásico Azure Machine Learning | Microsoft Docs
-description: Identifique y corrija los problemas comunes que se encuentran al volver a entrenar el modelo para un servicio web Azure Machine Learning.
+title: 'Solución de problemas de reciclaje de un servicio web clásico de Machine Learning Studio: Azure | Microsoft Docs'
+description: Identifique y corrija los problemas comunes que se encuentran al volver a entrenar el modelo para un servicio web de Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 989bf010320501050a37fbf2f0799f50a5a3e2ba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835780"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307209"
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Solución de problemas del reentrenamiento de un servicio web clásico de Azure Machine Learning
+# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Solución de problemas del reentrenamiento de un servicio web clásico de Azure Machine Learning Studio
 ## <a name="retraining-overview"></a>Información general sobre reentrenamiento
 Cuando se implementa un experimento predictivo, tal como servicio web de puntuación, es un modelo estático. Cuando hay nuevos datos disponibles o cuando el consumidor de la API tiene sus propios datos, el modelo debe volver a entrenarse. 
 

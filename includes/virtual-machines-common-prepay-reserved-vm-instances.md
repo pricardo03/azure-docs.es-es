@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09-05-2018
-ms.openlocfilehash: 4b51631e8b7d3f53edd1afdba76de3031b112254
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.date: 09/05/2018
+ms.openlocfilehash: 40551fa60aa17e9a46d24ffdf17bb61a884a48f2
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49805050"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52585834"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances
 
@@ -87,6 +87,6 @@ Para obtener más información acerca de Azure Reservations, consulte los siguie
 - [Costos de software de Windows no incluidos con reservas](../articles/billing/billing-reserved-instance-windows-software-costs.md)
 - [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

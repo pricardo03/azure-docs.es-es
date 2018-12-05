@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238529"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976866"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -41,7 +41,7 @@ Con el servicio Batch, se definen los recursos de procesos de Azure para ejecuta
 * [Conceptos básicos de Batch](../../batch/batch-technical-overview.md)
 * [Información general de las características de Batch](../../batch/batch-api-basics.md)
 
-Si lo desea, para obtener más información sobre Batch, vea la [ruta de aprendizaje de Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
+Si quiere, para obtener más información sobre Batch, consulte la [documentación de Batch](https://docs.microsoft.com/en-us/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>¿Por qué elegir Azure Data Factory?
 Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Puede utilizar Data Factory para crear canalizaciones de datos administrados que mueven datos desde el entorno local y los almacenes de datos en la nube a un almacén de datos centralizado. Un ejemplo es Azure Blob Storage. Puede usar Data Factory para procesar o transformar datos mediante el uso de servicios como Azure HDInsight y Azure Machine Learning. También puede programar las canalizaciones de datos para que se ejecuten de forma programada (por ejemplo, cada hora, diariamente y semanalmente). Puede supervisar y administrar las canalizaciones de un vistazo para identificar problemas y llevar a cabo acciones.
@@ -51,7 +51,7 @@ Factoría de datos es un servicio de integración de datos basado en la nube que
 * [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md)
 * [Creación de la primera canalización de datos](data-factory-build-your-first-pipeline.md)   
 
-Si lo desea, para obtener más información sobre Data Factory, consulte la [ruta de aprendizaje de Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+Si quiere, para obtener más información sobre Data Factory, consulte la [documentación de Data Factory](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory y Batch juntos
 Data Factory incluye actividades integradas. Por ejemplo, la actividad de copia se usa para copiar y mover datos de un almacén de datos de origen a uno de destino. La actividad de Hive se usa para procesar los datos mediante el uso de clústeres de Hadoop (HDInsight) en Azure. Para obtener una lista de actividades de transformación compatibles, vea las [actividades de transformación de datos](data-factory-data-transformation-activities.md).
@@ -109,7 +109,7 @@ Cree un grupo de Batch con al menos dos nodos de ejecución.
 
 1. En la hoja **Grupos**, seleccione el botón **Agregar** en la barra de herramientas para agregar un grupo.
 
-   a. Especifique un identificador para el grupo (**Identificador del grupo**). Anote el identificador del grupo. Lo necesitará para crear la solución de Data Factory.
+    a. Especifique un identificador para el grupo (**Identificador del grupo**). Anote el identificador del grupo. Lo necesitará para crear la solución de Data Factory.
 
    b. Especifique **Windows Server 2012 R2** en **Familia del sistema operativo**.
 
@@ -178,7 +178,7 @@ El método tiene algunos componentes clave que debe conocer:
 #### <a name="procedure-create-the-custom-activity"></a>Procedimiento: Creación de la actividad personalizada
 1. Cree un proyecto de biblioteca de clases .NET en Visual Studio.
 
-   a. Inicie Visual Studio 2012/2013/2015.
+    a. Inicie Visual Studio 2012/2013/2015.
 
    b. Seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
@@ -526,7 +526,7 @@ En el siguiente tutorial, se proporcionan más detalles.
 #### <a name="step-1-create-the-data-factory"></a>Paso 1: Creación de la factoría de datos
 1. Tras iniciar sesión en [Azure Portal](https://portal.azure.com/), siga estos pasos:
 
-   a. Seleccione **NUEVO** en el menú de la izquierda.
+    a. Seleccione **NUEVO** en el menú de la izquierda.
 
    b. Seleccione **Datos y análisis** en la hoja **Nuevo**.
 
@@ -569,7 +569,7 @@ En este paso, creará un servicio vinculado para su cuenta de Batch que se usar�
 
 1. En el script JSON:
 
-   a. Reemplace **account name** por el nombre de la cuenta de Batch.
+    a. Reemplace **account name** por el nombre de la cuenta de Batch.
 
    b. Reemplace **access key** por la clave de acceso de la cuenta de Batch.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230434"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499107"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -61,7 +61,7 @@ En un clúster de cuarenta y ocho nodos, se recomiendan entre cuatro y ocho cuen
 
 ## <a name="choose-a-cluster-type"></a>Elección de un tipo de clúster
 
-El tipo de clúster determina la carga de trabajo configurada para que el clúster de HDInsight la ejecute, como Hadoop, Storm, Kafka o Spark. Para obtener una descripción detallada de los tipos de clúster disponibles, consulte [Introducción a Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de clúster tiene una topología de implementación específica que incluye los requisitos del tamaño y el número de nodos.
+El tipo de clúster determina la carga de trabajo configurada para que el clúster de HDInsight la ejecute, como [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) o [Apache Spark](https://spark.apache.org/). Para obtener una descripción detallada de los tipos de clúster disponibles, consulte [Introducción a Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de clúster tiene una topología de implementación específica que incluye los requisitos del tamaño y el número de nodos.
 
 ## <a name="choose-the-vm-size-and-type"></a>Elección del tipo y el tamaño de la máquina virtual
 
@@ -79,7 +79,7 @@ El tamaño y el tipo de máquina virtual los determinan la capacidad de procesam
 
 ## <a name="choose-the-cluster-scale"></a>Elección de la escala del clúster
 
-La cantidad de nodos de una máquina virtual determina la escala de un clúster. Para todos los tipos de clúster, hay tipos de nodos que tienen una escala específica y otros que admiten el escalado horizontal. Por ejemplo, un clúster puede requerir exactamente tres nodos de ZooKeeper o dos nodos principales. Los nodos de trabajo que procesan datos de forma distribuida pueden beneficiarse del escalado horizontal mediante la adición de nodos de trabajo adicionales.
+La cantidad de nodos de una máquina virtual determina la escala de un clúster. Para todos los tipos de clúster, hay tipos de nodos que tienen una escala específica y otros que admiten el escalado horizontal. Por ejemplo, un clúster puede requerir exactamente tres nodos de [Apache ZooKeeper](https://zookeeper.apache.org/) o dos nodos principales. Los nodos de trabajo que procesan datos de forma distribuida pueden beneficiarse del escalado horizontal mediante la adición de nodos de trabajo adicionales.
 
 Dependiendo del tipo de clúster, aumentar el número de nodos de trabajo agrega capacidad de cálculo adicional (por ejemplo, más núcleos), pero también puede agregar la cantidad total de memoria necesaria para que todo el clúster admita el almacenamiento en memoria de los datos procesados. Al igual que sucede con la elección del tamaño y el tipo de máquina virtual, la selección de la escala correcta del clúster suele realizarse de forma empírica con la utilización de cargas de trabajo simuladas o consultas de valores controlados.
 
@@ -90,7 +90,7 @@ Puede escalar horizontalmente el clúster para satisfacer los picos de demandas 
 Se le cobra en función de la duración del clúster. Si solo necesita que el clúster funcione en momentos específicos, puede [crear clústeres a petición mediante Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). También puede crear scripts de PowerShell que aprovisionen y eliminen el clúster y después programar dichos scripts con [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
-> Cuando se elimina un clúster, su instancia de Hive Metastore predeterminada también se elimina. Para conservar Metastore para volver a crear el siguiente clúster, use un repositorio de metadatos externo, como Azure Database u Oozie.
+> Cuando se elimina un clúster, su instancia de Hive Metastore predeterminada también se elimina. Para conservar Metastore para volver a crear el siguiente clúster, use un repositorio de metadatos externo, como Azure Database u [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>Aislamiento de errores de trabajo del clúster
@@ -109,5 +109,5 @@ Sin embargo, hay algunos límites de cuota fijos; por ejemplo, una única suscri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md): obtenga información sobre cómo instalar y configurar clústeres en HDInsight con Hadoop, Spark, Kafka, Hive interactivo, HBase, ML Services o Storm.
+* [Configuración de clústeres en HDInsight con Apache Hadoop, Spark, Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md): obtenga información sobre cómo instalar y configurar clústeres en HDInsight con Apache Hadoop, Spark, Kafka, Hive interactivo, HBase, ML Services o Storm.
 * [Supervisión del rendimiento del clúster](hdinsight-key-scenarios-to-monitor.md): obtenga información sobre los escenarios claves para supervisar el clúster de HDInsight que podría afectar a la capacidad del clúster.

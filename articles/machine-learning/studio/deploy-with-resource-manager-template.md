@@ -1,10 +1,11 @@
 ---
-title: Implementación de un área de trabajo de Machine Learning mediante Azure Resource Manager | Microsoft Docs
+title: 'Implementación de un área de trabajo de Machine Learning con Azure Resource Manager: Azure Machine Learning Studio | Microsoft Docs'
 description: Cómo implementar un área de trabajo de Machine Learning de Azure mediante la plantilla de Azure Resource Manager
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
@@ -15,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/05/2018
-ms.openlocfilehash: fc19c77e90ffd2d300497fc496da02b2d2234d3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 82a9cfec0efe60e3a0cdf16efa373e68efebee59
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244396"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307987"
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Implementación del área de trabajo de Machine Learning mediante Azure Resource Manager
-## <a name="introduction"></a>Introducción
+
 El uso de una plantilla de implementación de Azure Resource Manager le permite ahorrar tiempo proporcionándole una manera escalable de implementar componentes interconectados con un mecanismo de validación y reintento. Para configurar áreas de trabajo de Azure Machine Learning, por ejemplo, debe configurar primero una cuenta de Almacenamiento de Azure y, a continuación, implementar el área de trabajo. Imagine que tiene que hacer esto manualmente para cientos de áreas de trabajo. Una alternativa más sencilla es utilizar una plantilla de Azure Resource Manager para implementar un área de trabajo de Azure Machine Learning y todas sus dependencias. Este artículo le guiará por este proceso paso a paso. Para ver una introducción excelente sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Paso a paso: Creación de un área de trabajo de Machine Learning

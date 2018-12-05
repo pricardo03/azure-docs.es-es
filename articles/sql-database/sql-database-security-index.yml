@@ -1,0 +1,99 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 22a2a5d0a275b4eeb9ddea88741abdef9745a539
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52166893"
+documentType: LandingData
+title: 'Azure SQL Database: seguridad avanzada'
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: 'Azure SQL Database: seguridad avanzada'
+  meta.description: Learn about the Advanced security capabilities of Azure SQL Database.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: overview
+  ms.date: 11/11/2018
+  ms.author: jovanpop-msft
+sections:
+- items:
+  - type: paragraph
+    text: Azure SQL Database incluye características de seguridad avanzada integradas que ayudan a proteger las bases de datos.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - title: Información general
+      href: /azure/sql-database/sql-database-security-overview
+      html: <p>Azure SQL Database proporciona un conjunto de características de seguridad avanzada que pueden ayudar a que sus datos estén seguros.</p>
+    - title: Detección de amenazas
+      href: /azure/sql-database/sql-database-threat-detection
+      html: <p>Detecte actividades anómalas que indican intentos inusuales y potencialmente perjudiciales para aprovechar vulnerabilidades en las bases de datos o acceder a ellas.</p>
+    - title: Evaluación de vulnerabilidades
+      href: /azure/sql-database/sql-vulnerability-assessment
+      html: <p>La evaluación de vulnerabilidades permite detectar, realizar un seguimiento y corregir posibles puntos vulnerables en la base de datos.</p>
+    - title: Cifrado en reposo
+      href: /azure/sql-database/transparent-data-encryption-azure-sql
+      html: <p>El cifrado de datos transparente (TDE) garantiza que la información de las bases de datos se cifra de forma transparente.</p>
+    - title: Detección y clasificación de datos
+      href: /azure/sql-database/sql-database-data-discovery-and-classification
+      html: <p>La detección y clasificación de datos permite detectar, clasificar, etiquetar y proteger los datos confidenciales en las bases de datos.</p>
+    - title: Azure Active Directory
+      href: /azure/sql-database/sql-database-aad-authentication
+      html: <p>Azure SQL Database permite conectarse a la base de datos mediante identidades de Azure Active Directory (Azure AD).</p>
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Configure y administre las características de seguridad en Azure SQL Database mediante Azure Portal, la CLI de Azure o PowerShell:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/portal.svg
+      title: El Portal de Azure
+    - image:
+        src: media/index/cli.svg
+      title: Azure CLI
+    - image:
+        src: media/index/logo_powershell.svg
+      title: PowerShell
+    rows:
+    - title: Configuración de la detección de amenazas en una base de datos única
+      values:
+      - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell
+    - title: Configuración de la detección de amenazas en una Instancia administrada
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
+      - href: 
+      - href: 
+    - title: Configuración de reglas de firewall en una base de datos única
+      values:
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-portal
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-cli
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-powershell
+    - title: Administración de las reglas de evaluación de vulnerabilidad
+      values:
+      - href: 
+      - href: 
+      - href: /azure/sql-database/sql-vulnerability-assessment#manage-vulnerability-assessments-using-azure-powershell
+- title: Más recursos
+  items:
+  - type: paragraph
+    text: Azure SQL Database proporciona un conjunto de características integradas adicionales que pueden mejorar la seguridad de las bases de datos.
+  - type: list
+    style: ordered
+    items:
+    - html: La protección contra amenazas en las <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">Instancias administradas</a> y <a href="/azure/sql-database/sql-database-threat-detection">bases de datos</a> detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataques a las bases de datos.
+    - html: La auditoría para <a href="/azure/sql-database/sql-database-managed-instance-auditing">Instancias administradas</a> y <a href="/azure/sql-database/sql-database-auditing">bases de datos</a> realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría de la cuenta de Azure Storage, área de trabajo OMS o Event Hubs.
+    - html: <a href="/azure/sql-database/sql-database-firewall-configure">Las reglas de Firewall</a> en bases de datos únicas le permiten controlar qué direcciones IP pueden tener acceso a la base de datos.
+    - html: La <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">integración de redes virtuales</a> en Instancias administradas permite colocar las bases de datos en su propio espacio de direcciones privadas.
+    - html: <a href="/azure/sql-database/sql-database-always-encrypted">Always encrypted</a> ayuda a proteger los datos confidenciales en reposo en el servidor durante el movimiento entre cliente y servidor y cuando los datos están en uso, lo que garantiza que los datos confidenciales nunca van a aparecer como texto no cifrado dentro del sistema de base de datos.
+    - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">El enmascaramiento de datos dinámicos</a> ayuda a impedir el acceso no autorizado a datos confidenciales al permitir que los usuarios designen la cantidad de datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación.

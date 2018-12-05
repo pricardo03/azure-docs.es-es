@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037695"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497349"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guía para desarrolladores de Java para App Service en Linux
 
@@ -28,6 +28,10 @@ Esta guía incluye conceptos clave e instrucciones para los desarrolladores de J
 ## <a name="logging-and-debugging-apps"></a>Registro y depuración de aplicaciones
 
 Encontrará informes de rendimiento, visualizaciones de tráfico y comprobaciones de mantenimiento de cada aplicación a través de Azure Portal. Consulte [Introducción a los diagnósticos de Azure App Service](/azure/app-service/app-service-diagnostics) para obtener más información sobre cómo acceder a estas herramientas de diagnóstico y cómo usarlas.
+
+## <a name="application-performance-monitoring"></a>Supervisión de rendimiento de aplicaciones
+
+Consulte [Procedimiento: Herramientas de supervisión de rendimiento de las aplicaciones con aplicaciones Java en Azure App Service en Linux](how-to-java-apm-monitoring.md) para ver instrucciones detalladas sobre cómo configurar New Relic y AppDynamics con aplicaciones Java que se ejecutan en App Service en Linux.
 
 ### <a name="ssh-console-access"></a>Acceso a la consola SSH 
 
@@ -124,7 +128,7 @@ También puede configurar el valor de la aplicación mediante el complemento de 
 </appSettings> 
 ```
 
-## <a name="secure-application"></a>Aplicación segura
+## <a name="secure-applications"></a>Aplicaciones seguras
 
 Las aplicaciones de Java que se ejecutan en App Service para Linux presentan el mismo conjunto de [procedimientos recomendados de seguridad](/azure/security/security-paas-applications-using-app-services) que otras aplicaciones. 
 
@@ -168,7 +172,7 @@ Para los orígenes de datos de nivel de aplicación:
 
 1. Agregue un archivo `context.xml` si no existe para su aplicación web y agréguele el directorio `META-INF` del archivo WAR cuando se compile el proyecto.
 
-2. En este archivo, agregue una entrada de ruta de acceso `Context` para vincular el origen de datos a una dirección JNDI. Tenga en cuenta que 
+2. En este archivo, agregue una entrada de ruta de acceso `Context` para vincular el origen de datos a una dirección JNDI.
 
     ```xml
     <Context>
@@ -181,7 +185,7 @@ Para los orígenes de datos de nivel de aplicación:
     </Context>
     ```
 
-3. Actualice el archivo `web.xml` de la aplicación para usar en esta el origen de datos.
+3. Actualizar el archivo `web.xml` de la aplicación para usar en esta el origen de datos.
 
     ```xml
     <resource-env-ref>
@@ -192,7 +196,7 @@ Para los orígenes de datos de nivel de aplicación:
 
 Para los recursos de nivel de servidor compartidos:
 
-1. Copie el contenido de `/usr/local/tomcat/conf` en `/home/tomcat` en su instancia de App Service Linux mediante SSH si no tiene ninguna configuración allí todavía.
+1. Copie el contenido de `/usr/local/tomcat/conf` en `/home/tomcat/conf` en su instancia de App Service Linux mediante SSH si no tiene ninguna configuración allí todavía.
 
 2. Agregue el contexto al archivo `server.xml`.
 
@@ -231,7 +235,7 @@ Para los recursos de nivel de servidor compartidos:
 
     3. Establezca la conexión al puerto de tunelización local con el cliente SFTP y cargue los archivos en la carpeta `/home/tomcat/lib`.
 
-5. Reinicie la aplicación App Service Linux. Tomcat restablecerá `CATALINA_HOME` a `/home/tomcat` y usará las clases y la configuración actualizadas.
+5. Reinicie la aplicación App Service Linux. Tomcat restablecerá `CATALINA_HOME` a `/home/tomcat/conf` y usará las clases y la configuración actualizadas.
 
 ## <a name="docker-containers"></a>Contenedores de Docker
 

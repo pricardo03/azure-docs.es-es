@@ -1,11 +1,12 @@
 ---
-title: Creación de experimentos a partir de ejemplos de aprendizaje automático - Azure | Microsoft Docs
-description: Aprenda a usar experimentos de ejemplo de aprendizaje automático para crear nuevos experimentos con la galería de inteligencia artificial de Azure y Azure Machine Learning.
+title: 'Creación de experimentos de Machine Learning Studio a partir de ejemplos: Azure | Microsoft Docs'
+description: Aprenda a usar experimentos de aprendizaje automático de ejemplo para crear nuevos experimentos con Azure AI Gallery y Azure Machine Learning Studio.
 keywords: ejemplos de aprendizaje automático, ejemplo de experimento, ejemplo de aprendizaje automático, ejemplos de inteligencia artificial
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: f93d0d4e12d97fadb23476afc3199599b3268580
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998056"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306687"
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Creación de experimentos de aprendizaje automático a partir de ejemplos de trabajo en la galería de inteligencia artificial de Azure
 
@@ -47,7 +48,7 @@ Para examinar todos los experimentos:
 3. Puede encontrar los experimentos que cumplan con sus requisitos de las siguientes maneras:
    * **Seleccione los filtros de la izquierda.** Por ejemplo, para examinar experimentos que usan un algoritmo de detección de anomalías basado en PCA: en **Categories** (Categorías), haga clic en **Experiment** (Experimento). A continuación, en **Algorithms Used** (Algoritmos utilizados), haga clic en **Show all** (Mostrar todos) y en el cuadro de diálogo, elija **PCA-Based Anomaly Detection** (Detección de anomalías basada en PCA). Es posible que tenga que desplazarse para verlo.<br></br>
      ![Selección de filtros](./media/sample-experiments/choose-an-algorithm.png)
-   * **Utilice el cuadro de búsqueda.** Por ejemplo, para buscar experimentos aportados por Microsoft relacionados con el reconocimiento de dígitos que usen un algoritmo de máquina de vectores de soporte de dos clases, escriba "digit recognition" (reconocimiento de dígitos) en el cuadro de búsqueda. A continuación, seleccione los filtros **Experiment** (Experimento), **Microsoft content only** (Solo contenido de Microsoft) y **Two-Class Support Vector Machine** (Máquina de vectores de soporte de dos clases):<br></br>
+   * **Utilice el cuadro de búsqueda.**  Por ejemplo, para buscar experimentos aportados por Microsoft relacionados con el reconocimiento de dígitos que usen un algoritmo de máquina de vectores de soporte de dos clases, escriba "digit recognition" (reconocimiento de dígitos) en el cuadro de búsqueda. A continuación, seleccione los filtros **Experiment** (Experimento), **Microsoft content only** (Solo contenido de Microsoft) y **Two-Class Support Vector Machine** (Máquina de vectores de soporte de dos clases):<br></br>
      ![Uso del cuadro de búsqueda](./media/sample-experiments/search-for-experiments.png)
 4. Haga clic en un experimento para obtener más información.
 5. Para ejecutar o modificar el experimento, haga clic en **Open in Studio** (Abrir en Estudio) en la página del experimento. <br></br>

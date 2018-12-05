@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960335"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620139"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permisos y consentimiento en el punto de conexión v2.0 de Azure Active Directory
 
@@ -64,13 +64,13 @@ Una aplicación suele solicitar estos permisos especificando los ámbitos en las
 
 La plataforma de identidad de Microsoft admite dos tipos de permisos: **permisos delegados** y **permisos de aplicación**.
 
-- **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y a la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas al recurso de destino. Algunos permisos delegados pueden ser consentidos por usuarios que no sean administradores, pero otros con más privilegios requieren el [consentimiento del administrador](v2-permissions-and-consent.md#admin-restricted-scopes).  
+* **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y a la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas al recurso de destino. Algunos permisos delegados pueden ser consentidos por usuarios que no sean administradores, pero otros con más privilegios requieren el [consentimiento del administrador](v2-permissions-and-consent.md#admin-restricted-scopes). Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-- **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano.  Los permisos de aplicación solo pueden ser [aceptados por un administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+* **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano.  Los permisos de aplicación solo pueden ser [aceptados por un administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 _Los permisos efectivos_ son los que la aplicación tendrá al realizar solicitudes al recurso de destino. Es importante comprender la diferencia entre los permisos delegados y los de aplicación que se conceden a una aplicación, y sus permisos efectivos al realizar llamadas al recurso de destino.
 
-- En el caso de los permisos delegados, los _permisos efectivos_ de la aplicación serán la intersección con menos privilegios de los permisos delegados que se le han concedido a la aplicación (mediante consentimiento) y los privilegios del usuario que tiene iniciada la sesión actualmente. La aplicación nunca puede tener más privilegios que el usuario que tiene la sesión iniciada. Dentro de las organizaciones, los privilegios del usuario que tiene la sesión iniciada pueden determinarse mediante directivas o pertenencia a uno o varios roles de administrador. Para más información acerca de los roles de administrador, consulte [Asignación de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+- En el caso de los permisos delegados, los _permisos efectivos_ de la aplicación serán la intersección con menos privilegios de los permisos delegados que se le han concedido a la aplicación (mediante consentimiento) y los privilegios del usuario que tiene iniciada la sesión actualmente. La aplicación nunca puede tener más privilegios que el usuario que tiene la sesión iniciada. Dentro de las organizaciones, los privilegios del usuario que tiene la sesión iniciada pueden determinarse mediante directivas o pertenencia a uno o varios roles de administrador. Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
   Por ejemplo, suponga que a su aplicación se le ha concedido el permiso delegado _User.ReadWrite.All_ en Microsoft Graph. Este permiso concede a su aplicación de forma nominal un permiso para leer y actualizar el perfil de cada usuario de una organización. Si el usuario que inició sesión es un administrador global, la aplicación podrá actualizar el perfil de cada usuario de la organización. Sin embargo, si el usuario con la sesión iniciada no pertenece a un rol de administrador, la aplicación podrá actualizar solo el perfil del usuario que tiene la sesión iniciada. No podrá actualizar los perfiles de otros usuarios de la organización, porque el usuario para el que tiene permiso para actuar en su nombre no tiene tales privilegios.
   
 - Para los permisos de aplicación, los _permisos efectivos_ de la aplicación serán el nivel completo de privilegios que concede el permiso. Por ejemplo, una aplicación que tiene el permiso de aplicación _User.ReadWrite.All_ puede actualizar el perfil de cada usuario de la organización. 
@@ -93,7 +93,7 @@ El ámbito `profile` puede usarse con el ámbito `openid` y cualquier otro. Prop
 
 ### <a name="offlineaccess"></a>offline_access
 
-El ámbito [`offline_access` ](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) proporciona acceso de la aplicación a recursos en nombre del usuario durante un periodo de tiempo prolongado. En la página de consentimiento de la cuenta profesional, este ámbito aparecerá como el permiso "Acceder a sus datos en cualquier momento". En la página de consentimiento de la cuenta personal de Microsoft, aparece como el permiso "Obtener acceso a tu información en cualquier momento". Cuando un usuario aprueba el ámbito `offline_access`, la aplicación puede recibir tokens de actualización del punto de conexión del token v2.0. Los tokens de actualización tienen una duración larga. La aplicación puede obtener nuevos tokens de acceso cuando expiren los antiguos.
+El ámbito [`offline_access` ](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) proporciona acceso de la aplicación a recursos en nombre del usuario durante un periodo de tiempo prolongado. En la página de consentimiento de la cuenta profesional, este ámbito aparecerá como el permiso "Acceder a sus datos en cualquier momento". En la página de consentimiento de la cuenta personal de Microsoft, aparece como el permiso "Obtener acceso a tu información en cualquier momento". Cuando un usuario aprueba el ámbito `offline_access`, la aplicación puede recibir tokens de actualización del punto de conexión del token v2.0. Los tokens de actualización tienen una duración larga. La aplicación puede obtener nuevos tokens de acceso cuando expiren los antiguos.
 
 Si la aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización. Esto significa que cuando se canjea un código de autorización del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md), solo se recibirá un token de acceso del punto de conexión `/token`. El token de acceso es válido durante un breve período de tiempo. Normalmente, expira al cabo de una hora. En ese momento, la aplicación tiene que redirigir al usuario de vuelta al punto de conexión `/authorize` para que obtenga un nuevo código de autorización. Durante esta redirección y, en función del tipo de aplicación, puede que el usuario tenga que volver a escribir sus credenciales o dar de nuevo el consentimiento a permisos.
 

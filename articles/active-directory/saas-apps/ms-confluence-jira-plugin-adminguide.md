@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 49516523abdd927c3ae60235fcd74473689c6856
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020776"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426883"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guía del administrador de Jira y Confluence de Atlassian para Azure Active Directory
 
@@ -67,9 +67,23 @@ Antes de instalar el complemento, tenga en cuenta la siguiente información:
 
 El complemento admite las versiones siguientes en Jira y Confluence:
 
-* Jira Core y Software: de la versión 6.0 a la 7.8
-* Jira Service Desk: de la versión 3.0 a la 3.2
+* Jira Core y Software: de la versión 6.0 a la 7.12
+* Jira Service Desk: de la versión 3.0.0 a la 3.5.0
+* JIRA también admite 5.2. Para obtener más detalles, haga clic en [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial) (Inicio de sesión único de Microsoft Azure Active Directory para JIRA 5.2).
 * Confluence: de la versión 5.0 a la 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ## <a name="installation"></a>Instalación
 
@@ -79,7 +93,7 @@ Para instalar el complemento, siga estos pasos:
 
 2. Vaya a la consola de administración de Jira o Confluence y seleccione **Add-ons** (Complementos).
 
-3. En Atlassian Marketplace, busque **Microsoft SAML SSO Plugin** (Complemento de SSO de Microsoft SAML).
+3. Desde el Centro de descarga de Microsoft, descargue el [complemento de SSO de Microsoft SAML para Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [Complemento de SSO de Microsoft SAML para Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
 
    La versión adecuada del complemento aparece en los resultados de búsqueda.
 
@@ -165,15 +179,29 @@ El complemento funciona con las versiones locales de Jira y Confluence.
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>¿Este complemento funciona en las versiones en la nube?
 
-No. El complemento admite solo las versiones locales de Jira y Confluence.
+ No. El complemento admite solo las versiones locales de Jira y Confluence.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>¿Qué versiones de JIRA y Confluence admite el complemento?
 
 El complemento admite estas versiones:
 
-* Jira Core y Software: de la versión 6.0 a la 7.8
-* Jira Service Desk: de la versión 3.0 a la 3.2
+* Jira Core y Software: de la versión 6.0 a la 7.12
+* Jira Service Desk: de la versión 3.0.0 a la 3.5.0
+* JIRA también admite 5.2. Para obtener más detalles, haga clic en [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial) (Inicio de sesión único de Microsoft Azure Active Directory para JIRA 5.2).
 * Confluence: de la versión 5.0 a la 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ### <a name="is-the-plug-in-free-or-paid"></a>¿El complemento es gratuito o de pago?
 
@@ -195,7 +223,7 @@ Hemos probado este complemento solo en instalaciones de Windows Server de 64 bit
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>¿El complemento funciona con IdP distintos de Azure AD?
 
-No. Solo funciona con Azure AD.
+ No. Solo funciona con Azure AD.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>¿Con qué versión de SAML funciona el complemento?
 
@@ -203,12 +231,12 @@ Funciona con SAML 2.0.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>¿El complemento se ocupa del aprovisionamiento de usuarios?
 
-No. El complemento solo proporciona SSO basado en SAML 2.0. El usuario tiene que estar aprovisionado en la aplicación antes del inicio de sesión SSO.
+ No. El complemento solo proporciona SSO basado en SAML 2.0. El usuario tiene que estar aprovisionado en la aplicación antes del inicio de sesión SSO.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>¿El complemento admite versiones en clúster de Jira y Confluence?
 
-No. El complemento funciona con las versiones locales de Jira y Confluence.
+ No. El complemento funciona con las versiones locales de Jira y Confluence.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>¿El complemento admite versiones HTTP de Jira y Confluence?
 
-No. El complemento solo funciona con instalaciones habilitadas de HTTPS.
+ No. El complemento solo funciona con instalaciones habilitadas de HTTPS.

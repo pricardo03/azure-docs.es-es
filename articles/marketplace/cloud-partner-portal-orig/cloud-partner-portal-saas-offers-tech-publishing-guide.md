@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e648d6d3bd8d8ac14fb3f9723f4667c1cc33ac6
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228902"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620190"
 ---
 <a name="saas-application-technical-publishing-guide"></a>Guía de publicación técnica de aplicaciones SaaS
 ===========================================
@@ -32,7 +32,7 @@ Para obtener información general de todas las demás ofertas de Marketplace, co
 <a name="what-are-pre-requisites-for-publishing-a-saas-app"></a>¿Cuáles son los requisitos previos para publicar una aplicación SaaS?
 -------------------------------------------------
 
-El portal de publicación proporciona un acceso basado en rol al portal lo cual permite que varias personas colaboren en la publicación de una oferta. Para más información, consulte [Administración de usuarios](./cloud-partner-portal-manage-users.md). 
+[Cloud Partner Portal](https://cloudpartner.azure.com) proporciona un acceso basado en rol al portal lo cual permite que varias personas colaboren en la publicación de una oferta. Para más información, consulte [Administración de usuarios](./cloud-partner-portal-manage-users.md). 
 
 Antes de publicar una oferta en nombre de un publicador de cuenta, una persona con el rol *Propietario* tiene que aceptar los [Términos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Declaración de privacidad de Microsoft](https://www.microsoft.com/privacystatement/default.aspx) y el [Contrato del programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
@@ -58,7 +58,7 @@ La oferta de aplicación SaaS consta de cinco secciones que se describen en la t
 
 ### <a name="creating-a-new-offer"></a>Creación de una nueva oferta
 
-Después de iniciar sesión en Cloud Partner Portal, seleccione el elemento **Nueva oferta** en la barra de menús izquierda que muestra un menú con las ofertas disponibles. En la imagen siguiente se muestra un ejemplo de estas ofertas:
+Después de iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com), seleccione el elemento **Nueva oferta** en la barra de menús de la izquierda que muestra un menú con las ofertas disponibles. En la imagen siguiente se muestra un ejemplo de estas ofertas:
 
 ![Nueva oferta de SaaS](media/cpp-creating-saas-offers/saas-new-offer.png)
 
@@ -154,7 +154,7 @@ En la siguiente tabla se describen los campos de marketing:
 
 | **Campos de la oferta** | **Descripción**                                                                                                          |
 |------------------| ------------------------------------------------------------------------------------------------------------------------ |
-| Logotipos            | Si dispone de una aplicación SaaS que desea **vender en Azure**, debe proporcionar las imágenes del logotipo. Si es solo un anuncio, se necesitan únicamente 2 logotipos. Siga estas directrices para todos los logotipos cargados en Cloud Partner Portal:     <br/> - Utilice pocos colores primarios y secundarios en el logotipo. El diseño de Azure tiene una paleta de colores simple.     <br/> - Evite emplear el blanco o el negro como color de fondo del logotipo. Los colores del tema de Azure Portal son el blanco y el negro. En su lugar, utilice algún color que haga destacar a los logotipos en Azure Portal. Nosotros recomendamos usar colores primarios simples. Si va a utilizar un fondo transparente, asegúrese de que el texto y el logotipo no sean de color azul, blanco o negro.     <br/> - No utilice un fondo degradado en el logotipo.     <br/> - Evite colocar texto, incluso el nombre de la empresa o de la marca, en el logotipo. El aspecto del logotipo debe ser "plano" y debe evitar degradados.    <br/> - El logotipo de la imagen no se debe extender.                   |
+| Logotipos            | Si dispone de una aplicación SaaS que desea **vender en Azure**, debe proporcionar las imágenes del logotipo. Si es solo un anuncio, se necesitan únicamente 2 logotipos. Siga estas directrices para todos los logotipos cargados en [Cloud Partner Portal](https://cloudpartner.azure.com):     <br/> - Utilice pocos colores primarios y secundarios en el logotipo. El diseño de Azure tiene una paleta de colores simple.     <br/> - Evite emplear el blanco o el negro como color de fondo del logotipo. Los colores del tema de Azure Portal son el blanco y el negro. En su lugar, utilice algún color que haga destacar a los logotipos en Azure Portal. Nosotros recomendamos usar colores primarios simples. Si va a utilizar un fondo transparente, asegúrese de que el texto y el logotipo no sean de color azul, blanco o negro.     <br/> - No utilice un fondo degradado en el logotipo.     <br/> - Evite colocar texto, incluso el nombre de la empresa o de la marca, en el logotipo. El aspecto del logotipo debe ser "plano" y debe evitar degradados.    <br/> - El logotipo de la imagen no se debe extender.                   |
 | Vídeos           | Le permite agregar vínculos de vídeos de la oferta. Puede usar vínculos a vídeos de YouTube o Vimeo para que acompañen a la oferta para los clientes. También deberá especificar una imagen en miniatura del vídeo, con una imagen png de 1280 x 720 píxeles. Puede incluir un máximo de cuatro vídeos por oferta. |
 | Documentos        | Le permite agregar documentos de marketing a su oferta. Todos los documentos deben estar en formato PDF y puede tener un máximo de tres documentos por oferta.                                                                                                                                                      |
 | Capturas de pantalla      | Le permite agregar capturas de pantalla de la oferta. Hay un máximo de cinco capturas de pantalla que se pueden agregar por oferta. El tamaño máximo de la imagen es 1280 x 720 píxeles.                                                                                                                                             |

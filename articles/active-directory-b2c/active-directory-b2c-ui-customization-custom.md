@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625801"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583456"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -100,7 +100,7 @@ Para crear un contenedor público en Blob Storage, haga lo siguiente:
 Para configurar Blob Storage para Uso compartido de recursos entre orígenes (CORS), haga lo siguiente:
 
 1. En el menú, seleccione **CORS**.
-2. En **Orígenes permitidos**, escriba `your-tenant-name.b2clogin.com`. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C. Por ejemplo, `fabrikam.b2clogin.com`.
+2. En **Orígenes permitidos**, escriba `your-tenant-name.b2clogin.com`. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C. Por ejemplo, `fabrikam.b2clogin.com`. Al escribir su nombre de inquilino, use solo minúsculas.
 3. En **Métodos permitidos**, seleccione `GET` y `OPTIONS`.
 4. En **Encabezados permitidos**, escriba un asterisco (*).
 5. En **Encabezados expuestos**, escriba un asterisco (*).

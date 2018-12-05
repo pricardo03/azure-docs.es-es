@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685453"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632490"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -43,8 +43,18 @@ ms.locfileid: "51685453"
 
 ### <a name="v2-builds"></a>compilaciones v2
 
+### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
+* Se ha agregado la nueva propiedad ChangeFeedProcessorOptions.StartContinuation que admite el inicio de la fuente de cambios desde el token de continuación de la solicitud. Solo se utiliza cuando la colección de concesiones está vacía o una concesión no tiene ContinuationToken. En las concesiones de la colección de concesiones que tengan ContinuationToken establecido, se usa ContinuationToken y se omite ChangeFeedProcessorOptions.StartContinuation.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Se ha agregado compatibilidad con el uso de almacén personalizado para conservar los tokens de continuación por partición.
+  * Por ejemplo, un almacén de concesiones personalizadas puede ser la colección de concesiones de Azure Cosmos DB con particiones de alguna manera personalizadas.
+  * Los almacenes de concesiones personalizadas pueden utilizar el nuevo punto de extensibilidad ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) y la interfaz pública ILeaseStoreManager.
+  * Se ha refactorizado la interfaz ILeaseManager en varias interfaces de rol.
+* Cambio importante menor: se ha quitado el punto de extensibilidad ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), utilice ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) en su lugar.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Se ha corregido un problema que podía producirse al procesar la división cuando se creaban particiones de la colección de concesión. El problema podía provocar que no se eliminaran de la colección de concesiones las concesiones de las particiones desaparecidas. Este problema se ha corregido en esta versión.
+* Esta versión corrige un problema que se produce durante el procesamiento de una división en la colección supervisada y el uso de una colección de concesiones con particiones. Al procesar una concesión de partición de división, es posible que no se pueda eliminar la concesión correspondiente a esa partición. Este problema se ha corregido en esta versión.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Cálculo del estimador fijo para las cuentas Multi Master y formato de token de sesión nuevo.

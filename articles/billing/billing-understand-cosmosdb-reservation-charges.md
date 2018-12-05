@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: cwatson
 ms.reviewer: sngun
-ms.openlocfilehash: 5b15b5f8188f2077b3e9cb17ab3794e881a4deb3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: de7b0a2746c79242cb6538595ca3205455a2cc5c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353448"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582759"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Aplicación del descuento por reserva a Azure Cosmos DB
 
@@ -115,7 +115,7 @@ Para más información acerca de las reservas de Azure, consulte los siguientes 
 * [Información sobre el uso de reservas para la inscripción Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)  
 * [Información sobre el uso de reservas para suscripciones de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

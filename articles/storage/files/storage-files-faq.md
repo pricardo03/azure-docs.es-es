@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1ed08562657eb0c50f05efb335c1790d35dcab01
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387510"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976832"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -205,7 +205,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     Si la suscripción con la que se implementa el recurso compartido de archivos está asociada al mismo inquilino de Azure AD como, por ejemplo, la función de implementación de Azure AD Domain Services a la que está unida la máquina virtual mediante el dominio, puede obtener acceso a Azure Files con las mismas credenciales de Azure AD. La limitación no se impone en la suscripción, sino en el inquilino de Azure AD asociado.    
     
 * <a id="ad-support-subscription"></a>
- **¿Puedo habilitar la autenticación de Azure AD sobre SMB para Azure Files con un inquilino de Azure AD que sea diferente del inquilino principal con el que se asocia el recurso compartido de archivos?**
+ **¿Puedo habilitar la autenticación de Azure AD mediante SMB para Azure Files con un inquilino de Azure AD distinto del inquilino principal con el que está asociado el recurso compartido de archivos?**
 
     No, Azure Files solo es compatible con la integración de Azure AD con un inquilino de Azure AD que reside en la misma suscripción que el recurso compartido de archivos. Cada suscripción está asociada a un inquilino de Azure AD.
 
@@ -248,7 +248,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="expressroute-not-required"></a>
  **¿Tengo que usar Azure ExpressRoute para conectarme a Azure Files o debo usar Azure File Sync en un entorno local?**  
 
-    No. No es necesario ExpressRoute para obtener acceso a un recurso compartido de archivos de Azure. Si está montando un recurso compartido de archivos de Azure directamente en un entorno local, lo único que se necesita es tener abierto el puerto 445 (salida TCP) para tener acceso a Internet (este es el puerto que SMB usa para comunicarse). Si usa Azure File Sync, lo único que se necesita es el puerto 443 (salida TCP) para el acceso HTTPS (no se necesita SMB). Pero *puede usar* ExpressRoute con cualquiera de estas opciones de acceso.
+     No. No es necesario ExpressRoute para obtener acceso a un recurso compartido de archivos de Azure. Si está montando un recurso compartido de archivos de Azure directamente en un entorno local, lo único que se necesita es tener abierto el puerto 445 (salida TCP) para tener acceso a Internet (este es el puerto que SMB usa para comunicarse). Si usa Azure File Sync, lo único que se necesita es el puerto 443 (salida TCP) para el acceso HTTPS (no se necesita SMB). Pero *puede usar* ExpressRoute con cualquiera de estas opciones de acceso.
 
 * <a id="mount-locally"></a>
  **¿Cómo puedo montar un recurso compartido de archivos de Azure en mi máquina local?**  
@@ -351,7 +351,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="need-larger-share"></a>
 **Necesito un recurso compartido de archivos mayor que las opciones que ofrece Azure Files. ¿Puedo aumentar el tamaño del recurso compartido de archivos de Azure?**  
-    No. El tamaño máximo de un recurso compartido de archivos de Azure es de 5 TB. Actualmente, este es un límite estricto que no se puede ajustar. Estamos trabajando en una solución que le permitirá aumentar el tamaño del recurso compartido a 100 TB, pero aún no sabemos cuándo estará preparada.
+     No. El tamaño máximo de un recurso compartido de archivos de Azure es de 5 TB. Actualmente, este es un límite estricto que no se puede ajustar. Estamos trabajando en una solución que le permitirá aumentar el tamaño del recurso compartido a 100 TB, pero aún no sabemos cuándo estará preparada.
 
 * <a id="open-handles-quota"></a>
  **¿Cuántos clientes pueden obtener acceso al mismo archivo simultáneamente?**   
@@ -380,7 +380,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="nested-shares"></a>
  **¿Puedo configurar recursos compartidos anidados, es decir, un recurso compartido en otro recurso compartido?**  
-    No. El recurso compartido de archivos *es* el controlador virtual que se puede montar, por lo que no se admiten recursos compartidos anidados.
+     No. El recurso compartido de archivos *es* el controlador virtual que se puede montar, por lo que no se admiten recursos compartidos anidados.
 
 * <a id="ibm-mq"></a>
  **¿Cómo se usa Azure Files con IBM MQ?**  

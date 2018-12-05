@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 72a8a09d04dc009598dafc35b65304662b7b8915
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 58bec272733d0ad83665f4e06f37ae528eb2f8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955922"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499654"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados](custom-roles.md).
@@ -39,7 +39,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [AcrImageSigner](#acrimagesigner) | Firmante de imagen de ACR |
 | [AcrQuarantineReader](#acrquarantinereader) | Lector de datos de cuarentena de ACR |
 | [AcrQuarantineWriter](#acrquarantinewriter) | Escritura de datos de cuarentena de ACR |
-| [Colaborador de servicio de administración de API](#api-management-service-contributor) | Permite administrar servicios de API Management, pero no acceder a ellos. |
+| [Colaborador de servicio de administración de API](#api-management-service-contributor) | Puede administrar servicios y las API. |
 | [Rol del operador del servicio API Management](#api-management-service-operator-role) | Puede administrar el servicio, pero no las API. |
 | [Rol de lector del servicio API Management](#api-management-service-reader-role) | Acceso de solo lectura al servicio y las API. |
 | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) | Puede administrar los componentes de Application Insights |
@@ -53,7 +53,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de copias de seguridad](#backup-contributor) | Permite administrar el servicio de copias de seguridad, pero no puede crear almacenes y conceder acceso a otros usuarios |
 | [Operador de copias de seguridad](#backup-operator) | Permite administrar los servicios de copias de seguridad, excepto la eliminación de copias de seguridad, la creación de almacenes y la concesión de acceso a otros usuarios |
 | [Lector de copias de seguridad](#backup-reader) | Puede ver servicios de copia de seguridad, pero no puede realizar cambios. |
-| [Lector de facturación](#billing-reader) | Permite leer los datos de facturación. |
+| [Lector de facturación](#billing-reader) | Permite acceso de lectura a los datos de facturación. |
 | [Colaborador de BizTalk](#biztalk-contributor) | Permite administrar los servicios de BizTalk, pero no acceder a ellos. |
 | [Colaborador de punto de conexión de CDN](#cdn-endpoint-contributor) | Puede administrar puntos de conexión de CDN, pero no conceder acceso a otros usuarios. |
 | [Lector de punto de conexión de CDN](#cdn-endpoint-reader) | Puede ver puntos de conexión de CDN, pero no hacer cambios. |
@@ -70,12 +70,14 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Lector de Cost Management](#cost-management-reader) | Puede ver los datos de costo y la configuración (por ejemplo, presupuestos, exportaciones) |
 | [Colaborador de Data Box](#data-box-contributor) | Permite administrarlo todo en el servicio Data Box, excepto dar acceso a otros usuarios. |
 | [Lector de Data Box](#data-box-reader) | Permite administrar el servicio Data Box excepto la creación o edición de detalles de pedido y dar acceso a otros usuarios. |
-| [Colaborador de Factoría de datos](#data-factory-contributor) | Permite administrar las fábricas de datos, pero no acceder a ellas. |
+| [Colaborador de Factoría de datos](#data-factory-contributor) | Crea y administra factorías de datos, así como recursos secundarios dentro de ellas. |
 | [Desarrollador de Data Lake Analytics](#data-lake-analytics-developer) | Le permite enviar, supervisar y administrar sus propios trabajos, pero no crear ni eliminar cuentas de Data Lake Analytics. |
 | [Purgador de datos](#data-purger) | Puede purgar datos de análisis. |
-| [Usuario de DevTest Labs](#devtest-labs-user) | Permite conectarse a las máquinas virtuales de Azure DevTest Labs, así como iniciarlas, reiniciarlas y cerrarlas. |
+| [Usuario de DevTest Labs](#devtest-labs-user) | Permite conectarse a sus máquinas virtuales, así como iniciarlas, reiniciarlas y apagarlas, en su instancia de Azure DevTest Labs. |
 | [Colaborador de zona DNS](#dns-zone-contributor) | Permite administrar zonas y conjuntos de registros DNS en Azure DNS, pero no controlar los usuarios que tienen acceso. |
 | [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) | Puede administrar cuentas de Azure Cosmos DB. Azure Cosmos DB se llamaba anteriormente DocumentDB. |
+| [Colaborador de EventGrid EventSubscription (versión preliminar)](#eventgrid-eventsubscription-contributor-preview) | Permite administrar las operaciones de suscripción de eventos de EventGrid. |
+| [Lector de EventGrid EventSubscription (versión preliminar)](#eventgrid-eventsubscription-reader-preview) | Permite leer las suscripciones de eventos de EventGrid. |
 | [Colaborador de Domain Services para HDInsight](#hdinsight-domain-services-contributor) | Puede leer, crear, modificar y eliminar operaciones relacionadas con Domain Services para HDInsight Enterprise Security Package |
 | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) | Permite administrar las cuentas de Intelligent Systems, pero no acceder a ellas. |
 | [Colaborador de almacén de claves](#key-vault-contributor) | Le permite administrar almacenes de claves, pero no acceder a ellos. |
@@ -101,7 +103,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de colecciones de trabajos de Scheduler](#scheduler-job-collections-contributor) | Permite administrar colecciones de trabajos de Scheduler, pero no acceder a ellas. |
 | [Colaborador del servicio Search](#search-service-contributor) | Permite administrar los servicios de Búsqueda, pero no acceder a ellos. |
 | [Administrador de seguridad](#security-admin) | Solo en Security Center: puede ver las directivas de seguridad, ver los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones |
-| [Administrador de seguridad](#security-manager) | Permite administrar los componentes de seguridad, las directivas de seguridad y las máquinas virtuales. |
+| [Administrador de seguridad (heredado)](#security-manager-legacy) | Se trata de un rol heredado. En su lugar, use el Administrador de seguridad. |
 | [Lector de seguridad](#security-reader) | Solo en Security Center: puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios |
 | [Colaborador de Site Recovery](#site-recovery-contributor) | Permite administrar el servicio Site Recovery, excepto la creación de almacenes y la asignación de roles. |
 | [Operador de Site Recovery](#site-recovery-operator) | Permite realizar una conmutación por error o una conmutación por recuperación, pero no otras operaciones de administración de Site Recovery. |
@@ -146,8 +148,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Authorization/*/Delete | No puede eliminar roles ni asignaciones de roles. |
 > | Microsoft.Authorization/*/Write | No puede crear roles ni asignaciones de roles. |
 > | Microsoft.Authorization/elevateAccess/Action | Concede al llamador acceso de administrador de acceso de usuario en el ámbito de inquilinos |
-> | Microsoft.Blueprint/blueprintAssignments/write | Crear o actualizar los artefactos de plano técnico |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Eliminar los artefactos de plano técnico |
+> | Microsoft.Blueprint/blueprintAssignments/write | Crea o actualiza los artefactos de plano técnico |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Elimina los artefactos de plano técnico |
 
 ## <a name="reader"></a>Lector
 > [!div class="mx-tableFixed"]
@@ -165,8 +167,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Descripción** | Firmante de imagen de ACR |
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Acciones** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
+> | Microsoft.ContainerRegistry/registries/sign/write | Inserta o extrae metadatos de confianza en el contenido para un registro de contenedor. |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -175,7 +176,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Descripción** | Lector de datos de cuarentena de ACR |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Acciones** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Extrae u obtiene imágenes en cuarentena de un registro de contenedor |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -184,14 +185,14 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Descripción** | Escritura de datos de cuarentena de ACR |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Acciones** |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Extrae u obtiene imágenes en cuarentena de un registro de contenedor |
+> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Escribe o modifica el estado de cuarentena de las imágenes que estén en cuarentena |
 
 ## <a name="api-management-service-contributor"></a>Colaborador de servicio de administración de API
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite administrar servicios de API Management, pero no acceder a ellos. |
+> | **Descripción** | Puede administrar servicios y las API. |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Acciones** |  |
 > | Microsoft.ApiManagement/service/* | Crear y administrar servicio API Management |
@@ -536,7 +537,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite leer los datos de facturación. |
+> | **Descripción** | Permite acceso de lectura a los datos de facturación. |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -813,7 +814,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite administrar las fábricas de datos, pero no acceder a ellas. |
+> | **Descripción** | Crea y administra factorías de datos, así como recursos secundarios dentro de ellas. |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -872,7 +873,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite conectarse a las máquinas virtuales de Azure DevTest Labs, así como iniciarlas, reiniciarlas y cerrarlas. |
+> | **Descripción** | Permite conectarse a sus máquinas virtuales, así como iniciarlas, reiniciarlas y apagarlas, en su instancia de Azure DevTest Labs. |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -883,13 +884,14 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Compute/virtualMachines/restart/action | Reinicia la máquina virtual |
 > | Microsoft.Compute/virtualMachines/start/action | Inicia la máquina virtual |
 > | Microsoft.DevTestLab/*/read | Leer las propiedades de un laboratorio |
-> | Microsoft.DevTestLab/labs/createEnvironment/action | Crea máquinas virtuales en un laboratorio. |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Reclama una máquina virtual aleatoria en el laboratorio. |
+> | Microsoft.DevTestLab/labs/createEnvironment/action | Crea máquinas virtuales en un laboratorio. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Elimina fórmulas. |
 > | Microsoft.DevTestLab/labs/formulas/read | Lee fórmulas. |
 > | Microsoft.DevTestLab/labs/formulas/write | Agrega o modifica fórmulas. |
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evalúa la directiva de laboratorio. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Toma la propiedad de una máquina virtual existente |
+> | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Muestra, si las hay, las programaciones de inicio y detención aplicables. |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end del equilibrador de carga |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Se une a una regla NAT de entrada del equilibrador de carga |
 > | Microsoft.Network/networkInterfaces/*/read | Leer las propiedades de una interfaz de red (por ejemplo, todos los equilibradores de carga de los que forma parte de la interfaz de red) |
@@ -936,6 +938,37 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>Colaborador de EventGrid EventSubscription (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite administrar las operaciones de suscripción de eventos de EventGrid. |
+> | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | **Acciones** |  |
+> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.EventGrid/eventSubscriptions/* |  |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Enumera las suscripciones de eventos globales por tipo de tema. |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | Enumera las suscripciones de eventos regionales. |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Enumera las suscripciones de eventos regionales por tipo de tema. |
+> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
+## <a name="eventgrid-eventsubscription-reader-preview"></a>Lector de EventGrid EventSubscription (versión preliminar)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite leer las suscripciones de eventos de EventGrid. |
+> | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | **Acciones** |  |
+> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.EventGrid/eventSubscriptions/read | Lee una clase eventSubscription. |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Enumera las suscripciones de eventos globales por tipo de tema. |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | Enumera las suscripciones de eventos regionales. |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Enumera las suscripciones de eventos regionales por tipo de tema. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 
 ## <a name="hdinsight-domain-services-contributor"></a>Colaborador de Domain Services para HDInsight
 > [!div class="mx-tableFixed"]
@@ -1089,6 +1122,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Descripción** | Permite leer y realizar acciones en los recursos de aplicación administrada. |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Acciones** |  |
+> | */read | Leer recursos de todos los tipos, excepto secretos. |
 > | Microsoft.Solutions/applications/read | Recupera una lista de aplicaciones. |
 
 ## <a name="managed-applications-reader"></a>Lector de aplicaciones administradas
@@ -1185,7 +1219,6 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
-> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Supervisión del publicador de métricas
 > [!div class="mx-tableFixed"]
@@ -1332,15 +1365,17 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Security/locations/tasks/activate/action | Activa una recomendación de seguridad |
 > | Microsoft.Security/locations/tasks/dismiss/action | Descarta una recomendación de seguridad |
 > | Microsoft.Security/policies/write | Actualiza la directiva de seguridad |
-> | Microsoft.Security/securityContacts/write | Actualiza el contacto de seguridad. |
+> | Microsoft.Security/pricings/write | Actualiza la configuración de precios del ámbito. |
+> | Microsoft.Security/pricings/delete | Elimina la configuración de precios del ámbito. |
 > | Microsoft.Security/securityContacts/delete | Elimina el contacto de seguridad. |
+> | Microsoft.Security/securityContacts/write | Actualiza el contacto de seguridad. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
-## <a name="security-manager"></a>Administrador de seguridad
+## <a name="security-manager-legacy"></a>Administrador de seguridad (heredado)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite administrar los componentes de seguridad, las directivas de seguridad y las máquinas virtuales. |
+> | **Descripción** | Se trata de un rol heredado. En su lugar, use el Administrador de seguridad. |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -1559,11 +1594,13 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Crear y administrar directivas de auditoría de SQL Server |
 > | Microsoft.Sql/servers/auditingSettings/* | Crear y administrar configuración de auditoría de SQL Server |
+> | Microsoft.Sql/servers/extendedAuditingSettings/read | Recupera los detalles de la directiva de auditoría de blobs del servidor extendido que está configurada en un servidor determinado. |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Crear y administrar directivas de auditoría de bases de datos de SQL Server |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Crear y administrar configuración de auditoría de bases de datos de SQL Server |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Leer registros de auditoría |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | Crear y administrar directivas de conexión de bases de datos de SQL Server |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Crear y administrar directivas de enmascaramiento de datos de bases de datos de SQL Server |
+> | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Recupera los detalles de la directiva de auditoría de blobs extendida y configurada en una base de datos determinada. |
 > | Microsoft.Sql/servers/databases/read | Devuelve la lista de bases de datos u obtiene las propiedades de una base de datos específica. |
 > | Microsoft.Sql/servers/databases/schemas/read | Recupera la lista de esquemas de una base de datos. |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Recuperar la lista de columnas de una tabla |

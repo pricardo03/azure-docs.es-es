@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002927"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426798"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 
@@ -54,11 +54,11 @@ Se admiten los siguientes orígenes de datos para la actividad de búsqueda. El 
 ```
 
 ## <a name="type-properties"></a>Propiedades de tipo
-NOMBRE | DESCRIPCIÓN | type | ¿Necesario?
+NOMBRE | DESCRIPCIÓN | Escriba | ¿Necesario?
 ---- | ----------- | ---- | --------
 dataset | Proporciona la referencia de conjunto de datos para la búsqueda. Obtenga los detalles de la sección **Propiedades del conjunto de datos** de cada artículo del conector correspondiente. | Par clave-valor | SÍ
 de origen | Contiene propiedades de origen específicas para el conjunto de datos, al igual que el origen de la actividad de copia. Obtenga los detalles de la sección **Copiar propiedades de la actividad** de cada artículo del conector correspondiente. | Par clave-valor | SÍ
-firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | boolean | No. El valor predeterminado es `true`.
+firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | boolean |  No. El valor predeterminado es `true`.
 
 > [!NOTE]
 
@@ -297,6 +297,15 @@ Esta instancia de Azure SQL Database contiene los datos que se copiarán en Blob
     }
 ]
 ```
+
+## <a name="limitations-and-workarounds"></a>Limitaciones y soluciones alternativas
+
+A continuación se indican algunas de las limitaciones de la actividad de búsqueda y las soluciones alternativas sugeridas.
+
+| Limitación | Solución alternativa |
+|---|---|
+| La actividad de búsqueda tiene un máximo de 5.000 filas y un tamaño máximo de 2 MB. | Diseñe una canalización de dos niveles donde la canalización exterior recorra en iteración una canalización interna, que recupera datos que no superan el tamaño o el número máximo de filas. |
+| | |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte otras actividades de flujo de control compatibles con Data Factory: 

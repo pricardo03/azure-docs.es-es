@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 24b7e03808cb5df9fa4c122ca4c9317f723dac72
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6097c96c0211c1efac2c2652eb0ef7d668d6877
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414648"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427053"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usar una dirección IP pública estática con el equilibrador de carga de Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,9 @@ También es preciso que esté instalada y configurada la versión 2.0.46 de la C
 
 ## <a name="create-a-static-ip-address"></a>Crear una dirección IP estática
 
-Cuando se crea una dirección IP pública estática para usarla con AKS, el recurso de dirección IP debe crearse en el grupo de recursos del **nodo**. Obtenga el nombre del grupo de recursos con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el nombre de clúster de AKS *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
+Cuando se crea una dirección IP pública estática para usarla con AKS, el recurso de dirección IP debe crearse en el grupo de recursos del **nodo**. Si desea separar los recursos, consulte [Uso de una dirección IP estática fuera del grupo de recursos del nodo](#use-a-static-ip-address-outside-of-the-node-resource-group).
+
+Obtenga el nombre del grupo de recursos del nodo con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el nombre de clúster de AKS *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv

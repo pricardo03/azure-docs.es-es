@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.openlocfilehash: ed35380e66e6d5d59058552d8e0504220c100b73
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c898a206322bbc6acb73d582fcb08c8bbba274d0
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231396"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291455"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Habilitación de la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -274,10 +274,10 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 ```
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Configurar los permisos NTFS con icacls
-Utilice el siguiente comando de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios.
+Utilice el siguiente comando de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. No olvide reemplazar los valores del marcador de posición que se muestran entre paréntesis en el ejemplo por los suyos propios.
 
 ```
-icacls <mounted-drive-letter> /grant <user-email>:(f)
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
 Para más información sobre cómo usar icacls para establecer los permisos NTFS y sobre los distintos tipos de permisos admitidos, consulte [la referencia de línea de comandos de icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
