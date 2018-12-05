@@ -1,10 +1,10 @@
 ---
-title: Servicios de consultoría de Azure Marketplace
+title: Servicios de consultoría de Azure Marketplace y AppSource
 description: En este artículo se describen los criterios de idoneidad y los requisitos de publicación para nuevas ofertas de servicios de consultoría en Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: ellacroi
-manager: msmbaldwin
+author: yijenj
+manager: nuno costa
 editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
@@ -12,19 +12,21 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/9/2018
-ms.author: ellacroi
-ms.openlocfilehash: 104ef98aac3e34e30a86854a0d759cf11106b55b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.date: 10/29/2018
+ms.author: yijenj
+ms.openlocfilehash: dbd97ba8faacdc387a6e0b78c206f65a201ca246
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575324"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261554"
 ---
-# <a name="azure-marketplace-consulting-services"></a>Servicios de consultoría de Azure Marketplace
-Los servicios de consultoría de Azure Marketplace brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure. Azure Marketplace es compatible con la lista de ofertas de servicios de consultoría de los asociados de System Integrator (SI) de Microsoft. 
+# <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servicios de consultoría de Azure Marketplace y AppSource
+Los servicios de consultoría de Azure Marketplace y AppSource brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure y de sus objetivos empresariales. 
 
-Estas ofertas de servicios de consultoría son interacciones específicas del cliente. Los anunciantes tienen la opción para determinar el tipo de ofertas, si el ámbito es fijo y la duración, el precio fijo o libre, así como los resultados definidos para el cliente. Los asociados reciben una notificación en su sistema CRM y deben responder a las solicitudes en 48 horas.
+Azure Marketplace y AppSource admiten el listado de las ofertas de servicios de consultoría de asociados de Integrador de sistemas (SI) de Microsoft: cuyo objetivo es ofrecer servicios de consultoría de calidad para permitir a los clientes conectarse con los servicios expertos que necesitan. Esto ayuda a los clientes a valorar, evaluar e poner en práctica las soluciones y la implementación correctas que les ayudarán con sus metas y objetivos de nuestros.  
+
+Estas ofertas de servicios de consultoría son interacciones específicas del cliente. Los publicadores tienen la opción para determinar el tipo de ofertas, si el ámbito es fijo y la duración, el precio fijo o libre, así como tener una agenda definida con los resultados definidos para el cliente. Los clientes potenciales se reciben a través de una notificación en el sistema CRM del asociado y deben responder a los clientes dentro de las 48 horas. 
 
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Servicios de consultoría en Azure Marketplace vs AppSource Storefront
 Los escaparates de Marketplace se organizan de acuerdo con las audiencias y los productos en la nube de Microsoft para ayudar a los clientes a encontrar exactamente lo que necesitan. Cada escaparate ofrece opciones de publicación especializadas que le ayudan a maximizar la inversión en publicación. En la tabla siguiente se resumen estas opciones:
@@ -40,15 +42,17 @@ Los escaparates de Marketplace se organizan de acuerdo con las audiencias y los 
 Las ofertas de servicios basadas en Microsoft Dynamics 365, Office 365 y Power BI son aptas para ser anunciadas en AppSource. Para obtener más información, consulte las [instrucciones sobre listas de consultoría de Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
 >[!Note]
->Los servicios de consultoría de Azure Marketplace deben aprovechar las ofertas orientadas a una **audiencia técnica centrada en *soluciones y servicios técnicos de Azure* **
+>Los servicios de consultoría de Azure Marketplace deben aprovechar las ofertas orientadas a una **audiencia técnica centrada en *soluciones y servicios técnicos de Azure*. ** Los servicios de consultoría en AppSource deben aprovechar las ofertas orientadas a su experiencia en entregar soluciones de calidad para Dynamics 365, Power BI o PowerApps para enumerar sus ofertas de servicios de consultoría en AppSource
 
 
 >[!TIP]
->Esta información está destinada únicamente a los servicios de Azure Marketplace. Para publicar en el escaparate de Azure Marketplace, esto se selecciona al elegir "Azure" en el menú desplegable "Primary Product" (Producto principal) en Cloud Partner Portal. Para publicar en AppSource, esto se selecciona al elegir "Dynamics 365", "Power BI" o "Power Apps" en el menú desplegable "Primary Product" (Producto principal) en Cloud Partner Portal.
+>Para publicar en el escaparate de Azure Marketplace, esto se selecciona al elegir "Azure" en el menú desplegable "Primary Product" (Producto principal) en Cloud Partner Portal. Para publicar en AppSource, esto se selecciona al elegir "Dynamics 365", "Power BI" o "Power Apps" en el menú desplegable "Primary Product" (Producto principal) en Cloud Partner Portal.
 
 ## <a name="eligible-partners-and-supported-countries"></a>Asociados aptos y países admitidos
 
-Los partners también deben tener una **competencia Silver o Gold** en el área pertinente de su servicio. Las competencias aptas se mencionan en la siguiente tabla:
+Los asociados deben tener una **competencia Silver o Gold** en el área pertinente de su servicio. 
+
+**Las competencias aptas se mencionan en la siguiente tabla para Azure Marketplace:**
 
 |Competencia  |Área de solución  |
 |---------|---------|
@@ -56,24 +60,34 @@ Los partners también deben tener una **competencia Silver o Gold** en el área 
 |Desarrollo de aplicaciones e ISV     |  Desarrollo de aplicaciones, integración de aplicaciones, DevOps       |
 |Administración de datos y análisis    |  Análisis de datos, plataforma de datos       |
 
-Para obtener más información, consulte las [competencias a través de Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
+
+**Las competencias aptas se mencionan en la siguiente tabla para AppSource:**
+
+|Producto principal |Requisito de idoneidad |
+|---------|---------|
+| Dynamics 365 for Customer Engagement    |   Competencia Silver o Gold de [administración de las relaciones con el cliente en la nube](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).    | 
+|Dynamics 365 for Finance and Operations, Enterprise Edition  |  Competencia Silver o Gold de [planificación de recursos Enterprise](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) e ingresos mínimos de 25 000 USD en operaciones en la nube en los 12 últimos meses.       |
+|Dynamics 365 for Finance and Operations, Business Edition  |  Actuar como [proveedor de servicios en la nube (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) o [asociado de registro digital (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) para al menos un cliente.      |
+|Power BI, objetos visuales personalizados de Power BI | Cumplir los criterios de los [asociados de soluciones](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
+|PowerApps | Tener publicada una solución [Presentación de asociado]().
+
+<b> Para más información, consulte las [competencias a través de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).</b>
  
 
 **Los asociados de SI pueden enviar ofertas de servicios de consultoría para los siguientes 18 países**:
 
-|Países válidos |  |  |
-|---------|---------|---------|
-|Australia    |Alemania         |Nueva Zelanda         |
-|Bélgica     |Italia         |Noruega         |
-|Canadá     |India         |Polonia         |
-|Dinamarca     |Japón         |Suecia         |
-|Finlandia     |México         |Reino Unido         |
-|Francia     |Países Bajos         |Estados Unidos         |
+|Países válidos |   |   |   |
+|---------|----------|----------|----------|
+|Australia |Francia  |     México          |España       |
+|Bélgica   |Alemania |     Países Bajos     |Suecia       |
+|Canadá    |India   |     Nueva Zelanda     |Reino Unido  |
+|Dinamarca   |Italia   |     Noruega          |Estados Unidos |
+|Finlandia   |Japón   |     Polonia          
 
-El lanzamiento de los servicios de consultoría de Azure Marketplace se realizará en la región geográfica específica. El primer lanzamiento será en Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países empezarán a funcionar una vez que los asociados hayan enviado un número significativo, y una atractiva selección, de ofertas de servicios, y Microsoft las haya aprobado.
+El lanzamiento de los servicios de consultoría se realizará en la región geográfica específica. El primer lanzamiento será en Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países empezarán a funcionar una vez que los asociados hayan enviado un número significativo, y una atractiva selección, de ofertas de servicios, y Microsoft las haya aprobado.
 
-## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Procedimientos para registrar los servicios de consultoría en Azure Marketplace
-Comience registrando los servicios de consultoría en [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
+## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Procedimientos para registrar los servicios de consultoría en Azure Marketplace y AppSource
+Empiece por [registrar](https://azuremarketplace.microsoft.com/en-us/sell/signup) la información de su empresa en Marketplace. Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
 
 **¿Qué se puede esperar después del registro?** El equipo de incorporación tardará entre uno y tres días hábiles en enviarle un correo electrónico de bienvenida que incluirá la información de inicio de sesión de Cloud Partner Portal (CPP). [Cloud Partner Portal](https://cloudpartner.azure.com) es el portal de anuncios de ofertas donde los anunciantes envían la información de las ofertas y los envíos. 
 
@@ -103,14 +117,14 @@ Antes del registro, puede empezar a recopilar y preparar el contenido que ayudar
 
 
 ## <a name="publishing-process"></a>Proceso de publicación
-Anunciar la oferta de servicio de consultoría en Azure Marketplace supone las siguientes fases:
+Anunciar la oferta de servicio de consultoría en Azure Marketplace y AppSource supone las siguientes fases:
 
-1. **Solicitud**: para enviar su solicitud, use [Formulario de nominación de Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/nominate) y cuéntenos más cosas sobre su organización. Nota: Los editores solo tendrán que enviar el proceso de nominación una vez para aparecer en Azure Marketplace o AppSource. Una vez completado el proceso de nominación y la incorporación, se creará una instancia de Cloud Partner Portal donde los editores podrán crear y enviar sus ofertas.
+1. **Anuncio**: inicie sesión en su cuenta de [Cloud Partner Portal](https://cloudpartner.azure.com) para empezar a redactar un nuevo anuncio de ofertas. En el menú desplegable, seleccione "Nueva oferta" y "Servicios de consultoría". Escriba el artefacto del anuncio y publique.
 2. **Validación**: se revisa su solicitud para garantizar el cumplimiento de los criterios de idoneidad. A continuación, le enviamos instrucciones para anunciar su oferta de servicios de consultoría. 
 3. **Envío**: proporcione la información necesaria recogida en las instrucciones. Todo el contenido y material complementario deben enviarse en inglés. 
 4. **Revisión**: nuestro equipo de marketing y editorial revisa su envío y lo optimiza a fin de mejorar la legibilidad, la gramática y la eficacia. 
 5. **Almacenamiento provisional**: su envío se almacena de forma provisional para su revisión. 
-6. **Publicación**: una vez que usted y Microsoft estén satisfechos con el contenido ensayado, su anuncio estará listo para publicarse en Azure Marketplace. La fecha de publicación de su anuncio depende del país especificado en la oferta. Si el catálogo del país seleccionado ya está publicado en Azure Marketplace, su anuncio aparecerá al cabo de unas horas. De lo contrario, el anuncio aparecerá tan pronto como se publique el catálogo.
+6. **Publicación**: una vez que usted y Microsoft estén satisfechos con el contenido ensayado, su anuncio estará listo para publicarse en Marketplace. La fecha de publicación de su anuncio depende del país especificado en la oferta. Si el catálogo del país seleccionado ya está publicado en Azure Marketplace o AppSource, su anuncio aparecerá al cabo de unas horas. De lo contrario, el anuncio aparecerá tan pronto como se publique el catálogo.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Lista de ofertas y criterios de revisión de contenido
 Las ofertas deben incluirse en uno de los siguientes cinco tipos de servicios (puede indicar más de una): 
@@ -127,7 +141,7 @@ Una vez configurados los elementos necesarios mencionados anteriormente, el equi
 
 #### <a name="listing-title"></a>Título de la lista
 
-Tenga en cuenta que el campo de título tiene un límite de 50 caracteres y debe transmitir el tipo de servicio y la duración de la oferta. Esto sirve para maximizar la optimización del motor de búsqueda. El formato debe ser el siguiente: NOMBRE : DURACIÓN TIPO
+El campo de título tiene un límite de 50 caracteres y debe transmitir el tipo de servicio y la duración de la oferta para maximizar la optimización del motor de búsqueda. El formato debe ser el siguiente: NOMBRE: DURACIÓN TIPO
 
 Ejemplos:
 
@@ -145,7 +159,7 @@ Al revisar las descripciones y los resúmenes de las ofertas, el equipo seguirá
 |Tipo de oferta  |Obligatorio |Recomendado  |
 |---------|---------|---------|
 |**Valoración**    |   Incluir una agenda detallada para las evaluaciones de varios días o varias semanas y explicar lo que el cliente puede esperar      |    Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda     |
-|**Sesión informativa**    |   Explicar lo que el cliente puede esperar. Recuerde que también se deben ofrecer sesiones informativas presenciales. Si va a proporcionar un servicio virtual, elija un tipo de oferta diferente    |  Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda       |
+|**Sesión informativa**    |   Explicar lo que el cliente puede esperar. Recuerde: La sesión informativa se debe ofrecer en persona. Si va a proporcionar un servicio virtual, elija un tipo de oferta diferente    |  Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda       |
 |**Implementación**    |  Incluir una agenda detallada para las implementaciones de varios días o varias semanas y explicar los cambios de ingeniería, los artefactos técnicos u otros que los clientes puedan esperar como resultado de la interacción       |    Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda     |
 |**Prueba de concepto**    |    Explicar los cambios de ingeniería, los artefactos técnicos u otros que los clientes puedan esperar como resultado de la interacción     | Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda        |
 |**Taller**    |   Incluir una agenda detallada diaria, semanal o mensual, en función de la duración elegida para la oferta. Explicar cuáles son los objetivos de aprendizaje y de otro tipo del taller     |   Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda      |
@@ -153,12 +167,14 @@ Al revisar las descripciones y los resúmenes de las ofertas, el equipo seguirá
 En Cloud Partner Portal, puede aplicar formato al anuncio mediante [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Se trata de un lenguaje de diseño ligero que le ayudará a pulir los anuncios. 
 
 **Notas de Markdown de ejemplo**
-*   Agregue * al principio y al final del bloque de copia, sin espacios para usar la cursiva (p. ej.: *contenido*)
+* Agregue * al principio y al final del bloque de copia, sin espacios para usar la cursiva (p. ej.: *contenido*)
 * Incluya un salto de línea después de dos puntos ":"
-*   Un espacio después de "*" para las viñetas (p. ej.: *(space)Contenido)
-*    ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>espacio para el encabezado (p. ej.: ###(espacio)Agenda/Objetivos)
-*   Salto de línea después del título
-*   ** = negrita (sin espacio) (p. ej.: **sin espacio**) • Resumen de la oferta en cursiva •  Agenda y objetivos es un encabezado
+* Un espacio después de "*" para las viñetas (p. ej.: *(space)Contenido)
+* ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>espacio para el encabezado (p. ej.: ###(espacio)Agenda/Objetivos)
+* Salto de línea después del título
+* ** = negrita 
+* * Incluya el resumen de la oferta en cursiva
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

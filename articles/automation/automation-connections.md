@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1e9ca18d2075d40f6f55bc84723f79ae7e10850b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261220"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284547"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Recursos de conexión en Azure Automation
 
@@ -102,11 +102,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 Para agregar una actividad **Get-AutomationConnection** a un runbook gráfico, haga clic con el botón derecho en la conexión en el panel Biblioteca del editor gráfico y, después, seleccione **Agregar a lienzo**.
 
-![](media/automation-connections/connection-add-canvas.png)
+![agregar a lienzo](media/automation-connections/connection-add-canvas.png)
 
 La imagen siguiente muestra un ejemplo de cómo usar una conexión en un runbook gráfico.  Este es el mismo ejemplo expuesto anteriormente para autenticar con la cuenta de ejecución con un runbook textual.  Este ejemplo utiliza el conjunto de datos **Valor constante** para la actividad **Get RunAs Connection** que usa un objeto de conexión para la autenticación.  Aquí se usa un [vínculo de canalización](automation-graphical-authoring-intro.md#links-and-workflow) , debido a que el conjunto de parámetros ServicePrincipalCertificate espera un solo objeto.
 
-![](media/automation-connections/automation-get-connection-object.png)
+![obtener conexiones](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Ejemplo de runbook de Python2
 En el ejemplo siguiente se muestra cómo autenticarse con la conexión de ejecución en un runbook de Python2.

@@ -12,26 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685708"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262608"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
-Como asociado de software de Azure, sus soluciones requieren componentes de Azure o necesitan implementarse directamente en la infraestructura de Azure. A los clientes que implementen una solución de asociado y aprovisionen sus propios recursos de Azure puede que les resulte difícil ver el estado de la implementación y lo que esta afecta al crecimiento de Azure. Al agregar un mayor nivel de visibilidad, se alinea con el equipo de ventas de Microsoft y obtiene crédito para los programas para partners de Microsoft.   
+Como asociado de software de Azure, sus soluciones requieren componentes de Azure o necesitan implementarse directamente en la infraestructura de Azure. A los clientes que implementen una solución de asociado y aprovisionen sus propios recursos de Azure puede que les resulte difícil ver el estado de la implementación y lo que esta afecta al crecimiento de Azure. Al agregar un mayor nivel de visibilidad, se alinea con el equipo de ventas de Microsoft y obtiene crédito para los programas para partners de Microsoft. 
 
 Ahora, Microsoft ofrece un método que ayuda a los asociados a mejorar el seguimiento del uso de Azure de las implementaciones de clientes de su software en Azure. Este nuevo método usa Azure Resource Manager para organizar la implementación de los servicios de Azure.
 
 Como asociado de Microsoft, puede asociar el uso de Azure con todos los recursos de Azure que aprovisione en nombre de un cliente. La asociación puede formarla a través de Azure Marketplace, el repositorio del Inicio rápido, repositorios privados de GitHub y la involucración del cliente cara a cara. Para habilitar el seguimiento, hay dos enfoques disponibles:
 
 - Plantillas de Azure Resource Manager: las plantillas de Resource Manager o las plantillas de solución para implementar los servicios de Azure para ejecutar el software del asociado. Los asociados pueden crear una plantilla de Resource Manager para definir la infraestructura y configuración de su solución de Azure. Una plantilla de Resource Manager les permite tanto a usted como a sus clientes implementar la solución a lo largo de su ciclo de vida. Puede estar seguro de que los recursos se implementan de forma consistente. 
-
 - API de Azure Resource Manager: los asociados pueden llamar a las API de Azure Resource Manager directamente para implementar una plantilla de Azure Resource Manager o para generar las llamadas a API para aprovisionar directamente los servicios de Azure. 
+
+Se requiere la atribución de uso del cliente en todas las [plantillas de solución](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publicadas en Azure Marketplace. 
 
 ## <a name="use-resource-manager-templates"></a>Uso de plantillas de Resource Manager
 

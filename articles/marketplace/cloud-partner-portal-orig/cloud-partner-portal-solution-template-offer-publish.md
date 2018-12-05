@@ -1,5 +1,5 @@
 ---
-title: Publicación de una plantilla de solución | Microsoft Docs
+title: Publicación de una plantilla de solución de Azure | Microsoft Docs
 description: Publique una plantilla de solución en Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 333eebfa1bae919c43164572c63f2de4f7251fe0
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345596"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261624"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publicación de una plantilla de solución en Azure Marketplace
 
@@ -31,31 +31,22 @@ Los siguientes requisitos previos técnicos y de otra índole se aplican a la pu
 
 ### <a name="technical"></a>Requisitos previos técnicos
 
-- [Nociones sobre las plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-
+- [Nociones sobre las plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 - Plantillas de inicio rápido de Azure:
-
     - [Documentación de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/)
-
     - [Documentación de inicio rápido de Azure en GitHub](https://github.com/azure/azure-quickstart-templates)
-
  - [Creación de la interfaz de usuario de Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+ - Habilite la [atribución de uso de cliente](./../azure-partner-customer-usage-attribution.md) para ayudar a realizar un seguimiento del uso de Azure de las implementaciones de clientes de software en Azure.
 
 ### <a name="non-technical-business-requirements"></a>Requisitos previos no técnicos (empresariales)
 
--   La empresa o sus subsidiarias deben encontrarse en uno de los países de origen de venta admitidos por Azure Marketplace.
-
--   El producto debe contar con una licencia que sea compatible con los modelos de facturación admitidos por Azure Marketplace.
-
--   Usted es el responsable de poner el soporte técnico a disposición de los clientes de forma comercialmente razonable, ya sea de forma gratuita, de pago o a través del soporte técnico de la comunidad.
-
--   Asimismo, es responsable de la concesión de licencias para su software y las dependencias de software de terceros.
-
--   Proporcione contenido que cumpla los criterios para que su oferta se publique en Azure Marketplace y en el Portal de administración de Azure.
-
--   Acepte los términos del contrato del anunciante y de las directivas de participación de Azure Marketplace.
-
--   Acepte los Términos de uso, la Declaración de privacidad de Microsoft y el Contrato del programa Microsoft Azure Certified.
+- La empresa o sus subsidiarias deben encontrarse en uno de los países de origen de venta admitidos por Azure Marketplace.
+- El producto debe contar con una licencia que sea compatible con los modelos de facturación admitidos por Azure Marketplace.
+- Usted es el responsable de poner el soporte técnico a disposición de los clientes de forma comercialmente razonable, ya sea de forma gratuita, de pago o a través del soporte técnico de la comunidad.
+- Asimismo, es responsable de la concesión de licencias para su software y las dependencias de software de terceros.
+- Proporcione contenido que cumpla los criterios para que la oferta se publique en Azure Marketplace y en Azure Portal.
+- Acepte los términos del contrato del anunciante y de las directivas de participación de Azure Marketplace.
+- Acepte los Términos de uso, la Declaración de privacidad de Microsoft y el Contrato del programa Microsoft Azure Certified.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -101,7 +92,7 @@ Cada vista contiene un conjunto de campos que debe rellenar. Los campos obligato
 
     **Identificador de oferta**
 
-     Identificador único de la oferta en un perfil del anunciante. Este identificador se muestra en direcciones URL de producto, plantillas de ARM e informes de facturación. Solo puede usar caracteres alfanuméricos en minúscula o guiones (-). El identificador, que tendrá 50 caracteres como máximo, no puede terminar con un guion. 
+     Identificador único de la oferta en un perfil del anunciante. Este identificador se muestra en las direcciones URL de producto, en las plantillas de Azure Resource Manager y en los informes de facturación. Solo puede usar caracteres alfanuméricos en minúscula o guiones (-). El identificador, que tendrá 50 caracteres como máximo, no puede terminar con un guion. 
     >[!Note]
     >Este campo queda bloqueado en cuanto se lanza una oferta.
 
@@ -128,7 +119,7 @@ de su oferta.
 
     ![Nueva SKU](./media/cloud-partner-portal-publish-managed-app/newOffer_skus.png)
 
-    El identificador de SKU es el identificador único de la SKU dentro de una oferta. Este identificador se muestra en direcciones URL de producto, plantillas de ARM e informes de facturación. El identificador de SKU:
+    El identificador de SKU es el identificador único de la SKU dentro de una oferta. Este identificador se muestra en las direcciones URL de producto, las plantillas de Resource Manager y los informes de facturación. El identificador de SKU:
     - Puede tener un máximo de 50 caracteres.
     - Puede contener solo caracteres alfanuméricos en minúscula o guiones (-).
     - El identificador no puede terminar con un guión.
@@ -146,14 +137,10 @@ de su oferta.
 Proporcione la siguiente configuración de la SKU.
 
 - **Título**: título para la SKU. Este título aparece en la galería para este elemento.
-
 - **Resumen**: descripción breve resumida de la SKU. (La longitud máxima es de 100 caracteres).
-
 - **Description**: descripción detallada de la SKU.
-
 - **Tipo de SKU**: lista desplegable con los valores "Aplicación administrada (versión preliminar)" y "Plantilla de solución". Para este escenario, seleccione **Plantilla de solución**.
-
-- **Cloud Availability** (Disponibilidad de la nube): ubicación de la SKU. El valor predeterminado es Azure público.
+- **Cloud Availability** (Disponibilidad de la nube): ubicación de la SKU. El valor predeterminado es **Azure público**.
 
 ### <a name="package-details"></a>Detalles del paquete
 
@@ -162,11 +149,8 @@ Después de finalizar la configuración de la SKU, proporcione los siguientes de
 ![Detalles del paquete](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
 - **Versión actual**: versión del paquete que va a cargar. Las etiquetas de versión deben ser del tipo X.Y.Z, donde X, Y y Z son números enteros.
-
 - **Archivo de paquete**: este paquete contiene los siguientes archivos, guardados en un archivo ZIP.
-
     -   MainTemplate.json: archivo de plantilla de implementación que se usa para implementar la solución o la aplicación y para crear los recursos que se definen en esta. Para obtener más información, vea el artículo sobre la [creación de archivos de plantilla de implementación](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
-
     -   createUIDefinition.json: Azure Portal usa este archivo para generar la interfaz de usuario para el aprovisionamiento de esta solución o aplicación. Para obtener más información, consulte [Creación de la interfaz de usuario de Azure Portal para una aplicación administrada](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
     >[!IMPORTANT]
@@ -174,7 +158,7 @@ Después de finalizar la configuración de la SKU, proporcione los siguientes de
 
 ## <a name="to-configure-the-marketplace"></a>Para configurar el Marketplace
 
-Use la vista del Marketplace para configurar los campos que se muestran para la oferta en [Azure Marketplace](https://azuremarketplace.microsoft.com) y en [Azure Portal](https://portal.azure.com/).
+Use la vista de Marketplace para configurar los campos que se muestran para la oferta en [Azure Marketplace](https://azuremarketplace.microsoft.com) y en [Azure Portal](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>Preview Subscription Ids (Id. de suscripción de versión preliminar)
 
@@ -184,7 +168,7 @@ Lista de identificadores de suscripciones de Azure a los que le gustaría conced
 
 Seleccione hasta cinco categorías de la lista proporcionada con las que la oferta puede asociarse mejor. Las categorías seleccionadas se usarán para asociar la oferta con las categorías de productos disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com) y [Azure Portal](https://portal.azure.com/).
 
-Los ejemplos siguientes muestran información del Marketplace en Azure Marketplace y en Azure Portal.
+Los ejemplos siguientes muestran información de Marketplace en Azure Marketplace y en Azure Portal.
 
 **Azure Marketplace**
 
@@ -215,11 +199,11 @@ Siga estas directrices para los logotipos cargados en Cloud Partner Portal:
 -   Los colores del tema del Portal de Azure son el blanco y el negro. Evite emplear estos colores como fondo de los logotipos. Utilice un color que permita destacar los logotipos en Azure Portal. Nosotros recomendamos usar colores primarios simples.
 
     >[!Note] 
-    >Si utiliza un fondo transparente, asegúrese de que el texto y los logotipos no sean de color azul, blanco o negro.
+    >Si utiliza un fondo transparente, asegúrese de que el texto y los logotipos no sean de color azul, blanco ni negro.
 
 -   No utilice un fondo degradado en el logotipo.
 
--   Evite colocar texto en el logotipo. Esto incluye el nombre de su empresa o marca. El aspecto del logotipo debe ser *plano* y debe evitar degradados.
+-   Evite colocar texto en el logotipo. Esta pauta incluye el nombre de su empresa o marca. El aspecto del logotipo debe ser *plano* y debe evitar degradados.
 
 -   El logotipo no se debe ajustar.
 
@@ -229,7 +213,7 @@ El logotipo de imagen prominente es opcional. El publicador puede decidir no car
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Instrucciones para el logotipo de imagen prominente
 
--   El nombre para mostrar del anunciante, el título del plan y el resumen largo de la oferta se muestran con una fuente de color blanco. Evite usar colores claros en el fondo. Los fondos transparentes y de color negro o blanco no pueden usarse en las imágenes prominentes.
+-   El nombre para mostrar del publicador, el título del plan y el resumen largo de la oferta se muestran con una fuente de color blanco. Evite usar colores claros en el fondo. Los fondos transparentes y de color negro o blanco no pueden usarse en las imágenes prominentes.
 
 -   El nombre para mostrar del anunciante, el título del plan, el resumen largo de la oferta y el botón Crear se incrustan mediante programación dentro del logotipo de imagen prominente cuando se publica la oferta. No escriba ningún texto cuando diseñe el logotipo de imagen prominente. Deje un espacio en blanco a la derecha del logotipo. Este espacio debe ser de 415 x 100 píxeles y estar desplazado 370 píxeles de la izquierda.
 

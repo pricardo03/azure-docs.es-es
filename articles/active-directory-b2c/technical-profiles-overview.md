@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0f36cd798faac275e0f6dcb8a81bd37e14ab6d8d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578491"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275826"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
@@ -106,7 +106,7 @@ Ni **UserReadUsingAlternativeSecurityId-AAD-NoError** ni **AAD UserReadUsingAlte
 </TechnicalProfile>
 ```
 
-Un perfil técnico puede incluir o heredar otro perfil técnico, que puede incluir otro más. No existe un límite en el número de niveles. En función de las necesidades de su empresa, el recorrido del usuario puede llamar a **AAD-UserReadUsingAlternativeSecurityId**, que genera un error si no existe una cuenta de redes sociales, o **AAD-UserReadUsingAlternativeSecurityId-NoError**, que no genera ningún error.
+Un perfil técnico puede incluir o heredar otro perfil técnico, que puede incluir otro más. No existe un límite en el número de niveles. En función de las necesidades de su empresa, el recorrido del usuario puede llamar a **AAD-UserReadUsingAlternativeSecurityId**, que genera un error si no existe una cuenta de redes sociales del usuario, o **AAD-UserReadUsingAlternativeSecurityId-NoError**, que no genera ningún error.
 
 
 

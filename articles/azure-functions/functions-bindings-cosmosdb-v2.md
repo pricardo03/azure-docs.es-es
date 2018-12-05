@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4a1f9552b9a578cd34f3482e793947e06bb24407
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 24bc0b19d03148e98083fe6d21dd3980fcdf3714
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249821"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276625"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Enlaces de Azure Cosmos DB para Azure Functions 2.x
 
@@ -187,7 +187,7 @@ Este es el código de Java:
             databaseName = "ToDoList",
             collectionName = "Items",
             leaseCollectionName = "leases",
-            reateLeaseCollectionIfNotExists = true,
+            createLeaseCollectionIfNotExists = true,
             connectionStringSetting = "AzureCosmosDBConnection") String[] items,
             final ExecutionContext context ) {
                 context.getLogger().info(items.length + "item(s) is/are changed.");
@@ -1277,7 +1277,7 @@ Vea también el [ejemplo de entrada](#input---c-examples) que utiliza `DocumentC
 
 [Omisión de ejemplos de salida](#output---attributes)
 
-### <a name="ouput---c-examples"></a>Salida: ejemplos en C#
+### <a name="output---c-examples"></a>Salida: ejemplos de C#
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -1712,7 +1712,7 @@ De forma predeterminada, cuando se escribe en el parámetro de salida de la func
 
 ## <a name="hostjson-settings"></a>configuración de host.json
 
-En esta sección se describen las opciones de configuración globales disponibles para este enlace en la versión 2.x. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x, consulte [referencia de host.json para Azure Functions, versión 2.x](functions-host-json.md).
+En esta sección se describen las opciones de configuración globales disponibles para este enlace en la versión 2.x. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x, consulte la [referencia de host.json para Azure Functions, versión 2.x](functions-host-json.md).
 
 ```json
 {

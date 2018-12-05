@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567033"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284649"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Descripción de las funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios de IoT Edge (versión preliminar)
 
@@ -48,7 +48,7 @@ En el ejemplo siguiente, se muestra cómo funciona un escenario de IoT Edge en m
 
 Las funcionalidades sin conexión ampliadas que se describen en este artículo están disponibles en [IoT Edge 1.0.4 o versiones posteriores](https://github.com/Azure/azure-iotedge/releases). Las versiones anteriores tienen un subconjunto de características sin conexión. Los dispositivos de IoT Edge existentes que no tienen funcionalidades sin conexión ampliadas no se pueden actualizar cambiando la versión del entorno de ejecución, sino que deben volver a configurarse con una nueva identidad de dispositivo de IoT Edge para obtener estas características. 
 
-La compatibilidad con las funcionalidades sin conexión ampliadas está disponible en todas las regiones en las que lo está IoT Hub, excepto en Este de EEE. UU. y Europa Occidental. 
+La compatibilidad con las funcionalidades sin conexión ampliadas está disponible en todas las regiones en las que lo está IoT Hub, **excepto** en Este de EE. UU.
 
 Solo los dispositivos IoT que no son de Edge pueden agregarse como dispositivos secundarios. 
 
@@ -65,6 +65,19 @@ Los dispositivos secundarios pueden ser cualquier dispositivo que no pertenezca 
    ![Administración de dispositivos secundarios desde la página de detalles del dispositivo de IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
 Los dispositivos primarios pueden tener varios dispositivos secundarios, pero un dispositivo secundario solo puede tener un dispositivo primario.
+
+### <a name="specifying-dns-servers"></a>Especificar los servidores DNS 
+
+Para mejorar la solidez, se recomienda que especificar las direcciones de servidor DNS usadas en su entorno. Por ejemplo, en Linux, actualice **/etc/docker/daemon.json** (es posible que tenga que crear el archivo) para que incluya:
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+Si usa un servidor DNS local, reemplace el 1.1.1.1 con la dirección IP del servidor DNS local. Reinicie el servicio de Docker para que los cambios surtan efecto.
+
 
 ## <a name="optional-offline-settings"></a>Ajustes opcionales del modo sin conexión
 

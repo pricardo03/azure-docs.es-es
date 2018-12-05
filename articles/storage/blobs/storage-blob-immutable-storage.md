@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037011"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261479"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage
 
@@ -47,7 +47,7 @@ El almacenamiento inmutable está habilitada en todas las regiones públicas de 
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-Almacenamiento inmutable para Azure Blob Storage admite dos tipos de directivas inmutables o WORM: retención con duración definida y suspensiones legales. Para más información acerca de cómo crear estas directivas inmutables, consulte la sección [Introducción](#Getting-started).
+Almacenamiento inmutable para Azure Blob Storage admite dos tipos de directivas inmutables o WORM: retención con duración definida y suspensiones legales. Para más información acerca de cómo crear estas directivas inmutables, consulte la sección [Introducción](#getting-started).
 
 Cuando se aplica una directiva de retención con duración definida o una suspensión legal a un contenedor, todos los blobs existentes pasarán al estado inmutable (protegido contra escritura y eliminación). Todos los nuevos blobs que se carguen en el contenedor también pasarán al estado inmutable.
 
@@ -69,7 +69,7 @@ Para los nuevos blobs, el período de retención efectivo es igual al intervalo 
 
 ### <a name="legal-holds"></a>Retenciones legales
 
-Si se establece una suspensión legal, tanto los blobs nuevos como los existentes permanecen en estado inmutable hasta que se elimine dicha suspensión. Para más información acerca de cómo establecer y eliminar suspensiones legales, consulte la sección [Introducción](#Getting-started).
+Si se establece una suspensión legal, tanto los blobs nuevos como los existentes permanecen en estado inmutable hasta que se elimine dicha suspensión. Para más información acerca de cómo establecer y eliminar suspensiones legales, consulte la sección [Introducción](#getting-started).
 
 Un contenedor puede tener una suspensión legal y una directiva de retención con duración definida al mismo tiempo. Todos los blobs de ese contenedor permanecen en estado inmutable hasta que se eliminen todas las suspensiones legales, aunque haya expirado el período de retención efectivo. Por el contrario, un blob permanece en estado inmutable hasta que expire el período de retención efectivo, aunque se hayan eliminado todas las suspensiones legales.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578504"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261078"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 La opción de publicación que elige para su oferta está relacionada directamente con los requisitos de idoneidad y las ventajas de GTM de Marketplace. Y, aún más importante, la selección de la opción de publicación y el tipo de oferta en Cloud Partner Portal define cómo interactúan los usuarios con su oferta de Marketplace.
@@ -64,26 +64,18 @@ El escaparate donde se presentará la oferta, Azure Marketplace o AppSource, se 
 
 Las opciones de publicación disponibles ofrecen un compromiso diferenciado del cliente y le ofrecen acceso al uso compartido de clientes potenciales y a [ventajas de comercialización](https://partner.microsoft.com/en-US/reach-customers/gtm). Seleccione entre tres opciones posibles de publicación antes de usar Cloud Partner Portal para crear una oferta de Marketplace. Tenga en cuenta las llamadas a la acción que se corresponden con la opción de publicación:
 
-**Lista**: inclusión en lista sencilla de la aplicación o servicio que permite a los usuarios de Marketplace solicitarle que se conecte con el cliente a través de la llamada a la acción **Ponerse en contacto conmigo**.
+| **Opción de publicación**    | **Descripción**  |
+| :------------------- | :-------------------|
+| **Lista** | Lista sencilla de la aplicación o servicio que permite a los usuarios de Marketplace solicitarle que se conecte con el cliente a través de la llamada a la acción **Ponerse en contacto conmigo**. |
+| **Versión de prueba** | Use Marketplace para mejorar la detectabilidad y automatizar el aprovisionamiento de la experiencia de evaluación de la aplicación, permitiendo a los usuarios potenciales usar su experiencia dentro de la aplicación de Microsoft, SaaS o IaaS sin ningún costo adicional durante un tiempo limitado antes de comprarla. Las llamadas a la acción que se usan para la opción de publicación de prueba son: **Evaluación gratuita** o **Versión de prueba**. |
+| **Transacción** | La aplicación se ejecuta en Azure y se puede aprovisionar como recurso directamente en la suscripción a Azure del cliente cuando el cliente selecciona la llamada a la acción Obtener ahora. Opcionalmente, se pueden comprar y facturar licencias de software mediante el instrumento de pago y los términos que defina el cliente. También puede ofrecer un acceso por un tiempo limitado a la **evaluación de software gratuita** (sólo disponible para Azure Marketplace). |
 
-**Prueba**: use Marketplace para mejorar la detectabilidad y automatizar el aprovisionamiento de la experiencia de evaluación de la aplicación, permitiendo a los usuarios potenciales usar su experiencia dentro de la aplicación de Microsoft, SaaS o IaaS sin ningún costo adicional durante un tiempo limitado antes de comprarla. Las llamadas a la acción que se usan para la opción de publicación de prueba son: **Evaluación gratuita** o **Versión de prueba**.
-
-**Transacción**: la aplicación se ejecuta en Azure y se puede aprovisionar como recurso directamente en la suscripción a Azure del cliente cuando el cliente selecciona la llamada a la acción Obtener ahora. Opcionalmente, se pueden comprar y facturar licencias de software mediante el instrumento de pago y los términos que defina el cliente. También puede ofrecer un acceso por un tiempo limitado a la **evaluación de software gratuita** (sólo disponible para Azure Marketplace). 
-
-## <a name="select-an-offer-type"></a>Seleccionar un tipo de oferta
-
-Una vez que decida una opción de publicación, estará listo para seleccionar el tipo de oferta que se usará para presentar la oferta. 
-
-La oferta es el objeto de publicación que se crea, publica y administra en Cloud Partner Portal. La estructura de oferta, incluidos los metadatos, artefactos y otros contenidos usados para presentar la oferta en Marketplace se definen mediante el tipo de oferta.
-
-Para poder crear una oferta, debe elegir un tipo de oferta. El tipo de oferta se corresponderá con el tipo de oferta de solución, aplicación o servicio que quiera publicar, así como con su alineación con los servicios y productos de Microsoft. 
-
-Un tipo de oferta único se puede configurar de un modo diferente en Cloud Partner Portal para habilitar distintas opciones de publicación, llamadas a la acción, aprovisionamiento o precios. La opción de publicación y la configuración del tipo de oferta también se alinea con la idoneidad de la oferta y los requisitos técnicos. 
-
-Asegúrese de revisar los requisitos de idoneidad del tipo de oferta y el escaparate en esta [Guía del editor](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide), así como los requisitos técnicos de publicación antes de crear la oferta.
+>[!Note]
+>Cuando se usa la opción de publicación de transacciones, es importante comprender las consideraciones sobre precios, facturación y pago antes de seleccionar un tipo de oferta y crear la oferta. Revise el [artículo de consideraciones comerciales y de facturación de Marketplace para obtener más información](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+*   Una vez que decida una opción de publicación, estará listo para [seleccionar el tipo de oferta](./publisher-guide-by-offer-type.md) que se usará para presentar la oferta.
 *   Revise los requisitos de idoneidad de las opciones de publicación por tipo de oferta para finalizar la selección y la configuración de la oferta.
 *   Revise los patrones de publicación por escaparate para ver ejemplos de cómo la solución se asigna a un tipo de oferta y configuración.
 *   Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com) para crear y configurar la oferta

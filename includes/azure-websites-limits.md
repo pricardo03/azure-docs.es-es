@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 515aeac3531a45080824df126ad674353f70cdb8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279929"
+---
 | Recurso | Gratuito | Compartido | Básica | Estándar | Premium (v2) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplicaciones web, móviles o de API](https://azure.microsoft.com/services/app-service/) por [plan de App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup>|
@@ -12,6 +25,8 @@
 | Arquitectura de la aplicación |32 bits |32 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |
 | Web Sockets por instancia<sup>7</sup> |5 |35 |350 |Ilimitado |Ilimitado |Ilimitado |
 | Conexiones de depurador [simultáneas](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) por aplicación |1 |1 |1 |5 |5 |5 |
+| App Service Certificate por suscripción<sup>10</sup>| No compatible | No compatible |10 |10 |10 |10 |
+| Dominios personalizados por aplicación</a> |0 (solo subdominio de azurewebsites.net)|500 |500 |500 |500 |500 |
 | Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |No compatible. Certificado comodín para *. azurewebsites.net disponible de forma predeterminada.|No compatible. Certificado comodín para *. azurewebsites.net disponible de forma predeterminada.|Conexiones SSL SNI ilimitadas |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP | Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP|
 | Equilibrador de carga integrado | |X |X |X |X |X<sup>9</sup> |
 | [Siempre activado](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
@@ -21,15 +36,15 @@
 | [Compatibilidad con Azure Scheduler](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
 | [Supervisión de extremos](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Ranuras de ensayo](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |20 |
-| Dominios personalizados por aplicación</a> |0 (solo subdominio de azurewebsites.net)|500 |500 |500 |500 |500 |
-| Contrato de nivel de servicio | |  |99,9 % |99,95 %|99,95 %|99,95 %|
+| Contrato de nivel de servicio | |  |99,9 % |99,95 %|99,95 %|99,95 %|  
 
-<sup>1</sup>Las aplicaciones y las cuotas de almacenamiento son por plan de App Service, a menos que se indique lo contrario.  
-<sup>2</sup>El número real de aplicaciones que puedes hospedar en estas máquinas depende de la actividad de las aplicaciones, el tamaño de las instancias de máquina y el correspondiente uso de los recursos.  
-<sup>3</sup>Las instancias dedicadas pueden tener diferentes tamaños. Consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/) para obtener más detalles.  
-<sup>4</sup>Se permite más a petición.
-<sup>5</sup>El límite de almacenamiento es el tamaño total del contenido en todas las aplicaciones en el mismo plan de App Service. Hay más opciones de almacenamiento en [App Service Environment](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage).  
-<sup>6</sup>Estos recursos están limitados por los recursos físicos en las instancias dedicadas (el tamaño de la instancia y el número de instancias).  
-<sup>7</sup>Si se escala una aplicación en el nivel Básico a dos instancias, dispones de 350 conexiones simultáneas para cada una de las dos.  
-<sup>8</sup>Ejecute scripts o archivos ejecutables personalizados bajo demanda, según una programación o de manera continua como tarea en segundo plano dentro de su instancia de App Service. Siempre disponible se requiere para la ejecución continua de Trabajos web. Se requiere Azure Scheduler de nivel Gratis o Estándar para Trabajos web programados. No hay ningún límite predefinido en el número de WebJobs que puede ejecutar en una instancia de App Service, pero sí hay límites prácticos que dependen de lo que el código de la aplicación esté intentando hacer.   
-<sup>9</sup>Las SKU de App Service aislado tienen la capacidad de equilibrio de carga interno (ILB) con Azure Load Balancer, lo que significa que no hay conectividad pública desde Internet. Como resultado, algunas características de un App Service aislado con ILB deben usarse desde máquinas que tienen acceso directo al punto de conexión de red del ILB.
+<sup>1</sup> Las aplicaciones y las cuotas de almacenamiento son por plan de App Service, a menos que se indique lo contrario.  
+<sup>2</sup> El número real de aplicaciones que puede hospedar en estas máquinas depende de la actividad de las aplicaciones, el tamaño de las instancias de máquina y el correspondiente uso de los recursos.  
+<sup>3</sup> Las instancias dedicadas pueden tener diferentes tamaños. Consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/) para obtener más detalles.  
+<sup>4</sup> Se permite más a petición.  
+<sup>5</sup> El límite de almacenamiento es el tamaño total del contenido en todas las aplicaciones en el mismo plan de App Service.  
+<sup>6</sup> Estos recursos están limitados por los recursos físicos en las instancias dedicadas (el tamaño de la instancia y el número de instancias).  
+<sup>7</sup> Si se escala una aplicación en el nivel Básico a dos instancias, dispones de 350 conexiones simultáneas para cada una de las dos.  
+<sup>8</sup> Ejecute scripts o archivos ejecutables personalizados bajo demanda, según una programación o de manera continua como tarea en segundo plano dentro de su instancia de App Service. Siempre disponible se requiere para la ejecución continua de Trabajos web. Se requiere Azure Scheduler de nivel Gratis o Estándar para Trabajos web programados. No hay ningún límite predefinido en el número de WebJobs que puede ejecutar en una instancia de App Service, pero sí hay límites prácticos que dependen de lo que el código de la aplicación esté intentando hacer.  
+<sup>9</sup> Las SKU de App Service aislado tienen la capacidad de equilibrio de carga interno (ILB) con Azure Load Balancer, lo que significa que no hay conectividad pública desde Internet. Como resultado, algunas características de un App Service aislado con ILB deben usarse desde máquinas que tienen acceso directo al punto de conexión de red del ILB.  
+<sup>10</sup> El límite de cuota de App Service Certificate por suscripción se puede aumentar a través de una solicitud de soporte técnico hasta un límite máximo de 200.  

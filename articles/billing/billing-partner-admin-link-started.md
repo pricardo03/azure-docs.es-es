@@ -3,6 +3,7 @@ title: Vinculación de una cuenta de Azure a un Id. de partner | Microsoft Docs
 description: Controle las interacciones con clientes de Azure vinculando un Id. de partner a la cuenta de usuario que utiliza para administrar los recursos del cliente.
 services: billing
 author: dhirajgandhi
+manager: dhgandhi
 ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
@@ -10,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687001"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274186"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -43,7 +44,7 @@ Cuando acceda a los recursos del cliente, use Azure Portal, PowerShell o la CLI 
 
 2. Inicie sesión en el Portal de Azure.
 
-3. Escriba el identificador de partner, que es el identificador de [Microsoft Partner Network (MPN)](https://partner.microsoft.com/) de la organización.
+3. Escriba el identificador de partner de Microsoft. El identificador de partner es el identificador de [Microsoft Partner Network (MPN)](https://partner.microsoft.com/) de su organización.
 
   ![Captura de pantalla que muestra el vínculo del identificador de partner](./media/billing-link-partner-id/link-partner-ID.PNG)
 
@@ -124,7 +125,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 **¿Quién puede vincular el Id. de partner?**
 
-Cualquier usuario de la organización asociada que vaya a administrar los recursos del cliente puede vincular el Id. de partner a la cuenta.
+Cualquier usuario de la organización asociada que administre los recursos de Azure del cliente puede vincular el identificador de partner a la cuenta.
 
 **Una vez vinculado un Id. de partner, ¿se puede cambiar?**
 

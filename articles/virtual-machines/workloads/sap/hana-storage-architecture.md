@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 614d6aef4a2b7be551574fd3c8e25e2a3e3c1c07
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030960"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276002"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitectura de almacenamiento de SAP HANA (instancias grandes)
 
-El diseño de almacenamiento para SAP HANA en Azure (instancias grandes) es configurado por SAP HANA en el modelo de implementación clásica a través de las instrucciones recomendadas de SAP. Las instrucciones se documentan en las notas del producto [Requisitos de almacenamiento de SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
+El diseño de almacenamiento para SAP HANA en Azure (instancias grandes) es configurado por SAP HANA en el modelo de implementación clásica según las instrucciones recomendadas de SAP. Las instrucciones se documentan en las notas del producto [Requisitos de almacenamiento de SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
 
 La clase de tipo I de HANA (instancias grandes) suele tener cuatro veces el volumen de memoria como volumen de almacenamiento. Para las unidades de HANA (instancias grandes) de clase de tipo II, el almacenamiento no es cuatro veces superior. Las unidades tienen un volumen previsto para almacenar copias de seguridad del registro de transacciones de HANA. Para más información, consulte [Instalación y configuración de SAP HANA en Azure (instancias grandes)](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -33,6 +33,7 @@ Vea la tabla siguiente en relación a la asignación de almacenamiento. En la ta
 | --- | --- | --- | --- | --- |
 | S72 | 1 280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3 328 GB | 768 GB |1 280 GB | 768 GB |
+| S96 | 1 280 GB | 512 GB | 768 GB | 512 GB |
 | S192 | 4 608 GB | 1 024 GB | 1 536 GB | 1 024 GB |
 | S192m | 11.520 GB | 1 536 GB | 1 792 GB | 1 536 GB |
 | S192xm |  11.520 GB |  1 536 GB |  1 792 GB |  1 536 GB |
@@ -72,7 +73,7 @@ Consulte los [escenarios admitidos por HLI](hana-supported-scenario.md) para inf
 
 Se puede hospedar más de una instancia de SAP HANA activa en las unidades de HANA (instancias grandes). Para proporcionar las funcionalidades de instantáneas de almacenamiento y recuperación ante desastres, esta configuración requiere un volumen por cada instancia. Actualmente, las unidades de HANA (instancias grandes) se pueden subdividir de esta forma:
 
-- **S72, S72m, S144, S192**: en incrementos de 256 GB con la unidad más pequeña inicial de 256 GB. Se pueden combinar incrementos diferentes, como 256 GB y 512 GB, hasta el máximo de memoria de la unidad.
+- **S72, S72m, S96, S144, S192**: en incrementos de 256 GB con la unidad más pequeña inicial de 256 GB. Se pueden combinar incrementos diferentes, como 256 GB y 512 GB, hasta el máximo de memoria de la unidad.
 - **S144m y S192m**: en incrementos de 256 GB con la unidad más pequeña de 512 GB. Se pueden combinar incrementos diferentes, como 512 GB y 768 GB, hasta el máximo de memoria de la unidad.
 - **Clase de tipo II**: en incrementos de 512 GB con la unidad más pequeña inicial de 2 TB. Se pueden combinar incrementos diferentes, como 512 GB, 1 GB y 1,5 GB, hasta el máximo de memoria de la unidad.
 
@@ -80,8 +81,8 @@ Algunos ejemplos de la ejecución de varias instancias de SAP HANA tendrían est
 
 | SKU | Tamaño de memoria | Tamaño de almacenamiento | Tamaños con varias bases de datos |
 | --- | --- | --- | --- |
-| S72 | 768 GB | 3 TB | 1 instancia de HANA de 768 GB<br /> o 1 instancia de 512 GB + 1 instancia de 256 GB<br /> o 3 instancias de 256 GB | 
-| S72m | 1,5 TB | 6 TB | 3 instancias de HANA de 512 GB<br />o 1 instancia de 512 GB + 1 instancia de 1 TB<br />o 6 instancias de 256 GB<br />o 1 instancia de 1,5 TB | 
+| S72 | 768 GB | 3 TB | 1 instancia de HANA de 768 GB<br /> o 1 instancia de 512 GB + 1 instancia de 256 GB<br /> o 3 instancias de 256 GB | 
+| S72m | 1,5 TB | 6 TB | 3 instancias de HANA de 512 GB<br />o 1 instancia de 512 GB + 1 instancia de 1 TB<br />o 6 instancias de 256 GB<br />o 1 instancia de 1,5 TB | 
 | S192m | 4 TB | 16 TB | 8 instancias de 512 GB<br />o 4 instancias de 1 TB<br />o 4 instancias de 512 GB + 2 instancias de 1 TB<br />o 4 instancias de 768 GB + 2 instancias de 512 GB<br />o 1 instancia de 4 TB |
 | S384xm | 8 TB | 22 TB | 4 instancias de 2 TB<br />o 2 instancias de 4 TB<br />o 2 instancias de 3 TB + 1 instancia de 2 TB<br />o 2 instancias de 2,5 TB + 1 instancia de 3 TB<br />o 1 instancia de 8 TB |
 

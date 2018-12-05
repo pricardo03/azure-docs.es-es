@@ -9,18 +9,17 @@ editor: tysonn
 tags: ''
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 30d036ae56acc3a798d2776f292243f65cbea43d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ad04c52da4709a7097ff7915d7af7404d6725eb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23021340"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680266"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>Creación de un área de trabajo de Log Analytics con PowerShell
 
@@ -38,7 +37,7 @@ Este script le permite trabajar rápidamente con un área de trabajo de Azure Lo
 
 Este script usa los siguientes comandos para crear una nueva área de trabajo de Log Analytics en su suscripción. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
 | [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace) | Le permite obtener información sobre un área de trabajo existente. |
 | [New-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace) | Le permite crear un área de trabajo en la ubicación y el grupo de recursos especificados. |

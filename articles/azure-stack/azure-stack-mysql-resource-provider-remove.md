@@ -11,52 +11,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 7d3b0e179972464a1ed857c576ca8a7c8fc2e162
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: c3dbecfcaf40a85c57b9f795d7f2d9b76d27c195
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686813"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274077"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Eliminación del proveedor de recursos de MySQL
 
 Antes de quitar el proveedor de recursos de MySQL, debe quitar todas las dependencias del proveedor. También necesitará una copia del paquete de implementación que se utilizó para instalar el proveedor de recursos.
 
-  |Versión mínima de Azure Stack|MySQL RP, versión|
-  |-----|-----|
-  |Versión 1808 (1.1808.0.97)|[MySQL RP, versión 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-  |Versión 1804 (1.0.180513.1)|[MySQL RP, versión 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
-  |     |     |
+> [!NOTE]
+> Puede encontrar los vínculos de descarga para los instaladores del proveedor de recursos en [Requisitos previos de Implementación del proveedor de recursos](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+
+Quitar el proveedor de recursos MySQL no elimina las bases de datos de inquilino de los servidores de hospedaje.
 
 ## <a name="dependency-cleanup"></a>Limpieza de dependencias
 
 Hay varias tareas de limpieza que debe realizar antes de ejecutar el script DeployMySqlProvider.ps1 para quitar el proveedor de recursos.
 
-Los inquilinos de Azure Stack son responsables de las siguientes tareas de limpieza:
-
-* Eliminar todas sus bases de datos del proveedor de recursos. (Eliminar las bases de datos de inquilino no elimina los datos).
-* Anular el registro desde el espacio de nombres del proveedor.
-
 El operador de Azure Stack es responsable de las siguientes tareas de limpieza:
 
-* Eliminar los servidores host del adaptador de MySQL.
-* Eliminar los planes que hacen referencia el adaptador de MySQL.
-* Eliminar cualquier cuota asociada al adaptador de MySQL.
+* Elimine los planes que hacen referencia al adaptador de MySQL.
+* Elimine toda cuota asociada al adaptador de MySQL.
 
 ## <a name="to-remove-the-mysql-resource-provider"></a>Para quitar el proveedor de recursos de MySQL
 
 1. Compruebe que ha quitado todas las dependencias existentes del proveedor de recursos de MySQL.
 
-   >[!NOTE]
-   >La desinstalación del proveedor de recursos de MySQL continuará incluso si los recursos dependientes utilizan el proveedor de recursos.
+   > [!NOTE]
+   > La desinstalación del proveedor de recursos de MySQL continuará incluso si los recursos dependientes utilizan el proveedor de recursos.
   
-2. Obtenga una copia del binario del proveedor de recursos de MySQL y ejecute el extractor automático para extraer el contenido en un directorio temporal.
-3. Obtenga una copia del binario del proveedor de recursos de SQL y ejecute el extractor automático para extraer el contenido en un directorio temporal.
-4. Abra una nueva ventana de consola de PowerShell con privilegios elevados y cambie al directorio en el que extrajo los archivos binarios del proveedor de recursos de MySQL.
-5. Ejecute el script DeployMySqlProvider.ps1 con los siguientes parámetros:
+2. Obtenga una copia del paquete de instalación del proveedor de recursos de MySQL y ejecute el extractor automático para extraer el contenido en un directorio temporal.
+3. Abra una nueva ventana de consola de PowerShell con privilegios elevados y cambie al directorio en el que extrajo los archivos de instalación del proveedor de recursos de MySQL.
+4. Ejecute el script DeployMySqlProvider.ps1 con los siguientes parámetros:
     - **Desinstalación**. Quita el proveedor de recursos y todos los recursos asociados.
     - **PrivilegedEndpoint**. Dirección IP o nombre DNS del punto de conexión con privilegios.
     - **AzureEnvironment**. El entorno de Azure usado para implementar Azure Stack. Requerido solo para implementaciones de Azure AD.

@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fe2b509b62884c1cea554bc8dc5df25489205264
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966969"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275588"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo invocar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
@@ -236,7 +236,7 @@ Cree un servicio vinculado para vincular su instancia de Azure SQL Database que 
 ### <a name="create-an-output-dataset"></a>Crear un conjunto de datos de salida
 Este conjunto de datos de salida es un conjunto de datos ficticio que controla la programación de la canalización. Observe que el valor frequency está establecido en Hour y que interval está establecido en 1. Por lo tanto, la canalización se ejecuta una vez por hora entre las horas de inicio y fin de la canalización. 
 
-1. Cree un archivo OuputDataset.json con el siguiente contenido: 
+1. Cree un archivo OutputDataset.json con el siguiente contenido: 
     
     ```json
     {

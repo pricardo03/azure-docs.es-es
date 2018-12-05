@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f610a221dca296561fefab65a6c40b52a5dd292a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515382"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275843"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desarrollo de Azure Functions con Visual Studio  
 
@@ -83,7 +83,7 @@ La plantilla de proyecto crea un proyecto de C#, instala el paquete NuGet `Micro
 * **local.settings.json**: mantiene la configuración que se usa cuando se ejecutan localmente las funciones. Azure no usa estas configuraciones, sino que las usa [Azure Functions Core Tools](functions-run-local.md). Utilice este archivo para especificar la configuración de la aplicación para las variables que requieren sus funciones. Agregue un elemento nuevo a la matriz de **valores** de cada conexión que requieren los enlaces de las funciones de su proyecto. Para más información, consulte [Archivo de configuración local](functions-run-local.md#local-settings-file) en el artículo Azure Functions Core Tools.
 
     >[!IMPORTANT]
-    >Debido a que el archivo local.settings.json puede contener secretos, debe excluirlo del control de origen del proyecto. La configuración **Copiar en el directorio de salida** para este archivo siempre debe ser **Copiar si es más nuevo**. 
+    >Debido a que el archivo local.settings.json puede contener secretos, debe excluirlo del control de origen del proyecto. La opción **Copiar en el directorio de salida** para este archivo siempre debe ser **Copiar si es más nuevo**. 
 
 Para más información, consulte [Proyecto de biblioteca de clases de Functions](functions-dotnet-class-library.md#functions-class-library-project).
 

@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515359"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273806"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimización de la inversión en la nube con Azure Cost Management
 
@@ -26,7 +26,7 @@ Azure Cost Management le proporciona herramientas para planear, analizar y reduc
 La administración del costo es un problema de la organización y debe ser una práctica en curso que se inicia antes de invertir dinero en recursos en la nube. Para implementar la administración de costos y optimizar los costos correctamente, la organización debe:
 
 - Estar preparada con las herramientas adecuadas para el éxito
-- Ser responsable de los costos
+- Hacerse responsable de los costos
 - Tomar las medidas adecuadas para optimizar el gasto
 
 Los tres grupos principales descritos a continuación deben estar alineados en la organización para asegurarse de que se administran correctamente los costos.
@@ -46,7 +46,7 @@ Un planeamiento integral por adelantado permite adaptar el uso de la nube a los 
 - ¿Qué problema empresarial estoy solucionando?
 - ¿Qué patrones de uso se esperan de los recursos?
 
-Las respuestas le ayudarán a seleccionar la oferta adecuada para usted. Determinan la infraestructura que se va a utilizar y cómo se usa para maximizar la eficacia de Azure.
+Las respuestas le ayudarán a seleccionar las ofertas adecuadas para usted. Determinan la infraestructura que se va a utilizar y cómo se usa para maximizar la eficacia de Azure.
 
 #### <a name="visibility"></a>Visibilidad
 
@@ -105,7 +105,7 @@ Para más información sobre las distintas opciones, consulte las [Instrucciones
 
 ## <a name="estimate-the-cost-of-your-solution"></a>Estimación del costo de la solución
 
-Antes de implementar cualquier infraestructura, debe evaluar cuánto costará la solución. La evaluación le ayudará a crear un presupuesto para la organización de la carga de trabajo por adelantado. A continuación, puede usar el presupuesto a lo largo del tiempo para realizar pruebas comparativas de la validez de la estimación inicial. Y puede compararlo con el costo real de la solución implementada.
+Antes de implementar cualquier infraestructura, debe evaluar cuánto costará la solución. La evaluación le ayudará a crear un presupuesto para la organización de la carga de trabajo por adelantado. A continuación, puede usar un presupuesto a lo largo del tiempo para realizar pruebas comparativas de la validez de la estimación inicial. Y puede compararlo con el costo real de la solución implementada.
 
 ### <a name="azure-pricing-calculator"></a>Calculadora de precios de Azure
 
@@ -157,7 +157,7 @@ Utilice los siguientes métodos para optimizar el gasto.
 
 ### <a name="cut-out-waste"></a>Recorte de los gastos residuales
 
-Después de implementar la infraestructura en Azure, es importante asegurarse de que se está usando. La manera más fácil de empezar a ahorrar inmediatamente es revisar los recursos y eliminar los que no se usan. A partir de ahí, debe determinar que los recursos se emplean de la forma más eficaz posible.
+Después de implementar la infraestructura en Azure, es importante asegurarse de que se está usando. La manera más fácil de empezar a ahorrar inmediatamente es revisar los recursos y eliminar los que no se usan. A partir de ahí, debe determinar si los recursos se emplean de la forma más eficaz posible.
 
 #### <a name="azure-advisor"></a>Azure Advisor
 
@@ -183,7 +183,7 @@ Para más información, consulte [¿Qué son las reservas de Azure?](../billing/
 
 #### <a name="use-azure-hybrid-benefit"></a>Uso de la Ventaja híbrida de Azure
 
-Si ya tiene licencias de Windows Server o de SQL Server en las implementaciones locales, puede usar el programa de Ventaja híbrida de Azure para ahorrar en Azure. Con la ventaja de Windows Server, cada licencia cubre el costo del sistema operativo (en dos máquinas virtuales como máximo) y solo tiene que pagar los costos de proceso básicos. Puede usar licencias de SQL Server existentes para ahorrar hasta un 55 por ciento en las opciones de SQL Database basadas en núcleos virtuales. Las opciones incluyen SQL Server en máquinas virtuales de Azure y SQL Server Integration Services.
+Si ya tiene licencias de Windows Server o de SQL Server en las implementaciones locales, puede usar el programa de Ventaja híbrida de Azure para ahorrar en Azure. Con la ventaja de Windows Server, cada licencia cubre el costo del sistema operativo (en dos máquinas virtuales como máximo) y solo tiene que pagar los costos de proceso básicos. Puede usar licencias de SQL Server existentes para ahorrar hasta un 55 por ciento en las opciones de SQL Database basadas en núcleos virtuales. Las opciones incluyen SQL Server en Azure Virtual Machines y SQL Server Integration Services.
 
 Para más información, consulte [Calculadora de ahorro de la Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

@@ -9,18 +9,17 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 46bc932011a3699dbaced8316bc0e1b514c9a385
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f953d13de78702328aef2b75d121e775c5f58f44
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043063"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876803"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics
 
@@ -32,7 +31,7 @@ En Log Analytics, puede aprovechar las búsquedas de registros mediante la creac
 
 Para completar el ejemplo en este tutorial, debe disponer de una máquina virtual existente [conectada al área de trabajo de Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
-La creación y edición de consultas, además de trabajar de manera interactiva con los datos devueltos, se puede lograr de una de estas dos maneras.  En el caso de las consultas básicas, use la página Búsqueda de registros de Azure Portal. Para las consultas avanzadas, puede usar el portal de análisis avanzado. Para más información sobre la diferencia de funcionalidades entre ambos portales, consulte [Portales para la creación y edición de consultas de registros en Azure Log Analytics](log-analytics-log-search-portals.md)
+La creación y edición de consultas, además de trabajar de manera interactiva con los datos devueltos, se puede lograr de una de estas dos maneras.  En el caso de las consultas básicas, use la página Búsqueda de registros de Azure Portal. Para las consultas avanzadas, puede usar el portal de análisis avanzado. Para más información sobre la diferencia de funcionalidades entre ambos portales, consulte [Portales para la creación y edición de consultas de registros en Azure Log Analytics](../azure-monitor/log-query/portals.md)
 
 En este tutorial se usará Búsqueda de registros en Azure Portal. 
 

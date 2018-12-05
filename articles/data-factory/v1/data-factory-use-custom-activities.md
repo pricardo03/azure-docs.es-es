@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 580dd5bf6a7e905927189f4b1ae42ab49a1cbc80
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b7a2f9350633be5ec0cb8d5a7c6e7cc5048f956a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730722"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276013"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -212,7 +212,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
         foreach (LinkedService ls in linkedServices)
             logger.Write("linkedService.Name {0}", ls.Name);
     
-        // get the first Azure Storate linked service from linkedServices object
+        // get the first Azure Storage linked service from linkedServices object
         // using First method instead of Single since we are using the same
         // Azure Storage linked service for input and output.
         inputLinkedService = linkedServices.First(
@@ -640,7 +640,7 @@ En este paso, crea conjuntos de datos que representan los datos de entrada y sal
    ![Segmentos de salida](./media/data-factory-use-custom-activities/OutputSlices.png)
 4. Compruebe que los archivos de salida se generan en el almacenamiento de blobs del contenedor **adftutorial** .
 
-   ![salida de la actividad personalizada][image-data-factory-ouput-from-custom-activity]
+   ![salida de la actividad personalizada][image-data-factory-output-from-custom-activity]
 5. Si abre el archivo de salida, debería ver un resultado similar al siguiente:
 
     ```
@@ -1063,6 +1063,6 @@ El ejemplo de [Azure Data Factory: entorno local](https://github.com/gbrueckl/Az
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [hivewalkthrough]: data-factory-data-transformation-activities.md
 
-[image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
+[image-data-factory-output-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png

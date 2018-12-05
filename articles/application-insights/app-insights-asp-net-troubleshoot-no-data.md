@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bc4c0617ebf9b400260a217462abbcc439ae440
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228545"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284683"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Solución de problemas cuando no hay datos: Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Falta parte de mi telemetría
@@ -175,8 +175,14 @@ Si la aplicación envía una gran cantidad de datos y usa el SDK de Application 
 
 Se puede deshabilitar, pero no se recomienda. El muestreo está diseñado para que la telemetría relacionada se transmita correctamente, con fines de diagnóstico. 
 
-## <a name="client-ip-address-is-0000"></a>La dirección IP del cliente es 0.0.0.0 
-En febrero de 2018, [anunciamos](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) que habíamos eliminado el registro de la dirección IP del cliente. Esto no afecta a la ubicación geográfica.
+## <a name="client-ip-address-is-0000"></a>La dirección IP del cliente es 0.0.0.0
+
+El 5 de febrero de 2018, anunciamos que habíamos eliminado el registro de la dirección IP del cliente. Esto no afecta a la ubicación geográfica.
+
+> [!NOTE]
+> Si necesita los primeros tres octetos de la dirección IP, puede usar un [inicializador de telemetría](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) para agregar un atributo personalizado.
+> Esto no afecta a los datos recopilados antes del 5 de febrero de 2018.
+
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Datos geográficos incorrectos en la telemetría de usuario
 La ciudad, región y dimensiones del país proceden de las direcciones IP y no siempre son precisas. Estas direcciones IP se procesan en primer lugar para la ubicación y, a continuación, se cambian a 0.0.0.0 para almacenarse.

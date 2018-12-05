@@ -3,7 +3,7 @@ title: Administrar los datos de usuario encontrados en una investigación de Azu
 description: " Obtenga información sobre la administración de los datos de usuario localizados mediante la característica de investigación de Azure Security Center. "
 services: operations-management-suite
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2018
-ms.author: terrylan
-ms.openlocfilehash: d3b5f0ee4aa656fa66d577aa40f66fc98dff148d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 11/20/2018
+ms.author: rkarlin
+ms.openlocfilehash: d9bf3618b32ce7c5ba7a300a929428dd0614743d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301657"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276251"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Administrar los datos de usuario encontrados en una investigación de Azure Security Center
 En este artículo se proporciona información sobre cómo administrar los datos de usuario que se encuentran en la característica de investigación de Azure Security Center. Los datos de investigación se almacenan en [Azure Log Analytics](../log-analytics/log-analytics-overview.md) y se exponen en Security Center. La administración de los datos de usuario incluye la capacidad de eliminar o exportar datos.
@@ -58,3 +58,4 @@ Un usuario de Security Center que tenga asignado el rol Propietario, Colaborador
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre la administración de datos de usuario, vea [Administrar datos de usuario en Azure Security Center](security-center-privacy.md).
+Para más información acerca de cómo eliminar datos privados en Log Analytics, consulte [Cómo exportar y eliminar datos privados](../log-analytics/log-analytics-personal-data-mgmt.md#how-to-export-and-delete-private-data).

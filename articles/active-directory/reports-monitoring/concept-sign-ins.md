@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d3705267520087e098e3e2bcc55e677935dc6097
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623803"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275340"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -57,6 +57,9 @@ El informe de inicios de sesión de usuario proporciona respuestas a las pregunt
 Se puede tener acceso al informe de inicios de sesión si, desde [Azure Portal](https://portal.azure.com), selecciona **Azure Active Directory** > **Actividad** > **Inicios de sesión**.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/61.png "Actividad de inicio de sesión")
+
+> [!IMPORTANT]
+> El informe de inicios de sesión solo muestra los inicios de sesión **interactivos**, es decir, los inicios de sesión donde un usuario inicia sesión manualmente con su nombre de usuario y contraseña. Los inicios de sesión no interactivos, como la autenticación de servicio a servicio, no se muestran en el informe de inicios de sesión. 
 
 Un registro de inicios de sesión tiene una vista de lista predeterminada que muestra:
 

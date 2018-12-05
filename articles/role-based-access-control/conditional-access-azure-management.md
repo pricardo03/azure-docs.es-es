@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 083cb4eb84746f4a61b51f3573a0bf66110fe1ee
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435055"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274745"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Administración el acceso a la administración de Azure con acceso condicional
 
@@ -32,7 +32,7 @@ Para crear una directiva de administración de Azure, seleccione **Microsoft Azu
 
 ![Acceso condicional para la administración de Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-La directiva que se crea se aplica a todos los puntos de conexión de la administración de Azure, incluidos el Portal de Azure clásico, Azure Portal, el proveedor de Azure Resource Manager, las instancias clásicas de Service Management API y Azure PowerShell.
+La directiva que se crea se aplica a todos los puntos de conexión de la administración de Azure, incluidos el Portal de Azure clásico, Azure Portal, el proveedor de Azure Resource Manager, las instancias clásicas de Service Management API y Azure PowerShell. Tenga en cuenta que la directiva se aplica a Azure PowerShell, que llama a la API de Azure Resource Manager. No es aplicable a [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), que llama a Microsoft Graph.
 
 > [!CAUTION]
 > Asegúrese de comprender cómo funciona el acceso condicional antes de configurar una directiva para administrar el acceso a la administración de Azure. Asegúrese de no crear condiciones que pudieran bloquear su propio acceso al portal.

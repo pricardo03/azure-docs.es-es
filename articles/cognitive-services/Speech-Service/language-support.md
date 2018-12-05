@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622523"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284768"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Idiomas y regiones admitidos para Speech Service API
 
@@ -36,7 +36,7 @@ Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idi
  en-GB | Inglés (Reino Unido) | Sin  | SÍ | SÍ
  en-IN | Inglés (India) | SÍ | Sí | SÍ
  en-NZ | Inglés (Nueva Zelanda) | Sin  | SÍ | SÍ  
- es-ES | Inglés (Estados Unidos) | SÍ | Sí | SÍ
+ en-US | Inglés (Estados Unidos) | SÍ | Sí | SÍ
  es-ES | Español (España) | Sin  | Sí | Sin 
  es-MX | Español (México) | Sin  | Sí | Sin 
  fi-FI | Finés (Finlandia) | Sin  | No | Sin 
@@ -70,7 +70,6 @@ ar-SA | Árabe (Arabia Saudí) | Hombre | "Microsoft Server Speech Text to Speec
 bg-BG | Búlgaro | Hombre | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)"
 ca-ES | Catalán (España) | Mujer | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)"
 cs-CZ | Checo | Hombre | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)"
-cs-CZ | Checo | Hombre | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Vit)"
 da-DK | Danés | Mujer | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | Alemán (Austria) | Hombre | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | Alemán (Suiza) | Hombre | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
@@ -86,7 +85,6 @@ en-GB | English (Reino Unido) | Mujer | "Microsoft Server Speech Text to Speech 
 | | |Mujer | "Microsoft Server Speech Text to Speech Voice (en-GB, HazelRUS)"
 | | |Hombre | "Microsoft Server Speech Text to Speech Voice (en-GB, George, Apollo)"
 en-IE | Inglés (Irlanda) |Hombre | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
-en-IE | Inglés (Irlanda) |Hombre | "Microsoft Server Speech Text to Speech Voice (en-IE, Shaun)"
 en-IN | Inglés (India) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 | | |Mujer | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 | | |Hombre | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
@@ -153,10 +151,10 @@ zh-TW | Chino (Taiwán)|Mujer | "Microsoft Server Speech Text to Speech Voice (z
 
 ### <a name="customization"></a>Personalización
 
-La personalización de la voz está disponible para inglés de Estados Unidos (en-US), chino continental (zh-CN) e italiano (it-IT).
+La personalización de la voz está disponible para inglés de Estados Unidos (en-US), chino continental (zh-CN), francés (fr-FR), alemán (de-DE) e italiano (it-IT).
 
 > [!NOTE]
-> El entrenamiento de voz en italiano comienza con un conjunto de datos de más de 2000 expresiones. Los modelos bilingües chino-inglés también se admiten con un conjunto de datos inicial de más de 2000 expresiones.
+> El entrenamiento de voz en francés, alemán e italiano comienza con un conjunto de datos de más de 2000 expresiones. Los modelos bilingües chino-inglés también se admiten con un conjunto de datos inicial de más de 2000 expresiones.
 
 ## <a name="speech-translation"></a>Speech Translation
 

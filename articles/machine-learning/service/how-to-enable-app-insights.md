@@ -1,6 +1,6 @@
 ---
-title: Habilitación de Application Insights para el servicio Azure Machine Learning en producción
-description: Aprenda a configurar Application Insights para el servicio Azure Machine Learning para su implementación en Azure Kubernetes Service
+title: Habilitación de Application Insights para Azure Machine Learning Service
+description: Aprenda a configurar Application Insights para los servicios implementado a través de Azure Machine Learning Service
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 285486d5fe641d49ee21d7340b62f83d75862553
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578308"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275061"
 ---
-# <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Supervisión de los modelos de Azure Machine Learning en producción con Application Insights
+# <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Supervisión de los modelos de Azure Machine Learning con Application Insights
 
 En este artículo, puede obtener información sobre cómo configurar Azure Application Insights para el servicio Azure Machine Learning. Application Insights le ofrece la oportunidad de supervisar:
 * Tasas de solicitudes, tiempos de respuesta y tasas de error.
@@ -30,16 +30,55 @@ En este artículo, puede obtener información sobre cómo configurar Azure Appli
 
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+* Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://aka.ms/AMLfree) antes de empezar.
 * Un área de trabajo de Azure Machine Learning, un directorio local que contenga los scripts y el SDK de Azure Machine Learning para Python instalado. Para obtener información acerca de cómo obtener estos requisitos previos, consulte [Procedimiento de configuración de un entorno de desarrollo](how-to-configure-environment.md).
-* Un modelo de aprendizaje automático entrenado para implementarse en Azure Kubernetes Service (AKS). Si no tiene uno, consulte el tutorial [Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).
-* Un [clúster de AKS](how-to-deploy-to-aks.md).
+* Un modelo de Machine Learning entrenado para implementarse en Azure Kubernetes Service (AKS) o Azure Container Instance (ACI). Si no tiene uno, consulte el tutorial [Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).
 
+
+## <a name="enable-and-disable-from-the-sdk"></a>Habilitación y deshabilitación desde el SDK
+
+### <a name="update-a-deployed-service"></a>Actualización de un servicio implementado
+1. Identifique el servicio en el área de trabajo. El valor de `ws` es el nombre del área de trabajo.
+
+    ```python
+    from azureml.core.webservice import Webservice
+    aks_service= Webservice(ws, "my-service-name")
+    ```
+2. Actualice el servicio y habilite Application Insights. 
+
+    ```python
+    aks_service.update(enable_app_insights=True)
+    ```
+
+### <a name="log-custom-traces-in-your-service"></a>Registro de seguimientos personalizados del servicio
+Si desea registrar seguimientos personalizados, siga el proceso de implementación estándar de [AKS](how-to-deploy-to-aks.md) o [ACI](how-to-deploy-to-aci.md). A continuación:
+
+1. Actualice el archivo de puntuación mediante la adición de instrucciones de impresión.
+    
+    ```python
+    print ("model initialized" + time.strftime("%H:%M:%S"))
+    ```
+
+2. Actualice la configuración del servicio.
+    
+    ```python
+    config = Webservice.deploy_configuration(enable_app_insights=True)
+    ```
+
+3. Cree una imagen e impleméntela en [AKS](how-to-deploy-to-aks.md) o [ACI](how-to-deploy-to-aci.md).  
+
+### <a name="disable-tracking-in-python"></a>Deshabilitación del seguimiento en Python
+
+Para deshabilitar Application Insights, use el siguiente código:
+
+```python 
+## replace <service_name> with the name of the web service
+<service_name>.update(enable_app_insights=False)
+```
+    
 ## <a name="enable-and-disable-in-the-portal"></a>Habilitación y deshabilitación en el portal
 
 Puede habilitar y deshabilitar Application Insights en Azure Portal.
-
-### <a name="enable"></a>Habilitar
 
 1. Abra el área de trabajo en [Azure Portal](https://portal.azure.com).
 
@@ -68,47 +107,7 @@ Puede habilitar y deshabilitar Application Insights en Azure Portal.
    [![Casilla no seleccionada para habilitar diagnósticos](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Seleccione **Actualizar** en la parte inferior de la pantalla para aplicar los cambios. 
-
-## <a name="enable-and-disable-from-the-sdk"></a>Habilitación y deshabilitación desde el SDK
-
-### <a name="update-a-deployed-service"></a>Actualización de un servicio implementado
-1. Identifique el servicio en el área de trabajo. El valor de `ws` es el nombre del área de trabajo.
-
-    ```python
-    aks_service= Webservice(ws, "my-service-name")
-    ```
-2. Actualice el servicio y habilite Application Insights. 
-
-    ```python
-    aks_service.update(enable_app_insights=True)
-    ```
-
-### <a name="log-custom-traces-in-your-service"></a>Registro de seguimientos personalizados del servicio
-Si desea registrar seguimientos personalizados, siga el [proceso de implementación estándar de AKS](how-to-deploy-to-aks.md). A continuación:
-
-1. Actualice el archivo de puntuación mediante la adición de instrucciones de impresión.
-    
-    ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
-    ```
-
-2. Actualice la configuración de AKS.
-    
-    ```python
-    aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
-    ```
-
-3. [Cree la imagen e impleméntela](how-to-deploy-to-aks.md).  
-
-### <a name="disable-tracking-in-python"></a>Deshabilitación del seguimiento en Python
-
-Para deshabilitar Application Insights, use el siguiente código:
-
-```python 
-## replace <service_name> with the name of the web service
-<service_name>.update(enable_app_insights=False)
-```
-    
+ 
 
 ## <a name="evaluate-data"></a>Evaluación de los datos
 Los datos del servicio se almacenan en la cuenta de Application Insights en el mismo grupo de recursos del servicio Azure Machine Learning.

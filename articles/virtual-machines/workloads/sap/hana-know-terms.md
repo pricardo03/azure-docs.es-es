@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8197e3695da8869806e44775f601d95b17fcb2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 902c4c94cc7366af342816e9b4776af603711c8b
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030990"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275454"
 ---
 # <a name="know-the-terms"></a>Conocer los términos
 
@@ -39,7 +39,7 @@ En la Guía de implementación técnica y arquitectura, se utilizan con frecuenc
    Los usuarios del dominio local pueden tener acceso a los servidores y ejecutar servicios en esas máquinas virtuales (por ejemplo, servicios de DBMS). Es posible la comunicación y resolución de nombres entre máquinas virtuales implementadas de forma local y en Azure. Se trata del escenario típico en que se implementan la mayoría de los recursos de SAP. Consulte [Planeamiento y diseño de Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información.
 - **Inquilino**: un cliente implementado en la demarcación de HANA (instancias grandes) se aísla en un *inquilino*. Un inquilino se aísla en el nivel de redes, almacenamiento y proceso de otros inquilinos. Las unidades de almacenamiento y proceso asignadas a los distintos inquilinos no pueden verse ni comunicarse entre sí en el nivel de la demarcación de HANA (instancias grandes). Un cliente puede elegir que las implementaciones se realicen en diferentes inquilinos. Aún así, no hay ninguna comunicación entre los inquilinos a nivel de la marca de la instancia grande HANA.
 - **Categoría de SKU:** para HANA (instancias grandes), se ofrecen las siguientes dos categorías de SKU:
-    - **Clase Tipo I**: S72, S72m, S144, S144m, S192, S192m y S192xm
+    - **Clase Tipo I**: S72, S72m, S96, S144, S144m, S192, S192m y S192xm
     - **Clase Tipo II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm y S960m
 
 

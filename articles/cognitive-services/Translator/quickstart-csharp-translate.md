@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 06e294187247636c552dfd4a7d02167eb55be19a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 20e07120b80f335397bd7e907f62e14ad8b1d2ee
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334710"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679059"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Guía de inicio rápido: Traducción de texto con la API REST Translator Text (C#)
 
@@ -28,7 +28,7 @@ En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Serv
 * [SDK de .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Paquete NuGet de Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o su editor favorito de código.
-* Una clave de suscripción de Azure para el servicio Voz
+* Una clave de suscripción de Azure para Translator Text
 
 ## <a name="create-a-net-core-project"></a>Creación de un proyecto de .NET Core
 
