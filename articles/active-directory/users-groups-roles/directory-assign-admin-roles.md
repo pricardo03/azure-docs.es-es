@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 5c880ca15eea6ccf77f93f74c9e1ca41f7fc01ee
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686133"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276727"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -174,15 +174,11 @@ Los roles de administrador disponibles son los siguientes:
   * Los administradores de otros servicios fuera de Azure AD, como Exchange Online, Office Security y Compliance Center y sistemas de recursos humanos.
   * Usuarios no administradores como empleados ejecutivos, de asesoramiento jurídico y de recursos humanos que pueden tener acceso a información confidencial o privada.
 
+## <a name="role-permissions"></a>Permisos de los roles
 En las tablas siguientes se describen los permisos específicos concedidos a cada rol en Azure Active Directory. Algunos roles pueden tener permisos adicionales en los servicios de Microsoft fuera de Azure Active Directory.
 
 ### <a name="application-administrator"></a>Administrador de aplicaciones
 Puede crear y administrar todos los aspectos de los registros de aplicaciones y de las aplicaciones empresariales.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
 | **Acciones** | **Descripción** |
 | --- | --- |
@@ -223,11 +219,6 @@ Puede crear y administrar todos los aspectos de los registros de aplicaciones y 
 ### <a name="application-developer"></a>Desarrollador de aplicaciones
 Puede crear registros de aplicación independientemente de la opción de configuración "Los usuarios pueden registrar aplicaciones".
 
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Crea aplicaciones en Azure Active Directory. El creador se agrega como primer propietario y el objeto creado cuenta en la cuota de 250 objetos que crea. |
@@ -237,11 +228,6 @@ Puede crear registros de aplicación independientemente de la opción de configu
 
 ### <a name="billing-administrator"></a>Administrador de facturación
 Puede realizar tareas comunes relacionadas con la facturación como actualizar la información de pago.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -263,11 +249,6 @@ Puede realizar tareas comunes relacionadas con la facturación como actualizar l
 Puede acceder a servicios y herramientas de administración de escritorio y administrarlos, incluido Intune.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -283,11 +264,6 @@ Puede acceder a servicios y herramientas de administración de escritorio y admi
 
 ### <a name="cloud-application-administrator"></a>Administrador de aplicaciones en la nube
 Puede crear y administrar todos los aspectos de los registros de aplicaciones y de las aplicaciones empresariales, excepto el proxy de aplicación.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
 | **Acciones** | **Descripción** |
 | --- | --- |
@@ -327,11 +303,6 @@ Puede crear y administrar todos los aspectos de los registros de aplicaciones y 
 ### <a name="cloud-device-administrator"></a>Administrador de dispositivos en la nube
 Acceso total para administrar los dispositivos de Azure AD.
 
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.aad.directory/devices/delete | Elimina dispositivos en Azure Active Directory. |
@@ -344,11 +315,6 @@ Acceso total para administrar los dispositivos de Azure AD.
 
 ### <a name="company-administrator"></a>Administrador de la compañía
 Puede administrar todos los aspectos de los servicios de Azure AD y Microsoft que usan identidades de Azure AD.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -411,11 +377,6 @@ Puede administrar todos los aspectos de los servicios de Azure AD y Microsoft qu
 Puede leer y administrar los informes y la configuración de cumplimiento en Azure AD y Office 365.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -435,11 +396,6 @@ Puede leer y administrar los informes y la configuración de cumplimiento en Azu
 ### <a name="conditional-access-administrator"></a>Administrador de acceso condicional
 Puede administrar las funcionalidades de acceso condicional.
 
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | Lee la propiedad policies.conditionalAccess en Azure Active Directory. |
@@ -452,11 +408,6 @@ Puede administrar las funcionalidades de acceso condicional.
 
 ### <a name="crm-service-administrator"></a>Administrador de servicios de CRM
 Puede administrar todos los aspectos del producto Dynamics 365.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -476,11 +427,6 @@ Puede administrar todos los aspectos del producto Dynamics 365.
 Puede aprobar solicitudes de soporte técnico de Microsoft para acceder a datos de la organización del cliente.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -493,11 +439,6 @@ Puede aprobar solicitudes de soporte técnico de Microsoft para acceder a datos 
 ### <a name="device-administrators"></a>Administradores de dispositivos
 Los miembros de este rol se agregan al grupo de administradores locales en dispositivos unidos a Azure AD.
 
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.aad.directory/groupSettings/basic/read | Lee las propiedades básicas de groupSettings en Azure Active Directory. |
@@ -505,11 +446,6 @@ Los miembros de este rol se agregan al grupo de administradores locales en dispo
 
 ### <a name="directory-readers"></a>Lectores de directorios
 Puede leer la información básica del directorio. Para conceder acceso a aplicaciones; no pensado para los usuarios.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol.
-  >
-  >
 
 | **Acciones** | **Descripción** |
 | --- | --- |
@@ -570,11 +506,6 @@ Puede leer la información básica del directorio. Para conceder acceso a aplica
 ### <a name="directory-synchronization-accounts"></a>Cuentas de sincronización de directorios
 Solo las usa el servicio de Azure AD Connect.
 
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol.
-  >
-  >
-
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | Actualiza la propiedad organization.dirSync en Azure Active Directory. |
@@ -604,11 +535,6 @@ Solo las usa el servicio de Azure AD Connect.
 ### <a name="directory-writers"></a>Escritores de directorios
 Puede leer y escribir información básica del directorio. Para conceder acceso a aplicaciones; no pensado para los usuarios.
 
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.aad.directory/groups/create | Crea grupos en Azure Active Directory. |
@@ -630,11 +556,6 @@ Puede leer y escribir información básica del directorio. Para conceder acceso 
 
 ### <a name="exchange-service-administrator"></a>Administrador de servicios de Exchange
 Puede administrar todos los aspectos del producto Exchange.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -659,11 +580,6 @@ Puede administrar todos los aspectos del producto Exchange.
 ### <a name="guest-inviter"></a>Invitador de usuarios
 Puede invitar a usuarios independientemente de la configuración "Members can invite guests" (Los miembros pueden invitar a usuarios).
 
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol.
-  >
-  >
-
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Lee la propiedad users.appRoleAssignments en Azure Active Directory. |
@@ -682,11 +598,6 @@ Puede invitar a usuarios independientemente de la configuración "Members can in
 ### <a name="helpdesk-administrator"></a>Administrador del departamento de soporte técnico
 Puede restablecer contraseñas de usuarios que no son administradores y de administradores del departamento de soporte técnico.
 
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalida todos los tokens de actualización de usuario en Azure Active Directory. |
@@ -699,11 +610,6 @@ Puede restablecer contraseñas de usuarios que no son administradores y de admin
 
 ### <a name="information-protection-administrator"></a>Administrador de Information Protection
 Puede administrar todos los aspectos del producto Azure Information Protection.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -720,11 +626,6 @@ Puede administrar todos los aspectos del producto Azure Information Protection.
 
 ### <a name="intune-service-administrator"></a>Administrador de servicios de Intune
 Puede administrar todos los aspectos del producto Intune.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -761,11 +662,6 @@ Puede administrar todos los aspectos del producto Intune.
 ### <a name="license-administrator"></a>Administrador de licencias
 Puede administrar licencias de producto de usuarios y grupos.
 
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Administrar licencias de usuarios de Azure Active Directory. |
@@ -776,11 +672,6 @@ Puede administrar licencias de producto de usuarios y grupos.
 
 ### <a name="lync-service-administrator"></a>Administrador de servicios de Lync
 Puede administrar todos los aspectos del producto Skype Empresarial.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -800,11 +691,6 @@ Puede administrar todos los aspectos del producto Skype Empresarial.
 Puede leer los mensajes y las actualizaciones para su organización solo en el Centro de mensajes de Office 365. 
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -816,11 +702,6 @@ Puede leer los mensajes y las actualizaciones para su organización solo en el C
 
 ### <a name="partner-tier1-support"></a>Soporte para asociados de nivel 1
 No lo use. No está pensado para el uso general.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -853,11 +734,6 @@ No lo use. No está pensado para el uso general.
 
 ### <a name="partner-tier2-support"></a>Soporte para asociados de nivel 2
 No lo use. No está pensado para el uso general.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -895,11 +771,6 @@ No lo use. No está pensado para el uso general.
 Puede administrar todos los aspectos del producto Power BI.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -917,11 +788,6 @@ Puede administrar todos los aspectos del producto Power BI.
 Puede administrar las asignaciones de roles en Azure AD y todos los aspectos de Privileged Identity Management.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -933,11 +799,6 @@ Puede administrar las asignaciones de roles en Azure AD y todos los aspectos de 
 
 ### <a name="reports-reader"></a>Lector de informes
 Puede leer los informes de inicio de sesión y auditoría.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -954,11 +815,6 @@ Puede leer los informes de inicio de sesión y auditoría.
 
 ### <a name="security-administrator"></a>Administrador de seguridad
 Puede leer la información y los informes de seguridad, así como administrar la configuración, en Azure AD y Office 365.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -988,11 +844,6 @@ Puede leer la información y los informes de seguridad, así como administrar la
 Puede leer la información y los informes de seguridad de Azure AD y Office 365.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -1012,11 +863,6 @@ Puede leer la información y los informes de seguridad de Azure AD y Office 365.
 Puede leer la información de estado del servicio y administrar las incidencias de soporte técnico.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -1031,11 +877,6 @@ Puede leer la información de estado del servicio y administrar las incidencias 
 
 ### <a name="sharepoint-service-administrator"></a>Administrador de servicios de SharePoint
 Puede administrar todos los aspectos del servicio SharePoint.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -1061,11 +902,6 @@ Puede administrar todos los aspectos del servicio SharePoint.
 Puede administrar las características de llamadas y reuniones del servicio Microsoft Teams.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -1084,11 +920,6 @@ Puede administrar las características de llamadas y reuniones del servicio Micr
 Puede solucionar los problemas de comunicaciones dentro de Teams mediante herramientas avanzadas.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -1104,11 +935,6 @@ Puede solucionar los problemas de comunicaciones dentro de Teams mediante herram
 Puede solucionar los problemas de comunicaciones dentro de Teams mediante herramientas básicas.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
-
-  > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
   >
   >
@@ -1122,11 +948,6 @@ Puede solucionar los problemas de comunicaciones dentro de Teams mediante herram
 
 ### <a name="teams-service-administrator"></a>Administrador de servicios de Teams
 Puede administrar el servicio Microsoft Teams.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -1152,11 +973,6 @@ Puede administrar el servicio Microsoft Teams.
 
 ### <a name="user-account-administrator"></a>Administrador de cuenta de usuario
 Puede administrar todos los aspectos de usuarios y grupos, incluido el restablecimiento de contraseñas para administradores limitados.
-
-  > [!NOTE]
-  > Este rol hereda permisos adicionales del rol de lectores de directorios.
-  >
-  >
 
 | **Acciones** | **Descripción** |
 | --- | --- |

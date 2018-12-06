@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902933"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282522"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -151,7 +151,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-Este ejemplo utiliza [Azure Portal](https://portal.azure.com) para actualizar el campo *acceptedMappedClaims*:
+En este ejemplo, se utiliza [Azure Portal](https://portal.azure.com) para actualizar el campo *acceptedMappedClaims*:
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
 2. Seleccione **Azure Active Directory** > **Registros de aplicaciones**.
 3. Seleccione aplicación > **Manifiesto**.

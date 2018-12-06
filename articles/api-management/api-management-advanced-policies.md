@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262342"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584883"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -253,7 +253,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="LimitConcurrency"></a> Limitar la simultaneidad
- La directiva `limit-concurrency` evita que las directivas delimitadas las ejecute en un momento dado un número de solicitudes mayor que el especificado. Al superar ese número, las nuevas solicitudes producirán un error inmediatamente con el código de estado de 429 Demasiadas solicitudes.
+ La directiva `limit-concurrency` evita que las directivas delimitadas ejecuten en un momento dado un número de solicitudes mayor que el especificado. Al superar ese número, las nuevas solicitudes producirán un error inmediatamente con el código de estado de 429 Demasiadas solicitudes.
 
 ###  <a name="LimitConcurrencyStatement"></a> Declaración de la directiva
 
@@ -876,7 +876,7 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

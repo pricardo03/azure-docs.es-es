@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 159d3d1576ab3a38baaba94594b3abf04ef3ad56
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b1a4354db23cdfdc6201decbb793a3f9a3ad8206
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287989"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496153"
 ---
-# <a name="use-apache-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Uso del flujo estructurado de Apache Spark con Kafka y Azure Cosmos DB
+# <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Uso del flujo estructurado de Apache Spark con Apache Kafka y Azure Cosmos DB
 
-Obtenga información acerca de cómo usar el flujo estructurado de Apache Spark para leer datos de Apache Kafka en Azure HDInsight y, después, almacenarlos en Azure Cosmos DB.
+Aprenda a usar [Apache Spark](https://spark.apache.org/) y su [flujo estructurado](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) para leer datos de [Apache Kafka](https://kafka.apache.org/) en Azure HDInsight y, después, almacenarlos en Azure Cosmos DB.
 
-Azure Cosmos DB es una base de datos de varios modelos distribuidos globalmente. Este ejemplo utiliza un modelo de base de datos de la API de SQL. Para obtener más información, consulte el documento [Bienvenido a Azure Cosmos DB](../cosmos-db/introduction.md).
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es una base de datos de varios modelos distribuida globalmente. Este ejemplo utiliza un modelo de base de datos de la API de SQL. Para obtener más información, consulte el documento [Bienvenido a Azure Cosmos DB](../cosmos-db/introduction.md).
 
 El flujo estructurado de Spark es un motor de procesamiento de flujo basado en Spark SQL. Permite expresar los cálculos de streaming de la misma forma que el cálculo por lotes de los datos estáticos. Para obtener más información sobre el flujo estructurado, consulte el artículo [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) (Guía de programación de flujo estructurado) en Apache.org.
 
@@ -143,7 +143,7 @@ La información del punto de conexión del documento y de la clave principal es 
 > [!IMPORTANT]
 > Guarde los valores de punto de conexión y de clave, ya que son necesarios en las instancias de Jupyter Notebook.
 
-## <a name="get-the-kafka-brokers"></a>Obtención de los agentes de Kafka
+## <a name="get-the-apache-kafka-brokers"></a>Obtención de los agentes de Apache Kafka
 
 En este ejemplo, el código se conecta a los hosts de los agentes de Kafka del clúster de Kafka. Para buscar las direcciones de los dos hosts de los agentes de Kafka, use el siguiente ejemplo de PowerShell o Bash:
 
@@ -201,12 +201,12 @@ Cuando se hayan cargado los archivos, seleccione la entrada __Stream-taxi-data-t
 
 ## <a name="process-taxi-data-using-spark-structured-streaming"></a>Procesamiento de datos de taxi mediante el flujo estructurado de Spark
 
-En la página principal de Jupyter Notebook, seleccione la entrada __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__. Siga los pasos descritos en el cuaderno para transmitir datos en secuencia de Kafka y en Azure Cosmos DB mediante el flujo estructurado de Spark.
+En la página principal de [Jupyter Notebook](https://jupyter.org/), seleccione la entrada __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__. Siga los pasos descritos en el cuaderno para transmitir datos en secuencia de Kafka y en Azure Cosmos DB mediante el flujo estructurado de Spark.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a usar el flujo estructurado de Spark, consulte los siguientes documentos para obtener más información sobre cómo trabajar con Spark, Kafka y Azure Cosmos DB:
+Ahora que ha aprendido a usar el flujo estructurado de Apache Spark, consulte los siguientes documentos para aprender más sobre cómo trabajar con Apache Spark, Apache Kafka y Azure Cosmos DB:
 
-* [Uso del flujo estructurado de Spark (DStream) con Kafka](hdinsight-apache-spark-with-kafka.md)
-* [Introducción a Jupyter Notebook y Spark en HDInsight](spark/apache-spark-jupyter-spark-sql.md)
+* [Uso de Apache Spark Streaming (DStream) con Apache Kafka](hdinsight-apache-spark-with-kafka.md).
+* [Introducción a Jupyter Notebook y Apache Spark en HDInsight](spark/apache-spark-jupyter-spark-sql.md)
 * [Bienvenido a Azure Cosmos DB](../cosmos-db/introduction.md)

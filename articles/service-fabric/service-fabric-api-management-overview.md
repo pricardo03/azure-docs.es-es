@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205168"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423650"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Información general de Service Fabric con Azure API Management
 
@@ -27,7 +27,13 @@ Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end
 
 Este artículo es una introducción al uso de Azure API Management como puerta de enlace para las aplicaciones de Service Fabric. API Management se integra directamente con Service Fabric, lo que le permite publicar API con un amplio conjunto de reglas de enrutamiento para los servicios back-end de Service Fabric. 
 
+## <a name="availability"></a>Disponibilidad
+
+> [!IMPORTANT]
+> Esta característica ya está disponible en los niveles **Premium** y **Developer** de API Management debido a la compatibilidad requerida con redes virtuales.
+
 ## <a name="architecture"></a>Arquitectura
+
 Una arquitectura de Service Fabric común usa una aplicación web de una página que realiza llamadas HTTP a servicios back-end que exponen API HTTP. La [aplicación de ejemplo de inicio de Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) presenta una muestra de esta arquitectura.
 
 En este escenario, un servicio web sin estado actúa como puerta de enlace en la aplicación de Service Fabric. Este enfoque precisa que escriba un servicio web que admita solicitudes HTTP proxy para servicios back-end, como se muestra en el siguiente diagrama:

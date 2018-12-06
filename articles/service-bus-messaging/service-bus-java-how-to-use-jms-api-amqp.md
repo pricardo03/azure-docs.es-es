@@ -1,6 +1,6 @@
 ---
 title: Uso de AMQP 1.0 con la API de Service Bus de Java | Microsoft Docs
-description: Cómo usar Java Message Service (JMS) con Azure Service Bus y Advanced Message Queuing Protodol (AMQP) 1.0.
+description: Uso de Java Message Service (JMS) con Azure Service Bus y Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a223c67e0c1f2e71d2953be63924a114e7420af
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018237"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308077"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Uso de la API de Java Message Service (JMS) con Service Bus y AMQP 1.0
 Advanced Message Queuing Protocol (AMQP) 1.0 es un protocolo de mensajes a nivel de red, confiable y eficaz que se puede utilizar para crear aplicaciones de mensajería robustas y compatibles con varias plataformas.
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>Configuración del contexto de JNDI y de ConnectionFactory
 
 El elemento **ConnectionString** al que se hace referencia es el único disponible en "Directivas de acceso compartido" de [Azure Portal](https://portal.azure.com) en **Cadena de conexión primaria**
-```
+```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
@@ -89,7 +89,7 @@ Destination queue = (Destination) context.lookup("QUEUE");
 La entrada usada para definir un destino en el proveedor JNDI de archivo de propiedades Qpid tiene el formato siguiente:
 
 Para crear la cola de destino del productor: 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -103,7 +103,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 Para crear una cola de destino para el consumidor: 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -297,7 +297,7 @@ public class JmsQueueQuickstart {
 ```
 
 ### <a name="run-the-application"></a>Ejecución de la aplicación
-Pase la **cadena de conexión** entre las directivas de acceso compartido para ejecutar la aplicación.
+Pase la **cadena de conexión** desde las directivas de acceso compartido para ejecutar la aplicación.
 Esta es la salida del formulario mediante la ejecución de la aplicación:
 
 ```

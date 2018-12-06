@@ -3,7 +3,7 @@ title: Alertas de seguridad por tipo en Azure Security Center | Microsoft Docs
 description: En este artículo se describen los distintos tipos de alertas de seguridad disponibles en Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2018
-ms.author: yurid
-ms.openlocfilehash: 0573442568115fc872cc4cf4cf8c369cd635028e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 24c6487ee7ec7d8398f933e29ca51cc9e390f47f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262121"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633272"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Comprensión de las alertas de seguridad en Azure Security Center
 Este artículo ayuda a comprender los distintos tipos de alertas de seguridad y aspectos relacionados disponibles en Azure Security Center. Para más información sobre cómo administrar las alertas y los incidentes, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-Para configurar las detecciones avanzadas, actualice a la versión estándar de Azure Security Center. Hay disponible una versión de evaluación gratuita de 60 días. Para actualizar a este nivel, seleccione el **plan de tarifa** en la [directiva de seguridad](security-center-policies.md). Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
+Para configurar las detecciones avanzadas, actualice a la versión estándar de Azure Security Center. Hay disponible una versión de evaluación gratuita de 60 días. Para actualizar a este nivel, seleccione el **plan de tarifa** en la [directiva de seguridad](security-center-azure-policy.md). Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > Security Center ha lanzado un nuevo conjunto de detecciones en versión preliminar limitada que aprovecha los registros de auditoría, un marco de auditoría común, para detectar comportamientos malintencionados en máquinas Linux. Envíe un correo electrónico con los identificadores de suscripción a [nuestro equipo](mailto:ASC_linuxdetections@microsoft.com) para unirse a la versión preliminar.
@@ -57,7 +57,7 @@ Security Center utiliza análisis avanzado para identificar los recursos en peli
     * Se ha ejecutado un proceso con una extensión sospechosa.
     * Se ha ejecutado un proceso con una doble extensión sospechosa.
     * Se ha ejecutado un proceso con un carácter de derecha a izquierda (RLO) sospechoso en el nombre de archivo.
-    * Se ha ejecutado un proceso cuyo nombre es diferente pero muy similar al de un proceso de ejecución muy común.
+    * Se ha ejecutado un proceso cuyo nombre es diferente pero similar al de un proceso de ejecución común.
     * Se ha ejecutado un proceso cuyo nombre se corresponde a una herramienta conocida utilizada por atacantes.
     * Se ha ejecutado un proceso con un nombre aleatorio.
     * Se ha ejecutado un proceso con una extensión sospechosa.
@@ -96,7 +96,7 @@ Security Center utiliza análisis avanzado para identificar los recursos en peli
 * **Se han eliminado todas las instantáneas de archivo**: esta alerta indica que se han eliminado instantáneas.
 * **Comandos de limpieza de archivos sospechosos**: esta alerta indica una combinación de comandos systeminfo que se usaron para realizar una actividad de autolimpieza después de estar en peligro.  Aunque *systeminfo.exe* es una herramienta legítima de Windows, ejecutarla dos veces consecutivas, seguida de un comando de eliminación en la forma en que se ha producido aquí es poco frecuente.
 * **Creación de cuentas sospechosa**: esta alerta indica que se ha creado una cuenta con un cierto parecido a una cuenta con privilegios administrativos integrada existente. Los atacantes pueden usar esta técnica para crear una cuenta no autorizada sin ser detectados.
-* **Actividad de instantánea de volumen sospechosa**: esta alerta indica una actividad de eliminación de instantánea en el recurso. Instantáneas de volumen (VSC) es un artefacto importante que almacena instantáneas de datos. Esta actividad suele estar asociada a ransomware, pero también podría ser legítima.
+* **Actividad de instantánea de volumen sospechosa**: esta alerta indica una actividad de eliminación de instantánea en el recurso. Instantáneas de volumen (VSC) es un artefacto importante que almacena instantáneas de datos. Esta actividad está asociada a ransomware, pero también podría ser legítima.
 * **Método de persistencia del registro de Windows**: esta alerta indica un intento de conservar un archivo ejecutable en el registro de Windows. El malware suele utilizar esta técnica para sobrevivir a un reinicio.
 * **Nueva regla de firewall sospechosa**: esta alerta indica que se ha agregado una nueva regla de firewall a través de *netsh.exe* para permitir el tráfico desde un archivo ejecutable de una ubicación sospechosa.
 * **Ejecuciones de XCOPY sospechosas**: esta alerta indica una serie de ejecuciones de XCOPY que podría indicar que una de las máquinas se ha puesto en peligro y se ha utilizado para propagar malware.
@@ -134,7 +134,7 @@ Security Center utiliza análisis avanzado para identificar los recursos en peli
 * **Argumentos de línea de comandos sospechosos**: esta alerta indica que se han usado argumentos de línea de comandos sospechosos junto con un shell inverso utilizado por el grupo de actividad HYDROGEN.
 * **Credenciales de documento sospechosas**: esta alerta indica que el malware ha utilizado un hash de contraseña precalculado común sospechoso para ejecutar un archivo.
 * **Construcción dinámica de script de PS**: esta alerta indica que se ha construido dinámicamente un script de PowerShell. Los atacantes usan esta técnica para generar progresivamente un script con el fin de eludir los sistemas IDS.
-* **Indicadores de Metaploit**: esta alerta indica actividad asociada con el marco de trabajo Metasploit, que proporciona diversas herramientas y funcionalidades al atacante.
+* **Indicadores de Metasploit**: esta alerta indica actividad asociada con el marco de trabajo Metasploit, que proporciona diversas herramientas y funcionalidades al atacante.
 * **Actividad de cuentas sospechosa**: esta alerta indica un intento de conexión a una máquina con una cuenta que se ha puesto en peligro recientemente.
 * **Creación de cuenta**: esta alerta indica la creación de una cuenta nueva en el equipo.
 
@@ -146,7 +146,7 @@ El análisis de la memoria de volcado de bloqueos es un método utilizado para d
 
 En el momento en que el software se bloquea, un volcado de memoria captura una porción de la memoria. El bloqueo puede deberse a malware o a problemas de aplicaciones generales o del sistema. Mediante el análisis de la memoria durante el volcado, Security Center puede detectar las técnicas utilizadas para aprovechar las vulnerabilidades del software, acceder a información confidencial y permanecer subrepticiamente en una máquina en peligro. Esto se consigue con un impacto mínimo en el rendimiento de los hosts, ya que el análisis se realiza en el back-end de Security Center.
 
-* **Detectada inserción de código**: la inserción de código es la inserción de módulos ejecutables en procesos o subprocesos en ejecución. Esta técnica se utiliza por malware para tener acceso a datos, ocultar o impedir su eliminación (por ejemplo: persistencia). Esta alerta indica que un módulo insertado está presente en el volcado de memoria. Los desarrolladores de software legítimo realizan cada cierto tiempo una inserción de código por razones no malintencionadas, como modificar o extender una aplicación existente o un componente de sistema operativo. Para ayudar a diferenciar entre módulos insertados malintencionados y no malintencionados, Security Center comprueba si el módulo insertado se ajusta a un perfil de comportamiento sospechoso. El resultado de esta comprobación se indica en el campo "SIGNATURE" (FIRMA) de la alerta y se refleja en la gravedad de la alerta, su descripción y los pasos de corrección.
+* **Detectada inserción de código**: la inserción de código es la inserción de módulos ejecutables en procesos o subprocesos en ejecución. Esta técnica se utiliza por malware para tener acceso a datos, ocultar o impedir su eliminación (por ejemplo, persistencia). Esta alerta indica que un módulo insertado está presente en el volcado de memoria. Los desarrolladores de software legítimo realizan cada cierto tiempo una inserción de código por razones no malintencionadas, como modificar o extender una aplicación existente o un componente de sistema operativo. Para ayudar a diferenciar entre módulos insertados malintencionados y no malintencionados, Security Center comprueba si el módulo insertado se ajusta a un perfil de comportamiento sospechoso. El resultado de esta comprobación se indica en el campo "SIGNATURE" (FIRMA) de la alerta y se refleja en la gravedad de la alerta, su descripción y los pasos de corrección.
 * **Segmento de código sospechoso**: esta alerta indica que se ha asignado un segmento de código con métodos no estándar, como los usados por el vaciado de proceso y la inserción reflexiva. Se procesan características adicionales del segmento de código para proporcionar un contexto en cuanto a las funcionalidades y los comportamientos del segmento de código del que se ha informado.
 * **Shellcode detectado**: Shellcode es la carga que se ejecuta después de que un malware haya aprovechado una vulnerabilidad en el software. Esta alerta indica que el análisis del volcado de memoria ha detectado código ejecutable que muestra un comportamiento normalmente realizado mediante cargas malintencionadas. Aunque el software no malintencionado puede tener este comportamiento, no es típico en las prácticas de desarrollo de software normal.
 * **Detectado secuestro de módulo**: Windows usa las bibliotecas de vínculos dinámicos (DLL) para que el software pueda utilizar la funcionalidad común del sistema Windows. El secuestro de DLL se produce cuando el malware cambia el orden de carga de las DLL para realizar cargas malintencionadas en la memoria, donde se puede ejecutar código arbitrario. Esta alerta indica que el análisis de volcado de memoria ha detectado un módulo con el mismo nombre que se carga desde dos rutas de acceso diferentes. Una de las rutas de acceso de carga procede de una ubicación binaria común del sistema de Windows. Los desarrolladores de software legítimo ocasionalmente cambian el orden de carga DLL por razones no malintencionadas, como instrumentar, extender el sistema operativo Windows o aplicaciones de Windows. Para ayudar a diferenciar entre los cambios malintencionados y potencialmente benignos en el orden de carga del archivo DLL, Security Center comprueba si un módulo cargado se ajusta a un perfil sospechoso.
@@ -192,7 +192,7 @@ Si hay disponible información adicional, se mostrará en el incidente de seguri
 - Dispositivos Plug and Play desconocidos
 - Alertas que no se pueden activar
 - Creación de una cuenta nueva
-- Archivo descodificado mediante la herramienta CertUtil 
+- Archivo descodificado mediante la herramienta CertUtil
 
 ![Alerta de acceso inusual](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

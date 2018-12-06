@@ -4,7 +4,7 @@ description: Aprenda a leer y entender el uso y la factura de la suscripción de
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: jureid
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: 4bfaaa51e39a7db297626a8009306eef9e3efa80
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393788"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581568"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Descripción de los términos en su factura de Microsoft Azure
 
@@ -114,5 +114,6 @@ La tabla siguiente describe los encabezados de columna de los cargos de uso que 
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>¿Cómo puedo asegurarme de que los cargos de mi factura son correctos?
 Si hay un cargo en la factura del que quiera tener más detalles, vea [Descripción de la factura de Microsoft Azure.](billing-understand-your-bill.md)
 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
-Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

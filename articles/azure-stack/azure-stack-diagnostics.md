@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ef8a01228ff31afa78f469b2ad80b864fc9d3497
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623985"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283459"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Herramientas de diagnóstico de Azure Stack
 
@@ -70,13 +70,14 @@ if($s)
     Remove-PSSession $s
 }
 ```
-- Los parámetros **OutputSharePath** y **OutputShareCredential** se utilizan para almacenar registros en una ubicación especificada por el usuario.
-- Los parámetros **FromDate** y **ToDate** pueden utilizarse para recopilar registros durante un período de tiempo determinado. Si no se especifican los parámetros, se recopilan los registros de las últimas cuatro horas de forma predeterminada.
+
 
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Para ejecutar Get-AzureStackLog en un sistema con el Kit de desarrollo de Azure Stack (ASDK)
-1. Inicie sesión como **AzureStack\CloudAdmin** en el host.
-2. Abra una ventana de PowerShell como administrador.
+Siga estos pasos para ejecutar Get-AzureStackLog en un equipo que hospede ASDK.
+
+1. Inicie sesión como **AzureStack\CloudAdmin** en el equipo host de ASDK.
+2. Abra una nueva ventana de PowerShell como administrador.
 3. Ejecute el cmdlet de PowerShell en **AzureStackLog Get**.
 
 **Ejemplos:**
@@ -107,7 +108,10 @@ if($s)
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Consideraciones sobre los parámetros para ASDK y sistemas integrados
 
-- Si no se especifican los parámetros **FromDate** y **ToDate**, se recopilan los registros de las últimas cuatro horas de forma predeterminada.
+- Los parámetros **OutputSharePath** y **OutputShareCredential** se utilizan para almacenar registros en una ubicación especificada por el usuario.
+
+- Los parámetros **FromDate** y **ToDate** pueden utilizarse para recopilar registros durante un período de tiempo determinado. Si no se especifican los parámetros, se recopilan los registros de las últimas cuatro horas de forma predeterminada.
+
 - Use el parámetro **FilterByNode** para filtrar los registros por nombre de equipo. Por ejemplo: 
 
     ```powershell

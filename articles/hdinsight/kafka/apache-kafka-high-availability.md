@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e2cd03f28e4a3cd8176f6126817c61508697af94
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007797"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315841"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Alta disponibilidad de los datos con Apache Kafka en HDInsight
 
-Aprenda a configurar réplicas de partición para que los temas de Kafka saquen provecho de la configuración del bastidor de hardware subyacente. Esta configuración garantiza la disponibilidad de los datos almacenados en Apache Kafka en HDInsight.
+Aprenda a configurar réplicas de partición para que los temas de Apache Kafka puedan aprovechar la configuración del bastidor de hardware subyacente. Esta configuración garantiza la disponibilidad de los datos almacenados en Apache Kafka en HDInsight.
 
-## <a name="fault-and-update-domains-with-kafka"></a>Dominios de error y de actualización con Kafka
+## <a name="fault-and-update-domains-with-apache-kafka"></a>Dominios de error y de actualización con Apache Kafka
 
 Un dominio de error es una agrupación lógica del hardware subyacente en un centro de datos de Azure. Todos los dominios de error comparten la fuente de energía y el conmutador de red. Las máquinas virtuales y los discos administrados que implementan los nodos en un clúster de HDInsight se distribuyen por estos dominios de error. Esta arquitectura limita el impacto potencial de errores del hardware físico.
 
@@ -44,15 +44,15 @@ Para garantizar la máxima disponibilidad de los datos de Kafka, es preciso reeq
 
 Si debe usar una región que contenga solo dos dominios de error, use un factor de replicación de 4 para distribuir las réplicas uniformemente entre los dominios de error de dos.
 
-Para obtener un ejemplo de creación de temas y establecimiento del factor de replicación, consulte el documento [Introducción a Apache Kafka (versión preliminar) en HDInsight](apache-kafka-get-started.md).
+Para ver un ejemplo sobre la creación de temas y la configuración del factor de replicación, consulte el documento de [introducción a Apache Kafka en HDInsight](apache-kafka-get-started.md).
 
 ## <a name="how-to-rebalance-partition-replicas"></a>Reequilibrio de réplicas de particiones
 
-Use la [herramienta de reequilibrio de particiones de Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) reequilibrar los temas seleccionados. Esta herramienta se debe ejecutar desde una sesión de SSH en el nodo principal del clúster de Kafka.
+Use la [herramienta de reequilibrio de particiones de Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) para reequilibrar los temas seleccionados. Esta herramienta se debe ejecutar desde una sesión de SSH en el nodo principal del clúster de Kafka.
 
 Para más información acerca de la conexión con HDInsight mediante SSH, consulte el documento [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Escalabilidad de Kafka en HDInsight](apache-kafka-scalability.md)
-* [Creación de reflejos con Kafka en HDInsight](apache-kafka-mirroring.md)
+* [Escalabilidad de Apache Kafka en HDInsight](apache-kafka-scalability.md)
+* [Creación de reflejos con Apache Kafka en HDInsight](apache-kafka-mirroring.md)

@@ -1,10 +1,11 @@
 ---
-title: Creación de puntos de conexión de servicio web en Machine Learning | Microsoft Docs
+title: Creación de puntos de conexión de servicio web en Machine Learning con Azure Machine Learning Studio | Microsoft Docs
 description: Creación de puntos de conexión de servicio web en Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 8cdf8c5ac3676d8abc9084fc842484aca5b6d1c7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833553"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314020"
 ---
-# <a name="creating-endpoints"></a>Creación de puntos de conexión
+# <a name="creating-endpoints"></a>Creación de puntos de conexión 
 > [!NOTE]
 >  En este tema se describen técnicas que se aplican a un servicio web Machine Learning **clásico**.
 > 
@@ -30,7 +31,7 @@ ms.locfileid: "34833553"
 
 Al crear servicios web que puede vender a sus clientes, necesitará proporcionar modelos entrenados para cada cliente que aún siga vinculado al experimento desde el que se creó el servicio web. Además, las actualizaciones en el experimento pueden aplicarse de manera selectiva a un punto de conexión sin sobrescribir las personalizaciones.
 
-Para ello, Azure Machine Learning permite crear varios puntos de conexión para un servicio web implementado. Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente. Cada punto de conexión es una dirección URL única y clave de autorización que se puede distribuir a sus clientes.
+Para ello, Azure Machine Learning Studio permite crear varios puntos de conexión en un servicio web implementado. Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente. Cada punto de conexión es una dirección URL única y clave de autorización que se puede distribuir a sus clientes.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

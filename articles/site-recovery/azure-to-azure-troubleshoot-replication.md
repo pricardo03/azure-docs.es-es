@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
-ms.openlocfilehash: 0ac90d8ef29d4293a5eeb5f932687788320c218e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 22ea3d955fe2910dc99ab4015165008da899d48e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615803"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312857"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales en curso de Azure a Azure
 
@@ -29,7 +29,7 @@ Id. del error: 153007 </br>
 Azure Site Recovery replica los datos de manera coherente de la región de origen a la región de recuperación ante desastres y crea puntos coherentes por bloqueo cada 5 minutos. Si Site Recovery no puede crear puntos de recuperación durante 60 minutos, alerta de usuario. A continuación se muestran las posibles causas de este error:
 
 **Causa 1: [Velocidad de cambio elevada en los datos de la máquina virtual de origen](#high-data-change-rate-on-the-source-virtal-machine)**    
-**Causa 2: [Problema de conectividad de red](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Causa 2: [Problema de conectividad de red](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>Causas y soluciones
 
@@ -77,5 +77,10 @@ Esta opción solo es posible si la renovación de datos de disco tiene una veloc
 
 ### <a name="Network-connectivity-issue"></a>Problema de conectividad de red
 
+#### <a name="network-latency-to-cache-storage-account-"></a>Latencia de red en la cuenta de almacenamiento en caché:
+ Site Recovery envía datos replicados a la cuenta de almacenamiento en caché. Este envío puede producirse si la velocidad de carga desde la máquina virtual hasta la cuenta de almacenamiento en caché es inferior a 4 MB cada 3 segundos. Para comprobar si hay algún problema relacionado con la latencia, utilice [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) para cargar datos desde la máquina virtual en la cuenta de almacenamiento en caché.<br>
+Si la latencia es alta, compruebe si está utilizando aplicaciones virtuales de red para controlar el tráfico que sale de las máquinas virtuales. Es posible que se genere un cuello de botella si todo el tráfico de replicación pasa por la aplicación virtual de red. Se recomienda crear un punto de conexión de servicio de red en la red virtual de "Storage" para que el tráfico de replicación no se dirija a la NVA. Consulte [Configuración de la aplicación virtual de red](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
+
+#### <a name="network-connectivity"></a>Conectividad de red
 Para que la replicación de Site Recovery funcione, la máquina virtual debe disponer de conectividad saliente a direcciones URL o intervalos IP específicos. Si la máquina virtual está detrás de un firewall o usa reglas de grupo de seguridad de red (NSG) para controlar la conectividad saliente, puede encontrarse alguno de estos problemas.</br>
-Consulte la sección sobre [Conectividad saliente para direcciones URL de Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors?#outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072)
+Consulte [Conectividad de salida para las direcciones URL de Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) para comprobar que todas las direcciones URL están conectadas. 

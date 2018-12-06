@@ -1,10 +1,11 @@
 ---
-title: Reciclaje de un servicio web predictivo existente | Microsoft Docs
-description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning.
+title: Repetición del entrenamiento de un servicio web predictivo existente en Azure Machine Learning Studio | Microsoft Docs
+description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web para que utilice este modelo en Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 1a30f9166c81c4757267c95b13b08f3202748467
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8da3c5d5c79ce52f1f5176a8b3317ce2a0e0bc5f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684654"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311303"
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reciclaje de un servicio web predictivo existente
 En este documento se describe el proceso de reciclaje para el escenario siguiente:
@@ -29,7 +30,7 @@ En este documento se describe el proceso de reciclaje para el escenario siguient
 * Tiene nuevos datos que desea que el servicio web predictivo utilice para realizar su puntuación.
 
 > [!NOTE]
-> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md).
+> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que se va a implementar. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md).
 
 A partir de su servicio web existente y los experimentos, debe seguir estos pasos:
 

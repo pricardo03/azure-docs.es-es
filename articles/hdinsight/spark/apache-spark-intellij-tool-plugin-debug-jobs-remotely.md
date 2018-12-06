@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: d8b38d4f35df1a85734a4e9c7345eeeafccb70ed
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e973c1895a331969eea9997f7122268a9ff783bd
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014557"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584747"
 ---
-# <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Uso del Kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark en HDInsight mediante VPN
+# <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Uso del Kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones de Apache Spark en HDInsight mediante VPN
 
-Se recomienda depurar las aplicaciones Spark de forma remota mediante SSH. Para obtener instrucciones, vea [Depuración de aplicaciones de Spark de forma remota en un clúster de HDInsight con el kit de herramientas de Azure para IntelliJ mediante SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Se recomienda depurar las aplicaciones de [Apache Spark](https://spark.apache.org/) de forma remota mediante SSH. Para obtener instrucciones, consulte [Depuración de aplicaciones de Apache Spark de forma remota en un clúster de HDInsight con el kit de herramientas de Azure para IntelliJ mediante SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 En este artículo se proporcionan instrucciones paso a paso para usar las herramientas de HDInsight del Kit de herramientas de Azure para IntelliJ para enviar un trabajo de Spark en un clúster de HDInsight Spark y luego depurarlo de forma remota desde el equipo de escritorio. Para llevar a cabo estas tareas, debe realizar los siguientes pasos generales:
 
@@ -62,7 +62,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
     ![Búsqueda de la dirección IP en Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address.png)
 1. Incluya la dirección IP y el nombre de host del nodo principal en el archivo de **hosts** en el equipo en el que quiere ejecutar y depurar de forma remota el trabajo de Spark. Esto le permite comunicarse con el nodo principal mediante la dirección IP, así como el nombre de host.
 
-   a. Abra un archivo de Bloc de notas con permisos elevados. En el menú **Archivo**, seleccione **Abrir** y luego busque la ubicación del archivo de hosts. En un equipo Windows, la ubicación es **C:\Windows\System32\Drivers\etc\hosts**.
+    a. Abra un archivo de Bloc de notas con permisos elevados. En el menú **Archivo**, seleccione **Abrir** y luego busque la ubicación del archivo de hosts. En un equipo Windows, la ubicación es **C:\Windows\System32\Drivers\etc\hosts**.
 
    b. Agregue la siguiente información al archivo de **hosts**:
 
@@ -81,12 +81,12 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 
 1. Repita los pasos para el otro nodo principal.
 
-## <a name="step-4-create-a-spark-scala-application-by-using-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Paso 4: Creación de una aplicación Scala Spark mediante las herramientas de HDInsight del Kit de herramientas de Azure para IntelliJ y configuración para la depuración remota
+## <a name="step-4-create-an-apache-spark-scala-application-by-using-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Paso 4: Creación de una aplicación Apache Spark Scala mediante las herramientas de HDInsight del Kit de herramientas de Azure para IntelliJ y configuración para la depuración remota
 1. Abra IntelliJ IDEA y cree un nuevo proyecto. En el cuadro de diálogo **Nuevo proyecto** , haga lo siguiente:
 
     ![Selección de la nueva plantilla de proyecto en IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-hdi-scala-app.png)
 
-    a. Seleccione **HDInsight** > **Spark en HDInsight (Scala)**.
+     a. Seleccione **HDInsight** > **Spark en HDInsight (Scala)**.
 
     b. Seleccione **Next** (Siguiente).
 1. En el cuadro de diálogo **Nuevo proyecto**, haga lo siguiente y luego seleccione **Finalizar**:
@@ -101,7 +101,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
   
 1. El proyecto Spark creará automáticamente un artefacto. Para ver el artefacto, haga lo siguiente:
 
-    a. En el menú **Archivo**, seleccione **Estructura del proyecto**.
+     a. En el menú **Archivo**, seleccione **Estructura del proyecto**.
 
     b. En el cuadro de diálogo **Project Structure** (Estructura del proyecto), seleccione **Artifacts** (Artefactos) para ver el artefacto predeterminado que se crea. También puede crear su propio artefacto seleccionando el signo más (**+**).
 
@@ -110,7 +110,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 
 1. Agregue bibliotecas al proyecto. Para agregar una biblioteca, haga lo siguiente:
 
-    a. Haga clic con el botón derecho en el nombre del proyecto en el árbol y después seleccione **Open Module Settings**(Abrir configuración de módulo). 
+     a. Haga clic con el botón derecho en el nombre del proyecto en el árbol y después seleccione **Open Module Settings**(Abrir configuración de módulo). 
 
     b. En el cuadro de diálogo **Estructura del proyecto**, seleccione **Bibliotecas**, seleccione el símbolo (**+**) y luego **Desde Maven**.
 
@@ -132,7 +132,7 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
     Para agregar estos archivos al proyecto, cópielos en la carpeta **/src** del árbol del proyecto, por ejemplo, `<your project directory>\src`.
 1. Actualice el archivo `core-site.xml` para realizar los siguientes cambios:
 
-   a. Reemplace la clave cifrada. El archivo `core-site.xml` incluye la clave cifrada de la cuenta de almacenamiento asociada al clúster. En el archivo `core-site.xml` que se ha agregado al proyecto, reemplace la clave cifrada por la clave de almacenamiento real asociada a la cuenta de almacenamiento predeterminada. Para más información, vea [Administración de las claves de acceso de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
+    a. Reemplace la clave cifrada. El archivo `core-site.xml` incluye la clave cifrada de la cuenta de almacenamiento asociada al clúster. En el archivo `core-site.xml` que se ha agregado al proyecto, reemplace la clave cifrada por la clave de almacenamiento real asociada a la cuenta de almacenamiento predeterminada. Para más información, vea [Administración de las claves de acceso de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
 
            <property>
                  <name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>
@@ -262,26 +262,26 @@ Se recomienda crear también un clúster de Apache Spark en Azure HDInsight que 
 * [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demostración
-* Creación del proyecto Scala (vídeo): [Creación de aplicaciones Scala de Spark](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (en inglés)
-* Depuración remota (vídeo): [Use Azure Toolkit for IntelliJ to debug Spark applications remotely on an HDInsight cluster (Uso del Kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark en un clúster de HDInsight)](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Creación del proyecto Scala (vídeo): [Create Apache Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (Creación de aplicaciones Scala de Apache Spark)
+* Depuración remota (vídeo): [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely on HDInsight Cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (Uso de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones Apache Spark en clústeres de HDInsight)
 
 ### <a name="scenarios"></a>Escenarios
-* [Spark con BI: realización del análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
-* [Spark con Machine Learning: uso de Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark con BI: realización del análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: uso de Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](../hdinsight-apache-spark-create-standalone-application.md)
-* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](apache-spark-livy-rest-interface.md)
+* [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
-* [Uso del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark para un clúster de HDInsight](apache-spark-intellij-tool-plugin.md)
-* [Uso del kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark mediante SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Uso de Azure Toolkit for IntelliJ con el fin de crear aplicaciones Apache Spark para un clúster de HDInsight](apache-spark-intellij-tool-plugin.md)
+* [Uso de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones de Apache Spark mediante SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Uso de las herramientas de HDInsight del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
-* [Uso de cuadernos de Zeppelin con un clúster Apache Spark en Azure HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels para Jupyter Notebook en clústeres Spark en Azure HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Uso de las herramientas de HDInsight de Azure Toolkit for Eclipse con el fin de crear aplicaciones Apache Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels disponibles para Jupyter Notebook en un clúster de Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](apache-spark-jupyter-notebook-install-locally.md)
 

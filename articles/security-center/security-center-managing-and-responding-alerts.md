@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/3/2018
+ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: f865a0a609422ae4938a9cccf15d9cd176a9400a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227797"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311235"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure
 Este documento le ayuda a usar Azure Security Center para administrar las alertas de seguridad y responder a ellas.
 
 > [!NOTE]
-> Para habilitar las detecciones avanzadas, actualice a la versión estándar de Azure Security Center. Hay disponible una versión de evaluación gratuita de 60 días. Para realizar la actualización, seleccione el plan de tarifa en la [directiva de seguridad](security-center-policies.md). Consulte [Precios de Azure Security Center](security-center-pricing.md) para más información.
+> Para habilitar las detecciones avanzadas, actualice a la versión estándar de Azure Security Center. Hay disponible una versión de evaluación gratuita de 60 días. Para realizar la actualización, seleccione el plan de tarifa en la [directiva de seguridad](security-center-azure-policy.md). Consulte [Precios de Azure Security Center](security-center-pricing.md) para más información.
 >
 >
 
@@ -63,6 +63,20 @@ En la parte inferior de esta página aparecen los detalles de cada alerta. Para 
 > [!NOTE]
 > Las alertas de seguridad que genera Security Center también aparecerá en el registro de actividad de Azure. Para más información acerca de cómo acceder al registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 >
+
+
+### <a name="alert-severity"></a>Gravedad de las alertas
+
+> [!NOTE]
+> La gravedad de las alertas no son iguales en el portal y en la API REST. En la lista siguiente, se detallan las diferencias.
+
+-   **Alta**: hay una probabilidad elevada de que el recurso esté en peligro. Debe investigarse de inmediato. El grado de certeza de Security Center sobre la mala intención de la acción y los hallazgos utilizados para emitir la alerta es elevado. Una alerta de este tipo sería podría detectar la ejecución de una herramienta malintencionada conocida; por ejemplo, Mimikatz, una herramienta que se usa habitualmente para robar credenciales. 
+-   **Media (baja en la API REST)**: se ha detectado actividad sospechosa que podría indicar que un recurso está en peligro.
+El grado de certeza de Security Center sobre el análisis o los hallazgos es medio, mientras que el grado de certeza sobre la mala intención es medio o alto. Suelen tratarse de detecciones basadas en anomalías o aprendizaje automático. Por ejemplo, un intento de inicio de sesión desde una ubicación anómala.
+-   **Baja (alerta informativa en la API REST)**: podría tratarse de un hallazgo benigno o de un ataque bloqueado. 
+    - Security Center no tiene la certeza suficiente de que la intención fuera mala y la actividad podría ser inofensiva. Por ejemplo, borrar un registro es una acción que podría producirse si un atacante intenta ocultar sus huellas, pero en muchos casos es una operación rutinaria que realizan los administradores.
+    - Por lo general, Security Center no avisa cuando se bloquean ataques a menos que se considere un caso interesante que convenga examinar. 
+-   **Informativa (sin notificación en la API REST)**: solo podrá ver las alertas informativas cuando explore en profundidad un incidente de seguridad, o si usa la API REST con un determinado identificador de alerta. Normalmente, las incidencias se componen de varias alertas, algunas de las cuales pueden parecer meramente informativas, aunque a tenor de otras alertas puede ser conveniente investigarlas. 
 
 ### <a name="filtering-alerts"></a>Filtrado de alertas
 Puede filtrar alertas en función de la fecha, el estado y la gravedad. Puede resultar útil filtrar las alertas en aquellos escenarios en que necesite restringir el ámbito de las alertas de seguridad que se muestran. Por ejemplo, podría comprobar las alertas de seguridad que se produjeron en las 24 horas anteriores, ya que se está investigando una posible brecha en el sistema.

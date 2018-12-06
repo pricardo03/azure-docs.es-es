@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 769d810eb20b70a955560e6bf2a5b533ea6e55f0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f27b80a99dbe65d628453c5222ef4fcdf7e0f982
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395532"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580395"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>Ver todas las cuentas de facturación en Azure Portal  
 
@@ -41,7 +41,6 @@ Para las cuentas de facturación personales, puede gestionar y ver todos los car
 
     ![Captura de pantalla que muestra una lista de cuentas de facturación](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
- 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si necesita ayuda, [póngase en contacto con soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

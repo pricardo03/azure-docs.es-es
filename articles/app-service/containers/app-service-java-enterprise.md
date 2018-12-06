@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 6613def8891109e3a0ddf818111898a893a8035d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628845"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161884"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guía de Java Enterprise para App Service en Linux
 
@@ -27,17 +27,18 @@ En esta guía se incluyen conceptos clave e instrucciones para los desarrollador
 
 ## <a name="scale-with-app-service"></a>Escalado con App Service 
 
-El servidor de aplicaciones WildFly, que se ejecuta en App Service en Linux, se ejecuta en modo independiente, no en una configuración de dominio. 
+El servidor de aplicaciones WildFly, que se ejecuta en App Service en Linux, se ejecuta en modo independiente, no en una configuración de dominio. Al escalar horizontalmente el plan de App Service, cada instancia de WildFly se configura como un servidor independiente.
 
- Escale la aplicación vertical u horizontalmente con [reglas de escalado](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) y [aumentando el número de instancias](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+ Escale la aplicación vertical u horizontalmente con [reglas de escalado](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) y [aumentando el número de instancias](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). 
 
 ## <a name="customize-application-server-configuration"></a>Personalización de la configuración del servidor de aplicaciones
 
-Los desarrolladores pueden escribir un script de Bash para ejecutar una configuración adicional necesaria para su aplicación, por ejemplo:
+Las instancias de la aplicación web no tienen estado, por lo que cada instancia nueva iniciada debe configurarse al inicio para admitir la configuración de Wildfly que necesite la aplicación.
+Puede escribir un script de Bash de inicio para llamar a la CLI de WildFly para:
 
-- Configuración de orígenes a datos
-- Configuración de proveedores de mensajería
-- Incorporación de otros módulos y dependencias a la configuración del servidor WildFly.
+- Configurar orígenes de datos
+- Configurar proveedores de mensajería
+- Incorporar otros módulos y dependencias a la configuración del servidor WildFly.
 
  El script se ejecuta cuando WildFly está en funcionamiento, pero antes de que se inicie la aplicación. El script debe usar la [CLI de JBOSS](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) llamada desde `/opt/jboss/wildfly/bin/jboss-cli.sh` para configurar el servidor de aplicaciones con cualquier configuración o cambios necesarios una vez que se inicie el servidor. 
 
@@ -51,7 +52,7 @@ Cargue el script de inicio `/home/site/deployments/tools` en la instancia de App
 
 Establezca el campo **Script de inicio** en Azure Portal en la ubicación del script de shell de inicio, por ejemplo `/home/site/deployments/tools/your-startup-script.sh`.
 
-Use la [configuración de la aplicación](/azure/app-service/web-sites-configure#application-settings) para establecer las variables de entorno para su uso en el script. Estas opciones están a disposición del entorno de script de inicio y mantienen las cadenas de conexión y otros secretos fuera del control de versiones.
+Proporcione la [configuración de la aplicación](/azure/app-service/web-sites-configure#application-settings) para pasar variables de entorno para su uso en el script. La configuración de la aplicación mantiene las cadenas de conexión y otros secretos necesarios para configurar la aplicación fuera del control de versiones.
 
 ## <a name="modules-and-dependencies"></a>Módulos y dependencias
 

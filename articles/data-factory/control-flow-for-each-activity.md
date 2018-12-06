@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: 23f00280a69212b9e623ae1da16a681ca30c9d51
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42143855"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423735"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Actividad ForEach en Azure Data Factory
 La actividad ForEach define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle ForEach de los lenguajes de programación.
@@ -74,8 +74,8 @@ Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 Nombre | Nombre de la actividad for-each. | string | SÍ
 Tipo | Se debe establecer en **ForEach** | string | SÍ
-isSequential | Especifica si el bucle se debe ejecutar en secuencia o en paralelo.  Se puede ejecutar un máximo de 20 iteraciones de bucle a la vez en paralelo. Por ejemplo, si tiene una actividad ForEach que itera una actividad de copia con 10 conjuntos de datos de origen y receptor distintos con **isSequential** establecido en False, todas las copias se ejecutan a la vez. El valor predeterminado es False. <br/><br/> Si "isSequential" está establecido en False, asegúrese de que haya una configuración correcta para ejecutar varios archivos ejecutables. De lo contrario, esta propiedad se debe usar con precaución para no incurrir en conflictos de escritura. Para más información, consulte la sección [Ejecución en paralelo](#parallel-execution). | boolean | No. El valor predeterminado es False.
-batchCount | Número de lotes que se usará para controlar el número de la ejecución en paralelo (cuando isSequential está establecido en false). | Entero (50 como máximo) | No. El valor predeterminado es 20.
+isSequential | Especifica si el bucle se debe ejecutar en secuencia o en paralelo.  Se puede ejecutar un máximo de 20 iteraciones de bucle a la vez en paralelo. Por ejemplo, si tiene una actividad ForEach que itera una actividad de copia con 10 conjuntos de datos de origen y receptor distintos con **isSequential** establecido en False, todas las copias se ejecutan a la vez. El valor predeterminado es False. <br/><br/> Si "isSequential" está establecido en False, asegúrese de que haya una configuración correcta para ejecutar varios archivos ejecutables. De lo contrario, esta propiedad se debe usar con precaución para no incurrir en conflictos de escritura. Para más información, consulte la sección [Ejecución en paralelo](#parallel-execution). | boolean |  No. El valor predeterminado es False.
+batchCount | Número de lotes que se usará para controlar el número de la ejecución en paralelo (cuando isSequential está establecido en false). | Entero (50 como máximo) |  No. El valor predeterminado es 20.
 Elementos | Una expresión que devuelve una matriz JSON que se iterará. | Expresión (que devuelve una matriz JSON) | SÍ
 Actividades | Las actividades que se ejecutarán. | Lista de actividades | SÍ
 
@@ -572,6 +572,17 @@ La expresión para recopilar la salida de todas las iteraciones de una actividad
 ]
 
 ```
+
+## <a name="limitations-and-workarounds"></a>Limitaciones y soluciones alternativas
+
+A continuación se indican algunas de las limitaciones de la actividad ForEach y las soluciones alternativas sugeridas.
+
+| Limitación | Solución alternativa |
+|---|---|
+| No se puede anidar un bucle ForEach dentro de otro bucle ForEach (o un bucle Until). | Diseñar una canalización de dos niveles, donde la canalización externa con el bucle ForEach exterior recorre en iteración una canalización interna con el bucle anidado. |
+| La actividad ForEach tiene un valor máximo de `batchCount` de 50 para procesamiento en paralelo y un máximo de 100 000 elementos. | Diseñar una canalización de dos niveles, donde la canalización externa con la actividad ForEach recorre en iteración una canalización interna. |
+| | |
+
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte otras actividades de flujo de control compatibles con Data Factory: 
 

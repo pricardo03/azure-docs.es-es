@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: cb7b114836c83338f71c85f59299ecf1dc4613a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636074"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317626"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -75,6 +75,7 @@ Cuando crea un clon de la configuración de otro espacio de implementación, la 
 * Asignaciones de controlador
 * Configuración de supervisión y diagnóstico
 * Contenido de WebJobs
+* Conexiones híbridas
 
 **Configuraciones que no se intercambian**:
 
@@ -168,7 +169,7 @@ Si se identifican errores en producción después del intercambio de espacios, r
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Preparación personalizada antes del intercambio
-Es posible que algunas aplicaciones necesiten acciones de preparación personalizadas. El elemento de configuración `applicationInitialization` en el archivo web.config permite especificar acciones de inicialización personalizadas antes de recibir una solicitud. La operación de intercambio espera a que se complete la preparación personalizada. He aquí un fragmento de ejemplo del archivo web.config.
+Es posible que, cuando utilice [Intercambio automático](#Auto-Swap), algunas aplicaciones necesiten acciones de preparación personalizadas. El elemento de configuración `applicationInitialization` en el archivo web.config permite especificar acciones de inicialización personalizadas antes de recibir una solicitud. La operación de intercambio espera a que se complete la preparación personalizada. He aquí un fragmento de ejemplo del archivo web.config.
 
     <system.webServer>
         <applicationInitialization>

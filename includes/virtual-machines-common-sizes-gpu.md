@@ -2,22 +2,22 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines-windows, virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 10/23/2018
-ms.author: danlep;azcspmt;jonbeck
+ms.date: 11/14/2018
+ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4fde34338d5606a1f431ff4b7f7074d9cd472e90
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: b6df4ada1aa13e20c7ad52d2b58cdf9c783f9e24
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035519"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716274"
 ---
 Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales especializadas con GPU de NVIDIA. Estos tamaños están diseñados para cargas de trabajo de proceso intensivo, uso intensivo de gráficos y visualización. En este artículo se proporciona información sobre el número y el tipo de GPU, vCPU, discos de datos y NIC. El ancho de banda de red y el rendimiento del almacenamiento también se incluyen para cada tamaño de esta agrupación. 
 
-* Los tamaños de **NC, NCv2, NCv3 y ND** están optimizados para aplicaciones y algoritmos que usan mucho la red y el procesador. Algunos ejemplos son las simulaciones y las aplicaciones basadas en CUDA y en OpenCL, la inteligencia artificial y el aprendizaje profundo. La serie NCv3 se centra en las cargas de trabajo de informática de alto rendimiento e incorpora la GPU NVIDIA Tesla V100.  La serie ND se centra en escenarios de aprendizaje e inferencia para el aprendizaje profundo. Usa la GPU NVIDIA Tesla P40.
+* Los tamaños **NC, NCv2, NCv3, ND, and NDv2** están optimizados para aplicaciones y algoritmos que usan mucho la red y los procesos. Algunos ejemplos son las simulaciones y las aplicaciones basadas en CUDA y en OpenCL, la inteligencia artificial y el aprendizaje profundo. La serie NCv3 se centra en las cargas de trabajo de informática de alto rendimiento e incorpora la GPU NVIDIA Tesla V100.  La serie ND se centra en escenarios de aprendizaje e inferencia para el aprendizaje profundo. Usa la GPU NVIDIA Tesla P40.
 * Los tamaños **NV y NVv2** están optimizados y diseñados para escenarios de visualización remota, streaming, juegos, codificación y VDI mediante plataformas como OpenGL y DirectX.  Estas máquinas virtuales están respaldadas por la GPU NVIDIA Tesla M60.
 
 
@@ -27,7 +27,7 @@ Premium Storage: no se admite
 
 Almacenamiento en caché de Premium Storage: no se admite
 
-Las VM de la serie NC disponen de una tarjeta [Tesla K80 de NVIDIA](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf). Los usuarios pueden trabajar con datos con mayor rapidez aprovechando CUDA para las aplicaciones de exploración de energía, simulaciones de accidentes, representación de trazado de rayos, aprendizaje profundo y mucho más. La configuración NC24r proporciona una interfaz de red de baja latencia y alto rendimiento optimizada para cargas de trabajo de computación paralelas estrechamente unidas.
+Las VM de la serie NC disponen de una tarjeta [Tesla K80 de NVIDIA](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf). Los usuarios pueden trabajar con datos con mayor rapidez aprovechando CUDA para las aplicaciones de exploración de energía, simulaciones de accidentes, la representación de trazado de rayos, el aprendizaje profundo y mucho más. La configuración NC24r proporciona una interfaz de red de baja latencia y alto rendimiento optimizada para cargas de trabajo de computación paralelas estrechamente unidas.
 
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Nº máx. NIC |
@@ -86,6 +86,26 @@ Las VM de la serie NCv3 disponen de tecnología de GPU [NVIDIA Tesla V100](http:
 1 GPU = una tarjeta V100
 
 *Compatible con RDMA
+
+## <a name="ndv2-series-preview"></a>Serie NDv2 (versión preliminar)
+
+
+Premium Storage: se admite
+
+Almacenamiento en caché de Premium Storage: se admite
+
+InfiniBand: no se admite
+
+
+La máquina virtual de la serie NDv2 es una nueva incorporación a la familia de GPU diseñada para las necesidades de las cargas de informática de alto rendimiento, inteligencia artificial y aprendizaje automático. Cuenta con 8 GPU NVIDIA Tesla V100 NVLINK interconectadas, 40 núcleos Intel Skylake y 672 GiB de memoria del sistema. La instancia de NDv2 proporciona un excelente rendimiento de FP32 y FP64 para cargas de trabajo de HPC e inteligencia artificial mediante Cuda, TensorFlow, Pytorch, Caffe y otros marcos.
+
+[Regístrese y acceda a estas máquinas durante la versión preliminar](https://aka.ms/ndv2signup).
+<br>
+
+
+| Tamaño              | vCPU | GPU              | Memoria  | NICs (Máx) | Máx. del disco           | Máx. Discos de datos (1023 GB cada uno) | Ancho de banda de red máx. | 
+|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
+| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 GiB | 8          | 1344 / 2948XIO temporal | 32    | 24 000 Mbps             | 
 
 ## <a name="nd-series"></a>Serie ND
 

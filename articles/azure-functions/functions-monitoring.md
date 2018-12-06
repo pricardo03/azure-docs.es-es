@@ -9,20 +9,18 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457670"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497240"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
-## <a name="overview"></a>Información general 
-
-[Azure Functions](functions-overview.md) ofrece integración incorporada con [Azure Application Insights](../application-insights/app-insights-overview.md) para las funciones de supervisión. En este artículo se muestra cómo configurar Functions para enviar datos de telemetría a Application Insights.
+[Azure Functions](functions-overview.md) ofrece integración incorporada con [Azure Application Insights](../application-insights/app-insights-overview.md) para las funciones de supervisión. En este artículo se muestra cómo configurar Functions para enviar archivos de registro generados por el sistema a Application Insights.
 
 ![Explorador de métricas de Application Insights](media/functions-monitoring/metrics-explorer.png)
 
@@ -30,11 +28,11 @@ Functions también dispone de [supervisión incorporada que no usa Application I
 
 ## <a name="application-insights-pricing-and-limits"></a>Precios y límites de Application Insights
 
-Puede probar la integración de Application Insights con instancias de Function App de forma gratuita. De todas formas, hay un límite diario para la cantidad de datos que se pueden procesar de forma gratuita, y es posible que llegue a este límite durante las pruebas. Azure proporciona notificaciones de portal y correo electrónico cuando se esté aproximando al límite diario.  Pero si pasa por alto esas alertas y llega al límite, los nuevos registros no aparecerán en las consultas de Application Insights. Por tanto, no olvide tener en cuenta el límite para evitar el tiempo que puede perder, de forma innecesaria, solucionando problemas. Para más información, consulte [Administración de precios y volúmenes de datos de Application Insights](../application-insights/app-insights-pricing.md).
+Puede probar la integración de Application Insights con instancias de Function App de forma gratuita. De todas formas, hay un límite diario para la cantidad de datos que se pueden procesar de forma gratuita, y es posible que llegue a este límite durante las pruebas. Azure proporciona notificaciones del portal y por correo electrónico cuando se aproxima al límite diario.  Pero si pasa por alto esas alertas y llega al límite, los nuevos registros no aparecerán en las consultas de Application Insights. Por tanto, no olvide tener en cuenta el límite para evitar el tiempo que puede perder, de forma innecesaria, solucionando problemas. Para más información, consulte [Administración de precios y volúmenes de datos de Application Insights](../application-insights/app-insights-pricing.md).
 
 ## <a name="enable-app-insights-integration"></a>Habilitación de la integración de Application Insights
 
-Para que una aplicación de función envíe datos a Application Insights tiene que conocer la clave de instrumentación de un recurso de Application Insights. La clave tiene que proporcionarse en un valor de configuración de la aplicación denominado APPINSIGHTS_INSTRUMENTATIONKEY.
+Para que una aplicación de función envíe datos a Application Insights tiene que conocer la clave de instrumentación de un recurso de Application Insights. La clave tiene que estar en un valor de configuración de la aplicación llamado **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
 Puede configurar esta conexión en [Azure Portal](https://portal.azure.com):
 
@@ -47,15 +45,11 @@ Puede configurar esta conexión en [Azure Portal](https://portal.azure.com):
 
 1. Establezca el conmutador **Application Insights** en **Habilitado**.
 
-2. Seleccione una **ubicación de Application Insights**.
-
-   Elija la región más cercana al área de la aplicación de función, en una de las [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desee almacenar los datos.
+1. Seleccione una **ubicación de Application Insights**. Elija la región más cercana al área de la aplicación de función, en una de las [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desee almacenar los datos.
 
    ![Habilitar Application Insights al crear una aplicación de función](media/functions-monitoring/enable-ai-new-function-app.png)
 
-3. Escriba el resto de información necesaria.
-
-1. Seleccione **Crear**.
+1. Escriba otra información necesaria y seleccione **Crear**.
 
 El paso siguiente consiste en [deshabilitar el registro integrado](#disable-built-in-logging).
 
@@ -65,7 +59,7 @@ El paso siguiente consiste en [deshabilitar el registro integrado](#disable-buil
 
    ![Creación de un recursos de Application Insights del tipo General](media/functions-monitoring/ai-general.png)
 
-2. Copie la clave de instrumentación de la página **Essentials** del recurso de Application Insights. Mantenga el puntero al final del valor de la clave que se muestra para obtener un botón **Haga clic para copiar**.
+1. Copie la clave de instrumentación de la página **Essentials** del recurso de Application Insights. Mantenga el puntero al final del valor de la clave que se muestra para obtener un botón **Haga clic para copiar**.
 
    ![Copiar la clave de instrumentación de Application Insights](media/functions-monitoring/copy-ai-key.png)
 
@@ -77,7 +71,7 @@ El paso siguiente consiste en [deshabilitar el registro integrado](#disable-buil
 
 ## <a name="disable-built-in-logging"></a>Deshabilitar el registro integrado
 
-Si habilita Application Insights, es recomendable que deshabilite el [registro integrado que usa Azure Storage](#logging-to-storage). El registro integrado es útil para realizar pruebas con cargas de trabajo ligeras, pero no está diseñado para su uso en producción de carga alta. Para la supervisión de producción, se recomienda Application Insights. Si el registro integrado se usa en producción, el registro resultante podría estar incompleto debido a la limitación de Azure Storage.
+Si habilita Application Insights, deshabilite el [registro integrado que usa Azure Storage](#logging-to-storage). El registro integrado es útil para realizar pruebas con cargas de trabajo ligeras, pero no está diseñado para su uso en producción de carga alta. Para la supervisión de producción, se recomienda Application Insights. Si el registro integrado se usa en producción, el registro resultante podría estar incompleto debido a la limitación de Azure Storage.
 
 Para deshabilitar el registro integrado, elimine la configuración de la aplicación `AzureWebJobsDashboard`. Para obtener información acerca de cómo eliminar la configuración de la aplicación en Azure Portal, consulte la sección **Application settings** (Configuración de la aplicación) en [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings) (Cómo administrar una aplicación de función). Antes de eliminar el valor de configuración de la aplicación, asegúrese de que no hay ninguna función existente en la misma aplicación de función que lo utilice para los desencadenadores o enlaces de Azure Storage.
 
@@ -89,13 +83,13 @@ Una vez haya configurado la integración de Application Insights tal como se mue
 
    ![Selección de la pestaña Supervisar](media/functions-monitoring/monitor-tab.png)
 
-2. Seleccione **Actualizar** periódicamente hasta que aparezca la lista de las invocaciones de funciones.
+1. Seleccione **Actualizar** periódicamente hasta que aparezca la lista de las invocaciones de funciones.
 
    La lista puede tardar hasta 5 minutos en aparecer, debido al modo en el que el cliente de telemetría agrupa los datos en lotes para su transmisión al servidor. (Este retraso no se aplica a [Live Metrics Stream](../application-insights/app-insights-live-stream.md). Este servicio se conecta al host de Functions cuando se carga la página, por lo que los registros se transmiten directamente a la página).
 
    ![Lista de invocaciones](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
-2. Para ver los registros de una invocación de función determinada, seleccione el vínculo de la columna **Fecha** para esa invocación.
+1. Para ver los registros de una invocación de función determinada, seleccione el vínculo de la columna **Fecha** para esa invocación.
 
    ![Vínculo de detalles de la invocación](media/functions-monitoring/invocation-details-link-ai.png)
 
@@ -118,7 +112,6 @@ Para más información, consulte la sección [Consultar datos de telemetría](#q
 Para abrir Application Insights desde una aplicación de función en Azure Portal, seleccione el vínculo **Application Insights** en la sección **Características configuradas** de la página **Información general** de la aplicación de función.
 
 ![Vínculo de Application Insights en la página Información general](media/functions-monitoring/ai-link.png)
-
 
 Para obtener más información acerca de Application Insights, consulte [Documentación de Application Insights](https://docs.microsoft.com/azure/application-insights/). En esta sección se muestran algunos ejemplos de cómo ver los datos de Application Insights. Si ya está familiarizado con Application Insights, puede ir directamente a [las secciones acerca de cómo configurar y personalizar los datos de telemetría](#configure-categories-and-log-levels).
 
@@ -193,7 +186,7 @@ Si escribe registros en el código de función, su categoría es "Function".
 
 ### <a name="log-levels"></a>Niveles de registro
 
-El registrador de funciones de Azure también incluye un *nivel de registro* con cada registro. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) es una enumeración y el código entero indica la importancia relativa:
+El registrador de funciones de Azure también incluye un *nivel de registro* con cada registro. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) es una enumeración y el código entero indica la importancia relativa:
 
 |LogLevel    |Código|
 |------------|---|
@@ -209,9 +202,28 @@ El nivel de registro `None` se explica en la sección siguiente.
 
 ### <a name="configure-logging-in-hostjson"></a>Configurar el registro en host.json
 
-El archivo *host.json* configura la cantidad de registro que envía una aplicación de la función a Application Insights. Para cada categoría, debe indicar el nivel de registro mínimo para enviar. Este es un ejemplo:
+El archivo *[host.json](functions-host-json.md)* configura la cantidad de registro que envía una aplicación de función a Application Insights. Para cada categoría, debe indicar el nivel de registro mínimo para enviar. Hay dos ejemplos: uno tiene como destino el [entorno de ejecución de Functions versión 2.x](functions-versions.md#version-2x) (.NET Core) y el otro el entorno de ejecución de la versión 1.x.
 
-#### <a name="functions-version-1"></a>Versión 1 de Functions 
+### <a name="version-2x"></a>Versión 2.x
+
+El entorno de ejecución de v2.x emplea ahora la [jerarquía de filtro de registro de .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
+### <a name="version-1x"></a>Versión 1.x
+
 ```json
 {
   "logger": {
@@ -227,33 +239,34 @@ El archivo *host.json* configura la cantidad de registro que envía una aplicaci
 }
 ```
 
-#### <a name="functions-version-2"></a>Versión 2 de Functions 
-Función v2 usa ahora la [jerarquía del filtro de registro de .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+En el ejemplo siguiente se configuran las reglas siguientes:
+
+1. Para los registros con la categoría `Host.Results`**` or `**`Function`, envíe solo el nivel `Error` y superior a Application Insights. Los registros del nivel `Warning` e inferiores se omiten.
+2. Para los registros con la categoría `Host.Aggregator`, envíe todos los registros a Application Insights. El nivel de registro `Trace` es el mismo que algunos registradores llaman `Verbose`, pero usa `Trace` en el archivo [host.json](functions-host-json.md).
+3. Para el resto de registros, envíe solo el nivel `Information` y superior a Application Insights.
+
+El valor de categoría de [host.json](functions-host-json.md) controla el registro de todas las categorías que comienzan con el mismo valor. Por ejemplo, `Host` en [host.json](functions-host-json.md) controla el registro de `Host.General`, `Host.Executor`, `Host.Results` y así sucesivamente.
+
+Si [host.json](functions-host-json.md) incluye varias categorías que comienzan con la misma cadena, las más largas se asignan primero. Por ejemplo, imagine que quiere que todo el entorno de ejecución excepto `Host.Aggregator` se registre en el nivel `Error`, pero que `Host.Aggregator` lo haga en el nivel `Information`:
+
+### <a name="version-2x"></a>Versión 2.x 
+
 ```json
 {
   "logging": {
     "fileLoggingMode": "always",
     "logLevel": {
       "default": "Information",
-      "Host.Results": "Error",
+      "Host": "Error",
       "Function": "Error",
-      "Host.Aggregator": "Trace"
+      "Host.Aggregator": "Information"
     }
   }
 }
 ```
 
-En el ejemplo siguiente se configuran las reglas siguientes:
+### <a name="version-1x"></a>Versión 1.x 
 
-1. Para los registros con la categoría "Host.Results" o "Function", solo tiene que enviar el nivel `Error` y superior a Application Insights. Los registros del nivel `Warning` e inferiores se omiten.
-2. Para los registros con la categoría Host.Aggregator, envíe todos los registros a Application Insights. El nivel de registro `Trace` es el mismo que algunos registradores llaman `Verbose`, pero usa `Trace` en el archivo *host.json*.
-3. Para el resto de registros, envíe solo el nivel `Information` y superior a Application Insights.
-
-El valor de categoría de *host.json* controla el registro de todas las categorías que comienzan con el mismo valor. Por ejemplo, "Host" en *host.json* controla el registro de "Host.General", "Host.Executor", "Host.Results" y así sucesivamente.
-
-Si *host.json* incluye varias categorías que comienzan con la misma cadena, las más largas se asignan primero. Por ejemplo, imagine que quiere que todo el runtime excepto "Host.Aggregator" inicie sesión en el nivel `Error` y quiere que "Host.Aggregator" inicie sesión en el nivel `Information`:
-
-#### <a name="functions-version-1"></a>Versión 1 de Functions 
 ```json
 {
   "logger": {
@@ -264,21 +277,6 @@ Si *host.json* incluye varias categorías que comienzan con la misma cadena, las
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
-    }
-  }
-}
-```
-
-#### <a name="functions-version-2"></a>Versión 2 de Functions 
-```json
-{
-  "logging": {
-    "fileLoggingMode": "always",
-    "logLevel": {
-      "default": "Information",
-      "Host": "Error",
-      "Function": "Error",
-      "Host.Aggregator": "Information"
     }
   }
 }
@@ -318,7 +316,7 @@ Los registros escritos por el código de función tienen la categoría "Function
 
 ## <a name="configure-the-aggregator"></a>Configurar el agregador
 
-Como se indicó en la sección anterior, el tiempo de ejecución agrega datos acerca de las ejecuciones de la función durante un período de tiempo. El período predeterminado es 30 segundos o 1000 ejecuciones, lo que ocurra primero. Puede configurar este valor en el archivo *host.json*.  Este es un ejemplo:
+Como se indicó en la sección anterior, el tiempo de ejecución agrega datos acerca de las ejecuciones de la función durante un período de tiempo. El período predeterminado es 30 segundos o 1000 ejecuciones, lo que ocurra primero. Puede configurar este valor en el archivo [host.json](functions-host-json.md).  Este es un ejemplo:
 
 ```json
 {
@@ -331,7 +329,9 @@ Como se indicó en la sección anterior, el tiempo de ejecución agrega datos ac
 
 ## <a name="configure-sampling"></a>Configurar el muestreo
 
-Application Insights tiene una característica de [muestreo](../application-insights/app-insights-sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría en los momentos de picos de carga. Cuando tasa de datos de telemetría supera un umbral especificado, Application Insights empieza a omitir aleatoriamente algunos de los elementos entrantes. La configuración predeterminada para el número máximo de elementos por segundo es 5. Puede configurar el muestreo en *host.json*.  Este es un ejemplo:
+Application Insights tiene una característica de [muestreo](../application-insights/app-insights-sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría en los momentos de picos de carga. Cuando tasa de datos de telemetría supera un umbral especificado, Application Insights empieza a omitir aleatoriamente algunos de los elementos entrantes. La configuración predeterminada para el número máximo de elementos por segundo es 5. Puede configurar el muestreo en [host.json](functions-host-json.md).  Este es un ejemplo:
+
+### <a name="version-1x"></a>Versión 1.x 
 
 ```json
 {
@@ -344,6 +344,9 @@ Application Insights tiene una característica de [muestreo](../application-insi
 }
 ```
 
+> [!NOTE]
+> El [muestreo](../application-insights/app-insights-sampling.md) está habilitado de forma predeterminada. Si parece que faltan datos, es posible que simplemente deba ajustar la configuración de muestreo para adaptarla a su escenario de supervisión en particular.
+
 ## <a name="write-logs-in-c-functions"></a>Escribir registros en funciones de C#
 
 Puede escribir registros en el código de función que aparecen como seguimientos de Application Insights.
@@ -352,7 +355,7 @@ Puede escribir registros en el código de función que aparecen como seguimiento
 
 Use un parámetro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) en las funciones en lugar de un parámetro `TraceWriter`. Los registros creados mediante el uso de `TraceWriter` se dirigen a Application Insights, pero `ILogger` permite hacer un [registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Con un objeto `ILogger` llama a [métodos de extensión `Log<level>` en ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para crear registros. Por ejemplo, el código siguiente escribe registros `Information` con la categoría "Function".
+Con un objeto `ILogger`, llamará al `Log<level>` [métodos de extensión en ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para crear registros. Por ejemplo, el código siguiente escribe registros `Information` con la categoría "Function".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -421,9 +424,79 @@ Este código es una alternativa a llamar a `trackMetric` con [el SDK de Node.js 
 
 ## <a name="custom-telemetry-in-c-functions"></a>Telemetría personalizada en funciones de C#
 
-Puede usar el paquete NuGet [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) para enviar datos de telemetría personalizada a Application Insights.
+Puede usar el paquete NuGet [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) para enviar datos de telemetría personalizada a Application Insights. En el siguiente ejemplo de C# se usa la [API de telemetría personalizada](../application-insights/app-insights-api-custom-events-metrics.md). El ejemplo es para una biblioteca de clases. NET, pero el código de Application Insights es el mismo para la secuencia de comandos de C#.
 
-Este es un ejemplo de código C# que utiliza la [API de telemetría personalizada](../application-insights/app-insights-api-custom-events-metrics.md). El ejemplo es para una biblioteca de clases. NET, pero el código de Application Insights es el mismo para la secuencia de comandos de C#.
+### <a name="version-2x"></a>Versión 2.x
+
+El entorno de ejecución de la versión 2.x usa características más recientes de Application Insights para correlacionar automáticamente la telemetría con la operación actual. No es necesario establecer manualmente la operación `Id`, `ParentId` o `Name`.
+
+```cs
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+
+namespace functionapp0915
+{
+    public static class HttpTrigger2
+    {
+        // In Functions v2, TelemetryConfiguration.Active is initialized with the InstrumentationKey
+        // from APPINSIGHTS_INSTRUMENTATIONKEY. Creating a default TelemetryClient like this will 
+        // automatically use that key for all telemetry. It will also enable telemetry correlation
+        // with the current operation.
+        // If you require a custom TelemetryConfiguration, create it initially with
+        // TelemetryConfiguration.CreateDefault() to include this automatic correlation.
+        private static TelemetryClient telemetryClient = new TelemetryClient();
+
+        [FunctionName("HttpTrigger2")]
+        public static Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
+            HttpRequest req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // parse query parameter
+            string name = req.Query
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            evt.Context.User.Id = name;
+            telemetryClient.TrackEvent(evt);
+
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            metric.Context.User.Id = name;
+            telemetryClient.TrackMetric(metric);
+
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
+            dependency.Context.User.Id = name;
+            telemetryClient.TrackDependency(dependency);
+
+            return Task.FromResult<IActionResult>(new OkResult());
+        }
+    }
+}
+```
+
+### <a name="version-1x"></a>Versión 1.x
 
 ```cs
 using System;
@@ -506,7 +579,7 @@ namespace functionapp0915
 
 No llame a `TrackRequest` ni a `StartOperation<RequestTelemetry>`, ya que verá solicitudes duplicadas de invocaciones de función.  El tiempo de ejecución de Functions realiza un seguimiento automático de las solicitudes.
 
-No establezca `telemetryClient.Context.Operation.Id`. Es una configuración global y provocará una correlación incorrecta cuando muchas funciones se ejecuten de manera simultánea. En su lugar, cree una instancia de telemetría nueva (`DependencyTelemetry`, `EventTelemetry`) y modifique su propiedad `Context`. Luego, pase la instancia de telemetría al método `Track` correspondiente en `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Esto garantiza que la telemetría tiene los detalles de correlación correctos para la invocación de función actual.
+No establezca `telemetryClient.Context.Operation.Id`. Esta es una configuración global y provocará una correlación incorrecta cuando muchas funciones se ejecuten de manera simultánea. En su lugar, cree una instancia de telemetría nueva (`DependencyTelemetry`, `EventTelemetry`) y modifique su propiedad `Context`. Luego, pase la instancia de telemetría al método `Track` correspondiente en `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). De esta manera, se garantiza que la telemetría tiene los detalles de correlación correctos para la invocación de función actual.
 
 ## <a name="custom-telemetry-in-javascript-functions"></a>Telemetría personalizada en funciones de JavaScript
 
@@ -567,7 +640,7 @@ Puede transmitir archivos de registro a una sesión de línea de comandos en una
 
 Para la CLI de Azure, use los siguientes comandos para iniciar sesión, elija la suscripción y transmita los archivos de registro:
 
-```
+```azurecli
 az login
 az account list
 az account set <subscriptionNameOrId>
@@ -576,7 +649,7 @@ az webapp log tail --resource-group <resource group name> --name <function app n
 
 Para Azure PowerShell, use los siguientes comandos para agregar su cuenta de Azure, elija su suscripción y transmita los archivos de registro:
 
-```
+```powershell
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
 PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription

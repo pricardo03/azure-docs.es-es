@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: e8e0f8352404892ea8af6a0fa176c336dd2c1659
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 54d0ce39ea511958824acb753bcf7102d33a6c90
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054031"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444035"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de procedimiento almacenado de SQL Server en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,12 +69,16 @@ En la tabla siguiente se describen estas propiedades JSON:
 
 | Propiedad                  | DESCRIPCIÓN                              | Obligatorio |
 | ------------------------- | ---------------------------------------- | -------- |
-| Nombre                      | Nombre de la actividad                     | Sí      |
-| Descripción               | Texto que describe para qué se usa la actividad. | Sin        |
-| Tipo                      | Para la actividad de procedimiento almacenado, el tipo de actividad es **SqlServerStoredProcedure** | Sí      |
-| linkedServiceName         | Referencia a **Azure SQL Database**, **Azure SQL Data Warehouse** o **SQL Server** registrada como un servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
-| storedProcedureName       | Especifique el nombre del procedimiento almacenado que se invocará. | Sí      |
+| Nombre                      | Nombre de la actividad                     | SÍ      |
+| description               | Texto que describe para qué se usa la actividad. | Sin        |
+| Tipo                      | Para la actividad de procedimiento almacenado, el tipo de actividad es **SqlServerStoredProcedure** | SÍ      |
+| linkedServiceName         | Referencia a **Azure SQL Database**, **Azure SQL Data Warehouse** o **SQL Server** registrada como un servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | SÍ      |
+| storedProcedureName       | Especifique el nombre del procedimiento almacenado que se invocará. | SÍ      |
 | storedProcedureParameters | Especifique los valores para los parámetros del procedimiento almacenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para pasar valores de parámetros y su tipo compatible con el origen de datos. Si necesita pasar NULL para un parámetro, use `"param1": { "value": null }` (todo en minúsculas). | Sin        |
+
+## <a name="error-info"></a>Información de error
+
+Cuando un procedimiento almacenado produce un error y devuelve detalles del error, no se puede capturar la información del error directamente en la salida de la actividad. Sin embargo, Data Factory envía todos sus eventos de ejecución de actividad a Azure Monitor. Entre los eventos que Data Factory envía a Azure Monitor, se encuentran los detalles del error. Por ejemplo, puede configurar alertas de correo electrónico de esos eventos. Para más información, consulte [Alerta y supervisión de factorías de datos mediante Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 

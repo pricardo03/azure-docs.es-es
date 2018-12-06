@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 664d52a96f1e724502f82f5f72567f87c74e716b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989884"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444263"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificación de Azure Maps
 
 Cuando busca una ubicación con Azure Maps, el servicio de búsqueda toma los términos de su búsqueda y devuelve las coordenadas de latitud y longitud mediante un proceso denominado geocodificación. Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas las regiones y países. Use este artículo para determinar qué tipo de ubicaciones puede buscar de forma confiable en cada región. 
+
+La capacidad de obtener las coordenadas geográficas en un país depende de la cobertura de los datos de carretera y la precisión de la codificación geográfica del servicio de geocodificación. Las siguientes clasificaciones se usan para especificar el nivel de geocodificación en cada país.
+* **Puntos de dirección**: Los datos de direcciones se pueden resolver en una coordenada de latitud y longitud dentro de la parcela de la dirección (límite de la propiedad). Este nivel de precisión, a veces llamada de azotea, es el mayor disponible para las direcciones. 
+* **Números de casa**: Las direcciones se interpolan a una coordenada de latitud y longitud de la calle.
+* **Nivel de calle**: Las direcciones se resuelven en la coordenada de latitud y longitud de la calle que contiene la dirección. No se puede procesar el número de casa.
+* **Nivel de ciudad**: Se admiten nombres de ciudad.
 
 ## <a name="americas"></a>América
 
@@ -52,6 +58,7 @@ Cuando busca una ubicación con Azure Maps, el servicio de búsqueda toma los t�
 | Guadalupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Guayana        |                |             |           |      ✓     |                 |
 | Haití                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -101,6 +108,7 @@ Cuando busca una ubicación con Azure Maps, el servicio de búsqueda toma los t�
 | Isla Heard e Islas McDonald                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| India       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japón                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |

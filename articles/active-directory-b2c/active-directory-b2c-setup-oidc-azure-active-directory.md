@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9b9754c9087f2d0064cc1aa75e76520731dfb3a9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 86e5381096633e58d7a1a28ac94728136273c685
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242865"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312789"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión de cuentas de Azure Active Directory con una directiva integrada en Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
 
 ## <a name="create-an-azure-ad-app"></a>Creación de una aplicación de Azure AD
 
-Para habilitar el inicio de sesión para los usuarios de una organización específica de Azure AD, es preciso registrar una aplicación en el inquilino de Azure AD de la organización, que no es el mismo que su inquilino de Azure AD B2C.
+Si desea habilitar el inicio de sesión para los usuarios de una organización específica de Azure AD, es preciso registrar una aplicación en el inquilino de Azure AD de la organización, que no es el mismo que el inquilino de Azure AD B2C.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, haga clic en el filtro de directorio y suscripción que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.

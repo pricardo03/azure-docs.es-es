@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92d80d9a4d39a3f21539e5e6e498fc52df213a19
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c56ac35f49c364b7b0f2ad26b82b178411419414
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248819"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282692"
 ---
 # <a name="add-symbols-and-markers-to-a-map"></a>Incorporación de símbolos y marcadores a un mapa
 
@@ -51,7 +51,7 @@ En el código anterior, el primer bloque de código construye un objeto de mapa.
 
 En el segundo bloque de código, se define una matriz de posiciones y se crea un objeto [MultiPoint](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.multipoint?view=azure-iot-typescript-latest). Luego se crea un objeto de origen de datos mediante la clase [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) y se agrega el objeto MultiPoint al origen de datos.
 
-Una [capa de burbujas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) representa los datos basados en puntos encapsulados en el [origen de datos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como círculos en el mapa. El último bloque de código crea una capa de burbujas y la agrega al mapa. Consulte las propiedades de una capa de burbujas en [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest).
+Una [capa de burbujas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) representa los datos basados en puntos encapsulados en el [origen de datos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como círculos en el mapa. El último bloque de código crea una capa de burbujas y la agrega al mapa. Puede consultar las propiedades de una capa de burbujas en [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
 
 El objeto MultiPoint, el origen de datos y la capa de burbujas se crean y agregan al mapa dentro de la función [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantizar que se muestre el círculo una vez que el mapa se cargue completamente.
 
@@ -64,9 +64,9 @@ El código anterior muestra cómo visualizar y etiquetar datos en el mapa. En el
 
 En el segundo bloque de código se crea un objeto [point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest). A continuación, se crea un objeto de origen de datos mediante la clase [origen de datos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) y se agrega el punto al origen de datos.
 
-Una [capa de burbujas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) representa los datos basados en puntos encapsulados en el [origen de datos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como círculos en el mapa. El tercer bloque de código crea una capa de burbujas y la agrega al mapa. Consulte las propiedades de una capa de burbujas en [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest).
+Una [capa de burbujas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) representa los datos basados en puntos encapsulados en el [origen de datos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como círculos en el mapa. El tercer bloque de código crea una capa de burbujas y la agrega al mapa. Puede consultar las propiedades de una capa de burbujas en [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
 
-Una [capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto o iconos para representar los datos basados en puntos encapsulados en [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos en el mapa. El último bloque de código crea y agrega una capa de símbolos al mapa que representa la etiqueta de texto de la burbuja. Consulte las propiedades de una capa de símbolos en [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.symbollayeroptions?view=azure-iot-typescript-latest).
+Una [capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto o iconos para representar los datos basados en puntos encapsulados en [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos en el mapa. El último bloque de código crea y agrega una capa de símbolos al mapa que representa la etiqueta de texto de la burbuja. Consulte las propiedades de una capa de símbolos en [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions).
 
 El origen de datos y las capas se crean y agregan al mapa dentro de la función [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantizar que se muestren los datos una vez que el mapa se cargue completamente.
 

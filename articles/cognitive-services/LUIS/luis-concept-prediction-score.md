@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637983"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264393"
 ---
 # <a name="prediction-score"></a>Puntuación de predicción
 Una puntuación de predicción indica el grado de confianza que tiene LUIS en los resultados de la predicción. 
@@ -62,7 +62,7 @@ Si entrena el mismo modelo en otra aplicación y los resultados no son los mismo
 Si el bot de chat requiere una puntuación de LUIS específica para indicar confianza en una intención, debe usar en su lugar la diferencia de puntuación entre las dos intenciones superiores. Esto proporciona flexibilidad para las variaciones en el aprendizaje. 
 
 ## <a name="punctuation"></a>Signos de puntuación
-Los signos de puntuación son un token independiente de LUIS. Una expresión que contiene un punto final frente a una expresión que no lo tiene son dos expresiones distintas y pueden tener predicciones diferentes. Asegúrese de que el modelo controla los signos de puntuación ya sea en las [expresiones de ejemplo](luis-concept-utterance.md) (que tienen y no tienen signos de puntuación) o en los [patrones}(luis-concept-patterns.md), donde es más sencillo pasar por alto los signos de puntuación con la sintaxis especial: `I am applying for the {Job} position[.]`
+Los signos de puntuación son un token independiente de LUIS. Una expresión que contiene un punto final frente a una expresión que no lo tiene son dos expresiones distintas y pueden tener predicciones diferentes. Asegúrese de que el modelo controla los signos de puntuación, ya sea en las [expresiones de ejemplo](luis-concept-utterance.md) (que los tengan o no) o en los [patrones](luis-concept-patterns.md), donde es más sencillo pasar por alto los signos de puntuación con la sintaxis especial: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

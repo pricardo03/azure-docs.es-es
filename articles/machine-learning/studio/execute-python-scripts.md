@@ -1,11 +1,12 @@
 ---
-title: Ejecución de scripts de aprendizaje automático de Python | Microsoft Docs
-description: Describe los principios de diseño subyacentes a la compatibilidad con scripts de Python en Azure Machine Learning y los escenarios de uso básico, las funcionalidades y las limitaciones.
+title: Ejecución de scripts de aprendizaje automático de Python en Azure Machine Learning Studio | Microsoft Docs
+description: Describe los principios de diseño subyacentes que permiten utilizar scripts de Python en Azure Machine Learning Studio, así como los escenarios de uso básicos, las funcionalidades y las limitaciones.
 keywords: aprendizaje automático de Python, pandas, pandas de python, scripts de python, ejecutar scripts de python
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 7520780060f603a7e394b100549529a2c1b6fe4b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 958dd91277a81a9082a4149d2b0026fc11bf882a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228171"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317592"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Ejecución de scripts de Python en Azure Machine Learning Studio
 
@@ -150,7 +151,7 @@ La salida del módulo muestra que el archivo ZIP se ha desempaquetado y que la f
  
 ![image10](./media/execute-python-scripts/figure7.png)
 
-Ilustración 7. Función definida por el usuario en uso dentro del módulo [Ejecutar script de Python][execute-python-script].
+ Ilustración 7. Función definida por el usuario en uso dentro del módulo [Ejecutar script de Python][execute-python-script].
 
 
 ## <a name="working-with-visualizations"></a>Trabajo con visualizaciones
@@ -201,9 +202,9 @@ Figura 11. Experimento para clasificar las características del conjunto de dato
 ## <a name="limitations"></a>Limitaciones
 [Ejecutar script de Python][execute-python-script] actualmente tiene las siguientes limitaciones:
 
-1. *Ejecución en espacio aislado.* El tiempo de ejecución de Python actualmente se realiza en espacio aislado y, como resultado, no permite el acceso a la red o al sistema de archivos local de manera persistente. Todos los archivos guardados localmente son aislados y eliminados una vez que se finaliza el módulo. El código Python no puede tener acceso a la mayoría de los directorios de la máquina en que se ejecuta, con la excepción del directorio actual y sus subdirectorios.
-2. *Falta de compatibilidad con la depuración y desarrollo sofisticado.* El módulo Python actualmente no es compatible con características de IDE, como IntelliSense y depuración. Además, si se produce un error en el módulo en runtime, el seguimiento de la pila completo de Python está disponible. Pero debe verse en el registro de salida del módulo. De momento se recomienda que los usuarios desarrollen y depuren scripts de Python en un entorno como IPython y luego importen el código al módulo.
-3. *Salida de una trama de datos.* El punto de entrada de Python solo tiene permitido devolver una trama de datos como salida. Actualmente no es posible devolver objetos arbitrarios de Python, como modelos entrenados, directamente de vuelta al tiempo de ejecución de Azure Machine Learning. Al igual que [Ejecutar script R][execute-r-script], que tiene la misma limitación, en muchos casos es posible incluir objetos en una matriz de bytes y luego devolverla dentro de una trama de datos.
+1. *Ejecución en espacio aislado.*  El tiempo de ejecución de Python actualmente se realiza en espacio aislado y, como resultado, no permite el acceso a la red o al sistema de archivos local de manera persistente. Todos los archivos guardados localmente son aislados y eliminados una vez que se finaliza el módulo. El código Python no puede tener acceso a la mayoría de los directorios de la máquina en que se ejecuta, con la excepción del directorio actual y sus subdirectorios.
+2. *Falta de compatibilidad con la depuración y desarrollo sofisticado.*  El módulo Python actualmente no es compatible con características de IDE, como IntelliSense y depuración. Además, si se produce un error en el módulo en runtime, el seguimiento de la pila completo de Python está disponible. Pero debe verse en el registro de salida del módulo. De momento se recomienda que los usuarios desarrollen y depuren scripts de Python en un entorno como IPython y luego importen el código al módulo.
+3. *Salida de una trama de datos.*  El punto de entrada de Python solo tiene permitido devolver una trama de datos como salida. Actualmente no es posible devolver objetos arbitrarios de Python, como modelos entrenados, directamente de vuelta al tiempo de ejecución de Azure Machine Learning. Al igual que [Ejecutar script R][execute-r-script], que tiene la misma limitación, en muchos casos es posible incluir objetos en una matriz de bytes y luego devolverla dentro de una trama de datos.
 4. *Incapacidad para personalizar la instalación de Python*. Actualmente, la única manera de agregar módulos personalizados de Python es a través del mecanismo de archivo ZIP descrito anteriormente. A pesar de que esto es viable cuando se trata de módulos pequeños, es complicado para módulos de gran tamaño (especialmente para los módulos con DLL nativas) o para un gran número de módulos. 
 
 ## <a name="conclusions"></a>Conclusiones

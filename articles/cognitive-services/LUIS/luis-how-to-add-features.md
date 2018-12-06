@@ -8,18 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830997"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580968"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Uso de listas de frases para aumentar la señal de la lista de palabras
 
 Puede agregar características a la aplicación de LUIS para mejorar su precisión. Las características ayudan a LUIS al proporcionar sugerencias sobre ciertas palabras y frases que forman parte de un vocabulario de dominio de aplicación. 
+
+Una [lista de frases](luis-concept-feature.md) incluye un grupo de valores (palabras o frases) que pertenecen a la misma clase y que se deben tratar de forma similar (por ejemplo, nombres de ciudades o productos). Lo que LUIS aprende sobre una de ellas se aplica automáticamente al resto. Esta lista no es una entidad de lista cerrada (coincidencias de texto exactas) de palabras coincidentes.
+
+Una lista de frases se agrega al vocabulario del dominio de aplicación como una segunda señal para LUIS sobre esas palabras.
 
 ## <a name="add-phrase-list"></a>Incorporación de una lista de frases
 
@@ -47,9 +51,6 @@ Puede agregar características a la aplicación de LUIS para mejorar su precisi�
 
 > [!Note]
 > Puede eliminar o desactivar una lista de frases desde la barra de herramientas contextual de la página **Lista de frases**.
-
-## <a name="pattern-regular-expression-feature"></a>Característica de patrón (expresión regular) 
-**Esta característica está en desuso**. No se pueden agregar características de patrón nuevas a LUIS. Las características de patrón existentes se admiten hasta mayo de 2018. Contribuya a la coincidencia de expresión regular de LUIS estándar con una solicitud al [repositorio Recognizers-Text de Github](https://github.com/Microsoft/Recognizers-Text). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

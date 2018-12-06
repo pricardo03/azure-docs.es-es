@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: f5be273401fa9fdfdc2c97296f5f2265dbb3c447
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f36d89fb01e7892ef10576b7f5f0b5fa86d8a21b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042384"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314258"
 ---
-# <a name="phoenix-query-server-rest-sdk"></a>Phoenix Query Server REST SDK
+# <a name="apache-phoenix-query-server-rest-sdk"></a>SDK de REST de Apache Phoenix Query Server
 
-[Apache Phoenix](http://phoenix.apache.org/) es una capa de base de datos relacional de código abierto y masivamente paralela en la parte superior de [HBase](apache-hbase-overview.md). Phoenix le permite usar consultas de tipo SQL con HBase mediante herramientas SSH como [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix también proporciona un servidor HTTP, denominado Phoenix Query Server (PQS). Se trata de un cliente ligero que admite dos mecanismos de transporte para la comunicación de cliente: JSON y búferes de protocolo. Los búferes de protocolo son el mecanismo predeterminado y ofrecen una comunicación más eficaz que JSON.
+[Apache Phoenix](http://phoenix.apache.org/) es una capa de base de datos relacional de código abierto y masivamente paralela que se utiliza sobre [Apache HBase](apache-hbase-overview.md). Phoenix le permite usar consultas de tipo SQL con HBase mediante herramientas SSH como [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix también proporciona un servidor HTTP, denominado Phoenix Query Server (PQS). Se trata de un cliente ligero que admite dos mecanismos de transporte para la comunicación de cliente: JSON y búferes de protocolo. Los búferes de protocolo son el mecanismo predeterminado y ofrecen una comunicación más eficaz que JSON.
 
 En este artículo se describe cómo usar PQS REST SDK para crear tablas, realizar operaciones upsert individualmente y de forma masiva, y seleccionar datos con instrucciones SQL. En los ejemplos se usa el [controlador de Microsoft .NET para Apache Phoenix Query Server](https://www.nuget.org/packages/Microsoft.Phoenix.Client). Este SDK se basa en API de [Avatica de Apache Calcite](https://calcite.apache.org/avatica/), que usa exclusivamente los búferes de protocolo para el formato de serialización.
 
@@ -32,7 +32,7 @@ El controlador Microsoft .NET para Apache Phoenix Query Server se proporciona co
 
 ## <a name="instantiate-new-phoenixclient-object"></a>Crear una instancia nueva del objeto PhoenixClient
 
-Para comenzar a usar la biblioteca, cree instancias de un objeto nuevo de `PhoenixClient`, pasando `ClusterCredentials` que contiene `Uri` para el clúster, y la contraseña y el nombre de usuario de Hadoop del clúster.
+Para comenzar a usar la biblioteca, cree una instancia de un objeto nuevo `PhoenixClient`. Para ello, pase un objeto `ClusterCredentials` que contenga el `Uri` al clúster, así como la contraseña y el nombre de usuario de Apache Hadoop del clúster.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
@@ -540,5 +540,5 @@ FM: 5
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-* [Phoenix en HDInsight](../hdinsight-phoenix-in-hdinsight.md)
-* [Uso del SDK de REST para HBase](apache-hbase-rest-sdk.md)
+* [Apache Phoenix en HDInsight](../hdinsight-phoenix-in-hdinsight.md)
+* [Uso del SDK de REST para Apache HBase](apache-hbase-rest-sdk.md)

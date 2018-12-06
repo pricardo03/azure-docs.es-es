@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: c87596099995cbd34a0ee32ec287de81ec741bda
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4b673423bcf3785b29cc287e025d1ee52bc402f7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008071"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312909"
 ---
-# <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDInsight
+# <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Uso de Apache Phoenix con clústeres de Apache HBase basados en Linux en HDInsight
 Aprenda a usar [Apache Phoenix](http://phoenix.apache.org/) en Azure HDInsight y también a usar SQLLine. Para obtener más información acerca de Phoenix, consulte [Phoenix en 15 minutos o menos](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Para conocer la gramática de Phoenix, consulte [el siguiente vínculo](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
@@ -30,13 +30,13 @@ Aprenda a usar [Apache Phoenix](http://phoenix.apache.org/) en Azure HDInsight y
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de poder usar SQLLine, debe disponer de los siguientes elementos:
 
-* **Un clúster de HBase en HDInsight**. Para crear uno, consulte [Introducción a Apache HBase en HDInsight](./apache-hbase-tutorial-get-started-linux.md).
+* **Un clúster de Apache HBase en HDInsight**. Para crear uno, consulte [Introducción a Apache HBase en HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
-Cuando se conecte a un clúster de HBase, debe conectarse a una de las máquinas virtuales Zookeeper. Cada clúster de HDInsight tiene tres máquinas virtuales Zookeeper.
+Cuando se conecte a un clúster de HBase, la conexión debe establecerse con una de las máquinas virtuales de [Apache ZooKeeper](https://zookeeper.apache.org/). Cada clúster de HDInsight tiene tres máquinas virtuales Zookeeper.
 
 **Para obtener el nombre de host de ZooKeeper**
 
-1. Abra Ambari; para ello, vaya a **https://\<nombre del clúster\>.azurehdinsight.net**.
+1. Abra [Apache Ambari](https://ambari.apache.org/); para ello, vaya a **https://\<nombre del clúster\>.azurehdinsight.net**.
 2. Para iniciar sesión, escriba el nombre de usuario HTTP (clúster) y la contraseña.
 3. En el menú de la izquierda, seleccione **ZooKeeper**. Se muestran tres instancias de **ZooKeeper Server**.
 4. Seleccione una de las instancias de **ZooKeeper Server**. En el panel **Resumen**, busque el **nombre de host**. Es parecido a *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
@@ -61,16 +61,16 @@ Cuando se conecte a un clúster de HBase, debe conectarse a una de las máquinas
 
         !quit
 
-Para más información, consulte el [manual de SQLLine](http://sqlline.sourceforge.net/#manual) y la [gramática de Phoenix](http://phoenix.apache.org/language/index.html).
+Para más información, consulte el [manual de SQLLine](http://sqlline.sourceforge.net/#manual) y la [gramática de Apache Phoenix](http://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar Apache Phoenix en HDInsight. Para más información, consulte estos artículos:
 
 * [Información general de HBase de HDInsight][hdinsight-hbase-overview].
-  HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que ofrece un acceso aleatorio y una coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados.
-* [Aprovisionamiento de clústeres de HBase en la red virtual de Azure][hdinsight-hbase-provision-vnet]
-  Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones, de forma que estas puedan comunicarse directamente con HBase.
-* [Configuración de la replicación de HBase en HDInsight](apache-hbase-replication.md). Aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
+  Apache HBase es una base de datos NoSQL de código abierto de Apache basada en Apache Hadoop que proporciona acceso aleatorio y un elevado nivel de coherencia para grandes cantidades de datos no estructurados y semiestructurados.
+* [Aprovisionamiento de clústeres de Apache HBase en Azure Virtual Network][hdinsight-hbase-provision-vnet].
+  Con la integración de las redes virtuales, los clústeres de Apache HBase pueden implementarse en la misma red que las aplicaciones, de forma que estas puedan comunicarse directamente con HBase.
+* [Configuración de la replicación de Apache HBase en HDInsight](apache-hbase-replication.md). Aprenda a configurar la replicación de Apache HBase entre dos centros de datos de Azure.
 
 
 [azure-portal]: https://portal.azure.com

@@ -1,10 +1,11 @@
 ---
-title: Repetición del entrenamiento de los modelos de Machine Learning mediante programación | Microsoft Docs
+title: Repetición del entrenamiento de los modelos de Machine Learning mediante programación en Azure | Microsoft Docs
 description: Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
@@ -15,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b2090b39991363ee2a5b2e12945d97dc0fa9f2b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b38143fe6f1f1cf3e65a2989e1b0a71c28530b2a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835511"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313392"
 ---
-# <a name="retrain-machine-learning-models-programmatically"></a>Volver a entrenar modelos de Machine Learning mediante programación
-En este tutorial, aprenderá a entrenar mediante programación un servicio web Azure Machine Learning mediante C# y el servicio de ejecución por lotes de Machine Learning.
+# <a name="retrain-machine-learning-studio-models-programmatically"></a>Repetición del entrenamiento de modelos de Machine Learning Studio mediante programación
+En este tutorial, aprenderá a repetir el entrenamiento de un servicio web de Azure Machine Learning Studio mediante programación utilizando C# y el servicio de ejecución por lotes de Machine Learning.
 
 Cuando haya reentrenado el modelo, los tutoriales siguientes le mostrarán cómo actualizarlo en el servicio web predictivo:
 

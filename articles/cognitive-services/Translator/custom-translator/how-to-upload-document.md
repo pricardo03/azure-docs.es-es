@@ -1,7 +1,7 @@
 ---
 title: 'Cómo cargar un documento: Custom Translator'
 titleSuffix: Azure Cognitive Services
-description: Mediante la característica de carga de documentos, puede cargar documentos paralelos para los entrenamientos. Los documentos paralelos son pares de documentos en los que uno es la traducción del otro. Un documento en el par contiene oraciones en el idioma de origen y el otro documento contiene estas mismas oraciones traducidas al idioma de destino.
+description: Mediante la característica de carga de documentos, puede cargar documentos paralelos para los entrenamientos. Los documentos paralelos son pares de documentos en los que uno es la traducción del otro. Un documento en el par contiene frases en el idioma de origen y el otro documento contiene estas mismas frases traducidas al idioma de destino.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -9,16 +9,18 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bb84a3ddfba54c47cdf91aa72889a960722cdbd3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627153"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633255"
 ---
 # <a name="upload-a-document"></a>Cargar un documento
 
-En [Custom Translator](https://portal.customtranslator.azure.ai), puede cargar documentos paralelos para entrenar los modelos de traducción. Los [documentos paralelos](what-are-parallel-documents.md) son pares de documentos en los que uno es la traducción del otro. Un documento en el par contiene oraciones en el idioma de origen y el otro documento contiene estas mismas oraciones traducidas al idioma de destino.
+En [Custom Translator](https://portal.customtranslator.azure.ai), puede cargar documentos paralelos para entrenar los modelos de traducción. Los [documentos paralelos](what-are-parallel-documents.md) son pares de documentos en los que uno es la traducción del otro. Un documento en el par contiene frases en el idioma de origen y el otro documento contiene estas mismas frases traducidas al idioma de destino.
+
+Antes de cargar los documentos, revise la [Guía sobre formatos y convenciones de nomenclatura para documentos](document-formats-naming-convention.md) para asegurarse de que el formato de archivo es compatible con Custom Translator.
 
 ## <a name="how-to-upload-document"></a>¿Cómo se carga un documento?
 

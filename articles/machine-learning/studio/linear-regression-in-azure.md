@@ -1,11 +1,12 @@
 ---
-title: Uso de la regresión lineal en Machine Learning | Microsoft Docs
+title: Uso de la regresión lineal en Machine Learning Studio con Azure | Microsoft Docs
 description: Una comparación de los modelos de regresión lineal en Excel y en Azure Machine Learning Studio
 metakeywords: ''
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
@@ -16,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 162fc96c44db3c92103e12922de14b543daec9bf
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836232"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311065"
 ---
-# <a name="using-linear-regression-in-azure-machine-learning"></a>Uso de regresión lineal en Azure Machine Learning
+# <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Uso de la regresión lineal en Azure Machine Learning Studio
 > *Kate Baroni* y *Ben Boatman* son arquitectos de soluciones para empresas del Centro de Excelencia de Perspectivas sobre los datos de Microsoft. En este artículo, se describe su experiencia al migrar un conjunto existente de análisis de regresión a una solución basada en la nube mediante Machine Learning (ML) de Azure. 
 > 
 > 

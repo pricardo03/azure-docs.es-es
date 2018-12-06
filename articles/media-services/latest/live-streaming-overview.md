@@ -1,6 +1,6 @@
 ---
 title: Introducción al streaming en vivo con Azure Media Services | Microsoft Docs
-description: En este tema se proporciona información general de streaming en vivo con Azure Media Services v3.
+description: En este artículo se proporciona información general de streaming en vivo con Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,153 +11,123 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 634563a2010562e20691abae132dc7540ef8faf2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344984"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632711"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
-Cuando se proporcionan eventos de streaming en vivo con Azure Media Services normalmente participan los siguientes componentes:
+Azure Media Services permite entregar eventos en directo a sus clientes en la nube de Azure. Para transmitir los eventos en directo con Media Services, necesita lo siguiente:  
 
-* Una cámara que se usa para difundir un evento.
-* Un codificador de vídeo en vivo convierte las señales de la cámara o de otro dispositivo, como un portátil, en secuencias que se envían al servicio de streaming en vivo. Las señales también pueden incluir publicidad con SCTE-35 y señales de anuncios. 
-* El servicio de streaming en vivo de Media Services permite ingerir, previsualizar, empaquetar, registrar, cifrar y difundir contenido a los clientes o a una red CDN para una futura distribución.
+- Una cámara que se utilice para capturar el evento en directo.
+- Un codificador de vídeo en directo que convierte las señales de la cámara (u otro dispositivo, como un portátil) en una fuente de contribución que se envía a Media Services. La fuente de contribución puede incluir señales relacionadas con la publicidad, como los marcadores SCTE-35.
+- Componentes de Media Services, que permiten ingerir, previsualizar, empaquetar, registrar, cifrar y difundir el evento en directo a los clientes o a una red CDN para una futura distribución.
 
-En este artículo se proporciona una descripción detallada y se incluyen diagramas de los componentes principales que intervienen en el streaming en vivo con Media Services.
+En este artículo se proporciona una introducción general y una guía detalladas, y se incluyen diagramas de los componentes principales que intervienen en el streaming en vivo con Media Services.
 
 ## <a name="overview-of-main-components"></a>Información general de los componentes principales
 
-En Media Services, los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son los responsables de procesar el contenido de streaming en vivo. Un objeto LiveEvent proporciona un punto de conexión de entrada (dirección URL de ingesta) que luego se puede ofrecer a un codificador en directo local. El objeto LiveEvent recibe flujos de entrada en vivo desde el codificador en directo en formato RTMP o Smooth Streaming y los deja a disposición del streaming a través de uno o más objetos [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Un objeto [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite controlar la publicación, la grabación y la configuración de la ventana DVR del flujo en vivo. El objeto LiveEvent también proporciona un punto de conexión de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de un procesamiento y entrega ulteriores. 
+Para entregar secuencias bajo demanda o streaming en vivo con Media Services, debe tener al menos un objeto [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Cuando se crea la cuenta de Media Services, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Detenido**. Debe iniciar el objeto StreamingEndpoint desde el que desea transmitir el contenido a los usuarios. Puede utilizar el objeto **StreamingEndpoint** predeterminado o crear otro objeto **StreamingEndpoint** personalizado con la configuración y los ajustes de la red CDN que desee. Puede decidir habilitar varios StreamingEndpoints, cada uno de ellos dirigido a una red CDN diferente, y proporcionar un nombre de host único para la entrega de contenido. 
 
-Media Services proporciona **empaquetado dinámico** que permite previsualizar y difundir contenido en los formatos de streaming MPEG DASH, HLS y Smooth Streaming sin tener que volver a empaquetar manualmente en dichos formatos. Puede reproducir con cualquier reproductor compatible con HLS, DASH o Smooth. También puede usar [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) para probar el flujo.
+En Media Services, los objetos [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Al crear un objeto LiveEvent, se crea un punto de conexión de entrada que puede utilizar para enviar una señal en directo desde un codificador remoto. El codificador en directo remoto envía la fuente de contribución a ese punto de conexión de entrada mediante el protocolo [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) o [Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming) (MP4 fragmentado).  
 
-Media Services permite entregar el contenido cifrado de forma dinámica (**cifrado dinámico**) con Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados.
+Cuando el objeto **LiveEvent** comience a recibir la fuente de contribución, puede utilizar el punto de conexión de vista previa (dirección URL de vista previa para obtener una vista previa y validar que está recibiendo el streaming en vivo antes de seguir publicándola. Una vez que haya comprobado que la secuencia de vista previa es buena, puede utilizar el objeto LiveEvent para que el streaming en vivo esté disponible para su entrega mediante uno o más objetos **StreamingEndpoints** (creados previamente). Para ello, cree un nuevo objeto [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) en **LiveEvent**. 
 
-Si lo desea, también puede aplicar el **filtro dinámico**, que puede utilizarse para controlar el número de pistas, formatos y velocidades de bits, que se envían a los reproductores. Media Services también admite la inserción de anuncios.
+El objeto **LiveOutput** es como una grabadora que capta y graba el streaming en vivo en un recurso de su cuenta de Media Services. El contenido grabado persistirá en la cuenta de Azure Storage adjunta a su cuenta, en el contenedor definido por el recurso.  El objeto **LiveOuput** también le permite controlar algunas propiedades de la transmisión en vivo saliente, como la cantidad de la transmisión que se guarda en la grabación del archivo (por ejemplo, la capacidad del DVR en nube). El archivo en disco es una "ventana" circular de archivo que solo contiene la cantidad de contenido que se especifica en la propiedad **archiveWindowLength** de la propiedad **LiveOutput**. El contenido que está fuera de esta ventana se descarta automáticamente del contenedor de almacenamiento y no se puede recuperar. Puede crear varios objetos LiveOutputs (hasta un máximo de tres) en un objeto LiveEvent con diferentes longitudes y configuraciones de archivo.  
 
-### <a name="new-live-encoding-improvements"></a>Nuevas mejoras de codificación en vivo
+Con Media Services puede aprovechar el **empaquetado dinámico**, que le permite obtener una vista previa y difundir las transmisiones en vivo en los formatos [MPEG DASH, HLS y Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) desde la fuente de contribución que envía al servicio. Los espectadores pueden reproducir el streaming en vivo con cualquier reproductor compatible con HLS, DASH o Smooth Streaming. Puede utilizar [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) en las aplicaciones web o móviles para entregar la transmisión en cualquiera de estos protocolos.
 
-En la última versión se han realizado las siguientes nuevas mejoras.
+Media Services permite entregar el contenido cifrado de forma dinámica (**cifrado dinámico**) con Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DRM a clientes autorizados. Para más información sobre cómo cifrar el contenido con Media Services, consulte [Introducción a la protección de contenido](content-protection-overview.md).
 
-- Nuevo modo de latencia baja. Para más información, consulte [latencia](#latency).
+Si lo desea, también puede aplicar el filtro dinámico, que puede utilizarse para controlar el número de pistas, formatos, velocidades de bits y ventanas de tiempo de presentación que se envían a los reproductores. 
+
+### <a name="new-capabilities-for-live-streaming-in-v3"></a>Nuevas funcionalidades para streaming en vivo en v3
+
+Con la versión 3 de las API de Media Services, se beneficia de las siguientes características nuevas:
+
+- Nuevo modo de latencia baja. Para más información, consulte [latencia](live-event-latency.md).
 - Compatibilidad mejorada con RTMP (mayor estabilidad y mejor compatibilidad con codificadores de origen).
-- Ingesta segura de RTMPS.
-
-    Cuando se crea un objeto LiveEvent, obtiene cuatro direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principal y de respaldo para RTMPS.   
-- Soporte técnico de transcodificación las 24 horas. 
-- Mejor compatibilidad con señalización de anuncios en RTMP a través de SCTE35.
+- Ingesta segura de RTMPS.<br/>Cuando se crea un objeto LiveEvent, obtiene cuatro direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principal y de respaldo para RTMPS.   
+- Puede transmitir eventos en directo que tengan hasta 24 horas de duración al usar Media Services para transcodificar una fuente de contribución de velocidad de bits única en un flujo de salida que tiene varias velocidades de bits. 
 
 ## <a name="liveevent-types"></a>Tipos de objetos LiveEvent
 
-Un objeto [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) puede ser de uno de estos dos tipos: codificación en directo y paso a través. 
-
-### <a name="live-encoding-with-media-services"></a>Codificación en directo con Media Services
-
-![codificación en directo](./media/live-streaming/live-encoding.png)
-
-Un codificador en directo local envía una secuencia de una sola velocidad de bits al objeto LiveEvent que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes protocolos: RTP o Smooth Streaming (MP4 fragmentado). Después, el objeto LiveEvent codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
-
-Al crear este tipo de objeto LiveEvent, especifique **Básico** (LiveEventEncodingType.Basic).
+Un objeto [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) puede ser de uno de estos dos tipos: paso a través y codificación en directo. 
 
 ### <a name="pass-through"></a>Paso a través
 
 ![paso a través](./media/live-streaming/pass-through.png)
 
-El paso a través está optimizado para flujos en directo de larga ejecución o para una codificación en directo lineal ininterrumpida con el uso de un codificador en directo local. El codificador local envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) con velocidades de bits múltiples al objeto LiveEvent que está configurado para la entrega de **paso a través**. La entrega de **paso a través** significa que las transmisiones ingeridas pasan a través de objetos **LiveEvent** sin más procesamiento. 
+Cuando se utiliza el LiveEvent de paso a través, se confía en el codificador en directo local para generar una secuencia de vídeo con múltiples velocidades de bits y enviarla como fuente de contribución a LiveEvent (mediante el protocolo RTMP o MP4 fragmentado). El objeto LiveEvent lleva a cabo las secuencias de vídeo entrantes sin ningún otro procesamiento. Este tipo de objeto LiveEvent está optimizado para eventos en vivo de larga duración o para el streaming en vivo ininterrumpidamente. Al crear este tipo de objeto LiveEvent, especifique None (LiveEventEncodingType.None).
 
-Los objetos LiveEvent de paso a través admiten una resolución de hasta 4K, y el paso a través HEVC cuando se usa con el protocolo de ingesta Smooth Streaming. 
-
-Al crear este tipo de objeto LiveEvent, especifique **None** (LiveEventEncodingType.None).
+Puede enviar la fuente de contribución a resoluciones de hasta 4K y a una velocidad de fotogramas de 60 fotogramas/segundo, con códecs de vídeo H.264/AVC o H.265/HEVC y códecs de audio AAC (AAC-LC, HE-AACv1 o HE-AACv2).  Consulte el artículo [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md) para obtener más detalles.
 
 > [!NOTE]
 > El uso de un método de paso a través es la forma más económica de streaming en vivo cuando está realizando varios eventos en un largo período y ya ha invertido en codificadores locales. Consulte los detalles en [Precios de Servicios multimedia](https://azure.microsoft.com/pricing/details/media-services/) .
 > 
 
-## <a name="liveevent-types-comparison"></a>Comparación de tipos de objetos LiveEvent 
+Consulte un ejemplo en vivo en [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-En la tabla siguiente se comparan las características de dos tipos de objetos LiveEvent.
+### <a name="live-encoding"></a>Live Encoding  
 
-| Característica | LiveEvent con paso a través | LiveEvent estándar |
-| --- | --- | --- |
-| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |SÍ |
-| Resolución máxima, número de capas |4Kp30  |720p, 6 capas, 30 fps |
-| Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
-| Precio |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo" |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) |
-| Tiempo de ejecución máximo |24x7 |24x7 |
-| Compatibilidad con inserción de tabletas táctiles |Sin  |SÍ |
-| Compatibilidad con señalización de anuncios mediante API|Sin  |SÍ |
-| Compatibilidad con señalización de anuncios mediante SCTE-35 en banda|SÍ |SÍ |
-| Títulos CEA 608/708 de paso a través |SÍ |SÍ |
-| Capacidad para la recuperación de breves pausas en la fuente de contribución |SÍ |No (LiveEvent comenzará a usar la tableta táctil transcurridos más de 6 segundos sin datos de entrada)|
-| Compatibilidad con GOP de entrada no uniformes |SÍ |No: la entrada debe ser GOP de 2 s fijos |
-| Compatibilidad con la entrada de la velocidad de fotogramas variable |SÍ |No: la entrada debe ser una velocidad de fotogramas fija.<br/>Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Sin embargo, el codificador no puede tener una frecuencia inferior de 10 fotogramas/s. |
-| Apagado automático de LiveEvent cuando se pierde la fuente de entrada |Sin  |Después de 12 horas, si no hay ningún objeto LiveEvent en ejecución |
+![codificación en directo](./media/live-streaming/live-encoding.png)
 
-## <a name="liveevent-states"></a>Estados de LiveEvent 
+Si utiliza la codificación en directo con Media Services, deberá configurar el codificador en directo local para que envíe un vídeo con una única velocidad de bits como fuente de contribución a LiveEvent (mediante el protocolo RTMP o Mp4 fragmentado). LiveEvent codifica ese flujo de una sola tasa de bits entrante en un [flujo de vídeo con múltiples velocidades de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) y hace que esté disponible para que pueda reproducirse en dispositivos mediante protocolos como MPEG-DASH, HLS y Smooth Streaming. Al crear este tipo de objeto LiveEvent, especifique el tipo de codificación como **Básico** (LiveEventEncodingType.Basic).
 
-El estado actual de un objeto LiveEvent. Los valores posibles son:
+Puede enviar la fuente de contribución a una resolución de hasta 1080p a una velocidad de fotogramas de 30 fotogramas/segundo, con códec de vídeo H.264/AVC y códec de audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Consulte el artículo [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md) para obtener más detalles.
 
-|Estado|DESCRIPCIÓN|
-|---|---|
-|**Stopped**| Este es el estado inicial del objeto LiveEvent después de su creación (a menos que seleccionara el inicio automático especificado). No se produce ninguna facturación en este estado. En este estado, se pueden actualizar las propiedades del objeto LiveEvent pero no se permite el streaming.|
-|**Starting** (iniciándose)| El objeto LiveEvent se está iniciando. No se produce ninguna facturación en este estado. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el objeto LiveEvent vuelve al estado Detenido.|
-|**Ejecución**| El objeto LiveEvent es capaz de procesar secuencias en directo. Está ahora el uso de facturación. Debe detener el objeto LiveEvent para evitar más facturación.|
-|**Stopping** (Deteniéndose)| El objeto LiveEvent se está deteniendo. No se produce facturación en este estado transitorio. No se permiten actualizaciones ni streaming durante este estado.|
-|**Eliminando**| El objeto LiveEvent se está eliminando. No se produce facturación en este estado transitorio. No se permiten actualizaciones ni streaming durante este estado.|
+## <a name="liveevent-types-comparison"></a>Comparación de tipos de objetos LiveEvent
+
+El siguiente artículo contiene una tabla que compara las características de los dos tipos de objetos LiveEvent: [Comparación](live-event-types-comparison.md).
 
 ## <a name="liveoutput"></a>LiveOutput
 
-Un objeto [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite controlar la publicación, la grabación y la configuración de la ventana DVR del flujo en vivo. La relación entre LiveEvent y LiveOutput es similar a los medios tradicionales, donde un canal (LiveEvent) tiene un flujo constante de contenido y un programa (LiveOutput) se enfoca en algún evento programado en dicho objeto LiveEvent.
-Puede especificar la cantidad de horas que desea conservar el contenido grabado del objeto LiveOutput en la configuración de la propiedad **ArchiveWindowLength**. **ArchiveWindowLength** es una duración de marca de tiempo ISO 8601 de la longitud de la ventana de archivo (grabadora de vídeo digital o DVR). Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas. 
+Un objeto [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) le permite controlar las propiedades de la transmisión saliente en vivo, como qué parte de la transmisión se registra (por ejemplo, la capacidad de la DVR en la nube) y si los usuarios pueden empezar a ver la transmisión en vivo. La relación entre un objeto **LiveEvent** y su relación de **LiveOutput** es similar a la difusión de televisión tradicional, en la que un canal (**LiveEvent**) representa un flujo constante de vídeo y una grabación (**LiveOutput**) tiene un ámbito de un segmento de tiempo específico (por ejemplo, noticias vespertinas de 18:30 a 19:00). Puede grabar televisión con una grabadora de vídeo digital (DVR): la característica equivalente en LiveEvents se administra a través de la propiedad ArchiveWindowLength. Se trata de una duración de timespan ISO 8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR y se puede establecer desde un mínimo de 3 minutos hasta un máximo de 25 horas.
 
-**ArchiveWindowLength** también indica el tiempo máximo que los clientes pueden buscar hacia atrás a partir de la posición en vivo actual. Los objetos LiveOutput pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.
 
-Cada LiveOutput está asociado con un [recurso](https://docs.microsoft.com/rest/api/media/assets) y registra los datos en un contenedor en la instancia de Azure Storage asociada con la cuenta de Media Services. Para publicar LiveOutput, debe crear un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) para el recurso asociado. Contar con este localizador le permitirá crear una dirección URL de streaming que puede proporcionar a sus clientes.
+> [!NOTE]
+> Los objetos **LiveOutput** se inician al crearlos y se detienen cuando se eliminan. Cuando se elimina el objeto **LiveOutput**, no se elimina el **recurso** subyacente ni el contenido del recurso.  
 
-Un objeto LiveEvent es compatible con hasta tres objetos LiveOutput en ejecución simultánea, por lo que puede crear varios archivos de la misma transmisión entrante. Esto le permite publicar y archivar distintas partes de un evento, según sea necesario. Por ejemplo, su necesidad empresarial es difundir una fuente lineal en vivo e ininterrumpida, pero desea crear "grabaciones" de programas durante todo el día para ofrecerlas a los clientes como contenido a petición para que puedan verlas para ponerse al día.  En este escenario, primero cree un objeto LiveOutput principal, con una ventana de archivo corta de una hora o menos, para que los clientes la sintonicen como la secuencia en directo principal. Podría crear un objeto StreamingLocator para este LiveOutput y publicarlo en la aplicación o en el sitio web como la fuente "En vivo".  Mientras la fuente se encuentra en ejecución, puede crear mediante programación un segundo objeto LiveOutput simultáneo al inicio de un programa o 5 minutos antes de proporcionar algunas marcas de recorte más adelante. Se puede detener este segundo objeto LiveOutput cinco minutos después de que finalice el programa o el evento y, a continuación, puede crear un objeto StreamingLocator para publicar este programa como un recurso a petición en el catálogo de la aplicación.  Puede repetir este proceso varias veces para otros límites de programa o resaltar los que desea compartir inmediatamente como a petición, todo esto mientras la fuente "En vivo" del primer objeto LiveOutput continúa con la difusión de la fuente lineal.  Además, puede sacar partido de la compatibilidad del filtro dinámico para recortar el principio y el final del archivo desde el objeto LiveOutput que introdujo para "seguridad de superposición" entre programas y lograr un inicio y fin del contenido más precisos. El contenido archivado también se puede enviar a un objeto [Transform](https://docs.microsoft.com/rest/api/media/transforms) para codificar o encuadrar subclips precisos para que se usen varios formatos de salida como sindicación para otros servicios.
+Para más información, consulte [Uso de DVR de nube](live-event-cloud-dvr.md).
 
 ## <a name="streamingendpoint"></a>StreamingEndpoint
 
-Cuando la secuencia fluya al objeto LiveEvent, puede comenzar el evento de streaming mediante la creación de los objetos Asset, LiveOutput y StreamingLocator. Se archivará la secuencia y estará disponible a los usuarios a través del objeto [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
+Cuando la secuencia fluya al objeto **LiveEvent**, puede comenzar el evento de streaming mediante la creación de los objetos **Asset**, **LiveOutput** y **StreamingLocator**. Se archivará la secuencia y estará disponible a los usuarios a través del objeto [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
 Cuando se crea la cuenta de Media Services, se agrega un punto de conexión de streaming predeterminado a la cuenta en estado Detenido. Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado En ejecución.
 
+## <a name="a-idbilling-liveevent-states-and-billing"></a><a id="billing" />Estados y facturación de LiveEvent
+
+Un objeto LiveEvent comienza la facturación tan pronto como su estado realiza la transición a **En ejecución**. Para detener la facturación del objeto LiveEvent, debe pararlo.
+
+Para más información, consulte [Estados y facturación](live-event-states-billing.md).
+
 ## <a name="latency"></a>Latencia
 
-En esta sección se describen los resultados típicos que se ven cuando se usa la configuración de baja latencia y varios reproductores. Los resultados varían en función de la latencia de red y CDN.
+Para más información sobre la latencia de objetos LiveEvent, consulte [Latencia](live-event-latency.md).
 
-Para usar la nueva característica LowLatency, puede establecer **StreamOptionsFlag** en **LowLatency** en LiveEvent. Una vez que la transmisión esté en funcionamiento, puede usar la página de demostración de [Azure Media Player](http://ampdemo.azureedge.net/) (AMP) y establecer las opciones de reproducción para usar "Low Latency Heuristics Profile" (Perfil de heurística de baja latencia).
+## <a name="live-streaming-workflow"></a>Flujo de trabajo de streaming en vivo
 
-### <a name="pass-through-liveevents"></a>LiveEvents de paso a través
+Estos son los pasos para un flujo de trabajo de streaming en vivo:
 
-||Baja latencia de GOP de 2 s habilitada|Baja latencia de GOP de 1 s habilitada|
-|---|---|---|
-|DASH en AMP|10 s|8 s|
-|HLS en el reproductor de iOS nativo|14 s|10 s|
-|HLS.JS en Mixer Player|30 s|16 s|
+1. Crear un objeto LiveEvent.
+2. Cree un nuevo objeto de recurso.
+3. Crear un objeto LiveOutput y usar el nombre del recurso que ha creado.
+4. Crear una directiva de streaming y la clave de contenido si se va a cifrar el contenido con DRM.
+5. Si no utiliza DRM, cree un localizador de streaming con los tipos de la directiva de streaming incorporados.
+6. Enumere las rutas de acceso en la directiva de streaming para recuperar las direcciones URL que se van a utilizar (estas son deterministas).
+7. Obtenga el nombre de host para el punto de conexión de streaming desde el que desea realizar la transmisión. 
+8. Combine la dirección URL del paso 6 con el nombre de host del paso 7 para obtener la dirección URL completa.
 
-## <a name="billing"></a>Facturación
-
-Un objeto LiveEvent comienza la facturación tan pronto como su estado realiza la transición a "En ejecución". Para detener la facturación del objeto LiveEvent, debe pararlo.
-
-> [!NOTE]
-> Si **LiveEventEncodingType** en el objeto [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) está establecido en Básico, Media Services cerrará automáticamente cualquier objeto LiveEvent que tenga aún el estado "En ejecución" doce horas después de que se pierda la fuente de entrada y si no hay ningún objeto LiveOutput en ejecución. Sin embargo, se le facturará por el tiempo que el objeto LiveEvent haya estado en estado "En ejecución".
->
-
-En la tabla siguiente se muestra cómo los estados de LiveEvent se asocian al modo de facturación.
-
-| Estado de LiveEvent | ¿Es la facturación? |
-| --- | --- |
-| Iniciando |No (estado transitorio) |
-| En ejecución |SÍ |
-| Deteniéndose |No (estado transitorio) |
-| Stopped |Sin  |
+Para más información, consulte un [tutorial de streaming en vivo](stream-live-tutorial-with-api.md) basado en el ejemplo [.NET Core en vivo](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Tutorial de Live Streaming](stream-live-tutorial-with-api.md)
+- [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md)
+- [Estados y facturación](live-event-states-billing.md)
+- [Latency](live-event-latency.md)

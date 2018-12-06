@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d9328b293d38114d319d79e38b91b1b67e410d94
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346327"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581846"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Cómo implementar modelos desde el servicio Azure Machine Learning en Azure Kubernetes Service
 
@@ -25,7 +25,7 @@ Implementar modelos en AKS proporciona al servicio web funcionalidades de escala
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://aka.ms/AMLfree) antes de empezar.
 
 - Un área de trabajo del servicio de Azure Machine Learning, un directorio local que contenga los scripts y el SDK de Azure Machine Learning para Python instalado. Descubra cómo obtener estos requisitos previos con el documento [How to configure a development environment](how-to-configure-environment.md) (Cómo configurar un entorno de desarrollo).
 
@@ -65,7 +65,7 @@ Azure Kubernetes Service usa imágenes de Docker. Para crear la imagen, siga est
     * [Create a scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script) (Creación de un script de puntuación [score.py])
 
         > [!IMPORTANT]
-        > El script de puntuación recibe los datos enviados desde los clientes y los pasa a un modelo de puntuación. Documente la estructura de datos que esperan el modelo y el script. Esta documentación simplifica el proceso de creación de un cliente para consumir el servicio web.
+        > El script de puntuación recibe los datos enviados desde los clientes y los pasa al modelo de puntuación. Documente la estructura de datos que esperan el modelo y el script. Esta documentación simplifica el proceso de creación de un cliente para consumir el servicio web.
 
     * [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) (Creación de un archivo de entorno [myenv.yml]) 
 
@@ -127,7 +127,7 @@ print(aks_target.provisioning_errors)
 Si tiene un clúster de AKS existente en su suscripción de Azure, puede usarlo para implementar la imagen. El fragmento de código siguiente muestra cómo conectar un clúster al área de trabajo. 
 
 > [!IMPORTANT]
-> Solo se admite la versión de AKS 1.11.2.
+> Solo se admite la versión de AKS 1.11.3.
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties
@@ -196,4 +196,4 @@ model.delete()
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de cómo [Consume a ML Model deployed as a web service ](how-to-consume-web-service.md) (Consumir un modelo de ML implementado como servicio web).
+Obtenga información en el artículo [Consume a ML Model deployed as a web service ](how-to-consume-web-service.md) (Consumir un modelo de ML implementado como servicio web).

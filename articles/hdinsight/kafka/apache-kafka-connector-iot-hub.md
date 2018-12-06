@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 8941a7332c19b1a9d5c04abb0e4b03ae83e98016
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260489"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315434"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Uso de Apache Kafka en HDInsight con Azure IoT Hub
 
-Aprenda a usar el conector [Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) para mover datos entre Apache Kafka en HDInsight y Azure IoT Hub. En este documento, aprenderá a ejecutar el conector de IoT Hub desde un nodo perimetral del clúster.
+Aprenda a usar el conector [Apache Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) para mover datos entre Apache Kafka de HDInsight y Azure IoT Hub. En este documento, aprenderá a ejecutar el conector de IoT Hub desde un nodo perimetral del clúster.
 
-La API de Kafka Connect le permite implementar conectores que continuamente insertan datos en Kafka, o extraen datos de Kafka en otro sistema. [Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) es un conector que extrae datos de Azure IoT Hub y los inserta en Kafka. También se pueden insertar datos de Kafka en IoT Hub. 
+La API de Kafka Connect le permite implementar conectores que continuamente insertan datos en Kafka, o extraen datos de Kafka en otro sistema. [Apache Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) es un conector que extrae datos de Azure IoT Hub y los inserta en Kafka. También se pueden insertar datos de Kafka en IoT Hub. 
 
 Al extraer datos de IoT Hub, usará un conector de __origen__. Al insertar en Azure IoT, usará un conector de __receptor__. El conector de IoT Hub proporciona los conectores de origen y de receptor.
 
@@ -84,7 +84,7 @@ Para más información sobre las API de Connect, consulte [https://kafka.apache.
 >
 >    Este comando crea un archivo denominado `kafka-connect-iothub-assembly_2.11-0.6.jar` en el directorio `target/scala-2.11` para el proyecto.
 
-## <a name="configure-kafka"></a>Configuración de Kafka
+## <a name="configure-apache-kafka"></a>Configuración de Apache Kafka
 
 Desde una conexión SSH en el nodo perimetral, siga estos pasos para configurar Kafka para ejecutar el conector en modo independiente:
 
@@ -111,7 +111,7 @@ Desde una conexión SSH en el nodo perimetral, siga estos pasos para configurar 
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-4. Obtenga la dirección de los nodos de Zookeeper. Hay varios nodos de Zookeeper en el clúster, pero basta con hacer referencia a uno o dos. Para obtener la dirección de dos nodos Zookeeper, use el comando siguiente:
+4. Obtenga la dirección de los nodos de Apache Zookeeper. Hay varios nodos de Zookeeper en el clúster, pero basta con hacer referencia a uno o dos. Para obtener la dirección de dos nodos Zookeeper, use el comando siguiente:
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -335,7 +335,7 @@ Para enviar mensajes mediante el conector, siga estos pasos:
     > [!WARNING]
     > Puesto que se trata de una nueva conexión SSH, la variable `$KAFKABROKERS` no contiene ninguna información. Para establecerla, use uno de los siguientes métodos:
     >
-    > * Utilice los tres primeros pasos de la sección [Configuración de Kafka](#configure-kafka).
+    > * Siga los tres primeros pasos de la sección [Configuración de Apache Kafka](#configure-apache-kafka).
     > * Use `echo $KAFKABROKERS` desde la conexión SSH anterior para obtener los valores y, a continuación, reemplace `$KAFKABROKERS` en el siguiente comando por los valores reales.
 
     ```bash
@@ -367,7 +367,7 @@ Para más información sobre cómo usar el conector de receptor, consulte [https
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, aprendió a usar la API de Kafka Connect para iniciar Kafka Connector de IoT en HDInsight. Utilice los vínculos siguientes para conocer otras formas de trabajar con Kafka:
+En este documento, ha aprendido a utilizar Apache Kafka Connect API para iniciar IoT Kafka Connector en HDInsight. Utilice los vínculos siguientes para conocer otras formas de trabajar con Kafka:
 
-* [Uso de Apache Spark con Kafka en HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Uso de Apache Kafka con Storm en HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Uso de Apache Spark con Apache Kafka en HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Uso de Apache Storm con Apache Kafka en HDInsight](../hdinsight-apache-storm-with-kafka.md)

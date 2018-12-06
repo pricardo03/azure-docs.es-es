@@ -4,7 +4,7 @@ description: Describe cómo cambiar el perfil de la cuenta de Azure y proporcion
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 09ac7659487a81d68089a060bf038213722d4dbb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422633"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580434"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Cambio de la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto
 
@@ -46,7 +46,7 @@ Sí. El Administrador de cuenta es la persona que configuró la cuenta de Azure 
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Si actualizo el correo electrónico del perfil, ¿también se actualiza la dirección de correo electrónico de inicio de sesión?
 
-No. Si actualiza la dirección de correo electrónico del perfil, no se actualiza la dirección de correo electrónico de inicio de sesión. Para cambiar la dirección de correo electrónico de inicio de sesión, tendrá que transferir la propiedad de la cuenta.
+ No. Si actualiza la dirección de correo electrónico del perfil, no se actualiza la dirección de correo electrónico de inicio de sesión. Para cambiar la dirección de correo electrónico de inicio de sesión, tendrá que transferir la propiedad de la cuenta.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Si actualizo la dirección del perfil, ¿se actualiza también la dirección de facturación de la tarjeta de crédito?
 
@@ -56,7 +56,7 @@ Para aprender a actualizar la información de facturación, consulte [Cambio de 
 
 Debido a limitaciones técnicas, no se puede cambiar el país de una cuenta existente. Sin embargo, puede crear una cuenta en el país deseado y después ponerse en contacto con el soporte técnico de Azure para migrar los servicios a esa cuenta.
 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente. 
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

@@ -1,10 +1,11 @@
 ---
-title: Módulos personalizados de la Galería de Azure AI | Microsoft Docs
+title: Módulos personalizados de Azure AI Gallery en Azure Machine Learning Studio | Microsoft Docs
 description: Descubra los módulos de aprendizaje automático personalizados de la Galería de Azure AI.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: fe58b335a029e558ce29871483589908f17c03cd
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: a504bcfbbcd70c1d6fc8402d4c232e7e8a5476b0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345698"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313748"
 ---
-# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Descubrimiento de módulos de aprendizaje automático personalizados en la Galería de Azure AI
+# <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Machine Learning Studio: detección de módulos personalizados de aprendizaje automático en Azure AI Gallery
 
 [Azure AI Gallery](http://gallery.cortanaintelligence.com) ofrece varios [módulos personalizados ](https://gallery.cortanaintelligence.com/customModules) que amplían las funcionalidades de Azure Machine Learning Studio. Puede importar los módulos para su uso en los experimentos, para poder desarrollar soluciones de análisis predictivo aún más avanzadas.
 

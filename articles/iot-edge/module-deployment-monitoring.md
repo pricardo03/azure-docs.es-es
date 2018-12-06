@@ -8,20 +8,20 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b97a88a36631af1de3c95f0730a9a951b9a3a907
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569070"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584849"
 ---
-# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones de IoT Edge en un único dispositivo o a escala
+# <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala
 
 Los dispositivos de Azure IoT Edge siguen un [ciclo de vida](../iot-hub/iot-hub-device-management-overview.md) que es parecido al de otros dispositivos IoT:
 
-1. Los dispositivos de IoT Edge se aprovisionan, lo que implica crear una imagen de un dispositivo con un sistema operativo e instalar el [entorno de tiempo de ejecución de IoT Edge](iot-edge-runtime.md).
-2. Los dispositivos están configurados para ejecutar [módulos de IoT Edge](iot-edge-modules.md) y luego se supervisan de cara al mantenimiento. 
-3. Por último, los dispositivos se pueden retirar cuando se sustituyen o se vuelven obsoletos.  
+1. Aprovisione nuevos dispositivos de IoT mediante la creación de una imagen de un dispositivo con un sistema operativo y la instalación del [entorno de ejecución de Azure IoT Edge](iot-edge-runtime.md).
+2. Configure los dispositivos para ejecutar [módulos de IoT Edge](iot-edge-modules.md) y, a continuación, supervise su estado. 
+3. Por último, retire los dispositivos cuando se sustituyan o se vuelvan obsoletos.  
 
 Azure IoT Edge ofrece dos maneras de configurar los módulos para ejecutarse en dispositivos IoT Edge: una para el desarrollo y las iteraciones rápidas en un único dispositivo (ya se usó este método en los [tutoriales](tutorial-deploy-function.md) de Azure IoT Edge) y otra para administrar grandes flotas de dispositivos IoT Edge. Ambos enfoques están disponibles en Azure Portal y mediante programación. Si el destino son grupos o un gran número de dispositivos, puede especificar los dispositivos en los que desea implementar los módulos mediante [etiquetas](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) en el dispositivo gemelo. Los pasos siguientes hablan acerca de una implementación en un grupo de dispositivos del estado de Washington identificado a través de la propiedad tags. 
 
@@ -29,16 +29,16 @@ Este artículo se centra en las fases de configuración y supervisión de flotas
 
 1. Un operador define una implementación que describe un conjunto de módulos, así como los dispositivos de destino. Cada implementación tiene un manifiesto de implementación que refleja esta información. 
 2. El servicio IoT Hub se comunica con todos los dispositivos de destino para configurarlos con los módulos deseados. 
-3. El servicio IoT Hub recupera el estado de los dispositivos IoT Edge y los saca a la superficie para que el operador los supervise.  Por ejemplo, un operador puede ver cuándo un dispositivo Edge no está configurado correctamente o si se produce un error en un módulo en tiempo de ejecución. 
+3. El servicio IoT Hub recupera el estado de los dispositivos IoT Edge y hace que estén disponibles para el operador.  Por ejemplo, un operador puede ver cuándo un dispositivo Edge no está configurado correctamente o si se produce un error en un módulo en tiempo de ejecución. 
 4. En cualquier momento, los nuevos dispositivos IoT Edge que satisfacen las condiciones de destino se configuran para la implementación. Por ejemplo, una implementación que tiene como destino todos los dispositivos IoT Edge del estado de Washington configura automáticamente un nuevo dispositivo IoT Edge una vez que se aprovisiona y se agrega al grupo de dispositivos del estado de Washington. 
  
 Este artículo describe cada uno de los componentes que intervienen en la configuración y la supervisión de una implementación. Para ver un tutorial sobre la creación y la actualización de una implementación, consulte [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md) (Implementación y supervisión de módulos de IoT Edge a escala).
 
 ## <a name="deployment"></a>Implementación
 
-Una implementación automática de IoT Edge asigna imágenes de módulos de IoT Edge para ejecutarse como instancias en un conjunto de dispositivos IoT Edge de destino. Se configura un manifiesto de implementación de IoT Edge para incluir una lista de módulos con los parámetros de inicialización correspondientes. Una implementación se puede asignar a un único dispositivo (basándose en su identificador) o a un grupo de dispositivos (basándose en las etiquetas). Una vez que el dispositivo IoT Edge recibe un manifiesto de implementación, descarga e instala las imágenes de contenedor de módulos de los repositorios de contenedores respectivos, y los configura como corresponde. Después de que se crea una implementación, un operador puede supervisar el estado de implementación para ver si los dispositivos de destino están configurados correctamente.
+Una implementación automática de IoT Edge asigna imágenes de módulos de IoT Edge para ejecutarse como instancias en un conjunto de dispositivos IoT Edge de destino. Se configura un manifiesto de implementación de IoT Edge para incluir una lista de módulos con los parámetros de inicialización correspondientes. Una implementación se puede asignar a un único dispositivo (basándose en su identificador) o a un grupo de dispositivos (basándose en las etiquetas). Una vez que el dispositivo IoT Edge recibe un manifiesto de implementación, descarga e instala las imágenes de contenedor de los repositorios de contenedores respectivos, y los configura como corresponde. Después de que se crea una implementación, un operador puede supervisar el estado de implementación para ver si los dispositivos de destino están configurados correctamente.
 
-Para que los dispositivos se puedan configurar con una implementación, se deben aprovisionar como dispositivos IoT Edge. El dispositivo debe cumplir los siguientes requisitos previos para poder recibir la implementación:
+Solo los dispositivos IoT Edge se pueden configurar con una implementación. El dispositivo debe cumplir los siguientes requisitos previos para poder recibir la implementación:
 
 * El sistema operativo base
 * Un sistema de administración de contenedores, como Moby o Docker
@@ -52,7 +52,7 @@ Los metadatos de configuración de cada módulo incluyen: 
 
 * Versión 
 * Escriba 
-* Estado (p. ej., en funcionamiento o detenido) 
+* Estado (por ejemplo, en ejecución o detenido) 
 * Directiva de reinicio 
 * Registro de contenedor e imagen
 * Rutas de entrada y salida de datos 
@@ -61,9 +61,9 @@ Si la imagen del módulo se almacena en un registro de contenedor privado, el ag
 
 ### <a name="target-condition"></a>Condición de destino
 
-La condición de destino se evalúa continuamente para incluir todos los nuevos dispositivos que cumplen los requisitos o para desconectar los dispositivos que ya no lo hacen durante la vigencia de la implementación. La implementación se volverá a activar si el servicio detecta cualquier cambio en la condición de destino. 
+La condición de destino se evalúa continuamente durante la vigencia de la implementación. Se incluyen todos los nuevos dispositivos que cumplen los requisitos y se quitan todos los dispositivos existentes que ya no lo hacen. La implementación se volverá a activar si el servicio detecta cualquier cambio en la condición de destino. 
 
-Por ejemplo, tiene una implementación A con una condición de destino tags.environment = 'prod'. Al comenzar la implementación, hay diez dispositivos de producción. Los módulos se instalarán correctamente en estos diez dispositivos. El estado del agente de IoT Edge se muestra con 10 dispositivos en total, 10 respuestas correctas, 0 respuestas erróneas y 0 respuestas pendientes. Ahora agregue cinco dispositivos más con tags.environment = 'prod'. El servicio detectará el cambio y el estado del agente de IoT Edge pasará a incluir 15 dispositivos en total, 10 respuestas correctas, 0 respuestas erróneas y 5 respuestas pendientes al intentar implementar los cinco nuevos dispositivos.
+Por ejemplo, tiene una implementación A con una condición de destino tags.environment = 'prod'. Al comenzar la implementación, hay diez dispositivos de producción. Los módulos se instalarán correctamente en estos 10 dispositivos. El estado del agente de IoT Edge se muestra con 10 dispositivos en total, 10 respuestas correctas, 0 respuestas erróneas y 0 respuestas pendientes. Ahora agregue cinco dispositivos más con tags.environment = 'prod'. El servicio detectará el cambio y el estado del agente de IoT Edge pasará a incluir 15 dispositivos en total, 10 respuestas correctas, 0 respuestas erróneas y 5 respuestas pendientes al intentar implementar los cinco nuevos dispositivos.
 
 Use cualquier condición booleana en las etiquetas de los dispositivos gemelos o deviceId para seleccionar los dispositivos de destino. Si desea usar una condición con etiquetas, debe agregar la sección "etiquetas":{} en el dispositivo gemelo en el mismo nivel que las propiedades. [Más información acerca de las etiquetas en dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md)
 
@@ -79,7 +79,7 @@ Estas son algunas limitaciones a la hora de construir una condición de destino:
 
 * En dispositivos gemelos, solo puede crear una condición de destino mediante etiquetas o deviceId.
 * No se permiten las comillas dobles en ninguna porción de la condición de destino. Use comillas simples.
-* Las comillas simples representan los valores de la condición de destino. Por lo tanto, deberá agregar una comilla simple a otra comilla simple si esta ya forma parte del nombre del dispositivo. Por ejemplo, la condición de destino para: operator'sDevice se debería escribir como deviceId='operator''sDevice'.
+* Las comillas simples representan los valores de la condición de destino. Por lo tanto, deberá agregar una comilla simple a otra comilla simple si esta ya forma parte del nombre del dispositivo. Por ejemplo, para dirigirse a un dispositivo llamado `operator'sDevice`, escriba `deviceId='operator''sDevice'`.
 * Se permiten números, letras y los siguientes caracteres en los valores de la condición de destino: `-:.+%_#*?!(),=@;$`.
 
 ### <a name="priority"></a>Prioridad
@@ -115,7 +115,7 @@ Un lanzamiento por fases se ejecuta en las fases y los pasos siguientes: 
 
 ## <a name="rollback"></a>Reversión
 
-Las implementaciones se pueden revertir en caso de errores o configuraciones incorrectas.  Dado que una implementación define la configuración absoluta del módulo en un dispositivo IoT Edge, las implementaciones adicionales también se deben destinar al mismo dispositivo con una prioridad inferior incluso si el objetivo es quitar todos los módulos.  
+Las implementaciones se pueden revertir si recibe errores o configuraciones incorrectas.  Dado que una implementación define la configuración absoluta del módulo en un dispositivo IoT Edge, las implementaciones adicionales también se deben destinar al mismo dispositivo con una prioridad inferior incluso si el objetivo es quitar todos los módulos.  
 
 Realice las reversiones siguiendo esta secuencia: 
 

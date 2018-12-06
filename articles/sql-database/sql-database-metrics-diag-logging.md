@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 8f66c95202e0ccdef86f9630f7a98c20023a8955
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087753"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426006"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database 
 
@@ -101,7 +101,7 @@ Para habilitar el streaming de telemetría de diagnóstico para **Azure SQL Data
    ![Configuración de diagnósticos en SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> El registro de auditoría no se puede habilitar en la configuración de diagnóstico de la base de datos. Para habilitar el streaming de registros de auditoría, consulte [Configuración de la auditoría para su base de datos](sql-database-auditing.md#subheading-2) y [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/) (Registros de auditoría de SQL en Azure Log Analytics y Azure Event Hubs).
+> Los registros de auditoría de seguridad no se pueden habilitar en la configuración de diagnóstico de la base de datos. Para habilitar el streaming de registros de auditoría, consulte [Configuración de la auditoría para su base de datos](sql-database-auditing.md#subheading-2) y [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/) (Registros de auditoría de SQL en Azure Log Analytics y Azure Event Hubs).
 >
 
 > [!TIP]
@@ -182,7 +182,7 @@ Para habilitar el streaming de telemetría de diagnóstico del **recurso de Inst
 2. Seleccione **Configuración de diagnóstico**.
 3. Seleccione **Activar diagnóstico** si no existe ninguna configuración anterior o **Editar configuración** para editar una configuración anterior.
 
-   ![Habilitación de diagnósticos en Instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Habilitación de diagnósticos en Instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 4. Escriba el nombre de la configuración (para su propia referencia).
 5. Seleccione el recurso al que los datos de diagnóstico se transmiten en secuencia desde el grupo elástico: **Archivar en una cuenta de almacenamiento**, **Transmitir a un centro de eventos** o **Enviar a Log Analytics**.
@@ -190,7 +190,7 @@ Para habilitar el streaming de telemetría de diagnóstico del **recurso de Inst
 7. Active la casilla **ResourceUsageStats** para la telemetría de diagnóstico de instancias.
 8. Haga clic en **Guardar**
 
-   ![Configuración de diagnósticos en Instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configuración de diagnósticos en Instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
 > Repita los pasos anteriores para cada Instancia administrada que quiera supervisar.

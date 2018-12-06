@@ -4,7 +4,8 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 58d7cd22-98c0-4606-9ce5-8bdb22ee8b3e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -12,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 283379131b02f4ea115052f051ef0114efab1997
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 75bd4325063ff90e4a065c0cf854fa375e58fa95
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423200"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integración de Azure Active Directory con EverBridge
 
@@ -27,11 +28,11 @@ En este tutorial, aprenderá a integrar EverBridge con Azure Active Directory (A
 
 La integración de EverBridge con Azure AD proporciona las siguientes ventajas:
 
-- Le permite controlar en Azure AD quién tiene acceso a EverBridge
-- Puede habilitar a los usuarios para que inicien sesión automáticamente en EverBridge (inicio de sesión único) con sus cuentas de Azure AD
-- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
+- Le permite controlar en Azure AD quién tiene acceso a EverBridge.
+- Puede habilitar a los usuarios para que inicien sesión automáticamente en EverBridge (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -46,53 +47,50 @@ Para configurar la integración de Azure AD con EverBridge, necesita los siguien
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
+
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de EverBridge desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-everbridge-from-the-gallery"></a>Adición de EverBridge desde la galería
+
 Para configurar la integración de EverBridge en Azure AD, es preciso agregar EverBridge desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar EverBridge desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory][1]
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![APLICACIONES][2]
+    ![Hoja Aplicaciones empresariales][2]
     
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![APLICACIONES][3]
+    ![Botón Nueva aplicación][3]
 
-1. En el cuadro de búsqueda, escriba **EverBridge**.
+4. En el cuadro de búsqueda, escriba **EverBridge**, seleccione **EverBridge** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/everbridge-tutorial/tutorial_everbridge_search.png)
+    ![EverBridge en la lista de resultados](./media/everbridge-tutorial/tutorial_everbridge_addfromgallery.png)
 
-1. En el panel de resultados, seleccione **EverBridge** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-    ![Creación de un usuario de prueba de Azure AD](./media/everbridge-tutorial/tutorial_everbridge_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, va a configurar y probar el inicio de sesión único de Azure AD con EverBridge con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD tiene que saber cuál es el usuario homólogo de EverBridge para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de EverBridge.
 
-Para establecer la relación de vínculo, en EverBridge, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
-
 Para configurar y probar el inicio de sesión único de Azure AD con EverBridge, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba para EverBridge](#creating-an-everbridge-test-user)**: para tener un homólogo de Britta Simon en EverBridge que esté vinculado a su representación en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba para EverBridge](#creating-an-everbridge-test-user)**: para tener un homólogo de Britta Simon en EverBridge que esté vinculado a su representación en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -102,42 +100,72 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. En Azure Portal, en la página de integración de la aplicación **EverBridge**, haga clic en **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único][4]
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_everbridge_samlbase.png)
+2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, haga clic en **Seleccionar** para el modo **SAML** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de EverBridge**, lleve a cabo los pasos siguientes:
+    ![Configurar inicio de sesión único](common/tutorial_general_301.png)
 
-    ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_everbridge_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://sso.everbridge.net/<companyname>`
+    ![Configurar inicio de sesión único](common/editconfigure.png)
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://manager.everbridge.net/saml/SSO/<companyname>/alias/defaultAlias`.
+    >[!NOTE]
+    >Tiene que realizar las configuraciones de la aplicación COMO portal administrador O BIEN como portal miembro en ambos extremos, es decir, en Azure Portal y en el portal de EverBridge.
 
-    > [!NOTE] 
+4. Para configurar la aplicación **EverBridge** como **portal administrador de EverBridge**, en la sección **Configuración básica de SAML** realice estos pasos:
+
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url.png)
+
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://sso.everbridge.net/<API_Name>`
+
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias`.
+
+    > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de EverBridge](mailto:support@everbridge.com) para obtener estos valores.
+
+5. Para configurar la aplicación **EverBridge** como **portal miembro de EverBridge**, en la sección **Configuración básica de SAML** realice estos pasos:
+
+    * Si quiere configurar la aplicación en modo iniciado por **IDP**:
+
+        ![Información sobre dominio y direcciones URL de inicio de sesión único de EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+
+        * En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+
+        * En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`.
+
+    * Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+
+        ![Información sobre dominio y direcciones URL de inicio de sesión único de EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+
+        * En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`.
+
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de EverBridge](mailto:support@everbridge.com) para obtener estos valores.
+
+6. En la página **Certificado de firma de SAML**, en la sección **Certificado de firma de SAML**, haga clic **Descargar** para descargar el **archivo XML de metadatos de federación** y, luego, guarde el archivo de metadatos en el equipo.
+
+    ![Vínculo de descarga del certificado](./media/everbridge-tutorial/tutorial_everbridge_certificate.png) 
+
+7. En la sección **Configurar EverBridge**, copie la dirección URL adecuada según sus necesidades.
+
+     a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+    ![Configuración de EverBridge](common/configuresection.png)
+
+8. Para configurar el inicio de sesión único de la aplicación **EverBridge** como **portal administrador de EverBridge**, realice estos pasos: 
  
-1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+9. En otra ventana del explorador web, inicie sesión en EverBridge como administrador.
 
-    ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_everbridge_certificate.png) 
-
-1. Haga clic en el botón **Guardar** .
-
-    ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_general_400.png)
-
-1. En la sección **Configuración de EverBridge**, haga clic en **Configurar EverBridge** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
-
-    ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_everbridge_configure.png) 
-
-1. Para configurar SSO para la aplicación, tiene que iniciar sesión en su inquilino de Everbridge como administrador.
-
-1. En el menú de la parte superior, haga clic en la pestaña **Settings** (Configuración) y seleccione **Single Sign-On** (Inicio de sesión único) en **Security** (Seguridad).
+9. En el menú de la parte superior, haga clic en la pestaña **Settings** (Configuración) y seleccione **Single Sign-On** (Inicio de sesión único) en **Security** (Seguridad).
    
     ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. En el cuadro de texto **Nombre**, escriba el nombre del proveedor de identificadores (por ejemplo, el nombre de la compañía).
+     a. En el cuadro de texto **Nombre**, escriba el nombre del proveedor de identificadores (por ejemplo, el nombre de la compañía).
    
     b. En el cuadro de texto **API Name** (nombre de API), escriba el nombre de la API.
    
@@ -145,49 +173,39 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     d. Como SAML Identity Location (Ubicación de identidad de SAML), seleccione **Identity is in the NameIdentifier element of the Subject statement** (La identidad está en el elemento NameIdentifier de la instrucción de sujeto).
    
-    e. En el cuadro de texto **URL de inicio de sesión del proveedor de identidades**, pegue el valor de dirección URL de inicio de sesión único de SAM de Azure AD.
-   
-    ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_everbridge_003.png)
+    e. En el cuadro de texto **Identity Provider Login URL** (Dirección URL del proveedor de identidades), pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
    
     f. Para Service Provider Initiated Request Binding (Vinculación de solicitud iniciada por el proveedor de servicios), seleccione **Redirección HTTP**.
 
     g. Haga clic en **Guardar**
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+10. Para configurar el inicio de sesión único en la aplicación **EverBridge** como **portal miembro de EverBridge**, tiene que enviar el **archivo XML de metadatos de federación** descargados al [equipo de soporte técnico de EverBridge](mailto:support@everbridge.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-![Creación de un usuario de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Creación de un usuario de Azure AD][100]
 
-1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/everbridge-tutorial/create_aaduser_01.png) 
+    ![Creación de un usuario de prueba de Azure AD](common/create_aaduser_01.png) 
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/everbridge-tutorial/create_aaduser_02.png) 
+3. En las propiedades Usuario, siga estos pasos.
 
-1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/everbridge-tutorial/create_aaduser_03.png) 
+    ![Creación de un usuario de prueba de Azure AD](common/create_aaduser_02.png)
 
-1. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/everbridge-tutorial/create_aaduser_04.png) 
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+    c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
-
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
-
-    d. Haga clic en **Create**(Crear).
- 
+    d. Seleccione **Crear**.
+  
 ### <a name="creating-an-everbridge-test-user"></a>Creación de un usuario de prueba para EverBridge
 
 En esta sección, creará una usuaria llamada Britta Simon en Everbridge. Colabore con el [equipo de soporte técnico de EverBridge](mailto:support@everbridge.com) mediante para agregar los usuarios a la plataforma EverBridge.
@@ -196,56 +214,47 @@ En esta sección, creará una usuaria llamada Britta Simon en Everbridge. Colabo
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a EverBridge.
 
-![Asignar usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
-**Para asignar a Britta Simon a EverBridge, realice los pasos siguientes:**
+    ![Asignar usuario][201]
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
-    ![Asignar usuario][201] 
-
-1. En la lista de aplicaciones, seleccione **EverBridge**.
+2. En la lista de aplicaciones, seleccione **EverBridge**.
 
     ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_everbridge_app.png) 
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
-    ![Asignar usuario][202] 
+    ![Asignar usuario][202]
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+6. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Everbridge en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Everbridge.
+Al hacer clic en el icono de EverBridge en el panel de acceso, debería iniciar sesión automáticamente en su aplicación EverBridge.
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/everbridge-tutorial/tutorial_general_01.png
-[2]: ./media/everbridge-tutorial/tutorial_general_02.png
-[3]: ./media/everbridge-tutorial/tutorial_general_03.png
-[4]: ./media/everbridge-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/everbridge-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/everbridge-tutorial/tutorial_general_200.png
-[201]: ./media/everbridge-tutorial/tutorial_general_201.png
-[202]: ./media/everbridge-tutorial/tutorial_general_202.png
-[203]: ./media/everbridge-tutorial/tutorial_general_203.png
-
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

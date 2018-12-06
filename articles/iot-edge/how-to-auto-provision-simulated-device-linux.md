@@ -8,16 +8,16 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 703dedc69e491377ce0890610a2882ab95ae6e5a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565078"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446260"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Crear y aprovisionar un dispositivo Edge con un TPM virtual en una máquina virtual con Linux
 
-Los dispositivos Azure IoT Edge pueden aprovisionarse automáticamente con [Device Provisioning Service](../iot-dps/index.yml) igual que los dispositivos que no están habilitados para Edge. Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre el aprovisionamiento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar. 
+Los dispositivos Azure IoT Edge pueden aprovisionarse automáticamente con [Device Provisioning Service](../iot-dps/index.yml), igual que los dispositivos que no están habilitados para Edge. Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre aprovisionamiento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar. 
 
 En este artículo se muestra cómo probar el aprovisionamiento automático en un dispositivo Edge simulado con los pasos siguientes: 
 
@@ -35,7 +35,7 @@ Los pasos descritos en este artículo están destinados a la prueba.
 
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>Crear una máquina virtual con Linux con TPM virtual
 
-En esta sección, se crea una nueva máquina virtual con Linux en Hyper-V que tiene un TPM simulado para que se pueda usar para probar cómo funciona el aprovisionamiento automático con IoT Edge. 
+En esta sección, creará una máquina virtual Linux en Hyper-V que tiene un TPM simulado para que se pueda usar para probar cómo funciona el aprovisionamiento automático con IoT Edge. 
 
 ### <a name="create-a-virtual-switch"></a>Crear un conmutador virtual
 
@@ -65,7 +65,7 @@ Si ve errores al crear el nuevo conmutador virtual, asegúrese de que ningún ot
    2. **Configurar funciones de red**: establezca el valor de **Conexión** en el conmutador virtual que creó en la sección anterior. 
    3. **Opciones de instalación**: seleccione **Instalar un sistema operativo desde un archivo de imagen de arranque** y busque el archivo de imagen de disco que ha guardado localmente.
 
-La creación de la nueva máquina virtual puede tardar unos minutos. 
+La creación de la máquina virtual puede tardar unos minutos. 
 
 ### <a name="enable-virtual-tpm"></a>Habilitar TPM virtual
 
@@ -136,7 +136,7 @@ Averigüe el **Ámbito de id.** de DPS y la **Id. de registro** del dispositivo 
 
 Para que el entorno de ejecución de IoT Edge aprovisione automáticamente el dispositivo, necesita acceso al TPM. 
 
-Siga estos pasos para dar acceso a TPM. Como alternativa, puede conseguir lo mismo mediante la invalidación de la configuración de systemd para que el servicio *iotedge* pueda ejecutarse como raíz. 
+Puede conceder acceso TPM al entorno de ejecución de Azure IoT Edge mediante la invalidación de la configuración de systemd para que el servicio *iotedge* tenga privilegios raíz. Si no desea elevar los privilegios de servicio, también puede usar los pasos siguientes para proporcionar manualmente el acceso TPM. 
 
 1. Busque la ruta de acceso para el módulo de hardware TPM en el dispositivo y guárdela como variable local. 
 
@@ -180,8 +180,10 @@ Siga estos pasos para dar acceso a TPM. Como alternativa, puede conseguir lo mis
    La salida correcta tendrá un aspecto similar al siguiente:
 
    ```output
-   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
+
+   Si no ve que se hayan aplicado los permisos correctos, intente reiniciar la máquina para actualizar udev. 
 
 8. Abra el archivo de invalidaciones del entorno de ejecución de IoT Edge. 
 
@@ -224,7 +226,7 @@ Compruebe que el entorno de ejecución de IoT Edge está en ejecución.
    sudo systemctl status iotedge
    ```
 
-Si ve errores de aprovisionamiento, es posible que los cambios de configuración no hayan surtido efecto todavía. Pruebe a reiniciar la ganancia del daemon de IoT Edge. 
+Si ve errores de aprovisionamiento, es posible que los cambios de configuración no hayan surtido efecto todavía. Pruebe a reiniciar de nuevo el demonio de IoT Edge. 
 
    ```bash
    sudo systemctl daemon-reload
@@ -234,7 +236,7 @@ O bien, pruebe a reiniciar la máquina virtual para ver si los cambios surten ef
 
 ## <a name="verify-successful-installation"></a>Comprobación de instalación correcta
 
-Si el entorno de ejecución se inició correctamente, puede ir a IoT Hub y ver que el nuevo dispositivo se aprovisionó automáticamente y está listo para ejecutar módulos de IoT Edge. 
+Si el entorno de ejecución se inició correctamente, puede entrar en su instancia de IoT Hub y ver que el nuevo dispositivo se aprovisionó automáticamente. Ahora el dispositivo está listo para ejecutar módulos de IoT Edge. 
 
 Compruebe el estado de IoT Edge Daemon.
 
@@ -257,4 +259,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El proceso de inscripción en Device Provisioning Service permite establecer la id. de dispositivo y las etiquetas del dispositivo gemelo al mismo tiempo que aprovisiona el nuevo dispositivo. Puede usar esos valores para dirigirse a dispositivos individuales o grupos de dispositivos con la administración automática de dispositivos. Obtenga información sobre la [Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal](how-to-deploy-monitor.md) o [mediante la CLI de Azure](how-to-deploy-monitor-cli.md)
+El proceso de inscripción en Device Provisioning Service permite establecer la id. de dispositivo y las etiquetas del dispositivo gemelo al mismo tiempo que aprovisiona el nuevo dispositivo. Puede usar esos valores para dirigirse a dispositivos individuales o grupos de dispositivos con la administración automática de dispositivos. Aprenda a [implementar y supervisar los módulos de IoT Edge a escala mediante Azure Portal](how-to-deploy-monitor.md) o la [CLI de Azure](how-to-deploy-monitor-cli.md).

@@ -1,6 +1,6 @@
 ---
-title: Configuración de directivas de seguridad en Azure Security Center | Microsoft Docs
-description: Establezca la configuración de directivas de seguridad de Azure Security Center.
+title: Configuración de Azure Security Center | Microsoft Docs
+description: Configure Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,23 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2aa4545aa79260bea792392e1bebf4166253fc87
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256636"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315722"
 ---
-# <a name="security-policy-settings"></a>Configuración de directiva de seguridad
-En este documento se ofrece información general sobre la configuración de directivas de seguridad en Security Center.
+# <a name="security-center-settings"></a>Configuración de Security Center
+Este artículo contiene información general sobre la configuración de Security Center.
 
-## <a name="what-are-security-policies"></a>¿Qué son las directivas de seguridad?
-Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Azure Security Center, puede definir directivas para las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o a la confidencialidad de los datos. Por ejemplo, es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad que otras cargas de trabajo.
-
-Puede establecer las opciones siguientes en Directiva de seguridad:
+Las siguientes opciones están disponibles en Directiva de seguridad:
 
 - **Recopilación de datos**: determina el aprovisionamiento del agente y la configuración de la [colección de datos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- **Directiva de seguridad**: determina qué controles Security Center supervisa y recomienda. Puede editar la [directiva de seguridad](security-center-policies.md) en Security Center. También puede usar [Azure Policy](security-center-azure-policy.md) para crear definiciones, definir directivas adicionales y asignar directivas en los grupos de administración. 
+- **Directiva de seguridad**: determina qué controles Security Center supervisa y recomienda. Puede editar la [directiva de seguridad](security-center-azure-policy.md) en Security Center. También puede usar [Azure Policy](security-center-azure-policy.md) para crear definiciones, definir directivas adicionales y asignar directivas en los grupos de administración. 
 - **Notificaciones por correo electrónico**: determina los contactos de seguridad y la configuración de [notificaciones por correo electrónico](security-center-provide-security-contact-details.md).
 - **Plan de tarifa**: define la [selección de precios](security-center-pricing.md) gratuitos o estándar. El plan elegido determina qué características de Security Center están disponibles para los recursos del ámbito. Puede especificar un plan para las suscripciones, los grupos de recursos y las áreas de trabajo.
 
@@ -49,7 +46,7 @@ Security Center usa el control de acceso basado en rol (RBAC), que proporciona r
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha aprendido a configurar directivas de seguridad en Azure Security Center. Para obtener más información sobre Azure Security Center, consulte los siguientes artículos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): aprenda cómo las recomendaciones de Security Center ayudan a proteger los recursos de Azure.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.

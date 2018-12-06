@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 4bf77cd34ba985dfcfa568db0543150c0510c406
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 86d2f013567d768437e589df366c5c131e1bcf50
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300105"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421920"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Crear, enumerar o eliminar una identidad administrada asignada por el usuario mediante llamadas a la API REST
 
@@ -44,8 +44,6 @@ En este artículo, aprenderá a crear, enumerar y eliminar una identidad adminis
 
 Para crear una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
-Para crear una identidad administrada asignada por el usuario, use la siguiente solicitud CURL a la API de Azure Resource Manager. Reemplace los valores `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`, `<LOCATION>` y `<ACCESS TOKEN>` por sus propios valores:
-
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```bash
@@ -54,31 +52,61 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
+s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+
+**Encabezados de solicitud**
+
+|Encabezado de solicitud  |DESCRIPCIÓN  |
+|---------|---------|
+|*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
+|*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        |
+
+**Cuerpo de la solicitud**
+
+|NOMBRE  |DESCRIPCIÓN  |
+|---------|---------|
+|location     | Necesario. Ubicación del recurso        |
+
 ## <a name="list-user-assigned-managed-identities"></a>Enumerar identidades administradas asignadas por el usuario
 
 Para crear o leer una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Operador de identidades administradas ](/azure/role-based-access-control/built-in-roles#managed-identity-operator) o [Colaborador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
-Para enumerar identidades administradas asignadas por el usuario, use la siguiente solicitud CURL a la API de Azure Resource Manager. Reemplace los valores `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` y `<ACCESS TOKEN>` por sus propios valores:
-
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
+
+```HTTP
+GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
+```
+
+|Encabezado de solicitud  |DESCRIPCIÓN  |
+|---------|---------|
+|*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
+|*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        |
+
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminar una identidad administrada asignada por el usuario
 
 Para eliminar una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
-Para eliminar una identidad administrada asignada por el usuario, use la siguiente solicitud CURL a la API de Azure Resource Manager. Reemplace los parámetros `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` y `<ACCESS TOKEN>` por sus propios valores:
-
 > [!NOTE]
-> La eliminación de una identidad administrada asignada por el usuario no quitará la referencia de ningún recurso al que se haya asignado. Para quitar una identidad administrada asignada por el usuario desde una máquina virtual mediante CURL, consulte [Remove a user-assigned identity from an Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm) (Eliminar una identidad asignada por el usuario de una máquina virtual de Azure).
+> La eliminación de una identidad administrada asignada por el usuario no quitará la referencia de ningún recurso al que se haya asignado. Para quitar una identidad administrada asignada por el usuario desde una máquina virtual mediante CURL, consulte [Eliminar una identidad asignada por el usuario de una máquina virtual de Azure](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview' -X DELETE -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+|Encabezado de solicitud  |DESCRIPCIÓN  |
+|---------|---------|
+|*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
+|*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        |
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre cómo asignar una identidad asignada por el usuario a una máquina virtual o a un conjunto de escalado de máquinas virtuales de Azure mediante CURL, consulte cómo [configurar las identidades administradas para los recursos de Azure en una máquina virtual de Azure mediante las llamadas a API REST](qs-configure-rest-vm.md#user-assigned-managed-identity) y cómo [configurar las identidades administradas para los recursos de Azure en un conjunto de escalado de máquinas virtuales mediante las llamadas a API REST](qs-configure-rest-vmss.md#user-assigned-managed-identity).
-
-

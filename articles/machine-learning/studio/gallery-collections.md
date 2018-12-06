@@ -1,10 +1,11 @@
 ---
-title: Colecciones de la Galería de Azure AI | Microsoft Docs
-description: Descubra y comparta colecciones en la Galería de Azure AI.
+title: Colecciones de Azure AI Gallery en Azure Machine Learning Studio | Microsoft Docs
+description: Puede usar una colección de Azure AI Gallery para agrupar experimentos, API y otros elementos de la galería que use para una determinada solución o concepto. Puede agruparlos para usar, para guardar como referencia futura o para compartir.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: b586639cc6c9d4e25d65fa9f3a510e22789acfb2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: cc70405655cd07d87ca5b1004b7666d3b45bc649
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346042"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308688"
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Descubrimiento y uso compartido de colecciones en la Galería de Azure AI
 

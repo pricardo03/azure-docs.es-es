@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3f93f96c6c9fc551b8b66167eab58861b0ac0b52
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005961"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496916"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Puesta en funcionamiento de clústeres de ML Services en Azure HDInsight
 
@@ -65,7 +65,7 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
 1. Como paso opcional, puede realizar comprobaciones de diagnóstico mediante la ejecución de una prueba de diagnóstico tal y como se muestra a continuación:
 
-    a. En el menú principal, seleccione **6** para ejecutar pruebas de diagnóstico.
+     a. En el menú principal, seleccione **6** para ejecutar pruebas de diagnóstico.
 
     ![operacionalización one box](./media/r-server-operationalize/diagnostic-1.png)
 
@@ -79,9 +79,9 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
     d. En las opciones de menú que se muestran, escriba **E** para volver al menú principal y, luego, escriba **8** para salir de la utilidad de administración.
 
-### <a name="long-delays-when-consuming-web-service-on-spark"></a>Retrasos prolongados al consumir el servicio web en Spark
+### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Retrasos prolongados al consumir el servicio web en Apache Spark
 
-Si se producen retrasos prolongados al intentar consumir un servicio web creado con funciones de mrsdeploy en un contexto de proceso de Spark, puede que necesite agregar carpetas que falten. La aplicación de Spark pertenece a un usuario llamado "*rserve2*" cada vez que se invoque desde un servicio web mediante las funciones de mrsdeploy. Para evitar este problema:
+Si se producen retrasos prolongados al intentar consumir un servicio web creado con funciones de mrsdeploy en un contexto de proceso de Apache Spark, puede que necesite agregar algunas carpetas que falten. La aplicación de Spark pertenece a un usuario llamado "*rserve2*" cada vez que se invoque desde un servicio web mediante las funciones de mrsdeploy. Para evitar este problema:
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -139,7 +139,7 @@ Para escalar los nodos de proceso, retire primero los nodos de trabajo y, luego,
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>Paso 1: Retirada de los nodos de trabajo
 
-El clúster de ML Services no se administra a través de YARN. Si los nodos de trabajo no se retiran, el Administrador de recursos de YARN no funcionará según lo previsto, ya que no reconocerá los recursos que utiliza el servidor. Para evitar esto, se recomienda la retirada de los nodos de trabajo antes de escalar horizontalmente los nodos de proceso.
+El clúster de ML Services no se administra a través de [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Si los nodos de trabajo no se retiran, el Administrador de recursos de YARN no funcionará según lo previsto, ya que no reconocerá los recursos que utiliza el servidor. Para evitar esto, se recomienda la retirada de los nodos de trabajo antes de escalar horizontalmente los nodos de proceso.
 
 Siga estos pasos para retirar nodos de trabajo:
 

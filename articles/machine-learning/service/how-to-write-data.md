@@ -10,19 +10,20 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 81344d388fbba0db034b8adb06adab6797ec2ce1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4a2af832fda8a85ee8a4aba395a8f436172153ed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166754"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308569"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Escribir datos con el SDK de preparación de datos de Azure Machine Learning
-Puede escribir datos en cualquier punto de un flujo de datos. Estas opciones de escritura se agregan como pasos al flujo de datos resultante, y se ejecutan cada vez que el flujo de datos se activa. Los datos se escriben en múltiples archivos de partición para permitir escrituras paralelas.
 
-Como no hay limitaciones en cuanto a la cantidad de pasos de escritura que hay en una canalización, puede agregar fácilmente pasos de escritura adicionales para obtener resultados intermedios para solucionar problemas o para otras canalizaciones. 
+En este artículo, conocerá diferentes métodos para escribir datos utilizando el SDK de preparación de datos de Azure Machine Learning. Los datos de salida se pueden escribir en cualquier punto del flujo de datos, ya que las operaciones de escritura se agregarán como pasos al flujo de datos resultante y se ejecutarán junto con el flujo de datos. Los datos se escriben en múltiples archivos de partición para permitir escrituras paralelas.
 
-Cada vez que ejecuta un paso de escritura, se produce una incorporación de cambios completa de los datos en el flujo de datos. Por ejemplo, un flujo de datos con tres pasos de escritura leerá y procesará cada registro del conjunto de datos tres veces.
+Como no hay limitaciones en cuanto a la cantidad de pasos de escritura que hay en una canalización, puede agregar fácilmente pasos de escritura adicionales para obtener resultados intermedios para solucionar problemas o para otras canalizaciones.
+
+Cada vez que ejecuta un paso de escritura, se produce una incorporación de cambios completa de los datos en el flujo de datos. Por ejemplo, un flujo de datos con tres pasos de escritura leerá y procesará tres veces cada registro del conjunto de datos.
 
 ## <a name="supported-data-types-and-location"></a>Ubicación y tipos de datos admitidos
 
@@ -36,21 +37,23 @@ Puede usar el [SDK de preparación de datos de Azure Machine Learning para pytho
 + Azure Data Lake Storage
 
 ## <a name="spark-considerations"></a>Consideraciones sobre Spark
+
 Al ejecutar un flujo de datos en Spark, debe escribir en una carpeta vacía. Al intentar escribir en una carpeta existente, se produce un error. Asegúrese de que su carpeta de destino esté vacía o use una ubicación de destino diferente para cada ejecución; de lo contrario, se producirá un error.
 
 ## <a name="monitoring-write-operations"></a>Supervisión de operaciones de escritura
+
 Para su comodidad, se genera un archivo centinela denominado SUCCESS cada vez que se completa una escritura. Su presencia le ayuda a identificar el momento en que se completa una escritura intermedia sin tener que esperar a que se complete toda la canalización.
 
 ## <a name="example-write-code"></a>Código de escritura de ejemplo
 
-En este ejemplo, comience cargando los datos en un flujo de datos. Volverá a usar estos datos con formatos diferentes.
+En este ejemplo, comience cargando los datos en un flujo de datos. Volverá a utilizar estos datos con formatos diferentes.
 
 ```python
 import azureml.dataprep as dprep
 t = dprep.smart_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
-```   
+```
 
 Salida de ejemplo:
 |   |  Column1 |    Column2 | Column3 | Column4  |Column5   | Column6 | Column7 | Column8 | Column9 |
@@ -68,7 +71,7 @@ Salida de ejemplo:
 
 ### <a name="delimited-file-example"></a>Ejemplo de archivo delimitado
 
-En esta sección, puede ver un ejemplo que usa la función `write_to_csv` para escribir con un archivo delimitado.
+En el código siguiente, la función `write_to_csv` se utiliza para escribir datos en un archivo delimitado.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -95,9 +98,9 @@ Salida de ejemplo:
 |8| 10020.0|    99999.0|    ERROR |   NO| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    ERROR |   NO| SV|     |77000.0|   15500.0|    120.0|
 
-En el resultado anterior, puede observar que aparecen varios errores en las columnas numéricas porque hay números que no se analizaron correctamente. Cuando se escriben en CSV, estos valores null se reemplazan con la cadena "ERROR" por defecto. 
+En la salida anterior, aparecen varios errores en las columnas numéricas porque hay números que no se analizaron correctamente. Cuando se escriben en CSV, de forma predeterminada, los valores null se reemplazan con la cadena "ERROR".
 
-Puede agregar parámetros como parte de su llamada a la operación de escritura, y especificar una cadena que se usará para representar valores null. Por ejemplo: 
+Puede agregar parámetros en la llamada a la operación de escritura y especificar una cadena para que se utilice como representación de los valores null.
 
 ```python
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
@@ -122,7 +125,6 @@ El código anterior produce este resultado:
 |8| 10020.0|    99999.0|    BadData |   NO| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    BadData |   NO| SV|     |77000.0|   15500.0|    120.0|
 
-
 ### <a name="parquet-file-example"></a>Ejemplo de archivo PARQUET
 
 De forma similar a `write_to_csv`, la función `write_to_parquet` devuelve un nuevo flujo de datos con un paso de escritura de tipo PARQUET que se ejecuta cuando se ejecuta el flujo de datos.
@@ -132,9 +134,9 @@ write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./tes
 error='MiscreantData')
 ```
 
-A continuación, puede ejecutar el flujo de datos para iniciar la operación de escritura.
+Ejecute el flujo de datos para iniciar la operación de escritura.
 
-```
+```python
 write_parquet_t.run_local()
 
 written_parquet_files = dprep.read_parquet_file('./test_parquet_out/part-*')

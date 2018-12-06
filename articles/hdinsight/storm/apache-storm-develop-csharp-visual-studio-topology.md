@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5dcc9dcada981a6a4174ce34748356d49582f598
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6f26ec6f1743a72a4a396ba245d80227f6f75913
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237577"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584288"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desarrollo de topologías de C# para Apache Storm con Herramientas de Azure Data Lake para Visual Studio
 
-Aprenda a crear una topología de Storm de C# con Herramientas de Azure Data Lake (Hadoop) para Visual Studio. Este documento le guía a través del proceso para crear un proyecto de Storm en Visual Studio, probarlo localmente e implementarlo en un clúster de Apache Storm en Azure HDInsight.
+Aprenda a crear una topología de Apache Storm en C# con herramientas de Azure Data Lake (Apache Hadoop) para Visual Studio. Este documento le guía a través del proceso para crear un proyecto de Storm en Visual Studio, probarlo localmente e implementarlo en un clúster de Apache Storm en Azure HDInsight.
 
 También aprenderá a crear topologías híbridas que usan componentes de C# y Java.
 
@@ -27,7 +27,7 @@ También aprenderá a crear topologías híbridas que usan componentes de C# y J
 
 Para usar una topología de C# con un clúster basado en Linux, debe actualizar el paquete NuGet Microsoft.SCP.Net.SDK usado en el proyecto a la versión 0.10.0.6 o posterior. La versión del paquete también debe coincidir con la versión principal de Storm instalada en HDInsight.
 
-| Versión de HDInsight | Versión de Storm | Versión de SCP.NET | Versión de Mono predeterminada |
+| Versión de HDInsight | Versión de Apache Storm | Versión de SCP.NET | Versión de Mono predeterminada |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.3 |0.10.x |0.10.x.x</br>(solo en HDInsight basado en Windows) | N/D |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
@@ -97,7 +97,7 @@ namespace ConsoleApplication2
 }
 ```
 
-## <a name="storm-templates"></a>Plantillas de Storm
+## <a name="apache-storm-templates"></a>Plantillas de Apache Storm
 
 Herramientas de Data Lake para Visual Studio proporciona las siguientes plantillas:
 
@@ -119,7 +119,7 @@ Herramientas de Data Lake para Visual Studio proporciona las siguientes plantill
 
 En los pasos de este documento, usará el tipo de proyecto Storm Application básico para crear una topología.
 
-### <a name="hbase-templates-notes"></a>Notas de plantillas de HBase
+### <a name="apache-hbase-templates-notes"></a>Notas de plantillas de Apache HBase
 
 Las plantillas de lector y escritor de HBase usan la API de REST de HBase, no la API de Java de HBase, para comunicarse con un HBase en un clúster de HDInsight.
 
@@ -754,14 +754,14 @@ Para conocer más formas de trabajar con HDInsight y obtener más ejemplos de St
 **Apache Storm en HDInsight**
 
 * [Implementación y supervisión de topologías con Apache Storm en HDInsight](apache-storm-deploy-monitor-topology.md)
-* [Topologías de ejemplo para Storm en HDInsight](apache-storm-example-topology.md)
+* [Topologías de ejemplo para Apache Storm en HDInsight](apache-storm-example-topology.md)
 
 **Apache Hadoop en HDInsight**
 
-* [Uso de Hive con Hadoop en HDInsight](../hadoop/hdinsight-use-hive.md)
-* [Uso de Pig con Hadoop en HDInsight](../hadoop/hdinsight-use-pig.md)
-* [Uso de MapReduce con Hadoop en HDInsight](../hadoop/hdinsight-use-mapreduce.md)
+* [Uso de Apache Hive con Apache Hadoop en HDInsight](../hadoop/hdinsight-use-hive.md)
+* [Uso de Apache Pig con Apache Hadoop en HDInsight](../hadoop/hdinsight-use-pig.md)
+* [Uso de Apache MapReduce con Apache Hadoop en HDInsight](../hadoop/hdinsight-use-mapreduce.md)
 
 **Apache HBase en HDInsight**
 
-* [Introducción a HBase en HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Introducción a Apache HBase en HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)

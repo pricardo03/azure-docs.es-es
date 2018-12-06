@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003566"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496475"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientación de precios de SQL Server para máquinas virtuales de Azure
 
@@ -90,6 +90,9 @@ Para crear una máquina virtual de Azure de SQL Server 2017 con alguna de estas 
 >
 >No incluye los costos de licencia adicionales de SQL Server para las ediciones Web, Standard y Enterprise. Para obtener la estimación más precisa de precios, seleccione el sistema operativo y la edición de SQL Server en la página de precios de [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
+> [!NOTE]
+> Ahora es posible cambiar del modelo de licencias de pago por uso a traiga su propia licencia (BYOL) y viceversa. Para más información, consulte [Modificación del modelo de licencia para una máquina virtual de SQL en Azure](virtual-machines-windows-sql-ahb.md). 
+
 ## <a id="byol"></a> Traiga su propia licencia (BYOL)
 
 **Traiga su propia licencia de SQL Server a través de License Mobility**, que también se conoce como **BYOL**, consiste en usar una licencia por volumen existente de SQL Server con Software Assurance en una máquina virtual de Azure. Si se trata de una máquina virtual con SQL Server con licencia BYOL, solo se carga el costo de la ejecución de la máquina virtual, no el relativo a la licencia de SQL Server, puesto que ya ha adquirido licencias y Software Assurance a través de un programa de licencias por volumen.
@@ -123,7 +126,9 @@ Para crear una máquina virtual de Azure de SQL Server 2017 con alguna de estas 
 > Informe en un plazo de diez días de cuántas licencias de SQL Server va a usar en Azure. Los vínculos a las imágenes anteriores tienen instrucciones sobre cómo hacerlo.
 
 > [!NOTE]
-> No es posible cambiar el modelo de licencias de una VM con SQL Server de pago por segundo para usar su propia licencia. En este caso, debe crear una nueva máquina virtual BYOL y migrar las bases de datos a ella.
+> Ahora es posible cambiar del modelo de licencias de pago por uso a traiga su propia licencia (BYOL) y viceversa. Para más información, consulte [Modificación del modelo de licencia para una máquina virtual de SQL en Azure](virtual-machines-windows-sql-ahb.md). 
+
+
 
 ## <a name="reduce-costs"></a>Reducir los costos
 

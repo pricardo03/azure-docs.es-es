@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: ff194ef7f5ae609eba5334eb5c66db02d660ab08
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049638"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308229"
 ---
-# <a name="phoenix-performance-best-practices"></a>Procedimientos recomendados para mejorar el rendimiento de Phoenix
+# <a name="apache-phoenix-performance-best-practices"></a>Procedimientos recomendados para mejorar el rendimiento de Apache Phoenix
 
-El aspecto más importante del rendimiento de Phoenix es optimizar la instancia de HBase subyacente. Phoenix crea un modelo de datos relacionales sobre HBase que convierte las consultas SQL en operaciones de HBase, como recorridos. Tanto el diseño del esquema de tabla como la selección y el orden de los campos en la clave principal y el uso que realiza de los índices afectan el rendimiento de Phoenix.
+El aspecto más importante del rendimiento de [Apache Phoenix](https://phoenix.apache.org/) es optimizar la instancia de [Apache HBase](http://hbase.apache.org/) subyacente. Phoenix crea un modelo de datos relacionales sobre HBase que convierte las consultas SQL en operaciones de HBase, como recorridos. Tanto el diseño del esquema de tabla como la selección y el orden de los campos en la clave principal y el uso que realiza de los índices afectan el rendimiento de Phoenix.
 
 ## <a name="table-schema-design"></a>Diseño de esquemas de tabla
 
@@ -229,5 +229,5 @@ Para detalles sobre esta y otras opciones, consulte [Phoenix Grammar](http://pho
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Phoenix Tuning Guide](https://phoenix.apache.org/tuning_guide.html) (Guía de ajuste de Phoenix)
+* [Apache Phoenix Tuning Guide](https://phoenix.apache.org/tuning_guide.html) (Guía de ajuste de Apache Phoenix)
 * [Secondary Indexes](http://phoenix.apache.org/secondary_indexing.html) (Índices secundarios)

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 0811f0e115545a37b6c570c436900a8548adae61
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006369"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496453"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introducción a ML Services en Azure HDInsight
 
-Azure HDInsight le permite crear un clúster de ML Services. Esta opción permite que los scripts de R usen Spark y MapReduce para ejecutar cálculos distribuidos. En este artículo, se ofrece información sobre cómo crear un clúster de ML Services en HDInsight y después ejecutar un script de R que demuestre cómo usar Spark para cálculos de R distribuidos.
+Azure HDInsight le permite crear un clúster de ML Services. Esta opción permite que los scripts de R usen [Apache Spark](https://spark.apache.org/) y [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) para ejecutar cálculos distribuidos. En este artículo, se ofrece información sobre cómo crear un clúster de ML Services en HDInsight y después ejecutar un script de R que demuestre cómo usar Spark para cálculos de R distribuidos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,7 +37,7 @@ Azure HDInsight le permite crear un clúster de ML Services. Esta opción permit
 
     * **Nombre del clúster**: nombre del clúster de HDInsight.
     * **Suscripción**: seleccione la suscripción que vaya a usar.
-    * **Nombre de usuario de inicio de sesión del clúster** y **contraseña de inicio de sesión de clúster**: inicio de sesión de acceso al clúster a través de HTTPS. Use estas credenciales para acceder a servicios como la interfaz de usuario de Ambari Web o la API de REST.
+    * **Nombre de usuario de inicio de sesión del clúster** y **contraseña de inicio de sesión de clúster**: inicio de sesión de acceso al clúster a través de HTTPS. Usará estas credenciales para acceder a servicios como la interfaz de usuario de Apache Ambari Web o la API REST.
     * **Nombre de usuario de Secure Shell (SSH)**: inicio de sesión para acceder al clúster a través de SSH. De forma predeterminada, la contraseña es la misma que la de inicio de sesión en el clúster.
     * **Grupo de recursos**: en el que se va a crear el clúster.
     * **Ubicación**: región de Azure donde se va crear el clúster.

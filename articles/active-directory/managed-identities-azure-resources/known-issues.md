@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913995"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632796"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -43,18 +43,33 @@ No, las identidades administradas para recursos de Azure aún no están integrad
 
 El límite de seguridad de la identidad es el recurso al que está asociada. Por ejemplo, el límite de seguridad para una máquina virtual que tenga las identidades administradas para recursos de Azure habilitadas, es la Máquina virtual. Cualquier código que se ejecute en esa máquina virtual puede llamar a las identidades administradas para los tokens de punto de conexión y solicitud de recursos de Azure. Esta experiencia es similar con otros recursos que admiten las identidades administradas para recursos de Azure.
 
+### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>¿A qué identidad se asignará el IMDS de manera predeterminada si no se especifica la identidad en la solicitud?
+
+- Si se habilita la identidad administrada asignada por el sistema y no se especifica ninguna identidad en la solicitud, el IMDS utilizará de manera predeterminada la esta identidad administrada.
+- Si la identidad administrada asignada por el sistema no está habilitada, y solo existe una identidad administrada asignada por el usuario, IMDS será la identidad administrada asignada de manera predeterminada a ese único usuario. 
+- Si la identidad administrada asignada por el sistema no está habilitada y existen varias identidades administradas asignadas por el usuario, es necesario especificar una identidad administrada en la solicitud.
+
 ### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>¿Debo usar el punto de conexión de IMDS de la máquina virtual de las identidades administradas para recursos de Azure, o bien el punto de conexión de la extensión de la máquina virtual?
 
 Al usar las identidades administradas para recursos de Azure con máquinas virtuales, se recomienda el punto de conexión de IMDS de las identidades administradas para recursos de Azure. Azure Instance Metadata Service es un punto de conexión REST al que pueden acceder todas las máquinas virtuales IaaS creadas a través de Azure Resource Manager. Algunas de las ventajas de usar las identidades administradas para recursos de Azure sobre IMDS son las siguientes:
-
-1. Todos los sistemas operativos admitidos en IaaS de Azure pueden usar identidades administradas para recursos de Azure en lugar de IMDS. 
-2. Ya no es necesario instalar una extensión en la máquina virtual para habilitar las identidades administradas para recursos de Azure. 
-3. Los certificados que usan las identidades administradas para recursos de Azure ya no están presentes en la máquina virtual. 
-4. El punto de conexión de IMDS es una dirección IP no enrutable conocida, que solo está disponible desde dentro de la máquina virtual. 
+    - Todos los sistemas operativos admitidos en IaaS de Azure pueden usar identidades administradas para recursos de Azure en lugar de IMDS.
+    - Ya no es necesario instalar una extensión en la máquina virtual para habilitar las identidades administradas para recursos de Azure. 
+    - Los certificados que usan las identidades administradas para recursos de Azure ya no están presentes en la máquina virtual.
+    - El punto de conexión de IMDS es una dirección IP no enrutable conocida, que solo está disponible desde dentro de la máquina virtual.
 
 La extensión de máquina virtual de identidades administradas para recursos de Azure todavía se puede usar actualmente; pero de aquí en adelante solo se usará el punto de conexión de IMDS de forma predeterminada. En enero de 2019 dejará de utilizarse la extensión de máquina virtual de identidades administradas para recursos de Azure. 
 
 Para obtener más información sobre Azure Instance Metadata Service, vea la [documentación de IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
+
+### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>¿Se van a volver a crear automáticamente las identidades administradas si muevo una suscripción a otro directorio?
+
+ No. Si mueve una suscripción a otro directorio, tendrá que volver a crearlas manualmente y volver a asignar los roles de RBAC de Azure.
+    - Para las identidades administradas asignadas por el sistema, tiene que desactivarlas y volver a activarlas.
+    - Para las identidades administradas asignadas por el usuario, tiene que eliminarlas, volver a crearlas y adjuntarlas de nuevo a los recursos necesarios (por ejemplo, máquinas virtuales).
+
+### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>¿Puedo usar una identidad administrada para acceder a un recurso en un directorio o inquilino diferente?
+
+ No. Las identidades administradas no admiten actualmente escenarios entre directorios. 
 
 ### <a name="what-are-the-supported-linux-distributions"></a>¿Qué distribuciones de Linux son compatibles?
 

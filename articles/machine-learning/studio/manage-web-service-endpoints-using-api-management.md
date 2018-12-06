@@ -1,11 +1,12 @@
 ---
-title: Aprenda a administrar los servicios web de AzureML mediante API Management | Microsoft Docs
+title: Administración de servicios web de Manage Machine Learning Studio con API Management en Azure | Microsoft Docs
 description: Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API.
 keywords: aprendizaje automático, administración de api
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
@@ -16,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 9543b1f3b10c246dadaf21b6960c7b6785fb66f4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566387"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308246"
 ---
-# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Aprenda a administrar los servicios de web de AzureML mediante la Administración de API
+# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio con API Management
 ## <a name="overview"></a>Información general
-En esta guía se muestra cómo empezar a usar rápidamente la Administración de API para administrar los servicios web de AzureML.
+En esta guía, se explica cómo empezar a usar rápidamente API Management para administrar los servicios web de Azure Machine Learning Studio.
 
 ## <a name="what-is-azure-api-management"></a>¿Qué es la Azure API Management?
 Azure API Management es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Haga clic [aquí](https://azure.microsoft.com/services/api-management/) para obtener más información sobre Azure API Management. Haga clic [aquí](../../api-management/api-management-get-started.md) para obtener una guía sobre cómo empezar a trabajar con Azure API Management. Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.

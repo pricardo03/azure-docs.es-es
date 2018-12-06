@@ -12,19 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/25/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282414"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312976"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versión 2](media-services-dynamic-manifest-overview.md)
+> * [Versión 3](../latest/filters-dynamic-manifest-overview.md)
+
 A partir de la versión 2.17, Media Services le permite definir filtros para los recursos. Estos filtros son reglas del lado servidor que permitirán a los clientes elegir realizar acciones como: reproducir solo una sección de un vídeo (en lugar de reproducir el vídeo completo) o especificar solo un subconjunto de las representaciones de audio y vídeo que el dispositivo de su cliente puede controlar (en lugar de todas las representaciones asociadas al recurso). Este filtrado de sus activos se logra a través de los **manifiestos dinámicos**que se crean tras la solicitud del cliente para transmitir un vídeo en función de los filtros especificados.
 
-En este tema se describen escenarios comunes en los que el uso de filtros resultaría muy beneficioso para los clientes y vínculos a temas que muestran cómo crear filtros mediante programación.
+En este tema, se describen escenarios comunes en los que el uso de filtros resultaría muy beneficioso para los clientes y se proporcionan vínculos a temas donde se explica cómo crear filtros mediante programación.
 
 ## <a name="overview"></a>Información general
 Cuando entrega su contenido a los clientes (streaming de eventos en directo o vídeo bajo demanda), su objetivo es entregar un vídeo de alta calidad a varios dispositivos en condiciones de red diferentes. Para lograr este objetivo, haga lo siguiente:
@@ -102,7 +107,7 @@ Hay dos tipos de filtros de activos:
 Los tipos de filtros globales y locales tienen exactamente las mismas propiedades. La diferencia principal entre los dos es para qué escenarios es más adecuado cada tipo de filtro. Los filtros globales suelen ser adecuados para los perfiles de dispositivos (filtrado de representaciones) donde los filtros locales podrían usarse para recortar un activo específico.
 
 ## <a id="scenarios"></a>Escenarios comunes
-Como se mencionó anteriomente, al entregar su contenido a los clientes (transmisión de eventos en directo o vídeo a la carta bajo demanda), el objetivo es entregar un vídeo de alta calidad a varios dispositivos en condiciones de red diferentes. Además, puede tener otros requisitos que implican el filtrado de los activos y el uso de **manifiestos dinámico**s. En las secciones siguientes se ofrece una breve introducción a los diferentes escenarios de filtrado.
+Tal y como se mencionó anteriormente, cuando entrega contenido a los clientes (transmisión de eventos en directo o vídeo bajo demanda), su objetivo es proporcionar un vídeo de alta calidad a diferentes dispositivos en condiciones de red variables. Pueden darse también otros requisitos que obliguen a filtrar los recursos y a utilizar **manifiestos dinámicos**. En las secciones siguientes se ofrece una breve introducción a los diferentes escenarios de filtrado.
 
 * Especifique solo un subconjunto de representaciones de audio y vídeo que pueden controlar determinados dispositivos (en lugar de todas las representaciones asociadas al activo). 
 * Reproducir solo una sección de un vídeo (en lugar de reproducir todo el vídeo).

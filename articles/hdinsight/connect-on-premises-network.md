@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d8ab61d99b617f21557b6f1ef476418e25bcee55
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1d5a6dc6db3eaa46f6f2bd9944af7aefe759fbc7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016937"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496114"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conexión de HDInsight a la red local
 
@@ -321,12 +321,12 @@ Para conectarse directamente a HDInsight a través de la red virtual, use los pa
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Para determinar el puerto en que está disponible un servicio, consulte el documento [Puertos utilizados por los servicios Hadoop en HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
+2. Para determinar el puerto en el que está disponible un servicio, consulte el documento [Puertos utilizados por los servicios de Apache Hadoop en HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
 
     > [!IMPORTANT]
     > Algunos servicios hospedados en los nodos principales solo están activos en un nodo a la vez. Si intenta acceder a un servicio en un nodo principal y se produce un error, cambie al otro nodo principal.
     >
-    > Por ejemplo, Ambari solo está activo en un nodo principal a la vez. Si intenta acceder a Ambari en un nodo principal y se devuelve un error 404, es porque se ejecuta en el otro nodo principal.
+    > Por ejemplo, Apache Ambari solo está activo en un nodo principal a la vez. Si intenta acceder a Ambari en un nodo principal y se devuelve un error 404, es porque se ejecuta en el otro nodo principal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

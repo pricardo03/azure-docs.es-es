@@ -9,20 +9,20 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: 2e1a912f2d2aa8a6f9b165524351f2a16232537c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212206"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854227"
 ---
-# <a name="human-in-the-loop"></a>Revisión humana en bucle
+# <a name="review-tool-overview"></a>Introducción a la herramienta de revisión
 
 Los mejores resultados se obtienen cuando los humanos y las máquinas trabajan juntos en la moderación de contenido. En la práctica, las máquinas aumentan las revisiones humanas en los casos en que la confianza en la predicción necesita ayuda o se debe alterar dentro de un contexto del mundo real. El resultado es un proceso de moderación de contenido híbrido que funciona mejor que si los seres humanos o las máquinas trabajaran solos.
 
-## <a name="how-the-review-tool-helps"></a>Cómo ayuda la herramienta de revisión ##
+## <a name="what-it-does"></a>Qué hace
 
-La herramienta de revisión humana, cuando se usa en combinación con las API de moderación asistida automáticamente, le permite acometer estas tareas importantes en relación con el ciclo de vida de la moderación de contenido.
+La herramienta de revisión humana, cuando se usa en combinación con las API de moderación asistida, permite acometer estas tareas importantes relacionadas con el ciclo de vida de la moderación de contenido.
 
 1. Automatización de la creación de revisiones humanas a partir de los resultados de la API de moderación subyacente
 2. Uso de una herramienta (herramienta de revisión y API) para moderar varios formatos (texto, imagen y vídeo)

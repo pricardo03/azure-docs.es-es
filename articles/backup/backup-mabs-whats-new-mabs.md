@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 8e80d935bac94f3d4b2380799a1aed256828af75
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e963f675dfe2a57fc19f3169beeb1d7d4066af93
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625885"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315603"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Novedades de Microsoft Azure Backup Server
 
@@ -60,6 +60,7 @@ Puede encontrar más información sobre los pasos de instalación o actualizaci�
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo preparar el servidor o empezar a proteger la carga de trabajo:
+- [Problemas conocidos de MABS V3](backup-mabs-release-notes-v3.md)
 - [Preparar cargas de trabajo de Backup Server](backup-azure-microsoft-azure-backup.md)
 - [Usar Backup Server para hacer una copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
 - [Usar Backup Server para hacer una copia de seguridad de SQL Server](backup-azure-sql-mabs.md)

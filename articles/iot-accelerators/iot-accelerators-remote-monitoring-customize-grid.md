@@ -1,5 +1,5 @@
 ---
-title: 'Adición de una cuadrícula a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
+title: 'Incorporación de una cuadrícula a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este artículo se muestra cómo agregar una nueva cuadrícula en una pagina de la interfaz de usuario web del acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: e1c694847a1ec16d4d7a7b1118df71cb06396186
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165937"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496444"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota
 
@@ -36,7 +36,7 @@ Para completar los pasos de esta guía, necesita que el software siguiente esté
 Debe completar los pasos descritos en los artículos siguientes antes de continuar:
 
 - [Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-page.md).
-- [Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-service.md)
+- [Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-service.md)
 
 ## <a name="add-a-grid"></a>Agregar una cuadrícula
 
@@ -239,7 +239,7 @@ Si un usuario necesita actuar en varias filas al mismo tiempo, use las casillas 
     ```js
     doSomething = () => {
       //Just for demo purposes. Don't console log in a real grid.
-      console.log('hard selected rows', this.gridApi.getSelectedRows());
+      console.log('Hard selected rows', this.gridApi.getSelectedRows());
     };
     ```
 
@@ -263,16 +263,16 @@ Si el usuario necesita actuar en una sola fila, puede configurar un vínculo de 
 1. Cuando se hace clic en un vínculo de selección temporal, se desencadena el evento **onSoftSelectChange**. Puede realizar cualquier acción que desee para esa fila, como abrir un control flotante con detalles. En este ejemplo sencillamente se escribe en la consola:
 
     ```js
-    onSoftSelectChange = (rowId, rowEvent) => {
+    onSoftSelectChange = (rowId, rowData) => {
+      //Note: only the Id is reliable, rowData may be out of date
       const { onSoftSelectChange } = this.props;
-      const obj = (this.gridApi.getDisplayedRowAtIndex(rowId) || {}).data;
-      if (obj) {
+      if (rowId) {
         //Just for demo purposes. Don't console log a real grid.
-        console.log('Soft selected', obj);
-        this.setState({ softSelectedObj: obj });
+        console.log('Soft selected', rowId);
+        this.setState({ softSelectedId: rowId });
       }
       if (isFunc(onSoftSelectChange)) {
-        onSoftSelectChange(obj, rowEvent);
+        onSoftSelectChange(rowId, rowData);
       }
     }
     ```

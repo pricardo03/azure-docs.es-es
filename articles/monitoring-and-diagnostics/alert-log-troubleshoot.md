@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e2326f56ad367f744bc7895bc8c4bfd6f32d0310
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616493"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264886"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Solución de problemas de alertas de registro en Azure Monitor  
 ## <a name="overview"></a>Información general
@@ -61,7 +61,7 @@ Ya que el comando incluye *summarize... by* y se han proporcionado dos variables
 
 ![Ejecución de consultas de unidades métricas con varios valores](./media/monitor-alerts-unified/LogMMQuery.png)
 
-Como "Aggregate Upon" es $table, los datos se ordenan por la columna $table (se muestra en rojo). A continuación, se agrupan y buscan los tipos de campo "Aggregate Upon" con el valor $table. Por ejemplo, los valores de availabilityResults se considerarán como un trazado o entidad (se resalta en naranja). En este trazado o entidad de valor, el servicio de alertas comprueba si se producen tres infracciones consecutivas (se muestra en verde) para las que se desencadenará la alerta del valor de tabla "availabilityResults". De forma similar, si para cualquier otro valor de $table se detectan tres infracciones consecutivas, se desencadenará otra notificación de alerta para ellas y el servicio de alertas ordenará automáticamente los valores de un trazado o entidad (se muestra en naranja) por tiempo.
+Como "Aggregate Upon" es $table, los datos se ordenan por la columna $table (se muestra en rojo). A continuación, se agrupan y buscan los tipos de campo "Aggregate Upon" con el valor $table. Por ejemplo, los valores de availabilityResults se considerarán como un trazado o entidad (se resalta en naranja). En este trazado o entidad de valor, el servicio de alertas comprueba si se producen tres infracciones consecutivas (se muestra en verde) para las que se desencadenará la alerta del valor de tabla "availabilityResults". De forma similar, si para cualquier otro valor de $table se detectan tres infracciones consecutivas, se desencadenará otra notificación de alerta para lo mismo y el servicio de alertas ordenará automáticamente los valores en un trazado o una entidad (se muestra en naranja) por tiempo.
 
 Ahora suponga que se modificó la regla de alertas de registro de unidades métricas y la consulta era `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`; el resto de la configuración permanece igual que antes, incluida la lógica de alerta para tres infracciones consecutivas. La opción "Aggregate Upon", en este caso, será de forma predeterminada: timestamp. Puesto que se proporciona un solo valor en la consulta para summarize... by (que es) timestamp, de manera similar al ejemplo anterior, al final de la ejecución, la salida será la que se muestra a continuación. 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1fc1d3b4418b178921dc32ee834342b75fa31f20
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983128"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311082"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recopile y use los datos de registro provenientes de los recursos de Azure
 
@@ -45,7 +45,7 @@ Estas son algunas de las cosas que puede hacer con los registros de diagnóstico
 Puede usar una cuenta de almacenamiento o un espacio de nombres de Event Hubs que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de RBAC adecuado a ambas suscripciones.
 
 > [!NOTE]
->  Actualmente no puede archivar registros de flujo de red en una cuenta de almacenamiento que está detrás de una red virtual protegida.
+>  Actualmente, no puede archivar registros de flujo de red en una cuenta de almacenamiento que está detrás de una red virtual protegida.
 
 > [!WARNING]
 > El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./monitor-diagnostic-logs-append-blobs.md) 

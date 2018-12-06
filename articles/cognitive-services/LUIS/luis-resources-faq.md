@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649319"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284377"
 ---
 # <a name="language-understanding-faq"></a>P+F sobre Language Understanding
 
@@ -60,6 +60,16 @@ Las aplicaciones precompiladas de Cortana están en desuso desde 2017. Ya no se 
 
 ## <a name="luis-endpoint"></a>Punto de conexión de LUIS
 
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Mi consulta de punto de conexión devuelve resultados inesperados. ¿Cuál debo hacer?
+
+Los resultados inesperados de las consultas dependen del estado del modelo publicado. Para corregir el modelo, tendrá que hacer cambios, entrenarlo y publicarlo de nuevo. 
+
+La corrección del modelo comienza con un [aprendizaje activo](luis-how-to-review-endoint-utt.md).
+
+Puede quitar el aprendizaje no determinista actualizando la [API de configuración de versión de la aplicación](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) para que así pueda utilizar todos los datos de aprendizaje. 
+
+Consulte los [procedimientos recomendados](luis-concept-best-practices.md) para encontrar más sugerencias. 
+
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>¿Por qué LUIS agrega espacios a la consulta alrededor o en medio de las palabras?
 LUIS [acorta](luis-glossary.md#token) la expresión según la [referencia cultural](luis-language-support.md#tokenization). El valor original y el valor acortado están disponibles para la [extracción de datos](luis-concept-data-extraction.md#tokenized-entity-returned).
 
@@ -67,7 +77,7 @@ LUIS [acorta](luis-glossary.md#token) la expresión según la [referencia cultur
 [Cree la clave de punto de conexión](luis-how-to-azure-subscription.md#create-luis-endpoint-key) en Azure para su nivel de [servicio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Asigne la clave](luis-how-to-manage-keys.md#assign-endpoint-key) en la página **[Claves y puntos de conexión](luis-how-to-manage-keys.md)**. No hay ninguna API correspondiente a esta acción. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>¿Cómo se interpretan las puntuaciones de LUIS?
-El sistema debe utilizar la intención de mayor puntuación independientemente de su valor. Por ejemplo, una puntuación menor a 0,5 (de menos del 50 %) no significa necesariamente que LUIS tiene un nivel de confiabilidad bajo. Proporcionar más datos de entrenamiento puede ayudar a aumentar la puntuación de la intención más probable.
+El sistema debe utilizar la intención de mayor puntuación independientemente de su valor. Por ejemplo, una puntuación menor a 0,5 (de menos del 50 %) no significa necesariamente que LUIS tiene un nivel de confiabilidad bajo. Proporcionar más datos de aprendizaje puede ayudar a aumentar la [puntuación](luis-concept-prediction-score.md) de la intención más probable.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>¿Por qué no son visibles las visitas del punto de conexión en el panel de información de la aplicación?
 Las visitas totales del punto de conexión se actualizan periódicamente en el panel de información de la aplicación, pero las métricas asociadas con su clave de punto de conexión de LUIS en Azure Portal se actualizan con mayor frecuencia.
@@ -187,7 +197,7 @@ La [preparación para la voz](https://docs.microsoft.com/bot-framework/bot-servi
 ## <a name="luis-service"></a>Servicio de LUIS
 
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>¿LUIS está disponible localmente o en la nube privada?
-No.
+ No.
 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Escuché hablar de una característica o demo de Language Understanding en la conferencia Build 2018, pero no recuerdo cómo se llama

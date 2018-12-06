@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241328"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581007"
 ---
-# <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creación de trabajos de Spark Streaming con el procesamiento de eventos del tipo "exactly-once"
+# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creación de trabajos de Apache Spark Streaming con el procesamiento de eventos de tipo "exactamente una vez"
 
 Las aplicaciones de procesamiento de flujos adoptan enfoques distintos en cuanto al control del reprocesamiento de mensajes tras algún error del sistema:
 
@@ -25,7 +25,7 @@ Las aplicaciones de procesamiento de flujos adoptan enfoques distintos en cuanto
 
 En este artículo se explica cómo configurar Spark Streaming para conseguir un procesamiento del tipo "exactly-once".
 
-## <a name="exactly-once-semantics-with-spark-streaming"></a>Semántica del tipo "exactly-once" con Spark Streaming
+## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Semántica del tipo "exactamente una vez" con Apache Spark Streaming
 
 En primer lugar, tenga en cuenta cómo se reinician todos los puntos de error del sistema tras un problema y cómo evitar la pérdida de datos. Una aplicación de Spark Streaming tiene:
 
@@ -41,11 +41,11 @@ La semántica del tipo "exactly-once" requiere que no se pierda ningún dato en 
 
 El origen desde el que la aplicación de Spark Streaming lee los eventos debe ser *reproducible*. Esto significa que en los casos en que se recuperó el mensaje pero con un error del sistema antes de que el mensaje pudiera guardarse o procesarse, el origen debe volver a proporcionar el mismo mensaje.
 
-En Azure, tanto Azure Event Hubs como Kafka en HDInsight ofrecen orígenes reproducibles. Otro ejemplo de un origen reproducible es un sistema de archivos tolerante a errores como HDFS, Azure Storage Blob o Azure Data Lake Store, donde todos los datos se conservan indefinidamente y, en cualquier momento, puede volver a leer todos los datos.
+En Azure, tanto Azure Event Hubs como [Apache Kafka](https://kafka.apache.org/) en HDInsight ofrecen orígenes reproducibles. Otro ejemplo de un origen reproducible es un sistema de archivos tolerante a errores como [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage Blob o Azure Data Lake Store, donde todos los datos se conservan indefinidamente y, en cualquier momento, puede volver a leerlos todos.
 
 ### <a name="reliable-receivers"></a>Receptores de confianza
 
-En Spark Streaming, los orígenes como Event Hubs y Kafka tienen *receptores de confianza*, donde cada receptor realiza un seguimiento de su progreso mediante la lectura del origen. Un receptor de confianza persiste su estado en un almacenamiento tolerante a errores, ya sea en ZooKeeper o en puntos de control de Spark Streaming escritos en HDFS. Si dicho receptor presenta algún error y se reinicia más tarde, puede continuar desde donde se quedó.
+En Spark Streaming, los orígenes como Event Hubs y Kafka tienen *receptores de confianza*, donde cada receptor realiza un seguimiento de su progreso mediante la lectura del origen. Un receptor de confianza conserva su estado en un almacenamiento tolerante a errores, ya sea en [Apache ZooKeeper](https://zookeeper.apache.org/) o en puntos de control de Spark Streaming escritos en HDFS. Si dicho receptor presenta algún error y se reinicia más tarde, puede continuar desde donde se quedó.
 
 ### <a name="use-the-write-ahead-log"></a>Uso del registro de escritura previa
 
@@ -89,5 +89,5 @@ Otro ejemplo consiste en usar un sistema de archivos con particiones, como Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a Spark Streaming](apache-spark-streaming-overview.md)
-* [Creación de trabajos de Spark Streaming con alta disponibilidad en YARN](apache-spark-streaming-high-availability.md)
+* [Introducción a Apache Spark Streaming](apache-spark-streaming-overview.md)
+* [Creación de trabajos de Apache Spark Streaming con alta disponibilidad en Apache Hadoop YARN](apache-spark-streaming-high-availability.md)
