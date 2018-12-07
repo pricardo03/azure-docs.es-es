@@ -21,7 +21,7 @@
 ### [Procedimientos recomendados para Azure App Service](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Información detallada de los planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Hospedaje de alta densidad](../app-service/environment/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Entorno de App Service](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [entorno de App Service](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Desarrollo
 ### Android
@@ -173,7 +173,7 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/app-service/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=mobile-services)
-## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Ejemplos
 ### [Ingeniero de campo](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
