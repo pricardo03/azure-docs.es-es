@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1add464c85d30622bf0940bf20a483ae22d07ea6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 03e626eeac70ad3b77da80b599e92949d2194b4e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865325"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013857"
 documentType: LandingData
 title: Documentación sobre el servicio Azure Machine Learning
 metadata:
-  title: 'Documentación sobre Azure Machine Learning: tutoriales y referencia de API | Microsoft Docs'
-  meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
+  title: 'Documentación sobre el servicio Azure Machine Learning: tutoriales y referencia de API | Microsoft Docs'
+  description: Aprenda a crear algoritmos inteligentes en sus aplicaciones y sitios web. Use Scikit-learn, Tensorflow, Pytorch o cualquier otra plataforma de Python para crear el modelo de aprendizaje automático y entrenarlo localmente o en la nube. Estos tutoriales, guías de inicio rápido, referencias de API y ejemplos le muestran cómo hacerlo.
   services: machine-learning
   author: j-martens
   manager: jhubbard
@@ -20,6 +20,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/24/2018
   ms.author: jmartens
+  ms.custom: seodec18
 abstract:
   description: Aprenda a crear algoritmos inteligentes en sus aplicaciones y sitios web. Use Scikit-learn, Tensorflow, Pytorch o cualquier otra plataforma de Python para crear el modelo de aprendizaje automático y entrenarlo localmente o en la nube. Estos tutoriales, guías de inicio rápido, referencias de API y ejemplos le muestran cómo hacerlo.
 sections:
