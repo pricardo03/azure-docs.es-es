@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426115"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724101"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -42,7 +42,7 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
     ![Crear una cuenta de Batch][account_portal]
 
-    a. **Nombre de cuenta**: el nombre que elija debe ser único en la región de Azure en la que se crea cuenta (consulte **Ubicación** a continuación). El nombre de la cuenta solo puede contener caracteres en minúsculas o números, y su longitud debe oscilar entre 3 y 24 caracteres.
+     a. **Nombre de cuenta**: el nombre que elija debe ser único en la región de Azure en la que se crea cuenta (consulte **Ubicación** a continuación). El nombre de la cuenta solo puede contener caracteres en minúsculas o números, y su longitud debe oscilar entre 3 y 24 caracteres.
 
     b. **Suscripción**: la suscripción en la que se crea la cuenta de Batch. Si tiene una sola suscripción, se selecciona de forma predeterminada.
 
@@ -91,11 +91,11 @@ Al crear la primera cuenta de Batch en el modo de suscripción de usuario, tiene
 
     ![Registro del proveedor Microsoft.Batch][register_provider]
 
-1. En la página **Suscripción**, seleccione **Access control (IAM)** > **Agregar**.
+1. En la página **Suscripción**, seleccione **Control de acceso (IAM)** > **Asignaciones de rol** > **Agregar asignación de rol**.
 
     ![Control de acceso a la suscripción][subscription_access]
 
-1. En la página **Agregar permisos**, seleccione el rol **Colaborador** y busque Batch API. Busque cada una de estas cadenas hasta que encuentre la API:
+1. En la página **Agregar asignación de rol**, seleccione el rol **Colaborador** y busque Batch API. Busque cada una de estas cadenas hasta que encuentre la API:
     1. **MicrosoftAzureBatch**.
     1. **Microsoft Azure Batch**. Los inquilinos más recientes de Azure AD pueden utilizar este nombre.
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** es el identificador de Batch API. 

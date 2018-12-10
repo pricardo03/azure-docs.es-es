@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237915"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837348"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de análisis de datos almacenados provisionalmente con Azure y Azure Stack 
 
@@ -81,7 +81,7 @@ La cuenta de almacenamiento y el contenedor de blobs contienen todos los datos o
 
 3.  Use la siguiente información para la cuenta:
 
-    a.  Nombre: **a su elección**
+     a.  Nombre: **a su elección**
 
     b.  Modelo de implementación: **Resource Manager**
 
@@ -137,7 +137,7 @@ Cree una función de Azure Stack para mover los datos limpios de Azure Stack a A
     | Subscription | Su suscripción | Suscripción en la que se creará esta nueva aplicación de función. |
     | **Grupo de recursos** |  |  |
     | myResourceGroup | Nombre para el nuevo grupo de recursos en el que se va a crear la Function App. |  |
-    | SO | Windows | El hospedaje sin servidor actualmente solo está disponible cuando se ejecuta en Windows. |
+    | SO |  Windows | El hospedaje sin servidor actualmente solo está disponible cuando se ejecuta en Windows. |
     | **Plan de hospedaje** |  |  |
     | Plan de consumo | Plan de hospedaje que define cómo se asignan los recursos a la Function App. En el Plan de consumo predeterminado, los recursos se agregan dinámicamente según lo requieran sus funciones. En este hospedaje sin servidor, solo paga por el tiempo durante el cual se ejecutan las funciones. |  |
     | Ubicación | La región más cercana | Elija una región cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. |
@@ -252,7 +252,7 @@ Utilice los pasos y valores que se han descrito anteriormente para crear otra cu
 
 ## <a name="test-the-queue-triggered-function"></a>Prueba de la función desencadenada por la cola
 
-1.  En Azure Portal, vaya a la función. Expanda los **registros** de la parte inferior de la página y asegúrese de que el streaming de registros no está en pausa.
+1.  En el portal de Azure Stack, vaya a la función. Expanda los **registros** de la parte inferior de la página y asegúrese de que el streaming de registros no está en pausa.
 
 2.  Abra el Explorador de Storage y conéctese a la cuenta de almacenamiento que creó al principio de esta sección.
 

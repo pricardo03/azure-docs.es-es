@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963938"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887804"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de la unión a Azure Active Directory híbrido para dominios administrados
 
@@ -109,7 +109,7 @@ Para configurar una unión a Azure AD híbrido utilizando Azure AD Connect, nece
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
-    a. Seleccione el bosque.
+     a. Seleccione el bosque.
 
     b. Seleccione el servicio de autenticación.
 
@@ -140,6 +140,8 @@ Si algunos de los dispositivos unidos a un dominio son dispositivos de Windows d
  
 - Configurar los valores de la intranet local para el registro de dispositivos
 
+- Configurar el inicio de sesión único de conexión directa
+
 - Control de dispositivos de Windows de nivel inferior 
 
 
@@ -166,6 +168,11 @@ Para completar con éxito la combinación de Azure AD híbrido de los dispositiv
 - `https://autologon.microsoftazuread-sso.com`.
 
 Además, tiene que habilitar **Permitir actualizaciones en la barra de estado a través de script** en la zona de intranet local del usuario.
+
+
+### <a name="configure-seamless-sso"></a>Configuración del inicio de sesión único de conexión directa
+
+Para completar correctamente la combinación de Azure AD híbrido de los dispositivos de nivel inferior de Windows en un dominio administrado que utiliza la autenticación de paso a través o la sincronización de hash de contraseñas como su método de autenticación en la nube de Azure AD, también debe [configurar el inicio de sesión único de conexión directa](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Control de dispositivos de Windows de nivel inferior 

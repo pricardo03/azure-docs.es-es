@@ -1,24 +1,22 @@
 ---
-title: 'Tutorial de ASP.NET MVC para Azure Cosmos DB: desarrollo de aplicaciones web | Microsoft Docs'
+title: 'Tutorial de ASP.NET MVC para Azure Cosmos DB: desarrollo de aplicaciones web'
 description: Tutorial de ASP.NET MVC para crear una aplicación web MVC con Azure Cosmos DB. Almacenará el código JSON y accederá a los datos desde una aplicación ToDo hospedada en Azure Websites. Tutorial de ASP NET MVC paso a paso.
 keywords: tutorial de asp.net mvc, desarrollo de aplicaciones web, aplicación web de mvc, tutorial de asp net mvc paso a paso
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 22856b6e9b543504db66bce074d32d9ad70f5238
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8230c2ba8c7fdb10d7e37a317d4eeb5abb120d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247677"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868725"
 ---
 # <a name="_Toc395809351"></a>Tutorial de ASP.NET MVC: desarrollo de aplicaciones web con Azure Cosmos DB
 
@@ -61,7 +59,7 @@ Para comenzar, creemos una cuenta de Azure Cosmos DB. Si ya tiene una cuenta de 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
 <br/>
-Ahora veremos cómo crear una aplicación ASP.NET MVC nueva desde el principio. 
+ Ahora veremos cómo crear una aplicación ASP.NET MVC nueva desde el principio. 
 
 ## <a name="_Toc395637762"></a>Paso 2: Creación de una aplicación ASP.NET MVC nueva
 
