@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406507"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868555"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Supervisión y actualización de una máquina virtual Linux en Azure
 
@@ -208,7 +208,7 @@ Para programar una nueva implementación de actualizaciones para la máquina vir
 * **Clasificación de actualizaciones**: seleccione los tipos de software que la implementación de actualizaciones incluyó en la implementación. Los tipos de clasificación son:
   * Actualizaciones críticas y de seguridad
   * Otras actualizaciones
-* **Actualizaciones para excluir**: puede proporcionar una lista de nombres de paquetes que se deben omitir durante la implementación de actualizaciones. Los nombres de paquetes admiten caracteres comodín (como, por ejemplo, \*kernal\*).
+* **Actualizaciones para excluir**: puede proporcionar una lista de nombres de paquetes que se deben omitir durante la implementación de actualizaciones. Los nombres de paquetes admiten caracteres comodín (como, por ejemplo, \*kernel\*).
 
   ![Pantalla de configuración de la programación de actualizaciones](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 

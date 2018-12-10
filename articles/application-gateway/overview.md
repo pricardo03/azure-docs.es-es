@@ -3,25 +3,25 @@ title: ¿Qué es Azure Application Gateway?
 description: Obtenga información acerca de cómo puede utilizar una puerta de enlace de aplicaciones de Azure para administrar el tráfico web a la aplicación.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068102"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679178"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
-Azure Application Gateway es un equilibrador de carga de tráfico web que permite administrar el tráfico a las aplicaciones web. 
+Azure Application Gateway es un equilibrador de carga de tráfico web que permite administrar el tráfico a las aplicaciones web. Los equilibradores de carga tradicionales operan en la capa de transporte (OSI capa 4: TCP y UDP) y enrutan el tráfico en función de la dirección IP y puerto de origen a una dirección IP y puerto de destino.
 
-Los equilibradores de carga tradicionales operan en la capa de transporte (OSI capa 4: TCP y UDP) y enrutan el tráfico en función de la dirección IP y puerto de origen a una dirección IP y puerto de destino. Pero con Application Gateway puede ser aun más específico. Por ejemplo, puede enrutar el tráfico en función de la dirección URL entrante. Por lo que si `/images` se encuentra en la dirección URL entrante, puede redirigir el tráfico a un conjunto específico de servidores (conocido como un grupo) configurados para imágenes. Si `/video` se encuentra en la dirección URL, el tráfico se enruta a otro grupo optimizado para vídeos.
+![Conceptos de Application Gateway](media/overview/figure1-720.png)
+
+Pero con Application Gateway puede ser aun más específico. Por ejemplo, puede enrutar el tráfico en función de la dirección URL entrante. Por lo que si `/images` se encuentra en la dirección URL entrante, puede redirigir el tráfico a un conjunto específico de servidores (conocido como un grupo) configurados para imágenes. Si `/video` se encuentra en la dirección URL, el tráfico se enruta a otro grupo optimizado para vídeos.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
@@ -45,6 +45,10 @@ Además de las características descritas en este artículo, Application Gateway
 
 Para más información acerca de las características de la versión preliminar pública de Application Gateway, consulte [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md) [Puerta de enlace de aplicaciones con redundancia de zona y escalabilidad automática (versión preliminar pública)].
 
+## <a name="secure-sockets-layer-ssl-termination"></a>Terminación de la Capa de sockets seguros (SSL)
+
+Application Gateway es compatible con la terminación SSL en la puerta de enlace; después, el tráfico fluye normalmente sin cifrar a los servidores back-end. Esta característica permite a los servidores web liberarse de la costosa sobrecarga de cifrado y descifrado. Sin embargo, en algunas ocasiones, la comunicación sin cifrar con los servidores no es una opción aceptable. Esto podría deberse a los requisitos de seguridad y cumplimiento normativo o bien a la posibilidad de que la aplicación solo acepte una conexión segura. Para estas aplicaciones, Application Gateway admite el cifrado SSL de un extremo a otro.
+
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Versión preliminar del controlador de entrada de Azure Kubernetes Service (AKS) 
 
 El controlador de entrada de Application Gateway se ejecuta como un pod en el clúster de AKS y permite a Application Gateway actuar como entrada para un clúster de AKS. 
@@ -59,10 +63,6 @@ La purga de conexión ayuda a lograr la correcta eliminación de miembros del gr
 Application Gateway permite crear páginas de error personalizadas, en lugar de mostrar las páginas de error predeterminadas. Mediante una página de error personalizada puede usar su propia marca y diseño.
 
 Para más información, consulte [Create Application Gateway custom error pages](custom-error.md) (Creación de páginas de error personalizadas de Application Gateway).
-
-## <a name="secure-sockets-layer-ssl-termination"></a>Terminación de la Capa de sockets seguros (SSL)
-
-Application Gateway es compatible con la terminación SSL en la puerta de enlace; después, el tráfico fluye normalmente sin cifrar a los servidores back-end. Esta característica permite a los servidores web liberarse de la costosa sobrecarga de cifrado y descifrado. Sin embargo, en algunas ocasiones, la comunicación sin cifrar con los servidores no es una opción aceptable. Esto podría deberse a los requisitos de seguridad y cumplimiento normativo o bien a la posibilidad de que la aplicación solo acepte una conexión segura. Para tales aplicaciones, Application Gateway admite el cifrado SSL de un extremo a otro.
 
 ## <a name="web-application-firewall"></a>Firewall de aplicaciones web
 
@@ -96,22 +96,15 @@ La compatibilidad con la redirección de Application Gateway ofrece las siguient
 - Redirección basada en la ruta de acceso. Este tipo de redireccionamiento permite el redireccionamiento de HTTP a HTTPS solamente para un área de un sitio específico, por ejemplo un área de carro de la compra que se indica mediante `/cart/*`.
 - Redireccionamiento a un sitio externo
 
-
-
 ## <a name="session-affinity"></a>Afinidad de sesión
 
 La característica de afinidad de sesión basada en cookies es útil cuando se quiere mantener una sesión de usuario en el mismo servidor. Mediante el uso de cookies administradas por la puerta de enlace, Application Gateway puede dirigir el tráfico posterior de una sesión de usuario hasta el mismo servidor para su procesamiento. Esto es importante en aquellos casos en los que se guarda el estado de la sesión de forma local en el servidor para una sesión de usuario.
 
-
-
-
 ## <a name="websocket-and-http2-traffic"></a>Tráfico de Websocket y HTTP/2
 
 Application Gateway proporciona compatibilidad nativa con los protocolos Websocket y HTTP/2. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket. La compatibilidad con HTTP/2 se puede habilitar con Azure PowerShell.
- 
+
 Los protocolos WebSocket y HTTP/2 permiten una comunicación dúplex completa entre un servidor y un cliente a través de una conexión TCP de larga duración. Esto permite una comunicación más interactiva entre el servidor web y el cliente, que puede ser bidireccional sin necesidad de realizar sondeos como en las implementaciones basadas en HTTP. Estos protocolos tienen, a diferencia de HTTP, una sobrecarga reducida y pueden reutilizar la misma conexión TCP para varias solicitudes y respuestas, con lo que se utilizan los recursos de una manera más eficaz. Estos protocolos están diseñados para utilizarse a través de los puertos HTTP tradicionales 80 y 443.
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

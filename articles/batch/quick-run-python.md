@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 0ce9d6854f464efdf0ff6eea8644fedc5ad90d1f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 13ed37dddefc5e71e972248545c3e9242bd233ad
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427337"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678207"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Inicio rápido: ejecute su primer trabajo de Batch con la API de Python
 
@@ -110,7 +110,7 @@ Habitualmente, el tiempo de ejecución es de, aproximadamente, 3 minutos cuando 
 En esta guía de inicio rápido, la aplicación de Python realiza las siguientes operaciones:
 
 * Carga tres archivos de texto pequeños en un contenedor de blobs de su cuenta de Azure Storage. Estos archivos son entradas que las tareas de Batch procesan.
-* Crea un grupo de dos nodos de proceso que ejecutan Ubuntu 16.04 LTS.
+* Crea un grupo de dos nodos de proceso que ejecutan Ubuntu 18.04 LTS.
 * Crea un trabajo y tres tareas que se ejecutan en los nodos. Cada tarea procesa uno de los archivos de entrada mediante una línea de comandos del shell de Bash.
 * Muestra los archivos devueltos por las tareas.
 
@@ -151,7 +151,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Creación de un grupo de nodos de proceso
 
-Para crear un grupo de Batch, la aplicación usa la clase [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) para establecer el número de nodos, el tamaño de la máquina virtual y una configuración de grupo. En este caso, un objeto [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) especifica un valor de [ImageReference](/python/api/azure.batch.models.imagereference) en una imagen de Ubuntu Server 16.04 LTS publicada en Azure Marketplace. Batch es compatible con una amplia gama de imágenes de Linux y Windows Server de Azure Marketplace, así como con las imágenes de máquina virtual personalizadas.
+Para crear un grupo de Batch, la aplicación usa la clase [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) para establecer el número de nodos, el tamaño de la máquina virtual y una configuración de grupo. En este caso, un objeto [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) especifica un valor de [ImageReference](/python/api/azure.batch.models.imagereference) a una imagen de Ubuntu Server 18.04 LTS publicada en Azure Marketplace. Batch es compatible con una amplia gama de imágenes de Linux y Windows Server de Azure Marketplace, así como con las imágenes de máquina virtual personalizadas.
 
 El número de nodos (`_POOL_NODE_COUNT`) y el tamaño de la máquina virtual (`_POOL_VM_SIZE`) son constantes definidas. De forma predeterminada el ejemplo crea un grupo de dos nodos de tamaño *Standard_A1_v2*. El tamaño que se sugiere ofrece un buen equilibrio entre rendimiento y costo para este ejemplo rápido.
 
@@ -164,10 +164,10 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="16.04-LTS",
+            sku="18.04-LTS",
             version="latest"
             ),
-        node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=config._POOL_VM_SIZE,
     target_dedicated_nodes=config._POOL_NODE_COUNT
 )

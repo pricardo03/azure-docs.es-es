@@ -5,26 +5,26 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 09/12/2018
+ms.date: 11/28/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: multiple
+ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 1045e0cc0d114bb8b35e6136a2054b3642eac7e8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6597e0058176eaa819170a494e4908ab44456360
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249884"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850540"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Creación de su primera función hospedada en Linux mediante Core Tools y la CLI de Azure (versión preliminar)
 
-Azure Functions permite ejecutar el código en un entorno de Linux [sin servidor](https://azure.microsoft.com/overview/serverless-computing/) sin necesidad de crear una máquina virtual o publicar una aplicación web. El hospedaje en Linux está actualmente en versión preliminar y requiere [el entorno de ejecución Functions 2.0](functions-versions.md).
+Azure Functions permite ejecutar el código en un entorno de Linux [sin servidor](https://azure.microsoft.com/overview/serverless-computing/) sin necesidad de crear una máquina virtual o publicar una aplicación web. El hospedaje en Linux está actualmente en versión preliminar y requiere [el entorno de ejecución Functions 2.0](functions-versions.md). Para más información acerca de las consideraciones de versión preliminar para ejecutar las aplicaciones de función en Linux, consulte [este artículo sobre funciones en Linux](https://aka.ms/funclinux).
 
 Esta guía de inicio rápido le explica cómo usar la CLI de Azure para crear su primera aplicación de función para que se ejecute en Linux. El código de función se crea localmente y, a continuación, se implementa en Azure mediante [Azure Functions Core Tools](functions-run-local.md).
 
-Los pasos siguientes se admiten en equipos Mac, Windows o Linux. En este artículo se muestra cómo crear funciones en JavaScript o C#.
+Los pasos siguientes se admiten en equipos Mac, Windows o Linux. En este artículo se muestra cómo crear funciones en JavaScript o C#. Para más información acerca de cómo crear funciones de Python, consulte el artículo sobre la [Creación de la primera función de Python con Core Tools y la CLI de Azure (versión preliminar)](functions-create-first-function-python.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -50,6 +50,9 @@ Cuando se le pida, use las teclas de dirección para seleccionar un entorno de e
 
 + `dotnet`: crea un proyecto de biblioteca de clases .NET (.csproj).
 + `node`: crea un proyecto JavaScript.
++ `python`: crea un proyecto de Python. Para las funciones de Python, consulte la [guía de inicio rápido de Python](functions-create-first-function-python.md).
+
+Cuando se ejecute el comando, verá una salida similar a la siguiente:
 
 ```output
 Writing .gitignore
@@ -68,15 +71,19 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
+## <a name="create-a-linux-app-service-plan"></a>Creación de un plan de App Service de Linux
+
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+
 ## <a name="create-a-linux-function-app-in-azure"></a>Creación de una aplicación de función de Linux en Azure
 
-Debe tener una aplicación de función para hospedar la ejecución de las funciones en Linux. La aplicación de función proporciona un entorno sin servidor para la ejecución de su código de función. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. Cree una aplicación de función que se ejecute en Linux con el comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create).
+Debe tener una aplicación de función para hospedar la ejecución de las funciones en Linux. La aplicación de función proporciona un entorno sin servidor para la ejecución de su código de función. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. Cree una aplicación de función que se ejecute en Linux con el comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
-En el siguiente comando, use un nombre de aplicación de función único donde vea el marcador de posición `<app_name>` y el nombre de la cuenta de almacenamiento para `<storage_name>`. `<app_name>` también es el dominio DNS predeterminado de la aplicación de función. Este nombre debe ser único entre todas las aplicaciones de Azure.
+En el siguiente comando, use un nombre de aplicación de función único donde vea el marcador de posición `<app_name>` y el nombre de la cuenta de almacenamiento para `<storage_name>`. `<app_name>` también es el dominio DNS predeterminado de la aplicación de función. Este nombre debe ser único entre todas las aplicaciones de Azure. También debe establecer el entorno de ejecución de `<language>` para la aplicación de función de `dotnet` (C#), `node` (JavaScript), o `python`.
 
-```azurecli
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---location "westus" --is-linux
+```azurecli-interactive
+az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \
+--name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
 
 > [!NOTE]
@@ -101,5 +108,5 @@ Ahora, puede publicar el proyecto en la nueva aplicación de función en Azure.
 
 Este artículo le indica cómo hospedar la aplicación de función en un contenedor de Azure App Service predeterminado. También puede hospedar sus funciones en Linux en su propio contenedor personalizado.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Creación de una función en Linux con una imagen personalizada](functions-create-function-linux-custom-image.md)

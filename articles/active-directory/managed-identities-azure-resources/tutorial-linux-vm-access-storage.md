@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: 3d223807d58fc03c0daabb7f800690b1b839d770
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3b608f9f099b2c4d030eefe96ea96c5d3effdc53
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620807"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725240"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de identidades administradas asignadas por el sistema de una máquina virtual Linux para acceder a Azure Storage 
 
@@ -82,7 +82,7 @@ Puede usar la identidad Managed Identity de la máquina virtual para recuperar l
 
 1. Vuelva a la cuenta de almacenamiento recién creada.  
 2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.  
-3. Haga clic en **+ Agregar** en la parte superior de la página para agregar una asignación de roles nueva para la máquina virtual.
+3. Haga clic en **+ Agregar asignación de rol** en la parte superior de la página para agregar una asignación de roles nueva para la máquina virtual.
 4. En la lista desplegable de **Rol**, seleccione **Lector de datos de blobs de almacenamiento (versión preliminar)**. 
 5. En la lista desplegable siguiente, en **Asignar acceso a**, elija **Máquina virtual**.  
 6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y establezca **Grupo de recursos** en **Todos los grupos de recursos**.  

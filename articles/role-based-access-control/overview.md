@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 19285bf7a1323e9698fe408566304d0596d1c983
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311274"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867905"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>¿Qué es el control de acceso basado en rol (RBAC)?
 
@@ -50,13 +50,14 @@ La manera en que se controla el acceso a los recursos mediante RBAC es mediante 
 
 ### <a name="security-principal"></a>Entidad de seguridad
 
-Una *entidad de seguridad* es un objeto que representa a un usuario, un grupo o una entidad de servicio que solicita acceso a recursos de Azure.
+Una *entidad de seguridad* es un objeto que representa a un usuario, un grupo, una entidad de servicio o una identidad administrada que solicita acceso a recursos de Azure.
 
 ![Entidad de seguridad para una asignación de roles](./media/overview/rbac-security-principal.png)
 
 - Usuario: individuo que tiene un perfil en Azure Active Directory. También puede asignar roles a usuarios de otros inquilinos. Para información sobre los usuarios de otras organizaciones, consulte el artículo sobre la [colaboración B2B de Azure Active Directory](../active-directory/b2b/what-is-b2b.md).
 - Grupo: conjunto de usuarios creado en Azure Active Directory. Cuando se asigna un rol a un grupo, todos los usuarios dentro de ese grupo tienen ese rol. 
 - Entidad de servicio: identidad de seguridad que las aplicaciones o los servicios usan para acceder a recursos específicos de Azure. Puede considerarla como una *identidad de usuario* (nombre de usuario y contraseña o certificado) de una aplicación.
+- Identidad administrada: una identidad de Azure Active Directory que Azure administra de forma automática. Normalmente, se usan [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) cuando se desarrollan aplicaciones en la nube para administrar las credenciales para la autenticación en los servicios de Azure.
 
 ### <a name="role-definition"></a>Definición de roles
 
@@ -91,7 +92,7 @@ Si otorga acceso a un ámbito primario, esos permisos se heredan en los ámbitos
 
 ### <a name="role-assignments"></a>Asignaciones de roles
 
-Una *asignación de roles* es el proceso de enlazar una definición de roles a un usuario, grupo o entidad de servicio en un ámbito determinado con el fin de conceder acceso. El acceso se concede mediante la creación de una asignación de roles y se revoca al quitar una asignación de roles.
+Una *asignación de roles* es el proceso de asociar una definición de roles a un usuario, grupo, entidad de servicio o identidad administrada en un ámbito determinado con el fin de conceder acceso. El acceso se concede mediante la creación de una asignación de roles y se revoca al quitar una asignación de roles.
 
 El diagrama siguiente muestra un ejemplo de una asignación de roles. En este ejemplo, al grupo de marketing se le asignó el rol [Colaborador](built-in-roles.md#contributor) del grupo de recursos de ventas farmacéuticas. Esto significa que los usuarios del grupo de marketing pueden crear o administrar cualquier recurso de Azure del grupo de recursos de ventas farmacéuticas. Los usuarios de marketing no tienen acceso a los recursos fuera del grupo de recursos de ventas farmacéuticas, a menos que sean parte de otra asignación de roles.
 
@@ -101,9 +102,7 @@ Puede crear asignaciones de roles mediante Azure Portal, la CLI de Azure, Azure 
 
 ## <a name="deny-assignments"></a>Asignaciones de denegación
 
-Anteriormente, RBAC era un modelo solo de permiso sin denegación, pero ahora RBAC admite asignaciones de denegación de manera limitada. Al igual que una asignación de roles, una *asignación de denegación* enlaza un conjunto de acciones de denegación con un usuario, grupo o entidad de servicio en un ámbito determinado con el fin de denegar el acceso. Una asignación de roles define un conjunto de acciones que están *permitidas*, mientras que una asignación de denegación define un conjunto de acciones *no permitidas*. En otras palabras, denegar asignaciones impide que los usuarios realicen acciones especificadas, incluso si una asignación de roles les concede acceso. Las asignaciones de denegación tienen prioridad sobre las asignaciones de roles.
-
-Actualmente, las asignaciones de denegación son de **solo lectura** y únicamente pueden establecerse mediante Azure. Aunque no se pueden crear asignaciones de denegación propias, se pueden enumerar, ya que pueden afectar a los permisos vigentes. Para obtener información sobre una asignación de denegación, debe tener el permiso `Microsoft.Authorization/denyAssignments/read`, que se incluye en la mayoría de los [roles integrados](built-in-roles.md#owner). Para más información, consulte [Descripción de las asignaciones de denegación](deny-assignments.md).
+Anteriormente, RBAC era un modelo solo de permiso sin denegación, pero ahora RBAC admite asignaciones de denegación de manera limitada. De forma similar a una asignación de roles, una *asignación de denegación* asocia un conjunto de acciones de denegación a un usuario, grupo, entidad de servicio o identidad administrada en un ámbito determinado con el fin de denegar el acceso. Una asignación de roles define un conjunto de acciones que están *permitidas*, mientras que una asignación de denegación define un conjunto de acciones *no permitidas*. En otras palabras, denegar asignaciones impide que los usuarios realicen acciones especificadas, incluso si una asignación de roles les concede acceso. Las asignaciones de denegación tienen prioridad sobre las asignaciones de roles. Actualmente, las asignaciones de denegación son de **solo lectura** y únicamente pueden establecerse mediante Azure. Para más información, consulte [Descripción de las asignaciones de denegación](deny-assignments.md) y [Visualización de las asignaciones de denegación mediante Azure Portal](deny-assignments-portal.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Cómo determina RBAC si un usuario tiene acceso a un recurso
 

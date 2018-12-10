@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 12880c3aada46b1656cf37b0cb539292cce930ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a720bb906192731b8b636939e22b13a8e52bbe76
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625715"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632898"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster Windows de Service Fabric en una red virtual de Azure
 
 Este tutorial es la primera parte de una serie. Con él puede aprender a implementar un clúster de Service Fabric con Windows en una instancia de [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md) y en un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) mediante PowerShell y una plantilla. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones.  Para crear un clúster de Linux con la CLI de Azure, consulte [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) (Creación de un clúster de Linux seguro en Azure).
 
-Este tutorial describe un escenario de producción.  Si desea crear un clúster pequeño con fines de prueba rápidamente, consulte [Creación de un clúster de prueba de tres nodos](./scripts/service-fabric-powershell-create-test-cluster.md).
+Este tutorial describe un escenario de producción.  Si desea crear un clúster más pequeño con fines de prueba rápidamente, consulte [Creación de un clúster de prueba](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
 En este tutorial, aprenderá a:
 

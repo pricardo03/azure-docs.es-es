@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: 1f1e7ce41c00078c0181fc5f32c43b7e5885eef8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857676"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727353"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
 
@@ -77,7 +77,7 @@ A continuación, puede ver los detalles de la concesión del rol `AcrImageSigner
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Vaya al registro en Azure Portal y, a continuación, seleccione **Control de acceso (IAM)** > **Agregar**. En **Agregar permisos**, seleccione `AcrImageSigner` para el **Rol**, a continuación, **seleccione** uno o más usuarios o entidades de servicio y, a continuación, **Guardar**.
+Vaya al registro en Azure Portal y, a continuación, seleccione **Control de acceso (IAM)** > **Agregar asignación de rol**. En **Agregar asignación de rol**, seleccione `AcrImageSigner` para el **Rol**, **seleccione** uno o más usuarios o entidades de servicio y, a continuación, **Guardar**.
 
 En este ejemplo, se ha asignado el rol `AcrImageSigner` a dos entidades: una entidad de servicio llamada "service-principal" y un usuario llamado "Azure User".
 

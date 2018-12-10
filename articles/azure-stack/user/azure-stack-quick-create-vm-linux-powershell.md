@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a2dea792db39c753d0ea720c8e610a399401315f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377511"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840578"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Guía de inicio rápido: creación de una máquina virtual para un servidor Linux con PowerShell en Azure Stack
 
@@ -47,7 +47,7 @@ Puede crear una máquina virtual Ubuntu Server 16.04 LTS mediante PowerShell par
 
 Un grupo de recursos es un contenedor lógico en el que puede implementar y administrar recursos de Azure Stack. Desde el kit de desarrollo o el sistema integrado de Azure Stack, ejecute el siguiente bloque de código para crear un grupo de recursos. Se asignan valores para todas las variables de este documento y puede utilizar estos valores o asignar otros nuevos.
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup `
 
 Cree una cuenta de almacenamiento y un contenedor de almacenamiento para la imagen de Ubuntu Server 16.04 LTS.
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -395,7 +395,7 @@ Desde un sistema de cliente con SSH instalado, use el comando siguiente para con
 ssh <Public IP Address>
 ```
 
-Cuando se le solicite, escriba azureuser como nombre de usuario. Si usó una frase de contraseña al crear las claves SSH, tendrá que proporcionar la frase de contraseña.
+Cuando se le solicite, inicie sesión como **azureuser**. Si usó una frase de contraseña al crear las claves SSH, tendrá que proporcionar la frase de contraseña.
 
 ## <a name="install-the-nginx-web-server"></a>Instalar el servidor web NGINX
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 6b44e08fc1dce489e703bea1cbef2a7e94ae0f2a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 83785e532523c3e921b0772ddaa50502b2dc867d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961048"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633799"
 ---
 # <a name="manage-conflicts-between-regions"></a>Administración de conflictos entre regiones
 
@@ -83,9 +83,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-stored-procedure"></a>Creación de una directiva de resolución de conflictos personalizada con un procedimiento almacenado
+## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Creación de una directiva de resolución de conflictos personalizada con un procedimiento almacenado
 
-En estos ejemplos se muestran cómo configurar un contenedor con una directiva de resolución de conflictos personalizada con un procedimiento almacenado para resolver el conflicto. Estos conflictos **no** se mostrarán en la fuente de conflictos, salvo que haya un error en el procedimiento almacenado.
+En estos ejemplos se muestran cómo configurar un contenedor con una directiva de resolución de conflictos personalizada con un procedimiento almacenado para resolver el conflicto. Estos conflictos no se mostrarán en la fuente de conflictos, salvo que haya un error en el procedimiento almacenado.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>SDK para .NET
 
@@ -102,7 +102,7 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-Tras crear el contenedor tendrá que crear el procedimiento almacenado `resolver`.
+Una vez creado el contenedor, debe crear el procedimiento almacenado `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>SDK asincrónico para Java
 
@@ -114,7 +114,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-Tras crear el contenedor tendrá que crear el procedimiento almacenado `resolver`.
+Una vez creado el contenedor, debe crear el procedimiento almacenado `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>SDK sincrónico para Java
 
@@ -127,7 +127,7 @@ udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
 
-Tras crear el contenedor tendrá que crear el procedimiento almacenado `resolver`.
+Una vez creado el contenedor, debe crear el procedimiento almacenado `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>SDK para Node.js/JavaScript/TypeScript
 
@@ -146,7 +146,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-Tras crear el contenedor tendrá que crear el procedimiento almacenado `resolver`.
+Una vez creado el contenedor, debe crear el procedimiento almacenado `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>SDK para Python
 
@@ -154,11 +154,11 @@ Tras crear el contenedor tendrá que crear el procedimiento almacenado `resolver
 
 ```
 
-Tras crear el contenedor tendrá que crear el procedimiento almacenado `resolver`.
+Una vez creado el contenedor, debe crear el procedimiento almacenado `resolver`.
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Creación de una directiva de resolución de conflictos del tipo "el último en escribir gana"
 
-En estos ejemplos se muestran cómo configurar un contenedor con una directiva de resolución de conflictos del tipo "el último en escribir gana". Si no se establece la ruta de acceso o la que se establece no es válida, usará de forma predeterminada la propiedad `_ts` (el campo de marca de tiempo). Estos conflictos **no** se mostrarán en la fuente de conflictos.
+En estos ejemplos se muestra cómo configurar un contenedor con una directiva de resolución de conflictos del tipo "el último en escribir gana". Si no se establece la ruta de acceso o la que se establece no es válida, se usará de forma predeterminada la propiedad `_ts`. Esta propiedad es el campo de marca de tiempo. Estos conflictos no se mostrarán en la fuente de conflictos.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>SDK para .NET
 
@@ -210,7 +210,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-Si se omite la propiedad `conflictResolutionPath`, el valor predeterminado será la propiedad `_ts`.
+Si no usa la propiedad `conflictResolutionPath`, el valor predeterminado es la propiedad `_ts`.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-python"></a>SDK para Python
 
@@ -277,8 +277,8 @@ while conflict:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora puede pasar a aprender los siguientes conceptos de Cosmos DB:
+Obtenga información acerca de los siguientes conceptos de Azure Cosmos DB:
 
 * [Creación de particiones y distribución de datos](partition-data.md)
-* [Indexación en Cosmos DB](indexing-policies.md)
+* [Indexación en Azure Cosmos DB](indexing-policies.md)
 

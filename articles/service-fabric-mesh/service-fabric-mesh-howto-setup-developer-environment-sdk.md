@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: tylermsft
 ms.author: twhitney
-ms.date: 08/08/2018
+ms.date: 11/29/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 0531985cbab9c10b4df8ea3f27ac6c7903790da5
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: bec0b9a7e34f1577f80a99f5380795c479c04bc8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978237"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890473"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configuración del entorno de desarrollo de Windows para compilar aplicaciones de Service Fabric Mesh
 
@@ -73,27 +73,31 @@ Instale el entorno de ejecución, el SDK y las herramientas de Service Fabric Me
 
 ## <a name="build-a-cluster"></a>Compilación de un clúster
 
+> [!IMPORTANT]
+> Se **debe** ejecutar Docker antes de poder compilar un clúster.
+> Compruebe que Docker se está ejecutando. Para ello, abra una ventana de terminal y ejecute `docker ps` para ver si se produce un error. Si la respuesta no indica un error, Docker se está ejecutando y ya está listo para compilar un clúster.
+
 Si va a usar Visual Studio, puede omitir esta sección ya que Visual Studio creará un clúster local en su lugar si no tiene uno.
 
 Para obtener el mejor rendimiento de depuración al crear y ejecutar aplicaciones de Service Fabric, se recomienda crear un clúster de desarrollo local de nodo único. Este clúster se debe ejecutar cada vez que implementa o depura un proyecto de Service Fabric Mesh.
 
-Se **debe** ejecutar Docker antes de poder compilar un clúster. Compruebe que Docker se está ejecutando. Para ello, abra una ventana de terminal y ejecute `docker ps` para ver si se produce un error. Si la respuesta no indica un error, Docker se está ejecutando y ya está listo para compilar un clúster.
-
-Después de instalar el runtime, los SDK y las herramientas de Visual Studio, cree un clúster de desarrollo.
+Después de instalar el entorno de ejecución, los SDK, las herramientas de Visual Studio y Docker, y de que Docker se ejecute, cree un clúster de desarrollo.
 
 1. Cierre la ventana de PowerShell.
 2. Abra una nueva ventana de PowerShell con privilegios elevados como administrador. Este paso es necesario para cargar los módulos de Service Fabric que instaló recientemente.
 3. Ejecute el siguiente comando de PowerShell para crear un clúster de desarrollo:
 
     ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateMeshCluster -CreateOneNodeCluster
     ```
-
 4. Para iniciar la herramienta Administrador de clústeres locales, ejecute el siguiente comando de PowerShell:
 
     ```powershell
     . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
+5. Cuando la herramienta Administrador de clústeres de servicio se esté ejecutando (aparece en la bandeja del sistema), haga clic con el botón derecho en ella y luego en **Iniciar clúster local** (Iniciar clúster local).
+
+![Figura 1: Iniciar el clúster local](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 
 Ya está listo para crear aplicaciones de Service Fabric Mesh.
 
@@ -101,7 +105,7 @@ Ya está listo para crear aplicaciones de Service Fabric Mesh.
 
 Consulte el tutorial [Creación de una aplicación de Azure Service Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md).
 
-Obtenga respuestas para las [preguntas comunes](service-fabric-mesh-faq.md).
+Obtenga respuestas a [preguntas comunes](service-fabric-mesh-faq.md).
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
@@ -109,5 +113,5 @@ Obtenga respuestas para las [preguntas comunes](service-fabric-mesh-faq.md).
 [download-runtime]: https://aka.ms/sfruntime
 [download-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK
 [download-sdkmesh]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-SDK-Mesh
-[download-tools]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.ServiceFabricMesh
+[download-tools]: https://aka.ms/sfmesh_vs2017tools
 [download-visual-studio]: https://www.visualstudio.com/downloads/

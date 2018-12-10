@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2320aaf2d502280a29562a49dfff1e4e9244d079
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443498"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872975"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: implementación de una aplicación de contenedor con CI/CD en un clúster de Service Fabric
 
@@ -65,7 +65,7 @@ Compruebe su correo electrónico y seleccione su organización en la lista despl
 
 La publicación del repositorio crea un proyecto de equipo en su cuenta con el mismo nombre que el repositorio local. Para crear el repositorio en un proyecto de equipo existente, haga clic en **Avanzado**, junto al nombre del **repositorio**, y seleccione un proyecto de equipo. Puede ver el código en la web seleccionando **Ver en la web**.
 
-## <a name="configure-continuous-delivery-with-vsts"></a>Configurar la entrega continua con VSTS
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Configuración de la entrega continua con Azure Pipelines
 
 Una definición de compilación de Azure DevOps describe un flujo de trabajo que consta de una serie de pasos de compilación que se ejecutan de manera secuencial. Cree una definición de compilación que genere un paquete de aplicación de Service Fabric y otros artefactos para implementarlos en un clúster de Service Fabric. Más información sobre las [definiciones de compilación](https://www.visualstudio.com/docs/build/define/create) de Azure DevOps. 
 

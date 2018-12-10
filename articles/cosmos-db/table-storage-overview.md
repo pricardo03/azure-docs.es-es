@@ -1,21 +1,20 @@
 ---
-title: Introducción a Azure Table Storage | Microsoft Docs
+title: Introducción a Azure Table Storage
 description: Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 204d0032516886c2d954965c7c4561d967bae705
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5f07d041e7674cb1579247ca2b444017762c5be0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232195"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867416"
 ---
 # <a name="azure-table-storage-overview"></a>Introducción a Azure Table Storage
 

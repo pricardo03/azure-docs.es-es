@@ -1,21 +1,19 @@
 ---
-title: Compatibilidad de la característica Cosmos DB con MongoDB | Microsoft Docs
+title: Compatibilidad de características de Azure Cosmos DB con MongoDB
 description: Obtenga información acerca de la compatibilidad de la característica que proporciona la API de Azure Cosmos DB MongoDB con MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: d9616f87e76231c3bb587c2018572b7526b471a5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 01e8af08ff5059867cc49cb9d55ae92f2ae21cdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050347"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879680"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Compatibilidad de la API de MongoDB con la sintaxis y las características de MongoDB
 

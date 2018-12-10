@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8ec180b40e52c5702495a0124bf8ae33d2dc24a1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425010"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727790"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager (versión preliminar privada)
 
@@ -152,7 +152,7 @@ Deberá crear una identidad administrada asignada por el usuario y configurar el
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Cree una [identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. En el portal, seleccione **Suscripciones** en el menú izquierdo y, luego, seleccione su suscripción.
-4. Seleccione **Control de acceso (IAM)** y después **Agregar**.
+4. Seleccione **Control de acceso (IAM)** y después **Agregar asignación de rol**.
 5. Escriba o seleccione los siguientes valores:
 
     ![Tutorial de Azure Deployment Manager: control de acceso de identidad administrada asignada por el usuario](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)

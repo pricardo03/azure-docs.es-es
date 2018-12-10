@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: obtención de los idiomas admitidos (C#): Translator Text API'
+title: 'Guía de inicio rápido: Obtención de una lista de idiomas admitidos con Translator Text API mediante C#'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración y la búsqueda en el diccionario mediante Translator Text API.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: cc5d9efd017ec2045cc94bbad98e26e8b95e071d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 54896e96658286297d90f488bd02f11da505ec50
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334693"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889096"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-c"></a>Guía de inicio rápido: obtención de los idiomas admitidos con la API REST Translator Text (C#)
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Guía de inicio rápido: Uso de Translator Text API para obtener una lista de los idiomas admitidos mediante C#
 
 En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración y la búsqueda en el diccionario mediante Translator Text API.
 
@@ -28,7 +28,7 @@ En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Serv
 * [SDK de .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Paquete NuGet de Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o su editor favorito de código.
-* Una clave de suscripción de Azure para el servicio Voz
+* Una clave de suscripción de Azure para Translator Text
 
 ## <a name="create-a-net-core-project"></a>Creación de un proyecto de .NET Core
 

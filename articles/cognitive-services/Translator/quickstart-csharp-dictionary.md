@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: búsqueda de traducciones alternativas con C#: Translator Text API'
+title: 'Guía de inicio rápido: Obtención de traducciones alternativas con Translator Text API mediante C#'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido aprenderá a obtener posibles traducciones alternativas de un término y se proporcionan ejemplos de uso mediante .NET Core y Translator Text API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: b77113378803b3d40e3612c668a5048a936edbe2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 034b6e102d008039ddd138798900dbee17faf51d
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679331"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887957"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-c"></a>Guía de inicio rápido: búsqueda de traducciones alternativas con la API REST Translator Text (C#)
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-c"></a>Guía de inicio rápido: Uso de Translator Text API para obtener traducciones alternativas con C#
 
 En esta guía de inicio rápido aprenderá a obtener posibles traducciones alternativas de un término y se proporcionan ejemplos de uso mediante .NET Core y Translator Text API.
 

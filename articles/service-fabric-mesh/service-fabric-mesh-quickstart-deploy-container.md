@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: No agregue ni edite palabras clave sin consultar a su responsable de SEO Champ.
 author: rwike77
 ms.author: ryanwi
-ms.date: 08/24/2018
+ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d50ebeef686de7e467e2a71b6bb33f207414bcc8
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: ce3001a2984726332b036eea69d4e18e3d7d300b
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541473"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890439"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Inicio rápido: Implementación de una aplicación "Hola mundo" en Service Fabric Mesh
 
@@ -48,16 +48,34 @@ az group create --name myResourceGroup --location eastus
 Cree su aplicación en el grupo de recursos mediante el comando `az mesh deployment create`.  Ejecute lo siguiente:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
 El comando anterior implementa una aplicación Linux con la [plantilla mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Si quiere implementar una aplicación Windows, use la [plantilla mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Las imágenes de contenedor de Windows son más grandes que las imágenes de contenedor de Linux y pueden tardar más en implementarse.
 
-Al cabo de unos minutos, el comando devuelve:
+Este comando producirá un fragmento de código de JSON que se muestra a continuación. En la sección ```outputs``` de la salida de JSON, copie la propiedad ```publicIPAddress```.
 
-`helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
 
-## <a name="open-the-application"></a>Apertura de la aplicación
+Esta información proviene de la sección ```outputs``` de la plantilla ARM. Como se muestra a continuación, esta sección hace referencia al recurso de la puerta de enlace para capturar la dirección IP pública. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
+
+## <a name="open-the-application"></a>Abrir la aplicación
 Una vez que la aplicación se ha implementado correctamente, copie la dirección IP pública del punto de conexión de servicio de la salida de la CLI. Abra la dirección IP en un explorador web. Se muestra una página web con el logotipo del servicio Azure Service Fabric Mesh.
 
 ## <a name="check-the-application-details"></a>Comprobación de los detalles de la aplicación

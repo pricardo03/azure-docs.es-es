@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b018872eb1bd8575004fc50124c8ab8b77564b15
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 2e60ede7ca6a1030f689f97ad9fe38a4705126a8
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247579"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725965"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guía de inicio rápido: Configuración del inicio de sesión en una aplicación de escritorio mediante Azure Active Directory B2C 
 
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) B2C proporciona administración de identidades
 
 ## <a name="edit-your-profile"></a>Edición del perfil
 
-Azure AD B2C proporciona la funcionalidad necesaria para permitir a los usuarios actualizar sus perfiles. La aplicación web de ejemplo usa una directiva de perfil de edición de Azure AD B2C para el flujo de trabajo. 
+Azure AD B2C proporciona la funcionalidad necesaria para permitir a los usuarios actualizar sus perfiles. La aplicación web de ejemplo usa un flujo de usuario del perfil de edición de Azure AD B2C para el flujo de trabajo. 
 
 1. En la barra de menús de la aplicación, haga clic en **Editar perfil** para editar el perfil que ha creado.
 

@@ -7,16 +7,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0664316d73b1473ab52b08f8abead2ec33d121b6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025417"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836753"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Guía de inicio rápido: Creación de una máquina virtual de servidor Linux con el portal de Azure Stack
 
@@ -36,7 +36,7 @@ Puede crear una máquina virtual Ubuntu Server 16.04 LTS mediante el portal de A
 
 * **Una imagen de Linux en el marketplace de Azure Stack**
 
-   El marketplace de Azure Stack no contiene la imagen de Linux de forma predeterminada. Para poder crear una máquina virtual de servidor Linux, asegúrese de que el operador de Azure Stack proporciona la imagen de **Ubuntu Server 16.04 LTS** que necesita. El operador puede usar los pasos descritos en el artículo [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) (Descarga de productos de Marketplace de Azure a Azure Stack).
+   Azure Stack Marketplace no tiene la imagen de Linux de forma predeterminada. Compruebe que tiene el operador de Azure Stack que proporciona la imagen de **Ubuntu Server 16.04 LTS** en Marketplace. El operador puede usar los pasos descritos en el artículo [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) (Descarga de productos de Marketplace de Azure a Azure Stack).
 
 * **Acceso a un cliente SSH**
 
@@ -97,11 +97,11 @@ Inicie sesión en el portal de Azure Stack. La dirección del portal de Azure St
 
 ## <a name="connect-to-the-virtual-machine"></a>Conexión a la máquina virtual
 
-1. En la página de la máquina virtual, haga clic en **Conectar**. Se mostrará la cadena de conexión SSH que necesita para conectarse a la máquina virtual. 
+1. En la página de la máquina virtual, haga clic en **Conectar**. Podrá encontrar la cadena de conexión SSH que necesita para conectarse a la máquina virtual. 
 
 2. Abra PuTTY.
 
-3. En la pantalla **PuTTY Configuration** (Configuración de PuTTY) usará la ventana **Category** (Categoría) para desplazarse hacia arriba o hacia abajo. Desplácese hacia abajo hasta **SSH**, expanda **SSH**y, a continuación, haga clic en **Auth**. Haga clic en **Browse** (Examinar) y seleccione el archivo de clave privada que guardó.
+3. En la pantalla de configuración de PuTTY, usará la ventana **Category** (Categoría) para desplazarse hacia arriba o hacia abajo. Desplácese hacia abajo hasta **SSH**, expanda **SSH**y, a continuación, haga clic en **Auth**. Haga clic en **Browse** (Examinar) y seleccione el archivo de clave privada que guardó.
    ![Conexión a la máquina virtual](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Desplácese hacia arriba en la ventana**Category** (Categoría) y, a continuación, haga clic en **Session** (Sesión).

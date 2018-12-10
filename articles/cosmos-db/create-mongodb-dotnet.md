@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: Compilar una aplicación web con .NET y la API MongoDB | Microsoft Docs'
+title: 'Azure Cosmos DB: Compilación de una aplicación web con .NET y MongoDB API'
 description: En este tema se presenta un ejemplo de código de .NET que se puede usar para conectarse a la API MongoDB de Azure Cosmos DB y realizar consultas.
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: sclyon
-ms.openlocfilehash: 7ab02cf2cc9a25a5c4c7aa6d782d37d932dc8369
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a0255257ca4f9ebfd0ae230a872be34c4dbec02a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701958"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846715"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación web de API MongoDB con .NET y Azure Portal
 

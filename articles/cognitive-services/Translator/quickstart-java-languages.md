@@ -1,128 +1,175 @@
 ---
-title: 'Guía de inicio rápido: obtención de los idiomas admitidos (Java): Translator Text API'
+title: 'Guía de inicio rápido: Obtención de una lista de idiomas admitidos con Translator Text API mediante Java'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API con Java.
+description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración y la búsqueda en el diccionario mediante Translator Text API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 88a5452259978c265b8f48184f9604d9f1b4c238
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9a5985adb92799726951ad37c1dbd0b72c6c9709
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412490"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889011"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-java"></a>Guía de inicio rápido: obtención de los idiomas admitidos con la API REST Translator Text (Java)
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Guía de inicio rápido: Uso de Translator Text API para obtener una lista de los idiomas admitidos mediante Java
 
-En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API.
+En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración y la búsqueda en el diccionario mediante Translator Text API.
+
+En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Translator Text. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Se requiere [JDK 7 u 8](https://aka.ms/azure-jdks) para compilar y ejecutar este código. Puede utilizar un entorno de desarrollo de Java si tiene uno favorito, pero también basta con un editor de texto.
+* [JDK 7 o posterior](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Gradle](https://gradle.org/install/)
+* Una clave de suscripción de Azure para Translator Text
 
-Para usar Translator Text API, también necesita una clave de suscripción; consulte [Cómo suscribirse a Translator Text API](translator-text-how-to-signup.md).
+## <a name="initialize-a-project-with-gradle"></a>Inicialización de un proyecto con Gradle
 
-## <a name="languages-request"></a>Solicitud Languages
+Comencemos por crear un directorio de trabajo para este proyecto. Desde la línea de comandos (o terminal), ejecute este comando:
 
-Con el siguiente código se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante el método [Languages](./reference/v3-0-languages.md).
+```console
+mkdir get-languages-sample
+cd get-languages-sample
+```
 
-1. Cree un nuevo proyecto de Java en el editor de código que prefiera.
-2. Agregue el código que se proporciona a continuación.
-3. Reemplace el valor `subscriptionKey` por una clave de acceso válida para la suscripción.
-4. Ejecute el programa.
+A continuación, va a inicializar un proyecto de Gradle. Este comando creará archivos de compilación esenciales para Gradle, el más importante, el `build.gradle.kts`, que se utiliza en tiempo de ejecución para crear y configurar la aplicación. Ejecute este comando desde el directorio de trabajo:
+
+```console
+gradle init --type basic
+```
+
+Cuando se le solicite que elija un **DSL**, seleccione **Kotlin**.
+
+## <a name="configure-the-build-file"></a>Configuración del archivo de compilación
+
+Localice `build.gradle.kts` y ábralo con el IDE o editor de texto favorito. A continuación, se copia en esta configuración de compilación:
+
+```
+plugins {
+    java
+    application
+}
+application {
+    mainClassName = "GetLanguages"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile("com.squareup.okhttp:okhttp:2.5.0")
+    compile("com.google.code.gson:gson:2.8.5")
+}
+```
+
+Tenga en cuenta que este ejemplo tiene dependencias en OkHttp para las solicitudes HTTP, y Gson para administrar y analizar JSON. Si desea obtener más información acerca de las configuraciones de compilación, consulte [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/) (Creación de nuevas compilaciones de Gradle).
+
+## <a name="create-a-java-file"></a>Creación de un archivo Java
+
+Vamos a crear una carpeta para la aplicación de ejemplo. En el directorio de trabajo, ejecute:
+
+```console
+mkdir -p src/main/java
+```
+
+A continuación, en esta carpeta, cree un archivo denominado `GetLanguages.java`.
+
+## <a name="import-required-libraries"></a>Importación de bibliotecas necesarias
+
+Abra `GetLanguages.java` y agregue estas instrucciones de importación:
 
 ```java
 import java.io.*;
 import java.net.*;
 import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
+import com.google.gson.*;
+import com.squareup.okhttp.*;
+```
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+## <a name="define-variables"></a>Definición de variables
 
-/* NOTE: To compile and run this code:
-1. Save this file as Languages.java.
-2. Run:
-    javac Languages.java -cp .;gson-2.8.1.jar -encoding UTF-8
-3. Run:
-    java -cp .;gson-2.8.1.jar Languages
-*/
+En primer lugar, deberá crear una clase pública para el proyecto:
 
-public class Languages {
+```java
+public class GetLanguages {
+  // All project code goes here...
+}
+```
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+Agregue estas líneas a la clase `GetLanguages`:
 
-// Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "ENTER KEY HERE";
+```java
+String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
+```
 
-    static String host = "https://api.cognitive.microsofttranslator.com";
-    static String path = "/languages?api-version=3.0";
+## <a name="create-a-client-and-build-a-request"></a>Creación de un cliente y compilación de una solución
 
-    static String output_path = "output.txt";
+Agregue esta línea a la clase `GetLanguages` para crear una instancia de `OkHttpClient`:
 
-    public static String GetLanguages () throws Exception {
-        URL url = new URL (host + path);
+```java
+// Instantiates the OkHttpClient.
+OkHttpClient client = new OkHttpClient();
+```
 
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setDoOutput(true);
+A continuación, vamos a crear la solicitud GET.
 
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
+```java
+// This function performs a GET request.
+public String Get() throws IOException {
+    Request request = new Request.Builder()
+            .url(url).get()
+            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Content-type", "application/json").build();
+    Response response = client.newCall(request).execute();
+    return response.body().string();
+}
+```
 
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
+## <a name="create-a-function-to-parse-the-response"></a>Creación de una función para analizar la respuesta
 
-        return response.toString();
-    }
+Esta sencilla función analiza y embellece la respuesta JSON del servicio Translator Text.
 
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
+```java
+// This function prettifies the json response.
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonElement json = parser.parse(json_text);
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
-    public static void WriteToFile (String data) throws Exception {
-        String json = prettify (data);
-        Writer outputStream = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(output_path), "UTF-8"));
-        outputStream.write(json);
-        outputStream.close();
-    }
+## <a name="put-it-all-together"></a>Colocación de todo junto
 
-    public static void main(String[] args) {
-        try {
-            String response = GetLanguages ();
-            WriteToFile (response);
-        }
-        catch (Exception e) {
-            System.out.println (e);
-        }
+El último paso consiste en realizar una solicitud y obtener una respuesta. Agregue estas líneas al proyecto:
+
+```java
+public static void main(String[] args) {
+    try {
+        GetLanguages getLanguagesRequest = new GetLanguages();
+        String response = getLanguagesRequest.Get();
+        System.out.println(prettify(response));
+    } catch (Exception e) {
+        System.out.println(e);
     }
 }
 ```
 
-## <a name="languages-response"></a>Respuesta de Languages
+## <a name="run-the-sample-app"></a>Ejecutar la aplicación de ejemplo
+
+Eso es todo, ya está listo para ejecutar la aplicación de ejemplo. Desde la línea de comandos (o sesión de terminal), navegue hasta la raíz del directorio de trabajo y ejecute:
+
+```console
+gradle build
+```
+
+## <a name="sample-response"></a>Respuesta de muestra
 
 Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo:
 
@@ -216,3 +263,11 @@ Explore el código de ejemplo de esta guía de inicio rápido y otros, incluida 
 
 > [!div class="nextstepaction"]
 > [Explorar ejemplos de Java en GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+
+## <a name="see-also"></a>Otras referencias
+
+* [Traducir texto](quickstart-java-translate.md)
+* [Transliterar texto](quickstart-java-transliterate.md)
+* [Identificar el idioma de entrada](quickstart-java-detect.md)
+* [Obtener traducciones alternativas](quickstart-java-dictionary.md)
+* [Determinar la longitud de las oraciones de una entrada](quickstart-java-sentences.md)

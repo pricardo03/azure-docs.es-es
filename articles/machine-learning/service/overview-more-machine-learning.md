@@ -8,13 +8,13 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
-ms.openlocfilehash: 182504373795b3cb0f2794acbed5e253ac6bc95c
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.date: 12/04/2018
+ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419566"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872559"
 ---
 # <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>¿Cuáles son las opciones de productos de aprendizaje automático de Microsoft?
 
@@ -22,22 +22,22 @@ Microsoft proporciona una variedad de opciones de productos para crear, implemen
 
 | Producto de aprendizaje automático | ¿Qué es? | Qué puede hacer con él |
 |-|-|-|
-| En la nube | | |
+| ***En la nube*** | | |
 | [Servicio Azure Machine Learning](#azure-machine-learning-services) | Servicio en la nube administrado de ML  | Entrenar, implementar y administrar modelos en Azure con Python y la CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Interfaz visual de arrastrar y colocar de ML | Compilar, experimentar e implementar modelos mediante algoritmos preconfigurados |
 | [Azure Databricks](#azure-databricks) | Plataforma de análisis basada en Spark | Compilar e implementar flujos de trabajo de datos y modelos |
 | [Azure Cognitive Services](#azure-cognitive-services) | Servicios de Azure con modelos de inteligencia artificial y ML creados previamente | Agregar fácilmente características inteligentes a las aplicaciones |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Máquina virtual con herramientas de ciencia de datos previamente instaladas | Desarrollar soluciones de ML en un entorno preconfigurado |
-| Local | | |
+| ***Local***<br>*(los servidores locales también se pueden ejecutar en una máquina virtual en la nube)* | | |
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Motor de análisis insertado en SQL | Crear e implementar modelos en SQL Server |
 | [Servidor de Microsoft Machine Learning](#microsoft-machine-learning-server) | Servidor empresarial independiente para análisis predictivo | Compilar e implementar modelos generados con R y Python |
-| Herramientas para desarrolladores | | |
+| ***Herramientas para desarrolladores*** | | |
 | [ML.NET](#mlnet) | SDK de ML de código abierto y multiplataforma | Desarrollar soluciones de ML para aplicaciones .NET |
 | [Windows ML](#windows-ml) | Plataforma de ML de Windows 10 | Evaluar modelos entrenados en un dispositivo Windows 10 |
 
 ## <a name="azure-machine-learning-service"></a>Servicio Azure Machine Learning
 
-[Azure Machine Learning](overview-what-is-azure-ml.md) (versión preliminar) es un servicio en la nube totalmente administrado que se utiliza para entrenar, implementar y administrar modelos de ML a escala. Además, es totalmente compatible con las tecnologías de código abierto, por lo que puede utilizar decenas de miles de paquetes de Python de código abierto como TensorFlow, PyTorch y scikit-learn. También hay disponibles herramientas enriquecidas, como [cuadernos de Azure](https://notebooks.azure.com/), [cuadernos de Jupyter Notebook](http://jupyter.org) o [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/), para que sea fácil explorar y transformar datos, y posteriormente, entrenar e implementar modelos. El servicio Azure Machine Learning incluye características que automatizan la generación y la optimización de modelos con facilidad, eficacia y precisión.
+[Azure Machine Learning](overview-what-is-azure-ml.md) es un servicio en la nube totalmente administrado que se utiliza para entrenar, implementar y administrar modelos de ML a escala. Además, es totalmente compatible con las tecnologías de código abierto, por lo que puede utilizar decenas de miles de paquetes de Python de código abierto como TensorFlow, PyTorch y scikit-learn. También hay disponibles herramientas enriquecidas, como [Azure Notebooks](https://notebooks.azure.com/), [Jupyter Notebooks](http://jupyter.org) o la extensión de [Azure Machine Learning para Visual Studio Code](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/), para que sea fácil explorar y transformar datos, y posteriormente, entrenar e implementar modelos. El servicio Azure Machine Learning incluye características que automatizan la generación y la optimización de modelos con facilidad, eficacia y precisión.
 
 Use el servicio Azure Machine Learning para entrenar, implementar y administrar modelos de ML con Python y la CLI en la nube.
 
@@ -74,9 +74,10 @@ Cognitive Services se puede usar para desarrollar aplicaciones en distintos disp
 ## <a name="azure-data-science-virtual-machine"></a>Máquina virtual de ciencia de datos de Azure
 
 [Data Science Virtual Machine](../data-science-virtual-machine/overview.md) es un entorno de máquina virtual personalizado en la nube de Microsoft Azure diseñado específicamente para hacer ciencia de datos. Tiene muchas ciencias de datos conocidas y otras herramientas preinstaladas y preconfiguradas para impulsar la creación de aplicaciones inteligentes para análisis avanzado.
-Data Science Virtual Machine está disponible en las versiones de Windows y Linux Ubuntu (el servicio Azure Machine Learning no es compatible con CentOS Linux).
-Para obtener información de versiones específicas y una lista de lo que incluye, consulte el artículo de [introducción a Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
+
 Data Science Virtual Machine se admite como un destino para el servicio Azure Machine Learning.
+Está disponible en las versiones de Windows y Linux Ubuntu (el servicio Azure Machine Learning no es compatible con CentOS Linux).
+Para obtener información de versiones específicas y una lista de lo que incluye, consulte el artículo de [introducción a Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
 
 Use la máquina virtual de ciencia de datos cuando necesite ejecutar u hospedar trabajos en un único nodo. O bien si necesita escalar de forma remota el procesamiento en un único equipo.
 

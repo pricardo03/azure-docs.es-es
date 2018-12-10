@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/29/2018
-ms.openlocfilehash: 98495c35270ea3d6d500151c8e5dfb35751d5cc5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c53980dc2d29fbfb7e59dcba7252e0b0448d14d3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232144"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840017"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Ejemplos de Azure PowerShell para Azure SQL Database
 
@@ -25,10 +25,11 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell para A
 
 | |  |
 |---|---|
-|**Creación de una base de datos única y un grupo elástico**||
+|**Creación y configuración de una instancia administrada de base de datos única y un grupo de bases de datos elásticas**||
 | [Creación de una base de datos única y configuración de una regla de firewall](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell crea una instancia de Azure SQL Database y configura una regla de firewall en el nivel de servidor. |
 | [Creación de grupos elásticos y traslado de bases de datos agrupadas](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell crea grupos elásticos de Azure SQL Database, traslada las bases de datos agrupadas y cambia los tamaños de proceso.|
 | [Creación y administración de una Instancia administrada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Este script de PowerShell muestra cómo crear y administrar una Instancia administrada mediante Azure PowerShell |
+| [Creación y administración de una instancia administrada con una plantilla de Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell muestra cómo crear y administrar una instancia administrada mediante Azure PowerShell y una plantilla de Azure Resource Manager.|
 |**Configuración de la replicación geográfica y de la conmutación por error**||
 | [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell configura la replicación geográfica activa para una instancia de Azure SQL Database y la conmuta por error a la réplica secundaria. |
 | [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell configura la replicación geográfica activa para una instancia de Azure SQL Database en un grupo elástico de SQL y la conmuta por error a la réplica secundaria. |

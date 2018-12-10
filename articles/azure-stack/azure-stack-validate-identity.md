@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0a46344893c8ad62bd85f9abb84d434c0331d507
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 61562450d484f34385b4e6e111bf62326eaca159
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984203"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888382"
 ---
 # <a name="validate-azure-identity"></a>Validación de la identidad de Azure 
 Use la herramienta Azure Stack Readiness Checker (AzsReadinessChecker) para validar que su instancia de Azure Active Directory (Azure AD) está lista para usarse con Azure Stack. Valide la solución de identidad de Azure antes de empezar la implementación de Azure Stack.  
@@ -48,7 +48,7 @@ Deben cumplirse los siguientes requisitos previos.
 **Entorno de Azure Active Directory:**
  - Identifique la cuenta de Azure AD que va a usar con Azure Stack y compruebe que es administrador global de Azure Active Directory.
  - Identifique el nombre del inquilino de Azure AD. El nombre del inquilino debe ser el nombre de dominio *principal* de Azure Active Directory. Por ejemplo, *contoso.onmicrosoft.com*. 
- - Identifique el valor de AzureEnvironment que va a usar: *AzureCloud*, *AzureGermanCloud* o *AzureChinaCloud*.
+ - Identifique la clase AzureEnvironement que va a usar. Los valores admitidos para el parámetro de nombre de entorno son AzureCloud, AzureChinaCloud o AzureUSGovernment dependiendo de la suscripción a Azure que esté utilizando.
 
 ## <a name="validate-azure-identity"></a>Validación de la identidad de Azure 
 1. En un equipo que cumpla los requisitos previos, abra un símbolo del sistema administrativo de PowerShell y ejecute el siguiente comando para instalar AzsReadinessChecker:  
@@ -59,10 +59,10 @@ Deben cumplirse los siguientes requisitos previos.
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. Desde el símbolo del sistema de PowerShell, ejecute el siguiente código para iniciar la validación de Azure AD. 
-   - Especifique el valor de AzureEnvironment como *AzureCloud*, *AzureGermanCloud* o *AzureChinaCloud*.  
+   - Especifique el valor de nombre de entorno para la clase AzureEnvironment. Los valores admitidos para el parámetro de nombre de entorno son AzureCloud, AzureChinaCloud o AzureUSGovernment dependiendo de la suscripción a Azure que esté utilizando.  
    - Especifique el nombre del inquilino de Azure Active Directory que quiere reemplazar *contoso.onmicrosoft.com*. 
 
-   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
+   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. Después de ejecutar la herramienta, revise el resultado. Confirme que el estado es correcto para los requisitos de instalación. Una validación correcta tiene un aspecto similar al de la siguiente imagen: 
  
 ````PowerShell

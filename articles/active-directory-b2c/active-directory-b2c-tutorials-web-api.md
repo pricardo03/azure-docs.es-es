@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 01/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604348"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726413"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acceso a una API web de ASP.NET desde una aplicación web mediante Azure Active Directory B2C
 
@@ -120,7 +120,7 @@ La API web de ejemplo se incluye en el proyecto que ha descargado en el tutorial
 
 Hay dos proyectos en la solución de ejemplo:
 
-**Aplicación de ejemplo de aplicación web (TaskWebApp)**: aplicación web para crear y editar una lista de tareas. La aplicación web utiliza la directiva de **registro o de inicio de sesión** para registrar a los usuarios o iniciar sesión con ellos mediante una dirección de correo electrónico.
+**Aplicación de ejemplo de aplicación web (TaskWebApp)**: aplicación web para crear y editar una lista de tareas. La aplicación web utiliza el flujo de usuario de **registro o de inicio de sesión** para registrar a los usuarios o iniciar sesión mediante una dirección de correo electrónico.
 
 **Aplicación de ejemplo de API web (TaskService)**: API web que admite la funcionalidad de creación, lectura, actualización y eliminación de la lista de tareas. Azure AD B2C protege a la API web y la aplicación web la llama.
 
@@ -162,10 +162,10 @@ Abra la solución **B2C-WebAPI-DotNet** en Visual Studio.
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. Actualice la configuración de directiva con el nombre generado al crear la directiva de registro y de inicio de sesión.
+4. Actualice la configuración del flujo de usuario con el nombre generado al crear el flujo del usuario de registro y de inicio de sesión.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
     ```
 
 5. Defina la configuración de los ámbitos para que coincida con lo que ha creado en el portal.

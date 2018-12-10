@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 77fad7b0035a9ba21d71e6c493a4f1a5bd9a2111
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0a582dc3acf17a10bd143988da7dd12627650dff
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395214"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834874"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -74,7 +74,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
   De forma predeterminada, los recursos de servicio de Azure protegidos para las redes virtuales no son accesibles desde redes locales. Si desea permitir el tráfico desde el entorno local, también debe permitir las direcciones IP públicas (normalmente NAT) desde el entorno local o ExpressRoute. Estas direcciones IP se pueden agregar a través de la configuración del firewall de IP para los recursos de los servicios de Azure.
 
-  ExpressRoute: si utiliza [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de las instalaciones para pares públicos o para el emparejamiento de Microsoft, tiene que identificar las direcciones IP de NAT que se utilizan. Para el emparejamiento público, cada circuito ExpressRoute usa de forma predeterminada dos direcciones IP de NAT que se aplican al tráfico del servicio de Azure cuando el tráfico entra en la red troncal de Microsoft Azure. Para el emparejamiento de Microsoft, las direcciones IP de NAT que se utilizan las proporciona el cliente o el proveedor de servicios. Para permitir el acceso a los recursos de servicio, tiene que permitir estas direcciones IP públicas en la configuración del firewall de IP de recursos. Para encontrar las direcciones de IP de circuito de ExpressRoute de los pares públicos, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) a través de Azure Portal. Obtenga más información sobre [NAT para ExpressRoute para emparejamiento público y de Microsoft.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  ExpressRoute: si utiliza [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de las instalaciones para pares públicos o para el emparejamiento de Microsoft, tiene que identificar las direcciones IP de NAT que se utilizan. Para el emparejamiento público, cada circuito ExpressRoute usa de forma predeterminada dos direcciones IP de NAT que se aplican al tráfico del servicio de Azure cuando el tráfico entra en la red troncal de Microsoft Azure. Para el emparejamiento de Microsoft, las direcciones IP de NAT que se utilizan las proporciona el cliente o el proveedor de servicios. Para permitir el acceso a los recursos de servicio, tiene que permitir estas direcciones IP públicas en la configuración del firewall de IP de recursos. Para encontrar las direcciones de IP de circuito de ExpressRoute de los pares públicos, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) en Azure Portal. Obtenga más información sobre [NAT para ExpressRoute para emparejamiento público y de Microsoft.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![Protección de servicios de Azure para las redes virtuales](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -133,11 +133,17 @@ No hay límite en el número total de puntos de conexión de servicio en una red
 
 Para un recurso de servicio de Azure (por ejemplo, una cuenta de Azure Storage), los servicios pueden exigir límites en el número de subredes que se usan para proteger el recurso. Consulte la documentación de varios servicios en [Pasos siguientes](#next-steps) para más información.
 
+## <a name="virtual-network-service-endpoint-policies"></a>Directivas de puntos de conexión de servicio de redes virtuales 
+
+Las directivas de punto de conexión de servicio de la red virtual le permiten filtrar el tráfico de red virtual a los servicios de Azure, lo que permite únicamente recursos de servicio específicos de Azure, sobre los puntos de conexión de servicio. Las directivas de punto de conexión de servicio ofrecen un control de acceso pormenorizado para el tráfico de red virtual a los servicios de Azure. Más información: [Directivas de punto de conexión de servicio de redes virtuales](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre cómo [configurar los puntos de conexión de servicio de la red virtual](tutorial-restrict-network-access-to-resources.md)
 - Obtenga información sobre cómo [proteger una cuenta de Azure Storage para una red virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre cómo [proteger una instancia de Azure SQL Database para una red virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre la [integración del servicio de Azure en redes virtuales](virtual-network-for-azure-services.md)
+- Obtenga información sobre las [directivas de punto de conexión de servicio de redes virtuales](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 -  Guía de inicio rápido: [plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para establecer el punto de conexión de servicio en una subred de la red virtual y una cuenta segura de Azure Storage para esa subred.
 

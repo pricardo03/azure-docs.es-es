@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954116"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724033"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>¿Qué es Azure Active Directory B2C?
 
@@ -60,9 +60,9 @@ Azure AD B2C interactúa con proveedores de identidades, clientes, otros sistema
 
 Azure AD B2C protege contra ataques de denegación de servicio y de contraseña contra sus aplicaciones. Azure AD B2C usa técnicas de detección y mitigación, como las cookies SYN y los límites de velocidad y conexión, para proteger los recursos frente a los ataques por denegación de servicio. La mitigación incluye también ataques a contraseñas por fuerza bruta y ataques de diccionario.
 
-#### <a name="built-in-policies"></a>Directivas integradas
+#### <a name="user-flows"></a>Flujos de usuario
 
-En cada solicitud que se envía a Azure AD B2C se especifica una directiva. Una directiva controla el comportamiento de cómo interactúa la aplicación con Azure AD B2C. Las directivas integradas están predefinidas para las tareas de identidad más comunes, como el registro, el inicio de sesión y la edición de perfiles.  Por ejemplo, una directiva de registro le permite controlar comportamientos configurando los siguientes valores:
+Cada solicitud que se envía a Azure AD B2C especifica un flujo de usuario, que es una directiva que controla el comportamiento del modo en que la aplicación interactúa con Azure AD B2C. Los flujos de usuario predefinidos para las tareas de identidad más comunes, como el registro, el inicio de sesión y la edición de perfiles, están disponibles en el portal de Azure AD B2C.  Por ejemplo, un flujo de usuario de registro le permite controlar los comportamientos configurando los siguientes valores:
 
 - Cuentas de redes sociales que el cliente usa para registrarse en la aplicación
 - Datos recopilados del cliente como el nombre o código postal

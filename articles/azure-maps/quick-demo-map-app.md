@@ -3,18 +3,18 @@ title: Búsqueda de mapa interactiva con Azure Maps | Microsoft Docs
 description: 'Guía de inicio rápido de Azure: iniciar una búsqueda de mapa interactiva de demostración con Azure Maps'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/26/2018
+ms.date: 12/02/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d2aa3385dd7556cfc169b42b36d94a3e1d9ee3dd
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 5f828bfd2ceee81daf86382846be0c5ee7f1fe8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209979"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836583"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Inicio de un mapa de búsqueda interactiva mediante Azure Maps
 
@@ -35,7 +35,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
     - El *nombre* de la nueva cuenta.
     - La *suscripción* que quiere usar para esta cuenta.
     - El *Grupo de recursos* para esta cuenta. Puede elegir *Crear nuevo* o *Usar existente* para el grupo de recursos.
-    - Seleccione *Ubicación del grupo de recursos*.
+    - Seleccione el *plan de tarifa* que prefiera.
     - Lea la *licencia* y la *declaración de privacidad* y active la casilla para aceptar los términos.
     - Finalmente, haga clic en el botón **Crear**.
 

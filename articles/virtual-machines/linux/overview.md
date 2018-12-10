@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 6ed1ef6019e339768c4ba6a62d8b4d99d844f254
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06bd1216aa3f78b41526670044de0250ad0df7d7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949540"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833268"
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
 Microsoft Azure es una colección cada vez mayor de servicios en la nube, públicos e integrados, que incluyen servicios de análisis, máquinas virtuales, bases de datos, móviles, de red, de almacenamiento y web,&mdash;ideales para hospedar sus soluciones.  Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local.  Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
@@ -61,7 +61,7 @@ Para instaurar una cultura de DevOps adecuada, la infraestructura al completa de
 
 Azure está implementando la compatibilidad con [cloud-init](http://cloud-init.io/) en la mayoría de las distribuciones de Linux que admiten este paquete.  En estos momentos, las máquinas virtuales Ubuntu de Canonical se implementan con cloud-init habilitado de forma predeterminada.  Fedora, CentOS y RHEL de Red Hat admiten cloud-init; sin embargo, las imágenes de Azure que mantiene Red Hat actualmente no tienen instalado este paquete.  Para usar cloud-init en un sistema operativo de la familia Red Hat, debe crear una imagen personalizada con cloud-init instalado.
 
-* [Uso de cloud-init en máquinas virtuales con Linux](using-cloud-init.md)
+* [Uso de cloud-init en máquinas virtuales Linux](using-cloud-init.md)
 
 ## <a name="quotas"></a>Cuotas
 Cada suscripción de Azure tiene límites de cuota predeterminados que pueden afectar a la implementación de un gran número de máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región.  Los límites de cuota se pueden elevar rápida y fácilmente presentando una incidencia de soporte técnico solicitando un aumento del límite.  Más información sobre los límites de cuota:
@@ -76,7 +76,7 @@ En Microsoft trabajamos estrechamente con los asociados para garantizar que las 
 * Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical: [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian: [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
-* FreeBSD: [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
+* FreeBSD: [Azure Marketplace - FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
 * CoreOS: [Azure Marketplace - CoreOS (Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
 * RancherOS: [Azure Marketplace - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
 * Bitnami: [Bitnami Library for Azure](https://azure.bitnami.com/)
@@ -119,7 +119,7 @@ Ahora, la máquina virtual se está ejecutando en Azure y ya puede iniciar sesi�
 * [Información general sobre redes virtuales](../../virtual-network/virtual-networks-overview.md)
 * [Direcciones IP en Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Apertura de puertos para una máquina virtual con Linux en Azure](nsg-quickstart.md)
-* [Creación de un nombre de dominio completo en Azure Portal](portal-create-fqdn.md)
+* [Crear un nombre de dominio completo en el Portal de Azure](portal-create-fqdn.md)
 
 ## <a name="containers"></a>Contenedores
 * [Máquinas virtuales y contenedores de Azure](containers.md)

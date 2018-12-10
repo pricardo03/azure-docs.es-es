@@ -4,18 +4,16 @@ description: Tutorial acerca de cómo configurar el flujo de trabajo de compilac
 services: cosmos-db
 keywords: Emulador de Azure Cosmos DB
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 782975cfa548d214515761e45b8f79a2219831e2
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8b64142a7d693e8e48e1739a61978abbab740e3d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036978"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875219"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB en Azure DevOps
 
@@ -23,7 +21,7 @@ El emulador de Azure Cosmos DB proporciona un entorno local que emula el servici
 
 La tarea de compilación del emulador de Azure Cosmos DB para Azure DevOps permite hacer lo mismo en un entorno de integración continua. Con la tarea de compilación, se pueden realizar pruebas en el emulador como parte de los flujos de trabajo de compilación y publicación. La tarea pone en marcha un contenedor de Docker con el emulador ya en ejecución y proporciona un punto de conexión que puede utilizar el resto de la definición de compilación. Puede crear e inicie tantas instancias del emulador como sea necesario, y cada una de ellas se ejecuta en un contenedor independiente. 
 
-En este artículo se muestra cómo configurar una canalización de integración continua en Azure DevOps para una aplicación de ASP.NET que usa la tarea de compilación del emulador de Cosmos DB para realizar las pruebas. 
+En este artículo se muestra cómo configurar una canalización de integración continua en Azure DevOps para una aplicación de ASP.NET que usa la tarea de compilación del emulador de Cosmos DB para realizar las pruebas. Puede usar un enfoque similar para configurar una canalización de CI para una aplicación Node.js o Python. 
 
 ## <a name="install-the-emulator-build-task"></a>Instalación de la tarea de compilación del emulador
 
@@ -82,6 +80,8 @@ A continuación encontrará un ejemplo de un archivo **.runsettings** que define
   </TestRunParameters>
 </RunSettings>
 ```
+
+Si va a configurar una canalización de CI/CD para una aplicación que utiliza la API de MongoDB de Azure Cosmos DB, la cadena de conexión de MongoDB incluye de forma predeterminada el número de puerto 10255. Sin embargo, este puerto no está abierto actualmente. Como alternativa, debe usar el puerto 10250 para establecer la conexión. La cadena de conexión de la API de MongoDB permanece igual, salvo que el número de puerto admitido es 10250 en lugar de 10255.
 
 A los parámetros `TestRunParameters` se les hace referencia mediante una propiedad `TestContext` en el proyecto de prueba de la aplicación. Este es un ejemplo de una prueba que se ejecuta en Cosmos DB.
 

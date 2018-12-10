@@ -1,18 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 452032e21a649fe4d34616225bd168d441ac0267
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 6fa6a0f5a46d8e9a47a0750a66e9ca007864d40a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218649"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092638"
 documentType: LandingData
-title: Documentación sobre el servicio Voz
+title: Documentación del servicio Voz
 metadata:
-  title: 'Documentación de Speech Service: Guías de inicio rápido, tutoriales, referencia de API: Azure Cognitive Services | Microsoft Docs'
-  meta.description: >
-    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
-
-    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
+  title: 'Documentación sobre el servicio Voz: tutoriales, guías de inicio rápido y referencia de API'
+  titleSuffix: Azure Cognitive Services
+  description: El servicio Voz ofrece a los desarrolladores un sencillo mecanismo para proporcionar a las aplicaciones eficaces características de voz. Los ejemplos incluyen el control y los diálogos de comandos de voz, la conversación natural de voz, el dictado y transcripción de voz, y la traducción de voz.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,8 +20,9 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
+  ms.date: 12/06/2018
+  ms.author: erhopf
+  ms.custom: seodec18
 abstract:
   description: Aprenda a usar el servicio Voz y el SDK de Voz para agregar características habilitadas para voz a sus aplicaciones. Puede usar el SDK de Voz para agregar funcionalidades de <i>voz a texto</i> (reconocimiento de voz o SR), <i>intención</i>, <i>traducción</i> y <i>texto a voz</i> (TTS) a las aplicaciones. El servicio Voz también tiene una API REST que funciona con cualquier lenguaje de programación que pueda realizar solicitudes HTTP.
 sections:
@@ -34,12 +33,12 @@ sections:
     columns: 3
     items:
     - href: /azure/cognitive-services/speech-service/overview
-      html: <p>Más información acerca del servicio Voz de Azure</p>
+      html: <p>Más información sobre el servicio Voz de Azure</p>
       image:
         src: ../media/index/i_overview.svg
       title: ¿Qué es el servicio Voz?
     - href: /azure/cognitive-services/speech-service/get-started
-      html: <p>Aprenda a registrarse gratuitamente al servicio Voz.</p>
+      html: <p>Regístrese gratis.</p>
       image:
         src: ../media/index/i_get-started.svg
       title: Registro en el servicio Voz

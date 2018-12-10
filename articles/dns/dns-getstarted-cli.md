@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 7/16/2018
+ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: f80488f555cfa3b7be6f35b9f23ea0a501a27fd9
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 914f6ff67fb3f178a1cc8ad6aa698527cdbf40b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831604"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889776"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Inicio rápido: Creación de una zona y un registro de Azure DNS mediante la CLI de Azure
 
@@ -90,7 +90,7 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 }
 ```
 
-Estos servidores de nombres deben configurarse con el registrador de nombres de dominio (donde adquirió el nombre de dominio). El registrador ofrece la opción de configurar los servidores de nombres para el dominio. Si quiere obtener más información, consulte [Delegación del dominio en DNS de Azure](dns-domain-delegation.md).
+Estos servidores de nombres deben configurarse con el registrador de nombres de dominio (donde adquirió el nombre de dominio). El registrador ofrece la opción de configurar los servidores de nombres para el dominio. Para más información, consulte [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## <a name="delete-all-resources"></a>Eliminación de todos los recursos
  

@@ -17,8 +17,56 @@ items:
   expanded: true
 - name: Conceptos
   items:
+  - name: Azure AD Connect y Connect Health
+    href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+    items:
+    - name: ¿Qué es Azure AD Connect y Connect Health?
+      href: whatis-azure-ad-connect.md
+    - name: Selección de la autenticación adecuada
+      href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
+    - name: Sincronización de identidades y resistencia de atributos duplicados
+  - name: Sincronización de hash de contraseña
+    items:
+    - name: ¿Qué es la sincronización de hash de contraseñas?
+      href: whatis-phs.md
+    - name: Funcionamiento de la sincronización de hash de contraseñas
+      href: how-to-connect-password-hash-synchronization.md
+  - name: Autenticación de paso a través
+    items:
+    - name: ¿Qué es la autenticación de paso a través?
+      href: how-to-connect-pta.md
+    - name: Funcionamiento de la autenticación de paso a través
+      href: how-to-connect-pta-how-it-works.md
+    - name: Limitaciones actuales de la autenticación de paso a través
+      href: how-to-connect-pta-current-limitations.md
+    - name: Análisis detallado de la seguridad de la autenticación de paso a través
+      href: how-to-connect-pta-security-deep-dive.md
+    - name: Autenticación de paso a través y privacidad del usuario
+      href: how-to-connect-pta-user-privacy.md
+  - name: Federación
+    items:
+    - name: ¿Qué es la federación?
+      href: whatis-fed.md
+    - name: Cómo funciona la federación
+      href: how-to-connect-fed-whatis.md
+    - name: Lista de compatibilidad de federación de Azure AD
+      href: how-to-connect-fed-compatibility.md
+  - name: Inicio de sesión único
+    items:
+    - name: ¿Qué es el inicio de sesión único?
+      href: how-to-connect-sso.md
+    - name: Funcionamiento del inicio de sesión único
+      href: how-to-connect-sso-how-it-works.md
+    - name: Inicio de sesión único y privacidad del usuario
+      href: how-to-connect-sso-user-privacy.md
   - name: Azure AD Connect Sync
     items:
+    - name: ¿Qué es Azure AD Connect Sync?
+      href: how-to-connect-sync-whatis.md
+    - name: Características de la sincronización de Azure AD Connect
+      href: how-to-connect-syncservice-features.md
+    - name: ¿Qué es Azure AD Connect Sync Service Manager?
+      href: how-to-connect-sync-service-manager-ui.md
     - name: Conceptos técnicos de Azure AD Connect Sync
       href: how-to-connect-sync-technical-concepts.md
     - name: Descripción de la arquitectura de sincronización de Azure AD Connect
@@ -33,8 +81,6 @@ items:
       href: concept-azure-ad-connect-sync-user-and-contacts.md
     - name: Descripción de los atributos paralelos
       href: how-to-connect-syncservice-shadow-attributes.md
-  - name: Sincronización de identidades y resistencia de atributos duplicados
-    href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
 - name: Guías de procedimientos
   items:
   - name: Instalación y actualización
@@ -119,8 +165,6 @@ items:
         href: plan-hybrid-identity-design-considerations-tools-comparison.md
   - name: Administración de Azure AD Connect
     items:
-    - name: ¿Qué es la sincronización de hash de contraseñas?
-      href: how-to-connect-password-hash-synchronization.md
     - name: Habilitación de la escritura diferida
       href: how-to-connect-device-writeback.md
     - name: Opciones de dispositivos
@@ -141,10 +185,14 @@ items:
       href: how-to-connect-sync-change-addsacct-pass.md
     - name: ¿Qué es el módulo de PowerShell ADConnectivityTools?
       href: how-to-connect-adconnectivitytools.md
+  - name: Administración de la autenticación de paso a través
+    items:
+    - name: Introducción a la autenticación de paso a través
+      href: how-to-connect-pta-quick-start.md
+    - name: Preguntas frecuentes sobre la autenticación de paso a través
+      href: how-to-connect-pta-faq.md
   - name: Administración de servicios de federación
     items:
-    - name: ¿En qué consiste la federación con Azure AD Connect?
-      href: how-to-connect-fed-whatis.md
     - name: Administración de la federación con Azure AD Connect
       href: how-to-connect-fed-management.md
     - name: Compatibilidad con varios dominios para la federación
@@ -159,40 +207,14 @@ items:
       href: how-to-connect-azure-ad-trust.md
     - name: Cambio del algoritmo hash para O365 RP
       href: how-to-connect-fed-sha256-guidance.md
-    - name: Lista de compatibilidad de federación de Azure AD
-      href: how-to-connect-fed-compatibility.md
     - name: Uso de un servidor de SAML 2.0 como Idp
       href: how-to-connect-fed-saml-idp.md
     - name: Tareas posteriores a la configuración de la combinación de Azure AD híbrido
       href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
-  - name: Administración de la autenticación de paso a través
-    items:
-    - name: ¿Qué es la autenticación de paso a través?
-      href: how-to-connect-pta.md
-    - name: Introducción a la autenticación de paso a través
-      href: how-to-connect-pta-quick-start.md
-    - name: Funcionamiento de la autenticación de paso a través
-      href: how-to-connect-pta-how-it-works.md
-    - name: Limitaciones actuales de la autenticación de paso a través
-      href: how-to-connect-pta-current-limitations.md
-    - name: Análisis detallado de la seguridad de la autenticación de paso a través
-      href: how-to-connect-pta-security-deep-dive.md
-    - name: Autenticación de paso a través y privacidad del usuario
-      href: how-to-connect-pta-user-privacy.md
-    - name: Limitaciones actuales de la autenticación de paso a través
-      href: how-to-connect-pta-security-deep-dive.md
-    - name: Preguntas frecuentes sobre la autenticación de paso a través
-      href: how-to-connect-pta-faq.md
   - name: Administración del inicio de sesión único
     items:
-    - name: ¿Qué es el inicio de sesión único?
-      href: how-to-connect-sso.md
     - name: Introducción al inicio de sesión único
       href: how-to-connect-sso-quick-start.md
-    - name: Funcionamiento del inicio de sesión único
-      href: how-to-connect-sso-how-it-works.md
-    - name: Inicio de sesión único y privacidad del usuario
-      href: how-to-connect-sso-user-privacy.md
     - name: Preguntas frecuentes sobre el inicio de sesión único
       href: how-to-connect-sso-faq.md
   - name: Administración de Azure AD Connect Health
@@ -213,10 +235,6 @@ items:
       href: how-to-connect-health-alert-catalog.md
   - name: Administración de Azure AD Connect Sync
     items:
-    - name: ¿Qué es Azure AD Connect Sync?
-      href: how-to-connect-sync-whatis.md
-    - name: Características de la sincronización de Azure AD Connect
-      href: how-to-connect-syncservice-features.md
     - name: Administración de tareas operativas
       href: how-to-connect-sync-operations.md
     - name: Procedimientos recomendados de cambio de la configuración predeterminada
@@ -233,8 +251,6 @@ items:
       href: how-to-connect-sync-feature-scheduler.md
     - name: Azure AD Connect Sync Service Manager
       items:
-      - name: ¿Qué es Azure AD Connect Sync Service Manager?
-        href: how-to-connect-sync-service-manager-ui.md
       - name: Uso de la pestaña Operaciones de Service Manager
         href: how-to-connect-sync-service-manager-ui-operations.md
       - name: Uso de conectores con Service Manager
@@ -303,9 +319,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: Referencia de ADConnectivityTools
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 07a3bfd816cd57ecbe77bf7e7435be99a0321fd2
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: b3488ec5aec1c5bd1d3f38a2bf87ab1d8d3a87f1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335460"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080153"

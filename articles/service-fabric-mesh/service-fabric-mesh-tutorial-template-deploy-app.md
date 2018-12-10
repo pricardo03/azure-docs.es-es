@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cca18b2aa5cb6f27df45e4b63e55251bea058625
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a9ae18c7fbf3b0f663396099f065c76969206f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968856"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890388"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
@@ -38,7 +38,7 @@ En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * Implementar una aplicación en Service Fabric Mesh mediante una plantilla
 > * [Escalar servicios en una aplicación que se ejecute en Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
-> * [Actualizar una aplicación que se ejecute en Service Fabric Mesh](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> * [Actualizar una aplicación que se ejecuta en Service Fabric Mesh](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * [Eliminar una aplicación](service-fabric-mesh-tutorial-template-remove-app.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
@@ -51,7 +51,7 @@ Antes de empezar este tutorial:
 
 * [Instalación de Docker](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [Instale localmente la CLI de Azure y la CLI de Service Fabric Mesh](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Instale localmente la CLI de Azure y la CLI de Service Fabric Mesh](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
 
@@ -205,7 +205,7 @@ Una aplicación de Service Fabric Mesh es un recurso de Azure que puede implemen
 En este tutorial, el ejemplo de la lista de tareas pendientes se utiliza como ejemplo.  En lugar de crear los nuevos archivos de plantilla y parámetros, descargue los archivos [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) y [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Parámetros
-Cuando haya valores en la plantilla que prevea cambiar una vez implementada la aplicación, o si le gustaría tener la opción de cambiar a una base según implementación (si tiene previsto volver a usar esta plantilla para otras implementaciones), el procedimiento recomendado es parametrizar los valores. La manera adecuada de hacerlo es crear una sección "Parámetros" en la parte superior de la plantilla de implementación, donde puede especificar los nombres y las propiedades de los parámetros, a los que se hace referencia más adelante en la plantilla de implementación. La definición de cada parámetro incluye las secciones *type*, *defaultValue* y *metadata*, esta última opcional, con una *descripción*.
+Cuando haya valores en la plantilla que prevea cambiar una vez implementada la aplicación o si le gustaría tener la opción de cambiar a una base según implementación (si tiene previsto volver a usar esta plantilla para otras implementaciones), el procedimiento recomendado es parametrizar los valores. La manera adecuada de hacerlo es crear una sección "Parámetros" en la parte superior de la plantilla de implementación, donde puede especificar los nombres y las propiedades de los parámetros, a los que se hace referencia más adelante en la plantilla de implementación. La definición de cada parámetro incluye las secciones *type*, *defaultValue* y *metadata*, esta última opcional, con una *descripción*.
 
 La sección de parámetros se define en la parte superior de la plantilla de implementación, justo antes de la sección *Recursos*:
 
@@ -359,9 +359,27 @@ Para implementar la aplicación, ejecute lo siguiente:
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-En breve, deberá ver lo siguiente:
+Este comando producirá un fragmento de código de JSON que se muestra a continuación. En la sección ```outputs``` de la salida de JSON, copie la propiedad ```publicIPAddress```.
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+Esta información proviene de la sección ```outputs``` de la plantilla ARM. Como se muestra a continuación, esta sección hace referencia al recurso de la puerta de enlace para capturar la dirección IP pública. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>Abrir la aplicación
 
@@ -398,4 +416,4 @@ En esta parte del tutorial, ha aprendido a:
 
 Avance hasta el siguiente tutorial:
 > [!div class="nextstepaction"]
-> [Escalar una aplicación que se ejecute en Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
+> [Escalar una aplicación que se ejecuta en Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)

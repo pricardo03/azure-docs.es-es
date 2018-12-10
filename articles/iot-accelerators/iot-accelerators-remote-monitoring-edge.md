@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 329bc41555f2def0e2b7001a7b445cd3de16d439
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826398"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843315"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detección de anomalías mediante IoT Edge con el acelerador de soluciones de supervisión remota
 
@@ -24,16 +24,26 @@ Para presentar el procesamiento perimetral con la solución remota, en este tuto
 
 Contoso desea implementar un módulo de inteligencia perimetral en la bomba de petróleo que detecte anomalías de temperatura. Otro módulo perimetral envía alertas a la solución de supervisión remota. Si se recibe una alerta, un trabajador de Contoso puede enviar a un técnico de mantenimiento. Contoso puede configurar también una acción automatizada como, por ejemplo, enviar un correo electrónico, que se ejecute cuando la solución reciba una alerta.
 
-Este tutorial usa la máquina de desarrollo local de Windows como un dispositivo IoT Edge. Instale los módulos perimetrales para simular el dispositivo de la bomba de petróleo y detectar las anomalías de temperatura.
+El diagrama siguiente muestra los componentes clave en el escenario del tutorial:
+
+![Información general](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 En este tutorial, hizo lo siguiente:
 
 >[!div class="checklist"]
 > * Agregar un dispositivo IoT Edge a la solución
 > * Crear un manifiesto de IoT Edge
-> * Importar un paquete que define los módulos que se van a ejecutar en el dispositivo
+> * Importar el manifiesto como un paquete que define los módulos que se van a ejecutar en el dispositivo
 > * Implementar el paquete en el dispositivo IoT Edge
 > * Ver las alertas del dispositivo
+
+En el dispositivo IoT Edge:
+
+* El entorno de ejecución recibe el paquete e instala los módulos.
+* El módulo de Stream Analytics detecta anomalías de temperatura en la bomba y envía comandos para resolver el problema.
+* El módulo de Stream Analytics reenvía los datos filtrados al acelerador de soluciones.
+
+Este tutorial usa una máquina virtual Linux como dispositivo IoT Edge. También se instala un módulo Edge para simular el dispositivo de bomba de petróleo.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -111,54 +121,23 @@ Un dispositivo Edge requiere la instalación del entorno de ejecución de IoT Ed
     az vm create \
       --resource-group IoTEdgeDevices \
       --name EdgeVM \
-      --image Canonical:UbuntuServer:16.04-LTS:latest \
+      --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest \
       --admin-username azureuser \
       --generate-ssh-keys \
       --size Standard_B1ms
     ```
 
-    Tome nota de la dirección IP pública, la necesitará en el siguiente paso cuando se conecte mediante SSH.
-
-1. Para conectarse a la máquina virtual mediante SSH, ejecute el siguiente comando en Cloud Shell:
+1. Para configurar el tiempo de ejecución de Edge con la cadena de conexión del dispositivo, ejecute el comando siguiente con la cadena de conexión de dispositivo que anotó anteriormente:
 
     ```azurecli-interactive
-    ssh azureuser@{vm IP address}
+    az vm run-command invoke \
+      --resource-group IoTEdgeDevices \
+      --name EdgeVM \
+      --command-id RunShellScript \
+      --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-1. Cuando esté conectado a la máquina virtual, ejecute los comandos siguientes para configurar el repositorio en la máquina virtual:
-
-    ```azurecli-interactive
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-    ```
-
-1. Para instalar el contenedor y los entornos de ejecución de IoT Edge en la máquina virtual, ejecute los siguientes comandos:
-
-    ```azurecli-interactive
-    sudo apt-get update
-    sudo apt-get install moby-engine
-    sudo apt-get install moby-cli
-    sudo apt-get update
-    sudo apt-get install iotedge
-    ```
-
-1. Para configurar el entorno de ejecución de IoT Edge con la cadena de conexión del dispositivo, edite el archivo de configuración:
-
-    ```azurecli-interactive
-    sudo nano /etc/iotedge/config.yaml
-    ```
-
-    Asigne la cadena de conexión del dispositivo a la variable **device_connection_string**, guarde los cambios y salga del editor.
-
-1. Reinicie el entorno de ejecución de IoT Edge para usar la nueva configuración:
-
-    ```azurecli-interactive
-    sudo systemctl restart iotedge
-    ```
-
-1. Ahora puede salir de la sesión SSH y cerrar Cloud Shell.
+    No olvide incluir la cadena de conexión entre comillas dobles.
 
 Con ello ya ha instalado y configurado el entorno de ejecución de Azure IoT Edge en un dispositivo Linux. Más adelante en este tutorial, usará la solución de supervisión remota para implementar módulos de IoT Edge en este dispositivo.
 

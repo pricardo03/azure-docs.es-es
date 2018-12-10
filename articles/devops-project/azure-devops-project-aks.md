@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementación de la aplicación ASP.NET Core en Azure Kubernetes Service (AKS) mediante Azure DevOps Projects'
+title: 'Tutorial: Implementación de aplicaciones ASP.NET Core en Azure Kubernetes Service con Azure DevOps Projects'
 description: Con Azure DevOps Projects es fácil empezar a usar Azure. Con DevOps Projects puede implementar una aplicación ASP.NET Core con Azure Kubernetes Service (AKS) en pocos pasos.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6e2b53e51d7da117a7f690cb676d0ec096bcb1cd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7980ea439cfd3eaefcaa308795836a909f980043
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165563"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620649"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-kubernetes-service-aks-by-using-azure-devops-projects"></a>Tutorial: Implementación de la aplicación ASP.NET Core en Azure Kubernetes Service (AKS) mediante Azure DevOps Projects
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Tutorial: Implementación de aplicaciones ASP.NET Core en Azure Kubernetes Service con Azure DevOps Projects
 
 Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una aplicación de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure. 
 
@@ -24,23 +24,24 @@ DevOps Projects también:
 * Crea automáticamente recursos de Azure, como Azure Kubernetes Service (AKS).
 * Crea y configura una canalización de versión en Azure DevOps que configura una canalización de compilación y de versión de CI/CD.
 * Crea un recurso de Azure Application Insights para la supervisión.
+* Habilita [Azure Monitor para contenedores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) para supervisar el rendimiento de las cargas de trabajo del contenedor en el clúster de AKS
 
 En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
 > * A usar DevOps Projects para implementar una aplicación ASP.NET Core en AKS
 > * A configurar Azure DevOps y una suscripción de Azure 
-> * A examinar el clúster de AKS
-> * A examinar la canalización de CI
-> * A examinar la canalización de CD
-> * A confirmar los cambios en Git e implementarlos automáticamente en Azure
-> * A limpiar recursos
+> * Examen del clúster de AKS
+> * Examen de la canalización de CI
+> * Examen de la canalización de CD
+> * Confirmación de los cambios en Git y su implementación automática en Azure
+> * Limpieza de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="use-devops-projects-to-deploy-an-aspnet-core-app-to-aks"></a>Uso de DevOps Projects para implementar una aplicación ASP.NET Core en AKS
+## <a name="use-devops-projects-to-deploy-an-aspnet-core-app-to-aks"></a>A usar DevOps Projects para implementar una aplicación ASP.NET Core en AKS
 
 DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como un clúster de AKS, en la suscripción de Azure que prefiera.
 
@@ -103,7 +104,7 @@ DevOps Projects configura automáticamente una canalización de CI/CD de Azure c
 1. Seleccione **Editar**.
 
 1. En este panel puede examinar las distintas tareas de la canalización de compilación.  
-    La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio Git, restaurar dependencias y publicar salidas usadas para implementaciones.
+    La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio Git, restaurar dependencias y publicar las salidas usadas para implementaciones.
 
 1. En la parte superior de la canalización de compilación, seleccione el nombre de esta.
 
@@ -181,11 +182,11 @@ Si lo desea, puede modificar estas canalizaciones de compilación y de versión 
 > [!div class="checklist"]
 > * A usar DevOps Projects para implementar una aplicación ASP.NET Core en AKS
 > * A configurar Azure DevOps y una suscripción de Azure 
-> * A examinar el clúster de AKS
-> * A examinar la canalización de CI
-> * A examinar la canalización de CD
-> * A confirmar los cambios en Git e implementarlos automáticamente en Azure
-> * A limpiar recursos
+> * Examen del clúster de AKS
+> * Examen de la canalización de CI
+> * Examen de la canalización de CD
+> * Confirmación de los cambios en Git y su implementación automática en Azure
+> * Limpieza de recursos
 
 Para más información acerca del uso del panel de Kubernetes, consulte:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1b0a6c6d6daa686404021afb2e10b25bb9f54191
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 682291cfe0e7a06aca1d4b1bef48ba36c72f48d9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319394"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839881"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 Azure Security Center proporciona administración unificada de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Con Security Center, puede aplicar directivas de seguridad en las cargas de trabajo, limitar la exposición a amenazas y detectar y responder a los ataques.
@@ -162,7 +162,7 @@ Para más información, vea [Integración de soluciones de seguridad](security-c
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para empezar a trabajar con el Centro de seguridad, necesita una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
-- Con la suscripción de Azure se habilita el plan de tarifa Gratis de Security Center. Para aprovechar las funcionalidades avanzadas de administración de seguridad y detección de amenazas, debe actualizar al plan de tarifa Estándar. El nivel Estándar es gratuito durante los primeros 60 días. Para más información, consulte la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+- Con la suscripción de Azure se habilita el plan de tarifa Gratis de Security Center. Para aprovechar las funcionalidades avanzadas de administración de seguridad y detección de amenazas, debe actualizar al plan de tarifa Estándar. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 - Si está listo para habilitar Security Center Estándar en este momento, la [Guía de inicio para incorporar sus suscripción de Azure en Security Center Estándar](security-center-get-started.md) le guía por los pasos necesarios.
 
 

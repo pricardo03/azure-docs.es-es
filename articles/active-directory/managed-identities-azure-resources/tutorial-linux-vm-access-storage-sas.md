@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 32fa417d5fcb5c8547dfc7c10b34b3c97ed70559
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16bcc56dd05c86b7c2adb324de480e7482f80fef
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626072"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724305"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Uso de una identidad asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage con las credenciales de SAS
 
@@ -68,9 +68,9 @@ Más adelante se cargará y descargará un archivo a la nueva cuenta de almacena
 
 Azure Storage no admite la autenticación de Azure AD de forma nativa.  No obstante, puede usar una identidad administrada asignada por el sistema de la máquina virtual para recuperar una SAS de almacenamiento de Resource Manager y usarla para acceder al almacenamiento.  En este paso, va a conceder a la identidad administrada asignada por el sistema de la máquina virtual acceso a la SAS de la cuenta de almacenamiento.   
 
-1. Vuelva a la cuenta de almacenamiento recién creada.   
+1. Vuelva a la cuenta de almacenamiento recién creada.
 2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.  
-3. Haga clic en **+ Agregar** en la parte superior de la página para agregar una nueva asignación de roles para la máquina virtual.
+3. Haga clic en **+ Agregar asignación de rol** en la parte superior de la página para agregar una asignación de roles nueva para la máquina virtual.
 4. Establezca **Rol** en "Colaborador de la cuenta de almacenamiento", en el lado derecho de la página. 
 5. En el menú desplegable siguiente, establezca **Asignar acceso a** en el recurso "Máquina virtual".  
 6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y después, establezca **Grupo de recursos** en "Todos los grupos de recursos".  

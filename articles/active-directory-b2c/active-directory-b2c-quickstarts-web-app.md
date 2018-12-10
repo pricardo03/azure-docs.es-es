@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c4fa3f9cbba558cd743f85119dd9e91bd73ce062
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: edfd17763a7d555e773e7d271ed5cc22a0307996
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250607"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726600"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Guía de inicio rápido: Configuración del inicio de sesión en una aplicación ASP.NET con Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) B2C proporciona administración de identidades
 
     Hay dos proyectos en la solución de ejemplo:
 
-    - **TaskWebApp**: una aplicación web que crea y edita una lista de tareas. La aplicación web utiliza la directiva de **registro o de inicio de sesión** para que los usuarios se registren o inicien sesión.
+    - **TaskWebApp**: una aplicación web que crea y edita una lista de tareas. La aplicación web utiliza el flujo de usuario de **registro o de inicio de sesión** para el registro o el inicio de sesión.
     - **TaskService**: API web que admite la funcionalidad de creación, lectura, actualización y eliminación de la lista de tareas. Azure AD B2C protege la API web y la aplicación web la llama.
 
 ## <a name="run-the-application-in-visual-studio"></a>Ejecución de la aplicación en Visual Studio
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) B2C proporciona administración de identidades
 
 ## <a name="edit-your-profile"></a>Edición del perfil
 
-Azure Active Directory B2C proporciona funcionalidad para permitir a los usuarios actualizar sus perfiles. La aplicación web de ejemplo usa una directiva de perfil de edición de Azure AD B2C para el flujo de trabajo. 
+Azure Active Directory B2C proporciona funcionalidad para permitir a los usuarios actualizar sus perfiles. La aplicación web de ejemplo usa un flujo de usuario del perfil de edición de Azure AD B2C para el flujo de trabajo. 
 
 1. En la barra de menús de la aplicación, haga clic en el nombre de perfil y seleccione **Editar perfil** para editar el perfil que ha creado.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f870902e5bd5ef92d12d1e5e846696c4b26362a3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e0161073c0c3e7d6ef491a4f2b86510e826b85dc
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425109"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678668"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service
 
@@ -216,6 +216,10 @@ Si este código detecta que se ejecuta en producción (lo que indica el entorno 
 
 La llamada de `Database.Migrate()` le ayuda cuando se ejecuta en Azure, porque crea automáticamente las bases de datos que necesita la aplicación .NET Core según su configuración de migración. 
 
+> [!IMPORTANT]
+> Para las aplicaciones de producción que necesiten escalar horizontalmente, siga los procedimientos recomendados en [Aplicación de migraciones en producción](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
+
 Guarde los cambios y confírmelos en el repositorio de Git. 
 
 ```bash
@@ -329,7 +333,7 @@ Busque el elemento vacío `<th></th>`. Justo encima de este elemento, agregue el
 </th>
 ```
 
-Busque el elemento `<td>` que contiene los auxiliares de la etiqueta `asp-action`. Justo encima de este elemento, agregue el siguiente código Razor:
+Busque el elemento `<td>` que contiene los asistentes de etiquetas `asp-action`. Justo encima de este elemento, agregue el siguiente código Razor:
 
 ```csharp
 <td>

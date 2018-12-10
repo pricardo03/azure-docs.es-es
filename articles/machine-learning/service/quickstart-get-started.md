@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
-ms.date: 09/24/2018
-ms.openlocfilehash: 7ed45b5e8a8c3cab26c0998260055ffd7a0f0c5d
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/04/2018
+ms.openlocfilehash: 59887c46e3ce06eae250e106a01239a1ba969e7f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710263"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875321"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Guía de inicio rápido: Uso de Azure Portal para empezar a trabajar con Azure Machine Learning
 
@@ -35,7 +35,7 @@ Los siguientes recursos de Azure se agregan automáticamente al área de trabajo
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-Los recursos que cree se pueden usar como requisitos previos para otros tutoriales y artículos de procedimientos de Machine Learning. Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con Machine Learning. Un ejemplo es el tamaño del clúster de Azure Batch AI. Para más información sobre los límites predeterminados y cómo aumentar la cuota, consulte [este artículo](how-to-manage-quotas.md).
+Los recursos que cree se pueden usar como requisitos previos para otros tutoriales y artículos de procedimientos de Machine Learning. Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con Machine Learning como, por ejemplo, el tamaño del clúster de proceso. Más información sobre [los límites predeterminados y cómo aumentar la cuota](how-to-manage-quotas.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLfree) antes de empezar.
 
@@ -69,7 +69,7 @@ Seleccione `Open Azure Notebooks` para probar su primer experimento.
 
 Su organización puede requerir el [consentimiento del administrador](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) para poder iniciar sesión.
 
-Después de iniciar sesión, se abrirá una nueva pestaña y un aviso `Clone Library`. Seleccionar `Clone`
+Después de iniciar sesión, se abrirá una nueva pestaña y un aviso `Clone Library`. Seleccione `Clone`.
 
 
 ### <a name="run-the-notebook"></a>Ejecución del cuaderno

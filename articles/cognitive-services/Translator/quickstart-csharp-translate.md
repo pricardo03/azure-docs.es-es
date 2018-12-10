@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 20e07120b80f335397bd7e907f62e14ad8b1d2ee
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 9d9a893a1e62ae35ed3c2f1630c92d4f23cdb2dc
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679059"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887685"
 ---
-# <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Guía de inicio rápido: Traducción de texto con la API REST Translator Text (C#)
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Guía de inicio rápido: Uso de Translator Text API para traducir una cadena mediante C#
 
 En esta guía de inicio rápido, aprenderá a traducir una cadena de texto de inglés a italiano y alemán con .NET Core y Translator Text REST API.
 

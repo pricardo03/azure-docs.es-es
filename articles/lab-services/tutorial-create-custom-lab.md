@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ee2def6287a845cd0fd0260254efb20f9638ab2c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467436"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839048"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configuración de un laboratorio mediante Azure DevTest Labs
 En este tutorial, va a crear un laboratorio mediante Azure Portal. El administrador de laboratorio configura un laboratorio en una organización, crea máquinas virtuales en el laboratorio y configura las directivas. Los usuarios de laboratorio (por ejemplo: desarrolladores y evaluadores) reclaman las máquinas virtuales en el laboratorio, se conectan a ellas y las usan. 
@@ -80,15 +80,11 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio 
 1. Seleccione **Configuración y directivas**. 
 
     ![Directivas y configuración](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Seleccione **Control de acceso (IAM)** en el menú y seleccione **+ Agregar** en la barra de herramientas. 
-
-    ![Control de acceso - Botón Agregar usuario](./media/tutorial-create-custom-lab/access-control-add.png)
+1. Seleccione **Control de acceso (IAM)** en el menú y seleccione **+ Agregar asignación de rol** en la barra de herramientas. 
 1. En la página **Agregar permisos**, realice las siguientes acciones:
     1. En **Rol**, seleccione **Usuario de DevTest Labs**. 
     2. Seleccione el **usuario** que desea agregar. 
     3. Seleccione **Guardar**.
-
-        ![Adición de permisos](./media/tutorial-create-custom-lab/add-lab-user.png)
 4. Para cerrar **Configuración y directivas - Control de acceso (IAM)**, seleccione **X** en la esquina derecha. 
 
 ## <a name="cleanup-resources"></a>Limpieza de recursos

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4881f992e5362efc7e4d7ac23898684966a066e0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334897"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891000"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial: Creación de soluciones de escalado de toda la nube con Azure
 
@@ -60,7 +60,7 @@ En este tutorial, creará un entorno de ejemplo para:
 
 -   Cree una aplicación web dentro de la suscripción de inquilino. Anote la nueva dirección URL de aplicación web, ya que la usará más adelante.
 
--   Implemente la máquina virtual de VSTS dentro de la suscripción de inquilino.
+-   Implemente la máquina virtual de Azure Pipelines dentro de la suscripción de inquilino.
 
 -   Se requiere una máquina virtual Windows Server 2016 con .NET 3.5. Esta máquina virtual se compilará en la suscripción del inquilino en Azure Stack como el agente de compilación privado.
 
@@ -99,9 +99,11 @@ Configure la canalización de integración e implementación continuas (CI/CD) h
 > [!Note]  
 > Se requiere Azure Stack con las imágenes adecuadas sindicadas para ejecutarse (Windows Server y SQL) y la implementación de App Service. Revise la sección "[Antes de empezar a trabajar con App Service en Azure Stack](../azure-stack-app-service-before-you-get-started.md)" de la documentación de App Service para el operador de Azure Stack.
 
-### <a name="add-code-to-visual-studio-team-services-project"></a>Incorporación de código al proyecto de Visual Studio Team Services
+### <a name="add-code-to-azure-repos"></a>Adición de código a Azure Repos
 
-1. Inicie sesión en Visual Studio Team Services (VSTS) con una cuenta que tenga derechos de creación de proyectos en VSTS.
+Azure Repos
+
+1. Inicie sesión en Azure Repos con una cuenta que tenga derechos de creación de proyectos en Azure Repos.
 
     La canalización de CI/CD híbrida se puede aplicar al código de aplicación y al código de infraestructura. Use [plantillas de Azure Resource Manager](https://azure.microsoft.com/resources/templates/) tanto para el desarrollo en la nube hospedado como para el privado.
 
@@ -117,13 +119,13 @@ Configure la canalización de integración e implementación continuas (CI/CD) h
 
     ![Texto alternativo](media\azure-stack-solution-cloud-burst\image3.png)
 
-2.  Inserte el código en VSTS mediante Team Explorer.
+2.  Inserte el código en Azure Repos mediante Team Explorer.
 
-3.  Confirme que el código de aplicación se ha insertado en el repositorio de Visual Studio Team Services.
+3.  Confirme que el código de la aplicación se ha insertado en Azure Repos.
 
 ## <a name="create-the-build-definition"></a>Creación de la definición de compilación
 
-1. Inicie sesión en VSTS para confirmar la posibilidad de crear definiciones de compilación.
+1. Inicie sesión en Azure Pipelines para confirmar la posibilidad de crear definiciones de compilación.
 
 2. Agregue el código **-r win10-x64**. Esto es necesario para activar una implementación autocontenida con .Net Core.
 
@@ -133,11 +135,11 @@ Configure la canalización de integración e implementación continuas (CI/CD) h
 
 ## <a name="use-an-azure-hosted-agent"></a>Uso de un agente hospedado de Azure
 
-El uso de un agente hospedado en VSTS es una opción adecuada para compilar e implementar aplicaciones web. Microsoft Azure realiza automáticamente el mantenimiento y las actualizaciones, lo que permite el desarrollo, la prueba y la implementación de forma continua e ininterrumpida.
+El uso de un agente hospedado en Azure Pipelines es una opción adecuada para compilar e implementar aplicaciones web. Microsoft Azure realiza automáticamente el mantenimiento y las actualizaciones, lo que permite el desarrollo, la prueba y la implementación de forma continua e ininterrumpida.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Administración y configuración del proceso de CD
 
-Visual Studio Team Services y Team Foundation Server (TFS) proporcionan una canalización con una gran capacidad de configuración y administración para versiones de varios entornos, como desarrollo, ensayo, control de calidad (QA) y producción, lo que incluye las aprobaciones necesarias en etapas específicas.
+Azure Pipelines y6 Azure DevOps Server proporcionan una canalización con una gran capacidad de configuración y administración para versiones de varios entornos, como desarrollo, ensayo, control de calidad (QA) y producción, lo que incluye las aprobaciones necesarias en etapas específicas.
 
 ## <a name="create-release-definition"></a>Creación de la definición de versión
 
@@ -228,11 +230,11 @@ Visual Studio Team Services y Team Foundation Server (TFS) proporcionan una cana
 21. Guarde todos los cambios.
 
 > [!Note]  
-> Algunos valores de configuración de las tareas se han definido automáticamente como [variables de entorno](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) cuando se creó una definición de versión desde una plantilla. Estos valores de configuración no se pueden modificar en la configuración de tareas; para hacerlo, debe seleccionar el elemento del entorno principal.
+> Algunos valores de configuración de las tareas se han definido automáticamente como [variables de entorno](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) cuando se creó una definición de versión desde una plantilla. Estos valores de configuración no se pueden modificar en la configuración de tareas; para hacerlo, debe seleccionar el elemento del entorno principal.
 
 ## <a name="publish-to-azure-stack-via-visual-studio"></a>Publicación en Azure Stack a través de Visual Studio
 
-Mediante la creación de puntos de conexión, una compilación de Visual Studio Online (VSTO) puede implementar aplicaciones de Azure Service en Azure Stack. VSTS se conecta con el agente de compilación, que, a su vez, se conecta con Azure Stack.
+Mediante la creación de puntos de conexión, una compilación de Visual Studio Online (VSTO) puede implementar aplicaciones de Azure Service en Azure Stack. Azure Pipelines se conecta con el agente de compilación, que, a su vez, se conecta con Azure Stack.
 
 1.  Inicie sesión en VSTO y vaya a la página de configuración de la aplicación.
 
@@ -254,18 +256,18 @@ Mediante la creación de puntos de conexión, una compilación de Visual Studio 
 
 10. Seleccione **Save changes** (Guardar los cambios).
 
-Ahora que existe la información del punto de conexión, la conexión de VSTS con Azure Stack está lista para su uso. El agente de compilación de Azure Stack obtiene instrucciones de VSTS y, a continuación, el agente transmite la información del punto de conexión para la comunicación con Azure Stack.
+Ahora que existe la información del punto de conexión, la conexión de Azure Pipelines con Azure Stack está lista para su uso. El agente de compilación de Azure Stack obtiene instrucciones de Azure Pipelines y, a continuación, el agente transmite la información del punto de conexión para la comunicación con Azure Stack.
 
 ## <a name="develop-the-application-build"></a>Desarrollo de la aplicación
 
 > [!Note]  
 > Se requiere Azure Stack con las imágenes adecuadas sindicadas para ejecutarse (Windows Server y SQL) y la implementación de App Service. Revise la sección "[Antes de empezar a trabajar con App Service en Azure Stack](../azure-stack-app-service-before-you-get-started.md)" de la documentación de App Service para el operador de Azure Stack.
 
-Use [plantillas de Azure Resource Manager como código de aplicación web](https://azure.microsoft.com/resources/templates/) de VSTS para implementar en ambas nubes.
+Use [plantillas de Azure Resource Manager como código de aplicación web](https://azure.microsoft.com/resources/templates/) de Azure Repos para implementar en ambas nubes.
 
-### <a name="add-code-to-a-vsts-project"></a>Adición de código a un proyecto de VSTS
+### <a name="add-code-to-a-azure-repos-project"></a>Adición de código a un proyecto de Azure Repos
 
-1.  Inicie sesión en VSTS con una cuenta que tenga derechos de creación de proyectos en Azure Stack. La captura de pantalla siguiente muestra cómo conectarse al proyecto HybridCICD.
+1.  Inicie sesión en Azure Repos con una cuenta que tenga derechos de creación de proyectos en Azure Stack. La captura de pantalla siguiente muestra cómo conectarse al proyecto HybridCICD.
 
 2.  **Clone el repositorio**; para ello, cree y abra la aplicación web predeterminada.
 
@@ -273,13 +275,13 @@ Use [plantillas de Azure Resource Manager como código de aplicación web](https
 
 1.  Edite el archivo **WebApplication.csproj**: seleccione **Runtimeidentifier** y agregue win10-x64. Para más información, consulte la documentación de la [implementación independiente](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).
 
-2.  Compruebe el código en VSTS mediante Team Explorer.
+2.  Compruebe el código en Azure Repos mediante Team Explorer.
 
-3.  Confirme que el código de la aplicación se ha insertado en el repositorio de Visual Studio Team Services.
+3.  Confirme que el código de la aplicación se ha insertado en Azure Repos.
 
 ### <a name="create-the-build-definition"></a>Creación de la definición de compilación
 
-1.  Inicie sesión en VSTS con una cuenta que pueda crear una definición de compilación.
+1.  Inicie sesión en Azure Pipelines con una cuenta que pueda crear una definición de compilación.
 
 2.  Vaya a la página **Build Web Application** (Compilar aplicación web) del proyecto.
 
@@ -289,17 +291,17 @@ Use [plantillas de Azure Resource Manager como código de aplicación web](https
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Uso de un agente de compilación hospedado en Azure
 
-El uso de un agente de compilación hospedado en VSTS es una opción adecuada para compilar e implementar aplicaciones web. Microsoft Azure realiza automáticamente el mantenimiento y las actualizaciones, lo que permite un ciclo de desarrollo ininterrumpido y continuo.
+El uso de un agente de compilación hospedado en Azure Pipelines es una opción adecuada para compilar e implementar aplicaciones web. Microsoft Azure realiza automáticamente el mantenimiento y las actualizaciones, lo que permite un ciclo de desarrollo ininterrumpido y continuo.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Configuración del proceso de implementación continua (CD)
 
-Visual Studio Team Services (VSTS) y Team Foundation Server (TFS) proporcionan una canalización con una gran capacidad de configuración y administración para versiones de varios entornos, como desarrollo, ensayo, control de calidad (QA) y producción. Este proceso puede incluir la necesidad de aprobaciones en determinadas fases del ciclo de vida de la aplicación.
+Azure Pipelines y Azure DevOps Server proporcionan una canalización con una gran capacidad de configuración y administración para versiones de varios entornos, como desarrollo, ensayo, control de calidad (QA) y producción. Este proceso puede incluir la necesidad de aprobaciones en determinadas fases del ciclo de vida de la aplicación.
 
 #### <a name="create-release-definition"></a>Creación de la definición de versión
 
 La creación de una definición de versión es el último paso en el proceso de compilación de la aplicación. Esta definición de versión se usa para crear una versión e implementar una compilación.
 
-1.  Inicie sesión en VSTS y vaya a **Compilación y versión** del proyecto.
+1.  Inicie sesión en Azure Pipelines y vaya a **Compilación y versión** del proyecto.
 
 2.  En la pestaña **Versiones**, seleccione **[ + ]** y, a continuación, elija **Crear definición de versión**.
 
@@ -346,7 +348,7 @@ La creación de una definición de versión es el último paso en el proceso de 
 23. Guarde todos los cambios.
 
 > [!Note]  
-> Algunos valores de configuración de las tareas se han definido automáticamente como [variables de entorno](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) cuando se creó una definición de versión desde una plantilla. Esta configuración no puede modificarse en la configuración de la tarea, pero se puede modificar en los elementos del entorno primario.
+> Algunos valores de configuración de las tareas se han definido automáticamente como [variables de entorno](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) cuando se creó una definición de versión desde una plantilla. Esta configuración no puede modificarse en la configuración de la tarea, pero se puede modificar en los elementos del entorno primario.
 
 ## <a name="create-a-release"></a>Creación de una versión
 

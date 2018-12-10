@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: sethm
-ms.openlocfilehash: 2fa062621e551ce7182facc45ec84b39d4c2dad7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a770c88b294de24eb9e0f482681038e4d36b1d6f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078756"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874607"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Valores de la configuración de una puerta de enlace VPN para Azure Stack
 
@@ -185,7 +185,7 @@ A diferencia de Azure, que admite varias ofertas como iniciador y respondedor, A
 |Cifrados y algoritmos hash (cifrado)     | GCMAES256|
 |Cifrados y algoritmos hash (autenticación) | GCMAES256|
 |Vigencia de SA (tiempo)  | 27 000 segundos  |
-|Vigencia de SA (bytes) | 33 553 408     |
+|Vigencia de SA (Kilobytes) | 33 553 408     |
 |Confidencialidad directa perfecta (PFS) |Ninguna<sup>Consulte la nota 1</sup> |
 |Detección de cuellos del mismo nivel | Compatible|  
 

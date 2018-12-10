@@ -1,23 +1,21 @@
 ---
-title: Uso de las API de MongoDB para compilar una aplicación de Azure Cosmos DB | Microsoft Docs
+title: Uso de las API de MongoDB para compilar una aplicación de Azure Cosmos DB
 description: Tutorial que crea una base de datos en línea mediante las API de Azure Cosmos DB para MongoDB.
 keywords: ejemplos de mongodb
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 188b192cf9b86a2d28a578bbcec0d6b19a8cc5d0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: e24c64f0042d65cc499e02dff7b53f3ca812f356
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084909"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864084"
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Creación de una aplicación de Azure Cosmos DB: API para MongoDB con Node.js
 > [!div class="op_single_selector"]

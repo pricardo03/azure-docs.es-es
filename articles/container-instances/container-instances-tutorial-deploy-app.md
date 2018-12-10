@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 3fe1ee3d23594d5c1697ed08b17cb0b4d5b7a2fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9e8a72564151bea9194ef5180589fa8eae001df5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857642"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863727"
 ---
 # <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Tutorial: Implementación de un contenedor en Azure Container Instances
 
@@ -52,10 +52,10 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 
 ### <a name="deploy-container"></a>Implementación de un contenedor
 
-Ahora, utilice comando [az container create][az-container-create] para implementar el contenedor. Reemplace `<acrLoginServer>` y `<acrPassword>` por los valores obtenidos en los dos comandos anteriores. Reemplace `<acrName>` por el nombre de Registro de contenedor.
+Ahora, utilice comando [az container create][az-container-create] para implementar el contenedor. Reemplace `<acrLoginServer>` y `<acrPassword>` por los valores obtenidos en los dos comandos anteriores. Reemplace `<acrName>` con el nombre de su registro de contenedor y `<aciDnsLabel>` con el nombre de DNS que prefiera.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Al cabo de unos segundos, debe recibir una respuesta inicial de Azure. El valor `--dns-name-label` debe ser único dentro de la región de Azure en la que crea la instancia de contenedor. Modifique el valor del comando anterior si recibe un mensaje de error de **etiqueta de nombre DNS** al ejecutar el comando.

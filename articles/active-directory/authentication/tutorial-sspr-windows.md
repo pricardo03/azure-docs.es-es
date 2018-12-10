@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277773"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844845"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -101,23 +101,29 @@ Cuando los usuarios intenten iniciar sesión verán un vínculo de restablecimie
 
 Los usuarios encontrarán instrucciones para usar esta característica en el artículo sobre el [restablecimiento de la contraseña profesional o educativa](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
-## <a name="common-issues"></a>Problemas comunes
+El registro de auditoría de Azure AD incluirá información sobre la dirección IP y el ClientType donde se produjo el restablecimiento de contraseña.
+
+![Ejemplo de pantalla de inicio de sesión con restablecimiento de contraseña en el registro de auditoría de Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="limitations"></a>Limitaciones
 
 Al probar esta funcionalidad con Hyper-V, el vínculo "Restablecer contraseña" no aparece.
 
 * Vaya a la máquina virtual que usa para la prueba, haga clic en **Ver** y desactive la opción **Sesión mejorada**.
 
-Al probar esta funcionalidad con Escritorio remoto, el vínculo "Restablecer contraseña" no aparece.
+Al probar esta funcionalidad con Escritorio remoto o con una sesión de máquina virtual mejorada, el vínculo "Restablecer contraseña" no aparece.
 
 * El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto.
 
-Si se ha deshabilitado la pantalla de bloqueo al usar una clave del Registro de Windows o una directiva de grupo, **Restablecer contraseña** no estará disponible.
-
 Si la directiva requiere Ctrl + Alt + Supr o si las notificaciones de pantalla de bloqueo están desactivadas, **Restablecer contraseña** no funcionará.
 
-El registro de auditoría de Azure AD incluirá información sobre la dirección IP y el ClientType donde se produjo el restablecimiento de contraseña.
+Los siguientes valores directiva se sabe que interfieren con la capacidad de restablecer contraseñas
 
-![Ejemplo de pantalla de inicio de sesión con restablecimiento de contraseña en el registro de auditoría de Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+   * HideFastUserSwitching está establecido en habilitado o 1
+   * DontDisplayLastUserName está establecido en habilitado o 1
+   * NoLockScreen está establecido en habilitado o 1
+   * EnableLostMode se establece en el dispositivo
+   * Explorer.exe se reemplaza por un shell personalizado
 
 Si las máquinas de Windows 10 se encuentran detrás de un servidor proxy o firewall, se debe permitir el tráfico HTTPS (443) para passwordreset.microsoftonline.com y ajax.aspnetcdn.com.
 

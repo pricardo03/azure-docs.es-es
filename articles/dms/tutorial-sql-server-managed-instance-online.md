@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: ab869e53810f049593803d58b3df75d0c083bbd2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 12/04/2018
+ms.openlocfilehash: ccbfc6e204981a4e14812759715d0482e5b6cb67
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962901"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874772"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migración de SQL Server a Instancia administrada de Azure SQL Database en línea mediante DMS
 Azure Database Migration Service se puede usar para migrar las bases de datos de una instancia de SQL Server local a una [Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance.md) con un tiempo de inactividad mínimo. Para ver otros métodos que requieren realizar acciones manuales, consulte [Migración de una instancia de SQL Server a la Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-migrate.md).
@@ -32,6 +32,12 @@ En este tutorial, aprenderá a:
 > * Crear un proyecto de migración e iniciar una migración en línea mediante Azure Database Migration Service.
 > * Supervisar la migración
 > * Realizar la transición de la migración cuando esté listo.
+
+> [!NOTE]
+> El uso de Azure Database Migration Service para realizar una migración en línea requiere la creación de una instancia basada en el plan de tarifa Premium (versión preliminar).
+
+> [!IMPORTANT]
+> Para disfrutar de una experiencia de migración óptima, Microsoft recomienda crear una instancia de Azure Database Migration Service en la misma región de Azure que la base de datos de destino. Si los datos se transfieren entre diferentes regiones o ubicaciones geográficas, el proceso de migración puede verse afectado y pueden producirse errores.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 

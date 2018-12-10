@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ba23e9b8ac79a0a2a3899332bfc373665cf561af
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092618"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841173"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Uso de Azure Security Center para supervisar las máquinas virtuales Linux
 
@@ -106,7 +106,7 @@ A medida que se corrigen las recomendaciones, se marcan como resueltas.
 
 Además de las recomendaciones de configuración de recursos, Security Center muestra alertas de detección de amenazas. La característica de alertas de seguridad agrega los datos recopilados de cada máquina virtual, de los registros de redes de Azure y de las soluciones de asociados conectados para detectar las amenazas de seguridad de los recursos de Azure. Para más información acerca de las funcionalidades de detección de amenazas de Security Center, consulte [Funcionalidades de detección de Azure Security Center](../../security-center/security-center-detection-capabilities.md).
 
-Para poder usar la característica de alertas de seguridad, es preciso aumentar el plan de tarifa de Security Center de *Gratis* a *Estándar*. Al pasar a este plan de tarifa superior, podrá disfrutar de una **evaluación gratuita** de 60 días. 
+Para poder usar la característica de alertas de seguridad, es preciso aumentar el plan de tarifa de Security Center de *Gratis* a *Estándar*. Al pasar a este plan de tarifa superior, podrá disfrutar de una **evaluación gratuita**. 
 
 Para cambiar el plan de tarifa:  
 

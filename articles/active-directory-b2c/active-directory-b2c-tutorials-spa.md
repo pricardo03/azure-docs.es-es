@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 3/02/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 0f2fa2bb8e20ce4cc187fe6f061d2d8c251c4673
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: cce76a0e97e039ec6e6c3a976d1fc7caca7fde73
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945219"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834441"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de la autenticación de una aplicación de una sola página con cuentas mediante Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Registrar una aplicación de ejemplo con una sola página en un directorio de Azure AD B2C.
-> * Crear directivas para el registro, el inicio de sesión, la edición de un perfil y el restablecimiento de contraseña.
+> * Crear flujos de usuario para el registro, el inicio de sesión, la edición de un perfil y el restablecimiento de contraseña.
 > * Configurar la aplicación de ejemplo para que use el directorio de Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -69,72 +69,95 @@ Las aplicaciones registradas aparecen en la lista de aplicaciones del directorio
 
 Tome nota del **Id. del cliente de aplicación**. El identificador identifica la aplicación de forma exclusiva y será necesario al configurar la aplicación más adelante en el tutorial.
 
-## <a name="create-policies"></a>Creación de directivas
+## <a name="create-user-flows"></a>Creación de flujos de usuario
 
-Una directiva de Azure AD B2C define los flujos de trabajo de usuario. Por ejemplo, el registro, el inicio de sesión, el cambio de contraseñas y la edición de perfiles son flujos de trabajo comunes.
+Un flujo de usuario de Azure AD B2C define la experiencia del usuario para una tarea de identidad. Por ejemplo, el registro, el inicio de sesión, el cambio de contraseñas y la edición de perfiles son flujos de usuario comunes.
 
-### <a name="create-a-sign-up-or-sign-in-policy"></a>Creación de una directiva de registro o de inicio de sesión
+### <a name="create-a-sign-up-or-sign-in-user-flow"></a>Creación de un flujo de usuario de registro o de inicio de sesión
 
-Para registrar a usuarios y que estos tengan acceso a la aplicación web, cree una **directiva de registro o de inicio de sesión**.
+Para registrar a usuarios y que estos tengan acceso a la aplicación web, cree un **flujo de usuario de registro o de inicio de sesión**.
 
-1. En la página del portal de Azure AD B2C, seleccione **Directivas de inicio de sesión o de registro** y haga clic en **Agregar**.
+1. En la página del portal de Azure AD B2C, seleccione **Flujos de usuario** y haga clic en **Nuevo flujo de usuario**.
+2. En la pestaña **Recomendado**, haga clic en **Registrarse e iniciar sesión**.
 
-    Para configurar la directiva, utilice la siguiente configuración:
+    Para configurar el flujo de usuario, utilice la siguiente configuración:
 
-    ![Incorporación de directiva de registro o de inicio de sesión](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
-
-    | Configuración      | Valor sugerido  | Descripción                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Nombre** | SiUpIn | Escriba un **Nombre** para la directiva. El nombre de la directiva tiene el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo de la directiva **B2C_1_SiUpIn**. | 
-    | **Proveedor de identidades** | Registro por correo electrónico | El proveedor de identidades que se usa para identificar al usuario de forma exclusiva. |
-    | **Atributos de registro** | Nombre para mostrar y Código postal | Seleccione los atributos que se van a recopilar del usuario durante el registro. |
-    | **Notificaciones de la aplicación** | Nombre para mostrar, Código postal, El usuario es nuevo, Identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/developer-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/developer-glossary.md#access-token). |
-
-2. Haga clic en **Crear** para crear la directiva. 
-
-### <a name="create-a-profile-editing-policy"></a>Creación de una directiva de edición de perfil
-
-Para permitir que los usuarios restablezcan la información de su perfil de usuario por su cuenta, cree una **directiva de edición de perfil**.
-
-1. En la página del portal de Azure AD B2C, seleccione **Directivas de edición de perfil** y haga clic en **Agregar**.
-
-    Para configurar la directiva, utilice la siguiente configuración:
+    ![Incorporación de un flujo de usuario de registro o de inicio de sesión](media/active-directory-b2c-tutorials-spa/add-susi-user-flow.png)
 
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Nombre** | SiPe | Escriba un **Nombre** para la directiva. El nombre de la directiva tiene el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo de la directiva **B2C_1_SiPe**. | 
-    | **Proveedor de identidades** | Inicio de sesión en una cuenta local | El proveedor de identidades que se usa para identificar al usuario de forma exclusiva. |
-    | **Atributos de perfil** | Nombre para mostrar y Código postal | Seleccione los atributos que los usuarios pueden modificar durante la edición de un perfil. |
-    | **Notificaciones de la aplicación** | Nombre para mostrar, código postal, identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/developer-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/developer-glossary.md#access-token) después de una edición de perfil correcta. |
+    | **Nombre** | SiUpIn | Escriba un **nombre** para el flujo de usuario. El nombre del flujo de usuario tendrá el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo del flujo de usuario **B2C_1_SiUpIn**. | 
+    | **Proveedores de identidades** | Registro por correo electrónico | El proveedor de identidades que se usa para identificar al usuario de forma exclusiva. |
 
-2. Haga clic en **Crear** para crear la directiva. 
+3. En **Atributos y notificaciones de usuario**, haga clic en **Mostrar más** y seleccione la siguiente configuración:
 
-### <a name="create-a-password-reset-policy"></a>Crear una directiva de restablecimiento de contraseña
+    ![Incorporación de un flujo de usuario de registro o de inicio de sesión](media/active-directory-b2c-tutorials-spa/add-attributes-and-claims.png)
 
-Para habilitar en su aplicación el restablecimiento de contraseña, deberá crear una **directiva de restablecimiento de contraseña**. Esta directiva describe la experiencia del consumidor durante el restablecimiento de contraseña y el contenido de los tokens que recibe la aplicación al finalizar correctamente.
+    | Columna      | Valor sugerido  | DESCRIPCIÓN                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Recopilar atributo** | Nombre para mostrar y Código postal | Seleccione los atributos que se van a recopilar del usuario durante el registro. |
+    | **Notificación de devolución** | Nombre para mostrar, Código postal, El usuario es nuevo, Identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/developer-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/developer-glossary.md#access-token). |
 
-1. En la página del portal de Azure AD B2C, seleccione **Directivas de restablecimiento de contraseña** y haga clic en **Agregar**.
+4. Haga clic en **OK**.
+5. Haga clic en **Crear** para crear el flujo de usuario. 
 
-    Para configurar la directiva, utilice la siguiente configuración.
+### <a name="create-a-profile-editing-user-flow"></a>Creación de un flujo de usuario de edición de perfil
+
+Para permitir que los usuarios restablezcan la información de su perfil de usuario por su cuenta, cree un **flujo de usuario de edición de perfil**.
+
+1. En la página del portal de Azure AD B2C, seleccione **Flujos de usuario** y haga clic en **Nuevo flujo de usuario**.
+2. En la pestaña **Recomendado**, haga clic en **Edición de perfiles**.
+
+    Para configurar el flujo de usuario, utilice la siguiente configuración:
 
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Nombre** | SSPR | Escriba un **Nombre** para la directiva. El nombre de la directiva tiene el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo de la directiva **B2C_1_SSPR**. | 
-    | **Proveedor de identidades** | Restablecer la contraseña mediante la dirección de correo electrónico | Es el proveedor de identidades que se usa para identificar al usuario de forma exclusiva. |
-    | **Notificaciones de la aplicación** | Identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/developer-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/developer-glossary.md#access-token) después de un restablecimiento de contraseña correcto. |
+    | **Nombre** | SiPe | Escriba un **nombre** para el flujo de usuario. El nombre del flujo de usuario tendrá el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo del flujo de usuario **B2C_1_SiPe**. | 
+    | **Proveedores de identidades** | Inicio de sesión en una cuenta local | El proveedor de identidades que se usa para identificar al usuario de forma exclusiva. |
 
-2. Haga clic en **Crear** para crear la directiva. 
+3.  En **Atributos de usuario**, haga clic en **Mostrar más** y seleccione la siguiente configuración:
+
+    | Columna      | Valor sugerido  | DESCRIPCIÓN                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Recopilar atributo** | Nombre para mostrar y Código postal | Seleccione los atributos que los usuarios pueden modificar durante la edición de un perfil. |
+    | **Notificación de devolución** | Nombre para mostrar, código postal, identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/developer-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/developer-glossary.md#access-token) después de una edición de perfil correcta. |
+
+4. Haga clic en **OK**.
+5. Haga clic en **Crear** para crear el flujo de usuario. 
+
+### <a name="create-a-password-reset-user-flow"></a>Creación de un flujo de usuario de restablecimiento de contraseña
+
+Para habilitar en su aplicación el restablecimiento de contraseña, deberá crear un **flujo de usuario de restablecimiento de contraseña**. Este flujo de usuario describe la experiencia del consumidor durante el restablecimiento de contraseña y el contenido de los tokens que recibe la aplicación al finalizar correctamente.
+
+1. En la página del portal de Azure AD B2C, seleccione **Flujos de usuario** y haga clic en **Nuevo flujo de usuario**.
+2. En la pestaña **Recomendado**, haga clic en **Restablecimiento de contraseña**.
+
+    Para configurar el flujo de usuario, utilice la siguiente configuración.
+
+    | Configuración      | Valor sugerido  | Descripción                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Nombre** | SSPR | Escriba un **nombre** para el flujo de usuario. El nombre del flujo de usuario tendrá el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo del flujo de usuario **B2C_1_SSPR**. | 
+    | **Proveedores de identidades** | Restablecer la contraseña mediante la dirección de correo electrónico | Es el proveedor de identidades que se usa para identificar al usuario de forma exclusiva. |
+
+3. En **Notificaciones de la aplicación**, haga clic en **Mostrar más** y seleccione la siguiente configuración:
+
+    | Columna      | Valor sugerido  | DESCRIPCIÓN                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Notificación de devolución** | Identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/developer-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/developer-glossary.md#access-token) después de un restablecimiento de contraseña correcto. |
+
+4. Haga clic en **OK**.
+5. Haga clic en **Crear** para crear el flujo de usuario. 
 
 ## <a name="update-single-page-app-code"></a>Actualización del código de la aplicación de una sola página
 
-Ahora que ha registrado una aplicación y ha creado directivas, debe configurar la aplicación para que use el directorio de Azure AD B2C. En este tutorial, configurará una aplicación JavaScript SPA de ejemplo que puede descargar desde GitHub. 
+Ahora que ha registrado una aplicación y ha creado flujos de usuario, debe configurar la aplicación para que use el directorio de Azure AD B2C. En este tutorial, configurará una aplicación JavaScript SPA de ejemplo que puede descargar desde GitHub. 
 
 [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clone la aplicación web de ejemplo desde GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-La aplicación de ejemplo muestra cómo una aplicación de una sola página puede usar Azure AD B2C para el registro del usuario, el inicio de sesión y llamar a una API web protegida. Debe cambiar la aplicación para que use el registro de aplicaciones del directorio y configurar las directivas que ha creado. 
+La aplicación de ejemplo muestra cómo una aplicación de una sola página puede usar Azure AD B2C para el registro del usuario, el inicio de sesión y llamar a una API web protegida. Debe cambiar la aplicación para que use el registro de aplicaciones del directorio y configurar los flujos de usuario que ha creado. 
 
 Para cambiar la configuración de la aplicación:
 
@@ -151,7 +174,7 @@ Para cambiar la configuración de la aplicación:
     };
     ```
 
-    El nombre de la directiva que se ha utilizado en este tutorial es **B2C_1_SiUpIn**. Si usa otro nombre de directiva, utilice el nombre de la directiva en el valor `authority`.
+    El nombre del flujo de usuario que se ha utilizado en este tutorial es **B2C_1_SiUpIn**. Si usa otro nombre de flujo de usuario, utilice el nombre del flujo de usuario en el valor `authority`.
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
@@ -175,11 +198,11 @@ La aplicación de ejemplo es compatible con el registro, el inicio de sesión, l
 
 ### <a name="sign-up-using-an-email-address"></a>Registro con una dirección de correo electrónico
 
-1. Haga clic en **Login** (Iniciar sesión) para iniciar sesión como usuario de la aplicación SPA. Aquí se utiliza la directiva **B2C_1_SiUpIn** que ha definido en un paso anterior.
+1. Haga clic en **Login** (Iniciar sesión) para iniciar sesión como usuario de la aplicación SPA. Aquí se utiliza el flujo de usuario **B2C_1_SiUpIn** que ha definido en un paso anterior.
 
 2. Azure AD B2C presenta una página de inicio de sesión con un vínculo de registro. Como no tiene aún una cuenta, haga clic en el vínculo **Registrarse ahora**. 
 
-3. El flujo de trabajo del registro presenta una página para recopilar y verificar la identidad del usuario con una dirección de correo electrónico. El flujo de trabajo de registro también recopila la contraseña del usuario y los atributos requeridos definidos en la directiva.
+3. El flujo de trabajo del registro presenta una página para recopilar y verificar la identidad del usuario con una dirección de correo electrónico. El flujo de trabajo de registro también recopila la contraseña del usuario y los atributos requeridos definidos en el flujo de usuario.
 
     Utilice una dirección de correo electrónico válida y valídela mediante el código de verificación. Establezca una contraseña. Especifique valores para los atributos solicitados. 
 
@@ -198,7 +221,7 @@ Puede usar el directorio de Azure AD B2C si tiene previsto probar otros tutorial
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a crear a un directorio de Azure AD B2C, a crear directivas y a actualizar la aplicación de ejemplo de una sola página para que utilice el directorio de Azure AD B2C. En el siguiente tutorial aprenderá a registrar, configurar y llamar a una API web protegida desde una aplicación de escritorio.
+En este tutorial, ha aprendido a crear a un directorio de Azure AD B2C, a crear flujos de usuario y a actualizar la aplicación de ejemplo de una sola página para que utilice el directorio de Azure AD B2C. En el siguiente tutorial aprenderá a registrar, configurar y llamar a una API web protegida desde una aplicación de escritorio.
 
 > [!div class="nextstepaction"]
 > [Ejemplos de código de Azure AD B2C](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

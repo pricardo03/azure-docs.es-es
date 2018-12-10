@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/2/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 57560a035f4d0468625e4c8f3ad6b7a7e516590f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023007"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850687"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guía de inicio rápido: incorporación de equipos Windows a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de Microsoft Monitoring Agent.
@@ -30,7 +30,7 @@ En esta guía de inicio rápido se explica cómo instalar Microsoft Monitoring A
 ## <a name="prerequisites"></a>Requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar esta guía de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho plan se puede probar de forma gratuita los primeros sesenta días.
+Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar esta guía de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-windows-computer"></a>Adición de un nuevo equipo Windows
 
@@ -75,7 +75,7 @@ Ahora, debe instalar el archivo descargado en el equipo de destino.
 
 Una vez completado el proceso, el **Agente de administración de Microsoft** aparece en el **Panel de control**. Puede revisar ahí la configuración y verificar que el agente esté conectado.
 
-Para más información sobre cómo instalar y configurar el agente, vea [Conexión de equipos Windows](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard).
+Para más información sobre cómo instalar y configurar el agente, vea [Conexión de equipos Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
 Ahora puede supervisar las máquinas virtuales de Azure y los equipos que no son de Azure en un único lugar. En **Compute**, dispone de información general de todas las máquinas virtuales y los equipos junto con recomendaciones. Cada columna representa un conjunto de recomendaciones. El color representa el estado de seguridad actual del equipo o de la máquina virtual para dicha recomendación. Security Center también expone todas las detecciones de estos equipos en las alertas de seguridad.
 

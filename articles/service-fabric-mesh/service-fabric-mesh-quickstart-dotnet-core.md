@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación e implementación de una aplicación web en Azure Service Fabric mesh | Microsoft Docs'
-description: En esta guía de inicio rápido se muestra cómo crear un sitio web de ASP.NET Core y publicarlo en Azure Service Fabric mesh.
+title: 'Guía de inicio rápido: Implementación de una aplicación web en Azure Service Fabric Mesh | Microsoft Docs'
+description: En esta guía de inicio rápido se muestra cómo crear un sitio web de ASP.NET Core y publicarlo en Azure Service Fabric Mesh mediante Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
 author: tylermsft
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7e324b80968017e0160f41b88fa1824669050ac9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 35ce19d796a9889d734bd5dde20a7c56485656f1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407406"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888552"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Inicio rápido: Creación e implementación de una aplicación web en Azure Service Fabric mesh
 
@@ -88,7 +88,7 @@ En el cuadro de diálogo Publicar, haga clic en el botón **Publicar** para impl
 
 Al publicar en Azure por primera vez, la imagen de Docker se inserta en Azure Container Registry (ACR), que tarda según el tamaño de la imagen. Las publicaciones posteriores del mismo proyecto serán más rápidas. Para supervisar el progreso de la implementación, seleccione el panel **Herramientas de Service Fabric** en la ventana desplegable **Salida** de Visual Studio. Una vez finalizada la implementación, la salida de **Herramientas de Service Fabric** mostrará la dirección IP y el puerto de la aplicación en forma de dirección URL.
 
-```json
+```
 Packaging Application...
 Building Images...
 Web1 -> C:\Code\ServiceFabricMesh1\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll

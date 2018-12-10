@@ -8,17 +8,17 @@ services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/14/2018
-ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/03/2018
+ms.openlocfilehash: b1e458339c2befdb51439cd23ef5f22ba4379c78
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686031"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850268"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>¿Qué es Azure Database for MariaDB?
 
-Azure Database for MariaDB es un servicio de base de datos relacional en la nube de Microsoft. Azure Database for MariaDB se basa en el motor de base de datos de [MariaDB Community Edition](https://mariadb.org/download/), versión 10.2. Este servicio está en versión preliminar pública. 
+Azure Database for MariaDB es un servicio de base de datos relacional en la nube de Microsoft. Azure Database for MariaDB se basa en el motor de base de datos de [MariaDB Community Edition](https://mariadb.org/download/), versión 10.2.
 
 Azure Database for MariaDB ofrece lo siguiente:
 
@@ -43,7 +43,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar el rendimiento y la escala en cuestión de segundos
 
-En la versión preliminar, el servicio Azure Database for MariaDB ofrece varios niveles de servicio: Básico, Uso general y Optimiza para memoria. Cada nivel ofrece diferentes niveles de rendimiento y funcionalidades para admitir cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica ayuda a la base de datos a responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Para más información, consulte los  [planes de tarifa](concepts-pricing-tiers.md).
+El servicio Azure Database for MariaDB ofrece varios niveles de servicio: Básico, Uso general y Optimizada para memoria. Cada nivel ofrece diferentes niveles de rendimiento y funcionalidades para admitir cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica ayuda a la base de datos a responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Para obtener más información, consulte los  [planes de tarifa](concepts-pricing-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 
@@ -51,7 +51,7 @@ En la versión preliminar, el servicio Azure Database for MariaDB ofrece varios 
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenimiento de la aplicación y el negocio en funcionamiento
 
-El Acuerdo de Nivel de Servicio de Azure, con una disponibilidad del 99,99 % líder del sector se refuerza con la tecnología de una red global de centros de datos administrados por Microsoft (no se ofrece durante la versión preliminar pública). La red ayuda a mantener las aplicaciones en funcionamiento permanentemente. Podrá beneficiarse de la seguridad integrada, la tolerancia a errores y la protección de datos en Azure Database for MariaDB. Con Azure Database for MariaDB puede usar la restauración a un momento dado para recuperar un servidor a un estado anterior, con un plazo máximo de 35 días.
+El Acuerdo de Nivel de Servicio de Azure, con una disponibilidad líder del sector del 99,99 %, se refuerza con la tecnología de una red global de centros de datos administrados por Microsoft. La red ayuda a mantener las aplicaciones en funcionamiento permanentemente. Podrá beneficiarse de la seguridad integrada, la tolerancia a errores y la protección de datos en Azure Database for MariaDB. Con Azure Database for MariaDB puede usar la restauración a un momento dado para recuperar un servidor a un estado anterior, con un plazo máximo de 35 días.
 
 ## <a name="secure-your-data"></a>Protección de los datos
 

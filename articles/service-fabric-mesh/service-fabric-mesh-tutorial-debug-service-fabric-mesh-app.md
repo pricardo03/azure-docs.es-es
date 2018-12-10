@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997019"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887515"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depuración de una aplicación de Service Fabric Mesh que se ejecuta en un clúster de desarrollo local
 
@@ -74,7 +74,9 @@ Presione **F5** para compilar y ejecutar el servicio localmente. Cuando se haya 
 
 Cuando finalice la implementación local y Visual Studio esté ejecutando la aplicación, se abrirá una ventana del explorador con una página web de ejemplo predeterminada.
 
-**Sugerencias de depuración**
+## <a name="debugging-tips"></a>Sugerencias de depuración
+
+Realice su primera ejecución de depuración (F5) mucho más rápido siguiendo las instrucciones de [Optimización del rendimiento de Visual Studio](service-fabric-mesh-howto-optimize-vs.md).
 
 Actualmente hay un problema que impide que la llamada a `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` se conecte al servicio. Esto puede ocurrir cuando cambia la dirección IP del host. Para resolver este problema:
 
@@ -90,13 +92,13 @@ Si se producen errores de compilación en **service.yaml**, asegúrese de que se
 
 ### <a name="debug-in-visual-studio"></a>Depurar en Visual Studio
 
-Al depurar una aplicación de Service Fabric Mesh en Visual Studio se usa un clúster de desarrollo de Service Fabric local. Para ver cómo se recuperan las tareas pendientes desde el servicio back-end, depure en el método OnGet().
+Al depurar una aplicación de Service Fabric Mesh en Visual Studio, se usa un clúster de desarrollo de Service Fabric local. Para ver cómo se recuperan las tareas pendientes desde el servicio back-end, depure en el método OnGet().
 1. En el proyecto **WebFrontEnd**, abra **Páginas** > **Index.cshtml** > **Index.cshtml.cs** y establezca un punto de interrupción en el método **Get** (línea 17).
 2. En el proyecto **ToDoService**, abra **TodoController.cs** y establezca un punto de interrupción en el método **OnGet** (línea 15).
 3. Regrese al explorador y actualice la página. Alcanzará el punto de interrupción del método `OnGet()` del servicio front-end web. Puede inspeccionar la variable `backendUrl` para ver cómo las variables de entorno que definió en el archivo **service.yaml** se combinan en la dirección URL usada para ponerse en contacto con el servicio back-end.
 4. Salte la llamada `client.GetAsync(backendUrl).GetAwaiter().GetResult())` (F10) y se alcanzará el punto de interrupción `Get()` del controlador. En este método, puede ver cómo se recupera la lista de tareas pendientes a partir de la lista en memoria.
 5. Cuando haya terminado, detenga la depuración del proyecto en Visual Studio presionando **Mayús+F5**.
- 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En esta parte del tutorial, ha aprendido a:

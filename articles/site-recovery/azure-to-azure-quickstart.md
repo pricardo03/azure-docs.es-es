@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c0d5b556cfeaf26e58104c1cbb7d394e5594f3e5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212937"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850506"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configuración de la recuperación ante desastres en una región secundaria de Azure de una máquina virtual de Azure 
 
@@ -54,10 +54,10 @@ Cuando haya finalizado el trabajo de replicación, puede comprobar el estado de 
 
 La máquina virtual de la región primaria deja de replicar al deshabilitar la replicación:
 
-- La configuración de replicación de origen se limpia automáticamente.
+- La configuración de replicación de origen se limpia automáticamente. Tenga en cuenta que la extensión de Site Recovery que se instala como parte de la replicación no se ha eliminado y tiene que quitarse manualmente. 
 - También se detiene la facturación de Site Recovery para la máquina virtual.
 
-Detenga la replicación como se indica a continuación:
+Detenga la replicación como se indica a continuación
 
 1. Seleccione la máquina virtual.
 2. En **Recuperación ante desastres**, haga clic en **Deshabilitar replicación**.
