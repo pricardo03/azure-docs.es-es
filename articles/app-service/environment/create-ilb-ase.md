@@ -170,7 +170,7 @@ Para cargar sus propios certificados y probar el acceso:
 
 1. Establezca el DNS para el dominio del ASE. Puede usar un comodín con el dominio en el DNS. Para realizar algunas pruebas sencillas, edite el archivo de hosts en su máquina virtual para establecer el nombre de la aplicación web en la dirección IP de IP virtual:
 
-    a. Si el ASE tiene el nombre de dominio _.ilbase.com_ y crea una aplicación web denominada _mytestapp_, su dirección será _mytestapp.ilbase.com_. A continuación, establezca _mytestapp.ilbase.com_ para que resuelva a la dirección del ILB. (en Windows, el archivo hosts se encuentra en _C:\Windows\System32\drivers\etc\_.)
+     a. Si el ASE tiene el nombre de dominio _.ilbase.com_ y crea una aplicación web denominada _mytestapp_, su dirección será _mytestapp.ilbase.com_. A continuación, establezca _mytestapp.ilbase.com_ para que resuelva a la dirección del ILB. (en Windows, el archivo hosts se encuentra en _C:\Windows\System32\drivers\etc\_.)
 
     b. Para probar la publicación de la implementación web o tener acceso a la consola avanzada, cree un registro para _mytestapp.scm.ilbase.com_.
 
@@ -188,7 +188,7 @@ Functions y los trabajos web se admiten en un ASE de ILB, pero para que el porta
 
 Al usar Azure Functions en un ASE con un ILB, puede recibir un mensaje de error que dice "No se han podido recuperar sus funciones ahora. Inténtelo de nuevo más tarde." Este error se produce porque la interfaz de usuario de Functions aprovecha el sitio de SCM a través de HTTPS y el certificado raíz no está en la cadena de confianza del explorador. Los trabajos web tienen un problema similar. Para evitar este problema puede hacer cualquiera de las siguientes acciones:
 
-- Agregue el certificado a su almacén de certificados de confianza. Esto desbloquea Edge e Internet Explorer.
+- Agregue el certificado a su almacén de certificados de confianza. Esto desbloquea Microsoft Edge e Internet Explorer.
 - Use Chrome y primero vaya al sitio de SCM, acepte el certificado que no es de confianza y luego vaya al portal.
 - Use un certificado comercial que se encuentre en la cadena de confianza del explorador.  Esta es la mejor opción.  
 

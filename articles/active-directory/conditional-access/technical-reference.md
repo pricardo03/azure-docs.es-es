@@ -125,13 +125,13 @@ Esta configuración funciona con todos los exploradores. Sin embargo, para satis
 
 | SO                     | Exploradores                            | Soporte técnico     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Comprobar][1] |
+| Windows 10             | Internet Explorer, Microsoft Microsoft Edge, Chrome     | ![Comprobar][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Comprobar][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Comprobar][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Comprobar][1] |
 | Android                | Safari, Intune Managed Browser      | ![Comprobar][1] |
-| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Comprobar][1] |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Comprobar][1] |
+| Windows Phone          | Internet Explorer, Microsoft Microsoft Edge             | ![Comprobar][1] |
+| Windows Server 2016    | Internet Explorer, Microsoft Microsoft Edge             | ![Comprobar][1] |
 | Windows Server 2016    | Chrome                              | Próximamente |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Comprobar][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Comprobar][1] |
@@ -225,7 +225,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Microsoft Word
 - Microsoft To-Do
 - Microsoft Stream
-- Microsoft Edge
+- Microsoft Microsoft Edge
 
 
 
