@@ -130,7 +130,7 @@ Si su ASE ILB es el nombre de dominio *contoso.net* y el nombre de la aplicació
 
 ## <a name="functions-and-web-jobs"></a>Trabajos web y de funciones ##
 
-Tanto los trabajos de funciones como los trabajos web dependen del sitio de SCM, pero se pueden usar en el portal, incluso si las aplicaciones se encuentran en un ASE de ILB, siempre y cuando el explorador pueda llegar al sitio de SCM.  Si usa un certificado autofirmado con su ASE de ILB, debe habilitar el explorador para que confíe en ese certificado.  En el caso de IE y Edge, esto significa que el certificado debe estar en el almacén de confianza del equipo.  Si usa Chrome, esto significa que aceptó el certificado en el explorador anteriormente al pulsar directamente en el sitio de SCM.  La mejor solución es usar un certificado comercial que se encuentre en la cadena de confianza del explorador.  
+Tanto los trabajos de funciones como los trabajos web dependen del sitio de SCM, pero se pueden usar en el portal, incluso si las aplicaciones se encuentran en un ASE de ILB, siempre y cuando el explorador pueda llegar al sitio de SCM.  Si usa un certificado autofirmado con su ASE de ILB, debe habilitar el explorador para que confíe en ese certificado.  En el caso de IE y Microsoft Edge, esto significa que el certificado debe estar en el almacén de confianza del equipo.  Si usa Chrome, esto significa que aceptó el certificado en el explorador anteriormente al pulsar directamente en el sitio de SCM.  La mejor solución es usar un certificado comercial que se encuentre en la cadena de confianza del explorador.  
 
 ## <a name="ase-ip-addresses"></a>Direcciones IP de ASE ##
 

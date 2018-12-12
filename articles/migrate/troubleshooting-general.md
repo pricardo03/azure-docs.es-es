@@ -209,14 +209,14 @@ Para recopilar el Seguimiento de eventos para Windows, haga lo siguiente:
 2. Presione F12 para iniciar las Herramientas de desarrollo. Si es necesario, desactive la configuración **Clear entries on navigation** (Borrar entradas de navegación).
 3. Haga clic en la pestaña **Network** (Red) para empezar a capturar el tráfico de red:
  - En Chrome, seleccione **Preserve log** (Conservar registro). La grabación debe iniciarse automáticamente. Un círculo rojo indica que la captura del tráfico está en curso. Si no aparece, haga clic en el círculo negro para iniciar la captura.
- - En Edge/IE, la grabación debe iniciarse automáticamente. Si no es así, haga clic en el botón de reproducción de color verde.
+ - En Microsoft Edge/IE, la grabación debe iniciarse automáticamente. Si no es así, haga clic en el botón de reproducción de color verde.
 4. Pruebe a reproducir el error.
 5. Una vez haya encontrado el error durante la grabación, detenga la grabación y guarde una copia de la actividad grabada:
  - En Chrome, haga clic con el botón derecho y haga clic en **Save as HAR with content** (Guardar como HAR con contenido). Con esta acción, los registros se comprimen y exportan como un archivo .har.
- - En Edge/IE, haga clic en el icono **Exportar el tráfico capturado**. Con esta acción, el registro se comprime y exporta.
+ - En Microsoft Edge/IE, haga clic en el icono **Exportar el tráfico capturado**. Con esta acción, el registro se comprime y exporta.
 6. Navegue a la pestaña **Console** (Consola) para ver si hay alguna advertencia o error. Para guardar el registro de la consola:
  - En Chrome, haga clic con el botón derecho en cualquier lugar en el registro de la consola. Seleccione **Save as** (Guardar como) para exportar y comprimir el registro.
- - En Edge/IE, haga clic con el botón derecho sobre los errores y seleccione **Copy all** (Copiar todo).
+ - En Microsoft Edge/IE, haga clic con el botón derecho sobre los errores y seleccione **Copy all** (Copiar todo).
 7. Cierre las Herramientas de desarrollo.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de error del recopilador y acciones recomendadas

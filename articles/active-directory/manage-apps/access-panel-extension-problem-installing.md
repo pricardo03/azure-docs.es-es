@@ -36,7 +36,7 @@ Como mínimo, el panel de acceso requiere un explorador que admita JavaScript y 
 
 Para el inicio de sesión único basado en contraseña, puede usar cualquiera de los siguientes exploradores:
 
-- **Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior. 
+- **Microsoft Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior. 
 - **Chrome**: en Windows 7 o versiones posteriores y en MacOS X o versiones posteriores.
 - **Firefox 26.0 o versiones posteriores**: en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores.
 
@@ -59,10 +59,10 @@ Para instalar la extensión del explorador del panel de acceso, haga lo siguient
 
 7.  Inicie sesión en el panel de acceso y compruebe si puede iniciar las aplicaciones con inicio de sesión único basado en contraseña.
 
-También puede descargar la extensión para Chrome y Edge directamente desde los siguientes sitios:
+También puede descargar la extensión para Chrome y Microsoft Edge directamente desde los siguientes sitios:
 
 - [Extensión para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Extensión para Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Extensión para Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Uso de la extensión de inicio de sesión seguro de Mis aplicaciones
 * Si va utilizar una dirección URL de Mis aplicaciones que no sea `https://myapps.microsoft.com`, configure la dirección URL predeterminada siguiendo estos pasos:
@@ -93,7 +93,7 @@ También puede descargar la extensión para Chrome y Edge directamente desde los
     4. Ahora podrá examinar la dirección URL interna de la empresa de manera remota
 
 > [!NOTE]
-> Las opciones anteriores están disponibles solo para Edge, Chrome y Firefox.
+> Las opciones anteriores están disponibles solo para Microsoft Edge, Chrome y Firefox.
 
 ## <a name="set-up-a-group-policy-for-internet-explorer"></a>Configuración de una directiva de grupo para Internet Explorer
 
@@ -112,7 +112,7 @@ Para instrucciones paso a paso sobre cómo configurar la directiva de grupo e im
 Para acceder a una herramienta de diagnóstico y a información sobre la configuración de la extensión para Internet Explorer, consulte [Solución de problemas de la extensión del Panel de acceso para Internet Explorer](manage-access-panel-browser-extension.md).
 
 > [!NOTE]
-> Internet Explorer se encuentra en un periodo de compatibilidad limitada y ya no recibe nuevas actualizaciones de software. Edge es el explorador recomendado.
+> Internet Explorer se encuentra en un periodo de compatibilidad limitada y ya no recibe nuevas actualizaciones de software. Microsoft Edge es el explorador recomendado.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Si los pasos anteriores no resuelven el problema
 

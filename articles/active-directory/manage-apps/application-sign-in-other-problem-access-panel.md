@@ -68,7 +68,7 @@ Para el SSO basado en contraseña, los exploradores del usuario final pueden ser
 
 -   Internet Explorer 8, 9, 10, 11 (en Windows 7 o posterior)
 
--   Edge en Windows 10 Anniversary Edition o posterior
+-   Microsoft Edge en Windows 10 Anniversary Edition o posterior
 
 -   Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
 
@@ -92,11 +92,11 @@ Para instalar la extensión de explorador del Panel de acceso, siga estos pasos:
 
 7.  Inicie sesión en el Panel de acceso y vea si puede **iniciar** las aplicaciones de SSO con contraseña
 
-También puede descargar la extensión para Chrome y Edge desde los siguientes vínculos directos:
+También puede descargar la extensión para Chrome y Microsoft Edge desde los siguientes vínculos directos:
 
 -   [Extensión del Panel de acceso para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extensión del Panel de acceso para Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Extensión del Panel de acceso para Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Configuración del inicio de sesión único federado para una aplicación de la galería de Azure AD
 

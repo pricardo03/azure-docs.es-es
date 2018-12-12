@@ -36,7 +36,7 @@ Antes de comenzar, repase las siguientes advertencias:
 - Azure AD B2C combina contenido HTML en las páginas. No copie ni intente cambiar el contenido predeterminado que proporciona Azure AD B2C. Es preferible compilar su propio contenido de HTML desde cero y usar el contenido predeterminado como referencia.
 - Por motivos de seguridad, no puede incluir JavaScript en el contenido.
 - Estas son las versiones de explorador admitidas: 
-    - Internet Explorer 11, 10 y Edge.
+    - Internet Explorer 11, 10 y Microsoft Edge.
     - Compatibilidad limitada con Internet Explorer 9 y 8.
     - Google Chrome 42.0 y versiones posteriores
     - Mozilla Firefox 38.0 y versiones posteriores

@@ -18,7 +18,7 @@ ms.locfileid: "49476364"
 ---
 Inicie sesión en [Azure Portal](https://portal.azure.com/) con las credenciales de la suscripción de Azure que va a usar. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
-El panel del área de trabajo del portal solo es compatible con los exploradores Edge, Chrome y Firefox.
+El panel del área de trabajo del portal solo es compatible con los exploradores Microsoft Edge, Chrome y Firefox.
 
    ![Azure Portal](./media/aml-create-in-portal/portal-dashboard.png)
 

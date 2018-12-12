@@ -49,7 +49,7 @@ El portal Mis aplicaciones requiere un explorador compatible con JavaScript y co
 
 Asegúrese de que cumple los siguientes requisitos de explorador:
 
-- **Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior.
+- **Microsoft Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior.
 - **Chrome**: en Windows 7 o posterior y en Mac OS X o posterior.
 - **Firefox 26.0 o versiones posteriores**: en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores.
 - **Internet Explorer 11**: en Windows 7, o cualquier versión posterior (compatibilidad limitada).
@@ -57,7 +57,7 @@ Asegúrese de que cumple los siguientes requisitos de explorador:
 También puede descargar la extensión directamente desde los siguientes sitios:
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Si ha instalado la extensión y sigue teniendo problemas, pruebe lo siguiente:
@@ -90,7 +90,7 @@ Si ha instalado la extensión y sigue teniendo problemas, pruebe lo siguiente:
        Las tres últimas aplicaciones que ha utilizado se muestran en la lista de accesos directos **Usados recientemente**.
 
 > [!NOTE]
-> Estas opciones están disponibles solo para Edge, Chrome y Firefox.
+> Estas opciones están disponibles solo para Microsoft Edge, Chrome y Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>¿Cómo puedo agregar una nueva aplicación?
 

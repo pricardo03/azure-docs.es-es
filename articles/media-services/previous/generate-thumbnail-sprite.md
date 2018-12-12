@@ -70,7 +70,7 @@ Este es un ejemplo:
 
 1.  No es posible generar una imagen de sprite con una sola fila de imágenes (SpriteColumn = 1 produce una imagen con una sola columna).
 2.  No se admite aún la fragmentación de las imágenes de sprite en imágenes JPEG de tamaño moderado. Por lo tanto, es necesario tener cuidado al limitar el número de miniaturas y su tamaño, para que el sprite de miniaturas unidas resultante esté en torno a 8 megapíxeles o menos.
-3.  Azure Media Player admite sprites en los exploradores Edge, Chrome y Firefox. No se admite el análisis de VTT en IE11.
+3.  Azure Media Player admite sprites en los exploradores Microsoft Edge, Chrome y Firefox. No se admite el análisis de VTT en IE11.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

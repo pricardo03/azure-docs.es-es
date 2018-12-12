@@ -41,7 +41,7 @@ Para el SSO basado en contraseña, los exploradores del usuario final pueden ser
 -   Firefox 26.0 o posterior (en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior)
 
 >[!NOTE]
->La extensión de SSO basada en contraseña está disponible para Edge en Windows 10 cuando se admiten extensiones de explorador para Edge.
+>La extensión de SSO basada en contraseña está disponible para Microsoft Edge en Windows 10 cuando se admiten extensiones de explorador para Microsoft Edge.
 >
 >
 

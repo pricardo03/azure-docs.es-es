@@ -52,7 +52,7 @@ Antes de iniciar el flujo de trabajo de copia de seguridad sin conexión, comple
 * Cree un [almacén de Recovery Services](backup-azure-recovery-services-vault-overview.md). Para crear uno, consulte los pasos de [este artículo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault).
 * Asegúrese de que solo la [versión más reciente del agente de Azure Backup](https://aka.ms/azurebackup_agent) se instaló en el cliente Windows Server/Windows, según corresponda, y que el equipo está registrado con el almacén de Recovery Services.
 * Se requiere Azure PowerShell 3.7.0 en el equipo donde se ejecuta el agente de Azure Backup. Se recomienda que descargue e [instale la versión 3.7.0 de Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
-* En el equipo donde se ejecuta el agente de Azure Backup, asegúrese de que esté instalado Microsoft Edge o Internet Explorer 11 y que JavaScript esté habilitado. 
+* En el equipo donde se ejecuta el agente de Azure Backup, asegúrese de que esté instalado Microsoft Microsoft Edge o Internet Explorer 11 y que JavaScript esté habilitado. 
 * Cree una cuenta de Azure Storage en la misma suscripción que el almacén de Recovery Services. 
 * Asegúrese de tener los [permisos necesarios](../active-directory/develop/howto-create-service-principal-portal.md) para crear la aplicación de Azure Active Directory. El flujo de trabajo de la copia de seguridad sin conexión crea una aplicación de Azure Active Directory en la suscripción asociada con la cuenta de Azure Storage. El objetivo de la aplicación es proporcionar Azure Backup con el acceso seguro y limitado al servicio Azure Import que se requiere para el flujo de trabajo de la copia de seguridad sin conexión. 
 * Registre el proveedor de recursos Microsoft.ImportExport con la suscripción que contiene la cuenta de Azure Storage. Para registrar el proveedor de recursos:
@@ -109,7 +109,7 @@ La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que 
     * El equipo de copia puede acceder a la ubicación de ensayo del flujo de trabajo de propagación sin conexión mediante la misma ruta de acceso de red proporcionada durante el flujo de trabajo de **inicio de la copia de seguridad sin conexión** .
     * BitLocker está habilitado en el equipo de copia.
     * Azure PowerShell 3.7.0 está instalado.
-    * Los exploradores compatibles más recientes (Edge o Internet Explorer 11) están instalados y JavaScript, habilitado. 
+    * Los exploradores compatibles más recientes (Microsoft Edge o Internet Explorer 11) están instalados y JavaScript, habilitado. 
     * El equipo de copia puede acceder a Azure Portal. Si es necesario, el equipo de copia puede ser el mismo que el equipo de origen.
     
     > [!IMPORTANT] 

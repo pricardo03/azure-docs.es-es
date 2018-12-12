@@ -59,7 +59,7 @@ Para completar correctamente el diseño del sistema o las aplicaciones de "prote
 
     Para probar el contenido cifrado de AES o CENC (Widevine o PlayReady), puede usar [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). No olvide hacer clic en "Opciones avanzadas" y comprobar las opciones de cifrado.
 
-    Si desea probar el contenido cifrado de FairPlay, utilice [este reproductor de prueba](https://aka.ms/amtest). El reproductor admite los DRM de Widevine, PlayReady y FairPlay, así como el cifrado de claves sin cifrado AES-128. Debe elegir el explorador adecuado para probar diferentes DRM: Chrome/Opera/Firefox para Widevine; MS Edge/IE11 para PlayReady; Safari en macOS para FairPlay.
+    Si desea probar el contenido cifrado de FairPlay, utilice [este reproductor de prueba](https://aka.ms/amtest). El reproductor admite los DRM de Widevine, PlayReady y FairPlay, así como el cifrado de claves sin cifrado AES-128. Debe elegir el explorador adecuado para probar diferentes DRM: Chrome/Opera/Firefox para Widevine; MS Microsoft Edge/IE11 para PlayReady; Safari en macOS para FairPlay.
 
 3. Servicio de token de seguridad (STS), que emite un token JSON Web Token (JWT) como token de acceso para acceder a un recurso de back-end. Puede usar los servicios de entrega de licencias de AMS como recurso de back-end. Un STS debe definir lo siguiente:
 

@@ -65,7 +65,7 @@ El instalador es específico para la arquitectura. Si hace clic en el vínculo d
 
 
 La extensión del portal Mis aplicaciones está actualmente disponible para:
-- **Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior. 
+- **Microsoft Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior. 
 - **Chrome**: en Windows 7 o versiones posteriores y en MacOS X o versiones posteriores.
 - **Firefox 26.0 o versiones posteriores**: en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores.
 - **Internet Explorer 11**: en Windows 7, o cualquier versión posterior (compatibilidad limitada).
@@ -79,11 +79,11 @@ Para poder iniciar sesión con el inicio de sesión único basado en contraseña
 - Puede usar direcciones URL internas de la empresa mientras se conecta de forma remota mediante el [proxy de la aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
-> Hay características adicionales disponibles solo para Edge, Chrome y Firefox.
+> Hay características adicionales disponibles solo para Microsoft Edge, Chrome y Firefox.
 >
 También puede descargar la extensión directamente desde los siguientes sitios:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Si va utilizar una dirección URL de Mis aplicaciones que no sea `https://myapps.microsoft.com`, configure la dirección URL predeterminada siguiendo estos pasos:

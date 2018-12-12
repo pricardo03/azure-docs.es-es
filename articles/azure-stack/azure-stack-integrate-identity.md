@@ -278,7 +278,7 @@ Si decide ejecutar manualmente los comandos, siga estos pasos:
    > [!IMPORTANT]  
    > Debe usar el complemento MMC de AD FS para configurar las reglas de autorización de emisión cuando se usa AD FS de Windows Server 2012 o 2012 R2.
 
-4. Cuando se utiliza el explorador Internet Explorer o Edge para tener acceso a Azure Stack, debe omitir los enlaces de token. En caso contrario, se producirá un error al intentar iniciar sesión. En la instancia de AD FS o en un miembro de la granja de servidores, ejecute el siguiente comando:
+4. Cuando se utiliza el explorador Internet Explorer o Microsoft Edge para tener acceso a Azure Stack, debe omitir los enlaces de token. En caso contrario, se producirá un error al intentar iniciar sesión. En la instancia de AD FS o en un miembro de la granja de servidores, ejecute el siguiente comando:
 
    > [!note]  
    > Este paso no es aplicable cuando se usa AD FS con Windows Server 2012 o 2012 R2. No pasa nada si omite este comando y continúa con la integración.

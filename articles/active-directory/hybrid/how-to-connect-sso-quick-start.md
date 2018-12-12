@@ -200,7 +200,7 @@ El uso de las extensiones de directiva de grupo de Active Directory de terceros 
 
 #### <a name="known-browser-limitations"></a>Limitaciones de exploradores conocidos
 
-SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada.
+SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Microsoft Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada.
 
 ## <a name="step-4-test-the-feature"></a>Paso 4: Prueba de la característica
 

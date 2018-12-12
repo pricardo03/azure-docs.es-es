@@ -186,7 +186,7 @@ Para capturar un seguimiento F12, tiene dos opciones:
 3. Compruebe que esté seleccionada la pestaña **Red** y luego seleccione el botón verde **Reproducir**.
 4. Realice los pasos que reproducen el problema.
 5. Seleccione el botón rojo **Detener**.
-6. Seleccione el botón **Guardar** (icono de disco) y guarde el archivo HAR (en Internet Explorer y Edge) *o* haga clic con el botón derecho en él y seleccione **Save as HAR with content** (Guardar como HAR con contenido) (en Chrome).
+6. Seleccione el botón **Guardar** (icono de disco) y guarde el archivo HAR (en Internet Explorer y Microsoft Edge) *o* haga clic con el botón derecho en él y seleccione **Save as HAR with content** (Guardar como HAR con contenido) (en Chrome).
 
 ### <a name="f12-console-output"></a>Salida de consola de F12
 
