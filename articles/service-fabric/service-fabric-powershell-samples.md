@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 04/09/2018
+ms.date: 11/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 65f6252ecfa4e5850824fc7aa2e6eca2bdb88692
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5d8137b2ca6c47713b7a681090963dd2749dd1f2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205763"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634054"
 ---
 # <a name="azure-powershell-samples"></a>Ejemplos de Azure PowerShell
 
@@ -33,7 +33,6 @@ En la tabla siguiente se incluyen vínculos a ejemplos de scripts de PowerShell 
 |-|-|
 | **Crear clúster** ||
 | [Creación de un clúster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Crea un clúster de Azure Service Fabric. |
-|[Crear un clúster de prueba (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Crea un clúster de prueba de Service Fabric de tres nodos en Azure.|
 | **Administración de clúster, nodos e infraestructura** ||
 | [Adición de un certificado de la aplicación](./scripts/service-fabric-powershell-add-application-certificate.md)| Agrega un certificado X.509 de aplicación a todos los nodos de un clúster. |
 | [Actualización del intervalo de puertos RDP en máquinas virtuales del clúster](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Cambia el intervalo de puertos RDP en máquinas virtuales del nodo de clúster en un clúster implementado.|
