@@ -11,12 +11,12 @@ ms.service: automation
 ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ad9fc7deb73cdcbcf83cc10b9b28f7d7e4ac7661
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6ff8bccc7037782b2709340312f0602b4cd7ab1f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283798"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834339"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Detecte el software que está instalado en sus máquinas, sean de Azure o no
 
@@ -70,7 +70,7 @@ Seleccione **+ Agregar máquina virtual de Azure**, se abrirá la página **Máq
 
 ## <a name="onboard-a-non-azure-machine"></a>Incorporación de una máquina que no es de Azure
 
-Para agregar máquinas que no son de Azure, instale el agente para [Windows](../log-analytics/log-analytics-agent-windows.md) o [Linux](automation-linux-hrw-install.md) según el sistema operativo. Una vez instalado el agente, vaya a la cuenta de Automation y seleccione **Inventario** en **ADMINISTRACIÓN DE CONFIGURACIÓN**. Al hacer clic en **Administrar máquinas**, verá una lista de las máquinas que informan al área de trabajo de Log Analytics y que no tienen la solución habilitada. Seleccione la opción adecuada para su entorno.
+Para agregar máquinas que no son de Azure, instale el agente para [Windows](../azure-monitor/platform/agent-windows.md) o [Linux](automation-linux-hrw-install.md) según el sistema operativo. Una vez instalado el agente, vaya a la cuenta de Automation y seleccione **Inventario** en **ADMINISTRACIÓN DE CONFIGURACIÓN**. Al hacer clic en **Administrar máquinas**, verá una lista de las máquinas que informan al área de trabajo de Log Analytics y que no tienen la solución habilitada. Seleccione la opción adecuada para su entorno.
 
 * **Habilitar en todas las máquinas disponibles**: esta opción habilita la solución en todas las máquinas que informan al área de trabajo de Log Analytics en este momento.
 * **Habilitar en todas las máquinas disponibles y futuras**: esta opción habilita la solución en todas las máquinas que informan al área de trabajo de Log Analytics y, posteriormente, en todas las máquinas futuras que se agreguen al área de trabajo.
@@ -113,7 +113,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Para obtener más información sobre la ejecución y la búsqueda de archivos de registro en Log Analytics, consulte [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
+Para obtener más información sobre la ejecución y la búsqueda de archivos de registro en Log Analytics, consulte [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="single-machine-inventory"></a>Inventario de máquina única
 

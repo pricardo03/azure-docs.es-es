@@ -57,7 +57,7 @@ Los historiales de ejecución seguirán estando accesibles durante un tiempo. Cu
 
 Los historiales de ejecución ahora se denominan _experimentos_ en la versión actual. Puede recopilar los experimentos de su modelo y explorarlos mediante el SDK, la CLI o el portal web.
 
-El panel del área de trabajo del portal solo es compatible con los exploradores de Edge, Chrome y Firefox.
+El panel del área de trabajo del portal solo es compatible con los exploradores de Microsoft Edge, Chrome y Firefox.
 
 [ ![Portal en línea](./media/overview-what-happened-to-workbench/image001.png) ] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
@@ -88,7 +88,7 @@ Las imágenes que creó en el registro de la imagen anterior se deben volver a c
 
 Los modelos que implementó como servicios web con su cuenta de Administración de modelos seguirán funcionando siempre que Azure Container Service (ACS) sea compatible. Dichos servicios web funcionarán incluso después de que haya finalizado el soporte técnico para las cuentas de Administración de modelos. Pero cuando finalice el soporte técnico para las CLI anteriores, también lo hará la capacidad de administrar dichos servicios web.
 
-En la versión más reciente, los modelos se implementan como servicios web para clústeres de [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) o [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS). También puede [implementar en FPGA y en IoT Edge](how-to-deploy-and-where.md). Sin tener que cambiar ninguno de los archivos, dependencias y esquemas de puntuación, puede volver a implementar los modelos mediante el nuevo SDK o CLI. 
+En la versión más reciente, los modelos se implementan como servicios web para clústeres de [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) o [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS). También puede [implementar en FPGA y en IoT Microsoft Edge](how-to-deploy-and-where.md). Sin tener que cambiar ninguno de los archivos, dependencias y esquemas de puntuación, puede volver a implementar los modelos mediante el nuevo SDK o CLI. 
 
 ## <a name="what-about-the-old-sdk--cli"></a>¿Qué sucede con el SDK y la CLI antiguos?
 
