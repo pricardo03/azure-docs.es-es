@@ -14,20 +14,8 @@ items:
   items:
   - name: Crear una cuenta
     href: cognitive-services-apis-create-account.md
-- name: Tutoriales
-  items:
-  - name: Desarrollo de una aplicación con Computer Vision
-    href: ./Computer-vision/tutorials/csharptutorial.md
-  - name: Reconocimiento de intenciones con el SDK de Voz y LUIS
-    href: ./speech-service/how-to-recognize-intents-from-speech-csharp.md
-  - name: Compilación de una aplicación de LUIS
-    href: ./luis/luis-quickstart-intents-only.md
-  - name: Uso de Text Analytics con Power BI
-    href: ./Text-Analytics/tutorials/tutorial-power-bi-key-phrases.md
-  - name: Creación de una aplicación de Bing Web Search
-    href: ./bing-web-search/tutorial-bing-web-search-single-page-app.md
-  - name: Creación de una aplicación de Bing Image Search
-    href: ./bing-image-search/tutorial-bing-image-search-single-page-app.md
+  - name: Autenticación
+    href: authentication.md
 - name: Recursos
   items:
   - name: Azure Roadmap
@@ -44,9 +32,9 @@ items:
     href: http://go.microsoft.com/fwlink/?LinkId=698895
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase
-ms.openlocfilehash: 43358d176db8642862a49d755a766cc22dbd57b9
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 28b17af092a1e336cb830772541dcdefe472ed3a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51630986"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320870"
