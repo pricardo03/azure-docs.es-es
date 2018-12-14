@@ -7,7 +7,7 @@ items:
     href: what-is-application-management.md
 - name: Guías de inicio rápido
   items:
-  - name: 'Adición de una aplicación: portal'
+  - name: 'Incorporación de una aplicación de la galería: Portal'
     href: add-application-portal.md
   - name: 'Visualización de aplicaciones de inquilino: portal'
     href: view-applications-portal.md
@@ -16,6 +16,8 @@ items:
   items:
   - name: 'Configuración del inicio de sesión único: portal'
     href: configure-single-sign-on-portal.md
+  - name: 'Incorporación de una aplicación local: Portal'
+    href: application-proxy-add-on-premises-application.md
 - name: Conceptos
   items:
   - name: Planeamiento de una integración de aplicación en la nube
@@ -86,10 +88,6 @@ items:
       href: change-name-or-logo-portal.md
   - name: Integración de aplicación local
     items:
-    - name: Habilitación del proxy de la aplicación
-      href: application-proxy-enable.md
-    - name: Publicación de la aplicación para el acceso remoto
-      href: application-proxy-publish-azure-portal.md
     - name: Configuración de conectores
       href: application-proxy-configure-connectors-with-proxy-servers.md
     - name: Configuración de aplicaciones compatibles con notificaciones
@@ -284,9 +282,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: ff883fd034f3ceabc556071d7a9e8f40d87fc75d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0d2f830cd3f5e66c69ae5f839c8f536747ce4d36
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848168"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141907"

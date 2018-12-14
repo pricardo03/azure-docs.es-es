@@ -117,7 +117,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Dominica                  | ✓ | ✓ |
 | República Dominicana        | ✓ | ✓ |
 | Ecuador                   |   | ✓ |
-| Islas Malvinas (Falkland Islands) |   | ✓ |
+| Islas Malvinas |   | ✓ |
 | Guayana Francesa             | ✓ | ✓ |
 | Groenlandia                 |   | Ø |
 | Granada                   | ✓ | ✓ |
@@ -168,7 +168,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | China                     |   | Ø |
 | Islas Cocos (Keeling)   |   | Ø |
 | República Popular Democrática de Corea |   | Ø |
-| Dokdo y Takeshima       |   | Ø |
+| Dokdo       |   | Ø |
 | RAE de Hong Kong                 | ✓ | ✓ |
 | Indonesia                 | ✓ | ✓ |
 | Irán                      |   | Ø |
@@ -193,7 +193,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Qatar                     | ✓ | ✓ |
 | República de Corea         | ✓ | Ø |
 | Arabia Saudí              | ✓ | ✓ |
-| Islas Senkaku           |   | ✓ |
+| Islas Senkaku/Diaoyutai           |   | ✓ |
 | Singapur                 | ✓ | ✓|
 | Sri Lanka                 |   | Ø |
 | República Árabe Siria      |   | Ø |

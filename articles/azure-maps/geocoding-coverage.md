@@ -127,11 +127,11 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Pakistán                                            |                 |                |              |      ✓     |          ✓         |
 | Palaos |                 |                |              |      ✓     |          ✓         |
 | Papúa Nueva Guinea                                    |                 |                |              |      ✓     |          ✓         |
-| Islas Paracelso                                     |                 |                |              |      ✓     |                    |
+| Paracelso                                     |                 |                |              |      ✓     |                    |
 | Filipinas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Islas Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
-| Islas Senkaku                                     |        ✓        |                |              |      ✓     |          ✓         |
+| Islas Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapur                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Islas Salomón                                     |                 |                |              |      ✓     |          ✓         |
 | Corea del Sur                                         |                 |                |              |      ✓     |          ✓         |

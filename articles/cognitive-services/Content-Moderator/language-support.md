@@ -41,7 +41,7 @@ ms.locfileid: "52276387"
 | Divehi | Bosnio (cirílico) | Húngaro      | Portugués
 | Neerlandés | Bosnio (latino) | Italiano             | Rumano
 | English | (criollo) | Bretón [no GeoPol] | Japonés  | Ruso
-| Farsi | Búlgaro | Coreano                        | Eslovaco
+| Persa | Búlgaro | Coreano                        | Eslovaco
 | Francés | Catalán | Noruego                        | Español
 | Alemán | Kurdo central | Polaco        | Turco
 | Griego | Cheroqui | Portugués

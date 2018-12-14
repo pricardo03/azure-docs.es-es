@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a314401883d0325029ce50502f85c335458e3959
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9bbf1c5e5ff58d746a0749f0423f8ca42d2971b4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285057"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338267"
 documentType: LandingData
 title: Documentación sobre Azure Database Migration Service
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/30/2018
+  ms.date: 12/12/2018
   ms.author: rajpo
 abstract:
   description: Azure Database Migration Service permite migraciones completas de varios orígenes de base de datos a plataformas de datos de Azure, con un tiempo de inactividad mínimo. El servicio utiliza Data Migration Assistant para generar informes de evaluación que proporcionen recomendaciones que le guíen a través de los cambios necesarios antes de realizar una migración. Cuando esté listo para comenzar el proceso de migración, Azure Database Migration Service realizará todos los pasos necesarios.
@@ -70,6 +70,8 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
+    - html: <a href="/azure/dms/resource-scenario-status">Estado de los escenarios de migración que admite Azure Database Migration Service</a>
     - html: <a href="/azure/dms/pre-reqs">Información general sobre los requisitos previos para usar Azure Database Migration Service</a>
     - html: <a href="/azure/dms/faq">Preguntas más frecuentes sobre el uso de Azure Database Migration Service</a>
     - html: <a href="/azure/dms/known-issues-azure-sql-online">Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL DB</a>
+    - html: <a href="/azure/dms/dms-tools-matrix">Servicios y herramientas para escenarios de migración de datos</a>

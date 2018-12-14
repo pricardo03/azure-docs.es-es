@@ -40,13 +40,11 @@ items:
     href: security-center-wdatp.md
   - name: Protección de App Service
     href: security-center-app-services.md
-  - name: Ver directivas de seguridad
-    href: security-center-azure-policy.md
-  - name: Edición de directivas de seguridad
+  - name: Uso de directivas de seguridad
     href: tutorial-security-policy.md
   - name: Personalización de la directiva de protección de la información
     href: security-center-info-protection-policy.md
-  - name: Security Center settings
+  - name: Configuración de Security Center
     href: security-center-policies-overview.md
     items:
     - name: Colección de datos
@@ -219,9 +217,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Disponibilidad regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: dfcf985e2f7dec286f6b64d508e8525986315a6c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 28b701fcb85bd8deac5c0442d98730dfb10e8cd2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843366"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338692"

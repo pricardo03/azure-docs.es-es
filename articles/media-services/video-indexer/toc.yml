@@ -17,8 +17,16 @@ items:
 - name: Conceptos
   href: video-indexer-concepts.md
   items:
-  - name: Comparación de los valores preestablecidos de AMS y VI
+  - name: Comparación de los valores preestablecidos de Video Indexer y Media Services
     href: compare-video-indexer-with-media-services-presets.md
+  - name: Personalización de modelos de contenido
+    items:
+    - name: Marcas
+      href: customize-brands-model-overview.md
+    - name: Idioma
+      href: customize-language-model-overview.md
+    - name: Persona
+      href: customize-person-model-overview.md
 - name: Guías de procedimientos
   items:
   - name: Migración de v1 a v2
@@ -39,6 +47,26 @@ items:
     href: video-indexer-create-new.md
   - name: Inserción de widgets en la aplicación
     href: video-indexer-embed-widgets.md
+  - name: Personalización de modelos de contenido
+    items:
+    - name: Persona
+      items:
+      - name: mediante el sitio web de Video Indexer
+        href: customize-person-model-with-website.md
+      - name: mediante Video Indexer API
+        href: customize-person-model-with-api.md
+    - name: Marcas
+      items:
+      - name: mediante el sitio web de Video Indexer
+        href: customize-brands-model-with-website.md
+      - name: mediante Video Indexer API
+        href: customize-brands-model-with-api.md
+    - name: Idioma
+      items:
+      - name: mediante el sitio web de Video Indexer
+        href: customize-language-model-with-website.md
+      - name: mediante Video Indexer API
+        href: customize-language-model-with-api.md
 - name: Referencia
   items:
   - name: Video Indexer API
@@ -51,9 +79,11 @@ items:
     href: https://azure.microsoft.com/pricing/details/media-services/
   - name: Disponibilidad regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 0936678c29ac4ab4e89bcacd746bbcbb88e22c21
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+  - name: Regiones
+    href: regions.md
+ms.openlocfilehash: 0ede3667a745959b2d58d1ad1f37e36728fcd503
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290814"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270094"
