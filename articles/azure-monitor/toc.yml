@@ -121,13 +121,13 @@ items:
   - name: Respuesta a incidentes
     items:
     - name: Alertas
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-overview.md
     - name: Alertas clásicas
       href: platform/alerts-classic.overview.md
     - name: Grupos inteligentes
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-smartgroups-overview.md
     - name: Escalado automático
-      href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
+      href: platform/autoscale-overview.md
     - name: Alertas de métricas
       href: platform/alerts-metric-overview.md
     - name: Alertas de registro
@@ -151,7 +151,7 @@ items:
     - name: Administración del acceso
       items:
       - name: Permisos de roles y seguridad
-        href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
+        href: platform/roles-permissions-security.md
       - name: Áreas de trabajo
         href: platform/manage-access.md
       - name: APLICACIONES
@@ -217,7 +217,7 @@ items:
         - name: solución de problemas
           href: platform/diagnostics-extension-troubleshooting.md
         - name: Habilitación de la configuración de diagnóstico con plantillas de Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-stream-template.md
         - name: Preparación para el formato de registros de diagnóstico en líneas de JSON
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
         - name: Invitado de máquina virtual a almacén de métricas
@@ -441,9 +441,9 @@ items:
     - name: Enrutamiento de datos
       items:
       - name: Archivo del registro de actividad
-        href: ../monitoring-and-diagnostics/monitoring-archive-activity-log.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-activity-log.md
       - name: Archivo de registros de diagnóstico
-        href: ../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-diagnostic-logs.md
       - name: Almacenamiento de registros de diagnóstico
         href: ../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md?toc=/azure/azure-monitor/toc.json
       - name: Transmisión de registros de actividad a Event Hubs
@@ -655,7 +655,7 @@ items:
   - name: Análisis de datos
     items:
     - name: Creación de gráficos de métricas en el Explorador de métricas
-      href: ../monitoring-and-diagnostics/monitoring-metric-charts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-charts.md
     - name: Visualización de eventos en el registro de actividad
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: Visualización de notificaciones de servicio
@@ -740,11 +740,11 @@ items:
         - name: Alertas con umbrales dinámicos
           href: platform/alerts-dynamic-thresholds.md
         - name: Configuración de alertas de métricas en registros
-          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-logs.md
         - name: Creación de una alerta de métrica más reciente con una plantilla de Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-create-templates.md
         - name: Creación de una alerta de métrica clásica con una plantilla de Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-enable-template.md
         - name: Llamada de una alerta métrica clásica a un webhook
           href: platform/alerts-webhooks.md
       - name: Uso de alertas de registro
@@ -760,7 +760,7 @@ items:
         - name: Configuración de alertas para un evento del registro de actividad
           href: platform/alerts-activity-log.md
         - name: Migración a las alertas de registro de actividad
-          href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: platform/migrate-management-alerts.md
         - name: Configuración de alertas para notificaciones de servicio
           href: platform/alerts-activity-log-service-notifications.md
       - name: Uso de alertas de aplicación
@@ -776,11 +776,11 @@ items:
         - name: Información sobre el esquema de webhook
           href: platform/activity-log-alerts-webhook.md
         - name: Comportamiento de alertas por SMS
-          href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-sms-behavior.md
         - name: Limitación de índice de alertas
-          href: ../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-rate-limiting.md
         - name: Creación de grupos de acciones con Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups-create-resource-manager-template.md
         - name: Implementación de una acción de Logic App
           href: platform/action-groups-logic-app.md
       - name: Alertas de Operations Manager
@@ -790,11 +790,11 @@ items:
         - name: Administración de instancias de alertas
           href: platform/alerts-managing-alert-instances.md
         - name: Administración de grupos inteligentes
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-smart-groups.md
         - name: Administración de estados de alertas y de grupos inteligentes
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-alert-states.md
         - name: Administración de alertas de otros servicios de supervisión
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-nagios-zabbix-scom.md
     - name: Escalado automático
       items:
       - name: Tutorial de escalado automático
@@ -808,7 +808,7 @@ items:
       - name: Patrones comunes
         href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
       - name: Escalado automático con una métrica personalizada
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-custom-metric.md
       - name: Escalado automático de conjuntos de escalado de máquinas virtuales con plantillas de Resource Manager
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales
@@ -958,9 +958,9 @@ items:
   - name: Esquemas
     items:
     - name: Servicios, categorías y esquemas de registros de diagnóstico
-      href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/tutorial-dashboards.md
     - name: Esquema de evento del registro de actividad
-      href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/activity-log-schema.md
     - name: Esquema de extensión de Azure Diagnostics
       href: platform/diagnostics-extension-schema.md
       items:
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Ejemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 06ea6e43343a0cf9982a6161fbd60d5bfce6b0ba
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 037ec2d246e30725448fb3da98263b557e11186d
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322557"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384436"

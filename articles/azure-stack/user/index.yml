@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7a813d091378a0cef3193f7da1937eb0db00c1d1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 8dcf4fb44456dcdad82c4c6e44749d6aa2918658
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264036"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340800"
 documentType: LandingData
 title: Documentación de usuario de Azure Stack
 metadata:
@@ -69,7 +69,6 @@ sections:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Implementación de aplicaciones en Azure Stack y Azure</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-identity">Configuración de la identidad de nube híbrida con aplicaciones de Azure y Azure Stack</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-connectivity">Configuración de la conectividad de nube híbrida con Azure y Azure Stack</a>
-    - html: <a href="/azure/azure-stack/user/azure-stack-solution-machine-learning">Creación de una solución de aprendizaje automático de Edge con Azure y Azure Stack</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">Creación de una solución de análisis de datos almacenados provisionalmente con Azure y Azure Stack</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-cloud-burst">Creación de soluciones de escalado de toda la nube con Azure</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-geo-distributed">Creación de una solución de aplicación distribuida geográficamente con Azure y Azure Stack</a>
