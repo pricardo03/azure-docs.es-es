@@ -40,4 +40,4 @@ Una entidad de datos tiene las siguientes funcionalidades:
 - Se convierte en el mecanismo principal para exportar e importar paquetes de datos para escenarios de datos de demostración de administración del ciclo de vida de las aplicaciones (ALM).
 - Se puede exponer como servicios de OData y, después, usar en escenarios de integración sincrónica de estilo tabular e integraciones de Microsoft Office.
 
-Pata más información, consulte [Entidades de datos](https://docs.microsoft.com/dynamics365/operations/dev-itpro/data-entities/data-entities).
+Para más información, consulte [Entidades de datos](https://docs.microsoft.com/dynamics365/operations/dev-itpro/data-entities/data-entities).

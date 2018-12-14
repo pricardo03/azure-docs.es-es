@@ -109,7 +109,7 @@ En la tabla siguiente se muestran las distintas regiones que se pueden especific
 | AU         | Australia            | AUD               |
 | AT         | Austria              | EUR               |
 | BH         | Bahréin              | BHD               |
-| BY         | Bielorrusia              | RUB               |
+| BY         | Belarús              | RUB               |
 | BE         | Bélgica              | EUR               |
 | BR         | Brasil               | USD               |
 | BG         | Bulgaria             | BGN               |

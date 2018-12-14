@@ -106,13 +106,13 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Islas Fiji |                 |                |              |      ✓     |          ✓         |
 | Polinesia francesa                                    |                 |                |              |      ✓     |          ✓         |
 | Isla Heard e Islas McDonald                   |                 |                |              |      ✓     |          ✓         |
-| Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| RAE de Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | India       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japón                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| RAE de Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malasia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronesia |                 |                |              |      ✓     |          ✓         |
 | Mongolia                                            |                 |                |              |      ✓     |          ✓         |
@@ -160,7 +160,7 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Bélgica                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnia y Herzegovina                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bulgaria                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Bielorrusia|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Belarús|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croacia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Chipre                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | República Checa                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -189,7 +189,7 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lituania                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxemburgo                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macedonia                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| República de Macedonia                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Mónaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -234,7 +234,7 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Cabo Verde|                 |                |       ✓      |      ✓     |          ✓         |
 | República Centroafricana                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Chad                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Congo (RDC)                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Côte d'Ivoire                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | República Democrática del Congo                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Yibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |

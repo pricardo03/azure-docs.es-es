@@ -246,7 +246,7 @@ El conjunto de datos es una versión extendida del conjunto de datos Tweets sobr
 <tr>
   <td>Datos sobre consumo de combustible por distancia recorrida para varios automóviles</td>
   <td>
-Este conjunto de datos es una versión ligeramente diferente del conjunto de datos ofrecido por la biblioteca StatLib de la Universidad Carnegie Mellon. El conjunto de datos se utilizó en la exposición de la asociación americana de estadística de 1983.
+Este conjunto de datos es una versión ligeramente diferente del conjunto de datos ofrecido por la biblioteca StatLib de la Universidad Carnegie Mellon. El conjunto de datos se utilizó en la exposición de la asociación estadounidense de estadística de 1983.
 <p></p>
 Los datos muestran el consumo de combustible de varios automóviles en millas por galón. También incluye información como el número de cilindros, la cilindrada, los caballos de potencia, el peso total y la aceleración.
 <p></p>

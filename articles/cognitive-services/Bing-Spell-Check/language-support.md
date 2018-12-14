@@ -27,7 +27,7 @@ Tenga en cuenta que, para que funcione con otro idioma distinto de `en-US`, es n
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chino (República Popular China)     | `zh-CN`          |
-| Chino (Hong Kong RAE)    | `zh-HK`          |
+| Chino (RAE de Hong Kong)    | `zh-HK`          |
 | Chino (Taiwán)     | `zh-TW`          |
 | Danés      | `da`          |
 | Neerlandés (Bélgica)       | `nl-BE`          |

@@ -42,7 +42,7 @@ El encabezado `Accept-Language` y el parámetro de consulta `setLang` son mutuam
 |Finlandia|FI|
 |Francia|VF|
 |Alemania|DE|
-|Hong Kong|HK|
+|RAE de Hong Kong|HK|
 |India|IN|
 |Indonesia|ID|
 |Italia|IT|
@@ -86,7 +86,7 @@ El encabezado `Accept-Language` y el parámetro de consulta `setLang` son mutuam
 |Finlandia|Finés|fi-FI|
 |Francia|Francés|fr-FR|
 |Alemania|Alemán|de-DE|
-|Hong Kong|Chino tradicional|zh-HK|
+|RAE de Hong Kong|Chino tradicional|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italia|Italiano|it-IT|

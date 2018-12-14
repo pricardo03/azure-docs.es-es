@@ -49,7 +49,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Finlandia|FI|
 |Francia|VF|
 |Alemania|DE|
-|Hong Kong|HK|
+|RAE de Hong Kong|HK|
 |India|IN|
 |Indonesia|ID|
 |Italia|IT|
@@ -93,7 +93,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Finlandia|Finés|fi-FI|
 |Francia|Francés|fr-FR|
 |Alemania|Alemán|de-DE|
-|Hong Kong|Chino tradicional|zh-HK|
+|RAE de Hong Kong|Chino tradicional|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italia|Italiano|it-IT|

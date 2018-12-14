@@ -39,7 +39,7 @@ Supongamos que está interesado en el procesamiento de un conjunto de comentario
 
 | texto de registro | compañías | opinión | descripciones de las compañías |
 |--------|-----|-----|-----|
-|registro de ejemplo| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation es una compañía de tecnología multinacional americana...", "LinkedIn es una red social orientada a las empresas y al empleo..."]
+|registro de ejemplo| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation es una compañía de tecnología multinacional estadounidense...", "LinkedIn es una red social orientada a las empresas y al empleo..."]
 
 El siguiente diagrama muestra una canalización de enriquecimiento hipotética:
 

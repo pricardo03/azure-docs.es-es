@@ -59,13 +59,13 @@ Las directivas de filtrado geográfico para Front Door se pueden configurar medi
 | BS | Bahamas|
 | BT | Bután|
 | BW | Botsuana|
-| BY | Bielorrusia|
+| BY | Belarús|
 | BZ | Belice|
 | CA | Canadá|
 | CD | Congo, República Democrática del|
 | CF | República Centroafricana|
 | CH | Suiza|
-| CI | Costa de Marfil|
+| CI | República de Côte d’Ivoire|
 | CL | Chile|
 | CM | Camerún|
 | CN | China|
@@ -97,7 +97,7 @@ Las directivas de filtrado geográfico para Front Door se pueden configurar medi
 | GR | Grecia|
 | GT | Guatemala|
 | GY | Guayana|
-| HK | Hong Kong|
+| HK | RAE de Hong Kong|
 | HN | Honduras|
 | HR | Croacia|
 | HT | Haití|
@@ -136,11 +136,11 @@ Las directivas de filtrado geográfico para Front Door se pueden configurar medi
 | MA | Marruecos|
 | MD | Moldavia, República de|
 | MG | Madagascar|
-| MK | Macedonia|
+| MK | República de Macedonia|
 | ML | Malí|
 | MM | Myanmar|
 | MN | Mongolia|
-| MO | Macao|
+| MO | RAE de Macao|
 | MQ | Martinica|
 | MR | Mauritania|
 | MT | Malta|

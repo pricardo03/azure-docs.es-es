@@ -230,7 +230,7 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Este de Canadá | Ciudad de Quebec |
 | India Central | Pune |
 | Centro de EE. UU. | Iowa |
-| Asia oriental | Hong Kong |
+| Asia oriental | RAE de Hong Kong |
 | Este de EE. UU | Virginia |
 | Este de EE. UU. 2 | Virginia |
 | Centro-Norte de EE. UU | Illinois |

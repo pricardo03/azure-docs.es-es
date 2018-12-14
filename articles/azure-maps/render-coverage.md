@@ -45,7 +45,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | República Centroafricana         |   | Ø |
 | Chad                             |   | Ø |
 | Comores                          |   | Ø |
-| Congo                            | ✓ | ✓ |
+| Congo (RDC)                            | ✓ | ✓ |
 | República Democrática del Congo | ✓ | ✓ |
 | Côte d'Ivoire                    |   | Ø |
 | Yibuti                         |   | Ø |
@@ -143,7 +143,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | San Martín (Francia)     | ✓ | ✓ |
 | San Pedro y Miquelón |   | ✓ |
 | San Vicente y las Granadinas | ✓ | ✓ |
-| Sint Maarten (Holanda)      | ✓ | ✓ |
+| Sint Maarten (Países Bajos)      | ✓ | ✓ |
 | Georgia del Sur e Islas Sandwich del Sur |   | ✓ |
 | Surinam                  |   | ✓ |
 | Trinidad y Tobago       | ✓ | ✓ |
@@ -169,7 +169,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Islas Cocos (Keeling)   |   | Ø |
 | República Popular Democrática de Corea |   | Ø |
 | Dokdo y Takeshima       |   | Ø |
-| Hong Kong                 | ✓ | ✓ |
+| RAE de Hong Kong                 | ✓ | ✓ |
 | Indonesia                 | ✓ | ✓ |
 | Irán                      |   | Ø |
 | Iraq                      | ✓ | ✓ |
@@ -181,7 +181,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Kirguistán                |   | Ø |
 | República Democrática Popular de Laos |   | Ø |
 | Líbano                   | ✓ | ✓ |
-| Macao                     | ✓ | ✓ |
+| RAE de Macao                     | ✓ | ✓ |
 | Malasia                  | ✓ | ✓ |
 | Maldivas                  |   | Ø |
 | Mongolia                  |   | Ø |
@@ -200,7 +200,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Taiwán                    | ✓ | ✓ |
 | Tayikistán                |   | Ø |
 | Tailandia                  | ✓ | ✓ |
-| Timor Oriental               |   | Ø |
+| Timor-Leste               |   | Ø |
 | Turkmenistán              |   | Ø |
 | Emiratos Árabes Unidos      | ✓ | ✓ |
 | Islas menores alejadas de los Estados Unidos |   | Ø |
@@ -247,7 +247,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Armenia                   |   | Ø |
 | Austria                   | ✓ | ✓ |
 | Azerbaiyán                |   | Ø |
-| Bielorrusia                   | Ø | ✓ |
+| Belarús                   | Ø | ✓ |
 | Bélgica                   | ✓ | ✓ |
 | Bosnia y Herzegovina        | ✓ | ✓ |
 | Bulgaria                  | ✓ | ✓ |
@@ -275,7 +275,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Liechtenstein             | ✓ | ✓ |
 | Lituania                 | ✓ | ✓ |
 | Luxemburgo                | ✓ | ✓ |
-| Macedonia                 | ✓ | ✓ |
+| República de Macedonia                 | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Mónaco                    | ✓ | ✓ |

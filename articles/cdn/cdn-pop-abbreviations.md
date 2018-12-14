@@ -77,9 +77,9 @@ FTY | Atlanta, Georgia, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 GIG | Río de Janeiro, Brasil | América Latina
 GRU | San Pablo, Brasil | América Latina
 HEL | Helsinki, Finlandia | Europa
-HHP | Hong Kong | Asia
-HKC | Hong Kong | Asia
-HKG | Hong Kong | Asia
+HHP | RAE de Hong Kong | Asia
+HKC | RAE de Hong Kong | Asia
+HKG | RAE de Hong Kong | Asia
 HND | Tokio, Japón | Asia
 IAD | Ashburn, Virginia, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 ICN | Seúl, Corea | Asia
@@ -113,7 +113,7 @@ MIB | Miami, Florida, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 MIC | Miami, Florida, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 MRS | Marsella, Francia | Europa
 MXP | Milán, Italia | Europa
-NAG | Bombay, India | Asia
+NAG | Mumbai (Bombay), India | Asia
 NDL | Delhi, India | Asia
 NRT | Tokio, Japón | Asia
 NYA | Nueva York, Nueva York, EE. UU. | Norteamérica: Costa Este de los EE. UU.
@@ -126,7 +126,7 @@ PAB | París, Francia | Europa
 PAE | Seattle, Washington, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
 PBC | Puebla, México | Norteamérica
 PHL | Filadelfia, Pennsylvania, EE. UU. | Norteamérica: Costa Este de los EE. UU.
-PNQ | Bombay, India | Asia
+PNQ | Mumbai (Bombay), India | Asia
 POX | París, Francia | Europa
 QRO | Santiago de Querétaro, México | Norteamérica
 RHV | San José, California, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.

@@ -40,7 +40,7 @@ Si lo desea, también puede especificar el mercado con el parámetro de consulta
 |Finlandia|FI|
 |Francia|VF|
 |Alemania|DE|
-|Hong Kong|HK|
+|RAE de Hong Kong|HK|
 |India|IN|
 |Indonesia|ID|
 |Italia|IT|
@@ -83,7 +83,7 @@ Si lo desea, también puede especificar el mercado con el parámetro de consulta
 |Finlandia|Finés|fi-FI|
 |Francia|Francés|fr-FR|
 |Alemania|Alemán|de-DE|
-|Hong Kong|Chino tradicional|zh-HK|
+|RAE de Hong Kong|Chino tradicional|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italia|Italiano|it-IT|

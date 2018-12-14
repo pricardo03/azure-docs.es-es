@@ -25,7 +25,7 @@ A continuación se enumeran los idiomas que admite Bing Autosuggest API.
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chino (República Popular China)     | `zh-CN`          |
-| Chino (Hong Kong RAE)    | `zh-HK`          |
+| Chino (RAE de Hong Kong)    | `zh-HK`          |
 | Chino (Taiwán)     | `zh-TW`          |
 | Danés      | `da`          |
 | Neerlandés (Bélgica)       | `nl-BE`          |

@@ -133,7 +133,7 @@ Hasta el 1 de noviembre de 2018 podrá establecer un nuevo precio para las regio
 | **Argelia**              | DZ        | USD                         |
 | **Argentina**            | AR        | USD                         |
 | **Baréin**              | BH        | USD                         |
-| **Bielorrusia**              | BY        | USD                         |
+| **Belarús**              | BY        | USD                         |
 | **Brasil**               | BR        | BRL                         |
 | **Bulgaria**             | BG        | EUR                         |
 | **Chile**                | CL        | USD                         |
@@ -143,7 +143,7 @@ Hasta el 1 de noviembre de 2018 podrá establecer un nuevo precio para las regio
 | **República Checa**       | CZ        | EUR                         |
 | **Egipto**                | EG        | USD                         |
 | **Guatemala**            | GT        | USD                         |
-| **Hong Kong**            | HK        | USD                         |
+| **RAE de Hong Kong**            | HK        | USD                         |
 | **Hungría**              | HU        | EUR                         |
 | **Islandia**              | IS        | EUR                         |
 | **Indonesia**            | ID        | USD                         |

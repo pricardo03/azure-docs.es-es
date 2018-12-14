@@ -46,7 +46,7 @@ ms.locfileid: "52276387"
 | Alemán | Kurdo central | Polaco        | Turco
 | Griego | Cheroqui | Portugués
 | Haitiano | Chino (simplificado) | Rumano
-| Hebreo | Chino (tradicional, R.A.E. de Hong Kong) | Ruso
+| Hebreo | Chino (tradicional, RAE de Hong Kong) | Ruso
 | Hindi | Chino (tradicional, Taiwán) | Serbio (cirílico)
 | Hmong | Croata | Serbio (latino)
 | Húngaro | Checo | Eslovaco

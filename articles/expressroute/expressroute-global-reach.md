@@ -34,7 +34,7 @@ Actualmente, Global Reach de ExpressRoute se admite en los siguientes lugares.
 
 * Australia
 * Francia
-* Hong Kong
+* RAE de Hong Kong
 * Irlanda
 * Japón
 * Países Bajos

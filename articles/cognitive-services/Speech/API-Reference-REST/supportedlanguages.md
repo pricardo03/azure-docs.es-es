@@ -39,7 +39,7 @@ Microsoft Speech Recognition API admite los siguientes idiomas en los modos `int
 | es-ES | Inglés (Estados Unidos) | ru-RU | Ruso (Rusia) |
 | es-ES | Español (España) | sv-SE | Sueco (Suecia) |
 | es-MX | Español (México) |zh-CN | Chino (mandarín, simplificado)  |
-| fi-FI | Finés (Finlandia) |zh-HK | Chino (Hong Kong RAE) |
+| fi-FI | Finés (Finlandia) |zh-HK | Chino (RAE de Hong Kong) |
 | fr-CA | Francés (Canadá) | zh-TW | Chino (mandarín, Taiwán)|
 | fr-FR | Francés (Francia) | ||
 

@@ -47,7 +47,7 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | **Norteamérica** |Zona 1 |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Ciudad de Quebec, Toronto |
 | **Asia** |Zona 2 |Este de Asia y Sudeste de Asia |Hong Kong, Kuala Lumpur, Singapur, Singapur2 |
 | **Australia** |Zona 2 |Este de Australia y Sudeste de Australia |Melbourne, Sidney | 
-| **India** |Zona 2 |India occidental, India central, India del Sur |Madrás, Madrás2, Bombay, Bombay2 |
+| **India** |Zona 2 |India occidental, India central, India del Sur |Chennai (Madrás), Chennai (Madrás)2, Mumbai (Bombay), Mumbai (Bombay)2 |
 | **Japón** |Zona 2 |Oeste de Japón y Este de Japón |Osaka, Tokyo |
 | **Corea del Sur** |Zona 2 |Corea Central, Corea del Sur |Busan, Seúl|
 | **Sudáfrica** |Zona 3 |[Oeste de Sudáfrica+, Norte de Sudáfrica+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Ciudad del cabo, Johannesburgo |
@@ -89,7 +89,7 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Dallas** | Equinix | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet+, Verizon y Zayo|
 | **Denver** | CoreSite | CoreSite, Megaport |
 | **Dublín** | Equinix | Colt, eir, Equinix, Interxion, Megaport |
-| **Hong Kong** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications y Verizon |
+| **RAE de Hong Kong** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications y Verizon |
 | **Johannesburgo** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | TIME dotCom |
 | **Las Vegas** | Switch | CenturyLink Cloud Connect, Megaport |
@@ -173,7 +173,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Fráncfort** | Telecity | BICS, Nianet y QSC AG |
-| **Hong Kong** | Equinix | Macroview Telecom |
+| **RAE de Hong Kong** | Equinix | Macroview Telecom |
 | **Londres** | Equinix, euNetworks y Telecity | Bezeq International Ltd., Epsilon, Exponential E, HSO, NexGen Networks, Tamares Telecom, Zain |
 | **Los Ángeles** | Equinix |Transtelco |
 | **Madrid** | Level3 | Zertia |

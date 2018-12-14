@@ -140,7 +140,7 @@ vi-VN | Vietnamita|Hombre | "Microsoft Server Speech Text to Speech Voice (vi-VN
 zh-CN | Chino (continental)|Mujer | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)"
 | | |Mujer | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)"
 | | |Hombre | "Microsoft Server Speech Text to Speech Voice (zh-CN, Kangkang, Apollo)"
-zh-HK | Chino (Hong Kong)|Mujer | "Microsoft Server Speech Text to Speech Voice (zh-HK, Tracy, Apollo)"
+zh-HK | Chino (RAE de Hong Kong)|Mujer | "Microsoft Server Speech Text to Speech Voice (zh-HK, Tracy, Apollo)"
 | | |Mujer | "Microsoft Server Speech Text to Speech Voice (zh-HK, TracyRUS)"
 | || Hombre | "Microsoft Server Speech Text to Speech Voice (zh-HK, Danny, Apollo)"
 zh-TW | Chino (Taiwán)|Mujer | "Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)"
