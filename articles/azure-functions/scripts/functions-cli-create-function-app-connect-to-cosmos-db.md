@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 708fddf6150e83d520617f59ea3018953f7fe77f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 15a7cc1940a01486c6b660ec65b47f072dc7996e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963311"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970692"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Creación de una función de Azure que se conecta a una instancia de Cosmos DB
 
-Este script de ejemplo de Azure Functions crea una aplicación de función y conecta la función a una base de datos de Azure Cosmos DB. La configuración de la aplicación creada que contiene la conexión se puede utilizar con un [desencadenador o enlace de Azure Cosmos DB](..\functions-bindings-cosmosdb.md).
+Este script de ejemplo de Azure Functions crea una aplicación de función y conecta la función a una base de datos de Azure Cosmos DB. La configuración de la aplicación creada que contiene la conexión se puede utilizar con un [desencadenador o enlace de Azure Cosmos DB](../functions-bindings-cosmosdb.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ Este ejemplo crea una aplicación de Azure Function App y agrega una clave de ac
 
 ## <a name="script-explanation"></a>Explicación del script
 
-Cada script utiliza los comandos siguientes: cada comando de la tabla crea un vínculo a documentación específica del comando.
+Este script usa los siguientes comandos: Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
 | Get-Help | Notas |
 |---|---|

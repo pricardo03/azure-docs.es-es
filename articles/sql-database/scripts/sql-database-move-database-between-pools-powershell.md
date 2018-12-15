@@ -12,16 +12,16 @@ ms.reviewer: ''
 ms.author: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: e71c1b1f184fe5c240e258295c144db405e25527
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4a28ae1082f4efd62d4023d009a6ecb6d82728f4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054836"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961100"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Uso de PowerShell para crear grupos elásticos y trasladar bases de datos entre grupos elásticos
 
-Este script de ejemplo de PowerShell crea dos grupos elásticos, traslada una base de datos de un grupo a otro y, a continuación, traslada una base de datos fuera de un grupo elástico para un tamaño de proceso de una base de datos única. 
+Este script de ejemplo de PowerShell crea dos grupos elásticos, traslada una base de datos de un grupo a otro y, a continuación, traslada una base de datos fuera de un grupo elástico para un tamaño de proceso de una base de datos única.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

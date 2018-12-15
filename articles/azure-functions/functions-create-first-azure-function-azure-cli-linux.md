@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 6597e0058176eaa819170a494e4908ab44456360
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b6df653f89f05a9b253ecea102ed8310ff2a53b7
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850540"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438297"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Creación de su primera función hospedada en Linux mediante Core Tools y la CLI de Azure (versión preliminar)
 
-Azure Functions permite ejecutar el código en un entorno de Linux [sin servidor](https://azure.microsoft.com/overview/serverless-computing/) sin necesidad de crear una máquina virtual o publicar una aplicación web. El hospedaje en Linux está actualmente en versión preliminar y requiere [el entorno de ejecución Functions 2.0](functions-versions.md). Para más información acerca de las consideraciones de versión preliminar para ejecutar las aplicaciones de función en Linux, consulte [este artículo sobre funciones en Linux](https://aka.ms/funclinux).
+Azure Functions permite ejecutar el código en un entorno de Linux [sin servidor](https://azure.com/serverless) sin necesidad de crear una máquina virtual o publicar una aplicación web. El hospedaje en Linux está actualmente en versión preliminar y requiere [el entorno de ejecución Functions 2.0](functions-versions.md). Para más información acerca de las consideraciones de versión preliminar para ejecutar las aplicaciones de función en Linux, consulte [este artículo sobre funciones en Linux](https://aka.ms/funclinux).
 
 Esta guía de inicio rápido le explica cómo usar la CLI de Azure para crear su primera aplicación de función para que se ejecute en Linux. El código de función se crea localmente y, a continuación, se implementa en Azure mediante [Azure Functions Core Tools](functions-run-local.md).
 

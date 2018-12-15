@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 6b0068bc912de13590cd9bc7418ea6fcdb01189f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4c494eda7126a21223f65a7e52c220fca93b2e39
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420496"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184668"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Java
 
@@ -34,7 +34,7 @@ Asegúrese de [configurar un servicio Azure IoT Hub Device Provisioning con Azur
 
 2. Establezca las variables de entorno para la instalación de Java. La variable `PATH` debería incluir la ruta de acceso completa al directorio *jdk1.8.x\bin*. Si esta es la primera instalación de Java de su máquina, cree una nueva variable de entorno con el nombre `JAVA_HOME` y haga que señale a la ruta de acceso completa del directorio *jdk1.8.x*. En una máquina con Windows, este directorio se encuentra en la carpeta *C:\\Archivos de programa\\Java\\*. Puede crear o modificar las variables de entorno si busca **Editar las variables de entorno del sistema** en el **Panel de control** de su máquina Windows. 
 
-  Para comprobar si Java está correctamente configurado en la máquina, ejecute el comando siguiente en la ventana Comandos:
+   Para comprobar si Java está correctamente configurado en la máquina, ejecute el comando siguiente en la ventana Comandos:
 
     ```cmd\sh
     java -version

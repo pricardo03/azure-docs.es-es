@@ -16,29 +16,29 @@ ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.custom: mvc
 ms.reviewer: misainat
-ms.openlocfilehash: 8b33937a4da807578d371a95f2c06de451404036
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 44fed3311234e1a64cb46c3403f39a9e269d189b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037471"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956936"
 ---
 # <a name="quickstart-evaluate-the-azure-stack-development-kit"></a>Inicio rápido: Evaluación del Kit de desarrollo de Azure Stack
 
-El [Kit de desarrollo de Azure Stack](.\asdk\asdk-what-is.md) es un entorno de desarrollo y pruebas que se puede implementar para evaluar y probar las características y servicios de Azure Stack. Para empezar a utilizar el Kit de desarrollo de Azure Stack, debe preparar el hardware del equipo host y, después, ejecutar algunos scripts (la instalación tarda varias horas). Una vez finalizado, puede iniciar sesión en los portales del administrador o del usuario para empezar a usar Azure Stack.
+El [Kit de desarrollo de Azure Stack](./asdk/asdk-what-is.md) es un entorno de desarrollo y pruebas que se puede implementar para evaluar y probar las características y servicios de Azure Stack. Para empezar a utilizar el Kit de desarrollo de Azure Stack, debe preparar el hardware del equipo host y, después, ejecutar algunos scripts (la instalación tarda varias horas). Una vez finalizado, puede iniciar sesión en los portales del administrador o del usuario para empezar a usar Azure Stack.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="asdk-host-computer-requirements"></a>Requisitos del equipo host del Kit de desarrollo de Azure Stack
 
-Antes de instalar el Kit de desarrollo de Azure Stack, es preciso preparar el equipo que lo va a hospedar. El equipo host del kit de desarrollo debe cumplir los requisitos de hardware, de software y de red que se describen en **[Consideraciones de planeación de la implementación de Azure Stack](.\asdk\asdk-deploy-considerations.md)**.
+Antes de instalar el Kit de desarrollo de Azure Stack, es preciso preparar el equipo que lo va a hospedar. El equipo host del kit de desarrollo debe cumplir los requisitos de hardware, de software y de red que se describen en **[Consideraciones de planeación de la implementación de Azure Stack](./asdk/asdk-deploy-considerations.md)**.
 
 > [!TIP]
 > Puede usar la [herramienta de comprobación de requisitos de implementación de Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) después de instalar el sistema operativo en el equipo host del kit de desarrollo para confirmar que el hardware cumple todos los requisitos.
 
 ### <a name="account-requirements"></a>Requisitos de cuenta
 
-También debe elegir entre utilizar Azure Active Directory (Azure AD) o Active Directory Federation Services (AD FS) como la solución de identidad para su implementación. Revise los requisitos de cuenta en **[Consideraciones de planeación de la implementación](.\asdk\asdk-deploy-considerations.md#account-requirements)**
+También debe elegir entre utilizar Azure Active Directory (Azure AD) o Active Directory Federation Services (AD FS) como la solución de identidad para su implementación. Revise los requisitos de cuenta en **[Consideraciones de planeación de la implementación](./asdk/asdk-deploy-considerations.md#account-requirements)**
 
 ## <a name="download-and-extract-the-deployment-package"></a>Descargar y extraer el paquete de implementación
 
@@ -46,22 +46,22 @@ Después de preparar el equipo host del kit de desarrollo, descargue y extraiga 
 
 Puede descargar el paquete de implementación en el host de kit de desarrollo o en otro equipo. Los archivos de implementación extraídos ocupan 60 GB de espacio del disco, por lo que el uso de otro equipo puede ayudar a reducir los requisitos de almacenamiento del host del kit de desarrollo.
 
-**[Descarga y extracción de Kit de desarrollo de Azure Stack](.\asdk\asdk-download.md)**
+**[Descarga y extracción de Kit de desarrollo de Azure Stack](./asdk/asdk-download.md)**
 
 ## <a name="prepare-the-host-computer"></a>Preparación del equipo host
 
 Para poder instalar el Kit de desarrollo de Azure Stack es preciso preparar el entorno del host y configurar el sistema para arrancar desde el disco duro virtual del kit de desarrollo. Cuando se reinicia el host, arranca desde CloudBuilder.vhdx y puede empezar a implementar el Kit de desarrollo de Azure Stack.
 
-**[Preparación del equipo host del Kit de desarrollo de Azure Stack](.\asdk\asdk-prepare-host.md)**
+**[Preparación del equipo host del Kit de desarrollo de Azure Stack](./asdk/asdk-prepare-host.md)**
 
 ## <a name="install-the-asdk-on-the-host-computer"></a>Instalar el Kit de desarrollo de Azure Stack en el equipo host
 
-Después de que el equipo host arranque desde el disco duro virtual, puede implementar el kit de desarrollo en el entorno virtual de Cloudbuilder. El Kit de desarrollo de Azure Stack se puede implementar mediante la interfaz gráfica de usuario (GUI), que se proporciona al ejecutar el script de PowerShell asdk-installer.ps1, o desde la [línea de comandos de PowerShell](.\asdk\asdk-deploy-powershell.md)
+Después de que el equipo host arranque desde el disco duro virtual, puede implementar el kit de desarrollo en el entorno virtual de Cloudbuilder. El Kit de desarrollo de Azure Stack se puede implementar mediante la interfaz gráfica de usuario (GUI), que se proporciona al ejecutar el script de PowerShell asdk-installer.ps1, o desde la [línea de comandos de PowerShell](./asdk/asdk-deploy-powershell.md)
 
 > [!NOTE]
-> Cuando el host haya arrancado desde la imagen de Cloudbuilder.vhdx, tiene la opción de configurar los [valores de telemetría de Azure Stack](.\asdk\asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *antes* de instalar el Kit de desarrollo de Azure Stack.
+> Cuando el host haya arrancado desde la imagen de Cloudbuilder.vhdx, tiene la opción de configurar los [valores de telemetría de Azure Stack](./asdk/asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *antes* de instalar el Kit de desarrollo de Azure Stack.
 
-**[Instalación del Kit de desarrollo de Azure Stack](.\asdk\asdk-install.md)**
+**[Instalación del Kit de desarrollo de Azure Stack](./asdk/asdk-install.md)**
 
 ## <a name="perform-post-deployment-configurations"></a>Realización de configuraciones después de la implementación
 
@@ -80,15 +80,15 @@ En el caso de una implementación que use Azure AD, debe activar los portales de
 Debe restablecer la directiva de expiración de contraseña para asegurarse de que la contraseña del host de kit de desarrollo no expire antes de que termine el período de evaluación.
 
 > [!NOTE]
-> También tiene la opción de configurar los [valores de telemetría de Azure Stack](.\asdk\asdk-telemetry.md#enable-or-disable-telemetry-after-deployment) *después de* instalar el Kit de desarrollo de Azure Stack.
+> También tiene la opción de configurar los [valores de telemetría de Azure Stack](./asdk/asdk-telemetry.md#enable-or-disable-telemetry-after-deployment) *después de* instalar el Kit de desarrollo de Azure Stack.
 
-**[Tareas de implementación posteriores al Kit de desarrollo de Azure Stack](.\asdk\asdk-post-deploy.md)**
+**[Tareas de implementación posteriores al Kit de desarrollo de Azure Stack](./asdk/asdk-post-deploy.md)**
 
 ## <a name="register-with-azure"></a>Registrarse en Azure
 
-Debe registrar Azure Stack en Azure para que pueda [descargar elementos de Azure Marketplace](.\asdk\asdk-marketplace-item.md) a Azure Stack.
+Debe registrar Azure Stack en Azure para que pueda [descargar elementos de Azure Marketplace](./asdk/asdk-marketplace-item.md) a Azure Stack.
 
-**[Registro de Azure Stack en Azure](.\asdk\asdk-register.md)**
+**[Registro de Azure Stack en Azure](./asdk/asdk-register.md)**
 
 ## <a name="next-steps"></a>Pasos siguientes
 

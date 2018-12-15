@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bc2fbf7aadf99a2f765def2d352819dfa6cd5fa4
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: dc0c6a37e11574cef857a7af773a9d90bea57357
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266075"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972072"
 ---
 # <a name="interactive-feature-verification-testing"></a>Pruebas de comprobación de características interactivas  
 
@@ -48,7 +48,7 @@ La realización de una prueba antes de sustituir un disco es un escenario común
 
 3.  Seleccione **Iniciar** en el icono **Prueba superada**.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image1.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image1.png)
 
 4.  Escriba el nombre del flujo de trabajo de **Test Pass** (Prueba superada).
 
@@ -63,7 +63,7 @@ La realización de una prueba antes de sustituir un disco es un escenario común
 > [!Note]  
 > Para la prueba de comprobación de características interactiva de la identificación del disco se deben especificar la contraseña y el usuario administrador de dominio.
 
-![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image2.png)
+![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image2.png)
 
 ## <a name="select-the-test"></a>Seleccione la prueba
 
@@ -72,51 +72,51 @@ La realización de una prueba antes de sustituir un disco es un escenario común
     > [!Note]  
     > La versión de la prueba aumentará a medida que se realicen mejoras en la documentación y el material adjunto. Siempre se debe usar la versión más alta, salvo que Microsoft indique lo contrario.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image4.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2.  Para especificar la contraseña y el usuario administrador de dominio, seleccione **Edit** (Editar).
 
 3.  Seleccione el agente de ejecución de pruebas o DVM apropiados en el que ejecutar la prueba.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image5.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
 4.  Seleccione **Submit** (Enviar) para iniciar la prueba.
 
-![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image6.png)
+![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
 ## <a name="start-the-test"></a>Inicio de la prueba
 
 Los mensajes de la prueba de identificación de disco se muestran en el equipo que ejecuta al agente de VaaS. Normalmente es la DVM o Jumpbox de la instancia de Azure Stack.
 
-![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image8.png)
+![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
 ## <a name="choose-the-actions"></a>Elección de las acciones
 
 1.  En los vínculos **Documentation**(Documentación) y **Validation** (Validación) encontrará instrucciones de Microsoft para actuar en este escenario.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image9.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
 2.  Seleccione **Next** (Siguiente).
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image10.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
 3.  Siga las instrucciones para ejecutar el script de comprobaciones previas.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image11.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
 4.  Una vez que dicho script se haya completado correctamente, ejecute el escenario manual (sustitución del disco) tal como se indica en los vínculos **Documentation** (Documentación) y **Validation** (Validación) de la pestaña **Information** (Información).
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image12.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
 5.  No cierre el cuadro de diálogo mientras actúa en el escenario manual.
 
 6.  Cuando haya terminado, siga las instrucciones para ejecutar el script de comprobaciones posteriores.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image13.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
 7.  Cuando el escenario manual se haya completado correctamente (sustitución del disco), seleccione **Next** (Siguiente).
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image14.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
 > [!Important]  
 > Si cierra la ventana, la prueba se detendrá antes de haber acabado.
@@ -125,7 +125,7 @@ Los mensajes de la prueba de identificación de disco se muestran en el equipo q
 
 1.  Cuando se complete la prueba, se le pedirá que realice los comentarios que desee.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image15.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
 2.  Estas preguntas ayudarán a Microsoft a evaluar la tasa de éxito y la calidad de la versión del escenario.
 
@@ -133,7 +133,7 @@ Los mensajes de la prueba de identificación de disco se muestran en el equipo q
 
 1.  Adjunte los archivos de registro que desee enviar a Microsoft.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image16.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
 2.  Acepte el CLUF del envío de comentarios.
 

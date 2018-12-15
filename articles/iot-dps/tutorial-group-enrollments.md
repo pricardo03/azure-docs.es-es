@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3c7a1dd9ba688c5cc9776dbfba0841c9a06065dc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419697"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184974"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos y servicios Java y las inscripciones de grupos para el servicio Azure IoT Hub Device Provisioning
 
@@ -49,20 +49,20 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
             - Seleccione el archivo **_RootCA.pem_** que acaba de crear.
             - Una vez completado, haga clic en el botón **Guardar**.
 
-        ![Agregar certificado](./media/tutorial-group-enrollments/add-certificate.png)
+           ![Agregar certificado](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Seleccione el certificado recién creado:
             - Haga clic en **Generar código de verificación**. Copie el código generado.
             - Ejecute el paso de comprobación. Escriba el _código de verificación_ o haga clic con el botón derecho para pegarlo en la ventana de PowerShell que se está ejecutando.  Presione **Entrar**.
             - Seleccione el archivo **_verifyCert4.pem_** recién creado en Azure Portal. Haga clic en **Comprobar**.
 
-            ![Validación del certificado](./media/tutorial-group-enrollments/validate-certificate.png)
+              ![Validación del certificado](./media/tutorial-group-enrollments/validate-certificate.png)
 
     1. Para finalizar, ejecute los pasos necesarios para crear los certificados de los dispositivos y limpiar recursos.
 
-    > [!NOTE]
-    > Al crear los certificados de dispositivo, asegúrese de usar solo caracteres alfanuméricos en minúsculas y guiones en el nombre del dispositivo.
-    >
+       > [!NOTE]
+       > Al crear los certificados de dispositivo, asegúrese de usar solo caracteres alfanuméricos en minúsculas y guiones en el nombre del dispositivo.
+       >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Creación de una entrada de inscripción de dispositivo

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: cb1460b6d0858a5d7fce795e845095b2bb8943f0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 558ee0b9af5d33743274dba7704f9ee9dcb4cff9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879866"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960284"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>Use PowerShell para configurar la replicación geográfica activa para una base de datos SQL agrupada de Azure
 
@@ -30,7 +30,7 @@ Si decide instalar y usar PowerShell localmente, para este tutorial se requiere 
 
 ## <a name="sample-scripts"></a>Scripts de ejemplo
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1?highlight=16-19 "Set up active geo-replication for elastic pool")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-elastic-pool.ps1?highlight=16-19 "Set up active geo-replication for elastic pool")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 

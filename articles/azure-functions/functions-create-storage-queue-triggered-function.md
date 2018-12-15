@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fd2d19119c5be91942d9587a073be30d59c8fd6c
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 33f7367d9cdc510cf04f349f44b6e85215d46038
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113774"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995591"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Crear una función desencadenada por Azure Queue Storage
 
@@ -27,7 +27,7 @@ Obtenga información sobre cómo crear una función que se desencadena cuando se
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Descargue e instale el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
+- Descargue e instale el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/).
 
 - Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -77,7 +77,7 @@ Después, conéctese a su cuenta de Azure Storage y cree la cola de almacenamien
 
     ![Obtenga las credenciales de conexión de la cuenta de almacenamiento.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
-1. Ejecute la herramienta [Explorador de Microsoft Azure Storage](http://storageexplorer.com/), haga clic en el icono de conexión situado a la izquierda, seleccione **Use a storage account name and key** (Usar el nombre y la clave de una cuenta de almacenamiento) y haga clic en **Siguiente**.
+1. Ejecute la herramienta [Explorador de Microsoft Azure Storage](https://storageexplorer.com/), haga clic en el icono de conexión situado a la izquierda, seleccione **Use a storage account name and key** (Usar el nombre y la clave de una cuenta de almacenamiento) y haga clic en **Siguiente**.
 
     ![Ejecute la herramienta Explorador de la cuenta de almacenamiento.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
 
