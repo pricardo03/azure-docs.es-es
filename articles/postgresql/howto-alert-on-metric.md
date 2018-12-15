@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b57827cb4e8c1105c88b6fab217e17d6cf4db056
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29690264"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271242"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Usar Azure Portal para configurar alertas de métricas para Azure Database for PostgreSQL 
 
@@ -28,9 +28,9 @@ Puede configurar una alerta para realizar las siguientes acciones cuando se dese
 * Llamar a un webhook.
 
 Puede obtener información sobre las reglas de alerta y configurarlas mediante:
-* [portal de Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Interfaz de la línea de comandos (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [Interfaz de la línea de comandos (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creación de una regla de alerta sobre una métrica desde Azure Portal
@@ -51,7 +51,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
    | NOMBRE | Especifique un nombre para la regla de alerta. Este valor se envía en el correo electrónico de notificación de alerta. |
    | DESCRIPCIÓN | Proporcione una descripción breve de la regla de alerta. Este valor se envía en el correo electrónico de notificación de alerta. |
    | Alerta activada | Elija **Métricas** para este tipo de alerta. |
-   | La suscripción | Este campo se rellena previamente con la suscripción que hospeda Azure Database for PostgreSQL. |
+   | Subscription | Este campo se rellena previamente con la suscripción que hospeda Azure Database for PostgreSQL. |
    | Grupos de recursos | Este campo se rellena previamente con el grupo de recursos de Azure Database for PostgreSQL. |
    | Recurso | Este campo se rellena previamente con el nombre de Azure Database for PostgreSQL. |
    | Métrica | Seleccione la métrica para la que quiere emitir una alerta. Por ejemplo, **Porcentaje de almacenamiento**. |
@@ -80,6 +80,6 @@ Una vez que haya creado una alerta, puede seleccionarla y realizar las acciones 
 * **Editar** o **eliminar** la regla de alerta.
 * **Deshabilitar** o **habilitar** la alerta, si quiere detener temporalmente o reanudar la recepción de notificaciones.
 
-## <a name="next-steps"></a>pasos siguientes
-* Obtenga más información sobre cómo [configurar webhooks en las alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+## <a name="next-steps"></a>Pasos siguientes
+* Obtenga más información sobre cómo [configurar webhooks en las alertas](../azure-monitor/platform/alerts-webhooks.md).
 * Obtenga [información general sobre la colección de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para garantizar que el servicio está disponible y que responder adecuadamente.

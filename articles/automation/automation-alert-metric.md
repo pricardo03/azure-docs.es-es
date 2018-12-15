@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 65de18445f114f468dd42c5a7e7128dd2f63d44c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959841"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185875"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Supervisión de runbooks con alertas de métricas
 
@@ -51,7 +51,7 @@ En Azure Portal, vaya a la cuenta de Automation. En **Supervisión**, seleccione
 
 ### <a name="define-the-action-to-take"></a>Definición de la acción que se realizará
 
-1. En **3. Definir grupo de acciones**, haga clic en **+Nuevo grupo de acciones**. Un grupo de acciones es un conjunto de acciones que puede usar en varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y muchas más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md).
+1. En **3. Definir grupo de acciones**, haga clic en **+Nuevo grupo de acciones**. Un grupo de acciones es un conjunto de acciones que puede usar en varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y muchas más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../azure-monitor/platform/action-groups.md).
 
 1. En el cuadro **Nombre del grupo de acciones**, proporcione un nombre descriptivo y un nombre corto. El nombre corto se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
 

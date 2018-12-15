@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 136279a94d64b846247c436eb7a5fb487e05b41a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d095be8c5d921001ab4a492d2385938020fa8ce0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946908"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967221"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas agregadas previamente y basadas en registros en Application Insights
 
@@ -55,7 +55,7 @@ Hay varias [maneras de enviar métricas personalizadas desde el SDK de Applicati
 
 Todas las métricas que envíe con las llamadas API [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) o [GetMetric y TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) se almacenan automáticamente en los almacenes de registros y métricas. Sin embargo, mientras que la versión basada en registros de la métrica personalizada siempre conserva todas las dimensiones, la versión de la métrica previamente agregada se almacena de forma predeterminada sin dimensiones. Puede activar la recopilación de dimensiones de las métricas personalizadas en la pestaña [Usage and estimated cost](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) (Uso y costos estimados), activando "Enable alerting on custom metric dimensions" (Habilitar las alertas en las dimensiones de métricas personalizadas): 
 
-![Uso y costos estimados](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
+![Uso y costos estimados](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>¿Por qué la recopilación de dimensiones de métricas personalizadas está desactivada de forma predeterminada?
 
@@ -65,7 +65,7 @@ La recopilación de dimensiones de métricas personalizadas se ha desactivado de
 
 Use el Explorador de métricas de Azure Monitor para trazar los gráficos de las métricas agregadas previamente y basadas en registros, y para crear paneles con gráficos. Después de seleccionar el recurso de Application Insights deseado, utilice el selector de espacios de nombres para cambiar de métricas estándar (versión preliminar) a métricas basadas en registros, o seleccione un espacio de nombres de métricas personalizadas:
 
-![Espacio de nombres de métricas](.\media\pre-aggregated-metrics-log-metrics\002-metric-namespace.png)
+![Espacio de nombres de métricas](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

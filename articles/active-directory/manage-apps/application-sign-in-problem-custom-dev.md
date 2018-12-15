@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8ae8fa823b919ec4a67832e7c42088c994bd2d97
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2dade35b05a07b649282ae00bb6fee354adcd195
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355345"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845503"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Problemas de inicio de sesión en una aplicación desarrollada personalizada
 
@@ -32,7 +32,7 @@ Hay varios errores que pueden provocar que no pueda iniciar sesión en una aplic
 
 * Compare el recurso del que está solicitando acceso mediante código con los permisos configurados en la pestaña **Recursos necesarios** para asegurarse de que solo se solicitan los recursos que ha configurado.
 
-* Busque en [Azure AD en StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory) errores o problemas similares.
+* Busque en [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) errores o problemas similares.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -42,4 +42,4 @@ Hay varios errores que pueden provocar que no pueda iniciar sesión en una aplic
 
 [Consentimiento y permisos para las aplicaciones convergentes v2.0 de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[Azure AD en StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)
+[Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

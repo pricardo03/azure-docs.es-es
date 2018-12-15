@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c8a2caf2826069824a993294f4eba514ea870d9c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: eaeb1e17cf6ddf0e0e9284360d3e4864bf50f27d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307382"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338931"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Aplicación del cifrado de discos en el Centro de seguridad de Azure
 Azure Security Center recomienda que aplique el cifrado de discos si tiene discos de máquina virtual de Windows o Linux que no estén cifrados con Azure Disk Encryption. El Cifrado de discos permite cifrar los discos de máquina virtual IaaS de Windows y Linux.  Se recomienda cifrar tanto los volúmenes de datos como los del sistema operativo en la máquina virtual.
@@ -56,7 +56,7 @@ En este documento, mostramos cómo implementar la recomendación "Aplicar el cif
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md) : aprenda a configurar directivas de seguridad.
+* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md) : aprenda a configurar directivas de seguridad.
 * [Supervisión del estado de seguridad en el Azure Security Center](security-center-monitoring.md) : obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : aprenda a administrar y responder a alertas de seguridad.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que le ayudan a proteger los recursos de Azure.

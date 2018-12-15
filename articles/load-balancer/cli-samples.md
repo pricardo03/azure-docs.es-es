@@ -1,5 +1,6 @@
 ---
-title: Ejemplos de la CLI de Azure para Load Balancer | Microsoft Docs
+title: Ejemplos de la CLI de Azure para Load Balancer
+titlesuffix: Azure Load Balancer
 description: Ejemplos de la CLI de Azure
 services: load-balancer
 documentationcenter: load-balancer
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: kumud
-ms.openlocfilehash: 3973b541a0816473641f11391ddb59ca14618e30
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b66a61be8995806db60effcaf6c1c92ce6359164
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415294"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084743"
 ---
 # <a name="azure-cli-samples-for-load-balancer"></a>Ejemplos de la CLI de Azure para Load Balancer
 

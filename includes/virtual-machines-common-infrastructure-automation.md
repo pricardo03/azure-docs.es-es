@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981734"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53027911"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Uso de herramientas de automatización de la infraestructura con máquinas virtuales de Azure
 Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a escala, suele ser deseable alguna forma de automatización. Existen muchas herramientas y soluciones que le permiten automatizar la implementación de toda la infraestructura de Azure y el ciclo de vida de administración. En este artículo se detallan algunas de las herramientas de automatización de la infraestructura que puede usar en Azure. Estas herramientas se adaptan normalmente a alguno de los siguientes enfoques:
@@ -23,7 +23,7 @@ Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a
     - [Azure Automation](#azure-automation) puede realizar acciones en toda la infraestructura local y de Azure.
 
 - Automatización de la implementación y entrega de aplicaciones
-    - Algunos ejemplos son [Azure DevOps Services](#visual-studio-team-services) y [Jenkins](#jenkins).
+    - Algunos ejemplos son [Azure DevOps Services](#azure-devops-services) y [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) es un motor de automatización para la administración de configuraciones, la creación de máquinas virtuales o la implementación de aplicaciones. Ansible utiliza un modelo sin agente, normalmente con claves SSH, para autenticar y administrar las máquinas de destino. Las tareas de configuración se definen en cuadernos de estrategias, con una serie de módulos de Ansible disponibles para llevar a cabo tareas específicas. Para más información, consulte el [funcionamiento de Ansible](https://www.ansible.com/how-ansible-works).

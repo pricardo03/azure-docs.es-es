@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631564"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016783"
 ---
 # <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introducción a un espacio aislado de Apache Hadoop, un emulador en una máquina virtual
 
@@ -27,7 +27,7 @@ Aprenda a instalar el espacio aislado de Apache Hadoop desde Hortonworks en una 
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>Descarga e instalación de la máquina virtual
-1. Vaya a las [descargas de Hortonworks](http://hortonworks.com/downloads/#sandbox).
+1. Vaya a las [descargas de Hortonworks](https://hortonworks.com/downloads/#sandbox).
 
 2. Haga clic en **DOWNLOAD FOR VIRTUALBOX** (DESCARGAR PARA VIRTUALBOX) para descargar la última versión de Hortonworks Sandbox en una máquina virtual. Se le pedirá que se registre en Hortonworks para poder descargar. La descarga tarda de una a dos horas según la velocidad de la red.
    
@@ -78,6 +78,6 @@ Para descargar un espacio aislado de una versión más antigua de HDP, expanda e
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Aprenda a usar Visual Studio con Sandbox de Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop tutorial - Getting started with HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

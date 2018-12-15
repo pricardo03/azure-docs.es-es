@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/05/2018
-ms.openlocfilehash: 77c761ce72449f91cf91c66219ebc815d1620e94
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/04/2018
+ms.openlocfilehash: 637afab45e04c68777f8d1b42817c912cdc09941
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343681"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133754"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Características en vista previa (GB) de Azure Stream Analytics
 
@@ -22,10 +22,6 @@ En este artículo se resumen todas las características actualmente en versión 
 ## <a name="public-previews"></a>Versiones preliminares públicas
 
 Las características siguientes se encuentran en la versión preliminar pública. Puede aprovechar las ventajas de estas características hoy mismo, pero no las use en su entorno de producción.
-
-### <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics en IoT Edge
-
-Azure Stream Analytics en IoT Edge permite a los desarrolladores implementar análisis casi en tiempo real en los dispositivos de IoT Edge. Para más información, consulte la [documentación de Azure Stream Analytics en IoT Edge](stream-analytics-edge.md).
 
 ### <a name="integration-with-azure-machine-learning"></a>Integración con Azure Machine Learning
 

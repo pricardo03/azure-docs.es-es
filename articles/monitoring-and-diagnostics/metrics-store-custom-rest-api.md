@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 8afa6a29d7d97b1d961f8a8ea44a2b62896ec4da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636771"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323070"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envío de métricas personalizadas de un recurso de Azure al almacén de métricas de Azure Monitor mediante la API REST
 
@@ -94,7 +94,7 @@ Si recibe un mensaje de error en alguna parte del proceso, tenga en cuenta la si
 1. No se pueden emitir métricas con respecto a una suscripción o grupo de recursos como el recurso de Azure. 
 1. No se puede colocar en el almacén una métrica si pasan más de 20 minutos desde su creación. El almacén de métricas está optimizado para las alertas y los gráficos en tiempo real. 
 2. El número de nombres de dimensión debe coincidir con los valores y viceversa. Compruebe los valores. 
-2. Se pueden emitir métricas con respecto a una región que no es compatible con las métricas personalizadas. Consulte las [regiones admitidas](metrics-custom-overview.md#supported-regions). 
+2. Se pueden emitir métricas con respecto a una región que no es compatible con las métricas personalizadas. Consulte las [regiones admitidas](../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -118,4 +118,4 @@ Si recibe un mensaje de error en alguna parte del proceso, tenga en cuenta la si
 
  
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información acerca de las [métricas personalizadas](metrics-custom-overview.md).
+- Más información acerca de las [métricas personalizadas](../azure-monitor/platform/metrics-custom-overview.md).

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2344d35827cf541f0230f74917be3ae0ea39e074
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e75b04b3220347bdaa90dbc2f21d92475df3aa47
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355354"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136263"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>Problema al crear una aplicación de proxy de aplicación 
 
@@ -28,7 +28,7 @@ A continuación, se muestran algunos de los problemas habituales a los que se en
 
 ## <a name="recommended-documents"></a>Documentos recomendados 
 
-Para más información sobre la creación de una aplicación de proxy de aplicación mediante el portal de administración, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-publish-azure-portal.md).
+Para más información sobre la creación de una aplicación de proxy de aplicación mediante el portal de administración, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-add-on-premises-application.md).
 
 Si está siguiendo los pasos de ese documento y obtiene un error al crear la aplicación, consulte los detalles del error para obtener información y sugerencias para corregir la aplicación. La mayoría de los mensajes de error incluyen una sugerencia de corrección. 
 
@@ -51,4 +51,4 @@ El mensaje de error debería aparecer en la esquina superior derecha cuando cree
    ![Mensaje de notificación](./media/application-proxy-config-problem/error-message.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Habilitación del proxy de aplicación en Azure Portal](application-proxy-enable.md)
+[Habilitación del proxy de aplicación en Azure Portal](application-proxy-add-on-premises-application.md)

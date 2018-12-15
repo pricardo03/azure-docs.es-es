@@ -4,18 +4,18 @@ description: archivo de inclusión
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: include file
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
-ms.custom: include file
 ms.date: 10/08/2018
 ms.author: diberry
-ms.openlocfilehash: c38f00941f035937afe53d43e01150da062c252d
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 11d0461e8d7c2711445856ecd255619a92dd6cb5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904603"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53107305"
 ---
 En la sección **Manage** (Administrar) del menú superior derecho, en la página **Keys and endpoints** (Claves y puntos de conexión) del menú de la izquierda, seleccione la URL del **punto de conexión** al final de la página. Esta acción abre otra pestaña del explorador con la dirección URL del punto de conexión en la barra de direcciones. 
 

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 237310c607eb8488e53631b6e69d01703d1ebf99
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: de501b79107aafa61c489db607c37d086a5f4ed4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30839735"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408024"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticación y autorización en Azure App Service para aplicaciones móviles
 
@@ -42,7 +42,7 @@ Cuando todo se haya configurado en App Service, puede modificar los clientes mó
 
 Cuando se utiliza un SDK del proveedor, los usuarios pueden iniciar sesión en una experiencia que se integra más estrechamente con el sistema operativo que la aplicación en la que se está ejecutando. Este método también le proporciona un token del proveedor e información de usuario sobre el cliente, lo que facilita en gran medida el consumo de API de grafos y la personalización de la experiencia del usuario. En ocasiones, en blogs y foros, se le conoce como "flujo de cliente" o "flujo dirigido al cliente", porque el código en el cliente inicia la sesión de los usuarios y el código de cliente tiene acceso a un token del proveedor.
 
-Una vez que se obtiene un token del proveedor, debe enviarse a App Service para su validación. Después de que App Service valida el token, crea un nuevo token de App Service que se devuelve al cliente. El SDK de cliente de Mobile Apps dispone de métodos auxiliares para administrar este intercambio y asociar automáticamente el token a todas las solicitudes en el back-end de la aplicación. El desarrollador también puede mantener una referencia al token del proveedor.
+Una vez que se obtiene un token del proveedor, debe enviarse a App Service para su validación. Después de que App Service valida el token, crea un nuevo token de App Service que se devuelve al cliente. El SDK de cliente de Mobile Apps dispone de métodos de asistente para administrar este intercambio y asociar automáticamente el token a todas las solicitudes en el back-end de la aplicación. El desarrollador también puede mantener una referencia al token del proveedor.
 
 Para más información sobre el flujo de autenticación, consulte [Flujo de autenticación de App Service](../app-service/app-service-authentication-overview.md#authentication-flow). 
 
@@ -91,11 +91,11 @@ Si desea usar el [flujo dirigido al cliente](../app-service/app-service-authenti
 [Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
 [Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
-[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Google]: app-service-mobile-how-to-configure-google-authentication.md
-[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+[AAD]: ../app-service/configure-authentication-provider-aad.md
+[Facebook]: ../app-service/configure-authentication-provider-facebook.md
+[Google]: configure-authentication-provider-google.md
+[MSA]: ../app-service/configure-authentication-provider-microsoft.md
+[Twitter]: ../app-service/configure-authentication-provider-twitter.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

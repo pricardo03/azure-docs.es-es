@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1bb28f3ae972e4227265231080b8f37abaf8e130
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5f6334f80b9c48832facba97b816d254baeb94bc
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317552"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341310"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Descripción de las recomendaciones sobre contenedores de Azure Security Center
 
@@ -42,7 +42,7 @@ Para obtener más información sobre las recomendaciones que se aplican a otros 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9f237d9eed5b8500f0f80b8b73d638f374bf5ca9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165295"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999527"
 ---
 # <a name="working-with-azure-cosmos-account"></a>Uso de la cuenta de Azure Cosmos
 
@@ -38,7 +38,7 @@ Ahora puede continuar y aprender a administrar su cuenta de Azure Cosmos o consu
 * [Distribución global](distribute-data-globally.md)
 * [Niveles de coherencia](consistency-levels.md)
 * [Uso de contenedores y elementos de Azure Cosmos](databases-containers-items.md)
-* [Punto de conexión de servicio de red virtual para la cuenta de Azure Cosmos](firewall-support.md)
-* [Firewall para direcciones IP para la cuenta de Azure Cosmos](vnet-service-endpoint.md)
+* [Punto de conexión de servicio de red virtual para la cuenta de Azure Cosmos](vnet-service-endpoint.md)
+* [Firewall para direcciones IP para la cuenta de Azure Cosmos](firewall-support.md)
 * [Como agregar y quitar regiones de Azure en la cuenta de Azure Cosmos](how-to-manage-database-account.md).
 * [Contratos de nivel de servicio para Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

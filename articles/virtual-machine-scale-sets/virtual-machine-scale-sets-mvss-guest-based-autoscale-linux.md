@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: manayar
-ms.openlocfilehash: 0718ad7112c759dd3fdd363f38b863186ec9a978
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: deddcc8623803f9d003f3fafcef5252ebd34b813
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740169"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438343"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Escalado automático con métricas de invitado en una plantilla de conjunto de escalado de Linux
 
 Hay dos tipos de métricas en Azure que se obtienen de las máquinas virtuales y los conjuntos de escalado: algunos proceden de la máquina virtual host y otros proceden de la máquina virtual invitada. A nivel general, si usa métricas de CPU, disco y red estándar, las métricas de host probablemente sean adecuadas. Sin embargo, si necesita una selección de métricas más grande, probablemente sea más adecuado contar con métricas de invitado. Analicemos las diferencias entre ambos tipos de métricas:
 
-Las métricas de host son más sencillas y más confiables. No requieren configuración adicional porque las recopila la máquina virtual host, mientras que las métricas de invitado requieren la instalación de la [extensión Azure Diagnostics para Windows](../virtual-machines/windows/extensions-diagnostics-template.md) o [Azure Diagnostics para Linux](../virtual-machines/linux/diagnostic-extension.md) en la máquina virtual invitada. Un motivo habitual para usar las métricas de invitado en lugar de las métricas de host es que las métricas de invitado proporcionan una mayor variedad de métricas que las de host. Un ejemplo es las métricas de consumo de memoria, que solo están disponibles mediante las métricas de invitado. La lista de las métricas de host admitidas se encuentran [aquí](../monitoring-and-diagnostics/monitoring-supported-metrics.md), y las métricas de invitado de uso frecuente se encuentran [aquí](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). En este artículo se muestra cómo modificar la [plantilla de conjunto de escalado viable mínimo](./virtual-machine-scale-sets-mvss-start.md) para usar reglas de escalado automático en función de las métricas de invitado para conjuntos de escalado de Linux.
+Las métricas de host son más sencillas y más confiables. No requieren configuración adicional porque las recopila la máquina virtual host, mientras que las métricas de invitado requieren la instalación de la [extensión Azure Diagnostics para Windows](../virtual-machines/windows/extensions-diagnostics-template.md) o [Azure Diagnostics para Linux](../virtual-machines/linux/diagnostic-extension.md) en la máquina virtual invitada. Un motivo habitual para usar las métricas de invitado en lugar de las métricas de host es que las métricas de invitado proporcionan una mayor variedad de métricas que las de host. Un ejemplo es las métricas de consumo de memoria, que solo están disponibles mediante las métricas de invitado. La lista de las métricas de host admitidas se encuentran [aquí](../azure-monitor/platform/metrics-supported.md), y las métricas de invitado de uso frecuente se encuentran [aquí](../azure-monitor/platform/autoscale-common-metrics.md). En este artículo se muestra cómo modificar la [plantilla de conjunto de escalado viable mínimo](./virtual-machine-scale-sets-mvss-start.md) para usar reglas de escalado automático en función de las métricas de invitado para conjuntos de escalado de Linux.
 
 ## <a name="change-the-template-definition"></a>Cambio de la definición de la plantilla
 
@@ -111,7 +111,7 @@ A continuación, modifique el conjunto de escalado `extensionProfile` para inclu
        }
 ```
 
-Por último, agregue un recurso `autoscaleSettings` para configurar el escalado automático en función de estas métricas. Este recurso tiene una cláusula `dependsOn` que hace referencia al conjunto de escalado para asegurarse de que el conjunto de escalado existe antes de intentar realizar el escalado automático. Si se elige una métrica diferente para el escalado automático, se utilizaría el valor de `counterSpecifier` de la configuración de la extensión Diagnostics como valor de `metricName` en la configuración del escalado automático. Para más información sobre la configuración de escalado automático, consulte los [procedimientos recomendados de escalado automático](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) y la [documentación de referencia de la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931928.aspx).
+Por último, agregue un recurso `autoscaleSettings` para configurar el escalado automático en función de estas métricas. Este recurso tiene una cláusula `dependsOn` que hace referencia al conjunto de escalado para asegurarse de que el conjunto de escalado existe antes de intentar realizar el escalado automático. Si se elige una métrica diferente para el escalado automático, se utilizaría el valor de `counterSpecifier` de la configuración de la extensión Diagnostics como valor de `metricName` en la configuración del escalado automático. Para más información sobre la configuración de escalado automático, consulte los [procedimientos recomendados de escalado automático](..//azure-monitor/platform/autoscale-best-practices.md) y la [documentación de referencia de la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931928.aspx).
 
 ```diff
 +    },

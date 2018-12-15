@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 8f43edfe468958bbc4a6fde14e8e03e5b4d4e0f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88aeaf1246583345d1d28218e8e91b3ecbcd166b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264450"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53430038"
 ---
 Las organizaciones tienen necesidades informáticas a gran escala. Las cargas de trabajo de Big Compute incluyen el diseño y análisis de ingeniería, los cálculos de riesgos financieros, la representación de imágenes, los modelos complejos, las simulaciones de Monte Carlo, etc. 
 
@@ -86,7 +86,6 @@ Ejecute aplicaciones HPC personalizadas o comerciales en Azure. Se realizan prue
 
 ### <a name="ai-and-deep-learning"></a>Inteligencia artificial y aprendizaje profundo
 
-* [Batch AI](../articles/batch-ai/overview.md): entrenamiento de modelos de aprendizaje profundo
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [Máquina virtual de aprendizaje profundo](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -168,7 +167,6 @@ Las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtual
 
 ### <a name="ai-and-machine-learning"></a>AI y aprendizaje automático
 * [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Inteligencia artificial de Batch](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Redes

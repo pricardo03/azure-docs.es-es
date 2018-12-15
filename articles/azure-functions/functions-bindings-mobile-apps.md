@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: eb77046c6e673012209f0db452b20bf25046cd67
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250978"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001661"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de Mobile Apps para Azure Functions 
 
@@ -31,7 +31,7 @@ Los enlaces de Mobile Apps permiten leer y actualizar las tablas de datos en las
 
 ## <a name="packages---functions-1x"></a>Paquetes: Functions 1.x
 
-Los enlaces de Mobile Apps se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps), versión 1.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) de GitHub.
+Los enlaces de Mobile Apps se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps), versión 1.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) de GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -157,7 +157,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="input---usage"></a>Uso de entradas
 
-En las funciones de C#, cuando se encuentra el registro con el identificador especificado, se pasa al parámetro [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) con nombre. Si el registro no se encuentra, el valor del parámetro es `null`. 
+En las funciones de C#, cuando se encuentra el registro con el identificador especificado, se pasa al parámetro [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) con nombre. Si el registro no se encuentra, el valor del parámetro es `null`. 
 
 En las funciones de JavaScript, el registro se pasa en el objeto `context.bindings.<name>`. Si el registro no se encuentra, el valor del parámetro es `null`. 
 

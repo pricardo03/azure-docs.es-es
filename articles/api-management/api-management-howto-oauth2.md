@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: c0e502c1627ebe9d63ca43cb46b982bb0639f3d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444739"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967936"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Azure API Management
 
-Muchas API admiten [OAuth 2.0](http://oauth.net/2/) para proteger la API y garantizar que solo usuarios válidos obtengan acceso y que, además, solo puedan tener acceso a los recursos para los que estén autorizados. Para usar la consola interactiva para desarrolladores de la Azure API Management, el servicio permite configurar la instancia del servicio para que funcione con la API habilitada para OAuth 2.0.
+Muchas API admiten [OAuth 2.0](https://oauth.net/2/) para proteger la API y garantizar que solo usuarios válidos obtengan acceso y que, además, solo puedan tener acceso a los recursos para los que estén autorizados. Para usar la consola interactiva para desarrolladores de la Azure API Management, el servicio permite configurar la instancia del servicio para que funcione con la API habilitada para OAuth 2.0.
 
 ## <a name="prerequisites"> </a>Requisitos previos
 
@@ -143,7 +143,7 @@ Para obtener más información acerca del uso de OAuth 2.0 y Administración de 
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[http://oauth.net/2/]: http://oauth.net/2/
+[https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 
 [Prerequisites]: #prerequisites

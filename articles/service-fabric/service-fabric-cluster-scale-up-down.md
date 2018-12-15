@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: 0d809f9a1b3abbb284c3f7e0c27eb9c236692a3f
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 91516e3284ebf3588c2dba31b67cc583e4d395db
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386472"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309430"
 ---
 # <a name="read-before-you-scale"></a>Leer antes de escalar
 Escalar los recursos de proceso para obtener la carga de trabajo de la aplicación requiere una planificación intencional; esta planificación necesitará casi siempre más de una hora para completarse en un entorno de producción, y requiere que comprenda su carga de trabajo y contexto comercial. Es más, si nunca antes ha realizado esta actividad, le recomendamos que empiece leyendo las [consideraciones de planificación de la capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity), antes de continuar con el resto de este documento. Esta recomendación es para evitar problemas imprevistos de LiveSite; también se recomienda que pruebe las operaciones que decida realizar en un entorno que no sea de producción. Puede notificar [problemas en el entorno de producción o bien solicite soporte técnico de pago para Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure) en cualquier momento. En cuanto a los ingenieros asignados para realizar estas operaciones que poseen el contexto apropiado, en este artículo se describen las operaciones de escalado, pero debe decidir qué operaciones son apropiadas para su caso de uso; por ejemplo, debe saber qué recursos escalar (CPU, almacenamiento, memoria), qué dirección de escalar (vertical u horizontal) y qué operaciones realizar (implementación de plantillas de recursos, Portal, PowerShell/CLI).
 
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Escalado o reducción horizontal de un clúster de Service Fabric mediante reglas de escalado automático o manualmente
+## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Escalado o reducción horizontal de un clúster de Service Fabric mediante reglas de escalado automático o manualmente
 Los conjuntos de escalas de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquinas virtuales independiente. Cada tipo de nodo se puede escalar o reducir horizontalmente de forma independiente. Cada uno cuenta con diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad. Puede obtener más información al respecto en el documento [Relación entre los tipos de nodos de Service Fabric y los conjuntos de escalado de máquinas virtuales](service-fabric-cluster-nodetypes.md). Dado que los tipos de nodo de Service Fabric del clúster están formados por conjuntos de escalado de máquinas virtuales en el back-end, tendrá que configurar reglas de escalado automático para cada tipo de nodo y conjunto de escalado de máquinas virtuales.
 
 > [!NOTE]
@@ -103,10 +103,10 @@ Los nodos que se muestran en Service Fabric Explorer son el reflejo de lo que lo
 
 Para tener la seguridad de que un nodo se elimina cuando una máquina virtual se elimina, tiene dos opciones:
 
-1) Elija un nivel de durabilidad Gold o Silver para los tipos de nodo del clúster. Esto permitirá realizar la integración de la infraestructura. Con esto, a su vez, se eliminan automáticamente los nodos del estado de nuestros servicios del sistema (FM) cuando reduzca verticalmente.
+1. Elija un nivel de durabilidad Gold o Silver para los tipos de nodo del clúster. Esto permitirá realizar la integración de la infraestructura. Con esto, a su vez, se eliminan automáticamente los nodos del estado de nuestros servicios del sistema (FM) cuando reduzca verticalmente.
 Vea [los detalles sobre los niveles de durabilidad aquí](service-fabric-cluster-capacity.md).
 
-2) Cuando haya reducido verticalmente la instancia de máquina virtual, necesitará llamar al [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
+2. Cuando haya reducido verticalmente la instancia de máquina virtual, necesitará llamar al [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
 
 > [!NOTE]
 > Los clústeres de Service Fabric requieren que un cierto número de nodos estén activos en todo momento con el fin de mantener la disponibilidad y conservar el estado (esto se conoce como "mantenimiento del cuórum"). Por lo tanto, normalmente no es seguro apagar todas las máquinas del clúster, a menos que antes haya realizado una [copia de seguridad completa del estado](service-fabric-reliable-services-backup-restore.md).

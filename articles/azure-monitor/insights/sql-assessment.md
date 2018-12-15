@@ -10,17 +10,15 @@ ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: e66f74edf93688a2793b3f24516f8b14328a8bb9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2e20623c015f8bc80b61f07e28c49d49df73887b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634955"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189445"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Log Analytics
 
@@ -55,7 +53,7 @@ Para llevar a cabo la comprobación de estado en los servidores de SQL Server, n
 
 1. Instale [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) si el servidor no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
 2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con el servicio Log Analytics, el servidor se puede hospedar en varios hosts junto con Log Analytics para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
-3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](../../log-analytics/log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) una vez que habilite la solución en el área de trabajo.  
+3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) una vez que habilite la solución en el área de trabajo.  
 
 El agente de SQL Server que envía informes a un grupo de administración de Operations Manager, recopila datos, los reenvía a su servidor de administración asignado y, a continuación, los envía directamente desde un servidor de administración al servicio Log Analytics.  Los datos no se escriben en las bases de datos de Operations Manager.  
 
@@ -184,7 +182,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     ```
 
     >[!NOTE]
-    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../log-analytics/log-analytics-queries.md), la consulta anterior cambiaría como sigue.
+    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la consulta anterior cambiaría como sigue.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +207,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     ```
 
     >[!NOTE]
-    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../log-analytics/log-analytics-queries.md), la consulta anterior cambiaría como sigue.
+    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la consulta anterior cambiaría como sigue.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +263,4 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
 * Sí, consulte la sección [Omisión de las recomendaciones](#ignore-recommendations) anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Búsquedas de registros](../../log-analytics/log-analytics-queries.md) para aprender a analizar recomendaciones y datos de SQL Health Check.
+* [Búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) para aprender a analizar recomendaciones y datos de SQL Health Check.

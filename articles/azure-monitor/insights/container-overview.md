@@ -8,25 +8,24 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: ed5e3bdc1025b4b827d3b895bce95f6949c46e83
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 574b2ad048ca9572447b55885deb98415c3e3753
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714772"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183206"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Introducción a la supervisión de contenedores en Azure
 Con Azure, puede supervisar y administrar de manera efectiva las cargas de trabajo implementadas en contenedores de Azure que ejecutan Kubernetes o Docker. Es importante entender qué tal funcionan los contenedores con varias aplicaciones de microservicio a fin de proporcionar un servicio confiable a escala y respaldar el plan de supervisión. En este artículo se proporciona una breve introducción a las funcionalidades de administración y supervisión de Azure para ayudarle a entenderlas y cuáles son adecuadas para sus necesidades.
 
 Con [Azure Monitor para contenedores](container-insights-overview.md), puede ver de un vistazo el rendimiento y el estado de mantenimiento de la infraestructura de contenedores Linux e investigar los problemas rápidamente. La telemetría se almacena en un área de trabajo de Log Analytics y se integra en Azure Portal, donde puede explorar, filtrar y segmentar los datos agregados con paneles para vigilar la carga, el rendimiento y el mantenimiento.  
 
-En el caso de contenedores que se ejecutan fuera del servicio hospedado de Azure Kubernetes, la [solución de contenedores de Windows y Docker](../../log-analytics/log-analytics-containers.md) de Log Analytics le ayuda a ver y administrar los hosts de contenedor de Windows y Docker. Desde el área de trabajo de Log Analytics, puede ver los detalles de inventario, el rendimiento y los eventos de nodos y contenedores del entorno. Asimismo, puede ver información detallada de auditoría que muestra los comandos usados con los contenedores, y puede ver y buscar registros centralizados para solucionar los problemas de los contenedores, sin necesidad de acceder de forma remota a los hosts de Docker o Windows.
+En el caso de contenedores que se ejecutan fuera del servicio hospedado de Azure Kubernetes, la [solución de contenedores de Windows y Docker](../../azure-monitor/insights/containers.md) de Log Analytics le ayuda a ver y administrar los hosts de contenedor de Windows y Docker. Desde el área de trabajo de Log Analytics, puede ver los detalles de inventario, el rendimiento y los eventos de nodos y contenedores del entorno. Asimismo, puede ver información detallada de auditoría que muestra los comandos usados con los contenedores, y puede ver y buscar registros centralizados para solucionar los problemas de los contenedores, sin necesidad de acceder de forma remota a los hosts de Docker o Windows.
 
 Para conseguir la supervisión holística o de un extremo a otro de la aplicación, es necesario supervisar todas las dependencias con Azure Monitor o Log Analytics, tanto si se trata de un recurso de Azure como de uno local.  La capa de aplicación se debe incluir con el fin de agregar una capa adicional de reconocimiento de mantenimiento, tanto en el nivel de plataforma como de aplicación con Application Insights. En el nivel de plataforma, hay varios SDK de Application Insights para [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/) y [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Para las aplicaciones de microservicio, existe compatibilidad con [Java](../../application-insights/app-insights-java-get-started.md), [Node.js](../../application-insights/app-insights-nodejs-quick-start.md), [.Net](../../application-insights/app-insights-asp-net.md), [.Net Core](../../application-insights/app-insights-asp-net-core.md), así como con varios otros [lenguajes y marcos](../../application-insights/app-insights-platforms.md). 
 

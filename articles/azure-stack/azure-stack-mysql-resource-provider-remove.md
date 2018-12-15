@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: c3dbecfcaf40a85c57b9f795d7f2d9b76d27c195
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 2740da5a51e95a327a868734a7f009dddf40219a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274077"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964941"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Eliminación del proveedor de recursos de MySQL
 
 Antes de quitar el proveedor de recursos de MySQL, debe quitar todas las dependencias del proveedor. También necesitará una copia del paquete de implementación que se utilizó para instalar el proveedor de recursos.
 
 > [!NOTE]
-> Puede encontrar los vínculos de descarga para los instaladores del proveedor de recursos en [Requisitos previos de Implementación del proveedor de recursos](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> Puede encontrar los vínculos de descarga para los instaladores del proveedor de recursos en [Requisitos previos de Implementación del proveedor de recursos](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 Quitar el proveedor de recursos MySQL no elimina las bases de datos de inquilino de los servidores de hospedaje.
 

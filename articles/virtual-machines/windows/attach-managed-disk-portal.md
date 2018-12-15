@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 854f457e6731f69c64bf2036840d9e1c18a1cbf2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093908"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075097"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Conexión de un disco de datos administrado a una máquina virtual Windows en Azure Portal
 
@@ -52,30 +52,6 @@ En este artículo se muestra cómo conectar un nuevo disco de datos administrado
 8. En la ventana **Dar formato al nuevo disco**, active las opciones y seleccione **Iniciar**.
 9. Recibirá una advertencia que indica que al dar formato a los discos se borrarán todos los datos. Seleccione **Aceptar**.
 10. Cuando se complete el formato, seleccione **Aceptar**.
-
-## <a name="use-trim-with-standard-storage"></a>Uso de TRIM con el almacenamiento estándar
-
-Si utiliza almacenamiento estándar (HDD), debe habilitar el comando **TRIM**. El comando **TRIM** descarta los bloques sin utilizar del disco, por lo que solo se le facturará el almacenamiento que utiliza realmente. Mediante el uso de **TRIM**, puede ahorrar costos si crea archivos grandes y, a continuación, los elimina más adelante. 
-
-Para comprobar la configuración de **TRIM**, abra un símbolo del sistema en la máquina virtual Windows y escriba el siguiente comando:
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-Si el comando devuelve 0, **TRIM** está habilitado correctamente. En caso contrario, si devuelve 1, ejecute el siguiente comando para habilitar **TRIM**:
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-Después de eliminar los datos del disco, puede garantizar que las operaciones de **TRIM** se vacían correctamente mediante la ejecución de la desfragmentación con **TRIM**:
-
-```
-defrag.exe <volume:> -l
-```
-
-También puede dar formato al volumen para asegurarse de que queda recortado por completo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
