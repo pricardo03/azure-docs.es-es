@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8f56f287fde9e17d2a17298ca04eda63b69e3636
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: aaae119ec72a713adc2faa311dbcb6bd204035fd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159931"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835104"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -28,8 +28,8 @@ En el ejemplo siguiente se muestra un elemento **RelyingParty** en el archivo de
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="your-tenant.onmicrosoft.com"
@@ -132,12 +132,12 @@ El elemento **JourneyInsights** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| TelemetryEngine | SÍ | El valor debe ser `ApplicationInsights`. | 
+| TelemetryEngine | SÍ | El valor tiene que ser `ApplicationInsights`. | 
 | InstrumentationKey | SÍ | Cadena que contiene la clave de instrumentación para el elemento de Application Insights. |
 | DeveloperMode | SÍ | Valores posibles: `true` o `false`. Si es `true`, Application Insights acelera la telemetría a través de la canalización de procesamiento. Esta configuración es adecuada para el desarrollo, pero está limitada a grandes volúmenes. Los registros de actividad detallados solo están diseñados para contribuir en el desarrollo de directivas personalizadas. No use el modo de desarrollo en producción. Los registros recopilan todas las notificaciones que se envían y se reciben de los proveedores de identidad durante el desarrollo. Si se utilizan en producción, el programador asume la responsabilidad sobre la PII (información personal de identificación) recopilada en el registro de información de la instancia de App Insights que le pertenece. Estos registros detallados solo se recopilan cuando este valor se establece en `true`.|
 | ClientEnabled | SÍ | Valores posibles: `true` o `false`. Si es `true`, se envía el script del lado cliente ApplicationInsights para realizar un seguimiento de la vista de página y de los errores del lado cliente. | 
 | ServerEnabled | SÍ | Valores posibles: `true` o `false`. Si es `true`, se envía el JSON UserJourneyRecorder existente como evento personalizado a Application Insights. | 
-| TelemetryVersion | SÍ | El valor debe ser `1.0.0`. | 
+| TelemetryVersion | SÍ | El valor tiene que ser `1.0.0`. | 
 
 Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md).
 
@@ -165,13 +165,13 @@ Para obtener más información, vea [Configuración de la interfaz de usuario co
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 
-El elemento **TechnicalProfile** contiene el siguiente atributo:
+El elemento **TechnicalProfile** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- | 
-| Id | SÍ | El valor debe ser `PolicyProfile`. |
+| Id | SÍ | El valor tiene que ser `PolicyProfile`. |
 
-**TechnicalProfile** contiene los siguientes elementos:
+El elemento **TechnicalProfile** contiene los elementos siguientes:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
@@ -186,7 +186,7 @@ El elemento **Protocol** contiene el siguiente atributo:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| NOMBRE | SÍ | El nombre de un protocolo válido compatible con Azure AD B2C que se usa como parte del perfil técnico. Valores posibles: `OpenIdConnect` o `SAML2`. El valor `OpenIdConnect` representa el estándar del protocolo OpenID Connect 1.0 según la especificación de la fundación de OpenID. `SAML2` representa el estándar del protocolo SAML 2.0 según la especificación de OASIS. No use un token de SAML en producción. |
+| NOMBRE | SÍ | El nombre de un protocolo válido admitido por Azure AD B2C que se usará como parte del perfil técnico. Valores posibles: `OpenIdConnect` o `SAML2`. El valor `OpenIdConnect` representa el estándar del protocolo OpenID Connect 1.0 según la especificación de la fundación de OpenID. `SAML2` representa el estándar del protocolo SAML 2.0 según la especificación de OASIS. No use un token de SAML en producción. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
@@ -196,7 +196,7 @@ El elemento **OutputClaims** contiene el elemento siguiente:
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | El nombre de un tipo de notificación esperado en la lista admitida para la directiva en la que se suscribe el usuario de confianza. Esta notificación actúa como un resultado del perfil técnico. |
 
-El elemento **OutputClaim** contiene los siguientes atributos:
+El elemento **OutputClaim** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
