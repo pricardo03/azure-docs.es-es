@@ -1,21 +1,21 @@
 ---
 title: Probar la aplicación de LUIS
-titleSuffix: Azure Cognitive Services
-description: La realización de pruebas es el proceso por el cual se proporcionan expresiones de ejemplo a LUIS y se obtiene una respuesta de intenciones y entidades reconocidas por LUIS. Puede probar LUIS de forma interactiva (una expresión a la vez) o proporcionar un lote de expresiones. Con la realización de pruebas puede comparar el modelo activo actual con el modelo publicado.
-services: cognitive-services
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: La realización de pruebas es el proceso por el cual se proporcionan expresiones de ejemplo a LUIS y se obtiene una respuesta de intenciones y entidades reconocidas por LUIS.
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 58bcf45d1a45d448f2f5845ffe43ad07f886a6fc
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5aeb955b579a15f29429c585720dbef1b9560efa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637018"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105536"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Prueba de expresiones de ejemplo en LUIS
 

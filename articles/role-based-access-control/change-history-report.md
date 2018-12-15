@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5a67cdcef7f39830b747dec5f2c980483e1ab91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978342"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967902"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Visualización de los registros de actividad de cambios de RBAC
 
@@ -117,15 +117,15 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 Estos son los pasos básicos para empezar a trabajar:
 
-1. [Crear un área de trabajo de Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Crear un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurar la solución Activity Log Analytics](../log-analytics/log-analytics-activity.md#configuration) para el área de trabajo.
+1. [Configurar la solución Activity Log Analytics](../azure-monitor/platform/collect-activity-logs.md#configuration) para el área de trabajo.
 
-1. [Ver los registros de actividad](../log-analytics/log-analytics-activity.md#using-the-solution). Una forma rápida de ir a la página Información general del análisis de los registros de actividad es hacer clic en la opción **Log Analytics**.
+1. [Ver los registros de actividad](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Una forma rápida de ir a la página Información general del análisis de los registros de actividad es hacer clic en la opción **Log Analytics**.
 
    ![Opción Log Analytics en el portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. También puede usar la página [Búsqueda de registros](../log-analytics/log-analytics-log-search.md) o el [portal Advanced Analytics](../log-analytics/query-language/get-started-analytics-portal.md) para consultar y ver los registros. Para obtener más información sobre estas dos opciones, vea [Portales para la creación y edición de consultas de registros en Azure Log Analytics](../log-analytics/log-analytics-log-search-portals.md).
+1. También puede usar la página [Búsqueda de registros](../log-analytics/log-analytics-log-search.md) o el [portal Advanced Analytics](../azure-monitor/log-query/get-started-portal.md) para consultar y ver los registros. Para obtener más información sobre estas dos opciones, vea [Portales para la creación y edición de consultas de registros en Azure Log Analytics](../azure-monitor/log-query/portals.md).
 
 Esta es una consulta que devuelve las nuevas asignaciones de roles organizadas por proveedor de recursos de destino:
 

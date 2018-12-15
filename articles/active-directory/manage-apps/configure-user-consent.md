@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 25f5d79b900cf15a9bdcb8f037fa95494c63b7e1
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 991199747f51f379ee6f3efe8009ab9166c33ac7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088297"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832013"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configure el modo en que los usuarios finales dan su consentimiento a una aplicación en Azure Active Directory.
 Aprenda a configurar el modo en que los usuarios dan su consentimiento en los permisos de la aplicación. Puede simplificar la experiencia del usuario proporcionando consentimiento de administrador. En este artículo, se explican diferentes métodos para configurar el consentimiento del usuario. Estos métodos se aplican a todos los usuarios finales del inquilino de Azure Active Directory (Azure AD). 
@@ -73,4 +73,4 @@ Para hacer que los usuarios finales den su consentimiento en una aplicación cad
 
 [Consentimiento y permisos para las aplicaciones convergentes v2.0 de Azure AD](../develop/active-directory-v2-scopes.md)
 
-[Azure AD en StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

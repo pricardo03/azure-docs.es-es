@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636890"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436932"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Descripción de los modelos de objetos de Digital Twins y del grafo de inteligencia espacial
 
@@ -48,11 +48,11 @@ Otras categorías de objetos son:
 - **Roles**: conjuntos de permisos asignados a los usuarios y los dispositivos en el grafo espacial, como `Space Administrator`, `User Administrator` y `Device Administrator`.
 - Las **asignaciones de roles** son la asociación entre un rol y un objeto en el gráfico espacial. Por ejemplo, un usuario o una entidad de servicio pueden tener permiso para administrar un espacio en el gráfico espacial.
 - **Almacenes de claves de seguridad**: proporcionan las claves de seguridad para todos los dispositivos de la jerarquía bajo un objeto de espacio determinado con el fin de que el dispositivo se pueda comunicar con Digital Twins de manera segura.
-- **Funciones definidas por el usuario** (UDF): permiten el procesamiento de los datos de telemetría del sensor personalizable dentro del grafo espacial. Por ejemplo, una UDF puede hacer lo siguiente: 
-    - Establecer un valor del sensor. 
-    - Realizar lógica personalizada en función de las lecturas de sensores y establecer la salida en un espacio. 
-    - Asociar metadatos a un espacio. 
-    - Enviar notificaciones cuando se cumplen las condiciones predefinidas. Actualmente, las UDF pueden escribirse en JavaScript.
+- **Funciones definidas por el usuario** (UDF): permiten el procesamiento de los datos de telemetría del sensor personalizable dentro del grafo espacial. Por ejemplo, una UDF puede hacer lo siguiente:
+  - Establecer un valor del sensor.
+  - Realizar lógica personalizada en función de las lecturas de sensores y establecer la salida en un espacio.
+  - Asociar metadatos a un espacio.
+  - Enviar notificaciones cuando se cumplen las condiciones predefinidas. Actualmente, las UDF pueden escribirse en JavaScript.
 - **Buscadores de coincidencias**: objetos que determinan qué UDF se ejecuta para un mensaje de telemetría determinado.
 - **Puntos de conexión**: ubicaciones donde pueden enrutarse los mensajes de telemetría y los eventos de Digital Twins, como `Event Hub`, `Service Bus` y `Event Grid`.
 
@@ -103,9 +103,9 @@ Todas las llamadas a API se deben autenticar mediante [OAuth](https://docs.micro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre la conectividad de los dispositivos y cómo enviar mensajes de telemetría a Digital Twins, lea [Entrada de datos de telemetría y conectividad de dispositivo](concepts-device-ingress.md).
+- Para más información sobre la conectividad de los dispositivos y cómo enviar mensajes de telemetría a Digital Twins, lea [Entrada de datos de telemetría y conectividad de dispositivo](concepts-device-ingress.md).
 
-* Para más información sobre las limitaciones de la API de administración y las demás, lea el artículo sobre [limitaciones y administración de API de Azure Digital Twins](concepts-service-limits.md).
+- Para más información sobre las limitaciones de la API de administración y las demás, lea el artículo sobre [limitaciones y administración de API de Azure Digital Twins](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

@@ -14,22 +14,20 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7e7aa2e14d86a0295a9921766f7fef547d42a05d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: df323d121b42ab1200844f3fefb713122ba43106
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807293"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316087"
 ---
-<a name="business-process-libraries"></a>Bibliotecas de proceso de negocio
-==========================
+# <a name="business-process-libraries"></a>Bibliotecas de proceso de negocio
 
 Las bibliotecas de proceso de negocio son las guías de tareas de los escenarios integrales. La biblioteca de proceso de negocio debe alinearse directamente con el contenido de marketing. Cada proceso de la biblioteca de procesos de negocio debe tener un [registro de tarea](https://docs.microsoft.com/dynamics365/operations/dev-itpro/user-interface/task-recorder) asociado. Si hay procesos que están fuera de Dynamics 365 for Operations, adjunte un Visio a la biblioteca de BPM.
 
 Vea [Business Process Modeler](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/business-process-modeler-libraries-lcs-solutions) (Modelador de proceso de negocio) para obtener más información.
 
-<a name="methodologies"></a>Metodologías
-=============
+## <a name="methodologies"></a>Metodologías
 
 Lifecycle Services (LCS) para Microsoft Dynamics proporciona metodologías que puede usar para garantizar una experiencia de proyecto de implementación más repetible y predecible. Puede usar una de las metodologías proporcionadas o crear las suyas propias. Las metodologías facilitan realizar un seguimiento e informar sobre su progreso.
 

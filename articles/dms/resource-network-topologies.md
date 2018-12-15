@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/8/2018
-ms.openlocfilehash: 9b036b74141ce2091d2e68b68d10c44a56a8696d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: cd62b60718a35aed9129db61413086266bb9f2c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300699"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971086"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologías de red para migraciones a Instancia administrada de Azure SQL Database con Azure Database Migration Service
 En este artículo se tratan diversas topologías de red con las que Azure Database Migration Service puede trabajar para proporcionar una experiencia de migración completa desde instancias locales de SQL Server a Instancia administrada de SQL Database.
@@ -24,7 +24,7 @@ En este artículo se tratan diversas topologías de red con las que Azure Databa
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Instancia administrada de Azure SQL Database configurada para cargas de trabajo híbridas 
 Use esta topología si Instancia administrada de Azure SQL Database está conectada a la red local. Este enfoque proporciona el enrutamiento de red más simplificado y genera el máximo rendimiento de los datos durante la migración.
 
-![Topología de red para cargas de trabajo híbridas](media\resource-network-topologies\hybrid-workloads.png)
+![Topología de red para cargas de trabajo híbridas](media/resource-network-topologies/hybrid-workloads.png)
 
 **Requisitos**
 - En este escenario, Instancia administrada de Azure SQL Database y la instancia de Azure Database Migration Service se crean en la misma red virtual de Azure pero usan diferentes subredes.  
@@ -36,7 +36,7 @@ Use esta topología de red si su entorno requiere uno o varios de los siguientes
 - Si se han implementado directivas de control de acceso basado en roles (RBAC) y tiene que limitar el acceso de los usuarios a la misma suscripción que hospeda Instancia administrada de Azure SQL Database.
 - Las redes virtuales que se usan para Instancia administrada de Azure SQL Database y Azure Database Migration Service se encuentran en suscripciones distintas.
 
-![Topología de red para Instancia administrada aislada de la red local](media\resource-network-topologies\mi-isolated-workload.png)
+![Topología de red para Instancia administrada aislada de la red local](media/resource-network-topologies/mi-isolated-workload.png)
 
 **Requisitos**
 - La red virtual que utiliza Azure Database Migration Service para este escenario también debe estar conectada a la red local mediante (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
@@ -47,7 +47,7 @@ Use esta topología de red si su entorno requiere uno o varios de los siguientes
 
 Use esta topología si el origen de SQL Server se hospeda en una máquina virtual de Azure y comparte la misma red virtual con Instancia administrada de Azure SQL Database y Azure Database Migration Service.
 
-![Topología de red para migraciones de nube a nube con una red virtual compartida](media\resource-network-topologies\cloud-to-cloud.png)
+![Topología de red para migraciones de nube a nube con una red virtual compartida](media/resource-network-topologies/cloud-to-cloud.png)
 
 **Requisitos**
 - No hay requisitos adicionales.
@@ -59,7 +59,7 @@ Use esta topología de red si su entorno requiere uno o varios de los siguientes
 - Si se han implementado directivas de control de acceso basado en roles (RBAC) y tiene que limitar el acceso de los usuarios a la misma suscripción que hospeda Instancia administrada de Azure SQL Database.
 - Las redes virtuales que se usan para Instancia administrada de Azure SQL Database y Azure Database Migration Service se encuentran en suscripciones distintas.
 
-![Topología de red para migraciones de nube a nube con una red virtual aislada](media\resource-network-topologies\cloud-to-cloud-isolated.png)
+![Topología de red para migraciones de nube a nube con una red virtual aislada](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
 **Requisitos**
 - Configure un [emparejamiento de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre la red virtual que se usa para Instancia administrada de Azure SQL Database y Azure Database Migration Service.

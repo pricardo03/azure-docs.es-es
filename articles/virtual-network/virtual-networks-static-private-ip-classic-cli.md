@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f340b9843ed5763a20d2035e3add86123a1298e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: abc551f796cb2d8921b6b1f67fb6a6714655ffde
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971151"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134682"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configuración de direcciones IP privadas para una máquina virtual (implementación clásica) mediante la CLI de Azure clásica
 
@@ -75,7 +75,7 @@ Para crear una máquina virtual denominada *DNS01* en un nuevo servicio en la nu
    * **TestService**. Nombre del servicio en la nube en el que se creó la VM.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Imagen utilizada para crear la VM.
    * **adminuser**. Administrador local para la VM de Windows.
-   * **AdminP@ssw0rd**. Contraseña del administrador local para la VM de Windows.
+   * <strong>AdminP@ssw0rd</strong>. Contraseña del administrador local para la VM de Windows.
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Recuperación de la información de la dirección IP privada estática para una VM
 Para ver la información de la dirección IP privada estática para la VM creada con el script anterior, ejecute el comando de la CLI de Azure y observe el valor para *Network StaticIP*:

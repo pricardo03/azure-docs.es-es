@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: bbb0bbc6ddbbabb37932edc6946394b020631231
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636431"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342330"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS en máquinas virtuales de Azure de Red Hat Enterprise Linux para SAP NetWeaver
 
@@ -95,7 +95,7 @@ Para implementar todos los recursos necesarios, puede usar una de las plantillas
       Escriba el prefijo que desea usar. El valor se usa como prefijo de los recursos que se implementan.
    2. Número de sistemas SAP: escriba el número de sistemas SAP que usarán este servidor de archivos. Esta acción implementará el número necesario de discos, entre otras cosas.
    3. Tipo de sistema operativo  
-      Seleccione una de las distribuciones de Linux. En este ejemplo, seleccione RHEL 7
+      Seleccione una de las distribuciones de Linux. En este ejemplo, seleccione RHEL 7.
    4. Nombre de usuario administrador, contraseña del administrador o clave SSH  
       Se crea un usuario nuevo que se puede usar para iniciar sesión en la máquina.
    5. Identificador de subred  
@@ -110,10 +110,10 @@ En primer lugar, debe crear las máquinas virtuales de este clúster. Después, 
 1. Creación de un conjunto de disponibilidad  
    Establecimiento del dominio máximo de actualización
 1. Creación de la máquina virtual 1  
-   Use al menos RHEL 7; en este ejemplo se usó la imagen de Red Hat Enterprise Linux 7.4. <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use al menos RHEL 7; en este ejemplo se usó la imagen de Red Hat Enterprise Linux 7.4. <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Seleccione el conjunto de disponibilidad creado anteriormente.  
 1. Creación de la máquina virtual 2  
-   Use al menos RHEL 7; en este ejemplo se usó la imagen de Red Hat Enterprise Linux 7.4. <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use al menos RHEL 7; en este ejemplo se usó la imagen de Red Hat Enterprise Linux 7.4. <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Seleccione el conjunto de disponibilidad creado anteriormente.  
 1. Agregue un disco de datos por cada sistema SAP a ambas máquinas virtuales.
 

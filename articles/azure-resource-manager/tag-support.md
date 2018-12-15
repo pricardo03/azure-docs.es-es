@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284989"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409673"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso es compatible con el [etiquetado](resource-group-using-tags.md).
@@ -69,18 +69,6 @@ En este artículo se describe si un tipo de recurso es compatible con el [etique
 | ------------- | ----------- |
 | batchAccounts | SÍ | 
 
-## <a name="batch-ai"></a>Batch AI
-| Tipo de recurso | Compatible con las etiquetas |
-| ------------- | ----------- |
-| clusters | SÍ | 
-| jobs | SÍ | 
-| fileservers | SÍ | 
-| áreas de trabajo | SÍ | 
-| workspaces/clusters | Sin  | 
-| workspaces/fileservers | Sin  | 
-| workspaces/experiments | Sin  | 
-| workspaces/experiments/jobs | Sin  | 
-
 ## <a name="bing-maps"></a>Mapas de Bing
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
@@ -135,7 +123,7 @@ En este artículo se describe si un tipo de recurso es compatible con el [etique
 | storageAccounts/services | Sin  | 
 | storageAccounts/services/diagnosticSettings | Sin  | 
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Proceso
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | availabilitySets | SÍ | 

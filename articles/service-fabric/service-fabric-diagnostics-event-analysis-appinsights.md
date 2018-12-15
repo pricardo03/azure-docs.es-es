@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291052"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322796"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análisis y visualización de eventos con Application Insights
 
@@ -54,7 +54,7 @@ Para explorar aún más las funcionalidades del portal de Application Insights, 
 >[!NOTE]
 >Solo se aplica a los clústeres de Windows por ahora.
 
-Hay dos métodos principales para enviar datos de WAD a Azure Application Insights, algo que se consigue mediante la agregación de un receptor de Application Insights a la configuración de WAD, como se detalla en [este artículo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Hay dos métodos principales para enviar datos de WAD a Azure Application Insights, algo que se consigue mediante la agregación de un receptor de Application Insights a la configuración de WAD, como se detalla en [este artículo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Incorporación de una clave de instrumentación de Application Insights al crear un clúster en Azure Portal
 
@@ -88,7 +88,7 @@ En el archivo "WadCfg" de la plantilla de Resource Manager, agregue un "receptor
 
 En los dos fragmentos de código anteriores, el nombre "applicationInsights" se usó para describir el receptor. No se trata de un requisito y, siempre que el nombre del receptor se incluya en "sinks", puede establecer el nombre en cualquier cadena.
 
-Actualmente, los registros del clúster se muestran como **seguimientos** en el visor de registros de Application Insights. Como la mayoría de los seguimientos de la plataforma son de tipo "Información", también puede considerar la opción de cambiar la configuración del receptor para que solo envíe registros de tipo "Crítico" o "Error". Esto puede realizarse mediante la adición de "canales" al receptor, como se demuestra en [este artículo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Actualmente, los registros del clúster se muestran como **seguimientos** en el visor de registros de Application Insights. Como la mayoría de los seguimientos de la plataforma son de tipo "Información", también puede considerar la opción de cambiar la configuración del receptor para que solo envíe registros de tipo "Crítico" o "Error". Esto puede realizarse mediante la adición de "canales" al receptor, como se demuestra en [este artículo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Si usa una clave de Application Insights incorrecta en el portal o en la plantilla de Resource Manager, deberá cambiarla manualmente y actualizar el clúster o volver a implementarlo.

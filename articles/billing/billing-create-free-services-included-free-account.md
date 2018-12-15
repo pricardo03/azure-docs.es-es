@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 77022b442a78c8d14284e06af4f156302c1e6ffc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 43ecc79db977624954109c4565c613e2471cea88
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584407"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312036"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Creación de servicios incluidos con la cuenta gratuita de Azure
 
 La cuenta gratuita de Azure incluye una cantidad limitada de servicios gratuitos durante 12 meses. Para información, consulte [What is Azure free account](https://azure.microsoft.com/free/free-account-faq/) (¿Qué es una cuenta gratuita de Azure?). Azure realiza un seguimiento que el usuario hace de cada servicio y no cobra a menos que se superan los límites. Dentro de estos límites, la cuenta gratuita de Azure le proporciona la flexibilidad necesaria para varias configuraciones de servicio para satisfacer sus necesidades. 
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Creación de servicios gratuitos en Azure Portal
-Le recomendamos que use la [página Servicios gratuitos](https://go.microsoft.com/fwlink/?linkid=859151) para crear nuevos servicios. También puede iniciar sesión en [Azure Portal](http://portal.azure.com), seleccionar **Todos los servicios** en la parte izquierda y buscar en **servicios gratuitos**. 
+Le recomendamos que use la [página Servicios gratuitos](https://go.microsoft.com/fwlink/?linkid=859151) para crear nuevos servicios. También puede iniciar sesión en [Azure Portal](https://portal.azure.com), seleccionar **Todos los servicios** en la parte izquierda y buscar en **servicios gratuitos**. 
 
 ## <a name="services-can-be-created-in-any-region"></a>Los servicios se pueden crear en cualquier región
 Mientras esté dentro de los límites, puede crear servicios de forma gratuita en cualquier región donde los servicios estén disponibles. Por ejemplo, obtendrá 750 horas de una máquina virtual Windows B1S gratis cada mes con la cuenta gratuita de Azure. Puede crear la máquina virtual en cualquier región donde estén disponibles las máquinas virtuales de la serie B. Azure no le cobra a menos que supere 750 horas. Por ejemplo, un cliente que se encuentre en EE. UU. puede aprovisionar una máquina virtual Windows B1S en la región Europa Occidental y usarla de forma gratuita durante 750 horas. 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc03a5f43ef65ec8feaccb82fc3d31debbc6e7b9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f7b73fa4d1f596e0221c2cec3c6c7417ceb767a4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523383"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275700"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Supervisión de una cuenta de almacenamiento en el Portal de Azure
 
@@ -98,7 +98,7 @@ Puede crear alertas para recibir una notificación cuando se alcancen los umbral
 3. Escriba un **Nombre** y una **Descripción** para la nueva regla de alerta.
 4. Seleccione la **métrica** para la que desea agregar una alerta, una **condición** de alerta y un **umbral** de alerta. El tipo de unidad de umbral cambiará en función de la métrica que haya elegido. Por ejemplo, "número" es el tipo de unidad para *ContainerCount*, mientras que la unidad para la métrica *PercentNetworkError* es un porcentaje.
 5. Seleccione el **período**. Las métricas que alcancen o superen el umbral dentro de ese período de tiempo desencadenarán una alerta.
-6. (Opcional) Configure las notificaciones de **Correo electrónico** y **Webhook**. Para más información sobre webhooks, consulte [Configuración de un webhook en una alerta de métrica de Azure](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Si no configura las notificaciones de correo electrónico o webhook, las alertas solo aparecerán en Azure Portal.
+6. (Opcional) Configure las notificaciones de **Correo electrónico** y **Webhook**. Para más información sobre webhooks, consulte [Configuración de un webhook en una alerta de métrica de Azure](../../azure-monitor/platform/alerts-webhooks.md). Si no configura las notificaciones de correo electrónico o webhook, las alertas solo aparecerán en Azure Portal.
 
 ![Hoja "Agregar una regla de alerta" en Azure Portal](./media/storage-monitor-storage-account/add-alert-rule.png)
 

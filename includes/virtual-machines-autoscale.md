@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226533"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399995"
 ---
-Puede realizar fácilmente el [escalado automático](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) de sus [máquinas virtuales (VM)](../articles/virtual-machines/windows/overview.md) si usa los [conjuntos de escalado de máquinas virtuales](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) y la [característica de escalado automático de Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Las máquinas virtuales tienen que ser miembros del conjunto de escalado que se va a escalar automáticamente. Este artículo le proporciona información que le permitirá entender mejor cómo escalar las máquinas virtuales tanto vertical como horizontalmente mediante métodos automáticos y manuales.
+Puede realizar fácilmente el [escalado automático](../articles/azure-monitor/platform/autoscale-best-practices.md) de sus [máquinas virtuales (VM)](../articles/virtual-machines/windows/overview.md) si usa los [conjuntos de escalado de máquinas virtuales](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) y la [característica de escalado automático de Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Las máquinas virtuales tienen que ser miembros del conjunto de escalado que se va a escalar automáticamente. Este artículo le proporciona información que le permitirá entender mejor cómo escalar las máquinas virtuales tanto vertical como horizontalmente mediante métodos automáticos y manuales.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Escalado horizontal o escalado vertical
 
@@ -35,7 +35,7 @@ Puede habilitar el escalado automático cuando cree el conjunto de escalado medi
  
 ### <a name="metrics"></a>Métricas
 
-La característica de escalado automático de Azure Monitor le permite escalar o reducir verticalmente el número de máquinas virtuales en ejecución en función de las [métricas](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). De forma predeterminada, las máquinas virtuales proporcionan métricas básicas en el nivel de host para el disco, la red y el uso de la CPU. Cuando configura la recopilación de datos de diagnóstico con la extensión de diagnóstico, los contadores de rendimiento adicionales del sistema operativo invitado pasan a estar disponibles para el disco, la CPU y la memoria.
+La característica de escalado automático de Azure Monitor le permite escalar o reducir verticalmente el número de máquinas virtuales en ejecución en función de las [métricas](../articles/azure-monitor/platform/autoscale-common-metrics.md). De forma predeterminada, las máquinas virtuales proporcionan métricas básicas en el nivel de host para el disco, la red y el uso de la CPU. Cuando configura la recopilación de datos de diagnóstico con la extensión de diagnóstico, los contadores de rendimiento adicionales del sistema operativo invitado pasan a estar disponibles para el disco, la CPU y la memoria.
 
 ![Criterios de las métricas](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -49,7 +49,7 @@ Las [reglas](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-b
  
 ### <a name="notifications"></a>Notificaciones
 
-También puede [configurar desencadenadores](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) para que se realicen llamadas a direcciones URL web específicas o se envíen correos electrónicos en función de las reglas de escalado automático que cree. Los Webhook permiten enrutar las notificaciones de alerta de Azure a otros sistemas para procesarlas posteriormente o notificaciones personalizadas.
+También puede [configurar desencadenadores](../articles/azure-monitor/platform/autoscale-webhook-email.md) para que se realicen llamadas a direcciones URL web específicas o se envíen correos electrónicos en función de las reglas de escalado automático que cree. Los Webhook permiten enrutar las notificaciones de alerta de Azure a otros sistemas para procesarlas posteriormente o notificaciones personalizadas.
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>Escalado manual de máquinas virtuales en un conjunto de escalado
 

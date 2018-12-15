@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 44335137eedb67d7ceca420a061880767b895cad
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632473"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339287"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Diseño y compilación de una solución de administración en Azure (versión preliminar)
 > [!NOTE]
@@ -46,19 +45,19 @@ El primer paso para diseñar una solución es determinar los datos que necesita 
 
 Hay varias maneras de recopilar orígenes de datos en el repositorio de Log Analytics, como se describe en [Orígenes de datos en Log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Esto incluye los eventos en el registro de eventos de Windows o los generados por Syslog, además de los contadores de rendimiento para los clientes de Windows y Linux.  También puede recoger datos de recursos de Azure recopilados por Azure Monitor.  
 
-Si necesita datos que no son accesibles a través de cualquiera de los orígenes de datos disponibles, puede usar la [API del recopilador de datos HTTP](../../log-analytics/log-analytics-data-collector-api.md) que le permite escribir datos en el repositorio de Log Analytics desde cualquier cliente que pueda llamar a una API de REST.  La forma más común de recopilación de datos personalizados en una solución de administración consiste en crear un [runbook en Azure Automation](../../automation/automation-runbook-types.md) que recopila los datos necesarios de los recursos de Azure o de recursos externos, y utiliza la API del recopilador de datos para escribir en el repositorio.  
+Si necesita datos que no son accesibles a través de cualquiera de los orígenes de datos disponibles, puede usar la [API del recopilador de datos HTTP](../../azure-monitor/platform/data-collector-api.md) que le permite escribir datos en el repositorio de Log Analytics desde cualquier cliente que pueda llamar a una API de REST.  La forma más común de recopilación de datos personalizados en una solución de administración consiste en crear un [runbook en Azure Automation](../../automation/automation-runbook-types.md) que recopila los datos necesarios de los recursos de Azure o de recursos externos, y utiliza la API del recopilador de datos para escribir en el repositorio.  
 
 ### <a name="log-searches"></a>Búsqueda de registros
-Las [búsquedas de registros](../../log-analytics/log-analytics-queries.md) se usan para extraer y analizar datos en el repositorio de Log Analytics.  Las utilizan vistas y alertas, y además permiten al usuario realizar análisis ad hoc de los datos en el repositorio.  
+Las [búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) se usan para extraer y analizar datos en el repositorio de Log Analytics.  Las utilizan vistas y alertas, y además permiten al usuario realizar análisis ad hoc de los datos en el repositorio.  
 
 Debe definir las consultas que cree que le resultarán útiles para el usuario, incluso si no hay vistas o alertas que las utilicen.  Estas estarán disponibles para los usuarios como búsquedas guardadas en el portal y también se pueden incluir en un [elemento de visualización Lista de consultas](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) en la vista personalizada.
 
 ### <a name="alerts"></a>Alertas
-[Alertas de Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) identifican los problemas a través de [búsquedas de registros](#log-searches) con los datos en el repositorio.  Estas alertas o bien envían una notificación al usuario o ejecutan automáticamente una acción en respuesta. Debe identificar las diferentes condiciones de alerta para la aplicación e incluir reglas de alerta correspondientes en el archivo de solución.
+[Alertas de Log Analytics](../../azure-monitor/platform/alerts-overview.md) identifican los problemas a través de [búsquedas de registros](#log-searches) con los datos en el repositorio.  Estas alertas o bien envían una notificación al usuario o ejecutan automáticamente una acción en respuesta. Debe identificar las diferentes condiciones de alerta para la aplicación e incluir reglas de alerta correspondientes en el archivo de solución.
 
 Si el problema potencialmente puede corregirse con un proceso automatizado, entonces usted normalmente creará un runbook en Azure Automation para realizar esta corrección.  La mayoría de los servicios de Azure pueden administrarse con [cmdlets](/powershell/azure/overview) que el runbook aprovechará para realizar esta funcionalidad.
 
-Si la solución requiere una funcionalidad externa en respuesta a una alerta, puede usar una [respuesta webhook](../../monitoring-and-diagnostics/alert-metric.md).  Esto le permite llamar a un servicio web externo enviando información de la alerta.
+Si la solución requiere una funcionalidad externa en respuesta a una alerta, puede usar una [respuesta webhook](../../azure-monitor/platform/alerts-metric.md).  Esto le permite llamar a un servicio web externo enviando información de la alerta.
 
 ### <a name="views"></a>Vistas
 Las vistas de análisis de Log Analytics se usan para visualizar los datos del repositorio de Log Analytics.  Cada solución normalmente contendrá una sola vista con un [icono](../../azure-monitor/platform/view-designer-tiles.md) que se muestra en el panel principal del usuario.  La vista puede contener cualquier número de [elementos de visualización](../../azure-monitor/platform/view-designer-parts.md) para proporcionar al usuario diferentes visualizaciones de los datos recopilados.

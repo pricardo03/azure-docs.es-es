@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: d47109d541a3df93d9234e27e53d1538f6bc4c6e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
-ms.locfileid: "24879065"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969675"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiones disponibles para StorSimple
 
@@ -69,7 +69,7 @@ Los dispositivos físicos StorSimple 8100 o 8600 están disponibles en los país
 
 | #  | País        | #  | País     | #  | País      | #  | País              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australia      | 16 | Hong Kong   | 31 | Nueva Zelanda  | 46 | Sudáfrica         |
+| 1  | Australia      | 16 | RAE de Hong Kong   | 31 | Nueva Zelanda  | 46 | Sudáfrica         |
 | 2  | Austria        | 17 | Hungría     | 32 | Nigeria      | 47 | Corea del Sur          |
 | 3  | Bahréin        | 18 | Islandia     | 33 | Noruega       | 48 | España                |
 | 4  | Bélgica        | 19 | India       | 34 | Perú         | 49 | Sri Lanka            |
@@ -85,7 +85,7 @@ Los dispositivos físicos StorSimple 8100 o 8600 están disponibles en los país
 | 14 | Alemania        | 29 | México      | 44 | Eslovaquia     | 59 | Vietnam              |
 | 15 | Grecia         | 30 | Países Bajos | 45 | Eslovenia     | 60 | Croacia              |
 
-Esta lista puede variar a medida que se agreguen más países. Para obtener una lista más actualizada de las regiones geográficas, vaya al apéndice de términos de matriz de almacenamiento en los [Términos del producto](https://www.microsoft.com/en-us/Licensing/product-licensing).
+Esta lista puede variar a medida que se agreguen más países. Para obtener una lista más actualizada de las regiones geográficas, vaya al apéndice de términos de matriz de almacenamiento en los [Términos del producto](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 Microsoft puede enviar el hardware físico y proporcionar piezas de hardware de repuesto para StorSimple a las regiones geográficas de la lista anterior.
 

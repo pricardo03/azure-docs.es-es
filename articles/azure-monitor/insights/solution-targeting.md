@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e4e0ff288b9d5539a0110fb157e32b4f23d06bb6
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714744"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192760"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Selección de destino de las soluciones de administración en Azure (versión preliminar)
 Cuando se agrega una solución de administración a la suscripción, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica que permite aplicar un ámbito a sus soluciones.
@@ -29,7 +28,7 @@ Hay tres pasos para seleccionar un destino para una solución, tal como se descr
 
 
 ### <a name="1-create-a-computer-group"></a>1. Crear un grupo de equipos
-Especifique los equipos que se van a incluir en un ámbito mediante la creación de un [grupo de equipos](../../log-analytics/log-analytics-computer-groups.md) en Log Analytics.  El grupo de equipos puede basarse en una búsqueda de registros o importarse desde otros orígenes, como los grupos de Active Directory o WSUS. Como [se describe a continuación](#solutions-and-agents-that-cant-be-targeted), solo los equipos que están conectados directamente a Log Analytics se incluirán en el ámbito.
+Especifique los equipos que se van a incluir en un ámbito mediante la creación de un [grupo de equipos](../../azure-monitor/platform/computer-groups.md) en Log Analytics.  El grupo de equipos puede basarse en una búsqueda de registros o importarse desde otros orígenes, como los grupos de Active Directory o WSUS. Como [se describe a continuación](#solutions-and-agents-that-cant-be-targeted), solo los equipos que están conectados directamente a Log Analytics se incluirán en el ámbito.
 
 Una vez se haya creado el grupo de equipos en el área de trabajo, deberá incluirlo en una configuración de ámbito que se pueda aplicar a una o varias soluciones.
  
@@ -75,4 +74,4 @@ La selección de destino de solución no se puede utilizar con las soluciones si
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre las soluciones de administración, incluidas las soluciones que están disponibles para instalar en su entorno, en [Adición de soluciones de administración de Azure Log Analytics al área de trabajo](solutions.md).
-- Para obtener más información sobre la creación de grupos de equipos, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../../log-analytics/log-analytics-computer-groups.md).
+- Para obtener más información sobre la creación de grupos de equipos, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../../azure-monitor/platform/computer-groups.md).

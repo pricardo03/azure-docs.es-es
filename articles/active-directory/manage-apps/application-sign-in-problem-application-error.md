@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4cce49509a452153815c845d9ab72a1b4a8a5b7f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13a628d37ef67d0a1dc3ad8231229493191c4e7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355424"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849571"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Error en la página de aplicación después de iniciar sesión
 
@@ -30,7 +30,7 @@ Hay algunos posibles motivos de por qué la aplicación no aceptó la respuesta 
 
 -   Si la aplicación es la Galería de Azure AD, compruebe que ha seguido todos los pasos del artículo [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Utilice una herramienta como [Fiddler](http://www.telerik.com/fiddler) para capturar la solicitud SAML, la respuesta de SAML y el token de SAML.
+-   Utilice una herramienta como [Fiddler](https://www.telerik.com/fiddler) para capturar la solicitud SAML, la respuesta de SAML y el token de SAML.
 
 -   Comparta la respuesta de SAML con el proveedor de la aplicación para que sepan qué es lo que falta.
 
