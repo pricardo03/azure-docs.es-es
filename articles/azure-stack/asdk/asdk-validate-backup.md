@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 6fa3ba36dca45d5b99c6b5f2ba24367bcd077024
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 181f37fb72584e18cc963ba1ffde070379a1b0c6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030084"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961473"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Uso del ASDK para validar una copia de seguridad de Azure Stack
-Después de implementar Azure Stack y aprovisionar recursos de usuario, como ofertas, planes, cuotas y suscripciones, debe [habilitar la infraestructura de copia de seguridad de Azure Stack](..\azure-stack-backup-enable-backup-console.md). La programación y ejecución de copias de seguridad de infraestructura regulares asegurará que los datos de administración de infraestructura no se pierdan si se produce un error de servicio o de hardware muy grave.
+Después de implementar Azure Stack y aprovisionar recursos de usuario, como ofertas, planes, cuotas y suscripciones, debe [habilitar la infraestructura de copia de seguridad de Azure Stack](../azure-stack-backup-enable-backup-console.md). La programación y ejecución de copias de seguridad de infraestructura regulares asegurará que los datos de administración de infraestructura no se pierdan si se produce un error de servicio o de hardware muy grave.
 
 > [!TIP]
-> Se recomienda [ejecutar una copia de seguridad bajo petición](..\azure-stack-backup-back-up-azure-stack.md) antes de comenzar este procedimiento para asegurarse de que dispone de una copia de los datos de infraestructura más recientes. Asegúrese de que captura el identificador de copia de seguridad una vez finalizada correctamente la copia de seguridad. Este identificador será necesario durante la recuperación en la nube. 
+> Se recomienda [ejecutar una copia de seguridad bajo petición](../azure-stack-backup-back-up-azure-stack.md) antes de comenzar este procedimiento para asegurarse de que dispone de una copia de los datos de infraestructura más recientes. Asegúrese de que captura el identificador de copia de seguridad una vez finalizada correctamente la copia de seguridad. Este identificador será necesario durante la recuperación en la nube. 
 
 Las copias de seguridad de infraestructura de Azure Stack contienen datos importantes sobre la nube que se pueden restaurar durante la reimplementación de Azure Stack. El ASDK se puede usar para validar estas copias de seguridad sin afectar a la nube de producción. 
 

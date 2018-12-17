@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: ryanwi
-ms.openlocfilehash: e4c3bf627c4a5e01c4d9001fcbb0feed0b92209f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e41e5d48141b120ec1f80b0faa899bda07a2934e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008049"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962070"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir puertos para un clúster de Service Fabric
 
 El equilibrador de carga que se implementa con el clúster de Azure Service Fabric dirige el tráfico a la aplicación que se ejecuta en un nodo. Si cambia la aplicación para usar otro puerto, debe exponer ese puerto (o enrutar un puerto diferente) en Azure Load Balancer.
 
-Al implementar el clúster de Service Fabric en Azure, se crea automáticamente un equilibrador de carga. Si no tiene un equilibrador de carga, consulte [Creación de un equilibrador de carga orientado a Internet](..\load-balancer\load-balancer-get-started-internet-portal.md).
+Al implementar el clúster de Service Fabric en Azure, se crea automáticamente un equilibrador de carga. Si no tiene un equilibrador de carga, consulte [Creación de un equilibrador de carga orientado a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
 
 ## <a name="configure-service-fabric"></a>Configurar Service Fabric
 
@@ -33,7 +33,7 @@ El archivo de configuración **ServiceManifest.xml** de la aplicación de Servic
 
 ## <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
-Una regla de equilibrador de carga abre un puerto con conexión a Internet y reenvía el tráfico al puerto del nodo interno usado por la aplicación. Si no tiene un equilibrador de carga, consulte [Creación de un equilibrador de carga orientado a Internet](..\load-balancer\load-balancer-get-started-internet-portal.md).
+Una regla de equilibrador de carga abre un puerto con conexión a Internet y reenvía el tráfico al puerto del nodo interno usado por la aplicación. Si no tiene un equilibrador de carga, consulte [Creación de un equilibrador de carga orientado a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
 
 Para crear una regla de equilibrador de carga, debe recopilar la información siguiente:
 
@@ -58,7 +58,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 El comando de la CLI de Azure tiene unos parámetros que se describen en la tabla siguiente:
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | --------- | ----------- |
 | `--backend-port`  | El puerto en que escucha la aplicación de Service Fabric. |
 | `--frontend-port` | El puerto que expone el equilibrador de carga para las conexiones externas. |
@@ -68,7 +68,7 @@ El comando de la CLI de Azure tiene unos parámetros que se describen en la tabl
 
 
 >[!NOTE]
->Para obtener más información sobre cómo crear un equilibrador de carga con la CLI de Azure, consulte [Creación de un equilibrador de carga interno mediante la CLI de Azure](..\load-balancer\load-balancer-get-started-internet-arm-cli.md).
+>Para obtener más información sobre cómo crear un equilibrador de carga con la CLI de Azure, consulte [Creación de un equilibrador de carga interno mediante la CLI de Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -104,7 +104,7 @@ $lb | Set-AzureRmLoadBalancer
 Con respecto al comando `New-AzureRmLoadBalancerRuleConfig`, `-FrontendPort` representa el puerto que el equilibrador de carga expone para las conexiones externas, y `-BackendPort` representa el puerto en que está escuchando la aplicación de Service Fabric.
 
 >[!NOTE]
->Para obtener más información sobre cómo crear un equilibrador de carga con PowerShell, consulte [Creación de un equilibrador de carga orientado a Internet en Resource Manager mediante PowerShell](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
+>Para obtener más información sobre cómo crear un equilibrador de carga con PowerShell, consulte [Creación de un equilibrador de carga orientado a Internet en Resource Manager mediante PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

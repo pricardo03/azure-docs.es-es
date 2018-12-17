@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3e8230ea7b2d6d0e44468bd90289ee82d5a82367
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714752"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337077"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación
 Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en el entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para VM: directamente desde la máquina virtual o a través de los grupos de máquinas virtuales en Azure Monitor. 
@@ -52,7 +51,7 @@ Para que la característica de asignación muestre las alertas pertinentes, cree
 - Incluya una cláusula para agrupar por equipo (por ejemplo, **by Computer interval 1 minute**).
 - Elija que se envíen alertas según las unidades métricas.
 
-Para obtener más información sobre Alertas de Azure y crear reglas de alertas, consulte el artículo [Alertas unificadas en Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+Para obtener más información sobre Alertas de Azure y crear reglas de alertas, consulte el artículo [Alertas unificadas en Azure Monitor](../../azure-monitor/platform/alerts-overview.md)
 
 El opción de **leyenda** en la esquina superior derecha describe los símbolos y los roles en una asignación.  Para observar más de cerca la asignación y explorarla, los controles de zoom en la parte inferior derecha de la página determinan el nivel de zoom y ajustan el tamaño de la página al tamaño de la página actual.  
 
@@ -107,7 +106,7 @@ Desde Azure Monitor, la característica de asignación proporciona una visión g
 
 ![Visión general de una asignación de varias máquinas virtuales en Azure Monitor](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Desde el selector de **áreas de trabajo** en la parte superior de la página, si tiene más de un área de trabajo de Log Analytics, elija el área de trabajo que esté habilitada con la solución y tenga máquinas virtuales que dependan de ella. El selector de **grupos** devolverá las suscripciones, los grupos de recursos, los [grupos de equipos](../../log-analytics/log-analytics-computer-groups.md) y los conjuntos de escalado de máquinas virtuales de los equipos relacionados con el área de trabajo seleccionada. La selección solo se aplica a la característica de asignación y no se aplica a las secciones de rendimiento o asignación.
+Desde el selector de **áreas de trabajo** en la parte superior de la página, si tiene más de un área de trabajo de Log Analytics, elija el área de trabajo que esté habilitada con la solución y tenga máquinas virtuales que dependan de ella. El selector de **grupos** devolverá las suscripciones, los grupos de recursos, los [grupos de equipos](../../azure-monitor/platform/computer-groups.md) y los conjuntos de escalado de máquinas virtuales de los equipos relacionados con el área de trabajo seleccionada. La selección solo se aplica a la característica de asignación y no se aplica a las secciones de rendimiento o asignación.
 
 De forma predeterminada, la asignación muestra los últimos 30 minutos. Mediante el selector **Intervalo de tiempo**, se pueden consultar intervalos de tiempo históricos de hasta una hora para mostrar el aspecto de las dependencias en el pasado (por ejemplo, durante un incidente o antes de un cambio).   
 

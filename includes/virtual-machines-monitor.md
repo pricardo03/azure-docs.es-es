@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 109f4621af3e3ca617dfe521575d9352f22c5917
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227509"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399990"
 ---
-Puede sacar provecho de numerosas oportunidades para supervisar las máquinas virtuales recopilando, viendo y analizando datos de registro y de diagnóstico. Para llevar a cabo una [supervisión](../articles/azure-monitor/overview.md) sencilla de una máquina virtual, puede usar la pantalla Información general correspondiente en Azure Portal. Puede usar [extensiones](../articles/virtual-machines/windows/extensions-features.md) a fin de configurar los diagnósticos en las máquinas virtuales para recopilar datos de métricas adicionales. También puede usar opciones de supervisión más avanzadas, como [Application Insights](../articles/application-insights/app-insights-overview.md) y [Log Analytics](../articles/log-analytics/log-analytics-queries.md).
+Puede sacar provecho de numerosas oportunidades para supervisar las máquinas virtuales recopilando, viendo y analizando datos de registro y de diagnóstico. Para llevar a cabo una [supervisión](../articles/azure-monitor/overview.md) sencilla de una máquina virtual, puede usar la pantalla Información general correspondiente en Azure Portal. Puede usar [extensiones](../articles/virtual-machines/windows/extensions-features.md) a fin de configurar los diagnósticos en las máquinas virtuales para recopilar datos de métricas adicionales. También puede usar opciones de supervisión más avanzadas, como [Application Insights](../articles/application-insights/app-insights-overview.md) y [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="diagnostics-and-metrics"></a>Diagnósticos y métricas 
 
@@ -31,7 +31,7 @@ Puede configurar y supervisar la recopilación de [datos de diagnóstico](https:
 
 ## <a name="alerts"></a>Alertas
 
-Puede crear [alertas](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) basadas en métricas de rendimiento concretas. Algunos problemas de los que se puede alertar son, por ejemplo, cuando el uso promedio de la CPU supera un umbral concreto o cuando el espacio libre en disco disponible cae por debajo de una cantidad determinada. Es posible configurar alertas en [Azure Portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), con [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) o la [CLI de Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+Puede crear [alertas](../articles/azure-monitor/platform/alerts-overview.md) basadas en métricas de rendimiento concretas. Algunos problemas de los que se puede alertar son, por ejemplo, cuando el uso promedio de la CPU supera un umbral concreto o cuando el espacio libre en disco disponible cae por debajo de una cantidad determinada. Es posible configurar alertas en [Azure Portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), con [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) o la [CLI de Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 
@@ -50,7 +50,7 @@ Estas son algunas de las tareas que puede hacer con el registro de actividad:
 - Crear una [alerta basada en un evento de Activity Log](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 - [Transmitirlo a un centro de eventos ](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) para ingestión en un servicio de terceros o una solución de análisis personalizada como PowerBI.
 - Analizarlo en PowerBI con el [paquete de contenido de PowerBI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Guardarlo en una cuenta de almacenamiento](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md)para archivarlo o inspeccionarlo manualmente. Puede especificar el tiempo de retención (en días) mediante el perfil de registro.
+- [Guardarlo en una cuenta de almacenamiento](../articles/azure-monitor/platform/archive-activity-log.md)para archivarlo o inspeccionarlo manualmente. Puede especificar el tiempo de retención (en días) mediante el perfil de registro.
 
 También puede tener acceso a datos de registro de actividad mediante [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), la [CLI de Azure](https://docs.microsoft.com/cli/azure/monitor) o las [API de REST de Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
@@ -58,7 +58,7 @@ También puede tener acceso a datos de registro de actividad mediante [Azure Pow
 
 Estas son algunas de las cosas que puede hacer con los registros de diagnóstico:
 
-- [Guardarlos en una cuenta de almacenamiento](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) para auditarlos o para inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante Configuración de diagnóstico de recursos.
+- [Guardarlos en una cuenta de almacenamiento](../articles/azure-monitor/platform/archive-diagnostic-logs.md) para auditarlos o para inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante Configuración de diagnóstico de recursos.
 - [Transmitirlos a Event Hubs](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
 - Analizarlos con [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 

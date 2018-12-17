@@ -10,17 +10,15 @@ ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 7902a4fb747a53b26b6f100291c77e6fec4c8d05
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 41508a1d99ed243d377cc72c0accc005c5ca737d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633442"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189207"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Con la solución Capacidad y rendimiento (versión preliminar) puede planear la capacidad de máquinas virtuales de Hyper-V.
 
@@ -51,9 +49,9 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | Origen conectado | Soporte técnico | DESCRIPCIÓN |
 |---|---|---|
 | [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | SÍ | La solución recopila información de datos de rendimiento y capacidad de los agentes de Windows. |
-| [Agentes de Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Sin     | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
-| [Grupo de administración de SCOM](../../log-analytics/log-analytics-om-agents.md) | SÍ |La solución recopila datos de rendimiento y capacidad de los agentes de un grupo de administración de SCOM conectado. No se requiere una conexión directa entre el agente de SCOM y Log Analytics.|
-| [Cuenta de Almacenamiento de Azure](../../log-analytics/log-analytics-azure-storage.md) | Sin  | Azure Storage no incluye datos de capacidad y rendimiento.|
+| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin     | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
+| [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | SÍ |La solución recopila datos de rendimiento y capacidad de los agentes de un grupo de administración de SCOM conectado. No se requiere una conexión directa entre el agente de SCOM y Log Analytics.|
+| [Cuenta de Almacenamiento de Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Sin  | Azure Storage no incluye datos de capacidad y rendimiento.|
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -81,7 +79,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 Cuando se actualice la solución Capacidad y rendimiento, el número de versión cambiará.
 
-Para obtener más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Para obtener más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="using-the-solution"></a>Uso de la solución
 
@@ -138,4 +136,4 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo en los 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use [Búsqueda de datos mediante búsquedas de registros](../../log-analytics/log-analytics-queries.md) para ver datos detallados de Capacidad y rendimiento.
+* Use [Búsqueda de datos mediante búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados de Capacidad y rendimiento.

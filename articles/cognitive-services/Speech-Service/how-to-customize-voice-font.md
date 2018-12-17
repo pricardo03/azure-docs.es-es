@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467725"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867587"
 ---
 # <a name="creating-custom-voice-fonts"></a>Crear fuentes de voz personalizada
 
@@ -87,7 +87,7 @@ Por ejemplo:
 El sistema de voz personalizado normaliza las transcripciones convirtiendo el texto a minúsculas y eliminando los signos de puntuación extraños. Es importante que las transcripciones tengan una precisión del 100 % respecto a las grabaciones de audio correspondientes.
 
 > [!TIP]
-> Al compilar voces de producción de Text to Speech, seleccione expresiones (o scripts de escritura) que tengan en cuenta tanto la cobertura fonética como la eficiencia. ¿Tiene problemas para obtener los resultados que desea? [Póngase en contacto con el equipo de voz personalizada](mailto:tts@microsoft.com) para averiguar más sobre nuestro asesoramiento.
+> Al compilar voces de producción de Text to Speech, seleccione expresiones (o scripts de escritura) que tengan en cuenta tanto la cobertura fonética como la eficiencia. ¿Tiene problemas para obtener los resultados que desea? [Póngase en contacto con el equipo de voz personalizada](mailto:speechsupport@microsoft.com) para averiguar más sobre nuestro asesoramiento.
 
 ## <a name="upload-your-datasets"></a>Cargar los conjuntos de datos
 

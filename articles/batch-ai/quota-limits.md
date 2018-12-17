@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cade124cefbd4e2e63ab4cb6fa4f22b3bd672ad0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 16032ec5ba1e613462f92b86281ce93153b70923
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391817"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409724"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con el servicio Batch AI. En Batch AI, estos límites son cuotas predeterminadas que se aplica en el nivel de suscripción para cada región donde el servicio esté [disponible](https://azure.microsoft.com/global-infrastructure/services/). En este artículo se describen esos valores predeterminados y cómo solicitar un aumento de la cuota.
 
@@ -66,7 +69,7 @@ Siga estos pasos para solicitar un aumento de la cuota para la suscripción de B
 2. Haga clic en **Nueva solicitud de soporte técnico** en el menú de Batch AI.
 3. En **Aspectos básicos**:
    
-    a. **Tipo de problema** > **Cuota**
+     a. **Tipo de problema** > **Cuota**
    
     b. **Suscripción** > seleccione la suscripción.
    
@@ -77,7 +80,7 @@ Siga estos pasos para solicitar un aumento de la cuota para la suscripción de B
     Haga clic en **Next**.
 4. En **Problema**:
    
-    a. Seleccione una de las opciones en **Gravedad** según su [impacto en el negocio][support_sev].
+     a. Seleccione una de las opciones en **Gravedad** según su [impacto en el negocio][support_sev].
    
     b. En **Detalles de la cuota**, especifique la ubicación, el tipo de cuota y el tipo de recurso. Especifique el límite nuevo que quiere solicitar. Haga clic en **Guardar y continuar**.
 
@@ -86,7 +89,7 @@ Siga estos pasos para solicitar un aumento de la cuota para la suscripción de B
     Haga clic en **Next**.
 5. En **Información de contacto**:
    
-    a. Seleccione un valor en **Método de contacto preferido**.
+     a. Seleccione un valor en **Método de contacto preferido**.
    
     b. Compruebe y especifique los detalles de contacto necesarios.
    

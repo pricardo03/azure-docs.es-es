@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c16d85479399d7988be18f9b852563617bb824b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e1b4681bc8e42294be6b47a04a24e28f81703e6f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632662"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436864"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Desarrollo de programas MapReduce de Java para Apache Hadoop en HDInsight
 
@@ -25,12 +25,12 @@ Aprenda a usar Apache Maven para crear una aplicación MapReduce basada en Java 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 o posterior (o un equivalente como OpenJDK).
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 o posterior (o un equivalente como OpenJDK).
     
     > [!NOTE]
     > Las versiones de HDInsight 3.4 y anteriores usan Java 7. HDInsight 3.5 y versiones posteriores usa Java 8.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 ## <a name="configure-development-environment"></a>Configuración del entorno de desarrollo
 
@@ -63,7 +63,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 
     Esta acción creará un directorio en el directorio actual, con el nombre especificado por el parámetro `artifactID` (**hbaseapp** en este ejemplo). Este directorio raíz contiene los siguientes elementos:
 
-   * `pom.xml`: el [modelo de objetos de proyectos (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) que contiene la información y los detalles de configuración para compilar el proyecto.
+   * `pom.xml`: el [modelo de objetos de proyectos (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) que contiene la información y los detalles de configuración para compilar el proyecto.
 
    * `src`: el directorio que contiene la aplicación.
 
@@ -94,7 +94,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
     </dependency>
    ```
 
-    Esto define las bibliotecas requeridas (enumeradas en &lt;artifactId\>) de una versión específica (enumerada en &lt;version\>). En tiempo de compilación, estas dependencias se descargan del repositorio de Maven predeterminado. Puede usar la [búsqueda del repositorio de Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) para ver más información.
+    Esto define las bibliotecas requeridas (enumeradas en &lt;artifactId\>) de una versión específica (enumerada en &lt;version\>). En tiempo de compilación, estas dependencias se descargan del repositorio de Maven predeterminado. Puede usar la [búsqueda del repositorio de Maven](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) para ver más información.
    
     `<scope>provided</scope>` indica a Maven que no hace falta que empaquete esas dependencias con la aplicación, puesto que las proporciona el clúster de HDInsight en tiempo de ejecución.
 
@@ -138,7 +138,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
     </build>
    ```
 
-    El primer complemento configura el [complemento Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/)que se usará para compilar un uberjar (en ocasiones denominado fatjar), que contiene todas las dependencias que necesita la aplicación. Asimismo, se evita que se dupliquen licencias en el paquete JAR, lo que suele causar problemas en algunos sistemas.
+    El primer complemento configura el [complemento Maven Shade](https://maven.apache.org/plugins/maven-shade-plugin/)que se usará para compilar un uberjar (en ocasiones denominado fatjar), que contiene todas las dependencias que necesita la aplicación. Asimismo, se evita que se dupliquen licencias en el paquete JAR, lo que suele causar problemas en algunos sistemas.
 
     El segundo complemento configura la versión de Java de destino.
 
@@ -285,15 +285,15 @@ Este comando copia los archivos del sistema local al nodo principal. Para más i
 
 Gracias a este documento, ha aprendido a desarrollar un trabajo MapReduce de Java. Consulte los siguientes documentos para obtener información acerca de otras formas de trabajar con HDInsight.
 
-* [Uso de Hive con HDInsight](hdinsight-use-hive.md)
-* [Uso de Pig con HDInsight](hdinsight-use-pig.md)
+* [Uso de Apache Hive con HDInsight](hdinsight-use-hive.md)
+* [Uso de Apache Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
 Para más información, consulte también el [Centro de desarrolladores de Java](https://azure.microsoft.com/develop/java/).
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]:hdinsight-use-sqoop.md
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -303,5 +303,5 @@ Para más información, consulte también el [Centro de desarrolladores de Java]
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-power-query]:apache-hadoop-connect-excel-power-query.md
 
-[powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+[powershell-PSCredential]: https://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 

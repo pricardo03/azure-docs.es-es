@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635159"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877588"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 Use el modelo de datos de Log Analytics para crear informes. Con el modelo de datos, puede crear consultas y paneles personalizados o puede personalizar los datos Azure Backup, como lo prefiera.
@@ -30,7 +30,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con la alerta.
 | AlertUniqueId_s |Texto |Identificador único de la alerta generada |
 | AlertType_s |Texto |Tipo de alerta, por ejemplo, Copia de seguridad |
 | AlertStatus_s |Texto |Estado de la alerta, por ejemplo, Activa |
-| AlertOccurenceDateTime_s |Fecha y hora |Fecha y hora en que se creó la alerta |
+| AlertOccurrenceDateTime_s |Fecha y hora |Fecha y hora en que se creó la alerta |
 | AlertSeverity_s |Texto |Gravedad de la alerta, por ejemplo, Crítica |
 | EventName_s |Texto |Nombre del evento. Siempre AzureBackupCentralReport |
 | BackupItemUniqueId_s |Texto |Identificador único del elemento de copia de seguridad asociado con la alerta |

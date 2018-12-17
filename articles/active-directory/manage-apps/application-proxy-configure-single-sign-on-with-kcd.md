@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: dbb7fca08e8d5c59842f7ddfb02b463a42efadb7
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 565e7379ad12222e459bd61ed50fa38f9f9b12fc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422294"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136253"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación
 
@@ -75,7 +75,7 @@ La configuración de Active Directory varía, en función de si el conector de P
 Sharepointserviceaccount puede ser la cuenta del equipo SPS o una cuenta de servicio con la que se ejecuta el grupo de aplicaciones SPS.
 
 ## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único 
-1. Publique la aplicación según las instrucciones de [Publicar aplicaciones con el proxy de aplicación](application-proxy-publish-azure-portal.md). Asegúrese de seleccionar **Azure Active Directory** como **Método de autenticación previa**.
+1. Publique la aplicación según las instrucciones de [Publicar aplicaciones con el proxy de aplicación](application-proxy-add-on-premises-application.md). Asegúrese de seleccionar **Azure Active Directory** como **Método de autenticación previa**.
 2. Cuando la aplicación aparezca en la lista de aplicaciones empresariales, selecciónela y haga clic en **Inicio de sesión único**.
 3. Establezca el modo de inicio de sesión único en **Autenticación integrada de Windows**.  
 4. Escriba el **SPN de la aplicación interno** del servidor de aplicaciones. En este ejemplo, el SPN para nuestra aplicación publicada es http/www.contoso.com. Este SPN debe estar en la lista de servicios a los que el conector puede presentar credenciales delegadas. 

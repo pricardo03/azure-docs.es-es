@@ -1,19 +1,19 @@
 ---
 title: Creación y administración de reglas de evento en una aplicación de Azure IoT Central | Microsoft Docs
 description: Las reglas de eventos de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
-author: ankitgupta
+author: ankitscribbles
 ms.author: ankitgup
 ms.date: 08/14/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 889f3928ee72c035035abb635eb71ec0b06a3b45
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: af85ff8272853be82bae5c79622295fddfc60ade
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730167"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337281"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de evento y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -36,7 +36,7 @@ Para crear una regla de evento, la plantilla de dispositivos debe tener definida
 
 1. Si aún no ha creado ninguna regla, consulte la siguiente pantalla:
 
-    ![No hay ninguna regla todavía](media\howto-create-event-rules\Rules_Landing_Page.png)
+    ![No hay ninguna regla todavía](media/howto-create-event-rules/Rules_Landing_Page.png)
 
 
 1. En la pestaña **Reglas**, haga clic en **Editar plantilla** y, a continuación, en **+ Nueva regla** para ver los tipos de reglas que puede crear.
@@ -44,14 +44,14 @@ Para crear una regla de evento, la plantilla de dispositivos debe tener definida
 
 1. Haga clic en el icono **Evento** para crear una regla de supervisión de eventos.
 
-    ![Tipos de regla](media\howto-create-event-rules\Rule_Types.png)
+    ![Tipos de regla](media/howto-create-event-rules/Rule_Types.png)
 
     
 1. Escriba un nombre que le ayude a identificar la regla en esta plantilla de dispositivos.
 
 1. Para habilitar inmediatamente la regla para todos los dispositivos creados a partir esta plantilla, cambie el valor de **Enable rule for all devices of this template** (Habilitar regla para todos los dispositivos de esta plantilla).
 
-    ![Detalle de la regla](media\howto-create-event-rules\Rule_Detail.png)
+    ![Detalle de la regla](media/howto-create-event-rules/Rule_Detail.png)
 
     La regla se aplica automáticamente a todos los dispositivos de la plantilla de dispositivos.
 
@@ -63,7 +63,7 @@ La condición define los criterios que la regla supervisa.
 
 1. Elija el evento que desee supervisar de la lista desplegable Medida. En este ejemplo, se ha seleccionado el evento **Fan Motor Error** (Error del motor del ventilador).
 
-   ![Condición](media\howto-create-event-rules\Condition_Filled_Out.png) 
+   ![Condición](media/howto-create-event-rules/Condition_Filled_Out.png) 
 
 
 1. Si lo desea, también puede establecer **Recuento** como **Agregación** y proporcionar el umbral correspondiente.
@@ -73,7 +73,7 @@ La condición define los criterios que la regla supervisa.
  
     Por ejemplo, si desea que se envíe una alerta cuando se produzcan más de tres eventos de dispositivo en cinco minutos, seleccione el evento y establezca la función de agregado como "count", el operador como "greater than" y "threshold" como 3. Establezca "Aggregation time period" (Tiempo de agregación) como "5 minutos". La regla se desencadena cuando el dispositivo envía más de tres eventos en 5 minutos. La frecuencia de evaluación de la regla es la misma que la **ventana de tiempo agregado**, lo que significa que, en este ejemplo, la regla se evalúa una vez cada 5 minutos. 
 
-    ![Adición de condición de evento](media\howto-create-event-rules\Aggregate_Condition_Filled_Out.png)
+    ![Adición de condición de evento](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE] 
     >En **Condición** se puede agregar más de una medida del evento. Cuando se especifican varias condiciones, deben cumplirse todas ellas para que la regla se desencadene. Cada condición se une mediante una cláusula "AND" de manera implícita. Al usar el agregado, se debe agregar cada medida.
@@ -84,14 +84,14 @@ En esta sección se muestra cómo configurar las acciones que se realizarán cua
 
 1. Seleccione **+** junto a **Acciones**. Aquí puede ver la lista de acciones disponibles. 
 
-    ![Adición de acción](media\howto-create-event-rules\Add_Action.png)
+    ![Adición de acción](media/howto-create-event-rules/Add_Action.png)
 
 1. Elija la acción **Correo electrónico**, escriba una dirección de correo electrónico válida en el campo **Para** y proporcione una nota que aparecerá en el cuerpo del correo electrónico cuando la regla se desencadene.
 
     > [!NOTE]
     > Solo se envían mensajes de correo electrónico a los usuarios que se han agregado a la aplicación y han iniciado sesión al menos una vez. Obtenga más información sobre la [administración de usuarios](howto-administer.md) en Azure IoT Central.
 
-   ![Configuración de acción](media\howto-create-event-rules\Configure_Action.png)
+   ![Configuración de acción](media/howto-create-event-rules/Configure_Action.png)
 
 1. Para guardar la regla, elija **Guardar**. La regla está activa en unos minutos e inicia la supervisión de los eventos que se envían a la aplicación. Si coincide con la condición especificada en la regla, la regla desencadena la acción de correo electrónico configurada.
 

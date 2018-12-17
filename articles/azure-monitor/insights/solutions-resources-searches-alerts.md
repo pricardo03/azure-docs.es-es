@@ -7,19 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c496bd6f7ccec4cc08ca5eead02cb06ff3efde09
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 6f16325183f0a13382dd4533fd867a518f1750c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714804"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344302"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
@@ -27,7 +26,7 @@ ms.locfileid: "51714804"
 > Esta es la documentación preliminar para crear soluciones de administración que se encuentran actualmente en versión preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.   
 
 
-Las [soluciones de administración](solutions.md) suelen incluir [búsquedas guardadas](../../log-analytics/log-analytics-queries.md) en Log Analytics para analizar los datos recopilados por la solución.  Pueden definir asimismo [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico.  En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una [plantilla de Resource Management](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que puedan incluirse en [soluciones de administración](solutions-creating.md).
+Las [soluciones de administración](solutions.md) suelen incluir [búsquedas guardadas](../../azure-monitor/log-query/log-query-overview.md) en Log Analytics para analizar los datos recopilados por la solución.  Pueden definir asimismo [alertas](../../azure-monitor/platform/alerts-overview.md) para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico.  En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una [plantilla de Resource Management](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que puedan incluirse en [soluciones de administración](solutions-creating.md).
 
 > [!NOTE]
 > En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración, y se describen en [Diseño y compilación de una solución de administración en Azure](solutions-creating.md).  
@@ -37,7 +36,7 @@ En este artículo se supone que ya está familiarizado con la manera de [crear u
 
 
 ## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
-Todos los recursos de Log Analytics están contenidos en un [área de trabajo](../../log-analytics/log-analytics-manage-access.md).  Como se describe en [el área de trabajo de Log Analytics y la cuenta de Automation](solutions.md#log-analytics-workspace-and-automation-account), el área de trabajo no está incluida en la solución de administración, pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
+Todos los recursos de Log Analytics están contenidos en un [área de trabajo](../../azure-monitor/platform/manage-access.md).  Como se describe en [el área de trabajo de Log Analytics y la cuenta de Automation](solutions.md#log-analytics-workspace-and-automation-account), el área de trabajo no está incluida en la solución de administración, pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
 
 El nombre del área de trabajo es el nombre de cada recurso de Log Analytics.  Esto se hace en la solución con el parámetro **workspace** tal como se muestra en el siguiente ejemplo de un recurso de SavedSearch.
 
@@ -54,9 +53,9 @@ En la tabla siguiente se muestra la versión de API del recurso usado en este ej
 
 
 ## <a name="saved-searches"></a>Búsquedas guardadas
-Incluya [búsquedas guardadas](../../log-analytics/log-analytics-queries.md) en una solución para permitir a los usuarios consultar los datos recopilados por la solución.  Las búsquedas guardadas aparecerán en **Búsquedas guardadas** en Azure Portal.  También es necesaria una búsqueda guardada para cada alerta.   
+Incluya [búsquedas guardadas](../../azure-monitor/log-query/log-query-overview.md) en una solución para permitir a los usuarios consultar los datos recopilados por la solución.  Las búsquedas guardadas aparecerán en **Búsquedas guardadas** en Azure Portal.  También es necesaria una búsqueda guardada para cada alerta.   
 
-Los recursos de [búsquedas guardadas de Log Analytics](../../log-analytics/log-analytics-queries.md) tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` y presentan la siguiente estructura.  Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro. 
+Los recursos de [búsquedas guardadas de Log Analytics](../../azure-monitor/log-query/log-query-overview.md) tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` y presentan la siguiente estructura.  Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
@@ -87,16 +86,16 @@ En la tabla siguiente se describe cada propiedad de una búsqueda guardada.
 > Puede que necesite utilizar caracteres de escape en la consulta si incluye caracteres que puedan interpretarse como JSON.  Por ejemplo, si la consulta era **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, en el archivo de solución debe escribirse como **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Alertas
-Las [alertas de registro de Azure](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md) se crean mediante reglas de alerta de Azure que ejecutan consultas de registro especificadas a intervalos regulares.  Si los resultados de la consulta coinciden con los criterios especificados, se crea un registro de alertas y se ejecutan una o varias acciones mediante [grupos de acciones](../../monitoring-and-diagnostics/monitoring-action-groups.md).  
+Las [alertas de registro de Azure](../../azure-monitor/platform/alerts-unified-log.md) se crean mediante reglas de alerta de Azure que ejecutan consultas de registro especificadas a intervalos regulares.  Si los resultados de la consulta coinciden con los criterios especificados, se crea un registro de alertas y se ejecutan una o varias acciones mediante [grupos de acciones](../../azure-monitor/platform/action-groups.md).  
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics comienzan a extenderse a Azure. Para más información, vea [Extend Alerts into Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Extender alertas a Azure). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics comienzan a extenderse a Azure. Para más información, vea [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md) (Extender alertas a Azure). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 Las reglas de alerta en una solución de administración se componen de los tres siguientes recursos.
 
 - **Búsqueda guardada.**  Define la búsqueda de registros que se ejecuta.  Varias reglas de alerta pueden compartir una única búsqueda guardada.
 - **Programación.**  Define la frecuencia con la que se ejecuta la búsqueda de registros.  Cada regla de alerta tiene una única programación.
-- **Acción de alerta.**  Cada regla de alerta tiene un único recurso de grupo de acción con un tipo de **alerta** que define los detalles de la alerta, como los criterios de cuándo se crea un registro de alertas y la gravedad de la alerta. El recurso del [grupo de acción](../../monitoring-and-diagnostics/monitoring-action-groups.md) puede tener una lista de acciones configuradas que se deben realizar cuando se desencadena la alerta, como llamadas de voz, SMS, correo electrónico, webhook, herramienta ITSM, runbook de automatización, aplicación lógica, etc.
+- **Acción de alerta.**  Cada regla de alerta tiene un único recurso de grupo de acción con un tipo de **alerta** que define los detalles de la alerta, como los criterios de cuándo se crea un registro de alertas y la gravedad de la alerta. El recurso del [grupo de acción](../../azure-monitor/platform/action-groups.md) puede tener una lista de acciones configuradas que se deben realizar cuando se desencadena la alerta, como llamadas de voz, SMS, correo electrónico, webhook, herramienta ITSM, runbook de automatización, aplicación lógica, etc.
  
 El recurso de acción (heredada) definirá, opcionalmente, una respuesta de correo electrónico y de runbook.
 - **Acción de webhook (heredada)**  Si la regla de alerta llama a un webhook, se requiere un recurso de acción adicional con un tipo de **webhook**.    
@@ -146,7 +145,7 @@ Una programación puede tener varias acciones. Una acción puede definir uno o v
 Las acciones pueden definirse mediante el recurso [grupo de acciones] o un recurso de acción.
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics comienzan a extenderse automáticamente a Azure. Para más información, vea [Extend Alerts into Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Extender alertas a Azure). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics comienzan a extenderse automáticamente a Azure. Para más información, vea [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md) (Extender alertas a Azure). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 
 Hay dos tipos de recursos de acción especificados por la propiedad **Type**.  Una programación requiere una acción **Alert** que define los detalles de la regla de alerta y las acciones que se realizan cuando se crea una alerta. Los recursos de acción tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -228,7 +227,7 @@ Esta sección es opcional.  Incluya esta sección si desea suprimir alertas en l
 #### <a name="azure-action-group"></a>Grupo de acciones de Azure
 Todas las alertas de Azure usan el grupo de acciones como el mecanismo predeterminado para controlar las acciones. Con el grupo de acciones, puede especificar las acciones una vez y, luego, asociar el grupo de acciones a varias alertas en todo Azure, sin la necesidad de declarar repetidamente una y otra vez las mismas acciones. Los grupos de acciones admiten varias acciones, incluido el correo electrónico, SMS, llamadas de voz, conexión ITSM, runbook de Automation, URI de webhook, etc. 
 
-Para los usuarios que han extendido sus alertas a Azure, ahora una programación tendrá los detalles del grupo de acciones junto con el umbral, para así poder crear una alerta. Antes de crear una alerta, es necesario definir los detalles de correo electrónico, las direcciones URL de webhooks, los detalles de automatización de runbooks y otras acciones dentro de un grupo de acciones. Es posible crear un [grupo de acciones desde Azure Monitor](../../monitoring-and-diagnostics/monitoring-action-groups.md) en el portal o usar el [grupo de acciones: plantilla de recursos](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+Para los usuarios que han extendido sus alertas a Azure, ahora una programación tendrá los detalles del grupo de acciones junto con el umbral, para así poder crear una alerta. Antes de crear una alerta, es necesario definir los detalles de correo electrónico, las direcciones URL de webhooks, los detalles de automatización de runbooks y otras acciones dentro de un grupo de acciones. Es posible crear un [grupo de acciones desde Azure Monitor](../../azure-monitor/platform/action-groups.md) en el portal o usar el [grupo de acciones: plantilla de recursos](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
@@ -242,7 +241,7 @@ Para los usuarios que han extendido sus alertas a Azure, ahora una programación
 Cada programación tiene una acción **Alert**.  Esto define los detalles de la alerta y, opcionalmente, las acciones de notificación y corrección.  Una notificación envía un mensaje de correo electrónico a una o varias direcciones.  Una corrección inicia un runbook en Azure Automation para intentar corregir el problema detectado.
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics comienzan a extenderse automáticamente a Azure. Para más información, vea [Extend Alerts into Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Extender alertas a Azure). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics comienzan a extenderse automáticamente a Azure. Para más información, vea [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md) (Extender alertas a Azure). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Esta sección es opcional. Inclúyala si desea que la alerta envíe un mensaje de correo electrónico a uno o varios destinatarios.

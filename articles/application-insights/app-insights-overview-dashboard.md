@@ -9,16 +9,15 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: cd8bcc9345ec73f95e8e742446522ec41c1f0f65
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344637"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956963"
 ---
 # <a name="application-insights-overview-dashboard"></a>Panel de información general de Application Insights
 
@@ -28,17 +27,17 @@ Application Insights siempre ha proporcionado un panel de información general d
 
 Ahora, el nuevo panel de información general se inicia de forma predeterminada:
 
-![Panel de información general (versión preliminar)](.\media\app-insights-overview-dashboard\overview.png)
+![Panel de información general (versión preliminar)](./media/app-insights-overview-dashboard/overview.png)
 
 ## <a name="better-performance"></a>Mejor rendimiento
 
 Se ha simplificado la selección de intervalo de tiempo a favor de una interfaz más sencilla con un solo clic.
 
-![Intervalo de tiempo](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
+![Intervalo de tiempo](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-03.png)
 
 El rendimiento en general ha aumentado enormemente. Se tiene acceso con un solo clic a funciones populares como **Buscar** y **Análisis**. Cada mosaico de KPI de actualización dinámica predeterminado proporciona información de las funciones correspondientes de Application Insights. Para obtener más información acerca de las solicitudes erróneas, seleccione **Errores** en el encabezado **Investigar**:
 
-![Errores](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
+![Errores](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Panel de la aplicación
 
@@ -46,11 +45,11 @@ El panel de la aplicación aprovecha la tecnología de paneles existente en Azur
 
 Para acceder al panel predeterminado, seleccione _Panel de la aplicación_ en la esquina superior izquierda.
 
-![Vista de panel](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
+![Vista de panel](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Si esta es la primera vez que accede al panel, se iniciará una vista predeterminada:
 
-![Vista de panel](.\media\app-insights-overview-dashboard\0001-dashboard.png)
+![Vista de panel](./media/app-insights-overview-dashboard/0001-dashboard.png)
 
 Puede conservar la vista predeterminada si así lo desea. Aunque también puede agregar o eliminar elementos del panel para adaptarlo mejor a las necesidades de su equipo.
 
@@ -59,7 +58,7 @@ Puede conservar la vista predeterminada si así lo desea. Aunque también puede 
 
 Para volver a la experiencia de información general, simplemente seleccione:
 
-![Botón Información general](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+![Botón Información general](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-07.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

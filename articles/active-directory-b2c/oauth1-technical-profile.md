@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 10c90b060c184bb911ac149640e8a9570b59e2fb
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 15c6730d752adf48cee2ff509220a033cac91ef2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382819"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842125"
 ---
 # <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OAuth1 en una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedor de identidades del protocolo [OAuth 1.0](http://tools.ietf.org/html/rfc5849). En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado. Con el perfil técnico de OAuth1 puede federarse con un proveedor de identidades basado en OAuth1, como Twitter, para que los usuarios puedan iniciar sesión con sus identidades sociales o empresariales existentes.
+Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedor de identidades del protocolo [OAuth 1.0](https://tools.ietf.org/html/rfc5849). En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado. Con el perfil técnico de OAuth1 puede federarse con un proveedor de identidades basado en OAuth1, como Twitter, para que los usuarios puedan iniciar sesión con sus identidades sociales o empresariales existentes.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -69,8 +69,8 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| client_id | SÍ | El identificador de aplicación del proveedor de identidades. |
-| ProviderName | Sin  | El nombre del proveedor de identidades. |
+| client_id | SÍ | El identificador de la aplicación del proveedor de identidades. |
+| ProviderName | Sin  | Nombre del proveedor de identidades. |
 | request_token_endpoint | SÍ | La dirección URL del punto de conexión del token de solicitud de acuerdo con RFC 5849. |
 | authorization_endpoint | SÍ | La dirección URL del punto de conexión de autorización de acuerdo con RFC 5849. |
 | access_token_endpoint | SÍ | La dirección URL del punto de conexión del token de acuerdo con RFC 5849. |
@@ -79,11 +79,11 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
-El elemento **CryptographicKeys** contiene el siguiente atributo:
+El elemento **CryptographicKeys** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| client_secret | SÍ | El secreto de cliente de la aplicación de proveedor de identidades.   | 
+| client_secret | SÍ | Secreto de cliente de la aplicación del proveedor de identidades.   | 
 
 ## <a name="redirect-uri"></a>URI de redireccionamiento
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444774"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970338"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
 Azure API Management proporciona los siguientes tipos de recursos para su uso en las plantillas del portal para desarrolladores.  
@@ -176,7 +176,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebDocumentationTemplatesDeveloperKey|Especifique la clave de suscripción.|  
 |WebDocumentationTemplatesJavaApache|Este ejemplo utiliza el cliente HTTP Apache desde HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Especifique valores para los parámetros opcionales, según se requiera.|  
-|WebDocumentationTemplatesPhpPackage|Esta muestra utiliza el paquete HTTP_Request2. (para obtener más información: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|Esta muestra utiliza el paquete HTTP_Request2. (para obtener más información: https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Especifique valores para los parámetros de ruta de acceso (que se muestran como {...}) y el cuerpo de la solicitud, si así se requiere.|  
 |WebDocumentationTemplatesRequestBody|Especifique el cuerpo de la solicitud.|  
 |WebDocumentationTemplatesRequiredParams|Especifique valores para los siguientes parámetros requeridos.|  
@@ -571,13 +571,13 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |ApiManagementUserLimitReached|Este servicio ha alcanzado el número máximo de usuarios permitidos. Actualice a un plan de tarifa superior.|  
   
 ##  <a name="glyphs"></a> Recursos de glifo  
- Las plantillas del portal para desarrolladores de API Management puede usar los glifos de [Glyphicons de Bootstrap](http://getbootstrap.com/components/#glyphicons). Este conjunto de glifos incluye más de 250 glifos en formato de fuente del conjunto [Glyphicon Halflings](http://glyphicons.com/). Para utilizar un glifo de este conjunto, utilice la siguiente sintaxis.  
+ Las plantillas del portal para desarrolladores de API Management puede usar los glifos de [Glyphicons de Bootstrap](https://getbootstrap.com/components/#glyphicons). Este conjunto de glifos incluye más de 250 glifos en formato de fuente del conjunto [Glyphicon Halflings](https://glyphicons.com/). Para utilizar un glifo de este conjunto, utilice la siguiente sintaxis.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- Para obtener la lista completa de glifos, consulte [Glyphicons de Bootstrap](http://getbootstrap.com/components/#glyphicons).
+ Para obtener la lista completa de glifos, consulte [Glyphicons de Bootstrap](https://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).

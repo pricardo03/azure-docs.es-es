@@ -6,18 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 30898be58db228484bcd85e8896da10d0bfc29dd
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277467"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965112"
 ---
 # <a name="azure-management---monitoring"></a>Administración de Azure: supervisión
 
@@ -38,7 +37,7 @@ En las secciones siguientes se describen sucintamente las distintas áreas de ad
 La supervisión es el acto de recopilar y analizar datos para determinar el rendimiento, el mantenimiento y la disponibilidad de su aplicación empresarial y de los recursos de los que esta depende. Una estrategia de supervisión eficaz facilitará la comprensión de la operación detallada de los distintos componentes de la aplicación y aumentará el tiempo de actividad con la notificación anticipada de errores críticos, para poder solucionarlos antes de que se conviertan en problemas. La supervisión en Azure se proporciona principalmente con [Azure Monitor](../azure-monitor/overview.md), que ofrece almacenes comunes para almacenar los datos de supervisión, múltiples orígenes de datos para recopilar datos de los diferentes niveles que admiten la aplicación, y características para analizar y responder a los datos recopilados.
 
 ## <a name="configure"></a>Configuración
-Configurar hace referencia a la implementación inicial y a la configuración de aplicaciones y recursos, y a su mantenimiento continuado con revisiones y actualizaciones.  La automatización de estas tareas a través de scripts y directivas le permite eliminar la redundancia, reducir el tiempo y esfuerzo que debe invertir, y aumentar la precisión y eficiencia.  [Azure Automation](..\automation\automation-intro.md) proporciona la mayor parte de los servicios para automatizar las tareas de configuración.  Además de runbooks para automatizar los procesos, proporciona configuración y administración de las actualizaciones, lo que le ayudará no solo a administrar la configuración mediante directivas, sino también a identificar e implementar las actualizaciones.
+Configurar hace referencia a la implementación inicial y a la configuración de aplicaciones y recursos, y a su mantenimiento continuado con revisiones y actualizaciones.  La automatización de estas tareas a través de scripts y directivas le permite eliminar la redundancia, reducir el tiempo y esfuerzo que debe invertir, y aumentar la precisión y eficiencia.  [Azure Automation](../automation/automation-intro.md) proporciona la mayor parte de los servicios para automatizar las tareas de configuración.  Además de runbooks para automatizar los procesos, proporciona configuración y administración de las actualizaciones, lo que le ayudará no solo a administrar la configuración mediante directivas, sino también a identificar e implementar las actualizaciones.
 
 ## <a name="govern"></a>Control
 El gobierno proporciona mecanismos y procesos para mantener el control de las aplicaciones y recursos de Azure.  Conlleva la planificación de las iniciativas y el establecimiento de prioridades estratégicas.  En Azure, el gobierno se implementa principalmente con dos servicios.  [Azure Policy](../governance/policy/overview.md) permite crear, asignar y administrar definiciones de directivas que aplican distintas reglas y acciones a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los contratos de nivel de servicio. [Azure Cost Management de Cloudyn](../cost-management/overview.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube, entre los que se incluyen AWS y Google.

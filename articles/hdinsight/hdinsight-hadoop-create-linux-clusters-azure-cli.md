@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 03d51cfb03de071f63578717a65eeda4b119bf0d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497860"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191587"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Creación de clústeres de HDInsight mediante la CLI de Azure clásica
 
@@ -80,7 +80,7 @@ Los siguientes pasos deben realizarse desde una línea de comandos como PowerShe
     * Sustituya `groupname` por el nombre del grupo de recursos.
     * Sustituya `storagename` por el nombre de la cuenta de almacenamiento.
 
-     En los datos que se devuelven, guarde el valor `key` de `key1`.
+      En los datos que se devuelven, guarde el valor `key` de `key1`.
 
 6. Cree un clúster de HDInsight.
 
@@ -90,8 +90,8 @@ Los siguientes pasos deben realizarse desde una línea de comandos como PowerShe
 
     * Sustituya `Hadoop` por el tipo de clúster que quiere crear. Por ejemplo, `Hadoop`, `HBase`, `Kafka`, `Spark` o `Storm`.
 
-     > [!IMPORTANT]
-     > Los clústeres de HDInsight incluyen diversos tipos, que corresponden a la carga de trabajo o la tecnología para los que el clúster está optimizado. No hay ningún método admitido para crear un solo clúster que combine varios tipos, como Storm y HBase.
+      > [!IMPORTANT]
+      > Los clústeres de HDInsight incluyen diversos tipos, que corresponden a la carga de trabajo o la tecnología para los que el clúster está optimizado. No hay ningún método admitido para crear un solo clúster que combine varios tipos, como Storm y HBase.
 
     * Sustituya `location` por la misma ubicación usada en pasos anteriores.
 
@@ -105,12 +105,12 @@ Los siguientes pasos deben realizarse desde una línea de comandos como PowerShe
 
     * Sustituya `sshuser` y `sshuserpassword` por el nombre de usuario y la contraseña que quiere usar en el acceso al clúster mediante SSH
 
-    > [!IMPORTANT]
-    > En este ejemplo se crea un clúster con dos nodos de trabajo. Si quiere cambiar el número de nodos de trabajo después de la creación del clúster, realice operaciones de escalado. Si planea usar más de 32 nodos de trabajo, tiene que seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM. Durante la creación del clúster, puede establecer el tamaño del nodo principal mediante el parámetro `--headNodeSize`.
-    >
-    > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-
-    Pueden pasar varios minutos (por lo general, unos quince) hasta que finalice el proceso de creación del clúster.
+      > [!IMPORTANT]
+      > En este ejemplo se crea un clúster con dos nodos de trabajo. Si quiere cambiar el número de nodos de trabajo después de la creación del clúster, realice operaciones de escalado. Si planea usar más de 32 nodos de trabajo, tiene que seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM. Durante la creación del clúster, puede establecer el tamaño del nodo principal mediante el parámetro `--headNodeSize`.
+      >
+      > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+      
+      Pueden pasar varios minutos (por lo general, unos quince) hasta que finalice el proceso de creación del clúster.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 

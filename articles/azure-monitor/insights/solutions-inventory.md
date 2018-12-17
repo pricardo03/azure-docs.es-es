@@ -10,16 +10,15 @@ ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 7f0334bdd1922c6ec410ca912ccfbf639e5c770f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14f373b5459aaa7a9e51ba284f6a30094c4e7617
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634445"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194188"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalles de la recopilación de datos para las soluciones de administración en Azure
 En este artículo se incluye una lista de las [soluciones de administración](solutions.md) disponibles de Microsoft con vínculos a la documentación detallada.  También se proporciona información sobre el método y la frecuencia de recopilación de datos en Log Analytics.  Puede usar la información de este artículo para identificar las diferentes soluciones disponibles y comprender los requisitos de conexión y flujo de datos de las distintas soluciones de administración. 
@@ -31,17 +30,17 @@ En la siguiente tabla se recogen las [soluciones de administración](solutions.m
 Explicaciones de las columnas:
 
 - **Agente de supervisión de Microsoft**: agente que se usa en Windows y Linux para ejecutar el módulo de administración de SCOM y las soluciones de administración de Azure. En esta configuración, el agente está conectado directamente al Log Analytics sin conexión a un grupo de administración de Operations Manager. 
-- **Operations Manager**: agente idéntico al de supervisión de Microsoft. En esta configuración, se [conecta a un grupo de administración de Operations Manager](../../log-analytics/log-analytics-om-agents.md) conectado a su vez a Log Analytics. 
+- **Operations Manager**: agente idéntico al de supervisión de Microsoft. En esta configuración, se [conecta a un grupo de administración de Operations Manager](../../azure-monitor/platform/om-agents.md) conectado a su vez a Log Analytics. 
 -  **Azure Storage**: la solución recopila datos de una cuenta de Azure Storage. 
 - **¿Se requiere Operations Manager?** Se necesita un grupo de administración de Operations Manager conectado para que la solución de administración recopile los datos. 
-- **Los datos del agente de Operations Manager se envían a través del grupo de administración**: si el agente está [conectado a un grupo de administración de SCOM](../../log-analytics/log-analytics-om-agents.md), los datos se envían a Log Analytics desde el servidor de administración. En este caso, el agente no necesita conectarse directamente a Log Analytics. Si esta casilla no está seleccionada, los datos se envían desde el agente directamente a Log Analytics, aunque el agente esté conectado a un grupo de administración de SCOM. Tendrá que comunicarse con Log Analytics mediante la [puerta de enlace de Log Analytics](../../azure-monitor/platform/gateway.md).
+- **Los datos del agente de Operations Manager se envían a través del grupo de administración**: si el agente está [conectado a un grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md), los datos se envían a Log Analytics desde el servidor de administración. En este caso, el agente no necesita conectarse directamente a Log Analytics. Si esta casilla no está seleccionada, los datos se envían desde el agente directamente a Log Analytics, aunque el agente esté conectado a un grupo de administración de SCOM. Tendrá que comunicarse con Log Analytics mediante la [puerta de enlace de Log Analytics](../../azure-monitor/platform/gateway.md).
 - **Frecuencia de recopilación**: especifica la frecuencia con la que la solución de administración recopila los datos. 
 
 
 
 | **Solución de administración** | **Plataforma** | **Agente de supervisión de Microsoft** | **Agente de Operations Manager** | **Almacenamiento de Azure** | **¿Se requiere Operations Manager?** | **Se envían los datos del agente de Operations Manager a través del grupo de administración** | **Frecuencia de recopilación** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Análisis de registros de actividad](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | según notificación |
+| [Análisis de registros de actividad](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | según notificación |
 | [Evaluación de AD](../../azure-monitor/insights/ad-assessment.md) | Windows |&#8226; |&#8226; | | |&#8226; |7 días |
 | [Estado de replicación de AD](../../azure-monitor/insights/ad-replication-status.md) | Windows |&#8226; |&#8226; | | |&#8226; |5 días |
 | [Agent Health](solution-agenthealth.md) | Windows y Linux | &#8226; | &#8226; | | | &#8226; | 1 minuto |
@@ -49,17 +48,17 @@ Explicaciones de las columnas:
 | [Alert Management](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 minuto |
 | [Alert Management](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) | Windows | |&#8226; | |&#8226; |&#8226; |3 minutos |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | N/D |
-| [Application Insights Connector (versión preliminar)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | según notificación |
+| [Application Insights Connector (versión preliminar)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | según notificación |
 | [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) |  Windows | &#8226; | &#8226; |  |  |  | N/D |
 | [Azure Application Gateway Analytics](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | según notificación |
 | **Solución de administración** | **Plataforma** | **Agente de supervisión de Microsoft** | **Agente de Operations Manager** | **Almacenamiento de Azure** | **¿Se requiere Operations Manager?** | **Se envían los datos del agente de Operations Manager a través del grupo de administración** | **Frecuencia de recopilación** |
 | [Azure Network Security Group Analytics (en desuso)](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | según notificación |
-| [Azure SQL Analytics (versión preliminar)](../../log-analytics/log-analytics-azure-sql.md) |  Windows | | | | | | 1 minuto |
+| [Azure SQL Analytics (versión preliminar)](../../azure-monitor/insights/azure-sql.md) |  Windows | | | | | | 1 minuto |
 | [Copia de seguridad](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | según notificación |
 | [Capacity and Performance (versión preliminar)](../../azure-monitor/insights/capacity-performance.md) | Windows |&#8226; |&#8226; | | |&#8226; |a la llegada |
 | [Seguimiento de cambios](../../automation/automation-change-tracking.md) | Windows |&#8226; |&#8226; | | |&#8226; |Cada hora |
 | [Seguimiento de cambios](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |Cada hora |
-| [Contenedores](../../log-analytics/log-analytics-containers.md) | Windows y Linux | &#8226; | &#8226; |  |  |  | 3 minutos |
+| [Contenedores](../../azure-monitor/insights/containers.md) | Windows y Linux | &#8226; | &#8226; |  |  |  | 3 minutos |
 | [Análisis de Key Vault](../../azure-monitor/insights/azure-key-vault.md) | Windows | | | | | |según notificación |
 | [Evaluación de malware](../../security-center/security-center-install-endpoint-protection.md) | Windows |&#8226; |&#8226; | | |&#8226; |Cada hora |
 | [Monitor de rendimiento de red](../../azure-monitor/insights/network-performance-monitor.md) |  Windows | &#8226; | &#8226; |  |  |  | Protocolos de enlace TCP cada 5 segundos; se envían datos cada 3 minutos. |
@@ -79,4 +78,4 @@ Explicaciones de las columnas:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Aprenda a [crear consultas](../../log-analytics/log-analytics-queries.md) para analizar los datos recopilados por las soluciones de administración.
+* Aprenda a [crear consultas](../../azure-monitor/log-query/log-query-overview.md) para analizar los datos recopilados por las soluciones de administración.

@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: dbc72e040f3d68ca77c036c41612f57616d1e74e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b72b2183cb796602f05a0a6858d4de108d3cc2c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016835"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964805"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como CSP, cree y administre una aplicación de Azure IoT Central en nombre del cliente 
 
@@ -23,21 +23,21 @@ Como CSP, puede crear y administrar aplicaciones de Microsoft Azure IoT Central 
 
 Para empezar, inicie sesión en su cuenta de Microsoft Partner Portal y seleccione un cliente para el que desee crear una aplicación de Azure IoT Central. Vaya a Administración del servicio para el cliente desde la barra de navegación izquierda.
 
-![Centro de partners de Microsoft, vista de cliente](media\howto-create-application-asCSP\image1.png)
+![Centro de partners de Microsoft, vista de cliente](media/howto-create-application-asCSP/image1.png)
 
 Azure IoT Central aparece como servicio disponible para su administración. Haga clic en el vínculo de Azure IoT Central de la página para crear nuevas aplicaciones o administrar las aplicaciones existentes para este cliente.
 
-![Azure IoT Central disponible para su administración](media\howto-create-application-asCSP\image2.png)
+![Azure IoT Central disponible para su administración](media/howto-create-application-asCSP/image2.png)
 
 Va a la página Administrador de aplicaciones de Azure IoT Central. Azure IoT Central mantiene el contexto de que vino del Centro de partners de Microsoft para administrar ese cliente concreto. Puede ver cómo aparece esto confirmado en el encabezado de la página Administrador de aplicaciones. Desde aquí puede ir a una aplicación existente que había creado anteriormente para que este cliente la administrara, o bien crear una nueva aplicación para el cliente.
 
-![Creación de un administrador para los CSP](media\howto-create-application-asCSP\image3.png)
+![Creación de un administrador para los CSP](media/howto-create-application-asCSP/image3.png)
 
 Para crear una aplicación de Azure IoT Central, haga clic en el icono **Nueva aplicación**. De esta manera se cargará la página de creación de aplicaciones. Debe completar todos los campos de esta página y luego eligir **Crear**. A continuación encontrará más información sobre cada uno de los campos.
 
-![Página Crear aplicación para los CSP](media\howto-create-application-asCSP\image4.png)
+![Página Crear aplicación para los CSP](media/howto-create-application-asCSP/image4.png)
 
-![Página Crear aplicación para los CSP](media\howto-create-application-asCSP\image4-1.png)
+![Página Crear aplicación para los CSP](media/howto-create-application-asCSP/image4-1.png)
 
 ## <a name="payment-plan"></a>Plan de pago
 

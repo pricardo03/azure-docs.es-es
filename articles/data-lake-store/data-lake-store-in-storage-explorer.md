@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126333"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966269"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Administración de recursos Azure Data Lake Storage Gen1 con el Explorador de Storage
 
@@ -136,7 +136,7 @@ Los elementos siguientes muestran cómo administrar los recursos de una cuenta d
 
    ![Cuadro de diálogo con la carga en curso](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-> [!NOTE] 
+> [!NOTE]
 > Puede arrastrar directamente las carpetas y los archivos a un equipo local para comenzar la carga. 
        
 ### <a name="download-folders-or-files-to-your-local-computer"></a>Descarga de archivos o carpetas en el equipo local
@@ -164,7 +164,7 @@ El archivo se descargará y se abrirá mediante la aplicación asociada al tipo 
 
 ![Selecciones para copiar una carpeta](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-> [!NOTE] 
+> [!NOTE]
 > No se admiten las operaciones de copiar y pegar entre tipos de almacenamiento. Puede copiar los archivos o carpetas de Data Lake Storage Gen1 y pegarlos en otra cuenta de Data Lake Storage Gen1. Pero *no puede* copiar archivos o carpetas de Data Lake Storage Gen1 y pegarlos en Azure Blob Storage o viceversa.
 > 
 > La operación de copiar y pegar consiste en descargar las carpetas o los archivos en el equipo local y después cargarlos en el destino. La herramienta *no* realiza la acción en el back-end. La operación de copiar y pegar archivos de gran tamaño es lenta. Se está llevando a cabo la optimización del movimiento o la copia de archivos de alto rendimiento.

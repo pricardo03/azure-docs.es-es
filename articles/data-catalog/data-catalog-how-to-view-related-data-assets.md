@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 156673bfac9bfa38772e4daca166e3431f81c09a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405019"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958339"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>¿Cómo ver los recursos de datos relacionados en Azure Data Catalog?
 Azure Data Catalog permite ver los recursos de datos relacionados con un recurso de datos seleccionado, así como ver las relaciones entre ellos. 
@@ -31,7 +31,7 @@ Al registrar los recursos de datos de los siguientes orígenes de datos, Azure D
 ## <a name="view-related-data-assets"></a>Visualización de los recursos de datos relacionados
 Para ver los recursos de datos que están relacionados con un conjunto de datos seleccionado, utilice la pestaña **Relaciones**, tal como se muestra en la imagen siguiente: 
 
-![Azure Data Catalog: visualización de los recursos de datos relacionados](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
+![Azure Data Catalog: visualización de los recursos de datos relacionados](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
 En este ejemplo, hay dos relaciones para el recurso de datos **ProductSubcategory** seleccionado: 
 
@@ -43,7 +43,7 @@ En este ejemplo, hay dos relaciones para el recurso de datos **ProductSubcategor
 
 Para ver más detalles, como el nombre completo de la columna, mueva el mouse sobre él para ver un menú emergente similar al de la imagen siguiente: 
 
-![Azure Data Catalog: elemento emergente Relaciones](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
+![Azure Data Catalog: elemento emergente Relaciones](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
 Para incluir las relaciones entre los recursos que ya se han registrado, vuelva a registrar esos recursos.
 

@@ -9,17 +9,16 @@ ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e9a8c6345ca45234ffcec1588a98bf1b8d634e06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303751"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000699"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notas de la versión para Developer Analytics Tools
 
@@ -181,7 +180,7 @@ Puede administrar la aplicación de muchas formas en el portal de HockeyApp. Est
 
 ![Portal de HockeyApp](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-Consulte la [base de conocimiento de HockeyApp](http://support.hockeyapp.net/kb/app-management-2) para más información acerca de la administración de la aplicación.
+Consulte la [base de conocimiento de HockeyApp](https://support.hockeyapp.net/kb/app-management-2) para más información acerca de la administración de la aplicación.
 
 ### <a name="windows-forms-apps"></a>Aplicaciones de Windows Forms
 El menú contextual de un nodo de proyecto de Windows Forms incluye ahora una opción para cargar la compilación en HockeyApp.

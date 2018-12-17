@@ -9,19 +9,18 @@ ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499499"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993359"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
-[Power BI](http://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](app-insights-overview.md).
 
 Hay tres métodos para exportar datos de Application Insights a Power BI:
 
@@ -41,7 +40,7 @@ Para importar la consulta de Application Insights, utilice la versión de escrit
 Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportación de una consulta de Analytics
-1. [Abra Analytics y escriba la consulta](../log-analytics/query-language/get-started-analytics-portal.md).
+1. [Abra Analytics y escriba la consulta](../azure-monitor/log-query/get-started-portal.md).
 2. Pruebe y refine la consulta hasta que esté satisfecho con los resultados. Asegúrese de que la consulta se ejecuta correctamente en Analytics antes de exportarla.
 3. En el menú **Exportar**, elija **Power BI (M)**. Guarde el archivo de texto.
    
@@ -52,18 +51,18 @@ Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
     ![Capturas de pantalla de Power BI Desktop, con el Editor avanzado resaltado](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. Para que Power BI acceda a Azure, es posible que deba proporcionar credenciales. Utilice la **cuenta de organización** para iniciar sesión con su cuenta Microsoft.
+5. Para que Power BI acceda a Azure, es posible que deba proporcionar credenciales. Utilice la **cuenta de organización** para iniciar sesión con su cuenta Microsoft.
    
     ![Captura de pantalla del cuadro de diálogo Configuración de la consulta de Power BI](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
     Si tiene que comprobar las credenciales, use el comando del menú **Configuración de origen de datos** en el Editor de consultas. Asegúrese de especificar las credenciales que use para Azure, ya que pueden ser diferentes de las credenciales de Power BI.
-2. Elija una visualización para la consulta y seleccione los campos para el eje x, el eje y y la dimensión de segmentación.
+6. Elija una visualización para la consulta y seleccione los campos para el eje x, el eje y y la dimensión de segmentación.
    
     ![Captura de pantalla de opciones de visualización de Power BI Desktop](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. Publique el informe en el área de trabajo de nube de Power BI. Desde allí, puede incluir una versión sincronizada en otras páginas web.
+7. Publique el informe en el área de trabajo de nube de Power BI. Desde allí, puede incluir una versión sincronizada en otras páginas web.
    
     ![Captura de pantalla de Power BI Desktop, con el botón Publicar resaltado](./media/app-insights-export-power-bi/publish-power-bi.png)
-4. Actualice el informe manualmente a intervalos o configure una actualización programada en la página Opciones.
+8. Actualice el informe manualmente a intervalos o configure una actualización programada en la página Opciones.
 
 ### <a name="export-a-funnel"></a>Exportar un embudo
 1. [Cree un embudo](usage-funnels.md).
@@ -153,6 +152,6 @@ Puede modificar el panel, combinando los gráficos de Application Insights con l
 Después de la importación inicial, el panel y los informes seguirán actualizándose a diario. Puede controlar la programación de la actualización en el conjunto de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Power BI: más información](http://www.powerbi.com/learning/)
-* [Tutorial de Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Power BI: más información](https://www.powerbi.com/learning/)
+* [Tutorial de Analytics](../azure-monitor/log-query/get-started-portal.md)
 

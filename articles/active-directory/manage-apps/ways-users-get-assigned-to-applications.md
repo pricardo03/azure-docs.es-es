@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: d34671d4197735ea2c30aafc8fd01a5893427ff3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9e27df857d560abdf5b6a54272bb022b6ed466ee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226858"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079371"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Asignación de usuarios a las aplicaciones
 
@@ -33,15 +33,15 @@ Para que un usuario tenga acceso a una aplicación, se le debe primero asignar a
 
 2.  Un administrador [asigna un grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal), del que el usuario forma parte, a la aplicación, incluidos:
 
-  * Un grupo que se ha sincronizado de forma local
+    * Un grupo que se ha sincronizado de forma local
 
-  * Un grupo de seguridad estático creado en la nube
+    * Un grupo de seguridad estático creado en la nube
 
-  * Un [grupo de seguridad dinámico](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) creado en la nube
+    * Un [grupo de seguridad dinámico](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) creado en la nube
 
-  * Un grupo de Office 365 creado en la nube
+    * Un grupo de Office 365 creado en la nube
 
-  * El grupo [Todos los usuarios](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
+    * El grupo [Todos los usuarios](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
 
 3.  Un administrador habilita [Acceso de autoservicio a las aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para permitir que un usuario pueda agregar una aplicación mediante la característica **Agregar aplicación** del [panel de acceso a las aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **sin la aprobación de la empresa**
 

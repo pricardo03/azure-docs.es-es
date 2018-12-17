@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4758c29d1cdb7e09c397524574ba1ab6701efeeb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f1c433be7e8adc0779860c3ec3bfb5d7174fca5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238036"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970729"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Agregar elementos de Marketplace con la herramienta de publicación
 
@@ -28,7 +28,7 @@ Agregar el contenido a [Azure Stack Marketplace](azure-stack-marketplace.md) hac
 
 ## <a name="prerequisites"></a>Requisitos previos
 
- - Debe ejecutar el kit de herramientas en el host de Azure Stack o tener conectividad [VPN](.\asdk\asdk-connect.md#connect-with-vpn) al host de ASDK desde el equipo en que se ejecuta la herramienta.
+ - Debe ejecutar el kit de herramientas en el host de Azure Stack o tener conectividad [VPN](./asdk/asdk-connect.md#connect-with-vpn) al host de ASDK desde el equipo en que se ejecuta la herramienta.
 
  - Descargue las [plantillas de inicio rápidos de Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) y extráigalas.
 

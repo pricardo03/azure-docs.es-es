@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636278"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413020"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Depuración de problemas con las funciones definidas por el usuario en Azure Digital Twins
 
@@ -25,7 +25,7 @@ Conocer la manera de diagnosticar cualquier problema que surja dentro de la inst
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Habilitación de Log Analytics para su instancia
 
-Los registros y las métricas para la instancia de Azure Digital Twins se exponen a través de Azure Monitor. En la siguiente documentación se supone que ha creado un área de trabajo de [Azure Log Analytics](../log-analytics/log-analytics-queries.md) mediante [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md), la [CLI de Azure](../log-analytics/log-analytics-quick-create-workspace-cli.md) o [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
+Los registros y las métricas para la instancia de Azure Digital Twins se exponen a través de Azure Monitor. En la siguiente documentación se supone que ha creado un área de trabajo de [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) mediante [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), la [CLI de Azure](../azure-monitor/learn/quick-create-workspace-cli.md) o [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
 > Podría experimentar un retraso de 5 minutos al enviar eventos a **Log Analytics** por primera vez.
@@ -42,7 +42,7 @@ Después de enviar la telemetría, abra Azure Log Analytics para consultar los r
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
+| where CorrelationId == 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
 | Valor de la consulta | Reemplazar por |
@@ -53,7 +53,7 @@ Si registra su función definida por el usuario, esos registros aparecerán en s
 
 ```Kusto
 AzureDiagnostics
-| where Category = 'UserDefinedFunction'
+| where Category == 'UserDefinedFunction'
 ```
 
 Para obtener más información acerca de estas eficaces operaciones de consulta, lea [Introducción a las consultas](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).

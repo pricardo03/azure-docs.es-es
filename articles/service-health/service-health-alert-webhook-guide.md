@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 8535caf482b10912e6f7bc6df445756094d7603f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5d32c3539446482f2dcdaeb954bb704dc9b78c58
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30261419"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274933"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configuración de las notificaciones de estado para los sistemas de administración de problemas existentes mediante un webhook
 
@@ -37,7 +37,7 @@ Si desea usar una integración preconfigurada, vea los siguientes procedimientos
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Configuración de una notificación personalizada con la carga de webhook de estado del servicio
 Si desea configurar su propia integración de webhook personalizada, tiene que analizar la carga JSON enviada durante las notificaciones de Estado del servicio.
 
-Consulte [aquí para ver un ejemplo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) del aspecto de la carga de webhook `ServiceHealth`.
+Consulte [aquí para ver un ejemplo](../azure-monitor/platform/activity-log-alerts-webhook.md) del aspecto de la carga de webhook `ServiceHealth`.
 
 Puede detectar si trata de una alerta de estado del servicio examinando `context.eventSource == "ServiceHealth"`. A partir de ahí, las propiedades que son más importantes en cuanto a la introducción son:
  * `data.context.activityLog.status`
@@ -102,7 +102,7 @@ Esto indica que hay problemas con "Alerts & Metrics" en el Este de Australia y S
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Prueba de la integración de webhook a través de una solicitud HTTP POST
-1. Cree la carga de estado del servicio que desee enviar. Puede encontrar una carga de webhook de estado del servicio de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Cree la carga de estado del servicio que desee enviar. Puede encontrar una carga de webhook de estado del servicio de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 2. Cree una solicitud HTTP POST de la siguiente manera:
 
@@ -118,6 +118,6 @@ Esto indica que hay problemas con "Alerts & Metrics" en el Este de Australia y S
 4. Vaya a [PagerDuty](https://www.pagerduty.com/) para confirmar que la integración se ha configurado correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Revise el [Esquema de webhook de alertas del registro de actividad](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Más información acerca de las [Notificaciones del estado del servicio](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Más información sobre los [grupos de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).

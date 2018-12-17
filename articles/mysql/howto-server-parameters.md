@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 07/18/2018
-ms.openlocfilehash: 686db4dc15eb42abead3eef6798ed2b83e248811
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.date: 12/06/2018
+ms.openlocfilehash: 451316b32bcda43d62bbabf0c4f73d239698c85b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136458"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078729"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Cómo configurar parámetros del servidor en Azure Database for MySQL mediante Azure Portal
 
@@ -42,9 +42,9 @@ El grupo de búferes de InnoDB y el número máximo de conexiones no son configu
 
 |**Plan de tarifa**| **Generación de procesos**|**Núcleos virtuales**|**Grupo de búferes InnoDB (MB)**| **Conexiones máximas**|
 |---|---|---|---|--|
-|Básica| Gen 4| 1| 1024| 50|
+|Básica| Gen 4| 1| 960| 50|
 |Básica| Gen 4| 2| 2560| 100|
-|Básica| Gen 5| 1| 1024| 50|
+|Básica| Gen 5| 1| 960| 50|
 |Básica| Gen 5| 2| 2560| 100|
 |Uso general| Gen 4| 2| 3584| 300|
 |Uso general| Gen 4| 4| 7680| 625|
@@ -56,10 +56,12 @@ El grupo de búferes de InnoDB y el número máximo de conexiones no son configu
 |Uso general| Gen 5| 8| 15360| 1250|
 |Uso general| Gen 5| 16| 31232| 2.500|
 |Uso general| Gen 5| 32| 62976| 5000|
+|Uso general| Gen 5| 64| 125952| 10000|
 |Memoria optimizada| Gen 5| 2| 7168| 600|
 |Memoria optimizada| Gen 5| 4| 15360| 1250|
 |Memoria optimizada| Gen 5| 8| 30720| 2.500|
 |Memoria optimizada| Gen 5| 16| 62464| 5000|
+|Memoria optimizada| Gen 5| 32| 125952| 10000|
 
 Estos parámetros adicionales del servidor no son configurables en el sistema:
 

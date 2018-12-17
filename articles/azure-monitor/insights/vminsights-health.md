@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: aac6ca2db815aa3ca427b281e146874dc142107a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a2f654043146536ecf543ae2a0aa49537c2223e1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714989"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344047"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)
 Azure incluye varios servicios que realizan individualmente una tarea o un rol específico en el espacio de supervisión, pero hasta ahora no era posible proporcionar una perspectiva detallada del estado del sistema operativo hospedado en máquinas virtuales de Azure.  Aunque se podían supervisar distintas condiciones mediante Log Analytics o Azure Monitor, no estaban diseñadas para modelar ni representar el estado general de la máquina virtual o de los componentes principales.  Con la característica de estado de Azure Monitor para máquinas virtuales, la disponibilidad y el rendimiento del sistema operativo invitado Windows o Linux se supervisan de forma proactiva con un modelo que representa los principales componentes y sus relaciones, así como los criterios que especifican cómo se debe medir el estado de dichos componentes y, además, le avisa cuando se detecta una condición de estado incorrecto.  
@@ -119,7 +118,7 @@ En la pestaña **Mantenimiento**, puede aprender lo siguiente:
 * ¿Cuántas VM tienen un estado incorrecto debido a un problema detectado con un procesador, un disco, la memoria o un adaptador de red, clasificados según el estado de mantenimiento?  
 * ¿Cuántas VM tienen un estado incorrecto debido a un problema detectado con un procesador, un disco, la memoria o un adaptador de red, clasificados según el estado de mantenimiento?
 
-Aquí puede identificar rápidamente los principales problemas críticos detectados por los criterios de mantenimiento que supervisan la VM de forma proactiva, así como revisar los detalles de la alerta de estado de la VM y el artículo de conocimiento asociado a fin de obtener ayuda para diagnosticar y solucionar el problema.  Seleccione cualquiera de las gravedades para abrir la página [Todas las alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) filtrada según esa gravedad.
+Aquí puede identificar rápidamente los principales problemas críticos detectados por los criterios de mantenimiento que supervisan la VM de forma proactiva, así como revisar los detalles de la alerta de estado de la VM y el artículo de conocimiento asociado a fin de obtener ayuda para diagnosticar y solucionar el problema.  Seleccione cualquiera de las gravedades para abrir la página [Todas las alertas](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) filtrada según esa gravedad.
 
 En la lista **VM distribution by operating system** (Distribución de la máquina virtual por sistema operativo) se muestran las VM que enumera la edición de Windows o la distribución de Linux, junto con su versión. En cada categoría de sistema operativo, las VM se desglosan aún más según el estado de la VM. 
 
@@ -247,7 +246,7 @@ En el ejemplo anterior, cuando se selecciona **/mnt (Logical Disk)** (/mnt [disc
 Para ver el estado de mantenimiento actualizado, puede actualizar la página Diagnóstico de mantenimiento haciendo en el vínculo **Actualizar**.  Si hay una actualización en el estado de mantenimiento de los criterios de mantenimiento basada en el intervalo de sondeo predefinido, esta tarea permite evitar la espera y refleja el estado de mantenimiento más reciente.  **Estado de criterios de mantenimiento** es un filtro que le permite definir el ámbito de los resultados según el estado de mantenimiento seleccionado: Correcto, Advertencia, Crítico, Desconocido, etc.  La hora **Última actualización** de la esquina superior derecha representa la última vez en que se actualizó la página Diagnóstico de estado.  
 
 ## <a name="alerting-and-alert-management"></a>Creación y administración de alertas 
-La característica de mantenimiento de Azure Monitor para máquinas virtuales se integra con [Alertas de Azure](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) y genera una alerta cuando los criterios de mantenimiento predefinidos cambian de un estado correcto a uno incorrecto y dicha condición se detecta. Las alertas se clasifican según la gravedad: de 0 a 4, donde el 0 representa el nivel de gravedad más alto.  
+La característica de mantenimiento de Azure Monitor para máquinas virtuales se integra con [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md) y genera una alerta cuando los criterios de mantenimiento predefinidos cambian de un estado correcto a uno incorrecto y dicha condición se detecta. Las alertas se clasifican según la gravedad: de 0 a 4, donde el 0 representa el nivel de gravedad más alto.  
 
 El número total de alertas de mantenimiento de la VM clasificadas según la gravedad está disponible en el panel **Mantenimiento** de la sección **Alertas**. Cuando selecciona el número total de alertas o el número correspondiente a un nivel de gravedad, la página **Alertas** se abre y muestra todas las alertas que coinciden con su selección.  Por ejemplo, si ha seleccionado la fila correspondiente a **Sev level 1** (Nivel de gravedad), verá lo siguiente:
 
@@ -255,7 +254,7 @@ El número total de alertas de mantenimiento de la VM clasificadas según la gra
 
 El ámbito de la página **Alertas** no se limita a mostrar las alertas que coinciden con la selección, sino que también se filtran por **tipo de recurso** para mostrar solo las alertas de mantenimiento generadas por el recurso de la máquina virtual.  Esto se refleja en la lista de alertas, en la columna **Recurso de destino**, donde muestra la máquina virtual de Azure para la que se generó la alerta para cuando se cumplió la condición de mal estado de los criterios de mantenimiento determinados.  
 
-Las alertas de otros tipos de recursos o servicios no están diseñadas para incluirse en esta vista, como las alertas del registro basadas en las consultas de Log Analytics o las alertas de métricas que normalmente se verían desde la página [Todas las alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) de Azure Monitor predeterminada. 
+Las alertas de otros tipos de recursos o servicios no están diseñadas para incluirse en esta vista, como las alertas del registro basadas en las consultas de Log Analytics o las alertas de métricas que normalmente se verían desde la página [Todas las alertas](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) de Azure Monitor predeterminada. 
 
 Para filtrar esta vista, seleccione valores en los menús desplegables que aparecen en la parte superior de la página.
 
@@ -271,7 +270,7 @@ Para filtrar esta vista, seleccione valores en los menús desplegables que apare
 |Servicio de supervisión |Seleccione un servicio o seleccione *Todo* para incluir todos los servicios. Solo las alertas de *VM Insights* son compatibles con esta característica.| 
 |Intervalo de tiempo| Solo las alertas activadas dentro del período de tiempo seleccionado se incluyen en la vista. Los valores compatibles son Última hora, Últimas 24 horas, Últimos 7 días y Últimos 30 días. | 
 
-La página **Detalles de la alerta** se muestra cuando se selecciona una alerta y proporciona detalles de la alerta, lo que le permite cambiar su estado. Para aprender a administrar alertas, consulte [Creación, visualización y administración de alertas mediante Azure Monitor](../../monitoring-and-diagnostics/alert-metric.md).  
+La página **Detalles de la alerta** se muestra cuando se selecciona una alerta y proporciona detalles de la alerta, lo que le permite cambiar su estado. Para aprender a administrar alertas, consulte [Creación, visualización y administración de alertas mediante Azure Monitor](../../azure-monitor/platform/alerts-metric.md).  
 
 >[!NOTE]
 >Actualmente no se admite la creación de nuevas alertas basadas en criterios de mantenimiento ni la modificación de las reglas de alerta de mantenimiento existentes en Azure Monitor desde el portal.  

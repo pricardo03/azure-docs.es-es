@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 4/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9b8ff03ff90a0962a6a890cf7cc99e7134559b7f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8c0b6cb411618b01adfc23fa124ff624206da7b2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442982"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836107"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Cambio a inquilino de Azure AD B2C
 
@@ -25,7 +25,7 @@ Para configurar Azure AD B2C, debe estar con el inquilino de Azure AD B2C.
 
 Para ir hasta el inquilino de Azure AD B2C, debe haber iniciado sesión en Azure Portal como administrador global del inquilino de Azure AD B2C.
 
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 1. Para cambiar el inquilino, haga clic en la dirección de correo electrónico o la imagen de la esquina superior derecha.
 1. En la lista `Directory` que aparece, seleccione el inquilino de Azure AD B2C que desea administrar.
 

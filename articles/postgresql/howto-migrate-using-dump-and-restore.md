@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 7c67cac7a5579386921b2b949e9312cb4e5da172
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984679"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966915"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migración de una base de datos de PostgreSQL mediante volcado y restauración
 Puede usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extraer una base de datos de PostgreSQL a un archivo de volcado y [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar la base de datos de PostgreSQL desde un archivo de almacenamiento creado por pg_dump.
@@ -71,7 +71,7 @@ Una manera de migrar la base de datos de PostgreSQL existente al servicio Azure 
     ```
 
 ### <a name="for-the-restore"></a>Para la restauración
-- Se sugiere mover el archivo de copia de seguridad a una máquina virtual de Azure de la misma región que el servidor de Azure Database for PostgreSQL al que se está migrando y ejecutar pg_restore desde esa máquina virtual para reducir la latencia de red. También se recomienda crear la máquina virtual con [redes aceleradas](..\virtual-network\create-vm-accelerated-networking-powershell.md) habilitadas.
+- Se sugiere mover el archivo de copia de seguridad a una máquina virtual de Azure de la misma región que el servidor de Azure Database for PostgreSQL al que se está migrando y ejecutar pg_restore desde esa máquina virtual para reducir la latencia de red. También se recomienda crear la máquina virtual con [redes aceleradas](../virtual-network/create-vm-accelerated-networking-powershell.md) habilitadas.
 - Ya debería estar así de forma predeterminada, pero abra el archivo de volcado para comprobar que las instrucciones de creación de índice están después de la inserción de los datos. Si no es así, mueva las instrucciones de creación de índice una vez insertados los datos.
 - Restaure con los modificadores -Fc y -j *#* a fin de ejecutar la restauración en paralelo. *#* es el número de núcleos en el servidor de destino. También puede probar con *#* establecido en dos veces el número de núcleos del servidor de destino para ver el impacto. Por ejemplo: 
 

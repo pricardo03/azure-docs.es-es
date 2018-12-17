@@ -9,16 +9,15 @@ ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 59bb8564613e9a0cebda00c2c847283ff218b882
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3c3ff606958503efcf2df5fd99b6e52e4687de4a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294724"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996255"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 Azure Application Insights muestra los datos de la aplicación en un *recurso*de Microsoft Azure. Por tanto, la creación de un nuevo recurso forma parte de la [configuración de Application Insights para supervisar una aplicación nueva][start]. En muchos casos, la creación de un recurso puede realizarla automáticamente el IDE. Pero en algunos casos, creará un recurso manualmente. Por ejemplo, para tener recursos independientes para las compilaciones de desarrollo y producción de la aplicación.
@@ -26,11 +25,11 @@ Azure Application Insights muestra los datos de la aplicación en un *recurso*de
 Después de haber creado el recurso, obtiene su clave de instrumentación y la usa para configurar el SDK en la aplicación. La clave de recurso vincula la telemetría al recurso.
 
 ## <a name="sign-up-to-microsoft-azure"></a>Suscripción a Microsoft Azure
-Si todavía no dispone de una [cuenta Microsoft, obtenga una ahora](http://live.com). (Si usa servicios como Outlook.com, OneDrive, Windows Phone o XBox Live, ya tiene una cuenta Microsoft).
+Si todavía no dispone de una [cuenta Microsoft, obtenga una ahora](https://live.com). (Si usa servicios como Outlook.com, OneDrive, Windows Phone o XBox Live, ya tiene una cuenta Microsoft).
 
-También necesita una suscripción a [Microsoft Azure](http://azure.com). Si su equipo u organización tiene una suscripción a Azure, el propietario puede agregarle a ella mediante su Windows Live ID. Solo se le cobrará por lo que use. El plan básico predeterminado permite hacer un determinado uso experimental de forma gratuita.
+También necesita una suscripción a [Microsoft Azure](https://azure.com). Si su equipo u organización tiene una suscripción a Azure, el propietario puede agregarle a ella mediante su Windows Live ID. Solo se le cobrará por lo que use. El plan básico predeterminado permite hacer un determinado uso experimental de forma gratuita.
 
-Cuando tenga acceso a una suscripción, inicie sesión en Application Insights en [http://portal.azure.com](https://portal.azure.com) y use su Live ID para iniciar sesión.
+Cuando tenga acceso a una suscripción, inicie sesión en Application Insights en [https://portal.azure.com](https://portal.azure.com) y use su Live ID para iniciar sesión.
 
 ## <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 En el [portal.azure.com](https://portal.azure.com), agregue un recurso de Application Insights:

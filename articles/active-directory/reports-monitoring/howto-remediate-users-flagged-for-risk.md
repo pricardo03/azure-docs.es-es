@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c43497a69b3188b4bc38e91b6ff9b1cc8b6bd21a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e81b87a6cbaddf61492fa1fc41e66950eb7ce1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624155"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191638"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remedie los usuarios marcados como en riesgo en el portal de Azure Active Directory
 
@@ -31,7 +31,7 @@ Si se detectan actividades inusuales que puedan indicar un acceso no autorizado 
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Acceso al informe de usuarios marcados en riesgo
 
-Puede revisar los usuarios marcados en riesgo mediante el [informe de usuarios en riesgo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) de Azure Portal. Si no tiene Azure AD, puede registrarse de forma gratuita en [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
+Puede revisar los usuarios marcados en riesgo mediante el [informe de usuarios en riesgo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) de Azure Portal. Si no tiene Azure AD, puede registrarse de forma gratuita en [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
 
 Desde el informe de usuarios marcados en riesgo puede realizar cualquiera de las siguientes acciones para cada uno:
 
@@ -58,9 +58,9 @@ Para acceder a los informes de **usuarios marcados en riesgo** en el centro de a
 
 Realice las acciones siguientes para ayudar a corregir las cuentas afectadas y proteger su entorno:
 
-1.  [Valide la información correcta](http://aka.ms/MFAValid) de la autenticación multifactor y del restablecimiento de contraseña de autoservicio. 
-2.  [Habilite la autenticación multifactor](http://aka.ms/MFAuth) para todos los usuarios. 
-3.  Use este [script de corrección](http://aka.ms/remediate) para realizar automáticamente los pasos siguientes en todas las cuentas afectadas: 
+1.  [Valide la información correcta](https://aka.ms/MFAValid) de la autenticación multifactor y del restablecimiento de contraseña de autoservicio. 
+2.  [Habilite la autenticación multifactor](https://aka.ms/MFAuth) para todos los usuarios. 
+3.  Use este [script de corrección](https://aka.ms/remediate) para realizar automáticamente los pasos siguientes en todas las cuentas afectadas: 
 
      a. Restablezca la contraseña para proteger la cuenta y terminar las sesiones activas.
 
@@ -84,10 +84,10 @@ Realice las acciones siguientes para ayudar a corregir las cuentas afectadas y p
 
 Además, debe:
 
-- Leer e implementar esta [guía para afrontar actividades inusuales](http://aka.ms/fixaccount). 
-- [Habilitar la canalización de la auditoría](http://aka.ms/improvesecurity) para que le ayude a analizar la actividad de su empresa. Una vez completado, el almacén de auditoría empieza a rellenarse con los registros de actividad. En este momento, también puede aprovechar el [recurso de búsqueda e investigación del Centro de seguridad y cumplimiento](http://aka.ms/sccsearch). 
-- Utilice este [script para habilitar la auditoría de los buzones](http://aka.ms/mailboxaudit1) de todas sus cuentas. 
-- Revise los permisos de delegado y las reglas de reenvío de correo de todos los buzones. Este [script de PowerShell](http://aka.ms/delegateforwardrules) se puede usar para realizar esta tarea. 
+- Leer e implementar esta [guía para afrontar actividades inusuales](https://aka.ms/fixaccount). 
+- [Habilitar la canalización de la auditoría](https://aka.ms/improvesecurity) para que le ayude a analizar la actividad de su empresa. Una vez completado, el almacén de auditoría empieza a rellenarse con los registros de actividad. En este momento, también puede aprovechar el [recurso de búsqueda e investigación del Centro de seguridad y cumplimiento](https://aka.ms/sccsearch). 
+- Utilice este [script para habilitar la auditoría de los buzones](https://aka.ms/mailboxaudit1) de todas sus cuentas. 
+- Revise los permisos de delegado y las reglas de reenvío de correo de todos los buzones. Este [script de PowerShell](https://aka.ms/delegateforwardrules) se puede usar para realizar esta tarea. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

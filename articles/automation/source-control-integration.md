@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023754"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342245"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 
@@ -50,7 +50,7 @@ En la página **Resumen del control de código fuente**, rellene la información
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
 |Nombre del control de código fuente     | Nombre descriptivo del control de código fuente.        |
-|Tipo de control de código fuente     | Tipo del control de código fuente. Las opciones disponibles son la siguientes:</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
+|Tipo de control de código fuente     | Tipo del control de código fuente. Las opciones disponibles son la siguientes:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Repositorio     | Nombre del propietario del repositorio o proyecto. Este valor se extrae del repositorio de control de código fuente. Ejemplo: $/ContosoFinanceTFVCExample         |
 |Rama     | Rama de la que se van a extraer los archivos de código fuente. No se permite especificar una rama para el tipo de control de código fuente TFVC.          |
 |Ruta de acceso a la carpeta     | Carpeta que contiene los runbooks que se van a sincronizar. Ejemplo: /Runbooks         |
@@ -62,7 +62,7 @@ En la página **Resumen del control de código fuente**, rellene la información
 
 ## <a name="syncing"></a>Sincronización
 
-Si se estableció la sincronización automática al configurar la integración del control de código fuente, la sincronización inicial se iniciará automáticamente. Si no se estableció la sincronización automática, seleccione el origen en la tabla de la página **Control de código fuente (versión preliminar)**. Haga clic en **Iniciar sincronización** para iniciar el proceso de sincronización.  
+Si se estableció la sincronización automática al configurar la integración del control de código fuente, la sincronización inicial se iniciará automáticamente. Si no se estableció la sincronización automática, seleccione el origen en la tabla de la página **Control de código fuente (versión preliminar)**. Haga clic en **Iniciar sincronización** para iniciar el proceso de sincronización.
 
 Para ver el estado de la tarea de sincronización actual o de las anteriores, haga clic en la pestaña **Trabajos de sincronización**. En la lista desplegable **Control de código fuente**, seleccione un control de código fuente.
 

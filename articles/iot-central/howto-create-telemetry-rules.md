@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005740"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964822"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de telemetría y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -36,19 +36,19 @@ Para crear una regla de telemetría, la plantilla de dispositivos debe tener def
 
 1. Si aún no ha creado ninguna regla, verá la siguiente pantalla:
 
-    ![No hay ninguna regla todavía](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
+    ![No hay ninguna regla todavía](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
 1. En la pestaña **Reglas**, haga clic en **Editar plantilla** y, a continuación, en **+ Nueva regla** para ver los tipos de reglas que puede crear.
 
 1. Haga clic en **Telemetría** para crear una regla para supervisar los datos de telemetría del dispositivo.
 
-    ![Tipos de regla](media\howto-create-telemetry-rules\Rule_Types.png)
+    ![Tipos de regla](media/howto-create-telemetry-rules/Rule_Types.png)
 
 1. Escriba un nombre que le ayude a identificar la regla en esta plantilla de dispositivos.
 
 1. Para habilitar inmediatamente la regla para todos los dispositivos creados a partir esta plantilla, cambie el valor de **Enable rule for all devices of this template** (Habilitar regla para todos los dispositivos de esta plantilla).
 
-   ![Detalle de la regla](media\howto-create-telemetry-rules\Rule_Detail.png)
+   ![Detalle de la regla](media/howto-create-telemetry-rules/Rule_Detail.png)
     
     La regla se aplica automáticamente a todos los dispositivos de la plantilla de dispositivos.
     
@@ -61,7 +61,7 @@ La condición define los criterios que la regla supervisa.
 
 1. Seleccione los datos de telemetría que desee supervisar en la lista desplegable **Medida**.
 
-   ![Condición](media\howto-create-telemetry-rules\Aggregate_Condition_Filled_Out.png)
+   ![Condición](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
 1. A continuación, elija **Agregación**, **Operador** y proporcione un valor de **Umbral**.
     - La agregación es opcional. Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura está por encima de 80, la regla se desencadenará casi al instante cuando el dispositivo informe una temperatura >80.
@@ -78,14 +78,14 @@ En esta sección se muestra cómo configurar las acciones que se realizarán cua
 
 1. Seleccione **+** junto a **Acciones**. Aquí puede ver la lista de acciones disponibles.  
 
-    ![Adición de acción](media\howto-create-telemetry-rules\Add_Action.png)
+    ![Adición de acción](media/howto-create-telemetry-rules/Add_Action.png)
 
 1. Elija la acción **Correo electrónico**, escriba una dirección de correo electrónico válida en el campo **Para** y proporcione una nota que aparecerá en el cuerpo del correo electrónico cuando la regla se desencadene.
 
     > [!NOTE]
     > Solo se envían mensajes de correo electrónico a los usuarios que se han agregado a la aplicación y han iniciado sesión al menos una vez. Obtenga más información sobre la [administración de usuarios](howto-administer.md) en Azure IoT Central.
 
-   ![Configuración de acción](media\howto-create-telemetry-rules\Configure_Action.png)
+   ![Configuración de acción](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. Para guardar la regla, elija **Guardar**. La regla está activa en unos minutos e inicia la supervisión de telemetría que se envía a la aplicación. Cuando se cumple la condición especificada en la regla, la regla desencadena la acción de correo electrónico configurada.
 

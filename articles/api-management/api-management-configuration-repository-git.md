@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: e8d0522dc4cc218792569498c149b32b3de652cb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443583"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961016"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -81,7 +81,7 @@ Para generar una contraseña, primero asegúrese de que el campo **Expiración**
 > Anote esta contraseña. Una vez que salga de esta página, la contraseña no se volverá a mostrar.
 > 
 
-En los ejemplos siguientes se usa la herramienta Git Bash desde [Git para Windows](http://www.git-scm.com/downloads) , pero puede usar cualquier herramienta de Git con la que esté familiarizado.
+En los ejemplos siguientes se usa la herramienta Git Bash desde [Git para Windows](https://www.git-scm.com/downloads) , pero puede usar cualquier herramienta de Git con la que esté familiarizado.
 
 Abra su herramienta Git en la carpeta deseada y ejecute el siguiente comando para clonar el repositorio de git en el equipo local, usando para ello el comando incluido en Azure Portal.
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 8d0b0c99b743461da41a518feae9c781f90c8b63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2cb4895fc2f884d6da41b55faa91fbcb9e88f52f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988443"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978793"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript
 
@@ -46,7 +46,7 @@ Esta guía utiliza la siguiente biblioteca:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticación de Microsoft para la vista preliminar de JavaScript|
 
 > [!NOTE]
-> *msal.js* apunta al *punto de conexión de Azure Active Directory v2.0*, lo que permite que las cuentas personales, profesionales y educativas inicien sesión y adquieran tokens. El *punto de conexión de Azure Active Directory v2.0* tiene [algunas limitaciones](..\articles\active-directory\develop\active-directory-v2-limitations.md).
+> *msal.js* apunta al *punto de conexión de Azure Active Directory v2.0*, lo que permite que las cuentas personales, profesionales y educativas inicien sesión y adquieran tokens. El *punto de conexión de Azure Active Directory v2.0* tiene [algunas limitaciones](../articles/active-directory/develop/active-directory-v2-limitations.md).
 > Para comprender las diferencias entre los puntos de conexión v1.0 y v2.0, lea la [guía de comparación entre puntos de conexión](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

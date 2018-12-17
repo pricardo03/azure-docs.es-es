@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615610"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408007"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Almacenamiento de salidas y entradas de los trabajos de Batch AI con Azure Storage
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 En esta guía se describe cómo usar Azure Storage para almacenar los archivos de entrada y salida durante la ejecución de un trabajo. Azure Storage es una de muchas opciones de almacenamiento compatibles con Batch AI. Batch AI se integra con Azure Storage mediante el montaje de sistemas de Azure Storage a un sistema de archivos de trabajo o de clúster de Batch AI, lo que permite un acceso ininterrumpido a los archivos almacenados en la nube. 
 

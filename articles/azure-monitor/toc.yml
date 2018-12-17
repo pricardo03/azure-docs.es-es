@@ -137,7 +137,7 @@ items:
   - name: Visualización de datos
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: Integraciones de asociados
-    href: ../monitoring-and-diagnostics/monitoring-partners.md?toc=/azure/azure-monitor/toc.json
+    href: platform/partners.md
   - name: Preguntas más frecuentes
     items:
     - name: Log Analytics
@@ -219,7 +219,7 @@ items:
         - name: Habilitación de la configuración de diagnóstico con plantillas de Resource Manager
           href: platform/diagnostic-logs-stream-template.md
         - name: Preparación para el formato de registros de diagnóstico en líneas de JSON
-          href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-append-blobs.md
         - name: Invitado de máquina virtual a almacén de métricas
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
         - name: Invitado de conjunto de escalado de máquinas virtuales a almacén de métricas
@@ -651,7 +651,7 @@ items:
       - name: Exportación de datos de aplicación
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: Envío de datos a Grafana
-      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
+      href: platform/grafana-plugin.md
   - name: Análisis de datos
     items:
     - name: Creación de gráficos de métricas en el Explorador de métricas
@@ -798,7 +798,7 @@ items:
     - name: Escalado automático
       items:
       - name: Tutorial de escalado automático
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-get-started.md
       - name: Información acerca de la configuración de escalado automático
         href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
       - name: Procedimientos recomendados
@@ -806,7 +806,7 @@ items:
       - name: Métricas comunes
         href: platform/autoscale-common-metrics.md
       - name: Patrones comunes
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-common-scale-patterns.md
       - name: Escalado automático con una métrica personalizada
         href: platform/autoscale-custom-metric.md
       - name: Escalado automático de conjuntos de escalado de máquinas virtuales con plantillas de Resource Manager
@@ -832,7 +832,7 @@ items:
   - name: Administración del uso y el costo
     items:
     - name: Uso y costos estimados
-      href: ../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md?toc=/azure/azure-monitor/toc.json
+      href: platform/usage-estimated-costs.md
     - name: Retención y volumen de datos de aplicación
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
     - name: Detalles del plan Enterprise de la aplicación
@@ -866,7 +866,7 @@ items:
     - name: API
       items:
       - name: Tutorial con la API de REST
-        href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
+        href: platform/rest-api-walkthrough.md
       - name: API de alerta
         href: platform/api-alerts.md
     - name: APLICACIONES
@@ -952,7 +952,7 @@ items:
   - name: Métricas
     items:
     - name: Métricas compatibles
-      href: ../monitoring-and-diagnostics/monitoring-supported-metrics.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-supported.md
     - name: Métricas compatibles con alertas más recientes
       href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
   - name: Esquemas
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Ejemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 037ec2d246e30725448fb3da98263b557e11186d
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9be0566a2e0fddc61d5c7028e9ecc7a24930b2f2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384436"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438394"

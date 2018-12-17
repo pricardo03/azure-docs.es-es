@@ -1,19 +1,18 @@
 ---
-title: Uso del Explorador de Azure Cosmos DB para administrar los datos | Microsoft Docs
+title: Uso del Explorador de Azure Cosmos DB para administrar los datos
 description: El Explorador de Azure Cosmos DB es una interfaz independiente basada en web que permite ver y administrar los datos almacenados en Azure Cosmos DB.
 services: cosmos-db
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 8d1bd0d4331937e37307140e17e5aed1a6e3b0ff
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144434"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140768"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Uso del Explorador de Azure Cosmos DB para administrar los datos 
 
@@ -52,4 +51,4 @@ Actualmente, la experiencia de **Open Full Screen** (Abrir pantalla completa) qu
 ## <a name="next-steps"></a>Pasos siguientes
 Ya aprendió a empezar a trabajar con el Explorador de Azure Cosmos DB para administrar los datos y continuación podrá:
 
-* Empezar a definir [consultas](sql-api-sql-query-reference.md) con la sintaxis de SQL y realizar [programación del lado servidor](programming.md) mediante el uso de procedimientos almacenados, UDF y desencadenadores. 
+* Empezar a definir [consultas](sql-api-query-reference.md) con la sintaxis de SQL y realizar [programación del lado servidor](programming.md) mediante el uso de procedimientos almacenados, UDF y desencadenadores. 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5bb820d816115dccf470b6c32d080862495e8310
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6f1869b83f46f97d0c54eb874a8879521a43b1e2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434983"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387070"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 
@@ -35,7 +35,7 @@ Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | F
 Para la CLI de Azure, utilice:
 
 ```azurecli-interactive
-az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
+az resource list -g demogroup --query '[].{name:name, resourceType:type}' --output table
 ```
 
 Se devuelve el tipo de recurso en formato `<resource-provider>/<resource-type-name>`. Por lo tanto, el valor `Microsoft.OperationalInsights/workspaces` tiene como proveedor de recursos **Microsoft.OperationalInsights** y como nombre de tipo de recurso **áreas de trabajo**.
@@ -51,7 +51,7 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
-| servidores | SÍ | SÍ |
+| servers | SÍ | SÍ |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -89,14 +89,6 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
 | batchaccounts | SÍ | SÍ |
-
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-| Tipo de recurso | Grupos de recursos | Subscription |
-| ------------- | -------------- | ------------ |
-| clusters | Sin  | Sin  |
-| fileservers | Sin  | Sin  |
-| jobs | Sin  | Sin  |
-| áreas de trabajo | Sin  | Sin  |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -266,18 +258,18 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
-| servidores | Sin  | Sin  |
+| servers | Sin  | Sin  |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
-| servidores | SÍ | SÍ |
+| servers | SÍ | SÍ |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
 | servergroups | Sin  | Sin  |
-| servidores | SÍ | SÍ |
+| servers | SÍ | SÍ |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 | Tipo de recurso | Grupos de recursos | Subscription |

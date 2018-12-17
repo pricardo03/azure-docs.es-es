@@ -2,16 +2,17 @@
 title: Compatibilidad con la fuente de cambios en Azure Cosmos DB
 description: Use la compatibilidad con la fuente de cambios de Azure Cosmos DB para controlar los cambios en documentos y realizar el procesamiento basado en eventos tales como desencadenadores y mantener actualizados las cachés y los sistemas de análisis.
 author: rafats
+ms.author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-ms.openlocfilehash: 4edf637d97070416c0dc2970f4bed483e5f4f34d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621316"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133764"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Fuente de cambios en Azure Cosmos DB
 
@@ -82,7 +83,7 @@ Por ejemplo, con una fuente de cambios puede realizar las siguientes tareas de m
 
 Los siguientes son algunos de los escenarios en los que se puede implementar fácilmente la fuente de cambios:
 
-* En las aplicaciones web o móviles [sin servidor](http://azure.com/serverless), puede realizar el seguimiento de eventos tales como los cambios realizados en el perfil, preferencias o ubicación del cliente para desencadenar determinadas acciones como, por ejemplo, enviar notificaciones push a los dispositivos mediante [Azure Functions](#azure-functions). 
+* En las aplicaciones web o móviles [sin servidor](https://azure.microsoft.com/en-us/solutions/serverless/), puede realizar el seguimiento de eventos tales como los cambios realizados en el perfil, preferencias o ubicación del cliente para desencadenar determinadas acciones como, por ejemplo, enviar notificaciones push a los dispositivos mediante [Azure Functions](change-feed-functions.md).
 
 * Si usa Azure Cosmos DB para compilar un juego, puede usar la fuente de cambios para, por ejemplo, implementar marcadores en tiempo real basados en las puntuaciones de los juegos completados.
 
@@ -124,4 +125,4 @@ Ahora, puede obtener más información acerca de las fuentes de cambios en los s
 
 * [Options to read change feed](read-change-feed.md) (Opciones para leer la fuente de cambios)
 * [Using change feed with Azure Functions](change-feed-functions.md) (Usar la fuente de cambios con Azure Functions)
-* [Uso de la biblioteca de procesadores de fuente de cambios](change-feed-processor.md)
+* [Using change feed processor library](change-feed-processor.md) (Uso de la biblioteca de procesadores de fuente de cambios)

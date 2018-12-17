@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: raynew
-ms.openlocfilehash: d0cfab51b686b5b6eb9617d4424ac3f834de8d6f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2423c4fde177ab50552af580a60c7a15550e5586
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241079"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840442"
 ---
 # <a name="customize-an-assessment"></a>Personalización de una evaluación
 
@@ -26,7 +26,6 @@ ms.locfileid: "50241079"
     **Configuración** | **Detalles** | **Valor predeterminado**
     --- | --- | ---
     **Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración.<br/><br/> Azure Migrate admite actualmente 30 regiones entre las que se incluyen: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, India central, Centro de EE. UU., Este de China, Norte de China, Asia Oriental, Este de EE. UU., Centro de Alemania, Noreste de Alemania, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Europa del Norte, Centro y sur de EE. UU., Sudeste Asiático, India del Sur, Sur del Reino Unido, Oeste del Reino Unido, US Gov Arizona, US Gov Texas, US Gov Virginia, Centro occidental de EE. UU., Europa Occidental, India occidental, Oeste de EE. UU. y Oeste de EE. UU. 2. |  Oeste de EE. UU. 2 es la ubicación predeterminada.
-    **Plan de tarifa** | Puede especificar el [plan de tarifa (Básico o Estándar)](../virtual-machines/windows/sizes-general.md) de las máquinas virtuales de Azure de destino. Por ejemplo, si va a migrar un entorno de producción, debería tener en cuenta el plan Estándar. Por otro lado, si tiene un entorno de desarrollo y pruebas, quizá debería considerar el plan Básico que tiene máquinas virtuales con una latencia mayor y un costo más bajo. | De forma predeterminada se usa el plan [Estándar](../virtual-machines/windows/sizes-general.md).
     **Tipo de almacenamiento** | Puede usar esta propiedad para especificar el tipo de discos que quiera asignar en Azure. Para los tamaños locales, puede especificar el tipo de disco de destino como discos administrados Premium o Estándar. Para tamaños basados en rendimiento, puede especificar el tipo de disco de destino como automático o como discos administrados Premium o Estándar. Cuando se especifica el tipo de almacenamiento como automático, la recomendación de disco se realiza basándose en los datos de rendimiento de los discos (IOPS y rendimiento). Por ejemplo, si desea conseguir un [Acuerdo de Nivel de Servicio de máquina virtual de única instancia del 99,9 %](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), es posible que quiera especificar el tipo de almacenamiento como discos administrados Premium ya que este garantizará que todos los discos de la evaluación se recomienden como discos administrados Premium. Tenga en cuenta que Azure Migrate solo admite discos administrados para la valoración de la migración. | El valor predeterminado es Managed Disks Premium (con el criterio de ajuste de tamaño *como local*).
     **Instancias reservadas** |  También puede especificar si tiene [instancias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) en Azure y Azure Migrate estimará el costo en función de ello. Las instancias reservadas no son aplicables a regiones soberanas (Azure Government, Alemania y China) y solo son aplicables en la oferta de pago por uso de Azure Migrate. | El valor predeterminado de esta propiedad es instancias reservadas de 3 años.
     **Criterio de ajuste de tamaño** | El criterio que debe utilizar Azure Migrate para ajustar el tamaño de las máquinas virtuales para Azure. Puede hacer bien un ajuste de tamaño *basado en el rendimiento* o puede ajustar el tamaño de las máquinas virtuales *como en el entorno local*, sin tener en cuenta el historial de rendimiento. | El ajuste de tamaño basado en el rendimiento es el valor predeterminado.

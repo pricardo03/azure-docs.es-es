@@ -9,21 +9,20 @@ ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: bf722756ed04349a06cbcb7b9686e6340e8d4b6c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c595695f3643522d36b53091656c3655f83a9345
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958413"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877843"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 Búsqueda es una característica de [Application Insights](app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
 
-(Para consultas más complejas sobre los datos, use [Analytics](../log-analytics/query-language/get-started-analytics-portal.md)).
+(Para consultas más complejas sobre los datos, use [Analytics](../azure-monitor/log-query/get-started-portal.md)).
 
 ## <a name="where-do-you-see-search"></a>¿Dónde verá Search?
 
@@ -102,7 +101,7 @@ Encuentre todos los elementos con el mismo valor de propiedad:
 ## <a name="search-the-data"></a>Búsqueda de los datos
 
 > [!NOTE]
-> Para escribir consultas más complejas, abra [**Analytics**](../log-analytics/query-language/get-started-analytics-portal.md) desde la parte superior de la hoja Buscar.
+> Para escribir consultas más complejas, abra [**Analytics**](../azure-monitor/log-query/get-started-portal.md) desde la parte superior de la hoja Buscar.
 > 
 
 Puede buscar términos en cualquiera de los valores de propiedad. Esto es especialmente útil si ha escrito [eventos personalizados](app-insights-api-custom-events-metrics.md) con valores de propiedad. 
@@ -164,7 +163,7 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Pasos siguientes
-* [Escribir consultas complejas en Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Escribir consultas complejas en Analytics](../azure-monitor/log-query/get-started-portal.md)
 * [Envío de registros y telemetría personalizada a Application Insights](app-insights-asp-net-trace-logs.md).
 * [Configuración de pruebas de disponibilidad y de capacidad de respuesta](app-insights-monitor-web-app-availability.md)
 * [Solución de problemas](app-insights-troubleshoot-faq.md)

@@ -7,18 +7,17 @@ editor: tysonn
 services: azure-monitor
 documentationcenter: azure-monitor
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: bwren
-ms.openlocfilehash: f85f0785f180bf333477bd45508f8c670349669e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68986b3d60566ee190a92c6ccf8cda767824350f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980481"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000148"
 ---
 # <a name="azure-monitor-branding-changes"></a>Cambios de imagen de Azure Monitor
 En este artículo se describe el reciente cambio de imagen y los últimos cambios de nombre que se han realizado en los servicios de administración de Azure. 
@@ -47,4 +46,4 @@ Operations Management Suite (OMS) era una unión de los siguientes servicios de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Leer una [introducción a Azure Monitor](overview.md) que describe sus características y componentes diferentes.
-- Obtenga información acerca de la [transición del portal de OMS](../log-analytics/log-analytics-oms-portal-transition.md).
+- Obtenga información acerca de la [transición del portal de OMS](../azure-monitor/platform/oms-portal-transition.md).

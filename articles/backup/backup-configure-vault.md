@@ -2,19 +2,19 @@
 title: Uso del agente de Azure Backup para realizar copias de seguridad de archivos y carpetas
 description: Use el agente de Microsoft Azure Backup para realizar copias de seguridad de archivos y carpetas de Windows en Azure. Cree un almacén de Recovery Services, instale el agente de Backup, defina la directiva de copia de seguridad y ejecute la copia de seguridad inicial de los archivos y las carpetas.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: almacén de copia de seguridad; copia de seguridad de un equipo de Windows Server; ventanas de copia de seguridad;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
-ms.author: markgal
-ms.openlocfilehash: 8107af53a78960d29f506c77f8ba9697c7a49d1c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252911"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874012"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Copia de seguridad desde Windows Server o un cliente de Windows en Azure mediante el modelo de implementación de Resource Manager
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Azure Backup usando el modelo de implementación de Resource Manager.

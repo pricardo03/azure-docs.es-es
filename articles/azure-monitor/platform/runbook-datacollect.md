@@ -10,19 +10,18 @@ ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: monitoring
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 87ceb682f35626c5bf468afd83a2f4a35901ef2b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2ecb50bdf44b93e8620d6d98a98fc735da6e87c3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632354"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186725"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recopilación de datos de Log Analytics con un runbook de Azure Automation
-Puede recopilar una cantidad significativa de datos en Log Analytics desde diversos orígenes como son los [orígenes de datos](../../azure-monitor/platform/agent-data-sources.md) de agentes y también los [datos recopilados de Azure](../../log-analytics/log-analytics-azure-storage.md).  Sin embargo, hay un escenario en el que es necesario recopilar datos que no son accesibles a través de estos orígenes estándar.  Puede usar [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) para escribir los datos de Log Analytics desde cualquier cliente de API de REST.  Un método común para realizar esta recopilación de datos es usar un runbook en Azure Automation.   
+Puede recopilar una cantidad significativa de datos en Log Analytics desde diversos orígenes como son los [orígenes de datos](../../azure-monitor/platform/agent-data-sources.md) de agentes y también los [datos recopilados de Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Sin embargo, hay un escenario en el que es necesario recopilar datos que no son accesibles a través de estos orígenes estándar.  Puede usar [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) para escribir los datos de Log Analytics desde cualquier cliente de API de REST.  Un método común para realizar esta recopilación de datos es usar un runbook en Azure Automation.   
 
 Este tutorial le guía a través del proceso para crear y programar un runbook en Azure Automation para escribir datos en Log Analytics.
 
@@ -30,7 +29,7 @@ Este tutorial le guía a través del proceso para crear y programar un runbook e
 ## <a name="prerequisites"></a>Requisitos previos
 Este escenario requiere los siguientes recursos configurados en su suscripción de Azure.  Ambos pueden ser una cuenta gratuita.
 
-- [Área de trabajo de Log Analytics](../../log-analytics/log-analytics-quick-create-workspace.md).
+- [Área de trabajo de Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 - [Cuenta de Azure Automation](../..//automation/automation-quickstart-create-account.md).
 
 ## <a name="overview-of-scenario"></a>Información general del escenario
@@ -41,7 +40,7 @@ En este tutorial, escribirá un runbook que recopila información acerca de los 
 
 
 ## <a name="1-install-data-collector-api-module"></a>1. Instalación del módulo Data Collector API
-Cada [solicitud de HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md#create-a-request) debe tener el formato adecuado e incluir un encabezado de autorización.  Puede hacer esto en el runbook, aunque puede reducir la cantidad de código necesario con un módulo que simplifica este proceso.  Uno de los módulos que puede usar es [OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI) en la Galería de PowerShell.
+Cada [solicitud de HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md#create-a-request) debe tener el formato adecuado e incluir un encabezado de autorización.  Puede hacer esto en el runbook, aunque puede reducir la cantidad de código necesario con un módulo que simplifica este proceso.  Uno de los módulos que puede usar es [OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI) en la Galería de PowerShell.
 
 Para usar un [módulo](../../automation/automation-integration-modules.md) en un runbook, debe estar instalado en su cuenta de Automation.  Cualquier runbook de la misma cuenta puede utilizar entonces las funciones del módulo.  Puede instalar un nuevo módulo seleccionando **Activos** > **Módulos** > **Agregar un módulo** en su cuenta de Automation.  
 
@@ -145,7 +144,7 @@ Azure Automation incluye un entorno para [probar el runbook](../../automation/au
     ![Registro de salida](media/runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Comprobación de los registros de Log Analytics
-Una vez que el runbook ha completado la prueba y se ha comprobado que la salida se ha recibido correctamente, puede comprobar que los registros se crearon mediante una [búsqueda de registros de Log Analytics](../../log-analytics/log-analytics-queries.md).
+Una vez que el runbook ha completado la prueba y se ha comprobado que la salida se ha recibido correctamente, puede comprobar que los registros se crearon mediante una [búsqueda de registros de Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 ![Resultados del registro](media/runbook-datacollect/log-output.png)
 
@@ -216,4 +215,4 @@ Siempre que se inicia un runbook, [se crea un trabajo](../../automation/automati
 - Empaquete el runbook en una [solución de administración](../../azure-monitor/insights/solutions-creating.md) para distribuirla a los clientes.
 - Más información sobre [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Más información sobre [Azure Automation](https://docs.microsoft.com/azure/automation/).
-- Más información sobre la [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md).
+- Más información sobre la [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md).

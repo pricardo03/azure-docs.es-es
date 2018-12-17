@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 239ccacaed9420fb15e9e116f46ad93596ddaaa2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: a3d6f84de103596e27c22cbb11d709bb1a85dc91
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214892"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836855"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Incorporación de un script de VMM a un plan de recuperación
 
@@ -49,7 +49,7 @@ Puede usar scripts de PowerShell en los planes de recuperación. Para que sea po
 
   1. Pruebe el script con una cuenta de usuario que tenga el mismo nivel de derechos de usuario que la cuenta de servicio de VMM. Al usar estos derechos de usuario se comprueba que los scripts independientes y probados se ejecutan del mismo modo que se ejecutan en los planes de recuperación. En el servidor VMM, establezca que se omita la directiva de ejecución como se indica a continuación:
 
-     a. Abra la consola de **Windows PowerShell de 64 bits** como administrador.
+      a. Abra la consola de **Windows PowerShell de 64 bits** como administrador.
      
      b. Escriba **Set-executionpolicy bypass**. Para más información, consulte [Uso del cmdlet Set-ExecutionPolicy](https://technet.microsoft.com/library/ee176961.aspx).
 
