@@ -1,19 +1,18 @@
 ---
 title: archivo de inclusión
 description: archivo de inclusión
-services: signalr
 author: anthonychu
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 6434c9da490e474c97226a686bf28efcbe39fef9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bef803de6cf8d6fdba05950a502d7d70f0da9581
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006312"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262787"
 ---
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
