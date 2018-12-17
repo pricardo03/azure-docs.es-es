@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379596"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972043"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparación de certificados PKI de Azure Stack para la implementación
 Los archivos de certificado [obtenidos de la entidad de certificación que eligió](azure-stack-get-pki-certs.md) deben importarse y exportarse con propiedades que coincidan con los requisitos de certificado de Azure Stack.
@@ -38,15 +38,15 @@ Siga estos pasos para preparar y validar los certificados PKI de Azure Stack:
 
 1. En el **Asistente para importar certificados**, seleccione **Máquina local** como la ubicación de importación. Seleccione **Next** (Siguiente). En la siguiente pantalla, vuelva a hacer clic en Siguiente.
 
-    ![Ubicación de importación de la máquina local](.\media\prepare-pki-certs\1.png)
+    ![Ubicación de importación de la máquina local](./media/prepare-pki-certs/1.png)
 
 1.  Elija **Colocar todos los certificados en el siguiente almacén** y, luego, seleccione **Confianza empresarial** como ubicación. Haga clic en **Aceptar** para cerrar el cuadro de diálogo de selección de almacén de certificados y, luego, haga clic en **Siguiente**.
 
-    ![Configurar el almacén de certificados](.\media\prepare-pki-certs\3.png)
+    ![Configurar el almacén de certificados](./media/prepare-pki-certs/3.png)
 
-    a. Si va a importar un PFX, aparecerá un cuadro de diálogo adicional. En la página **Protección de clave privada**, escriba la contraseña de los archivos de certificado y, luego, habilite **Marcar esta clave como exportable. Esto permite realizar copias de seguridad o transportar las claves en un momento posterior**. Seleccione **Next** (Siguiente).
+     a. Si va a importar un PFX, aparecerá un cuadro de diálogo adicional. En la página **Protección de clave privada**, escriba la contraseña de los archivos de certificado y, luego, habilite **Marcar esta clave como exportable. Esto permite realizar copias de seguridad o transportar las claves en un momento posterior**. Seleccione **Next** (Siguiente).
 
-    ![Marcar clave como exportable](.\media\prepare-pki-certs\2.png)
+    ![Marcar clave como exportable](./media/prepare-pki-certs/2.png)
 
 1. Haga clic en Finalizar para completar la importación.
 
@@ -58,11 +58,11 @@ Abra la consola MMC del administrador de certificados y conéctese al almacén d
 
 1. Haga clic en Archivo, Agregar o quitar complemento y, después, seleccione certificados y haga clic en Agregar.
 
-    ![Complemento Agregar certificados](.\media\prepare-pki-certs\mmc-2.png)
+    ![Complemento Agregar certificados](./media/prepare-pki-certs/mmc-2.png)
  
 1. Seleccione la cuenta Equipo, haga clic en Siguiente, seleccione Equipo local y, después, haga clic en Finalizar. Haga clic en Aceptar para cerrar la página Agregar o quitar complemento.
 
-    ![Complemento Agregar certificados](.\media\prepare-pki-certs\mmc-3.png)
+    ![Complemento Agregar certificados](./media/prepare-pki-certs/mmc-3.png)
 
 1. Vaya a Certificados > Confianza empresarial > Ubicación de certificado. Compruebe que ve el certificado a la derecha.
 

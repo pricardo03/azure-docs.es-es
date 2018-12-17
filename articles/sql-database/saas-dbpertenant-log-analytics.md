@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 58a354950e303eda8158ca072870bfecbf33a89f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405079"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890218"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configuración y uso de Log Analytics con la aplicación SaaS de SQL Database multiinquilino
 
@@ -49,13 +49,13 @@ Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Anal
 1. En PowerShell ISE, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*. Mantenga este script abierto, ya que quizá quiera ejecutar varios de los escenarios de generación de carga durante este tutorial.
 1. Si aún no lo ha hecho, aprovisione un lote de inquilinos para que el contexto de supervisión sea más interesante. Este proceso tarda unos minutos.
 
-   a. Establezca **$DemoScenario = 1**, _Aprovisionamiento de un lote de inquilinos_.
+    a. Establezca **$DemoScenario = 1**, _Aprovisionamiento de un lote de inquilinos_.
 
    b. Para ejecutar el script e implementar 17 inquilinos adicionales, presione F5.
 
 1. Ahora inicie el generador de carga para ejecutar una carga simulada en todos los inquilinos.
 
-    a. Establezca **$DemoScenario = 2**, _Generación de una carga de intensidad normal (aprox. 30 DTU)_.
+     a. Establezca **$DemoScenario = 2**, _Generación de una carga de intensidad normal (aprox. 30 DTU)_.
 
     b. Presione F5 para ejecutar el script.
 
@@ -151,4 +151,4 @@ Pruebe el [tutorial de análisis de inquilinos](saas-dbpertenant-log-analytics.m
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Otros tutoriales basados en la implementación inicial de la aplicación Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
+* [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)

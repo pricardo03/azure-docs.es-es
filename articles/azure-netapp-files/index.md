@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/23/2018
 ms.author: b-juche
-ms.openlocfilehash: 6869d60bfadbeb3f3ed9c7b67d3560e49c73e65b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 23ec6d3a91dea91fba8565280bcce4e9385f49ae
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010249"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413248"
 ---
 # <a name="azure-netapp-files-documentation"></a>Documentación sobre Azure NetApp Files
 
 Aprenda a usar Azure NetApp Files para crear y administrar cuentas de NetApp, grupos de capacidad y volúmenes, configurar una directiva de exportación, instalar un volumen para una máquina virtual y administrar instantáneas.
 
 > [!IMPORTANT] 
-> Todas las tareas que se describen en esta documentación requieren que forme parte del programa de la versión preliminar pública y que esté en la lista blanca para acceder al proveedor de recursos de Azure de Microsoft.NetApp. Para conocer más detalles sobre cómo unirse al programa de versión preliminar pública, visite la [página de registro en la versión preliminar pública de Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+> Todas las tareas que se describen en esta documentación requieren que forme parte del programa de la versión preliminar pública y que esté en la lista blanca para acceder al proveedor de recursos de Azure de Microsoft.NetApp. Para unirse al programa Versión preliminar pública, consulte [Registro en Azure NetApp Files](azure-netapp-files-register.md). 
 
 <ul class="panelContent cardsFTitle">
     <li>

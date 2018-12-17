@@ -4,9 +4,8 @@ description: Aprenda a convertir un experimento de aprendizaje en un experimento
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: d96755f00aa5023d57c9c4c2b2457902c337e29d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 71315b6c36a9e41e5805d5a15bde5b1d1d84f2b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314275"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269930"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Implementación de un servicio web de Azure Machine Learning Studio
 Azure Machine Learning permite compilar, probar e implementar soluciones de análisis predictivo.
@@ -32,7 +31,7 @@ Desde una perspectiva general, esto se realiza en tres pasos:
 * **[Convertirlo en un experimento predictivo]**: una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
 * **[Implementación como un servicio web]**: puede implementar el experimento predictivo como un servicio web de Azure [New] o [clásico]. Los usuarios pueden enviar datos al modelo y recibir las predicciones de su modelo.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="create-a-training-experiment"></a>Crear un experimento de entrenamiento
 Para entrenar un modelo de análisis predictivo, utilice Azure Machine Learning Studio para crear un experimento de entrenamiento en el que incluya varios módulos para cargar los datos de entrenamiento, prepare los datos según sea necesario, aplique los algoritmos de aprendizaje automático y evalúe los resultados. Puede iterar en un experimento y probar algoritmos distintos de aprendizaje automático para comparar y evaluar los resultados.

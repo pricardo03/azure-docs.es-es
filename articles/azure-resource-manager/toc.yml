@@ -44,6 +44,19 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Conceptos
   items:
+  - name: Estructura de plantilla
+    href: resource-group-authoring-templates.md
+    items:
+    - name: Parámetros
+      href: resource-manager-templates-parameters.md
+    - name: variables
+      href: resource-manager-templates-variables.md
+    - name: Functions
+      href: resource-group-authoring-templates.md#functions
+    - name: Recursos
+      href: resource-manager-templates-resources.md
+    - name: Salidas
+      href: resource-manager-templates-outputs.md
   - name: Tipos y proveedores de recursos
     href: resource-manager-supported-services.md
   - name: Grupos de administración
@@ -65,65 +78,50 @@ items:
   items:
   - name: Crear plantillas
     items:
-    - name: Secciones de plantilla
-      href: resource-group-authoring-templates.md
-      items:
-      - name: Parámetros
-        href: resource-manager-templates-parameters.md
-      - name: variables
-        href: resource-manager-templates-variables.md
-      - name: Functions
-        href: resource-group-authoring-templates.md#functions
-      - name: Recursos
-        href: resource-manager-templates-resources.md
-      - name: Salidas
-        href: resource-manager-templates-outputs.md
-    - name: Plantillas vinculadas y anidadas
-      href: resource-group-linked-templates.md
-    - name: Dependencias de recursos
+    - name: Creación de grupos de recursos y otros recursos en la suscripción
+      href: deploy-to-subscription.md
+    - name: Definición de las dependencias de recursos
       href: resource-group-define-dependencies.md
+    - name: Modularización de plantillas
+      href: resource-group-linked-templates.md
+    - name: Administración de secretos
+      href: resource-manager-keyvault-parameter.md
     - name: Creación de varias instancias
       href: resource-group-create-multiple.md
-    - name: Creación de grupo de recursos en una plantilla
-      href: create-resource-group-in-template.md
-    - name: Creación de recursos de la suscripción
-      href: deploy-to-subscription.md
+    - name: Uso de extensiones de plantilla
+      href: resource-manager-use-extensions.md
     - name: Actualización de recursos
       href: /azure/architecture/building-blocks/extending-templates/update-resource
-  - name: Implementación
+  - name: Implementación de plantillas
     items:
-    - name: Azure PowerShell
-      items:
-      - name: Implementar plantilla
-        href: resource-group-template-deploy.md
-      - name: Implementación de una plantilla privada con el token de SAS
-        href: resource-manager-powershell-sas-token.md
-      - name: Exportación de la plantilla y reimplementación
-        href: resource-manager-export-template-powershell.md
-    - name: Azure CLI
-      items:
-      - name: Implementar plantilla
-        href: resource-group-template-deploy-cli.md
-      - name: Implementación de una plantilla privada con el token de SAS
-        href: resource-manager-cli-sas-token.md
-      - name: Exportación de la plantilla y reimplementación
-        href: resource-manager-export-template-cli.md
-    - name: Azure Portal
-      items:
-      - name: Implementación de recursos
-        href: resource-group-template-deploy-portal.md
-      - name: Exportación de la plantilla
-        href: resource-manager-export-template.md
-    - name: API DE REST
+    - name: Implementación mediante el portal
+      href: resource-group-template-deploy-portal.md
+    - name: Implementación con la CLI de Azure
+      href: resource-group-template-deploy-cli.md
+    - name: Implementación mediante Azure PowerShell
+      href: resource-group-template-deploy.md
+    - name: Implementación mediante la API REST
       href: resource-group-template-deploy-rest.md
-    - name: Varios grupos de recursos o suscripciones
+    - name: Exportar plantillas
+      items:
+      - name: Uso del portal
+        href: resource-manager-export-template.md
+      - name: Uso de la CLI de Azure
+        href: resource-manager-export-template-cli.md
+      - name: Uso de Azure PowerShell
+        href: resource-manager-export-template-powershell.md
+    - name: Protección de plantillas con el token de SAS
+      items:
+      - name: Uso de la CLI de Azure
+        href: resource-manager-cli-sas-token.md
+      - name: Con PowerShell
+        href: resource-manager-powershell-sas-token.md
+    - name: Implementación en varios grupos de recursos o suscripciones
       href: resource-manager-cross-resource-group-deployment.md
     - name: Integración continua con Azure DevOps Services
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-    - name: Paso de valores seguros durante la implementación
-      href: resource-manager-keyvault-parameter.md
-  - name: administración
+  - name: Administración de plantillas
     items:
     - name: Azure PowerShell
       href: powershell-azure-resource-manager.md
@@ -146,13 +144,13 @@ items:
       href: resource-manager-api-authentication.md
     - name: Bloqueo de recursos
       href: resource-group-lock-resources.md
-  - name: Auditoría
+  - name: Auditoría de implementaciones
     items:
     - name: Visualización de registros de actividad
       href: resource-group-audit.md
     - name: Visualización de operaciones de implementación
       href: resource-manager-deployment-operations.md
-  - name: Solución de problemas
+  - name: Solución de problemas de implementaciones
     items:
     - name: Solución de errores de implementación
       href: resource-manager-common-deployment-errors.md
@@ -237,9 +235,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 47af6826974759a1b0dfea7949429c5acaca004d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 166a23d480db7dfda7a78a5a63e7717b5e721bb9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252344"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436796"

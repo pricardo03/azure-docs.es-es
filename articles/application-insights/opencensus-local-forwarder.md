@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: ddfcb90090d82d8fe947292737163a81c715b32d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972834"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970593"
 ---
 # <a name="local-forwarder"></a>Reenviador local
 
@@ -28,7 +27,7 @@ Un reenviador local es un agente que recopila datos de telemetría de Applicatio
 
 El reenviador local es un [proyecto de código abierto en GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Hay diferentes formas de ejecutar el reenviador local en varias plataformas.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 #### <a name="windows-service"></a>Servicio de Windows
 
@@ -40,7 +39,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. Descargue el archivo LF.WindowsServiceHost.zip file de la [página de la versión del reenviador local](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) de GitHub.
 
-    ![Captura de pantalla de la página de descarga de la versión del reenviador local](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![Captura de pantalla de la página de descarga de la versión del reenviador local](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. En este ejemplo, y solo para facilitar la demostración, vamos a extraer solo el archivo .zip en la ruta `C:\LF-WindowsServiceHost`.
 
@@ -56,7 +55,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     Para examinar el nuevo servicio mediante la interfaz gráfica de usuario de los servicios, escriba ``services.msc``
         
-     ![Captura de pantalla del servicio de reenviador local](.\media\opencensus-local-forwarder\002-services.png)
+     ![Captura de pantalla del servicio de reenviador local](./media/opencensus-local-forwarder/002-services.png)
 
 3. **Haga clic con el botón derecho** en el reenviador local nuevo y seleccione **Iniciar**. El servicio empezará ahora a ejecutarse.
 
@@ -74,7 +73,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. Para confirmar que la configuración que desea está en vigor y que el reenviador local está escuchando los datos de seguimiento de la forma esperada, compruebe el archivo ``LocalForwarder.log``. Debería ver unos resultados parecidos a los que se pueden ver en la siguiente imagen de la parte inferior del archivo:
 
-    ![Captura de pantalla del archivo LocalForwarder.log](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![Captura de pantalla del archivo LocalForwarder.log](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### <a name="console-application"></a>Aplicación de consola
 

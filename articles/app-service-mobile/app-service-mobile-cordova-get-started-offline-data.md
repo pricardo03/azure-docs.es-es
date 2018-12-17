@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c12328a441a8cc438fa3e974863cc8adf8651b50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593721"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972157"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Activación de la sincronización sin conexión para una aplicación móvil Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -28,7 +28,7 @@ Este tutorial presenta la característica de sincronización sin conexión de Az
 
 Este tutorial se basa en la solución de inicio rápido de Cordova para Mobile Apps que crea al completar el tutorial [Inicio rápido de Apache Cordova]. En este tutorial, actualizará la solución de inicio rápido para agregar las características sin conexión de Azure Mobile Apps.  También nos centraremos en el código sin conexión específico de la aplicación.
 
-Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Azure Mobile Apps]. Para obtener detalles de uso de la API, consulte la [documentación de la API](https://azure.github.io/azure-mobile-apps-js-client).
+Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]. Para obtener detalles de uso de la API, consulte la [documentación de la API](https://azure.github.io/azure-mobile-apps-js-client).
 
 ## <a name="add-offline-sync-to-the-quickstart-solution"></a>Adición de sincronización sin conexión a la solución de inicio rápido
 El código de sincronización sin conexión debe agregarse a la aplicación. La sincronización sin conexión requiere el complemento cordova-sqlite-storage, que se agrega automáticamente a la aplicación cuando el complemento Azure Mobile Apps se incluye en el proyecto. El proyecto de inicio rápido incluye ambos complementos.
@@ -136,7 +136,7 @@ En el ejemplo, el método **push** de **syncContext** solo se llama en el inicio
 
 Si se ejecuta una extracción en una tabla que tiene actualizaciones locales pendientes rastreadas por el contexto, la operación de extracción desencadenará de forma automática una inserción. Al actualizar, agregar y completar elementos en este ejemplo, se puede omitir la llamada explícita a **push**, ya que puede ser redundante.
 
-En el código proporcionado, se consultan todos los registros de la tabla todoItem remota, pero también es posible filtrar registros pasando un identificador de consulta y una consulta a **push**. Para más información, consulte la sección *Sincronización incremental* en [Sincronización de datos sin conexión en Azure Mobile Apps].
+En el código proporcionado, se consultan todos los registros de la tabla todoItem remota, pero también es posible filtrar registros pasando un identificador de consulta y una consulta a **push**. Para más información, consulte la sección *Sincronización incremental* en [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 ## <a name="optional-disable-authentication"></a>(Opcional) Deshabilitación de la autenticación
 
@@ -187,10 +187,10 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
     Observe que los datos se han sincronizado entre la base de datos y el almacén local, y contienen los elementos que agregó mientras la aplicación estaba desconectada.
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Sincronización de datos sin conexión en Azure Mobile Apps]
+* [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 * [Visual Studio Tools para Apache Cordova]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Examine características de sincronización sin conexión más avanzadas, como la resolución de conflictos, en el [ejemplo de sincronización sin conexión]
 * Examine la referencia de API de sincronización sin conexión en la [documentación de la API](https://azure.github.io/azure-mobile-apps-js-client).
 
@@ -199,14 +199,14 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 <!-- Images -->
 
 <!-- URLs. -->
-[Inicio rápido de Apache Cordova]: app-service-mobile-cordova-get-started.md
+[inicio rápido de Apache Cordova]: app-service-mobile-cordova-get-started.md
 [ejemplo de sincronización sin conexión]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
-[Sincronización de datos sin conexión en Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
+[Cloud Cover: Offline Sync in Azure Mobile Services]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [authentication]: app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2015]: https://www.visualstudio.com/
 [Visual Studio Tools para Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

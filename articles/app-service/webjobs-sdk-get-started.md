@@ -1,5 +1,5 @@
 ---
-title: Introducción al SDK de Azure WebJobs
+title: Introducción al SDK de WebJobs - Azure
 description: Introducción al SDK de WebJobs para el procesamiento en segundo plano basado en eventos. Aprenda a acceder a los datos de servicios de Azure y de terceros.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140356"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339814"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -63,9 +63,9 @@ En este artículo se da por supuesto que dispone de una [cuenta de Azure](https:
 
 1. En Visual Studio, seleccione **Archivo -> Nuevo proyecto**.
 
-1. Seleccione **Escritorio clásico de Windows > Aplicación de consola (.NET Framework)**.
+2. Seleccione **Escritorio clásico de Windows > Aplicación de consola (.NET Framework)**.
 
-1. Llame al proyecto *WebJobsSDKSample* y seleccione **Aceptar**.
+3. Llame al proyecto *WebJobsSDKSample* y seleccione **Aceptar**.
 
    ![Cuadro de diálogo Nuevo proyecto](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -396,7 +396,7 @@ En esta sección, realiza las tareas siguientes para configurar el registro de A
 
 En esta sección vuelve a realizar una ejecución local para verificar que los datos de registro van ahora a Application Insights, así como a la consola.
 
-1. Use el **Explorador de servidores** en Visual Studio para crear un mensaje de cola, de la misma manera que lo hizo [anteriormente](#trigger-the-function), excepto en que va a escribir *¡Hola App Insights!* como texto del mensaje.
+1. Use el **Explorador de servidores** en Visual Studio para crear un mensaje de cola, de la misma manera que lo hizo [anteriormente](#trigger-the-function-in-azure), excepto en que va a escribir *¡Hola App Insights!* como texto del mensaje.
 
 1. Ejecute el proyecto.
 
@@ -484,13 +484,13 @@ Los enlaces de entrada simplifican el código que lee los datos. En este ejemplo
 
 1. Cree un contenedor de blobs en la cuenta de almacenamiento.
 
-   a. En el **Explorador de servidores** en Visual Studio, expanda el nodo de la cuenta de almacenamiento, haga clic con el botón derecho en **Blobs** y, a continuación, seleccione **Crear contenedor de blobs**.
+    a. En el **Explorador de servidores** en Visual Studio, expanda el nodo de la cuenta de almacenamiento, haga clic con el botón derecho en **Blobs** y, a continuación, seleccione **Crear contenedor de blobs**.
 
    b. En el cuadro de diálogo **Crear contenedor de blobs**, especifique *contenedor* como nombre para el contenedor y, después, haga clic en **Aceptar**.
 
 1. Cargue el archivo *Program.cs* en el contenedor de blobs. (Este archivo se usa aquí como ejemplo; podría cargar cualquier archivo de texto y crear un mensaje de cola con el nombre del archivo).
 
-   a. En el **Explorador de servidores**, haga doble clic en el nodo para el contenedor que acaba de crear.
+    a. En el **Explorador de servidores**, haga doble clic en el nodo para el contenedor que acaba de crear.
 
    b. En la ventana **Contenedor**, seleccione el botón **Cargar**.
 
