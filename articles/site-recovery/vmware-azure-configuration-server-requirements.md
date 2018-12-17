@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/11/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 85484c0d4c1838e158fe388afdfcbebc6de2f289
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 506f5102d38191e20e18e395f3a59ac12d951ab7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569764"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850625"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Requisitos del servidor de configuración para la recuperación ante desastres de VMware en Azure
 
@@ -20,7 +20,7 @@ Cuando se usa [Azure Site Recovery](site-recovery-overview.md) para realizar la 
 
 - El servidor de configuración coordina la comunicación entre Azure y VMware local. También administra la replicación de datos.
 - El servidor de configuración coordina la comunicación entre Azure y VMware local. También administra la replicación de datos.
-- [Obtenga más información](vmware-azure-architecture.md) acerca de los componentes y procesos del servidor de configuración.
+- [Más información](vmware-azure-architecture.md) acerca de los componentes y procesos del servidor de configuración.
 
 ## <a name="configuration-server-deployment"></a>Implementación del servidor de configuración
 
