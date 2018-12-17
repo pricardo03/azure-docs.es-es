@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5bec7be5f7ad744960d2602aaf24fec51d869267
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056256"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993211"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com)
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
@@ -154,7 +154,7 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 
     ![Registro de la dirección IP pública de la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, http://http://40.121.222.19.
+2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, http:// http://40.121.222.19.
 
     ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
