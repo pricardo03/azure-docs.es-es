@@ -3,7 +3,7 @@
 ## [SDK y herramientas](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Guía de inicio rápido
-## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
+## [Aplicaciones web](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## Máquinas virtuales
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -26,11 +26,11 @@
 
 # Ejemplos
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Aplicaciones web](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Máquina virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Máquina virtual Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## Azure PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+### [Aplicaciones web](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Máquina virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Máquina virtual Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
@@ -55,7 +55,7 @@
 ### [Aplicaciones sin servidor](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Clúster de microservicios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Implementación
-### [Aplicaciones web y móviles a partir del control de código fuente](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
+### [Aplicaciones web y móviles a partir del control de código fuente](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)
 ### [Microservicios locales](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Máquina virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Máquina virtual Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -75,7 +75,7 @@
 ## Protección
 ### [Aplicaciones web y móviles](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-## Backup
+## Copia de seguridad
 ### [Aplicaciones web y móviles](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Máquinas virtuales](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
