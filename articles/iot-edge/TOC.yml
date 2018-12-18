@@ -84,18 +84,14 @@ items:
       href: how-to-register-device-cli.md
     - name: Visual Studio Code
       href: how-to-register-device-vscode.md
-  - name: Instalación de un entorno de tiempo de ejecución de IoT Edge
+  - name: Instalación y administración de IoT Edge
     items:
     - name: Linux X64
       href: how-to-install-iot-edge-linux.md
     - name: Linux ARM32
       href: how-to-install-iot-edge-linux-arm.md
-    - name: Windows con contenedores de Windows
-      href: how-to-install-iot-edge-windows-with-windows.md
-    - name: Windows con contenedores de Linux
-      href: how-to-install-iot-edge-windows-with-linux.md
-    - name: IoT Core
-      href: how-to-install-iot-core.md
+    - name: Windows X64
+      href: how-to-install-iot-edge-windows.md
     - name: Actualización de la versión del entorno de ejecución
       href: how-to-update-iot-edge.md
   - name: Aprovisionamiento automático con DPS
@@ -107,23 +103,7 @@ items:
   - name: Desarrollo y depuración de módulos en VS 2017
     href: how-to-visual-studio-develop-csharp-module.md
   - name: Desarrollo y depuración de módulos en VS Code
-    items:
-    - name: Azure Functions
-      href: how-to-develop-csharp-function.md
-    - name: C#
-      href: how-to-develop-csharp-module.md
-    - name: Python
-      href: how-to-develop-python-module.md
-    - name: Node.js
-      href: how-to-develop-node-module.md
-    - name: Java
-      href: how-to-develop-java-module.md
-    - name: C
-      href: how-to-develop-c-module.md
-    - name: Desarrollo de varios módulos
-      href: how-to-develop-multiple-modules-vscode.md
-    - name: Depuración de varios módulos
-      href: how-to-debug-multiple-modules-vscode.md
+    href: how-to-vs-code-develop-module.md
   - name: Implementación de módulos
     items:
     - name: Azure Portal
@@ -226,9 +206,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 0f761c4395dc1e96aa58acc9dc737f115fcde09b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1f56b5e15759bc0c386ecf9649cbc78b611705ad
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340851"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558590"
