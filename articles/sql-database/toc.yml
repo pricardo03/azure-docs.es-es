@@ -101,6 +101,8 @@ items:
       href: sql-database-service-tiers-dtu.md
     - name: Pago por adelantado de capacidad reservada
       href: sql-database-reserved-capacity.md
+    - name: Migración desde el nivel de servicio Premium RS
+      href: sql-database-service-tiers-prs.md
   - name: Proceso y almacenamiento
     items:
     - name: Información general
@@ -115,7 +117,7 @@ items:
       href: sql-database-service-tier-hyperscale-faq.md
   - name: Bases de datos únicas
     items:
-    - name: Base de datos única
+    - name: Introducción a las bases de datos únicas
       href: sql-database-single-index.yml
     - name: Creación y administración
       href: sql-database-single-databases-manage.md
@@ -149,7 +151,7 @@ items:
       href: sql-database-single-database-scale.md
   - name: Instancias administradas
     items:
-    - name: Instancias administradas
+    - name: Introducción a las instancias administradas
       href: sql-database-managed-instance-index.yml
     - name: Introducción a Instancia administrada
       href: sql-database-managed-instance.md
@@ -163,7 +165,7 @@ items:
       href: sql-database-managed-instance-transact-sql-information.md
   - name: Plataforma como servicio
     items:
-    - name: Plataforma como servicio
+    - name: Introducción a la plataforma como servicio
       href: sql-database-paas.yml
     - name: Continuidad del negocio
       href: sql-database-business-continuity.md
@@ -195,7 +197,7 @@ items:
         href: sql-database-disaster-recovery-drills.md
   - name: Seguridad
     items:
-    - name: Seguridad
+    - name: Introducción a la seguridad
       href: sql-database-security-index.yml
     - name: Introducción a la seguridad
       href: sql-database-security-overview.md
@@ -249,7 +251,7 @@ items:
         href: transparent-data-encryption-byok-azure-sql.md
   - name: Escalabilidad
     items:
-    - name: Escalabilidad
+    - name: Introducción a la escalabilidad
       href: sql-database-scalability-index.yml
     - name: Escalado y reducción vertical
       href: sql-database-scale-resources.md
@@ -283,6 +285,8 @@ items:
     href: sql-database-features.md
   - name: Supervisión y ajuste
     items:
+    - name: Introducción a la supervisión y ajuste
+      href: sql-database-monitoring-tuning-index.yml
     - name: Optimización de la supervisión y el rendimiento
       href: sql-database-monitor-tune-overview.md
     - name: Supervisión del rendimiento
@@ -315,8 +319,12 @@ items:
       href: sql-database-temporal-tables.md
 - name: Guías de procedimientos
   items:
+  - name: Información general
+    href: sql-database-howto.md
   - name: Base de datos única
     items:
+    - name: Información general
+      href: sql-database-howto-single-database.md
     - name: Migración a SQL Database
       href: sql-database-cloud-migrate.md
     - name: Administración de una base de datos SQL después de una migración
@@ -393,6 +401,8 @@ items:
         href: elastic-jobs-migrate.md
   - name: Instancia administrada
     items:
+    - name: Información general
+      href: sql-database-howto-managed-instance.md
     - name: Migración a Instancia administrada
       href: sql-database-managed-instance-migrate.md
     - name: Migración de un certificado TDE a Instancia administrada
@@ -666,9 +676,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalación de trabajo elástico (en desuso)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: d94f4fb39ccdee60fae434204369fd844aedeb20
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d276b202da8055965a43f5313b6a8c4b335f74b2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384282"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436031"

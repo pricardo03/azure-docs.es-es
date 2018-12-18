@@ -91,7 +91,7 @@
 #### [Pestaña Versión de prueba](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [Pestaña Marketplace](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [Pestaña Soporte técnico](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Creación de recursos técnicos](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [Oferta de publicación de aplicaciones de Azure](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [Actualización de oferta existente](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
