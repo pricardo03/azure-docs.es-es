@@ -26,18 +26,18 @@
 
 # Ejemplos
 ## Azure CLI
-### [Aplicaciones web](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Aplicaciones web](https://docs.microsoft.com/azure/app-service/samples-cli)
 ### [Máquina virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Máquina virtual Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## Azure PowerShell
-### [Aplicaciones web](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+### [Aplicaciones web](https://docs.microsoft.com/azure/app-service/samples-powershell)
 ### [Máquina virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Máquina virtual Windows](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Conceptos
 ## [Facturación y suscripciones](https://docs.microsoft.com/azure/billing/billing-getting-started)
 ## [Comparaciones de hospedaje](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
-## [¿Qué es App Service?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+## [¿Qué es App Service?](https://docs.microsoft.com/azure/app-service/overview)
 ## Máquinas virtuales
 ### [Máquinas virtuales Linux](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Máquinas virtuales Windows](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
