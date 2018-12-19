@@ -275,6 +275,7 @@
 ##### [Problema al guardar las credenciales de administrador al configurar el aprovisionamiento de usuarios en una aplicación de la galería](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [Los usuarios no se aprovisionan: aplicación de la galería](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
 ##### [Se han aprovisionado usuarios incorrectos: aplicación de la galería](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [Problemas de compatibilidad de SCIM: aplicación ajena a la galería](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Inicio de sesión único
 ##### [Elección de un método](manage-apps/single-sign-on-modes.md)
@@ -321,10 +322,10 @@
 ## [Solución de problemas](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Implementación de la prueba de concepto (PoC) de Azure AD
-### [Guía de la prueba de concepto: Introducción](active-directory-playbook-intro.md)
-### [Guía de la prueba de concepto: Ingredientes](active-directory-playbook-ingredients.md)
-### [Guía de la prueba de concepto: Implementación](active-directory-playbook-implementation.md)
-### [Guía de la prueba de concepto: Bloques de creación](active-directory-playbook-building-blocks.md)
+### [Cuaderno de estrategias de prueba de concepto: Introducción](active-directory-playbook-intro.md)
+### [Cuaderno de estrategias de prueba de concepto: Ingredientes](active-directory-playbook-ingredients.md)
+### [Cuaderno de estrategias de prueba de concepto: Implementación](active-directory-playbook-implementation.md)
+### [Cuaderno de estrategias de prueba de concepto: Bloques de creación](active-directory-playbook-building-blocks.md)
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)

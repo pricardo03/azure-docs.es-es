@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: da70af8eb2239fb9246071605aa5323e2e9e041e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eea9875be7926614811327dfeb89b721b43436e2
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958448"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580284"
 documentType: LandingData
 title: Documentación sobre Computer Vision API
 metadata:
-  title: 'Documentación de Computer Vision API: Guías de inicio rápido, tutoriales, referencia de API: Azure Cognitive Services | Microsoft Docs'
+  title: 'Documentación de API: Computer Vision para Azure Cognitive Services | Microsoft Docs'
   description: Aprenda a utilizar Computer Vision para procesar imágenes y devolver información. Los tutoriales muestra cómo crear aplicaciones que usan la API.
   services: cognitive-services
   author: nitinme
@@ -20,6 +20,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/24/2018
   ms.author: nitinme
+ms.custom: seodec18
 abstract:
   description: Computer Vision API, basada en la nube, provee a los desarrolladores de acceso a algoritmos avanzados para procesar imágenes y devolver información. Al cargar una imagen o al especificar una URL de imagen, los algoritmos del servicio Computer Vision pueden analizar el contenido visual de diferentes maneras basándose en las entradas y las opciones del usuario. Aprenda a analizar el contenido visual de varias maneras con guías de inicio rápido, tutoriales y ejemplos.
   aside:
@@ -101,4 +102,4 @@ sections:
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">CLI de Azure</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">CLI de Azure</a></p>

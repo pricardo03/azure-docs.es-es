@@ -41,7 +41,7 @@ items:
     - name: Uso de Azure Storage
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Uso de Azure Data Lake Store
+    - name: Uso de Azure Data Lake Storage
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: Uso de herramientas de HDInsight
@@ -128,7 +128,7 @@ items:
     - name: Restricción del acceso a los datos
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
       maintainContext: true
-    - name: Autorización de usuarios para vistas de Apache Ambari
+    - name: Autorización de usuarios para Apache Ambari Views
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
   - name: administración
@@ -190,7 +190,7 @@ items:
     - name: Carga de datos para trabajos de Apache Hadoop
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: Varios clústeres de HDInsight con Data Lake Store
+    - name: Varios clústeres de HDInsight con Data Lake Storage
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: Importación y exportación de datos con Apache Sqoop
@@ -337,9 +337,9 @@ items:
   - name: Herramientas de Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: fdf844f959d7832214795155c3af5c0cf3ec6a25
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f9bf9d14d0a4124dd19dd76777226c0976ffc84d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495811"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601362"
