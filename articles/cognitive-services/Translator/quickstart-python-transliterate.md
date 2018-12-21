@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Transcripción de texto, Python: Translator Text API'
+title: 'Inicio rápido: Transliteración de texto con Python: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial aprenderá a transcribir (convertir) de texto de un script a otro mediante Python y Translator Text REST API. En este ejemplo, se transcribe el japonés para que use el alfabeto latino.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 24887e39b98c41cbafbe962cb81391571d8b86b9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4f6418602fcf1de6ea98c45635029f71aa6fdf06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247885"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999286"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Guía de inicio rápido: Uso de Translator Text API para transcribir texto mediante Python
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Inicio rápido: Uso de Translator Text API para transliterar texto mediante Python
 
 En este tutorial aprenderá a transcribir (convertir) de texto de un script a otro mediante Python y Translator Text REST API. En el ejemplo que se proporciona, se transcribe el japonés para que use el alfabeto latino.
 
@@ -69,7 +69,7 @@ Actualmente, hay un punto de conexión disponible para Translator Text y está e
 `params` se utiliza para establecer el idioma de entrada y los scripts de entrada y salida. En este ejemplo, vamos a transcribir de japonés al alfabeto latino.
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Transliteración](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: transliteración](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -151,7 +151,7 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="see-also"></a>Otras referencias
 
-Además de para la transliteración de texto, aprenda a usar Translator Text API para:
+Aprenda a usar Translator Text API para:
 
 * [Traducir texto](quickstart-python-translate.md)
 * [Identificar el idioma de entrada](quickstart-python-detect.md)

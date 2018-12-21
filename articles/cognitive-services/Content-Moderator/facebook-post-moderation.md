@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Moderación de contenido de Facebook - Azure Content Moderator'
+title: 'Tutorial: Moderación de contenido de Facebook: Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Modere páginas de Facebook con Content Moderator.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223945"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255438"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutorial: Moderación de contenido de Facebook con Content Moderator
 
@@ -160,7 +160,7 @@ Se espera que los desarrolladores que usen Cognitive Services, incluidos este ej
 ## <a name="next-steps"></a>Pasos siguientes
 
 1. [Vea una demostración (vídeo)](https://channel9.msdn.com/Events/Build/2017/T6033) de esta solución de Microsoft Build 2017.
-1. [Ejemplo de Facebook en Github](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. [Ejemplo de Facebook en GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

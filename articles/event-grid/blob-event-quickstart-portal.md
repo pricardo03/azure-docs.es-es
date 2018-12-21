@@ -1,6 +1,6 @@
 ---
-title: Eventos de Blob Storage para Azure Event Grid con Azure Portal | Microsoft Docs
-description: Use Azure Event Grid y Azure Portal para crear una cuenta de Blob Storage y suscribirse a sus eventos.
+title: Envío de eventos de almacenamiento de blobs a un punto de conexión web desde el portal | Microsoft Docs
+description: Use Azure Event Grid y Azure Portal para crear una cuenta de Blob Storage y suscribirse a sus eventos. Envíe los eventos a un webhook.
 services: event-grid
 keywords: ''
 author: tfitzmac
@@ -8,14 +8,15 @@ ms.author: tomfitz
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 44e258069515ad6c409c193312f3a714a5096541
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec18
+ms.openlocfilehash: 6fd48ecd6def6a4fcd56751b6a137f75b16896ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404229"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086970"
 ---
-# <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Creación y enrutamiento de eventos de Blob Storage con Azure Portal y Event Grid
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usará Azure Portal para crear una cuenta de Blob Storage, suscribirse a eventos de Blob Storage y desencadenar un evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 

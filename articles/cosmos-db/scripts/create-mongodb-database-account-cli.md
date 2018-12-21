@@ -1,20 +1,20 @@
 ---
-title: 'Script de la CLI de Azure: creación de una cuenta, base de datos y colección de API de MongoDB para Azure Cosmos DB | Microsoft Docs'
+title: 'Script de la CLI de Azure: creación de una cuenta, base de datos y colección de API de MongoDB para Azure Cosmos DB'
 description: 'Ejemplo de script de la CLI de Azure: creación de una cuenta, base de datos y colección de API de MongoDB para Azure Cosmos DB'
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 6ca603a324dddf243927cf5bb67556edfb1cf7e6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 7c7f3f6907f0c21e3c66a3d814dc355476bec553
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007145"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958356"
 ---
-# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-azure-cli"></a>Azure Cosmos DB: Creación de una cuenta de MongoDB API mediante la CLI de Azure
+# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-azure-cli"></a>Azure Cosmos DB: creación de una cuenta de MongoDB API mediante la CLI de Azure
 
 Este script de ejemplo de la CLI crea una cuenta, base de datos y colección de API de MongoDB en Azure Cosmos DB.
 

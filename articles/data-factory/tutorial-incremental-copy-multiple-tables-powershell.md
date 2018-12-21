@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 0cec1fb09503d3cc685b718c2497a363dfd15824
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 20a921a0248fdb8a3856e27ad5e2620f7adb70de
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868401"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962145"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos SQL de Azure.    
@@ -49,7 +49,7 @@ Estos son los pasos importantes para crear esta solución:
 
 1. **Cree una canalización con las siguientes actividades:** 
     
-    a. Cree una actividad ForEach que recorra en iteración una lista de nombres de tabla de origen que se pase como parámetro a la canalización. Para cada tabla de origen, invoca las siguientes actividades para realizar la carga diferencial de esa tabla.
+     a. Cree una actividad ForEach que recorra en iteración una lista de nombres de tabla de origen que se pase como parámetro a la canalización. Para cada tabla de origen, invoca las siguientes actividades para realizar la carga diferencial de esa tabla.
 
     b. Cree dos actividades de búsqueda. Use la primera actividad de búsqueda para recuperar el último valor de marca de agua. y, la segunda actividad, para recuperar el nuevo valor de marca de agua. Estos valores de marca de agua se pasan a la actividad de copia.
 
@@ -59,7 +59,7 @@ Estos son los pasos importantes para crear esta solución:
 
     Este es el diagrama de solución de alto nivel: 
 
-    ![Cargar datos de forma incremental](media\tutorial-incremental-copy-multiple-tables-powershell\high-level-solution-diagram.png)
+    ![Cargar datos de forma incremental](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -268,7 +268,7 @@ Tenga en cuenta los siguientes puntos:
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles colaborador o propietario, o de administrador de la suscripción de Azure.
-* Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, SQL Database, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, SQL Database, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -704,22 +704,22 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 
 1. Haga clic en **Todos los servicios**, busque con la palabra clave *Factorías de datos* y seleccione **Factorías de datos**. 
 
-    ![Menú Factorías de datos](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
+    ![Menú Factorías de datos](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-data-factories-menu-1.png)
 
 1. Busque su factoría de datos en la lista y selecciónela para abrir la página **Factoría de datos**. 
 
-    ![Búsqueda de la factoría de datos](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-search-data-factory-2.png)
+    ![Búsqueda de la factoría de datos](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-search-data-factory-2.png)
 
 1. En la página **Factoría de datos**, seleccione **Supervisión y administración**. 
 
-    ![Icono Supervisión y administración](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
+    ![Icono Supervisión y administración](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-monitor-manage-tile-3.png)
 
 1. La **aplicación de integración de datos** se abre en otra pestaña. Puede ver todas las ejecuciones de canalización y sus estados. Tenga en cuenta que, en el ejemplo siguiente, el estado de ejecución de la canalización es **Correcto**. Para comprobar los parámetros pasados a la canalización, seleccione el vínculo en la columna **Parámetros**. Si se ha producido un error, verá un vínculo en la columna **Error**. Seleccione el vínculo en la columna **Acciones**. 
 
-    ![Ejecuciones de la canalización](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
+    ![Ejecuciones de la canalización](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 1. Al seleccionar el vínculo de la columna **Acciones**, verá la página siguiente que muestra todas las ejecuciones de actividad de la canalización: 
 
-    ![Ejecuciones de actividad](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
+    ![Ejecuciones de actividad](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-activity-runs-5.png)
 
 1. Para volver a la vista de **ejecuciones de canalización**, haga clic en **Canalizaciones** como se muestra en la imagen. 
 
@@ -801,11 +801,11 @@ VALUES
     ```
 1. Supervise las ejecuciones de canalización siguiendo las instrucciones de la sección [Supervisión de la canalización](#monitor-the-pipeline). Como el estado de la canalización es **En curso**, verá otro vínculo de acción en **Acciones** para cancelar la ejecución de canalización. 
 
-    ![Ejecuciones de canalización En curso](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)
+    ![Ejecuciones de canalización En curso](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-6.png)
 
 1. Haga clic en **Actualizar** para actualizar la lista hasta que la ejecución de canalización se realice correctamente. 
 
-    ![Actualización de ejecuciones de canalización](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
+    ![Actualización de ejecuciones de canalización](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-succeded-7.png)
 
 1. De manera opcional, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en **Acciones** para ver todas las ejecuciones de actividad asociadas a esta ejecución de canalización. 
 

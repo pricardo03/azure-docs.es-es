@@ -1,21 +1,22 @@
 ---
-title: Eventos personalizados para Azure Event Grid con Azure Portal | Microsoft Docs
-description: Use Azure Event Grid y PowerShell para publicar un tema y suscribirse a ese evento.
+title: Envío de eventos personalizados al punto de conexión web (Event Grid y Azure Portal)
+description: Use Azure Event Grid y Azure Portal para publicar un tema personalizado y suscribirse a eventos de ese tema. Los eventos se controlan mediante una aplicación web.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: seodec18
+ms.openlocfilehash: e93ee410d1d6ac0de0646194c716d64ffb8e4316
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040633"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093474"
 ---
-# <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Creación y enrutamiento de eventos personalizados con Azure Portal y Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a puntos de conexión web con Azure Portal y Event Grid
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa Azure Portal para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 
@@ -45,7 +46,7 @@ Un tema de cuadrícula de eventos proporciona un punto de conexión definido por
 
    ![Pasos iniciales](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Escriba un nombre único para el tema personalizado. El nombre del tema debe ser único porque se representa mediante una entrada DNS. No use el nombre que se muestra en la imagen. En su lugar, cree un nuevo. Proporcione un nombre para el grupo de recursos. Seleccione **Crear**.
+1. Escriba un nombre único para el tema personalizado. El nombre del tema debe ser único porque se representa mediante una entrada DNS. No use el nombre que se muestra en la imagen. En su lugar, cree su propio nombre: debe tener entre 3 y 50 caracteres y contener solo los valores a-z, A-Z, 0-9 y "-". Proporcione un nombre para el grupo de recursos. Seleccione **Crear**.
 
    ![Incorporación de los valores para el tema de Event Grid](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

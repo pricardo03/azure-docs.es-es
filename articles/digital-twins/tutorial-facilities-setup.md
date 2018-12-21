@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 61b81602342b910a50c0cc6318746ec85a659a92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582339"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080596"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implementación de Azure Digital Twins y configuración de un grafo espacial
 
@@ -101,9 +101,9 @@ En la carpeta de ejemplo extraída, abra el archivo **digital-twins-samples-csha
     ```
 
 1. En Visual Studio Code, abra el archivo **appSettings.json** en el proyecto **occupancy-quickstart**. Actualice los valores siguientes:
-   * **ClientId**: escriba el identificador de aplicación de su registro de aplicaciones de Azure AD. Este identificador lo anotó en la sección donde se [establecen los permisos de aplicación](#permissions).
-   * **Tenant** (Inquilino): escriba el identificador de directorio de su [inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). También anotó este identificador en la sección donde se [establecen los permisos de aplicación](#permissions).
-   * **BaseUrl**: escriba la dirección URL de la instancia de Digital Twins. Para obtener esta dirección URL, sustituya los marcadores de posición de esta dirección URL por los valores de su instancia: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. Para obtener esta dirección URL, también puede modificar la dirección URL de Management API en la [sección de implementación](#deploy). Reemplace **swagger/** por **api/v1.0/**.
+   * **ClientId**: Escriba el identificador de aplicación de su registro de aplicaciones de Azure AD. Este identificador lo anotó en la sección donde se [establecen los permisos de aplicación](#permissions).
+   * **Tenant**: Escriba el identificador de directorio de su [inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). También anotó este identificador en la sección donde se [establecen los permisos de aplicación](#permissions).
+   * **BaseUrl**: Escriba la dirección URL de la instancia de Digital Twins. Para obtener esta dirección URL, sustituya los marcadores de posición de esta dirección URL por los valores de su instancia: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. Para obtener esta dirección URL, también puede modificar la dirección URL de Management API en la [sección de implementación](#deploy). Reemplace **swagger/** por **api/v1.0/**.
 
 1. Consulte una lista de características de Digital Twins que puede explorar mediante el ejemplo. Ejecute el siguiente comando:
 
@@ -147,13 +147,13 @@ Para más información sobre los grafos espaciales y los modelos de objetos, lea
 ### <a name="modify-the-sample-spatial-graph"></a>Modificación del grafo espacial de ejemplo
 El archivo **provisionSample.yaml** contiene los siguientes nodos:
 
-- **resources**: el nodo `resources` crea un recurso de Azure IoT Hub para comunicarse con los dispositivos en la instalación. Una instancia de IoT Hub en el nodo raíz del grafo puede comunicarse con todos los dispositivos y sensores del grafo.  
+- **resources**: El nodo `resources` crea un recurso de Azure IoT Hub para comunicarse con los dispositivos en la instalación. Una instancia de IoT Hub en el nodo raíz del grafo puede comunicarse con todos los dispositivos y sensores del grafo.  
 
-- **spaces**: en el modelo de objetos de Digital Twins `spaces` representa las ubicaciones físicas. Cada espacio tiene un valor de `Type`&mdash;, por ejemplo, Region, Venue o Customer&mdash;, y un nombre descriptivo en `Name`. Los espacios pueden pertenecer a otros espacios, lo que crea una estructura jerárquica. El archivo provisionSample.yaml tiene un grafo espacial de un edificio imaginario. Observe el anidamiento lógico de los espacios del tipo `Floor` dentro de `Venue`, `Area` en una planta y los nodos de `Room` en un área. 
+- **spaces**: En el modelo de objetos de Digital Twins `spaces` representa las ubicaciones físicas. Cada espacio tiene un valor de `Type`&mdash;, por ejemplo, Region, Venue o Customer&mdash;, y un nombre descriptivo en `Name`. Los espacios pueden pertenecer a otros espacios, lo que crea una estructura jerárquica. El archivo provisionSample.yaml tiene un grafo espacial de un edificio imaginario. Observe el anidamiento lógico de los espacios del tipo `Floor` dentro de `Venue`, `Area` en una planta y los nodos de `Room` en un área. 
 
-- **devices**: los espacios pueden contener `devices`, que son entidades físicas o virtuales que administran varios sensores. Por ejemplo, un dispositivo puede ser el teléfono de un usuario, un pod de un sensor de Raspberry Pi o una puerta de enlace. En el edificio imaginario del ejemplo, observe que la sala llamada **Focus Room** contiene un dispositivo **Raspberry Pi 3 A1**. Cada nodo de dispositivo se identifica mediante un valor de `hardwareId` único, que está codificado de forma rígida en el ejemplo. Para configurar este ejemplo para una producción real, reemplácelos por los valores de su configuración.  
+- **devices**: Los espacios pueden contener `devices`, que son entidades físicas o virtuales que administran varios sensores. Por ejemplo, un dispositivo puede ser el teléfono de un usuario, un pod de un sensor de Raspberry Pi o una puerta de enlace. En el edificio imaginario del ejemplo, observe que la sala llamada **Focus Room** contiene un dispositivo **Raspberry Pi 3 A1**. Cada nodo de dispositivo se identifica mediante un valor de `hardwareId` único, que está codificado de forma rígida en el ejemplo. Para configurar este ejemplo para una producción real, reemplácelos por los valores de su configuración.  
 
-- **sensors**: un dispositivo puede contener varios valores de `sensors`. Estos sensores pueden detectar y registrar cambios físicos, como temperatura, movimiento y nivel de batería. Cada nodo de sensor se identifica de forma única mediante `hardwareId`, que aquí está codificado de forma rígida. En una aplicación real, reemplácelos por los identificadores únicos de los sensores de su configuración. El archivo provisionSample.yaml tiene dos sensores para registrar los valores de *Motion* y *CarbonDioxide*. Para agregar otro sensor para registrar el valor de *Temperature*, agregue las líneas siguientes debajo de las líneas del sensor CarbonDioxide. Tenga en cuenta que estas líneas se proporcionan en provisionSample.yaml como líneas comentadas. Puede quitarles las marcas de comentario si elimina el carácter `#` que aparece delante de cada línea. 
+- **sensors**: Un dispositivo puede contener varios valores de `sensors`. Estos sensores pueden detectar y registrar cambios físicos, como temperatura, movimiento y nivel de batería. Cada nodo de sensor se identifica de forma única mediante `hardwareId`, que aquí está codificado de forma rígida. En una aplicación real, reemplácelos por los identificadores únicos de los sensores de su configuración. El archivo provisionSample.yaml tiene dos sensores para registrar los valores de *Motion* y *CarbonDioxide*. Para agregar otro sensor para registrar el valor de *Temperature*, agregue las líneas siguientes debajo de las líneas del sensor CarbonDioxide. Tenga en cuenta que estas líneas se proporcionan en provisionSample.yaml como líneas comentadas. Puede quitarles las marcas de comentario si elimina el carácter `#` que aparece delante de cada línea. 
 
     ```yaml
             - dataType: Temperature
@@ -163,6 +163,9 @@ El archivo **provisionSample.yaml** contiene los siguientes nodos:
     > Asegúrese de que las claves `dataType` y `hardwareId` se alinean con las instrucciones anteriores a este fragmento de código. Asegúrese también de que el editor no reemplaza los espacios por caracteres de tabulación. 
 
 Guarde y cierre el archivo provisionSample.yaml. En el siguiente tutorial, agregará más información a este archivo y, después, aprovisionará el edificio de ejemplo de Azure Digital Twins.
+
+> [!TIP]
+> Puede ver y modificar su grafo espacial con el [visor de grafos de Azure Digital Twins](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

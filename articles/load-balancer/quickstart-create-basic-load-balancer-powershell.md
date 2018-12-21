@@ -1,11 +1,11 @@
 ---
-title: 'Guía de inicio rápido: Creación de un equilibrador de carga básico en Azure PowerShell | Microsoft Docs'
+title: 'Guía de inicio rápido: Creación de un equilibrador de carga básico: Azure PowerShell'
+titlesuffix: Azure Load Balancer
 description: En esta guía de inicio rápido, se explica cómo crear un equilibrador de carga básico utilizando PowerShell.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
-ms:custom: mvc
-ms.openlocfilehash: c21d5618b3e3223297ddd97dc5c98e5eb8c18c0b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms:custom: seodec18
+ms.openlocfilehash: 5d76a1ac58606df82fc7e25dc8071d91da8298f5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974825"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261031"
 ---
-# <a name="get-started"></a>Guía de inicio rápido: Creación de un equilibrador de carga público con Azure PowerShell
+# <a name="get-started"></a>Guía de inicio rápido: Creación de un equilibrador de carga básico con Azure PowerShell
 En esta guía de inicio rápido, se explica cómo crear un equilibrador de carga básico utilizando Azure PowerShell. Para probar el equilibrador de carga, implemente dos máquinas virtuales que ejecuten Windows Server y equilibre la carga de una aplicación web entre ellas.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]

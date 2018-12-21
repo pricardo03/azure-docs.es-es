@@ -1,24 +1,27 @@
 ---
-title: Entidad de servicio del clúster de Azure Kubernetes
+title: (EN DESUSO) Entidad de servicio del clúster de Azure Kubernetes
 description: Cree y administre una entidad de servicio de Azure Active Directory para un clúster de Kubernetes en Azure Container Service
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 53bb09824a88980a171fa4067a9efd2fc067a898
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954579"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992156"
 ---
-# <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configuración de una entidad de servicio de Azure AD para un clúster de Kubernetes en Container Service
+# <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(EN DESUSO) Configuración de una entidad de servicio de Azure AD para un clúster de Kubernetes en Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para la versión actualizada de este artículo que utiliza Azure Kubernetes Service, consulte [Entidades de servicio con Azure Kubernetes Service (AKS)](../../aks/kubernetes-service-principal.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 En Azure Container Service, un clúster de Kubernetes requiere una [entidad de servicio de Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) para interactuar con las API de Azure. La entidad de servicio se necesita para administrar dinámicamente recursos como las [rutas definidas por el usuario](../../virtual-network/virtual-networks-udr-overview.md) y [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) de nivel 4.
 
@@ -30,11 +33,11 @@ Este artículo muestra distintas opciones para configurar una entidad de servici
 
 Puede usar una entidad de servicio de Azure AD existente que cumpla los requisitos siguientes o crear una.
 
-* **Ámbito**: grupo de recursos
+* **Ámbito**: Grupos de recursos
 
-* **Rol**: colaborador
+* **Rol**: Colaborador
 
-* **Client secret**: secreto de cliente; debe ser una contraseña. Actualmente, no se puede usar a una entidad de servicio configurado para la autenticación de certificados.
+* **Secreto del cliente**: debe ser una contraseña. Actualmente, no se puede usar a una entidad de servicio configurado para la autenticación de certificados.
 
 > [!IMPORTANT]
 > Para crear una entidad de servicio, debe tener permisos suficientes para registrar una aplicación en su inquilino de Azure AD y asignar la aplicación a un rol en su suscripción. Para ver si tiene los permisos necesarios, [compruébelo en el portal](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).

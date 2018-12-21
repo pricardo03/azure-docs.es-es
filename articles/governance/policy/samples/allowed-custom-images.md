@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de directiva de Azure: imágenes de máquina virtual aprobadas'
+title: 'Ejemplo: Imágenes de máquina virtual aprobadas'
 description: Esta directiva de ejemplo requiere que solo las imágenes personalizadas aprobadas se puedan implementar en su entorno.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: d4216c785155ac5462dbcb1b48bf58e7bc718601
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efec6c4e0a677681fd9f1132f4573d99b35236d4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965384"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312670"
 ---
 # <a name="approved-vm-images"></a>Imágenes de máquina virtual aprobadas
 
@@ -25,7 +24,7 @@ Puede implementar esta directiva de ejemplo mediante:
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [CLI de Azure](#azure-cli)
-- [API de REST](#rest-api)
+- [API DE REST](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -220,10 +219,10 @@ Hay varias herramientas que se pueden usar para interactuar con la API REST de R
 
 | Servicio | Grupo | Operación | Notas |
 |---|---|---|---|
-| Administración de recursos | Definiciones de directiva | [Creación](/rest/api/resources/policydefinitions/createorupdate) | Crea una nueva definición de directiva de Azure en una suscripción. Alternativa: [Creación en el grupo de administración](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Administración de recursos | Definiciones de directiva | [Creación](/rest/api/resources/policydefinitions/createorupdate) | Crea una nueva definición de directiva de Azure en una suscripción. Alternativa: [Creación de un grupo de administración](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Administración de recursos | Asignaciones de directiva | [Creación](/rest/api/resources/policyassignments/create) | Crea una nueva asignación de directiva de Azure. En este ejemplo, se proporciona una definición, pero también puede tomar una iniciativa. |
 | Administración de recursos | Asignaciones de directiva | [Eliminar](/rest/api/resources/policyassignments/delete) | Elimina una asignación de directiva de Azure existente. |
-| Administración de recursos | Definiciones de directiva | [Eliminar](/rest/api/resources/policydefinitions/delete) | Elimina una definición de directiva de Azure existente. Alternativa: [Eliminación en el grupo de administración](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| Administración de recursos | Definiciones de directiva | [Eliminar](/rest/api/resources/policydefinitions/delete) | Elimina una definición de directiva de Azure existente. Alternativa: [Eliminación de un grupo de administración](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

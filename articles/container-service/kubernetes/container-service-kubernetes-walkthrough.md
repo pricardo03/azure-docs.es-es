@@ -1,24 +1,27 @@
 ---
-title: 'Guía de inicio rápido: Clúster de Azure Kubernetes para Linux'
+title: '(EN DESUSO) Inicio rápido: Clúster de Azure Kubernetes para Linux'
 description: Aprenda rápidamente a crear un clúster de Kubernetes para contenedores de Linux en Azure Container Service con la CLI de Azure.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2186bd8c28851552bdbd80a74ba7cefd9f7a82d7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c5320a541e189043fc27f5c4bcd29afd5d7c70f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950359"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994163"
 ---
-# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Implementación de un clúster de Kubernetes para los contenedores de Linux
+# <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(EN DESUSO)Implementación de un clúster de Kubernetes para contenedores de Linux
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para la versión actualizada de este inicio rápido que usa Azure Kubernetes Service, consulte [Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS)](../../aks/kubernetes-walkthrough.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 En esta guía de inicio rápido se implementa un clúster de Kubernetes mediante la CLI de Azure. A continuación, se ejecuta e implementa en el clúster una aplicación de varios contenedores que consta de un front-end web y una instancia de Redis. Una vez finalizado el proceso, la aplicación es accesible a través de Internet. 
 

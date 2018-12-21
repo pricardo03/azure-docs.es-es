@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Gremlin API con Python (Azure Cosmos DB)'
+title: 'Inicio rápido: Table API con Python: Azure Cosmos DB'
 description: Esta guía de inicio rápido muestra cómo usar Gremlin API de Azure Cosmos DB para crear una aplicación de consola con Azure Portal y Python
 services: cosmos-db
 author: luisbosquez
@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: eb7959b1a41c602ce4f34750802d962fe4ff84cf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b8a26164145360bdd46656a86817b8ec61bcb56c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839320"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081496"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: creación una base de datos de grafos mediante Python y Azure Portal
+# <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Creación una base de datos de grafos mediante Python y Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Gremlin Console](create-graph-gremlin-console.md)
@@ -42,7 +42,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 Además:
 * [Python](https://www.python.org/downloads/) versión v3.5 o posterior
 * [Administrador de paquetes de pip](https://pip.pypa.io/en/stable/installing/)
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Controlador de Python para Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
@@ -101,7 +101,7 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
 
 Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela en la aplicación. Esta configuración permitirá que la aplicación se comunique con la base de datos hospedada.
 
-1. En [Azure Portal](http://portal.azure.com/), haga clic en **Claves**. 
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Claves**. 
 
     Copie la primera parte del valor URI.
 

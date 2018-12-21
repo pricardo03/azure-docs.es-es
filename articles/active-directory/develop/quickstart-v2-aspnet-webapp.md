@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 11/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 026f8354b3947b3f92c1fc88b7c2e168177543d9
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: d86727e0a3c681a05b2a1f6ff62bdab83394fa56
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284717"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959825"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guía de inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -33,7 +33,7 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
 > Tiene dos opciones para comenzar con la aplicación de inicio rápido:
-> * [Express] [Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Rápido] [Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Manual] [Opción 2: registrar y configurar manualmente la aplicación y el código de ejemplo](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
@@ -44,7 +44,7 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opción 2: registrar y configurar manualmente la aplicación y el código de ejemplo
 >
-> #### <a name="step-1-register-your-application"></a>Paso 1: Registro de la aplicación
+> #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
@@ -128,7 +128,7 @@ public void Configuration(IAppBuilder app)
             ResponseType = OpenIdConnectResponseType.IdToken,
             // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
             // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
-            // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
+            // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
             TokenValidationParameters = new TokenValidationParameters()
             {
                 ValidateIssuer = false
@@ -184,6 +184,6 @@ Visite el tutorial de ASP.NET para acceder a una guía completa paso a paso sobr
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Obtenga información sobre los pasos para crear la aplicación que se usa en esta guía de inicio rápido
 
 > [!div class="nextstepaction"]
-> [Tutorial de inicio de sesión](.\tutorial-v2-asp-webapp.md)
+> [Tutorial de inicio de sesión](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

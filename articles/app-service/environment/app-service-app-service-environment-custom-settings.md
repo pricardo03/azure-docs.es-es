@@ -1,5 +1,5 @@
 ---
-title: Configuración personalizada de entornos de App Service
+title: 'Configuración personalizada para entornos de App Service: Azure'
 description: Opciones de configuración personalizada para Entornos de App Service
 services: app-service
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/22/2016
 ms.author: stefsch
-ms.custom: mvc
-ms.openlocfilehash: d60cdca78c143996fa5935726db0631321c9e2fe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.custom: seodec18
+ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129522"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271365"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Opciones de configuración personalizada para Entornos de App Service
 ## <a name="overview"></a>Información general
@@ -92,7 +92,7 @@ Otra pregunta de los clientes es si pueden modificar la lista de cifrados negoci
 > 
 > 
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 El sitio de inicio rápido de plantillas de Azure Resource Manager incluye una plantilla con la definición base para [crear un entorno de App Service](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->

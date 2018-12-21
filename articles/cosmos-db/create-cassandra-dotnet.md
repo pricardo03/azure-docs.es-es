@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Cassandra API con .NET - Azure Cosmos DB'
+title: 'Inicio rápido: Cassandra API con .NET (Azure Cosmos DB)'
 description: Esta guía de inicio rápido muestra cómo usar la API de Cassandra de Azure Cosmos DB para crear una aplicación de perfil con Azure Portal y .NET
 services: cosmos-db
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3708027b766ff9070831dd3677e821565e0dd4fa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50c2362e961d882afc109a0554303d364d52384b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994962"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089439"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Guía de inicio rápido: compilación de una aplicación Cassandra con .NET y Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con .NET y Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -70,7 +70,7 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Este paso es opcional. Si le interesa obtener información sobre cómo el código crea los recursos de base de datos, puede revisar los siguientes fragmentos de código. Los fragmentos de código se toman todos del archivo `Program.cs` instalado en la carpeta `C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample`. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string).
+Este paso es opcional. Si le interesa aprender cómo el código crea los recursos de base de datos, puede revisar los siguientes fragmentos de código. Los fragmentos de código se toman todos del archivo `Program.cs` instalado en la carpeta `C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample`. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string).
 
 * Inicialice la sesión mediante la conexión a un punto de conexión del clúster de Cassandra. La API de Cassandra API en Azure Cosmos DB solo admite TLSv1.2. 
 
@@ -96,7 +96,7 @@ Este paso es opcional. Si le interesa obtener información sobre cómo el códig
 * Inserte las entidades de usuario mediante el uso del objeto IMapper con una sesión nueva que se conecta al espacio de claves del perfil.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Realice una consulta para obtener la información de todos los usuarios.
@@ -118,7 +118,7 @@ Este paso es opcional. Si le interesa obtener información sobre cómo el códig
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. La información de la cadena de conexión permite que la aplicación se comunique con la base de datos hospedada.
 
-1. En [Azure Portal](http://portal.azure.com/) seleccione **Cadena de conexión**.
+1. En [Azure Portal](https://portal.azure.com/) seleccione **Cadena de conexión**.
 
     Use el ![botón Copiar](./media/create-cassandra-dotnet/copy.png) Copiar en el lado derecho de la pantalla para copiar el valor de USERNAME.
 

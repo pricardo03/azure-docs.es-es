@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429446"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970202"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -29,7 +29,7 @@ Azure Analysis Services es una plataforma como un servicio (PaaS) completamente 
 
 Con Azure Portal, puede [crear un servidor](analysis-services-create-server.md) en minutos. Además, con las [plantillas](../azure-resource-manager/resource-manager-create-first-template.md) de Azure Resource Manager y PowerShell, puede crear servidores mediante una plantilla declarativa. Con una única plantilla puede implementar recursos del servidor junto con otros componentes de Azure como las cuentas de almacenamiento y Azure Functions. 
 
-**Video:** vea [Automating deployment](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) (Implementación automática) para aprender a usar Azure Automation para agilizar la creación de servidores.
+**Vídeo:** vea [Automating deployment](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) (Implementación automática) para aprender a usar Azure Automation para agilizar la creación de servidores.
 
 Azure Analysis Services se integra con muchos servicios de Azure lo que le permite compilar soluciones de análisis sofisticadas. La integración con [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) proporciona acceso seguro, basado en roles, a los datos críticos. Se integra en las canalizaciones de [Azure Data Factory](../data-factory/introduction.md) mediante la inclusión de una actividad que carga los datos en el modelo. [Azure Automation](../automation/automation-intro.md) y [Azure Functions](../azure-functions/functions-overview.md) se pueden usar para realizar una orquestación ligera de modelos mediante código personalizado. 
 
@@ -182,7 +182,7 @@ Las entidades de servicio son un recurso de aplicación de Azure Active Director
 
 ### <a name="azure-governance"></a>Gobierno de Azure
 
-Azure Analysis Services se rige por los [términos de los servicios en línea de Microsoft](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) y la [declaración de privacidad de Microsoft](https://privacy.microsoft.com/privacystatement).
+Azure Analysis Services se rige por los [términos de los servicios en línea de Microsoft](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) y la [declaración de privacidad de Microsoft](https://privacy.microsoft.com/privacystatement).
 Para más información sobre la seguridad de Azure, consulte [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ## <a name="use-the-tools-you-already-know"></a>Use las herramientas que ya conoce
@@ -251,7 +251,7 @@ Analysis Services cuenta con una dinámica comunidad de usuarios. Únase a la co
 > [Registrarse para obtener una evaluación gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Creación de un servidor (Portal)](analysis-services-create-server.md)   
+> [Inicio rápido: Creación de un servidor: Portal](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Creación de un servidor (PowerShell)](analysis-services-create-powershell.md)  
+> [Inicio rápido: Creación de un servidor: PowerShell](analysis-services-create-powershell.md)  

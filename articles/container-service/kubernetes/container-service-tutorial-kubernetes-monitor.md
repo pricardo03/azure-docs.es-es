@@ -1,24 +1,27 @@
 ---
-title: 'Tutorial de Azure Container Service: supervisión de Kubernetes'
+title: '(EN DESUSO) Tutorial de Azure Container Service: supervisión de Kubernetes'
 description: 'Tutorial de Azure Container Service: supervisión de Kubernetes con Log Analytics'
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2243851d62cc17dc52407dce051cc2e0f4bcb12
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6f95aa701228730682c0122dc1fd46d8a2537ce1
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889215"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001609"
 ---
-# <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Supervisión de un clúster de Azure Kubernetes con Log Analytics
+# <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(EN DESUSO) Supervisión de un clúster de Azure Kubernetes con Log Analytics
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para la versión actualizada de este tutorial que usa Azure Kubernetes Service, consulte [Introducción a Azure Monitor para contenedores (versión preliminar)](../../azure-monitor/insights/container-insights-overview.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 La supervisión de su clúster de Kubernetes y de los contenedores es fundamental, sobre todo al administrar un clúster de producción a escala con varias aplicaciones.
 

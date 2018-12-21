@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: db4a2356d3de91e4951acd69dc858730349019d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a5376aed3e9cdb12be58cb07d7eb00303a03a963
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274559"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074884"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -112,7 +112,7 @@ Por ejemplo, si compra una reserva para una máquina virtual de tipo DS1\_v2 en 
 
 Sin embargo, si se ejecuta solo el 50 % del tiempo, el punto de equilibrio se encontrará en los 10 meses y el ahorro será solo de 49,74 $ anuales. En este ejemplo, la compra de la reserva para ese tipo de instancia puede no ser beneficioso. Consulte la siguiente imagen:
 
-![Punto de equilibrio en Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
+![Ejemplo del punto de equilibrio para VM de Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## <a name="view-ri-costs"></a>Visualización de los costos de las instancias reservadas
 
@@ -127,11 +127,11 @@ Los informes de análisis del costo real y a lo largo del tiempo muestran el imp
 
 Vaya a **Costs** > **Cost Analysis** (Costos > Análisis del costo) en el portal de Cloudyn y seleccione **Actual Cost Analysis** (Análisis del costo real) o **Actual Cost Over Time** (Costo real a lo largo del tiempo). A continuación, establezca los filtros. Por ejemplo, filtre solo por el servicio Azure/máquina virtual y agrupe por tipo de recursos y modelo de precios. Consulte la siguiente imagen:
 
-![Costo real de la instancia reservada](./media/tutorial-optimize-reserved-instances/azure05.png)
+![Ejemplo de costo real de las instancias reservadas](./media/tutorial-optimize-reserved-instances/azure05.png)
 
 Puede filtrar por servicio, **Azure/VM** en este ejemplo y agrupar por **modelo de precios** y **tipo de recurso** tal como se muestra en la siguiente imagen:
 
-![Grupos y filtros del informe de costo real](./media/tutorial-optimize-reserved-instances/azure06.png)
+![Ejemplo de grupos y filtros del informe de costo real agrupados por modelo de precios y tipo de recurso](./media/tutorial-optimize-reserved-instances/azure06.png)
 
 También puede analizar el tipo de pagos realizados, como los precios únicos, las tarifas por uso y los precios de licencia.
 
@@ -145,7 +145,7 @@ En el informe de costo real, ha visto un pico por la compra de una instancia res
 
 Para verlo, vaya a **Costs** > **Cost Analysis** (Costo > Análisis del costo), seleccione **Amortized Cost Analysis** (Análisis del costo amortizado) o **Amortized Cost Over Time** (Costo amortizado a lo largo del tiempo).
 
-![Costo amortizado de las instancias reservadas](./media/tutorial-optimize-reserved-instances/azure07.png)
+![Informe de ejemplo que muestra el costo amortizado de las instancias reservadas](./media/tutorial-optimize-reserved-instances/azure07.png)
 
 ## <a name="optimize-aws-ri-costs"></a>Optimización de los costos de las instancias reservadas para AWS
 
@@ -166,25 +166,25 @@ En el menú de informes de la parte superior del portal, haga clic en **Optimize
 
 En la siguiente imagen se muestran las recomendaciones de compra del informe.
 
-![Recomendaciones de compra](./media/tutorial-optimize-reserved-instances/aws01.png)
+![Ejemplo que muestra recomendaciones de compra en el informe EC2 Buying Recommendations](./media/tutorial-optimize-reserved-instances/aws01.png)
 
 En este ejemplo, la cuenta Cloudyn\_A tiene 32 recomendaciones de compra de instancia reservada. Si sigue todas las recomendaciones de compra, podría ahorrar 137 770 $ al año. Tenga en cuenta que las recomendaciones de compra que ofrece Cloudyn presuponen el uso continuo y coherente de las cargas de trabajo en ejecución.
 
 Para ver los detalles de por qué se recomienda cada compra, haga clic en el signo más ( **+** ) de **Justifications** (Justificaciones). Este es un ejemplo de la primera recomendación de la lista.
 
-![Justificaciones de compra](./media/tutorial-optimize-reserved-instances/aws02.png)
+![Ejemplo que muestra detalles de justificación de compra](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 En el ejemplo anterior se muestra que ejecutar la carga de trabajo a demanda costaría 90 456 $ al año. Sin embargo, si adquiere la reserva de antemano, la misma carga de trabajo costaría 56,592 $ y ahorraría 33.864 $ al año.
 
 Haga clic en el signo más junto a **EC2 RI Purchase Impact** (Impacto de compra de instancia reservada para EC2) para ver el punto de equilibrio en un año desde la fecha aproximada desde que se realizara la compra. En el ejemplo siguiente, unos ocho meses después de realizar la compra, el costo acumulado a demanda empieza a superar el de la instancia reservada:
 
-![Impacto de la compra](./media/tutorial-optimize-reserved-instances/aws03.png)
+![Ejemplo que muestra detalles de impacto de compra](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 El ahorro comenzaría en ese momento.
 
 Puede revisar **Instances over Time** (Instancias a lo largo del tiempo) para verificar la exactitud de la recomendación de compra sugerida. En este ejemplo, puede ver que, de media, se utilizaron seis instancias para la carga de trabajo en el último período de 30 días.
 
-![Instancias a lo largo del tiempo](./media/tutorial-optimize-reserved-instances/aws04.png)
+![Ejemplo que muestra el uso histórico de las instancias con el tiempo](./media/tutorial-optimize-reserved-instances/aws04.png)
 
 ## <a name="modify-unused-reservations"></a>Modificación de las reservas sin usar
 
@@ -196,23 +196,23 @@ En el menú de informes de la parte superior del portal, haga clic en **Optimize
 
 En las siguientes imágenes se muestra el informe con las instancias reservadas sin usar.
 
-![Reservas sin usar](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
+![Ejemplo que muestra información resumida sobre las reservas sin usar](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
 
 Haga clic en el signo más de **Details** (Detalles) para ver la reserva de detalles para una reserva específica.
 
-![Detalles de las reservas sin usar](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
+![Ejemplo que muestra detalles de las reservas sin usar](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
 
 En el ejemplo anterior, hay 77 reservas sin usar en distintas zonas de disponibilidad. La primera reserva tiene 51 instancias sin usar. Al mirar hacia abajo en la lista, hay posibles modificaciones de instancia de reserva que puede realizar con el tipo de instancia **m3.2xlarge** en la zona de disponibilidad **us-east-1c**.
 
 Haga clic en **Modify** (Modificar) para que la primera reserva de la lista abra la página **Modify RI** (Modificar instancia reservada) con los datos de la reserva.
 
-![Modify RI (Modificar instancia de reserva)](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
+![Ejemplo que muestra las reservas que se pueden modificar](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
 
 Las instancias reservas que se pueden modificar se encuentran en una lista. En la imagen del ejemplo siguiente hay 51 reservas sin usar que se pueden modificar, pero entre las dos reservas se necesitan 54. Si modifica las reservas sin usar para usarlas todas, cuatro instancias continuarán ejecutándose a demanda. Para este ejemplo, se dividen las reservas sin usar de manera que la primera use 30 y la segunda, 21.
 
 Haga clic en el signo más para la primera entrada de reserva y establezca el valor de **Reservation quantity** (Cantidad de reserva) en **30**. Para la segunda entrada, establezca la cantidad de reserva en **21** y haga clic en **Apply** (Aplicar).
 
-![Cambio de la cantidad de reserva](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
+![Ejemplo que muestra los cambios efectuados en la cantidad de reservas](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
 
 Todas las instancias sin usar de la reserva funcionan a máxima capacidad y 51 instancias ya no se ejecutan a demanda. En este ejemplo, la organización ahorra al reducir el uso a demanda considerablemente y emplear en su lugar las reservas que ya se han pagado.
 

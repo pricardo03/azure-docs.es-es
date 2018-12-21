@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial 2: Intenciones y entidades creadas previamente, usar expresiones comunes creadas previamente, extraer datos comunes de LUIS'
+title: Intenciones y entidades precompiladas
 titleSuffix: Azure Cognitive Services
 description: Agregue intenciones y entidades creadas previamente a la aplicación de tutorial de recursos humanos para obtener de manera inmediata predicciones de intenciones y extracciones de datos. No necesita etiquetar ninguna expresión con entidades pregeneradas. La entidad se detecta automáticamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422429"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074088"
 ---
-# <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutorial 2: Identificar las intenciones y entidades comunes
+# <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutorial 2: Identificación de intenciones y entidades habituales
 En este tutorial, modificará la aplicación HumanResources. Agregue intenciones y entidades creadas previamente a la aplicación de tutorial de recursos humanos para obtener de manera inmediata predicciones de intenciones y extracciones de datos. No es necesario etiquetar ninguna expresión con entidades creadas previamente porque la entidad se detecta automáticamente.
 
 Los modelos creados previamente de dominios de asunto y tipos de datos comunes le ayudan a crear rápidamente el modelo, además de proporcionar un ejemplo del aspecto del modelo. 
@@ -90,7 +91,7 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
 2. Vaya al final de la dirección URL en la barra de direcciones del explorador y escriba `I want to cancel on March 3`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {

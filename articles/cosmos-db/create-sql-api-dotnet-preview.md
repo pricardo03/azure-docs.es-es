@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Compilación de una aplicación web de ASP.NET con Azure Cosmos DB y la API de SQL en Azure Portal'
+title: 'Inicio rápido: Compilación de una aplicación web de ASP.NET con Azure Cosmos DB y la API de SQL en Azure Portal'
 description: En esta guía de inicio rápido, usa la API de SQL de Azure Cosmos DB y Azure Portal para crear una aplicación web de ASP.NET
 author: deborahc
 ms.service: cosmos-db
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
 clicktale: true
-ms.openlocfilehash: 7686baf2476942748a67ae7c73b02596b6588607
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4422e656759418d715fb0bd26643581a0ca99a4f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853608"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089129"
 ---
-# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Guía de inicio rápido: Compilación de una aplicación web de ASP.NET con Azure Cosmos DB y la API de SQL en Azure Portal
+# <a name="quickstart-build-an-aspnet-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Inicio rápido: Compilación de una aplicación web de ASP.NET con Azure Cosmos DB y la API de SQL en Azure Portal
 
 > [!div class="op_single_selector"]
 > * [.NET (versión preliminar)](create-sql-api-dotnet-preview.md)
@@ -117,7 +117,7 @@ Los fragmentos de código siguientes se han tomado del archivo ToDoItemService.c
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
-1. En [Azure Portal](http://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, seleccione **Claves** y, después, **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el URI y la clave principal en el archivo web.config en el paso siguiente.
+1. En [Azure Portal](https://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, seleccione **Claves** y, después, **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el URI y la clave principal en el archivo web.config en el paso siguiente.
 
     ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-sql-api-dotnet/keys.png)
 

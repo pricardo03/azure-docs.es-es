@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: rodrigoa
-ms.openlocfilehash: 56ac08593d29a9003f5509f2be52f50fa250bd75
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431602"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088884"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: Funciones definidas por el usuario en JavaScript para Azure Stream Analytics
  
@@ -58,7 +58,7 @@ Para crear una función definida por el usuario de JavaScript en un trabajo de S
 4.  En la hoja **Nueva función**, en **Tipo de función**, seleccione **JavaScript**. Aparecerá una plantilla de función predeterminada en el editor.
 5.  Como **alias de la función definida por el usuario** escriba **hex2Int** y cambie la implementación de la función como se indica a continuación:
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -73,7 +73,7 @@ Para crear una función definida por el usuario de JavaScript en un trabajo de S
 1. En el editor de consultas, en **TOPOLOGÍA DE CONSULTA**, seleccione **Consulta**.
 2.  Edite la consulta y, a continuación, llame a la función definida por el usuario, de la siguiente forma:
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ Si tiene un paso de procesamiento de seguimiento que usa la salida del trabajo d
 
 **Definición de funciones definidas por el usuario en JavaScript:**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **Consulta de ejemplo:**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

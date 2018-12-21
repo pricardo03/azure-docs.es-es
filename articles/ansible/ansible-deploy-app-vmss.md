@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414002"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408381"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para implementar sus aplicaciones en Azure. En este artículo se muestra cómo implementar una aplicación Java en un conjunto de escalado de máquinas virtuales (VMSS) de Azure.  
@@ -35,7 +35,7 @@ En esta sección se muestra cómo usar Ansible para recuperar información sobre
 
 Guarde el siguiente cuaderno de estrategias de ejemplo como `get-hosts-tasks.yml`: 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -63,7 +63,7 @@ Guarde el siguiente cuaderno de estrategias de ejemplo como `get-hosts-tasks.yml
 
 En esta sección, usa git para clonar un proyecto de ejemplo de Java desde GitHub y compilar el proyecto. Guarde el siguiente cuaderno de estrategias como `app.yml`:
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -87,7 +87,7 @@ Ejecute el cuaderno de estrategias de Ansible de ejemplo con el siguiente comand
 
 La salida del comando ansible-playbook es similar a la siguiente, donde verá que ha compilado la aplicación de ejemplo clonada desde GitHub:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -110,7 +110,7 @@ En la siguiente sección de un cuaderno de estrategias de Ansible, se instala el
 
 (cambie `admin_password` por su propia contraseña).
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -167,7 +167,7 @@ Ejecute el cuaderno de estrategias con el siguiente comando:
 
 El resultado de la ejecución del comando ansible-playbook indica que la aplicación Java de ejemplo se ha instalado en el grupo host del conjunto de escalado de máquinas virtuales:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -208,4 +208,4 @@ Felicidades. Su aplicación se ejecuta en Azure ahora. Ahora puede ir a la direc
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"] 
-> [Cuaderno de estrategias de ejemplo de Ansible para VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Escalado automático de un conjunto de escalado de máquinas virtuales con Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

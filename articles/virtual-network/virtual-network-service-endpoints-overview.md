@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 0a582dc3acf17a10bd143988da7dd12627650dff
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8150774a630e6888dcd3bb5a4d219cfbf2c2c477
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834874"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310171"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -30,18 +30,19 @@ Esta característica está disponible en los siguientes servicios y regiones de 
 
 **Disponibilidad general**
 
-- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: disponible con carácter general en todas las regiones de Azure.
-- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible con carácter general en todas las regiones de Azure.
-- **[Servidor de Azure Database for PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible a nivel general en las regiones de Azure en las que el servicio de base de datos esté disponible.
-- **[Servidor de Azure Database for MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible a nivel general en las regiones de Azure en las que el servicio de base de datos esté disponible.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible con carácter general en todas las regiones de nube pública de Azure.
-- **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: disponible con carácter general en todas las regiones de nube pública de Azure.
+- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: disponibilidad general en todas las regiones de Azure.
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en todas las regiones de Azure.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en todas las regiones de Azure.
+- **[Servidor de Azure Database for PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
+- **[Servidor de Azure Database for MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en todas las regiones de nube pública de Azure.
+- **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: disponibilidad general en todas las regiones de nube pública de Azure.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en todas las regiones de nube pública de Azure.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en todas las regiones de nube pública de Azure.
 
 **Versión preliminar**
 
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar en todas las regiones de nube pública de Azure.
-- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar.
-- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en versión preliminar.
 
 Para conocer las notificaciones más actualizadas sobre, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
@@ -51,10 +52,10 @@ Para conocer las notificaciones más actualizadas sobre, consulte la página [Ac
 Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 - **Seguridad mejorada para los recursos de servicio de Azure**: el espacio de direcciones privadas de red virtual se puede estar solapando y, por tanto, no se puede usar para identificar de forma única el tráfico que se origina en la red virtual. Los puntos de conexión de servicio ofrecen la posibilidad de proteger los recursos de servicio de Azure en la red virtual, mediante la extensión de la identidad de red virtual al servicio. Una vez que los puntos de conexión de servicio se habilitan en la red virtual, puede proteger los recursos de servicio de Azure en la red virtual mediante la incorporación de una regla de red virtual a los recursos. Esta regla proporciona una mayor seguridad dado que se elimina totalmente el acceso público a Internet a los recursos y solo se permite el tráfico que procede de la red virtual.
-- **Enrutamiento óptimo para el tráfico del servicio de Azure desde la red virtual**: en la actualidad, las rutas de la red virtual que fuerzan el tráfico de Internet a las aplicaciones virtuales o locales, un proceso conocido como tunelización forzada, también fuerzan el tráfico del servicio de Azure para realizar la misma ruta que el tráfico de Internet. Los puntos de conexión de servicio proporcionan un enrutamiento óptimo al tráfico de Azure. 
+- **Enrutamiento óptimo para el tráfico del servicio de Azure desde la red virtual**: en la actualidad, las rutas de la red virtual que fuerzan el tráfico de Internet a las aplicaciones virtuales o locales, conocidas como tunelización forzada, también fuerzan el tráfico del servicio de Azure para realizar la misma ruta que el tráfico de Internet. Los puntos de conexión de servicio proporcionan un enrutamiento óptimo al tráfico de Azure. 
 
   Los puntos de conexión siempre toman el tráfico del servicio directamente de la red virtual al servicio en la red troncal de Microsoft Azure. Mantener el tráfico en la red troncal de Azure permite seguir auditando y supervisando el tráfico saliente de Internet desde las redes virtuales, a través de la tunelización forzada, sin que afecte al tráfico del servicio. Obtenga más información sobre las [rutas definidas por el usuario y la tunelización forzada](virtual-networks-udr-overview.md).
-- **Fácil de configurar con menos sobrecarga de administración**: ya no es necesario tener direcciones IP públicas reservadas en las redes virtuales para proteger los recursos de Azure a través del firewall IP. No hay ningún dispositivo NAT o de puerta de enlace necesario para configurar los puntos de conexión de servicio. Los puntos de conexión de servicio se pueden configurar con un simple clic en una subred. No hay sobrecarga adicional para mantener los puntos de conexión.
+- **Fácil de configurar con menos sobrecarga de administración**: ya no necesita direcciones IP públicas y reservadas en sus redes virtuales para proteger los recursos de Azure a través de una dirección IP del firewall. No hay ningún dispositivo NAT o de puerta de enlace necesario para configurar los puntos de conexión de servicio. Los puntos de conexión de servicio se pueden configurar con un simple clic en una subred. No hay sobrecarga adicional para mantener los puntos de conexión.
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -74,7 +75,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
   De forma predeterminada, los recursos de servicio de Azure protegidos para las redes virtuales no son accesibles desde redes locales. Si desea permitir el tráfico desde el entorno local, también debe permitir las direcciones IP públicas (normalmente NAT) desde el entorno local o ExpressRoute. Estas direcciones IP se pueden agregar a través de la configuración del firewall de IP para los recursos de los servicios de Azure.
 
-  ExpressRoute: si utiliza [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de las instalaciones para pares públicos o para el emparejamiento de Microsoft, tiene que identificar las direcciones IP de NAT que se utilizan. Para el emparejamiento público, cada circuito ExpressRoute usa de forma predeterminada dos direcciones IP de NAT que se aplican al tráfico del servicio de Azure cuando el tráfico entra en la red troncal de Microsoft Azure. Para el emparejamiento de Microsoft, las direcciones IP de NAT que se utilizan las proporciona el cliente o el proveedor de servicios. Para permitir el acceso a los recursos de servicio, tiene que permitir estas direcciones IP públicas en la configuración del firewall de IP de recursos. Para encontrar las direcciones de IP de circuito de ExpressRoute de los pares públicos, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) en Azure Portal. Obtenga más información sobre [NAT para ExpressRoute para emparejamiento público y de Microsoft.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  ExpressRoute: Si usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) desde las instalaciones para pares públicos o el emparejamiento de Microsoft, tiene que identificar las direcciones IP de NAT que se usan. Para el emparejamiento público, cada circuito ExpressRoute usa de forma predeterminada dos direcciones IP de NAT que se aplican al tráfico del servicio de Azure cuando el tráfico entra en la red troncal de Microsoft Azure. Para el emparejamiento de Microsoft, las direcciones IP de NAT que se utilizan las proporciona el cliente o el proveedor de servicios. Para permitir el acceso a los recursos de servicio, tiene que permitir estas direcciones IP públicas en la configuración del firewall de IP de recursos. Para encontrar las direcciones de IP de circuito de ExpressRoute de los pares públicos, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) en Azure Portal. Obtenga más información sobre [NAT para ExpressRoute para emparejamiento público y de Microsoft.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![Protección de servicios de Azure para las redes virtuales](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -99,10 +100,10 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 ### <a name="scenarios"></a>Escenarios
 
-- **Emparejado, conectado o varias redes virtuales**: para proteger los servicios de Azure a varias subredes dentro de una red virtual o entre varias redes virtuales, puede habilitar los puntos de conexión de servicio en cada una de las subredes de manera independiente y proteger los recursos del servicio de Azure a todas las subredes.
+- **Redes virtuales emparejadas, conectadas o múltiples**: para proteger los servicios de Azure de varias subredes dentro de una red virtual o entre varias redes virtuales, puede habilitar los puntos de conexión de servicio en cada una de las subredes de manera independiente y proteger los recursos del servicio de Azure a todas las subredes.
 - **Filtrado de tráfico saliente desde una red virtual a los servicios de Azure**: si desea inspeccionar o filtrar el tráfico destinado a un servicio de Azure desde una red virtual, puede implementar una aplicación virtual de red dentro de la red virtual. Después, puede aplicar los puntos de conexión de servicio a la subred donde se implementa la aplicación virtual de red y se protegen los recursos de servicio de Azure solo para esta subred. Este escenario puede resultar útil si desea restringir el acceso de servicio de Azure desde la red virtual solo a recursos específicos de Azure, mediante el filtrado de la aplicación virtual de red. Para más información, consulte el artículo sobre la [salida con las aplicaciones de redes virtuales](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **Protección de los recursos de Azure para servicios implementados directamente en redes virtuales**: se pueden implementar directamente varios servicios de Azure en subredes específicas en sus redes virtuales. Puede proteger los recursos de servicio de Azure para subredes de [servicio administrado](virtual-network-for-azure-services.md) mediante la configuración de un punto de conexión de servicio en la subred de servicio administrada.
-- **Tráfico de disco procedente de una máquina virtual de Azure**: el tráfico de disco de máquina virtual (lo que incluye, montaje, desmontaje y E/S de disco), en discos administrados y no administrados, no resulta afectado por los puntos de conexión de servicio que enrutan los cambios en Azure Storage. Puede limitar el acceso de REST a los blobs en páginas para determinadas redes, mediante puntos de conexión de servicio y [reglas de red de Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **Protección de recursos de Azure con los servicios implementados directamente en redes virtuales**: se pueden implementar directamente varios servicios de Azure en subredes específicas en una red virtual. Puede proteger los recursos de servicio de Azure para subredes de [servicio administrado](virtual-network-for-azure-services.md) mediante la configuración de un punto de conexión de servicio en la subred de servicio administrada.
+- **Tráfico de disco procedente de una máquina virtual de Azure**: el tráfico de disco de máquina virtual (lo que incluye montaje, desmontaje y E/S de disco), en discos administrados y no administrados, no resulta afectado por los puntos de conexión de servicio que enrutan los cambios en Azure Storage. Puede limitar el acceso de REST a los blobs en páginas para determinadas redes, mediante puntos de conexión de servicio y [reglas de red de Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ### <a name="logging-and-troubleshooting"></a>Registro y solución de problemas
 
@@ -135,15 +136,19 @@ Para un recurso de servicio de Azure (por ejemplo, una cuenta de Azure Storage),
 
 ## <a name="virtual-network-service-endpoint-policies"></a>Directivas de puntos de conexión de servicio de redes virtuales 
 
-Las directivas de punto de conexión de servicio de la red virtual le permiten filtrar el tráfico de red virtual a los servicios de Azure, lo que permite únicamente recursos de servicio específicos de Azure, sobre los puntos de conexión de servicio. Las directivas de punto de conexión de servicio ofrecen un control de acceso pormenorizado para el tráfico de red virtual a los servicios de Azure. Más información: [Directivas de punto de conexión de servicio de redes virtuales](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+Las directivas de punto de conexión de servicio de la red virtual le permiten filtrar el tráfico de red virtual a los servicios de Azure, lo que permite únicamente recursos de servicio específicos de Azure, sobre los puntos de conexión de servicio. Las directivas de punto de conexión de servicio ofrecen un control de acceso pormenorizado para el tráfico de red virtual a los servicios de Azure. Más información: [Directivas de puntos de conexión de servicio de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
+## <a name="faqs"></a>Preguntas más frecuentes
+
+Para consultar las preguntas más frecuentes, vea [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre cómo [configurar los puntos de conexión de servicio de la red virtual](tutorial-restrict-network-access-to-resources.md)
 - Obtenga información sobre cómo [proteger una cuenta de Azure Storage para una red virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre cómo [proteger una instancia de Azure SQL Database para una red virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Obtenga información sobre cómo [proteger una instancia de Azure SQL Data Warehouse para una red virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json).
 - Obtenga información sobre la [integración del servicio de Azure en redes virtuales](virtual-network-for-azure-services.md)
-- Obtenga información sobre las [directivas de punto de conexión de servicio de redes virtuales](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- Obtenga información sobre las [directivas de punto de conexión de servicio de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 -  Guía de inicio rápido: [plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para establecer el punto de conexión de servicio en una subred de la red virtual y una cuenta segura de Azure Storage para esa subred.
 

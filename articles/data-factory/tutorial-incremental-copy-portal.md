@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 342fdce9a0e9b47380a8d8c975703ebb7f57e3b6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087136"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965554"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
 En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos SQL de Azure en Azure Blob Storage. 
@@ -43,7 +43,7 @@ En este tutorial, realizará los siguientes pasos:
 ## <a name="overview"></a>Información general
 Este es el diagrama de solución de alto nivel: 
 
-![Cargar datos de forma incremental](media\tutorial-Incremental-copy-portal\incrementally-load.png)
+![Cargar datos de forma incremental](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
 Estos son los pasos importantes para crear esta solución: 
 
@@ -172,7 +172,7 @@ END
 5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 6. Seleccione **Anclar al panel**.     
 7. Haga clic en **Create**(Crear).      
-8. En el panel, verá el icono siguiente con el estado: **Implementando factoría de datos**. 
+8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
     ![icono implementando factoría de datos](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.

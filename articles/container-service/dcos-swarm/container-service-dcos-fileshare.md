@@ -1,5 +1,5 @@
 ---
-title: Recurso compartido de archivos para clústeres de DC/OS en Azure
+title: (EN DESUSO) Recurso compartido de archivos para clústeres de DC/OS en Azure
 description: Creación y montaje de un recurso compartido de archivos en un clúster de DC/OS en Azure Container Service
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 728f8ddbda35f27c0f89e1d72e98fd2d7669320e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973514"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999863"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Creación y montaje de un recurso compartido de archivos en un clúster de DC/OS
+# <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(EN DESUSO) Creación y montaje de un recurso compartido de archivos en un clúster de DC/OS
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 En este tutorial se detalla la creación de un recurso compartido de archivos en Azure y cómo montarlo en cada agente y patrón del clúster de DC/OS. La configuración de un recurso compartido de archivos facilita el uso compartido de estos recursos entre el clúster, como la configuración, el acceso, los registros y mucho más. En este tutorial se realizan las siguientes tareas:
 

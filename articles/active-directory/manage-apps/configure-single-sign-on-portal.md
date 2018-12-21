@@ -8,20 +8,19 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/09/2018
+ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b0180f162996c5fc4647071feaf02d42320b7c9a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: aceacdea8b3c86a5c4f26a5f082f4c6cf0b3805d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036510"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011984"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configuración del inicio de sesión único basado en SAML para una aplicación con Azure Active Directory
 
-Este tutorial usa [Azure Portal](https://portal.azure.com) para configurar el inicio de sesión único basado en SAML para una aplicación con Azure Active Directory (Azure AD). Use este tutorial para configurar aplicaciones que no tengan un [tutorial específico de aplicación](../saas-apps/tutorial-list.md). 
-
+Este tutorial usa [Azure Portal](https://portal.azure.com) para configurar el inicio de sesión único basado en SAML para una aplicación con Azure Active Directory (Azure AD). Use este tutorial cuando un [tutorial específico de la aplicación](../saas-apps/tutorial-list.md) no está disponible. 
 
 Este tutorial usa Azure Portal para:
 
@@ -36,17 +35,17 @@ Este tutorial usa Azure Portal para:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-1. Si la aplicación no se ha agregado a su inquilino de Azure AD, consulte [Guía de inicio rápido: Incorporación de una aplicación a un inquilino de Azure AD](add-application-portal.md).
+1. Si la aplicación no se ha agregado a su inquilino de Azure AD, consulte [Inicio rápido: Incorporación de una aplicación a un inquilino de Azure AD](add-application-portal.md).
 
 2. Pregunte al proveedor de la aplicación por la información descrita en [Configuración del dominio y las direcciones URL](#configure-domain-and-urls).
 
 3. Para probar los pasos de este tutorial, se recomienda usar un entorno que no sea de producción. Si no dispone de un entorno de Azure AD que no sea de producción, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
-4. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global del inquilino de Azure AD, administrador de aplicaciones en la nube o administrador de aplicaciones.
+4. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de aplicaciones en la nube o administrador de aplicaciones para el inquilino de Azure AD.
 
 ## <a name="select-a-single-sign-on-mode"></a>Selección de un modo de inicio de sesión único
 
-Una vez que se ha agregado una aplicación al inquilino de Azure AD ya está listo para configurar el inicio de sesión único para ella.
+Una vez que se ha agregado una aplicación al inquilino de Azure AD, usted está listo para configurar el inicio de sesión único para dicha aplicación.
 
 Para abrir la configuración del inicio de sesión único:
 
@@ -56,7 +55,7 @@ Para abrir la configuración del inicio de sesión único:
 
 3. En el menú **Tipo de aplicación**, seleccione **Todas las aplicaciones** y haga clic en **Aplicar**.
 
-4. Escriba el nombre de la aplicación para la que desea configurar el inicio de sesión único. Elija su propia aplicación o use la aplicación de prueba de GitHub que se agregó en la guía de inicio rápido [Agregar aplicación](add-application-portal.md).
+4. Escriba el nombre de la aplicación para la que desea configurar el inicio de sesión único. Elija su propia aplicación o entre en **GitHub-test** para configurar la aplicación que agregó en el inicio rápido [Agregar aplicación](add-application-portal.md).
 
 5. Haga clic en **Inicio de sesión único**. En **Modo de inicio de sesión único**, **Inicio de sesión basado en SAML** aparece como la opción predeterminada. 
 
@@ -72,8 +71,8 @@ Para configurar el dominio y las direcciones URL:
 
     | Opciones de configuración | Iniciado por el proveedor de servicios | Iniciado por IdP | DESCRIPCIÓN |
     |:--|:--|:--|:--|
-    | URL de inicio de sesión | Obligatorio | No se especifica | Cuando un usuario abre esta dirección URL, el proveedor de servicios lo redirige a Azure AD para autenticar el usuario e iniciar sesión. Azure AD usa la dirección URL para iniciar la aplicación desde el Panel de acceso de Azure AD y Office 365. Si está en blanco, Azure AD realiza un inicio de sesión único iniciado por IdP cuando el usuario inicia la aplicación desde Office 365, el Panel de acceso de Azure AD o desde la dirección URL de inicio de sesión único de Azure AD.|
-    | Identificador (identificador de entidad) | Obligatorio para algunas aplicaciones | Obligatorio para algunas aplicaciones | Identifica de forma exclusiva la aplicación para la que se configura el inicio de sesión único. Azure AD devuelve el identificador a la aplicación como el parámetro Audiencia del token SAML, y se espera que la aplicación lo valide. Este valor también aparece como el id. de entidad en los metadatos SAML proporcionados por la aplicación.|
+    | URL de inicio de sesión | Obligatorio | No especificar | Cuando un usuario abre esta dirección URL, el proveedor de servicios lo redirige a Azure AD para autenticar el usuario e iniciar sesión. Azure AD usa la dirección URL para iniciar la aplicación desde el Panel de acceso de Azure AD u Office 365. Cuando está en blanco, Azure AD se basa en el proveedor de identidades para comenzar el inicio de sesión único cuando un usuario inicia la aplicación.|
+    | Identificador (identificador de entidad) | Obligatorio para algunas aplicaciones | Obligatorio para algunas aplicaciones | Identifica de forma exclusiva la aplicación para la que se configura el inicio de sesión único. Azure AD envía el identificador a la aplicación como el parámetro Audiencia del token SAML. Se espera que la aplicación lo valide. Este valor también aparece como el id. de entidad en los metadatos SAML proporcionados por la aplicación.|
     | URL de respuesta | Opcional | Obligatorio | Especifica el lugar donde la aplicación espera recibir el token SAML. La dirección URL de respuesta también se conoce como dirección URL del Servicio de consumidor de aserciones (ACS). |
     | Estado de la retransmisión | Opcional | Opcional | Especifica a la aplicación a dónde debe redirigir al usuario una vez completada la autenticación. Por lo general, el valor suele ser una dirección URL válida de la aplicación; sin embargo, algunas aplicaciones usan este campo de forma diferente. Para más información, pregunte al proveedor de la aplicación.
 
@@ -87,7 +86,7 @@ Para configurar el dominio y las direcciones URL:
 
 ## <a name="configure-user-attributes"></a>Configurar atributos de usuario
 
-Los atributos de usuario le permiten controlar qué información envía Azure AD a la aplicación. Por ejemplo, Azure AD podría enviar el nombre, el correo electrónico y el identificador de empleado del usuario a la aplicación. Azure AD envía los atributos del usuario a la aplicación en el token SAML cada vez que un usuario inicia sesión. 
+Los atributos de usuario le permiten controlar qué información envía Azure AD a la aplicación en el token SAML cada vez que un usuario inicia sesión. Por ejemplo, Azure AD podría enviar el nombre, el correo electrónico y el identificador de empleado del usuario a la aplicación. 
 
 Estos atributos pueden ser obligatorios u opcionales para hacer que el inicio de sesión único funcione correctamente. Para más información, consulte el [tutorial específico de la aplicación](../saas-apps/tutorial-list.md) o pregunte al proveedor de la aplicación.
 
@@ -115,7 +114,7 @@ Azure AD usa un certificado para firmar los tokens SAML que envía a la aplicaci
 
 2. Para configurar un certificado, haga clic en **Crear nuevo certificado**.
 
-3. En la hoja **Crear nuevo certificado**, establezca la fecha de expiración y haga clic en **Guardar**.
+3. En la hoja **Crear nuevo certificado**, establezca la **fecha de expiración** y haga clic en **Guardar**.
 
 4. Haga clic en **Make new certificate active** (Activar nuevo certificado).
 
@@ -146,7 +145,7 @@ Ya casi ha terminado.  Como paso final, deberá configurar la aplicación para q
     ![Configuración de la aplicación](media/configure-single-sign-on-portal/configure-app.png)
 
 2. Haga clic en **Configurar aplicación** en el portal y siga las instrucciones.
-3. Cree manualmente cuentas de usuario en la aplicación con el fin de probar el inicio de sesión único. Cree las cuentas de usuario que asignó a la aplicación en la [sección anterior](#assign-users-to-the-application).   Cuando esté listo para implementar la aplicación en la organización, es recomendable usar el aprovisionamiento automático de usuarios para crear automáticamente cuentas de usuario en la aplicación.
+3. Cree manualmente cuentas de usuario en la aplicación para probar el inicio de sesión único. Cree las cuentas de usuario que asignó a la aplicación en la [sección anterior](#assign-users-to-the-application). 
 
 ## <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
@@ -158,12 +157,12 @@ Ahora ya estará preparado para probar la configuración.
 
     ![Probar opciones de inicio de sesión único](media/configure-single-sign-on-portal/test-single-sign-on.png) 
 
-3. Haga clic en **Iniciar sesión en nombre del usuario actual**. Esto le permite ver primero si el inicio de sesión único funciona para usted, el administrador.
+3. Haga clic en **Iniciar sesión en nombre del usuario actual**. Esta prueba le permite ver primero si el inicio de sesión único funciona para usted, el administrador.
 4. Si se produce un error, aparece un mensaje de error. Copie y pegue los detalles en el cuadro **What does the error look like?** (¿Qué aspecto tiene el error?).
 
     ![Obtención de instrucciones para la resolución](media/configure-single-sign-on-portal/error-guidance.png)
 
-5. Haga clic en **Obtenga instrucciones para la resolución**. Aparece la causa principal e instrucciones para la resolución.  En este ejemplo, el usuario no se asignó a la aplicación.
+5. Haga clic en **Obtenga instrucciones para la resolución**. Se muestran la causa principal e instrucciones para la resolución.  En este ejemplo, el usuario no se asignó a la aplicación.
 
     ![Corrección de errores](media/configure-single-sign-on-portal/fix-error.png)
 
@@ -174,7 +173,7 @@ Ahora ya estará preparado para probar la configuración.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha utilizado Azure Portal para configurar una aplicación para el inicio de sesión único con Azure AD. Ha observado la página de configuración del inicio de sesión único y ha configurado las opciones para este. Después de finalizar la configuración, ha asignado un usuario a la aplicación y configurado esta para que use el inicio de sesión único basado en SAML. Una vez terminadas todas estas operaciones, ha comprobado que el inicio de sesión de SAML funcionaba correctamente.
+En este tutorial, ha definido la configuración de inicio de sesión único para una aplicación. Después de finalizar la configuración, ha asignado un usuario a la aplicación y configurado esta para que use el inicio de sesión único basado en SAML. Una vez terminadas todas estas operaciones, ha comprobado que el inicio de sesión de SAML funcionaba correctamente.
 
 Hizo todo esto:
 > [!div class="checklist"]
@@ -183,10 +182,10 @@ Hizo todo esto:
 > * Configuró los atributos de usuario
 > * Creó un certificado de firma de SAML
 > * Asignó manualmente usuarios o grupos a la aplicación
-> * Configuró la aplicación para el inicio de sesión único
+> * Configuró la aplicación para que usara Azure AD como proveedor de identidades SAML
 > * Probó el inicio de sesión único basado en SAML
 
-Para implementar la aplicación para más usuarios de la organización, es recomendable usar el aprovisionamiento automático.
+Para implementar la aplicación para más usuarios de la organización, es recomendable usar el aprovisionamiento automático de usuario.
 
 > [!div class="nextstepaction"]
 >[Aprenda a asignar usuarios con el aprovisionamiento automático](configure-automatic-user-provisioning-portal.md)

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 609f48d0c2ba41d658850ade367d9b225941b105
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 992abf97751695c10f28f355e1086a12530b9456
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982615"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165238"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?
 
@@ -73,7 +73,7 @@ Puede delegar la administración de usuarios invitados a los propietarios de apl
 
 Incorpore a los asociados externos de manera personalizada según las necesidades de su organización.
 - Use las [API de invitación de colaboración B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) para personalizar sus experiencias de incorporación, incluida la creación de portales de suscripción de autoservicio. 
-- Usamos el código de ejemplo para un portal de autoservicio [en Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
+- Use el código de ejemplo que se proporciona para un portal de autoservicio [en GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
 ![portal de suscripción](media/what-is-b2b/sign-up-portal.png)
 

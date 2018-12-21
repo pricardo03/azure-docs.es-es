@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial 3: Patrones para mejorar las predicciones de LUIS'
+title: Patrones
 titleSuffix: Azure Cognitive Services
 description: Use patrones para aumentar la predicción de intención y entidad a la vez que proporciona menos expresiones de ejemplo. El patrón se proporciona por medio de un ejemplo de expresión de plantilla, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138334"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075529"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Agregar formatos comunes de expresiones
+# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Incorporación de formatos comunes de expresiones
 
 En este tutorial se usan patrones para aumentar la predicción de intención y entidad a la vez que se proporcionan menos expresiones de ejemplo. El patrón se proporciona por medio de un ejemplo de expresión de plantilla, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto. Un patrón es una combinación de coincidencia de expresión y aprendizaje automático.  El ejemplo de expresión de plantilla junto con las expresiones de intención permiten que LUIS comprenda mejor qué expresiones se ajustan a la intención. 
 
@@ -106,7 +107,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 
 2. Vaya al final de la dirección URL en la dirección y escriba `Who is the boss of Jill Jones?`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -229,7 +230,7 @@ En este tutorial se agregan dos nuevas intenciones: `OrgChart-Manager` y `OrgCha
 
 Una vez que LUIS devuelve una predicción a la aplicación cliente, el nombre de la intención se puede usar como un nombre de función en la aplicación cliente y la entidad Employee (Empleado) podría usarse como un parámetro para esa función.
 
-```Javascript
+```nodejs
 OrgChartManager(employee){
     ///
 }
@@ -277,7 +278,7 @@ Recuerde que los empleados se crearon en el [tutorial de la entidad de lista](lu
 
 3. Vaya al final de la dirección URL en la dirección y escriba `Who is the boss of Jill Jones?` como la expresión. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -392,9 +393,9 @@ El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este 
 
 **Pregunta: ¿Por qué están todas las letras `w`, la primera letra de cada expresión de plantilla, en minúsculas? ¿No deberían estar en mayúsculas o minúsculas opcionalmente?** La expresión enviada al punto de conexión de consulta por la aplicación cliente se convierte en minúsculas. La expresión de plantilla puede estar en mayúsculas o minúsculas y la expresión del punto de conexión también puede estar en cualquiera de las dos. La comparación siempre se realiza después de la conversión a minúsculas.
 
-**Pregunta: ¿Por qué el número creado previamente no se parte de la expresión de plantilla si el 3 de marzo se predice como número `3` y fecha `March 3`?** La expresión de plantilla contextualmente usa una fecha, ya sea de modo literal, como en `March 3` o abstracto, como en `in a month`. Una fecha puede contener un número, pero un número es posible que no necesariamente se considere como una fecha. Use siempre la entidad que mejor representa el tipo en el que desea que se devuelvan los resultados JSON de la predicción.  
+**Pregunta: ¿Por qué el número creado previamente no forma parte de la expresión de plantilla si el 3 de marzo se predice como número `3` y fecha `March 3`?** La expresión de plantilla contextualmente usa una fecha, ya sea de modo literal, como en `March 3` o abstracto, como en `in a month`. Una fecha puede contener un número, pero un número es posible que no necesariamente se considere como una fecha. Use siempre la entidad que mejor representa el tipo en el que desea que se devuelvan los resultados JSON de la predicción.  
 
-**Pregunta: ¿Qué sucede con las expresiones de composición incorrecta como `Who will {Employee}['s] manager be on March 3?`.** Los tiempos verbales diferentes gramaticalmente, como este en el que `will` y `be` son independientes, deben ser una nueva expresión de plantilla. La expresión de plantilla existente no producirá coincidencia. Aunque no ha cambiado la intención de la expresión, ha cambiado la colocación de las palabras en la expresión. Este cambio afecta a la predicción de LUIS.
+**Pregunta: ¿Qué sucede con las expresiones de composición incorrecta como `Who will {Employee}['s] manager be on March 3?`?** Los tiempos verbales diferentes gramaticalmente, como este en el que `will` y `be` son independientes, deben ser una nueva expresión de plantilla. La expresión de plantilla existente no producirá coincidencia. Aunque no ha cambiado la intención de la expresión, ha cambiado la colocación de las palabras en la expresión. Este cambio afecta a la predicción de LUIS.
 
 **Recuerde: primero se encuentran las entidades y, a continuación, se compara el patrón.**
 

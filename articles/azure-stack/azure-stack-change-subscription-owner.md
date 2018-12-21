@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: e5ce479940faaaae95467fe6d426e999b4c6569f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468677"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959203"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Cambio del propietario de una suscripción de usuario de Azure Stack
 
@@ -40,15 +40,15 @@ Hay dos tipos de *propietarios* que se asignan a una suscripción:
 
 Ejecute el script siguiente para cambiar el propietario de la facturación de una suscripción de usuario. El equipo que se usa para ejecutar el script debe conectarse a Azure Stack y ejecutar el módulo de Azure Stack PowerShell 1.3.0 o posterior. Para más información, consulte [Instalación de Azure Stack PowerShell](azure-stack-powershell-install.md). 
 
-> [!Note]  
->  En una instancia de Azure Stack multiinquilino, el nuevo propietario debe estar en el mismo directorio que el actual. Para poder proporcionar la propiedad de la suscripción a un usuario que se encuentre en otro directorio, primero debe [invitar a ese usuario como invitado en su directorio](../active-directory/b2b/add-users-administrator.md). 
+> [!Note]
+>  En una instancia de Azure Stack multiinquilino, el nuevo propietario debe estar en el mismo directorio que el actual. Para poder proporcionar la propiedad de la suscripción a un usuario que se encuentre en otro directorio, primero debe [invitar a ese usuario como invitado en su directorio](../active-directory/b2b/add-users-administrator.md). 
 
 Reemplace los valores siguientes en el script antes de que se ejecute: 
  
 - **$ArmEndpoint**: especifique el punto de conexión de Resource Manager para su entorno.  
 - **$TenantId**: especifique el identificador del inquilino. 
-- **$SubscriptionId**: especifique su identificador de suscripción.
-- **$OwnerUpn**: especifique una cuenta como **user@example.com**  para agregar como el nuevo propietario de la facturación.  
+- **$SubscriptionId**: especifique el identificador de la suscripción.
+- **$OwnerUpn**: especifique una cuenta como **user@example.com** para agregar como el nuevo propietario de la facturación.  
 
 ```PowerShell   
 # Set up Azure Stack admin environment

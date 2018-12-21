@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 4fde6d203999b15f0f60d4879c2fdc595e1fb7e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ece6780803809829e69fccc320ae65a0c7b0f94b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835563"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089265"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Inicio rápido: Compilación de una aplicación Xamarin.Forms de API MongoDB con .NET y Azure Portal
 
@@ -156,7 +156,7 @@ Todos los fragmentos de código siguiente se toman de la clase `MongoService`, q
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
-1. En [Azure Portal](http://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Cadena de conexión** y en **Claves de lectura y escritura**. Usará los botones de copia que están en el lado derecho de la pantalla para copiar la cadena de conexión principal en los pasos siguientes.
+1. En [Azure Portal](https://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Cadena de conexión** y en **Claves de lectura y escritura**. Usará los botones de copia que están en el lado derecho de la pantalla para copiar la cadena de conexión principal en los pasos siguientes.
 
 2. Abra el archivo **APIKeys.cs** en el directorio **Helpers** (Aplicaciones auxiliares) del proyecto **TaskList.Core**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de Azure Container Service: escalado de una aplicación'
+title: '(EN DESUSO) Tutorial de Azure Container Service: escalado de una aplicación'
 description: 'Tutorial de Azure Container Service: escalado de una aplicación'
 services: container-service
 author: dlepow
@@ -9,16 +9,19 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429889"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993069"
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Escalado de pods de Kubernetes e infraestructura de Kubernetes
+# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(EN DESUSO) Escalado de pods de Kubernetes e infraestructura de Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para la versión actualizada de este tutorial que usa Azure Kubernetes Service, consulte [Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Si ha ido siguiendo los tutoriales, tiene un clúster de Kubernetes en funcionamiento en Azure Container Service y ha implementado la aplicación Azure Voting. 
 

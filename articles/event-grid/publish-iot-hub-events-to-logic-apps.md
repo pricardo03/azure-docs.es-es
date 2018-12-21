@@ -4,22 +4,22 @@ description: Con el servicio de enrutamiento de eventos de Azure Event Grid, cre
 services: iot-hub
 documentationcenter: ''
 author: kgremban
-manager: timlt
+manager: philmea
 editor: ''
 ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242526"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135022"
 ---
-# <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Logic Apps
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Tutorial: Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Logic Apps
 
 Azure Event Grid permite reaccionar a los eventos en IoT Hub mediante el desencadenamiento de acciones en las aplicaciones empresariales de bajada.
 
@@ -37,19 +37,16 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
 
 ### <a name="create-a-logic-app-resource"></a>Creación de un recurso de aplicación lógica
 
-1. En [Azure Portal](https://portal.azure.com), seleccione **Nuevo** > **Integration** > **Logic App**.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Integración** > **Logic App**.
 
    ![Creación de la aplicación lógica](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. Asigne un nombre a la aplicación lógica que sea único en su suscripción; a continuación, seleccione la misma suscripción, el grupo de recursos y la ubicación en que se encuentra la instancia de IoT Hub. 
-3. Cuando esté listo, elija **Anclar al panel** y elija **Crear**.
+3. Seleccione **Crear**.
 
-   Ahora ha creado un recurso de Azure para la aplicación lógica. Después de que Azure implemente la aplicación lógica, el Diseñador de aplicaciones lógicas muestra plantillas de patrones comunes de modo que pueda empezar con mayor rapidez.
+4. Una vez creado el recurso, vaya a la aplicación lógica. 
 
-   > [!NOTE] 
-   > Cuando selecciona **Anclar al panel**, la aplicación lógica se abre automáticamente en el Diseñador de aplicaciones lógicas. En caso contrario, puede buscarla y abrirla manualmente.
-
-4. En el Diseñador de aplicación lógica que se encuentra en **Plantillas**, elija **Aplicación lógica en blanco** para que pueda compilar la aplicación lógica desde el principio.
+5. El Diseñador de aplicaciones lógicas muestra las plantillas de patrones comunes para que pueda empezar con mayor rapidez. En el Diseñador de aplicación lógica que se encuentra en **Plantillas**, elija **Aplicación lógica en blanco** para que pueda compilar la aplicación lógica desde el principio.
 
 ### <a name="select-a-trigger"></a>Selección de un desencadenador
 
@@ -66,51 +63,51 @@ Un desencadenador es un evento específico que inicia la aplicación lógica. Pa
 
 4. Pegue el siguiente código JSON de ejemplo en el cuadro de texto y después seleccione **Listo**:
 
-```json
-[{
-  "id": "56afc886-767b-d359-d59e-0da7877166b2",
-  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
-  "subject": "devices/LogicAppTestDevice",
-  "eventType": "Microsoft.Devices.DeviceCreated",
-  "eventTime": "2018-01-02T19:17:44.4383997Z",
-  "data": {
-    "twin": {
-      "deviceId": "LogicAppTestDevice",
-      "etag": "AAAAAAAAAAE=",
-      "deviceEtag": "null",
-      "status": "enabled",
-      "statusUpdateTime": "0001-01-01T00:00:00",
-      "connectionState": "Disconnected",
-      "lastActivityTime": "0001-01-01T00:00:00",
-      "cloudToDeviceMessageCount": 0,
-      "authenticationType": "sas",
-      "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-      },
-      "version": 2,
-      "properties": {
-        "desired": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        },
-        "reported": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        }
-      }
-    },
-    "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
+   ```json
+   [{
+     "id": "56afc886-767b-d359-d59e-0da7877166b2",
+     "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+     "subject": "devices/LogicAppTestDevice",
+     "eventType": "Microsoft.Devices.DeviceCreated",
+     "eventTime": "2018-01-02T19:17:44.4383997Z",
+     "data": {
+       "twin": {
+         "deviceId": "LogicAppTestDevice",
+         "etag": "AAAAAAAAAAE=",
+         "deviceEtag": "null",
+         "status": "enabled",
+         "statusUpdateTime": "0001-01-01T00:00:00",
+         "connectionState": "Disconnected",
+         "lastActivityTime": "0001-01-01T00:00:00",
+         "cloudToDeviceMessageCount": 0,
+         "authenticationType": "sas",
+         "x509Thumbprint": {
+           "primaryThumbprint": null,
+           "secondaryThumbprint": null
+         },
+         "version": 2,
+         "properties": {
+           "desired": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           },
+           "reported": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           }
+         }
+       },
+       "hubName": "egtesthub1",
+       "deviceId": "LogicAppTestDevice"
+     },
+     "dataVersion": "1",
+     "metadataVersion": "1"
+   }]
+   ```
 
 5. Puede recibir una notificación emergente que dice: **Recuerde incluir un encabezado Content-Type establecido en application/json en la solicitud.** Puede ignorar esta sugerencia sin ningún problema y pasar a la sección siguiente. 
 
@@ -119,13 +116,17 @@ Un desencadenador es un evento específico que inicia la aplicación lógica. Pa
 Las acciones son los pasos que se producen después de que el desencadenador inicia el flujo de trabajo de la aplicación lógica. En este tutorial, la acción consiste en enviar una notificación por correo electrónico desde su proveedor de correo electrónico. 
 
 1. Seleccione **Nuevo paso**. Se abrirá una ventana para **elegir una acción**.
+
 2. Busque **Correo electrónico**.
+
 3. En función de su proveedor de correo electrónico, busque y seleccione el conector correspondiente. Este tutorial usa **Office 365 Outlook**. Los pasos para otros proveedores de correo electrónico son similares. 
 
    ![Selección del conector del proveedor de correo electrónico](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
 
 4. Seleccione la acción **Enviar un correo electrónico**. 
+
 5. Si se le pide, inicie sesión en la cuenta de correo electrónico. 
+
 6. Cree la plantilla de correo electrónico. 
    * **Para**: escriba la dirección de correo electrónico en la que desea recibir los correos electrónicos de notificación. Para este tutorial, use una cuenta de correo electrónico a la que pueda acceder para las pruebas. 
    * **Asunto** y **Cuerpo**: escriba el texto del correo electrónico. Seleccione las propiedades JSON de la herramienta del selector para incluir contenido dinámico basado en los datos de los eventos.  
@@ -151,7 +152,7 @@ Antes de cerrar el Diseñador de Logic Apps, copie la dirección URL en la que s
 
 En esta sección, va a configurar IoT Hube para publicar eventos cuando se produzcan. 
 
-1. En Azure Portal, navegue hasta el centro de IoT. 
+1. En Azure Portal, vaya hasta el centro de IoT. 
 2. Seleccione **Eventos**.
 
    ![Abrir los detalles de Event Grid](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
@@ -166,17 +167,19 @@ En esta sección, va a configurar IoT Hube para publicar eventos cuando se produ
 
     ![seleccionar dirección URL de punto de conexión](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Detalles de suscripciones de eventos**: especifique un nombre descriptivo y seleccione **Esquema de Event Grid**
-
-  Puede guardar la suscripción de eventos aquí y recibir notificaciones en todos los dispositivos creados en su instancia de IoT Hub. En este tutorial, sin embargo, se van a usar los campos opcionales para filtrar por dispositivos específicos: 
-
-  * **El asunto comienza por**: escriba `devices/Building1_` para filtrar por eventos de dispositivo del edificio 1.
-  * **El asunto termina con**: escriba `_Temperature` para filtrar por eventos de dispositivo relacionados con la temperatura.
+    * **Detalles de suscripciones de eventos**: proporcione un nombre descriptivo y seleccione **Esquema de Event Grid**.
 
   Una vez realizadas las acciones anteriores, el formulario debe tener un aspecto similar al del ejemplo siguiente: 
 
     ![Formulario de ejemplo de suscripción de eventos](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
-    
+
+5. Puede guardar la suscripción de eventos aquí y recibir notificaciones en todos los dispositivos creados en su instancia de IoT Hub. En este tutorial, sin embargo, se van a usar los campos opcionales para filtrar por dispositivos específicos. Seleccione **Características adicionales** en la parte superior del formulario. 
+
+6. Cree los siguientes filtros:
+
+  * **El asunto comienza por**: escriba `devices/Building1_` para filtrar por los eventos de dispositivos del edificio 1.
+  * **El asunto termina con**: escriba `_Temperature` para filtrar por los eventos de dispositivo relacionados con la temperatura.
+
 5. Seleccione **Crear** para guardar la suscripción de eventos.
 
 ## <a name="create-a-new-device"></a>Creación de un dispositivo

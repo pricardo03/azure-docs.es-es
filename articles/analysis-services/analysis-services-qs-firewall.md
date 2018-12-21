@@ -8,25 +8,25 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 96141ddeeb73c7483935d5da49b9341436c10c18
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0351ab3213ac75559cc025f2ef71e2f098a7504c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429729"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993195"
 ---
-# <a name="quickstart-configure-server-firewall---portal"></a>Guía de inicio rápido: Configuración del firewall del servidor: Portal
+# <a name="quickstart-configure-server-firewall---portal"></a>Inicio rápido: Configuración del firewall del servidor: Portal
 
 Esta guía de inicio rápido le ayudará a configurar un firewall para el servidor de Azure Analysis Services. La habilitación de un firewall y la configuración de los intervalos de direcciones IP solo para los equipos que tienen acceso al servidor son una parte importante de la protección del servidor y los datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Un servidor de Analysis Services en la suscripción. Para más información, consulte [Guía de inicio rápido: Creación de un servidor: Portal](analysis-services-create-server.md) o [Guía de inicio rápido: Creación de un servidor: PowerShell](analysis-services-create-powershell.md)
+- Un servidor de Analysis Services en la suscripción. Para más información, vea esta [Inicio rápido: Creación de un servidor (Portal)](analysis-services-create-server.md) o [Inicio rápido: Creación de un servidor (PowerShell)](analysis-services-create-powershell.md)
 - Uno o más intervalos de direcciones IP para los equipos cliente (si es necesario).
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal 
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal 
 
-[Inicie sesión en el portal](https://portal.azure.com)
+[Iniciar sesión en el portal](https://portal.azure.com)
 
 ## <a name="configure-a-firewall"></a>Configuración de un firewall
 

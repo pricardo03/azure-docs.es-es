@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 16e2da864d51cbc44457715813e851fd873c8746
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276676"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997125"
 ---
 # <a name="what-is-azure-cost-management"></a>¿Qué es Administración de costos de Azure?
 
@@ -29,7 +29,7 @@ Puede usar Azure Portal o varias API para la automatización de la exportación,
 
 ## <a name="plan-and-control-expenses"></a>Planificación y control de los gastos
 
-Algunas de las formas en las que Cost Management ayuda a planificar y controlar gastos son: los análisis de costos, los presupuestos, las recomendaciones y la exportación de los datos de administración de costos.
+A continuación se mencionan las formas mediante las que Cost Management le ayuda a planear y controlar los costos: análisis de costos, presupuestos, recomendaciones y exportación de datos de administración de costos.
 
 Los análisis de costos se usan para explorar y analizar los costos de su organización. Puede ver los costos agregados por organización para saber dónde se acumulan estos e identificar las tendencias de gasto. Además, puede ver los costos acumulados con el tiempo para estimar las tendencias de costos mensual, trimestral o incluso anualmente con respecto a un presupuesto.
 

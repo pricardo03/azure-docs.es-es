@@ -1,5 +1,5 @@
 ---
-title: Compilación de una aplicación web PHP con MySQL en Azure | Microsoft Docs
+title: 'Creación de aplicación PHP con MySQL: Azure App Service | Microsoft Docs'
 description: Aprenda a comenzar a trabajar con una aplicación PHP en Azure, con conexión a una base de datos MySQL en Azure.
 services: app-service\web
 documentationcenter: php
@@ -14,15 +14,15 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 9a1468c27e668663ca9079f5f1c9e5e97e51d2d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291300"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251681"
 ---
-# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: Creación de una aplicación web PHP y MySQL en Azure
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: Compilación de una aplicación web PHP y MySQL en Azure
 
 > [!NOTE]
 > En este artículo se implementa una aplicación en App Service en Windows. Para realizar implementaciones en App Service en _Linux_, consulte [Compilación de una aplicación web PHP y MySQL en Azure App Service en Linux](./containers/tutorial-php-mysql-app.md).
@@ -49,9 +49,9 @@ En este tutorial, aprenderá a:
 Para completar este tutorial:
 
 * [Instalación de Git](https://git-scm.com/)
-* [Instalación de PHP 5.6.4, o cualquier versión posterior](http://php.net/downloads.php)
+* [Instalación de PHP 5.6.4, o cualquier versión posterior](https://php.net/downloads.php)
 * [Instalación de Composer](https://getcomposer.org/doc/00-intro.md)
-* Habilitación de las siguientes extensiones PHP necesarias para Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer y XML
+* Habilite las siguientes extensiones de PHP que Laravel necesita: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Instalación e inicio de MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Preparación de MySQL local
@@ -598,9 +598,9 @@ Cuando las secuencias de registro se inicien, actualice la aplicación web de Az
 Para detener la secuencia de registro en cualquier momento, escriba `Ctrl`+`C`.
 
 > [!TIP]
-> Las aplicaciones PHP pueden usar el elemento estándar [error_log()](http://php.net/manual/function.error-log.php) para enviar información a la consola. La aplicación de ejemplo usa este enfoque en _app/Http/routes.php_.
+> Las aplicaciones PHP pueden usar el elemento estándar [error_log()](https://php.net/manual/function.error-log.php) para enviar información a la consola. La aplicación de ejemplo usa este enfoque en _app/Http/routes.php_.
 >
-> Como marco web, [Laravel usa Monolog](https://laravel.com/docs/5.4/errors) como proveedor de registros. Para conocer cómo hace Monolog para enviar mensajes a la consola, consulte [PHP: Uso de Monolog para iniciar sesión en la consola (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> Como marco web, [Laravel usa Monolog](https://laravel.com/docs/5.4/errors) como proveedor de registros. Para ver cómo obtener Monolog para generar mensajes en la consola, consulte [PHP: How to use monolog to log to console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out) [PHP: Cómo usar monolog para registrarse en la consola (php://out)].
 >
 >
 

@@ -1,21 +1,21 @@
 ---
-title: 'Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances'
-description: En esta guía de inicio rápido, va a usar Azure Portal para implementar una aplicación que se ejecuta en un contenedor de Docker en Azure Container Instances.
+title: 'Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances: Portal'
+description: En esta guía de inicio rápido, va a usar Azure Portal para implementar una aplicación de contenedor de Docker que se ejecutará en un contenedor aislado de Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857727"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190295"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Guía de inicio rápido: Ejecución de una aplicación de contenedor en Azure Container Instances con Azure Portal
 
 Use Azure Container Instances para ejecutar contenedores de Docker en Azure con sencillez y velocidad. No es necesario implementar máquinas virtuales ni usar una plataforma de orquestación de contenedores completa como Kubernetes. En esta guía de inicio rápido, va a usar Azure Portal para crear un contenedor en Azure y hacer que su aplicación esté disponible con un nombre de dominio completo (FQDN). Después de configurar algunos valores e implementar el contenedor, puede ir a la aplicación en ejecución:
 
@@ -37,7 +37,7 @@ Escriba los valores siguientes en los cuadros de texto **Nombre de contenedor**,
 
 * Nombre de contenedor: `mycontainer`
 * Imagen de contenedor: `microsoft/aci-helloworld`
-* Grupo de recursos: **Crear nuevo** > `myResourceGroup`.
+* Grupo de recursos: **Crear nuevo** > `myResourceGroup`
 
 ![Configuración básica de una instancia de contenedor nueva en Azure Portal][aci-portal-03]
 

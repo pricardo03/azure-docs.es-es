@@ -1,21 +1,22 @@
 ---
-title: 'Inicio rápido de C#: Predicción de la intención en LUIS'
-titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional. Con C#, envíe la intención del usuario como texto al punto de conexión de predicción HTTP de la aplicación pública. En el punto de conexión, LUIS aplica el modelo de la aplicación pública para analizar el texto en lenguaje natural y lo que significa, y así determinar la intención general y extraer los datos que son pertinentes para el dominio del sujeto de la aplicación.
+title: Obtener intención, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: En este inicio rápido, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0e58fb35fa29cde16b1ccf50dc20dacc693a4757
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035851"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141771"
 ---
 # <a name="quickstart-get-intent-using-c"></a>Inicio rápido: Obtención de la intención con C#
 
@@ -46,11 +47,11 @@ Utilice C# para consultar el punto de conexión de predicción GET [API](https:/
 
 1. Cree una aplicación de consola en Visual Studio. 
 
-    ![Acceso al menú de configuración de usuario de LUIS](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ![Creación de una aplicación de consola en Visual Studio](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
 2. En el proyecto de Visual Studio, en el Explorador de soluciones, seleccione **Agregar referencia**, a continuación, seleccione **System.Web** en la pestaña Ensamblados.
 
-    ![Acceso al menú de configuración de usuario de LUIS](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ![Seleccionar Agregar referencia y luego seleccionar System.Web en la pestaña Ensamblados](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
 3. Sobrescriba Program.cs con el código siguiente:
     

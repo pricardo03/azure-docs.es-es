@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 06/13/2018
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: e0a38a8494e0a0ae9288aab5c3d491946dc629f8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3c27f436b726290c6a3af0956b956e1c351a729a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231556"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956183"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introducción al Almacenamiento en cola de Azure mediante .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -27,13 +27,13 @@ El almacenamiento en cola de Azure proporciona mensajería en la nube entre comp
 ### <a name="about-this-tutorial"></a>Acerca de este tutorial
 Este tutorial muestra cómo escribir código .NET para algunos escenarios comunes con el Almacenamiento en cola de Azure. Entre los escenarios descritos se incluyen los siguientes: creación y eliminación de colas y adición, lectura y eliminación de mensajes de la cola.
 
-**Tiempo estimado para completar:** 45 minutos
+**Tiempo estimado para completarla:** 45 minutos
 
 **Requisitos previos:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-* [Administrador de configuración Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+* [Administrador de configuración Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 * Una [cuenta de almacenamiento de Azure](../common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]

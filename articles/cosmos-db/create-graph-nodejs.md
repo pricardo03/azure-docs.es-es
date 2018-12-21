@@ -10,14 +10,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 0f2bcc34a1f82c33c8f640dce8eecccf312651fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 58fca9e66b0be12992d7762824df4ceb9a22e614
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844217"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073421"
 ---
-# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: compilación de una aplicación de Node.js mediante Gremlin API
+# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: Compilación de una aplicación de Node.js mediante Gremlin API
 
 > [!div class="op_single_selector"]
 > * [Gremlin Console](create-graph-gremlin-console.md)
@@ -36,7 +36,7 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta de [Gremlin AP
 
 Antes de ejecutar este ejemplo, debe cumplir los siguientes requisitos previos:
 * [Node.js](https://nodejs.org/en/) versión v0.10.29 o posterior
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

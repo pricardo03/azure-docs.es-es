@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416892"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135345"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configuración del enrutamiento de mensajes con IoT Hub
 
@@ -56,6 +56,10 @@ En las secciones siguientes se describe cómo realizar estos pasos. Siga las ins
 1. Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
 
 2. Creación de una instancia de IoT Hub en el nivel S1. Agregue un grupo de consumidores a la instancia de IoT Hub. El grupo de consumidores lo utiliza Azure Stream Analytics al recuperar datos.
+
+   > [!NOTE]
+   > Debe usar un centro de Iot en un nivel de pago para realizar este tutorial. El nivel gratis solo le permite configurar un punto de conexión, y en este tutorial se necesitan varios.
+   > 
 
 3. Cree una cuenta de almacenamiento V1 estándar con replicación Standard_LRS.
 
@@ -306,11 +310,11 @@ Los datos se escriben en Blob Storage en el formato Avro.
 
    **Punto de conexión**: seleccione el punto de conexión que acaba de configurar. 
    
-   **Origen de datos**: seleccione **Device Telemetry Messages** (Mensajes de telemetría del dispositivo) en la lista desplegable.
+   **Origen de datos**: seleccione **Mensajes de telemetría del dispositivo** en la lista desplegable.
 
-   **Habilitar ruta**: asegúrese de que esta opción está habilitada.
+   **Habilitar ruta**: asegúrese de que esta opción esté habilitada.
    
-   **Consulta de enrutamiento**: escriba `level="storage"` como la cadena de la consulta. 
+   **Consulta de enrutamiento**: escriba `level="storage"` como cadena de consulta. 
 
    ![Captura de pantalla que muestra la creación de una consulta de enrutamiento para la cuenta de almacenamiento.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
@@ -330,11 +334,11 @@ Ahora, configure el enrutamiento de la cola de Service Bus. Vaya al panel de enr
 
 4. Rellene los campos:
 
-   **Nombre del punto de conexión**: escriba el nombre del punto de conexión. En este tutorial se usa **CriticalQueue**.
+   **Nombre del punto de conexión**: Escriba el nombre del punto de conexión. En este tutorial se usa **CriticalQueue**.
    
-   **Espacio de nombres de Service Bus**: haga clic en este campo para mostrar la lista desplegable, y seleccione el espacio de nombres de Service Bus que configuró en los pasos de preparación. En este tutorial se usa **ContosoSBNamespace**.
+   **Espacio de nombres de Service Bus**: haga clic en este campo para mostrar la lista desplegable; seleccione el espacio de nombres de Service Bus que configuró en los pasos de preparación. En este tutorial se usa **ContosoSBNamespace**.
 
-   **Cola de Service Bus**: haga clic en este campo para mostrar la lista desplegable, y seleccione la cola de Service Bus. En este tutorial se usa **contososbqueue**.
+   **Cola de Service Bus**: haga clic en este campo para mostrar la lista desplegable; seleccione la cola de Service Bus. En este tutorial se usa **contososbqueue**.
 
 5. Haga clic en **Crear** para agregar el punto de conexión de cola de Service Bus. Volverá al panel **Agregar una ruta**. 
 
@@ -344,9 +348,9 @@ Ahora, configure el enrutamiento de la cola de Service Bus. Vaya al panel de enr
 
    **Punto de conexión**: seleccione el punto de conexión que acaba de configurar.
 
-   **Origen de datos**: seleccione **Device Telemetry Messages** (Mensajes de telemetría del dispositivo) en la lista desplegable.
+   **Origen de datos**: seleccione **Mensajes de telemetría del dispositivo** en la lista desplegable.
 
-   **Consulta de enrutamiento**: escriba `level="critical"` como la cadena de la consulta. 
+   **Consulta de enrutamiento**: escriba `level="critical"` como cadena de consulta. 
 
    ![Captura de pantalla que muestra la creación de una consulta de enrutamiento para la cola de Service Bus.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
@@ -368,13 +372,13 @@ La cola de Service Bus se debe usar para recibir los mensajes designados como cr
 
    **Nombre**: este campo es el nombre de la aplicación lógica. En este tutorial se usa **ContosoLogicApp**. 
 
-   **Suscripción**: seleccione su suscripción de Azure.
+   **Suscripción**: Seleccione su suscripción a Azure.
 
-   **Grupo de recursos**: haga clic en **Usar existente** y seleccione un grupo de recursos. En este tutorial se usa **ContosoResources**. 
+   **Grupo de recursos**: haga clic en **Usar existente** y seleccione el grupo de recursos. En este tutorial se usa **ContosoResources**. 
 
    **Ubicación**: use su ubicación. En este tutorial se usa **Oeste de EE. UU.** 
 
-   **Log Analytics**: esta opción debería estar desactivada. 
+   **Log Analytics**: esta opción debe estar desactivada. 
 
    ![Captura de pantalla que muestra la pantalla Crear aplicación lógica.](./media/tutorial-routing/create-logic-app.png)
 
@@ -424,7 +428,7 @@ Para ver los datos en una visualización de Power BI, primero es preciso configu
 
 2. Escriba la siguiente información para el trabajo.
 
-   **Nombre del trabajo**: el nombre del trabajo. El nombre debe ser único globalmente. En este tutorial se usa **contosoJob**.
+   **Nombre del trabajo**: Nombre del trabajo. El nombre debe ser único globalmente. En este tutorial se usa **contosoJob**.
 
    **Grupo de recursos**: use el mismo grupo de recursos que IoT Hub. En este tutorial se usa **ContosoResources**. 
 
@@ -440,13 +444,13 @@ Para ver los datos en una visualización de Power BI, primero es preciso configu
 
 5. En el panel **Entradas**, haga clic en **Agregar entrada de flujo** y seleccione IoT Hub. En la pantalla que aparece, rellene los campos siguientes:
 
-   **Alias de entrada**: en este tutorial se usa **contosoinputs**.
+   **Alias de entrada**: En este tutorial se usa **contosoinputs**.
 
-   **Suscripción**: seleccione la suscripción.
+   **Suscripción**: Seleccione su suscripción.
 
-   **IoT Hub**: seleccione la instancia de IoT Hub. En este tutorial se usa **ContosoTestHub**.
+   **IoT Hub**: seleccione el centro de IoT. En este tutorial se usa **ContosoTestHub**.
 
-   **Extremo**: seleccione **Mensajería** (si selecciona Supervisión de operaciones, obtendrá los datos de telemetría de IoT Hub, en lugar de los datos que va a enviar). 
+   **Punto de conexión**: seleccione **Mensajería**. (si selecciona Supervisión de operaciones, obtendrá los datos de telemetría de IoT Hub, en lugar de los datos que va a enviar). 
 
    **Nombre de directiva de acceso compartido**: seleccione **iothubowner**. El portal rellena automáticamente el campo Clave de directiva de acceso compartido.
 

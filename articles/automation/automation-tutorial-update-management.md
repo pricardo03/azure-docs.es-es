@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679909"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184991"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Administración de las actualizaciones de Windows con Azure Automation
 
@@ -68,7 +68,7 @@ En **Update Management**, establezca la ubicación, el área de trabajo de Log A
 
 La habilitación de la solución puede tardar unos minutos. Durante este tiempo, no cierre la ventana del explorador. Después de habilitar la solución, la información sobre las actualizaciones que faltan en la máquina virtual se pasa a Log Analytics. Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
 
-## <a name="view-update-assessment"></a>Visualización de la evaluación de la actualización
+## <a name="view-update-assessment"></a>Ver evaluación de la actualización
 
 Una vez habilitado Update Management, se abre el panel **Update Management**. Si falta alguna actualización, verá una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
 
@@ -82,48 +82,24 @@ Haga clic en cualquier otro lugar de la actualización para abrir el panel **Bú
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
-En este paso, aprenderá a configurar una alerta que le avise cuando se hayan implementado correctamente actualizaciones a través de una consulta de Log Analytics o mediante el seguimiento al runbook maestro de Update Management en caso de que haya errores en las implementaciones.
+En este paso, aprenderá a configurar una alerta, cosa que le permitirá saber el estado de una implementación de actualizaciones.
 
 ### <a name="alert-conditions"></a>Condiciones de alerta
 
-Para cada tipo de alerta, deben definirse varias condiciones de alerta.
+En su cuenta de Automation, en **Supervisión** vaya a **Alertas** y, a continuación, haga clic en **+ Nueva regla de alertas**.
 
-#### <a name="log-analytics-query-alert"></a>Alerta de consulta de Log Analytics
+La cuenta de Automation ya se ha seleccionado como recurso. Si desea cambiarlo, puede hacer clic en **Seleccionar** y, en la página **Seleccionar un recurso**, seleccionar **Cuentas de Automation** en el menú desplegable **Filtrar por tipo de recurso**. Seleccione su cuenta de Automation y, después, seleccione **Listo**.
 
-Para las implementaciones correctas puede crear una alerta basada en una consulta de Log Analytics. En las implementaciones con errores, puede usar los pasos de [Alerta de runbook](#runbook-alert) para enviar alertas cuando se produce un error en el runbook maestro que organiza las implementaciones de las actualizaciones. Puede escribir una consulta personalizada para alertas adicionales para abarcar varios escenarios diferentes.
+Haga clic en **Agregar condición** para seleccionar la señal adecuada para su implementación de actualizaciones. En la siguiente tabla se muestran los detalles de las dos señales disponibles para las implementaciones de actualización:
 
-En Azure Portal, vaya a **Monitor** y, a continuación, seleccione **Crear alerta**.
+|Nombre de señal|Dimensiones|DESCRIPCIÓN|
+|---|---|---|
+|**Ejecuciones de implementación de actualizaciones totales**|- Nombre de implementación de actualizaciones</br>- Estado|Esta señal se usa para alertar sobre el estado general de una implementación de actualizaciones.|
+|**Ejecuciones de máquina de implementación de actualizaciones totales**|- Nombre de implementación de actualizaciones</br>- Estado</br>- Equipo de destino</br>- Id. de ejecución de implementación de actualizaciones|Esta señal se usa para alertar sobre el estado de una implementación de actualizaciones dirigida a máquinas específicas|
 
-En **1. Definir condición de la alerta**, haga clic en **Seleccionar destino**. En **Filter by resource type** (Filtrar por tipo de recurso), seleccione **Log Analytics**. Seleccione el área de trabajo de Log Analytics y, a continuación, seleccione **Listo**.
-
-![Crear una alerta](./media/automation-tutorial-update-management/create-alert.png)
-
-Seleccione **Agregar criterios**.
-
-En **Configurar lógica de señal**, en la tabla, seleccione **Búsqueda de registros personalizada**. Escriba la consulta siguiente en el cuadro de texto **Consulta de búsqueda**:
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize by UpdateRunName, Computer
-```
-Esta consulta devuelve los equipos y el nombre de la ejecución de actualización que se completó en el período de tiempo especificado.
-
-En **Lógica de alerta**, en **Umbral**, escriba **1**. Cuando haya finalizado, seleccione **Listo**.
+Para los valores de dimensión, seleccione un valor válido de la lista. Si el valor que busca no está en la lista, haga clic en el signo **\+** situado junto a la dimensión y escriba el nombre personalizado. A continuación, puede seleccionar el valor que desea buscar. Si desea seleccionar todos los valores de una dimensión, haga clic en el botón **Seleccionar \***. Si no elige un valor para una dimensión, dicha dimensión se omitirá durante la evaluación.
 
 ![Configuración de la lógica de señal](./media/automation-tutorial-update-management/signal-logic.png)
-
-#### <a name="runbook-alert"></a>Alerta de runbook
-
-Si se produce un error del runbook maestro durante la implementación, debe alertar.
-En Azure Portal, vaya a **Monitor** y, a continuación, seleccione **Crear alerta**.
-
-En **1. Definir condición de la alerta**, haga clic en **Seleccionar destino**. En **Filtrar por tipo de recurso**, seleccione **Cuentas de Automation**. Seleccione su cuenta de Automation y, después, seleccione **Listo**.
-
-En **Nombre de runbook**, haga clic en el signo **\+** y escriba **Patch-MicrosoftOMSComputers** como nombre personalizado. En **Estado**, elija **Error** o haga clic en el signo **\+** para escribir **Failed**.
-
-![Configurar la lógica de señal de runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 En **Lógica de alerta**, en **Umbral**, escriba **1**. Cuando haya finalizado, seleccione **Listo**.
 
@@ -133,7 +109,7 @@ En **2. Definir detalles de la alerta**, escriba un nombre y una descripción pa
 
 ![Configuración de la lógica de señal](./media/automation-tutorial-update-management/define-alert-details.png)
 
-En **3. Definir grupo de acciones**, seleccione **Nuevo grupo de acciones**. Un grupo de acciones es un conjunto de acciones que puede usar en varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y muchas más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md).
+En **Grupos de acciones**, seleccione **Crear nuevo**. Un grupo de acciones es un conjunto de acciones que puede usar en varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y muchas más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../azure-monitor/platform/action-groups.md).
 
 En el cuadro **Nombre del grupo de acción**, escriba un nombre para la alerta y un nombre corto. El nombre corto se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
 
@@ -159,9 +135,9 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
 * **Sistema operativo**: seleccione el sistema operativo que es el destino de la implementación de actualizaciones.
 
-* **Grupos que se deben actualizar (versión preliminar)**: defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. Para obtener más información, consulte [Dynamic Groups](automation-update-management.md#using-dynamic-groups) (Grupos dinámicos).
+* **Grupos que se deben actualizar (versión preliminar)**: Defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. Para más información, consulte los [grupos dinámicos](automation-update-management.md#using-dynamic-groups).
 
-* **Equipos que se actualizan**: seleccione una búsqueda guardada, un grupo importado o elija Máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Para obtener información sobre los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../azure-monitor/platform/computer-groups.md)
+* **Máquinas para actualizar**: Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Para obtener información sobre los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../azure-monitor/platform/computer-groups.md)
 
 * **Clasificación de actualizaciones**: seleccione los tipos de software que la implementación de actualizaciones incluyó en la implementación. Para este tutorial, seleccione todos los tipos.
 
@@ -174,14 +150,14 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
    Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-update-management.md#update-classifications).
 
-* **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para obtener más información sobre cómo se controla la inclusión, consulte la sección [Inclusion behavior](automation-update-management.md#inclusion-behavior) (Comportamiento de la inclusión).
+* **Actualizaciones para incluir/excluir**: abre la página para **incluir/excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte la sección [Comportamiento de inclusión](automation-update-management.md#inclusion-behavior).
 
-* **Configuración de la programación**: abre la página **Configuración de la programación**. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
+* **Configuración de programación**: se abre el panel de **configuración de la programación**. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
 
    También puede especificar si la implementación se produce una vez o configurar una programación periódica. Seleccione **Una vez** en **Periodicidad**. Deje el valor predeterminado de 1 día y seleccione **Aceptar**. Esta acción configura una programación periódica.
 
-* **Scripts previos y posteriores**: seleccione los scripts que se ejecutarán antes y después de la implementación. Para obtener más información, consulte [Administración de scripts previos y posteriores](pre-post-scripts.md).
-* **Ventana de mantenimiento (minutos)**: deje este campo con el valor predeterminado. Puede establecer la ventana de tiempo en la que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
+* **Scripts previos + scripts posteriores**: seleccione los scripts que se ejecutarán antes y después de la implementación. Para obtener más información, consulte [Administración de scripts previos y posteriores](pre-post-scripts.md).
+* **Ventana de mantenimiento (minutos)**: Deje el valor predeterminado. Puede establecer la ventana de tiempo en la que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
 
 * **Opciones de reinicio**: este valor determina cómo deben controlarse los reinicios. Las opciones disponibles son la siguientes:
   * Reboot if required (Default) [Reiniciar si es necesario (predeterminada)]
@@ -211,8 +187,8 @@ En **Resultados de actualización** encontrará un resumen del número total de 
 En la lista siguiente se muestran los valores disponibles:
 
 * **No intentado**: la actualización no se instaló porque no había tiempo disponible suficiente de acuerdo con la duración definida para la ventana de mantenimiento.
-* **Correcto**: la actualización se realizó correctamente.
-* **Error**: se produjo un error en la actualización.
+* **Correcto**: actualización realizada correctamente.
+* **Error**: error en la actualización.
 
 Seleccione **Todos los registros** para ver todas las entradas de registro que creó la implementación.
 

@@ -1,5 +1,5 @@
 ---
-title: Exploración de las API REST en Fiddler o Postman (REST de Azure Search) | Microsoft Docs
+title: 'Exploración de las API de REST mediante las herramientas de prueba HTTP web de Fiddler o Postman: Azure Search'
 description: Uso de Fiddler o Postman para generar solicitudes emisión HTTP y llamadas a la API de REST en Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: f73ec81686575efde70b7f90239299ec4deca00c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190192"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312993"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Exploración de las API de REST de Azure Search mediante Fiddler o Postman
 
@@ -110,13 +111,13 @@ Si obtiene HTTP 504, compruebe que la URL especifique HTTPS. Si se muestra el er
 
 ### <a name="fiddler"></a>Fiddler
 
-Copie la definición del índice en el cuerpo de la solicitud, tal como aparece en la siguiente captura de pantalla y , después, haga clic en **Execute** (Ejecutar) en la parte superior derecha para enviar la solicitud completada.
+Copie la definición del índice en el cuerpo de la solicitud, tal como aparece en la siguiente captura de pantalla y, después, haga clic en **Execute** (Ejecutar) en la parte superior derecha para enviar la solicitud completada.
 
 ![Cuerpo de la solicitud de Fiddler][7]
 
 ### <a name="postman"></a>postman
 
-Copie la definición del índice en el cuerpo de la solicitud, tal como aparece en la siguiente captura de pantalla, y haga clic en **Execute** (Ejecutar) en la parte superior derecha para enviar la solicitud completada.
+Copie la definición del índice en el cuerpo de la solicitud, tal como aparece en la siguiente captura de pantalla y, después, haga clic en **Send** (Enviar) en la parte superior derecha para enviar la solicitud completada.
 
 ![Cuerpo de solicitud de Postman][8]
 
@@ -200,13 +201,13 @@ Si obtiene un 207, al menos un documento no pudo cargarse. Si aparece el error 4
 
 ### <a name="fiddler"></a>Fiddler
 
-Cambie el verbo a **POST**. Cambie la dirección URL para que incluya `/docs/index`. Copie los documentos en el cuerpo de la solicitud, tal como se muestra en la siguiente captura de pantalla y ejecute la solicitud.
+Cambie el verbo a **POST**. Cambie la dirección URL para que incluya `/docs/index`. Copie los documentos en el cuerpo de la solicitud, tal como se muestra en la siguiente captura de pantalla y, después, ejecute la solicitud.
 
 ![Carga de la solicitud de Fiddler][9]
 
 ### <a name="postman"></a>postman
 
-Cambie el verbo a **POST**. Cambie la dirección URL para que incluya `/docs/index`. Copie los documentos en el cuerpo de la solicitud, tal como se muestra en la siguiente captura de pantalla y ejecute la solicitud.
+Cambie el verbo a **POST**. Cambie la dirección URL para que incluya `/docs/index`. Copie los documentos en el cuerpo de la solicitud, tal como se muestra en la siguiente captura de pantalla y, después, ejecute la solicitud.
 
 ![Carga de la solicitud de Postman][10]
 
@@ -217,7 +218,7 @@ Ahora que se han cargado el índice y los documentos, puede emitir consultas con
 + Cambiar el punto de conexión para incluir parámetros de consulta, incluidas las cadenas de búsqueda. Una dirección URL de consulta podría ser como esta: `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + Mantenga los encabezados de solicitud tal cual
 
-Esta consulta busca el término "motel" y devuelve el número de documentos en los resultados de la búsqueda. La solicitud y respuesta deben ser similares a los de la siguiente captura de pantalla de Postman tras hacer clic en **Send** (Enviar). El código de estado debe ser 200.
+Esta consulta busca el término "motel" y devuelve el número de documentos en los resultados de la búsqueda. La solicitud y respuesta deben ser similares a las de la siguiente captura de pantalla de Postman tras hacer clic en **Send** (Enviar). El código de estado debe ser 200.
 
  ![Respuesta a la consulta de Postman][11]
 

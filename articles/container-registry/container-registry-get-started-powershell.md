@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de un registro privado de Docker en Azure con PowerShell'
+title: 'Guía de inicio rápido: Creación de un registro privado de Docker en Azure: PowerShell'
 description: Aprenda rápidamente a crear un registro de contenedor privado de Docker en Azure con PowerShell.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/08/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: fe21ab3e29b7a4cbf204be82246d37a4b91128e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 7dcdca594949a3b20000b31db681370ee4f9eac3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856690"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255292"
 ---
-# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Inicio rápido: Creación de una instancia de Azure Container Registry mediante PowerShell
+# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Guía de inicio rápido: Creación de un registro de contenedor privado con Azure PowerShell
 
 Azure Container Registry es un servicio privado y administrado de registro de contenedores de Docker, que se usa para compilar, almacenar y proporcionar imágenes de contenedor de Docker. Gracias a esta guía de inicio rápido, aprenderá a crear un registro de contenedor de Azure mediante PowerShell. Después de crear el registro, inserte una imagen de contenedor en él e implemente el contenedor del registro en Azure Container Instances (ACI).
 

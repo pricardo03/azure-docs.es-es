@@ -1,6 +1,6 @@
 ---
-title: Consulta de un índice (API de REST - Azure Search) | Microsoft Docs
-description: Cree una consulta de búsqueda en Búsqueda de Azure y use los parámetros de búsqueda para filtrar y ordenar los resultados de búsqueda.
+title: 'Creación de un índice en el código mediante la API de REST: Azure Search'
+description: Comandos HTTP y código de la API de REST para crear una consulta de búsqueda en Azure Search. Agregue parámetros de búsqueda para filtrar y ordenar los resultados de la búsqueda.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 035dc4ac349513867253e5593e01fab4fec62f6b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: ccdb872646dded34cb50cd64f56733445132c4b7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186518"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316950"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Realización de una consulta al índice de Azure Search con la API de REST
 > [!div class="op_single_selector"]

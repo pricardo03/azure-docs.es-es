@@ -1,6 +1,7 @@
 ---
-title: 'Inicio rápido: Realizar una búsqueda de imágenes con Python - Bing Image Search API'
-description: Use esta guía de inicio rápido para realizar la primera llamada a Bing Image Search API y recibir una respuesta JSON. Esta sencilla aplicación de Python envía una consulta de búsqueda a la API y muestra los resultados sin formato.
+title: 'Guía de inicio rápido: Búsqueda de imágenes: API de REST Bing Image Search y Python'
+titleSuffix: Azure Cognitive Services
+description: Use esta guía de inicio rápido para enviar solicitudes de búsqueda de imágenes a la API de REST Bing Image Search mediante Python y reciba respuestas JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -9,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: a51935300238235338ec30ec7061101745b0e0e5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: a93a044279cccd883de5f946bb236cad4b088ae2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314395"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261984"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Guía de inicio rápido: Envío de consultas de búsqueda con la API REST y Python
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y Python
 
 Use esta guía de inicio rápido para realizar la primera llamada a Bing Image Search API y recibir una respuesta JSON. Esta sencilla aplicación de Python envía una consulta de búsqueda a la API y muestra los resultados sin formato.
 

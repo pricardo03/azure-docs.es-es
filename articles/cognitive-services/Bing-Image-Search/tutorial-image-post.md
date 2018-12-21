@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Extracción de detalles de imágenes con C# - Bing Image Search API'
+title: 'Tutorial: Extracción de detalles de imágenes con Bing Image Search API y C#'
 titleSuffix: Azure Cognitive Services
 description: Use este artículo para crear una aplicación de C# que extraiga los detalles de la imagen con Bing Image Search API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/14/2018
 ms.author: aahi
-ms.openlocfilehash: 96d011a04c97d309409062a286bdd7a17db9cda5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 36996ebed25d159cdc2a1908b5c9f1f5447c823f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297663"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259773"
 ---
-# <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: Extracción de detalles de imágenes con C# y Bing Image Search API
+# <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: Extracción de detalles de imágenes con Bing Image Search API y C#
 
 Hay varios [puntos de conexión](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint) disponibles mediante Bing Image Search API. El punto de conexión `/details` acepta una solicitud POST con una imagen y puede devolver una variedad de detalles sobre la imagen. Esta aplicación de C# envía una imagen mediante esta API y muestra los detalles devueltos por Bing, que son objetos JSON, como los siguientes:
 

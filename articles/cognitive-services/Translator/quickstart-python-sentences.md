@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Obtención de longitudes de frase con Translator Text API en Python'
+title: 'Inicio rápido: Obtención de longitudes de oración con Python: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, obtendrá información sobre cómo determinar las longitudes de frase (en caracteres) con Python y Translator Text REST API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 64831f13811029263a2b76f8030589d9329dd318
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 1d7ba50bf57a5c7f88f4380c4874d6053f07082e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086138"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992607"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Guía de inicio rápido: Uso de Translator Text API para determinar las longitudes de frase con Python
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Inicio rápido: Uso de Translator Text API para determinar las longitudes de oración con Python
 
 En esta guía de inicio rápido, obtendrá información sobre cómo determinar las longitudes de frase (en caracteres) con Python y Translator Text REST API.
 
@@ -69,7 +69,7 @@ Actualmente, hay un punto de conexión disponible para Translator Text y está e
 Los elementos `params` de este ejemplo se utilizan para establecer el idioma del texto proporcionado. Los elementos `params` no son necesarios para la ruta `breaksentence`. Si no se incluye en la solicitud, la API intentará detectar el idioma del texto proporcionado y proporcionará esta información junto con una puntuación de confianza en la respuesta.
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -153,7 +153,7 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="see-also"></a>Otras referencias
 
-Además de para la transliteración de texto, aprenda a usar Translator Text API para:
+Aprenda a usar Translator Text API para:
 
 * [Traducir texto](quickstart-python-translate.md)
 * [Transliterar texto](quickstart-python-transliterate.md)

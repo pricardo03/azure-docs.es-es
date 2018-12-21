@@ -8,14 +8,14 @@ ms.component: cosmosdb-table
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 5d50b50d05877b213f0211a6ca8fa89f69231f52
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2647065d251caea571e2bfcd5703bbb3bec08345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866498"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074314"
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a la API Table de Azure Cosmos DB
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a Azure Cosmos DB: Table API
 
 [Azure Cosmos DB](introduction.md) proporciona Table API para aplicaciones escritas para Azure Table Storage y que necesitan funcionalidades premium como:
 
@@ -23,7 +23,7 @@ ms.locfileid: "52866498"
 * [Rendimiento dedicado](partition-data.md) en todo el mundo.
 * Latencias en milisegundos de un solo dígito en el percentil 99.
 * Alta disponibilidad garantizada.
-* [Indexación secundaria automática](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+* [Indexación secundaria automática](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 Las aplicaciones escritas para Azure Table Storage pueden migrarse a Azure Cosmos DB mediante la API Table sin realizar ningún cambio en el código y pueden sacar provecho de las funcionalidades premium. Table API tiene SDK de cliente disponibles para .NET, Java, Python y Node.js.
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 48e338a08330e0674cc4410adf135ec546a5e1c3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230604"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084022"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Búsqueda y diagnóstico de excepciones en tiempo de ejecución con Azure Application Insights
 
@@ -75,20 +75,20 @@ Application Insights recopila los errores de la aplicación y permite ver su fre
     ![Detalles de la excepción](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identificación de código con errores
-Snapshot Debugger recopila instantáneas de las excepciones que se producen con más frecuencia en la aplicación para ayudarle a diagnosticar su causa principal en producción.  Puede ver las instantáneas de depuración en el portal para examinar la pila de llamadas e inspeccionar las variables en cada marco de pila de llamadas. Posteriormente, puede depurar el código fuente, para lo que debe descargar la instantánea y abrirla en Visual Studio 2017.
+Snapshot Debugger recopila instantáneas de las excepciones que se producen con más frecuencia en la aplicación para ayudarle a diagnosticar su causa principal en producción.  Puede ver las instantáneas de depuración en el portal para examinar la pila de llamadas e inspeccionar las variables en cada marco de pila de llamadas. Posteriormente, puede depurar el código fuente descargando la instantánea y abriéndola en Visual Studio 2017 Enterprise.
 
 1. En las propiedades de la excepción, haga clic en **Abrir instantánea de depuración**.
 2. Se abre el panel **Depurar instantánea** con la pila de llamadas de la solicitud.  Haga clic en cualquiera de los métodos para ver los valores de todas las variables locales en el momento de la solicitud.  Si empezamos por el primero de los métodos de este ejemplo, podemos ver variables locales que no tienen ningún valor.
 
     ![Depurar instantánea](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. La primera llamada que tiene valores válidos es **ValidZipCode** y podemos ver que se especificó un código postal con letras que no se puede convertir en un número entero.  Parece que este es el error que hay en el código y que debe corregirse.
+3. La primera llamada que tiene valores válidos es **ValidZipCode** y podemos ver que se especificó un código postal con letras que no se puede convertir en un número entero.  Parece que este es el error que hay en el código y que debe corregirse.
 
     ![Depurar instantánea](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. Para descargar esta instantánea en Visual Studio, donde se puede buscar el código que se debe corregir, haga clic en **Descargar instantáneas**.
-6. La instantánea se carga en Visual Studio.
-7. A partir de ese momento se puede ejecutar una sesión de depuración en Visual Studio que identifique rápidamente la línea de código que provocó la excepción.
+4. Puede descargar esta instantánea en Visual Studio, donde se puede buscar el código que se debe corregir. Para ello, haga clic en **Descargar instantánea**.
+5. La instantánea se carga en Visual Studio.
+6. A partir de ese momento se puede ejecutar una sesión de depuración en Visual Studio Enterprise que identifique rápidamente la línea de código que provocó la excepción.
 
     ![Excepción en el código](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 

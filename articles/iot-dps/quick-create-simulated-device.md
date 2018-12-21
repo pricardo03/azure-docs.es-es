@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 3ae454be8327c1f9ce605899e4b26105d44ab0f6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157860"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189309"
 ---
-# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Inicio rápido: Aprovisionamiento de un dispositivo de TPM simulado mediante el SDK para C de Azure IoT
+# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Guía de inicio rápido: Aprovisionamiento de un dispositivo de TPM simulado mediante el SDK para C de Azure IoT
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -26,7 +26,7 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, revis
 
 Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
 - [Grupos de inscripción](concepts-service.md#enrollment-group): usados para inscribir varios dispositivos relacionados.
-- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un único dispositivo.
+- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un solo dispositivo.
 
 En este artículo se mostrarán las inscripciones individuales.
 
@@ -142,15 +142,15 @@ En esta sección, compilará y ejecutará un ejemplo que leerá la clave de apro
 
 3. En **Agregar inscripción**, escriba la información siguiente y haga clic en el botón **Guardar**.
 
-    - **Mecanismo:** seleccione **TPM** como *mecanismo*de atestación de identidad.
+    - **Mecanismo:** Seleccione **TPM** como *Mecanismo* de atestación de identidad.
     - **Clave de aprobación:** escriba la *clave de aprobación* que generó para el dispositivo de TPM mediante la ejecución del proyecto *tpm_device_provision*.
     - **Id. de registro:** escriba el *id. de registro* que generó para el dispositivo de TPM mediante la ejecución del proyecto *tpm_device_provision*.
-    - **Dispositivo IoT Edge:** seleccione **Deshabilitar**.
-    - **Id. de dispositivo de IoT Hub:** escriba **test-docs-device** para proporcionar al dispositivo un identificador.
+    - **Dispositivo de IoT Edge:** Seleccione **Deshabilitar**.
+    - **Id. de dispositivo IoT Hub:** escriba **test-docs-device** para proporcionar al dispositivo un identificador.
 
-    ![Especificación de la información de inscripción del dispositivo en el portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+      ![Especificación de la información de inscripción del dispositivo en el portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-    Al inscribir el dispositivo correctamente, el *id. del registro* del dispositivo aparecerá en la lista de la pestaña *Individual Enrollments* (Inscripciones individuales). 
+      Al inscribir el dispositivo correctamente, el *id. del registro* del dispositivo aparecerá en la lista de la pestaña *Individual Enrollments* (Inscripciones individuales). 
 
 
 <a id="firstbootsequence"></a>

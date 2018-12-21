@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementación de trabajos ASA en dispositivos Azure IoT Edge | Microsoft Docs'
+title: 'Tutorial de implementación de un trabajo de Azure Stream Analytics en un dispositivo: Azure IoT Edge | Microsoft Docs'
 description: En este tutorial, va a implementar Azure Stream Analytics como un módulo en un dispositivo de Iot Edge
 author: kgremban
 manager: philmea
@@ -7,16 +7,15 @@ ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566948"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139818"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Tutorial: Implementación de Azure Stream Analytics como un módulo de IoT Edge (versión preliminar)
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implementación de Azure Stream Analytics como un módulo de IoT Edge
 
 Muchas soluciones de IoT utilizan servicios de análisis para obtener información sobre los datos a medida que llegan a la nube desde los dispositivos de IoT. Con Azure IoT Edge, puede tomar la lógica de [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) y llevarla al propio dispositivo. Al procesar los flujos de telemetría en el perímetro, puede reducir la cantidad de datos cargados y reducir el tiempo que se tarda en reaccionar ante la información procesable.
 
@@ -34,11 +33,9 @@ En este tutorial, aprenderá a:
 > * Implemente el trabajo de Azure Stream Analytics en un dispositivo IoT Edge desde Azure Portal.
 
 <center>
-![Diagrama de arquitectura del tutorial](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+![Diagrama: Tutorial sobre la arquitectura, las fases y la implementación de un trabajo de ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
->[!NOTE]
->Los módulos de Azure Stream Analytics para IoT Edge están en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -100,7 +97,7 @@ Mediante los tres elementos de entrada, salida y consulta, esta sección crea un
 
 1. En **Topología de trabajo**, seleccione **Entradas** y, después, **Agregar entrada de flujo**.
 
-   ![Entrada de Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_input.png)
+   ![Entrada de incorporación de Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
 1. Elija **Centro de Microsoft Edge** en la lista desplegable.
 
@@ -110,7 +107,7 @@ Mediante los tres elementos de entrada, salida y consulta, esta sección crea un
 
 1. En **Topología de trabajo**, abra **Salidas** y seleccione **Agregar**.
 
-   ![Salida de Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Salida de incorporación de Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 1. Elija **Centro de Microsoft Edge** en la lista desplegable.
 
@@ -207,7 +204,7 @@ En este tutorial se implementan dos módulos. El primero es **tempSensor**, que 
 
     Debería ver el nuevo módulo de Stream Analytics en ejecución junto con el módulo del agente de IoT Edge y el centro de IoT Edge.
 
-    ![Salida del módulo](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![Módulo tempSensor y ASA notificado por el dispositivo](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Visualización de datos
 
@@ -229,7 +226,7 @@ Ahora puede ir a su dispositivo de IoT Edge para revisar la interacción entre e
 
 Podrá observar que la temperatura de la máquina sube gradualmente hasta alcanzar 70 grados durante 30 segundos. Después, el módulo de Stream Analytics desencadena un restablecimiento y la temperatura de la máquina vuelve a bajar a 21. 
 
-   ![Registro de Docker](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![Restablecimiento de la salida del comando en los registros del módulo](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 

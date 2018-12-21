@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 7c1e07d73d110d5ef7f681486479ec65ff436b19
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416161"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408861"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
@@ -213,7 +214,7 @@ Vaya a `http://<back_end_app_name>.azurewebsites.net` para ver los elementos agr
 
 En este paso, habilitará la autenticación y autorización para las dos aplicaciones. También configurará la aplicación de front-end para generar un token de acceso que puede usar para realizar llamadas autenticadas a la aplicación de back-end.
 
-Usará Azure Active Directory como proveedor de identidades. Para más información, consulte [Configuración de la autenticación de Azure Active Directory para una aplicación de App Services](app-service-mobile-how-to-configure-active-directory-authentication.md).
+Usará Azure Active Directory como proveedor de identidades. Para más información, consulte [Configuración de la autenticación de Azure Active Directory para una aplicación de App Services](configure-authentication-provider-aad.md).
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Habilitación de la autenticación y autorización en una aplicación de back-end
 

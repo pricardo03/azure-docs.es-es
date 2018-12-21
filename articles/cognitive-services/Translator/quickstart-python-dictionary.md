@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Obtención de traducciones alternativas, Python: Translator Text API'
+title: 'Inicio rápido: Obtención de traducciones alternativas con Python: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, aprenderá a buscar traducciones alternativas y ejemplos de uso para un texto específico con Python y Translator Text REST API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 6e75ceb388b3111ea9ec31ba6bffded4077a019b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ab8a6d5b6d4bb52863e77b844a4008bb80d840be
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248683"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993958"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Guía de inicio rápido: Uso de Translator Text API para obtener traducciones alternativas con Python
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Inicio rápido: Uso de Translator Text API para obtener traducciones alternativas con Python
 
 En esta guía de inicio rápido, aprenderá a buscar traducciones alternativas y ejemplos de uso para un texto específico con Python y Translator Text REST API.
 
@@ -69,7 +69,7 @@ Actualmente, hay un punto de conexión disponible para Translator Text y está e
 `params` se utiliza para establecer los idiomas de entrada y salida. En este ejemplo, se van a usar inglés y español: `en` y `es`.
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Búsqueda de diccionario](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Búsqueda de diccionario](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -167,7 +167,7 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="see-also"></a>Otras referencias
 
-Además de para la transliteración de texto, aprenda a usar Translator Text API para:
+Aprenda a usar Translator Text API para:
 
 * [Traducir texto](quickstart-python-translate.md)
 * [Transliterar texto](quickstart-python-transliterate.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz en Objective-C en iOS mediante el SDK de Speech Service'
+title: 'Inicio rápido: Reconocimiento de voz, Objective-C (Speech Service)'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconocer la voz en Objective-C en iOS mediante el SDK de Speech Service
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 7d1e05e13e55b8b7bc07eda71d63f96f12c81ff9
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219195"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090219"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Inicio rápido: Reconocimiento de voz en Objective-C en iOS mediante el SDK de Speech Service
 
@@ -25,8 +25,11 @@ En este artículo, obtendrá información sobre cómo crear una aplicación iOS 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Clave de suscripción para Speech Service. Consulte [Pruebe Speech Service gratis](get-started.md).
-* Un equipo Mac con Xcode 9.4.1 instalado como entorno de desarrollo de iOS. Este tutorial está destinado a las versiones 11.4 de iOS. Si todavía no tiene Xcode, puede instalarlo desde la [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
+Antes de comenzar, presentamos una lista de requisitos previos:
+
+* Una [clave de suscripción](get-started.md) para Speech Service
+* Una máquina macOS con [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) o posterior
+* El destino se establece en la versión de iOS 11.4 o posterior
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obtención del SDK de Voz para iOS
 
@@ -37,7 +40,7 @@ La versión actual del SDK de Speech de Cognitive Services es `1.1.0`.
 En la actualidad, el SDK de Voz de Cognitive Services para iOS y Mac se distribuye como marco de Cocoa.
 Se puede descargar desde https://aka.ms/csspeech/iosbinary. Descargue el archivo en el directorio principal.
 
-## <a name="create-an-xcode-project"></a>Creación de un proyecto de Xcode 
+## <a name="create-an-xcode-project"></a>Creación de un proyecto de Xcode
 
 Inicie Xcode y haga clic en **Archivo** > **Nuevo** > **Proyecto** para iniciar un proyecto nuevo.
 En el cuadro de diálogo de selección de plantilla, elija la plantilla "Aplicación de vista única (iOS)".
@@ -54,7 +57,7 @@ En los cuadros de diálogo que aparecen después, realice las selecciones siguie
     1. Elija el directorio principal para incluir el proyecto. Esto creará un directorio `helloworld` en el directorio principal que contendrá todos los archivos del proyecto de Xcode.
     1. Deshabilite la creación de un repositorio de Git para este proyecto de ejemplo.
     1. Ajuste las rutas de acceso para el SDK en *Configuración del proyecto*.
-        1. En la pestaña **General** del encabezado **Binarios incrustados**, agregue la biblioteca del SDK como marco de trabajo: **Agregar binarios incrustados** > **Agregar otro...** > Vaya al directorio principal y elija el archivo `MicrosoftCognitiveServicesSpeech.framework`. Esto agregará automáticamente la biblioteca del SDK al encabezado **Marcos y bibliotecas vinculadas**.
+        1. En la pestaña **General**, en el encabezado **Binarios incrustados**, agregue la biblioteca del SDK como un marco de trabajo: **Add embedded binaries (Agregar archivos binarios incrustado)s** > **Add other... (Agregar otro...)** > Vaya a su directorio y elija el archivo `MicrosoftCognitiveServicesSpeech.framework`. Esto agregará automáticamente la biblioteca del SDK al encabezado **Marcos y bibliotecas vinculadas**.
         ![Marco de trabajo agregado](media/sdk/qs-objectivec-framework.png)
         1. Vaya a la pestaña **Configuración de compilación** y active la configuración **Todos**.
         1. Agregue el directorio `$(SRCROOT)/..` a *Rutas de búsqueda de marco* bajo el encabezado **Rutas de búsqueda**.
@@ -103,4 +106,3 @@ Busque este ejemplo en la carpeta `quickstart/objectivec-ios`.
 
 > [!div class="nextstepaction"]
 > [Obtener nuestros ejemplos](speech-sdk.md#get-the-samples)
-

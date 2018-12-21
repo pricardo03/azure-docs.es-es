@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 25fa099bcd6fa3843deadb3dc39d4250624ead06
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 2d83bab3686d274b9f37c0b0f7c92515801dbe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274592"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086460"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Tutorial: Previsión de gastos futuros
 
@@ -37,11 +37,11 @@ Cloudyn incluye informes de proyección de costos que le ayudarán a pronosticar
 
 El informe de costo previsto del mes en curso muestra los costos de los servicios. Emplea los costos desde el comienzo del mes y el mes anterior para mostrar el costo previsto. En el menú de informes de la parte superior del portal, haga clic en **Costs** >  (Costos) **Projection and Budget** >  (Proyección y presupuesto) **Current Month Projected Cost** (Costo previsto del mes en curso). En la imagen siguiente se muestra un ejemplo:
 
-![Costo previsto del mes en curso](./media/tutorial-forecast-spending/project-month01.png)
+![Información de ejemplo que se muestra en el informe de costos previstos del mes actual](./media/tutorial-forecast-spending/project-month01.png)
 
 En el ejemplo, puede ver en qué servicios se realiza un mayor gasto. Los costos de Azure fueron más bajos que los costos de AWS. Si quiere ver los detalles de la proyección de costos para las máquinas virtuales de Azure, en la lista **Filter** (Filtro), seleccione **Azure/VM**.
 
-![Costo previsto del mes en curso de la máquina virtual de Azure](./media/tutorial-forecast-spending/project-month02.png)
+![Ejemplo que muestra el costo previsto del mes actual de las máquinas virtuales de Azure](./media/tutorial-forecast-spending/project-month02.png)
 
 Siga los mismos pasos básicos anteriores para examinar las proyecciones de costos mensuales para otros servicios que le interesen.
 
@@ -49,11 +49,11 @@ El informe de costo previsto anual muestra el costo extrapolado de los servicios
 
 En el menú de informes de la parte superior del portal, haga clic en **Costs** >  (Costos) **Projection and Budget** >  (Proyección y presupuesto) **Annual Projected Cost** (Costo previsto anual). En la imagen siguiente se muestra un ejemplo:
 
-![Informe de costo previsto anual](./media/tutorial-forecast-spending/project-annual01.png)
+![Ejemplo que muestra el informe de costos previstos anual](./media/tutorial-forecast-spending/project-annual01.png)
 
 En el ejemplo, puede ver en qué servicios se realiza un mayor gasto. Al igual que en el ejemplo mensual, los costos de Azure eran más bajos que los costos de AWS. Si quiere ver los detalles de la proyección de costos para las máquinas virtuales de Azure, en la lista **Filter** (Filtro), seleccione **Azure/VM**.
 
-![Costo previsto anual de máquinas virtuales](./media/tutorial-forecast-spending/project-annual02.png)
+![Ejemplo que muestra el costo previsto anual de máquinas virtuales](./media/tutorial-forecast-spending/project-annual02.png)
 
 En la imagen anterior, el costo previsto anual de máquinas virtuales de Azure es 28.374 dólares USA.
 

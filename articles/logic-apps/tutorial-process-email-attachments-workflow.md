@@ -1,25 +1,25 @@
 ---
-title: Creación de flujos de trabajo que procesan correos electrónicos y datos adjuntos en Azure Logic Apps | Microsoft Docs
-description: En este tutorial se muestra cómo crear flujos de trabajo automatizados, con el fin de que pueda procesar correos electrónicos y datos adjuntos con Azure Logic Apps, Azure Storage y Azure Functions
+title: 'Tutorial: Automatización del procesamiento de correos electrónicos y datos adjuntos: Azure Logic Apps | Microsoft Docs'
+description: 'Tutorial: Creación de flujos de trabajo automatizados para gestionar los correos electrónicos y datos adjuntos con Azure Logic Apps, Azure Storage y Azure Functions'
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231975"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140513"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Procesamiento de correos electrónicos y datos adjuntos con Azure Logic Apps
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Gestión automática de correos electrónicos y datos adjuntos con Azure Logic Apps
 
-Azure Logic Apps le ayuda a automatizar los flujos de trabajo y a integrar los datos entre servicios de Azure, servicios de Microsoft, otras aplicaciones de software como servicio (SaaS) y sistemas locales. En este tutorial se muestra cómo puede crear una [aplicación lógica](../logic-apps/logic-apps-overview.md) que controla los correos electrónicos entrantes y sus datos adjuntos. Esta aplicación lógica procesa ese contenido, lo guarda en Azure Storage y envía notificaciones para revisar ese contenido. 
+Azure Logic Apps le ayuda a automatizar los flujos de trabajo y a integrar los datos entre servicios de Azure, servicios de Microsoft, otras aplicaciones de software como servicio (SaaS) y sistemas locales. En este tutorial se muestra cómo puede crear una [aplicación lógica](../logic-apps/logic-apps-overview.md) que controla los correos electrónicos entrantes y sus datos adjuntos. Esta aplicación lógica analiza el contenido de correo electrónico, lo guarda en Azure Storage y envía notificaciones para revisarlo. 
 
 En este tutorial, aprenderá a:
 
@@ -144,7 +144,7 @@ Ahora, use el fragmento de código proporcionado en estos pasos para crear una f
    | **Grupo de recursos** | LA-Tutorial-RG | El mismo grupo de recursos de Azure que usó anteriormente. | 
    | **Plan de hospedaje** | Plan de consumo | Esta configuración determina cómo asignar y escalar los recursos, como la potencia de computación, para ejecutar la aplicación de función. Consulte [Comparación de planes de hospedaje](../azure-functions/functions-scale.md). | 
    | **Ubicación** | Oeste de EE. UU. | La misma región que usó anteriormente. | 
-   | **Storage** | cleantextfunctionstorageacct | Cree una cuenta de almacenamiento para su aplicación de función. Use solo letras minúsculas y números. <p>**Nota:** Esta cuenta de almacenamiento contiene las aplicaciones de función y difiere de la cuenta de almacenamiento creada anteriormente para los datos adjuntos de correo electrónico. | 
+   | **Storage** | cleantextfunctionstorageacct | Cree una cuenta de almacenamiento para su aplicación de función. Use solo letras minúsculas y números. <p>**Nota:** Esta cuenta de almacenamiento contiene las aplicaciones de función y se diferencia de la cuenta de almacenamiento creada anteriormente para los datos adjuntos de correo electrónico. | 
    | **Application Insights** | Off | Activa la supervisión de aplicaciones con [Application Insights](../application-insights/app-insights-overview.md); sin embargo, para este tutorial, elija el valor **Off** (Desactivado). | 
    |||| 
 
@@ -250,7 +250,7 @@ A continuación, agregue un [desencadenador](../logic-apps/logic-apps-overview.m
 
    Por ejemplo: 
 
-   ![Seleccionar este desencadenador para el proveedor de correo electrónico: "When a new email arrives" (Cuando llega un nuevo correo electrónico)](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
+   ![Seleccione este desencadenador para el proveedor de correo electrónico: "Cuando llega un nuevo correo electrónico"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
    * Para las cuentas profesionales o educativas de Azure, seleccione Office 365 Outlook. 
    * Para las cuentas de Microsoft personales, seleccione Outlook.com. 
@@ -328,7 +328,7 @@ Ahora, agregue una condición que seleccione solo los correos electrónicos que 
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -377,15 +377,15 @@ Este paso agrega la función de Azure que creó anteriormente a su aplicación l
 
    ![Dentro de "If true", agregar acción](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-2. En el cuadro de búsqueda, busque "azure functions" y seleccione esta acción: **Choose an Azure function - Azure Functions** (Elegir una función de Azure - Azure Functions)
+2. En el cuadro de búsqueda, busque "azure functions" y seleccione esta acción: **Elegir una función de Azure - Azure Functions**
 
    ![Seleccionar una acción para "Choose an Azure function" (Elegir una función de Azure)](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Seleccione la aplicación de función que creó anteriormente: **CleanTextFunctionApp**.
+3. Seleccione la aplicación de función que creó anteriormente: **CleanTextFunctionApp**
 
    ![Seleccionar la aplicación de función de Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
-4. Ahora, seleccione la función: **RemoveHTMLFunction**.
+4. Ahora seleccione la función: **RemoveHTMLFunction**
 
    ![Seleccionar la función de Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
@@ -419,7 +419,7 @@ A continuación, agregue una acción que cree un blob en el contenedor de almace
 
 1. En el bloque **If true** y en la función de Azure elija **Agregar una acción**. 
 
-2. En el cuadro de búsqueda, escriba "create blob" como filtro y seleccione esta acción: **Create blob - Azure Blob Storage** (Crear blob - Azure Blob Storage)
+2. En el cuadro de búsqueda, escriba "create blob" como filtro y seleccione esta acción: **Crear blob - Azure Blob Storage**
 
    ![Agregar acción para crear un blob para el cuerpo del correo electrónico](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
 
@@ -518,7 +518,7 @@ A continuación, agregue la acción que guarda cada archivo adjunto como un blob
 
    ![Agregar acción al bucle](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
-2. En el cuadro de búsqueda, escriba "create blob" como filtro y seleccione esta acción: **Create blob - Azure Blob Storage** (Crear blob - Azure Blob Storage)
+2. En el cuadro de búsqueda, escriba "create blob" como filtro y seleccione esta acción: **Crear blob - Azure Blob Storage**
 
    ![Agregar acción para crear el blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 

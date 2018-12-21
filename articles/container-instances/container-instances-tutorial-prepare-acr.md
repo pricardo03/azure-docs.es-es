@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial de Azure Container Instances: preparación de Azure Container Registry'
-description: 'Tutorial de Azure Container Instances, parte 2 de 3: preparación de Azure Container Registry'
+title: 'Tutorial: Preparación de un registro de contenedor para Azure Container Instances'
+description: 'Tutorial de Azure Container Instances, parte 2 de 3: Preparación de una instancia de Azure Container Registry e inserción de una imagen'
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: e7cf9c5fad6219e71205c181b2dbb6828595afdd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eeb0fe5b19f23e101eab9393dca64e1e13bf6922
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855449"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188931"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implementación y uso de Azure Container Registry
+# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Implementación de una instancia de Azure Container Registry e inserción de una imagen de contenedor
 
 Esta es la segunda parte de un tutorial de tres partes. En la [primera parte](container-instances-tutorial-prepare-app.md) del tutorial se ha creado una imagen de contenedor de Docker para una aplicación web de Node.js. En este tutorial, la imagen se inserta en Azure Container Registry. Si no ha creado todavía la imagen de contenedor, vuelva a [Tutorial 1: Creación de una imagen de contenedor](container-instances-tutorial-prepare-app.md).
 

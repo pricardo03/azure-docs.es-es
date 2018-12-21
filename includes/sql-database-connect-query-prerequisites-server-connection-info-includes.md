@@ -2,28 +2,28 @@
 author: MightyPen
 ms.service: sql-database
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 12/06/2018
 ms.author: genemi
-ms.openlocfilehash: b78d52f23de8d02189f10b32d26e070fb6deea68
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: b3b7027e5ae252eb899d2a44d171ea9c9795ab54
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52339726"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286132"
 ---
 <!-- sql-database-connect-query-prerequisites-server-connection-info-includes.md 
 
-## SQL server connection information
+## Get SQL server connection information
 -->
 
 Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor, el nombre de la base de datos y la información de inicio de sesión.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**.
+1. Seleccione **SQL Database** en el menú de la izquierda y seleccione la base de datos en la página **SQL Database**.
 
-1. En la página **Introducción** de la base de datos, revise el nombre completo del servidor tal como se muestra en la siguiente imagen. Mantenga el puntero sobre el **nombre del servidor** hasta que aparezca la opción **Haga clic para copiar**.  
+1. En la página **Introducción** de la base de datos, revise el nombre completo del servidor que aparece junto a **Nombre de servidor**. Para copiar el nombre del servidor, mantenga el cursor sobre él y seleccione el icono **Copiar**.  
 
-   ![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
+![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
 
-1. Si ha olvidado la información de inicio de sesión del servidor, puede hacer clic en el **nombre del servidor** para ir a la página **SQL Server** y ver el nombre del **administrador del servidor**. Si es necesario, seleccione **Restablecer contraseña**.
+Si olvida la información de inicio de sesión, seleccione el nombre del servidor para abrir la página **SQL Server**. Aquí puede ver el nombre del **administrador del servidor** y seleccionar **Restablecer contraseña** si es necesario.

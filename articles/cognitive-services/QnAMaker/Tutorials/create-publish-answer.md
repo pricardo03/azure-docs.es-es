@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial: Creación, publicación y respuesta desde una base de conocimiento: REST, C# (QnA Maker)'
-titleSuffix: Azure Cognitive Services
+title: Crear, publicar, responder
+titleSuffix: QnA Maker - Azure Cognitive Services
 description: Este tutorial basado en REST le guía mediante la creación y publicación de una base de conocimiento mediante programación y de la posterior respuesta a una pregunta desde dicha base de conocimiento.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 013b74165afe6eafee337bd00ca88b1034ad5662
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: dd5bc95be3959e7af5911d8a765791718680581a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299570"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162943"
 ---
-# <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Uso de C# para crear una base de conocimiento y, después, responder a pregunta
+# <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Uso de C# para crear una base de conocimiento y responder a las preguntas
 
 Este tutorial le guía mediante la creación y publicación de una base de conocimiento mediante programación y de la posterior respuesta a una pregunta de un cliente con dicha base de conocimiento. 
 

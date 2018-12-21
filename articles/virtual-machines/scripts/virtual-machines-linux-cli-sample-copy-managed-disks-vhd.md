@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: Exportación o copia de discos duros virtuales (VHD) subyacentes de discos administrados en una cuenta de almacenamiento | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: Exportación o copia de discos duros virtuales (VHD) subyacentes de discos administrados en una cuenta de almacenamiento'
+title: 'Ejemplo de la CLI de Azure: copiar un disco administrado a una cuenta de almacenamiento'
+description: 'Ejemplo de la CLI de Azure: exporte o copie un disco administrado en una cuenta de almacenamiento.'
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.custom: mvc
-ms.openlocfilehash: c5f06a8c8fb707a2bf0451f8e9ed391ac0c5bad9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: mvc,seodec18
+ms.openlocfilehash: 4ee8b9dbb22e4530beb81bea9735867ecf21a1d4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045261"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183037"
 ---
-# <a name="exportcopy-the-underlying-vhd-of-a-managed-disk-to-a-storage-account-with-cli"></a>Exportación o copia del disco duros virtuales (VHD) subyacentes de un disco administrado en una cuenta de almacenamiento con la CLI
+# <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportar o copiar un disco administrado en una cuenta de almacenamiento mediante la CLI de Azure
 
 Este script exporta el disco duro virtual (VHD) subyacente de un disco administrado a una cuenta de almacenamiento de la misma región u otra diferente. Primero se genera el URI de SAS del disco administrado y, luego, se usa para copiar el disco duro virtual (VHD) en una cuenta de almacenamiento. Use este script para copiar los discos administrados y realizar la expansión regional. 
 

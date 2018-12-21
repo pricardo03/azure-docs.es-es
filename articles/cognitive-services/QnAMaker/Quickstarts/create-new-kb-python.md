@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: creación de la base de conocimiento: REST y Python en QnA Maker'
+title: 'Guía de inicio rápido: Creación de la base de conocimiento: REST y Python: QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Esta guía de inicio rápido basada en REST para Python le lleva por la creación de una base de conocimiento de QnA Maker de ejemplo mediante programación, que aparecerá en el panel de Azure de su cuenta de la API de Cognitive Services.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 598a861c207aaff6e61f7ffcb0fd6bf7a9b506a1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 423413d07b0c84b5d9461cef37c95f41c112764c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335811"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249708"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Guía de inicio rápido: creación de una base de conocimiento en QnA Maker mediante Python
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Guía de inicio rápido: Creación de una base de conocimiento en QnA Maker mediante Python
 
 Esta guía de inicio rápido le lleva por la creación y la publicación de una base de conocimiento de QnA Maker de ejemplo mediante programación. QnA Maker extrae automáticamente preguntas y respuestas a partir de contenido semiestructurado, como las preguntas frecuentes, y de [orígenes de datos](../Concepts/data-sources-supported.md). El modelo para la base de conocimiento se define en el JSON que se envía en el cuerpo de la solicitud de API. 
 
@@ -30,7 +30,7 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 * [Python 3.7](https://www.python.org/downloads/)
 * Debe tener un servicio QnA Maker. Para recuperar la clave, seleccione Claves en Administración de recursos en el panel.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 ## <a name="create-a-knowledge-base-python-file"></a>Creación de un archivo de Python de base de conocimiento
 

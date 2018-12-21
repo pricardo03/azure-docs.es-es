@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial de Azure Container Registry: implementación de una aplicación web desde Azure Container Registry'
-description: Implemente una aplicación web basada en Linux con una imagen de contenedor de un registro de contenedor de Azure con replicación geográfica. Segunda parte de una serie de tres partes.
+title: 'Tutorial: Implementación de aplicación de un registro de Docker con replicación geográfica en Azure'
+description: Implemente una aplicación web basada en Linux en dos regiones de Azure diferentes con una imagen de contenedor de un registro de contenedor de Azure con replicación geográfica. Segunda parte de una serie de tres partes.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: d1924d730f2c2a64063496d4be759194cef99175
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853868"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253840"
 ---
-# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: Implementación de una aplicación web desde Azure Container Registry
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implementación de una aplicación web de un registro de contenedor de Azure con replicación geográfica
 
 Esta es la segunda parte de una serie de tutoriales de tres partes. En la [primera parte](container-registry-tutorial-prepare-registry.md), se creó un registro de contenedor privado con replicación geográfica y se compiló una imagen de contenedor a partir del origen, que se insertó en el registro. En este artículo, se implementa el contenedor en dos instancias de Web App en dos regiones de Azure diferentes para aprovechar el aspecto cercano a la red del registro con replicación geográfica. Cada instancia extrae la imagen del contenedor del registro más cercano.
 

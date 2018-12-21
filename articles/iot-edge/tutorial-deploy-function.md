@@ -1,6 +1,6 @@
 ---
-title: Implementación de funciones de Azure con Azure IoT Edge | Microsoft Docs
-description: En este tutorial, va a implementar una función de Azure como módulo en un dispositivo perimetral.
+title: 'Tutorial sobre la implementación de una función de Azure en un dispositivo: Azure IoT Edge | Microsoft Docs'
+description: En este tutorial, va a desarrollar una función de Azure como módulo IoT Edge que luego implementará en un dispositivo perimetral.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,15 +8,15 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: d0ae009db0d9470942a4ff5d7c09e2cdd7bcdd53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165631"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081887"
 ---
-# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementación de funciones de Azure como módulos de IoT Edge
+# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementación de Azure Functions como módulos IoT Edge
 
 Azure Functions se puede usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos de Azure IoT Edge. En este tutorial, se detallan los pasos para crear e implementar una función de Azure que filtra los datos de sensor en el dispositivo IoT Edge simulado. Utilizará el dispositivo de IoT Edge simulado que creó en las guías de inicio rápido para implementar Azure IoT Edge en un dispositivo simulado con [Windows](quickstart.md) o [Linux](quickstart-linux.md). En este tutorial, aprenderá a:     
 
@@ -27,7 +27,7 @@ Azure Functions se puede usar para implementar código que, a su vez, implementa
 > * Ver los datos filtrados.
 
 <center>
-![Diagrama de arquitectura del tutorial](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+![Diagrama: Tutorial sobre la arquitectura, la fase y la implementación del módulo de función](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -63,7 +63,7 @@ Puede usar cualquier registro compatible con Docker para almacenar las imágenes
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Contenedores** > **Container Registry**.
 
-    ![Creación de un Registro de contenedor](./media/tutorial-deploy-function/create-container-registry.png)
+    ![Creación de un registro de contenedor en Azure Portal](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. Especifique los siguientes valores para crear un registro de contenedor:
 
@@ -90,7 +90,7 @@ La extensión de Azure IoT Edge para Visual Studio Code que ha instalado en los 
 
 2. Para abrir la paleta de comandos de VS Code, seleccione **Ver** > **Paleta de comandos**.
 
-3. En la paleta de comandos, escriba el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución de IoT Edge) y ejecútelo. Para crear la solución, siga las indicaciones de la paleta de comandos.
+3. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Nueva solución de IoT Edge). Para crear la solución, siga las indicaciones de la paleta de comandos.
 
    | Campo | Valor |
    | ----- | ----- |
@@ -225,9 +225,9 @@ Puede usar Azure Portal para implementar el módulo de función en un dispositiv
 
 1. Para abrir la paleta de comandos de VS Code, seleccione **Ver** > **Paleta de comandos**.
 
-2. Busque y ejecute el comando **Azure: Sign in** (Azure: iniciar sesión). Siga las instrucciones para iniciar sesión en la cuenta de Azure. 
+2. Busque y ejecute el comando **Azure: Iniciar sesión**. Siga las instrucciones para iniciar sesión en la cuenta de Azure. 
 
-3. En la paleta de comandos, busque y ejecute el comando **Azure IoT Hub: Select IoT Hub** (Azure IoT Hub: seleccionar IoT Hub). 
+3. En la paleta de comandos, busque y ejecute el comando **Azure IoT Hub: Select IoT Hub** (Seleccionar IoT Hub). 
 
 4. Seleccione la suscripción que contiene la instancia de IoT Hub y, después, el centro de IoT al que desea acceder.
 
@@ -243,11 +243,11 @@ Puede usar Azure Portal para implementar el módulo de función en un dispositiv
 
 ## <a name="view-generated-data"></a>Visualización de datos generados
 
-Puede ver todos los mensajes que llegan a su centro de IoT mediante la ejecución de **Azure IoT Hub: Start Monitoring D2C Message** (Azure IoT Hub: iniciar la supervisión de mensajes de D2C) en la paleta de comandos.
+Puede ver todos los mensajes que llegan a su centro de IoT ejecutando **Azure IoT Hub: Start Monitoring D2C Message** (Iniciar supervisión de mensajes de D2C) en la paleta de comandos.
 
 También puede filtrar la vista para ver todos los mensajes que llegan al centro de IoT desde un dispositivo específico. Haga clic con el botón derecho en la sección **Azure IoT Hub Devices** (Dispositivos de Azure IoT Hub) y seleccione **Start Monitoring D2C Messages** (Iniciar la supervisión de mensajes de D2C).
 
-Para dejar de supervisar mensajes, ejecute el comando **Azure IoT Hub: Stop monitoring D2C message** (Azure IoT Hub: detener la supervisión de mensaje de D2C) en la paleta de comandos. 
+Para detener la supervisión de mensajes, ejecute el comando **Azure IoT Hub: Stop Monitoring D2C Message** (Detener supervisión de mensaje de D2C) en la paleta de comandos. 
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

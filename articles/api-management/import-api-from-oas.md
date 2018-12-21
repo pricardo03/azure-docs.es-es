@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: edef88694cc335a63ce279e96a204ed4b8fe7376
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b1602af59cd46b4bbcefa6f1df3cd84c0d342b71
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469510"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959706"
 ---
 # <a name="import-an-openapi-specification"></a>Importación de una especificación OpenAPI
 
-En este artículo se explica cómo importar una API de back-end de Especificación OpenAPI que reside en http://conferenceapi.azurewebsites.net?format=json. Esta API de back-end la proporciona Microsoft y se hospeda en Azure. El artículo también muestra cómo probar la API de APIM.
+En este artículo se explica cómo importar una API de back-end de Especificación OpenAPI que reside en https://conferenceapi.azurewebsites.net?format=json. Esta API de back-end la proporciona Microsoft y se hospeda en Azure. El artículo también muestra cómo probar la API de APIM.
 
 > [!IMPORTANT]
 > Consulte este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) para obtener información importante y consejos relacionados con la importación de OpenAPI.
@@ -36,7 +36,7 @@ En este artículo, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
+Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -51,7 +51,7 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
 
     |Configuración|Valor|DESCRIPCIÓN|
     |---|---|---|
-    |**Especificación OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Hace referencia al servicio que implementa la API. API Management envía las solicitudes a esta dirección.|
+    |**Especificación OpenAPI**|https://conferenceapi.azurewebsites.net?format=json|Hace referencia al servicio que implementa la API. API Management envía las solicitudes a esta dirección.|
     |**Nombre para mostrar**|*API de conferencia de demostración* (API de conferencia de demostración)|Si presiona la tecla Tab después de escribir la dirección URL del servicio, APIM rellenará este campo en función de lo que aparece en el JSON. <br/>El nombre se muestra en el Portal para desarrolladores.|
     |**Nombre**|*demo-conference-api*|Proporciona un nombre único para la API. <br/>Si presiona la tecla Tab después de escribir la dirección URL del servicio, APIM rellenará este campo en función de lo que aparece en el JSON.|
     |**Descripción**|Proporcione una descripción opcional de la API.|Si presiona la tecla Tab después de escribir la dirección URL del servicio, APIM rellenará este campo en función de lo que aparece en el JSON.|

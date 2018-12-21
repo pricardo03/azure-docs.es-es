@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Table API con .NET (Azure Cosmos DB)'
+title: 'Inicio rápido: Table API con .NET: Azure Cosmos DB'
 description: Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y .NET
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: a36c1e68ddd68e497966d50122e9f27c72609948
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 22b2f247de97a0bf0b4a145062c7b92fec61ee9a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834458"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074992"
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Guía de inicio rápido: Creación de una aplicación de Table API con .NET y Azure Cosmos DB 
+# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Inicio rápido: Compilación de una aplicación de Table API con .NET y Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -87,7 +87,7 @@ Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada. 
 
-1. En [Azure Portal](http://portal.azure.com/), haga clic en **Cadena de conexión**. 
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Cadena de conexión**. 
 
     Use el botón de copia en el lado derecho de la ventana para copiar la **CADENA DE CONEXIÓN PRINCIPAL**.
 

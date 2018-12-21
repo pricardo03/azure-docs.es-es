@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 0bd61c3f1a4f660076be4e87bb5443302e5dc013
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 285590435a7e3c31d45d5d154d4e430ed3252838
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364001"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256237"
 ---
 # <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Tutorial: Moderación de catálogos de comercio electrónico con aprendizaje automático
 
@@ -66,7 +66,7 @@ En este caso, se definen estas etiquetas personalizadas (**celebridad**, **bande
 > [!NOTE]
 > El tutorial está diseñado para utilizar las claves de suscripción de las regiones visibles en los siguientes puntos de conexión. Asegúrese de que las claves de API coinciden con los identificadores URI ya que, en caso contrario, es posible que las claves no funcionen con los siguientes puntos de conexión:
 
-        // Your API keys
+         // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -128,11 +128,11 @@ En este caso, se definen estas etiquetas personalizadas (**celebridad**, **bande
 4. Para iniciar sesión, elija en la lista de cuentas de Internet disponibles.
 5. Anote las claves de API que aparecen en la página del servicio.
     
-    ![Claves de Computer Vision API](images/tutorial-computer-vision-keys.PNG)
+   ![Claves de Computer Vision API](images/tutorial-computer-vision-keys.PNG)
     
 6. Consulte el código fuente del proyecto para ver la función que examina la imagen con Computer Vision API.
 
-        public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
+         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
         {
             var File = ImageUrl;
             string Body = $"{{\"URL\":\"{File}\"}}";
@@ -149,7 +149,7 @@ En este caso, se definen estas etiquetas personalizadas (**celebridad**, **bande
                 ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
 
                 if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {
+                {                 
                     ReviewTags[2].Value = "true";
                 }
             }
@@ -161,7 +161,7 @@ En este caso, se definen estas etiquetas personalizadas (**celebridad**, **bande
 
 1. [Inicie sesión](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) en la [versión preliminar de Custom Vision API](https://www.customvision.ai/).
 2. Use la [guía de inicio rápido](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) para compilar el clasificador personalizado para detectar la posible presencia de banderas, juguetes y bolígrafos.
-    ![Imágenes de entrenamiento de Custom Vision](images/tutorial-ecommerce-custom-vision.PNG)
+   ![Imágenes de entrenamiento de Custom Vision](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Obtenga la dirección URL del punto de conexión de predicción](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) del clasificador personalizado.
 4. Consulte el código fuente del proyecto para ver la función que llama al punto de conexión de predicción del clasificador personalizado para examinar la imagen.
 
@@ -179,15 +179,13 @@ En este caso, se definen estas etiquetas personalizadas (**celebridad**, **bande
                 SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
             }
             return response.IsSuccessStatusCode;
-        }
+        }       
  
 ## <a name="reviews-for-human-in-the-loop"></a>Revisiones humanas
 
 1. En las secciones anteriores, examinó las imágenes entrantes en busca de contenido para adultos o subido de tono (Content Moderator), celebridades (Computer Vision) y banderas (Custom Vision).
 2. Según los umbrales de coincidencia de cada examen, haga que estén disponibles los casos matizados para una revisión humana en la herramienta de revisión.
-
-        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata)
-        {
+        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
 
             ReviewCreationRequest Review = new ReviewCreationRequest();
             Review.Item[0] = new ReviewItem();
@@ -209,10 +207,7 @@ En este caso, se definen estas etiquetas personalizadas (**celebridad**, **bande
 
 1. En este tutorial se supone que existe un directorio "C:Test" con un archivo de texto que tiene una lista de direcciones URL de imágenes.
 2. El código siguiente comprueba la existencia del archivo y lee todas las direcciones URL en la memoria.
-
-            // Check for a test directory for a text file with the list of Image URLs to scan
-            var topdir = @"C:\test\";
-            var Urlsfile = topdir + "Urls.txt";
+            // Check for a test directory for a text file with the list of Image URLs to scan var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
 
             if (!Directory.Exists(topdir))
                 return;
@@ -229,12 +224,7 @@ En este caso, se definen estas etiquetas personalizadas (**celebridad**, **bande
 
 1. Esta función de nivel superior recorre en bucle todas las direcciones URL de imágenes del archivo de texto que se mencionó anteriormente.
 2. Las analiza con cada API y si la puntuación de confianza coincide con nuestros criterios, se crea una revisión para moderadores humanos.
-
-            // for each image URL in the file...
-            foreach (var Url in Urls)
-            {
-                // Initiatize a new review tags array
-                ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
+             // for each image URL in the file... foreach (var Url in Urls) { // Initiatize a new review tags array ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
 
                 // Evaluate for potential adult and racy content with Content Moderator API
                 EvaluateAdultRacy(Url, ref ReviewTags);

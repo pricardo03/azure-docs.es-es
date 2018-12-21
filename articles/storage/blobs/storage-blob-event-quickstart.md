@@ -1,21 +1,22 @@
 ---
-title: Enrutamiento de eventos de Azure Blob Storage a un punto de conexión web personalizado | Microsoft Docs
-description: Utilice Azure Event Grid para suscribirse a los eventos de Blob Storage.
+title: 'Envío de eventos de Azure Blob Storage a un punto de conexión web: CLI de Azure | Microsoft Docs'
+description: Utilice Azure Event Grid para suscribirse a los eventos de Blob Storage. Envíe los eventos a un webhook. Controle los eventos en una aplicación web.
 services: storage,event-grid
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/23/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 78ee6f198bf4e16e3b2b0deb8fdb0b68c0fe9b73
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec18
+ms.openlocfilehash: 2586b7f9c2a182ee065daab1d2a43eb5e0e2c99c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735101"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073727"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con la CLI de Azure
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Inicio rápido: Enrutamiento de eventos de almacenamiento a un punto de conexión web con la CLI de Azure
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa la CLI de Azure para suscribirse a los eventos de Blob Storage y desencadenar el evento para ver el resultado.
 
@@ -117,7 +118,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-Ha desencadenado el evento y Event Grid envió el mensaje al punto de conexión configurado durante la suscripción. Vaya a la aplicación web para ver el evento que acaba de enviar.
+Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexión que configuró al realizar la suscripción. Vaya a la aplicación web para ver el evento que acaba de enviar.
 
 
 ```json

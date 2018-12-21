@@ -1,6 +1,6 @@
 ---
-title: Implementación de una aplicación de Service Fabric con integración continua (Azure DevOps Services) en Azure | Microsoft Docs
-description: En este tutorial aprenderá a configurar la integración y la implementación continuas para una aplicación de Service Fabric mediante Azure DevOps Services.
+title: Implementación de una aplicación de Service Fabric con integración continua y Azure Pipelines en Azure | Microsoft Docs
+description: En este tutorial aprenderá a configurar la integración y la implementación continuas para una aplicación de Service Fabric mediante Azure Pipelines.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,26 +12,26 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2018
+ms.date: 12/02/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 766c0c780807ff7627ae9fb96aca4a896918f9c6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853750"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094964"
 ---
-# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementación de una aplicación con CI/CD en un clúster de Service Fabric
+# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar una aplicación con CI/CD en un clúster de Service Fabric
 
-Este tutorial es la cuarta parte de una serie y describe cómo configurar la integración y la implementación continuas de una aplicación de Azure Service Fabric mediante Azure DevOps.  Se necesita una aplicación existente de Service Fabric; se usa como ejemplo la aplicación creada en [Compilación de una aplicación .NET](service-fabric-tutorial-create-dotnet-app.md).
+Este tutorial es la cuarta parte de una serie y describe cómo configurar la integración y la implementación continuas de una aplicación de Azure Service Fabric mediante Azure Pipelines.  Se necesita una aplicación existente de Service Fabric; se usa como ejemplo la aplicación creada en [Compilación de una aplicación .NET](service-fabric-tutorial-create-dotnet-app.md).
 
 En la tercera parte de la serie, se aprende a:
 
 > [!div class="checklist"]
 > * Agregar un control de código fuente al proyecto
-> * Crear una canalización de compilación en Azure DevOps
-> * Crear una canalización de versión en Azure DevOps
+> * Crear una canalización de compilación en Azure Pipelines
+> * Crear una canalización de versión en Azure Pipelines
 > * Implementar y actualizar una aplicación automáticamente
 
 En esta serie de tutoriales, se aprende a:
@@ -50,7 +50,7 @@ Antes de empezar este tutorial:
 * [Instale Visual Studio 2017](https://www.visualstudio.com/) y las cargas de trabajo de **desarrollo de Azure** y de **desarrollo web y de ASP.NET**.
 * [Instale el SDK de Service Fabric](service-fabric-get-started.md)
 * Cree un clúster de Windows Service Fabric en Azure (por ejemplo, [siguiendo este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md))
-* Cree una [organización de Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
+* Cree una [organización de Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). Esto le permite crear un proyecto de Azure DevOps y usar Azure Pipelines.
 
 ## <a name="download-the-voting-sample-application"></a>Descarga de la aplicación de ejemplo de votación
 
@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="prepare-a-publish-profile"></a>Preparar un perfil de publicación
 
-Ahora que ha [creado una aplicación](service-fabric-tutorial-create-dotnet-app.md) y ha [implementado la aplicación en Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), ya puede configurar la integración continua.  En primer lugar, prepare un perfil de publicación en la aplicación que se use durante el proceso de implementación que se ejecuta en Azure DevOps.  El perfil de publicación debe configurarse para que tenga como destino el clúster que ha creado antes.  Inicie Visual Studio y abra un proyecto de aplicación existente de Service Fabric.  En el **Explorador de soluciones**, haga clic con el botón derecho en la aplicación y seleccione **Publicar...**.
+Ahora que ha [creado una aplicación](service-fabric-tutorial-create-dotnet-app.md) y ha [implementado la aplicación en Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), ya puede configurar la integración continua.  En primer lugar, prepare un perfil de publicación en la aplicación que se use durante el proceso de implementación que se ejecuta en Azure Pipelines.  El perfil de publicación debe configurarse para que tenga como destino el clúster que ha creado antes.  Inicie Visual Studio y abra un proyecto de aplicación existente de Service Fabric.  En el **Explorador de soluciones**, haga clic con el botón derecho en la aplicación y seleccione **Publicar...**.
 
 Elija un perfil de destino en el proyecto de la aplicación que vaya a usar para el flujo de trabajo de integración continua (por ejemplo, Cloud).  Especifique el punto de conexión de la conexión del clúster.  Marque la casilla **Actualizar la aplicación** para que la esta se actualice para cada implementación de Azure DevOps.  Haga clic en el hipervínculo **Guardar** para guardar la configuración en el perfil de publicación y, luego, haga clic en **Cancelar** para cerrar el cuadro de diálogo.
 
@@ -84,11 +84,11 @@ Verifique su correo electrónico y seleccione su cuenta en la lista desplegable 
 
 La publicación del repositorio crea un proyecto en la cuenta con el mismo nombre que el repositorio local. Para crear el repositorio en un proyecto existente, haga clic en **Avanzado**, junto al nombre del **repositorio**, y seleccione un proyecto. Puede ver el código en la web seleccionando **Ver en la web**.
 
-## <a name="configure-continuous-delivery-with-azure-devops"></a>Configuración de la entrega continua con Azure DevOps
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Configuración de la entrega continua con Azure Pipelines
 
-Una canalización de compilación de Azure DevOps describe un flujo de trabajo compuesto por una serie de pasos de compilación que se ejecutan de manera secuencial. Cree una canalización de compilación que genere un paquete de aplicación de Service Fabric y otros artefactos para implementarlos en un clúster de Service Fabric. Más información sobre las [canalizaciones de compilación de Azure DevOps](https://www.visualstudio.com/docs/build/define/create). 
+Una canalización de compilación de Azure Pipelines describe un flujo de trabajo compuesto por una serie de pasos de compilación que se ejecutan de manera secuencial. Cree una canalización de compilación que genere un paquete de aplicación de Service Fabric y otros artefactos para implementarlos en un clúster de Service Fabric. Más información sobre las [canalizaciones de compilación de Azure Pipelines](https://www.visualstudio.com/docs/build/define/create). 
 
-Una canalización de versión de Azure DevOps describe un flujo de trabajo que implementa un paquete de aplicación en un clúster. Cuando se usan juntas, la canalización de compilación y la de versión ejecutan el flujo de trabajo completo empezando por los archivos de origen y terminando por una aplicación en el clúster. Más información sobre las [canalizaciones de versión](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) de Azure DevOps.
+Una canalización de versión de Azure Pipelines describe un flujo de trabajo que implementa un paquete de aplicación en un clúster. Cuando se usan juntas, la canalización de compilación y la de versión ejecutan el flujo de trabajo completo empezando por los archivos de origen y terminando por una aplicación en el clúster. Más información sobre las [canalizaciones de versión de Azure Pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-pipeline"></a>Creación de una canalización de compilación
 
@@ -156,11 +156,11 @@ En la vista **Cambios** de Team Explorer, agregue un mensaje que describa la act
 
 ![Confirmar todo][changes]
 
-Seleccione el icono de la barra de estado de los cambios no publicados (![Cambios no publicados][unpublished-changes]) o la vista Sincronización de Team Explorer. Seleccione **Insertar** para actualizar el código en Azure DevOps Services/TFS.
+Seleccione el icono de la barra de estado de los cambios no publicados (![Cambios no publicados][unpublished-changes]) o la vista Sincronización de Team Explorer. Seleccione **Insertar** para actualizar el código en Azure Pipelines.
 
 ![Inserción de los cambios][push]
 
-La inserción de los cambios en Azure DevOps desencadena automáticamente una compilación.  Cuando la canalización de compilación se haya completado correctamente, se creará automáticamente una versión y se empezará a actualizar la aplicación en el clúster.
+La inserción de los cambios en Azure Pipelines desencadena automáticamente una compilación.  Cuando la canalización de compilación se haya completado correctamente, se creará automáticamente una versión y se empezará a actualizar la aplicación en el clúster.
 
 Para comprobar el progreso de la compilación, vaya a la pestaña **Compilaciones** de **Team Explorer** en Visual Studio.  Cuando haya verificado que la compilación se ejecuta correctamente, defina una canalización de versión que implemente la aplicación en un clúster.
 

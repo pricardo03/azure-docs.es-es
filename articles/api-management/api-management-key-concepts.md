@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436018"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965162"
 ---
 # <a name="what-is-api-management"></a>¿Qué es API Management?
 
@@ -59,7 +59,7 @@ El sistema consta de los siguientes componentes:
   * crear una cuenta y suscribirse para obtener claves de API
   * obtener acceso a análisis sobre su propio uso
 
-Para más información, consulte las notas del producto en PDF [API Management basada en la nube: aprovechamiento de la capacidad de las API](http://j.mp/ms-apim-whitepaper). Estas notas del producto introductorias sobre la administración de API por CITO Research cubren: 
+Para más información, consulte las notas del producto en formato PDF [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper) (API Management basado en la nube: aprovechamiento de la versatilidad de las API. Estas notas del producto introductorias sobre la administración de API por CITO Research cubren: 
  
  * Desafíos y requisitos comunes de API
  * Desacoplamiento de API y presentación de fachadas

@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c40cb3192d514d990ea2a5d66e1484ff204e9b10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d04d27ee6136edec8d9af16f9133cf9a7cc0720c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223564"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311565"
 ---
-# <a name="quickstart-self-service-password-reset"></a>Guía de inicio rápido: Autoservicio de restablecimiento de contraseña
+# <a name="quickstart-self-service-password-reset"></a>Guía de inicio rápido: Restablecimiento de la contraseña de autoservicio
 
 En esta guía de inicio rápido aprenderá a configurar el autoservicio de restablecimiento de contraseña (SSPR) como un medio sencillo con el que los administradores de TI pueden permitir que los usuarios restablezcan sus contraseñas o desbloqueen sus cuentas.
 
@@ -25,7 +25,7 @@ En esta guía de inicio rápido aprenderá a configurar el autoservicio de resta
 
 * Un inquilino de Azure AD activo con al menos una licencia de prueba habilitada.
 * Una cuenta con privilegios de administrador global.
-* Un usuario de prueba sin privilegios de administrador con una contraseña que conozca; si necesita crear un usuario, consulte el artículo [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../add-users-azure-active-directory.md).
+* Un usuario de prueba sin privilegios de administrador con una contraseña que conozca; si necesita crear un usuario, consulte el artículo [Inicio rápido: Adición de nuevos usuarios a Azure Active Directory](../add-users-azure-active-directory.md).
 * Un grupo piloto para las pruebas del que el usuario de prueba sin privilegios de administrador sea miembro; si necesita crear un grupo, consulte el artículo [Creación de un grupo e incorporación de miembros en Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Habilitar el autoservicio de restablecimiento de contraseña
@@ -64,7 +64,7 @@ Ahora permite probar la configuración del autoservicio de restablecimiento de p
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Deshabilitar el autoservicio de restablecimiento de contraseña es fácil. Abra el inquilino de Azure AD y vaya a **Restablecimiento de contraseña** > **Propiedades** y seleccione **Ninguno** en **Se habilitó el restablecimiento de contraseña del autoservicio**.
+Deshabilitar el autoservicio de restablecimiento de contraseña es fácil. Abra el inquilino de Azure AD y vaya a **Propiedades** > **Restablecimiento de contraseña** y seleccione **Ninguno** en **Se habilitó el restablecimiento de contraseña del autoservicio**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

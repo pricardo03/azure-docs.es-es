@@ -1,22 +1,25 @@
 ---
-title: 'Inicio rápido del lenguaje Go: Cambio del modelo y entrenamiento de la aplicación de LUIS'
-description: En este inicio rápido del lenguaje Go, agregará expresiones de ejemplo a una aplicación de automatización de dispositivos del hogar y entrenará la aplicación. Las expresiones de ejemplo son texto de usuario conversacional que se asigna a una intención. Al proporcionar expresiones de ejemplo para las intenciones, enseñará a LUIS qué clases de texto suministrado por el usuario pertenecen a qué intención.
-titleSuffix: Microsoft Cognitive Services
+title: Cambio, entrenamiento de la aplicación, Go
+description: En este inicio rápido del lenguaje Go, agregará expresiones de ejemplo a una aplicación de automatización de dispositivos del hogar y entrenará la aplicación.
+titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2cd8c1aa2deb2af97d4f720efa0e40146b15b888
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e3fb6b2532f2dc99a48cc3c2eac9029367c52185
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031873"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100300"
 ---
-# <a name="quickstart-change-model-using-go"></a>Guía de inicio rápido: Cambio del modelo mediante Go
+# <a name="quickstart-change-model-using-go"></a>Guía de inicio rápido: Cambio del modelo con Go
+
+En esta guía de inicio rápido, pasará expresiones a un punto de conexión de LUIS y obtendrá entidades e intenciones.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -66,7 +69,7 @@ ms.locfileid: "47031873"
 
 2. En el símbolo del sistema, escriba el siguiente texto para ejecutar la aplicación de Go desde la línea de comandos: 
 
-    ```CMD
+    ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
     ```
@@ -75,7 +78,7 @@ ms.locfileid: "47031873"
 
     Este símbolo del sistema muestra los resultados:
 
-    ```CMD
+    ```console
     add example utterances requested
     [
         {

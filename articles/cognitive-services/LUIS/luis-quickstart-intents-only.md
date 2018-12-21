@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 1: Búsqueda de intenciones en la aplicación de LUIS personalizada'
+title: Predicción de las intenciones
 titleSuffix: Azure Cognitive Services
 description: Cree una aplicación personalizada que prediga la intención del usuario. Esta aplicación es el tipo más primitivo de aplicación de LUIS, dado que no extrae varios elementos de datos del texto de la expresión, como direcciones de correo electrónico o fechas.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426866"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097801"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Tutorial 1: Creación de una aplicación personalizada para determinar las intenciones del usuario
 
@@ -43,11 +44,11 @@ Después de que LUIS devuelva la respuesta JSON, LUIS termina con esta solicitud
 
 2. Seleccione **Create new app** (Crear nueva aplicación).  
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Captura de pantalla de la página My Apps (Mis aplicaciones) de Language Understanding (LUIS)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+    [![Captura de pantalla de la página My Apps (Mis aplicaciones) de Language Understanding (LUIS)](media/luis-quickstart-intents-only/app-list.png "Captura de pantalla de la página My Apps (Mis aplicaciones) de Language Understanding (LUIS)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. En el cuadro de diálogo emergente, escriba el nombre `HumanResources` y mantenga la referencia cultural predeterminada, **English** (Inglés). Deje en blanco la descripción.
 
-    ![Nueva aplicación de LUIS](./media/luis-quickstart-intents-only/create-app.png)
+    ![Creación de una nueva aplicación LUIS de HumanResources](./media/luis-quickstart-intents-only/create-app.png)
 
     A continuación, la aplicación mostrará la página **Intents** (Intenciones) con la intención **None** (Ninguna).
 
@@ -55,7 +56,7 @@ Después de que LUIS devuelva la respuesta JSON, LUIS termina con esta solicitud
 
 1. Haga clic en **Create new intent** (Crear intención). Escriba el nombre de la intención nueva `GetJobInformation`. Esta intención se predice cada vez que un usuario quiere información sobre las ofertas de trabajo de la empresa.
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Captura de pantalla del cuadro de diálogo New intent (Nueva intención) de Language Understanding (LUIS)")
+    ![Captura de pantalla del cuadro de diálogo New Intent (Nueva intención) de Language Understanding (LUIS)](media/luis-quickstart-intents-only/create-intent.png "Captura de pantalla del cuadro de diálogo New Intent (Nueva intención) de Language Understanding (LUIS)")
 
 2. Al proporcionar _expresiones de ejemplo_, está entrenando a LUIS sobre qué tipos de expresiones deben predecirse para esta intención. Agregue varias expresiones de ejemplo a esta intención que espera que un usuario pida como, por ejemplo:
 
@@ -69,7 +70,7 @@ Después de que LUIS devuelva la respuesta JSON, LUIS termina con esta solicitud
     |New jobs? (¿Trabajos nuevos?)|
     |Are there any new positions in the Seattle office? (¿Hay algún puesto nuevo en la oficina de Seattle?)|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Captura de pantalla del ingreso de expresiones nuevas para la intención MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![Captura de pantalla de ingreso de expresiones nuevas para la intención MyStore](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Captura de pantalla de ingreso de expresiones nuevas para la intención MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
@@ -150,7 +151,7 @@ Regrese al sitio web de LUIS y cree una nueva intención para determinar si la e
     |This is my c.v. for position 654234 (Este es mi currículum vítae para el puesto 654234)|
     |Job 567890 and my paperwork (Trabajo 567890 y mi documentación)|
 
-    [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "Captura de pantalla del ingreso de expresiones nuevas para la intención ApplyForJob")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+    [![Captura de pantalla del ingreso de expresiones nuevas para la intención ApplyForJob](media/luis-quickstart-intents-only/utterance-applyforjob.png "Captura de pantalla del ingreso de expresiones nuevas para la intención ApplyForJob")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
     La intención etiquetada aparece en rojo porque actualmente LUIS no está seguro de que la intención esté correcta. Entrenar la aplicación indica a LUIS que las expresiones están en la intención correcta. 
 
@@ -168,7 +169,7 @@ Regrese al sitio web de LUIS y cree una nueva intención para determinar si la e
 
 2. En la nueva ventana del explorador, escriba `Can I submit my resume for job 235986` al final de la dirección URL. 
 
-    ```JSON
+    ```json
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {

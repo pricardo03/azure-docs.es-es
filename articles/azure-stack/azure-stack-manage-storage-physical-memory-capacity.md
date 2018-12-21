@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: a914d20f61b5b632e792ca29f6c201964db4a203
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0516ee7a8319b85765280b4c84f5febec8343ada
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452146"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965622"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Administración de la capacidad de memoria física para Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack*
 
 Para aumentar la capacidad de memoria total disponible para Azure Stack, puede agregar más memoria. En Azure Stack, al servidor físico también se le conoce como un *nodo de unidad de escalado*. Todos los nodos de unidad de escalado que sean miembros de una sola unidad de escalado deben tener la misma cantidad de memoria.
 
@@ -33,7 +33,7 @@ Para aumentar la capacidad de memoria total disponible para Azure Stack, puede a
 
 En el siguiente diagrama de flujo se muestra el proceso general para agregar memoria a cada nodo de la unidad de escalado.
 
-![Agregar memoria a cada nodo de la unidad de escalado](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![Agregar memoria a cada nodo de la unidad de escalado](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
 
 ## <a name="add-memory-to-an-existing-node"></a>Adición de memoria a un nodo existente
 Los pasos siguientes proporcionan una información general de alto nivel sobre el proceso de adición de memoria. 
