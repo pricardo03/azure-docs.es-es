@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 6a96bd7c3d7d02f181a7d7513edb3bb39881274f
-ms.sourcegitcommit: 7de1432648c4ff3bcd09530c079418477d9f4d00
+ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35719437"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111772"
 ---
-1. Para crear una memoria caché, primero inicie sesión en [Azure Portal](https://portal.azure.com). A continuación, seleccione **Crear un recurso** > **Bases de datos** > **Redis Cache**.
+1. Para crear una memoria caché, primero inicie sesión en [Azure Portal](https://portal.azure.com). A continuación, seleccione **Crear un recurso** > **Bases de datos** > **Azure Redis Cache**.
 
     ![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
-2. En **Nueva Redis Cache**, configure las opciones de la nueva caché.
+2. En **New Azure Cache for Redis** (Nueva instancia de Azure Redis Cache), configure la nueva caché.
 
     | Configuración      | Valor sugerido  | DESCRIPCIÓN |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -27,7 +27,7 @@ ms.locfileid: "35719437"
     | **Suscripción** | Su suscripción | La suscripción en la que se crea esta nueva instancia de Azure Redis Cache. | 
     | **Grupos de recursos** |  *TestResources* | Nombre del nuevo grupo de recursos en el que se va a crear la caché. Al colocar todos los recursos de una aplicación en un grupo, puede administrarlos juntos. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos que están asociados con la aplicación. | 
     | **Ubicación** | Este de EE. UU | Elija una [región](https://azure.microsoft.com/regions/) cerca de otros servicios que vayan a usar la memoria caché. |
-    | **[Plan de tarifa](https://azure.microsoft.com/pricing/details/cache/)** |  C0 para básico (caché de 250 MB) |  El plan de tarifa determina el tamaño, el rendimiento y las características disponibles para la memoria caché. Para obtener más información, consulte [Azure Redis Cache Overview](../articles/redis-cache/cache-overview.md) (Información general de Azure Redis Cache). |
+    | **[Plan de tarifa](https://azure.microsoft.com/pricing/details/cache/)** |  C0 para básico (caché de 250 MB) |  El plan de tarifa determina el tamaño, el rendimiento y las características disponibles para la memoria caché. Para más información, consulte la [introducción a Azure Redis Cache](../articles/azure-cache-for-redis/cache-overview.md). |
     | **Anclar al panel** |  Seleccionado | Ancle la nueva caché para encontrarla con facilidad. |
 
     ![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 

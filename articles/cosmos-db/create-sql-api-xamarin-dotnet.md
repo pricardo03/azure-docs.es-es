@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 0099bacb98d921a852ece8787bcb7152c5eae3f2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f955e0386cd601212eb992870f02607538b537e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838580"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252633"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: compilación de una aplicación de lista de tareas con Xamarin
 
@@ -64,7 +64,7 @@ Si utiliza un equipo Mac, puede descargar **Visual Studio para Mac**, que es [gr
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
-Ahora vamos a clonar la aplicación de la API de SQL Xamarin de github, revisar el código, obtener las claves de API y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación.
+Ahora vamos a clonar la aplicación de la API de SQL Xamarin de GitHub, revisar el código, obtener las claves de API y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación.
 
 1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
 
@@ -90,7 +90,7 @@ Ahora vamos a clonar la aplicación de la API de SQL Xamarin de github, revisar 
 
 Vuelva a Azure Portal para obtener la información de la clave de API y cópiela en la aplicación.
 
-1. En [Azure Portal](http://portal.azure.com/), en la cuenta de la API de SQL de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Claves** y en **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el URI y la clave principal en el archivo APIKeys.cs en el paso siguiente.
+1. En [Azure Portal](https://portal.azure.com/), en la cuenta de la API de SQL de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Claves** y en **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el URI y la clave principal en el archivo APIKeys.cs en el paso siguiente.
 
     ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-sql-api-xamarin-dotnet/keys.png)
 
@@ -116,7 +116,7 @@ El código de la solución ToDoItems contiene:
 
 * ToDoItems.Core: es un proyecto estándar de .NET que contiene un proyecto de Xamarin.Forms y el código de lógica de aplicaciones compartido que mantiene los elementos de lista de tareas en Azure Cosmos DB.
 * ToDoItems.Android: este proyecto contiene la aplicación de Android.
-* ToDoItems.Android: este proyecto contiene la aplicación iOS.
+* ToDoItems.iOS: este proyecto contiene la aplicación iOS.
 
 Ahora vamos a examinar rápidamente cómo se comunica la aplicación con Azure Cosmos DB.
 

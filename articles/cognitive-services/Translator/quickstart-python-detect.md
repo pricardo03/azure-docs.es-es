@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Detección del idioma del texto, Python: Translator Text API'
+title: 'Inicio rápido: Detección del idioma del texto con Python: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, obtendrá información sobre cómo identificar el idioma del texto proporcionado con Python y Translator Text REST API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 564a12de2a0823372ce267f9ff2759ab17199a80
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: cfc2565c0ee2b51eaff40647cfcd7505e0479e64
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086046"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993827"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Guía de inicio rápido: Uso de Translator Text API para detectar el idioma del texto con Python
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Inicio rápido: Uso de Translator Text API para detectar el idioma del texto con Python
 
 En esta guía de inicio rápido, obtendrá información sobre cómo detectar el idioma del texto proporcionado con Python y Translator Text REST API.
 
@@ -67,7 +67,7 @@ else:
 Actualmente, hay un punto de conexión disponible para Translator Text y está establecido como `base_url`. `path` establece la ruta de `detect` e identifica que deseamos usar la versión 3 de la API.
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Detección](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Detección](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -163,7 +163,7 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="see-also"></a>Otras referencias
 
-Además de para la detección del idioma, aprenda a usar Translator Text API para:
+Aprenda a usar Translator Text API para:
 
 * [Traducir texto](quickstart-python-translate.md)
 * [Transliterar texto](quickstart-python-transliterate.md)

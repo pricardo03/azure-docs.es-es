@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/13/2018
+ms.date: 03/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52757098436349d38538f4c2168a70e53ad58421
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946619"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270168"
 ---
-# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: Clasificación de Iris: implementación de un modelo
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: Clasificación de iris: Implementar un modelo
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -168,7 +168,7 @@ Puede usar el _modo local_ para desarrollo y pruebas. El motor de Docker debe ej
    az provider show -n Microsoft.ContainerRegistry 
    ``` 
 
-   La tercera línea de la salida muestra **"registrationState": "Registering"** ("registrationState": "Registrando"). Espere unos minutos y repita el comando **show**, hasta que la salida muestre **"registrationState": "Registered"** ("registrationState": "Registrado").
+   La tercera línea de la salida muestra **"registrationState": "Registrando"**. Espere unos minutos y repita el comando **show**, hasta que la salida muestre **"registrationState": "Registrado"**.
 
    >[!NOTE] 
    Si va a realizar la implementación en un clúster de ACS, debe registrar el proveedor de recursos **Microsoft.ContainerService** y usar exactamente el mismo método.
@@ -234,9 +234,9 @@ Ya está listo para crear el servicio web en tiempo real.
 
    Los siguientes conmutadores se utilizan con el comando **az ml service create realtime**:
 
-   * `-f`: el nombre de archivo del script de puntuación.
+   * `-f`: el nombre de archivo de script de puntuación.
 
-   * `--model-file`: el archivo de modelo. En este caso, es el archivo model.pkl de pickle.
+   * `--model-file`: El archivo de modelo. En este caso, es el archivo model.pkl de pickle.
 
    * `-s`: el esquema del servicio. Se generó en el paso anterior mediante la ejecución del script **score_iris.py** en un entorno local.
 
@@ -246,7 +246,7 @@ Ya está listo para crear el servicio web en tiempo real.
 
    * `--collect-model-data true`: este modificador habilita la recopilación de datos.
 
-   * `-c`: ruta de acceso al archivo de dependencias de conda en el que se especifican los paquetes adicionales.
+   * `-c`: ruta de acceso al archivo de dependencias de Conda en el que se especifican los paquetes adicionales.
 
    >[!IMPORTANT]
    >El nombre del servicio, que también es el nuevo nombre de la imagen de Docker, debe estar en minúsculas. De lo contrario, obtiene un error. 

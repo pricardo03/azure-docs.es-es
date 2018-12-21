@@ -1,5 +1,5 @@
 ---
-title: Tutorial para llamar a Cognitive Search API en Azure Search | Microsoft Docs
+title: 'Tutorial para llamar a Cognitive Search API: Azure Search'
 description: En este tutorial se analiza un ejemplo de procesamiento de IA de imágenes, extracción de datos y lenguaje natural en la indexación de Azure Search para la extracción y transformación de datos.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730671"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386237"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Procedimiento para llamar a Cognitive Search API (versión preliminar)
 
@@ -34,7 +35,9 @@ La salida es un índice que permite realizar búsquedas de texto completo en Azu
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 > [!NOTE]
-> Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de habilidades y la extracción y normalización de imágenes se ofrecen actualmente de forma gratuita. Más adelante, se anunciarán los precios de estas funcionalidades. 
+> A partir del 21 de diciembre de 2018, podrá asociar un recurso de Cognitive Services con un conjunto de aptitudes de Azure Search. Esto nos permitirá empezar a cobrar por la ejecución del conjunto de aptitudes. En esta fecha, también empezaremos a cobrar por la extracción de imágenes como parte de la fase de descifrado de documentos. La extracción de texto de documentos continuará ofreciéndose sin costo adicional.
+>
+> La ejecución de aptitudes integradas se cobrará a los [precios de pago por uso existentes de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). La extracción de imágenes se cobrará al precio de la versión preliminar, tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Más información](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -52,30 +55,31 @@ En primer lugar, regístrese en el servicio Azure Search.
 
 1. Haga clic en **Crear un recurso**, busque Azure Search y haga clic en **Crear**. Consulte [Creación de un servicio Azure Search en el portal](search-create-service-portal.md) si está configurando un servicio de búsqueda por primera vez.
 
-  ![Panel del portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Creación de un servicio Azure Search en el portal")
+  ![Panel del portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Creación de un servicio Azure Search en el portal")
 
 1. En Grupo de recursos, cree un grupo de recursos en el que se incluirán todos los recursos que cree en este tutorial. De este modo, será más fácil limpiar los recursos tras finalizar el tutorial.
 
-1. En Ubicación, elija **Centro y Sur de EE. UU.** o **Europa Occidental**. Actualmente, la versión preliminar solo está disponible en estas regiones.
+1. En Ubicación, elija una de las [regiones admitidas](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) para Cognitive Search.
 
 1. En la opción Plan de tarifa, puede crear un servicio **Gratis** para completar tutoriales y guías de inicio rápido. Si quiere realizar una investigación detallada con sus propios datos, cree un [servicio de pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** o **Estándar**. 
 
   El servicio gratuito se limita a 3 índices, un tamaño máximo de blob de 16 MB y 2 minutos de indexación, lo que es insuficiente para usar todas las funcionalidades de Cognitive Search. Para revisar los límites de los distintos planes, consulte [Límites de servicio](search-limits-quotas-capacity.md).
 
-  > [!NOTE]
-  > Cognitive Search está disponible en la versión preliminar pública. Actualmente, la ejecución del conjunto de aptitudes está disponible en todos los planes, incluido el gratuito. Más adelante, se anunciarán los precios de esta funcionalidad.
+  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Página de definición del servicio en el portal")
+  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definición del servicio en el portal")
 
+ 
 1. Ancle el servicio al panel para acceder rápidamente a la información del servicio.
 
-  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service.png "Página de definición del servicio en el portal")
+  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definición del servicio en el portal")
 
-1. Después de crear el servicio, recopile la información siguiente: **URL** de la página Información general y **clave de api** (principal o secundaria) de la página Claves.
+1. Una vez creado el servicio, recopile la información siguiente: La **dirección URL** de la página de información general y **api-key** (ya sea principal o secundaria) de la página Claves.
 
   ![Información del punto de conexión y la clave en el portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Información del punto de conexión y la clave en el portal")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configuración del servicio Blob de Azure y carga de datos de ejemplo
 
-La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los datos de origen deben proceder de un tipo de origen de datos compatible de un [indexador de Azure Search](search-indexer-overview.md). Para realizar este ejercicio, usaremos Blob Storage para mostrar varios tipos de contenido.
+La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los datos de origen deben proceder de un tipo de origen de datos compatible de un [indexador de Azure Search](search-indexer-overview.md). Tenga en cuenta que Azure Table Storage no es compatible con Cognitive Search. Para realizar este ejercicio, usaremos Blob Storage para mostrar varios tipos de contenido.
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Los datos de ejemplo están formados por un pequeño conjunto de archivos de tipos diferentes. 
 
@@ -127,7 +131,7 @@ Puesto que se trata de su primera solicitud, consulte Azure Portal para confirma
 Si obtuvo un error 403 o 404, compruebe la construcción de la solicitud: `api-version=2017-11-11-Preview` debe estar en el punto de conexión, `api-key` debe estar en el encabezado después de `Content-Type` y su valor debe ser válido para un servicio de búsqueda. Puede volver a usar el encabezado para los pasos restantes de este tutorial.
 
 > [!TIP]
-> Antes de realizar una gran cantidad de trabajo, es un buen momento para comprobar que el servicio de búsqueda se está ejecutando en una de las ubicaciones admitidas que ofrecen la característica de vista previa: Centro y Sur de EE. UU. o Europa Occidental.
+> Antes de realizar una gran cantidad de trabajo, es un buen momento para comprobar que el servicio de búsqueda se está ejecutando en una de las ubicaciones admitidas que ofrecen la característica en vista previa: Centro y Sur de EE. UU. o Europa Occidental.
 
 ## <a name="create-a-skillset"></a>Creación de un conjunto de aptitudes
 
@@ -523,7 +527,7 @@ Para volver a indexar los documentos con las nuevas definiciones:
 2. Modifique un conjunto de aptitudes y la definición del índice.
 3. Vuelva a crear un índice y un indexador en el servicio para ejecutar la canalización. 
 
-Puede usar el portal para eliminar índices e indexadores. Los conjuntos de aptitudes solo se pueden eliminar a través de un comando HTTP, por si decide eliminarlos.
+Puede usar el portal para eliminar los índices, los indizadores y los conjuntos de aptitudes.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview

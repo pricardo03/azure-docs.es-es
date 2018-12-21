@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Table API con Node.js (Azure Cosmos DB)'
+title: 'Inicio rápido: Table API con Node.js: Azure Cosmos DB'
 description: Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y Node.js
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: a547e52fffb981747c2a752778cbf187d37549d9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 870b07013aa279a20dd231fecc83775fd1aebc5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841306"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166105"
 ---
-# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Guía de inicio rápido: Compilación de una aplicación de Table API con Node.js y Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Inicio rápido: Compilación de una aplicación de Table API con Node.js y Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -38,7 +38,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 Además:
 
 * [Node.js](https://nodejs.org/en/) versión v0.10.29 o superior
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
@@ -82,7 +82,7 @@ Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada. 
 
-1. En [Azure Portal](http://portal.azure.com/), haga clic en **Cadena de conexión**. 
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Cadena de conexión**. 
 
     ![Visualización y copia de la información necesaria de la cadena de conexión desde el panel Cadena de conexión](./media/create-table-nodejs/connection-string.png)
 

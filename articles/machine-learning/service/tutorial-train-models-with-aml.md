@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Entrenamiento de un modelo de clasificación de imágenes con el servicio Azure Machine Learning'
+title: 'Tutorial de clasificación de imágenes: Entrenamiento de modelos'
+titleSuffix: Azure Machine Learning service
 description: En este tutorial se muestra cómo usar el servicio Azure Machine Learning para entrenar un modelo de clasificación de imágenes con Scikit Learn en un cuaderno de Jupyter en Python. Este tutorial es la primera de una serie de dos partes.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879492"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310120"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial 1: Entrenamiento de un modelo de clasificación de imágenes con el servicio Azure Machine Learning
+# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service
 
 En este tutorial, entrenará un modelo de aprendizaje automático tanto localmente como en los recursos de proceso remotos. Usará el flujo de trabajo de entrenamiento e implementación para el servicio Azure Machine Learning en un cuaderno de Jupyter en Python.  A continuación, puede utilizar el cuaderno como plantilla para entrenar su propio modelo de Machine Learning con sus propios datos. Este tutorial es la **primera de dos partes**.  
 
@@ -33,7 +35,7 @@ Obtenga información sobre cómo:
 
 Más adelante, en la [segunda parte de este tutorial](tutorial-deploy-models-with-aml.md) aprenderá a seleccionar un modelo e implementarlo. 
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLfree) antes de empezar.
+Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 >[!NOTE]
 > El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.2
@@ -382,7 +384,7 @@ En total, la primera ejecución toma **aproximadamente 10 minutos**. Pero para l
 
 Esto es lo que sucede mientras espera:
 
-- **Creación de la imagen**: se crea una imagen de Docker que coincida con el entorno de Python especificado por el estimador. La imagen se carga en el área de trabajo. La creación y carga de la imagen toma **aproximadamente 5 minutos**. 
+- **Creación de imágenes**: se crea una imagen de Docker que coincida con el entorno de Python especificado por el estimador. La imagen se carga en el área de trabajo. La creación y carga de la imagen toma **aproximadamente 5 minutos**. 
 
   Esta fase se produce una vez para cada entorno de Python, puesto que el contenedor se almacena en caché para las ejecuciones posteriores.  Durante la creación de la imagen, los registros se transmiten al historial de ejecución. Puede supervisar el progreso de la creación de la imagen con estos registros.
 

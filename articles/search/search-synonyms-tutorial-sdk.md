@@ -1,6 +1,6 @@
 ---
-title: Tutorial de sinónimos de C# en Azure Search | Microsoft Docs
-description: En este tutorial, agregará la característica de sinónimos a un índice de Azure Search.
+title: 'Tutorial de sinónimos de C#: Azure Search'
+description: En este tutorial de C#, obtendrá información sobre cómo agregar la característica de sinónimos a un índice de Azure Search. Un mapa de sinónimos es una lista de términos equivalentes. Los campos que incluyen compatibilidad con sinónimos amplían las consultas para incluir el término proporcionado por el usuario y todos los sinónimos relacionados.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990568"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309236"
 ---
 # <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Tutorial: Adición de sinónimos para Azure Search en C#
 

@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dfdad89d628fda476ecef1c43246ce3927927555
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a861a88c8534fa50405109efd738deb8486081e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863506"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075575"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Creación de plantillas vinculadas de Azure Resource Manager
 
-Obtenga información sobre cómo crear plantillas vinculadas de Azure Resource Manager. Con las plantillas vinculadas, puede hacer que una plantilla llame a otra. Resulta muy útil para el diseño modular de las plantillas. En este tutorial, puede usar la misma plantilla que se usa en el [tutorial para la creación de varias instancias de recursos con plantillas de Resource Manager](./resource-manager-tutorial-create-multiple-instances.md) y que crea una máquina virtual, una red virtual y otros recursos dependientes, incluida una cuenta de almacenamiento. Puede separar el recurso de la cuenta de almacenamiento a una plantilla vinculada.
+Obtenga información sobre cómo crear plantillas vinculadas de Azure Resource Manager. Con las plantillas vinculadas, puede hacer que una plantilla llame a otra. Resulta muy útil para el diseño modular de las plantillas. En este tutorial, usará la misma plantilla que se usa en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md), que crea una máquina virtual, una red virtual y otros recursos dependientes, incluida una cuenta de almacenamiento. Separe la creación de recursos de la cuenta de almacenamiento en una plantilla vinculada.
 
 En este tutorial se describen las tareas siguientes:
 
@@ -33,6 +33,7 @@ En este tutorial se describen las tareas siguientes:
 > * Vínculo a la plantilla vinculada
 > * Configuración de la dependencia
 > * Implementación de la plantilla
+> * Procedimientos adicionales
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -46,11 +47,11 @@ Para completar este artículo, necesitará lo siguiente:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./resource-manager-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
+    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](./resource-manager-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
-Las plantillas de inicio rápido de Azure consisten en un repositorio de plantillas de Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Se trata de la misma plantilla que se usa en el [tutorial para la creación de varias instancias de recursos con plantillas de Resource Manager](./resource-manager-tutorial-create-multiple-instances.md). Se guardan dos copias de la misma plantilla para usarlas de esta manera:
+Las plantillas de inicio rápido de Azure consisten en un repositorio de plantillas de Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Se trata de la misma plantilla que se usa en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Se guardan dos copias de la misma plantilla para usarlas de esta manera:
 
 * **La plantilla principal**: cree todos los recursos, excepto la cuenta de almacenamiento.
 * **La plantilla vinculada**: cree la cuenta de almacenamiento.
@@ -78,10 +79,27 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
 
 La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada es casi idéntica a la plantilla independiente que crea una cuenta de almacenamiento. En este tutorial, la plantilla vinculada debe pasar un valor de vuelta a la plantilla principal. Este valor se define en el elemento `outputs`.
 
-1. Abra linkedTemplate.json en Visual Studio Code si no está abierto.
+1. Abra el archivo linkedTemplate.json en Visual Studio Code si no está abierto.
 2. Se han realizado los siguientes cambios:
 
     * Quite todos los recursos, excepto la cuenta de almacenamiento. Puede quitar un total de cuatro recursos.
+    * Actualice el valor del elemento **name** del recurso de la cuenta de almacenamiento con:
+
+        ```json
+          "name": "[parameters('storageAccountName')]",
+        ```
+    * Quite el elemento **variables** y todas las definiciones de variable.
+    * Quite todos los parámetros excepto **location**.
+    * Agregue un parámetro llamado **storageAccountName**. El nombre de la cuenta de almacenamiento se pasa como parámetro de la plantilla principal a la plantilla vinculada.
+
+        ```json
+        "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+        },
+        ```
     * Actualice el elemento **outputs** para que tenga este aspecto:
 
         ```json
@@ -93,9 +111,6 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
         }
         ```
         La definición del recurso de máquina virtual necesita **storageUri** en la plantilla principal.  El valor se pasa de vuelta a la plantilla principal como un valor de salida.
-    * Quite los parámetros que no se usan nunca. Estos parámetros tienen una línea ondulada verde debajo. Solo quedará un parámetro llamado **location**.
-    * Quite el elemento **variables**. No es necesario en este tutorial.
-    * Agregue un parámetro llamado **storageAccountName**. El nombre de la cuenta de almacenamiento se pasa como parámetro de la plantilla principal a la plantilla vinculada.
 
     Cuando termine, la plantilla deberá verse así:
 
@@ -143,21 +158,96 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
 
 ## <a name="upload-the-linked-template"></a>Carga de la plantilla vinculada
 
-Las plantillas deben ser accesibles desde donde ejecuta la implementación. Esta ubicación podría ser una cuenta de almacenamiento de Azure, GitHub o Dropbox. Si las plantillas contienen información confidencial, asegúrese de proteger el acceso a ellas. En este tutorial, se usa el método de implementación de Cloud Shell que se usó en el [tutorial para la creación de varias instancias de recursos con plantillas de Resource Manager](./resource-manager-tutorial-create-multiple-instances.md). La plantilla principal (azuredeploy.json) se carga en el shell. La plantilla vinculada (linkedTemplate.json) se debe compartir en algún lugar.  Para reducir las tareas de este tutorial, la plantilla vinculada definida en la sección anterior se cargó en [una cuenta de almacenamiento de Azure](https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json).
+La plantilla principal y la plantilla vinculada deben ser accesibles desde donde se ejecuta la implementación. En este tutorial, use el método de implementación de Cloud Shell que utilizó en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). La plantilla principal (azuredeploy.json) se carga en el shell. La plantilla vinculada (linkedTemplate.json) se debe compartir en algún lugar seguro. El siguiente script de PowerShell crea una cuenta de Azure Storage, carga la plantilla en la cuenta de Storage y luego genera un token de SAS para conceder acceso limitado al archivo de plantilla. Para simplificar el tutorial, el script descarga una plantilla vinculada completada en una ubicación compartida. Si desea usar la plantilla vinculada que creó, puede usar la instancia de [Cloud Shell](https://shell.azure.com) para cargar la plantilla vinculada y luego modificar el script para utilizar su propia plantilla vinculada.
+
+> [!NOTE]
+> El script limita el uso del token SAS a un plazo de ocho horas. Si necesita más tiempo para completar este tutorial, aumente la hora de expiración.
+
+```azurepowershell-interactive
+$projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
+
+$resourceGroupName = $projectNamePrefix + "rg"
+$storageAccountName = $projectNamePrefix + "store"
+$containerName = "linkedtemplates" # The name of the Blob container to be created.
+
+$linkedTemplateURL = "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+
+# Download the tutorial linked template
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+
+# Create a resource group
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
+# Create a storage account
+$storageAccount = New-AzureRmStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -Location $location `
+    -SkuName "Standard_LRS"
+
+$context = $storageAccount.Context
+
+# Create a container
+New-AzureStorageContainer -Name $containerName -Context $context
+
+# Upload the linked template
+Set-AzureStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$fileName" `
+    -Blob $fileName `
+    -Context $context
+
+# Generate a SAS token
+$templateURI = New-AzureStorageBlobSASToken `
+    -Context $context `
+    -Container $containerName `
+    -Blob $fileName `
+    -Permission r `
+    -ExpiryTime (Get-Date).AddHours(8.0) `
+    -FullUri
+
+echo "You need the following values later in the tutorial:"
+echo "Resource Group Name: $resourceGroupName"
+echo "Linked template URI with SAS token: $templateURI"
+```
+
+1. Seleccione el botón verde **Probarlo** para abrir el panel de Azure Cloud Shell.
+2. Seleccione **Copiar** para copiar el script de PowerShell.
+3. Haga clic en cualquier lugar del panel de Shell (la parte de color azul marino) y luego seleccione **Pegar**.
+4. Tome nota de los dos valores (Nombre del grupo de recursos y Linked template URI [Uri de la plantilla vinculada]) al final del panel de Shell. Necesitará estos valores más adelante en el tutorial.
+5. Seleccione **Salir del modo de enfoque** para cerrar el panel de Shell.
+
+En la práctica, se genera un token de SAS cuando se implementa la plantilla principal y se asigna a la expiración del token de SAS una ventana más pequeña para que sea más seguro. Para más información, consulte [Provisión del token de SAS durante la implementación](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="call-the-linked-template"></a>Llamada a la plantilla vinculada
 
 La plantilla principal se llama azuredeploy.json.
 
 1. Abra azuredeploy.json en Visual Studio Code en caso de que no esté abierto.
-2. Elimine la definición de recurso de la cuenta de almacenamiento desde la plantilla.
+2. Elimine la definición de recurso de la cuenta de almacenamiento desde la plantilla:
+
+    ```json
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+    ```
 3. Agregue el siguiente fragmento de código JSON en el lugar donde estaba la definición de la cuenta de almacenamiento:
 
     ```json
     {
-      "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
       "properties": {
           "mode": "Incremental",
           "templateLink": {
@@ -176,13 +266,14 @@ La plantilla principal se llama azuredeploy.json.
     * Un recurso `Microsoft.Resources/deployments` en la plantilla principal se usa para vincular a otra plantilla.
     * El recurso `deployments` tiene un nombre llamado `linkedTemplate`. Este nombre de usa para [configurar la dependencia](#configure-dependency).  
     * Solo puede usar el modo de implementación [incremental](./deployment-modes.md) al llamar a las plantillas vinculadas.
-    * `templateLink/uri` contiene el URI de la plantilla vinculada. La plantilla vinculada se cargó en una cuenta de almacenamiento compartido. Puede actualizar el URI si carga la plantilla en otra ubicación en Internet.
+    * `templateLink/uri` contiene el URI de la plantilla vinculada. Actualice el valor con el URI que obtiene al cargar la plantilla vinculada (la que tiene un token de SAS).
     * Use `parameters` para pasar valores desde la plantilla principal a la plantilla vinculada.
-4. Guarde los cambios.
+4. Asegúrese de que ha actualizado el valor del elemento `uri` con el valor que obtuvo al cargar la plantilla vinculada (la que tiene un token de SAS). En la práctica, se quiere proporcionar un parámetro al URI.
+5. Guarde la plantilla modificada.
 
 ## <a name="configure-dependency"></a>Configuración de la dependencia
 
-Recuerde que, según lo visto en el [tutorial para la creación de varias instancias de recursos con plantillas de Resource Manager](./resource-manager-tutorial-create-multiple-instances.md), el recurso de máquina virtual depende de la cuenta de almacenamiento:
+Recuerde que en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md), el recurso de máquina virtual depende de la cuenta de almacenamiento:
 
 ![Diagrama de dependencia de las plantillas de Azure Resource Manager](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
@@ -207,13 +298,14 @@ Como la cuenta de almacenamiento ahora se define en la plantilla vinculada, debe
     ![Las plantillas vinculadas de Azure Resource Manager configuran la dependencia ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
     *linkedTemplate* es el nombre del recurso de implementaciones.  
-3. Actualice **properties/diagnosticsProfile/bootDiagnostics/storageUri** como se muestra en la captura de pantalla anterior.
+3. Actualice **properties/diagnosticsProfile/bootDiagnostics/storageUri** tal y como se muestra en la captura de pantalla anterior.
+4. Guarde la plantilla modificada.
 
 Para más información, consulte [Uso de plantillas vinculadas y anidadas al implementar recursos de Azure](./resource-group-linked-templates.md).
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Consulte la sección [Implementación de la plantilla](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para conocer el procedimiento de implementación. Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Consulte [Requisitos previos](#prerequisites).
+Consulte la sección [Implementación de la plantilla](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para conocer el procedimiento de implementación. Use el mismo nombre del grupo de recursos que usa en la cuenta de almacenamiento para almacenar la plantilla vinculada. Simplifica la limpieza de recursos en la sección siguiente. Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Consulte [Requisitos previos](#prerequisites).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -224,9 +316,16 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 3. Seleccione el nombre del grupo de recursos.  Verá un total de seis recursos en el grupo de recursos.
 4. Seleccione **Eliminar grupo de recursos** del menú superior.
 
+## <a name="additional-practice"></a>Procedimiento adicional
+
+Para mejorar el proyecto, efectúe los siguientes cambios adicionales en el proyecto completado:
+
+1. Modifique la plantilla principal (azuredeploy.json) para que tome el valor del URI de la plantilla vinculada a través de un parámetro.
+2. En lugar de generar un token de SAS al cargar la plantilla vinculada, genere el token al implementar la plantilla principal. Para más información, consulte [Provisión del token de SAS durante la implementación](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha desarrollado e implementado una plantilla vinculada. Para aprender a usar extensiones de máquina virtual para realizar tareas posteriores a la implementación, consulte
+En este tutorial, ha dividido una plantilla en una plantilla principal y una plantilla vinculada. Para aprender a usar extensiones de máquina virtual para realizar tareas posteriores a la implementación, consulte:
 
 > [!div class="nextstepaction"]
 > [Implementación de extensiones de máquina virtual](./deployment-manager-tutorial.md)

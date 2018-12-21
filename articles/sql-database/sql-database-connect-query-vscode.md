@@ -1,10 +1,10 @@
 ---
-title: 'VS Code: conexión con Azure SQL Database y consulta de datos | Microsoft Docs'
+title: 'VS Code: Conexión y consulta de datos en Azure SQL Database | Microsoft Docs'
 description: Aprenda a conectarse a SQL Database en Azure con Visual Studio Code. A continuación, ejecute instrucciones de Transact-SQL (T-SQL) para consultar y editar los datos.
 keywords: conexión a sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: scenario
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,29 +12,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: ea4809368189a3fefac95c867e2b29d0b8f58442
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/06/2018
+ms.openlocfilehash: 786b4fab42fb49cd44c1985bfa04ce33e77cadf0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868538"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098991"
 ---
-# <a name="quickstart-azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Guía de inicio rápido: uso de Visual Studio Code para conectar y consultar datos en Azure SQL Database
+# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Inicio rápido: Uso de Visual Studio Code para conectar y consultar una instancia de Azure SQL Database
 
-[Visual Studio Code](https://code.visualstudio.com/docs) es un editor de código gráfico para Linux, Mac OS y Windows que admite extensiones, incluidas la [extensión mssql](https://aka.ms/mssql-marketplace) para realizar consultas en Microsoft SQL Server, Azure SQL Database y SQL Data Warehouse. Esta guía de inicio rápido muestra cómo usar Visual Studio Code para conectarse a una base de datos de SQL Azure Database y después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.
+[Visual Studio Code](https://code.visualstudio.com/docs) es un editor de código gráfico para Linux, macOS y Windows. Admite extensiones, como la [extensión mssql](https://aka.ms/mssql-marketplace) para consultar Microsoft SQL Server, Azure SQL Database y SQL Data Warehouse. Esta guía de inicio rápido muestra cómo usar Visual Studio Code para conectarse a una base de datos de Azure SQL Database y luego ejecutar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de las siguientes guías:
+Para completar este tutorial, necesita:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-#### <a name="install-vs-code"></a>Instalación de VS Code
+#### <a name="install-visual-studio-code"></a>Instalación de Visual Studio Code
 
-Antes de empezar, asegúrese de que tiene instalada la versión más reciente de [Visual Studio Code](https://code.visualstudio.com/Download) y cargue la [extensión mssql](https://aka.ms/mssql-marketplace). Para obtener instrucciones de instalación para la extensión mssql, vea [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) (Instalación de VS Code) y [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) (mssql para Visual Studio Code). 
+Asegúrese de haber instalado la versión más reciente de [Visual Studio Code](https://code.visualstudio.com/Download) y de haber cargado la [extensión mssql](https://aka.ms/mssql-marketplace). Para instrucciones sobre cómo instalar la extensión mssql, consulte [Instalación de VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) y [mssql para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
-## <a name="configure-vs-code"></a>Configuración del código de VS 
+## <a name="configure-visual-studio-code"></a>Configuración deVisual Studio Code 
 
 ### <a name="mac-os"></a>**Mac OS**
 En el caso de macOS, debe instalar OpenSSL, que es un requisito previo para .Net Core que la extensión mssql utiliza. Abra el terminal y escriba los siguientes comandos para instalar **brew** y **OpenSSL**. 
@@ -58,58 +58,53 @@ No se necesita ninguna configuración especial.
 
 ## <a name="sql-server-connection-information"></a>Información de conexión de SQL server
 
-Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor, el nombre de la base de datos y la información de inicio de sesión.
-
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="set-language-mode-to-sql"></a>Definición del modo de lenguaje en SQL
 
-El modo de lenguaje está establecido en **SQL** en Visual Studio Code para habilitar comandos mssql y T-SQL IntelliSense.
+En Visual Studio Code, establezca el modo de lenguaje en **SQL** para habilitar los comandos de mssql y T-SQL IntelliSense.
 
 1. Abra una nueva ventana de Visual Studio Code. 
 
-2. Haga clic en **Texto sin formato** en la esquina inferior derecha de la barra de estado.
-3. En menú desplegable **Seleccionar modo de lenguaje** que se abre, escriba **SQL** y, a continuación, presione **ENTRAR** para establecer el modo de lenguaje en SQL. 
+2. Presione **CTRL**+**N**. Se abre un nuevo archivo de texto sin formato. 
 
-   ![Modo de lenguaje SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
+3. Seleccione **Texto sin formato** en la esquina inferior derecha de la barra de estado.
+
+4. En el menú desplegable **Seleccionar modo de lenguaje** que se abre, seleccione **SQL**. 
 
 ## <a name="connect-to-your-database"></a>Conectarse a la base de datos
 
 Use Visual Studio Code para establecer una conexión con el servidor de Azure SQL Database.
 
 > [!IMPORTANT]
-> Antes de continuar, asegúrese de que están preparados el servidor, la base de datos y la lista de información de inicio de sesión. Cuando comience a escribir la información de perfil de conexión, si cambia el foco de Visual Studio Code, tendrá que reiniciar la creación del perfil de conexión.
+> Antes de continuar, asegúrese de que están preparados el servidor y la información de inicio de sesión. Cuando comience a escribir la información de perfil de conexión, si cambia el foco de Visual Studio Code, tendrá que reiniciar la creación del perfil.
 >
 
-1. En VS Code, presione **CTRL + MAYÚS + P** (o **F1**) para abrir la paleta de comandos.
+1. En Visual Studio Code, presione **Ctrl+Mayús+P** (o **F1**) para abrir la paleta de comandos.
 
-2. Escriba **sqlcon** y presione **ENTRAR**.
+2. Seleccione **MS SQL:Connect** y presione **ENTRAR**.
 
-3. Presione **ENTRAR** para seleccionar **Create Connection Profile** (Crear perfil de conexión). Al hacerlo, se creará un perfil de conexión para la instancia de SQL Server.
+3. Seleccione **Crear perfil de conexión**.
 
-4. Siga las indicaciones para especificar las propiedades de conexión para el nuevo perfil de conexión. Después de especificar cada valor, presione **ENTRAR** para continuar. 
+4. Siga las indicaciones y especifique las propiedades de conexión del perfil nuevo. Después de especificar cada valor, presione **ENTRAR** para continuar. 
 
-   | Configuración       | Valor sugerido | DESCRIPCIÓN |
+   | Propiedad       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver20170313.database.windows.net**. |
-   | **Nombre de la base de datos** | mySampleDatabase | El nombre de la base de datos con la que se realizará la conexión. |
-   | **Autenticación** | Inicio de sesión SQL| Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
-   | **Nombre de usuario** | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
-   | **Contraseña (Inicio de sesión de SQL)** | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
-   | **¿Guardar la contraseña?** | Sí o no | Seleccione Sí si no desea escribir la contraseña cada vez que inicie sesión. |
-   | **Escribir un nombre para este perfil** | Un nombre de perfil, como **mySampleDatabase** | Un nombre de perfil guardado acelera la conexión en los inicios de sesión posteriores. | 
+   | **Nombre del servidor** | Nombre completo del servidor | Algo similar a: **mynewserver20170313.database.windows.net**. |
+   | **Nombre de la base de datos** | mySampleDatabase | La base de datos a la que hay que conectarse. |
+   | **Autenticación** | Inicio de sesión SQL| Este tutorial usa Autenticación de SQL. |
+   | **Nombre de usuario** | Nombre de usuario | El nombre de usuario de la cuenta de administrador del servidor que se usó para crear el servidor. |
+   | **Contraseña (Inicio de sesión de SQL)** | Contraseña | La contraseña de la cuenta de administrador del servidor que se usó para crear el servidor. |
+   | **¿Guardar la contraseña?** | Sí o no | Seleccione **Sí** si no quiere escribir la contraseña cada vez que inicie sesión. |
+   | **Escribir un nombre para este perfil** | Un nombre de perfil, como **mySampleProfile** | Un perfil guardado acelera la conexión en los inicios de sesión posteriores. | 
 
-5. Presione la tecla **ESC** para cerrar el mensaje de información que indica que el perfil se ha creado y conectado.
-
-6. Compruebe la conexión en la barra de estado.
-
-   ![Estado de la conexión](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
+   Si se realiza correctamente, aparece una notificación que indica que se creó y conectó el perfil.
 
 ## <a name="query-data"></a>Datos de consulta
 
-Utilice el código siguiente para consultar los 20 primeros productos por categoría con la instrucción Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
+Use la instrucción Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) siguiente para consultar los 20 primeros productos por categoría.
 
-1. En la ventana del **editor**, escriba la siguiente consulta en la ventana de consulta vacía:
+1. En la ventana del editor, pegue la consulta SQL siguiente.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -118,15 +113,15 @@ Utilice el código siguiente para consultar los 20 primeros productos por catego
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Presione **CTRL + MAYÚS + E** para recuperar datos de las tablas Product y ProductCategory.
+2. Presione **Ctrl**+**Mayús**+**E** para ejecutar la consulta y mostrar los resultados de las tablas `Product` y `ProductCategory`.
 
-    ![Consultar](./media/sql-database-connect-query-vscode/query.png)
+    ![Consulta para recuperar datos de dos tablas](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Insertar datos
 
-Utilice el código siguiente para insertar un nuevo producto en la tabla SalesLT.Product con la instrucción Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
+Use la siguiente instrucción Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) para agregar un nuevo producto en la tabla `SalesLT.Product`.
 
-1. En la ventana del **editor**, elimine la consulta anterior y escriba la siguiente consulta:
+1. Reemplace la consulta anterior por esta.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -148,13 +143,13 @@ Utilice el código siguiente para insertar un nuevo producto en la tabla SalesLT
            ,GETDATE() );
    ```
 
-2. Presione **CTRL + MAYÚS + E** para insertar una nueva fila en la tabla Product.
+2. Presione **Ctrl**+**Mayús**+**E** para insertar una fila nueva en la tabla `Product`.
 
 ## <a name="update-data"></a>Actualización de datos
 
-Utilice el código siguiente para actualizar el nuevo producto que ha agregado anteriormente con la instrucción Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
+Use la siguiente instrucción Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) para actualizar el producto agregado.
 
-1.  En la ventana del **editor**, elimine la consulta anterior y escriba la siguiente consulta:
+1. Reemplace la consulta anterior por esta:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -162,23 +157,23 @@ Utilice el código siguiente para actualizar el nuevo producto que ha agregado a
    WHERE Name = 'myNewProduct';
    ```
 
-2. Presione **CTRL + MAYÚS + E** para actualizar la fila especificada en la tabla Product.
+2. Presione **Ctrl**+**Mayús**+**E** para actualizar la fila especificada en la tabla `Product`.
 
 ## <a name="delete-data"></a>Eliminación de datos
 
-Utilice el código siguiente para eliminar el nuevo producto que ha agregado anteriormente con la instrucción Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql).
+Use la instrucción Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) para quitar el producto nuevo.
 
-1. En la ventana del **editor**, elimine la consulta anterior y escriba la siguiente consulta:
+1. Reemplace la consulta anterior por esta:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Presione **CTRL + MAYÚS + E** para eliminar la fila especificada en la tabla Product.
+2. Presione **Ctrl**+**Mayús**+**E** para eliminar la fila especificada en la tabla `Product`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para conectarse y realizar consultas mediante SQL Server Management Studio, consulte el artículo de [Conexión y realización de consultas con SSMS](sql-database-connect-query-ssms.md).
-- Para conectarse y consultar mediante Azure Portal, consulte [Conexión y consulta con el editor de consultas SQL de Azure Portal](sql-database-connect-query-portal.md).
+- Para conectarse y hacer consultas mediante SQL Server Management Studio, consulte [Guía de inicio rápido: Azure SQL Database: uso de SQL Server Management Studio para conectarse a los datos y realizar consultas en ellos](sql-database-connect-query-ssms.md).
+- Para conectarse y hacer consultas con Azure Portal, consulte [Guía de inicio rápido: Azure Portal: uso del editor de consultas SQL para conectarse y consultar datos](sql-database-connect-query-portal.md).
 - Si está interesado en ver un artículo de la revista de MSDN sobre el uso de Visual Studio Code, consulte la entrada del blob sobre cómo [crear un IDE de base de datos con la extensión MSSQL](https://msdn.microsoft.com/magazine/mt809115).

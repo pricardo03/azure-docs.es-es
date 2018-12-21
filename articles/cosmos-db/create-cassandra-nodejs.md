@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Cassandra API con Node.js (Azure Cosmos DB)'
+title: 'Guía de inicio rápido: Cassandra API con Node.js: Azure Cosmos DB'
 description: Esta guía de inicio rápido muestra cómo usar la API de Cassandra de Azure Cosmos DB para crear una aplicación de perfil con Node.js
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: e7b4bc51ab71fa1043afdab019d27fd089d0356c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1015331af3b31fa34170db6c1729b8e38bcbd04
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980090"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251067"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guía de inicio rápido: compilación de una aplicación Cassandra con Node.js y Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guía de inicio rápido: Creación de una aplicación Cassandra con Node.js y Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -36,7 +36,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 Además, necesita:
 * [Node.js](https://nodejs.org/en/) versión v0.10.29 o superior
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
@@ -158,7 +158,7 @@ Este paso es opcional. Si le interesa aprender cómo el código crea los recurso
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. La cadena de conexión permite a la aplicación comunicarse con la base de datos hospedada.
 
-1. En [Azure Portal](http://portal.azure.com/) seleccione **Cadena de conexión**. 
+1. En [Azure Portal](https://portal.azure.com/) seleccione **Cadena de conexión**. 
 
     Use el ![Botón Copiar](./media/create-cassandra-nodejs/copy.png) del lado derecho de la pantalla para copiar el valor superior, CONTACT POINT (Punto de contacto).
 

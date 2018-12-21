@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e2075f8a8e54a091dbb82f9ed6d1c8ddaa9da4d0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7df94a465cac03a65bd1df15bf5c1cabda315551
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869851"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336478"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-database-managed-instance"></a>Uso de PowerShell junto con una plantilla de Azure Resource Manager para crear una instancia administrada de Azure SQL Database
 
@@ -36,6 +36,15 @@ Los comandos de Azure PowerShell pueden iniciar la implementación mediante la p
 - Intercalación en el nivel de servidor de la instancia (versión preliminar).
 
 El nombre de la instancia, el nombre de usuario del administrador SQL, la red virtual o la subred, y la intercalación no se podrán modificar posteriormente. Se podrán cambiar otras propiedades de la instancia.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+En este ejemplo se supone que ha [creado un entorno de red válido](../sql-database-managed-instance-create-vnet-subnet.md) o que ha [modificado la red virtual existente](../sql-database-managed-instance-configure-vnet-subnet.md) para la Instancia administrada. El ejemplo usa los commandlets [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) y [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork), así que asegúrese de que ha instalado los módulos de PowerShell siguientes:
+
+```
+Install-Module AzureRM.Network
+Install-Module AzureRM.Resources
+```
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 

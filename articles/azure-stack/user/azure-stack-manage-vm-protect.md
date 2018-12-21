@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341844"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191536"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Protección de máquinas virtuales implementadas en Azure Stack
 
@@ -55,10 +55,10 @@ Planee la estrategia de copia de seguridad y recuperación, y la de recuperació
 
 |  | Azure global | Azure Stack implementado en un centro de datos de CSP operado por este | Azure Stack implementado en un centro de datos de cliente y operado por este |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack implementado en un centro de datos de CSP operado por este** | Las máquinas virtuales del usuario se implementan en un CSP controlado por Azure Stack. Las máquinas virtuales de usuario se restauran a partir de una copia de seguridad o se conmutan por error directamente en Azure. | CSP opera con la instancia principal y secundaria de Azure Stack en sus propios centros de datos. Las máquinas virtuales de usuario se restauran o conmutan por error entre las dos instancias de Azure Stack. | CSP controla Azure Stack en el sitio principal. El centro de datos del cliente es el destino de restauración o de conmutación por error. |
-| **Azure Stack implementado en un centro de datos de cliente y operado por este** | Las máquinas virtuales del usuario se implementan en la instancia de Azure Stack controlada por el cliente. Las máquinas virtuales de usuario se restauran a partir de una copia de seguridad o se conmutan por error directamente en Azure. | El cliente opera con la instancia principal y secundaria de Azure Stack en sus propios centros de datos. Las máquinas virtuales de usuario se restauran o conmutan por error entre las dos instancias de Azure Stack. | El cliente controla Azure Stack en el sitio principal. El centro de datos de CSP es el destino de restauración o de conmutación por error. |
+| **Azure Stack implementado en un centro de datos de CSP operado por este** | Las máquinas virtuales del usuario se implementan en un CSP controlado por Azure Stack.<br><br>Las máquinas virtuales de usuario se restauran a partir de una copia de seguridad o se conmutan por error directamente en Azure. | CSP opera con la instancia principal y secundaria de Azure Stack en sus propios centros de datos.<br><br>Las máquinas virtuales de usuario se restauran o conmutan por error entre las dos instancias de Azure Stack. | CSP controla Azure Stack en el sitio principal.<br><br>El centro de datos del cliente es el destino de restauración o de conmutación por error. |
+| **Azure Stack implementado en un centro de datos de cliente y operado por este** | Las máquinas virtuales del usuario se implementan en la instancia de Azure Stack controlada por el cliente.<br><br>Las máquinas virtuales de usuario se restauran a partir de una copia de seguridad o se conmutan por error directamente en Azure. | El cliente controla Azure Stack en el sitio principal.<br><br>El centro de datos de CSP es el destino de restauración o de conmutación por error. | El cliente opera con la instancia principal y secundaria de Azure Stack en sus propios centros de datos.<br><br>Las máquinas virtuales de usuario se restauran o conmutan por error entre las dos instancias de Azure Stack. |
 
-![Combinaciones de origen y destino](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Combinaciones de origen y destino](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>Objetivos de recuperación de la aplicación
 
@@ -77,7 +77,7 @@ Otra métrica es el **tiempo medio para recuperación** (MTTR), que es el tiempo
 
 El esquema de protección más habitual para aplicaciones basadas en máquinas virtuales consiste en utilizar software de copia de seguridad. Realizar una copia de seguridad de una máquina virtual normalmente incluye la configuración del sistema operativo, los binarios de aplicación y los datos de aplicación. Las copias de seguridad se crean tomando una instantánea de los volúmenes y los discos o de toda la máquina virtual. Con Azure Stack, tiene la posibilidad de realizar la copia de seguridad desde dentro del contexto del SO invitado o desde las API de almacenamiento y proceso de Azure Stack. Azure Stack no admite la realización de copias de seguridad en el nivel de hipervisor.
  
-![Copia de seguridad y restauración](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Copia de seguridad y restauración](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 La recuperación de la aplicación requiere la restauración de una o más máquinas virtuales en la misma nube o en una nube nueva. Puede elegir como destino una nube en su centro de datos o en la nube pública. La nube está completamente bajo su control y se basa en los requisitos de privacidad y soberanía sobre sus datos.
  
@@ -107,11 +107,11 @@ Un enfoque alternativo a admitir la alta disponibilidad es replicar las máquina
 
 Con este enfoque, la aplicación se implementa en una nube y sus máquinas virtuales se replican en la otra nube. Si se desencadena una conmutación por error, las máquinas virtuales secundarias se deben activar en la segunda nube. En algunos escenarios, la conmutación por error crea las máquinas virtuales y conecta discos a ellas. Este proceso puede tardar mucho tiempo en completarse, especialmente en una aplicación de niveles múltiples que requiere una secuencia de inicio específica. Puede que sea necesario también seguir una serie de pasos antes de que la aplicación esté preparada para empezar a atender las solicitudes.
 
-![Replicación y conmutación por error](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Replicación y conmutación por error](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: tiempo de inactividad medido en minutos
  - RPO: pérdida de datos variables (dependiendo de la frecuencia de replicación)
- - Topología de implementación: activa/pasiva o en espera
+ - Topología de implementación: espera activa/pasiva
  
 ### <a name="high-availabilityautomatic-failover"></a>Alta disponibilidad o conmutación por error automática
 
@@ -123,7 +123,7 @@ Con este enfoque, la aplicación solo está activa en una nube, pero el software
 
  - RTO: tiempo de inactividad medido en segundos
  - RPO: pérdida de datos mínima
- - Topología de implementación: activa/activa o en espera
+ - Topología de implementación: espera activa/activa
 
 ### <a name="fault-tolerance"></a>Tolerancia a errores
 
@@ -134,7 +134,7 @@ En primer lugar, debe asegurarse de que las máquinas virtuales de la aplicació
 Tenga en cuenta que cada nube de Azure Stack es independiente entre sí, por lo que las nubes siempre se consideran activas desde una perspectiva de infraestructura. En este caso, se implementan varias instancias activas de la aplicación en una o más nubes activas.
 
  - RTO: sin tiempo de inactividad
- - RPO: sin pérdida de datos
+ - RPO: Sin pérdida de datos
  - Topología de implementación: activa/activa
 
 ### <a name="no-recovery"></a>Sin recuperación

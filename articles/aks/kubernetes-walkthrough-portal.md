@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 0b4e334ea9a423ed4eb9a0830d68ad7f4b843a88
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6075086b390a14e807e493bd574ac889b81272bf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833656"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437357"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guía de inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
 En esta guía rápida, implementará un clúster de AKS mediante Azure Portal. A continuación, se ejecuta en el clúster una aplicación de varios contenedores que consta de un front-end web y una instancia de Redis. Una vez finalizado el proceso, la aplicación es accesible a través de Internet.
 
@@ -45,18 +45,18 @@ Para crear un clúster de AKS, realice los siguientes pasos:
 
     Seleccione **Siguiente: autenticación** cuando haya terminado.
 
-1. **Autenticación**. Configure las siguientes opciones:
+1. **Autenticación**: Configure las siguientes opciones:
     - Cree una entidad de servicio o haga clic en *Configurar* para usar una existente. Al usar un SPN existente, debe proporcionar el identificador de cliente SPN y el secreto.
     - Habilite la opción para los controles de acceso basado en roles (RBAC) de Kubernetes. Estos controles proporcionan un control más minucioso sobre el acceso a los recursos de Kubernetes implementado en el clúster de AKS.
 
-    Seleccione **Next: Networking** (Siguiente: redes) cuando haya terminado.
+    Seleccione **Siguiente: redes** cuando haya terminado.
 
-1. **Redes**: configure las siguientes opciones de red, que se deben establecer como predeterminadas.
+1. **Redes**: Configure las siguientes opciones de red:
     
     - **Enrutamiento de solicitudes HTTP**: seleccione **Sí** para configurar un controlador de entrada integrado con la creación de nombres DNS públicos automática. Para obtener más información sobre el enrutamiento de http, consulte [AKS HTTP routing and DNS][http-routing] (Enrutamiento HTTP y DNS de AKS).
     - **Configuración de red**: seleccione la configuración de red **Básica** con el complemento de Kubernetes [kubenet][kubenet], en lugar de con la configuración de red avanzada mediante [Azure CNI][azure-cni]. Para obtener más información sobre las opciones de red, consulte la [introducción a las redes de AKS][aks-network].
     
-    Seleccione **Next: Monitoring** (Siguiente: supervisión) cuando haya terminado.
+    Seleccione **Siguiente: supervisión** cuando haya terminado.
 
 1. Al implementar un clúster de AKS, Azure Monitor se puede configurar para supervisar el estado del clúster de AKS y los pods que se ejecutan en el clúster. Para obtener más información sobre la supervisión del estado de los contenedores, consulte [Monitor Azure Kubernetes Service health][aks-monitor] (Supervisión del estado de Azure Kubernetes Service).
 
@@ -88,7 +88,7 @@ Para comprobar la conexión con el clúster, use el comando [kubectl get][kubect
 kubectl get nodes
 ```
 
-La salida del ejemplo siguiente muestra el nodo único creado en los pasos anteriores.
+La salida del ejemplo siguiente muestra el nodo único creado en los pasos anteriores. Asegúrese de que el estado del nodo es "Listo".
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION

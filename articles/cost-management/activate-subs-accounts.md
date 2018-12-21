@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: f2cb5d33b8d7a7442da16a38e268c56de363a9c6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: secdec18
+ms.openlocfilehash: 9a27efe7908b2a15ceb823d7a85c4a12603731ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274089"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075988"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Activación de suscripciones y cuentas de Azure con Cloudyn
 
@@ -41,7 +41,7 @@ Si a la cuenta se le ha asignado el rol **Colaborador**, no tiene los permisos a
 3. En su instancia de Azure Active Directory, seleccione **Configuración de usuario**.
 4. Compruebe la opción **Registros de aplicaciones**.
     - Si está seleccionado **Sí**, incluso los usuarios que no sean administradores pueden registrar aplicaciones de AD. Esta configuración significa que ningún usuario en el inquilino de Azure Active Directory puede registrar una aplicación.  
-    ![Registros de aplicaciones](./media/activate-subs-accounts/app-register.png)
+    ![Selección de registros de aplicaciones en la configuración de usuario](./media/activate-subs-accounts/app-register.png)
     - Si en **Registros de aplicaciones** está seleccionada la opción **No**, los usuarios administradores de inquilinos serán los únicos que puedan registrar aplicaciones de Azure Active Directory. El Administrador de inquilinos debe registrar la aplicación CloudynCollector.
 
 
@@ -53,12 +53,12 @@ Cuando se agrega una cuenta o se actualiza una suscripción, se conceder a Cloud
 
 1. En el portal de Cloudyn, haga clic en el símbolo de engranaje en la esquina superior derecha y seleccione **Cloud Accounts** (Cuentas en la nube).
 2. Haga clic en **Add new account** (Agregar nueva cuenta) y aparecerá el cuadro **Add new account** (Agregar nueva cuenta). Escriba la información necesaria.  
-    ![Cuadro Add new account (Agregar nueva cuenta)](./media/activate-subs-accounts//add-new-account.png)
+    ![Especificación de la información necesaria en el cuadro Agregar nueva cuenta](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Actualización de una suscripción
 
 1. Si desea actualizar una suscripción _no activada_ que ya existe en Cloudyn en Accounts Management (Administración de cuentas), haga clic en el símbolo del lápiz, que se encuentra a la derecha del _identificador único global del inquilino_ principal. Las suscripciones se agrupan en un inquilino principal, así es que evite activar las suscripciones de manera individual.
-    ![Volver a detectar las suscripciones](./media/activate-subs-accounts/existing-sub.png)
+    ![Selección del identificador de inquilino en el cuadro Rediscover subscriptions (Volver a detectar suscripciones)](./media/activate-subs-accounts/existing-sub.png)
 2. Si es necesario, escriba el identificador del inquilino. Si no conoce el identificador del inquilino, siga estos pasos para encontrarlo:
     1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
     2. En Azure Portal, seleccione **Azure Active Directory**.
@@ -106,7 +106,7 @@ Es posible que también deba conceder permisos a administradores de departamento
 Solo un administrador de servicios de Azure puede habilitar Cloudyn. Los permisos de coadministrador son insuficientes. Sin embargo, puede evitar el requisito de administrador. Puede solicitar que el administrador de Azure Active Directory conceda permiso para autorizar **CloudynAzureCollector** con un script de PowerShell. El siguiente script concede permiso para registrar la entidad de servicio de Azure Active Directory **CloudynAzureCollector**.
 
 
-```
+```powershell
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #Tenant - enter your tenant ID or Name

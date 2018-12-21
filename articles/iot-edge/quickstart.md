@@ -1,6 +1,6 @@
 ---
-title: Guía de inicio rápido de Azure IoT Edge + Windows | Microsoft Docs
-description: Pruebe Azure IoT Edge mediante la realización de análisis en un dispositivo perimetral simulado
+title: 'Guía de inicio rápido: Creación de un dispositivo Azure IoT Edge en Windows | Microsoft Docs'
+description: En esta guía de inicio rápido, obtenga información sobre cómo crear un dispositivo IoT Edge y luego implementar código creado previamente de manera remota desde Azure Portal.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,15 +8,15 @@ ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 78cb00c568942e6b8c0f5da035381c82f5789a08
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 941d5d8f356fbd1477b4559f1475511165c01341
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977019"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340103"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guía de inicio rápido: implementación del primer módulo de IoT Edge desde Azure Portal a un dispositivo Windows (versión preliminar)
+# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guía de inicio rápido: Implementación del primer módulo de IoT Edge desde Azure Portal a un dispositivo Windows (versión preliminar)
 
 En esta guía de inicio rápido, use la interfaz en la nube de Azure IoT Edge para implementar código creado previamente de manera remota en un dispositivo de IoT Edge. Para realizar esta tarea, en primer lugar, use un dispositivo de Windows para simular un dispositivo de IoT Edge y, posteriormente, puede implementar un módulo en él.
 
@@ -27,7 +27,7 @@ En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 3. Instale e inicie el entorno de ejecución de Azure IoT Edge en el dispositivo.
 4. Implemente un módulo de forma remota en un dispositivo IoT Edge y envíe telemetría a IoT Hub.
 
-![Arquitectura de la guía de inicio rápido](./media/quickstart/install-edge-full.png)
+![Diagrama: Inicio rápido de la arquitectura para el dispositivo y la nube](./media/quickstart/install-edge-full.png)
 
 El módulo que se implementa en esta guía de inicio rápido es un sensor simulado que genera datos de temperatura, humedad y presión. Los otros tutoriales de Azure IoT Edge se basan en el trabajo que se realiza aquí mediante la implementación de módulos que analizan los datos simulados para obtener información empresarial.
 
@@ -72,7 +72,7 @@ Dispositivo de IoT Edge:
 
 Para comenzar la guía de inicio rápido, cree su centro de IoT con la CLI de Azure.
 
-![Crear IoT Hub](./media/quickstart/create-iot-hub.png)
+![Diagrama: Creación de un centro de IoT en la nube](./media/quickstart/create-iot-hub.png)
 
 El nivel gratuito de IoT Hub funciona para esta guía de inicio rápido. Si ha usado IoT Hub en el pasado y ya tiene un centro gratis creado, puede usar ese centro de IoT. Cada suscripción no puede tener más de un centro de IoT gratuito.
 
@@ -87,7 +87,7 @@ El código siguiente crea un centro **F1** gratis en el grupo de recursos **IoTE
 ## <a name="register-an-iot-edge-device"></a>Registro de un dispositivo de IoT Edge
 
 Registre un dispositivo de IoT Edge con la instancia de IoT Hub recién creada.
-![Registro de un dispositivo](./media/quickstart/register-device.png)
+![Diagrama: Registro de un dispositivo con una identidad de IoT Hub](./media/quickstart/register-device.png)
 
 Cree una identidad para el dispositivo simulado, con el fin de que pueda comunicarse con su centro de IoT. La identidad del dispositivo reside en la nube, y se usa una cadena de conexión de dispositivo única para asociar un dispositivo físico a una identidad de dispositivo.
 
@@ -112,7 +112,7 @@ Dado que los dispositivos de IoT Edge se comportan y se pueden administrar de ma
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Instale e inicie el runtime de IoT Edge
 
 Instale el entorno de ejecución de Azure IoT Edge en el dispositivo IoT Edge y configúrelo con una cadena de conexión del dispositivo.
-![Registro de un dispositivo](./media/quickstart/start-runtime.png)
+![Diagrama: Inicio del entorno de ejecución en el dispositivo](./media/quickstart/start-runtime.png)
 
 El runtime de IoT Edge se implementa en todos los dispositivos de IoT Edge. Tiene tres componentes. El **demonio de seguridad de IoT Edge** se inicia cada vez que se inicia un dispositivo perimetral y arranca el dispositivo mediante el inicio del agente de IoT Edge. El **agente de IoT Edge** facilita la implementación y supervisión de los módulos en el dispositivo IoT Edge, incluido el centro de IoT Edge. El **centro de IoT Edge** administra las comunicaciones entre los módulos del dispositivo de IoT Edge y entre el dispositivo y la instancia de IoT Hub.
 
@@ -175,7 +175,7 @@ El dispositivo de IoT Edge está ya configurado. Está preparado para ejecutar m
 ## <a name="deploy-a-module"></a>Implementación de un módulo
 
 Administre el dispositivo Azure IoT Edge desde la nube para implementar un módulo que enviará datos de telemetría a IoT Hub.
-![Registro de un dispositivo](./media/quickstart/deploy-module.png)
+![Diagrama: Implementación del módulo desde la nube al dispositivo](./media/quickstart/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
@@ -199,7 +199,7 @@ iotedge logs tempSensor -f
 
   ![Ver los datos desde el módulo](./media/quickstart/iotedge-logs.png)
 
-También puede ver los mensajes que llegan a su centro de IoT mediante la [extensión de Azure IoT Toolkit para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+También puede ver los mensajes que llegan a su centro de IoT mediante el uso de la [extensión de Azure IoT Hub Toolkit para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente, extensión de Azure IoT Tookit). 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

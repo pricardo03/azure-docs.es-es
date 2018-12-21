@@ -1,6 +1,6 @@
 ---
-title: Creación de un servicio Azure Search en Azure Portal | Microsoft Docs
-description: Aprovisione un servicio Azure Search en Azure Portal.
+title: 'Creación de un servicio Azure Search en Azure Portal: Azure Search'
+description: Aprovisione un servicio Azure Search en Azure Portal. Elija grupos de recursos, regiones, SKU o planes de tarifa.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.custom: seodec2018
+ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713934"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315992"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creación de un servicio Azure Search en el portal
 
@@ -58,7 +59,7 @@ Un grupo de recursos es una colección de servicios y recursos de Azure que se u
 En cuanto servicio de Azure, Azure Search se puede hospedar en centros de datos de todo el mundo. Tenga en cuenta que los [precios pueden variar](https://azure.microsoft.com/pricing/details/search/) según la región geográfica.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selección de un plan de tarifa (SKU)
-[Azure Search se ofrece actualmente en varios planes de tarifa](https://azure.microsoft.com/pricing/details/search/): Gratis, Básico y Estándar. Cada plan tiene su propia [capacidad y sus propios límites](search-limits-quotas-capacity.md). Consulte [Selección SKU o plan de tarifa](search-sku-tier.md) para obtener instrucciones.
+[Azure Search se ofrece actualmente en varios planes de tarifa](https://azure.microsoft.com/pricing/details/search/): Gratis, Básico o Estándar. Cada plan tiene su propia [capacidad y sus propios límites](search-limits-quotas-capacity.md). Consulte [Selección SKU o plan de tarifa](search-sku-tier.md) para obtener instrucciones.
 
 Normalmente se elige el tamaño estándar para cargas de trabajo de producción, pero la mayoría de los clientes empieza por el servicio gratis.
 

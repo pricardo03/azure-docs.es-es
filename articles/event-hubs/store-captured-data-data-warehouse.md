@@ -1,21 +1,22 @@
 ---
-title: Migración de datos de Azure Event Hubs a SQL Data Warehouse | Microsoft Docs
+title: Migración de datos de eventos de Azure Event Hubs a SQL Data Warehouse | Microsoft Docs
 description: En este tutorial se muestra cómo capturar datos de una instancia de Event Hubs y migrarlos a SQL Data Warehouse mediante el uso de una función de Azure desencadenada por Event Grid.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
-ms.date: 08/27/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 9673a7bff8e2d22764be28abef807434c53cc552
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 03ebdabf60882a73eb15cbd36481068591bbd3bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145124"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086290"
 ---
-# <a name="process-and-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Procesamiento y migración de datos de Event Hubs capturados a SQL Data Warehouse mediante Event Grid y Azure Functions
+# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migración de datos de Event Hubs capturados a SQL Data Warehouse mediante Event Grid y Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) es la forma más fácil de enviar automáticamente datos en streaming de Event Hubs a Azure Blob Storage o a Azure Data Lake Store. Posteriormente dichos datos se pueden procesar y enviar a otros destinos de almacenamiento, como SQL Data Warehouse o Cosmos DB. En este tutorial aprenderá a capturar datos de una instancia de Event Hubs y migrarlos a SQL Data Warehouse mediante el uso de una función de Azure desencadenada por [Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -87,7 +88,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateU
 ```
 
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Creación de una tabla en SQL Data Warehouse 
+### <a name="create-a-table-in-sql-data-warehouse"></a>Crear una tabla en SQL Data Warehouse 
 Para crear una tabla en SQL Data Warehouse ejecute el script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) mediante [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../sql-data-warehouse/sql-data-warehouse-query-ssms.md) o el Editor de consultas del portal. 
 
 ```sql
@@ -124,7 +125,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 Después de publicar la función, estará listo para suscribirse al evento de captura desde Event Hubs.
 
 
-## <a name="create-an-event-grid-subscription-from-the-functions-app"></a>Creación de una suscripción a Event Grid desde la aplicación de Functions
+## <a name="create-an-event-grid-subscription-from-the-functions-app"></a>Crear una suscripción a Event Grid desde la aplicación de Functions
  
 1. Vaya a [Azure Portal](https://portal.azure.com/). Seleccione el grupo de recursos y la aplicación de función.
 

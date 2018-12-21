@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 4881f992e5362efc7e4d7ac23898684966a066e0
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891000"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968210"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial: Creación de soluciones de escalado de toda la nube con Azure
 
@@ -107,17 +107,17 @@ Azure Repos
 
     La canalización de CI/CD híbrida se puede aplicar al código de aplicación y al código de infraestructura. Use [plantillas de Azure Resource Manager](https://azure.microsoft.com/resources/templates/) tanto para el desarrollo en la nube hospedado como para el privado.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image1.JPG)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image1.JPG)
 
 2. **Clone el repositorio**; para ello, cree y abra la aplicación web predeterminada.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image2.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image2.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Creación de una implementación de aplicación web autocontenida para App Services en ambas nubes
 
 1.  Edite el archivo **WebApplication.csproj**. Seleccione **Runtimeidentifier** y agregue **win10-x64**. (Consulte la documentación de [Implementaciones autocontenidas](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)). 
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image3.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image3.png)
 
 2.  Inserte el código en Azure Repos mediante Team Explorer.
 
@@ -129,7 +129,7 @@ Azure Repos
 
 2. Agregue el código **-r win10-x64**. Esto es necesario para activar una implementación autocontenida con .Net Core.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image4.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image4.png)
 
 3. Ejecute la compilación. El proceso de [compilación de implementación autocontenida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) publicará los artefactos que se pueden ejecutar en Azure y Azure Stack.
 
@@ -143,87 +143,87 @@ Azure Pipelines y6 Azure DevOps Server proporcionan una canalización con una gr
 
 ## <a name="create-release-definition"></a>Creación de la definición de versión
 
-![Texto alternativo](media\azure-stack-solution-cloud-burst\image5.png)
+![Texto alternativo](media/azure-stack-solution-cloud-burst/image5.png)
 
 1.  Seleccione el símbolo **+** para agregar una nueva versión en la **pestaña Versiones** de la página Compilación y versión de VSO.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image6.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image6.png)
 
 2. Aplique la plantilla Implementación de Azure App Service.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image7.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image7.png)
 
 3. En Agregar artefacto, agregue el artefacto para la aplicación de compilación de nube de Azure.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image8.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image8.png)
 
 4. En la pestaña Canalización, seleccione el vínculo **Fase, Tarea** del entorno y establezca los valores del entorno de nube de Azure.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image9.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image9.png)
 
 5. Establezca el **nombre del entorno** y seleccione la **suscripción** de Azure como el punto de conexión de la nube de Azure.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image10.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image10.png)
 
 6. En Nombre del entorno, establezca el **nombre del servicio de aplicación de Azure** necesario.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image11.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image11.png)
 
 7. Escriba **Hospedado VS2017** en Cola de agentes para el entorno hospedado de la nube de Azure.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image12.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image12.png)
 
 8. En el menú de implementación de Azure App Service, seleccione el **paquete o carpeta** válidos para el entorno. Seleccione **Aceptar** para la **ubicación de carpeta**.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image13.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image13.png)
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image14.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image14.png)
 
 9. Guarde todos los cambios y vuelva a la **canalización de versión**.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image15.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image15.png)
 
 10. Agregue un nuevo artefacto mediante la selección de la compilación de la aplicación de Azure Stack.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image16.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image16.png)
 
 11. Agregue un entorno más; para ello, aplique la plantilla Implementación de Azure App Service.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image17.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image17.png)
 
 12. Asigne al nuevo entorno el nombre Azure Stack.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image18.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image18.png)
 
 13. Busque el entorno de Azure Stack en la pestaña **Tarea**.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image19.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image19.png)
 
 14. Seleccione la suscripción para el punto de conexión de Azure Stack.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image20.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image20.png)
 
 15. Establezca el nombre de la aplicación web de Azure Stack como el nombre del servicio de aplicación.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image21.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image21.png)
 
 16. Seleccione el agente de Azure Stack.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image22.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image22.png)
 
 17. En la sección de implementación de Azure App Service, seleccione el **paquete o carpeta** válidos para el entorno. Seleccione **Aceptar** para la ubicación de carpeta.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image23.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image23.png)
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image24.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image24.png)
 
 18. En la pestaña Variable, agregue una variable denominada `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, establezca su valor como **true** y defina el ámbito en Azure Stack.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image25.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image25.png)
 
 19. Seleccione el icono del desencadenador de implementación **Continuo** en ambos artefactos y habilite el desencadenador de implementación **Continua**.
 
-    ![Texto alternativo](media\azure-stack-solution-cloud-burst\image26.png)
+    ![Texto alternativo](media/azure-stack-solution-cloud-burst/image26.png)
 
 20. Seleccione el icono de condiciones **previas a la implementación** en el entorno de Azure Stack y establezca el desencadenador en **After release** (Tras el lanzamiento).
 
@@ -273,7 +273,7 @@ Use [plantillas de Azure Resource Manager como código de aplicación web](https
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Creación de una implementación de aplicación web autocontenida para App Services en ambas nubes
 
-1.  Edite el archivo **WebApplication.csproj**: seleccione **Runtimeidentifier** y agregue win10-x64. Para más información, consulte la documentación de la [implementación independiente](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).
+1.  Edite el archivo **WebApplication.csproj**: Seleccione **Runtimeidentifier** y agregue win10-x64. Para más información, consulte la documentación de la [implementación independiente](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).
 
 2.  Compruebe el código en Azure Repos mediante Team Explorer.
 
@@ -307,7 +307,7 @@ La creación de una definición de versión es el último paso en el proceso de 
 
 3.  En **Seleccionar una plantilla**, elija **Implementación de Azure App Service** y, a continuación, seleccione **Aplicar**.
 
-4.  En **Agregar artefacto**, en **Origen (definición de compilación), seleccione la aplicación de compilación en la nube de Azure.
+4.  En **Agregar artefacto**, en **Origen (definición de compilación)**, seleccione la aplicación de compilación en la nube de Azure.
 
 5.  En la pestaña **Canalización**, seleccione el vínculo **1 fase**, **1 tarea** para **Ver tareas de entorno**.
 

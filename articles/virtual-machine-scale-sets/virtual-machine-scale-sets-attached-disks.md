@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 551d90661f845aa98a41ed7de0b75c657c234f52
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2a1f79656fa70b4fa895235aff177ca47dc29664
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741409"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413649"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados
 Para expandir el almacenamiento disponible, los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure admiten instancias de máquina virtual con discos de datos asociados. Puede asociar discos de datos cuando se crea el conjunto de escalado, o a un conjunto de escalado existente.
 
 > [!NOTE]
->  Cuando se crea un conjunto de escalado con discos de datos asociados, debe montar y dar formato a los discos desde una máquina virtual para usarlos (al igual que sucede con las máquinas virtuales de Azure independientes). Una manera práctica de llevar cabo este proceso es usar una extensión de script personalizado que llama a un script para crear una partición y dar formato a todos los discos de datos en una máquina virtual. Para ver ejemplos, consulte [CLI de Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
+> Cuando se crea un conjunto de escalado con discos de datos asociados, debe montar y dar formato a los discos desde una máquina virtual para usarlos (al igual que sucede con las máquinas virtuales de Azure independientes). Una manera práctica de llevar cabo este proceso es usar una extensión de script personalizado que llama a un script para crear una partición y dar formato a todos los discos de datos en una máquina virtual. Para ver ejemplos, consulte [CLI de Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
 
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>Creación y administración de discos de un conjunto de escalado
@@ -39,7 +39,7 @@ En el resto de este artículo se describen casos de uso específicos, como clús
 
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Creación de un clúster de Service Fabric con discos de datos conectados
-Cada [tipo de nodo](../service-fabric/service-fabric-cluster-nodetypes.md) de un clúster de [Service Fabric](/azure/service-fabric) en ejecución en Azure se encuentra respaldado por un conjunto de escalado de máquinas virtuales.  Mediante una plantilla de Azure Resource Manager, puede asociar discos de datos a los conjuntos de escalado que componen el clúster de Service Fabric. Puede usar una [plantilla existente](https://github.com/Azure-Samples/service-fabric-cluster-templates) como punto de partida. En la plantilla, incluya una sección _dataDisks_ en el atributo _storageProfile_ de los recursos _Microsoft.Compute/virtualMachineScaleSets_ e implemente la plantilla. En el ejemplo siguiente se conecta un disco de datos de 128 GB:
+Cada [tipo de nodo](../service-fabric/service-fabric-cluster-nodetypes.md) de un clúster de [Service Fabric](/azure/service-fabric) en ejecución en Azure se encuentra respaldado por un conjunto de escalado de máquinas virtuales. Mediante una plantilla de Azure Resource Manager, puede asociar discos de datos a los conjuntos de escalado que componen el clúster de Service Fabric. Puede usar una [plantilla existente](https://github.com/Azure-Samples/service-fabric-cluster-templates) como punto de partida. En la plantilla, incluya una sección _dataDisks_ en el atributo _storageProfile_ de los recursos _Microsoft.Compute/virtualMachineScaleSets_ e implemente la plantilla. En el ejemplo siguiente se conecta un disco de datos de 128 GB:
 
 ```json
 "dataDisks": [
@@ -51,19 +51,19 @@ Cada [tipo de nodo](../service-fabric/service-fabric-cluster-nodetypes.md) de un
 ]
 ```
 
-Puede crear particiones, formatear y montar los discos de datos automáticamente al implementar el clúster.  Añada una extensión de script personalizada al atributo _extensionProfile_ de _virtualMachineProfile_ de los conjuntos de escalado.
+Puede crear particiones, formatear y montar los discos de datos automáticamente al implementar el clúster. Añada una extensión de script personalizada al atributo _extensionProfile_ de _virtualMachineProfile_ de los conjuntos de escalado.
 
 Para preparar automáticamente los discos de datos en un clúster de Windows, añada lo siguiente:
 
 ```json
 {
-    "name": "customScript",    
-    "properties": {    
-        "publisher": "Microsoft.Compute",    
-        "type": "CustomScriptExtension",    
-        "typeHandlerVersion": "1.8",    
-        "autoUpgradeMinorVersion": true,    
-        "settings": {    
+    "name": "customScript",
+    "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.8",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
         "fileUris": [
             "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1"
         ],

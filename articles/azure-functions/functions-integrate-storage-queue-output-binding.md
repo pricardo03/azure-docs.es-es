@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854531"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995520"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Agregar mensajes a una cola de Azure Storage con Functions
 
@@ -31,7 +31,7 @@ Para completar esta guía de inicio rápido:
 
 * Siga las instrucciones de [Creación de su primera función desde Azure Portal](functions-create-first-azure-function.md) y no realice el paso **Limpieza de recursos**. Esta guía de inicio rápido crea la aplicación de función y la función que se va a utilizar aquí.
 
-* Instale [Explorador de Microsoft Azure Storage](http://storageexplorer.com/). Se trata de una herramienta que se va a utilizar para examinar los mensajes en cola que crea el enlace de salida.
+* Instale [Explorador de Microsoft Azure Storage](https://storageexplorer.com/). Se trata de una herramienta que se va a utilizar para examinar los mensajes en cola que crea el enlace de salida.
 
 ## <a name="add-binding"></a>Agregar un enlace de salida
 
@@ -122,7 +122,7 @@ Se crea una nueva cola denominada **outqueue** en su cuenta de Storage mediante 
 
 Omita esta sección si ya ha instalado el Explorador de Storage y lo ha conectado a la cuenta de almacenamiento que utiliza con esta guía de inicio rápido.
 
-2. Ejecute la herramienta [Explorador de Microsoft Azure Storage](http://storageexplorer.com/), seleccione el icono de conexión situado a la izquierda, elija **Use a storage account name and key** (Usar el nombre y la clave de una cuenta de almacenamiento) y seleccione **Siguiente**.
+2. Ejecute la herramienta [Explorador de Microsoft Azure Storage](https://storageexplorer.com/), seleccione el icono de conexión situado a la izquierda, elija **Use a storage account name and key** (Usar el nombre y la clave de una cuenta de almacenamiento) y seleccione **Siguiente**.
 
     ![Ejecute la herramienta Explorador de la cuenta de almacenamiento.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 

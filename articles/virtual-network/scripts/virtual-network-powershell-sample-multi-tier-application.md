@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
-ms.openlocfilehash: 3a57827616e4722b8520dcddb64e4e67fa8c79c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ebc0e18ecea61705ea8cb925a25d4233bfc9a2cb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599907"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340511"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Creación de una red para aplicaciones de niveles múltiples: script de ejemplo
 
@@ -32,10 +32,11 @@ Puede ejecutar el script desde Azure [Cloud Shell](https://shell.azure.com/power
 
 ## <a name="sample-script"></a>Script de ejemplo
 
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> Una vez que se crea una red virtual, se asigna un identificador de subred, específicamente mediante el cmdlet New-AzureRmVirtualNetwork con la opción -Subnet. Si configura la subred mediante el cmdlet New-AzureRmVirtualNetworkSubnetConfig antes de llamar a New-AzureRmVirtualNetwork, no verá el identificador de subred hasta después de llamar a New-AzureRmVirtualNetwork.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>Limpieza de la implementación 
+## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
 Ejecute el siguiente comando para quitar el grupo de recursos, la VM y todos los recursos relacionados:
 

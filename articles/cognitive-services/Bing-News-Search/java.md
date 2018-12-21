@@ -1,7 +1,7 @@
 ---
-title: 'Guía de inicio rápido: Bing News Search API con Java'
+title: 'Guía de inicio rápido: Realizar una búsqueda con C# - API de REST Bing Web Search'
 titlesuffix: Azure Cognitive Services
-description: Obtenga información y ejemplos de código que le ayudarán a empezar a usar Bing News Search API en Microsoft Cognitive Services en Azure.
+description: Use esta guía de inicio rápido para enviar una solicitud a la API de REST Bing News Search mediante Java y reciba una respuesta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: d8ab0e10e8332cf2305185849d6446d679210845
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 9933f1c54e6081ed3f1004712543610a7883736b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316844"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260963"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-java"></a>Inicio rápido para Bing News Search API con Java
+# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Guía de inicio rápido: Realizar una búsqueda de noticias mediante Java y la API de REST Bing News Search
 
 En este artículo se detalla cómo usar Bing Search API, que forma parte de Microsoft Cognitive Services en Azure. Si bien en este artículo se usa Java, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON. 
 

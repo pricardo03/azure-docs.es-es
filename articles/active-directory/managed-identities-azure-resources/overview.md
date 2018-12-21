@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987267"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320785"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>¿Qué es Managed Identities for Azure Resources?
 
@@ -34,7 +34,15 @@ La característica Managed Identities for Azure Resources se incluye gratuitamen
 > [!NOTE]
 > Identidades administradas para recursos de Azure es el nombre con el que ahora se conoce al servicio Managed Service Identity (MSI).
 
-## ¿Cómo funciona la característica?<a name="how-does-it-work"></a>
+## <a name="terminology"></a>Terminología
+
+Los siguientes términos se usan en las identidades administradas para el conjunto de documentación de los recursos de Azure:
+
+- **Id. de cliente**: un identificador único generado por Azure AD que está asociado a una aplicación y entidad de servicio durante su aprovisionamiento inicial.
+- **Id. de entidad**: identificador de objeto del objeto de entidad de servicio para la identidad administrada que se usa para conceder acceso basado en roles a un recurso de Azure.
+- **Azure Instance Metadata Service (IMDS)**: un punto de conexión REST al que pueden acceder todas las máquinas virtuales IaaS creadas con Azure Resource Manager. El punto de conexión está disponible en una dirección IP no enrutable conocida (169.254.169.254) a la que se puede acceder solo desde dentro de la máquina virtual.
+
+## ¿Cómo funcionan las identidades administradas para los recursos de Azure?<a name="how-does-it-work"></a>
 
 Hay dos tipos de identidades administradas:
 

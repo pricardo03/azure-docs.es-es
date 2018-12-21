@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7e71b4f93f3b890ea73e36052570f9047fc8f32
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43a059e13945be3e39f65995e18ccd552727b874
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228239"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312585"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Inicio rápido: Implementación de una aplicación de servicios de confianza de Java en Service Fabric
+# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Guía de inicio rápido: Implementación de una aplicación de servicios de confianza de Java en Service Fabric
 
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores.
 
@@ -67,7 +67,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 2. Abra Eclipse.
 3. Haga clic en File (Archivo) -> Import (Importar) -> Gradle -> Existing Gradle Project (Proyecto existente de Gradle) y siga los pasos del asistente.
-4. Haga clic en Directory (Directorio) y elija el directorio `Voting` de la carpeta `service-fabric-java-quickstart` que clonó de Github. Haga clic en Finish. 
+4. Haga clic en Directory (Directorio) y elija el directorio `Voting` de la carpeta `service-fabric-java-quickstart` que clonó de GitHub. Haga clic en Finish.
 
     ![Cuadro de diálogo de importación de Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -114,7 +114,7 @@ Para utilizar la CLI, es preciso crear un archivo PEM basado en el archivo PFX q
 
 Para usar Service Fabric Explorer, tendrá que importar el archivo PFX del certificado que descargó del sitio web de Party Cluster en el almacén de certificados (Windows o Mac) o en el explorador mismo (Ubuntu). Es necesaria la contraseña de la clave privada del archivo PFX; puede obtenerla en la página **Léame**.
 
-Utilice el método con el que se sienta más cómodo para importar el certificado en el sistema. Por ejemplo:
+Utilice el método con el que se sienta más cómodo para importar el certificado en el sistema. Por ejemplo: 
 
 * En Windows: haga doble clic en el archivo PFX y siga las indicaciones para instalar el certificado en el almacén personal, `Certificates - Current User\Personal\Certificates`. Como alternativa, puede usar el comando de PowerShell de las instrucciones de la página **Léame**.
 * En Mac: haga doble clic en el archivo PFX y siga las indicaciones para instalar el certificado en la cadena de claves.
@@ -132,7 +132,7 @@ Es necesario agregar una huella digital a la aplicación porque esta está usand
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. En el archivo `Voting/VotingApplication/ApplicationManifest.xml`, agregue el siguiente fragmento en la etiqueta **ApplicationManifest**. **X509FindValue** debe ser la huella digital del paso anterior (sin punto y coma). 
+2. En el archivo `Voting/VotingApplication/ApplicationManifest.xml`, agregue el siguiente fragmento en la etiqueta **ApplicationManifest**. **X509FindValue** debe ser la huella digital del paso anterior (sin punto y coma).
 
     ```xml
     <Certificates>

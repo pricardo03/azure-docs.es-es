@@ -1,246 +1,339 @@
 ---
-title: 'Tutorial: Configuración del reenvío de puertos en Load Balancer: Azure Portal | Microsoft Docs'
-description: Este tutorial muestra cómo configurar el reenvío de puertos mediante Azure Load Balancer para crear conexiones a las máquinas virtuales de una red virtual de Azure.
+title: 'Tutorial: Configuración del reenvío de puertos en Azure Load Balancer mediante Azure Portal'
+titlesuffix: Azure Load Balancer
+description: En este tutorial se explica cómo configurar el reenvío de puertos mediante Azure Load Balancer para crear conexiones a las máquinas virtuales de una red virtual de Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/18
+ms.date: 12/11/18
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: eac0636af1b46912897a4c93f86477c46299bc0f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.custom: seodec18
+ms.openlocfilehash: e3431ff7ee6991e5af3ecab0e734cc587009dcde
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757737"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273534"
 ---
-# <a name="tutorial-configure-port-fowarding-in-load-balancer-using-the-azure-portal"></a>Tutorial: Configuración del reenvío de puertos en Load Balancer mediante Azure Portal
+# <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configuración del enrutamiento de puerto en Azure Load Balancer mediante Azure Portal
 
-El reenvío de puertos mediante Azure Load Balancer le permite conectarse de forma remota a máquinas virtuales de la red virtual de Azure con la dirección IP pública de Load Balancer a través del número de puerto. En este tutorial, aprenderá a configurar el reenvío de puertos en Azure Load Balancer y a:
+El enrutamiento de puerto le permite conectarse a máquinas virtuales (VM) en una red virtual de Azure con el uso de un número de puerto y una dirección IP pública de Azure Load Balancer. 
 
+En este tutorial, se va a configurar el enrutamiento de puerto en Azure Load Balancer. Aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de un equilibrador de carga de Azure
-> * Creación del sondeo de estado de un equilibrador de carga
-> * Crear reglas de tráfico del equilibrador de carga
-> * Crear máquinas virtuales e instalar el servidor IIS
-> * Conectar máquinas virtuales a un equilibrador de carga
-> * Crear las reglas NAT de entrada del equilibrador de carga
-> * Ver el reenvío de puertos en funcionamiento
-
+> * Crear un equilibrador de carga estándar público para equilibrar el tráfico de red a través de las máquinas virtuales. 
+> * Crear una red virtual y máquinas virtuales con una regla de grupo de seguridad de red (NSG). 
+> * Agregar las máquinas virtuales al grupo de direcciones de back-end del equilibrador de carga.
+> * Crear un sondeo de mantenimiento del equilibrador de carga y reglas de tráfico.
+> * Crear reglas de enrutamiento de puerto de entrada del equilibrador de carga.
+> * Instalar y configurar IIS en las máquinas virtuales para ver el equilibrio de carga y el enrutamiento de puerto en acción.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+Para realizar todos los pasos de este tutorial, inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
-Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
+## <a name="create-a-standard-load-balancer"></a>Creación de un equilibrador de carga estándar
 
-## <a name="create-a-standard-load-balancer"></a>Crear un equilibrador de carga estándar
+En primer lugar, cree un equilibrador de carga estándar público que pueda equilibrar la carga de tráfico a través de las máquinas virtuales. Un equilibrador de carga estándar solo admite una dirección IP pública estándar. Cuando se crea un equilibrador de carga estándar, también se crea una dirección IP pública estándar, que se configura como el front-end de equilibrador de carga y se denomina **LoadBalancerFrontEnd** de manera predeterminada. 
 
-En esta sección, se crea un equilibrador de carga público que ayuda a equilibrar la carga de las máquinas virtuales. La versión Estándar de Load Balancer solo admite direcciones IP públicas estándar. Cuando se crea una instancia de Standard Load Balancer, también se debe crear una nueva dirección IP pública estándar que se configura como front-end (denominado *LoadBalancerFrontend* de forma predeterminada) para dicha instancia. 
+1. En el lado superior izquierdo del portal, seleccione **Crear un recurso** > **Redes** > **Load Balancer**.
+   
+1. En el panel **Crear equilibrador de carga**, escriba o seleccione estos valores:
+   
+   - **Nombre**: escriba *MyLoadBalancer*.
+   - **Tipo**: Seleccione **Público**. 
+   - **SKU**: Seleccione **Estándar**.
+   - **Dirección IP pública**: seleccione **Crear nueva** y escriba *MyPublicIP* en el campo.
+   - **Configurar la dirección IP pública** > **Zona de disponibilidad**: seleccione **Con redundancia de zona**.
+   - **ResourceGroup**: seleccione **Crear nuevo**, a continuación, escriba *MyResourceGroupLB* y seleccione **Aceptar**. 
+   - **Ubicación**: Seleccione **Europa Occidental**. 
+     
+     >[!NOTE]
+     >Asegúrese de crear el equilibrador de carga y todos los recursos para él en una ubicación compatible con Availability Zones. Para más información, vea [Regiones que admiten Availability Zones](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+   
+1. Seleccione **Crear**.
+   
+![Creación de un equilibrador de carga](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
 
-1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Equilibrador de carga**.
-2. En la página **Crear equilibrador de carga** especifique estos valores para el equilibrador de carga:
-    - *myLoadBalancer*: como nombre del equilibrador de carga.
-    - **Estándar**: como versión SKU del equilibrador de carga.
-    - **Pública**: como tipo de equilibrador de carga.
-    - *myPublicIP*: para la dirección IP pública **nueva** que cree.
-    - *myResourceGroupSLB*: como nombre del **nuevo** grupo de recursos que seleccione para crear.
-    - **Oeste de Europa**: como ubicación.
-3. Haga clic en **Crear** para crear el equilibrador de carga.
+## <a name="create-and-configure-back-end-servers"></a>Creación y configuración de servidores back-end
 
-![Crear un equilibrador de carga](./media/load-balancer-standard-public-portal/1a-load-balancer.png)
+Cree una red virtual con dos máquinas virtuales y agréguelas al grupo de back-end del equilibrador de carga. 
+
+### <a name="create-a-virtual-network"></a>Creación de una red virtual
+
+1. En la parte superior izquierda del portal, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
+   
+1. En el panel **Crear red virtual**, escriba o seleccione estos valores:
+   
+   - **Nombre**: escriba *MyVNet*.
+   - **ResourceGroup**: despliegue las opciones de **Seleccionar existente** y seleccione **MyResourceGroupLB**. 
+   - **Subred** > **Nombre**: escriba *MyBackendSubnet*.
+   
+1. Seleccione **Crear**.
+
+   ![Creación de una red virtual](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
+
+### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>Crear máquinas virtuales y agregarlas al grupo de back-end del equilibrador de carga
+
+1. En la parte superior izquierda del portal, seleccione **Crear un recurso** > **Proceso** > **Windows Server 2016 Datacenter**. 
+   
+1. En **Crear una máquina virtual**, escriba o seleccione los valores siguientes en la pestaña **Básico**:
+   - **Suscripción** > **Grupo de recursos**: despliegue y seleccione **MyResourceGroupLB**.
+   - **Nombre de la máquina virtual**: escriba *MyVM1*.
+   - **Región**: Seleccione **Europa Occidental**. 
+   - **Nombre de usuario**: escriba *azureuser*.
+   - **Contraseña**: escriba *Azure1234567*. 
+     Vuelva a escribir la contraseña en el campo **Confirmar contraseña**.
+   
+1. Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**. 
+   
+   Asegúrese de que está seleccionado lo siguiente:
+   - **Red virtual**: **MyVNet**
+   - **Subred**: **MyBackendSubnet**
+   
+1. En **IP pública**, seleccione **Crear nueva**, seleccione **Estándar** en la página **Crear dirección IP pública** y, después, seleccione **Aceptar**. 
+   
+1. En **Grupo de seguridad de red**, seleccione **Avanzado** para crear un grupo de seguridad de red (NSG), un tipo de firewall. 
+   1. En el campo **Configurar grupo de seguridad de red**, seleccione **Crear nuevo**. 
+   1. Escriba *MyNetworkSecurityGroup* y seleccione **Aceptar**. 
+   
+   >[!NOTE]
+   >Observe que, de forma predeterminada, el NSG ya tiene una regla de entrada para abrir el puerto 3389, el puerto de escritorio remoto (RDP).
+   
+1. Agregue la máquina virtual a un grupo de back-end de equilibrador de carga que cree:
+   
+   1. En **EQUILIBRIO DE CARGA** > **Place this virtual machine behind an existing load balancing solution?** (¿Colocar esta máquina virtual detrás de una solución de equilibrio de carga existente?), seleccione **Sí**. 
+   1. En **Opciones de equilibrio de carga**, seleccione **Azure Load Balancer** en el menú desplegable. 
+   1. En **Select a load balancer** (Seleccionar un equilibrador de carga), seleccione **MyLoadBalancer** en el menú desplegable. 
+   1. En **Select a backend pool** (Seleccionar un grupo de back-end), seleccione **Crear nuevo**, escriba *MyBackendPool* y seleccione **Crear**. 
+   
+   ![Creación de una red virtual](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
+   
+1. Seleccione la pestaña **Administración** o seleccione **Siguiente** > **Administración**. En **Supervisión**, establezca **Diagnósticos de arranque** en **Desactivado**.
+   
+1. Seleccione **Revisar + crear**.
+   
+1. Revise la configuración y, cuando la validación sea correcta, seleccione **Crear**. 
+
+1. Siga los pasos para crear una segunda máquina virtual llamada *MyVM2*, con todos los demás valores igual a MyVM1. 
+   
+   En **Grupo de seguridad de red**, después de seleccionar **Avanzado**, seleccione en el menú desplegable el grupo **MyNetworkSecurityGroup** que ya ha creado. 
+   
+   En **Select a backend pool** (Seleccionar un grupo de back-end), asegúrese de que **MyBackendPool** está seleccionado. 
+
+### <a name="create-an-nsg-rule-for-the-vms"></a>Creación de una regla de NSG para las máquinas virtuales
+
+Cree una regla de grupo de seguridad de red (NSG) para que las máquinas virtuales permitan conexiones entrantes de Internet (HTTP).
+
+>[!NOTE]
+>De forma predeterminada, el NSG ya tiene una regla que abre el puerto 3389, el puerto de escritorio remoto (RDP).
+
+1. Seleccione **Todos los recursos** en el menú izquierdo. En la lista de recursos, seleccione **MyNetworkSecurityGroup** en el grupo de recursos **MyResourceGroupLB**.
+   
+1. En **Configuración**, seleccione **Reglas de seguridad de entrada** y, a continuación, seleccione **Agregar**.
+   
+1. En el cuadro de diálogo **Agregar regla de seguridad de entrada**, escriba o seleccione lo siguiente:
+   
+   - **Origen**: Seleccione **Service Tag** (Etiqueta de servicio).  
+   - **Etiqueta de servicio de origen**: seleccione **Internet**. 
+   - **Intervalos de puertos de destino**: escriba *80*.
+   - **Protocolo**: seleccione **TCP**. 
+   - **Acción**: seleccione **Permitir**.  
+   - **Prioridad**: escriba *100*. 
+   - **Nombre**: escriba *MyHTTPRule*. 
+   - **Descripción**: escriba *Permitir HTTP*. 
+   
+1. Seleccione **Agregar**. 
+   
+   ![Creación de una regla de NSG](./media/tutorial-load-balancer-port-forwarding-portal/8-load-balancer-nsg-rules.png)
    
 ## <a name="create-load-balancer-resources"></a>Creación de recursos del equilibrador de carga
 
-En esta sección, va a configurar el equilibrador de carga para un grupo de direcciones de back-end y un sondeo de mantenimiento, y a especificar las reglas del equilibrador de carga.
+En esta sección, va a inspeccionar el grupo de back-end del equilibrador de carga y a configurar reglas de tráfico y sondeo de mantenimiento de un equilibrador de carga.
 
-### <a name="create-a-backend-address-pool"></a>Crear un grupo de direcciones de back-end
+### <a name="view-the-back-end-address-pool"></a>Visualización del grupo de direcciones de back-end
 
-Para distribuir el tráfico a las máquinas virtuales, un grupo de direcciones de back-end contiene las direcciones IP de las tarjetas de interfaz de red (NIC) virtuales conectadas al equilibrador de carga. Cree el grupo de direcciones de back-end *myBackendPool* para incluir *VM1* y *VM2*.
+Para distribuir el tráfico a las máquinas virtuales, el equilibrador de carga usa un grupo de direcciones de back-end que contiene las direcciones IP de las interfaces de red virtual (NIC) conectadas al equilibrador de carga. 
 
-1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, haga clic en **myLoadBalancer** en la lista de recursos.
-2. Haga clic en **Configuración**, **Grupos de back-end** y luego en **Agregar**.
-3. En la página **Agregar un grupo back-end**, en nombre, escriba *myBackEndPool*, como el nombre del grupo back-end y, a continuación, haga clic en **Aceptar**.
+Se ha creado el grupo de back-end del equilibrador de carga y se han agregado máquinas virtuales a él cuando se crearon las máquinas virtuales. También puede crear grupos de back-end y agregar o quitar máquinas virtuales en la página de **Grupos de back-end** del equilibrador de carga. 
+
+1. Seleccione **Todos los recursos** en el menú de la izquierda y, a continuación, en la lista de recursos seleccione **MyLoadBalancer**.
+   
+1. En **Configuración**, seleccione **Grupos de back-end**.
+   
+1. En la página **Grupos back-end**, expanda **MyBackendPool** y asegúrese de que aparecen ambas máquinas **VM1** y **VM2**.
+
+1. Seleccione **MyBackendPool**. 
+   
+   En la página **MyBackendPool**, en **MÁQUINA VIRTUAL** y **DIRECCIÓN IP**, puede agregar las máquinas virtuales disponibles al grupo o quitarlas.
+
+Puede crear grupos de back-end; para ello, seleccione **Agregar** en la página **Grupos de back-end**.
 
 ### <a name="create-a-health-probe"></a>Creación de un sondeo de estado
 
-Para permitir que el equilibrador de carga supervise el estado de la aplicación, utilice un sondeo de estado. El sondeo de estado agrega o quita de forma dinámica las máquinas virtuales de la rotación del equilibrador de carga en base a su respuesta a las comprobaciones de estado. Crear un sondeo de estado, *myHealthProbe*, para supervisar el estado de las máquinas virtuales.
+Para permitir que el equilibrador de carga supervise el mantenimiento de la máquina virtual, utilice un sondeo de mantenimiento. El sondeo de estado agrega o quita de forma dinámica las máquinas virtuales de la rotación del equilibrador de carga en base a su respuesta a las comprobaciones de estado. 
 
-1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, haga clic en **myLoadBalancer** en la lista de recursos.
-2. En **Configuración**, haga clic en **Sondeos de estado** y luego en **Agregar**.
-3. Use estos valores para crear el sondeo de estado:
-    - *myHealthProbe*: como nombre del sondeo de estado.
-    - **HTTP**: en tipo de protocolo.
-    - *80*: en número de puerto.
-    - *15*: como número de **Intervalo**, en segundos, entre los intentos de sondeo.
-    - *2*: como número de **Umbral incorrecto** o errores de sondeo consecutivos que deben producirse para que una máquina virtual se considere que no funciona de manera incorrecta.
-4. Haga clic en **OK**.
-
-   ![Incorporación de un sondeo](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
+1. Seleccione **Todos los recursos** en el menú de la izquierda y, a continuación, en la lista de recursos seleccione **MyLoadBalancer**.
+   
+1. En **Configuración**, seleccione **Sondeos de mantenimiento** y, a continuación, seleccione **Agregar**.
+   
+1. En la página **Agregar sondeo de mantenimiento**, escriba o seleccione los siguientes valores:
+   
+   - **Nombre**: escriba *MyHealthProbe*.
+   - **Protocolo**: en la lista desplegable, seleccione **HTTP**. 
+   - **Puerto**: escriba *80*. 
+   - **Ruta de acceso**: acepte */* para el identificador URI predeterminado. Puede reemplazar este valor por cualquier otro identificador URI. 
+   - **Intervalo**: escriba *15*. El valor Intervalo es el número de segundos entre los intentos de sondeo.
+   - **Umbral incorrecto**: escriba *2*. Este valor es el número de errores de sondeo consecutivos que tienen que producirse para que se considere que una máquina virtual no funciona correctamente.
+   
+1. Seleccione **Aceptar**.
+   
+   ![Incorporación de un sondeo](./media/tutorial-load-balancer-port-forwarding-portal/4-load-balancer-probes.png)
 
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
-Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración de la IP de front-end para el tráfico entrante y el grupo de IP de back-end para el tráfico entrante, junto con los puertos de origen y destino requeridos. Cree una regla de Load Balancer *myLoadBalancerRuleWeb* para escuchar el puerto 80 en el front-end *FrontendLoadBalancer* y enviar tráfico de red con equilibrio de carga al conjunto de direcciones back-end, *myBackEndPool*, que también usan el puerto 80. 
+Una regla del equilibrador de carga define cómo se distribuye el tráfico a las máquinas virtuales. La regla define la configuración IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico y los puertos de origen y destino requeridos. 
 
-1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, haga clic en **myLoadBalancer** en la lista de recursos.
-2. En **Configuración**, haga clic en **Reglas de equilibrio de carga** y luego en **Agregar**.
-3. Use estos valores para configurar la regla de equilibrio de carga:
-    - *myHTTPRule*: como nombre de la regla de equilibrio de carga.
-    - **TCP**: en tipo de protocolo.
-    - *80*: en número de puerto.
-    - *80*: como puerto de back-end.
-    - *myBackendPool*: como nombre del grupo back-end.
-    - *myHealthProbe*: como nombre del sondeo de estado.
-4. Haga clic en **OK**.
-    
-## <a name="create-backend-servers"></a>Creación de servidores back-end
+La regla del equilibrador de carga llamada **MyLoadBalancerRule** escucha en el puerto 80 en el front-end **LoadBalancerFrontEnd**. La regla envía el tráfico de red al grupo de direcciones de back-end **MyBackendPool**, también a través del puerto 80. 
 
-En esta sección, se crea una red virtual, luego dos máquinas virtuales para el grupo de back-end del equilibrador de carga y, finalmente, se instala IIS en las máquinas virtuales para ayudar a probar el reenvío de puertos mediante el equilibrador de carga.
+1. Seleccione **Todos los recursos** en el menú de la izquierda y, a continuación, en la lista de recursos seleccione **MyLoadBalancer**.
+   
+1. En **Configuración**, seleccione **Reglas de equilibrio de carga** y, a continuación, seleccione **Agregar**.
+   
+1. En la página **Agregar regla de equilibrio de carga**, escriba o seleccione los valores siguientes:
+   
+   - **Nombre**: escriba *MyLoadBalancerRule*.
+   - **Protocolo**: seleccione **TCP**.
+   - **Puerto**: escriba *80*.
+   - **Puerto back-end**: escriba *80*.
+   - **Grupo de back-end**: seleccione **MyBackendPool**.
+   - **Sondeo de mantenimiento**: seleccione **MyHealthProbe**. 
+   
+1. Seleccione **Aceptar**.
+   
+  ![Incorporación de una regla de equilibrador de carga](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
-### <a name="create-a-virtual-network"></a>Crear una red virtual
-1. En la parte superior izquierda de la pantalla, haga clic en **Nuevo** > **Redes** > **Red virtual** y especifique estos valores para la red virtual:
-    - *myVNet*: como nombre de la red virtual.
-    - *myResourceGroupSLB*: como nombre del grupo de recursos existente.
-    - *myAGSubnet*: como nombre de la subred.
-2. Haga clic en **Crear** para crear una red virtual.
+## <a name="create-an-inbound-nat-port-forwarding-rule"></a>Creación de una regla de enrutamiento de puerto NAT de entrada
 
-    ![Crear una red virtual](./media/load-balancer-standard-public-portal/2-load-balancer-virtual-network.png)
+Cree una regla de traducción de direcciones de red (NAT) de entrada del equilibrador de carga para enrutar el tráfico desde un puerto específico de la dirección IP front-end a un puerto específico de una máquina virtual back-end.
 
-### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
-
-1. En la parte superior izquierda de la pantalla, haga clic en **Nuevo** > **Proceso** > **Windows Server 2016 Datacenter** y especifique estos valores para la máquina virtual:
-    - *myVM1*: para el nombre de la máquina virtual.        
-    - *azureuser*: como nombre del usuario administrador.    
-    - *myResourceGroupSLB*: como **grupo de recursos**. Seleccione **Usar existente** y, después, seleccione *myResourceGroupSLB*.
-2. Haga clic en **OK**.
-3. Seleccione **DS1_V2** como tamaño de la máquina virtual y haga clic en **Seleccionar**.
-4. Especifique estos valores para la configuración de la máquina virtual:
-    -  *myVNet*: asegúrese de que se selecciona como red virtual.
-    - *myBackendSubnet*: -asegúrese de que se selecciona como subred.
-    - *myNetworkSecurityGroup*: como nombre del nuevo grupo de seguridad de red (firewall) que debe crear.
-5. Haga clic en **Deshabilitado** para deshabilitar los diagnósticos de arranque.
-6. Haga clic en **Aceptar**, revise la configuración en la página de resumen y haga clic en **Crear**.
-7. Cree otra máquina virtual llamada *VM2* y elija *myVnet* como la red virtual, *myBackendSubnet* como su subred y **myNetworkSecurityGroup* como su grupo de seguridad de red mediante los pasos 1 a 6. 
-
-### <a name="create-nsg-rules"></a>Creación de reglas de NSG
-
-En esta sección, se crean reglas de NSG para permitir conexiones entrantes que usen HTTP y RDP.
-
-1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, en la lista de recursos haga clic en **myNetworkSecurityGroup**, que se encuentra en el grupo de recursos **myResourceGroupSLB**.
-2. En **Configuración**, haga clic en **Reglas de seguridad de entrada** y, después, en **Agregar**.
-3. Especifique estos valores para la regla de seguridad de entrada llamada *myHTTPRule* para permitir que las conexiones HTTP entrantes usen el puerto 80:
-    - *Etiqueta de servicio*: en **Origen**.
-    - *Internet*: en **Etiqueta de servicio de origen**
-    - *80*: en **Intervalos de puerto de destino**
-    - *TCP*: en **Protocolo**
-    - *Permitir*: en **Acción**
-    - *100* en **Prioridad**
-    - *myHTTPRule* como nombre
-    - *Permitir HTTP*: como descripción
-4. Haga clic en **OK**.
- 
- ![Crear una red virtual](./media/load-balancer-standard-public-portal/8-load-balancer-nsg-rules.png)
-5. Repita los pasos 2 a 4 para crear otra regla llamada *myRDPRule* que permita una conexión RDP entrante con el puerto 3389 con los valores siguientes:
-    - *Etiqueta de servicio*: en **Origen**.
-    - *Internet*: en **Etiqueta de servicio de origen**
-    - *3389*: en **Intervalos de puerto de destino**
-    - *TCP*: en **Protocolo**
-    - *Permitir*: en **Acción**
-    - *200* en **Prioridad**
-    - *myRDPRule* como nombre
-    - *Permitir RDP*: como descripción
-
-### <a name="install-iis-on-vms"></a>Instalación de IIS en las máquinas virtuales
-
-1. Haga clic en **Todos los recursos** en el menú de la izquierda y, en la lista de recursos, haga clic en **myVM1**, que se encuentra en el grupo de recursos *myResourceGroupSLB*.
-2. En la página **Información general**, haga clic en **Conectar** a RDP en la máquina virtual.
-3. Inicie sesión en la máquina virtual con el nombre de usuario *azureuser*.
-4. En el escritorio del servidor, vaya a **Herramientas administrativas de Windows**>**Windows PowerShell**.
-5. En la ventana de PowerShell, ejecute los comandos siguientes para instalar el servidor IIS, eliminar el archivo iisstart.htm predeterminado y agregar uno nuevo que muestre el nombre de la máquina virtual:
-
-   ```azurepowershell-interactive
-    
-    # install IIS server role
-    Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
-    # remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
-    
-    # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
-   ```
-6. Cierre la sesión de RDP con *myVM1*.
-7. Repita los pasos 1 a 6 para instalar IIS y el archivo iisstart.htm actualizado en *myVM2*.
-
-## <a name="add-vms-to-the-backend-address-pool"></a>Incorporación de máquinas virtuales al grupo de direcciones de back-end
-
-Para distribuir el tráfico a las máquinas virtuales, agregue las máquinas virtuales *VM1* y *VM2* al grupo de direcciones back-end que creó anteriormente: *myBackendPool*. El grupo de back-end contiene las direcciones IP de las tarjetas de interfaz de red (NIC) virtuales conectadas al equilibrador de carga.
-
-1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, haga clic en **myLoadBalancer** en la lista de recursos.
-2. En **Configuración**, haga clic en **Grupos de back-end** y, a continuación, en la lista del grupo de back-end, haga clic en **myBackendPool**.
-3. En la página **myBackendPool**, realice lo siguiente:
-    - Haga clic en **Agregar una configuración IP de red de destino** para agregar cada máquina virtual (*myVM1* y *myVM2*) que ha creado al grupo de back-end.
-    - Haga clic en **OK**.
-4. Asegúrese de que la configuración del grupo de back-end del equilibrador de carga muestra todas las máquinas virtuales, **VM1** y **VM2**.
-
-## <a name="create-inbound-nat-rules"></a>Creación de reglas NAT de entrada
-Con Load Balancer puede crear una regla NAT de entrada para reenviar el tráfico desde un puerto específico de la dirección IP de un servidor front-end a un puerto de una instancia de back-end específica dentro de la red virtual.
-
-Cree una regla NAT de entrada para reenviar el tráfico de puerto desde los puertos front-end al puerto 3389 para las máquinas virtuales de back-end.
-
-1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, haga clic en **myLoadBalancer** en la lista de recursos.
-2. En **Configuración**, haga clic en **Reglas NAT de entrada** y, a continuación, en la lista del grupo de back-end, haga clic en **myBackendPool**.
-3. En la página **Agregar regla NAT de entrada**, escriba los siguientes valores:
-    - Como nombre de la regla NAT, escriba *myNATRuleRDPVM1*
-    - En puerto, escriba *4221*.
-    - Como **máquina virtual de destino**, seleccione *myVM1* en el menú desplegable.
-    - En **Asignación de puertos**, haga clic en Personalizar y, a continuación, como **puerto de destino**, escriba **3389**.
-    - Haga clic en **OK**.
-4. Repita los pasos 2 y 3 para crear reglas NAT denominadas *myNATRuleRDPVM2* para la máquina virtual *myVM2* mediante el puerto de front-end *4222*.
+1. Seleccione **Todos los recursos** en el menú de la izquierda y, después, en la lista de recursos seleccione **MyLoadBalancer**.
+   
+1. En **Configuración**, seleccione **Reglas NAT de entrada** y, después, seleccione **Agregar**. 
+   
+1. En la página **Agregar regla NAT de entrada**, escriba o seleccione los valores siguientes:
+   
+   - **Nombre**: escriba *MyNATRuleVM1*.
+   - **Puerto**: escriba *4221*.
+   - **Máquina virtual de destino**: seleccione **MyVM1** en la lista desplegable.
+   - **Asignación de puertos**: seleccione **Personalizada**.
+   - **Puerto de destino**: escriba *3389*.
+   
+1. Seleccione **Aceptar**.
+   
+1. Repita los pasos para agregar una regla NAT de entrada denominada *MyNATRuleVM2*, con **Puerto**: *4222* y **Máquina virtual de destino**: **MyVM2**.
 
 ## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
-1. Busque la dirección IP pública de Load Balancer en la pantalla **Información general**. Haga clic en **Todos los recursos** y, después, en **myPublicIP**.
 
-2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. La página predeterminada del servidor web de IIS se muestra en el explorador.
+En esta sección, se instalará Internet Information Services (IIS) en los servidores back-end y se personalizará la página web predeterminada para mostrar el nombre de la máquina. Después, se usará la dirección IP pública del equilibrador de carga para probar el equilibrador de carga. 
 
-      ![Servidor web de IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
+Cada máquina virtual de back-end sirve una versión diferente de la página web IIS predeterminada, de esta forma puede ver como el equilibrador de carga distribuye las solicitudes entre las dos máquinas virtuales.
 
-Para ver cómo el equilibrador de carga distribuye el tráfico entre las tres máquinas virtuales que ejecutan la aplicación, puede realizar una actualización forzada del explorador web.
+### <a name="connect-to-the-vms-with-rdp"></a>Conexión a las máquinas virtuales con RDP
+
+Conéctese a cada máquina virtual con Escritorio remoto (RDP). 
+
+1. En el portal, seleccione **Todos los recursos** en el menú izquierdo. En la lista de recursos, seleccione cada máquina virtual en el grupo de recursos **MyResourceGroupLB**.
+   
+1. En la página **Información general**, seleccione **Conectar** y, a continuación, seleccione **Descargar archivo RDP**. 
+   
+1. Abra el archivo RDP que descargó y seleccione **Conectar**.
+   
+1. En la pantalla Seguridad de Windows, seleccione **Más opciones** y, después, **Usar otra cuenta**. 
+   
+   Escriba el nombre de usuario *azureuser* y la contraseña *Azure1234567* y seleccione **Aceptar**.
+   
+1. Responda **Sí** a cualquier solicitud de certificado. 
+   
+   El escritorio de la máquina virtual se abre en una nueva ventana. 
+
+### <a name="install-iis-and-replace-the-default-iis-web-page"></a>Instalar IIS y reemplazar la página web predeterminada de IIS 
+
+Use PowerShell para instalar IIS y reemplazar la página web predeterminada de IIS por una página en la que se muestre el nombre de la máquina virtual.
+
+1. Iniciar **Windows PowerShell** en MyVM1 y MyVM2 desde el menú **Inicio**. 
+
+2. Ejecute los comandos siguientes para instalar IIS y reemplazar la página web predeterminada de IIS:
+   
+   ```powershell-interactive
+    # Install IIS
+      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # Remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    #Add custom htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    
+   ```
+   
+1. Cierre las conexiones RDP con MyVM1 y MyVM2 seleccionando **Desconectar**. No apague las máquinas virtuales.
+
+### <a name="test-load-balancing"></a>Prueba del equilibrio de carga
+
+1. En el portal, en la página **Información general** de **MyLoadBalancer**, copie la dirección IP pública en **Dirección IP pública**. Mantenga el puntero sobre la dirección y seleccione el icono **Copiar** para copiarlo. En este ejemplo, es **40.67.218.235**. 
+   
+1. Pegue o escriba la dirección IP pública del equilibrador de carga (*40.67.218.235*) en la barra de direcciones del explorador de Internet. 
+   
+   La página predeterminada del servidor web de IIS personalizada aparece en el explorador. El mensaje que aparece será **Hola mundo de MyVM1**, u **Hola mundo de MyVM2**.
+   
+   ![Nueva página predeterminada de IIS](./media/tutorial-load-balancer-port-forwarding-portal/9-load-balancer-test.png) 
+   
+1. Actualice el explorador para ver cómo el equilibrador de carga distribuye el tráfico entre máquinas virtuales. A veces aparece la página **MyVM1** y otras es la página **MyVM2** la que aparece, ya que el equilibrador de carga distribuye las solicitudes a cada máquina virtual de back-end.
+   
+   >[!NOTE]
+   >Puede que deba borrar la caché del explorador o abrir una nueva ventana del explorador entre intentos.
 
 ## <a name="test-port-forwarding"></a>Comprobación del reenvío de puertos
-Con el reenvío de puertos, puede crear una conexión a Escritorio remoto a las máquinas virtuales del grupo de direcciones de back-end mediante la dirección IP del equilibrador de carga y el valor del puerto de front-end que se definieron en el paso anterior.
 
-1. Busque la dirección IP pública de Load Balancer en la pantalla **Información general**. Haga clic en **Todos los recursos** y, después, en **myPublicIP**.
-2. Ejecute el comando siguiente en el equipo local para crear una sesión de Escritorio remoto con la máquina virtual *myVM2* desde el sistema local. Reemplace `<publicIpAddress>` con la dirección IP que devolvió el paso anterior.
+Con el enrutamiento de puerto, puede remitir el escritorio remoto a una máquina virtual back-end con la dirección IP del equilibrador de carga y el valor del puerto de front-end definidos en la regla NAT. 
 
-    ```
-    mstsc /v:<publicIpAddress>:4222
-    ```
+1. En el portal, en la página **Información general** de **MyLoadBalancer**, copie su dirección IP pública. Mantenga el puntero sobre la dirección y seleccione el icono **Copiar** para copiarlo. En este ejemplo, es **40.67.218.235**. 
+   
+1. Abra un símbolo del sistema y use el siguiente comando para crear una sesión de escritorio remoto con MyVM2, utilizando la dirección IP pública del equilibrador de carga y el puerto de front-end que definió en la regla NAT de la máquina virtual. 
+   
+   ```
+   mstsc /v:40.67.218.235:4222
+   ```
   
-3. Abra el archivo RDP descargado. Cuando se le pida, seleccione **Conectar**.
+1. Abra el archivo RDP descargado y seleccione **Conectar**.
+   
+1. En la pantalla Seguridad de Windows, seleccione **Más opciones** y, después, **Usar otra cuenta**. 
+   
+   Escriba el nombre de usuario *azureuser* y la contraseña *Azure1234567* y seleccione **Aceptar**.
+   
+1. Responda **Sí** a cualquier solicitud de certificado. 
+   
+   El escritorio de MyVM2 se abre en una nueva ventana. 
 
-4. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual (puede que deba seleccionar **Más opciones** y luego **Usar una cuenta diferente**, para especificar las credenciales que escribió cuando creó la máquina virtual). A continuación, seleccione **Aceptar**. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Seleccione **Sí** para continuar con la conexión.
- 
-   La conexión a Escritorio remoto se realiza con éxito, según la regla NAT de entrada *myNATRuleRDPVM2*, el tráfico del puerto **4222** front-end del equilibrador de carga está configurado para redirigirse al puerto 3389 de la máquina virtual *myVM2*.
+La conexión RDP se realiza correctamente, porque la regla NAT entrante **MyNATRuleVM2** dirige el tráfico del puerto de front-end del equilibrador de carga 4222 al puerto de MyVM2 3389 (puerto RDP).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando no los necesite, elimine el grupo de recursos, el equilibrador de carga y todos los recursos relacionados. Para ello, seleccione el grupo de recursos que contiene el equilibrador de carga y haga clic en **Eliminar**.
+Para eliminar el equilibrador de carga y todos los recursos relacionados cuando ya no los necesite, abra el grupo de recursos **MyResourceGroupLB** y seleccione **Eliminar grupo de recursos**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha creado un equilibrador de carga estándar, le ha asociado máquinas virtuales, ha configurado la regla de tráfico del equilibrador de carga y el sondeo de mantenimiento y, después, ha probado el equilibrador de carga. Además, quitó una máquina virtual del conjunto de carga equilibrada y la agregó de vuelta al grupo de direcciones back-end. Para más información acerca de Azure Load Balancer, diríjase a los tutoriales correspondientes.
+En este tutorial, ha creado un equilibrador de carga público estándar. Ha creado y configurado los recursos de red, servidores back-end, un sondeo de mantenimiento y las reglas para el equilibrador de carga. Ha instalado IIS en las máquinas virtuales de back-end y ha utilizado la dirección IP pública del equilibrador de carga para probar el equilibrador de carga. Ha configurado y probado el enrutamiento de puerto desde un puerto específico del equilibrador de carga a un puerto de la máquina virtual de back-end. 
+
+Para más información sobre Azure Load Balancer, consulte otros tutoriales sobre Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

@@ -1,5 +1,5 @@
 ---
-title: Creación de un plano técnico de Azure Blueprint en el portal
+title: Creación de un plano técnico en Azure Portal
 description: Utilice los planos técnicos de Azure Blueprint para crear, definir e implementar los artefactos.
 services: blueprints
 author: DCtheGeek
@@ -8,15 +8,15 @@ ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 2c53c5c51a6e93fa99f32400e512f0e13503b436
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092134"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315305"
 ---
-# <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico de Azure Blueprint en el portal
+# <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico de Azure Blueprint en Azure Portal
 
 Entender cómo crear y asignar planos técnicos permite la definición de patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
@@ -49,20 +49,20 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
 1. Compruebe que la información es correcta (los campos **Nombre del plano técnico** y **Ubicación de definición** no se pueden cambiar posteriormente) y haga clic en **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
 
-1. Agregue la asignación de roles en la suscripción: haga clic en la fila **+ Agregar artefacto...** en **Suscripción** y se abrirá la ventana "Agregar artefacto" en el lado derecho del explorador. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione Colaborador y deje el campo _Agregar usuario, aplicación o grupo_ con la casilla que indica un **parámetro dinámico**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Agregue una asignación de roles a la suscripción: haga clic en la fila **+ Agregar artefacto...** en **Suscripción** y se abrirá la ventana "Agregar artefacto" en el lado derecho del explorador. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione Colaborador y deje el campo _Agregar usuario, aplicación o grupo_ con la casilla que indica un **parámetro dinámico**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
    ![Artefacto: asignación de roles](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > La mayoría de los _artefactos_ admiten parámetros. Un parámetro que se asigna a un valor durante la creación del plano técnico es un **parámetro estático**. Si el parámetro se asigna durante la asignación del plano técnico, es un **parámetro dinámico**. Para más información, consulte el artículo sobre los [parámetros de un plano técnico](./concepts/parameters.md).
 
-1. Agregue la asignación de directiva en la suscripción: haga clic en la fila **+ Agregar artefacto...** directamente bajo **Suscripción**. Seleccione "Asignación de directiva" para _Tipo de artefacto_. Cambie _Tipo_ a Integrado y en _Buscar_ escriba "etiqueta". Haga clic fuera de _Búsqueda_ para que se produzca el filtrado. Seleccione la opción Aplicar una etiqueta y su valor predeterminado a los grupos de recursos haciendo clic en ella. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Agregue la asignación de directivas a la suscripción: haga clic en la fila **+ Agregar artefacto...** directamente bajo **Suscripción**. Seleccione "Asignación de directiva" para _Tipo de artefacto_. Cambie _Tipo_ a Integrado y en _Buscar_ escriba "etiqueta". Haga clic fuera de _Búsqueda_ para que se produzca el filtrado. Seleccione la opción Aplicar una etiqueta y su valor predeterminado a los grupos de recursos haciendo clic en ella. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
 1. Haga clic en la fila de la asignación de directiva Aplicar una etiqueta y su valor predeterminado a los grupos de recursos. Se abre la ventana para proporcionar parámetros al artefacto como parte de la definición del plano técnico y permite establecer los parámetros para todas las asignaciones (**parámetros estáticos**) basados en este plano técnico en lugar de durante la asignación (**parámetros dinámicos**). Este ejemplo usa **parámetros dinámicos** durante la asignación del plano técnico, así que deje los valores predeterminados y haga clic en **Cancelar**.
 
-1. Agregue un grupo de recursos en la suscripción: haga clic en la fila **+ Agregar artefacto...** bajo **Suscripción**. Seleccione "Grupo de recursos" para _Tipo de artefacto_. Deje los campos _Nombre del grupo de recursos_ y _Ubicación_ en blanco, pero asegúrese de que la casilla esté activada en cada propiedad para hacerlos **parámetros dinámicos**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Agregue un grupo de recursos a la suscripción: haga clic en la fila **+ Agregar artefacto...** en **Suscripción**. Seleccione "Grupo de recursos" para _Tipo de artefacto_. Deje los campos _Nombre del grupo de recursos_ y _Ubicación_ en blanco, pero asegúrese de que la casilla esté activada en cada propiedad para hacerlos **parámetros dinámicos**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
-1. Agregue una plantilla en el grupo de recursos: haga clic en la fila **+ Agregar artefacto...** directamente bajo la entrada **ResourceGroup**. Seleccione "Plantilla de Azure Resource Manager" para _Tipo de artefacto_, establezca _Nombre para mostrar del artefacto_ en "Cuenta de almacenamiento" y deje _Descripción_ en blanco. En la pestaña **Plantilla** en el cuadro del editor, pegue la siguiente plantilla de Resource Manager. Después de pegar la plantilla, haga clic en la pestaña **Parámetros** y observe que el parámetro de plantilla **storageAccountType** y el valor predeterminado **Standard_LRS** se detectaron automáticamente y se rellenaron, pero se configuraron como un **parámetro dinámico**. Quite la marca de la casilla y observe que el menú desplegable solo contiene valores incluidos en la plantilla de Resource Manager en **allowedValues**. Active la casilla para volver a establecer un **parámetro dinámico**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Agregue la plantilla en el grupo de recursos: Haga clic en la fila **+ Agregar artefacto...** directamente bajo la entrada **ResourceGroup**. Seleccione "Plantilla de Azure Resource Manager" para _Tipo de artefacto_, establezca _Nombre para mostrar del artefacto_ en "Cuenta de almacenamiento" y deje _Descripción_ en blanco. En la pestaña **Plantilla** en el cuadro del editor, pegue la siguiente plantilla de Resource Manager. Después de pegar la plantilla, haga clic en la pestaña **Parámetros** y observe que el parámetro de plantilla **storageAccountType** y el valor predeterminado **Standard_LRS** se detectaron automáticamente y se rellenaron, pero se configuraron como un **parámetro dinámico**. Quite la marca de la casilla y observe que el menú desplegable solo contiene valores incluidos en la plantilla de Resource Manager en **allowedValues**. Active la casilla para volver a establecer un **parámetro dinámico**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
    > [!IMPORTANT]
    > Si importa la plantilla, asegúrese de que el archivo es JSON solo y no incluye HTML. Cuando se apunte a una dirección URL en GitHub, asegúrese de que ha hecho clic en **RAW** para obtener el archivo JSON puro y no el que está encapsulado con HTML para mostrarse en GitHub. Si la plantilla importada no tiene formato JSON puro, se producirá un error.
@@ -125,11 +125,11 @@ En [Crear un plano técnico](#create-a-blueprint), no se proporcionó una descri
 
 1. En la lista de planos técnicos, haga clic con el botón derecho en el que creó anteriormente y seleccione **Editar plano técnico**.
 
-1. En **Descripción del plano técnico**, proporcione alguna información sobre el plano técnico y los artefactos que lo componen.  En este caso, introduzca algo como: "Este plano técnico establece la política de etiquetas y la asignación de roles en la suscripción, crea un grupo de recursos e implementa una plantilla de recursos y una asignación de roles a ese grupo de recursos".
+1. En **Descripción del plano técnico**, proporcione alguna información sobre el plano técnico y los artefactos que lo componen.  En este caso, escriba un texto similar al siguiente: "Este plano técnico establece la directiva de etiquetas y la asignación de roles en la suscripción, crea un grupo de recursos e implementa una plantilla de recursos y una asignación de roles a ese grupo de recursos".
 
 1. Haga clic en **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
 
-1. Agregue la asignación de roles en el grupo de recursos: haga clic en la fila **+ Agregar artefacto...** directamente bajo la entrada **ResourceGroup**. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione "Propietario" y quite la marca del campo _Agregar usuario, aplicación o grupo_ y busque y seleccione un usuario, aplicación o grupo para agregar. Este artefacto utiliza un **parámetro estático** que se establece igual en cada asignación de este plano técnico. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Agregue la asignación de roles en el grupo de recursos: haga clic en la fila **+ Agregar artefacto...** directamente bajo **Grupo de recursos**. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione "Propietario" y quite la marca del campo _Agregar usuario, aplicación o grupo_ y busque y seleccione un usuario, aplicación o grupo para agregar. Este artefacto utiliza un **parámetro estático** que se establece igual en cada asignación de este plano técnico. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
    ![Artefacto: asignación de roles número 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -173,7 +173,7 @@ Una vez que se publica un plano técnico, se puede asignar a una suscripción. A
 
 1. En **Asignación de bloqueo**, deje el valor predeterminado de **No bloquear**. Para más información, consulte [Bloqueo de recursos en planos técnicos](./concepts/resource-locking.md).
 
-1. Para la asignación de roles de nivel de suscripción **[grupo de usuarios o el nombre de la aplicación]: colaborador**, busque y seleccione un usuario, aplicación o grupo.
+1. Para la asignación de roles a nivel de suscripción **[Nombre de aplicación o grupo de usuarios]: Colaborador**, busque y seleccione un usuario, aplicación o grupo.
 
 1. Para la asignación de directivas de nivel de suscripción, establezca el **nombre de etiqueta** en CostCenter y el **valor de etiqueta** en ContosoIT.
 

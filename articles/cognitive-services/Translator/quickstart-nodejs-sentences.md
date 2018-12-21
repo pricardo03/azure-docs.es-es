@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: obtención de las longitudes de frase con Node.js: Translator Text API'
+title: 'Inicio rápido: Obtención de las longitudes de oración con Node.js: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, obtendrá información sobre cómo determinar las longitudes de frase (en caracteres) con Node.js y Translator Text REST API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 08c01f8c73f8d25b824a97d31f1681d9a7eb302e
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 09d0c855aada753b0a3e594055ec188c2698e677
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249114"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999015"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Guía de inicio rápido: Uso de Translator Text API para determinar las longitudes de frase con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Inicio rápido: Uso de Translator Text API para determinar las longitudes de oración con Node.js
 
 En esta guía de inicio rápido, obtendrá información sobre cómo determinar las longitudes de frase (en caracteres) con Node.js y Translator Text REST API.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 El método `request()`, disponible mediante el módulo de solicitud, nos permite pasar el método HTTP, la dirección URL, los parámetros de la solicitud, los encabezados y el cuerpo de JSON como un objeto `options`. En este fragmento de código, vamos a configurar la solicitud:
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Límites de oraciones del diccionario](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```javascript
 let options = {

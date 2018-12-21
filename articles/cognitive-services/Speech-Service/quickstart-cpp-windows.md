@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Reconocimiento de voz en C++ para Windows mediante el SDK de Speech Service'
+title: 'Inicio rápido: Reconocimiento de voz, C++ (Windows): servicios de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconocer la voz en C++ para Windows mediante el SDK de Speech Service
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218749"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075194"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en C++ en Windows mediante el SDK de Voz
 
@@ -31,11 +31,11 @@ Necesita una clave de suscripción del servicio Voz para completar este inicio r
 
 1. Inicie Visual Studio 2017.
 
-1. Asegúrese de que la carga de trabajo **Desarrollo para el escritorio con C++** está disponible. Elija **Herramientas** > **Get Tools and Features (Obtener herramientas y características)** desde la barra de menús de Visual Studio para abrir el instalador de Visual Studio. Si ya está habilitada esta carga de trabajo, vaya al paso siguiente. 
+1. Asegúrese de que la carga de trabajo **Desarrollo para el escritorio con C++** está disponible. Elija **Herramientas** > **Get Tools and Features (Obtener herramientas y características)** desde la barra de menús de Visual Studio para abrir el instalador de Visual Studio. Si ya está habilitada esta carga de trabajo, vaya al paso siguiente.
 
     ![Captura de pantalla de la pestaña Cargas de trabajo de Visual Studio](media/sdk/vs-enable-cpp-workload.png)
 
-    Si no es así, active la casilla junto a **Desarrollo para el escritorio con C++**. 
+    Si no es así, active la casilla junto a **Desarrollo para el escritorio con C++**.
 
 1. Asegúrese de que el componente **Administrador de paquetes NuGet** está disponible. Cambie a la pestaña **Componentes individuales** del cuadro de diálogo del instalador de Visual Studio y seleccione **Administrador de paquetes NuGet** si todavía no está habilitado.
 

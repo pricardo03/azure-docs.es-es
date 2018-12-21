@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 01b1a770959b29969fbfd0b4575a45b9c53318b6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bdfe390314f2d2174a26e9b321022a3589a06467
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867977"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086546"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de SQL
 
@@ -49,13 +49,13 @@ Antes de comenzar este tutorial de desarrollo de aplicaciones, debe disponer de 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Kit de desarrollo de Java (JDK) 7+](https://aka.ms/azure-jdks).
-* [IDE de Eclipse para desarrolladores de Java EE.](http://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
+* [IDE de Eclipse para desarrolladores de Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Un sitio web de Azure con un entorno de tiempo de ejecución Java (por ejemplo, Tomcat o Jetty) habilitado.](../app-service/app-service-web-get-started-java.md)
 
-Si va a instalar estas herramientas por primera vez, coreservlets.com proporciona un ejemplo paso a paso del proceso de instalación en la sección de inicio rápido de su artículo [Tutorial: Instalación de TomCat7 y uso con Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) .
+Si va a instalar estas herramientas por primera vez, coreservlets.com proporciona un ejemplo paso a paso del proceso de instalación en la sección de inicio rápido de su artículo [Tutorial: Instalación de TomCat7 y uso con Eclipse](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
 ## <a id="CreateDB"></a>Paso 1: Creación de una cuenta de Azure Cosmos DB
-Para comenzar, creemos una cuenta de Azure Cosmos DB. Si ya tiene una cuenta o si usa el Emulador de Azure Cosmos DB para este tutorial, puede ir directamente al [Paso 2: Creación de la aplicación de Java JSP](#CreateJSP).
+Para comenzar, creemos una cuenta de Azure Cosmos DB. Si ya tiene una cuenta o si usa el Emulador de Azure Cosmos DB para este tutorial, puede ir directamente al [Paso 2: Creación de la aplicación JSP de Java](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -84,7 +84,7 @@ Para crear la aplicación JSP:
     ![Hello World – Tutorial de aplicación de Java](./media/sql-api-java-application/image12.png)
 
 ## <a id="InstallSDK"></a>Paso 3: Instalación del SDK de Java para SQL
-La manera más sencilla de insertar el SDK de Java para SQL y sus dependencias es a través de [Apache Maven](http://maven.apache.org/).
+La manera más sencilla de insertar el SDK de Java para SQL y sus dependencias es a través de [Apache Maven](https://maven.apache.org/).
 
 Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pasos siguientes:
 
@@ -118,7 +118,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
             private String name;
         }
    
-    En este proyecto, va a usar [Project Lombok](http://projectlombok.org/) para generar el constructor, los captadores, los establecedores y un generador. Como alternativa, puede escribir este código manualmente o dejar que el IDE lo genere.
+    En este proyecto, va a usar [Project Lombok](https://projectlombok.org/) para generar el constructor, los captadores, los establecedores y un generador. Como alternativa, puede escribir este código manualmente o dejar que el IDE lo genere.
 2. Para invocar el servicio Azure Cosmos DB, debe crear una nueva instancia de **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient** , en lugar de construir un nuevo cliente para cada solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una **DocumentClientFactory**. En DocumentClientFactory.java, tendrá que pegar el valor URI y CLAVE PRINCIPAL que guardó en el portapapeles en el [paso 1](#CreateDB). Reemplace [YOUR\_ENDPOINT\_HERE] por el URI y reemplace [YOUR\_KEY\_HERE] por su CLAVE PRINCIPAL.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
@@ -729,7 +729,7 @@ Azure WebSites consigue que la implementación de aplicaciones de Java sea tan s
 ## <a id="GetProject"></a>Obtenga el proyecto desde GitHub
 Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) en GitHub. Para importar el proyecto todo en Eclipse, asegúrese de disponer del software y los recursos que aparecen en la sección [Requisitos previos](#Prerequisites) y haga lo siguiente:
 
-1. Instale [Project Lombok](http://projectlombok.org/). Lombok se utiliza para generar constructores, captadores y establecedores en el proyecto. Una vez haya descargado el archivo lombok.jar, haga doble clic en él para instalarlo o instálelo desde la línea de comandos.
+1. Instale [Project Lombok](https://projectlombok.org/). Lombok se utiliza para generar constructores, captadores y establecedores en el proyecto. Una vez haya descargado el archivo lombok.jar, haga doble clic en él para instalarlo o instálelo desde la línea de comandos.
 2. Si Eclipse está abierto, ciérrelo y reinícielo para cargar Lombok.
 3. En Eclipse, en el menú **File** (Archivo), haga clic en **Import** (Importar).
 4. En la ventana **Import** (Importar), haga clic en **Git**, en **Projects from Git** (Proyectos de Git) y luego en **Next** (Siguiente).

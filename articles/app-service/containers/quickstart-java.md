@@ -1,5 +1,5 @@
 ---
-title: Guía de inicio rápido para crear una aplicación web de Java en Azure App Service en Linux
+title: 'Creación de una aplicación web de Java en Linux: Azure App Service'
 description: En esta guía de inicio rápido, implementará su primera aplicación Hola mundo de Java en Azure App Service en Linux en cuestión de minutos.
 services: app-service\web
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247562"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252616"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Guía de inicio rápido: Creación de una aplicación web de Java en App Service en Linux
 
@@ -82,7 +82,7 @@ Luego agregue la siguiente definición del complemento al elemento `<build>` del
 
 Actualice los siguientes marcadores de posición en la configuración del complemento:
 
-| Placeholder | DESCRIPCIÓN |
+| Marcador de posición | DESCRIPCIÓN |
 | ----------- | ----------- |
 | `RESOURCEGROUP_NAME` | Nombre del nuevo grupo de recursos en el que se va a crear la aplicación web. Al colocar todos los recursos de una aplicación en un grupo, puede administrarlos juntos. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos asociados con la aplicación. Actualice este valor con un nombre único de un nuevo grupo de recursos, por ejemplo, *TestResources*. Este nombre lo utilizará para limpiar todos los recursos de Azure en una sección posterior. |
 | `WEBAPP_NAME` | El nombre de la aplicación forma parte del nombre de host de la aplicación web si se ha implementado en Azure (WEBAPP_NAME.azurewebsites.net). Actualice este valor con un nombre único para la nueva aplicación web de Azure, que hospedará la aplicación Java, por ejemplo *contoso*. |
@@ -108,8 +108,10 @@ Una vez que se haya completado la implementación, vaya a la aplicación impleme
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido se ha usado Maven para crear una aplicación web Java, se ha configurado el [complemento Maven para Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) y luego se ha implementado una aplicación Java empaquetada de archivo web en App Service en Linux. Para aprender a conectar bases de datos, configurar el registro, la supervisión y la seguridad, y establecer las opciones del runtime, pase a la Guía del desarrollador de Java para App Service en Linux.
+En esta guía de inicio rápido se ha usado Maven para crear una aplicación web Java, se ha configurado el [complemento Maven para Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) y luego se ha implementado una aplicación Java empaquetada de archivo web en App Service en Linux. Consulte los siguientes tutoriales y artículos de procedimientos para obtener más información al hospedar aplicaciones Java en App Service de Linux.
 
-> [!div class="nextstepaction"]
-> [Guía para desarrolladores de Java para App Service en Linux](app-service-linux-java.md)
+- [Tutorial: Implementación de una aplicación Java Enterprise con PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+- [Configuración de un origen de datos de Tomcat](app-service-linux-java.md#connecting-to-data-sources)
+- [CI/CD con Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+- [Configuración de herramientas de supervisión de rendimiento de aplicaciones](how-to-java-apm-monitoring.md)
 

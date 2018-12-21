@@ -1,6 +1,6 @@
 ---
-title: Suscripción a ediciones Azure Active Directory Premium | Microsoft Docs
-description: Instrucciones detalladas sobre cómo suscribirse a las ediciones Azure Active Directory Premium.
+title: 'Suscripción a ediciones premium: Azure Active Directory | Microsoft Docs'
+description: Instrucciones sobre cómo suscribirse a las ediciones Azure Active Directory Premium.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro
-ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394704"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073999"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Suscripción a Azure Active Directory Premium
-Puede adquirir Azure Active Directory (Azure AD) Premium y asociarlo con su suscripción de Azure. Si necesita crear una suscripción de Azure, debe activar también el plan de licencias y el acceso al servicio de Azure AD.
+# <a name="sign-up-for-azure-active-directory-premium-editions"></a>Suscripción a las ediciones Azure Active Directory Premium
+Puede adquirir ediciones Azure Active Directory (Azure AD) Premium y asociarlas a su suscripción de Azure. Si necesita crear una suscripción de Azure, debe activar también el plan de licencias y el acceso al servicio de Azure AD.
 
 > [!NOTE]
 >Las ediciones Azure AD Premium y Basic están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Azure AD Premium y Basic no se admiten actualmente en el servicio de Azure administrado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).

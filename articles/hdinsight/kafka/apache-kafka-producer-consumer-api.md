@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd4c077e23170a295a29a75df08cf8f29f8ba3e4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313842"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413360"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Uso de Producer API y Consumer API de Apache Kafka
 
@@ -25,7 +25,7 @@ Producer API de Kafka permite a las aplicaciones enviar flujos de datos al clús
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configuración de su entorno de desarrollo
+> * Configurado su entorno de desarrollo
 > * Configuración del entorno de implementación
 > * Comprendiendo el código
 > * Compilar e implementar la aplicación
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Para más información acerca de las API, consulte la documentación de Apache relativa a [Producer API](https://kafka.apache.org/documentation/#producerapi) y a [Consumer API](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="set-up-your-development-environment"></a>Configuración de su entorno de desarrollo
+## <a name="set-up-your-development-environment"></a>Configurado su entorno de desarrollo
 
 Debe tener los siguientes componentes instalados en el entorno de desarrollo:
 
@@ -49,7 +49,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK 
 
 * `JAVA_HOME`: debe apuntar al directorio en el que esté instalado JDK.
 * `PATH`: debe contener las rutas de acceso siguientes:
-  
+
     * `JAVA_HOME` (o la ruta de acceso equivalente).
     * `JAVA_HOME\bin` (o la ruta de acceso equivalente).
     * Directorio en el que esté instalado Maven.
@@ -145,11 +145,11 @@ El archivo [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
     Este comando crea un directorio denominado `target`, que contiene un archivo denominado `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
 3. Use los siguientes comandos para copiar el archivo `kafka-producer-consumer-1.0-SNAPSHOT.jar` en el clúster de HDInsight:
-   
+
     ```bash
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
-   
+
     Reemplace **SSHUSER** por el usuario SSH de su clúster y **CLUSTERNAME** por el nombre de su clúster. Cuando se le solicite, escriba la contraseña del usuario SSH.
 
 ## <a id="run"></a> Ejecutar el ejemplo
@@ -190,11 +190,11 @@ El archivo [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
     ```
 
 4. Cuando finalice el productor, use el comando siguiente para leer desde el tema:
-   
+
     ```bash
     java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
     ```
-   
+
     Se muestran los registros leídos, junto con un número de registros.
 
 5. Use __Ctrl + C__ para salir del consumidor.
@@ -204,7 +204,7 @@ El archivo [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
 Los consumidores de Kafka usan un grupo de consumidores al leer los registros. Usar el mismo grupo con varios consumidores deriva en lecturas de un tema con equilibrio de carga. Cada consumidor del grupo recibe una parte de los registros.
 
 La aplicación del consumidor acepta un parámetro que se usa como identificador del grupo. Por ejemplo, el comando siguiente inicia un consumidor mediante un identificador de grupo `mygroup`:
-   
+
 ```bash
 java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
 ```

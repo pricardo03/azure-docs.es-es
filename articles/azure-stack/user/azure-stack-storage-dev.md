@@ -9,23 +9,23 @@ ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a914a95831176a51cc6b5e2c5bf69ef1ad60bcc0
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035939"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341565"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introducción a las herramientas de desarrollo de almacenamiento de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Microsoft Azure Stack proporciona un conjunto de servicios de almacenamiento que incluye almacenamiento de blobs, tablas y colas.
 
 Utilice este artículo como guía de introducción a las herramientas de desarrollo de almacenamiento de Azure Stack. Puede encontrar información más detallada y código de ejemplo en los tutoriales correspondientes de Azure Storage.
 
-> [!NOTE]  
-> Hay diferencias conocidas entre Azure Storage y almacenamiento de Azure Stack, incluidos los requisitos específicos de cada plataforma. Por ejemplo, hay requisitos de bibliotecas de cliente y de sufijos de puntos de conexión que son específicos de Azure Stack. Para más información, consulte [Almacenamiento de Azure Stack: Diferencias y consideraciones](azure-stack-acs-differences.md).
+> [!NOTE]
+> Hay diferencias conocidas entre Azure Storage y almacenamiento de Azure Stack, incluidos los requisitos específicos de cada plataforma. Por ejemplo, hay requisitos de bibliotecas de cliente y de sufijos de puntos de conexión que son específicos de Azure Stack. Para más información, consulte [Azure Stack Storage: Diferencias y consideraciones](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Bibliotecas de clientes de Azure
 

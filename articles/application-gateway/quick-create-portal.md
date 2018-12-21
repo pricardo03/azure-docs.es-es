@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6ad839b9cf1179e282b9163df5a38e13417408e2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7e11affece7e7eb133aa22e159ec07d4f15e96f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706235"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999597"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Guía de inicio rápido: dirigir el tráfico web con Azure Application Gateway: Azure Portal
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal
 
 Con Azure Application Gateway, puede dirigir el tráfico web de la aplicación a recursos específicos mediante la asignación de agentes de escucha a los puertos, la creación de reglas y la adición de recursos a un grupo de back-end.
 
@@ -25,7 +25,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
@@ -87,10 +87,10 @@ En este ejemplo, se crean dos máquinas virtuales que se usan como servidores ba
     - *azureuser*: como nombre del usuario administrador.
     - *Azure123456!* como contraseña.
 
-   Acepte los otros valores predeterminados y haga clic en **Siguiente: Discos**.
-4. Acepte los discos predeterminados y haga clic en **Siguiente: Redes**.
+   Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.
+4. Acepte los valores predeterminados de disco y haga clic en **Siguiente: Redes**.
 5. Asegúrese de que **myVNet** está seleccionada como red virtual y que la subred es **myBackendSubnet**.
-6. Acepte los otros valores predeterminados y haga clic en **Siguiente: Administración**.
+6. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.
 7. Haga clic en **Desactivar** para deshabilitar los diagnósticos de arranque. Acepte los otros valores predeterminados y haga clic en **Revisar y crear**.
 8. Revise la configuración en la página de resumen y haga clic en **Crear**.
 9. Espere a que se complete la creación de la máquina virtual antes de continuar.

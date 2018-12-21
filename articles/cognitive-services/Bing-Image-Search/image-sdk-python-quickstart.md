@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Búsqueda de imágenes con el SDK de Bing Image Search para Python'
+title: 'Guía de inicio rápido: Búsqueda de imágenes: SDK de Bing Image Search para Python'
 titleSuffix: Azure Cognitive Services
 description: Use este inicio rápido para buscar su primera imagen con el SDK de Bing Image Search, un contenedor de la API y que contiene las mismas características. Esta sencilla aplicación de Python envía una consulta de búsqueda de imagen, analiza la respuesta de JSON y muestra la dirección URL de la primera imagen devuelta.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: a2a39049196e19d29d2b4d845b9cf756392013bf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: c0cb795f2d40963263cbbb15a54ba8af2953f5f0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315042"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250372"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>Inicio rápido: Búsqueda de imágenes con el SDK de Bing Image Search y Python
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Guía de inicio rápido: Búsqueda de imágenes con el SDK de Bing Image Search para Python
 
 Use este inicio rápido para buscar su primera imagen con el SDK de Bing Image Search, un contenedor de la API y que contiene las mismas características. Esta sencilla aplicación de Python envía una consulta de búsqueda de imagen, analiza la respuesta de JSON y muestra la dirección URL de la primera imagen devuelta.
 

@@ -11,16 +11,15 @@ ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 36bd0ca06859c1952a75b1aa8397fba88dc22d40
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: be3271a1105e8222ae04e17140c6e925a1c612f9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574919"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105465"
 ---
-# <a name="how-to-create-a-basic-group-and-add-members-using-azure-active-directory"></a>Creación de un grupo básico e incorporación de miembros con Azure Active Directory
-
+# <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Creación de un grupo básico e incorporación de miembros con Azure Active Directory
 Puede crear un grupo básico con el portal de Azure Active Directory (Azure AD). Para los fines de este artículo, el propietario del recurso (administrador) agrega un grupo básico a un único recurso e incluye miembros específicos (empleados) que necesitan acceder a dicho recurso. Para escenarios más complejos, incluida la creación de reglas y las pertenencias dinámicas, vea la [documentación de administración de usuarios de Azure Active Directory](../users-groups-roles/index.yml).
 
 ## <a name="create-a-basic-group-and-add-members"></a>Creación de un grupo básico y adición de miembros
@@ -75,13 +74,13 @@ Puede crear un grupo básico y agregar los miembros al mismo tiempo.
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha agregado un grupo y al menos un usuario, puede:
 
-- [Ver los grupos y miembros](active-directory-groups-view-azure-portal.md)
+- [Visualización de grupos y miembros](active-directory-groups-view-azure-portal.md)
 
 - [Administración de pertenencia al grupo](active-directory-groups-membership-azure-portal.md)
 
 - [Administrar reglas dinámicas de los usuarios de un grupo](../users-groups-roles/groups-create-rule.md)
 
-- [Editar la configuración del grupo](active-directory-groups-settings-azure-portal.md)
+- [Edición de la configuración de un grupo](active-directory-groups-settings-azure-portal.md)
 
 - [Administrar el acceso a los recursos mediante grupos](active-directory-manage-groups.md)
 

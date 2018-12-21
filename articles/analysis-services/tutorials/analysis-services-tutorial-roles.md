@@ -1,20 +1,21 @@
 ---
-title: 'Tutorial: lección de configuración de los roles de administrador del servidor y de usuario de Azure Analysis Services | Microsoft Docs'
+title: 'Tutorial: Configuración de los roles de administrador y usuario de Azure Analysis Services | Microsoft Docs'
+description: Aprenda a configurar roles de Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: a1e6e04c4019086d56cc0eb25176a507e514c477
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929236"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000647"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: configuración de los roles de administrador del servidor y de usuario
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configuración de los roles de administrador del servidor y de usuario
 
  En este tutorial se utiliza SQL Server Management Studio (SSMS) para conectarse al servidor de Azure para configurar los roles de administrador del servidor y de base de datos modelo. También es una introducción a [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL es un lenguaje de scripting basado en JSON para modelos tabulares de los niveles de compatibilidad 1200 y superiores. Se puede utilizar para automatizar varias tareas de modelado tabular. TMSL se suele utilizar con PowerShell, pero en este tutorial se utilizará el editor de consultas XMLA de SSMS. Con este tutorial se completan las siguientes tareas: 
   
@@ -27,7 +28,7 @@ ms.locfileid: "37929236"
 
 Para más información sobre la seguridad del usuario en Azure Analysis Services, consulte [Autenticación y permisos de usuario](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Azure Active Directory en la suscripción.
 - Un [servidor de Azure Analysis Services](../analysis-services-create-server.md) creado en la suscripción.
@@ -35,7 +36,7 @@ Para más información sobre la seguridad del usuario en Azure Analysis Services
 - [Modelo de ejemplo de adventureworks](../analysis-services-create-sample-model.md) agregado al servidor.
 - La [versión más reciente de SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) instalada.
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en el [portal](https://portal.azure.com/).
 
@@ -143,5 +144,5 @@ Cuando ya no los necesite, elimine las cuentas de usuario o de grupo y los roles
 En este tutorial aprendió a conectarse al servidor de Azure AS y a explorar las bases de datos del modelo de ejemplo de adventureworks y las propiedades en SSMS. También aprendió a utilizar scripts SSMS y TMSL para agregar usuarios o grupos a nuevos roles o a roles existentes. Ahora que tiene permisos de usuario configurados para el servidor y la base de datos del modelo de ejemplo, usted y otros usuarios pueden conectarse a ellos mediante aplicaciones cliente como Power BI. Para más información, continúe con el siguiente tutorial. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: conexión con Power BI Desktop](analysis-services-tutorial-pbid.md)
+> [Tutorial: Conexión con Power BI Desktop](analysis-services-tutorial-pbid.md)
 

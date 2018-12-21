@@ -1,5 +1,5 @@
 ---
-title: Compilación de una aplicación web Python y PostgreSQL en Azure App Service | Microsoft Docs
+title: 'Compilación de una aplicación web Python con PostgreSQL en Linux: Azure App Service | Microsoft Docs'
 description: Aprenda a ejecutar una aplicación Python controlada por datos en Azure, con conexión a una base de datos PostgreSQL.
 services: app-service\web
 documentationcenter: python
@@ -11,13 +11,13 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
-ms.custom: mvc
-ms.openlocfilehash: 3963e2ffb521a4b4732814e9b2992f4e83af1835
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865631"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337996"
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Compilación de una aplicación web Python y PostgreSQL en Azure App Service
 
@@ -205,7 +205,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 > [!NOTE]
 > Esta configuración permite conexiones de red desde todas las direcciones IP dentro de la red Azure. Para su uso en producción, pruebe a configurar las reglas de firewall más restrictivas posibles [con solo las direcciones IP de salida que utiliza la aplicación](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-En Cloud Shell, ejecute de nuevo el comando para permitir el acceso desde el equipo local y reemplace *\<su_dirección_ip>* por [la dirección IP IPv4 local](http://www.whatsmyip.org/).
+En Cloud Shell, ejecute de nuevo el comando para permitir el acceso desde el equipo local y reemplace *\<su_dirección_ip>* por [la dirección IP IPv4 local](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -287,7 +287,7 @@ Django valida el encabezado `HTTP_HOST` en las solicitudes entrantes. Para que l
 ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
-Como Django no admite [archivos estáticos en producción](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), tendrá que habilitarlo manualmente. Para este tutorial, puede usar [WhiteNoise](http://whitenoise.evans.io/en/stable/). El paquete WhiteNoise ya está incluido en el archivo _requirements.txt_. Solo tiene que configurar Django para utilizarlo. 
+Como Django no admite [archivos estáticos en producción](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), tendrá que habilitarlo manualmente. Para este tutorial, puede usar [WhiteNoise](https://whitenoise.evans.io/en/stable/). El paquete WhiteNoise ya está incluido en el archivo _requirements.txt_. Solo tiene que configurar Django para utilizarlo. 
 
 En _azuresite/settings.py_, busque el valor `MIDDLEWARE` y agregue el middleware `whitenoise.middleware.WhiteNoiseMiddleware` a la lista, justo debajo del middleware `django.middleware.security.SecurityMiddleware`. El valor `MIDDLEWARE` debe tener este aspecto:
 
@@ -307,7 +307,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 
-Para más información sobre cómo configurar WhiteNoise, consulte la [documentación de WhiteNoise](http://whitenoise.evans.io/en/stable/).
+Para más información sobre cómo configurar WhiteNoise, consulte la [documentación de WhiteNoise](https://whitenoise.evans.io/en/stable/).
 
 > [!IMPORTANT]
 > La sección de configuración de la base de datos ya sigue el procedimiento recomendado de seguridad que aconseja usar variables de entorno. Para conocer todas las recomendaciones de implementación, consulte [Documentación de Django: Lista de comprobación de implementación](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).

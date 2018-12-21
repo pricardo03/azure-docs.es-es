@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs Capture se habilita a través del portal | Microsoft Docs
-description: Habilite la funcionalidad de captura de Event Hubs mediante Azure Portal.
+title: 'Captura de eventos de streaming con Azure Portal: Azure Event Hubs | Microsoft Docs'
+description: En este artículo se describe cómo habilitar la captura de eventos que se transmiten en secuencias a través de Azure Event Hubs mediante Azure Portal.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -10,18 +10,19 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5cb3fee975e99af3d86affcbc18d89277dde2dc1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f57e75f90511ace45198d7516a5d2550123d9be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409125"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075121"
 ---
-# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Habilitación de la funcionalidad de captura de Event Hubs mediante Azure Portal
+# <a name="enable-capturing-of-events-streaming-through-azure-event-event-hubs"></a>Habilitación de la captura de eventos que se transmiten en secuencias a través de Azure Event Hubs
 
 Azure [Event Hubs Capture][capture-overview] le permite ofrecer automáticamente los datos de streaming de Event Hubs a una cuenta de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o de [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) que prefiera.
 
@@ -35,7 +36,7 @@ Al crear un centro de eventos, puede habilitar Capture haciendo clic en el botó
 
 La ventana de tiempo predeterminada es cinco minutos. El valor mínimo es 1 y el máximo 15. La ventana **Tamaño** tiene un intervalo de 10-500 MB.
 
-![][1]
+![Período de tiempo para la captura][1]
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Captura de datos en una cuenta de Azure Data Lake Store
 
@@ -46,13 +47,13 @@ Para capturar datos en Azure Data Lake Store, cree una cuenta de Data Lake Store
 1. Cree una cuenta de Data Lake Store siguiendo las instrucciones que se describen en [Introducción al uso de Azure Portal por parte de Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 2. Siga las instrucciones de la sección [Asignación de permisos a Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) para crear una carpeta dentro de la cuenta de Data Lake Store en la que desee capturar los datos de Event Hubs y asignar permisos a Event Hubs para que pueda escribir datos en su cuenta de Data Lake Store.  
 
-### <a name="create-an-event-hub"></a>Crear un centro de eventos
+### <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
 1. Tenga en cuenta que el centro de eventos debe estar en la misma suscripción de Azure que la instancia de Azure Data Lake Store que acaba de crear. Para crear el centro de eventos, haga clic en el botón **Activado** situado bajo **Capture** en la página del portal **Crear centro de eventos**. 
 2. En la página del portal **Crear centro de eventos**, seleccione **Azure Data Lake Store** en el cuadro **Capture Provider** (Proveedor de Capture).
 3. En **Seleccione Data Lake Store**, especifique la cuenta de Data Lake Store que creó anteriormente y en **Data Lake Path** (Ruta de acceso de Data Lake), escriba la ruta de acceso a la carpeta de datos que ha creado.
 
-    ![][3]
+    ![Selección de la cuenta de Data Lake Storage][3]
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>Adición o configuración de Capture en un centro de eventos existente
 
@@ -60,11 +61,11 @@ Se puede configurar Capture en los centros de eventos existentes que se encuentr
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-![][2]
+![Configuración de Azure Blob Storage][2]
 
 ### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
-![][4]
+![Configurar Azure Data Lake Storage][4]
 
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png

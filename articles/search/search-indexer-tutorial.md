@@ -1,5 +1,5 @@
 ---
-title: Tutorial para la indexación de bases de datos SQL de Azure en Azure Search | Microsoft Docs
+title: 'Tutorial para la indexación de bases de datos SQL de Azure en Azure Portal: Azure Search'
 description: En este tutorial, va a rastrear Azure SQL Database para extraer los datos que permiten búsqueda y rellenar un índice de Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988802"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312058"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial: Rastreo de una base de datos SQL de Azure mediante los indexadores de Azure Search
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial: Cómo rastrear una base de datos SQL de Azure mediante los indexadores de Azure Search
 
 En este tutorial se muestra cómo configurar un indexador para extraer datos que permiten búsqueda de una base de datos SQL de Azure de ejemplo. [Los indexadores](search-indexer-overview.md) son un componente de Azure Search que rastrean orígenes de datos externos y rellenan un [índice de búsqueda](search-what-is-an-index.md) con contenido. De todos los indexadores, el más usado es el indexador de base de datos SQL de Azure. 
 

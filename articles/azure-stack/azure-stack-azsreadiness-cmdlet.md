@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 03fd91b8412c75a994f55f589179f718189e67a7
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 1dbfd668c2d233d299ee673da92ca203e72942fe
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891170"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957431"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referencia del cmdlet Start-AzsReadinessChecker
 
@@ -29,6 +29,7 @@ Módulo: Microsoft.AzureStack.ReadinessChecker
 Este módulo solo contiene un único cmdlet.  Este cmdlet realiza una o más funciones anteriores a la implementación o al mantenimiento en Azure Stack.
 
 ## <a name="syntax"></a>Sintaxis
+
 ```PowerShell
 Start-AzsReadinessChecker
        [-CertificatePath <String>]
@@ -103,7 +104,6 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-
 ```PowerShell
 Start-AzsReadinessChecker
        -AADServiceAdministrator <PSCredential>
@@ -163,15 +163,13 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
+## <a name="description"></a>DESCRIPCIÓN
 
-
-
-
- ## <a name="description"></a>DESCRIPCIÓN
 El cmdlet **Start-AzsReadinessChecker** valida los certificados, las cuentas de Azure, las suscripciones de Azure y los directorios de Azure Active Directory. Ejecute la validación antes de implementar Azure Stack o de realizar acciones de servicio de Azure Stack como la rotación de secretos. El cmdlet también puede usarse para generar solicitudes de firma de certificado para certificados de infraestructura y, opcionalmente, para certificados de PaaS.  Por último, el cmdlet puede volver a empaquetar los certificados PFX para solucionar problemas comunes de empaquetado.
 
 ## <a name="examples"></a>Ejemplos
-**Ejemplo: Generación de solicitudes de firma de certificado**
+
+### <a name="example-generate-certificate-signing-request"></a>Ejemplo: Generación de la solicitud de firma de certificado
 
 ```PowerShell
 $regionName = 'east'
@@ -182,22 +180,26 @@ Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -s
 
 En este ejemplo, Start-AzsReadinessChecker genera varias solicitudes de firma de certificados (CSR) para los certificados adecuados para la implementación de Azure Stack ADFS con un nombre de región de "east" y un FQDN externo de "azurestack.contoso.com".
 
-**Ejemplo: Validación de certificados**
+### <a name="example-validate-certificates"></a>Ejemplo: Validación de certificados
+
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-En este ejemplo, se solicita de forma segura la contraseña PFX y Start-AzsReadinessChecker busca en la carpeta relativa "Certificados" los certificados válidos para una implementación de AAD con un nombre de región de "east" y un FQDN externo de "azurestack.contoso.com". 
+En este ejemplo, se solicita de forma segura la contraseña PFX y Start-AzsReadinessChecker busca en la carpeta relativa "Certificados" los certificados válidos para una implementación de AAD con un nombre de región de "east" y un FQDN externo de "azurestack.contoso.com".
 
-**Ejemplo: Validación de certificados con datos de implementación (implementación y soporte técnico)**
+### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Ejemplo: Validación de certificados con datos de implementación (implementación y soporte técnico)
+
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
+
 En este ejemplo de implementación y soporte técnico, se solicita la contraseña PFX de forma segura y Start-AzsReadinessChecker busca en la carpeta relativa "Certificados" los certificados válidos para una implementación donde la identidad, la región y el FQDN externo se leen del archivo JSON de datos de implementación generado para la implementación. 
 
-**Ejemplo: Validación de certificados de PaaS**
+### <a name="example-validate-paas-certificates"></a>Ejemplo: Validación de certificados de PaaS
+
 ```PowerShell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -211,7 +213,8 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName eas
 
 En este ejemplo, se crea una tabla hash con las rutas de acceso y las contraseñas de cada certificado de PaaS. Los certificados se pueden omitir. Start-AzsReadinessChecker comprueba que cada ruta de acceso de PFX existe y la valida con la región "east" y el FQDN externo "azurestack.contoso.com".
 
-**Ejemplo: Validación de certificados de PaaS con datos de implementación**
+### <a name="example-validate-paas-certificates-with-deployment-data"></a>Ejemplo: Validación de certificados de PaaS con datos de implementación
+
 ```PowerShell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -225,7 +228,8 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSO
 
 En este ejemplo, se crea una tabla hash con las rutas de acceso y las contraseñas de cada certificado de PaaS. Los certificados se pueden omitir. Start-AzsReadinessChecker comprueba que cada ruta de acceso de PFX existe y la valida con la región y el FQDN externo que se leen del archivo JSON de datos de implementación generado para la implementación. 
 
-**Ejemplo: Validación de la identidad de Azure**
+### <a name="example-validate-azure-identity"></a>Ejemplo: Validación de la identidad de Azure
+
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 # Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
@@ -234,8 +238,8 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Azur
 
 En este ejemplo, se solicitan las credenciales de cuenta de administrador del servicio de forma segura y Start-AzsReadinessChecker comprueba que la cuenta de Azure y Azure Active Directory son válidos para una implementación de AAD con un nombre de directorio de inquilino de "azurestack.contoso.com".
 
+### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Ejemplo: Validación de la identidad de Azure con datos de implementación (compatibilidad de implementación)
 
-**Ejemplo: Validación de la identidad de Azure con datos de implementación (compatibilidad de implementación)**
 ```PowerSHell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-depploymentdata.json
@@ -243,8 +247,8 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Depl
 
 En este ejemplo, se solicitan las credenciales de cuenta de administrador del servicio de forma segura y Start-AzsReadinessChecker comprueba que la cuenta de Azure y Azure Active Directory son válidos para una implementación de AAD donde AzureCloud y TenantName se leen del archivo JSON de datos de implementación generado para la implementación.
 
+### <a name="example-validate-azure-registration"></a>Ejemplo: Validación del registro de Azure
 
-**Ejemplo: Validación del registro de Azure**
 ```PowerShell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "<subscription ID"
@@ -254,8 +258,8 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 En este ejemplo, las credenciales del propietario de la suscripción se solicitan de forma segura y Start-AzsReadinessChecker realiza la validación en la cuenta y suscripción indicadas para garantizar que se puede utilizar para el registro de Azure Stack. 
 
+### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Ejemplo: Validación del registro de Azure con datos de implementación (equipo de implementación)
 
-**Ejemplo: Validación del registro de Azure con datos de implementación (equipo de implementación)**
 ```PowerShell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "<subscription ID>"
@@ -264,7 +268,8 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 En este ejemplo, las credenciales del propietario de la suscripción se solicitan de forma segura y Start-AzsReadinessChecker realiza la validación en la cuenta y suscripción indicadas para garantizar que puede usarse para el registro de Azure Stack donde los detalles adicionales se leen del archivo JSON de datos de implementación generado para la implementación.
 
-**Ejemplo: Paquete PFX de importación y exportación**
+### <a name="example-importexport-pfx-package"></a>Ejemplo: Paquete PFX de importación y exportación
+
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
@@ -272,24 +277,24 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 En este ejemplo, se solicita la contraseña PFX de forma segura. El archivo ssl.pfx se importará al almacén de certificados de la máquina local, se volverá a exportar con la misma contraseña y se guardará como ssl_new.pfx.  Este procedimiento se utiliza cuando la validación del certificado marca que una clave privada no tiene establecido el atributo de máquina local, la cadena del certificado está rota, hay certificados irrelevantes en el PFX o la cadena del certificado está en un orden incorrecto.
 
+### <a name="example-view-validation-report-deployment-support"></a>Ejemplo: Vista del informe de validación (implementación y soporte técnico)
 
-**Ejemplo: Vista del informe de validación (implementación y soporte técnico)**
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 ```
 
 En este ejemplo, el equipo de implementación o de soporte técnico reciben el informe de preparación del cliente (Contoso) y usan Start-AzsReadinessChecker para ver el estado de las ejecuciones de validación que realiza Contoso.
 
-**Ejemplo: Vista del resumen del informe de validación solo de validación de certificados (implementación y soporte técnico)**
+### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Ejemplo: Vista del resumen del informe de validación solo de validación de certificados (implementación y soporte técnico)
+
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
 ```
 
 En este ejemplo, el equipo de implementación o de soporte técnico reciben el informe de preparación del cliente (Contoso) y usan Start-AzsReadinessChecker para ver un estado resumido de las ejecuciones de validación que realiza Contoso.
 
-
-
 ## <a name="required-parameters"></a>Parámetros obligatorios
+
 > -RegionName
 
 Especifica el nombre de la región de la implementación de Azure Stack.
@@ -301,7 +306,7 @@ Especifica el nombre de la región de la implementación de Azure Stack.
 |Aceptar la entrada de la canalización:      |False         |
 |Aceptar caracteres comodín: |False         |
 
-> -FQDN    
+> -FQDN
 
 Especifica el FQDN externo de la implementación de Azure Stack, con los alias ExternalFQDN y ExternalDomainName.
 |  |  |
@@ -312,9 +317,7 @@ Especifica el FQDN externo de la implementación de Azure Stack, con los alias E
 |Aceptar la entrada de la canalización:      |False         |
 |Aceptar caracteres comodín: |False         |
 
- 
-
-> -IdentitySystem    
+> -IdentitySystem
 
 Especifica los valores válidos del sistema de identidades de la implementación de Azure Stack, AAD o ADFS, para Azure Active Directory y Servicios de federación de Active Directory (AD FS) respectivamente.
 |  |  |
@@ -326,7 +329,7 @@ Especifica los valores válidos del sistema de identidades de la implementación
 |Aceptar la entrada de la canalización:      |False         |
 |Aceptar caracteres comodín: |False         |
 
-> -PfxPassword    
+> -PfxPassword
 
 Especifica la contraseña asociada a los archivos de certificado PFX.
 |  |  |
@@ -395,8 +398,9 @@ Especifica un diccionario ordenado del firmante para la generación de solicitud
 > -RequestType
 
 Especifica el tipo de SAN de la solicitud de certificado. Valores válidos: MultipleCSR, SingleCSR.
+
 - *MultipleCSR* genera varias solicitudes de certificado, una por servicio.
-- *SingleCSR* genera una solicitud de certificado para todos los servicios.   
+- *SingleCSR* genera una solicitud de certificado para todos los servicios.
 
 |  |  |
 |----------------------------|---------|
@@ -485,10 +489,9 @@ Especifica la ruta de acceso para el informe de preparación, tiene como valor p
 |Aceptar la entrada de la canalización:      |False    |
 |Aceptar caracteres comodín: |False    |
 
-
-
 ## <a name="optional-parameters"></a>Parámetros opcionales
-> -CertificatePath     
+
+> -CertificatePath
 
 Especifica la ruta de acceso en la que solo se encuentran las carpetas de certificados necesarias para el certificado.
 
@@ -500,7 +503,6 @@ Las carpetas necesarias para la implementación de Azure Stack con el sistema de
 
 ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, KeyVault, KeyVaultInternal, Public Portal
 
-
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |string   |
@@ -509,11 +511,9 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, K
 |Aceptar la entrada de la canalización:      |False    |
 |Aceptar caracteres comodín: |False    |
 
-
 > -IncludePaaS  
 
 Especifica si se deben agregar servicios y nombres de host de PaaS a las solicitudes de certificado.
-
 
 |  |  |
 |----------------------------|------------------|
@@ -523,8 +523,7 @@ Especifica si se deben agregar servicios y nombres de host de PaaS a las solicit
 |Aceptar la entrada de la canalización:      |False             |
 |Aceptar caracteres comodín: |False             |
 
-
-> -ReportSections        
+> -ReportSections
 
 Especifica si solo se mostrará el resumen del informe; omite los detalles.
 |  |  |
@@ -536,8 +535,7 @@ Especifica si solo se mostrará el resumen del informe; omite los detalles.
 |Aceptar la entrada de la canalización:      |False    |
 |Aceptar caracteres comodín: |False    |
 
-
-> -Summary 
+> -Summary
 
 Especifica si solo se mostrará el resumen del informe; omite los detalles.
 |  |  |
@@ -548,8 +546,7 @@ Especifica si solo se mostrará el resumen del informe; omite los detalles.
 |Aceptar la entrada de la canalización:      |False             |
 |Aceptar caracteres comodín: |False             |
 
-
-> -CleanReport  
+> -CleanReport
 
 Quita el historial de ejecuciones y validaciones anteriores y escribe las validaciones en un nuevo informe.
 |  |  |
@@ -561,10 +558,10 @@ Quita el historial de ejecuciones y validaciones anteriores y escribe las valida
 |Aceptar la entrada de la canalización:      |False             |
 |Aceptar caracteres comodín: |False             |
 
-
-> -OutputPath    
+> -OutputPath
 
 Especifica la ruta de acceso personalizada donde se guarda el informe JSON de preparación y el archivo de registro detallado.  Si la ruta de acceso no existe, la herramienta intentará crear el directorio.
+
 |  |  |
 |----------------------------|------------------|
 |Escriba:                        |string            |
@@ -573,8 +570,7 @@ Especifica la ruta de acceso personalizada donde se guarda el informe JSON de pr
 |Aceptar la entrada de la canalización:      |False             |
 |Aceptar caracteres comodín: |False             |
 
-
-> -Confirm  
+> -Confirm
 
 Solicita confirmación antes de ejecutar el cmdlet.
 |  |  |
@@ -586,8 +582,7 @@ Solicita confirmación antes de ejecutar el cmdlet.
 |Aceptar la entrada de la canalización:      |False             |
 |Aceptar caracteres comodín: |False             |
 
-
-> -WhatIf  
+> -WhatIf
 
 Muestra lo que sucedería si se ejecutara el cmdlet. El cmdlet no se ejecuta.
 |  |  |
@@ -598,5 +593,3 @@ Muestra lo que sucedería si se ejecutara el cmdlet. El cmdlet no se ejecuta.
 |Valor predeterminado:              |False             |
 |Aceptar la entrada de la canalización:      |False             |
 |Aceptar caracteres comodín: |False             |
-
- 

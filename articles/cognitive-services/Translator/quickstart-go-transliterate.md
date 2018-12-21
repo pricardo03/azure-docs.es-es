@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Conversión de script de texto con Translator Text API en Go'
+title: 'Inicio rápido: Conversión de script de texto con Go: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se convierte texto en un idioma de un script en otro mediante Translator Text API con Go.
 services: cognitive-services
@@ -8,109 +8,164 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/29/2018
+ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: fd41eff65c312c125594bb3251f9c4fe74108eaf
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6b86d94e53b1ecb7a0d0d7b1f325a425f05c9e4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648367"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993304"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-go"></a>Guía de inicio rápido: Transcripción de texto con la API REST Translator Text (Go)
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>Inicio rápido: Uso de Translator Text API para transliterar texto mediante Go
 
 En esta guía de inicio rápido se convierte texto en un idioma de un script en otro mediante Translator Text API.
 
+En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Translator Text. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
+
 ## <a name="prerequisites"></a>Requisitos previos
 
-Tendrá que instalar [Go distribution](https://golang.org/doc/install) para poder ejecutar este código. El código de ejemplo usa solo bibliotecas **principales**, por lo que no hay dependencias externas.
+Esta guía de inicio rápido requiere:
 
-Para usar Translator Text API, también necesita una clave de suscripción; consulte [Cómo suscribirse a Translator Text API](translator-text-how-to-signup.md).
+* [Go](https://golang.org/doc/install)
+* Una clave de suscripción de Azure para Translator Text
 
-## <a name="transliterate-request"></a>Solicitud Transliterate
+## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios
 
-La siguiente convierte texto en un idioma de un script en otro script mediante el método [Transliterate](./reference/v3-0-transliterate.md).
+Cree un proyecto de Go con su IDE o editor favorito. A continuación, copie este fragmento de código en un archivo llamado `transliterate-text.go`.
 
-1. Cree un nuevo proyecto de Go en su editor de código favorito.
-2. Agregue el código que se proporciona a continuación.
-3. Reemplace el valor `subscriptionKey` por una clave de acceso válida para la suscripción.
-4. Guarde el archivo con la extensión ".go".
-5. Abra un símbolo del sistema en un equipo que tenga instalado Go.
-6. Compile el archivo, por ejemplo: "'go build quickstart-transliterate.go"'.
-7. Ejecute el archivo, por ejemplo: "quickstart-transliterate".
-
-```golang
+```go
 package main
 
 import (
+    "bytes"
     "encoding/json"
     "fmt"
-    "io/ioutil"
+    "log"
     "net/http"
-    "strconv"
-    "strings"
-    "time"
+    "net/url"
+    "os"
 )
+```
 
+## <a name="create-the-main-function"></a>Creación de la función main
+
+En este ejemplo se intenta leer la clave de suscripción de Translator Text desde la variable de entorno `TRANSLATOR_TEXT_KEY`. Si no está familiarizado con las variables de entorno, puede establecer `subscriptionKey` como una cadena y convertir en comentario la instrucción condicional.
+
+Copie este código en el proyecto:
+
+```go
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    const uriBase = "https://api.cognitive.microsofttranslator.com"
-    const uriPath = "/transliterate?api-version=3.0"
-
-    // Transliterate text in Japanese from Japanese script (i.e. Hiragana/Katakana/Kanji) to Latin script
-    const params = "&language=ja&fromScript=jpan&toScript=latn"
-
-    const uri = uriBase + uriPath + params
-
-    // Transliterate "good afternoon".
-    const text = "こんにちは"
-
-    r := strings.NewReader("[{\"Text\" : \"" + text + "\"}]")
-
-    client := &http.Client{
-        Timeout: time.Second * 2,
+    /*
+     * Read your subscription key from an env variable.
+     * Please note: You can replace this code block with
+     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+     * want to use env variables.
+     */
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
+    if subscriptionKey == "" {
+       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
     }
-
-    req, err := http.NewRequest("POST", uri, r)
-    if err != nil {
-        fmt.Printf("Error creating request: %v\n", err)
-        return
-    }
-
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.FormatInt(req.ContentLength, 10))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    resp, err := client.Do(req)
-    if err != nil {
-        fmt.Printf("Error on request: %v\n", err)
-        return
-    }
-    defer resp.Body.Close()
-
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        fmt.Printf("Error reading response body: %v\n", err)
-        return
-    }
-
-    var f interface{}
-    json.Unmarshal(body, &f)
-
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
-    if err != nil {
-        fmt.Printf("Error producing JSON: %v\n", err)
-        return
-    }
-    fmt.Println(string(jsonFormatted))
+    /*
+     * This calls our transliterate function, which we'll
+     * create in the next section. It takes a single argument,
+     * the subscription key.
+     */
+    transliterate(subscriptionKey)
 }
 ```
 
-## <a name="transliterate-response"></a>Respuesta de Transliterate
+## <a name="create-a-function-to-transliterate-text"></a>Creación de una función para transliterar texto
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo:
+Vamos a crear una función para transliterar texto. Esta función tendrá un solo argumento, su clave de suscripción de Translator Text.
+
+```go
+func transliterate(subscriptionKey string) {
+    /*  
+     * In the next few sections, we'll add code to this
+     * function to make a request and handle the response.
+     */
+}
+```
+
+A continuación, vamos a construir la dirección URL. La dirección URL se crea mediante los métodos `Parse()` y `Query()`. Observará que se han agregado los parámetros con el método `Add()`. En este ejemplo, vamos a transcribir de japonés al alfabeto latino.
+
+Copie este código en la función `transliterate`.
+
+```go
+// Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0")
+q := u.Query()
+q.Add("language", "ja")
+q.Add("fromScript", "jpan")
+q.Add("toScript", "latn")
+u.RawQuery = q.Encode()
+```
+
+>[!NOTE]
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: transliteración](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+
+## <a name="create-a-struct-for-your-request-body"></a>Creación de una estructura para el cuerpo de la solicitud
+
+A continuación, cree una estructura anónima para el cuerpo de la solicitud y codifíquelo como JSON con `json.Marshal()`. Agregue este código a la función `transliterate`.
+
+```go
+// Create an anonymous struct for your request body and encode it to JSON
+body := []struct {
+    Text string
+}{
+    {Text: "こんにちは"},
+}
+b, _ := json.Marshal(body)
+```
+
+## <a name="build-the-request"></a>Compilar la solicitud
+
+Ahora que se ha codificado el cuerpo de la solicitud como JSON, puede crear la solicitud POST y llamar a Translator Text API.
+
+```go
+// Build the HTTP POST request
+req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+if err != nil {
+    log.Fatal(err)
+}
+// Add required headers to the request
+req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Content-Type", "application/json")
+
+// Call the Translator Text API
+res, err := http.DefaultClient.Do(req)
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+## <a name="handle-and-print-the-response"></a>Control e impresión de la respuesta
+
+Agregue este código a la función `transliterate` para descodificar la respuesta JSON y luego dé formato al resultado e imprímalo.
+
+```go
+// Decode the JSON response
+var result interface{}
+if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+    log.Fatal(err)
+}
+// Format and print the response to terminal
+prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+fmt.Printf("%s\n", prettyJSON)
+```
+
+## <a name="put-it-all-together"></a>Colocación de todo junto
+
+Eso es todo, ha creado un sencillo programa que llama a Translator Text API y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
+
+```console
+go run transliterate-text.go
+```
+
+Si desea comparar su código con el nuestro, el ejemplo completo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
+
+## <a name="sample-response"></a>Respuesta de muestra
 
 ```json
 [
@@ -127,3 +182,13 @@ Explorar los paquetes de Go para Cognitive Services APIs desde el [Azure SDK par
 
 > [!div class="nextstepaction"]
 > [Explore los paquetes de Go en GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+
+## <a name="see-also"></a>Otras referencias
+
+Aprenda a usar Translator Text API para:
+
+* [Traducir texto](quickstart-go-translate.md)
+* [Identificar el idioma de entrada](quickstart-go-detect.md)
+* [Obtener traducciones alternativas](quickstart-go-dictionary.md)
+* [Obtener una lista de idiomas admitidos](quickstart-go-languages.md)
+* [Determinar la longitud de las oraciones de una entrada](quickstart-go-sentences.md)

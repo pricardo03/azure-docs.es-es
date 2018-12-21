@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 86fcec0321e8f1b92fdc554532cb8f949b1b1569
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496199"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081397"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Acerca de VPN Gateway para Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Antes de poder enviar tráfico de red entre una red virtual de Azure y un sitio local, es preciso crear una puerta de enlace de red virtual para la red virtual.
 
@@ -108,9 +108,9 @@ En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento
 
 |   | Rendimiento de VPN Gateway *(1)* | Túneles IPsec máx. de VPN Gateway *(2)* |
 |-------|-------|-------|
-|**SKU Básica** ***(3)***    | 100 Mbps  | 10    |
-|**SKU estándar**       | 100 Mbps  | 10    |
-|**SKU de alto rendimiento** | 200 Mbps    | 5 |
+|**SKU Básica** ***(3)***    | 100 Mbps  | 20    |
+|**SKU estándar**       | 100 Mbps  | 20    |
+|**SKU de alto rendimiento** | 200 Mbps    | 10    |
 
 **Notas de la tabla:**
 

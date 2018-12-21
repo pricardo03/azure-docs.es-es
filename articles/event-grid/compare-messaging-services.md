@@ -1,21 +1,22 @@
 ---
-title: Comparación de los servicios de mensajería de Azure
-description: Compara Azure Event Grid, Event Hubs y Service Bus. Recomienda qué servicio usar para escenarios diferentes.
+title: 'Comparación de mensajería de Azure: Event Grid, Event Hubs, Service Bus'
+description: 'Describe los tres servicios de mensajería de Azure: Azure Event Grid, Event Hubs y Service Bus. Recomienda qué servicio usar para escenarios diferentes.'
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852204"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166530"
 ---
-# <a name="choose-between-azure-services-that-deliver-messages"></a>Elija entre los servicios de Azure de entrega de mensajes.
+# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Elija entre los servicios de mensajería de Azure: Event Grid, Event Hubs y Service Bus
 
 Azure ofrece tres servicios que le ayudan en la entrega de mensajes de evento en una solución. Estos servicios son los siguientes:
 
@@ -33,7 +34,7 @@ Hay una diferencia importante entre los servicios que entregan un evento y los q
 
 Un evento es una notificación ligera de una condición o un cambio de estado. El publicador del evento no tiene ninguna expectativa sobre cómo se trata el evento. El consumidor del evento decide qué hacer con la notificación. Los eventos pueden ser unidades discretas o parte de una serie.
 
-Los eventos discretos notifican un cambio de estado y se puede actuar sobre ellos. Para realizar el paso siguiente, el consumidor solo necesita saber que algo ha pasado. Los datos de evento tienen información acerca de lo que ha ocurrido, pero no tienen los datos que desencadenaron el evento. Por ejemplo, un evento notifica a los consumidores que se ha creado un archivo. Puede tener información general acerca del archivo, pero no contiene el propio archivo. Los eventos discretos funcionan muy bien con soluciones sin servidor que necesitan escalarse.
+Los eventos discretos notifican un cambio de estado y se puede actuar sobre ellos. Para realizar el paso siguiente, el consumidor solo necesita saber que algo ha pasado. Los datos de evento tienen información acerca de lo que ha ocurrido, pero no tienen los datos que desencadenaron el evento. Por ejemplo, un evento notifica a los consumidores que se ha creado un archivo. Puede tener información general acerca del archivo, pero no contiene el propio archivo. Los eventos discretos funcionan muy bien con soluciones [sin servidor](http://azure.com/serverless) que necesitan escalarse.
 
 Los eventos de serie notifican una condición y son analizables. Los eventos están ordenados en el tiempo e interrelacionados. El consumidor necesita la serie de eventos ordenada para analizar lo que ha pasado.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Guía de inicio rápido: cifrado de una máquina virtual IaaS Windows con Azure PowerShell | Microsoft Docs'
-description: En esta guía de inicio rápido, aprenderá a usar Azure PowerShell para cifrar una máquina virtual Windows.
+description: En este inicio rápido, aprenderá a usar Azure PowerShell para cifrar una máquina virtual IaaS Windows en Azure.
 services: security
 documentationcenter: na
 author: mestew
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 531da9af871595e6f8bf5d22832367bbfb301dab
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.custom: seodec18
+ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245878"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087871"
 ---
-# <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Guía de inicio rápido: cifrado de una máquina virtual IaaS Windows con Azure PowerShell
+# <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Inicio rápido: Cifrado de una máquina virtual IaaS Windows con Azure PowerShell
 
-Azure Disk Encryption le ayuda a cifrar discos de las máquinas virtuales IaaS con Windows y Linux. La solución se integra con Azure Key Vault para ayudarle a controlar y administrar los secretos y las claves del cifrado de discos. Si usa Azure Disk Encryption, puede tener la certeza de que las máquinas virtuales se protegen en reposo mediante una tecnología de cifrado estándar del sector. En este tutorial, creará una máquina virtual de Windows Server 2016 y cifrará el disco del sistema operativo. 
+Azure Disk Encryption le ayuda a cifrar discos de las máquinas virtuales IaaS con Windows y Linux. La solución se integra con Azure Key Vault para ayudarle a controlar y administrar los secretos y las claves del cifrado de discos. Si usa Azure Disk Encryption, puede tener la certeza de que las máquinas virtuales se protegen en reposo mediante una tecnología de cifrado estándar del sector. En este tutorial, creará una máquina virtual de Windows Server 2016 y cifrará el disco del sistema operativo.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -65,7 +66,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ![Ejecución del script de requisitos previos de Azure Disk Encryption en PowerShell ISE](media/azure-security-disk-encryption/ade-prereq-script.PNG)
 
 
-## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual 
+## <a name="create-a-virtual-machine"></a>de una máquina virtual 
 Ahora debe crear una máquina virtual para poder cifrar su disco. El script que va a usar crea una máquina virtual con Windows Server 2016 con 8 GB de RAM y un disco de sistema operativo de 30 GB. 
 
 1. Copie el script en el panel de scripts **Administrador: Windows PowerShell ISE** y cambie las tres primeras variables. El grupo de recursos y la ubicación deben ser los mismo que usó para el [script de requisitos previos](#bkmk_PrereqScript).  

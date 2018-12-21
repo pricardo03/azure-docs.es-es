@@ -1,5 +1,5 @@
 ---
-title: Creación de una aplicación de varios contenedores (versión preliminar) en Azure Web App for Containers mediante una configuración de Docker Compose
+title: 'Creación de una aplicación de varios contenedores con Docker Compose: Azure App Service'
 description: Implemente su primera aplicación de varios contenedores en Azure Web App for Containers en minutos
 keywords: servicio de aplicación de azure, aplicación web, linux, docker, compose, multicontenedor, varios contenedores, aplicación web para contenedores, varios contenedores, contenedor, kubernetes, wordpress, base de datos MySQL en Azure, base de datos de producción con contenedores
 services: app-service\web
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 1d54d914edb306b89dc6f2604aa5af3d17cb535d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec18
+ms.openlocfilehash: 404be7a064e0e4b09178830b7802192e8775e121
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576789"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316587"
 ---
-# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Creación de una aplicación de varios contenedores (versión preliminar) con Web App for Containers
+# <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Creación de una aplicación de varios contenedores (versión preliminar) mediante una configuración de Docker Compose
 
 [Web App for Containers](app-service-linux-intro.md) proporciona una manera flexible de utilizar imágenes de Docker. Esta guía de inicio rápido muestra cómo implementar una aplicación de varios contenedores en Web App for Containers con [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) mediante una configuración de Docker Compose. Para Kubernetes y una solución integral completa mediante el uso de Base de datos MySQL en Azure, siga el [tutorial de varios contenedores](tutorial-multi-container-app.md).
 

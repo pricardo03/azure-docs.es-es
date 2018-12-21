@@ -1,21 +1,22 @@
 ---
-title: Use la CLI de Azure para crear una asignación de directiva que identifique recursos no compatibles en el entorno de Azure
-description: Use PowerShell para crear una asignación de Azure Policy para identificar recursos no compatibles.
+title: Creación de una directiva para identificar recursos no compatibles mediante la CLI de Azure
+description: Use la CLI de Azure para crear una asignación de Azure Policy para identificar recursos no compatibles.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
-ms.openlocfilehash: 4954ca42af1755ea62e7142048d48805397b6a0a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: carmonm
+ms.custom: seodec18
+ms.openlocfilehash: 99e8b782f3f52ed89b5188de19d70cb276a0eb84
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968499"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315849"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure con la CLI de Azure
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Creación de una asignación de directiva para identificar recursos no compatibles mediante la CLI de Azure
 
 El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos.
 Esta guía de inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar las máquinas virtuales que no están usando discos administrados.
@@ -32,7 +33,7 @@ Esta guía de inicio rápido requiere la ejecución de la versión 2.0.4 de la C
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Registre el proveedor de recursos de Policy Insights mediante la CLI de Azure. El registro del proveedor de recursos garantiza que la suscripción funcionará con él. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación de registro para este. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
+Registre el proveedor de recursos de Policy Insights mediante la CLI de Azure. El registro del proveedor de recursos garantiza que la suscripción funcionará con él. Para registrar un proveedor de recursos, debe tener permiso para registrar la operación del proveedor de recursos. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
 
 ```azurecli-interactive
 az provider register --namespace 'Microsoft.PolicyInsights'
@@ -49,13 +50,13 @@ En esta guía de inicio rápido, creará una asignación de directiva y asignar�
 Ejecute el siguiente comando para crear una asignación de directiva:
 
 ```azurecli-interactive
-az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
+az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit VMs without managed disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 El comando anterior usa la siguiente información:
 
 - **Nombre**: el nombre real de la asignación.  En este ejemplo se usa *audit-vm-manageddisks*.
-- **DisplayName**: nombre para mostrar de la asignación de directiva. En este caso, se usa la *Auditoría de máquinas virtuales sin discos administrados*.
+- **DisplayName**: nombre para mostrar de la asignación de directiva. En este caso, usará *Auditoría de máquinas virtuales sin discos administrados*.
 - **Policy**: identificador de definición de la directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva *Auditoría de máquinas virtuales que no usan discos administrados*. Para obtener el identificador de definición de directiva, ejecute este comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Scope**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos. Asegúrese de sustituir &lt;scope&gt; por el nombre del grupo de recursos.
 
@@ -64,7 +65,7 @@ El comando anterior usa la siguiente información:
 Para ver los recursos que no son compatibles con esta nueva asignación, ejecute los siguientes comandos para obtener el identificador de asignación de directiva:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -106,7 +107,7 @@ Son comparables a lo que normalmente vería en **Recursos no compatibles**, en l
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otras guías de esta colección se basan en esta guía de inicio rápido. Si tiene previsto seguir trabajando con otros tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no piensa continuar, ejecute este comando para eliminar la asignación que creó:
+Para quitar la asignación creada, ejecute el siguiente comando:
 
 ```azurecli-interactive
 az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
@@ -116,7 +117,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 En este inicio rápido, se asigna una definición de directiva para identificar los recursos incompatibles en el entorno de Azure.
 
-Para obtener información sobre la asignación de directivas y garantizar la compatibilidad de los recursos creados en el **futuro**, continúe con este tutorial para:
+Para más información sobre la asignación de directivas para garantizar la compatibilidad de los nuevos recursos, continúe con el tutorial para:
 
 > [!div class="nextstepaction"]
 > [Crear y administrar directivas](./tutorials/create-and-manage.md)

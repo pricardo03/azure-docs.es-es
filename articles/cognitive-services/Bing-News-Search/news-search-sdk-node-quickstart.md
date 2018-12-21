@@ -1,7 +1,7 @@
 ---
-title: 'Guía de inicio rápido: SDK de Bing News Search con Node'
+title: 'Guía de inicio rápido: Realizar una búsqueda de noticias: SDK de Bing News Search para Node.js'
 titleSuffix: Azure Cognitive Services
-description: Configuración de la aplicación de consola del SDK de Bing News Search
+description: Use esta guía de inicio rápido para buscar noticias mediante el SDK de Bing News Search para Node.js y procesar la respuesta.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 075ce771b6fa92663f172734aabf57b089b294a9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 0fa78474d6400f890626859c32915c8657f92d4e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316946"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249352"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-node"></a>Guía de inicio rápido: SDK de Bing News Search con Node
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Guía de inicio rápido: Realizar una búsqueda de noticias con el SDK de Bing News Search para Node.js
 
 El SDK de Bing News Search contiene la funcionalidad de la API REST para consultas de noticias y análisis de resultados. 
 
@@ -51,10 +52,10 @@ client.newsOperations.search('Winter Olympics').then((result) => {
 
 ```
 El código imprime `result.value` elementos en la consola sin analizar ningún texto. Los resultados, si hubiera por categoría, incluyen:
-- _type: "NewsArticle"
-- _type: "WebPage"
-- _type: "VideoObject"
-- _type: "ImageObject"
+- _type: 'NewsArticle'
+- _type: 'WebPage'
+- _type: 'VideoObject'
+- _type: 'ImageObject'
 
 <!-- Remove until we can replace with santized version
 ![News results](media/node-sdk-quickstart-results.png)

@@ -1,5 +1,5 @@
 ---
-title: Creación de un espacio de nombres de Azure Event Hubs y habilitación de la funcionalidad de captura mediante una plantilla | Microsoft Docs
+title: 'Creación de un centro de eventos con la captura habilitada: Azure Event Hubs | Microsoft Docs'
 description: Creación de un espacio de nombres de Azure Event Hubs con un centro de eventos y habilitación de la funcionalidad de captura mediante una plantilla de Azure Resource Manager
 services: event-hubs
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: c8341b40ba7616add1415178a2f0775fbbc66ec1
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 36764b661d88f034b306251f76d47d72298308dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918025"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140003"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creación de un espacio de nombres con Event Hubs y habilitación de la característica Capture mediante una plantilla
 

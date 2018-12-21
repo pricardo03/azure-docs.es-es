@@ -1,5 +1,5 @@
 ---
-title: Compilación de una aplicación web Node.js y MongoDB en Azure App Service en Linux | Microsoft Docs
+title: 'Creación de aplicación de Node.js con MongoDB en Linux: Azure App Service | Microsoft Docs'
 description: Aprenda a empezar a trabajar con una aplicación Node.js en Azure App Service en Linux, con conexión a una base de datos Cosmos DB con una cadena de conexión de MongoDB.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 3380322286740e3b87df11107ac5ade62ffa535d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 59173550c0cdff44931e0b686308b39e985dddcf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432072"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254962"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación web Node.js y MongoDB en Azure App Service en Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "39432072"
 > En este artículo se implementa una aplicación en App Service en Linux. Para una implementación en App Service en _Windows_, consulte [Creación de una aplicación web con Node.js y MongoDB en Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. Este tutorial muestra cómo crear una aplicación web de Node.js, conectarla localmente a una base de datos de MongoDB y luego implementar en Azure conectado a una base de datos de CosmosDB mediante la API de MongoDB. Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, AngularJS y Node.js) que se ejecuta en App Service en Linux. Por sencillez, la aplicación de ejemplo usa el [marco web MEAN.js ](http://meanjs.org/).
+[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. Este tutorial muestra cómo crear una aplicación web de Node.js, conectarla localmente a una base de datos de MongoDB y luego implementar en Azure conectado a una base de datos de CosmosDB mediante la API de MongoDB. Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, AngularJS y Node.js) que se ejecuta en App Service en Linux. Por sencillez, la aplicación de ejemplo usa el [marco web MEAN.js ](https://meanjs.org/).
 
 ![Aplicación MEAN.js que se ejecuta en Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -49,9 +49,9 @@ Aprenderá a:
 Para completar este tutorial:
 
 1. [Instalación de Git](https://git-scm.com/)
-1. [Instalación de Node.js v6.0 o superior y NPM](https://nodejs.org/)
-1. [Instale Gulp.js](http://gulpjs.com/) (necesario para [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Descarga y ejecución de MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
+2. [Instalación de Node.js v6.0 o superior y NPM](https://nodejs.org/)
+3. [Instale Gulp.js](https://gulpjs.com/) (necesario para [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+4. [Descarga y ejecución de MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
 
 ## <a name="test-local-mongodb"></a>Prueba de la base de datos MongoDB local
 
@@ -299,10 +299,10 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ```
 
-Puede observar que el proceso de implementación ejecuta [Gulp](http://gulpjs.com/) después de `npm install`. App Service no ejecuta tareas Gulp o Grunt durante la implementación, así que este repositorio de ejemplo tiene dos archivos adicionales en su directorio raíz para permitirlo:
+Puede observar que el proceso de implementación ejecuta [Gulp](https://gulpjs.com/) después de `npm install`. App Service no ejecuta tareas Gulp o Grunt durante la implementación, así que este repositorio de ejemplo tiene dos archivos adicionales en su directorio raíz para permitirlo:
 
 - _.deployment_: este archivo indica a App Service que ejecute `bash deploy.sh` como script de implementación personalizado.
 - _deploy.sh_: se trata del script de implementación personalizado. Si revisa el archivo, verá que se ejecuta `gulp prod` después de `npm install` y `bower install`.

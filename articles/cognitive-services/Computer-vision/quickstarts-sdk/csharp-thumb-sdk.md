@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Generación de una miniatura - SDK, C# - Computer Vision'
+title: 'Inicio rápido: Generación de una miniatura - SDK, C# - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante la biblioteca cliente C# para Windows de Computer Vision.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: d3340131c1f174201cc9fd1dcb31bd4a4b8cd07a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854091"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413292"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Inicio rápido: Generación de una miniatura mediante el SDK de Computer Vision y C#
 
@@ -30,9 +30,9 @@ En esta guía de inicio rápido, generará una miniatura de una imagen mediante 
 ## <a name="generatethumbnailasync-method"></a>Método GenerateThumbnailAsync
 
 > [!TIP]
-> Obtenga el código más reciente como solución de Visual Studio desde [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+> Obtenga el código más reciente como solución de Visual Studio desde [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
-Los métodos `GenerateThumbnailAsync` y `GenerateThumbnailInStreamAsync` encapsulan [Get Thumbnail API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para las imágenes locales y remotas, respectivamente.  Puede usar estos métodos para generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar la región de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
+Los métodos `GenerateThumbnailAsync` y `GenerateThumbnailInStreamAsync` encapsulan [Get Thumbnail API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para las imágenes locales y remotas, respectivamente.  Puede usar estos métodos para generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar el área de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
 
 Para ejecutar el ejemplo, siga estos pasos:
 

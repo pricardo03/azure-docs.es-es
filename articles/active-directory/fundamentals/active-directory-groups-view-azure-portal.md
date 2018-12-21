@@ -1,6 +1,6 @@
 ---
-title: Guía de inicio rápido para la visualización de los grupos y miembros de la organización en Azure Active Directory | Microsoft Docs
-description: Guía de inicio rápido con pasos para buscar y ver los grupos de la organización y los miembros asignados mediante Azure Portal.
+title: Inicio rápido para la visualización de los grupos y miembros de la organización en Azure Active Directory | Microsoft Docs
+description: Instrucciones para buscar y ver los grupos de la organización y los miembros asignados.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,18 +10,18 @@ ms.component: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 9da9f055163f5df4ea064bd46caa811e39fba20c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 002b4bb4ab20e531132b461f90857cfab6aecfd3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056410"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087484"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Guía de inicio rápido: Visualización de los grupos y miembros de la organización en Azure Active Directory
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Inicio rápido: Visualización de los grupos y miembros de la organización en Azure Active Directory
 Puede ver los grupos existentes en la organización y los miembros de los grupos mediante Azure Portal. Los grupos se usan para administrar usuarios (miembros) que necesitan el mismo acceso y permisos para servicios y aplicaciones potencialmente restringidos.
 
 En esta guía de inicio rápido podrá ver todos los grupos existentes en la organización y ver los miembros asignados.
@@ -43,9 +43,9 @@ Cree un nuevo grupo llamado _MDM policy - West_. Para más información acerca d
 
 2. Rellene la página **Grupo**:
     
-    - **Tipo de grupo:** seleccione **Seguridad**
+    - **Tipo de grupo:** seleccione **Seguridad**.
     
-    - **Nombre de grupo:** escriba _MDM policy - West_
+    - **Nombre del grupo:** escriba _MDM policy - West (Directiva de MDM - Oeste)_
     
     - **Tipo de pertenencia:** seleccione **Asignado**.
 

@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b8d45e72e15ff86b53f7355634e8f197b94260bd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887804"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435436"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de la unión a Azure Active Directory híbrido para dominios administrados
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
 De forma similar a un usuario, un dispositivo se está convirtiendo en otra identidad que debe proteger y usar también para proteger los recursos en cualquier momento y lugar. Puede lograr este objetivo incluyendo las identidades de los dispositivos en Azure AD mediante uno de los métodos siguientes:
 
@@ -53,7 +53,11 @@ En este tutorial se da por supuesto que está familiarizado con:
 -  [Control de la unión de los dispositivos híbridos a Azure AD](hybrid-azuread-join-control.md)
   
 
-Para configurar el escenario en este artículo, necesita tener instalada la [versión más reciente de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 o superior). 
+Para configurar el escenario de este artículo, necesita:
+
+- Una instancia local de Active Directory (AD) con un nivel de esquema de 85 o posterior. Para más información, consulte [Actualizar el esquema de Active Directory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
+
+- La [versión más reciente de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 o superior) que se va a instalar. 
 
 Compruebe que Azure AD Connect ha sincronizado con Azure AD los objetos de equipo de los dispositivos que desea que sean híbridos unidos a un dominio de Azure AD. Si los objetos de equipo pertenecen a unidades organizativas (OU) específicas, estas deben configurarse también para la sincronización en Azure AD Connect.
 
@@ -153,7 +157,7 @@ Para registrar dispositivos de Windows de nivel inferior, es preciso asegurarse 
 
 
     
-En la siguiente directiva se debe elegir **Todos**: **Los usuarios pueden registrar sus dispositivos con Azure AD**
+La siguiente directiva debe establecerse en **Todo**: **Los usuarios pueden registrar sus dispositivos con Azure AD**
 
 ![Registro de dispositivos](media/hybrid-azuread-join-managed-domains/23.png)
 
@@ -172,7 +176,7 @@ Además, tiene que habilitar **Permitir actualizaciones en la barra de estado a 
 
 ### <a name="configure-seamless-sso"></a>Configuración del inicio de sesión único de conexión directa
 
-Para completar correctamente la combinación de Azure AD híbrido de los dispositivos de nivel inferior de Windows en un dominio administrado que utiliza la autenticación de paso a través o la sincronización de hash de contraseñas como su método de autenticación en la nube de Azure AD, también debe [configurar el inicio de sesión único de conexión directa](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+Para completar correctamente la combinación de Azure AD híbrido de los dispositivos de nivel inferior de Windows en un dominio administrado que utiliza la autenticación de paso a través o la sincronización de hash de contraseñas como su método de autenticación en la nube de Azure AD, también debe [configurar el inicio de sesión único de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Control de dispositivos de Windows de nivel inferior 

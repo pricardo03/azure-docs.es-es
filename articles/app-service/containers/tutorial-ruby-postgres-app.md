@@ -1,5 +1,5 @@
 ---
-title: Compilación de una aplicación web Ruby y Postgres en Azure App Service en Linux | Microsoft Docs
+title: 'Compilación de una aplicación web Ruby con Postgres en Linux: Azure App Service | Microsoft Docs'
 description: Aprenda a empezar a trabajar con una aplicación Ruby en Azure, con conexión a una base de datos PostgreSQL en Azure.
 services: app-service\web
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445083"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271035"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación web Ruby y Postgres en Azure App Service en Linux
 
-[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. En este tutorial se muestra cómo crear una aplicación web Ruby y cómo conectarla a una base de datos PostgreSQL. Cuando haya terminado, tendrá una aplicación [Ruby on Rails](http://rubyonrails.org/) que se ejecuta en App Service en Linux.
+[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. En este tutorial se muestra cómo crear una aplicación web Ruby y cómo conectarla a una base de datos PostgreSQL. Cuando haya terminado, tendrá una aplicación [Ruby on Rails](https://rubyonrails.org/) que se ejecuta en App Service en Linux.
 
 ![Aplicación Ruby on Rails que se ejecuta en Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -43,7 +43,7 @@ Para completar este tutorial:
 
 * [Instalación de Git](https://git-scm.com/)
 * [Instalación de Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
-* [Instalación de Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Instalación de Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Instalación y ejecución de PostgreSQL](https://www.postgresql.org/download/)
 
 ## <a name="prepare-local-postgres"></a>Preparación de Postgres local
@@ -92,7 +92,7 @@ bundle install --path vendor/bundle
 
 ### <a name="run-the-sample-locally"></a>Ejecución local del código
 
-Ejecute las [migraciones de Rails](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) para crear las tablas que necesita la aplicación. Para ver qué tablas se crean en las migraciones, mire en el directorio _db/migrate_ del repositorio de Git.
+Ejecute las [migraciones de Rails](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations) para crear las tablas que necesita la aplicación. Para ver qué tablas se crean en las migraciones, mire en el directorio _db/migrate_ del repositorio de Git.
 
 ```bash
 rake db:create

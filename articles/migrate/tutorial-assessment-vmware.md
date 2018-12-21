@@ -4,15 +4,15 @@ description: Describe cómo detectar y evaluar VM de VMware locales para la migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847990"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257818"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -31,16 +31,16 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 - **VMware**: las máquinas virtuales que planea migrar deben administrarse mediante vCenter Server en la versión 5.5, 6.0 o 6.5. Además, necesita un host de ESXi que ejecute la versión 5.0 o posterior para implementar la máquina virtual del recopilador.
-- **Cuenta de vCenter Server** : necesita una cuenta de solo lectura para acceder el servidor vCenter. Azure Migrate usa esta cuenta para detectar las máquinas virtuales locales.
+- **Cuenta de vCenter Server**: necesita una cuenta de solo lectura para acceder a vCenter Server. Azure Migrate usa esta cuenta para detectar las máquinas virtuales locales.
 - **Permisos**: en el servidor vCenter Server, necesitará permisos para crear una máquina virtual mediante la importación de un archivo en formato .OVA.
 
 ## <a name="create-an-account-for-vm-discovery"></a>Creación de una cuenta para la detección de máquinas virtuales
 
 Azure Migrate necesita acceso a los servidores de VMware para detectar automáticamente las máquinas virtuales para su evaluación. Cree una cuenta de VMware con las siguientes propiedades. Esta cuenta se especifica durante la instalación de Azure Migrate.
 
-- Tipo de usuario: al menos un usuario de solo lectura.
-- Permisos: Data Center -> Propagate to Child Object, role=Read-only (Centro de datos -> Propagar a objeto secundario, rol = Solo lectura).
-- Detalles: el usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.
+- Tipo de usuario: Al menos un usuario de solo lectura
+- Permisos: Objeto de centro de datos  –> Propagar al objeto secundario, rol = solo lectura
+- Detalles: El usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.
 - Para restringir el acceso, asigne el rol Sin acceso con Propagar a objetos secundarios a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
 
 
@@ -54,9 +54,14 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Busque **Azure Migrate** y seleccione el servicio **Azure Migrate** en los resultados de búsqueda. A continuación, haga clic en **Crear**.
 3. Especifique un nombre de proyecto y la suscripción de Azure para el proyecto.
 4. Cree un nuevo grupo de recursos.
-5. Especifique la ubicación geográfica en la que desea crear el proyecto y haga clic en **Crear**. Los proyectos de Azure Migrate solo se pueden crear en la geografía de Estados Unidos. Sin embargo, todavía puede planear la migración de cualquier ubicación de Azure de destino. La ubicación geográfica especificada para el proyecto solo se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales.
+5. Especifique la ubicación geográfica en la que desea crear el proyecto y haga clic en **Crear**. Los proyectos de Azure Migrate solo se pueden crear en las siguientes geografías. Sin embargo, todavía puede planear la migración de cualquier ubicación de Azure de destino. La ubicación geográfica especificada para el proyecto solo se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales.
 
-    ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
+**Geografía** | **Ubicación de almacenamiento**
+--- | ---
+Estados Unidos | Centro-oeste de EE. UU. o Este de EE. UU.
+Azure Government | Gobierno de EE. UU. - Virginia
+
+![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
 
 ## <a name="download-the-collector-appliance"></a>Descarga del dispositivo de recopilador
@@ -95,6 +100,14 @@ Compruebe que el archivo .OVA es seguro, antes de implementarlo.
 3. El código hash generado debe coincidir con esta configuración.
 
 #### <a name="continuous-discovery"></a>Detección continua
+
+  Para la versión 1.0.10.9 de OVA
+
+  **Algoritmo** | **Valor del código hash**
+  --- | ---
+  MD5 | 169f6449cc1955f1514059a4c30d138b
+  SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
+  SHA256 | d68fe7d94be3127eb35dd80fc5ebc60434c8571dcd0e114b87587f24d6b4ee4d
 
   Para la versión 1.0.10.4 de OVA
 
@@ -156,12 +169,13 @@ Importe el archivo descargado en el servidor vCenter Server.
 3. En el escritorio, haga clic en el acceso directo **Run collector** (Ejecutar recopilador).
 4. Haga clic en **Buscar actualizaciones** en la barra superior de la interfaz de usuario del recopilador y compruebe que este está ejecutando la versión más reciente. Si no es así, puede optar por descargar el último paquete de actualización desde el vínculo y actualizar el recopilador.
 5. En Azure Migrate Collector, abra **Set Up Prerequisites** (Configurar requisitos previos).
+    - Seleccione la nube de Azure a la que tiene previsto migrar (Azure Global o Azure Government).
     - Acepte los términos de licencia y lea la información de terceros.
     - El recopilador comprueba que la VM tenga acceso a Internet.
-    - Si la VM tiene acceso a Internet a través de un proxy, haga clic en **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy. Especifique las credenciales si el proxy requiere autenticación. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) sobre los requisitos de conectividad de internet y la lista de direcciones URL a las que tiene acceso el recopilador.
+    - Si la VM tiene acceso a Internet a través de un proxy, haga clic en **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy. Especifique las credenciales si el proxy requiere autenticación. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre los requisitos de conectividad de Internet y la [lista de direcciones URL](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) a las que tiene acceso el recopilador.
 
-    > [!NOTE]
-    > La dirección del proxy se tiene que especificarse con el formato http://ProxyIPAddress o http://ProxyFQDN. Solo se admite un proxy HTTP. Si tiene un proxy interceptor y no ha importado el certificado del mismo, se podría producir un error inicialmente en la conexión a Internet; [obtenga más información](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) acerca de cómo se puede solucionar este problema importando el certificado de proxy como un certificado de confianza en la máquina virtual del recopilador.
+      > [!NOTE]
+      > La dirección del proxy se tiene que especificarse con el formato http://ProxyIPAddress o http://ProxyFQDN. Solo se admite un proxy HTTP. Si tiene un proxy interceptor y no ha importado el certificado del mismo, se podría producir un error inicialmente en la conexión a Internet; [obtenga más información](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) acerca de cómo se puede solucionar este problema importando el certificado de proxy como un certificado de confianza en la máquina virtual del recopilador.
 
     - El recopilador comprueba que el servicio del recopilador se está ejecutando. El servicio se instala de forma predeterminada en la VM de recopilador.
     - Descargue e instale VMware PowerCLI.

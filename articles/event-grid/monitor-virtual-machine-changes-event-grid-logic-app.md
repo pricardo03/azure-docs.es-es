@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957934"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106080"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Tutorial: Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps
 
 Puede iniciar automáticamente el [flujo de trabajo de una aplicación lógica](../logic-apps/logic-apps-overview.md) cuando se producen eventos específicos en recursos de Azure o de otros fabricantes. Estos recursos pueden publicar esos eventos en una [cuadrícula de eventos Azure](../event-grid/overview.md). A su vez, la cuadrícula de eventos envía esos eventos a los suscriptores que tienen colas, webhooks o [centros de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) como puntos de conexión. Como suscriptor, su aplicación lógica puede esperar esos eventos desde la cuadrícula de eventos antes de ejecutar flujos de trabajo automatizados para llevar a cabo ciertas tareas, sin escribir código.
 
@@ -101,7 +101,7 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
    | **Suscripción** | *{suscripción-de-Azure-de-la-máquina-virtual}* | Seleccione la suscripción de Azure del publicador de eventos. En este tutorial, seleccione la suscripción de Azure de la máquina virtual. | 
    | **Tipo de recurso** | Microsoft.Resources.resourceGroups | Seleccione el tipo de recurso del publicador de eventos. Para este tutorial, seleccione el valor especificado para que la aplicación lógica supervise solo los grupos de recursos. | 
    | **Nombre de recurso** | *{nombre-del-grupo-de-recursos-de-la-máquina-virtual}* | Seleccione el nombre de recurso del publicador. En este tutorial, seleccione el nombre del grupo de recursos para la máquina virtual. | 
-   | Para configuraciones opcionales, elija **Mostrar opciones avanzadas**. | *{ver descripciones}* | * **Filtro de prefijo**: en este tutorial, deje esta opción vacía. El comportamiento predeterminado coincide con todos los valores. Sin embargo, puede especificar una cadena de prefijo como un filtro, por ejemplo, una ruta de acceso y un parámetro para un recurso concreto. <p>* **Filtro de sufijo**: en este tutorial, deje esta opción vacía. El comportamiento predeterminado coincide con todos los valores. Sin embargo, puede especificar una cadena de sufijo como un filtro, por ejemplo, una extensión de nombre de archivo, si desea solo determinados tipos de archivos.<p>* **Nombre de la suscripción**: proporcione un nombre único para la suscripción a eventos. |
+   | Para configuraciones opcionales, elija **Mostrar opciones avanzadas**. | *{ver descripciones}* | * **Filtro de prefijo**: En este tutorial, deje esta opción vacía. El comportamiento predeterminado coincide con todos los valores. Sin embargo, puede especificar una cadena de prefijo como un filtro, por ejemplo, una ruta de acceso y un parámetro para un recurso concreto. <p>* **Filtro de sufijo**: En este tutorial, deje esta opción vacía. El comportamiento predeterminado coincide con todos los valores. Sin embargo, puede especificar una cadena de sufijo como un filtro, por ejemplo, una extensión de nombre de archivo, si desea solo determinados tipos de archivos.<p>* **Nombre de la suscripción**: Proporcione un nombre único para la suscripción de eventos. |
    | | | 
 
    Cuando haya terminado, el desencadenador de Event Grid podría parecerse a este ejemplo:
@@ -183,7 +183,7 @@ Ahora, agregue una [ *acción* ](../logic-apps/logic-apps-overview.md#logic-app-
    | ------- | --------------- | ----------- | 
    | **To** | *{dirección-de-correo electrónico-del-destinatario}* |Escriba la dirección de correo electrónico del destinatario. Para realizar pruebas, puede usar su propia dirección de correo electrónico. | 
    | **Asunto** | Recurso actualizado: **Asunto**| Escriba el contenido del asunto del correo electrónico. Para este tutorial, escriba el texto sugerido y seleccione el campo **Asunto** del evento. En este caso, el asunto del correo electrónico incluye el nombre del recurso actualizado (máquina virtual). | 
-   | **Cuerpo** | Grupo de recursos: **Tema** <p>Tipo de evento: **Tipo de evento**<p>Identificador del evento: **ID**<p>Hora: **Hora del evento** | Escriba el contenido del cuerpo del correo electrónico. Para este tutorial, escriba el texto sugerido y seleccione los campos **Tema**, **Tipo de evento**, **ID** y **Hora del evento** del evento para que el correo electrónico incluya el nombre del grupo de recursos, tipo de evento, marca de tiempo del evento e identificador del evento de la actualización. <p>Para agregar líneas en blanco en el contenido, presione MAYÚS + ENTRAR. | 
+   | **Cuerpo** | Grupo de recursos: **Tema.** <p>Tipo de evento: **Tipo de evento**<p>Id. de evento: **Id**<p>Hora: **Hora del evento** | Escriba el contenido del cuerpo del correo electrónico. Para este tutorial, escriba el texto sugerido y seleccione los campos **Tema**, **Tipo de evento**, **ID** y **Hora del evento** del evento para que el correo electrónico incluya el nombre del grupo de recursos, tipo de evento, marca de tiempo del evento e identificador del evento de la actualización. <p>Para agregar líneas en blanco en el contenido, presione MAYÚS + ENTRAR. | 
    | | | 
 
    > [!NOTE] 

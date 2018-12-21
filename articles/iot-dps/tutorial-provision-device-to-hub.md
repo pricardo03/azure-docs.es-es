@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d6342d30c5f5e9ef80213664447c48a62494c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 40d16076a3d995ecccd06591278b330652d960d8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521907"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189020"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -40,12 +40,12 @@ Este paso incluye la incorporación de artefactos de seguridad únicos del dispo
     - La *clave de aprobación* que es exclusiva de cada chip TPM o simulación y que se obtiene del fabricante.  Consulte [Descripción de la clave de aprobación de TPM](https://technet.microsoft.com/library/cc770443.aspx) para más información.
     - El *identificador de registro* que se usa para identificar de forma única un dispositivo en el espacio de nombres o el ámbito. Este identificador puede ser igual que el identificador de dispositivo o no. El identificador es obligatorio para todos los dispositivos. En el caso de los dispositivos basados en TPM, el identificador de registro puede derivarse del propio TPM, por ejemplo, un hash SHA-256 de la clave de aprobación del TPM.
 
-    [![Información de inscripción del TPM en el portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
+      [![Información de inscripción del TPM en el portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Para dispositivos basados en X.509 necesita:
     - El [certificado emitido para el chip o simulación X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), en un formato de archivo *.pem* o *.cer*. Para la inscripción individual, debe usar el *certificado del firmante* de cada dispositivo para su sistema X.509, mientras que para la inscripción de grupos, debe usar el *certificado raíz*. 
 
-    [![Agregar inscripción individual para la atestación X.509 en el portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
+      [![Agregar inscripción individual para la atestación X.509 en el portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Hay dos maneras de inscribir el dispositivo en el servicio Device Provisioning:
 
@@ -89,7 +89,7 @@ Cuando arranca el dispositivo, se deben realizar las siguientes acciones:
 
     ![Conexión correcta al centro en el portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Consulte la aplicación de ejemplo del simulador TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) para más información. 
+Para obtener más información, consulte el ejemplo de cliente de dispositivo de aprovisionamiento, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). En el ejemplo se muestra el aprovisionamiento de un dispositivo simulado mediante TPM, los certificados X.509 y las claves simétricas. Remítase a las guías de inicio rápido de atestación de [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) y [Clave simétrica](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) para obtener instrucciones paso a paso sobre el uso del ejemplo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial aprendió lo siguiente:

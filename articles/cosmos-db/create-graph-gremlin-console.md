@@ -8,14 +8,14 @@ ms.component: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 7f23ddc5b8f58403e5d2e69f11bd39b859f8d548
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b3077920f08688d2cc84997ef8712183e8d7a09a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844468"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098073"
 ---
-# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: crear, consultar y recorrer un grafo en la consola de Gremlin
+# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Creación, consulta y recorrido de un grafo en la consola de Gremlin
 
 > [!div class="op_single_selector"]
 > * [Gremlin Console](create-graph-gremlin-console.md)
@@ -28,11 +28,11 @@ ms.locfileid: "52844468"
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta de [Gremlin API](graph-introduction.md), una base de datos y un grafo (contenedor) de Azure Cosmos DB mediante Azure Portal y cómo usar la [consola de Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) de [Apache TinkerPop](http://tinkerpop.apache.org) para trabajar con los datos de Gremlin API. En este tutorial, creará y consultará vértices y bordes, actualizará una propiedad de vértice, consultará vértices, recorrerá el grafo y quitará un vértice.
+En esta guía de inicio rápido se muestra cómo crear una cuenta de [Gremlin API](graph-introduction.md), una base de datos y un grafo (contenedor) de Azure Cosmos DB mediante Azure Portal y cómo usar la [consola de Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) de [Apache TinkerPop](https://tinkerpop.apache.org) para trabajar con los datos de Gremlin API. En este tutorial, creará y consultará vértices y bordes, actualizará una propiedad de vértice, consultará vértices, recorrerá el grafo y quitará un vértice.
 
 ![Azure Cosmos DB desde la consola de Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
-La consola de Gremlin se basa en Groovy/Java y se ejecuta en Linux, Mac y Windows. Puede descargarla desde el [sitio de Apache TinkerPop](http://tinkerpop.apache.org/downloads.html).
+La consola de Gremlin se basa en Groovy/Java y se ejecuta en Linux, Mac y Windows. Puede descargarla desde el [sitio de Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -40,7 +40,7 @@ Necesita tener una suscripción de Azure para crear una cuenta de Azure Cosmos D
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-También necesita instalar la [consola de Gremlin](http://tinkerpop.apache.org/). Use la versión 3.2.5 o posterior. (Para usar la consola de Gremlin en Windows, es preciso instalar [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
+También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/). Use la versión 3.2.5 o posterior. (Para usar la consola de Gremlin en Windows, es preciso instalar [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
@@ -63,9 +63,9 @@ También necesita instalar la [consola de Gremlin](http://tinkerpop.apache.org/)
     connectionPool|{enableSsl: true}|La configuración del grupo de conexiones para SSL.
     serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Establecer en este valor y eliminar los saltos de línea `\n` cuando se pegue el valor.
 
-    Para obtener el valor de hosts, copie el valor del **Identificador URI de Gremlin** de la página **Información general**: ![Visualizar y copiar el valor del identificador URI de Gremlin en la página Información general de Azure Portal](./media/create-graph-gremlin-console/gremlin-uri.png)
+    Para obtener el valor de los hosts, copie el valor de **URI de Gremlin** de la página **Introducción**: ![Copie del valor del URI de Gremlin en la página Introducción en Azure Portal ](./media/create-graph-gremlin-console/gremlin-uri.png)
 
-    Para obtener el valor de la contraseña, copie la **Clave principal** en la página **Claves**: ![Visualizar y copiar la clave principal en la página Claves de Azure Portal](./media/create-graph-gremlin-console/keys.png)
+    Para obtener el valor de la contraseña, copie la **Clave principal** de la página **Claves**: ![Visualización y copia de la clave principal en Azure Portal, página Claves](./media/create-graph-gremlin-console/keys.png)
 
 El archivo remote-secure.yaml debe tener este aspecto:
 
@@ -80,7 +80,7 @@ connectionPool: {
 serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
 ```
 
-3. En el terminal, ejecute `bin/gremlin.bat` o `bin/gremlin.sh` para iniciar la [Consola de Gremlin](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+3. En el terminal, ejecute `bin/gremlin.bat` o `bin/gremlin.sh` para iniciar la [Consola de Gremlin](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. En el terminal, ejecute `:remote connect tinkerpop.server conf/remote-secure.yaml` para conectarse a App Service.
 
     > [!TIP]
@@ -301,7 +301,7 @@ g.E().drop()
 g.V().drop()
 ```
 
-Felicidades. Ha finalizado este tutorial de Gremlin API de Azure Cosmos DB.
+Felicidades. Acaba de completar este tutorial de Azure Cosmos DB: Gremlin API
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 

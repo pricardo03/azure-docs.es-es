@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Table API con Python en Azure Cosmos DB'
+title: 'Inicio rápido: Table API con Python: Azure Cosmos DB'
 description: Esta guía de inicio rápido muestra cómo usar Table API de Azure Cosmos DB para crear una aplicación con Azure Portal y Python.
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 70a7f17ed0ecb78337d13f68a260fc9f860e3a4a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 046c8f79ceea9ce40b5a60f720f205157110789e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837025"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161583"
 ---
-# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guía de inicio rápido: Creación de una aplicación de Table API con Python y Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Table API con Python y Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -84,7 +84,7 @@ Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada. 
 
-1. En [Azure Portal](http://portal.azure.com/), haga clic en **Cadena de conexión**. 
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Cadena de conexión**. 
 
     ![Visualización y copia de la cadena de conexión en el panel Cadena de conexión](./media/create-table-python/connection-string.png)
 

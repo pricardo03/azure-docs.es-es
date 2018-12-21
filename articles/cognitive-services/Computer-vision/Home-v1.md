@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982122"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957034"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>¿Qué es Computer Vision API versión 1.0?
 
@@ -39,12 +39,12 @@ Computer Vision API, basada en la nube, provee a los desarrolladores de acceso a
 
 ## <a name="requirements"></a>Requisitos
 * Métodos de entrada admitidos: binarios de imagen RAW en forma de application/octet-stream o URL de imagen.
-* Formatos de imagen admitidos: JPEG, PNG, GIF, BMP.
-* Tamaño del archivo de imagen: menor que 4 MB.
-* Dimensión de la imagen: más de 50 x 50 píxeles.
+* Formatos de imagen admitidos: JPEG, PNG, GIF y BMP.
+* Tamaño del archivo de imagen: menos de 4 MB.
+* Dimensión de la imagen: mayor que 50 x 50 píxeles.
 
 ## <a name="tagging-images"></a>Etiquetado de imágenes
-Computer Vision API devuelve etiquetas basándose en más de 2000 objetos, seres vivos, paisajes y acciones reconocibles. Cuando las etiquetas son ambiguas o no muy comunes, la respuesta de la API contiene «indicaciones» para aclarar el significado de la etiqueta en el contexto de un entorno conocido. Las etiquetas no están organizadas por su taxonomía y no existen jerarquías de herencia. Una colección de etiquetas de contenido es la base de la "descripción" de una imagen que se muestra en lenguaje natural con formato de oraciones completas. Tenga en cuenta que, en este momento, el inglés es el único idioma admitido para la descripción de la imagen.
+Computer Vision API devuelve etiquetas basándose en miles de objetos, seres vivos, paisajes y acciones reconocibles. Cuando las etiquetas son ambiguas o no muy comunes, la respuesta de la API contiene «indicaciones» para aclarar el significado de la etiqueta en el contexto de un entorno conocido. Las etiquetas no están organizadas por su taxonomía y no existen jerarquías de herencia. Una colección de etiquetas de contenido es la base de la "descripción" de una imagen que se muestra en lenguaje natural con formato de oraciones completas. Tenga en cuenta que, en este momento, el inglés es el único idioma admitido para la descripción de la imagen.
 
 Después de cargar una imagen o especificar la URL de una imagen, los algoritmos de Computer Vision API devuelven como salida etiquetas basadas en los objetos, seres vivos, paisajes y acciones identificados en la imagen. El etiquetado no se limita al sujeto principal, como una persona en primer plano, sino que también incluye el entorno (interior o exterior), muebles, herramientas, plantas, animales, accesorios, gadgets, etc.
 
@@ -231,7 +231,7 @@ Entre las diferentes categorías visuales, se encuentra el grupo de contenido pa
 ## <a name="optical-character-recognition-ocr"></a>Reconocimiento óptico de caracteres (OCR)
 La tecnología OCR detecta el contenido de texto de una imagen y extrae el texto identificado en una secuencia de caracteres de lectura mecánica. El resultado se puede usar para búsquedas y otros propósitos, como registros médicos, seguridad y banca. Detecta automáticamente el idioma. OCR ahorra tiempo y es cómodo para los usuarios, ya que permite tomar fotografías del texto en lugar de transcribirlo.
 
-OCR admite 25 idiomas, que son: árabe, chino simplificado, chino tradicional, checo, danés, holandés, inglés, finés, francés, alemán, griego, húngaro, italiano, japonés, coreano, noruego, polaco, portugués, rumano, ruso, serbio (cirílico y latino), eslovaco, español, sueco y turco.
+OCR admite 25 idiomas, Estos idiomas son: árabe, chino simplificado, chino tradicional, checo, danés, holandés, inglés, finés, francés, alemán, griego, húngaro, italiano, japonés, coreano, noruego, polaco, portugués, rumano, ruso, serbio (cirílico y latino), eslovaco, español, sueco y turco.
 
 Si es necesario, OCR corrige el giro del texto reconocido, en grados, alrededor del eje horizontal de la imagen. OCR da las coordenadas del marco de cada palabra, como se observa en la ilustración inferior.
 
@@ -250,7 +250,7 @@ La precisión del reconocimiento de texto depende de la calidad de la imagen. El
 - Letra mayúscula grande o falta de letras mayúsculas iniciales.
 - Texto de superíndice, subíndice o tachado.
 
-Limitaciones: en las fotos en las que predomina el texto, las palabras reconocidas parcialmente pueden producir falsos positivos. En algunas fotos, especialmente las que no tienen texto, la precisión puede variar considerablemente según el tipo de imagen.
+ Limitaciones: En las fotos en las que predomina el texto, las palabras que se reconocen de forma parcial pueden producir falsos positivos. En algunas fotos, especialmente las que no tienen texto, la precisión puede variar considerablemente según el tipo de imagen.
 
 ## <a name="recognize-handwritten-text"></a>Reconocer texto manuscrito
 Esta tecnología permite detectar y extraer texto manuscrito de notas, cartas, ensayos, pizarras, formularios, etc. Funciona con diferentes tipos de superficies y fondos, tales como papel blanco, notas adhesivas amarillas y pizarras interactivas.
@@ -267,12 +267,12 @@ Nota: Esta tecnología está actualmente en versión preliminar y solo está dis
 ## <a name="generating-thumbnails"></a>Generación de miniaturas
 Una miniatura es una pequeña representación de una imagen a tamaño completo. La variedad de dispositivos, como teléfonos, tabletas y PC, hacen que sean necesarios diferentes diseños y tamaños de miniaturas para cada experiencia de usuario. Mediante el recorte inteligente, esta característica de Computer Vision API ayuda a resolver el problema.
 
-Después de cargar una imagen, se genera una miniatura de alta calidad y el algoritmo de Computer Vision API analiza los objetos de la imagen. A continuación, se recorta la imagen para ajustarla a los requisitos de la «región de interés» (ROI). La salida se muestra dentro de un marco especial, como se observa en la siguiente ilustración. La miniatura generada se puede presentar con una relación de aspecto que es diferente de la relación de aspecto de la imagen original para adaptarse a las necesidades del usuario.
+Después de cargar una imagen, se genera una miniatura de alta calidad y el algoritmo de Computer Vision API analiza los objetos de la imagen. A continuación, se recorta la imagen para ajustarla a los requisitos del “área de interés”. La salida se muestra dentro de un marco especial, como se observa en la siguiente ilustración. La miniatura generada se puede presentar con una relación de aspecto que es diferente de la relación de aspecto de la imagen original para adaptarse a las necesidades del usuario.
 
 El algoritmo de miniaturas funciona del siguiente modo:
 
-1. Quita los elementos prescindibles de la imagen y reconoce el objeto principal, la «región de interés» (ROI).
-2. Recorta la imagen en función de la región de interés identificada.
+1. Quita los elementos prescindibles de la imagen y reconoce el objeto principal, el “área de interés”.
+2. Recorta la imagen en función del área de interés identificada.
 3. Cambia la relación de aspecto para ajustarse a las dimensiones de la miniatura de destino.
 
 ![Miniaturas](./Images/thumbnail-demo.png)

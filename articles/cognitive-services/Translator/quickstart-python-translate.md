@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Traducir texto, Python: Translator Text API'
+title: 'Inicio rápido: Traducir texto con Python: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido aprenderá a traducir texto de un idioma a otro mediante Translator Text API con Python en menos de 10 minutos.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: db2328d09f9e06ccabdc2408327a342fe94fefe0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085995"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999581"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Guía de inicio rápido: Uso de Translator Text API para traducir una cadena mediante Python
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Inicio rápido: Uso de Translator Text API para traducir una cadena mediante Python
 
 En esta guía de inicio rápido, aprenderá a traducir una cadena de texto de inglés a italiano y alemán con Python y la API REST de Translator Text.
 
@@ -69,7 +69,7 @@ Actualmente, hay un punto de conexión disponible para Translator Text y está e
 Los `params` se utilizan para establecer los idiomas de salida. En este ejemplo vamos a traducir de inglés a italiano y alemán: `it` y `de`.
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Traducción](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Traducción](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -161,7 +161,7 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="see-also"></a>Otras referencias
 
-Además de traducción de texto, aprenda a usar Translator Text API para:
+Aprenda a usar Translator Text API para:
 
 * [Transliterar texto](quickstart-python-transliterate.md)
 * [Identificar el idioma de entrada](quickstart-python-detect.md)

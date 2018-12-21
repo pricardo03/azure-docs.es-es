@@ -1,5 +1,5 @@
 ---
-title: Protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada | Microsoft Docs
+title: 'Protección de la conexión con SQL Database mediante una identidad administrada: Azure App Service | Microsoft Docs'
 description: Aprenda a hacer que la conectividad con la base de datos sea más segura con una identidad administrada y también a aplicar esto a otros servicios de Azure.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8c31e410713e4ba8ce6443170ba5ad5c2e740419
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52677940"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259076"
 ---
-# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada
 
 [App Service](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático en Azure. También proporciona una [identidad administrada](app-service-managed-service-identity.md) para la aplicación, la cual constituye una solución inmediata para proteger el acceso a [Azure SQL Database](/azure/sql-database/) y a otros servicios de Azure. Las identidades administradas de App Service hacen que su aplicación sea más segura mediante la eliminación de los secretos de aplicación como, por ejemplo, las credenciales en las cadenas de conexión. En este tutorial, agregará una identidad administrada a la aplicación web ASP.NET de ejemplo que se creó en [Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). Cuando haya terminado, la aplicación de ejemplo se conectará a SQL Database de forma segura sin necesidad de nombres de usuario ni contraseñas.
 
@@ -44,7 +44,7 @@ Aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Este artículo continúa donde terminó [Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). Si no lo ha hecho ya, siga este tutorial primero. Como alternativa, puede adaptar los pasos para su propia aplicación ASP.NET con SQL Database.
+Este artículo continúa donde lo dejó en [Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). Si no lo ha hecho ya, siga este tutorial primero. Como alternativa, puede adaptar los pasos para su propia aplicación ASP.NET con SQL Database.
 
 <!-- ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png) -->
 
@@ -95,11 +95,10 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 ## <a name="modify-aspnet-code"></a>Modificación del código ASP.NET
 
-En el proyecto **DotNetAppSqlDb** en Visual Studio, abra _packages.config_ y agregue la siguiente línea en la lista de paquetes.
+En Visual Studio, abra la consola del administrador de paquetes y agregue el paquete NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
-```xml
-<package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
-<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
+```PowerShell
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.1.0-preview
 ```
 
 Abra _Models\MyDatabaseContext.cs_ y agregue las siguientes instrucciones `using` en la parte superior del archivo:

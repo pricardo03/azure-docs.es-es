@@ -4,10 +4,9 @@ description: Diagrama imprimible de las funcionalidades de Azure Machine Learnin
 keywords: estudio de aprendizaje automático, introducción, diagrama, descarga
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
-ms.author: amlstudiodocs
-manager: mwinkle
+author: garyericson
+ms.custom: previous-ms.author=haining, previous-author=hning86
+ms.author: garye
 editor: cgronlun
 ms.assetid: 5b302c6c-41fd-4551-a4ae-0f5b450e1e6b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: d972cc9f162e16d5b688919dcdb5b7b06ad90736
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ce842d11d47529eca2be894a230b60417cea102f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312470"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278022"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Diagrama de información general de las funcionalidades de Azure Machine Learning Studio
 El diagrama **Información general de las funcionalidades de Microsoft Azure Machine Learning Studio** proporciona una descripción general de cómo puede usar Machine Learning Studio para desarrollar un modelo de análisis predictivo y ponerlo en marcha en la nube de Azure.
@@ -52,5 +51,5 @@ Descargue el diagrama **Información general de las funcionalidades de Microsoft
 * Para obtener información general sobre Azure Machine Learning, consulte [¿Qué es Azure Machine Learning Studio?](what-is-ml-studio.md)
 * Para obtener una explicación detallada de los algoritmos de aprendizaje automático disponibles en Machine Learning Studio, consulte [Selección de algoritmos para Microsoft Azure Machine Learning](algorithm-choice.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

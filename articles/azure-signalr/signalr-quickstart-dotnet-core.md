@@ -1,25 +1,18 @@
 ---
-title: Guía de inicio rápido para aprender a usar Azure SignalR Service| Microsoft Docs
+title: Guía de inicio rápido para aprender a usar Azure SignalR Service
 description: Una guía de inicio rápido para usar Azure SignalR Service para crear un salón de chat con aplicaciones de ASP.NET Core MVC.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: b667f38c4e3d2a3fad323171a3b3b49ed3619fd9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959485"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260623"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guía de inicio rápido: Creación de un salón de chat con SignalR Service
 
@@ -41,7 +34,7 @@ El código de este tutorial está disponible para su descarga en el [repositorio
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Instalar el [SDK de .NET Core](https://www.microsoft.com/net/download/windows)
-* Descargar o clonar el repositorio de github [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples). 
+* Descargar o clonar el repositorio de GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples). 
 
 ## <a name="create-an-azure-signalr-resource"></a>Creación de un recurso de Azure SignalR
 
@@ -133,8 +126,8 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
 
 En SignalR, un hub es un componente básico que expone un conjunto de métodos al que se puede llamar desde el cliente. En esta sección, define una clase de hub con dos métodos: 
 
-* `Broadcast`: Este método difunde un mensaje a todos los clientes.
-* `Echo`: Este método devuelve un mensaje al autor de la llamada.
+* `Broadcast`: este método difunde un mensaje a todos los clientes.
+* `Echo`: este método devuelve un mensaje al autor de la llamada.
 
 Los dos métodos utilizan la interfaz `Clients` proporcionada por el SDK de ASP.NET Core SignalR. Esta interfaz le da acceso a todos los clientes conectados, lo que le permite insertar contenido en los clientes.
 

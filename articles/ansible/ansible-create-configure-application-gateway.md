@@ -1,5 +1,5 @@
 ---
-title: Administración del tráfico web con Azure Application Gateway mediante Ansible (versión preliminar)
+title: Administración del tráfico web con Azure Application Gateway mediante Ansible
 description: Aprenda a usar Ansible para crear y configurar una instancia de Azure Application Gateway para administrar el tráfico web
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, azure application gateway, equilibrador de carga, tráfico web
@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: e3c165c87d6c179141f2ddd44f00f0f62a84b285
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: af7f22ae5c289a01e6876d8ce586cb32383c8d3b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912873"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253378"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible-preview"></a>Administración del tráfico web con Azure Application Gateway mediante Ansible (versión preliminar)
+# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Administración del tráfico web con Azure Application Gateway mediante Ansible
 
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) es un equilibrador de carga de tráfico web que permite administrar el tráfico a las aplicaciones web.
 
@@ -34,7 +34,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Se requiere Ansible 2.7 para ejecutar los siguientes cuadernos de estrategias de ejemplo en este tutorial. Para instalar Ansible 2.7 RC, ejecute `sudo pip install ansible[azure]==2.7.0rc2`. Después del lanzamiento de Ansible 2.7, no tendrá que especificar la versión.
+> Se requiere Ansible 2.7 para ejecutar los siguientes cuadernos de estrategias de ejemplo en este tutorial. 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

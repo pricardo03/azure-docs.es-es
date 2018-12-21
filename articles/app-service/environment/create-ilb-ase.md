@@ -1,5 +1,5 @@
 ---
-title: Creación y uso de un equilibrador de carga interno con una instancia de Azure App Service Environment
+title: 'Creación de un equilibrador de carga interno con App Service Environment: Azure'
 description: Detalles sobre cómo crear y usar una instancia de Azure App Service Environment aislada de Internet
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.custom: seodec18
+ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378285"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344285"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -56,19 +56,19 @@ Sin embargo, cuando utilice un ASE con un ILB, no podrá realizar algunas operac
 
 Pasos para crear un ASE con un ILB:
 
-1. En Azure Portal, seleccione **Crear un recurso** > **Web** > **App Service Environment**.
+1. En Azure Portal, seleccione  **Crear un recurso** > **Web** > **App Service Environment**.
 
-1. Seleccione su suscripción.
+2. Seleccione su suscripción.
 
-1. Seleccione o cree un grupo de recursos.
+3. Seleccione o cree un grupo de recursos.
 
-1. Cree una red virtual o seleccione una.
+4. Cree una red virtual o seleccione una.
 
-1. Si selecciona una red virtual existente, debe crear una subred para almacenar el ASE. Asegúrese de establecer un tamaño de subred suficientemente grande para alojar el crecimiento futuro de su ASE. Recomendamos un tamaño de `/24`, que tiene 256 direcciones y puede controlar los ASE de tamaño máximo y cualquier escala necesaria. 
+5. Si selecciona una red virtual existente, debe crear una subred para almacenar el ASE. Asegúrese de establecer un tamaño de subred suficientemente grande para alojar el crecimiento futuro de su ASE. Recomendamos un tamaño de `/24`, que tiene 256 direcciones y puede controlar los ASE de tamaño máximo y cualquier escala necesaria. 
 
-1. Seleccione **Virtual Network/Ubicación** > **Configuración de Virtual Network**. Establezca el valor de **Tipo de dirección VIP** en **Interna**.
+6. Seleccione  **Virtual Network/Ubicación** > **Configuración de Virtual Network**. Establezca el valor de **Tipo de dirección VIP** en **Interna**.
 
-1. Escriba un valor en nombre de dominio. Este dominio es el que utiliza para las aplicaciones creadas en este ASE. Hay algunas restricciones. No puede ser:
+7. Escriba un valor en nombre de dominio. Este dominio es el que utiliza para las aplicaciones creadas en este ASE. Hay algunas restricciones. No puede ser:
 
     * net   
 
@@ -96,14 +96,14 @@ En la hoja **Virtual Network**, hay una opción denominada **Configuración de V
 
 Tras seleccionar **Interna**, se quita la capacidad de agregar más direcciones IP a su ASE. En su lugar, debe proporcionar el dominio del ASE. En un ASE con una dirección VIP externa, se usa el nombre del ASE en el dominio para las aplicaciones creadas en dicho ASE.
 
-Si establece el valor de **Tipo de dirección VIP** en **Interna**, el nombre del ASE no se usa en el dominio del ASE. El dominio se especifica explícitamente. Si el dominio fuera *contoso.corp.net* y creara una aplicación en dicho ASE denominada *timereporting*, la dirección URL de dicha aplicación sería timereporting.contoso.corp.net.
+Si establece el valor de **Tipo de dirección VIP** en **Interna**, el nombre del ASE no se usa en el dominio del ASE. El dominio se especifica explícitamente. Si el dominio es *contoso.corp.net*  y crea una aplicación en dicho ASE denominada  *timereporting*, la dirección URL de dicha aplicación es timereporting.contoso.corp.net.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Creación de una aplicación en un ASE con un ILB ##
 
 Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicación en un ASE normalmente.
 
-1. En Azure Portal, seleccione **Crear un recurso** > **Web y móvil** > **Aplicación web**.
+1. En Azure Portal, seleccione  **Crear un recurso** > **Web y móvil** > **Aplicación web**.
 
 1. Escriba el nombre de la aplicación.
 
@@ -117,9 +117,9 @@ Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicació
 
 1. Seleccione o cree un plan de App Service. Si desea crear un nuevo plan de App Service, seleccione su ASE como ubicación. Seleccione el grupo de trabajo donde desea que se cree el plan de App Service. Cuando cree el plan de App Service, seleccione el ASE como ubicación y grupo de trabajo. Al especificar el nombre de la aplicación, el dominio que se encuentra bajo el nombre de la aplicación se reemplaza por el dominio del ASE.
 
-1. Seleccione **Crear**. Si quiere que la aplicación aparezca en el panel, active la casilla **Anclar a panel**.
+1. Seleccione **Crear**. Si quiere que la aplicación aparezca en el panel, active la casilla  **Anclar a panel** .
 
-    ![Creación del plan de App Service][2]
+    ![Limpieza del plan de App Service][2]
 
     Debajo del **nombre de la aplicación**, el nombre del dominio se actualiza para reflejar el dominio del ASE.
 
@@ -127,14 +127,14 @@ Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicació
 
 Un ASE con un ILB es ligeramente diferente a un ASE sin ILB. Como ya se ha indicado, debe administrar su propio DNS. También debe proporcionar su propio certificado para las conexiones HTTPS.
 
-Después de crear su ASE, el nombre de dominio muestra el dominio especificado. Aparece un nuevo elemento en el menú **Configuración** denominado **Certificado de ILB**. El ASE se crea con un certificado que no especifica el dominio del ASE con un ILB. Si usa el ASE con ese certificado, el explorador le indicará que no es válido. Este certificado facilita la tarea de probar HTTPS, pero debe cargar su propio certificado, que está asociado al dominio del ASE con un ILB. Este paso es necesario independientemente de si el certificado es autofirmado o se adquiere de una entidad de certificación.
+Después de crear su ASE, el nombre de dominio muestra el dominio especificado. Aparece un nuevo elemento en el menú  **Configuración** , denominado  **ILB Certificate**. El ASE se crea con un certificado que no especifica el dominio del ASE con un ILB. Si usa el ASE con ese certificado, el explorador le indicará que no es válido. Este certificado facilita la tarea de probar HTTPS, pero debe cargar su propio certificado, que está asociado al dominio del ASE con un ILB. Este paso es necesario independientemente de si el certificado es autofirmado o se adquiere de una entidad de certificación.
 
 ![Nombre de dominio del ASE con un ILB][3]
 
 El ASE con un ILB necesita un certificado SSL válido. Use entidades de certificación internas, compre un certificado a un emisor externo o utilice un certificado autofirmado. Independientemente del origen del certificado SSL, es preciso configurar correctamente los siguientes atributos del certificado:
 
-* **Firmante**: este atributo se debe establecer en *.your-root-domain-here.
-* **Nombre alternativo del firmante**: este atributo debe incluir tanto **.your-root-domain-here* como **.scm.your-root-domain-here*. Las conexiones SSL con el sitio de SCM/Kudu asociadas a cada aplicación usan una dirección cuyo formato será *your-app-name.scm.your-root-domain-here*.
+* **Firmante**: Este atributo se debe establecer en *.su-dominio-raíz.
+* **Nombre alternativo del firmante**: Este atributo debe incluir tanto **.su-dominio-raíz* como **.scm.su-dominio-raíz*. Las conexiones SSL con el sitio de SCM/Kudu asociadas a cada aplicación usan una dirección cuyo formato será *your-app-name.scm.your-root-domain-here*.
 
 Convierta/guarde el certificado SSL como un archivo .pfx. El archivo .pfx debe incluir todos los certificados intermedios y raíz. Protéjalo con una contraseña.
 
@@ -154,7 +154,7 @@ El certificado que generan estos comandos de PowerShell produce avisos en los ex
 
 Para cargar sus propios certificados y probar el acceso:
 
-1. Una vez creado el ASE, vaya a la interfaz de usuario de ASE. Seleccione **ASE** > **Configuración** > **Certificado de ILB**.
+1. Una vez creado el ASE, vaya a la interfaz de usuario de ASE. Seleccione **ASE** > **Configuración** > **Certificado de ILB**.
 
 1. Para establecer el certificado de ILB, seleccione el archivo de certificado .pfx y escriba la contraseña. Este paso tarda algún tiempo en procesarse. Aparece un mensaje que indica que una operación de carga está en curso.
 
@@ -174,9 +174,9 @@ Para cargar sus propios certificados y probar el acceso:
 
     b. Para probar la publicación de la implementación web o tener acceso a la consola avanzada, cree un registro para _mytestapp.scm.ilbase.com_.
 
-1. Use un explorador en esa máquina virtual y vaya a http://mytestapp.ilbase.com. (o vaya allí donde el nombre de la aplicación web esté con su dominio).
+1. Use un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. (o vaya allí donde el nombre de la aplicación web esté con su dominio).
 
-1. Use un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. Si utiliza un certificado autofirmado, acepte el aviso de seguridad.
+1. Use un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. Si utiliza un certificado autofirmado, acepte el aviso de seguridad.
 
     La dirección IP del ILB se incluye en **Direcciones IP**. Esta lista también incluye las direcciones IP utilizadas por la dirección VIP externa y para el tráfico de administración de entrada.
 
@@ -188,7 +188,7 @@ Functions y los trabajos web se admiten en un ASE de ILB, pero para que el porta
 
 Al usar Azure Functions en un ASE con un ILB, puede recibir un mensaje de error que dice "No se han podido recuperar sus funciones ahora. Inténtelo de nuevo más tarde." Este error se produce porque la interfaz de usuario de Functions aprovecha el sitio de SCM a través de HTTPS y el certificado raíz no está en la cadena de confianza del explorador. Los trabajos web tienen un problema similar. Para evitar este problema puede hacer cualquiera de las siguientes acciones:
 
-- Agregue el certificado a su almacén de certificados de confianza. Esto desbloquea Microsoft Edge e Internet Explorer.
+- Agregue el certificado a su almacén de certificados de confianza. Esto desbloquea Edge e Internet Explorer.
 - Use Chrome y primero vaya al sitio de SCM, acepte el certificado que no es de confianza y luego vaya al portal.
 - Use un certificado comercial que se encuentre en la cadena de confianza del explorador.  Esta es la mejor opción.  
 
@@ -222,13 +222,9 @@ Para obtener más información sobre cómo configurar el ASE con un ILB con un d
 ## <a name="get-started"></a>Introducción ##
 
 * Para empezar a trabajar con las instancias de App Service Environment, consulte [Introducción a App Service Environment][Intro].
- 
+ 
 <!--Image references-->
-[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
-[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
-[3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png
-[4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png
-[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
+[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png [2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png [3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png [4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png [5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -244,10 +240,10 @@ Para obtener más información sobre cómo configurar el ASE con un ILB con un d
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md

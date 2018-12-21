@@ -1,21 +1,22 @@
 ---
-title: Eventos personalizados para Azure Event Grid con PowerShell | Microsoft Docs
-description: Use Azure Event Grid y PowerShell para publicar un tema y suscribirse a ese evento.
+title: 'Envío de eventos personalizados a un punto de conexión web: Event Grid, PowerShell'
+description: Use Azure Event Grid y PowerShell para publicar un tema personalizado y suscribirse a eventos para este tema. Los eventos se controlan mediante una aplicación web.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 08/23/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 13620fbd6393c747285574cf16b519b9b6a1f324
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.custom: seodec18
+ms.openlocfilehash: 46278d0663cd748f88fcfa13d0688ec89a17bd89
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745191"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096678"
 ---
-# <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>Creación y enrutamiento de eventos personalizados con Azure PowerShell y Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Guía de inicio rápido: Enrutamiento de eventos personalizados al punto de conexión web con PowerShell y Event Grid
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa Azure PowerShell para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 
@@ -43,7 +44,7 @@ New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>Creación de un tema personalizado
 
-Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. En el ejemplo siguiente se crea el tema personalizado en el grupo de recursos. Reemplace `<your-topic-name>` por un nombre único para el tema. El nombre del tema debe ser único, ya que es parte de la entrada DNS.
+Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. En el ejemplo siguiente se crea el tema personalizado en el grupo de recursos. Reemplace `<your-topic-name>` por un nombre único para el tema. El nombre del tema debe ser único, ya que es parte de la entrada DNS. Además, debe tener entre 3 y 50 caracteres y contener solo los valores a-z, A-Z, 0-9 y "-".
 
 ```powershell-interactive
 $topicname="<your-topic-name>"

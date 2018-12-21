@@ -1,5 +1,5 @@
 ---
-title: Tutorial sobre indexación, consulta y filtrado en Azure Search mediante el portal | Microsoft Docs
+title: 'Tutorial sobre indexación, consulta y filtrado en Azure Portal: Azure Search'
 description: En este tutorial, se usan Azure Portal y datos de ejemplo predefinidos para generar un índice en Azure Search. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada, la búsqueda geográfica y más.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: aac579da3aaf6ab1507bbc12d79a5b183a82d665
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.custom: seodec2018
+ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592762"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314030"
 ---
-# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>Tutorial: Uso de herramientas integradas para la indexación de Azure Search y consultas
+# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Tutorial: Uso de herramientas integradas en Azure Portal para la indexación de Azure Search y consultas
 
 Para una revisión rápida e iniciarse en los conceptos de Azure Search, puede usar las herramientas integradas proporcionadas en la página del servicio Azure Search en Azure Portal. Estas herramientas podrían no ofrecer la funcionalidad completa de .NET y las API REST. No obstante, los asistentes y editores ofrecen una introducción sin código a Azure Search, lo que le permite escribir consultas interesantes en un conjunto de datos de ejemplo de inmediato.
 
@@ -106,7 +107,7 @@ Para supervisar la importación de datos, vuelva al panel de servicio, despláce
 
    ![Mensaje de progreso del indexador][4]
 
-### <a name="step-4-view-the-index"></a>Paso 4: Visualización del índice
+### <a name="step-4-view-the-index"></a>Paso 4: Ver el índice
 
 Los iconos del panel de servicio proporcionan tanto información de resumen de los distintos objetos de un recurso como acceso a información detallada. El icono **Índices** enumera los índices existentes, incluido el índice *realestate-us-sample* que acaba de crear en el paso anterior.
 

@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial 9: Análisis de opiniones positivas, negativas y neutrales de LUIS'
+title: análisis de opiniones
 titleSuffix: Azure Cognitive Services
 description: En este tutorial va a crear una aplicación que muestra cómo extraer opiniones positivas, negativas y neutrales de expresiones. Las opiniones se determinan a partir de la expresión completa.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424857"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098948"
 ---
-# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutorial 9: Extracción de opiniones de expresión global
+# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutorial 9:  Extracción de opiniones de expresión global
 En este tutorial va a crear una aplicación que muestra cómo extraer opiniones positivas, negativas y neutrales de expresiones. Las opiniones se determinan a partir de la expresión completa.
 
 El análisis de opiniones es la capacidad para determinar si la expresión de un usuario es positiva, negativa o neutral. 
@@ -94,7 +95,7 @@ Agregue una nueva intención para capturar los comentarios de los miembros de la
 
 2. Cambie el conmutador **Sentiment Analysis** (Análisis de sentimiento) para habilitar esta configuración. 
 
-    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
+    ![Activación del Análisis de sentimiento como configuración de publicación](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
 ## <a name="publish"></a>Publicar
 
@@ -106,7 +107,7 @@ Agregue una nueva intención para capturar los comentarios de los miembros de la
 
 2. Vaya al final de la dirección URL en la dirección y escriba `Jill Jones work with the media team on the public portal was amazing`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `EmployeeFeedback` con el análisis de sentimiento extraído.
     
-    ```JSON
+    ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {

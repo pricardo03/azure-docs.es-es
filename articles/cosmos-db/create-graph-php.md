@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Gremlin API con PHP: Azure Cosmos DB'
+title: 'Inicio rápido: Gremlin API con PHP: Azure Cosmos DB'
 description: En esta guía de inicio rápido se muestra cómo usar Gremlin API de Azure Cosmos DB para crear una aplicación de consola con Azure Portal y PHP
 services: cosmos-db
 author: luisbosquez
@@ -10,14 +10,14 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e5a7d40007076d09695d166148d84684c1cccee5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f6ff46f391ce03f67619ef685f841dcf95a1fd92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839626"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089473"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: creación una base de datos de grafos mediante PHP y Azure Portal
+# <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Creación una base de datos de grafos mediante PHP y Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Gremlin Console](create-graph-gremlin-console.md)
@@ -37,7 +37,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin suscripción de Azure, sin cargos y sin compromiso.
 
 Además:
-* [PHP](http://php.net/) 5.6 o posterior
+* [PHP](https://php.net/) 5.6 o posterior
 * [Compositor](https://getcomposer.org/download/)
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
@@ -104,7 +104,7 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
 
 Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela en la aplicación. Esta configuración permitirá que la aplicación se comunique con la base de datos hospedada.
 
-1. En [Azure Portal](http://portal.azure.com/), haga clic en **Claves**. 
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Claves**. 
 
     Copie la primera parte del valor URI.
 

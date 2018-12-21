@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7d319c82da09ec5c960e1f40bc26edce8ee372b9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274430"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083570"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Administración de costos mediante Cloudyn
 
@@ -53,13 +53,11 @@ Al iniciar la asignación de costos, lo primero que hay que hacer es definir el 
 
 Para crear un modelo de asignación de costos personalizado, en el menú del informe seleccione **Costs** (Costos) &gt; **Cost Management** (Administración de costos) &gt; **Cost Allocation 360°** (Asignación de costos 360°).
 
-![Selección de Cost Allocation 360° (Asignación de costos 360°)](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Ejemplo que muestra un panel donde se selecciona Cost Allocation 360°](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 En la página **Cost Allocation 360°** (Asignación de costos 360°), seleccione **Agregar** y después escriba un nombre y una descripción para el modelo de costos. Seleccione todas las cuentas o cuentas individuales. Si desea usar cuentas individuales, puede seleccionar varias cuentas de varios proveedores de servicios en la nube. A continuación, haga clic en **Categorization** (Clasificación) para elegir las etiquetas detectadas que sirvan para clasificar los datos de costos. Elija las etiquetas (categorías) que se van a incluir en el modelo. En el ejemplo siguiente, la etiqueta **Unit** (Unidad) está seleccionada.
 
-![Ejemplo de clasificación de modelos de costos](./media/tutorial-manage-costs/cost-model01.png)
-
-
+![Ejemplo que muestra la clasificación de modelos de costos](./media/tutorial-manage-costs/cost-model01.png)
 
 En el ejemplo, 19 680 USD aparece sin clasificar (sin etiquetas).
 
@@ -97,7 +95,7 @@ Para definir una nueva regla, en el área **Rules** (Reglas), cree una nueva reg
 
 En la siguiente imagen se muestra un ejemplo de reglas creadas para una nueva categoría denominada **Work-Load** (Carga de trabajo):
 
-![Categoría de ejemplo](./media/tutorial-manage-costs/category01.png)
+![Ejemplo que muestra la nueva categoría de carga de trabajo](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>Informes y orígenes de etiqueta
 
@@ -124,7 +122,7 @@ Los métodos que las organizaciones usan para mostrar los gastos y hacer contrac
 
 Para ver los resultados de la asignación de costos, abra el informe de análisis de costos y seleccione el modelo de costos que ha creado. A continuación, agregue una agrupación por una o varias de las etiquetas seleccionadas en el modelo de costos.
 
-![Informe de análisis de costos](./media/tutorial-manage-costs/cost-analysis.png)
+![Informe de análisis de costos que muestra un ejemplo de datos a partir del nuevo costo](./media/tutorial-manage-costs/cost-analysis.png)
 
 Puede crear y guardar fácilmente los informes que se centran en servicios concretos consumidos por grupos específicos. Por ejemplo, podría tener un departamento que hiciera un uso exhaustivo de máquinas virtuales de Azure. Puede crear un informe que se filtre en máquinas virtuales de Azure para mostrar el consumo y los costos.
 

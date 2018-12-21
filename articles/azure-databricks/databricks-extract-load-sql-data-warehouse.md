@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 48b2cdb26994d01dfced8216bb70493802f672a7
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265277"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413683"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks
 
@@ -44,9 +44,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos siguientes:
-- Ha creado una instancia de Azure SQL Data Warehouse y una regla de firewall de nivel de servidor y se ha conectado al servidor como administrador. Siga las instrucciones que se indican en [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md).
+- Ha creado una instancia de Azure SQL Data Warehouse y una regla de firewall de nivel de servidor y se ha conectado al servidor como administrador. Siga las instrucciones que se describen en [Inicio rápido: Creación de una instancia de Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Ha creado una clave maestra de base de datos para la instancia de Azure SQL Data Warehouse. Siga las instrucciones que se indican en [Crear la clave maestra de una base de datos](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Ha creado una cuenta de Azure Blob Storage y, dentro de ella, un contenedor. Además, ha recuperado la clave de acceso para acceder a la cuenta de almacenamiento. Siga las instrucciones que se indican en [Guía de inicio rápido: Creación de una cuenta de Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Ha creado una cuenta de Azure Blob Storage y, dentro de ella, un contenedor. Además, ha recuperado la clave de acceso para acceder a la cuenta de almacenamiento. Siga las instrucciones que se describen en [Inicio rápido: Cree una cuenta de Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
@@ -54,7 +54,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creación de un área de trabajo de Azure Databricks
 
-En esta sección, creará un área de trabajo de Azure Databricks mediante Azure Portal. 
+En esta sección, creará un área de trabajo de Azure Databricks mediante Azure Portal.
 
 1. En Azure Portal, seleccione **Crear un recurso** > **Datos y análisis** > **Azure Databricks**.
 
@@ -65,7 +65,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
     ![Creación de un área de trabajo de Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Creación de un área de trabajo de Azure Databricks")
 
     Proporcione los valores siguientes:
-     
+    
     |Propiedad  |Descripción  |
     |---------|---------|
     |**Workspace name** (Nombre del área de trabajo)     | Proporcione un nombre para el área de trabajo de Databricks        |
@@ -96,7 +96,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     * Escriba un nombre para el clúster.
     * Para este artículo, cree un clúster con el entorno en tiempo de ejecución **4.0**.
-    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
+    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de ____ minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
     
     Seleccione **Create cluster** (Crear clúster). Una vez que el clúster se está ejecutando, puede asociarle notebooks y ejecutar trabajos de Spark.
 
@@ -106,11 +106,11 @@ En esta sección, creará una cuenta de Azure Data Lake Store y le asociará una
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Storage** > **Data Lake Store**.
 3. En la hoja **Nuevo Data Lake Store**, proporcione los valores como se muestra en la captura de pantalla siguiente:
-   
+
     ![Creación de una nueva cuenta de Azure Data Lake Store](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "Creación de una nueva cuenta de Azure Data Lake")
 
-    Proporcione los valores siguientes: 
-     
+    Proporcione los valores siguientes:
+    
     |Propiedad  |DESCRIPCIÓN  |
     |---------|---------|
     |**Nombre**     | Escriba un nombre único para la cuenta de Data Lake Store.        |
@@ -125,7 +125,7 @@ En esta sección, creará una cuenta de Azure Data Lake Store y le asociará una
 Ahora creará una entidad de servicio de Azure Active Directory y la asociará a la cuenta de Data Lake Store.
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>Creación de una entidad de servicio de Azure Active Directory
-   
+
 1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los servicios** y, luego, **Azure Active Directory**.
 
 2. Seleccione **App registrations** (Registros de aplicaciones).
@@ -193,7 +193,7 @@ Al iniciar sesión mediante programación, deberá pasar el id. de inquilino con
 
 ## <a name="upload-data-to-data-lake-store"></a>Carga de datos en el Almacén Data Lake
 
-En esta sección, cargará un archivo de datos de ejemplo en Data Lake Store. Usará este archivo más adelante en Azure Databricks para ejecutar algunas transformaciones. Los datos de ejemplo (**small_radio_json.json**) que usará en este tutorial están disponibles en este [repositorio de Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+En esta sección, cargará un archivo de datos de ejemplo en Data Lake Store. Usará este archivo más adelante en Azure Databricks para ejecutar algunas transformaciones. Los datos de ejemplo (**small_radio_json.json**) que usará en este tutorial están disponibles en este [repositorio de GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
 1. En [Azure Portal](https://portal.azure.com), seleccione la cuenta de Data Lake Store que creó.
 
@@ -378,7 +378,7 @@ En esta sección, cargará los datos transformados en Azure SQL Data Warehouse. 
 
 Como se mencionó anteriormente, el conector de SQL Data Warehouse usa Azure Blob Storage como ubicación de almacenamiento temporal para cargar datos entre Azure Databricks y Azure SQL Data Warehouse. Por lo tanto, para comenzar, proporcione la configuración para conectarse a la cuenta de almacenamiento. Ya debe haber creado la cuenta como parte de los requisitos previos de este artículo.
 
-1. Proporcione la configuración para acceder a la cuenta de Azure Storage desde Azure Databricks. Si copia la dirección URL para el almacenamiento de blobs desde el portal, no olvide quitar la parte de *https://* del principio. 
+1. Proporcione la configuración para acceder a la cuenta de Azure Storage desde Azure Databricks. Si copia la dirección URL para el almacenamiento de blobs desde el portal, no olvide quitar la parte de *https://* del principio.
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -410,7 +410,7 @@ Como se mencionó anteriormente, el conector de SQL Data Warehouse usa Azure Blo
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)
@@ -434,7 +434,7 @@ Cuando haya terminado de ejecutar el tutorial, puede finalizar el clúster. Para
 
 ![Detener un clúster de Databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de \_\_ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detiene automáticamente si ha estado inactivo durante el tiempo especificado.
+Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de __ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detiene automáticamente si ha estado inactivo durante el tiempo especificado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial aprendió lo siguiente:

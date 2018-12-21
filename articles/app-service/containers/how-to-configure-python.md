@@ -1,5 +1,5 @@
 ---
-title: Configuración de aplicaciones de Python para Azure App Service en Linux
+title: 'Configuración de aplicaciones de Python en Linux: Azure App Service'
 description: En este tutorial se describen opciones para crear y configurar aplicaciones de Python para Azure App Service en Linux.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
-ms.custom: mvc
-ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633655"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249641"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configuración de una aplicación de Python para Azure App Service en Linux
 
@@ -28,7 +28,7 @@ En este artículo se describe cómo [Azure App Service en Linux](app-service-lin
 
 ## <a name="set-python-version"></a>Establecimiento de la versión de Python
 
-Existen dos imágenes base: Python 3.6 y Python 3.7. Puede crear una aplicación con la imagen deseada basada en Python. Por ejemplo, para crear una aplicación con Python 3.7, ejecute el siguiente comando en Cloud Shell:
+Dos imágenes base están disponibles: Python 3.6 y Python 3.7. Puede crear una aplicación con la imagen deseada basada en Python. Por ejemplo, para crear una aplicación con Python 3.7, ejecute el siguiente comando en Cloud Shell:
 
 ```azurecli-interactive
 az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
@@ -48,7 +48,7 @@ Las aplicaciones de Python que se implementan en App Service en Linux se ejecuta
 
 Este contenedor tiene las siguientes características:
 
-- Las aplicaciones se ejecutan mediante el [servidor HTTP de WSGI de Gunicorn](http://gunicorn.org/), mediante los argumentos adicionales `--bind=0.0.0.0 --timeout 600`.
+- Las aplicaciones se ejecutan mediante el [servidor HTTP de WSGI de Gunicorn](https://gunicorn.org/), mediante los argumentos adicionales `--bind=0.0.0.0 --timeout 600`.
 
 - De forma predeterminada, la imagen base incluye la plataforma web Flask, pero el contenedor admite otras plataformas que cumplen con WSGI y son compatibles con Python 3.7, como Django.
 
@@ -59,9 +59,9 @@ Este contenedor tiene las siguientes características:
 Durante el inicio, la instancia de App Service en el contenedor de Linux ejecuta los siguientes pasos:
 
 1. Busca y aplica un comando de inicio personalizado, si se proporciona.
-1. Comprueba la existencia de un archivo *wsgi.py* de aplicación de Django y, si existe, inicia Gunicorn mediante ese archivo.
-1. Busca un archivo denominado *application.py* y, si lo encuentra, inicia Gunicorn mediante `application:app` suponiendo que haya una aplicación de Flask.
-1. Si no se encuentra ninguna otra aplicación, inicia una aplicación predeterminada que está integrada en el contenedor.
+2. Comprueba la existencia de un archivo *wsgi.py* de aplicación de Django y, si existe, inicia Gunicorn mediante ese archivo.
+3. Busca un archivo denominado *application.py* y, si lo encuentra, inicia Gunicorn mediante `application:app` suponiendo que haya una aplicación de Flask.
+4. Si no se encuentra ninguna otra aplicación, inicia una aplicación predeterminada que está integrada en el contenedor.
 
 En las secciones siguientes se proporcionan detalles adicionales para cada opción.
 
@@ -100,7 +100,7 @@ Si el módulo principal está en una subcarpeta como, por ejemplo, `website` esp
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-También puede agregar argumentos adicionales para Gunicorn al comando, como `--workers=4`. Para más información, consulte [Running Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (Ejecución de Gunicorn) (docs.gunicorn.org).
+También puede agregar argumentos adicionales para Gunicorn al comando, como `--workers=4`. Para más información, consulte [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (Ejecución de Gunicorn) (docs.gunicorn.org).
 
 Para proporcionar un comando personalizado, realice los pasos siguientes:
 

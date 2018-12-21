@@ -4,17 +4,17 @@ description: Use Azure Policy para aplicar estándares, satisfacer los requisito
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6ee7a4190248c8c18f747ee579aadc04a136696b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7cfcb71567931b1581618cf8f2239fb004befff8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583087"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087038"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creación y administración de directivas para aplicar el cumplimiento
 
@@ -56,7 +56,7 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
    ![Búsqueda de una directiva](../media/create-and-manage/select-available-definition.png)
 
-1. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, deje *Require SQL Server version 12.0* (Requerir SQL Server 12.0). También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva.  **Asignado por** se rellena automáticamente en función de quién ha iniciado sesión. Este campo es opcional, así que se pueden especificar valores personalizados.
+1. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, deje *Require SQL Server version 12.0* (Requerir SQL Server 12.0). También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva.  **Asignado por**: se rellena automáticamente en función de quién ha iniciado sesión. Este campo es opcional, así que se pueden especificar valores personalizados.
 
 1. Deje desactivada la casilla **Crear una identidad administrada**. Esta casilla se _debe_ activar cuando la directiva o la iniciativa que se asigna incluye una directiva con el efecto [deployIfNotExists](../concepts/effects.md#deployifnotexists). Como no es el caso de la directiva usada en este tutorial, déjela en blanco. Para más información, consulte las [identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md) y [cómo funciona la seguridad de corrección](../how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -64,15 +64,15 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
 ## <a name="implement-a-new-custom-policy"></a>Implementación de una nueva directiva personalizada
 
-Ahora que ha asignado una definición de directiva integrada, puede hacer más cosas con Azure Policy. A continuación, creará una nueva directiva personalizada para ahorrar costos, para lo cual se asegurará de que las máquinas virtuales creadas en el entorno no puedan estar en la serie G. De este modo, cada vez que un usuario de su organización intente crear una máquina virtual de la serie G, la solicitud le será denegada.
+Ahora que ha asignado una definición de directiva integrada, puede hacer más cosas con Azure Policy. A continuación, creará una directiva personalizada para ahorrar costos asegurándose de que las máquinas virtuales creadas en el entorno no puedan estar en la serie G. De este modo, cada vez que un usuario de su organización intente crear una máquina virtual de la serie G, la solicitud le será denegada.
 
 1. Seleccione **Definiciones** en **Creación** en el lado izquierdo de la página de Azure Policy.
 
    ![Definición en creación](../media/create-and-manage/definition-under-authoring.png)
 
-1. Seleccione **+ Definición de directiva** en la parte superior de la página. Se abrirá la página **Definición de directiva**.
+1. Seleccione **+ Definición de directiva** en la parte superior de la página. Este botón abre la página **Definición de directiva**.
 
-1. Escriba lo siguiente:
+1. Escriba la siguiente información:
 
    - El grupo de administración o la suscripción donde está guardada la definición de directiva. Para la selección use los puntos suspensivos en **Ubicación de definición**.
 
@@ -110,7 +110,7 @@ Ahora que ha asignado una definición de directiva integrada, puede hacer más c
     }
     ```
 
-    El valor de la propiedad *field* de la regla de directiva debe ser uno de los siguientes: nombre, tipo, ubicación, etiquetas o un alias. Un ejemplo de un alias podría ser `"Microsoft.Compute/VirtualMachines/Size"`.
+    La propiedad *field* de la regla de directiva debe tener uno de los siguientes valores: Nombre, Tipo, Ubicación, Etiquetas o un alias. Un ejemplo de un alias podría ser `"Microsoft.Compute/VirtualMachines/Size"`.
 
     Para ver más ejemplos de directivas de Azure, consulte [Ejemplos de Azure Policy](../samples/index.md).
 
@@ -338,7 +338,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 1. Defina los campos **Nombre** y **Descripción** de la iniciativa.
 
-   En este ejemplo se garantiza que los recursos guardan conformidad con las definiciones de directiva sobre protección. Denomine la iniciativa **Get Secure** (Estar protegido) y la descripción sería: **This initiative has been created to handle all policy definitions associated with securing resources** (Esta iniciativa se ha creado para administrar todas las definiciones de directiva asociadas con la protección de los recursos).
+   En este ejemplo se garantiza que los recursos guardan conformidad con las definiciones de directiva sobre protección. Denomine a la iniciativa **Get Secure** (Estar protegido) y la descripción sería: **This initiative has been created to handle all policy definitions associated with securing resources** (Esta iniciativa se ha creado para administrar todas las definiciones de directiva asociadas con la protección de los recursos).
 
 1. En **Categoría**, elija entre las opciones existentes o cree una nueva categoría.
 
@@ -354,7 +354,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    ![Definiciones de iniciativa](../media/create-and-manage/initiative-definition-2.png)
 
-1. Si una definición de directiva que se va a agregar a la iniciativa tiene parámetros, estos se muestran bajo el nombre de la directiva en el área **Directivas y parámetros**. El _valor_ puede establecerse en "Establecer valor" (de forma rígida para todas las asignaciones de esta iniciativa) o en "Utilice el parámetro de iniciativa" (establecido durante cada asignación de iniciativa). Si se selecciona "Establecer valor", la lista desplegable situada a la derecha de _Valores_ permite escribir o seleccionar los valores deseados. Si se selecciona "Utilice el parámetro de iniciativa", se muestra una nueva sección llamada **Parámetros de iniciativa** que permite definir el parámetro que se va a establecer durante la asignación de iniciativa. Los valores permitidos en este parámetro de iniciativa pueden restringir aún más lo que puede establecerse durante la asignación de iniciativa.
+1. Si una definición de directiva que se va a agregar a la iniciativa tiene parámetros, estos se muestran bajo el nombre de la directiva en el área **Policies and Parameters** (Directivas y parámetros). El _valor_ puede establecerse en "Establecer valor" (de forma rígida para todas las asignaciones de esta iniciativa) o en "Utilice el parámetro de iniciativa" (establecido durante cada asignación de iniciativa). Si se selecciona "Establecer valor", la lista desplegable situada a la derecha de _Valores_ permite escribir o seleccionar los valores. Si se selecciona "Utilice el parámetro de iniciativa", se muestra una nueva sección llamada **Parámetros de iniciativa** que permite definir el parámetro que se va a establecer durante la asignación de iniciativa. Los valores permitidos en este parámetro de iniciativa pueden restringir aún más lo que puede establecerse durante la asignación de iniciativa.
 
    ![Parámetros de definición de iniciativa](../media/create-and-manage/initiative-definition-3.png)
 
@@ -367,11 +367,11 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 1. Seleccione **Definiciones** en **Creación** en el lado izquierdo de la página de Azure Policy.
 
-1. Busque la definición de directiva **Get Secure** (Estar protegido) que creó anteriormente y haga clic en ella. Seleccione **Asignar** en la parte superior de la página para abrir la página **Get Secure: Assign Initiative** (Estar protegido: asignar iniciativa).
+1. Busque la definición de directiva **Get Secure** (Estar protegido) que creó anteriormente y haga clic en ella. Seleccione **Asignar** en la parte superior de la página para abrir la página **Get Secure: Assign initiative** (Estar protegido: asignar iniciativa).
 
    ![Asignación de una definición](../media/create-and-manage/assign-definition.png)
 
-   Como alternativa, puede hacer doble clic en la fila seleccionada o hacer clic en los puntos suspensivos al final de la fila de un menú contextual.  A continuación, seleccione **Asignar**.
+   También puede hacer clic con el botón derecho en la fila seleccionada o hacer clic en los puntos suspensivos al final de la fila de un menú contextual.  A continuación, seleccione **Asignar**.
 
    ![Haga clic con el botón derecho en una fila.](../media/create-and-manage/select-right-click.png)
 
@@ -379,9 +379,9 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    - Ámbito: el grupo de administración o la suscripción donde guardó la iniciativa se convertirán en predeterminados.  También puede cambiar ámbito para asignar la iniciativa a un grupo de recursos o una suscripción de la ubicación de almacenamiento.
    - Exclusiones: configure los recursos del ámbito para evitar que se les aplique la asignación de iniciativa.
-   - Initiative definition (Definición de iniciativa) y Nombre de asignación: Get Secure (Estar protegido; rellenado previamente como el nombre de la iniciativa que se está asignando).
-   - Descripción: esta asignación de iniciativa está adaptada para aplicar este grupo de definiciones de directiva.
-   - Asignado por: se rellena automáticamente en función de quién ha iniciado sesión. Este campo es opcional, así que se pueden especificar valores personalizados.
+   - Nombre de la asignación y definición de la iniciativa: Get Secure (Estar protegido) (rellenado previamente como nombre de la iniciativa que se va a asignar).
+   - Description: esta asignación de iniciativa está adaptada para aplicar este grupo de definiciones de directiva.
+   - Asignada por: se rellena automáticamente en función de quién ha iniciado sesión. Este campo es opcional, así que se pueden especificar valores personalizados.
 
 1. Deje desactivada la casilla **Crear una identidad administrada**. Esta casilla se _debe_ activar cuando la directiva o la iniciativa que se asigna incluye una directiva con el efecto [deployIfNotExists](../concepts/effects.md#deployifnotexists). Como no es el caso de la directiva usada en este tutorial, déjela en blanco. Para más información, consulte las [identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md) y [cómo funciona la seguridad de corrección](../how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -403,7 +403,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exclusión de un recurso no conforme o denegado mediante Exclusión
 
-Siguiendo el ejemplo anterior, después de asignar la definición de directiva para requerir SQL Server versión 12.0, un servidor de SQL Server que se cree con cualquier otra versión diferente será denegado. En esta sección se va a examinar cómo resolver un intento denegado de crear un servidor de SQL Server mediante la creación de un exclusión de un grupo de recursos único. La exclusión impide el cumplimiento de la directiva (o iniciativa) en ese recurso.
+Siguiendo el ejemplo anterior, después de asignar la definición de directiva para requerir SQL Server versión 12.0, un servidor de SQL Server que se cree con cualquier otra versión diferente será denegado. En esta sección se va a examinar cómo resolver una solicitud denegada de crear un servidor de SQL Server mediante la creación de un exclusión de un grupo de recursos único. La exclusión impide el cumplimiento de la directiva (o iniciativa) en ese recurso.
 En el ejemplo siguiente se permite cualquier versión de SQL Server en un único grupo de recursos. Se puede aplicar una exclusión a una suscripción, a un grupo de recursos o se puede restringir la exclusión a recursos individuales.
 
 Una implementación impedida debido a una directiva o una iniciativa asignada puede verse en dos ubicaciones:
@@ -412,11 +412,11 @@ Una implementación impedida debido a una directiva o una iniciativa asignada pu
 
   ![Implementación denegada por la asignación de directiva](../media/create-and-manage/rg-deployment-denied.png)
 
-- En la página de Azure Policy: seleccione **Cumplimiento** en el lado izquierdo de la página y haga clic en la directiva **Require SQL Server version 12.0** (Requerir SQL Server 12.0). En la página que se abre, debería ver un aumento en el recuento de **Denegar**. En la pestaña **Eventos**, también debería ver quién intentó realizar la implementación denegada por la directiva.
+- En la página de Azure Policy: seleccione **Cumplimiento** en el lado izquierdo de la página y haga clic en la directiva **Require SQL Server version 12.0** (Requerir SQL Server 12.0). En la página que se abre, debería ver un aumento en el recuento de **Denegar**. En la pestaña **Eventos**, también debería ver quién trató realizar la implementación denegada por la directiva.
 
   ![Información general del cumplimiento de una directiva asignada](../media/create-and-manage/compliance-overview.png)
 
-En este ejemplo, Trent Baker, uno de los especialistas de virtualización de Contoso, estaba realizando el trabajo que tenía asignado. Es necesario concederle una excepción, pero no queremos servidores SQL Server de una versión que no sea 12.0 en ningún grupo de recursos. Hemos creado un nuevo grupo de recursos, **SQLServers_Excluded** y ahora concederemos una excepción a esta asignación de directiva.
+En este ejemplo, Trent Baker, uno de los especialistas en virtualización sénior de Contoso, estaba haciendo el trabajo requerido. Es necesario concederle una excepción, pero no queremos servidores SQL Server de una versión que no sea 12.0 en ningún grupo de recursos. Hemos creado un nuevo grupo de recursos, **SQLServers_Excluded** y ahora concederemos una excepción a esta asignación de directiva.
 
 ### <a name="update-assignment-with-exclusion"></a>Actualización de la asignación con la exclusión
 
@@ -433,13 +433,13 @@ En este ejemplo, Trent Baker, uno de los especialistas de virtualización de Con
 
 1. Haga clic en **Seleccionar** y después en **Guardar**.
 
-En esta sección, ha resuelto la denegación del intento para crear un servidor de SQL Server mediante la creación de una exclusión de un grupo de recursos único.
+En esta sección, resolvió la solicitud denegada creando una exclusión en un único grupo de recursos.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si terminó de trabajar con los recursos de este tutorial, use los pasos siguientes para eliminar todas las asignaciones y definiciones creadas anteriormente:
 
-1. Seleccione **Definiciones** (o **Asignaciones** si intenta eliminar una asignación) en **Creación** en el lado izquierdo de la página de Azure Policy.
+1. Seleccione **Definiciones** (o **Asignaciones** si trata de eliminar una asignación) en **Creación** en el lado izquierdo de la página de Azure Policy.
 
 1. Busque la nueva definición de iniciativa o directiva (o asignación) que quiere quitar.
 
@@ -447,7 +447,7 @@ Si terminó de trabajar con los recursos de este tutorial, use los pasos siguien
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha realizado satisfactoriamente lo siguiente:
+En este tutorial, ha realizado correctamente las tareas siguientes:
 
 > [!div class="checklist"]
 > - Ha asignado una directiva para aplicar una condición a los recursos que se creen en el futuro

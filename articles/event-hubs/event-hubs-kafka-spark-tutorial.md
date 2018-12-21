@@ -1,21 +1,21 @@
 ---
-title: Conexión de la aplicación de Apache Spark con Azure Event Hubs habilitado para Kafka | Microsoft Docs
-description: Use Apache Spark con Azure Event Hubs para Kafka.
+title: 'Conexión de la aplicación de Apache Spark: Azure Event Hubs | Microsoft Docs'
+description: En este artículo se proporciona información sobre cómo usar Apache Spark con Azure Event Hubs para Kafka.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
-ms.custom: ''
-ms.date: 10/30/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: a2ab9a77728509b794c2f5b810fb939f6d1a16e3
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 93fdd85d1fd1b91e01d8f38b4890e1b588a5c704
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286782"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091244"
 ---
 # <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>Conexión de la aplicación de Apache Spark con Azure Event Hubs habilitado para Kafka
 Este tutorial le guiará a través de la conexión de la aplicación de Spark a Event Hubs habilitado para Kafka para el streaming en tiempo real. Esta integración permite el streaming sin tener que cambiar sus clientes de protocolo o ejecutar sus propios clústeres de Kafka o Zookeeper. Este tutorial necesita Apache Spark v2.4 o superior y Apache Kafka v2.0 o superior.
@@ -25,7 +25,7 @@ Este tutorial le guiará a través de la conexión de la aplicación de Spark a 
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-> * Crear un espacio de nombres de Event Hubs
+> * Creación de un espacio de nombres de Event Hubs
 > * Clonación del proyecto de ejemplo
 > * Ejecución de Spark
 > * Lectura de Event Hubs para Kafka
@@ -43,7 +43,7 @@ Antes de comenzar este tutorial, asegúrese de que dispone de lo siguiente:
 > El adaptador Spark-Kafka se actualizó para ser compatible con Kafka v2.0 a partir de Spark v2.4. En versiones anteriores de Spark, el adaptador admitía Kafka v0.10 y versiones posteriores, pero confiaba específicamente en las API de Kafka v0.10. Como Event Hubs para Kafka no admite Kafka v0.10, los adaptadores Spark-Kafka de versiones de Spark anteriores a la v2.4 no se admiten en Event Hubs para ecosistemas de Kafka.
 
 
-## <a name="create-an-event-hubs-namespace"></a>Crear un espacio de nombres de Event Hubs
+## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 Se requiere un espacio de nombres de Event Hubs para enviar y recibir de cualquier servicio de Event Hubs. Consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](event-hubs-create.md) para obtener instrucciones sobre cómo obtener un punto de conexión de Kafka para Event Hubs. Obtenga la cadena de conexión de Event Hubs y el nombre de dominio completo (FQDN) para su uso posterior. Para obtener instrucciones, consulte [Get an Event Hubs connection string](event-hubs-get-connection-string.md) (Obtención de una cadena de conexión de Event Hubs). 
 
 ## <a name="clone-the-example-project"></a>Clonación del proyecto de ejemplo
@@ -104,7 +104,7 @@ df.writeStream
 En este tutorial, ha aprendido a transmitir mediante el conector Spark-Kafka y Event Hubs para Kafka. Ha realizado los pasos siguientes: 
 
 > [!div class="checklist"]
-> * Crear un espacio de nombres de Event Hubs
+> * Creación de un espacio de nombres de Event Hubs
 > * Clonación del proyecto de ejemplo
 > * Ejecución de Spark
 > * Lectura de Event Hubs para Kafka

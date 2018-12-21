@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Detección y enmarcado de las caras de una imagen con el SDK de Python'
+title: 'Inicio rápido: Detección y enmarcado de las caras de una imagen con el SDK de Python'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, va a crear un sencillo script de Python que usa Face API para detectar y enmarcar caras en una imagen remota.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 1e35d650f6fc99bff5bf49e517e2b38fcdc58dde
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853156"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077008"
 ---
-# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Guía de inicio rápido: Creación de un script de Python para detectar y enmarcar caras en una imagen
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Inicio rápido: Creación de un script de Python para detectar y enmarcar caras en una imagen
 
 En esta guía de inicio rápido, va a crear un sencillo script de Python que usa Azure Face API, mediante el SDK de Python, para detectar caras humanas en una imagen remota. La aplicación muestra una imagen seleccionada y dibuja un marco alrededor de cada cara detectada.
 
@@ -28,14 +28,18 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 - Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
 - [Python 2.7+ o 3.5+](https://www.python.org/downloads/)
 - Herramienta [pip](https://pip.pypa.io/en/stable/installing/)
-- SDK de Python para Face API. Puede instalarlo ejecutando el siguiente comando:
-    ```bash
-    pip install cognitive_face
-    ```
+
+## <a name="get-the-face-sdk"></a>Obtención del SDK de Face
+
+Para instalar el SDK de Python de Face, abra un símbolo del sistema y ejecute el comando siguiente:
+
+```shell
+pip install cognitive_face
+```
 
 ## <a name="detect-faces-in-an-image"></a>Detección de caras en una imagen
 
-Cree un nuevo script de Python, _FaceQuickstart.py_. Agregue el siguiente código. Esta es la funcionalidad básica de detección de caras. Tendrá que reemplazar `<Subscription Key>` por el valor de la clave. Puede que también necesite cambiar el valor de `BASE_URL` para usar el identificador de región correcto para la clave (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). Las claves de suscripción de la evaluación gratuita se generan en la región **westus**. Opcionalmente, puede establecer `img_url` en la dirección URL de cualquier imagen que desee usar.
+Cree un nuevo script de Python denominado _FaceQuickstart.py_ y agregue el código siguiente. Esta es la funcionalidad básica de detección de caras. Tendrá que reemplazar `<Subscription Key>` por el valor de la clave. Puede que también necesite cambiar el valor de `BASE_URL` para usar el identificador de región correcto para la clave (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). Las claves de suscripción de la evaluación gratuita se generan en la región **westus**. Opcionalmente, puede establecer `img_url` en la dirección URL de cualquier imagen que desee usar.
 
 El script detectará las caras mediante una llamada al método **cognitive_face.face.detect**, que incluye la API REST de [detección](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) y devuelve una lista de caras.
 

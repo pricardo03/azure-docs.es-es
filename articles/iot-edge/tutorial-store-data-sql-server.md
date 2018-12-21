@@ -1,5 +1,5 @@
 ---
-title: Almacenamiento de datos con el módulo SQL de Azure IoT Edge | Microsoft Docs
+title: 'Tutorial de almacenamiento de datos con el módulo de SQL: Azure IoT Edge | Microsoft Docs'
 description: Aprenda a almacenar datos localmente en el dispositivo IoT Edge con un módulo de SQL Server
 services: iot-edge
 author: kgremban
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834000"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163419"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Almacenamiento de datos en el perímetro con bases de datos de SQL Server
 
@@ -87,7 +87,7 @@ En los siguientes pasos puede ver cómo crear una función de IoT Edge mediante 
 
 2. Para abrir la paleta de comandos de VS Code, seleccione **View** > **Command palette** (Ver > Paleta de comandos).
 
-3. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución IoT Edge). En la paleta de comandos, proporcione la siguiente información para crear la solución: 
+3. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Nueva solución de IoT Edge). En la paleta de comandos, proporcione la siguiente información para crear la solución: 
 
    | Campo | Valor |
    | ----- | ----- |
@@ -163,7 +163,7 @@ En los siguientes pasos puede ver cómo crear una función de IoT Edge mediante 
                        {
                            //Execute the command and log the # rows affected.
                            var rows = await cmd.ExecuteNonQueryAsync();
-                           log.Info($"{rows} rows were updated");
+                           logger.LogInformation($"{rows} rows were updated");
                        }
                    }
 
@@ -251,7 +251,7 @@ Un [manifiesto de implementación](module-composition.md) declara qué módulos 
    }
    ```
 
-   ![Incorporación de un contenedor de SQL Server](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![Incorporación del módulo de SQL al manifiesto](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. Según el tipo de contenedores de Docker del dispositivo IoT Edge, actualice los parámetros de módulo **sql** con el código siguiente:
    * Contenedores de Windows:
@@ -324,7 +324,7 @@ Cuando le indica a Visual Studio Code que compile la solución, esta herramienta
 
 Puede establecer módulos en un dispositivo con IoT Hub, pero también puede acceder a este y a los dispositivos mediante Visual Studio Code. En esta sección puede configurar el acceso a IoT Hub y, posteriormente, usar VS Code para implementar la solución en el dispositivo IoT Edge. 
 
-1. En la paleta de comandos de VS Code, seleccione **Azure IoT Hub: Select IoT Hub**.
+1. En la paleta de comandos de VS Code, seleccione **Azure IoT Hub: Select IoT Hub** (Seleccionar IoT Hub).
 
 2. Siga las indicaciones para iniciar sesión en su cuenta de Azure. 
 
@@ -416,7 +416,7 @@ Desde dentro de la herramienta de comando SQL, ejecute el siguiente comando para
    GO
    ```
 
-   ![Visualización de datos locales](./media/tutorial-store-data-sql-server/view-data.png)
+   ![Visualización del contenido de la base de datos local](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 84bdc560a135f8f1eb7d6c86fe4f3749135ff7e1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395089"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139051"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Uso del cifrado dinámico de DRM y el servicio de entrega de licencias
 
@@ -40,7 +41,7 @@ Este artículo se basa en el ejemplo de [Cifrado con DRM](https://github.com/Azu
 
         La aplicación establece una restricción de tipo de token JWT en la directiva.
 
-* Cree un objeto StreamingLocator para el recurso especificado con el nombre de directiva de streaming especificado. En este caso, se usa la directiva predefinida. Esta establece dos claves de contenido en el objeto StreamingLocator: AES-128 (sobre) y CENC (PlayReady y Widevine).  
+* Cree un objeto StreamingLocator para el recurso especificado con el nombre de directiva de streaming especificado. En este caso, se usa la directiva predefinida. Esta directiva establece dos claves de contenido en StreamingLocator: AES-128 (Envelope) y CENC (PlayReady y Widevine).  
     
     Una vez creado el objeto StreamingLocator se publica el recurso de salida y pasa a estar disponible para los clientes para su reproducción.
 
@@ -51,14 +52,14 @@ Este artículo se basa en el ejemplo de [Cifrado con DRM](https://github.com/Azu
 
     Puede abrir un explorador y pegar la dirección URL resultante para iniciar la página de demostración de Azure Media Player en la que se rellenan automáticamente la dirección URL y el token.  
 
-    ![proteger con drm](./media/protect-with-drm/playready_encrypted_url.png)
+    ![Protección con DRM](./media/protect-with-drm/playready_encrypted_url.png)
 
 > [!NOTE]
 > Puede cifrar cada recurso con varios tipos de cifrado (AES-128, PlayReady, Widevine, FairPlay). Consulte [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types) (Protocolos de streaming y tipos de cifrado) para ver lo que conviene combinar.
 
 El ejemplo descrito en este artículo genera el siguiente resultado:
 
-![proteger con drm](./media/protect-with-drm/ams_player.png)
+![AMS con vídeo protegido con DRM](./media/protect-with-drm/ams_player.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -116,7 +117,7 @@ En este tutorial, se crea la entrada del trabajo basada en un archivo que se ing
 
 El trabajo tarda algún tiempo en completarse y cuando lo hace querrá recibir una notificación. En el ejemplo de código siguiente se muestra cómo sondear el servicio para conocer el estado del [trabajo](https://docs.microsoft.com/rest/api/media/jobs). El sondeo no es un procedimiento recomendado para aplicaciones de producción debido a la posible latencia. El sondeo se puede limitar si se sobreutiliza en una cuenta. Los desarrolladores deben utilizar en su lugar Event Grid. Consulte [Enrutamiento de eventos a un punto de conexión web personalizado](job-state-events-cli-how-to.md).
 
-El **trabajo** normalmente pasa por los siguientes estados: **Programado**, **En cola**, **Procesando**, **Finalizado** (el estado final). Si el trabajo ha encontrado un error, obtendrá el estado **Error**. Si el trabajo está en proceso de cancelación, obtendrá **Cancelando** y **Cancelado** cuando haya terminado.
+El **trabajo** pasa normalmente por los siguientes estados: **Programado**, **En cola**, **Procesando**, **Finalizado** (el estado final). Si el trabajo ha encontrado un error, obtendrá el estado **Error**. Si el trabajo está en proceso de cancelación, obtendrá **Cancelando** y **Cancelado** cuando haya terminado.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
@@ -147,7 +148,7 @@ Una vez finalizada la codificación y establecida la directiva de clave de conte
 
 El proceso de creación de un objeto **StreamingLocator** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, a menos que configure las horas de inicio y de finalización opcionales. 
 
-Al crear un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), debe especificar el objeto **StreamingPolicyName** deseado. En este tutorial, se usa una de las directivas StreamingPolicies predefinidas, que indica a Azure Media Services cómo publicar el contenido de streaming. En este ejemplo, establecemos StreamingLocator.StreamingPolicyName en la directiva "Predefined_MultiDrmCencStreaming". Esta directiva indica que desea que se generen y establezcan dos claves de contenido (sobre y CENC) en el localizador. De esta forma, se aplican los cifrados de sobre, PlayReady y Widevine (la clave se entrega al cliente de reproducción en función de las licencias DRM configuradas). Si también desea cifrar su transmisión con CBCS (FairPlay), utilice "Predefined_MultiDrmStreaming". 
+Al crear un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), debe especificar el objeto **StreamingPolicyName** deseado. En este tutorial, se usa una de las directivas StreamingPolicies predefinidas, que indica a Azure Media Services cómo publicar el contenido de streaming. En este ejemplo, establecemos StreamingLocator.StreamingPolicyName en la directiva "Predefined_MultiDrmCencStreaming". Esta directiva indica que desea que se generen y establezcan dos claves de contenido (sobre y CENC) en el localizador. De esta forma, se aplican los cifrados de sobre, PlayReady y Widevine (la clave se entrega al cliente de reproducción en función de las licencias DRM configuradas). Si también quiere cifrar su transmisión con CBCS (FairPlay), utilice "Predefined_MultiDrmStreaming". 
 
 > [!IMPORTANT]
 > Al utilizar el objeto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus objetos StreamingLocator siempre que se necesiten las mismas opciones y protocolos de cifrado. La cuenta de Media Service tiene una cuota para el número de entradas de StreamingPolicy. No debe crear un nuevo objeto StreamingPolicy para cada objeto StreamingLocator.

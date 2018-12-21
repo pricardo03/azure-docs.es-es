@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242099"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971171"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Uso de una imagen de Azure Marketplace para crear una máquina virtual Linux de Terraform con identidades administradas para recursos de Azure
 
@@ -37,7 +37,7 @@ Estos son los pasos que debe seguir para crear una instancia de una máquina vir
 
 3. En la pestaña de detalles de Terraform que encontrará en la parte inferior derecha, seleccione el botón **Crear**.
 
-    ![Creación de una máquina virtual de Terraform](media\terraformmsi.png)
+    ![Creación de una máquina virtual de Terraform](media/terraformmsi.png)
 
 4. En las secciones siguientes, se proporciona información acerca de cada uno de los pasos del asistente para crear la máquina virtual Linux de Terraform. En la siguiente sección, se muestran los datos necesarios para configurar cada uno de estos pasos.
 
@@ -48,15 +48,15 @@ Especifique los datos siguientes en la pestaña **Create Terraform** (Crear Terr
 1. **Aspectos básicos**
     
    * **Nombre**: nombre de la máquina virtual de Terraform.
-   * **Nombre de usuario**: primer identificador de inicio de sesión de la cuenta.
+   * **Nombre de usuario**: identificador de acceso de la primera cuenta.
    * **Contraseña**: primera contraseña de la cuenta. (Puede usar una clave pública SSH en lugar de una contraseña).
    * **Suscripción**: suscripción en la que se va a crear y facturar la máquina. Debe tener privilegios de creación de recursos en esta suscripción.
-   * **Grupo de recursos**: especifique un grupo de recursos nuevo o existente.
+   * **Grupos de recursos**: un grupo de recursos nuevo o existente.
    * **Ubicación**: seleccione el centro de datos más adecuado. Normalmente, será el centro de datos que tenga la mayor parte de los datos o el que esté más cerca de su ubicación física para disfrutar de un acceso más rápido a la red.
 
 2. **Configuración adicional**
 
-   * **Tamaño**: tamaño de la máquina virtual. 
+   * **Tamaño**: Tamaño de la máquina virtual. 
    * **Tipo de disco de máquina virtual**: SSD o HDD.
 
 3. **Resumen Terraform**

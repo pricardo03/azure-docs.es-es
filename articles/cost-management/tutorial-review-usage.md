@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7b9c9a600d105d4b7fbbeb4f52ee42b5eb2bcaaa
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275877"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093614"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -51,15 +51,15 @@ El seguimiento del dinero real gastado en uso y costos se realiza con informes a
 
 A continuación se muestra un informe de ejemplo:
 
-![informe de ejemplo](./media/tutorial-review-usage/actual-cost01.png)
+![Ejemplo de informe de costo real a lo largo del tiempo](./media/tutorial-review-usage/actual-cost01.png)
 
 El informe muestra todos los gastos de los últimos 30 días. Para ver solo el gasto de los servicios de Azure, aplique el grupo de servicio y, a continuación, filtre por todos los servicios de Azure. En la siguiente imagen se muestran los servicios de filtrado.
 
-![servicios filtrados](./media/tutorial-review-usage/actual-cost02.png)
+![Ejemplo que muestra los servicios de Azure filtrados](./media/tutorial-review-usage/actual-cost02.png)
 
 En el ejemplo anterior, se gastó menos dinero a partir del 29/10/2018. Sin embargo, un exceso de columnas puede ocultar una tendencia obvia. Puede cambiar la vista de informe a un gráfico de línea o área para ver los datos mostrados en otras vistas. En la siguiente imagen muestra la tendencia con mayor claridad.
 
-![tendencia en el informe](./media/tutorial-review-usage/actual-cost03.png)
+![Ejemplo que muestra una tendencia decreciente de costos de máquinas virtuales de Azure](./media/tutorial-review-usage/actual-cost03.png)
 
 Siguiendo con el ejemplo, puede ver que se redujo el costo de la máquina virtual de Azure. Los costos de otros servicios de Azure también comienzan a reducirse durante ese día. Por lo tanto, ¿qué causó esa reducción en los gastos? En este ejemplo, se completó un gran proyecto de trabajo por lo que también se redujo el consumo de muchos servicios de Azure.
 
@@ -77,19 +77,19 @@ El informe de recomendaciones de tamaño rentables identifica posibles ahorros a
 
 En el menú de la parte superior del portal, haga clic en **Optimizer** > **Sizing Optimization** > **Cost Effective Sizing Recommendations** (Optimizador > Optimización de tamaño > Recomendaciones de tamaño rentables). Si es útil, aplique un filtro para reducir los resultados. A continuación se muestra una imagen de ejemplo.
 
-![Máquinas virtuales de Azure](./media/tutorial-review-usage/sizing01.png)
+![Informe de recomendación de ajuste de tamaño rentable para máquinas virtuales de Azure](./media/tutorial-review-usage/sizing01.png)
 
 En este ejemplo, se pudieron ahorrar 2382 USD siguiendo las recomendaciones para cambiar los tipos de instancia de máquina virtual. Haga clic en el signo más (+) en **Detalles** para ver la primera recomendación. Aquí encontrará detalles acerca de la primera recomendación.
 
-![detalles de recomendación](./media/tutorial-review-usage/sizing02.png)
+![Ejemplo que muestra detalles de recomendación](./media/tutorial-review-usage/sizing02.png)
 
 Para ver los identificadores de instancia de máquina virtual, haga clic en el símbolo más junto a **Lista de candidatos**.
 
-![Lista de candidatos](./media/tutorial-review-usage/sizing03.png)
+![Ejemplo que muestra una lista de candidatos de máquinas virtuales para cambiar tamaño](./media/tutorial-review-usage/sizing03.png)
 
 Para ver un tutorial en vídeo acerca de cómo detectar deficiencias de uso, consulte [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) (Optimización del tamaño de máquina virtual en Cloudyn).
 
-Azure Cost Management también proporciona recomendaciones de ahorro de costos para los servicios de Azure. Para más información, consulte [Tutorial: Optimización de los costos a partir de las recomendaciones](tutorial-acm-opt-recommendations.md).
+Azure Cost Management también proporciona recomendaciones de ahorro de costos para los servicios de Azure. Para obtener más información, consulte [Tutorial: Optimización de los costos a partir de las recomendaciones](tutorial-acm-opt-recommendations.md).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Crear alertas de gastos inusuales
 
@@ -99,7 +99,7 @@ Cree una alerta para cualquier gasto mediante cualquier informe de costos. En es
 
 En el cuadro Save or Schedule this report (Guardar o programar este informe), utilice la pestaña **Scheduling** (Programación) para que se envíe a su propia dirección un correo electrónico del informe con la frecuencia que desee. Asegúrese de seleccionar **Send via email** (Enviar por correo electrónico). Las etiquetas, la agrupación y el filtrado que usa se incluyen en el informe enviado por correo electrónico. Haga clic en la pestaña **Umbral** y seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**. Si tiene un presupuesto total de 20 000 USD y desea una notificación cuando los costos se acerquen a la mitad, cree una **alerta roja** en 10 000 dólares y una **alerta amarilla** en 9 000 USD. No incluya comas en los valores que especifique. A continuación, elija el número de alertas consecutivas. Cuando recibe el número total de alertas especificado, no se envían más alertas. Guarde el informe programado.
 
-![informe de ejemplo](./media/tutorial-review-usage/schedule-alert01.png)
+![Ejemplo que muestra alertas rojas y amarillas según los umbrales de gastos](./media/tutorial-review-usage/schedule-alert01.png)
 
 También puede elegir la métrica del umbral de porcentaje frente a presupuesto para crear alertas. Si usa esa métrica, puede emplear porcentajes de presupuesto en lugar de valores de divisa.
 

@@ -1,7 +1,8 @@
 ---
-title: 'Tutorial 4: Roles de patrón para datos relacionados con el contexto'
+title: Datos de patrón
 titleSuffix: Azure Cognitive Services
 description: Use un patrón para extraer datos de una expresión de plantilla con el formato correcto. En la expresión de plantilla se usa una entidad sencilla y roles para extraer datos relacionados como las ubicaciones de origen y destino.
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427495"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094413"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: Extracción de patrones relacionados contextualmente
 
@@ -128,7 +129,7 @@ Etiquetar las entidades en estos pasos puede ser más sencillo si se quita la en
 
 2. Vaya al final de la dirección URL en la dirección y escriba `Move Wayne Berry from Miami to Mount Vernon`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -258,7 +259,7 @@ Las ciudades, al igual que lo que ocurre con los nombres de personas, son compli
 
 2. Vaya al final de la dirección URL en la dirección y escriba `Move wayne berry from miami to mount vernon`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

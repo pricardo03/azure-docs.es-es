@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial: 8: Extracción de frases clave en LUIS'
+title: Extracción de la frase clave
 titleSuffix: Azure Cognitive Services
 description: Use la entidad keyPhrase pregenerada para extraer los temas principales clave de las expresiones. No necesita etiquetar ninguna expresión con entidades pregeneradas. La entidad se detecta automáticamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424819"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096934"
 ---
-# <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial: 8: Extracción de frases clave de expresiones
+# <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial 8: Extracción de frases clave de expresiones
 En este tutorial, va a usar una entidad keyPhrase pregenerada que muestra cómo extraer los temas principales clave de las expresiones. No necesita etiquetar ninguna expresión con entidades pregeneradas. La entidad se detecta automáticamente.
 
 Las expresiones siguientes muestran ejemplos de frases clave:
@@ -31,7 +32,6 @@ La aplicación cliente puede utilizar estos valores, junto con otras entidades e
 
 **En este tutorial, aprenderá a:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Usar la aplicación del tutorial existente
 > * Adición de la entidad KeyPhrase 
@@ -84,7 +84,7 @@ Agregue la entidad predefinida keyPhrase para extraer los temas principales de l
 
 2. Vaya al final de la dirección URL en la dirección y escriba `does form hrf-123456 cover the new dental benefits and medical plan`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {

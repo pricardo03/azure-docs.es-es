@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837348"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969539"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de análisis de datos almacenados provisionalmente con Azure y Azure Stack 
 
@@ -49,7 +49,7 @@ En este tutorial, creará un entorno de ejemplo para:
 
 Se requiere cierta preparación para crear esta solución:
 
--   Una instancia de Azure Stack instalada y en funcionamiento (puede encontrar más información aquí: [Introducción a Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview)).
+-   Una instancia de Azure Stack instalada y en funcionamiento (puede encontrar más información aquí: [Introducción a Azure Stack Storage](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
 
 -   Una suscripción de Azure. (Cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
@@ -81,29 +81,29 @@ La cuenta de almacenamiento y el contenedor de blobs contienen todos los datos o
 
 3.  Use la siguiente información para la cuenta:
 
-     a.  Nombre: **a su elección**
+     a.  Nombre: **Su elección**
 
     b.  Modelo de implementación: **Resource Manager**
 
-    c.  Tipo de cuenta **Storage (uso general V1)**
+    c.  Tipo de cuenta: **Storage (uso general V1)**
 
-    d.  Ubicación: **Oeste de EE. UU**
+    d.  Ubicación: **Oeste de EE. UU.**
 
     e.  Replicación: **Almacenamiento con redundancia local (LRS)**
 
-    f.  Rendimiento: **estándar**
+    f.  Rendimiento: **Estándar**
 
-    g.  Se requiere transferencia segura: **Deshabilitado**
+    g.  Se requiere transferencia segura: **Deshabilitada**
 
-    h.  Suscripción: elija una
+    h.  Suscripción: Elegir una
 
-    i.  Grupo de recursos: especifique un nuevo grupo de recursos o seleccione uno ya existente
+    i.  Grupos de recursos: Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente
 
-    j.  Configuración de redes virtuales: **Deshabilitado**
+    j.  Configuración de redes virtuales: **Deshabilitada**
 
 4.  Seleccione **Crear** para crear la cuenta de almacenamiento.
 
-    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image1.png)
+    ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  Una vez creado, seleccione el nombre de la cuenta de almacenamiento.
 
@@ -111,9 +111,9 @@ La cuenta de almacenamiento y el contenedor de blobs contienen todos los datos o
 
 7.  En la parte superior de la hoja, seleccione **+ Contenedor.** y seleccione **Contenedor**.
 
-    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image2.png)
+    ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image2.png)
 
-8.  Nombre: **a su elección**
+8.  Nombre: **la que elija**
 
 9.  Nivel de acceso público: **Contenedor** (acceso de lectura anónimo para contenedores y blobs)
 
@@ -146,31 +146,31 @@ Cree una función de Azure Stack para mover los datos limpios de Azure Stack a A
 
     **Ejemplo:**
 
-    ![Definir nueva configuración de Function App](media\azure-stack-solution-staged-data-analytics\image6.png)
+    ![Definir nueva configuración de Function App](media/azure-stack-solution-staged-data-analytics/image6.png)
 
 5.  Seleccione **Crear** para aprovisionar e implementar la aplicación de función.
 
 6.  Seleccione el icono de notificación de la esquina superior derecha del portal y observe el mensaje **Implementación correcta**.
 
-    ![Definir nueva configuración de Function App](media\azure-stack-solution-staged-data-analytics\image7.png)
+    ![Definir nueva configuración de Function App](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  Seleccione **Ir al recurso** para ver la nueva aplicación de función.
 
-![Function App creada correctamente.](media\azure-stack-solution-staged-data-analytics\image8.png)
+![Function App creada correctamente.](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Incorporación de una función a la aplicación de función de Azure Stack
 
 1.  Para crear una función, haga clic en **Funciones** y, luego, en el botón **+ Nueva función**.
 
-    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image3.png)
+    ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  Seleccione **Desencadenador de temporizador**.
 
-    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image4.png)
+    ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  Seleccione **C\#** como lenguaje y llame `upload-to-azure` a la función. Establezca la programación en `0 0 * * * *` que, en notación de CRON, es una vez cada hora.
+3.  Seleccione **C\#** como el idioma y el nombre de la función: `upload-to-azure`  Establezca la programación en `0 0 * * * *`, que en la notación de CRON es cada hora.
 
-    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image5.png)
+    ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Creación de una función desencadenada por Blob Storage
 
@@ -178,7 +178,7 @@ Cree una función de Azure Stack para mover los datos limpios de Azure Stack a A
 
 2.  En el campo de búsqueda, escriba `blob` y seleccione el lenguaje que desee para la plantilla **Desencadenador de blobs**.
 
-  ![Elija la plantilla de desencadenador de Blob Storage.](media\azure-stack-solution-staged-data-analytics\image10.png)
+  ![Elija la plantilla de desencadenador de Blob Storage.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
 3.  Use la configuración que se especifica en la tabla siguiente:
 
@@ -190,7 +190,7 @@ Cree una función de Azure Stack para mover los datos limpios de Azure Stack a A
 
     **Ejemplo:**
 
-    ![Cree la función desencadenada por Blob Storage.](media\azure-stack-solution-staged-data-analytics\image11.png)
+    ![Cree la función desencadenada por Blob Storage.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
 4.  Seleccione **Crear** para crear la función.
 
@@ -202,7 +202,7 @@ Cree una función de Azure Stack para mover los datos limpios de Azure Stack a A
 
 3.  Expanda la cuenta de almacenamiento, **Contenedores de blobs**, y el blob que creó anteriormente. Seleccione **Cargar** y, después, **Cargar archivos**.
 
-    ![Cargue un archivo en el contenedor de blobs.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Cargue un archivo en el contenedor de blobs.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  En el cuadro de diálogo Cargar archivos, seleccione el campo Archivos. Busque un archivo en la máquina local, como un archivo de imagen, selecciónelo y haga clic en **Abrir** y, después, en **Cargar**.
 
@@ -210,7 +210,7 @@ Cree una función de Azure Stack para mover los datos limpios de Azure Stack a A
 
     **Ejemplo:**
 
-    ![Vea el mensaje en los registros.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Vea el mensaje en los registros.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>Creación de una cuenta de almacenamiento de Azure Stack
 
@@ -232,9 +232,9 @@ Utilice los pasos y valores que se han descrito anteriormente para crear otra cu
 
 4.  Seleccione **Aceptar**.
 
-    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image14.png)
+    ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![Texto alternativo](media\azure-stack-solution-staged-data-analytics\image15.png)
+    ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>Crear una función desencadenada por la cola
 
@@ -258,7 +258,7 @@ Utilice los pasos y valores que se han descrito anteriormente para crear otra cu
 
 3.  Expanda la cuenta de almacenamiento, **Contenedores de blobs**, y el blob que creó anteriormente. Seleccione **Cargar** y, después, **Cargar archivos**.
 
-    ![Cargue un archivo en el contenedor de blobs.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Cargue un archivo en el contenedor de blobs.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  En el cuadro de diálogo Cargar archivos, seleccione el campo Archivos. Busque un archivo en la máquina local, como un archivo de imagen, selecciónelo y haga clic en **Abrir** y, después, en **Cargar**.
 
@@ -266,7 +266,7 @@ Utilice los pasos y valores que se han descrito anteriormente para crear otra cu
 
   **Ejemplo:**
 
-    ![Vea el mensaje en los registros.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Vea el mensaje en los registros.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Datos compatibles almacenados y a los que se accede de forma segura
 

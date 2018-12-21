@@ -13,12 +13,13 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 3a84f9ed35bac7f56d4a6aa2af94d1c28e335b74
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334217"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093206"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
@@ -48,7 +49,7 @@ Para completar este artículo, necesitará lo siguiente:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./resource-manager-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
+    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para obtener más información, consulte [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./resource-manager-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="prepare-the-key-vault"></a>Preparación de Key Vault
 
@@ -81,7 +82,7 @@ Para crear una instancia de Key Vault:
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea una instancia de Key Vault y un secreto de Key Vault.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" /></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Seleccione o escriba los siguientes valores.  No seleccione **Comprar** después de escribir los valores.
 
@@ -93,9 +94,9 @@ Para crear una instancia de Key Vault:
     * **Nombre del almacén de claves**: asigne un nombre único. 
     * **Id. de inquilino**: la función de plantilla recupera automáticamente el identificador del inquilino.  No cambie el valor predeterminado
     * **Id. de usuario de AD**: escriba el identificador del objeto de usuario de Azure AD que recuperó del último procedimiento.
-    * **Nombre de secreto**: el nombre predeterminado es **vmAdminPassword**. Si cambia el nombre de secreto aquí, deberá actualizar el nombre de secreto al implementar la máquina virtual.
-    * **Valor de secreto**: escriba el secreto.  El secreto es la contraseña utilizada para iniciar sesión en la máquina virtual. Se recomienda usar la contraseña generada que creó en el último procedimiento.
-    * **Acepto los términos y condiciones anteriores**: seleccionar.
+    * **Nombre del secreto**: el nombre predeterminado es **vmAdminPassword**. Si cambia el nombre de secreto aquí, deberá actualizar el nombre de secreto al implementar la máquina virtual.
+    * **Valor del secreto**: escriba el secreto.  El secreto es la contraseña utilizada para iniciar sesión en la máquina virtual. Se recomienda usar la contraseña generada que creó en el último procedimiento.
+    * **Acepto los términos y condiciones anteriores**: Seleccionar.
 3. Seleccione **Editar parámetros** en la parte superior para echar un vistazo a la plantilla.
 4. Vaya a la línea 28 del archivo JSON de la plantilla. Se trata de la definición de recursos de Key Vault.
 5. Vaya a la línea 35:

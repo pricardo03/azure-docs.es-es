@@ -1,5 +1,5 @@
 ---
-title: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights
+title: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights | Microsoft Docs
 description: Obtenga información acerca de la biblioteca de cliente JavaScript de Azure Time Series Insights y el modelo de programación relacionado.
 author: ashannon7
 manager: cshankar
@@ -8,12 +8,13 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 33dcf6f69d1287b4e040b3cccf4164667db2b75f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707000"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269981"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights
 
@@ -82,7 +83,7 @@ En primer lugar, veamos el código fuente HTML y JavaScript que hay detrás de l
 
 3. Expanda el elemento `<div class="chartsWrapper">` y descubra más elementos `<div>` secundarios. Estos elementos se utilizan para colocar cada uno de los ejemplos de control de gráfico. Observe que hay varios pares de elementos `<div>`, uno para cada ejemplo de gráfico:
 
-   - El primer elemento (`class="rowOfCardsTitle"`) contiene un título descriptivo que resume lo que muestran los gráficos. Por ejemplo: "Static Line Charts With Full-Size Legends" (Gráficos de líneas estáticos con leyendas a tamaño completo).
+   - El primer elemento (`class="rowOfCardsTitle"`) contiene un título descriptivo que resume lo que muestran los gráficos. Por ejemplo:  "Gráficos de líneas estáticos con leyendas de tamaño completo".
    - El segundo elemento (`class="rowOfCards"`) es un elemento primario, que contiene elementos `<div>` secundarios adicionales que colocan los controles de gráficos reales en una fila.
 
    ![Elementos div del cuerpo](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -95,8 +96,8 @@ En primer lugar, veamos el código fuente HTML y JavaScript que hay detrás de l
 
 Aunque no la revisaremos en profundidad, la biblioteca cliente de TSI **tsclient.js** proporciona fundamentalmente una abstracción de dos categorías importantes:
 
-- **Métodos de contenedor para llamar a las API de consulta de TSI**: API REST que permiten consultar datos de TSI mediante expresiones de agregado. Los métodos se organizan en el espacio de nombres `TsiClient.Server` de la biblioteca.
-- **Métodos para crear y rellenar varios tipos de controles de gráficos**: métodos que se usan para representar los datos de agregado de TSI en una página web. Los métodos se organizan en el espacio de nombres `TsiClient.UX` de la biblioteca.
+- **Métodos de contenedor para llamar a las API de consulta de TSI**: API de REST que permiten consultar datos de TSI mediante expresiones de agregado. Los métodos se organizan en el espacio de nombres `TsiClient.Server` de la biblioteca.
+- **Métodos para crear y rellenar varios tipos de controles de gráficos**: métodos que se usan para representar los datos agregados de TSI en una página web. Los métodos se organizan en el espacio de nombres `TsiClient.UX` de la biblioteca.
 
 Los siguientes conceptos son universales y se aplican a las API de biblioteca de cliente de TSI en general.
 
@@ -236,7 +237,7 @@ Examine el código que está detrás de la sección de HTML que se encuentra deb
 1. Primero se define una serie de acciones personalizadas. Cada acción contiene una matriz con uno o varios elementos. Cada elemento define un elemento de menú contextual único:
 
    - `barChartActions`: esta acción define el menú contextual del gráfico circular, que contiene un elemento para definir un elemento individual:
-     - `name`: el texto que se usa en el elemento de menú, "Print parameters to console" (Parámetros de impresión en la consola).
+     - `name`: el texto que se usa para el elemento de menú: "Imprimir parámetros en la consola".
      - `action`: la acción asociada al elemento de menú. Dicha acción es siempre una función anónima que toma tres argumentos que se basan en la expresión de agregado que se usa para crear el gráfico. En este caso, los argumentos se escriben en la ventana de la consola del explorador:
        - `ae`: la matriz de la expresión de agregado.
        - `splitBy`: el valor de splitBy.
@@ -262,7 +263,7 @@ Los pinceles se usan para definir el ámbito de un intervalo de tiempo para defi
 El código que se usa para ilustrar los pinceles se muestra en el ejemplo de "Line Chart with Context Menu to Create Pie/Bar Chart" (Gráfico de líneas con menú contextual para crear gráficos circulares o de barras), en el que se describen los [menús contextuales emergentes](#popup-context-menus-section).
 
 1. Las acciones de los pinceles se parecen mucho a las de un menú contextual en que definen una serie de acciones personalizadas para el pincel. Cada acción contiene una matriz con uno o varios elementos. Cada elemento define un elemento de menú contextual único:
-   - `name`: el texto que se usa en el elemento de menú, "Print parameters to console" (Parámetros de impresión en la consola).
+   - `name`: el texto que se usa para el elemento de menú: "Imprimir parámetros en la consola".
    - `action`: la acción que está asociada con el elemento de menú, que siempre es una función anónima que toma dos argumentos. En este caso, los argumentos se escriben en la ventana de la consola del explorador:
       - `fromTime`: la marca de tiempo "desde" de la selección de pincel.
       - `toTime`: la marca de tiempo "hasta" de la selección de pincel.

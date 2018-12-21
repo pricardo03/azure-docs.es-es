@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 3b766cfa339e6cbb568cf57383667d270153401f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dd47976bca75569142f1912eee06c66061e92fa6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262427"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097672"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Aprovisionamiento del rendimiento de un contenedor de Azure Cosmos DB
 
@@ -28,6 +28,7 @@ En este artículo se explica cómo aprovisionar el rendimiento de un contenedor 
 
    * Cree una base de datos o use una existente.
    * Escriba un identificador de colección (o de tabla o grafo).
+   * Escriba un valor de la clave de partición, como `/userid`.
    * Escriba un rendimiento, por ejemplo 1000 RU.
    * Seleccione **Aceptar**.
 

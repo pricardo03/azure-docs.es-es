@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f17998957db6fca5b109b5a05aa624e238af8dca
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810827"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257546"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Creación y configuración de clústeres de Azure Kubernetes Service en Azure mediante Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar Azure Kubernetes Service (AKS). En este artículo se muestra cómo usar Ansible para crear y configurar un clúster de Azure Kubernetes Service.
@@ -79,7 +79,7 @@ Para crear el clúster de AKS con Ansible, guarde el cuaderno de estrategias de 
 
 La salida del comando **ansible-playbook* es similar a la siguiente, que muestra que el clúster de AKS se ha creado correctamente:
 
-  ```bash
+  ```Output
   PLAY [Create AKS] ****************************************************************************************
 
   TASK [Gathering Facts] ********************************************************************************************
@@ -140,7 +140,7 @@ Para escalar el clúster de Azure Kubernetes Service con Ansible, guarde el cuad
 
 La siguiente salida muestra que el clúster de AKS se ha creado correctamente:
 
-  ```bash
+  ```Output
   PLAY [Scale AKS cluster] ***************************************************************
 
   TASK [Gathering Facts] ******************************************************************
@@ -178,7 +178,7 @@ Para eliminar el clúster de Azure Kubernetes Service con Ansible, guarde el cua
   ```
 
 La siguiente salida muestra que el clúster de AKS se ha eliminado correctamente:
-  ```bash
+  ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
 
 TASK [Gathering Facts] ********************************************************************

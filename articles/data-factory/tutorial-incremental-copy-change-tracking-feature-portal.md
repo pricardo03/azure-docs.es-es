@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: f06094fb82f10276f7a41d1b22f6dd99836a497f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095517"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957272"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos SQL de Azure hasta un almacenamiento de blobs de Azure.  
@@ -171,7 +171,7 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 6. Seleccione **Anclar al panel**.     
 7. Haga clic en **Create**(Crear).      
-8. En el panel, verá el icono siguiente con el estado: **Implementando factoría de datos**. 
+8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
     ![icono implementando factoría de datos](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
@@ -322,7 +322,7 @@ Haga clic en **Trigger** (Desencadenar) en la barra de herramientas de la canali
 ### <a name="review-the-results"></a>Revisión del resultado
 Verá un archivo denominado `incremental-<GUID>.txt` en la carpeta `incchgtracking` del contenedor `adftutorial`. 
 
-![Archivo de salida de una copia completa](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![Archivo de salida de una copia completa](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 El archivo debe tener los datos de la base de datos SQL de Azure:
 
@@ -445,7 +445,7 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
 ### <a name="review-the-results"></a>Revisión del resultado
 Verá el segundo archivo `incchgtracking` en la carpeta `adftutorial` del contenedor. 
 
-![Archivo de salida de la copia incremental](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![Archivo de salida de la copia incremental](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 El archivo debe tener los datos diferenciales de la base de datos SQL de Azure. El registro con `U` es la fila actualizada en la base de datos y `I` es la fila que se agrega. 
 
@@ -453,7 +453,7 @@ El archivo debe tener los datos diferenciales de la base de datos SQL de Azure. 
 1,update,10,2,U
 6,new,50,1,I
 ```
-Las tres primeras columnas son datos que han cambiado de data_source_table. Las dos últimas columnas son los metadatos de la tabla del sistema de control de cambios. La cuarta columna es el valor SYS_CHANGE_VERSION de cada fila modificada. La quinta columna es la operación: U = actualización, I = inserción.  Para obtener más información acerca de la información de control de cambios, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+Las tres primeras columnas son datos que han cambiado de data_source_table. Las dos últimas columnas son los metadatos de la tabla del sistema de control de cambios. La cuarta columna es el valor SYS_CHANGE_VERSION de cada fila modificada. La quinta columna es la operación:  U = actualización, I = inserción.  Para obtener más información acerca de la información de control de cambios, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================

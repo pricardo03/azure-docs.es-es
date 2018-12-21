@@ -1,5 +1,5 @@
 ---
-title: Configuración de Azure App Service Environment para que use tunelización forzada
+title: 'Configuración de App Service Environment para que use tunelización forzada: Azure'
 description: Habilitación de App Service Environment para que funcione cuando se realiza la tunelización forzada del tráfico saliente
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: ba93aab14c8eaccf9e3ed9ae9db0d169f41dddea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.custom: seodec18
+ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024052"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272743"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
 
@@ -105,7 +105,7 @@ Para enrutar a través del túnel todo el tráfico saliente desde el ASE, except
 
 3. Obtenga las direcciones que se usarán para todo el tráfico saliente desde App Service Environment a Internet. Si va a enrutar el tráfico de forma local, estas direcciones son las direcciones IP de la puerta de enlace o los dispositivos NAT. Si quiere enrutar el tráfico de salida de App Service Environment a través de una NVA, la dirección de salida sería la dirección IP pública de la NVA.
 
-4. _Para establecer las direcciones de salida en una instancia existente de App Service Environment:_ Vaya a resource.azure.com y a /\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. A continuación, puede ver el archivo JSON que describe su instancia de App Service Environment. Asegúrese de que, en la parte superior, indica **lectura/escritura**. Seleccione **Editar**. Desplácese hasta la parte inferior. Cambie el valor de **userWhitelistedIpRanges** de **null** a algo como lo siguiente. Use las direcciones que desea establecer como el intervalo de direcciones de salida. 
+4. _Para establecer las direcciones de salida en una instancia existente de App Service Environment_: vaya a resource.azure.com y a Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. A continuación, puede ver el archivo JSON que describe su instancia de App Service Environment. Asegúrese de que, en la parte superior, indica **lectura/escritura**. Seleccione **Editar**. Desplácese hasta la parte inferior. Cambie el valor de **userWhitelistedIpRanges** de **null** a algo como lo siguiente. Use las direcciones que desea establecer como el intervalo de direcciones de salida. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 

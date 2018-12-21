@@ -1,20 +1,20 @@
 ---
-title: 'Script de la CLI de Azure: creación de una cuenta, base de datos y contenedor de SQL API para Azure Cosmos DB | Microsoft Docs'
+title: 'Script de la CLI de Azure: creación de una cuenta, base de datos y contenedor de SQL API para Azure Cosmos DB'
 description: 'Ejemplo de script de la CLI de Azure: Creación de una cuenta, base de datos y contenedor de SQL API para Azure Cosmos DB'
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: b38c836efce9f0bd2e29dcfa8c88f6894cf29b38
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a39786d2ccc8b0b57f539b10ee12d7b55bba381
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016376"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964601"
 ---
-# <a name="azure-cosmos-db-create-a-sql-api-account-using-cli"></a>Azure Cosmos DB: Creación de una cuenta de SQL API mediante la CLI
+# <a name="azure-cosmos-db-create-a-sql-api-account-using-cli"></a>Azure Cosmos DB: creación de una cuenta de API de SQL mediante la CLI
 
 Este script de ejemplo de la CLI crea una cuenta, base de datos y contenedor de SQL API para Azure Cosmos DB.  
 

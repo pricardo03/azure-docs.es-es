@@ -1,6 +1,7 @@
 ---
-title: 'Guía de inicio rápido: Uso del SDK de Python para crear un área de trabajo del servicio de aprendizaje automático (Azure Machine Learning)'
-description: Introducción a Azure Machine Learning. Instale el SDK de Python y úselo para crear un área de trabajo. Esta área de trabajo se encuentra en la nube y es el bloque fundamental que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático con Azure Machine Learning.
+title: 'Guía de inicio rápido:  Introducción a Python'
+titleSuffix: Azure Machine Learning service
+description: Introducción a Azure Machine Learning Service en Python. Use el SDK de Python para crear un área de trabajo, que es el bloque fundamental en la nube que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +10,17 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 12/04/2018
-ms.openlocfilehash: f16d39238b46a811f34fdfe291d6c09bee662b9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870084"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268524"
 ---
-# <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Guía de inicio rápido: Uso de Python para empezar a usar Azure Machine Learning
+# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Guía de inicio rápido: Uso del SDK de Python para empezar a usar Azure Machine Learning
 
-En esta guía de inicio rápido, usará el SDK de Azure Machine Learning para Python para crear y después usar un [área de trabajo](concept-azure-machine-learning-architecture.md) del servicio Machine Learning. Esta área de trabajo se encuentra en la nube y es el bloque fundamental que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático con Machine Learning. En esta guía de inicio rápido, primero debe configurar su propio entorno de Python y el servidor de Jupyter Notebook. Para ejecutar sin necesidad de instalación, consulte [Guía de inicio rápido: Uso de Azure Portal para empezar a trabajar con Azure Machine Learning](quickstart-get-started.md).
+En esta guía de inicio rápido, usará el SDK de Azure Machine Learning para Python para crear y después usar un [área de trabajo](concept-azure-machine-learning-architecture.md) del servicio Machine Learning. Esta área de trabajo se encuentra en la nube y es el bloque fundamental que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático con Machine Learning. En esta guía de inicio rápido, primero debe configurar su propio entorno de Python y el servidor de Jupyter Notebook. Para ejecutar sin necesidad de instalación, vea [Guía de inicio rápido: Uso de Azure Portal para empezar a trabajar con Azure Machine Learning](quickstart-get-started.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -38,14 +40,12 @@ Los siguientes recursos de Azure se agregan automáticamente al área de trabajo
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
->[!NOTE]
-> El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.2 
-
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLfree) antes de empezar.
-
+Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 ## <a name="install-the-sdk"></a>Instalación del SDK
+
+>[!NOTE]
+> El código de este artículo requiere el SDK de Azure Machine Learning, versión 1.0.2 o posterior. 
 
 *Omita esta sección si utiliza una máquina virtual de ciencia de datos creada después del 27 de septiembre de 2018.* Estas máquinas virtuales de ciencia de datos vienen con el SDK de Python preinstalado.
 
@@ -204,6 +204,6 @@ Necesita algunos paquetes más en su entorno para usarlos con los tutoriales de 
 Tras instalar dichos paquetes, siga los tutoriales para entrenar un modelo e implementarlo. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md) (Tutorial: Entrenamiento de un modelo de clasificación de imágenes)
+> [Tutorial: Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md)
 
 También puede explorar [ejemplos más avanzados en GitHub](https://aka.ms/aml-notebooks).

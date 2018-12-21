@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de la base de conocimiento: REST y Node.js en QnA Maker'
+title: 'Guía de inicio rápido: Creación de una base conocimiento: REST y Node.js en QnA Maker'
 description: En esta guía de inicio rápido se explica de forma detallada cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker que aparecerá en el panel de Azure de su cuenta de API de Cognitive Services.
 services: cognitive-services
 author: diberry
@@ -9,12 +9,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: a9a6470e8dc7b9f82ae8db586fcbd6629d8ed757
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8d9f1bf746c98d16539fdd3332977611f072bfff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235571"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259705"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Guía de inicio rápido: Creación de una base de conocimiento en QnA Maker mediante Node.js
 
@@ -29,7 +29,7 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 * [Node.js 6+](https://nodejs.org/en/download/)
 * Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave, seleccione **Claves** en **Administración de recursos** en el panel. 
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## <a name="create-a-knowledge-base-nodejs-file"></a>Creación de un archivo de base de conocimiento de Node.js
 

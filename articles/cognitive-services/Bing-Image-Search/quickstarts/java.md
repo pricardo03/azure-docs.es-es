@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Realizar una búsqueda de imágenes con Java - Bing Image Search API'
+title: 'Guía de inicio rápido: Búsqueda de imágenes: API de REST Bing Image Search y Java'
 titleSuffix: Azure Cognitive Services
-description: Use esta guía de inicio rápido para realizar la primera llamada a Bing Image Search API y recibir una respuesta JSON. Esta sencilla aplicación de Java envía una consulta de búsqueda a la API y muestra los resultados sin formato.
+description: Use esta guía de inicio rápido para enviar solicitudes de búsqueda de imágenes a la API de REST Bing Image Search mediante Java y reciba respuestas JSON.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 63add2406b4535747c09299ecc0df6d1b6b47da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 17dcf33074e7ee097a8778b3b867cb196cd814c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315875"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258175"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>Guía de inicio rápido: Envío de consultas de búsqueda con la API de REST Bing Image Search y Java
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y Java
 
 Use esta guía de inicio rápido para realizar la primera llamada a Bing Image Search API y recibir una respuesta JSON. Esta sencilla aplicación de Java envía una consulta de búsqueda a la API y muestra los resultados sin formato.
 

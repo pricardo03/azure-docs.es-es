@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Reconocimiento de voz en JavaScript en un explorador mediante el SDK de Speech Service'
+title: 'Inicio rápido: Reconocimiento de voz, JavaScript (explorador) (Speech Service)'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconocer la voz en JavaScript en un explorador mediante el SDK de Speech Service
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 1e844f83c715dd8ac78a3340628988625e95a4ba
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218447"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087922"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Guía de inicio rápido: Reconocimiento de voz en JavaScript en un explorador mediante el SDK de Speech Service
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Inicio rápido: Reconocimiento de voz en JavaScript en un explorador mediante el SDK de Speech Service
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

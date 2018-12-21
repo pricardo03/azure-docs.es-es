@@ -1,5 +1,5 @@
 ---
-title: 'Azure Portal: creación de una instancia administrada de SQL | Microsoft Docs'
+title: 'Azure Portal: Creación de una Instancia administrada de SQL | Microsoft Docs'
 description: Cree una instancia administrada de SQL, un entorno de red y una máquina virtual cliente para el acceso.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: d5be25abc634200e0c0afed6946b38fd163fb78e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 4b8c67cfff89b54b4776ebc8b4586cd8f52950b3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890507"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342619"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Guía de inicio rápido: Creación de una Instancia administrada de Azure SQL Database
 
@@ -48,7 +48,7 @@ En los pasos siguientes se muestra cómo crear una Instancia administrada.
    |**Inicio de sesión de administrador de la instancia administrada**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.|
    |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 16 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Ubicación**|La ubicación en la que quiere crear la Instancia administrada.|Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
-   |**Red virtual**|Seleccione **Crear una nueva red virtual** o seleccione una red virtual que haya creado anteriormente en el grupo de recursos que proporcionó antes en este formulario.| Para configurar una red virtual para una Instancia administrada con una configuración personalizada, vea [Configure SQL Managed Instance virtual network environment template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) (Configuración de la plantilla de entorno de red virtual de Instancia administrada de SQL) en Github. Para obtener información acerca los requisitos necesarios para configurar el entorno de red de Instancia administrada, consulte [Configuración de una red virtual para Instancia administrada de Azure SQL Database](sql-database-managed-instance-vnet-configuration.md). |
+   |**Red virtual**|Seleccione **Crear una nueva red virtual** o una subred y red virtual válidas.| Si hay una red o subred que aparece deshabilitada, se debe [modificar para cumplir con los requisitos de la red](sql-database-managed-instance-configure-vnet-subnet.md) antes de seleccionarla como destino de la nueva Instancia administrada. Para obtener información acerca los requisitos necesarios para configurar el entorno de red de Instancia administrada, consulte [Configuración de una red virtual para Instancia administrada de Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md). |
    |**Grupos de recursos**|Un grupo de recursos nuevo o existente.|Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura).|
 
    ![Formulario de la instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

@@ -1,21 +1,22 @@
 ---
-title: Uso del SDK de C# de Speech con LUIS
+title: Uso del SDK de C# de Voz
 titleSuffix: Azure Cognitive Services
-description: Speech Service le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS. En este artículo, descarga y usa un proyecto de C# en Visual Studio para decir una expresión a un micrófono y recibir información de predicción de LUIS. El proyecto utiliza el paquete NuGet de Voz, que ya se incluye como referencia.
+description: Speech Service le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS. En este artículo, descarga y usa un proyecto de C# en Visual Studio para decir una expresión a un micrófono y recibir información de predicción de LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139113"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162638"
 ---
 # <a name="integrate-speech-service"></a>Integración de Speech Service
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS. En este artículo, descarga y usa un proyecto de C# en Visual Studio para decir una expresión a un micrófono y recibir información de predicción de LUIS. El proyecto utiliza el paquete [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Voz, que ya se incluye como referencia. 
@@ -26,7 +27,7 @@ En este artículo, necesita una cuenta de sitio web de [LUIS][LUIS] gratuita par
 En Azure Portal, [cree](luis-how-to-azure-subscription.md#create-luis-endpoint-key) una clave de **Language Understanding** (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importación de aplicación Human Resources de LUIS
-Las intenciones y expresiones de este artículo proceden de la aplicación Human Resources de LUIS disponible en el repositorio de Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Descargue el archivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), guárdelo con la extensión `.json` e [impórtelo](luis-how-to-start-new-app.md#import-new-app) en LUIS. 
+Las intenciones y expresiones de este artículo proceden de la aplicación Human Resources de LUIS disponible en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Descargue el archivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), guárdelo con la extensión `.json` e [impórtelo](luis-how-to-start-new-app.md#import-new-app) en LUIS. 
 
 Esta aplicación tiene intenciones, entidades y expresiones relacionadas con el dominio de Human Resources. Las expresiones de ejemplo incluyen:
 
@@ -65,7 +66,7 @@ En este artículo se usa el dispositivo de audio en el equipo. Pueden ser unos a
 
 El SDK de Voz ya está incluido como referencia. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Captura de pantalla de Visual Studio 2017 que muestra el paquete NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Captura de pantalla de Visual Studio 2017 que muestra el paquete NuGet Microsoft.CognitiveServices.Speech](./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot of Visual Studio 2017 displaying Microsoft.CognitiveServices.Speech NuGet package")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modificación del código de C#
 Abra el archivo `Program.cs` y cambie las variables siguientes:

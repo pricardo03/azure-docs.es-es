@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978008"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164167"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Ejecución de Azure Functions desde trabajos de Azure Stream Analytics 
 
@@ -50,19 +50,19 @@ Para llevar a cabo esta tarea, se requieren los siguientes pasos:
 
 Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md) para crear un centro de eventos, iniciar la aplicación del generador de eventos y crear un trabajo de Stream Analytics. (Omita los pasos para crear la consulta y la salida. En su lugar, consulte las secciones siguientes para configurar la salida de Functions).
 
-## <a name="create-an-azure-redis-cache-instance"></a>Creación de una instancia de Azure Redis Cache
+## <a name="create-an-azure-cache-for-redis-instance"></a>Creación de una instancia de Azure Redis Cache
 
-1. Cree una caché en Azure Redis Cache mediante los pasos descritos en [Creación de una caché](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
+1. Cree una caché en Azure Redis Cache mediante los pasos descritos en [Creación de una caché](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
 2. Después de crear la caché, en **Configuración**, seleccione **Teclas de acceso**. Anote la **cadena de conexión principal**.
 
    ![Captura de pantalla de la cadena de conexión de Azure Redis Cache](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Creación de una función en Azure Functions que pueda escribir datos en Azure Redis Cache
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Creación de una función en Azure Functions que pueda escribir datos en Azure Redis Cache
 
 1. Consulte la sección [Creación de una aplicación de función](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) de la documentación de Functions. Esto explica cómo crear una aplicación de función y una [función desencadenada por HTTP en Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) mediante el lenguaje CSharp.  
 
-2. Vaya a la función **run.csx**. Actualícela con el código siguiente. (Asegúrese de reemplazar "\<su cadena de conexión de redis cache va aquí\>" por la cadena de conexión principal de Azure Redis Cache que recuperó en la sección anterior).  
+2. Vaya a la función **run.csx**. Actualícela con el código siguiente. (Asegúrese de reemplazar "\<su cadena de conexión de Azure Redis Cache va aquí\>" por la cadena de conexión principal de Azure Redis Cache que recuperó en la sección anterior).  
 
    ```csharp
    using System;
@@ -85,7 +85,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
       {        
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
-      var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
+      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
       log.Info($"Connection string.. {connection}");
     
       // Connection refers to a property that returns a ConnectionMultiplexer
@@ -185,11 +185,11 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
     
 6.  Inicie el trabajo de Stream Analytics.
 
-## <a name="check-azure-redis-cache-for-results"></a>Búsqueda de resultados en Azure Redis Cache
+## <a name="check-azure-cache-for-redis-for-results"></a>Búsqueda de resultados en Azure Redis Cache
 
 1. Vaya a Azure Portal y encuentre su instancia de Azure Redis Cache. Seleccione **Consola**.  
 
-2. Utilice los [comandos de Redis Cache](https://redis.io/commands) para comprobar que los datos están en Redis Cache. (El comando toma el formato Get {key}). Por ejemplo: 
+2. Use [ Azure Redis Cache](https://redis.io/commands) para comprobar que los datos están Azure Redis Cache. (El comando toma el formato Get {key}). Por ejemplo: 
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
@@ -207,6 +207,8 @@ Si se produce un error al enviar eventos a Azure Functions, Stream Analytics vol
 ## <a name="known-issues"></a>Problemas conocidos
 
 En Azure Portal, al intentar restablecer el valor de Tamaño máximo de lotes o Número máximo de lotes en valor vacío (predeterminado), el valor vuelve a cambiar al valor especificado anteriormente al guardar. Especifique manualmente los valores predeterminados para estos campos en este caso.
+
+El uso de [enrutamiento HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) en Azure Functions actualmente no es compatible con Stream Analytics.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

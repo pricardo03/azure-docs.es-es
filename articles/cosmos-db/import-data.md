@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: e3968155c2619b5d6b09b68a59ff01607c45fa2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 57c70716ac0e3156440d4a602704cb0ac2e30130
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843553"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091174"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Use la herramienta de migración de datos para migrar los datos a Azure Cosmos DB
 
@@ -40,9 +40,9 @@ Antes de seguir las instrucciones de este artículo, asegúrese de realizar los 
 
 * **Instale** [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) o superior.
 
-* **Aumente el rendimiento:** la duración de la migración de datos depende de la cantidad de rendimiento configurado para una sola colección o un conjunto de colecciones. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información acerca de cómo aumentar el rendimiento en Azure Portal, consulte [Niveles de rendimiento](performance-levels.md) y [planes de tarifa](https://azure.microsoft.com/pricing/details/cosmos-db/) de Azure Cosmos DB.
+* **Aumento del rendimiento:** la duración de la migración de datos depende de la cantidad de rendimiento configurado para una sola colección o un conjunto de colecciones. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información acerca de cómo aumentar el rendimiento en Azure Portal, consulte [Niveles de rendimiento](performance-levels.md) y [planes de tarifa](https://azure.microsoft.com/pricing/details/cosmos-db/) de Azure Cosmos DB.
 
-* **Cree recursos de Azure Cosmos DB:** antes de comenzar la migración de datos, cree previamente todas las colecciones desde Azure Portal. Para migrar a una cuenta de Azure Cosmos DB que tiene un rendimiento de nivel de base de datos, proporcione una clave de partición al crear las colecciones de Azure Cosmos DB.
+* **Creación de recursos de Azure Cosmos DB:** antes de comenzar la migración de datos, cree previamente todas las colecciones desde Azure Portal. Para migrar a una cuenta de Azure Cosmos DB que tiene un rendimiento de nivel de base de datos, proporcione una clave de partición al crear las colecciones de Azure Cosmos DB.
 
 ## <a id="Overviewl"></a>Información general
 
@@ -198,7 +198,7 @@ De forma similar a lo que sucede con el origen SQL, la propiedad de separador de
 
 Tenga en cuenta los alias como DomainInfo.Domain_Name y RedirectInfo.Redirecting. Al especificar un separador de anidamiento de ".", la herramienta de importación crea subdocumentos DomainInfo y RedirectInfo durante la importación. Este es un ejemplo de un documento resultante en Azure Cosmos DB:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 La herramienta de importación intenta inferir la información de tipo de los valores sin comillas de los archivos CSV (los valores entre comillas se tratan siempre como cadenas).  Los tipos se identifican en el siguiente orden: número, fecha y hora, booleano.  
 
@@ -390,8 +390,8 @@ Además, al importar los tipos de fecha (por ejemplo, desde SQL Server o MongoDB
  ![Captura de pantalla de opciones de importación de fecha y hora de Azure Cosmos DB](./media/import-data/datetimeoptions.png)
 
 * Cadena: conservar como un valor de cadena
-* Tiempo: conservar como un valor de número de tiempo
-* Ambos: conservar los valores de cadena y de número. Esta opción crea un subdocumento, por ejemplo "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+* Época: conservar como un valor de número de tiempo
+* Ambos: conservar los valores de cadena y de número. Esta opción crea un subdocumento, por ejemplo, "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 El importador masivo de Azure Cosmos DB tiene las siguientes opciones avanzadas adicionales:
 
@@ -445,8 +445,8 @@ Hay una serie de opciones avanzadas disponibles durante la importación. En prim
  ![Captura de pantalla de opciones de importación de fecha y hora de Azure Cosmos DB](./media/import-data/datetimeoptions.png)
 
 * Cadena: conservar como un valor de cadena
-* Tiempo: conservar como un valor de número de tiempo
-* Ambos: conservar los valores de cadena y de número. Esta opción crea un subdocumento, por ejemplo "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+* Época: conservar como un valor de número de tiempo
+* Ambos: conservar los valores de cadena y de número. Esta opción crea un subdocumento, por ejemplo, "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 El importador de registros secuenciales de Azure Cosmos DB tiene estas opciones avanzadas adicionales:
 

@@ -9,19 +9,19 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: f753d7273c685a7ec3e4e0877e171df04e69e5b4
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: da5370e274aa1904f803227d8c85912a7d26c533
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978322"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000658"
 ---
 # <a name="what-is-service-fabric-mesh"></a>¿Qué es Service Fabric Mesh?
 
 Este vídeo ofrece una introducción rápida sobre Service Fabric Mesh.
 > [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
 
-Azure Service Fabric Mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin necesidad de administrar máquinas virtuales, almacenamiento o redes. Las aplicaciones hospedadas en Service Fabric Mesh se ejecutan y escalan sin preocuparse por la infraestructura que las sustenta.  Service Fabric Mesh consta de clústeres de miles de máquinas.  Todas las operaciones de clúster están ocultas para el desarrollador. Basta con cargar el código y especificar los recursos necesarios, los requisitos de disponibilidad y los límites de recursos.  Service Fabric Mesh asigna automáticamente la infraestructura y se ocupa de los errores de dicha infraestructura, lo que garantiza que las aplicaciones presentan una elevada disponibilidad. Solo es necesario preocuparse por el mantenimiento y la capacidad de respuesta de la aplicación, no de la infraestructura.  
+Azure Service Fabric mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin la administración de máquinas virtuales, almacenamiento o redes. Las aplicaciones hospedadas en Service Fabric Mesh se ejecutan y escalan sin preocuparse por la infraestructura que las sustenta.  Service Fabric Mesh consta de clústeres de miles de máquinas.  Todas las operaciones de clúster están ocultas para el desarrollador. Basta con cargar el código y especificar los recursos necesarios, los requisitos de disponibilidad y los límites de recursos.  Service Fabric Mesh asigna automáticamente la infraestructura y se ocupa de los errores de dicha infraestructura, lo que garantiza que las aplicaciones presentan una elevada disponibilidad. Solo es necesario preocuparse por el mantenimiento y la capacidad de respuesta de la aplicación, no de la infraestructura.  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -50,6 +50,7 @@ Con Service Fabric Mesh, puede:
 - Implementar y administrar recursos mediante [Azure Portal](https://portal.azure.com), plantillas de Resource Manager o bibliotecas de la CLI de Azure o PowerShell.
 - Configurar la supervisión y alerta operativas con [Application Insights](/azure/application-insights/) (o la herramienta que prefiera) para capturar los seguimientos de diagnóstico y operativos desde la plataforma.
 - Acceder a la información de diagnóstico de las aplicaciones emitida desde el modelo de aplicación mediante [Application Insights](/azure/application-insights/) o la herramienta de su elección.
+- Optimizar el uso de recursos mediante la especificación de reglas de escalado automático para los servicios en la definición de aplicación.
 
 ## <a name="mission-critical-platform-capabilities"></a>Funcionalidades críticas de la plataforma
 
@@ -67,7 +68,7 @@ Con Service Fabric Mesh, puede:
 
 Para implementar un proyecto de ejemplo con Visual Studio solo son necesarios unos cuantos pasos. Para más información, consulte [Creación de un sitio web de ASP.NET Core](service-fabric-mesh-quickstart-dotnet-core.md). 
 
-Obtenga respuestas para las [preguntas comunes](service-fabric-mesh-faq.md).
+Obtenga respuestas a [preguntas comunes](service-fabric-mesh-faq.md).
 
 
 <!-- Links -->

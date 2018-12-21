@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: cambio, seguimiento, automatización
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e4ea8f92a562ea4bc90df98d6e459377b9886777
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844913"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190023"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solución de problemas en el entorno
 
@@ -102,7 +102,7 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 |habilitado     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
-|Clave de Registro de Windows   | La ruta de acceso para buscar el archivo, por ejemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Clave del registro de Windows   | La ruta de acceso para buscar el archivo, por ejemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Agregar un archivo de Windows
 
@@ -177,12 +177,11 @@ Ver los cambios en Azure Portal puede ser útil, pero poder recibir una alerta c
 
 Para agregar una alerta para un servicio detenido, en Azure Portal, vaya a **Monitor**. Y, después, en **Servicios compartidos**, seleccione **Alertas** y haga clic en **+ Nueva regla de alertas**.
 
-En **1. Defina la condición de la alerta**, haga clic en **+ Seleccionar destino**. En **Filter by resource type** (Filtrar por tipo de recurso), seleccione **Log Analytics**. Seleccione el área de trabajo de Log Analytics y, a continuación, seleccione **Listo**.
+Haga clic en **Seleccionar** para elegir un recurso. En la página **Seleccionar un recurso**, seleccione **Log Analytics** en el menú desplegable **Filtrar por tipo de recurso**. Seleccione el área de trabajo de Log Analytics y, a continuación, seleccione **Listo**.
 
 ![Selección de un recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Seleccione **+ Agregar criterios**.
-En **Configurar lógica de señal**, en la tabla, seleccione **Búsqueda de registros personalizada**. Escriba la consulta siguiente en el cuadro de texto de consulta de búsqueda:
+Haga clic en **Agregar condición**, en la página **Configurar lógica de señal**, en la tabla, seleccione **Búsqueda de registros personalizada**. Escriba la consulta siguiente en el cuadro de texto de consulta de búsqueda:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -194,11 +193,9 @@ En **Lógica de alerta**, en **Umbral**, escriba **0**. Cuando haya finalizado, 
 
 ![Configuración de la lógica de señal](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-En **2. Definir detalles de la alerta**, escriba un nombre y una descripción para la alerta. Establezca **Gravedad** en **Informativo (gravedad 2)**, **Advertencia (gravedad 1)** o **Crítico (gravedad 0)**.
+En **Grupos de acciones**, seleccione **Crear nuevo**. Un grupo de acciones es un conjunto de acciones que puede usar en varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y muchas más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../azure-monitor/platform/action-groups.md).
 
-![Definición de detalles de la alerta](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-En **3. Definir grupo de acciones**, seleccione **Nuevo grupo de acciones**. Un grupo de acciones es un conjunto de acciones que puede usar en varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y muchas más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md).
+En **Detalles de la alerta**, escriba un nombre y una descripción para la alerta. Establezca **Gravedad** en **Informativo (gravedad 2)**, **Advertencia (gravedad 1)** o **Crítico (gravedad 0)**.
 
 En el cuadro **Nombre del grupo de acción**, escriba un nombre para la alerta y un nombre corto. El nombre corto se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
 

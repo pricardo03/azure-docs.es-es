@@ -9,16 +9,16 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
-ms.custom: mvc
+ms.custom: mvc seodec18
 ms.date: 11/15/2017
-ms.openlocfilehash: 6d1e5951ed8cdd9542463ffc57be81e55e4b9194
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 6b2a21cf50c03c8e44794540074dabf90049bc7c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629640"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275523"
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Guía de inicio rápido: exploración de Azure Time Series Insights
+# <a name="quickstart-explore-azure-time-series-insights"></a>Guía de inicio rápido: Exploración de Azure Time Series Insights
 Esta guía de inicio rápido muestra cómo comenzar a trabajar con el explorador de Azure Time Series Insights en un entorno de demostración gratuito. Aprenderá a usar el explorador web para visualizar grandes volúmenes de datos de IoT y recorrerá las características clave del explorador de Time Series Insights. 
 
 Azure Time Series Insights es un servicio de análisis, almacenamiento y administración totalmente administrado que facilita el análisis y la exploración de miles de millones de eventos de IoT de forma simultánea. Ofrece una vista global de los datos, lo que permite validar con rapidez la solución de IoT y evitar los caros tiempos de inactividad en dispositivos de gran importancia, además de ayudarle a descubrir tendencias ocultas, detectar anomalías y realizar análisis de causas principales casi en tiempo real.  Si está compilando una aplicación que necesita almacenar o consultar datos de serie temporal, puede desarrollarla con las API de REST de Time Series Insights.

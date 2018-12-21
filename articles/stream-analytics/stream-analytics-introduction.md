@@ -4,21 +4,20 @@ description: Obtenga información sobre Stream Analytics, un servicio administra
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.workload: data-services
-ms.custom: mvc
-ms.date: 03/27/2018
-ms.openlocfilehash: 7b38548ce3266d74ffd51ce75ffa92bdb4ac24b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.custom: seodec18
+ms.date: 12/07/2018
+ms.openlocfilehash: 9cd1a8a095c697c4baeaa435f80c136ce49e0313
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437627"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098583"
 ---
-# <a name="what-is-stream-analytics"></a>¿Qué es Stream Analytics?
+# <a name="what-is-azure-stream-analytics"></a>¿Qué es Azure Stream Analytics?
 
 Azure Stream Analytics es un motor de procesamiento de eventos que permite examinar grandes volúmenes de streaming de datos procedentes de dispositivos. Los datos de entrada pueden proceder de dispositivos, sensores, sitios web, fuentes de redes sociales, aplicaciones, etc. También admite la extracción de información de flujos de datos y la identificación de patrones y relaciones. Dichos patrones se pueden usar para desencadenar otras acciones de bajada, como alertas, alimentar información a una herramienta de generación de informes o almacenarla para usarla posteriormente.
 
@@ -42,13 +41,13 @@ Tras analizar los datos de entrada, el usuario especifica una salida para los da
 
 La siguiente imagen ilustra la canalización de Stream Analytics. Su trabajo de Stream Analytics puede utilizar todas las entradas y salidas, o un conjunto seleccionado de ellas. Esta imagen muestra cómo se envían los datos a Stream Analytics, se analizan y se envían para realizar otras acciones, como el almacenamiento o la presentación:
 
-![Canalización de Stream Analytics](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
+![Canalización de introducción de Stream Analytics](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
 
 ## <a name="key-capabilities-and-benefits"></a>Ventajas y principales capacidades
 
 Azure Stream Analytics se ha diseñado para ser fácil de usar, flexible, confiable y escalable a cualquier tamaño de trabajo. Está disponible en varios centros de datos, así como en nubes soberanas. La siguiente imagen muestra las principales funcionalidades de Azure Stream Analytics:
 
-![Principales funcionalidades de Stream Analytics](./media/stream-analytics-introduction/stream_analytics_key_capabilities.png)
+![Principales funcionalidades de Stream Analytics](./media/stream-analytics-introduction/stream-analytics-key-capabilities.png)
 
 ## <a name="ease-of-getting-started"></a>Facilidad para empezar
 

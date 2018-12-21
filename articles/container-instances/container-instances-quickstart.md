@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances'
-description: En esta guía de inicio rápido, va a usar la CLI de Azure para implementar una aplicación que se ejecuta en un contenedor de Docker en Azure Container Instances.
+title: 'Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances: CLI'
+description: En esta guía de inicio rápido, va a usar la CLI de Azure para implementar una aplicación de contenedor de Docker que se ejecutará en un contenedor aislado de Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855670"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189615"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Guía de inicio rápido: Ejecución de una aplicación de contenedor en Azure Container Instances con la CLI de Azure
 
-Use Azure Container Instances para ejecutar contenedores de Docker en Azure con sencillez y velocidad. No es necesario implementar máquinas virtuales ni usar una plataforma de orquestación de contenedores completa como Kubernetes. En esta guía de inicio rápido, va a usar Azure Portal para crear un contenedor en Azure y hacer que su aplicación esté disponible con un nombre de dominio completo (FQDN). Unos pocos segundos después de ejecutar un comando de implementación único, puede ir a la aplicación en ejecución:
+Use Azure Container Instances para ejecutar contenedores de Docker en Azure con sencillez y velocidad. No es necesario implementar máquinas virtuales ni usar una plataforma de orquestación de contenedores completa como Kubernetes. En esta guía de inicio rápido, va a usar la CLI de Azure para crear un contenedor en Azure y hacer que su aplicación esté disponible con un nombre de dominio completo (FQDN). Unos pocos segundos después de ejecutar un comando de implementación único, puede ir a la aplicación en ejecución:
 
 ![Aplicación implementada en Azure Container Instances vista en el explorador][aci-app-browser]
 

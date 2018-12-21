@@ -1,6 +1,6 @@
 ---
-title: Autenticación y autorización de usuarios de un extremo a extremo en Azure App Service en Linux | Microsoft Docs
-description: Aprenda a usar la autenticación y autorización de App Service para proteger sus aplicaciones de App Service, como el acceso a las API remotas.
+title: 'Autenticación y autorización de usuarios de extremo a extremo en Linux: Azure App Service | Microsoft Docs'
+description: Aprenda a usar la autenticación y autorización de App Service para proteger sus aplicaciones de App Service que se ejecutan en Linux, como el acceso a las API remotas.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
-ms.openlocfilehash: a468c5d0f73cc182927f26ea9b7a85e2c5afb7c8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766366"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409425"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticación y autorización de usuarios de un extremo a otro extremo en Azure App Service en Linux
 
@@ -50,7 +51,7 @@ También puede seguir los pasos de este tutorial en macOS, Linux, Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -237,7 +238,7 @@ Vaya a `http://<back_end_app_name>.azurewebsites.net` para ver los elementos agr
 
 En este paso, habilitará la autenticación y autorización para las dos aplicaciones. También configurará la aplicación de front-end para generar un token de acceso que puede usar para realizar llamadas autenticadas a la aplicación de back-end.
 
-Usará Azure Active Directory como proveedor de identidades. Para más información, consulte [Configuración de la autenticación de Azure Active Directory para una aplicación de App Services](../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Usará Azure Active Directory como proveedor de identidades. Para más información, consulte [Configuración de la autenticación de Azure Active Directory para una aplicación de App Services](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Habilitación de la autenticación y autorización en una aplicación de back-end
 

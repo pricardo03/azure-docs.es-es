@@ -4,17 +4,17 @@ description: Azure Blueprint es un servicio de Azure que se usa para crear, defi
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498595"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967698"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
 
@@ -111,7 +111,7 @@ Para asignar o cancelar la asignación de un plano técnico, la cuenta necesita 
 > [!NOTE]
 > Como las asignaciones de planos técnicos se crean en una suscripción, los permisos de asignación y de cancelación de la asignación deben concederse o heredarse en el ámbito de una suscripción.
 
-A excepción de los permisos de asignación de planos técnicos, estos permisos se incluyen en los roles **Propietario** y **Colaborador**. Si estos roles integrados no satisfacen sus necesidades de seguridad, considere la posibilidad de crear un [rol personalizado](../../role-based-access-control/custom-roles.md).
+Todos los permisos anteriores se incluyen en el rol **Propietario**. El rol **Colaborador** ha creado permisos para crear y eliminar planos técnicos, pero no tiene permisos de asignación de planos técnicos. Si estos roles integrados no satisfacen sus necesidades de seguridad, considere la posibilidad de crear un [rol personalizado](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > La entidad de servicio para Azure Blueprint requiere el rol **Propietario** en la suscripción asignada con el fin de habilitar la implementación. Si usa el portal, este rol se le concede automáticamente y se revoca para la implementación. Si usa la API REST, este rol se debe conceder manualmente, pero se sigue revocando de forma automática una vez finalizada la implementación.

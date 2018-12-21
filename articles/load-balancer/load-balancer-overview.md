@@ -1,5 +1,6 @@
 ---
-title: Información general sobre Azure Load Balancer | Microsoft Docs
+title: ¿Qué es Azure Load Balancer?
+titlesuffix: Azure Load Balancer
 description: Información general sobre las características, la arquitectura y la implementación del Equilibrador de carga de Azure Aprenda cómo funciona el equilibrador de carga y aproveche sus ventajas en la nube.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219586"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185620"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -62,7 +64,7 @@ Load Balancer proporciona las siguientes funcionalidades básicas para las aplic
 
     ![Distribución basada en hash](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *Figura: distribución basada en hash*
+    *Ilustración: distribución basada en hash*
 
 * **Reenvío de puertos**
 
@@ -86,7 +88,7 @@ Load Balancer proporciona las siguientes funcionalidades básicas para las aplic
      
     Load Balancer proporciona [distintos tipos de sondeo de mantenimiento](load-balancer-custom-probe-overview.md#types) para puntos de conexión TCP, HTTP y HTTPS.
 
-    Además, cuando se usa para los servicios en la nube clásicos, se permite un tipo adicional: [agente invitado](load-balancer-custom-probe-overview.md#guestagent).  Esta solución debe considerarse un sondeo de mantenimiento de último recurso y no se recomienda cuando otras opciones son viables.
+    Además, cuando se usa para los servicios en la nube clásicos, se permite un tipo adicional:  [agente invitado](load-balancer-custom-probe-overview.md#guestagent).  Esta solución debe considerarse un sondeo de mantenimiento de último recurso y no se recomienda cuando otras opciones son viables.
     
 * **Conexiones de salida (SNAT)**
 
@@ -129,7 +131,7 @@ En la siguiente ilustración, se muestra un punto de conexión de carga equilibr
 
 ![Ejemplo de equilibrador de carga público](./media/load-balancer-overview/IC727496.png)
 
-*Figura: Equilibrio de carga del tráfico web mediante un equilibrador de carga público*
+*Ilustración: equilibrio de carga del tráfico web mediante un equilibrador de carga público*
 
 Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública de una aplicación web en el puerto TCP 80, Azure Load Balancer distribuye las solicitudes entre las tres máquinas virtuales del conjunto con equilibrio de carga. Para más información sobre los algoritmos de Load Balancer, consulte la sección de [Características de Load Balancer](load-balancer-overview.md##fundamental-load-balancer-features) de este artículo.
 
@@ -141,14 +143,14 @@ Un equilibrador de carga interno solo dirige el tráfico a los recursos que est�
 
 Un equilibrador de carga interno permite los siguientes tipos de equilibrio de carga:
 
-* **En una red virtual**: equilibrio de carga entre las máquinas virtuales de la red virtual y un conjunto de máquinas virtuales que residen en la misma red virtual.
+* **Dentro de una red virtual**: equilibrio de carga entre las máquinas virtuales de la red virtual y un conjunto de máquinas virtuales que residen en la misma red virtual.
 * **En una red virtual entre entornos locales**: equilibrio de carga entre los equipos locales y un conjunto de máquinas virtuales que residen en la misma red virtual. 
 * **En aplicaciones de niveles múltiples**: equilibrio de carga para aplicaciones de niveles múltiples accesibles desde Internet, a cuyos niveles de back-end no se puede acceder desde Internet. Los niveles de back-end requieren un equilibrio de carga del tráfico desde el nivel accesible desde Internet (consulte la figura siguiente).
-* **En aplicaciones de línea de negocio**: equilibrio de carga para las aplicaciones de línea de negocio hospedadas en Azure sin hardware ni software adicionales al equilibrador de carga. Este escenario incluye servidores locales que se encuentran en el conjunto de equipos de cuyo tráfico se va a equilibrar la carga.
+* **En aplicaciones de línea de negocio**: equilibrio de carga para las aplicaciones de línea de negocio hospedadas en Azure sin requerir hardware ni software adicional de equilibrador de carga. Este escenario incluye servidores locales que se encuentran en el conjunto de equipos de cuyo tráfico se va a equilibrar la carga.
 
 ![Ejemplo de equilibrador de carga interno](./media/load-balancer-overview/IC744147.png)
 
-*Figura: Equilibrio de carga de aplicaciones de niveles múltiples mediante equilibradores de carga público e interno*
+*Ilustración: equilibrio de carga de aplicaciones de niveles múltiples mediante equilibradores de carga público e interno*
 
 ## <a name="pricing"></a>Precios
 El uso de Load Balancer Estándar se cobra según el número de reglas de equilibrio de carga configuradas y la cantidad de datos de entrada y salida procesados. Para más información sobre los precios de Load Balancer Estándar, vaya la página [Precios de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

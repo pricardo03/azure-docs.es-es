@@ -1,6 +1,6 @@
 ---
-title: '¿Qué es la puntuación segura de identidad en Azure AD? : versión preliminar | Microsoft Docs'
-description: Aprenda a usar la puntuación segura de identidad para mejorar el nivel de seguridad de un inquilino de Azure AD.
+title: ¿Qué es una puntuación segura de identidad? Azure Active Directory (versión preliminar) | Microsoft Docs
+description: Instrucciones para usar la puntuación segura de identidad para mejorar el nivel de seguridad de un inquilino de Azure AD.
 services: active-directory
 keywords: puntuación segura de identidad, Azure AD, acceso seguro a los recursos de la empresa
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a9bb22cae2e9fcd607a81d442f4fb51f12c43454
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro
+ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224144"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092091"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>¿Qué es la puntuación segura de identidad en Azure AD? : versión preliminar
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>¿Qué es la puntuación segura de identidad en Azure Active Directory? (Versión preliminar pública)
 
 ¿Es seguro un inquilino de Azure AD? Si no sabe qué responder a esta pregunta, lea este artículo para obtener información acerca de cómo le ayuda la puntuación segura de identidad a supervisar y mejorar el nivel de seguridad de la identidad. 
 

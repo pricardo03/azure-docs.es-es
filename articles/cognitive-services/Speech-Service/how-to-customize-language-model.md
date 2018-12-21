@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial: Creación de un modelo de lenguaje con Speech Service'
+title: 'Tutorial: Información sobre cómo crear un modelo de lenguaje con Speech Service'
 titlesuffix: Azure Cognitive Services
-description: Aprenda a crear un modelo de lenguaje con Speech Service.
+description: Aprenda a crear un modelo de lenguaje con Speech Service. Utilice este modelo de lenguaje personalizado junto con los modelos de voz más avanzados de Microsoft para agregar interacción de voz a la aplicación.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469000"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093477"
 ---
-# <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Creación de un modelo de lenguaje personalizado
+# <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Crear un modelo de lenguaje personalizado
 
 En este documento, cree un modelo de lenguaje personalizado. A continuación, puede utilizar este modelo de lenguaje personalizado junto con los modelos de voz más avanzados de Microsoft para agregar interacción de voz a la aplicación.
 
@@ -48,7 +49,7 @@ No es necesario que las frases sean completas o gramaticalmente correctas, sino 
 
 Los datos del modelo de lenguaje deben escribirse en BOM UTF-8. El archivo de texto debe contener un ejemplo (frase, expresión o consulta) por línea.
 
-Si desea que algunos términos tengan un mayor peso (importancia), puede agregar varias expresiones que incluyan ese término a los datos. 
+Si desea que algunos términos tengan un mayor peso (importancia), puede agregar varias expresiones que incluyan ese término a los datos.
 
 En la tabla siguiente, se resumen los principales requisitos para los datos del lenguaje.
 
@@ -75,7 +76,7 @@ Seleccione el botón **Import** (Importar) en la fila **Language Datasets** (Con
 
 Cuando esté listo para importar el conjunto de datos de lenguaje, inicie sesión en el [portal de Speech Service](https://customspeech.ai). Primero, seleccione el menú desplegable **Custom Speech** (Voz personalizada). A continuación, seleccione **Adaptation Data** (Datos de adaptación). La primera vez que se intentan cargar datos en Speech Service, verá una tabla vacía denominada **Datasets** (Conjuntos de datos).
 
-Para importar un nuevo conjunto de datos, seleccione el botón **Import** (Importar) situado en la fila **Language Datasets** (Conjuntos de datos de lenguaje). A continuación, el sitio muestra una página para cargar un nuevo conjunto de datos. Escriba un **nombre** y una **descripción** que lo ayuden a identificar el conjunto de datos en el futuro y seleccione la configuración regional. 
+Para importar un nuevo conjunto de datos, seleccione el botón **Import** (Importar) situado en la fila **Language Datasets** (Conjuntos de datos de lenguaje). A continuación, el sitio muestra una página para cargar un nuevo conjunto de datos. Escriba un **nombre** y una **descripción** que lo ayuden a identificar el conjunto de datos en el futuro y seleccione la configuración regional.
 
 A continuación, utilice el botón **Choose File** (Elegir archivo) para buscar el archivo de texto de datos de lenguaje. A continuación, seleccione **Import** (Importar) y se cargará el conjunto de datos. Dependiendo del tamaño del conjunto de datos, la importación puede tardar varios minutos.
 
@@ -97,9 +98,9 @@ Una vez que los datos de lenguaje están listos, seleccione **Language Models** 
 
 Debe seleccionar la configuración regional adecuada antes de realizar cualquier acción. La configuración regional actual se indica en el título de la tabla en todas las páginas de la implementación, el modelo y los datos. Para cambiar la configuración regional, seleccione el botón **Change Locale** (Cambiar configuración regional) que se encuentra bajo el título de la tabla.  Esto lo llevará a una página de confirmación de configuración regional. Seleccione **OK** (Aceptar) para volver a la tabla.
 
-En la página Create Language Model (Crear el modelo de lenguaje), escriba un **nombre** y una **descripción** para ayudarlo a realizar un seguimiento de la información relativa a este modelo, como el conjunto de datos utilizado. A continuación, seleccione **Base Language Model** (Modelo de lenguaje base) en el menú desplegable. Este modelo será el punto de partida para la personalización. 
+En la página Create Language Model (Crear el modelo de lenguaje), escriba un **nombre** y una **descripción** para ayudarlo a realizar un seguimiento de la información relativa a este modelo, como el conjunto de datos utilizado. A continuación, seleccione **Base Language Model** (Modelo de lenguaje base) en el menú desplegable. Este modelo será el punto de partida para la personalización.
 
-Existen dos modelos de idioma base para elegir. El modelo Search and Dictation es adecuado para la voz dirigida a una aplicación, como comandos, consultas de búsqueda o dictado. El modelo Conversational es adecuado para el reconocimiento de la voz hablada en un estilo conversacional. Este tipo de habla normalmente se dirige a otra persona y se produce en centros de llamadas o en reuniones. 
+Existen dos modelos de idioma base para elegir. El modelo Search and Dictation es adecuado para la voz dirigida a una aplicación, como comandos, consultas de búsqueda o dictado. El modelo Conversational es adecuado para el reconocimiento de la voz hablada en un estilo conversacional. Este tipo de habla normalmente se dirige a otra persona y se produce en centros de llamadas o en reuniones.
 
 El modelo Search and Dictation es adecuado para la voz dirigida a una aplicación, como comandos, consultas de búsqueda o dictado. El modelo Conversational es adecuado para el reconocimiento de la voz hablada en un estilo conversacional. Este tipo de habla normalmente se dirige a otra persona y se produce en centros de llamadas o en reuniones. Un nuevo modelo denominado "Universal" también está disponible públicamente. Universal pretende abordar todos los escenarios y, en última instancia, reemplazar los modelos Search and Dictation y Conversational.
 

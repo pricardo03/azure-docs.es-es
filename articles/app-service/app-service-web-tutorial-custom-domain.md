@@ -1,5 +1,5 @@
 ---
-title: Asignar un nombre DNS personalizado a Azure Web Apps | Microsoft Docs
+title: 'Asignación de un nombre DNS personalizado existente: Azure App Service | Microsoft Docs'
 description: Aprenda a agregar un nombre de dominio DNS personalizado (dominio personal) a una aplicación web, un back-end de una aplicación móvil o una aplicación de API en Azure App Service.
 keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
 services: app-service\web
@@ -15,15 +15,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.custom: seodec18
+ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664894"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270270"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: Asignación de un nombre DNS personalizado a Azure Web Apps
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: Asignar un nombre DNS personalizado a Azure Web Apps
 
 [Azure Web Apps](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este tutorial se muestra cómo asignar un nombre DNS personalizado a Azure Web Apps.
 
@@ -52,7 +52,7 @@ Para completar este tutorial:
 
 ## <a name="prepare-the-app"></a>Preparación de la aplicación
 
-Para asignar un nombre DNS personalizado a una aplicación web, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) de dicha aplicación debe ser un nivel de pago (**Compartido**, **Básico**, **Estándar** o **Premium**). En este paso, asegúrese de que la aplicación de App Service se encuentra en el plan de tarifa compatible.
+Para asignar un nombre DNS personalizado a una aplicación web, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) de dicha aplicación debe ser un nivel de pago (**Compartido**, **Básico**, **Estándar**, **Premium** o **Consumo** para Azure Functions). En este paso, asegúrese de que la aplicación de App Service se encuentra en el plan de tarifa compatible.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 

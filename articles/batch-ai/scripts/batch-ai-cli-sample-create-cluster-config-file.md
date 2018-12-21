@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
-ms.openlocfilehash: 01281c0328fab85814ff93c73f9ea25e0d4c1b08
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 41a3a801214ff00c01397034e26fde6946ab97f0
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232807"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407820"
 ---
-# <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>Ejemplo de la CLI: creación de un clúster de Batch AI mediante un archivo de configuración de clúster
+# <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>Ejemplo de la CLI: Creación de un clúster de Batch AI mediante un archivo de configuración de clúster
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 Este script muestra cómo usar un archivo de configuración JSON para especificar la configuración de un clúster de Batch AI. Use estas opciones en lugar de los parámetros de la línea de comandos correspondiente para `az batchai cluster create`. Un archivo de configuración resulta útil para montar varios sistemas de archivos en los nodos del clúster o para utilizar una configuración idéntica en varios clústeres.
 

@@ -1,13 +1,12 @@
 ---
-title: Un experimento sencillo en Machine Learning Studio | Microsoft Docs
+title: 'Experimento sencillo: Machine Learning Studio | Microsoft Docs'
 description: Este tutorial de aprendizaje automático le guiará a través de un sencillo experimento de ciencia de datos. Podremos predecir el precio de un automóvil mediante un algoritmo de regresión.
 keywords: experimento,regresión lineal,algoritmos de aprendizaje automático,tutorial de aprendizaje automático,técnicas de modelado predictivo,experimento de ciencia de datos
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425717"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262425"
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de aprendizaje automático: creación del primer experimento de ciencia de datos en Azure Machine Learning Studio
+# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial: Crear el primer experimento de ciencia de datos en Azure Machine Learning Studio
 
 Si nunca ha usado **Azure Machine Learning Studio** antes, este tutorial le ayudará.
 
@@ -41,7 +40,7 @@ Le mostraremos cómo usar Studio por primera vez para crear un experimento de ap
 - [Conceptos básicos de aprendizaje automático con ejemplos de algoritmos](basics-infographic-with-algorithm-examples.md): esta infografía es útil si quiere aprender más sobre los diferentes tipos de algoritmos de aprendizaje automático que se incluyen con Machine Learning Studio.
 - [Guía de Machine Learning](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1): esta guía incluye información similar a la infografía mencionada anteriormente, pero en formato interactivo.
 - [Hoja de referencia rápida de algoritmos de aprendizaje automático ](algorithm-cheat-sheet.md) y [Cómo elegir algoritmos para Microsoft Azure Machine Learning](algorithm-choice.md): este póster descargable y el artículo que le acompaña tratan en profundidad los algoritmos de Studio.
-- [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) (Machine Learning Studio: ayuda de algoritmos y módulos): esta es la referencia completa para todos los módulos de Studio, incluidos los algoritmos de aprendizaje automático.
+- [Machine Learning Studio: ayuda de algoritmos y módulos](https://msdn.microsoft.com/library/azure/dn905974.aspx): esta es la referencia completa para todos los módulos de Studio, incluidos los algoritmos de aprendizaje automático.
 
 
 
@@ -70,7 +69,7 @@ En este tutorial de aprendizaje automático se enumeran los cinco pasos básicos
     - [Paso 1: Obtener los datos]
     - [Paso 2: Preparar los datos]
     - [Paso 3: Definir las características]
-- **Entrenar el modelo**
+- **Entrenamiento del modelo**
     - [Paso 4: Elegir y aplicar un algoritmo de aprendizaje]
 - **Puntuar y probar el modelo**
     - [Paso 5: Predecir los precios de los automóviles nuevos]
@@ -124,7 +123,7 @@ En este conjunto de datos de ejemplo, cada instancia de un automóvil aparece co
 
 Cierre la ventana de visualización haciendo clic en la "**x**" en la esquina superior derecha.
 
-## <a name="step-2-prepare-the-data"></a>Paso 2: Preparar los datos
+## <a name="step-2-prepare-the-data"></a>Paso 2: Preparación de los datos
 
 Normalmente, un conjunto de datos requiere algún procesamiento previo antes de que se pueda analizar. Por ejemplo, puede que haya observado los valores que faltan en las columnas de varias filas. Estos valores que faltan se deben limpiar para que el modelo pueda analizar los datos de manera adecuada. En nuestro caso, quitaremos todas las filas que tengan valores ausentes. Además, la columna **normalized-losses** tiene una gran proporción de valores que faltan, por lo que excluiremos esa columna del modelo por completo.
 

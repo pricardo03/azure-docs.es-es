@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 1c50b1bc362a66b17097575336bcb2c9bd4856ca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0bab289fedbbceb2d5cb763bd0f55e455bb60a29
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866090"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093035"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Tutorial de NoSQL: Compilación de una aplicación de consola de Java para la API de SQL
 
@@ -56,7 +56,7 @@ Asegúrese de que dispone de lo siguiente:
 
 * [Git](https://git-scm.com/downloads).
 * [Kit de desarrollo de Java (JDK) 7+](https://aka.ms/azure-jdks).
-* [Maven](http://maven.apache.org/download.cgi).
+* [Maven](https://maven.apache.org/download.cgi).
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Paso 1: Creación de una cuenta de Azure Cosmos DB
 Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea usar, puede ir directamente a [Clonar el proyecto de GitHub](#GitClone). Si está usando el Emulador de Azure Cosmos DB, siga los pasos que se indican en el [Emulador de Azure Cosmos DB](local-emulator.md) para configurar el emulador y vaya directamente a [Clonar el proyecto de GitHub](#GitClone).
@@ -153,7 +153,7 @@ Azure Cosmos DB admite [consultas](how-to-sql-query.md) enriquecidas en los docu
         System.out.println(String.format("\tRead %s", family));
     }
 
-## <a id="ReplaceDocument"></a>Paso 8: Reemplazar un documento JSON
+## <a id="ReplaceDocument"></a>Paso 8: Reemplazo de un documento JSON
 Azure Cosmos DB permite actualizar documentos JSON con el método [replaceDocument](/java/api/com.microsoft.azure.documentdb._document_client.replacedocument).
 
     // Update a property
@@ -164,17 +164,17 @@ Azure Cosmos DB permite actualizar documentos JSON con el método [replaceDocume
         andersenFamily,
         null);
 
-## <a id="DeleteDocument"></a>Paso 9: Eliminar documento JSON
+## <a id="DeleteDocument"></a>Paso 9: Eliminación de un documento JSON
 Análogamente, Azure Cosmos DB permite eliminar documentos JSON con el método [deleteDocument](/java/api/com.microsoft.azure.documentdb._document_client.deletedocument).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
-## <a id="DeleteDatabase"></a>Paso 10: Eliminar la base de datos
+## <a id="DeleteDatabase"></a>Paso 10: Eliminación de la base de datos
 La eliminación de la base de datos creada quitará la base de datos y todos los recursos secundarios (colecciones, documentos, etc.).
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a id="Run"></a>Paso 11: Ejecutar la aplicación de consola de Java
+## <a id="Run"></a>Paso 11: Ejecución de la aplicación de consola de Java
 Para ejecutar la aplicación desde la consola, navegue hasta la carpeta del proyecto y realice la compilación con Maven:
     
     mvn package

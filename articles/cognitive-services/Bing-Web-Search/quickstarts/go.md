@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Realizar una búsqueda con Go - Bing Web Search API'
+title: 'Guía de inicio rápido: Realizar una búsqueda web con Go: API de REST Bing Web Search'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido, aprenderá a realizar la primera llamada a Bing Web Search API con Go y recibir una respuesta JSON.
+description: Use esta guía de inicio rápido para enviar solicitudes a la API de REST Bing Web Search mediante Go y reciba una respuesta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -11,14 +11,15 @@ ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
-ms.openlocfilehash: 4191232e45d012d3aec5d056c28e765332073ede
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 97b9a75802441a9360291d334b9920366a1c9450
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310436"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255642"
 ---
-# <a name="quickstart-use-go-to-call-the-bing-web-search-api"></a>Inicio rápido: Uso de Go para llamar a Bing Web Search API  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Guía de inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y Go
 
 Use esta guía de inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON en menos de 10 minutos.  
 

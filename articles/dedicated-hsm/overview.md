@@ -1,6 +1,6 @@
 ---
-title: ¿Qué es Dedicated HSM? | Microsoft Docs
-description: Azure Dedicated HSM proporciona funcionalidades de almacenamiento de claves dentro de Azure que cumplen con la certificación FIPS 140-2 nivel 3
+title: ¿Qué es Dedicated HSM? - Azure Dedicated HSM | Microsoft Docs
+description: La introducción a Azure Dedicated HSM ofrece funcionalidades de almacenamiento de claves en Azure que cumplen con la certificación FIPS 140-2 nivel 3.
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
@@ -10,19 +10,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
-ms.date: 11/26/2018
+ms.custom: mvc, seodec18
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 92d77ec886a0f37c28f5e3031a7e14f63299c8aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 1eeafa33c8c1cdbcd7d0e55e3860dda1b8d451fe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427121"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080085"
 ---
-# <a name="what-is-dedicated-hsm"></a>¿Qué es Dedicated HSM?
+# <a name="what-is-azure-dedicated-hsm"></a>¿Qué es Azure Dedicated HSM?
 
-Azure Dedicated HSM proporciona un almacenamiento de claves criptográfico en Azure que cumple con los más estrictos requisitos de seguridad. Dedicated HSM es la solución idónea para los clientes que necesitan dispositivos validados con la certificación FIPS 140-2 nivel 3 y un control completo y exclusivo de la aplicación HSM. Los dispositivos HSM se implementan globalmente en varias regiones de Azure y se pueden aprovisionar fácilmente como un par de dispositivos y configurar para obtener una alta disponibilidad. También se pueden aprovisionar los dispositivos HSM de las regiones para protegerse frente a conmutaciones por error en el nivel regional. Microsoft ha lanzado el servicio Dedicated HSM mediante la aplicación [SafeNet Luna Network HSM 7 (Modelo A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) de Gemalto. Este dispositivo ofrece los mayores niveles de rendimiento y opciones de integración criptográficas. Cuando se aprovisionan, los HSM se conectan directamente a la red virtual de un cliente y las aplicaciones locales y herramientas de administración pueden acceder a ellos mediante la configuración de conectividad VPN de punto a sitio o de sitio a sitio. Los clientes adquirirán el software y la documentación para configurar y administrar los dispositivos HSM desde el portal de soporte técnico de Gemalto.
+Azure Dedicated HSM ofrece almacenamiento de claves criptográficas en Azure. Dedicated HSM cumple los requisitos de seguridad más estrictos. Es la solución idónea para los clientes que necesitan dispositivos validados con la certificación FIPS 140-2 nivel 3 y un control completo y exclusivo del dispositivo HSM. Los dispositivos HSM se implementan globalmente en varias regiones de Azure y se pueden aprovisionar fácilmente como un par de dispositivos y configurar para obtener una alta disponibilidad. También se pueden aprovisionar los dispositivos HSM de las regiones para protegerse frente a conmutaciones por error en el nivel regional. Microsoft ha lanzado el servicio Dedicated HSM mediante la aplicación [SafeNet Luna Network HSM 7 (Modelo A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) de Gemalto. Este dispositivo ofrece los mayores niveles de rendimiento y opciones de integración criptográficas. Cuando se aprovisionan, los HSM se conectan directamente a la red virtual de un cliente y las aplicaciones locales y herramientas de administración pueden acceder a ellos mediante la configuración de conectividad VPN de punto a sitio o de sitio a sitio. Los clientes adquirirán el software y la documentación para configurar y administrar los dispositivos HSM desde el portal de soporte técnico de Gemalto.
 
 ## <a name="why-use-azure-dedicated-hsm"></a>Motivos para usar Azure Dedicated HSM
 

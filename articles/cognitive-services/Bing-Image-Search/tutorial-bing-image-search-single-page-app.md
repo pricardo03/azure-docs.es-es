@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Crear una aplicación web de una sola página - Bing Image Search API'
+title: 'Tutorial: Crear una aplicación web de una sola página: Bing Image Search API'
 titleSuffix: Azure cognitive services
 description: Bing Image Search API permite buscar en la Web imágenes relevantes de alta calidad. Use este tutorial para crear una aplicación web de una sola página que pueda enviar consultas a la API y mostrar los resultados en la página web.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297458"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253959"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Crear una aplicación de una sola página con Bing Image Search API
 

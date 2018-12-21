@@ -1,6 +1,6 @@
 ---
-title: Carga de datos (API de REST - Azure Search) | Microsoft Docs
-description: Aprenda cómo cargar datos en un índice de Azure Search con la API de REST.
+title: 'Carga de datos en el código mediante la API de REST del servicio de búsqueda: Azure Search'
+description: Obtenga información sobre cómo cargar datos en un índice de búsqueda de texto completo en Azure Search con solicitudes HTTP y la API de .NET.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: b3044ec3fb21e77c5174ebd5a6b2dabd2282240f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187987"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312864"
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carga de datos en Azure Search con la API de REST
 > [!div class="op_single_selector"]

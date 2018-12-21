@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 274de7ac63df0afc1a59e197deebeb7929cf1ef8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855017"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438479"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementación desde GitHub en Azure App Service con la integración e implementación continuas de Jenkins
 
@@ -92,7 +92,7 @@ Para que Jenkins supervise a GitHub y responda cuando se inserten nuevas confirm
 > 
 > Estos pasos permiten crear credenciales de token de acceso personal para que Jenkins trabaje con GitHub mediante su nombre de usuario y contraseña. 
 > No obstante, si la cuenta de GitHub usa la autenticación en dos fases, cree el token en GitHub y configure Jenkins para que use ese token en su lugar. 
-> Para más información, consulte la documentación relativa al [complemento de GitHub para Jenkins](https://wiki.jenkins.io/display/JENKINS/Github+Plugin).
+> Para más información, consulte la documentación relativa al [complemento de GitHub para Jenkins](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin).
 
 1. En la página **Manage Jenkins** (Administrar Jenkins), seleccione **Configure System** (Configurar sistema). 
 

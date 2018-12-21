@@ -1,23 +1,24 @@
 ---
-title: Bot de LUIS con C# - Tutorial - Bot de aplicación web - Bot Framework SDK 4.0
-titleSuffix: Azure Cognitive Services
+title: Bot - C# - v4
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Con C#, cree un bot de chat que se integre con la descripción de lenguaje (LUIS). Este bot de chat utiliza la aplicación de recursos humanos para implementar con rapidez una solución de bot. El bot se compila con la versión 4 de Bot Framework y el bot de aplicación web de Azure.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: 3ccec4fbd0fd69539e29e2f15f71115444bf0a48
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389299"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138949"
 ---
-# <a name="tutorial-luis-bot-in-c"></a>Tutorial: Bot de LUIS en C#
+# <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutorial: Bot de LUIS en C# con Bot Framework 4.x y el bot de aplicación web de Azure
 Con C#, puede crear un bot de chat que se integre con Language Understanding (LUIS). Este bot usa la aplicación HomeAutomation para implementar una solución de bot. El bot se compila con el [bot de aplicación web](https://docs.microsoft.com/azure/bot-service/) de Azure y con la [versión 4 de Bot Framework](https://github.com/Microsoft/botbuilder-js).
 
 **En este tutorial, aprenderá a:**
@@ -42,20 +43,20 @@ Con C#, puede crear un bot de chat que se integre con Language Understanding (LU
 
 2. En el cuadro de búsqueda, busque y seleccione **Bot de aplicación web**. Seleccione **Crear**.
 
-3. En **Bot Service**, proporcione la información necesaria:
+3. En **Servicio de bots**, proporcione la información necesaria:
 
     |Configuración|Propósito|Configuración sugerida|
     |--|--|--|
     |Nombre del bot|Nombre del recurso|`luis-csharp-bot-` + `<your-name>`, por ejemplo, `luis-csharp-bot-johnsmith`|
-    |Subscription|Suscripción donde se creará el bot.|Suscripción principal.
+    |Subscription|Suscripción donde se desea crear el bot.|Suscripción principal.
     |Grupos de recursos|Grupo lógico de recursos de Azure|Crear un nuevo grupo para almacenar todos los recursos utilizados con este bot, denominando el grupo `luis-csharp-bot-resource-group`.|
     |Ubicación|Región de Azure: no tiene que ser la misma que la región de creación o publicación de LUIS.|`westus`|
-    |Plan de tarifa|Se usa para los límites de solicitud de servicio y facturación.|`F0` es el nivel Gratis.
-    |Nombre de la aplicación|El nombre se usa como subdominio cuando el bot se implementa en la nube (por ejemplo, humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, por ejemplo, `luis-csharp-bot-johnsmith`|
+    |Plan de tarifa|Se usa para los límites de solicitud de servicio y facturación.|`F0` es el plan gratuito.
+    |Nombre de la aplicación|El nombre se usa como el subdominio cuando el bot se implementa en la nube (por ejemplo, humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, por ejemplo, `luis-csharp-bot-johnsmith`|
     |Plantilla de bot|Configuración de Bot Framework: ver la tabla siguiente|
     |Ubicación de la aplicación de LUIS|Debe ser la misma que la región de recursos de LUIS.|`westus`|
 
-4. En **Bot template settings** (Configuración de la plantilla del bot), seleccione lo siguiente y luego elija el botón **Seleccionar** en esta configuración:
+4. En la **configuración de la plantilla del bot**, seleccione lo siguiente y luego elija el botón **Seleccionar** en esta configuración:
 
     |Configuración|Propósito|Número de selección|
     |--|--|--|

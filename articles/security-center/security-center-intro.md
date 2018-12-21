@@ -13,168 +13,132 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/5/2018
 ms.author: rkarlin
-ms.openlocfilehash: 682291cfe0e7a06aca1d4b1bef48ba36c72f48d9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 88aa9a9003363f86db9214c62adff962bbd345cf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839881"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344166"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
-Azure Security Center proporciona administración unificada de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Con Security Center, puede aplicar directivas de seguridad en las cargas de trabajo, limitar la exposición a amenazas y detectar y responder a los ataques.
 
-Razones para usar Security Center
+Azure Security Center es un sistema unificado de administración de seguridad de la infraestructura que fortalece la posición de seguridad de los centros de datos y proporciona una protección contra amenazas avanzada de todas las cargas de trabajo híbridas que se encuentran en la nube, ya sea que estén en Azure o no, así como también en el entorno local.
 
-- **Administración centralizada de directivas**: garantice el cumplimiento de los requisitos de seguridad normativos o de la empresa administrando las directivas de seguridad de forma centralizada en todas las cargas de trabajo en la nube híbridas.
-- **Evaluación continua de la seguridad**: supervise la situación de seguridad de máquinas, redes, almacenamiento y servicios de datos y aplicaciones para detectar posibles problemas de seguridad.
-- **Recomendaciones prácticas**: corrija las vulnerabilidades de seguridad antes de que puedan ser usadas por los atacantes mediante recomendaciones de seguridad prácticas y clasificadas en orden de prioridad.
-- **Prioridad de alertas e incidentes**: céntrese primero en las amenazas más críticas con la clasificación en orden de prioridad de las alertas e incidentes de seguridad.
-- **Defensas avanzadas en la nube**: reduzca las amenazas con acceso Just-In-Time a los puertos de administración y los controles de aplicaciones adaptables que se ejecutan en las máquinas virtuales.
-- **Soluciones de seguridad integradas**: recopile, busque y analice los datos de seguridad desde diversos orígenes, incluidas las soluciones de asociados conectadas.
+Proteger los recursos es un esfuerzo conjunto entre el proveedor de nube, Azure y usted, el cliente. Cuando migra a la nube, debe asegurarse de que las cargas de trabajo estén seguras y, al mismo tiempo, cuando se migra a IaaS (infraestructura como servicio), el cliente tiene una responsabilidad mayor que cuando se encontraba en PaaS (plataforma como servicio) y SaaS (software como servicio). Azure Security Center le brinda las herramientas necesarias para fortalecer la red, proteger los servicios y garantizar que tiene la mejor posición de seguridad.
 
-En **Security Center - Overview** (Información general de Security Center) se proporciona una vista rápida de la situación de seguridad de las cargas de trabajo de Azure y que no son de Azure, lo que le permite detectar y evaluar la seguridad de las cargas de trabajo e identificar y mitigar riesgos. El panel integrado proporciona información instantánea sobre alertas de seguridad y vulnerabilidades que requieren atención.
+Azure Security Center aborda los tres desafíos de seguridad más urgentes:
 
-![Información general][1]
+-   **Cargas de trabajo que cambian con rapidez**: se trata tanto de una fortaleza como de un desafío de la nube. Por un lado, los usuarios finales pueden hacer más cosas pero, por el otro, ¿cómo puede asegurarse de que los servicios en constante evolución que los usuarios utilizan y crean se rigen según los estándares de seguridad y siguen los procedimientos recomendados de seguridad?
 
-## <a name="centralized-policy-management"></a>Administración de directivas centralizada
-En la sección **Directiva y cumplimiento** (descrita anteriormente) se proporciona información rápida sobre la cobertura de la suscripción, el cumplimiento de directivas y la situación de seguridad.
+-   **Ataques cada vez más sofisticados** : dondequiera que ejecute las cargas de trabajo, los ataques siguen siendo cada vez más sofisticados. Debe proteger las cargas de trabajo de la nube pública que son, en realidad, una carga de trabajo con conexión a Internet que puede dejarlo incluso más vulnerable si no sigue los procedimientos recomendados de seguridad.
 
-### <a name="subscription-coverage"></a>Cobertura de la suscripción
-En esta sección se muestra el número total de suscripciones a las que tiene acceso (lectura o escritura) y el nivel de cobertura de Security Center (Estándar o Gratis) con el que se ejecuta una suscripción en:
+-   **Las aptitudes de seguridad son escasas** : el número de alertas de seguridad y de sistemas de alertas sobrepasa considerablemente la cantidad de administradores con la experiencia y los antecedentes que se requieren para garantizar que los entornos estén protegidos. Mantenerse actualizado respecto de los ataques más recientes es un desafío constante, lo que no permiten quedarse donde mismo mientras el mundo de la seguridad es un frente en continuo cambio.
 
-- **Cobertura (estándar)**: las suscripciones cubiertas se ejecutan con el nivel máximo de protección que ofrece Security Center.
-- **Cobertura (gratis)**: las suscripciones cubiertas se ejecutan con el nivel de protección limitado y gratuito que ofrece Security Center.
-- **Sin cobertura**: Security Center no supervisa las suscripciones con este estado.
+Para ayudarlo a protegerse contra estos desafíos, Security Center le brinda las herramientas para que haga lo siguiente:
 
-Si selecciona el gráfico, se abre la ventana **Cobertura**. Si selecciona una pestaña (**Sin cobertura**, **Cobertura básica** o **Cobertura estándar**), se proporciona una lista de suscripciones en cada estado. Si selecciona una suscripción en alguna de las pestañas, se ofrece información adicional sobre una suscripción. Esta información permite identificar al propietario de una suscripción y ponerse en contacto con él, a fin de habilitar Security Center o de aumentar la cobertura de la suscripción.
+-   **Reforzamiento de la posición de seguridad**: Security Center evalúa el entorno y le permiten entender el estado de los recursos: ¿son seguros o no?
 
-![Cobertura de Security Center][9]
+-   **Protección frente a amenazas**: Security Center evalúa las cargas de trabajo y genera alertas de detección de amenazas y recomendaciones sobre la prevención de las amenazas.
 
-### <a name="policy-compliance"></a>Cumplimiento de directivas
-El cumplimiento de directivas lo determinan los factores de cumplimiento de todas las directivas asignadas. La puntuación general de cumplimiento de un grupo de administración, una suscripción o un área de trabajo es la media ponderada de las asignaciones. La media ponderada tiene en cuenta el número de directivas en una única asignación y el número de recursos al que se aplica la asignación.
+-   **Protección con mayor rapidez**: En Security Center, todo se hace a la velocidad de la nube. Dado que se integra de manera nativa, la implementación de Security Center es sencilla y le proporciona aprovisionamiento automático y protección con los servicios de Azure.
 
-Por ejemplo, si la suscripción tiene dos máquinas virtuales y tiene asignada una iniciativa con cinco directivas, entonces usted tiene diez valoraciones en la suscripción. Si una de las máquinas virtuales no cumple las dos directivas, la puntuación general de cumplimiento de la asignación de la suscripción es del 80 %.
+## <a name="architecture"></a>Arquitectura
 
-Esta sección muestra la relación global de cumplimiento y las suscripciones con menor cumplimiento. Si selecciona **Mostrar el cumplimiento de directivas de su entorno**, se abre la ventana **Administración de directivas**. En **Administración de directivas** se muestra la estructura jerárquica de grupos de administración, suscripciones y áreas de trabajo. Aquí se pueden administrar las directivas de seguridad si elige una suscripción o un grupo de administración.
+Como Security Center forma parte nativa de Azure, los servicios de PaaS en Azure (como Service Fabric, bases de datos SQL y cuentas de almacenamiento) los supervisa y protege Security Center sin necesidad de realizar ninguna implementación.
 
-![Administración de directivas][10]
+Además, Security Center protege las máquinas virtuales y los servidores que no son de Azure en la nube y en el entorno local, tanto servidores Windows como Linux, al instalar en ellos Microsoft Monitoring Agent. Las máquinas virtuales de Azure se aprovisionan automáticamente en Security Center.
 
-Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Security Center, se definen directivas y se adaptan a su tipo de carga de trabajo o la confidencialidad de los datos, al determinar qué controles supervisa y recomienda Security Center. Puede editar la directiva de seguridad en Security Center; para ello, haga clic en una suscripción o en un grupo de administración. También puede usar Azure Policy para crear definiciones, definir directivas adicionales y asignar directivas en los grupos de administración.
+Los eventos recopilado de los agentes y de Azure se correlacionan en el motor de análisis de seguridad para brindarle recomendaciones a medida (tareas de protección) que debe seguir para garantizar que las cargas de trabajo sean seguras, además de alertas de detección de amenazas. Debe investigar estas alertas tan pronto como sea posible para asegurarse de que no haya ataques malintencionados en sus cargas de trabajo.
 
-Seleccione **Editar configuración >** para editar la configuración siguiente de Security Center en la suscripción, el grupo de administración, el grupo de recursos o el área de trabajo:
+## <a name="strengthen-security-posture"></a>Reforzamiento de la posición de seguridad
 
-- **Recopilación de datos**: determina el aprovisionamiento del agente y la configuración de seguridad de la [colección de datos](security-center-enable-data-collection.md).
-- **Notificaciones por correo electrónico**: determina los contactos de seguridad y la configuración de [notificaciones por correo electrónico](security-center-provide-security-contact-details.md).
-- **Plan de tarifa**: define la [selección de precios](security-center-pricing.md) gratuitos o estándar. El plan elegido determina qué características de Security Center están disponibles para los recursos del ámbito.
-- **Edición de las opciones de configuración de seguridad**: permite consultar y modificar las opciones de configuración del sistema operativo que Security Center evalúa para identificar posibles vulnerabilidades de seguridad.
+Azure Security Center le permite reforzar su posición de seguridad. Esto significa que lo ayuda a identificar y a llevar a cabo las tareas de protección recomendadas como procedimientos recomendados de seguridad e implementarlas en todas sus máquinas, servicios de datos y aplicaciones. Esto incluye administrar y aplicar las directivas de seguridad y asegurarse de que sus máquinas virtuales de Azure, los servidores que no son de Azure y los servicios PaaS de Azure cumplen con estas directivas. Security Center proporciona las herramientas que necesita para tener una visión global de las cargas de trabajo, centrando la visibilidad en el estado de la seguridad de la red.
 
-Para más información, consulte [Integración de las directivas de seguridad de Security Center con Azure Policy](security-center-azure-policy.md).
+### <a name="manage-organization-security-policy-and-compliance"></a>Administración de la directiva de seguridad y del cumplimiento de la organización
 
-### <a name="manage-and-govern-your-security-posture"></a>Administración y control de la situación de seguridad
-El lado derecho del panel de **Directiva y cumplimiento** proporciona información que puede servir inmediatamente para mejorar su situación de seguridad global. Algunos ejemplos son:
+En lo que respecta a la seguridad, resulta fundamental saber que las cargas de trabajo están protegidas y asegurarse de ello, y todo esto comienza con la implementación de directivas de seguridad a la medida. Como todas las directivas de Security Center se basan en los controles de directivas de Azure, el usuario obtiene toda la variedad y flexibilidad de una  **solución de directivas de clase mundial**. En Security Center, puede establecer que las directivas se ejecuten en grupos de administración, entre distintas suscripciones e, incluso, en un inquilino completo.
 
-- Definir y asignar directivas de Security Center para revisar y realizar un seguimiento del cumplimiento de los estándares de seguridad
-- Poner las alertas de seguridad de Security Center a disposición de un conector SIEM
-- Cumplimiento de directivas a lo largo del tiempo
+![Panel de Security Center](media/security-center-intro/sc-dashboard.png)
 
-## <a name="continuous-security-assessment"></a>Evaluación continua de la seguridad
-La sección Protección de seguridad de recursos de **Security Center - Información general** proporciona una vista rápida de la protección de seguridad de los recursos, mostrando el número de problemas identificados y el estado de seguridad de cada tipo de recurso. La evaluación continua ayuda a detectar posibles problemas de seguridad, por ejemplo, sistemas a los que les faltan actualizaciones de seguridad o puertos de red expuestos.
+Security Center ayuda a  **identificar las suscripciones de Shadow IT**. Si echa un vistazo a las suscripciones con la etiqueta **not covered** (no cubierta) en el panel, puede saber de inmediato cuando hay suscripciones recién creadas y asegurarse de que estén cubiertas por las directivas, además de protegidas por Azure Security Center.
 
-### <a name="secure-score"></a>Puntuación segura
-La puntuación segura de Azure Security Center revisa las recomendaciones de seguridad y les asigna una prioridad, así podrá saber qué recomendaciones implementar primero y le permitirá conocer las vulnerabilidades de seguridad más graves para establecer prioridades en la investigación. Puntuación segura es una herramienta de medición que le ayuda a reforzar la seguridad para lograr una carga de trabajo segura. Para más información, vea [Puntuación segura en Azure Security Center](security-center-secure-score.md).
+![Panel de directivas de Security Center](media/security-center-intro/sc-policy-dashboard.png)
 
-### <a name="health-monitoring"></a>Supervisión del estado
-Si selecciona un tipo de recurso en **Supervisión del estado de los recursos**, se proporciona una lista de recursos y las vulnerabilidades que se han identificado. Los tipos de recursos son proceso y aplicaciones, redes, datos y almacenamiento e identidad y acceso.
+Las funcionalidades avanzadas de supervisión de Security Center también le permiten  **hacer seguimiento del cumplimiento y el gobierno y administrarlos a lo largo del tiempo**. El  **cumplimiento general**  le permite medir qué tan compatibles son las suscripciones con respecto a las directivas asociadas con la carga de trabajo. 
 
-Hemos seleccionado **Proceso y aplicaciones**. En **Procesos**, hay cuatro pestañas:
+![Directiva de Security Center en el tiempo](media/security-center-intro/sc-policy-time.png)
 
-- **Información general**: supervisión y recomendaciones identificadas por Security Center.
-- **VM y equipos**: muestra el estado de seguridad actual de todas las máquinas virtuales y equipos.
-- **Cloud Services**: lista de todos los roles web y de trabajo que supervisa Security Center.
-- **App Services (versión preliminar)**: lista de las aplicaciones web y los entornos de App Service y el estado de seguridad actual de cada uno.
+### <a name="continuous-assessments"></a>Evaluaciones continuas
 
-![¿Qué es la supervisión del estado de seguridad?][3]
+Security Center siempre está detectando los recursos nuevos que se implementan en las cargas de trabajo y evalúa si están configurados según los procedimientos recomendados de seguridad. Si no es así, se marcan y el usuario recibe una lista de recomendaciones clasificadas por orden de prioridad de lo que debe corregir con el fin de proteger las máquinas.
 
-Para más información, vea [Supervisión del estado de seguridad](security-center-monitoring.md).
+Una de las herramientas más poderosas que proporciona Security Center para la supervisión continua del estado de la seguridad de la red es el  **mapa de red**. El mapa le permite ver la topología de las cargas de trabajo para que pueda notar si cada nodo está configurado correctamente. Ahora puede ver cómo están conectados los nodos, lo que le permite bloquear las conexiones no deseadas que podrían facilitar que un atacante se deslice por la red.
 
-## <a name="actionable-recommendations"></a>Recomendaciones prácticas
-Security Center analiza el estado de seguridad de los recursos de Azure y que no son de Azure para identificar posibles vulnerabilidades de seguridad. Si selecciona **Recomendaciones** en **Recursos**, se proporciona una lista de recomendaciones de seguridad clasificadas en orden de prioridad que le guía por el proceso de solucionar los problemas de seguridad.
+![Mapa de red de Security Center](media/security-center-intro/sc-net-map.png)
 
-![Recomendaciones][4]
+Security Center facilita la migración de las alertas de seguridad, al agregar una  **puntuación segura**. Las puntuaciones seguras ahora están asociadas con cada recomendación que recibe para ayudarlo a comprender la importancia que cada una de ellas tiene para la posición de seguridad general. Esto resulta fundamental para permitirle  **clasificar por orden de prioridad el trabajo de seguridad**.
 
-Para más información, vea [Administración de recomendaciones de seguridad](security-center-recommendations.md).
+![Puntuación segura de Security Center](media/security-center-intro/sc-secure-score.png)
 
-### <a name="most-prevalent-recommendations"></a>Recomendaciones más frecuentes
-En el lado derecho del panel de **Recursos** se proporciona una lista de las recomendaciones más frecuentes que existen para el mayor número de recursos. Las recomendaciones más frecuentes destacan dónde se debe centrar la atención. Si selecciona la flecha derecha, se proporciona la recomendación con mayor repercusión.
+### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimice y mejore la seguridad mediante la configuración de controles recomendados
 
-![Recomendaciones más frecuentes][11]
+Lo fundamental del valor de Azure Security Center está en sus recomendaciones. Las recomendaciones se adaptan a las preocupaciones de seguridad determinadas que se encuentran en las cargas de trabajo y Security Center realiza el trabajo de administración de la seguridad en lugar del usuario, no solo mediante la detección de las vulnerabilidades, sino también al brindarle instrucciones específicas sobre cómo eliminarlas.
 
-Se trata de la única recomendación con mayor repercusión disponible en su entorno. Resolver esta recomendación mejorará al máximo el nivel de cumplimiento. En este ejemplo, la recomendación es "Aplicar cifrado de discos". Si selecciona **Mejorar su cumplimiento**, se proporciona una descripción de la recomendación y una lista de los recursos afectados.
+![Recomendaciones de Security Center](media/security-center-intro/sc-recommendations.png)
 
-![Aplicación del cifrado de discos][12]
+De este modo, Security Center le permite no solo establecer las directivas de seguridad, sino también aplicar los estándares de seguridad en todos los recursos.
 
-## <a name="threat-protection"></a>Protección contra amenazas
-Esta área proporciona visibilidad de las alertas de seguridad detectadas en los recursos y el nivel de gravedad de las alertas.
+Las recomendaciones lo ayudan a disminuir la superficie expuesta a ataques en cada uno de los recursos. Aquí se incluyen las máquinas virtuales de Azure, los servidores que no son de Azure y los servicios de PaaS de Azure, como cuentas de SQL y Storage, etc., donde cada tipo de recurso se evalúa de manera distinta y tiene sus propios estándares.
 
-### <a name="prioritized-alerts-and-incidents"></a>Alertas e incidentes clasificados por orden de prioridad
-Security Center usa inteligencia análisis avanzados e inteligencia global sobre amenazas para detectar ataques entrantes y las actividades posteriores a la infracción. Las alertas se clasifican en orden de prioridad y se agrupan en incidentes, lo que ayuda a centrarse primero en las amenazas más críticas. También puede crear sus propias alertas de seguridad personalizadas.
+![Ejemplo de recomendación de Security Center](media/security-center-intro/sc-recommendation-example.png)
 
-Si selecciona **Alertas de seguridad por gravedad** o **Alertas de seguridad a lo largo del tiempo**, se proporciona información detallada sobre las alertas.
+## <a name="protect-against-threats"></a>Protección frente a amenazas
 
-![Alertas e incidentes clasificados por orden de prioridad][7]
+La protección contra amenazas de Security Center permite detectar y prevenir las amenazas en el nivel de Infraestructura como servicio (IaaS), los servidores que no son de Azure y en las Plataformas como servicio (PaaS) de Azure.
 
-Rápidamente, puede evaluar el ámbito y el impacto de un ataque con una experiencia de investigación visual e interactiva, y usar consultas predefinidas o ad hoc para una exploración más profunda de los datos de seguridad.
+La protección contra amenazas de Security Center incluye el análisis de la cadena de destrucción de fusión, que correlaciona de manera automática las alertas del entorno en función del análisis de la cadena de destrucción cibernética, para ayudarlo a entender mejor la historia completa de una campaña de ataque, dónde empezó y qué tipo de impacto tuvo en los recursos.
 
-Para más información, vea [Administración y respuesta a las alertas de seguridad](security-center-managing-and-responding-alerts.md).
 
-En el lado derecho del panel se proporciona información para ayudarle a priorizar qué alertas debe solucionar primero y comprender dónde están sus vulnerabilidades más comunes:
 
-- **Recursos con más ataques**: recursos específicos que tienen el mayor número de alertas.
-- **Alertas más frecuentes**: tipos de alertas que afectan a la mayor cantidad de recursos.
+![Recomendación de ataque de Security Center](media/security-center-intro/sc-attack-recommendation.png)
 
-## <a name="just-in-time-vm-access"></a>Acceso Just-In-Time a la máquina virtual
-Reduzca la superficie expuesta a ataques de red con el acceso controlado Just-In-Time a los puertos de administración de las máquinas virtuales de Azure, lo que reducirá drásticamente la exposición a ataques por fuerza bruta y otros tipos de ataques de red.
+### <a name="advanced-threat-protection"></a>Protección contra amenazas avanzada
 
-![Acceso Just-In-Time a la máquina virtual][5]
+Con Security Center obtiene integración nativa con Protección contra amenazas avanzada de Windows Defender desde el principio. Esto significa que, sin ninguna configuración, los servidores y las máquinas virtuales Windows están completamente integrados con las recomendaciones y evaluaciones de Security Center. La detección de amenazas avanzada también se ofrece desde el principio para los servidores y las máquinas virtuales Linux.
 
-Especifique reglas de cómo los usuarios pueden conectarse a las máquinas virtuales. Cuando sea necesario, se puede solicitar el acceso desde Security Center o a través de PowerShell. Siempre que la solicitud cumpla las reglas, se concede automáticamente acceso en la hora solicitada.
+Además, Security Center le permite automatizar las directivas de control de las aplicaciones en los entornos de servidor. Los controles de aplicaciones adaptables de Security Center permiten la creación de una lista blanca de aplicaciones integral en todos los servidores Windows. No necesita crear reglas ni comprobar las infracciones: todo se hace de manera automática.
 
-Para más información, consulte [Administrar el acceso a máquina virtual mediante Just-In-Time](security-center-just-in-time.md).
+### <a name="protect-paas"></a>Protección de PaaS
 
-## <a name="adaptive-application-controls"></a>Controles de aplicación adaptables
-Bloquee el malware y otras aplicaciones no deseadas aplicando recomendaciones de inclusión en lista blanca adaptadas a sus cargas de trabajo de Azure específicas y basadas en el aprendizaje automático.
+Security Center lo ayuda a detectar amenazas en los servicios de PaaS de Azure. Puede detectar amenazas dirigidas a servicios de Azure como Azure App Service, Azure SQL, cuenta de Azure Storage y otros servicios de datos. También puede aprovechar la integración nativa con el análisis de comportamiento de usuarios y entidades (UEBA) de Microsoft Cloud App Security para realizar la detección de anomalías en los registros de actividad de Azure.
 
-![Controles de aplicación adaptables][6]
+### <a name="block-brute-force-attacks"></a>Bloqueo de ataques por fuerza bruta
 
-Revise las reglas de creación de listas blancas de aplicaciones recomendadas generadas por Security Center y haga clic en ellas para aplicarlas, o edite las reglas ya configuradas.
+Security Center lo ayuda a limitar la exposición a los ataques por fuerza bruta. Si reduce el acceso a los puertos de las máquinas virtuales mediante el acceso de máquina virtual Just-In-Time, puede proteger la red al prevenir el acceso innecesario. Puede establecer directivas de acceso seguro en los puertos seleccionados, solo para usuarios autorizados, direcciones IP o intervalos de direcciones IP de origen permitidos y durante un período limitado.
 
-Para más información, vea [Controles de aplicación adaptables](security-center-adaptive-application.md).
+![Fuerza bruta en Security Center](media/security-center-intro/sc-brute-force.png)
 
-## <a name="integrate-your-security-solutions"></a>Integración de las soluciones de seguridad
-Recopile, busque y analice los datos de seguridad procedentes de diversos orígenes, incluidas las soluciones de asociados conectadas como firewalls de red y otros servicios de Microsoft, de Security Center.
+### <a name="protect-data-services"></a>Protección de los servicios de datos
 
-![Integración de las soluciones de seguridad][8]
+Security Center incluye funcionalidades que le permiten llevar a cabo la clasificación automática de los datos en Azure SQL. También puede obtener evaluaciones de las posibles vulnerabilidades en los servicios de Azure SQL y Azure Storage, además de recomendaciones sobre cómo mitigarlas.
 
-Para más información, vea [Integración de soluciones de seguridad](security-center-partner-integration.md).
+## <a name="get-secure-faster"></a>Protección con mayor rapidez
+
+La integración nativa de Azure (que incluye Azure Policy y Log Analytics), en combinación con la integración perfecta con otras soluciones de seguridad de Microsoft, como Microsoft Cloud App Security y Protección contra amenazas avanzada de Windows Defender, lo ayudan a garantizar que la solución de seguridad es completa y sencilla de incorporar e implementar.
+
+Además, puede extender toda la solución más allá de Azure a las cargas de trabajo que se ejecutan en otras nubes y en centros de datos locales.
+
+### <a name="automatically-discover-and-onboard-azure-resources"></a>Detección e incorporación automática de recursos de Azure
+
+Security Center ofrece una integración nativa y perfecta con Azure y recursos de Azure. Esto significa que puede unir toda una historia de seguridad relativa a Azure Policy y las directivas integradas de Security Center en todos los recursos de Azure y asegurarse de que todo esto se aplique automáticamente a los recursos recién detectados cuando se crean en Azure.
+
+Recopilación extensiva de registros: los registros de Windows y Linux se usan en el motor de análisis de seguridad y se usan para crear recomendaciones y alertas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para empezar a trabajar con el Centro de seguridad, necesita una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
 - Con la suscripción de Azure se habilita el plan de tarifa Gratis de Security Center. Para aprovechar las funcionalidades avanzadas de administración de seguridad y detección de amenazas, debe actualizar al plan de tarifa Estándar. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
-- Si está listo para habilitar Security Center Estándar en este momento, la [Guía de inicio para incorporar sus suscripción de Azure en Security Center Estándar](security-center-get-started.md) le guía por los pasos necesarios.
+- Si está listo para habilitar ahora el nivel Estándar de Security Center, la [Guía de inicio rápido: Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) lo guía a través de los pasos.
 
-
-<!--Image references-->
-[1]: ./media/security-center-intro/overview.png
-[3]: ./media/security-center-intro/compute.png
-[4]: ./media/security-center-intro/recommendations.png
-[5]: ./media/security-center-intro/just-in-time-vm-access.png
-[6]: ./media/security-center-intro/adaptive-app-controls.png
-[7]: ./media/security-center-intro/security-alerts.png
-[8]: ./media/security-center-intro/security-solutions.png
-[9]: ./media/security-center-intro/coverage.png
-[10]: ./media/security-center-intro/policy-management.png
-[11]: ./media/security-center-intro/highest-impact.png
-[12]: ./media/security-center-intro/apply-disk-encryption.png

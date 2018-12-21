@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Implementación de HSM dedicados de Azure en una red virtual existente con PowerShell | Microsoft Docs'
-description: Implementación de HSM en una red virtual existente con PowerShell
+description: Tutorial que muestra cómo implementar un HSM dedicado con PowerShell en una red virtual existente
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,17 +8,17 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a714a52ecd6398fde459c5814b8a6cf223655eff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318761"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086318"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial: Implementación de HSM en una red virtual existente con PowerShell
 
@@ -143,6 +143,14 @@ $delegation = New-AzureRmDelegation `
 ```
 
 ```powershell
+$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+  -Name hsmsubnet ` 
+  -AddressPrefix 10.2.1.0/24 ` 
+  -Delegation $delegation 
+
+```
+
+```powershell
 
 $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
@@ -179,7 +187,7 @@ Este comando tardará aproximadamente unos 20 minutos en completarse. La opción
 
 ![estado de aprovisionamiento](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-Una vez que haya terminado correctamente, lo cual se muestra mediante "provisioningState": "Correcto", puede iniciar sesión en la máquina virtual existente y usar SSH para garantizar la disponibilidad del dispositivo HSM.
+Cuando se haya completado correctamente, se muestra por "provisioningState": "Succeeded", puede conectarse a la máquina virtual existente y usar SSH para garantizar la disponibilidad del dispositivo HSM.
 
 ## <a name="verifying-the-deployment"></a>Comprobación de la implementación
 

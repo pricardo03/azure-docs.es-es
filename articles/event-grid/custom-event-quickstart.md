@@ -1,21 +1,22 @@
 ---
-title: Eventos personalizados para Azure Event Grid con la CLI | Microsoft Docs
-description: Use Azure Event Grid y la CLI de Azure para publicar un tema y suscribirse a ese evento.
+title: Envío de eventos personalizados a un punto de conexión web con Event Grid y la CLI de Azure | Microsoft Docs
+description: Use Azure Event Grid y la CLI de Azure para publicar un tema personalizado y suscribirse a eventos para este tema. Los eventos se controlan mediante una aplicación web.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: fe48125da881cd30b8a2645b5406840e2eef7e96
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: seodec18
+ms.openlocfilehash: 12fbc23e372042b54a987015273c004b32a9584a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041573"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104431"
 ---
-# <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Creación y enrutamiento de eventos personalizados con la CLI de Azure y Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Guía de inicio rápido: Enrutamiento de eventos personalizados al punto de conexión de web con la CLI de Azure y Event Grid
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usará la CLI de Azure para crear un tema personalizado, suscribirse a él y desencadenar el evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 
@@ -47,7 +48,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Creación de un tema personalizado
 
-Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. En el ejemplo siguiente se crea el tema personalizado en el grupo de recursos. Reemplace `<your-topic-name>` por un nombre único para el tema. El nombre del tema personalizado debe ser único, ya que es parte de la entrada DNS.
+Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. En el ejemplo siguiente se crea el tema personalizado en el grupo de recursos. Reemplace `<your-topic-name>` por un nombre único para el tema. El nombre del tema personalizado debe ser único, ya que es parte de la entrada DNS. Además, debe tener entre 3 y 50 caracteres y contener solo los valores a-z, A-Z, 0-9 y "-".
 
 ```azurecli-interactive
 topicname=<your-topic-name>

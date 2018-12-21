@@ -11,14 +11,14 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd10581888da64114debec40cba8564023033864
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990168"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278515"
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>Tutorial 1: Clasificación de Iris: preparación de los datos
 
@@ -45,11 +45,11 @@ Para realizar este tutorial, necesitará lo siguiente:
 - Una cuenta de Experimentación de Azure Machine Learning.
 - Azure Machine Learning Workbench instalado.
 
-Si aún no cumple estos requisitos previos, siga los pasos que se describen en el artículo [Inicio rápido: Instalar los servicios de Machine Learning y empezar a trabajar con ellos](quickstart-installation.md) para configurar sus cuentas e instalar la aplicación Azure Machine Learning Workbench. 
+Si aún no cumple estos requisitos previos, siga los pasos de la [guía de inicio rápido de instalación e introducción](quickstart-installation.md) para configurar las cuentas e instalar la aplicación Azure Machine Learning Workbench. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Creación de un proyecto nuevo en Workbench
 
-Si ha seguido los pasos descritos en la [guía de inicio rápido de instalación e inicio](quickstart-installation.md), ya tendrá este proyecto y puede ir a la siguiente sección.
+Si ha seguido los pasos descritos en la [guía de inicio rápido de instalación e introducción](quickstart-installation.md), ya tendrá este proyecto y puede ir a la siguiente sección.
 
 1. Abra la aplicación Azure Machine Learning Workbench e inicie sesión si es necesario. 
    
@@ -152,7 +152,7 @@ Este paquete de preparación de datos se puede entregar posteriormente a un runt
    1. Haga clic con el botón derecho para seleccionarla. 
    1. Seleccione **Value Counts** (Recuentos de valores) en el menú desplegable. 
 
-   Se abre el panel **Inspectores** debajo de los datos. Aparece un histograma con cuatro barras. La columna de destino tiene cuatro valores distintos: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** y un valor **(null)**.
+   Se abre el panel **Inspectores** debajo de los datos. Aparece un histograma con cuatro barras. La columna de destino tiene cuatro valores distintos: **Iris-virginica**, **Iris-versicolor**, **Iris-setosa** y un valor **(null)**.
 
    ![Selección de Value Counts (Recuentos de valores)](media/tutorial-classifying-iris/value_count.png)
 

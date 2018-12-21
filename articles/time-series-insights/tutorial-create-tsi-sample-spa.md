@@ -1,5 +1,5 @@
 ---
-title: Creación de una aplicación web de página única de Azure Time Series Insights
+title: Creación de una aplicación web de página única de Azure Time Series Insights | Microsoft Docs
 description: Aprenda a crear una aplicación web de página única que consulta y representa los datos de un entorno de TSI.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,12 +7,13 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626762"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275846"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Creación de una aplicación web de página única de Azure Time Series Insights
 
@@ -33,7 +34,7 @@ Si aún no lo ha hecho, tendrá que instalar Visual Studio. Para este tutorial, 
 
 Como ya se ha indicado, al aplicación de ejemplo de TSI proporciona la base para el diseño y el código que se usan en este tutorial. El código incluye el uso de la biblioteca de JavaScript del cliente de TSI. La biblioteca del cliente de TSI proporciona una abstracción de dos categorías principales de API:
 
-- **Métodos de contenedor para llamar a las API de consulta de TSI**: API REST que permiten consultar datos de TSI mediante expresiones basadas en JSON. Los métodos se organizan en el espacio de nombres `TsiClient.server` de la biblioteca.
+- **Métodos de contenedor para llamar a las API de consulta de TSI**: API de REST que permiten consultar datos de TSI mediante expresiones basadas en JSON. Los métodos se organizan en el espacio de nombres `TsiClient.server` de la biblioteca.
 - **Métodos para crear y rellenar varios tipos de controles de gráficos**: métodos que se usan para visualizar los datos de TSI en una página web. Los métodos se organizan en el espacio de nombres `TsiClient.ux` de la biblioteca.
 
 Este tutorial también utilizará los datos del entorno de TSI de la aplicación de ejemplo. Para más información acerca de la estructura de la aplicación de ejemplo de TSI y su uso de la biblioteca cliente de TSI, consulte el tutorial [Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights](tutorial-explore-js-client-lib.md).
@@ -51,7 +52,7 @@ Antes de compilar la aplicación, es preciso registrarla en Azure AD. El registr
    
    Parámetro|DESCRIPCIÓN
    ---|---
-   **Name** | Especifique un nombre de registro descriptivo.  
+   **Nombre** | Especifique un nombre de registro descriptivo.  
    **Tipo de aplicación** | Dado que va a compilar una aplicación web de página única, déjelo como "Aplicación web/API".
    **URL de inicio de sesión** | Escriba la dirección URL de la página principal o inicio de sesión de la aplicación. Dado que la aplicación se hospedará en Azure App Service (más adelante), debe usar una dirección URL dentro del dominio "https://azurewebsites.net". En este ejemplo, el nombre se basa en el nombre de registro.
 
@@ -91,7 +92,7 @@ Antes de compilar la aplicación, es preciso registrarla en Azure AD. El registr
    > En función del explorador, es posible que tenga que cambiar la extensión de archivo (a HTML o CSS), antes de guardar el archivo.
 
    - **index.html** HTML y JavaScript de la página https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
-   - **sampleStyles.css:** Hojas de estilos CSS: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
+   - **sampleStyles.css:** Hoja de estilos CSS: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
 1. Inicie en Visual Studio e inicie sesión en él para crear un proyecto para la aplicación web. En el menú **Archivo**, seleccione la opción **Abrir**, **Sitio web**. En el cuadro de diálogo **Abrir sitio web**, seleccione el directorio de trabajo en el que haya almacenado los archivos HTML y CSS, y haga clic en **Abrir**:
 
@@ -103,7 +104,7 @@ Antes de compilar la aplicación, es preciso registrarla en Azure AD. El registr
 
 1. Para poder publicar la aplicación, es preciso actualizar partes del código JavaScript en **index.html**: 
 
-   a. En primer lugar, cambie las rutas de acceso de los archivos de JavaScript y de las hojas de estilo a las que se hacen referencia en el elemento `<head>`. Abra el archivo **index.html** en la solución de Visual Studio y busque las siguientes líneas del código de JavaScript. Quite el comentario de las tres líneas de "PROD RESOURCE LINKS" y convierta en comentarios las tres líneas de "DEV RESOURCE LINKS":
+    a. En primer lugar, cambie las rutas de acceso de los archivos de JavaScript y de las hojas de estilo a las que se hacen referencia en el elemento `<head>`. Abra el archivo **index.html** en la solución de Visual Studio y busque las siguientes líneas del código de JavaScript. Quite el comentario de las tres líneas de "PROD RESOURCE LINKS" y convierta en comentarios las tres líneas de "DEV RESOURCE LINKS":
    
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
 
@@ -139,7 +140,7 @@ Antes de compilar la aplicación, es preciso registrarla en Azure AD. El registr
    > [!NOTE]
    > Varios de los campos de los siguientes cuadros de diálogo se rellenan con datos de la suscripción de Azure. Por lo tanto, los cuadros de diálogo pueden tardar unos segundos en cargarse antes de que pueda continuar.  
 
-   a. Haga clic con el botón derecho en el nodo del proyecto del sitio web en el **Explorador de soluciones** y seleccione **Publicar aplicación web**:  
+    a. Haga clic con el botón derecho en el nodo del proyecto del sitio web en el **Explorador de soluciones** y seleccione **Publicar aplicación web**:  
 
       ![VS: Explorador de soluciones, publicar aplicación web](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)
 

@@ -11,12 +11,12 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115568"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164626"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introducción al SDK de Batch para Node.js
 
@@ -35,7 +35,7 @@ El siguiente diagrama muestra cómo se puede escalar el script de Python con Azu
 
 ![Escenario de Azure Batch](./media/batch-nodejs-get-started/BatchScenario.png)
 
-El cliente de node.js implementa un trabajo por lotes con una tarea de preparación (más adelante se explica con detalle) y un conjunto de tareas en función del número de contenedores de la cuenta de almacenamiento. Puede descargar los scripts del repositorio de Github.
+El cliente de node.js implementa un trabajo por lotes con una tarea de preparación (más adelante se explica con detalle) y un conjunto de tareas en función del número de contenedores de la cuenta de almacenamiento. Puede descargar los scripts del repositorio de GitHub.
 
 * [Cliente de Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [Scripts de shell de la tarea de preparación](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
@@ -119,7 +119,7 @@ Consulte la captura de pantalla:
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>Paso 4: Creación de un grupo de Azure Batch
+### <a name="step-4-create-an-azure-batch-pool"></a>Paso 4: Creación de un grupo de Azure Batch
 Un grupo de Azure Batch consta de varias máquinas virtuales (también conocidas como nodos de Batch). El servicio Azure Batch implementa las tareas en los nodos y las administra. Puede definir los siguientes parámetros de configuración para el grupo.
 
 * Tipo de imagen de máquina virtual
@@ -254,7 +254,7 @@ A continuación se muestra un ejemplo de objeto devuelto por la función pool.ge
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>Paso 4: Envío de un trabajo a Azure Batch
+### <a name="step-4-submit-an-azure-batch-job"></a>Paso 4: Envío de un trabajo a Azure Batch
 Un trabajo de Azure Batch es un grupo lógico de tareas similares. En nuestro escenario, es "Conversión de CSV a JSON". Cada tarea aquí podría estar procesando archivos CSV presentes en cada contenedor de Azure Storage.
 
 Estas tareas se ejecutan en paralelo y se implementan a través de varios nodos, organizados por el servicio de Azure Batch.
@@ -279,13 +279,13 @@ Puede cargar el script en una cuenta de Azure Storage y generar un URI de SAS pa
 
 La tarea de preparación se especifica durante el envío de un trabajo de Azure Batch. Estos son los parámetros de configuración de la tarea de preparación:
 
-* **ID**: identificador único de la tarea de preparación
-* **commandLine**: comando para ejecutar la tarea
+* **ID**: identificador único de la tarea de preparación.
+* **commandLine**: línea de comandos para ejecutar el ejecutable de la tarea.
 * **resourceFiles**: matriz de objetos que proporciona detalles de los archivos que se deben descargar para que la tarea se ejecute.  Las opciones son
-    - blobSource: el URI de SAS del archivo
-    - filePath: ruta de acceso local para descargar y guardar el archivo
-    - fileMode: fileMode solo es aplicable para nodos de Linux, está en formato octal con un valor predeterminado de 0770
-* **waitForSuccess**: si se establece en true, la tarea no se ejecuta si existen errores en la tarea de preparación
+    - blobSource: el URI de SAS del archivo.
+    - filePath: ruta de acceso local para descargar y guardar el archivo.
+    - fileMode: solo es aplicable para nodos de Linux; está en formato octal con un valor predeterminado de 0770.
+* **waitForSuccess**: si se establece en true, la tarea no se ejecuta si existen errores en la tarea de preparación.
 * **runElevated**: establézcalo en true si se necesitan privilegios elevados para ejecutar la tarea.
 
 El fragmento de código siguiente muestra el ejemplo de script de configuración de la tarea de preparación:
@@ -317,8 +317,8 @@ Una vez creado el trabajo para procesar archivos CSV, se crearán las tareas par
 
 Si observamos el [script de Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), vemos que acepta dos parámetros:
 
-* container name: (nombre del contenedor) el contenedor de almacenamiento desde el que se van a descargar los archivos
-* pattern: (patrón) parámetro opcional de un patrón de nombre de archivo
+* container name (nombre del contenedor): el contenedor de almacenamiento del que se van a descargar los archivos.
+* pattern (patrón): parámetro opcional de un patrón de nombre de archivo
 
 Suponiendo que tenemos cuatro contenedores denominados "con1", "con2", "con3" y "con4", el siguiente código muestra el envío de tareas al trabajo de Azure Batch denominado "process csv" (procesar archivos CSV) que creamos anteriormente.
 

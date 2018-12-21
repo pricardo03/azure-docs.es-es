@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cad0ec8c2e2f8972cd856b34b8abdd5afd3a6316
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515206"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53182645"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal
 
@@ -37,11 +37,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 3. Proporcione la siguiente información para la nueva instancia del servicio Device Provisioning y haga clic en **Crear**.
 
     * **Nombre:** proporcione un nombre único para la nueva instancia del servicio Device Provisioning. Si el nombre que escribe está disponible, aparece una marca de verificación verde.
-    * **Suscripción**: elija la suscripción que quiere usar para crear esta instancia del servicio Device Provisioning.
+    * **Suscripción:** elija la suscripción que quiere usar para crear esta instancia del servicio Device Provisioning.
     * **Grupo de recursos:** este campo le permite crear un nuevo grupo de recursos o elegir uno existente para que contenga la nueva instancia. Elija el mismo grupo de recursos que contenga el centro de Iot que creó anteriormente, por ejemplo, **TestResources**. Al colocar juntos todos los recursos relacionados en un grupo, puede administrarlos juntos también. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos que contiene. Para más información, consulte [Administración de los recursos de Azure a través del Portal](../azure-resource-manager/resource-group-portal.md).
-    * **Ubicación**: seleccione la ubicación más cercana a sus dispositivos.
+    * **Ubicación:** seleccione la ubicación más cercana a sus dispositivos.
 
-    ![Especificación de la información básica de la instancia del servicio Device Provisioning en la hoja del portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+      ![Especificación de la información básica de la instancia del servicio Device Provisioning en la hoja del portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. Haga clic en el botón de notificación para supervisar la creación de la instancia del recurso. Una vez implementado el servicio correctamente, haga clic en **Anclar al panel** y en **Ir al recurso**.
 
@@ -58,10 +58,10 @@ En esta sección, agregará una configuración para la instancia del servicio De
 3. En la página **Agregar un vínculo a IoT Hub**, proporcione la siguiente información para vincular la nueva instancia del servicio Device Provisioning al centro de IoT. A continuación, haga clic en **Guardar**. 
 
     * **Suscripción:** seleccione la suscripción que contenga el centro de IoT que desee vincular a la nueva instancia del servicio Device Provisioning.
-    * **Centro de IoT:** seleccione el centro de IoT para vincular con la nueva instancia del servicio Device Provisioning.
+    * **IoT Hub:** seleccione el centro de IoT para vincular con la nueva instancia del servicio Device Provisioning.
     * **Directiva de acceso:** seleccione **iothubowner** como las credenciales para establecer el vínculo con el centro de IoT.  
 
-    ![Vínculo del nombre del centro al servicio Device Provisioning en la hoja del portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+      ![Vínculo del nombre del centro al servicio Device Provisioning en la hoja del portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. Ahora debería ver el centro seleccionado en la hoja **Linked IoT hubs** (Centros de IoT vinculados). Puede que deba hacer clic en **Actualizar** para mostrar **Instancias de IoT Hub vinculadas**.
 

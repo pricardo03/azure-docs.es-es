@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 4: Coincidencia de texto exacta (entidad de lista LUIS)'
+title: Coincidencia de texto exacta
 titleSuffix: Azure Cognitive Services
 description: Obtenga datos que coincidan con una lista de elementos predefinida. Cada elemento de la lista puede tener sinónimos que también coincidan exactamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425078"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096696"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Tutorial 4: Extracción de coincidencias exactas de texto
 En este tutorial, aprenderá cómo obtener datos que coincidan con una lista de elementos predefinida. Cada elemento de la lista puede incluir una lista de sinónimos. Para la aplicación de recursos humanos, un empleado puede identificarse mediante varios datos clave, como nombre, correo electrónico, número de teléfono y número de identificación fiscal federal de Estados Unidos. 
@@ -106,11 +107,11 @@ El nombre principal _canónico_ de cada elemento es el número de empleado. Para
 
 3. En el cuadro de diálogo emergente de la entidad, escriba `Employee` para el nombre de la entidad y **List** (Lista) para el tipo de entidad. Seleccione **Listo**.  
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Captura de pantalla de creación del cuadro de diálogo emergente de creación de una nueva entidad")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Captura de pantalla del cuadro de diálogo emergente para crear una entidad nueva](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Captura de pantalla del cuadro de diálogo emergente para crear una entidad nueva")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
 4. En la página de la entidad Employee, escriba `Employee-24612` como el nuevo valor.
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Captura de pantalla de escritura de un valor")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
+    [![Captura de pantalla de ingreso de valor](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Captura de pantalla de ingreso de valor")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
 5. Para los sinónimos, agregue los siguientes valores:
 
@@ -122,7 +123,7 @@ El nombre principal _canónico_ de cada elemento es el número de empleado. Para
     |Número de teléfono móvil personal|425-555-1212|
     |Número del seguro social federal en EE. UU.|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Captura de pantalla de incorporación de sinónimos")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+    [![Captura de pantalla de ingreso de sinónimos](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Captura de pantalla de ingreso de sinónimos")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 6. Escriba `Employee-45612` como un nuevo valor.
 
@@ -150,7 +151,7 @@ El nombre principal _canónico_ de cada elemento es el número de empleado. Para
 
 2. Vaya al final de la dirección URL en la dirección y escriba `shift 123-45-6789 from Z-1242 to T-54672`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `MoveEmployee` con `Employee` extraído.
 
-  ```JSON
+  ```json
   {
     "query": "shift 123-45-6789 from Z-1242 to T-54672",
     "topScoringIntent": {

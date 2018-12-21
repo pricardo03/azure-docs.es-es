@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: defe1a109381c7ee44c6fc5e5db4c6f6ecc5ac6f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706847"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322148"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutorial: Uso de Azure Key Vault con una aplicación web de Azure en .NET
 
@@ -90,7 +90,7 @@ Para crear un almacén de claves en el grupo de recursos, proporcione la siguien
 
 * Nombre del almacén de claves: una cadena de entre 3 y 24 caracteres que puede contener solo números, letras y guiones (por ejemplo: 0-9, a-z, A-z y -)
 * Definición de un nombre de grupo de recursos
-* Ubicación: **Oeste de EE. UU**
+* Ubicación: **Oeste de EE. UU.**
 
 En la CLI de Azure, escriba el siguiente comando:
 
@@ -132,7 +132,7 @@ Siga este [tutorial](../app-service/app-service-web-get-started-dotnet.md) para 
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Importe el código siguiente en el archivo About.cshtml.cs:
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -140,7 +140,7 @@ Siga este [tutorial](../app-service/app-service-web-get-started-dotnet.md) para 
 
 4. El código de la clase AboutModel debe parecerse al siguiente:
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -220,7 +220,7 @@ Azure Key Vault proporciona una manera de almacenar de forma segura credenciales
 
 1. Anote el valor de `PrincipalId` cuando publique la aplicación en Azure. La salida del comando en el paso 1 debe tener el formato siguiente:
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
