@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de Azure Policy: SKU permitidas de SQL DB'
+title: 'Ejemplo: SKU permitidas de SQL DB'
 description: Esta directiva de ejemplo requiere que las bases de datos de SQL Database usen una SKU aprobada.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 3f2ed04555f46f80585c3a17612e3071bfec415d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f22ee99750f12d44ca61fac6a0e5db4bde9634a1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992786"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311361"
 ---
 # <a name="allowed-sql-db-skus"></a>SKU permitidas de SQL DB
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede ver más ejemplos en [Ejemplos de Azure Policy](index.md).
+- Consulte más ejemplos en [Ejemplos de Azure Policy](index.md).

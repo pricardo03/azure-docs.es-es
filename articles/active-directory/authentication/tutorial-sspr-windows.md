@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844845"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437153"
 ---
-# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de contraseña de Azure AD desde la pantalla de inicio de sesión
+# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
 En este tutorial va a permitir a los usuarios restablecer sus contraseñas desde la pantalla de inicio de sesión de Windows 10. Con la nueva actualización de Windows 10 de abril de 2018, los usuarios con dispositivos **unidos a Azure AD** o **unidos a Azure AD híbrido** pueden usar un vínculo "Restablecer contraseña" en la pantalla de inicio de sesión. Al hacer clic en este vínculo, se incorporan a la misma experiencia de autoservicio de restablecimiento de contraseña (SSPR) con la que están familiarizados.
 
@@ -29,8 +29,8 @@ En este tutorial va a permitir a los usuarios restablecer sus contraseñas desde
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Actualización de Windows del 10 de abril de 2018 o un cliente más reciente que esté:
-   * [Unido a Azure AD](../device-management-azure-portal.md) o 
-   * [Unido a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md)
+   * [Unido a Azure AD](../device-management-azure-portal.md) o
+   * [Unido a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md), con conectividad de red con un controlador de dominio.
 * El autoservicio de restablecimiento de contraseña de Azure AD debe estar habilitado.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configuración del vínculo de restablecimiento de contraseña con Intune
@@ -125,7 +125,11 @@ Los siguientes valores directiva se sabe que interfieren con la capacidad de res
    * EnableLostMode se establece en el dispositivo
    * Explorer.exe se reemplaza por un shell personalizado
 
+Esta característica no funciona para las redes con la red autenticación 802.1X implementada y la opción "Realizar inmediatamente antes de que el usuario inicie sesión". Para las redes con la autenticación de red 802.1X implementada se recomienda usar la autenticación del equipo para habilitar esta característica.
+
 Si las máquinas de Windows 10 se encuentran detrás de un servidor proxy o firewall, se debe permitir el tráfico HTTPS (443) para passwordreset.microsoftonline.com y ajax.aspnetcdn.com.
+
+Para los escenarios de dominios híbridos, existe un escenario en el que el flujo de trabajo de SSPR se completará sin necesidad de un controlador de dominio de Active Directory. Se necesita conectividad con un controlador de dominio para usar la nueva contraseña por primera vez.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

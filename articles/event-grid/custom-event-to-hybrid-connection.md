@@ -1,21 +1,22 @@
 ---
-title: Envío de eventos personalizados para Azure Event Grid a la conexión híbrida | Microsoft Docs
+title: 'Envío de eventos personalizados a una conexión híbrida: Event Grid, CLI de Azure'
 description: Use Azure Event Grid y la CLI de Azure para publicar un tema y suscribirse a ese evento. Una conexión híbrida se usa para el punto de conexión.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/30/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 488f4e09e329ee41fb307dc3579e76b5378d3a9f
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 1f66c75333b41cf399a72b801a7e362672744775
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747786"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099602"
 ---
-# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Enrutar eventos personalizados a Conexiones híbridas de Azure Relay con la CLI de Azure y Event Grid
+# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Enrutar eventos personalizados a Conexiones híbridas de Azure Relay con la CLI de Azure y Event Grid
 
 Azure Event Grid es un servicio de eventos para la nube. La solución Conexiones híbridas de Azure Relay es uno de los controladores de eventos compatibles. Las conexiones híbridas se usan como el controlador de eventos cuando es necesario procesar los eventos de las aplicaciones que no tienen un punto de conexión público. Estas aplicaciones pueden estar dentro de la red empresarial corporativa. En este artículo, se usará la CLI de Azure para crear un tema personalizado, suscribirse a él y desencadenar el evento para ver el resultado. Los eventos se envían a la conexión híbrida.
 

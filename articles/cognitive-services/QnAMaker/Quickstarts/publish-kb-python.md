@@ -1,23 +1,24 @@
 ---
-title: 'Guía de inicio rápido: Publicación de la base de conocimiento en QnA Maker con REST y Python'
-titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido basada en REST se explica el proceso de publicación de la base de conocimiento que le permite insertar la versión más reciente probada en un índice de Azure Search dedicado que representa la base de conocimiento publicada. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
+title: Publicación de la base de conocimiento, REST, Python
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: En este inicio rápido basado en REST de Python se explica el proceso de publicación de la base de conocimiento que le permite insertar la versión más reciente probada en un índice de Azure Search dedicado que representa la base de conocimiento publicada. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: c942045f01e08161394304f5ec15ff44ba84fc4b
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a9ce92677e66bf4a0c38399dea1f9bab5285824e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164462"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162382"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Guía de inicio rápido: Publicación de una base de conocimiento en QnA Maker con Python
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Inicio rápido: Publicación de una base de conocimiento en QnA Maker con Python
 
 En esta guía de inicio rápido basada en REST se describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
 
@@ -32,7 +33,7 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 
     ![Identificador de base de conocimiento de QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Si aún no tiene una base de conocimiento, puede crear una de ejemplo para usar en esta guía de inicio rápido: [Creación de una nueva base de conocimiento](create-new-kb-nodejs.md).
+    Si aún no tiene una base de conocimiento, puede crear una de ejemplo para usar en este inicio rápido: [Creación de una base de conocimiento](create-new-kb-nodejs.md)
 
 > [!NOTE] 
 > Los archivos de la solución completa están disponibles en el repositorio [**Azure-Samples/cognitive-services-qnamaker-python** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).

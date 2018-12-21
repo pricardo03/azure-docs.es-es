@@ -1,20 +1,20 @@
 ---
-title: Visualización de anomalías de datos de eventos en tiempo real enviados a Azure Event Hubs | Microsoft Docs
+title: 'Visualización de anomalías de datos de eventos en tiempo real: Azure Event Hubs | Microsoft Docs'
 description: 'Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Microsoft Azure Event Hubs'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.author: shvija
-ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.custom: mvc
-ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004120"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091687"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Azure Event Hubs
 
@@ -176,11 +176,11 @@ Ahora puede transmitir los datos al centro de eventos. Para usar esos datos en u
 
    **Nombre del trabajo**: use **contosoEHjob**. Este campo es el nombre del trabajo y debe ser globalmente único.
 
-   **Suscripción**: seleccione la suscripción.
+   **Suscripción**: Seleccione su suscripción.
 
-   **Grupo de recursos**: use el mismo grupo de recursos utilizado por el centro de eventos (**ContosoResourcesEH**).
+   **Grupos de recursos**: use el mismo grupo de recursos utilizado por el centro de eventos (**ContosoResourcesEH**).
 
-   **Ubicación**: use la misma ubicación que en el script de instalación (**Oeste de EE. UU.**).
+   **Ubicación**: use la misma ubicación que en el script de instalación (**Oeste de EE. UU.**).
 
    ![Captura de pantalla que muestra cómo crear un trabajo de Azure Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -201,15 +201,15 @@ Las entradas del trabajo de Steam Analytics son las transacciones de tarjeta de 
 
    **Alias de entrada**: use **contosoinputs**. Este campo es el nombre del flujo de entrada usado al definir la consulta de los datos.
 
-   **Suscripción**: seleccione la suscripción.
+   **Suscripción**: Seleccione su suscripción.
 
    **Espacio de nombres de Event Hubs**: seleccione su espacio de nombres de Event Hubs ($**eventHubNamespace**). 
 
    **Nombre del centro de eventos**: haga clic en **Usar existente** y seleccione el centro de eventos ($**eventHubName**).
 
-   **Event Hubs policy name** (Nombre de directiva de Event Hubs): seleccione **RootManageSharedAccessKey**.
+   **Directiva de Event Hubs**: Seleccione **RootManageSharedAccessKey**.
 
-   **Event Hubs consumer group** (Grupo de consumidores de Event Hubs): deje este campo en blanco para usar el grupo de consumidores predeterminado.
+   **Grupo de consumidores de Event Hubs**: deje este campo en blanco para usar el grupo de consumidores predeterminado.
 
    En el resto de los campos, acepte los valores predeterminados.
 

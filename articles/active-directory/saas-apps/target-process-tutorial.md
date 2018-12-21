@@ -5,254 +5,233 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/20/2017
+ms.topic: tutorial
+ms.date: 12/7/2018
 ms.author: jeedes
-ms.openlocfilehash: b79fa31aed1a264ba52675857c9a80dc65746173
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7fb3c1c3e8dbff54802915a69033001cc9378670
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434095"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Tutorial: Integración de Azure Active Directory con TargetProcess
 
 En este tutorial, aprenderá a integrar TargetProcess con Azure Active Directory (Azure AD).
-
 Integrar TargetProcess con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a TargetProcess.
-- Puede permitir que los usuarios inicien sesión automáticamente en TargetProcess (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a TargetProcess.
+* Puede permitir que los usuarios inicien sesión automáticamente en TargetProcess (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con TargetProcess, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para inicio de sesión único en TargetProcess
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Suscripción habilitada para inicio de sesión único en TargetProcess
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de TargetProcess desde la galería
-1. Configuración y prueba del inicio de sesión único en Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-## <a name="add-targetprocess-from-the-gallery"></a>Incorporación de TargetProcess desde la galería
+* TargetProcess admite el inicio de sesión único iniciado por **SP**.
+* TargetProcess admite el aprovisionamiento de usuarios **Just-In-Time**.
+
+## <a name="adding-targetprocess-from-the-gallery"></a>Incorporación de TargetProcess desde la galería
+
 Para configurar la integración de TargetProcess en Azure AD, deberá agregar TargetProcess desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar TargetProcess desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![APLICACIONES][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![APLICACIONES][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **TargetProcess**, seleccione **TargetProcess** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Incorporación de TargetProcess desde la galería](./media/target-process-tutorial/tutorial_target-process_addfromgallery.png)
+4. En el cuadro de búsqueda, escriba **TargetProcess**, seleccione **TargetProcess** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con TargetProcess con un usuario de prueba llamado "Britta Simon".
+     ![TargetProcess en la lista de resultados](common/search-new-app.png)
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de TargetProcess para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de TargetProcess.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-Para establecer la relación de vínculo, en TargetProcess, asigne el valor de **nombre de usuario** de Azure AD como valor de **Nombre de usuario**.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con TargetProcess con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de TargetProcess.
 
 Para configurar y probar el inicio de sesión único de Azure AD con TargetProcess, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de TargetProcess](#create-a-targetprocess-test-user)**: para tener un homólogo de Britta Simon en TargetProcess que esté vinculado a su representación en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si funciona la configuración.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de TargetProcess](#create-targetprocess-test-user)**: para tener un homólogo de Britta Simon en TargetProcess que esté vinculado a su representación de usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación TargetProcess.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con TargetProcess, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con TargetProcess, realice los pasos siguientes:
 
-1. En Azure Portal, en la página de integración de la aplicación **TargetProcess**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **TargetProcess**, seleccione **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Inicio de sesión basado en SAML](./media/target-process-tutorial/tutorial_target-process_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección de **Dominio y direcciones URL de TargetProcess**, lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Sección Dominio y direcciones URL de TargetProcess](./media/target-process-tutorial/tutorial_target-process_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.tpondemand.com/`.
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de TargetProcess](common/sp-identifier.png)
+
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.tpondemand.com/`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.tpondemand.com/`
 
-    > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de TargetProcess](mailto:support@targetprocess.com) para obtener estos valores. 
- 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+    > [!NOTE]
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión.  Póngase en contacto con el [equipo de atención al cliente de TargetProcess](mailto:support@targetprocess.com) para obtener estos valores.
 
-    ![Sección Certificado de firma SAML](./media/target-process-tutorial/tutorial_target-process_certificate.png) 
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-1. Haga clic en el botón **Guardar** .
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-    ![Botón Guardar](./media/target-process-tutorial/tutorial_general_400.png)
+6. En la sección **Configurar TargetProcess**, copie las direcciones URL que necesite.
 
-1. En la sección **Configuración de TargetProcess**, haga clic en **Configurar TargetProcess** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    ![Sección Configuración de TargetProcess](./media/target-process-tutorial/tutorial_target-process_configure.png) 
+     a. URL de inicio de sesión
 
-1. Inicie sesión en su aplicación TargetProcess como administrador.
+    b. Identificador de Azure AD
 
-1. En el menú de la parte superior, haga clic en **Configuración**.
-   
+    c. URL de cierre de sesión
+
+7. Para automatizar la configuración en **TargetProcess**, debe instalar la **extensión de explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Install the extension** (Instalar la extensión).
+
+    ![imagen](./media/target-process-tutorial/install_extension.png)
+
+8. Después de agregar la extensión al explorador, haga clic en **Configurar TargetProcess** para ir a la aplicación TargetProcess. Desde allí, proporcione las credenciales de administrador para iniciar sesión en TargetProcess. La extensión de explorador configurará automáticamente la aplicación y automatizará el paso 9-13.
+
+    **Si desea configurar la aplicación manualmente, realice los siguientes pasos:**
+
+9. Inicie sesión en su aplicación TargetProcess como administrador.
+
+10. En el menú de la parte superior, haga clic en **Configuración**.
+
     ![Configuración](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-1. Haga clic en **Configuración**.
-   
-    ![Configuración](./media/target-process-tutorial/tutorial_target_process_06.png) 
+11. Haga clic en **Configuración**.
 
-1. Haga clic en **Inicio de sesión único**.
-   
-    ![clic en Inicio de sesión único](./media/target-process-tutorial/tutorial_target_process_07.png) 
+    ![Configuración](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-1. En el cuadro de diálogo Configuración de inicio de sesión único, siga estos pasos:
-   
+12. Haga clic en **Inicio de sesión único**.
+
+    ![clic en Inicio de sesión único](./media/target-process-tutorial/tutorial_target_process_07.png)
+
+13. En el cuadro de diálogo Configuración de inicio de sesión único, siga estos pasos:
+
     ![Configurar inicio de sesión único](./media/target-process-tutorial/tutorial_target_process_08.png)
-    
-    a. Haga lic en **Habilitar inicio de sesión único**.
-    
+
+     a. Haga lic en **Habilitar inicio de sesión único**.
+
     b. En el cuadro de texto **Sign-on URL** (Dirección URL de inicio de sesión), pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
 
     c. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado** .
-    
+
     d. Haga clic en **Habilitar aprovisionamiento de JIT**.
 
     e. Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-![Creación de un usuario de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/target-process-tutorial/create_aaduser_01.png) 
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
-    
-    ![Para mostrar la lista de usuarios](./media/target-process-tutorial/create_aaduser_02.png) 
+3. En las propiedades Usuario, siga estos pasos.
 
-1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
- 
-    ![Botón Agregar](./media/target-process-tutorial/create_aaduser_03.png) 
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Sección Usuario](./media/target-process-tutorial/create_aaduser_04.png) 
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
-
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-a-targetprocess-test-user"></a>Creación de un usuario de prueba de TargetProcess
-
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en TargetProcess.
-
-TargetProcess admite el aprovisionamiento Just-In-Time. Ya lo ha habilitado en [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on).
-
-No hay ningún elemento de acción para usted en esta sección.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, concederá acceso a Britta Simon a TargetProcess para que use el inicio de sesión único de Azure.
 
-![Asignar usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **TargetProcess**.
 
-**Para asignar a Britta Simon a TargetProcess, realice los pasos siguientes:**
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+2. En la lista de aplicaciones, escriba y seleccione **TargetProcess**.
 
-    ![Asignar usuario][201] 
+    ![Vínculo de TargetProcess en la lista de aplicaciones](common/all-applications.png)
 
-1. En la lista de aplicaciones, seleccione **TargetProcess**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![TargetProcess en la lista de aplicaciones](./media/target-process-tutorial/tutorial_target-process_app.png) 
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Asignar usuario][202] 
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Asignar usuario][203]
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+### <a name="create-targetprocess-test-user"></a>Creación de un usuario de prueba de TargetProcess
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en TargetProcess. TargetProcess admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a TargetProcess, se crea un usuario, en caso de que no exista.
+
+> [!Note]
+> Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de TargetProcess](mailto:support@targetprocess.com).
+
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de TargetProcess en el panel de acceso, debería iniciar sesión automáticamente en su aplicación TargetProcess. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Al hacer clic en el icono de TargetProcess en el panel de acceso, debería iniciar sesión automáticamente en la versión de TargetProcess para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/target-process-tutorial/tutorial_general_01.png
-[2]: ./media/target-process-tutorial/tutorial_general_02.png
-[3]: ./media/target-process-tutorial/tutorial_general_03.png
-[4]: ./media/target-process-tutorial/tutorial_general_04.png
-
-[100]: ./media/target-process-tutorial/tutorial_general_100.png
-
-[200]: ./media/target-process-tutorial/tutorial_general_200.png
-[201]: ./media/target-process-tutorial/tutorial_general_201.png
-[202]: ./media/target-process-tutorial/tutorial_general_202.png
-[203]: ./media/target-process-tutorial/tutorial_general_203.png
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

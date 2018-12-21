@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de Azure Policy: auditar la configuración de auditoría en el nivel de base de datos SQL'
+title: 'Ejemplo: Auditar la configuración de auditoría en el nivel de SQL DB'
 description: Esta directiva de ejemplo audita la configuración de auditoría de SQL Database si esos valores no coinciden con un valor especificado.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 22755f2be4a335a8527fb4723aa329e3048b9f5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 24313c83809734367459937d2b02441896b6a5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970743"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315322"
 ---
 # <a name="audit-sql-db-level-audit-setting"></a>Auditar la configuración de auditoría en el nivel de SQL DB
 

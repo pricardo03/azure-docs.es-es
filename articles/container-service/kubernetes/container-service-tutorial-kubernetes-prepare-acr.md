@@ -1,24 +1,27 @@
 ---
-title: 'Tutorial de Azure Container Service tutorial: preparación de ACR'
+title: '(EN DESUSO) Tutorial de Azure Container Service: Preparación de ACR'
 description: 'Tutorial de Azure Container Service tutorial: preparación de ACR'
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 735aca5509373f840c56e28887088f7a696ca137
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c3e5e7c4fb46b3f68013ac857dcad2e5434a978d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024093"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998308"
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Implementación y uso de Azure Container Registry
+# <a name="deprecated-deploy-and-use-azure-container-registry"></a>(EN DESUSO) Implementación y uso de Azure Container Registry
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para la versión actualizada de este tutorial que usa Azure Kubernetes Service, consulte [Tutorial: Implementación y uso de Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure Container Registry (ACR) es un registro privado basado en Azure para imágenes de contenedor de Docker. Este tutorial, la sección dos de siete, le guía a través de la implementación de una instancia de Azure Container Registry y la inserción de imágenes de contenedor en ella. Los pasos completados incluyen:
 

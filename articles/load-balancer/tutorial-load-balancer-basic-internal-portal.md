@@ -1,14 +1,11 @@
 ---
-title: 'Tutorial: Creación de un equilibrador de carga interno Básico mediante Azure Portal | Microsoft Docs'
+title: 'Tutorial: Creación de un equilibrador de carga interno: Azure Portal'
+titlesuffix: Azure Load Balancer
 description: En este tutorial se muestra cómo crear un equilibrador de carga interno Básico mediante Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 9ccbbb107dfd8fde237cdfdd4b0c3fcc080fd70e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839252"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262357"
 ---
-# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Equilibrio de la carga de tráfico interno con un equilibrador de carga Básico en Azure Portal
+# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Equilibrio de la carga de tráfico interno con un equilibrador de carga básico en Azure Portal
 
 El equilibrio de carga proporciona un mayor nivel de disponibilidad y escala, ya que distribuye las solicitudes entrantes entre varias máquinas virtuales (VM). Puede usar Azure Portal para crear un equilibrador de carga Básico y así equilibrar la carga del tráfico interno distribuyéndolo entre las máquinas virtuales. Este tutorial muestra cómo crear recursos y configurar un equilibrador de carga interno, servidores back-end y recursos de red en el plan de tarifa Básico.
 
@@ -45,7 +42,7 @@ Primero cree una red virtual (VNet). En la red virtual, cree dos máquinas virtu
 1. En el panel **Crear red virtual**, escriba o seleccione estos valores:
    
    - **Nombre**: escriba *MyVNet*.
-   - **Grupo de recursos**: seleccione **Crear nuevo**, a continuación, escriba *MyResourceGroupLB* y seleccione **Aceptar**. 
+   - **ResourceGroup**: seleccione **Crear nuevo**, a continuación, escriba *MyResourceGroupLB* y seleccione **Aceptar**. 
    - **Subred** > **Nombre**: escriba *MyBackendSubnet*.
    
 1. Seleccione **Crear**.
@@ -57,16 +54,13 @@ Primero cree una red virtual (VNet). En la red virtual, cree dos máquinas virtu
 1. En la parte superior izquierda del portal, seleccione **Crear un recurso** > **Proceso** > **Windows Server 2016 Datacenter**. 
    
 1. En **Crear una máquina virtual**, escriba o seleccione los valores siguientes en la pestaña **Básico**:
-   - **Suscripción** > **Grupo de recursos**: en la lista desplegable seleccione **MyResourceGroupLB**.
+   - **Suscripción** > **Grupo de recursos**: despliegue y seleccione **MyResourceGroupLB**.
    - **Detalles de instancia** > **Nombre de máquina virtual**: escriba *MyVM1*.
    - **Detalles de instancia** > **Opciones de disponibilidad**: 
      1. En la lista desplegable seleccione **Conjunto de disponibilidad**. 
-     2. Seleccione **Crear nuevo**, escriba *MyAvailabilitySet*y seleccione **Aceptar**.
-   - **Cuenta de administrador** > **Nombre de usuario**: escriba *azureuser*.
-   - **Cuenta de administrador** > **Contraseña**: escriba *Azure1234567*. 
-     Vuelva a escribir la contraseña en el campo **Confirmar contraseña**.
+     2. Seleccione **Crear nuevo**, escriba *MyAvailabilitySet* y seleccione **Aceptar**.
    
-1. Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos**, a continuación, **Siguiente: Redes**. 
+1. Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**. 
    
    Asegúrese de que está seleccionado lo siguiente:
    - **Red virtual**: **MyVNet**
@@ -96,12 +90,12 @@ Cree un equilibrador de carga interno Básico mediante el portal. El nombre y di
    
    - **Nombre**: escriba *MyLoadBalancer*.
    - **Tipo**: seleccione **Interno**. 
-   - **SKU**: seleccione **Básico**.
+   - **SKU**: Seleccione **Básica**.
    - **Red virtual**: seleccione **Elegir una red virtual** y después seleccione **MyVNet**.
-   - **Subred**: seleccione **Elegir una subred** y a continuación seleccione **MyBackendSubnet**.
-   - **Asignación de direcciones IP**: seleccione **Estática** si no está ya seleccionado.
+   - **Subred**: seleccione **Elegir una subred** y después seleccione **MyBackendSubnet**.
+   - **Asignación de dirección IP**: seleccione **Estática** si no se ha seleccionado.
    - **Dirección IP privada**: escriba una dirección que esté en el espacio de direcciones de la red virtual y subred, por ejemplo *10.3.0.7*.
-   - **Grupo de recursos**: despliegue las opciones de **Seleccionar existente** y seleccione **MyResourceGroupLB**. 
+   - **ResourceGroup**: despliegue las opciones de **Seleccionar existente** y seleccione **MyResourceGroupLB**. 
    
 1. Seleccione **Crear**.
    
@@ -124,7 +118,7 @@ Para distribuir el tráfico a las máquinas virtuales, el equilibrador de carga 
 1. En la página **Agregar un grupo back-end**, escriba o seleccione los siguientes valores:
    
    - **Nombre**: escriba *MyBackendPool*.
-   - **Asociado a**: en la lista desplegable seleccione **Conjunto de disponibilidad**.
+   - **Asociado a**: En la lista desplegable seleccione **Conjunto de disponibilidad**.
    - **Conjunto de disponibilidad**: seleccione **MyAvailabilitySet**.
    
 1. Seleccione **Agregar una configuración IP de red de destino**. 
@@ -153,9 +147,9 @@ Para permitir que el equilibrador de carga supervise el mantenimiento de la máq
 1. En la página **Agregar sondeo de mantenimiento**, escriba o seleccione los siguientes valores:
    
    - **Nombre**: escriba *MyHealthProbe*.
-   - **Protocolo**: en la lista desplegable seleccione **HTTP**. 
+   - **Protocolo**: en la lista desplegable, seleccione **HTTP**. 
    - **Puerto**: escriba *80*. 
-   - **Ruta de acceso**: acepte */* para el URI predeterminado. Puede reemplazar este valor con cualquier otro identificador URI. 
+   - **Ruta de acceso**: acepte */* para el identificador URI predeterminado. Puede reemplazar este valor por cualquier otro identificador URI. 
    - **Intervalo**: escriba *15*. El valor Intervalo es el número de segundos entre los intentos de sondeo.
    - **Umbral incorrecto**: escriba *2*. Este valor es el número de errores de sondeo consecutivos que tienen que producirse para que se considere que una máquina virtual no funciona correctamente.
    
@@ -165,7 +159,7 @@ Para permitir que el equilibrador de carga supervise el mantenimiento de la máq
 
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
-Una regla del equilibrador de carga define cómo se distribuye el tráfico a las máquinas virtuales. La regla define la configuración de IP front-end para el tráfico entrante y el grupo IP de back-end para recibir el tráfico, y el puerto de origen y destino requeridos. 
+Una regla del equilibrador de carga define cómo se distribuye el tráfico a las máquinas virtuales. La regla define la configuración IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico y los puertos de origen y destino requeridos. 
 
 La regla del equilibrador de carga llamada **MyLoadBalancerRule** escucha en el puerto 80 en el front-end **LoadBalancerFrontEnd**. La regla envía el tráfico de red al grupo de direcciones de back-end **MyBackendPool**, también a través del puerto 80. 
 
@@ -178,11 +172,11 @@ La regla del equilibrador de carga llamada **MyLoadBalancerRule** escucha en el 
 1. En la página **Agregar regla de equilibrio de carga**, escriba o seleccione los valores siguientes, si todavía no están presentes:
    
    - **Nombre**: escriba *MyLoadBalancerRule*.
-   - **Dirección IP de front-end:** escriba *LoadBalancerFrontEnd* si no está ya presente.
+   - **Dirección IP de front-end**: escriba *LoadBalancerFrontEnd* si no está ya presente.
    - **Protocolo**: seleccione **TCP**.
    - **Puerto**: escriba *80*.
    - **Puerto back-end**: escriba *80*.
-   - **Grupo back-end**: seleccione **MyBackendPool**.
+   - **Grupo de back-end**: seleccione **MyBackendPool**.
    - **Sondeo de mantenimiento**: seleccione **MyHealthProbe**. 
    
 1. Seleccione **Aceptar**.
@@ -212,7 +206,7 @@ En primer lugar, conéctese a las tres máquinas virtuales con Escritorio remoto
    
 1. En la pantalla Seguridad de Windows, seleccione **Más opciones** y, después, **Usar otra cuenta**. 
    
-   Escriba el nombre de usuario *azureuser* y la contraseña *Azure1234567* y seleccione **Aceptar**.
+   Escriba el nombre de usuario y la contraseña y, después, seleccione **Aceptar**.
    
 1. Responda **Sí** a cualquier solicitud de certificado. 
    

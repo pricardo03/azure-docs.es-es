@@ -14,15 +14,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 06/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a731c1e0617fe0ccf9d571dd2b7d0c2ad107bc9e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 68fdb158a7d4c723bffb54f33203120afb72a8ef
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901405"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385404"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de red con un grupo de seguridad de red mediante Azure Portal
 
@@ -38,7 +38,7 @@ Si lo prefiere, puede completar este tutorial con la [CLI de Azure](tutorial-fil
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en https://portal.azure.com.
 
@@ -63,7 +63,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones similares, como servidores web.
 
 1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. En el cuadro **Buscar en Marketplace**, escriba *Grupo de seguridad de la aplicación*. Cuando **Grupo de seguridad de la aplicación** aparezca en los resultados de la búsqueda, selecciónelo, seleccione **Grupo de seguridad de la aplicación** nuevamente en **Todo** y, a continuación, seleccione **Crear**.
+2. En el cuadro **Buscar en Marketplace**, escriba *Grupo de seguridad de aplicaciones*. Cuando **Grupo de seguridad de aplicaciones** aparezca en los resultados de la búsqueda, selecciónelo, vuelva a seleccionar **Grupo de seguridad de aplicaciones** en **Todo** y, después, haga clic en **Crear**.
 3. Especifique o seleccione los siguientes datos y haga clic en **Crear**:
 
     | Configuración        | Valor                                                         |
@@ -159,7 +159,7 @@ Cree dos máquinas virtuales en la red virtual.
 
     |Configuración|Valor|
     |---|---|
-    |Red virtual |Seleccione **myVirtualNetwork**|
+    |Virtual network |Seleccione **myVirtualNetwork**|
     |Grupo de seguridad de red (NSG) | Seleccione **Advanced** (Avanzadas).|
     |Grupo de seguridad de red (firewall)| Seleccione **(nuevo) myVmWeb-nsg** y, a continuación, en **Elegir grupo de seguridad de red**, seleccione **Ninguno**. |
 

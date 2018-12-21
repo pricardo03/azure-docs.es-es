@@ -1,5 +1,5 @@
 ---
-title: Enlazar un certificado SSL personalizado a Azure Web Apps | Microsoft Docs
+title: 'Enlazar un certificado SSL personalizado existente: Azure Web Service | Microsoft Docs'
 description: Aprenda a enlazar un certificado SSL personalizado a aplicaciones web, back-ends para aplicaciones móviles o aplicaciones de API en Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,15 +14,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: a543561658d593398ca74f8ae68dd6d0d27bcdaa
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.custom: seodec18
+ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636465"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257002"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Enlace de un certificado SSL personalizado existente con Azure Web Apps
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Enlazar un certificado SSL personalizado a Azure Web Apps
 
 Azure Web Apps proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este tutorial se muestra cómo enlazar un certificado SSL personalizado adquirido de una entidad de certificación de confianza para [Azure Web Apps](app-service-web-overview.md). Cuando haya terminado, podrá acceder a la aplicación web en el punto de conexión HTTPS de su dominio DNS personalizado.
 
@@ -139,9 +139,9 @@ En la página **Agregar enlace SSL**, use las listas desplegables para seleccion
 >
 >
 
-En **Tipo de SSL**, seleccione si se va a usar **[Indicación de nombre de servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** o SSL basada en IP.
+En **Tipo de SSL**, seleccione si se va a usar **[Indicación de nombre de servidor (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)** o SSL basada en IP.
 
-- **SSL basada en SNI**: pueden agregarse varios enlaces SSL basados en SNI. Esta opción permite que varios certificados SSL protejan varios dominios en una misma dirección IP. Los exploradores más modernos (como Internet Explorer, Chrome, Firefox y Opera) admiten SNI (encontrará información de compatibilidad con exploradores más completa en [Indicación de nombre de servidor](http://wikipedia.org/wiki/Server_Name_Indication)).
+- **SSL basada en SNI**: pueden agregarse varios enlaces SSL basados en SNI. Esta opción permite que varios certificados SSL protejan varios dominios en una misma dirección IP. Los exploradores más modernos (como Internet Explorer, Chrome, Firefox y Opera) admiten SNI (encontrará información de compatibilidad con exploradores más completa en [Indicación de nombre de servidor](https://wikipedia.org/wiki/Server_Name_Indication)).
 - **SSL basada en IP**: solo pueden agregarse enlaces SSL basados en IP. Esta opción solo permite que un único certificado SSL proteja una dirección IP dedicada. Para proteger varios dominios, debe protegerlos todos con el mismo certificado SSL. Se trata de la opción tradicional para enlaces SSL.
 
 Haga clic en **Agregar enlace**.

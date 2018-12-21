@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: bb3ddb0ffe16746a44318ea8d0bf0f1e3b3c3de1
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: b5de5ccdf98d6d0a2952a694a253feaac9d6e07d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705589"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413632"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Introducción a Azure Dev Spaces con .NET Core
 
@@ -31,7 +31,7 @@ En esta guía, aprenderá a:
 Ya está preparado para crear un espacio de desarrollo basado en Kubernetes en Azure.
 
 ## <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
-Azure Dev Spaces requiere una configuración mínima de la máquina local. La mayor parte de la configuración del espacio de desarrollo se almacena en la nube y se puede compartir con otros usuarios. El equipo local puede ejecutar Windows, Mac o Linux. Para Linux, se admiten las siguientes distribuciones: Ubuntu (18.04, 16.04 y 14.04), Debian 8 y 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 y SLES 12.
+Azure Dev Spaces requiere una configuración mínima de la máquina local. La mayor parte de la configuración del espacio de desarrollo se almacena en la nube y se puede compartir con otros usuarios. El equipo local puede ejecutar Windows, Mac o Linux. Para Linux, se admiten las siguientes distribuciones: Ubuntu (18.04, 16.04 y 14.04), Debian 8 y 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 y SLES 12.
 
 Para comenzar, descargue y ejecute la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
@@ -72,7 +72,7 @@ az group create --name MyResourceGroup --location <region>
 Crear un clúster de Kubernetes con el siguiente comando:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
 ```
 
 La operación de creación del clúster tarda unos minutos.

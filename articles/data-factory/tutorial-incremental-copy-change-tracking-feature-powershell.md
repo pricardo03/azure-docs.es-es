@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 246b423e69fa8fb73db45f44fa17c1bc65407681
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090732"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963528"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos SQL de Azure hasta un almacenamiento de blobs de Azure.  
@@ -189,7 +189,7 @@ Tenga en cuenta los siguientes puntos:
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
-* Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
@@ -233,7 +233,7 @@ En este paso, vincula su cuenta de Azure Storage a la factoría de datos.
 ### <a name="create-azure-sql-database-linked-service"></a>Creación de un servicio vinculado a Azure SQL Database
 En este paso, vinculará su cuenta de Azure SQL Database con la factoría de datos.
 
-1. Cree un archivo JSON llamado **AzureSQLDatabaseLinkedService.json** en la carpeta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** con el siguiente contenido: reemplace **&lt;servidor&gt; &lt;nombre de base de datos&gt;, &lt;identificador de usuario&gt; y &lt;contraseña&gt;** por el nombre del servidor de Azure SQL Server, el nombre de la base de datos, el identificador de usuario y la contraseña antes de guardar el archivo. 
+1. Cree un archivo JSON llamado **AzureSQLDatabaseLinkedService.json** en la carpeta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** con el siguiente contenido: Antes de guardar el archivo, reemplace **&lt;server&gt; &lt;database name **, &lt;user id&gt; y &lt;password&gt;** por su servidor Azure SQL Server, el nombre de su base de datos, su identificador de usuario y su contraseña. 
 
     ```json
     {
@@ -288,7 +288,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos.
     }   
     ```
 
-2.  Ejecute el cmdlet Set-AzureRmDataFactoryV2Dataset para crear el conjunto de datos: SourceDataset.
+2.  Ejecute el cmdlet Set-AzureRmDataFactoryV2Dataset para crear el conjunto de datos: SourceDataset
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -330,7 +330,7 @@ En este paso, creará un conjunto de datos para representar los datos que se cop
     ```
 
     Creará el contenedor de adftutorial en Azure Blob Storage como parte de los requisitos previos. Cree el contenedor si no existe (o) asígnele el nombre de uno existente. En este tutorial, el nombre de archivo de salida se genera dinámicamente mediante la expresión: @CONCAT('Incremental-', pipeline().RunId, '.txt').
-2.  Ejecute el cmdlet Set-AzureRmDataFactoryV2Dataset para crear el conjunto de datos: SinkDataset.
+2.  Ejecute el cmdlet Set-AzureRmDataFactoryV2Dataset para crear el conjunto de datos: SinkDataset
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -368,7 +368,7 @@ En este paso, creará un conjunto de datos para almacenar la versión de control
     ```
 
     Crea la tabla table_store_ChangeTracking_version como parte de los requisitos previos.
-2.  Ejecute el cmdlet Set-AzureRmDataFactoryV2Dataset para crear el conjunto de datos: WatermarkDataset.
+2.  Ejecute el cmdlet Set-AzureRmDataFactoryV2Dataset para crear el conjunto de datos: WatermarkDataset
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
@@ -434,7 +434,7 @@ En este paso, va a crear una canalización con la actividad de copia que copia t
    ```
  
 ### <a name="run-the-full-copy-pipeline"></a>Ejecución de la canalización de copia completa
-Ejecute la canalización **FullCopyPipeline** mediante el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. 
+Ejecución de la canalización **FullCopyPipeline** mediante el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. 
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
@@ -445,26 +445,26 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Todos los servicios**, busque con la palabra clave `data factories` y seleccione **Factorías de datos**. 
 
-    ![Menú Factorías de datos](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
+    ![Menú Factorías de datos](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
 3. Busque **su factoría de datos** en la lista y selecciónela para iniciar la página Factoría de datos. 
 
-    ![Búsqueda de la factoría de datos](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-search-data-factory-2.png)
+    ![Búsqueda de la factoría de datos](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
 4. En la página Factoría de datos, haga clic en el icono **Supervisión y administración**. 
 
-    ![Icono Supervisión y administración](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-monitor-manage-tile-3.png)    
+    ![Icono Supervisión y administración](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. La **aplicación de integración de datos** se inicia en otra pestaña. Puede ver todas las **ejecuciones de canalización** y sus estados. Tenga en cuenta que, en el ejemplo siguiente, el estado de ejecución de la canalización es **Correcto**. Puede comprobar los parámetros pasados a la canalización si hace clic en la columna **Parámetros**. Si se ha producido un error, verá un vínculo en la columna **Error**. Haga clic en el vínculo de la columna **Acciones**. 
 
-    ![Ejecuciones de la canalización](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-4.png)    
+    ![Ejecuciones de la canalización](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. Al hacer clic en el vínculo de la columna **Acciones**, verá la página siguiente que muestra todas las **ejecuciones de actividad** de la canalización. 
 
-    ![Ejecuciones de actividad](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-5.png)
+    ![Ejecuciones de actividad](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. Para volver a la vista de **ejecuciones de canalización**, haga clic en **Canalizaciones** como se muestra en la imagen. 
 
 
 ### <a name="review-the-results"></a>Revisión del resultado
 Verá un archivo denominado `incremental-<GUID>.txt` en la carpeta `incchgtracking` del contenedor `adftutorial`. 
 
-![Archivo de salida de una copia completa](media\tutorial-incremental-copy-change-tracking-feature-powershell\full-copy-output-file.png)
+![Archivo de salida de una copia completa](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
 El archivo debe tener los datos de la base de datos SQL de Azure:
 
@@ -623,7 +623,7 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Ejecución de la canalización de la copia incremental
-Ejecute la canalización **IncrementalCopyPipeline** mediante el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. 
+Ejecución de la canalización **IncrementalCopyPipeline** mediante el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. 
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
@@ -633,16 +633,16 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Res
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Supervisión de la canalización de la copia incremental
 1. En la **aplicación de integración de datos**, actualice la vista de **ejecuciones de canalización**. Confirme que ve IncrementalCopyPipeline en la lista. Haga clic en el vínculo de la columna **Acciones**.  
 
-    ![Ejecuciones de la canalización](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-6.png)    
+    ![Ejecuciones de la canalización](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. Al hacer clic en el vínculo de la columna **Acciones**, verá la página siguiente que muestra todas las **ejecuciones de actividad** de la canalización. 
 
-    ![Ejecuciones de actividad](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-7.png)
+    ![Ejecuciones de actividad](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. Para volver a la vista de **ejecuciones de canalización**, haga clic en **Canalizaciones** como se muestra en la imagen. 
 
 ### <a name="review-the-results"></a>Revisión del resultado
 Verá el segundo archivo `incchgtracking` en la carpeta `adftutorial` del contenedor. 
 
-![Archivo de salida de la copia incremental](media\tutorial-incremental-copy-change-tracking-feature-powershell\incremental-copy-output-file.png)
+![Archivo de salida de la copia incremental](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
 El archivo debe tener los datos diferenciales de la base de datos SQL de Azure. El registro con `U` es la fila actualizada en la base de datos y `I` es la fila que se agrega. 
 
@@ -650,7 +650,7 @@ El archivo debe tener los datos diferenciales de la base de datos SQL de Azure. 
 1,update,10,2,U
 6,new,50,1,I
 ```
-Las tres primeras columnas son datos que han cambiado de data_source_table. Las dos últimas columnas son los metadatos de la tabla del sistema de control de cambios. La cuarta columna es el valor SYS_CHANGE_VERSION de cada fila modificada. La quinta columna es la operación: U = actualización, I = inserción.  Para obtener más información acerca de la información de control de cambios, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+Las tres primeras columnas son datos que han cambiado de data_source_table. Las dos últimas columnas son los metadatos de la tabla del sistema de control de cambios. La cuarta columna es el valor SYS_CHANGE_VERSION de cada fila modificada. La quinta columna es la operación:  U = actualización, I = inserción.  Para obtener más información acerca de la información de control de cambios, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 2c417a0e9a3f50032aa3c97ced57d3249bc7c93a
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 549194ce1dcab5cd449c60c934421b3bea154d6a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620681"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015694"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Incorporación del almacenamiento en caché para mejorar el rendimiento en Azure API Management
 
@@ -38,7 +38,7 @@ Temas que se abordarán:
 ## <a name="availability"></a>Disponibilidad
 
 > [!NOTE]
-> La memoria caché interna no está disponible en el nivel **Consumo** de Azure API Management. Puede [utilizar una memoria caché de Redis externa](api-management-howto-cache-external.md) en su lugar.
+> La memoria caché interna no está disponible en el nivel **Consumo** de Azure API Management. Puede [usar una instancia externa de Azure Redis Cache](api-management-howto-cache-external.md) en su lugar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -91,7 +91,7 @@ Para ver cómo funciona el almacenamiento en caché, llame a la operación desde
 ## <a name="next-steps"> </a>Pasos siguientes
 * Para más información sobre las directivas de almacenamiento en caché, consulte [Caching policies][Caching policies] (Directivas de almacenamiento en caché) en [API Management policy reference][API Management policy reference] (Referencia de la directiva de API Management).
 * Para obtener información sobre el almacenamiento en caché de los elementos por parte de la clave mediante expresiones de directiva, consulte [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
-* Para más información sobre el uso de memoria caché de Redis externa, consulte [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md).
+* Para más información sobre el uso de una instancia externa de Azure Redis Cache, consulte [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

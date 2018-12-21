@@ -8,12 +8,13 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.author: victorh
-ms.openlocfilehash: b90496b0ccc6c8243c2d1b3ead1e7c4faa4801ec
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
+ms.openlocfilehash: b01e16f85eaccee4d765b4985769df670d4d35ca
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582061"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413037"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -70,6 +71,8 @@ Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, I
 |Falta de compatibilidad entre PowerShell y CLI con ICMP|Azure PowerShell y CLI no admiten ICMP como protocolo válido en las reglas de red.|Aun así se puede usar ICMP como protocolo a través del portal y la API REST. Estamos trabajando para agregar pronto ICMP a PowerShell y CLI.|
 |Las etiquetas FQDN requieren que se establezca una combinación protocolo: puerto|Las reglas de aplicaciones con las etiquetas FQDN requieren la definición de puerto: protocolo.|Puede usar **https** como valor de puerto: protocolo. Estamos trabajando para que este campo sea opcional cuando se usen etiquetas FQDN.|
 |No se admite la posibilidad de mover un firewall a otro grupo de recursos o suscripción.|No se admite la posibilidad de mover un firewall a otro grupo de recursos o suscripción.|La compatibilidad con esta funcionalidad está en nuestro mapa de ruta. Para mover un firewall a otro un grupo de recursos o suscripción, debe eliminar la instancia actual y volver a crearla en el nuevo grupo de recursos o suscripción.|
+|Intervalo de puertos en reglas de red y aplicación|Los puertos están limitados a 64.000, ya que los puertos altos están reservados para la administración y los sondeos de estado. |Estamos trabajando para reducir esta limitación.|
+|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

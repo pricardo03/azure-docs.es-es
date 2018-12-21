@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Automatización de compilaciones de imágenes de contenedor en la actualización de imagen base con Azure Container Registry Tasks'
-description: En este tutorial, aprenderá a configurar una tarea que desencadena automáticamente compilaciones de imágenes de contenedor en la nube cuando se actualiza una imagen base.
+title: 'Tutorial: Automatización de compilaciones de imágenes de contenedor en la actualización de imagen base: Azure Container Registry Tasks'
+description: En este tutorial, aprenderá a configurar una tarea de Azure Container Registry que desencadena automáticamente compilaciones de imágenes de contenedor en la nube cuando se actualiza una imagen base.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 54e8892787fa2b7b093609ee5d09f3a87e103411
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b3d8c3aea4955d6f95ead69d5bed147cc486e7c8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856588"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254044"
 ---
-# <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-tasks"></a>Tutorial: Automatización de compilaciones de imágenes en la actualización de imagen base con Azure Container Registry Tasks
+# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatización de compilaciones de imágenes de contenedor al actualizarse una imagen base en una instancia de Azure Container Registry 
 
 ACR Tasks admite la ejecución automatizada de compilaciones cuando se actualiza una imagen base del contenedor, como cuando se revisa el sistema operativo o el marco de trabajo de la aplicación de una de las imágenes base. En este tutorial, aprenderá a crear una tarea en ACR Tasks que desencadena una compilación en la nube cuando se inserta una imagen base de contenedor en el registro.
 

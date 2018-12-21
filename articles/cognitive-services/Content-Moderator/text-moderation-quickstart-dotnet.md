@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0540a81db93570928dd33b66a69b6883b2df0cd9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 74c2142e8f6839422446767cd0c70b34daa3f1ad
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007695"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103254"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guía de inicio rápido: Análisis de contenido de textos para detectar material inapropiado en C# 
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. En Visual Studio, cree un nuevo proyecto de **Aplicación de consola (.NET Framework)** y asígnele el nombre **TextModeration**. 
 1. Si hay otros proyectos en la solución, seleccione este como proyecto de inicio único.
-1. Obtenga los paquetes NuGet requeridos. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Manage NuGet Packages** (Administrar paquetes NuGet); a continuación, busque e instale los siguientes paquetes:
+1. Obtenga los paquetes NuGet requeridos. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Administrar paquetes NuGet**; a continuación, busque e instale los siguientes paquetes:
     - Microsoft.Azure.CognitiveServices.ContentModerator
     - Microsoft.Rest.ClientRuntime
     - Newtonsoft.Json
@@ -47,59 +47,19 @@ A continuación, copiará y pegará el código de esta guía en el proyecto para
 
 Agregue las siguientes instrucciones `using` al principio del archivo *Program.cs*.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=1-8)]
 
 ### <a name="create-the-content-moderator-client"></a>Creación del cliente de Content Moderator
 
 Agregue el código siguiente al archivo *Program.cs* para crear un cliente de Content Moderator para su suscripción. Agregue el código junto con la clase **Program**, en el mismo espacio de nombres. Tendrá que actualizar los campos **AzureRegion** y **CMSubscriptionKey** con los valores de su identificador de región y clave de suscripción.
 
-```csharp
-// Wraps the creation and configuration of a Content Moderator client.
-public static class Clients
-{
-    // The region/location for your Content Moderator account, 
-    // for example, westus.
-    private static readonly string AzureRegion = "YOUR API REGION";
-
-    // The base URL fragment for Content Moderator calls.
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.microsoft.com";
-
-    // Your Content Moderator subscription key.
-    private static readonly string CMSubscriptionKey = "YOUR API KEY";
-
-    // Returns a new Content Moderator client for your subscription.
-    public static ContentModeratorClient NewClient()
-    {
-        // Create and initialize an instance of the Content Moderator API wrapper.
-        ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
-
-        client.Endpoint = AzureBaseURL;
-        return client;
-    }
-}
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=54-77)]
 
 ### <a name="set-up-input-and-output-targets"></a>Configuración de los destinos de entrada y salida
 
 Agregue los siguientes campos estáticos a la clase **Program** en _Program.cs_. Especifican los archivos para el contenido de texto de entrada y el contenido JSON de salida.
 
-```csharp
-// The name of the file that contains the text to evaluate.
-private static string TextFile = "TextFile.txt";
-
-// The name of the file to contain the output from the evaluation.
-private static string OutputFile = "TextModerationOutput.txt";
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
 Tendrá que crear el archivo *TextFile.txt* de entrada y actualizar su ruta de acceso según corresponda (las rutas de acceso relativas se refieren al directorio de ejecución). Abra _TextFile.txt_ y agregue el texto que se va a moderar. En esta guía de inicio rápido se usa el siguiente texto de ejemplo:
 
@@ -119,34 +79,7 @@ Agregue el siguiente código al método **Main**. El método **ScreenText** cons
 
 Si desea más información sobre lo que hacen estas operaciones, siga el vínculo de la sección [Pasos siguientes](#next-steps).
 
-```csharp
-// Load the input text.
-string text = File.ReadAllText(TextFile);
-Console.WriteLine("Screening {0}", TextFile);
-
-text = text.Replace(System.Environment.NewLine, " ");
-byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(text);
-MemoryStream stream = new MemoryStream(byteArray);
-
-// Save the moderation results to a file.
-using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
-{
-    // Create a Content Moderator client and evaluate the text.
-    using (var client = Clients.NewClient())
-    {
-        // Screen the input text: check for profanity,
-        // autocorrect text, check for personally identifying
-        // information (PII), and classify the text into three categories
-        outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
-        var screenResult =
-        client.TextModeration.ScreenText("text/plain", stream, "eng", true, true, null, true);
-        outputWriter.WriteLine(
-                JsonConvert.SerializeObject(screenResult, Formatting.Indented));
-    }
-    outputWriter.Flush();
-    outputWriter.Close();
-}
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=23-48)]
 
 ## <a name="run-the-program"></a>Ejecución del programa
 

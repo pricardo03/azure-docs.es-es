@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de Azure Container Registry: preparar un registro de contenedor de Azure con replicación geográfica'
+title: 'Tutorial: Crear un registro de Docker con replicación geográfica en Azure'
 description: Crear un registro de contenedor de Azure, configurar la replicación geográfica, preparar una imagen de Docker e implementarla en el registro. Primera parte de una serie de tres partes.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854310"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261320"
 ---
-# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparación de un registro de contenedor de Azure con replicación geográfica
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar un registro de contenedor de Azure con replicación geográfica
 
 Un registro de contenedor de Azure es un registro de Docker privado implementado en Azure que puede mantener cerca de la red en las implementaciones. En este conjunto de artículos de tres tutoriales, aprenderá a usar la replicación geográfica para implementar una aplicación web de ASP.NET Core que se ejecuta en un contenedor de Linux en dos instancias de [Web App for Containers](../app-service/containers/index.yml). Podrá ver cómo Azure implementa automáticamente la imagen en cada instancia de Web App desde el repositorio de replicación geográfica más cercano.
 
@@ -49,8 +49,8 @@ Seleccione **Crear un recurso** > **Contenedores** > **Azure Container Registry*
 
 Configure el registro nuevo con la configuración siguiente:
 
-* **Nombre del registro**: cree un nombre de registro único global en Azure y que contenga entre 5 y 50 caracteres alfanuméricos.
-* **Grupo de recursos**: **Crear nuevo** > `myResourceGroup`.
+* **Nombre del Registro**: cree un nombre del Registro único global en Azure y que contenga entre 5 y 50 caracteres alfanuméricos.
+* **Grupos de recursos**: **Crear nuevo** > `myResourceGroup`
 * **Ubicación**: `West US`.
 * **Usuario administrador**: `Enable` (es necesario para que Web App for Containers extraiga imágenes).
 * **SKU**: `Premium` (es necesario para la replicación geográfica).

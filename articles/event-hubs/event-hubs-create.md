@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 6a3fe8ae8cfbaeff31bec1d49c3cc5da552e8308
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3a1054b0c753b3e5dca4cd66ac42e6bc8bdd16ae
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254067"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960709"
 ---
-# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Guía de inicio rápido: Creación de un centro de eventos mediante Azure Portal
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Inicio rápido: Creación de un centro de eventos mediante Azure Portal
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
 
 En esta guía de inicio rápido se crea un centro de eventos mediante [Azure Portal](https://portal.azure.com).
@@ -49,7 +49,7 @@ Un grupo de recursos es una recopilación lógica de recursos de Azure. Todos lo
 
    ![Grupo de recursos: Crear](./media/event-hubs-quickstart-portal/resource-groups2.png)
 
-## <a name="create-an-event-hubs-namespace"></a>Crear un espacio de nombres de Event Hubs
+## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 
 Un espacio de nombres de Event Hubs proporciona un contenedor con un único ámbito, al que hace referencia su nombre de dominio completo, en el que puede crear uno o varios centros de eventos. Para crear un espacio de nombres en el grupo de recursos mediante el portal, haga lo siguiente:
 
@@ -74,7 +74,7 @@ Un espacio de nombres de Event Hubs proporciona un contenedor con un único ámb
     
 8. Haga clic en el botón Copiar para copiar la cadena de conexión **RootManageSharedAccessKey** en el Portapapeles. Guarde esta cadena de conexión en una ubicación temporal, como el Bloc de notas, para usarla más adelante.
     
-## <a name="create-an-event-hub"></a>Crear un centro de eventos
+## <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
 Para crear un centro de eventos en el espacio de nombres, haga lo siguiente:
 
@@ -94,10 +94,10 @@ Felicidades. Ha usado el portal para crear un espacio de nombres de Event Hubs y
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha creado un grupo de recursos, un espacio de nombres de Event Hubs y un centro de eventos. Para obtener instrucciones paso a paso para enviar a un centro de eventos o recibirlos, consulte los siguientes tutoriales:  
+En este artículo, ha creado un grupo de recursos, un espacio de nombres de Event Hubs y un centro de eventos. Puede encontrar instrucciones paso a paso para enviar eventos a un centro de eventos o recibirlos de este en los siguientes tutoriales:  
 
-- **Envío de eventos a un centro de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js ](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-- **Recepción de eventos desde un centro de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js ](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- **Envío de eventos a un centro de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js ](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+- **Recepción de eventos desde un centro de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js ](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

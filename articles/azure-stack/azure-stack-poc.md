@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 041d679cfc428278737a5668887e73f13ac694b1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137060"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959553"
 ---
 # <a name="what-is-azure-stack"></a>¿Qué es Azure Stack?
 
@@ -34,7 +34,7 @@ Los sistemas integrados de Azure Stack se ofrecen a través de una asociación d
 
 ## <a name="azure-stack-development-kit"></a>Kit de desarrollo de Azure Stack
 
-El [Kit de desarrollo de Azure Stack](.\asdk\asdk-what-is.md) (ASDK) es una implementación en un solo nodo de Azure Stack que puede usar para evaluar y conocer Azure Stack.  También lo puede usar como entorno de desarrollo para compilar aplicaciones con API y herramientas coherentes con Azure.
+El [Kit de desarrollo de Azure Stack](./asdk/asdk-what-is.md) (ASDK) es una implementación en un solo nodo de Azure Stack que puede usar para evaluar y conocer Azure Stack.  También lo puede usar como entorno de desarrollo para compilar aplicaciones con API y herramientas coherentes con Azure.
 
 >[!Note]
 >El Kit de desarrollo de Azure Stack no está diseñado para usarse como entorno de producción.
@@ -49,4 +49,4 @@ El Kit de desarrollo de Azure Stack tiene las siguientes limitaciones:
 
 [Características y conceptos principales](azure-stack-key-features.md)
 
-[Azure Stack: Una extensión de Azure (PDF)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[Azure Stack: una extensión de Azure (PDF)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)

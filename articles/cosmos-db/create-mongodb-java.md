@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Compilación de una aplicación de consola con Java y la API MongoDB'
+title: 'Azure Cosmos DB: Creación de una aplicación de consola con Java y la API de MongoDB'
 description: En este tema se presenta un ejemplo de código de Java que se puede usar para conectarse a la API MongoDB de Azure Cosmos DB y realizar consultas.
 services: cosmos-db
 author: slyons
@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: sclyon
-ms.openlocfilehash: c77d6610939322fcf258e1b650672f319baf0815
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 30e87ba14c6754fa39269f3afac318a02cf99a2c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832418"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162027"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación de consola de la API MongoDB con Java y Azure Portal
+# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Compilación de una aplicación de consola de la API MongoDB con Java y Azure Portal
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -53,7 +53,7 @@ Asígnele un nombre a la base de datos nueva (**db**) y a la nueva colección (*
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
-Ahora vamos a clonar una aplicación de API MongoDB desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
+Ahora vamos a clonar una aplicación de API de MongoDB desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
 
 1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
 

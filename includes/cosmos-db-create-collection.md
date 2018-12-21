@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: cf77eaa07d45222cecf0450fb33fe62e556bcd9e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e287741fd6643c2eba192a9e29f46219faf520ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38729000"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111952"
 ---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y una colección. 
 
@@ -21,16 +21,16 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     
     El área **Agregar colección** se muestra en el extremo derecho, pero es posible que haya que desplazarse hacia la derecha para verlo.
 
-    ![Hoja Agregar colección del Explorador de datos de Azure Portal](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    ![Explorador de datos de Azure Portal, panel Agregar colección](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
 2. En la página **Agregar colección**, especifique la configuración de la nueva colección.
 
     Configuración|Valor sugerido|DESCRIPCIÓN
     ---|---|---
-    Id. de base de datos|Tareas|Escriba *Tareas* como nombre de la nueva base de datos. Los nombres de base de datos tiene que tener entre 1 y 255 caracteres y no pueden contener /, \\; #, ?, o un espacio al final.
+    Id. de base de datos|Tareas|Escriba *Tareas* como nombre de la nueva base de datos. Los nombres de base de datos tienen que tener entre 1 y 255 caracteres y no pueden contener `/, \\, #, ?` o espacios finales.
     Id. de colección|Elementos|Escriba *Elementos* como nombre de la nueva colección. Los identificadores de las colecciones tienen los mismos requisitos de caracteres que los nombres de las bases de datos.
-    Capacidad de almacenamiento| Fija (10 GB)|Use el valor predeterminado **Fija (10 GB)**. Este valor corresponde a la capacidad de almacenamiento de la base de datos.
-    Throughput|400 RU|Cambie el rendimiento a 400 unidades de solicitud por segundo (RU/s). La capacidad de almacenamiento debe estar establecida en **Fija (10 GB)** con el fin de establecer el rendimiento en 400 RU/s. Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante. 
+    Clave de partición| <Your partition key>| Escriba una clave de partición como */userid*.
+    Throughput|400 RU|Cambie el rendimiento a 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante. 
     
     Además de la configuración anterior, puede agregar opcionalmente **claves únicas** para la colección. En este ejemplo vamos a dejar el campo en blanco. Las claves únicas proporcionan a los desarrolladores la capacidad de agregar una capa de integridad de datos a la base de datos. Mediante la creación de una directiva de clave única al crear una colección, se garantiza la unicidad de uno o varios valores por clave de partición. Para más información, consulte el artículo [Claves únicas en Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
     

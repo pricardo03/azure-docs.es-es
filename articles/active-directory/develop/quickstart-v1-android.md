@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287241"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311072"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guía de inicio rápido: inicie sesión por los usuarios y llame a Microsoft Graph API desde una aplicación de Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guía de inicio rápido: Inicie sesión de los usuarios y llame a Microsoft Graph API desde una aplicación de Android
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 Si está desarrollando una aplicación para Android, Microsoft hace que los usuarios puedan iniciar sesión en Azure Active Directory (Azure AD) de forma fácil y directa. Azure AD permite que la aplicación acceda a los datos de usuario a través de Microsoft Graph o de su propia API web protegida.
 
-La biblioteca para Android, Biblioteca de Autenticación de Azure AD (ADAL), permite que la aplicación pueda empezar a usar la [API de Microsoft Graph](https://developer.microsoft.com/graph) de [Microsoft Azure Cloud](https://cloud.microsoft.com) &  al ser compatible con [cuentas de Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) con OAuth 2.0 y OpenID Connect estándar del sector.
+La biblioteca para Android, Biblioteca de Autenticación de Azure AD (ADAL), permite que la aplicación pueda empezar a usar [Microsoft Azure Cloud](https://cloud.microsoft.com) y [Microsoft Graph API](https://developer.microsoft.com/graph) al ser compatible con [cuentas de Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) con OAuth 2.0 y OpenID Connect estándar del sector.
 
 En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
@@ -56,18 +56,18 @@ El código de ejemplo completo se puede encontrar [en GitHub](https://github.com
 ```Java
 // Initialize your app with MSAL
 AuthenticationContext mAuthContext = new AuthenticationContext(
-        MainActivity.this, 
-        AUTHORITY, 
+        MainActivity.this,
+        AUTHORITY,
         false);
 
 
 // Perform authentication requests
 mAuthContext.acquireToken(
-    getActivity(), 
-    RESOURCE_ID, 
-    CLIENT_ID, 
-    REDIRECT_URI,  
-    PromptBehavior.Auto, 
+    getActivity(),
+    RESOURCE_ID,
+    CLIENT_ID,
+    REDIRECT_URI,
+    PromptBehavior.Auto,
     getAuthInteractiveCallback());
 
 // ...
@@ -76,7 +76,7 @@ mAuthContext.acquireToken(
 mAuthResult.getAccessToken()
 ```
 
-## <a name="step-1-register-and-configure-your-app"></a>Paso 1: Registro y configuración de la aplicación
+## <a name="step-1-register-and-configure-your-app"></a>Paso 1: Registrar y configurar la aplicación
 
 Debe haber registrado una aplicación cliente nativa con Microsoft mediante [Azure Portal](https://portal.azure.com).
 
@@ -110,14 +110,14 @@ Debe haber registrado una aplicación cliente nativa con Microsoft mediante [Azu
 2. Abra el ejemplo en Android Studio.
     - Seleccione **Abrir un proyecto existente de Android Studio**.
 
-## <a name="step-3-configure-your-code"></a>Paso 3: Configuración del código
+## <a name="step-3-configure-your-code"></a>Paso 3: Configurar el código
 
 Puede encontrar toda la configuración de este ejemplo de código en el archivo ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java***.
 
 1. Reemplace la constante `CLIENT_ID` con el valor `ApplicationID`.
 2. Reemplace la constante `REDIRECT URI` con el valor `Redirect URI` que configuró anteriormente (`http://localhost`).
 
-## <a name="step-4-run-the-sample"></a>Paso 4: Ejecución de la muestra
+## <a name="step-4-run-the-sample"></a>Paso 4: Ejecución del ejemplo
 
 1. Seleccione **Compilar > Limpiar el proyecto**.
 2. Seleccione **Ejecutar > ejecutar aplicación**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 5d67d25912df5040665b3a04858be0f3807e8112
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee4b504cf26456baa7d10eab05305eee5e36c35a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623832"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191910"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure SQL
 
@@ -63,6 +63,8 @@ En el paso siguiente, necesitará [Microsoft SQL Server Management Studio](https
 
 - [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+
+SQL DB requiere nombres para mostrar de AAD únicos. Con esto, las cuentas de AAD tales como usuarios, grupos y entidades de servicio (aplicaciones) y nombres de máquina virtual habilitados para la identidad administrada deben definirse de forma única en ADD en relación con sus nombres para mostrar. SQL DB comprueba el nombre para mostrar de AAD durante la creación de T-SQL de dichos usuarios y, si no es único, el comando no puede solicitar que se proporcione un nombre para mostrar de AAD único para una cuenta especificada.
 
 1.  Inicie SQL Server Management Studio.
 2.  En el cuadro de diálogo **Conectar al servidor**, escriba el nombre del servidor SQL en el campo **Nombre del servidor**.

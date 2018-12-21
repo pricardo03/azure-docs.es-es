@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fe5c44e834826f9dc62acd30e853c3736b432ee
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621271"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412442"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federación de varias instancias de Azure AD con una instancia única de AD FS
 
@@ -45,7 +45,7 @@ Para que la instancia de AD FS en contoso.com pueda autenticar a usuarios en fab
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>Paso 2: Modificación de la configuración de federación de contoso.com 
  
-El emisor predeterminado establecido para un único dominio federado en AD FS es "http://ADFSServiceFQDN/adfs/services/trust", por ejemplo, "http://fs.contoso.com/adfs/services/trust". Azure Active Directory requiere un emisor único para cada dominio federado. Puesto que la misma instancia de AD FS va a federar dos dominios, se debe modificar el valor de emisor para que sea único para cada dominio que AD FS federe con Azure Active Directory. 
+El emisor predeterminado establecido para un único dominio federado en AD FS es "http://ADFSServiceFQDN/adfs/services/trust", por ejemplo, `http://fs.contoso.com/adfs/services/trust`. Azure Active Directory requiere un emisor único para cada dominio federado. Puesto que la misma instancia de AD FS va a federar dos dominios, se debe modificar el valor de emisor para que sea único para cada dominio que AD FS federe con Azure Active Directory. 
  
 En el servidor de AD FS, abra Azure AD PowerShell (asegúrese de que está instalado el módulo MSOnline) y realice los pasos siguientes:
  
@@ -55,7 +55,7 @@ El emisor en la configuración de federación del dominio se cambiará a "http:/
  
 ## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Paso 3: Federación de fabrikam.com con AD FS
  
-En una sesión de PowerShell en Azure AD, realice los pasos siguientes: Conéctese a la instancia de Azure Active Directory que contiene el dominio fabrikam.com.
+En la sesión de PowerShell de Azure AD, realice los pasos siguientes: Conéctese a la instancia de Azure Active Directory que contiene el dominio fabrikam.com.
 
     Connect-MsolService
 Convierta el dominio administrado fabrikam.com en federado:

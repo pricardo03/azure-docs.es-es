@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Incorporación de un modelo de ejemplo básico al servidor de Azure Analysis Services mediante el portal | Microsoft Docs'
+title: 'Tutorial: Incorporación de un modelo de ejemplo a un servidor de Azure Analysis Services | Microsoft Docs'
 description: En este tutorial, aprenderá a agregar un modelo de ejemplo a Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: def7ee54390a716027fcacb433b99826d3650f6f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6a492085984eba165bc7cfc5839fa4e1705e823c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428699"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001638"
 ---
-# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adición de un modelo de ejemplo desde el portal
+# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Incorporación de un modelo de ejemplo desde el portal
 
 En este tutorial, agregará una base de datos modelo tabular de ejemplo, Adventure Works, al servidor. El modelo de ejemplo es una versión completa del modelo de datos de Adventure Works Internet Sales (1200). Un modelo de ejemplo es útil para probar la administración de modelos, la conexión con las herramientas y las aplicaciones cliente, y para consultar datos de modelos. En el tutorial se usa [Azure Portal](https://portal.azure.com) y [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
 
@@ -74,6 +74,6 @@ Estos pasos describen cómo eliminar un modelo de un servidor mediante el uso de
 En este tutorial, aprendió a agregar un modelo de ejemplo básico al servidor. Ahora que tiene una base de datos modelo, puede conectarse a ella desde SQL Server Management Studio y agregar roles de usuario. Para más información, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configuración de los roles de administrador y usuario del servidor](analysis-services-database-users.md)
+> [Tutorial: Configuración de los roles de administrador del servidor y de usuario](analysis-services-database-users.md)
 
 

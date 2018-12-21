@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5d64aa8b50cdde23d1bb8980510cfac202204f9a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11c68b61802f6c7b3755da71c176ea777f171e4c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262461"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409843"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>Consulta de contenedores en Azure Cosmos DB
 
@@ -20,7 +20,7 @@ En este artículo se explica cómo consultar un contenedor (colección, grafo, t
 
 ## <a name="in-partition-query"></a>Consulta en la partición
 
-Al consultar datos desde contenedores, Cosmos DB enruta automáticamente la consulta a las particiones correspondientes a los valores de clave de partición especificados en el filtro (en caso de que los haya). Por ejemplo, esta consulta se enruta únicamente a la partición cuya clave es "XMS-0001".
+Al consultar datos desde contenedores,si la consulta tiene especificado un filtro de clave de partición, Azure Cosmos DB enruta automáticamente la consulta a las particiones correspondientes a los valores de clave de partición especificados en el filtro. Por ejemplo, la siguiente consulta se enruta a la partición de DeviceId que contiene todos los documentos correspondientes al valor de clave de partición "XMS-0001".
 
 ```csharp
 // Query using partition key into a class called, DeviceReading

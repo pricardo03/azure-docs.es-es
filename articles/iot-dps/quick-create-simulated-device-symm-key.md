@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 07be154f05441c94e32b05fc8354f59b88713929
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456944"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337111"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Inicio rápido: aprovisionar un dispositivo simulado con claves simétricas
+# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas
 
 En esta guía de inicio rápido, obtendrá información sobre cómo crear y ejecutar un simulador de dispositivos en una máquina de desarrollo Windows. Configurará este dispositivo simulado para utilizar una clave simétrica a fin de autenticarse con una instancia del Device Provisioning Service y recibir la asignación a un IoT Hub. Se usará código de ejemplo del [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c) para simular una secuencia de arranque para el dispositivo que inicia el aprovisionamiento. El dispositivo se reconocerá en función de una inscripción individual en una instancia del servicio de aprovisionamiento y se asignará a un IoT Hub.
 
@@ -83,7 +83,7 @@ El SDK incluye el código de ejemplo para un dispositivo simulado. Este disposit
 4. Ejecute el siguiente comando para compilar una versión del SDK específica para su plataforma de cliente de desarrollo. Se generará una solución de Visual Studio para el dispositivo simulado en el directorio `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Si `cmake` no encuentra el compilador de C++, es posible que obtenga errores de compilación durante la ejecución del comando anterior. Si sucede, intente ejecutar este comando en el [símbolo del sistema de Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -91,7 +91,7 @@ El SDK incluye el código de ejemplo para un dispositivo simulado. Este disposit
     Una vez realizada la compilación, las últimas líneas de salida tendrán un aspecto similar al siguiente:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -114,13 +114,13 @@ El SDK incluye el código de ejemplo para un dispositivo simulado. Este disposit
 
 3. En **Agregar inscripción**, escriba la información siguiente y haga clic en el botón **Guardar**.
 
-    - **Mecanismo:** seleccione **Clave simétrica** como *mecanismo* de atestación de identidad.
+    - **Mecanismo**: Seleccione **Clave simétrica** como el *mecanismo* de atestación de identidad.
 
-    - **Generar claves automáticamente**: marque esta casilla.
+    - **Generar claves automáticamente**: Active esta casilla.
 
-    - **Identificador de registro**: escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, `symm-key-device-007`.
+    - **Identificador de registro**: Escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, `symm-key-device-007`.
 
-    - **Id. de dispositivo de IoT Hub:** escriba un identificador de dispositivo. Por ejemplo, **dispositivo-007**.
+    - **Id. de dispositivo IoT Hub:** Escriba un identificador de dispositivo. Por ejemplo, **dispositivo-007**.
 
     ![Agregar una inscripción individual para la atestación de clave simétrica en el portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
@@ -165,22 +165,25 @@ En esta sección, actualizará el código de ejemplo para enviar la secuencia de
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Haga clic con el botón derecho en el proyecto **prov\_dev\_client\_sample** y seleccione **Set as Startup Project** (Establecer como proyecto de inicio). 
-
-7. En la ventana del *Explorador de soluciones* de Visual Studio, vaya al proyecto **hsm\_security\_client** y expándalo. Expanda **Archivos de código fuente** y abra **hsm\_client\_key.c**. 
-
-    Busque la declaración de las constantes `REGISTRATION_NAME` y `SYMMETRIC_KEY_VALUE`. Realice los siguientes cambios en el archivo y guárdelo.
-
-    Actualice el valor de la constante `REGISTRATION_NAME` con su **identificador de registro**.
-    
-    Actualice el valor de la constante `SYMMETRIC_KEY_VALUE` con su **clave principal**.
+6. Encuentre la llamada a `prov_dev_set_symmetric_key_info()` en **prov\_dev\_client\_sample.c** que se marcó como comentario.
 
     ```c
-    static const char* const REGISTRATION_NAME = "symm-key-device-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "<enter your Symmetric primary key>";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-7. En el menú de Visual Studio, seleccione **Depurar** > **Iniciar sin depurar** para ejecutar la solución. En la solicitud para volver a compilar el proyecto, haga clic en **Sí** para recompilar el proyecto antes de ejecutarlo.
+    Quite la marca de comentario de la llamada de función y reemplace los valores de marcador de posición (incluidos los corchetes angulares) con el identificador de registro y los valores de clave principal.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("symm-key-device-007", "your primary key here");
+    ```
+   
+    Guarde el archivo.
+
+7. Haga clic con el botón derecho en el proyecto **prov\_dev\_client\_sample** y seleccione **Set as Startup Project** (Establecer como proyecto de inicio). 
+
+8. En el menú de Visual Studio, seleccione **Depurar** > **Iniciar sin depurar** para ejecutar la solución. En la solicitud para volver a compilar el proyecto, haga clic en **Sí** para recompilar el proyecto antes de ejecutarlo.
 
     La salida siguiente es un ejemplo de arranque correcto del dispositivo simulado y su conexión a la instancia del servicio de aprovisionamiento para que se asigne a un IoT Hub:
 
@@ -198,7 +201,7 @@ En esta sección, actualizará el código de ejemplo para enviar la secuencia de
     Press enter key to exit:
     ```
 
-8. En el portal, vaya al centro de IoT al que se ha asignado el dispositivo simulado y haga clic en la pestaña **Dispositivos IoT**. Si el dispositivo simulado se aprovisiona correctamente en el centro, su identificador de dispositivo aparecerá en la hoja **Dispositivos de IoT** con el *ESTADO* **habilitado**. Puede que tenga que hacer clic en el botón **Actualizar** en la parte superior. 
+9. En el portal, vaya al centro de IoT al que se ha asignado el dispositivo simulado y haga clic en la pestaña **Dispositivos IoT**. Si el dispositivo simulado se aprovisiona correctamente en el centro, su identificador de dispositivo aparecerá en la hoja **Dispositivos de IoT** con el *ESTADO* **habilitado**. Puede que tenga que hacer clic en el botón **Actualizar** en la parte superior. 
 
     ![El dispositivo se registra con el centro de IoT](./media/quick-create-simulated-device/hub-registration.png) 
 

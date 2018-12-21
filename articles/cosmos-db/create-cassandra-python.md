@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Cassandra API con Python - Azure Cosmos DB'
+title: 'Guía de inicio rápido: Cassandra API con Python: Azure Cosmos DB'
 description: En esta guía de inicio rápido se muestra cómo usar la Apache Cassandra API de Azure Cosmos DB para crear una aplicación de perfil con Python.
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 5ffd134bd4e47f92264f8b299f8fd4bdb76f6c9f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: c9a0d6ce868fd7fcf14f4b4c1690c99b7f964f8a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870323"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253517"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guía de inicio rápido: compilación de una aplicación Cassandra con Python y Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guía de inicio rápido: Creación de una aplicación de Cassandra con Python y Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -36,7 +36,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 Además, necesita:
 * Versión v2.7.14 de [Python](https://www.python.org/downloads/)
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Controlador de Python para Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
@@ -138,7 +138,7 @@ Este paso es opcional. Si le interesa aprender cómo el código crea los recurso
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. La cadena de conexión permite a la aplicación comunicarse con la base de datos hospedada.
 
-1. En [Azure Portal](http://portal.azure.com/) seleccione **Cadena de conexión**. 
+1. En [Azure Portal](https://portal.azure.com/) seleccione **Cadena de conexión**. 
 
     Use el ![Botón Copiar](./media/create-cassandra-python/copy.png) del lado derecho de la pantalla para copiar el valor superior, CONTACT POINT (Punto de contacto).
 

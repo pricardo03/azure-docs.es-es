@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: Compilación de una aplicación web de Flask con Python y MongoDB API de Azure Cosmos DB'
+title: 'Azure Cosmos DB: Compilación de una aplicación web de Flask con Python y la API de MongoDB de Azure Cosmos DB'
 description: En este tema se presenta un ejemplo de código de Python Flask que se puede usar para conectarse a MongoDB API de Azure Cosmos DB y realizar consultas.
 services: cosmos-db
 author: slyons
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.author: sclyon
-ms.openlocfilehash: 70a103aa7c03abeed98237a3b1dc3ec8b514810a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849064"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165119"
 ---
-# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: compilación de una aplicación de Flask con MongoDB API
+# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: Compilación de una aplicación de Flask con la API de MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -46,7 +46,7 @@ En esta guía de inicio rápido se usa el siguiente [ejemplo de Flask](https://g
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
-Ahora vamos a clonar una aplicación de Flask con MongoDB API desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación.
+Ahora clonaremos una aplicación de Flask con la API de MongoDB desde GitHub, estableceremos la cadena de conexión y la ejecutaremos. Verá lo fácil que es trabajar con datos mediante programación.
 
 1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
 
@@ -120,7 +120,7 @@ Los fragmentos de código siguientes se han tomado del archivo app.py y se utili
 
 Si desea probar el código comparándolo con una cuenta de Azure Cosmos DB en vivo, vaya a Azure Portal para crear una cuenta y obtener la información de la cadena de conexión. A continuación, cópiela en la aplicación.
 
-1. En [Azure Portal](http://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Cadena de conexión** y en **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el nombre de usuario, la contraseña y el host en el archivo Dal.cs en el paso siguiente.
+1. En [Azure Portal](https://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Cadena de conexión** y en **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el nombre de usuario, la contraseña y el host en el archivo Dal.cs en el paso siguiente.
 
 2. Abra el archivo **app.py** en el directorio raíz.
 
@@ -134,7 +134,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 ## <a name="deploy-to-azure"></a>Implementar en Azure
 
-Para implementar esta aplicación, puede crear una nueva aplicación web en Azure y habilitar la implementación continua con una bifurcación de este repositorio de GitHub. Siga este [tutorial](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) para configurar la implementación continua con GitHub en Azure.
+Para implementar esta aplicación, puede crear una aplicación web en Azure y habilitar la implementación continua con una bifurcación de este repositorio de GitHub. Para configurar la implementación continua con GitHub en Azure, siga este [tutorial](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment).
 
 Para la implementación en Azure, debe quitar las claves de la aplicación y asegurarse de que la sección siguiente no tiene comentarios:
 
@@ -149,7 +149,7 @@ Después debe agregar los valores de MONGOURL, MONGO_PASSWORD y MONGO_USERNAME a
 Si no desea crear una bifurcación de este repositorio, también puede hacer clic en el botón de implementación en Azure siguiente. A continuación, debe ir a Azure y ajustar la configuración de la aplicación con la información de cuenta de Cosmos DB.
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
-<img src="http://azuredeploy.net/deploybutton.png"/>
+<img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]

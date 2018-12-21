@@ -1,5 +1,5 @@
 ---
-title: Análisis de vídeos con Azure Media Services | Microsoft Docs
+title: Análisis de vídeos con Media Services (Azure) | Microsoft Docs
 description: Siga los pasos de este tutorial para analizar los vídeos con Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,17 +9,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 3f0d6784f7b7c476313c5cc4190cacd99e4c3973
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612771"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133900"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Tutorial: Análisis de vídeos con Media Services v3 mediante las API
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Tutorial: Análisis de vídeos con Media Services v3 mediante API
 
 En este tutorial se muestra cómo analizar vídeos con Azure Media Services. Hay muchos escenarios en los que puede desear obtener información detallada sobre los vídeos grabados o el contenido de audio. Por ejemplo, para lograr una mayor satisfacción del cliente, las organizaciones pueden ejecutar el procesamiento de voz a texto para convertir las grabaciones de soporte técnico al cliente en un catálogo que permite búsquedas, con índices y paneles. A continuación, los clientes pueden obtener información detallada sobre sus empresas, como una lista de las quejas más habituales, orígenes de dichas quejas, y más información útil.
 
@@ -115,7 +115,7 @@ Al crear una **transformación**, debe comprobar primero si ya existe una con el
 
 #### <a name="job"></a>Trabajo
 
-Como se mencionó anteriormente, el objeto [Transform](https://docs.microsoft.com/rest/api/media/transforms) es la receta y un [trabajo](https://docs.microsoft.com/rest/api/media/jobs) es la solicitud real a Media Services para aplicar que dicho objeto **Transform** a un determinado contenido de audio o vídeo de entrada. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida. Puede especificar la ubicación del vídeo mediante direcciones URL HTTPS, direcciones URL de SAS o recursos que están en la cuenta de Media Service. 
+Como se mencionó anteriormente, el objeto [Transform](https://docs.microsoft.com/rest/api/media/transforms) es la receta y un [trabajo](https://docs.microsoft.com/rest/api/media/jobs) es la solicitud real a Media Services para aplicar que dicho objeto **Transform** a un determinado contenido de audio o vídeo de entrada. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida. Puede especificar la ubicación del vídeo mediante: direcciones URL HTTPS, direcciones URL de SAS o recursos que se encuentran en su cuenta de Media Services. 
 
 En este ejemplo, la entrada de trabajo es un vídeo local.  
 
@@ -129,7 +129,7 @@ El sondeo no es un procedimiento recomendado para aplicaciones de producción de
 
 Event Grid está diseñado para una alta disponibilidad, un rendimiento consistente y una escala dinámica. Con Event Grid, sus aplicaciones pueden escuchar y reaccionar a eventos de casi todos los servicios de Azure y de orígenes personalizados. El control de eventos sencillo y reactivo basado en HTTP le ayuda a crear soluciones eficaces con filtrado y enrutamiento de eventos inteligente. Consulte [Enrutamiento de eventos a un punto de conexión web personalizado](job-state-events-cli-how-to.md).
 
-El **trabajo** normalmente pasa por los siguientes estados: **Programado**, **En cola**, **Procesando**, **Finalizado** (el estado final). Si el trabajo ha encontrado un error, obtendrá el estado **Error**. Si el trabajo está en proceso de cancelación, obtendrá **Cancelando** y **Cancelado** cuando haya terminado.
+El **trabajo** pasa normalmente por los siguientes estados: **Programado**, **En cola**, **Procesando**, **Finalizado** (el estado final). Si el trabajo ha encontrado un error, obtendrá el estado **Error**. Si el trabajo está en proceso de cancelación, obtendrá **Cancelando** y **Cancelado** cuando haya terminado.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
 

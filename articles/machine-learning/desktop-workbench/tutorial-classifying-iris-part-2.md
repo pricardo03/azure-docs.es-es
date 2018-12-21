@@ -11,14 +11,14 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/15/2018
+ms.date: 03/15/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2e4ede4a699eaac1e5f8c632901239fb04ebcd30
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997336"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276764"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Tutorial 2: Clasificación de Iris - Creación de un modelo
 
@@ -266,7 +266,7 @@ Si lo desea, puede experimentar con la ejecución de scripts en un contenedor de
 
 5. Ahora, vamos probar Spark. La imagen base de Docker contiene una instancia de Spark preinstalada y configurada que se puede usar para ejecutar un script de PySpark. Con esta imagen base es fácil desarrollar y probar un programa de Spark sin tener que dedicar tiempo a instalar y configurar Spark. 
 
-   Abra el archivo `iris_spark.py`. Este script carga el archivo de datos `iris.csv` y usa el algoritmo de regresión logística de la biblioteca de aprendizaje automático de Spark para clasificar el conjunto de datos Iris. Ahora, cambie el entorno de ejecución a **docker-spark**, el script a **iris_spark.py** y vuelva a ejecutarlo. Este proceso tarda un poco más porque se tiene que crear e iniciar una sesión de Spark en el contenedor de Docker. También puede ver que la propiedad StdOut es diferente que la propiedad StdOut de `iris_spark.py`.
+   Abra el archivo `iris_spark.py` . Este script carga el archivo de datos `iris.csv` y usa el algoritmo de regresión logística de la biblioteca de aprendizaje automático de Spark para clasificar el conjunto de datos Iris. Ahora, cambie el entorno de ejecución a **docker-spark**, el script a **iris_spark.py** y vuelva a ejecutarlo. Este proceso tarda un poco más porque se tiene que crear e iniciar una sesión de Spark en el contenedor de Docker. También puede ver que la propiedad StdOut es diferente que la propiedad StdOut de `iris_spark.py`.
 
 6. Inicie algunas ejecuciones más y experimente con distintos argumentos. 
 

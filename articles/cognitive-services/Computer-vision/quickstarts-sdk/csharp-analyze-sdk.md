@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Análisis de imágenes - SDK, C# - Computer Vision'
+title: 'Inicio rápido: Análisis de imágenes - SDK, C# - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, analizará una imagen mediante la biblioteca cliente de C# para Windows de Computer Vision.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 7de7a87c73c2dabddf2268a6a0bc2992d6017e4d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0983978221e9872e92ca366edd3bd3f2bfd9c3f4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853938"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413326"
 ---
-# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Guía de inicio rápido: Análisis de imágenes con el SDK de Computer Vision y C#
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Inicio rápido: Análisis de imágenes con el SDK de Computer Vision y C#
 
 En esta guía de inicio rápido, analizará una imagen local y remota para extraer características visuales mediante la biblioteca de cliente en Windows para Computer Vision.
 
@@ -30,7 +30,7 @@ En esta guía de inicio rápido, analizará una imagen local y remota para extra
 ## <a name="analyzeimageasync-method"></a>Método AnalyzeImageAsync
 
 > [!TIP]
-> Obtenga el código más reciente como solución de Visual Studio desde [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+> Obtenga el código más reciente como solución de Visual Studio desde [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Los métodos `AnalyzeImageAsync` y `AnalyzeImageInStreamAsync` encapsulan [Analyze Image API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para las imágenes remotas y locales, respectivamente. Puede usar estos métodos para extraer características visuales basadas en el contenido de la imagen y seleccionar las características que se van a devolver, por ejemplo:
 
@@ -162,7 +162,7 @@ namespace ImageAnalyze
 
 Una respuesta correcta muestra el título más pertinente para cada imagen.
 
-Consulte las [Guías de inicio rápido de API: Análisis de imágenes locales con C#](../QuickStarts/CSharp-analyze.md#examine-the-response) para ver un ejemplo de la salida JSON sin procesar.
+Consulte [Inicios rápidos de API: Análisis de imágenes locales con C#](../QuickStarts/CSharp-analyze.md#examine-the-response) para ver un ejemplo de la salida JSON sin procesar.
 
 ```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg

@@ -1,5 +1,5 @@
 ---
-title: Tutorial para agregar la función Autocompletar al cuadro de búsqueda con Azure Search | Microsoft Docs
+title: 'Tutorial para agregar la función Autocompletar al cuadro de búsqueda: Azure Search'
 description: Ejemplos de cómo mejorar la experiencia del usuario final de las aplicaciones centradas en los datos con las API de sugerencias y la función Autocompletar de Azure Search.
 manager: pablocas
 author: mrcarter8
@@ -9,16 +9,17 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578181"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316189"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Tutorial: Incorporación de la función Autocompletar al cuadro de búsqueda con Azure Search
 
-En este tutorial, obtendrá información sobre cómo usar las [sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions), la función [Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) y las [facetas](search-faceted-navigation.md) en la [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/) y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para crear un cuadro de búsqueda eficaz. Las *sugerencias* proporcionan recomendaciones de resultados reales basadas en lo que el usuario ha escrito hasta el momento. La función *Autocompletar*, [una nueva característica de versión preliminar](search-api-preview.md) de Azure Search, proporciona términos del índice para completar lo que el usuario está escribiendo. Compararemos varias técnicas para mejorar la productividad del usuario y encontrar rápida y fácilmente lo que buscan al trasladar la eficacia de la búsqueda directamente al usuario mientras escribe.
+En este tutorial, obtendrá información sobre cómo usar las [sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions), la función [Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) y las [facetas](search-faceted-navigation.md) en la [API REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/) y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para crear un cuadro de búsqueda eficaz. Las *sugerencias* proporcionan recomendaciones de resultados reales basadas en lo que el usuario ha escrito hasta el momento. La función *Autocompletar*, [una nueva característica de versión preliminar](search-api-preview.md) de Azure Search, proporciona términos del índice para completar lo que el usuario está escribiendo. Compararemos varias técnicas para mejorar la productividad del usuario y encontrar rápida y fácilmente lo que buscan al trasladar la eficacia de la búsqueda directamente al usuario mientras escribe.
 
 Este tutorial lo guiará por una aplicación basada en ASP.NET MVC que usa C# para llamar a las [bibliotecas cliente de .NET para Azure Search](https://aka.ms/search-sdk) y JavaScript para llamar directamente la API REST de Azure Search. La aplicación de este tutorial está dirigida a un índice que se rellena con los datos de ejemplo de [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Puede usar el índice ya configurado en la demostración NYCJobs o rellenar su propio índice con un cargador de datos en la solución de ejemplo NYCJobs. En el ejemplo se usan las bibliotecas [jQuery UI](https://jqueryui.com/autocomplete/) y [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) de JavaScript para crear un cuadro de búsqueda que admite la función Autocompletar. Si usa estos componentes junto con Azure Search, verá varios ejemplos de cómo admitir la función Autocompletar para anticipar la escritura en el cuadro de búsqueda.
 

@@ -1,5 +1,5 @@
 ---
-title: Creación de su primera aplicación web de Java en Azure
+title: 'Creación de una aplicación web de Java: Azure App Service'
 description: Aprenda a ejecutar aplicaciones web en App Service mediante la implementación de una aplicación básica de Java.
 services: app-service\web
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.custom: seodec18
+ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283935"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253170"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Creación de su primera aplicación web de Java en Azure
 
-[Azure Web Apps](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. Esta guía de inicio rápido muestra cómo implementar una aplicación web de Java en App Service mediante [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
+[Azure Web Apps](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. Esta guía de inicio rápido muestra cómo implementar una aplicación web de Java en App Service mediante [Eclipse IDE for Java EE Developers](https://www.eclipse.org/).
 
 > [!NOTE]
 >
@@ -37,11 +37,11 @@ Cuando haya completado esta guía de inicio rápido, la aplicación se parecerá
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido necesita instalar:
 
-* El entorno gratuito <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. Este guía de inicio rápido utiliza Eclipse Neon.
+* El entorno gratuito <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. Este guía de inicio rápido utiliza Eclipse Neon.
 * El <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">kit de herramientas de Azure para Eclipse</a>.
 
 > [!NOTE]

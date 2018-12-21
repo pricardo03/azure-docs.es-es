@@ -1,19 +1,19 @@
 ---
-title: Importación de datos para su uso con Table API de Azure Cosmos DB
-description: Aprenda a importar datos que se usarán con Table API de Azure Cosmos DB.
-services: cosmos-db
+title: Migración de datos existentes a la cuenta de Table API en Azure Cosmos DB
+description: Aprenda a migrar o importar datos locales o en la nube a una cuenta de Table API de Azure en Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 12/07/2017
 ms.author: sngun
-ms.openlocfilehash: d277df3fa98564ebec92e548fa070e92cf76f200
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: b2256f16d284cb079231e271a7fc06c25c381c8a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874046"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137691"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migración de los datos a una cuenta de Table API de Azure Cosmos DB
 
@@ -28,9 +28,9 @@ En este tutorial se describen las tareas siguientes:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Aumente el rendimiento**: la duración de la migración de datos depende de la cantidad de rendimiento configurado para un solo contenedor o un conjunto de contenedores. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información acerca de cómo aumentar el rendimiento en Azure Portal, consulte Niveles de rendimiento y planes de tarifa de Azure Cosmos DB.
+* **Aumento del rendimiento:** la duración de la migración de datos depende de la cantidad de rendimiento configurado para un solo contenedor o un conjunto de contenedores. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información acerca de cómo aumentar el rendimiento en Azure Portal, consulte Niveles de rendimiento y planes de tarifa de Azure Cosmos DB.
 
-* **Cree recursos de Azure Cosmos DB:** antes de comenzar la migración de datos, cree previamente todas las tablas desde Azure Portal. Si va a migrar a una cuenta de Azure Cosmos DB que tiene un rendimiento de nivel de base de datos, asegúrese de proporcionar una clave de partición al crear las tablas de Azure Cosmos DB.
+* **Creación de recursos de Azure Cosmos DB:** antes de comenzar la migración de datos, cree previamente todas las tablas desde Azure Portal. Si va a migrar a una cuenta de Azure Cosmos DB que tiene un rendimiento de nivel de base de datos, asegúrese de proporcionar una clave de partición al crear las tablas de Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Herramienta de migración de datos
 
@@ -89,7 +89,7 @@ Utilice las siguientes opciones de destino al definir Table API de Azure Cosmos 
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
 <a id="azure-table-storage"></a>
-### <a name="sample-command-source-is-azure-table-storage"></a>Comando de ejemplo: el origen es Azure Table Storage
+### <a name="sample-command-source-is-azure-table-storage"></a>Comando de ejemplo: El origen es el almacenamiento de Azure Table
 
 A continuación se muestra un ejemplo de línea de comandos para importar desde Azure Table Storage a Table API:
 
@@ -97,7 +97,7 @@ A continuación se muestra un ejemplo de línea de comandos para importar desde 
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
-### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Comando de ejemplo: el origen es Table API de Azure Cosmos DB (versión preliminar)
+### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Comando de ejemplo: El origen es Table API de Azure Cosmos DB (versión preliminar)
 
 A continuación se muestra un ejemplo de línea de comandos para importar desde la versión preliminar de Table API a Table API con disponibilidad general:
 

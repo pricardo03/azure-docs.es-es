@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: pafarley
-ms.openlocfilehash: c1b25db440023618d3d633f9a2b2ebcd5c0a6293
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: c0323c215e83850dc53acd5e350d7eeeeb9a05b1
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852493"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413224"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Inicio rápido: Extracción de texto con el SDK de Computer Vision y C#
 
@@ -30,7 +30,7 @@ En esta guía de inicio rápido, extraerá texto escrito a mano o impreso de una
 ## <a name="recognizetextasync-method"></a>Método RecognizeTextAsync
 
 > [!TIP]
-> Obtenga el código más reciente como solución de Visual Studio desde [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+> Obtenga el código más reciente como solución de Visual Studio desde [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Los métodos `RecognizeTextAsync` y `RecognizeTextInStreamAsync` encapsulan [Recognize Text API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) para las imágenes remotas y locales, respectivamente. El método `GetTextOperationResultAsync` encapsula [Get Recognize Text Operation Results API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).  Puede usar estos métodos para detectar texto en una imagen y extraer los caracteres reconocidos en una secuencia de caracteres que pueda usar una máquina.
 
@@ -188,7 +188,7 @@ namespace ExtractText
 
 Una respuesta correcta muestra las líneas del texto reconocido en cada imagen.
 
-Consulte [Inicio rápido: Extracción de texto escrito a mano (REST, C#)](../QuickStarts/CSharp-hand-text.md#examine-the-response) para ver un ejemplo de la salida JSON sin procesar.
+Consulte el [Inicio rápido: Extracción de texto escrito a mano (REST, C#)](../QuickStarts/CSharp-hand-text.md#examine-the-response) para ver un ejemplo de la salida JSON sin procesar.
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()

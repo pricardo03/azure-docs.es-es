@@ -1,23 +1,24 @@
 ---
-title: 'Guía de inicio rápido: publicación de la base de conocimiento con REST y C# en QnA Maker'
-titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido basada en REST se explica el proceso de publicación de la base de conocimiento que le permite insertar la versión más reciente probada en un índice de Azure Search dedicado que representa la base de conocimiento publicada. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
+title: Publicación de la base de conocimiento, REST, C#
+titleSuffix: QnA Maker- Azure Cognitive Services
+description: En este inicio rápido basado en REST de C# se explica el proceso de publicación de la base de conocimiento que le permite insertar la versión más reciente probada en un índice de Azure Search dedicado que representa la base de conocimiento publicada. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/18/2018
 ms.author: diberry
-ms.openlocfilehash: e48f493c08ee96b75c1d418fdbef1d36672a48a3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 678b5d340fc81ad917e42e9b8e80051cc511da87
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163901"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162620"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Guía de inicio rápido: publicación de una base de conocimiento en QnA Maker con C#
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Inicio rápido: Publicación de una base de conocimiento en QnA Maker con C#
 
 En esta guía de inicio rápido basada en REST se describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
 
@@ -32,7 +33,7 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 
     ![Identificador de base de conocimiento de QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Si aún no tiene una base de conocimiento, puede crear una de ejemplo para usar en esta guía de inicio rápido: [Creación de una nueva base de conocimiento](create-new-kb-csharp.md).
+    Si aún no tiene una base de conocimiento, puede crear una de ejemplo para usar en este inicio rápido: [Creación de una base de conocimiento](create-new-kb-csharp.md)
 
 > [!NOTE] 
 > Los archivos de la solución completa están disponibles en el repositorio [**Azure-Samples/cognitive-services-qnamaker-csharp** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).

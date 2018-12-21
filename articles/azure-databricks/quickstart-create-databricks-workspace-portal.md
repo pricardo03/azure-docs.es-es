@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: ejecución de un trabajo de Spark en Azure Databricks con Azure Portal'
+title: 'Guía de inicio rápido: Ejecución de un trabajo de Spark en Azure Databricks con Azure Portal'
 description: La guía de inicio rápido muestra cómo usar Azure Portal para crear un área de trabajo de Azure Databricks y un clúster de Apache Spark, además de ejecutar un trabajo de Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 080bf465d65199c54e0d09eab8c7bccbc9616ed7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568961"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259552"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guía de inicio rápido: ejecución de un trabajo de Spark en Azure Databricks con Azure Portal
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guía de inicio rápido: Ejecución de un trabajo de Spark en Azure Databricks con Azure Portal
 
 Esta guía de inicio rápido muestra cómo crear un área de trabajo de Azure Databricks y un clúster de Apache Spark dentro de esa área de trabajo. Por último, aprenderá a ejecutar un trabajo de Spark en el clúster de Databricks. Para obtener más información sobre Azure Databricks, vea [¿Qué es Azure Databricks?](what-is-azure-databricks.md)
 
@@ -76,7 +76,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     * Escriba un nombre para el clúster.
     * Para este artículo, cree un clúster con el entorno en tiempo de ejecución **4.0**.
-    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
+    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de ____ minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
     
     Seleccione **Create cluster** (Crear clúster). Una vez que el clúster se está ejecutando, puede asociarle notebooks y ejecutar trabajos de Spark.
 
@@ -86,12 +86,12 @@ Para obtener más información sobre la creación de clústeres, consulte [Creat
 ## <a name="download-a-sample-data-file"></a>Carga de un archivo de datos de ejemplo
 Descargue un archivo de datos JSON de ejemplo y guárdelo en Azure Blob Storage.
 
-1. Descargue este archivo de datos JSON de ejemplo [desde Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) en el equipo local. Haga clic con el botón derecho en él y seleccione Guardar como para guardar el archivo sin formato de forma local.
+1. Descargue este archivo de datos JSON de ejemplo [desde GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) en el equipo local. Haga clic con el botón derecho en él y seleccione Guardar como para guardar el archivo sin formato de forma local.
 
 2. Si aún no tiene una cuenta de almacenamiento, cree una.
     - En Azure Portal, haga clic en **Crear un recurso**. Seleccione la categoría **Almacenamiento** y, después, **Cuentas de almacenamiento**
     - Proporcione un nombre único para la cuenta de almacenamiento.
-    - Seleccione **Tipo de cuenta**: **Blob Storage**.
+    - Seleccione **Tipo de cuenta**: **Blob Storage**
     - Seleccione un nombre para el **grupo de recursos**. Use el mismo grupo de recursos en el que creó el área de trabajo de Databricks.
     
     Para más información, consulte [Creación de una cuenta de Azure Blob Storage](../storage/common/storage-quickstart-create-account.md).
@@ -200,7 +200,7 @@ Cuando haya terminado el artículo, puede finalizar el clúster. Para ello, desd
 
 ![Detener un clúster de Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de \_\_ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detiene automáticamente si ha estado inactivo durante el tiempo especificado.
+Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de __ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detiene automáticamente si ha estado inactivo durante el tiempo especificado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

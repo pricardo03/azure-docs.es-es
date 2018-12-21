@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986465"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993841"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Tutorial: Oferta de bases de datos MySQL de alta disponibilidad
 
@@ -46,7 +46,7 @@ Antes de comenzar los pasos descritos en este tutorial, asegúrese de que el [pr
 > Todos los elementos siguientes son necesarios para crear el clúster de MySQL.
 
 - [MySQL con replicación](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Se trata de la plantilla de solución de Bitnami que se usará para la implementación del clúster de MySQL.
-- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview). Debian 8 "Jessie" con kernel backports para Microsoft Azure proporcionado por credativ. Debian GNU/Linux es una de las distribuciones de Linux más populares.
+- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian). Debian 8 "Jessie" con kernel backports para Microsoft Azure proporcionado por credativ. Debian GNU/Linux es una de las distribuciones de Linux más populares.
 - [Script personalizado para Linux 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview). La extensión de script personalizado es una herramienta para ejecutar sus tareas de personalización de VM tras el aprovisionamiento de la VM. Cuando esta extensión se agrega a una máquina virtual, puede descargar los scripts de Azure Storage y ejecutarlos en la máquina virtual. Las tareas de la extensión de script personalizado también se pueden automatizar mediante los cmdlets de PowerShell de Azure y la interfaz de línea de comandos multiplataforma de Azure (CLI xPlat).
 - Extensión de acceso a máquina virtual para Linux 1.4.7. La extensión de acceso a máquina virtual le permite restablecer la contraseña, la clave SSH o las configuraciones de SSH, por lo que puede recuperar el acceso a la máquina virtual. También puede agregar un nuevo usuario con la contraseña o la clave SSH, o bien eliminar un usuario mediante esta extensión. Esta extensión está destinada a las máquinas virtuales Linux.
 
@@ -187,7 +187,7 @@ Una vez que el clúster de MySQL se ha creado, configurado y agregado como servi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a:
+En este tutorial, ha aprendido cómo:
 
 > [!div class="checklist"]
 > * Crear un clúster de MySQL Server desde elementos de Marketplace

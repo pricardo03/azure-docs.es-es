@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Aplicación de página única de Bing News Search'
+title: 'Tutorial: Crear una aplicación web de una sola página: Bing News Search API'
 titlesuffix: Azure Cognitive Services
-description: Aquí se indica cómo utilizar Bing News Search API en una aplicación web de una sola página.
+description: Use este tutorial para crear una aplicación web de una sola página que pueda enviar consultas a Bing News API y mostrar los resultados en la página web.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,16 @@ ms.component: bing-news-search
 ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: 1d27751d12c82736ca519bb3a0e9bcd49bef4a47
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803654"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262051"
 ---
-# <a name="tutorial-single-page-news-search-app"></a>Tutorial: Aplicación News Search de página única
+# <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Creación de una aplicación web de una sola página
+
 Bing News Search API permite buscar en la Web y obtener resultados relacionados con las noticias y que sean relevantes para una consulta de búsqueda. En este tutorial, crearemos una aplicación web de una sola página que usa Bing News Search API para mostrar los resultados de la búsqueda directamente en la página. La aplicación incluye componentes HTML, CSS y JavaScript.
 
 <!-- Remove until we can replace it with sanitized copy

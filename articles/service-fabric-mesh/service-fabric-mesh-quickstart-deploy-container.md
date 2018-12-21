@@ -9,14 +9,14 @@ ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: ce3001a2984726332b036eea69d4e18e3d7d300b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 4be24b00c3ac4ffadf7eafdc7397f59113ec03b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890439"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088370"
 ---
-# <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Inicio rápido: Implementación de una aplicación "Hola mundo" en Service Fabric Mesh
+# <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Inicio rápido: Implementación de un programa "Hola mundo" en Service Fabric Mesh
 
 [Service Fabric Mesh](service-fabric-mesh-overview.md) facilita la creación y administración de aplicaciones de microservicio en Azure, sin tener que aprovisionar máquinas virtuales. En este inicio rápido, creará una aplicación "Hola mundo" en Azure y la expondrá en Internet. Esta operación se completa en un solo comando. Dentro de un par de minutos, podrá ver esta vista en el explorador:
 
@@ -48,10 +48,10 @@ az group create --name myResourceGroup --location eastus
 Cree su aplicación en el grupo de recursos mediante el comando `az mesh deployment create`.  Ejecute lo siguiente:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
-El comando anterior implementa una aplicación Linux con la [plantilla mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Si quiere implementar una aplicación Windows, use la [plantilla mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Las imágenes de contenedor de Windows son más grandes que las imágenes de contenedor de Linux y pueden tardar más en implementarse.
+El comando anterior implementa una aplicación Linux con la [plantilla linux.json](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json). Si quiere implementar una aplicación Windows, use la [plantilla windows.json](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.windows.json). Las imágenes de contenedor de Windows son más grandes que las imágenes de contenedor de Linux y pueden tardar más en implementarse.
 
 Este comando producirá un fragmento de código de JSON que se muestra a continuación. En la sección ```outputs``` de la salida de JSON, copie la propiedad ```publicIPAddress```.
 

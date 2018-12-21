@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614011"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337893"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registro de instancias de contenedor con Azure Log Analytics
 
@@ -24,7 +24,7 @@ Para enviar datos de instancias de contenedores a Log Analytics debe crear un gr
 
 Para habilitar el registro en las instancias de los contenedores, necesita lo siguiente:
 
-* [Área de trabajo de Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [CLI de Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Obtención de las credenciales de Log Analytics
@@ -44,7 +44,7 @@ Para obtener el identificador y la clave principal del área de trabajo de Log A
 
 Ahora que tiene el identificador del área de trabajo y la clave principal de Log Analytics, ya puede crear un grupo contenedor con el registro habilitado.
 
-Los ejemplos siguientes muestran dos maneras de crear un grupo de contenedores con un solo contenedor [fluentd][fluentd]: CLI de Azure y CLI de Azure con una plantilla YAML. El contenedor Fluentd genera varias líneas de salida en su configuración predeterminada. Dado que esta salida se envía a su área de trabajo de Log Analytics, sirve para mostrar la visualización y consulta de registros.
+En los ejemplos siguientes se muestran dos maneras de crear un grupo de contenedores con un solo contenedor [fluentd][fluentd]: CLI de Azure y la CLI de Azure con una plantilla de YAML. El contenedor Fluentd genera varias líneas de salida en su configuración predeterminada. Dado que esta salida se envía a su área de trabajo de Log Analytics, sirve para mostrar la visualización y consulta de registros.
 
 ### <a name="deploy-with-azure-cli"></a>Implementación con la CLI de Azure
 
@@ -135,7 +135,7 @@ ContainerInstanceLog_CL
 Para más información acerca de cómo realizar consultas en registros y configurar alertas en Azure Log Analytics, consulte:
 
 * [Descripción de las búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-search.md)
-* [Alertas unificadas en Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+* [Alertas unificadas en Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Supervisión de la CPU y la memoria de los contenedores

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8dacfb054a36801c076435037a530daa87c4a89c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918582"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409419"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Creación de conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar su conjunto de escalado de máquinas virtuales (VMSS) de Azure, al igual que podría hacerlo con cualquier otro recurso de Azure. En este artículo se muestra cómo usar Ansible para crear y escalar horizontalmente un conjunto de escalado de máquinas virtuales. 
@@ -37,7 +37,7 @@ En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo qu
 
 Escriba su propia contraseña para el valor *admin_password*.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -141,7 +141,7 @@ Para ejecutar el cuaderno de estrategias de Ansible, use el comando **ansible-pl
 
 Tras ejecutar el cuaderno de estrategias, una salida similar a la del siguiente ejemplo muestra que el conjunto de escalado de máquinas virtuales se ha creado correctamente:
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -190,7 +190,7 @@ Debería ver resultados similares a la siguiente salida:
 
 Ahora, vamos a escalar de dos a tres instancias. El siguiente código del cuaderno de estrategias de Ansible recupera información sobre el escalado de máquinas virtuales y cambia su capacidad de dos a tres. 
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -225,7 +225,7 @@ El siguiente comando ejecutará el cuaderno de estrategias:
 
 El resultado de la ejecución del cuaderno de estrategias de Ansible muestra que el conjunto de escalado de máquinas virtuales se ha escalado horizontalmente con éxito:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -275,4 +275,6 @@ El resultado de la ejecución del comando en Cloud Shell muestra que ahora exist
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"] 
-> [Cuaderno de estrategias de ejemplo de Ansible para VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure mediante Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
+
+> [Escalado automático de un conjunto de escalado de máquinas virtuales con Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

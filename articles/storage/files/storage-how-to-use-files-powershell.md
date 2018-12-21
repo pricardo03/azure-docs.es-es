@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 48ac46a9087e8027d0282533afccc4d9b28481ba
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a82e7d795d9e40ebef8cf0937dd2b91f5bacd42e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582475"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138881"
 ---
-# <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Guía de inicio rápido: Creación y administración de un recurso compartido de archivos de Azure con Azure PowerShell 
+# <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Inicio rápido: Creación y administración de un recurso compartido de archivos de Azure con Azure PowerShell 
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) con PowerShell. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo SMB estándar del sector y permiten el uso compartido entre varias máquinas, aplicaciones e instancias. 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -227,16 +227,18 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Como alternativa, puede quitar recursos de uno en uno:
 
 - Quitar los recursos compartidos de archivos de Azure que hemos creado para esta guía de inicio rápido.
-```azurepowershell-interactive
-Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.IsSnapshot -eq $false } | ForEach-Object { 
-    Remove-AzureStorageShare -Context $storageAcct.Context -Name $_.Name
-}
-```
+
+    ```azurepowershell-interactive
+    Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.IsSnapshot -eq $false } | ForEach-Object { 
+        Remove-AzureStorageShare -Context $storageAcct.Context -Name $_.Name
+    }
+    ```
 
 - Quitar la propia cuenta de almacenamiento (así se quitarán implícitamente los recursos compartidos de archivos de Azure que hemos creado, así como cualquier otro recurso de almacenamiento que pueda haber creado, como un contenedor de Azure Blob Storage).
-```azurepowershell-interactive
-Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -Name $storageAcct.StorageAccountName
-```
+
+    ```azurepowershell-interactive
+    Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -Name $storageAcct.StorageAccountName
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

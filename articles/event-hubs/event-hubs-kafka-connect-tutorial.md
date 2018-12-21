@@ -1,21 +1,21 @@
 ---
 title: Integración de Apache Kafka Connect con Azure Event Hubs | Microsoft Docs
-description: Use Apache Spark con Azure Event Hubs para Kafka.
+description: En este artículo se proporciona información sobre cómo usar Apache Spark con Azure Event Hubs para Kafka.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
-ms.custom: ''
-ms.date: 11/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 9a9972806c9691136bea380f9efd4e0d032deaf2
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f405fe1c93ad17476ac47bc23951c65a5ea5db73
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285091"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091370"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integración de la compatibilidad con Apache Kafka Connect en Azure Event Hubs (versión preliminar)
 A medida que aumenta la ingesta para las necesidades del negocio, también aumenta la necesidad de ingerir para varios orígenes y receptores externos. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) proporciona dicha plataforma para conectar e importar o exportar datos desde y hacia cualquier sistema externo como MySQL, HDFS y sistema de archivos mediante un clúster de Kafka. Este tutorial le guiará por el uso de la plataforma de Kafka Connect con centros de eventos habilitados para Kafka.
@@ -28,7 +28,7 @@ Este ejemplo está disponible en [GitHub](https://github.com/Azure/azure-event-h
 En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
-> * Crear un espacio de nombres de Event Hubs
+> * Creación de un espacio de nombres de Event Hubs
 > * Clonación del proyecto de ejemplo
 > * Configuración de Kafka Connect para Event Hubs
 > * Ejecución de Kafka Connect
@@ -43,7 +43,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 - Versión de Kafka (versión 1.1.1, Scala versión 2.11), disponible en [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Lea el artículo de introducción [Event Hubs para Apache Kafka](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview).
 
-## <a name="create-an-event-hubs-namespace"></a>Crear un espacio de nombres de Event Hubs
+## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 Se requiere un espacio de nombres de Event Hubs para enviar y recibir de cualquier servicio de Event Hubs. Consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](event-hubs-create.md) para obtener instrucciones sobre cómo obtener un punto de conexión de Kafka para Event Hubs. Obtenga la cadena de conexión de Event Hubs y el nombre de dominio completo (FQDN) para su uso posterior. Para obtener instrucciones, consulte [Get an Event Hubs connection string](event-hubs-get-connection-string.md) (Obtención de una cadena de conexión de Event Hubs). 
 
 ## <a name="clone-the-example-project"></a>Clonación del proyecto de ejemplo

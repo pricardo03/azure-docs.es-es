@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 5: Relaciones de elementos primarios y secundarios: entidades jerárquicas de LUIS para datos aprendidos contextualmente'
+title: Entidad jerárquica
 titleSuffix: Azure Cognitive Services
 description: Busque datos relacionados de datos en función del contexto. Por ejemplo, las ubicaciones de origen y destino para un traslado físico de un edificio y oficina a otro edificio y oficina están relacionadas.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424713"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104414"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: Extracción de datos relacionados contextualmente
 En este tutorial, busque datos relacionados en función del contexto. Por ejemplo, las ubicaciones de origen y destino para un traslado físico de un edificio y oficina a otro edificio y oficina están relacionadas. Para generar un pedido de trabajo, ambos datos pueden ser necesarios y están relacionados entre sí.  
@@ -32,7 +33,6 @@ La entidad jerárquica es una buena opción para este tipo de datos debido a las
 
 **En este tutorial, aprenderá a:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Usar la aplicación del tutorial existente
 > * Agregar intención 
@@ -55,7 +55,7 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `hier`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Eliminación de la entidad de número creada previamente de la aplicación
-Para ver la expresión completa y marcar los elementos secundarios jerárquicos, quite temporalmente la entidad numérica creada previamente.
+Para ver la expresión completa y marcar los elementos secundarios jerárquicos, [quite temporalmente la entidad numérica creada previamente](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -90,7 +90,7 @@ LUIS necesita entender lo que es una localización mediante el etiquetado del or
 
 Considere la siguiente expresión:
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
@@ -100,19 +100,19 @@ Aunque solo exista un elemento secundario (origen o destino) de una entidad jer�
 
 1. En la expresión, `Displace 425-555-0000 away from g-2323 toward hh-2345`, seleccione la palabra `g-2323`. Aparece un menú desplegable con un cuadro de texto en la parte superior. Escriba el nombre de entidad `Locations` en el cuadro de texto y, a continuación, seleccione **Create new entity** (Crear nueva entidad) en el menú desplegable. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Captura de pantalla de creación de una entidad en la página de intención")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Captura de pantalla de la creación de una nueva entidad en la página de intención](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Screenshot of creating new entity on intent page")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. En la ventana emergente, seleccione el tipo de entidad **Hierarchical** con `Origin` y `Destination` como entidades secundarias. Seleccione **Listo**.
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Captura de pantalla del cuadro de diálogo emergente de creación de entidad para la nueva entidad Location (Ubicación)")
+    ![Captura de pantalla del cuadro diálogo emergente de creación de entidad para la nueva entidad de ubicación](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Screenshot of entity creation pop-up dialog for new Location entity")
 
 3. La etiqueta de `g-2323` está marcada como `Locations` porque LUIS no sabe si el término era el origen, el destino o ninguno de ellos. Seleccione `g-2323`, después **Locations** y, finalmente, vaya el menú de la derecha y seleccione `Origin`.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Captura de pantalla del cuadro de diálogo emergente del etiquetado de la entidad para cambiar los elementos secundarios de la entidad de ubicaciones")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Captura de pantalla del cuadro diálogo emergente de etiquetado de entidades para cambiar los elementos secundarios de la entidad Locations](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. Etiquete las otras ubicaciones en todas las demás expresiones mediante la selección del edificio y de la oficina en la expresión, después Locations, a continuación, se sigue el menú a la derecha y se selecciona `Origin` o `Destination`. Cuando se etiquetan todas las ubicaciones, las expresiones de la **vista de tokens** comienzan a parecer un patrón. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Captura de pantalla de la entidad Locations etiquetada en las expresiones")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Captura de pantalla de la entidad Locations etiquetada en expresiones](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Screenshot of Locations entity labeled in utterances")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>Adición de la entidad numérica creada previamente a la aplicación
 Agregue la entidad numérica creada previamente a la aplicación.
@@ -140,7 +140,7 @@ Agregue la entidad numérica creada previamente a la aplicación.
 
 2. Vaya al final de la dirección URL en la barra de direcciones y escriba `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `MoveEmployee` con la entidad jerárquica extraída.
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

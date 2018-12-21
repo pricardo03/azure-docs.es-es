@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de Azure Policy: Permitir una imagen de máquina virtual personalizada desde un grupo de recursos'
+title: 'Ejemplo: Permitir una imagen de máquina virtual personalizada desde un grupo de recursos'
 description: Esta directiva de ejemplo requiere que las imágenes personalizadas provengan de un grupo de recursos aprobado.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 1eed7dc0348336d69d0b8ad9206c71fd72c1f012
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 17cf4c4fdfd270ee21f7f01d1c8f89ff1a1d11ea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971236"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315339"
 ---
 # <a name="allow-custom-vm-image-from-a-resource-group"></a>Permitir una imagen de máquina virtual personalizada desde un grupo de recursos
 

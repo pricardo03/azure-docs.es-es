@@ -1,21 +1,22 @@
 ---
-title: Envío de eventos personalizados de Azure Event Grid a la cola de almacenamiento | Microsoft Docs
+title: 'Envío de eventos personalizados a una cola de almacenamiento: Event Grid, CLI de Azure'
 description: Use Azure Event Grid y la CLI de Azure para publicar un tema y suscribirse a ese evento. Para el punto de conexión se usa una cola de almacenamiento.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: c9b5e33f7994209bf1530200cf14d812fa1cf67d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.custom: seodec18
+ms.openlocfilehash: 065ace2f34f95cf0813f0088a188c7fdb1d66d2e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299153"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093971"
 ---
-# <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Enrutar eventos personalizados a Azure Queue Storage con la CLI de Azure y Event Grid
+# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Inicio rápido: Enrutar eventos personalizados a Azure Queue Storage con la CLI de Azure y Event Grid
 
 Azure Event Grid es un servicio de eventos para la nube. Azure Queue Storage es uno de los controladores de eventos compatibles. En este artículo, se usará la CLI de Azure para crear un tema personalizado, suscribirse a él y desencadenar el evento para ver el resultado. Envíe los eventos a Queue Storage.
 

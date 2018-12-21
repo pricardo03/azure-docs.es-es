@@ -1,27 +1,20 @@
 ---
-title: 'Tutorial: Autenticación de Azure SignalR Service con Azure Functions | Microsoft Docs'
+title: 'Tutorial: autenticación de Azure SignalR Service con Azure Functions'
 description: En este tutorial, aprenderá cómo autenticar los clientes del servicio Azure SignalR
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
-ms.workload: tbd
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 8af657c39217f3edcadef6ec0981a31ec7e89aa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34cbb4d2c8a1e84499961802ca7bd07408375345
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978435"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409400"
 ---
-# <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: Autenticación de Azure SignalR Service con Azure Functions
+# <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticación de Azure SignalR Service con Azure Functions
 
 Un tutorial detallado para crear un salón de chat con autenticación y mensajería privadas mediante Azure Functions, App Service y SignalR Service.
 
@@ -42,14 +35,12 @@ El siguiente software es necesario para poder seguir este tutorial.
 * [SDK de .NET](https://www.microsoft.com/net/download) (versión 2.x, necesaria para las extensiones de Functions)
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) (versión 2)
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code) con las siguientes extensiones
-    * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions): trabajo con Azure Functions en VS Code
-    * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): ofrece páginas web localmente para la realización de pruebas
-
+  * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions): trabajo con Azure Functions en VS Code
+  * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): ofrece páginas web localmente para la realización de pruebas
 
 ## <a name="sign-into-the-azure-portal"></a>Inicie sesión en Azure Portal.
 
 Vaya a [Azure Portal](https://portal.azure.com/) e inicie sesión con sus credenciales.
-
 
 ## <a name="create-an-azure-signalr-service-instance"></a>Creación de una instancia de Azure SignalR Service
 
@@ -69,9 +60,8 @@ Va a compilar y probar la aplicación de Azure Functions localmente. La aplicaci
     | Grupos de recursos | Creación de un nuevo grupo de recursos |
     | Ubicación | Selección de una ubicación cercana a usted |
     | Nivel de precios | Gratuito |
-    
-1. Haga clic en **Create**(Crear).
 
+1. Haga clic en **Create**(Crear).
 
 ## <a name="initialize-the-function-app"></a>Inicialización de la aplicación de función
 
@@ -81,23 +71,23 @@ Va a compilar y probar la aplicación de Azure Functions localmente. La aplicaci
 
 1. Mediante la extensión de Azure Functions en VS Code, inicialice una aplicación de función en la carpeta de proyecto principal.
     1. Abra la paleta de comandos en VS Code seleccionando **Vista > Paleta de comandos** en el menú (método abreviado `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
-    1. Busque el comando **Azure Functions: Create New Project** y selecciónelo.
+    1. Busque el comando **Azure Functions: Create New Project** (Crear proyecto ) y selecciónelo.
     1. Debería aparecer la carpeta de proyecto principal. Selecciónela (o utilice "Examinar" para localizarla).
     1. En la solicitud para elegir un idioma, seleccione **JavaScript**.
 
     ![Creación de una aplicación de función](media/signalr-authenticate-azure-functions/signalr-create-vscode-app.png)
 
-
 ### <a name="install-function-app-extensions"></a>Instalación de extensiones de la aplicación de función
 
 Este tutorial utiliza enlaces de Azure Functions para interactuar con Azure SignalR Service. Al igual que la mayoría de los otros enlaces, los enlaces de SignalR Service están disponibles como una extensión que se debe instalar mediante la CLI de Azure Functions Core Tools antes de que se puedan usar.
 
-1. Abra un terminal en VS Code seleccionando **Vista > Terminal integrado** en el menú (Ctrl-').
+1. Abra un terminal en VS Code seleccionando **Vista > Terminal integrado** en el menú (Ctrl-\`).
 
 1. Asegúrese de que la carpeta de proyecto principal es el directorio actual.
 
 1. Instale la extensión de la aplicación de función de SignalR Service.
-    ```
+
+    ```bash
     func extensions install -p Microsoft.Azure.WebJobs.Extensions.SignalRService -v 1.0.0-preview1-10002
     ```
 
@@ -108,6 +98,7 @@ Al ejecutar y depurar el entorno en tiempo de ejecución de Azure Functions loca
 1. En VS Code, seleccione **local.settings.json** en el panel Explorador para abrirlo.
 
 1. Reemplace el contenido del archivo por lo siguiente.
+
     ```json
     {
         "IsEncrypted": false,
@@ -133,24 +124,23 @@ Al ejecutar y depurar el entorno en tiempo de ejecución de Azure Functions loca
 
     ![Actualizar configuración local](media/signalr-authenticate-azure-functions/signalr-update-local-settings.png)
 
-
 ## <a name="create-a-function-to-authenticate-users-to-signalr-service"></a>Creación de una función para autenticar usuarios en SignalR Service
 
 Cuando se abre la aplicación de chat por primera vez en el explorador, este requiere unas credenciales de conexión válidas para conectarse a Azure SignalR Service. Va a crear una función desencadenada por HTTP denominada *SignalRInfo* en la aplicación de función para devolver esta información de conexión.
 
 1. Abra la paleta de comandos de VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. Busque y seleccione el comando **Azure Functions: Create Function**.
+1. Busque y seleccione el comando **Azure Functions: Create Function** (Crear función).
 
 1. Cuando se le solicite, proporcione la siguiente información.
 
     | NOMBRE | Valor |
     |---|---|
-    | Carpeta de la aplicación de función | Selección de la carpeta de proyecto principal |
+    | Carpeta de la aplicación de función | Seleccione la carpeta de proyecto principal. |
     | Plantilla | Desencadenador HTTP |
     | NOMBRE | SignalRInfo |
     | Nivel de autorización | Anónimas |
-    
+
     Se crea una carpeta denominada **SignalRInfo** que contiene la nueva función.
 
 1. Abra **SignalRInfo/function.json** para configurar enlaces para la función. Modifique el contenido del archivo para que sea el siguiente. Esto agrega un enlace de entrada que genera credenciales válidas para que un cliente se pueda conectar a un centro de Azure SignalR Service llamado `chat`.
@@ -194,14 +184,13 @@ Cuando se abre la aplicación de chat por primera vez en el explorador, este req
 
     Esta función toma la información de conexión de SignalR del enlace de entrada y la devuelve al cliente en el cuerpo de la respuesta HTTP.
 
-
 ## <a name="create-a-function-to-send-chat-messages"></a>Creación de una función para enviar mensajes de chat
 
 La aplicación web también necesita una API de HTTP para enviar mensajes de chat. Va a crear una función desencadenada por HTTP denominada *SendMessage* que envía mensajes a todos los clientes conectados mediante SignalR Service.
 
 1. Abra la paleta de comandos de VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. Busque y seleccione el comando **Azure Functions: Create Function**.
+1. Busque y seleccione el comando **Azure Functions: Create Function** (Crear función).
 
 1. Cuando se le solicite, proporcione la siguiente información.
 
@@ -211,7 +200,7 @@ La aplicación web también necesita una API de HTTP para enviar mensajes de cha
     | Plantilla | Desencadenador HTTP |
     | NOMBRE | SendMessage |
     | Nivel de autorización | Anónimas |
-    
+
     Se crea una carpeta denominada **SendMessage** que contiene la nueva función.
 
 1. Abra **SendMessage/function.json** para configurar enlaces para la función. Modifique el contenido del archivo para que sea el siguiente.
@@ -250,17 +239,18 @@ La aplicación web también necesita una API de HTTP para enviar mensajes de cha
 1. Guarde el archivo.
 
 1. Abra **SendMessage/index.js** para ver el cuerpo de la función. Modifique el contenido del archivo para que sea el siguiente.
+
     ```javascript
     module.exports = function (context, req) {
         const message = req.body;
         message.sender = req.headers && req.headers['x-ms-client-principal-name'] || '';
-            
+
         let recipientUserId = '';
         if (message.recipient) {
             recipientUserId = message.recipient;
             message.isPrivate = true;
         }
-    
+
         context.bindings.signalRMessages = [{
             'userId': recipientUserId,
             'target': 'newMessage',
@@ -269,12 +259,12 @@ La aplicación web también necesita una API de HTTP para enviar mensajes de cha
         context.done();
     };
     ```
+
     Esta función toma el cuerpo de la solicitud HTTP y lo envía a los clientes conectados a SignalR Service, invocando una función denominada `newMessage` en cada cliente.
 
     La función puede leer la identidad del emisor y puede aceptar un valor de *destinatario* en el cuerpo del mensaje para permitir que se envíe un mensaje de forma privada a un solo usuario. Estas funcionalidades se utilizarán más adelante en el tutorial.
 
 1. Guarde el archivo.
-
 
 ## <a name="create-and-run-the-chat-client-web-user-interface"></a>Creación y ejecución de la interfaz de usuario web del cliente de chat
 
@@ -290,24 +280,21 @@ La interfaz de usuario de la aplicación de chat es una aplicación de página �
 
 1. Presione **F5** para ejecutar la aplicación de función localmente y asociar un depurador.
 
-1. Con **index.html** abierto, inicie Live Server mediante la paleta de comandos de VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) y seleccione **Live Server: Open with Live Server**. Live Server abrirá la aplicación en un explorador.
+1. Con **index.html** abierto, inicie Live Server mediante la paleta de comandos de VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) y seleccione **Live Server: Open with Live Server** (Abrir con Live Server). Live Server abrirá la aplicación en un explorador.
 
 1. La aplicación se abre. Escriba un mensaje en el cuadro de chat y presione ENTRAR. Actualice la aplicación para ver los mensajes nuevos. Como no se ha configurado ninguna autenticación, todos los mensajes se enviarán como "anónimo".
-
 
 ## <a name="deploy-to-azure-and-enable-authentication"></a>Implementación en Azure y habilitación de la autenticación
 
 Hasta ahora, ha ejecutado la aplicación de función y la de chat de forma local. Ahora las implementará en Azure y habilitará la autenticación y la mensajería privadas en la aplicación.
 
-
 ### <a name="log-into-azure-with-vs-code"></a>Inicio de sesión en Azure con VS Code
 
 1. Abra la paleta de comandos de VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. Busque y seleccione el comando **Azure: Sign in**.
+1. Busque y seleccione el comando **Azure Functions: Sign in** (Iniciar sesión).
 
 1. Siga las instrucciones para completar el proceso de inicio de sesión en el explorador.
-
 
 ### <a name="configure-function-app-for-authentication"></a>Configuración de una aplicación de función para la autenticación
 
@@ -331,10 +318,9 @@ Cuando se envía un mensaje, la aplicación puede decidir enviarlo a todos los c
 
 1. Guarde el archivo.
 
-
 ### <a name="deploy-function-app"></a>Implementación de una aplicación de función
 
-1. Abra la paleta de comandos de VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) y seleccione el comando **Azure Functions: Deploy to Function App**. 
+1. Abra la paleta de comandos de VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) y seleccione el comando **Azure Functions: Deploy to Function App** (Implementar en Function App).
 
 1. Cuando se le solicite, proporcione la siguiente información.
 
@@ -348,15 +334,14 @@ Cuando se envía un mensaje, la aplicación puede decidir enviarlo a todos los c
     | Cuenta de almacenamiento | Seleccione **Crear nueva cuenta de almacenamiento**. |
     | Nombre de la cuenta de almacenamiento | Escriba un nombre único (entre 3 y 24 caracteres, solo caracteres alfanuméricos) |
     | Ubicación | Selección de una ubicación cercana a usted |
-    
-    Se crea una nueva aplicación de función en Azure y comienza la implementación. Espere a que la implementación se complete.
 
+    Se crea una nueva aplicación de función en Azure y comienza la implementación. Espere a que la implementación se complete.
 
 ### <a name="upload-function-app-local-settings"></a>Carga de la configuración local de la aplicación de función
 
 1. Abra la paleta de comandos de VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. Busque y seleccione el comando **Azure Functions: Upload local settings**.
+1. Busque y seleccione el comando **Azure Functions: Upload local settings** (Cargar configuración local).
 
 1. Cuando se le solicite, proporcione la siguiente información.
 
@@ -369,14 +354,13 @@ Cuando se envía un mensaje, la aplicación puede decidir enviarlo a todos los c
 
 La configuración local se carga en la aplicación de función en Azure. Si se le pide que sobrescriba la configuración existente, seleccione **Sí a todo**.
 
-
 ### <a name="enable-function-app-cross-origin-resource-sharing-cors"></a>Habilitación del uso compartido de recursos entre orígenes (CORS) para la aplicación de función
 
 Aunque hay una configuración de CORS en **local.settings.json**, esta no se propaga a la aplicación de función en Azure. Deberá configurarla de forma independiente.
 
 1. Abra la paleta de comandos de VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. Busque y seleccione el comando **Azure Functions: Open in portal**.
+1. Busque y seleccione el comando **Azure Functions: Open in portal** (Abrir en el portal).
 
 1. Seleccione la suscripción y el nombre de la aplicación de función para abrir la aplicación de función en Azure Portal.
 
@@ -395,7 +379,6 @@ Aunque hay una configuración de CORS en **local.settings.json**, esta no se pro
 > [!NOTE]
 > En una aplicación real, en lugar de permitir CORS en todos los orígenes (`*`), un enfoque más seguro consiste en escribir entradas específicas de CORS para cada dominio que lo requiera.
 
-
 ### <a name="update-the-web-app"></a>Actualización de la aplicación web
 
 1. En Azure Portal, navegue a la página de información general de la aplicación de función.
@@ -404,13 +387,11 @@ Aunque hay una configuración de CORS en **local.settings.json**, esta no se pro
 
     ![Obtener dirección URL](media/signalr-authenticate-azure-functions/signalr-get-url.png)
 
-
 1. En VS Code, abra **index.html** y reemplace el valor de `apiBaseUrl` por la dirección URL de la aplicación de función.
 
 1. La aplicación se puede configurar con autenticación mediante Azure Active Directory, Facebook, Twitter o una cuenta de Microsoft o Google. Seleccione el proveedor de autenticación que va a utilizar mediante el establecimiento del valor de `authProvider`.
 
 1. Guarde el archivo.
-
 
 ### <a name="deploy-the-web-application-to-blob-storage"></a>Implementación de la aplicación web en Blob Storage
 
@@ -454,7 +435,6 @@ La aplicación web se hospedará mediante la característica de sitios web está
 
 1. Regrese a la página **Sitio web estático**. Anote el **punto de conexión principal**. Esta es la dirección URL de la aplicación web.
 
-
 ### <a name="enable-app-service-authentication"></a>Habilitación de la autenticación de App Service
 
 La autenticación de App Service admite la autenticación con Azure Active Directory, Facebook, Twitter y cuentas de Microsoft y Google.
@@ -469,12 +449,11 @@ La autenticación de App Service admite la autenticación con Azure Active Direc
 
 1. Siga la documentación del proveedor de inicio de sesión de su elección para completar la configuración.
 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)
-    - [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication)
-    - [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication)
-    - [Cuenta Microsoft](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)
-    - [Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication)
-
+    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+    - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
+    - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
+    - [Cuenta Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
+    - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
 
 ### <a name="try-the-application"></a>Prueba de la aplicación
 
@@ -490,11 +469,9 @@ Felicidades. Ha implementado una aplicación de chat en tiempo real, sin servido
 
 ![Demostración](media/signalr-authenticate-azure-functions/signalr-serverless-chat.gif)
 
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Para limpiar los recursos creados en este tutorial, elimine el grupo de recursos mediante Azure Portal.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 0e9203f5b4e2a9043e242b804c82017cf6fc3ee1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 55a1d16ce1617ecf7bc28c7c62de8557ceeea311
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010810"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412918"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configuración de un grupo de capacidad
 Configurar un grupo de capacidad le permite crear volúmenes en él.  
@@ -37,7 +37,7 @@ Debe haber creado ya una cuenta de NetApp.
     Aparecerá el cuadro de diálogo Nuevo grupo de capacidad.
 
 3. Proporcione la siguiente información para el nuevo grupo de capacidad:  
-  * **Name**  
+  * **Nombre**  
     Especifique el nombre para el grupo de capacidad.  
     El nombre del grupo de capacidad debe ser único para cada cuenta de NetApp.
 
@@ -55,6 +55,6 @@ Debe haber creado ya una cuenta de NetApp.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-1. [Creación de un volumen de Azure NetApp Files](azure-netapp-files-create-volumes.md)
-2. [Configuración de la directiva de exportación para un volumen (opcional)](azure-netapp-files-configure-export-policy.md)
+[Delegación de una subred en Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+
 

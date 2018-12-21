@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 3: Datos coincidentes con expresiones regulares, extracción de datos con formato correcto'
+title: Entidad de la expresión regular
 titleSuffix: Azure Cognitive Services
 description: Extraiga datos con formato de forma coherente desde una expresión con la entidad de expresión regular.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423425"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135583"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Tutorial 3: Extracción de datos con formato correcto
 En este tutorial, modifique la aplicación de recursos humanos para extraer datos con formato de forma coherente desde una expresión con la entidad **Expresión regular**.
@@ -24,14 +25,13 @@ El propósito de una entidad es extraer datos importantes contenidos en la expre
 
 **Las expresiones de ejemplo incluyen:**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|Expresiones de ejemplo|
+|--|
+|¿Dónde está el formulario HRF-123456?|
+|¿Quién creó el formulario HRF-123234?|
+|¿El formulario HRF-456098 se publicó en francés?|
+|HRF 456098|
+|¿Fecha de HRF 456098?|
  
 Una expresión regular es una buena opción para este tipo de datos cuando:
 
@@ -129,7 +129,7 @@ Cree una entidad de expresión regular para decirle a LUIS qué es un formato de
 
 2. Vaya al final de la dirección URL en la dirección y escriba `When were HRF-123456 and hrf-234567 published in the last year?`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `FindForm` con los dos números de formulario `HRF-123456` y `hrf-234567`.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

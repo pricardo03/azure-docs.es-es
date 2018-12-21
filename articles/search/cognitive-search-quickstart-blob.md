@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: crear una canalización de Cognitive Search en Azure Search mediante el portal | Microsoft Docs'
+title: 'Guía de inicio rápido: Canalización de Cognitive Search en Azure Portal: Azure Search'
 description: Ejemplo de aptitudes de extracción de datos, lenguaje natural y procesamiento de imágenes en Azure Portal utilizando datos de ejemplo.
 manager: cgronlun
 author: HeidiSteen
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec2018
+ms.openlocfilehash: 7d579bfdaf38b6c06b26cfa7b36f8e4d2ac5a1f2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264135"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386271"
 ---
-# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Inicio rápido: crear una canalización de Cognitive Search mediante aptitudes y datos de ejemplo
+# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guía de inicio rápido: Creación de una canalización de Cognitive Search mediante aptitudes y datos de ejemplo
 
 Cognitive Search (versión preliminar) agrega las aptitudes de extracción de datos, procesamiento de lenguaje natural (NLP) y procesamiento de imágenes a una canalización de indexación de Azure Search, lo que hace que el contenido no apto para la búsqueda o no estructurado sea más fácil de buscar. La información que crea una aptitud, como el reconocimiento de entidades o el análisis de imágenes, se agrega a un índice en Azure Search.
 
@@ -47,7 +48,9 @@ Puede probar Cognitive Search en el servicio Azure Search creado en las siguient
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 > [!NOTE]
-> Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de habilidades y la extracción y normalización de imágenes se ofrecen actualmente de forma gratuita. Más adelante, se anunciarán los precios de estas funcionalidades. 
+> A partir del 21 de diciembre de 2018, podrá asociar un recurso de Cognitive Services con un conjunto de aptitudes de Azure Search. Esto nos permitirá empezar a cobrar por la ejecución del conjunto de aptitudes. En esta fecha, también empezaremos a cobrar por la extracción de imágenes como parte de la fase de descifrado de documentos. La extracción de texto de documentos continuará ofreciéndose sin costo adicional.
+>
+> La ejecución de aptitudes integradas se cobrará a los [precios de pago por uso existentes de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). La extracción de imágenes se cobrará al precio de la versión preliminar, tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Más información](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -66,7 +69,7 @@ En primer lugar, regístrese en el servicio Azure Search.
 
 1. Haga clic en **Crear un recurso**, busque Azure Search y haga clic en **Crear**. Consulte [Creación de un servicio Azure Search en el portal](search-create-service-portal.md) si está configurando un servicio de búsqueda por primera vez y necesita más ayuda.
 
-  ![Panel del portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Creación de un servicio Azure Search en el portal")
+  ![Panel del portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Creación de un servicio Azure Search en el portal")
 
 1. En el grupo de recursos, cree un grupo de recursos en el que se incluirán todos los recursos que cree en esta guía rápida. De este modo, será más fácil borrar los recursos tras finalizar los pasos de la guía.
 
@@ -76,16 +79,18 @@ En primer lugar, regístrese en el servicio Azure Search.
 
   El servicio gratuito se limita a 3 índices, un tamaño máximo de blob de 16 MB y 2 minutos de indexación, lo que es insuficiente para usar todas las funcionalidades de Cognitive Search. Para revisar los límites de los distintos planes, consulte [Límites de servicio](search-limits-quotas-capacity.md).
 
+  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Página de definición del servicio en el portal")
+  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definición del servicio en el portal")
   > [!NOTE]
-  > Cognitive Search está disponible en la versión preliminar pública. Actualmente, la ejecución del conjunto de aptitudes está disponible en todos los planes, incluido el gratuito. Más adelante, se anunciarán los precios de esta funcionalidad.
+  > Cognitive Search está disponible en la versión preliminar pública. Actualmente, la ejecución del conjunto de aptitudes está disponible en todos los planes, incluido el gratuito. Podrá realizar una cantidad limitada de enriquecimientos sin tener que asociar un recurso de Cognitive Services pagado. [Más información](cognitive-search-attach-cognitive-services.md).
 
 1. Ancle el servicio al panel para acceder rápidamente a la información del servicio.
 
-  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service.png "Página de definición del servicio en el portal")
+  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definición del servicio en el portal")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar el servicio de Azure Blob y cargar los datos de ejemplo
 
-La canalización de enriquecimiento extrae contenido de los orígenes de datos de Azure que admiten los [indexadores de Azure Search](search-indexer-overview.md). Para realizar este ejercicio, usaremos Blob Storage para mostrar varios tipos de contenido.
+La canalización de enriquecimiento extrae contenido de los orígenes de datos de Azure que admiten los [indexadores de Azure Search](search-indexer-overview.md). Tenga en cuenta que Azure Table Storage no es compatible con Cognitive Search. Para realizar este ejercicio, usaremos Blob Storage para mostrar varios tipos de contenido.
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. 
 
@@ -103,14 +108,14 @@ Vuelva a la página del panel de servicio de Azure Search y haga clic en **Impor
 
 En **Conectarse a los datos** > **Azure Blob Storage**, seleccione la cuenta y el contenedor que creó. Asigne un nombre al origen de datos y use los valores predeterminados para el resto. 
 
-   ![Configuración de blobs de Azure](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   ![Configuración de blobs de Azure](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
 
 
 Haga clic en **Aceptar** para crear el origen de datos.
 
 Una ventaja de usar el asistente de **importación de datos** es que también puede crear el índice. A medida que se crean los datos, el asistente crea de forma simultánea un esquema del índice. Este puede tardar unos segundos en crear el índice.
 
-### <a name="step-2-add-cognitive-skills"></a>Paso 2: agregar conocimientos cognitivos
+### <a name="step-2-add-cognitive-skills"></a>Paso 2: Agregar conocimientos cognitivos
 
 A continuación, agregue los pasos de enriquecimiento a la canalización de indexación. El portal le ofrece aptitudes cognitivas predefinidas para el análisis de imágenes y de texto. En el portal, un conjunto de aptitudes opera en un solo campo de origen. Esto puede parecer un objetivo pequeño, pero para los blobs de Azure, el campo `content` contiene la mayor parte del documento de blobs (por ejemplo, un documento de Word o unas diapositivas de PowerPoint). Por lo tanto, este campo es una entrada ideal, ya que todo el contenido de un blob está ahí.
 
@@ -124,7 +129,7 @@ Haga clic en **Aceptar** para confirmar la definición.
 
 Las aptitudes de procesamiento de lenguaje natural operan en el contenido de texto que se encuentra en el conjunto de datos de ejemplo. Puesto que no seleccionamos ninguna opción de procesamiento de imágenes, los archivos JPEG que se encontraron en el conjunto de datos de ejemplo no se procesarán en esta guía de inicio rápido. 
 
-### <a name="step-3-configure-the-index"></a>Paso 3: configurar el índice
+### <a name="step-3-configure-the-index"></a>Paso 3: Configuración del índice
 
 ¿Recuerda el índice que creó con el origen de datos? En este paso, podrá ver su esquema y revisar cualquier configuración. 
 
@@ -149,7 +154,7 @@ Haga clic en **Aceptar** para confirmar la definición del índice.
 > [!NOTE]
 > Los campos que no se usan se han recortado de la captura de pantalla para abreviar. Si está siguiendo esta guía desde el portal, la lista le mostrará los campos adicionales.
 
-### <a name="step-4-configure-the-indexer"></a>Paso 4: configurar el indexador
+### <a name="step-4-configure-the-indexer"></a>Paso 4: Configurar el indexador
 
 El indexador es un recurso de alto nivel que controla el proceso de indexación. Asimismo, especifica el nombre del origen de datos, el índice y la frecuencia de ejecución. El resultado final del asistente de la **importación de datos** es siempre un indexador que se puede ejecutar repetidamente.
 
@@ -210,4 +215,4 @@ Si quiere experimentar con la indexación y el enriquecimiento, vuelva a ejecuta
 Asimismo, también puede volver a usar los datos de ejemplo y los servicios que creó, y obtener información sobre cómo realizar las mismas tareas mediante programación en el tutorial siguiente. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: obtener información sobre las API de REST de Cognitive Search](cognitive-search-tutorial-blob.md)
+> [Tutorial: Obtener información sobre las API REST de Cognitive Search](cognitive-search-tutorial-blob.md)

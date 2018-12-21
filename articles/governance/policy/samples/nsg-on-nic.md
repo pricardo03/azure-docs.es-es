@@ -1,5 +1,5 @@
 ---
-title: Ejemplo de Azure Policy - NSG x en cada NIC
+title: 'Ejemplo: NSG en cada NIC'
 description: En esta directiva de ejemplo es necesario usar un grupo de seguridad de red específico con cada interfaz de red virtual.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 9e853e293611d58ac936228fd02fcd0c0a6d8dda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e24697620b61e942699f2748590c94f1063d3216
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948305"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313486"
 ---
 # <a name="nsg-x-on-every-nic"></a>NSG X en cada NIC
 

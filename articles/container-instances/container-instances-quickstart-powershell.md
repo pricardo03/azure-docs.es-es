@@ -1,21 +1,21 @@
 ---
-title: 'Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances'
-description: En esta guía de inicio rápido, va a usar Azure PowerShell para implementar una aplicación que se ejecuta en un contenedor de Docker en Azure Container Instances.
+title: 'Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances: PowerShell'
+description: En esta guía de inicio rápido, va a usar Azure PowerShell para implementar una aplicación de contenedor de Docker en Azure Container Instances con Azure PowerShell
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 33444e810a2deebee11e535c73ce3e249f42b340
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b17cca7f0c00aba260b97b29345ff33156a50138
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854650"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183954"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Guía de inicio rápido: Ejecución de una aplicación de contenedor en Azure Container Instances con Azure PowerShell
 
 Use Azure Container Instances para ejecutar contenedores de Docker en Azure con sencillez y velocidad. No es necesario implementar máquinas virtuales ni usar una plataforma de orquestación de contenedores completa como Kubernetes. En esta guía de inicio rápido, va a usar Azure Portal para crear un contenedor de Windows en Azure y hacer que su aplicación esté disponible con un nombre de dominio completo (FQDN). Unos pocos segundos después de ejecutar un comando de implementación único, puede ir a la aplicación en ejecución:
 

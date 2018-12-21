@@ -1,33 +1,33 @@
 ---
-title: Creación de una asignación de directiva para identificar recursos no compatibles en Azure
+title: Creación de una directiva para identificar recursos no compatibles
 description: Este artículo lo guiará por los pasos para crear una definición de directiva para identificar los recursos no compatibles.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ee22208f9f55840b80392ef2b0a9fce0da4c4db7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: ddf30f6a7bc00be9ac24952adf0ba41e6151bd10
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584696"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311174"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Creación de una asignación de directiva para identificar recursos no compatibles
 
 El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos.
-Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar máquinas virtuales que no están usando discos administrados.
+Esta guía de inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar las máquinas virtuales que no están usando discos administrados.
 
-Al finalizar este proceso, habrá identificado correctamente máquinas virtuales que no utilizan discos administrados. No *son compatibles* con la asignación de directiva.
+Al finalizar este proceso, habrá identificado correctamente máquinas virtuales que no utilizan discos administrados. *No son compatibles* con la asignación de directiva.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 
-En esta guía de inicio rápido, se crea una asignación de directiva y se le asigna la definición de directiva *Audit VMs that do not use managed disks* (Auditoría de máquinas virtuales sin discos administrados).
+En esta guía de inicio rápido, creará una asignación de directiva y asignará la definición de directiva *Auditoría de máquinas virtuales que no usan discos administrados*.
 
 1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
@@ -53,7 +53,7 @@ En esta guía de inicio rápido, se crea una asignación de directiva y se le as
    - Apply tag and its value (Aplicar una etiqueta y su valor)
    - Requisito de la versión 12.0 de SQL Server
 
-   Para obtener una lista completa de todas las directivas integradas disponibles, consulte [Ejemplos de Azure Policy](./samples/index.md).
+   Para obtener una lista parcial de las directivas integradas disponibles, vea [Ejemplos de Azure Policy](./samples/index.md).
 
 1. En la lista de definiciones de directiva, busque la definición *Auditoría de máquinas virtuales que no usan discos administrados*. Haga clic en esa directiva y después en **Seleccionar**.
 
@@ -61,7 +61,7 @@ En esta guía de inicio rápido, se crea una asignación de directiva y se le as
 
 1. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, se deja *Auditoría de máquinas virtuales que no usan discos administrados*. También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva. **Asignado por** se rellena automáticamente en función de quién ha iniciado sesión. Este campo es opcional, así que se pueden especificar valores personalizados.
 
-1. Deje desactivada la casilla **Crear una identidad administrada**. Esta casilla se _debe_ activar cuando la directiva o la iniciativa que se asigna incluye una directiva con el efecto [deployIfNotExists](./concepts/effects.md#deployifnotexists). Como no es el caso de la directiva usada en este guía de inicio rápido, déjela en blanco. Para más información, consulte las [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) y [cómo funciona la seguridad de corrección](./how-to/remediate-resources.md#how-remediation-security-works).
+1. Deje desactivada la casilla **Crear una identidad administrada**. Esta casilla se _debe_ activar cuando la directiva o la iniciativa incluye una directiva con el efecto [deployIfNotExists](./concepts/effects.md#deployifnotexists). Como no es el caso de la directiva usada en este guía de inicio rápido, déjela en blanco. Para más información, consulte las [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) y [cómo funciona la seguridad de corrección](./how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Haga clic en **Asignar**.
 
@@ -69,7 +69,7 @@ Ahora ya está listo para identificar los recursos no compatibles para saber el 
 
 ## <a name="identify-non-compliant-resources"></a>Identificación de recursos no compatibles
 
-Seleccione **Cumplimiento** en el lado izquierdo de la página y busque la asignación de directiva **Auditoría de máquinas virtuales que no usan discos administrados** que ha creado.
+Seleccione **Cumplimiento** en el panel izquierdo de la página. A continuación, busque la asignación de directiva **Auditoría de máquinas virtuales que no usan discos administrados** que ha creado.
 
 ![Cumplimiento de directivas](./media/assign-policy-portal/policy-compliance.png)
 
@@ -88,7 +88,7 @@ Si una condición se evalúa en todos los recursos existentes y el valor obtenid
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otras guías de esta colección se basan en esta guía de inicio rápido. Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine los recursos creados en esta guía de inicio rápido. Si no tiene previsto continuar, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal.
+Para quitar la asignación creada, siga estos pasos:
 
 1. Seleccione **Cumplimiento** (o **Asignaciones**) en el lado izquierdo de página Azure Policy y busque la asignación de directiva **Auditoría de máquinas virtuales que no usan discos administrados** asignación de directiva que ha creado.
 
@@ -98,9 +98,9 @@ Otras guías de esta colección se basan en esta guía de inicio rápido. Si tie
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, se asigna una definición de directiva a un ámbito y se evalúa su informe de cumplimiento. La definición de la directiva garantiza que todos los recursos del ámbito son compatibles y se identifican cuáles no lo son.
+En esta guía de inicio rápido, se asigna una definición de directiva a un ámbito y se evalúa su informe de cumplimiento. La definición de la directiva confirma que todos los recursos del ámbito son compatibles y se identifican cuáles no lo son.
 
-Para obtener información sobre la asignación de directivas para garantizar que los **futuros** recursos creados sean compatibles, continúe con este tutorial para:
+Para más información sobre la asignación de directivas para garantizar la compatibilidad de los nuevos recursos, continúe con el tutorial para:
 
 > [!div class="nextstepaction"]
 > [Crear y administrar directivas](./tutorials/create-and-manage.md)

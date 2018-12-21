@@ -1,5 +1,6 @@
 ---
-title: Tutoriales de Azure Machine Learning Service en cuadernos de Jupyter
+title: Cuadernos de Jupyter Notebook de ejemplo
+titleSuffix: Azure Machine Learning service
 description: Busque y use cuadernos de Jupyter de ejemplo para explorar Azure Machine Learning Service en Python.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 5ec010d6e0539e9ba316b48dc02110dc19e4b13e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883947"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434535"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Uso de cuadernos de Jupyter para explorar Azure Machine Learning Service
 
@@ -96,7 +98,7 @@ Aunque puede usar cualquiera de las opciones anteriores, también puede instalar
    >[!NOTE]
    >Puede usar cualquier sistema conda existente, siempre que tenga la versión 4.4.10 o posterior. Use `conda -V` para mostrar la versión. La versión de conda se puede actualizar con el comando: `conda update conda`. No es preciso instalar mini conda específicamente.
 
-1. Descargue los cuadernos de ejemplo de [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+1. Descargue los cuadernos de ejemplo de [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
 ) en forma de archivo zip y extraiga el contenido en un directorio local. Los cuadernos de Machine Learning automático están en la carpeta `how-to-use-azureml/automated-machine-learning`.
 
 1. Configure un nuevo entorno de Conda. 
@@ -114,9 +116,10 @@ Aunque puede usar cualquiera de las opciones anteriores, también puede instalar
       + Configura el widget
       + Inicia un cuaderno de Jupyter
       
-      El script toma el nombre del entorno de conda como parámetro opcional. El nombre del entorno de conda predeterminado es `azure_automl`. El comando exacto depende del sistema operativo. 
+   >[!NOTE]
+   > El script toma el nombre del entorno de conda como parámetro opcional. El nombre del entorno de conda predeterminado es `azure_automl`. El comando exacto depende del sistema operativo. Esto es útil si está creando un nuevo entorno o actualizando a una nueva versión. Por ejemplo puede usar "automl_setup.cmd azure_automl_sandbox" para crear un nombre de entorno azure_automl_sandbox. 
       
-      Una vez que se ha completado el script, verá la página principal de un cuaderno de Jupyter en el explorador.
+1. Una vez que se ha completado el script, verá la página principal de un cuaderno de Jupyter en el explorador.
 
 1. Vaya a la ruta de acceso en que guardó los cuadernos. 
 

@@ -9,14 +9,17 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de19b20865127fd37cd7bc1ac854288a95a68091
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45255845d8645391ee33471830ac2ef27870a40d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058197"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408636"
 ---
-# <a name="tutorial-train-a-distributed-model-with-horovod"></a>Tutorial: entrenamiento de un modelo distribuido con Horovod
+# <a name="tutorial-train-a-distributed-model-with-horovod"></a>Tutorial: Entrenamiento de un modelo distribuido con Horovod
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 En este tutorial se entrena un modelo de aprendizaje profundo distribuido mediante su ejecución en paralelo en varios nodos de un clúster de Batch AI. Batch AI es un servicio administrado para el entrenamiento de modelos de aprendizaje automático y de inteligencia artificial a escala en clústeres con unidades de GPU de Azure. 
 

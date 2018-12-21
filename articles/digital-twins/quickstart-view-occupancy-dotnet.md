@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582401"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105519"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guía de inicio rápido: Búsqueda de salas disponibles mediante Azure Digital Twins
 
@@ -71,7 +71,7 @@ Este paso permite aprovisionar el grafo espacial de Digital Twins con:
 - Una función personalizada. 
 - Una asignación de rol.
  
-El grafo espacial se aprovisiona con el archivo [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
+El grafo espacial se aprovisiona con el archivo [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml). 
 
 1. Ejecute `dotnet run ProvisionSample`.
     >[!NOTE]
@@ -88,6 +88,9 @@ El grafo espacial se aprovisiona con el archivo [provisionSample.yaml](https://g
 1. Al final de la ejecución, copie el valor de `ConnectionString` del dispositivo para usarlo en el ejemplo del simulador de dispositivos. Copie solo la cadena indicada en esta imagen.
 
     ![Ejemplo de aprovisionamiento][1]
+
+    >[!TIP]
+    > Puede ver y modificar su grafo espacial mediante el [visor de grafos de Azure Digital Twins](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## <a name="send-sensor-data"></a>Envío de datos de sensor
 

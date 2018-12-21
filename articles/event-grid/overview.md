@@ -1,21 +1,22 @@
 ---
-title: Introducción a Azure Event Grid
-description: Describe Azure Event Grid y sus conceptos.
+title: 'Publicar y suscribirse a eventos de aplicación: Azure Event Grid'
+description: Envíe datos de eventos desde un origen a los controladores con Azure Event Grid. Cree aplicaciones basadas en eventos e intégrelas con servicios de Azure.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 08/17/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fbe9b79cd407f74686d572aa1e5c7ac1d837cd25
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: seodec18
+ms.openlocfilehash: 466f7614026866bb038f3c73b23e28e34d9f2e30
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223432"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321023"
 ---
-# <a name="an-introduction-to-azure-event-grid"></a>Una introducción a Azure Event Grid
+# <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
 Azure Event Grid permite crear fácilmente aplicaciones con arquitecturas basadas en eventos. En primer lugar, seleccione el recurso de Azure al que le gustaría suscribirse y, posteriormente, asigne el controlador de eventos o el punto de conexión de WebHook para enviar el evento. Event Grid tiene compatibilidad integrada para eventos procedentes de los servicios de Azure, como los blobs de almacenamiento y los grupos de recursos. Event Grid también tiene compatibilidad para sus propios eventos mediante temas personalizados. 
 
@@ -25,9 +26,9 @@ Actualmente, Azure Event Grid está disponible en todas las regiones públicas. 
 
 Este artículo ofrece información general sobre Azure Event Grid. Para comenzar a usar rápidamente Event Grid, consulte [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md). 
 
-![Modelo funcional de Event Grid](./media/overview/functional-model.png)
+![Modelo de orígenes y controladores de Event Grid](./media/overview/functional-model.png)
 
-Observe que esta imagen muestra cómo se conectan los orígenes y los controladores en Event Grid, pero no proporciona una lista completa de las integraciones admitidas.
+En esta imagen se muestra cómo se conectan los orígenes y los controladores en Event Grid, pero no proporciona una lista completa de las integraciones admitidas.
 
 ## <a name="event-sources"></a>Orígenes de eventos
 
@@ -64,7 +65,7 @@ Hay cinco conceptos en Azure Event Grid que le permiten empezar a trabajar:
 * **Eventos**: ¿qué ha ocurrido?
 * **Orígenes de eventos**: ¿dónde tuvo lugar el evento?
 * **Temas**: el punto de conexión donde los publicadores envían los eventos.
-* **Suscripciones a eventos**: el punto de conexión o mecanismo integrado para enrutar eventos, a veces a varios controladores. Los controladores también usan las suscripciones para filtrar los eventos de entrada de forma inteligente.
+* **Suscripciones a eventos**: el punto de conexión o mecanismo integrado para enrutar eventos, a veces a más de un controlador. Los controladores también usan las suscripciones para filtrar los eventos de entrada de forma inteligente.
 * **Controladores de eventos**: la aplicación o servicio que reacciona al evento.
 
 Para más información acerca de estos conceptos, consulte [Conceptos en Azure Event Grid](concepts.md).
@@ -76,7 +77,7 @@ Estas son algunas características clave de Azure Event Grid:
 * **Simplicidad**: seleccione y haga clic para conseguir eventos desde el recurso de Azure a cualquier controlador de eventos o punto de conexión.
 * **Filtrado avanzado**: filtre por tipo de evento o por ruta de acceso del publicador del evento para asegurarse de que los controladores de eventos solo reciben eventos pertinentes.
 * **Distribución ramificada**: suscriba varios puntos de conexión al mismo evento para enviar copias del evento a tantos lugares como sea necesario.
-* **Confiabilidad**: uso de 24 horas de reintento con retroceso exponencial para asegurarse de que se entregan los eventos.
+* **Confiabilidad**: 24 horas de reintento con retroceso exponencial para asegurarse de que se entregan los eventos.
 * **Pago por evento**: pague solo por la cantidad utilizada en Event Grid.
 * **Alto rendimiento**: cree cargas de trabajo de gran volumen en Event Grid con soporte para millones de eventos por segundo.
 * **Eventos integrados**: desarrolle y ejecute rápidamente con eventos integrados definidos por el recurso.
@@ -86,23 +87,23 @@ Para obtener una comparación de Event Grid, Event Hubs y Service Bus, vea [Choo
 
 ## <a name="what-can-i-do-with-event-grid"></a>¿Qué puedo hacer con Event Grid?
 
-Azure Event Grid proporciona varias funcionalidades que mejoran considerablemente el trabajo sin servidor, la automatización de operaciones y la integración: 
+Azure Event Grid proporciona varias características que mejoran considerablemente el trabajo sin servidor, la automatización de operaciones y la [integración](http://azure.com/integration): 
 
 ### <a name="serverless-application-architectures"></a>Arquitecturas de aplicación sin servidor
 
-![Aplicación sin servidor](./media/overview/serverless_web_app.png)
+![Arquitectura de aplicación sin servidor](./media/overview/serverless_web_app.png)
 
-Event Grid conecta orígenes de datos y controladores de eventos. Por ejemplo, use Event Grid para desencadenar al instante una función sin servidor que ejecute un análisis de la imagen cada vez que se agrega una fotografía nueva a un contenedor de Blob Storage. 
+Event Grid conecta orígenes de datos y controladores de eventos. Por ejemplo, usar Event Grid para desencadenar una función sin servidor que analiza imágenes cuando se agregan a un contenedor de almacenamiento de blobs. 
 
 ### <a name="ops-automation"></a>Automatización de operaciones
 
 ![Automatización de operaciones](./media/overview/Ops_automation.png)
 
-Event Grid permite agilizar la automatización y simplificar el cumplimiento de directivas. Por ejemplo, Event Grid puede enviar una notificación a Azure Automation cuando se crea una máquina virtual o cuando se pone en marcha una instancia de SQL Database. Estos eventos se pueden usar para comprobar de forma automática que la configuración del servicio es conforme, poner metadatos en herramientas de operaciones, etiquetar máquinas virtuales o archivar elementos de trabajo.
+Event Grid permite agilizar la automatización y simplificar el cumplimiento de directivas. Por ejemplo, usar Event Grid para enviar una notificación a Azure Automation cuando se crea una máquina virtual o una base de datos SQL. Use los eventos para comprobar de forma automática que la configuración del servicio es compatible, poner metadatos en herramientas de operaciones, etiquetar máquinas virtuales o archivar elementos de trabajo.
 
 ### <a name="application-integration"></a>Integración de aplicaciones
 
-![Integración de aplicaciones](./media/overview/app_integration.png)
+![Integración de aplicaciones con Azure](./media/overview/app_integration.png)
 
 Event Grid conecta su aplicación con otros servicios. Por ejemplo, cree un tema personalizado para enviar los datos de eventos de su aplicación a Event Grid y aprovechar la entrega confiable, el enrutamiento avanzado y la integración directa con Azure que ofrece. También puede usar Event Grid con Logic Apps para procesar datos en cualquier parte, sin necesidad de escribir código. 
 
@@ -121,4 +122,4 @@ Azure Event Grid usa un modelo de precios de pago por evento, por lo que solo se
 * [Transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md)  
   Tutorial en el que se usa Azure Functions para transmitir datos desde Event Hubs al SQL Data Warehouse.
 * [Referencia de la API de REST de Event Grid](/rest/api/eventgrid)  
-  Proporciona más información técnica sobre Azure Event Grid y una referencia para administrar suscripciones a eventos, enrutamiento y filtrado.
+  Proporciona contenido de referencia para la administración de suscripciones a eventos, el enrutamiento y el filtrado.

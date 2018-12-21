@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: cced9a313664eaeaed4dd1298488670960b76413
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d57e251b241297c461b117edec8fee6316b337b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195777"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098039"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
 
@@ -59,7 +59,7 @@ Para obtener instrucciones al respecto, consulte los siguientes documentos:
 
 Las cuentas que use para crear un emparejamiento de redes virtuales deben tener los rol o permisos necesarios. En el ejemplo siguiente, si fuera a emparejar dos redes virtuales Hub-RM and Spoke-Classic, la cuenta debe tener los siguientes roles o permisos mínimos para cada red virtual:
     
-|Red virtual|Modelo de implementación|Rol|Permisos|
+|Virtual network|Modelo de implementación|Rol|Permisos|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[Colaborador de la red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Clásico|[Colaborador de la red clásica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
@@ -79,7 +79,7 @@ Siga las instrucciones para crear o actualizar los emparejamientos de red virtua
     - Establezca la opción "**Use remote gateways** (Usar puertas de enlace remotas)"
     - Haga clic en "Aceptar"
 
-    ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
 2. Si ya se ha creado el emparejamiento, vaya al recurso de emparejamiento y habilite la opción "**Usar puertas de enlace remotas**", con lo que la pantalla debería similar a la de la captura de pantalla se muestra en el paso (1)
 
@@ -90,7 +90,7 @@ Siga las instrucciones para crear o actualizar los emparejamientos de red virtua
     - Establezca la opción "**Permitir tránsito de puerta de enlace**"
     - Haga clic en "Aceptar"
 
-    ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
 4. Si ya se ha creado el emparejamiento, navegue al recurso de emparejamiento y habilite la opción "**Permitir tránsito de puerta de enlace**", con lo que la pantalla debería similar a la de la captura de pantalla se muestra en el paso (3)
 

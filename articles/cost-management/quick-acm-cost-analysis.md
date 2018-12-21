@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 12/11/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 9085bea06553bcb2b8cf871153ddd1fb767c04f4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445724"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277750"
 ---
-# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guía de inicio rápido: Exploración y análisis de costos con el análisis de costos
+# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guía de inicio rápido: Explore y analice los costos con Análisis de costos
 
 Antes de que pueda controlar y optimizar correctamente sus costos de Azure, debe saber en qué lugar de su organización se originaron los costos. También resulta de utilidad saber cuánto dinero cuestan sus servicios y en apoyo a qué entornos y sistemas. La visión general de la gama de costos al completo es fundamental para conocer con precisión los patrones de gasto de la organización. Los patrones de gastos pueden utilizarse para aplicar mecanismos de control de costos, como los presupuestos.
 
@@ -43,7 +43,7 @@ El análisis de costos está disponible para todos los clientes con [Contrato En
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-- Inicie sesión en Azure Portal en http://portal.azure.com.
+- Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="review-costs-in-cost-analysis"></a>Revise los costos en análisis de costos
 
@@ -63,7 +63,7 @@ La vista de análisis de costos inicial incluye las siguientes áreas:
 
 **Gráficos dinámicos (anillos)**: proporcionan gráficos dinámicos, que desglosan el costo total por un conjunto común de propiedades estándar. Muestran el costo acumulado durante el mes actual, de mayor a menor. Puede cambiar los gráficos dinámicos en cualquier momento seleccionando un área dinámica diferente. Los costos se clasifican por servicio (categoría de medidor), ubicación (región) y ámbito secundario predeterminado. Por ejemplo, cuentas de inscripción en cuentas de facturación, grupos de recursos en suscripciones y recursos en grupos de recursos.
 
-![Vista inicial de análisis de costos](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+![Vista inicial de análisis de costos en Azure Portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
 ## <a name="customize-cost-views"></a>Personalización de vistas de costos
 
@@ -76,21 +76,23 @@ Sin embargo, hay muchos casos donde se necesitan análisis más profundos. La pe
 
 De forma predeterminada, el análisis de costos muestra los datos correspondientes al mes actual. Use el selector de fecha para cambiar rápidamente al último mes, este mes, este trimestre natural, este año natural o un intervalo de fechas personalizado que elija. Seleccionar el último mes es la forma más rápida de analizar su última factura de Azure y conciliar cargos fácilmente. Las opciones de trimestre y año actuales ayudan a hacer un seguimiento de los costos con respecto a presupuestos a más largo plazo. También puede seleccionar un intervalo de fechas diferente. Por ejemplo, puede seleccionar un solo día, los últimos siete días o los que sean desde un año antes del mes actual.
 
-![Selector de fecha](./media/quick-acm-cost-analysis/date-selector.png)
+![Selector de fecha que muestra una selección de ejemplo de este mes](./media/quick-acm-cost-analysis/date-selector.png)
 
 De forma predeterminada, el análisis de costos muestra los costos **acumulados**. Los costos acumulados incluyen todos los costos correspondientes a cada día, además de los días anteriores, a fin de obtener una vista en constante crecimiento de sus costos acumulados diarios. Esta vista está optimizada para mostrar sus tendencias con respecto a un presupuesto durante el intervalo de tiempo seleccionado.
 
 También hay la vista **diaria** que muestra los costos de cada día. La vista diaria no muestra una tendencia de crecimiento. La vista está diseñada para mostrar irregularidades como picos de costos o caídas de un día para otro. Si ha seleccionado un presupuesto, la vista diaria también muestra una estimación del aspecto que puede tener su presupuesto diario. Cuando los costos diarios son sistemáticamente superiores al presupuesto diario estimado, puede esperar sobrepasar su presupuesto mensual. El presupuesto diario estimado simplemente se trata de un medio para ayudarle a visualizar su presupuesto en un nivel más bajo. Cuando los costos diarios experimenten fluctuaciones, la comparación del presupuesto diario estimado con su presupuesto mensual será menos precisa.
 
-![Vista diaria](./media/quick-acm-cost-analysis/daily-view.png)
+Por lo general, puede esperar ver datos o notificaciones para los recursos consumidos en ocho horas.
+
+![Vista diaria que muestra los costos diarios de ejemplo del mes actual](./media/quick-acm-cost-analysis/daily-view.png)
 
 En **Agrupar por** puede seleccionar una categoría de grupo para cambiar los datos mostrados en el gráfico del área total superior. La agrupación le permite ver rápidamente cómo se clasifican los gastos por recurso común y propiedades de uso común, como grupo de recursos o etiquetas de recursos. Para agrupar por etiquetas, seleccione la clave de etiqueta por la que desea agrupar y verá los costos desglosados por cada valor de dicha etiqueta, con un segmento adicional para los recursos que tengan dicha etiqueta. Tenga en cuenta que Cost Management solo admite etiquetas de recursos a partir de la fecha en que las etiquetas se aplican directamente al recurso. Actualmente no se admiten etiquetas de grupos de recursos. Esta es una vista de los costos de servicio de Azure correspondientes al último mes.
 
-![Vista acumulada diaria agrupada](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
+![Vista acumulada diaria agrupada que muestra los costos de servicio de Azure de ejemplo correspondientes al último mes](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
 Los gráficos dinámicos del gráfico principal muestran distintas agrupaciones para una imagen más amplia de los costos generales durante el período seleccionado y con los filtros elegidos. Seleccione una propiedad o una etiqueta para ver los costos agregados por cualquier dimensión. El conjunto completo de datos de la vista total se encuentra en la parte inferior de la pantalla. Para verlo, es preciso expandir el cajón **Datos** o seleccionar **Exportar > Descargar CSV** en la parte superior de la pantalla. Este es un ejemplo del cajón de datos de los grupos de recursos.
 
-![Todos los datos de la vista actual](./media/quick-acm-cost-analysis/full-data-set.png)
+![Todos los datos de la vista actual donde se muestran los nombres de los grupos de recursos](./media/quick-acm-cost-analysis/full-data-set.png)
 
 La imagen anterior muestra los nombres de los grupos de recursos. Aunque se puede agrupar por etiqueta para ver los costos totales por etiqueta, en ninguna de las vistas de análisis de costos está disponible la posibilidad de ver todas las etiquetas por recurso o grupo de recursos.
 

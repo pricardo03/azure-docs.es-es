@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: Creación, publicación y respuesta desde una base de conocimiento en el portal de QnA Maker'
+title: Crear, publicar, responder en QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Este tutorial basado en portal le guía mediante la creación y publicación de una base de conocimiento mediante programación y de la posterior respuesta a una pregunta desde dicha base de conocimiento.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 08f708f740b90f27af5443b46c5d03bef688bd45
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221682"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164439"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Tutorial: Creación de una base de conocimiento y posterior respuesta a una pregunta mediante el portal de QnA Maker
 
@@ -30,7 +31,7 @@ En este tutorial, aprenderá a:
 * Use Curl para consultar la base de conocimiento
 
 > [!NOTE] 
-> La versión mediante programación de este tutorial está disponible con una solución completa en el repositorio [**Azure-Samples/cognitive-services-qnamaker-csharp** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> La versión basada en programación de este tutorial está disponible con una solución completa en el repositorio [**Azure-Samples/cognitive-services-qnamaker-csharp** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -96,7 +97,7 @@ Seleccione el botón **Publicar** en el menú superior. Una vez que se encuentre
 
 Una vez publicada la base de conocimiento, se muestra el punto de conexión
 
-![Publicar](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Configuración del punto de conexión de la página de publicación](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>Uso de curl para consultar una respuesta a preguntas más frecuentes
 

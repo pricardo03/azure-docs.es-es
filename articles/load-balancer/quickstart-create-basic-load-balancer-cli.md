@@ -1,14 +1,13 @@
 ---
-title: 'Inicio rápido: creación de un equilibrador de carga público - CLI de Azure | Microsoft Docs'
+title: 'Guía de inicio rápido: Creación del equilibrador de carga básico: CLI de Azure'
+titlesuffix: Azure Load Balancer
 description: Este inicio rápido muestra cómo crear un equilibrador de carga público mediante la CLI de Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: ''
+ms.custom: mvc
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 3eb7ae721b0c275ffa39e04904e19c067b949214
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 60cdf251d9a862f8bae80f4f782c6ad94c0b85ce
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965512"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260776"
 ---
-# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Inicio rápido: Creación de un equilibrador de carga público para equilibrar la carga de las máquinas virtuales con la CLI de Azure
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Guía de inicio rápido: Creación de un equilibrador de carga para equilibrar la carga de las máquinas virtuales con la CLI de Azure
 
-En este tutorial rápido se muestra cómo crear una instancia de Azure Load Balancer. Para probar el equilibrador de carga, implemente dos máquinas virtuales (VM) que ejecutan un servidor Ubuntu y se equilibra la carga de una aplicación web entre ellas.
+En esta guía de inicio rápido se explica cómo crear una instancia de Azure Load Balancer para equilibrar la carga del tráfico de Internet entre las máquinas virtuales de Azure. Para probar el equilibrador de carga, implemente dos máquinas virtuales (VM) que ejecutan un servidor Ubuntu y se equilibra la carga de una aplicación web entre ellas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 

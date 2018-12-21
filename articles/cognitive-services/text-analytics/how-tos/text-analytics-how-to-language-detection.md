@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 984a027a1fe2f9c894701058452490bdf12b66c4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633571"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338743"
 ---
 # <a name="example-how-to-detect-language-in-text-analytics"></a>Ejemplo: Cómo detectar el idioma en Text Analytics
 
@@ -52,7 +52,7 @@ El tamaño del documento debe ser inferior a 5000 caracteres por documento y pue
             },                
             {
                 "id": "5",
-                "text": "Этот документ находится на английском языке."
+                "text": "Этот документ на английском языке."
             }
         ]
     }
@@ -62,7 +62,7 @@ El tamaño del documento debe ser inferior a 5000 caracteres por documento y pue
 
 Se pueden encontrar detalles sobre la definición de la solicitud en [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Cómo llamar a Text Analytics API). Recapitulamos los siguientes puntos para su comodidad:
 
-+ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [API de detección de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
 + Establezca el punto de conexión de HTTP para la detección de lenguaje, mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Debe incluir el recurso `/languages`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
@@ -73,14 +73,14 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 > [!Tip]
 > Use [Postman](text-analytics-how-to-call-api.md) o abra la **consola de prueba de la API** en la [documentación](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) para estructurar y enviar una solicitud POST al servicio.
 
-## <a name="step-2-post-the-request"></a>Paso 2: Enviar la solicitud
+## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
 El análisis se realiza tras la recepción de la solicitud. El servicio acepta hasta 100 solicitudes por minuto. Cada solicitud puede tener un máximo de 1 MB.
 
 Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuenta. Los resultados se devuelven inmediatamente en la respuesta.
 
 
-## <a name="step-3-view-results"></a>Paso 3: Ver los resultados
+## <a name="step-3-view-results"></a>Paso 3: Visualización de los resultados
 
 Todas las solicitudes POST devolverán una respuesta con formato JSON con los identificadores y las propiedades detectadas.
 

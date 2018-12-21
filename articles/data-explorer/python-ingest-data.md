@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python del Explorador de datos de Azure'
+title: 'Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer'
 description: En esta guía de inicio rápido, obtendrá información sobre cómo ingerir (cargar) datos en el Explorador de datos de Azure con Python.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: fe405416e166b69ebe6b72e519ace4930c3062d8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 390cdddf09f6880368d4d199eef41be19b54d9f0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871734"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339253"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python del Explorador de datos de Azure
+# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure proporciona dos bibliotecas cliente para Python: una [biblioteca de ingesta](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) y una [biblioteca de datos](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Estas bibliotecas permiten ingerir (cargar) datos en un clúster y consultar datos desde el código. En esta guía de inicio rápido, primero creará una tabla y la asignación de datos en un clúster de prueba. A continuación, pondrá en cola la ingesta en el clúster y validará los resultados.
 
@@ -73,7 +73,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE  = "<DatabaseName>"
 ```
 
-Ahora, cree la cadena de conexión. En este ejemplo se utiliza la autenticación de dispositivos para acceder al clúster. También puede usar el certificado de la aplicación de AAD, la clave de aplicación de AAD y el usuario y la contraseña de AAD.
+Ahora, cree la cadena de conexión. En este ejemplo se utiliza la autenticación de dispositivos para acceder al clúster. También puede usar el [certificado de la aplicación de AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), la [clave de aplicación de AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) y el [usuario y la contraseña de AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 Creará la tabla de destino y la asignación en un paso posterior.
 
@@ -105,7 +105,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + 
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Creación de una tabla en el clúster de prueba
 
-Cree una tabla que coincida con el esquema de los datos en el archivo StormEvents.csv. Cuando se ejecuta este código, devuelve un mensaje similar al siguiente: *Para iniciar sesión, use un explorador web para abrir la página https://microsoft.com/devicelogin y escriba el código F3W4VWZDM para autenticarse*. Siga los pasos para iniciar sesión y, a continuación, vuelva a ejecutar el siguiente bloque de código. Los bloques de código subsiguientes que establecen una conexión requieren que vuelva a iniciar sesión.
+Cree una tabla que coincida con el esquema de los datos en el archivo StormEvents.csv. Cuando se ejecuta este código, devuelve un mensaje como el siguiente: *Para iniciar sesión, use un explorador web para abrir la página https://microsoft.com/devicelogin y escriba el código F3W4VWZDM para realizar la autenticación*. Siga los pasos para iniciar sesión y, a continuación, vuelva a ejecutar el siguiente bloque de código. Los bloques de código subsiguientes que establecen una conexión requieren que vuelva a iniciar sesión.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)
