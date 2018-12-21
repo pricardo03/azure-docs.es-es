@@ -1,6 +1,7 @@
 ---
-title: ¿Qué está pasando con Azure Machine Learning Workbench? | Microsoft Docs
-description: Conozca lo que está pasando con la aplicación Workbench, qué cambió en Azure Machine Learning y cuál es la escala de tiempo de soporte técnico.
+title: ¿Qué le ha ocurrido a Workbench?
+titleSuffix: Azure Machine Learning service
+description: Obtenga información sobre lo que ocurrió con la aplicación Workbench, qué cambió en el servicio Azure Machine Learning y qué es la escala de tiempo del soporte técnico.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: db09203e86c32a7e03b4b2c4bcc670d16583ab20
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: c9559e07cc70cbd7adafd75c23b9e67d45bee48a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879441"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184312"
 ---
-# <a name="what-is-happening-to-workbench-in-azure-machine-learning"></a>¿Qué está pasando con Workbench en Azure Machine Learning?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-service"></a>¿Qué está pasando con Workbench en el servicio Azure Machine Learning?
 
 La aplicación Workbench y algunas otras características tempranas han quedado en desuso y se han reemplazado en la versión de septiembre de 2018 para dar paso a una [arquitectura](concept-azure-machine-learning-architecture.md) mejorada. La versión contiene muchas actualizaciones importantes solicitadas por los comentarios de los clientes para mejorar su experiencia. La funcionalidad básica de ejecuciones de experimento hasta la implementación de modelos no ha cambiado, pero ahora puede usar un <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> y una [CLI](reference-azure-machine-learning-cli.md) sólidos para realizar sus tareas y canalizaciones de aprendizaje automático.  
 
@@ -57,7 +59,7 @@ Los historiales de ejecución seguirán estando accesibles durante un tiempo. Cu
 
 Los historiales de ejecución ahora se denominan _experimentos_ en la versión actual. Puede recopilar los experimentos de su modelo y explorarlos mediante el SDK, la CLI o el portal web.
 
-El panel del área de trabajo del portal solo es compatible con los exploradores de Microsoft Edge, Chrome y Firefox.
+El panel del área de trabajo del portal solo es compatible con los exploradores de Edge, Chrome y Firefox.
 
 [ ![Portal en línea](./media/overview-what-happened-to-workbench/image001.png) ] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
@@ -82,13 +84,13 @@ Obtenga información sobre cómo empezar a trabajar [en Python con el SDK princi
  
 Debe migrar los modelos que ha registrado en el registro del modelo antiguo a la nueva área de trabajo si quiere seguir usándolos. Para ello, [descargue los modelos y vuelva a registrarlos](how-to-migrate.md) en el área de trabajo nueva. 
 
-Las imágenes que creó en el registro de la imagen anterior se deben volver a crear en el área de trabajo nueva para seguir usándolas. Puede hacerlo siguiendo la sección sobre la [creación de imágenes de Docker](how-to-deploy-to-aci.md#configure-an-image). 
+Las imágenes que creó en el registro de la imagen anterior se deben volver a crear en el área de trabajo nueva para seguir usándolas. Puede hacerlo siguiendo las secciones sobre la [configuración y la creación de imágenes](how-to-deploy-and-where.md#configureimage). 
 
 ## <a name="what-about-deployed-web-services"></a>¿Qué sucede con los servicios web implementados?
 
 Los modelos que implementó como servicios web con su cuenta de Administración de modelos seguirán funcionando siempre que Azure Container Service (ACS) sea compatible. Dichos servicios web funcionarán incluso después de que haya finalizado el soporte técnico para las cuentas de Administración de modelos. Pero cuando finalice el soporte técnico para las CLI anteriores, también lo hará la capacidad de administrar dichos servicios web.
 
-En la versión más reciente, los modelos se implementan como servicios web para clústeres de [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) o [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS). También puede [implementar en FPGA y en IoT Microsoft Edge](how-to-deploy-and-where.md). Sin tener que cambiar ninguno de los archivos, dependencias y esquemas de puntuación, puede volver a implementar los modelos mediante el nuevo SDK o CLI. 
+En la versión más reciente, los modelos se implementan como servicios web para clústeres de Azure Container Instances (ACI) o Azure Kubernetes Service (AKS). También puede implementar en FPGA y en IoT Edge. Para más información, consulte el documento sobre [cómo y dónde realizar la implementación](how-to-deploy-and-where.md). Sin tener que cambiar ninguno de los archivos, dependencias y esquemas de puntuación, puede volver a implementar los modelos mediante el nuevo SDK o CLI. 
 
 ## <a name="what-about-the-old-sdk--cli"></a>¿Qué sucede con el SDK y la CLI antiguos?
 

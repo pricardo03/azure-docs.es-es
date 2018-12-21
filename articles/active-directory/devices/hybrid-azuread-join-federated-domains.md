@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277977"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434960"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configuración de la unión a Azure Active Directory híbrido para dominios federados
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios federados
 
 De forma similar a un usuario, un dispositivo se está convirtiendo en otra identidad que debe proteger y usar también para proteger los recursos en cualquier momento y lugar. Puede lograr este objetivo incluyendo las identidades de los dispositivos en Azure AD mediante uno de los métodos siguientes:
 
@@ -53,9 +53,12 @@ En este tutorial se da por supuesto que está familiarizado con:
 -  [Control de la unión de los dispositivos híbridos a Azure AD](hybrid-azuread-join-control.md)
 
 
+
 Para configurar el escenario de este tutorial necesita:
 
 - Windows Server 2012 R2 con AD FS
+
+- Una instancia local de Active Directory (AD) con un nivel de esquema de 85 o posterior. Para más información, consulte [Actualizar el esquema de Active Directory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) versión 1.1.819.0 o superior. 
  
@@ -122,7 +125,7 @@ Para configurar una unión a Azure AD híbrido utilizando Azure AD Connect, nece
 
     ![SCP](./media/hybrid-azuread-join-federated-domains/16.png)
 
-    a. Seleccione el bosque.
+     a. Seleccione el bosque.
 
     b. Seleccione el servicio de autenticación. Debe seleccionar un servidor de AD FS, salvo que su organización tenga exclusivamente clientes de Windows 10 y haya configurado la sincronización de equipos o dispositivos, o bien su organización use SeamlessSSO.
 
@@ -167,7 +170,7 @@ Para registrar dispositivos de Windows de nivel inferior, es preciso asegurarse 
 
 
     
-En la siguiente directiva se debe elegir **Todos**: **Los usuarios pueden registrar sus dispositivos con Azure AD**
+La siguiente directiva debe establecerse en **Todo**: **Los usuarios pueden registrar sus dispositivos con Azure AD**
 
 ![Registro de dispositivos](./media/hybrid-azuread-join-federated-domains/23.png)
 

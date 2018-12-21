@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: a45b8e1dd2f59bf1399c92e3ff1a3c66ca8956ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 21ab3448f080e7f4874464dbb4befc0cbed63282
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956887"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276509"
 ---
-# <a name="quickstart-install-and-get-started-with-azure-machine-learning-service"></a>Guía de inicio rápido: Instalación del servicio Azure Machine Learning e introducción
+# <a name="quickstart-install-and-get-started-with-azure-machine-learning-service"></a>Guía de inicio rápido: Instalación de Azure Machine Learning Service e introducción
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -117,7 +117,7 @@ Azure Machine Learning Workbench está disponible para Windows o Mac OS. Consult
    
    | |Ruta de instalación de Azure Machine Learning Workbench|
    |--------|------------------------------------------------|
-   |Windows|C:\Users\\<user\>\AppData\Local\AmlWorkbench|
+   | Windows|C:\Users\\<user\>\AppData\Local\AmlWorkbench|
    |macOS|/Applications/Azure ML Workbench.app|
 
    El instalador descargará e instalará todas las dependencias necesarias, como Python, Miniconda y otras bibliotecas relacionadas. Esta instalación incluye también la herramienta de línea de comandos multiplataforma de Azure, o la CLI de Azure.
@@ -213,7 +213,7 @@ Ya ha creado las cuentas de Azure Machine Learning necesarias y ha instalado la 
 Para obtener una experiencia más detallada de este flujo de trabajo, incluida la forma de implementar el modelo Iris como servicio web, siga el completo tutorial de *clasificación de Iris*. El tutorial contiene los pasos detallados para la [preparación de datos](../desktop-workbench/tutorial-classifying-iris-part-1.md), [experimentación](../desktop-workbench/tutorial-classifying-iris-part-2.md) y [administración de modelos](../desktop-workbench/tutorial-classifying-iris-part-3.md). 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Clasificación de iris (parte 1)](../desktop-workbench/tutorial-classifying-iris-part-1.md)
+> [Tutorial: Clasificación de iris (Parte 1)](../desktop-workbench/tutorial-classifying-iris-part-1.md)
 
 >[!NOTE]
 > Aunque ha creado una cuenta de administración de modelos, el entorno aún no está configurado para implementar servicios web. Vea cómo configurar el [entorno de implementación](../desktop-workbench/deployment-setup-configuration.md).

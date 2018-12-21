@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Reconocimiento de voz en Java para Android mediante el SDK de Speech Service'
+title: 'Inicio rápido: Reconocimiento de voz, Java (Android)'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconocer la voz en Java para Android mediante el SDK de Speech Service
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 0785383d8b5a8ab282d8097d5229fa5a8aade06f
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219433"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090115"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Java para Android mediante el SDK de Voz
 
@@ -42,7 +42,7 @@ Necesita una clave de suscripción del servicio Voz para completar este inicio r
 
    ![Captura de pantalla del asistente Create New Project (Crear nuevo proyecto).](media/sdk/qs-java-android-02-create-android-project.png)
 
-1. En la ventana **Target Android Devices** (Dispositivos Android de destino), seleccione solo **Phone and Tablet** (Teléfono y tablet). En la lista desplegable de debajo, elija **API 23: Android 6.0 (Marshmallow)** y seleccione **Next** (Siguiente).
+1. En la ventana **Target Android Devices** (Dispositivos Android de destino), seleccione solo **Phone and Tablet** (Teléfono y tablet). En la lista desplegable de debajo, elija **API 23: Android 6.0 (Marshmallow)** y seleccione **Siguiente**.
 
    ![Captura de pantalla del asistente Create New Project (Crear nuevo proyecto).](media/sdk/qs-java-android-03-target-android-devices.png)
 
@@ -63,7 +63,7 @@ La versión actual del SDK de Speech de Cognitive Services es `1.1.0`.
 El SDK de Voz para Android está empaquetado como una [biblioteca de Android (AAR)](https://developer.android.com/studio/projects/android-library), que incluye las bibliotecas necesarias, así como los permisos necesarios de Android para usarla.
 Se hospeda en un repositorio de Maven en https://csspeechstorage.blob.core.windows.net/maven/.
 
-Configure el proyecto para usar el SDK de Voz. Abra la ventana de la estructura del proyecto eligiendo **File (Archivo)** > **Project Structure (Estructura del proyecto)** desde la barra de menús de Android Studio. En la ventana Project Structure (Estructura del proyecto), realice los siguientes cambios: 
+Configure el proyecto para usar el SDK de Voz. Abra la ventana de la estructura del proyecto eligiendo **File (Archivo)** > **Project Structure (Estructura del proyecto)** desde la barra de menús de Android Studio. En la ventana Project Structure (Estructura del proyecto), realice los siguientes cambios:
 
 1. En la lista, en el lado izquierdo de la ventana, seleccione **Project** (Proyecto). Edite la configuración **Default Library Repository** (Repositorio de bibliotecas predeterminado); debe anexar una coma y poner entre comillas sencillas la dirección URL del repositorio de Maven. "https://csspeechstorage.blob.core.windows.net/maven/"
 
@@ -118,7 +118,7 @@ El texto y la representación gráfica de la interfaz de usuario ahora deben ten
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * El método `onCreate` incluye código que solicita permisos para micrófono e Internet, y que inicializa el enlace de plataforma nativa. Solo hay que configurar los enlaces de plataforma nativa una vez. Debe realizarse al principio durante la inicialización de la aplicación.
-   
+
    * El método `onSpeechButtonClicked` es, como se indicó anteriormente, el controlador de clic de botón. Al presionar un botón, se desencadena la transcripción de voz a texto.
 
 1. En el mismo archivo, reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.

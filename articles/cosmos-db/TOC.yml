@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Información general
   items:
-  - name: Información acerca de Azure Cosmos DB
+  - name: Bienvenido a Azure Cosmos DB
     href: introduction.md
 - name: Guías de inicio rápido
   items:
@@ -192,7 +192,7 @@ items:
       href: compliance.md
 - name: API de varios modelos
   items:
-  - name: Documentos de la API de SQL
+  - name: API DE SQL
     items:
     - name: Datos del documento de modelo
       href: modeling-data.md
@@ -296,11 +296,11 @@ items:
         href: /rest/api/cosmos-db/
       - name: Proveedor de recursos de REST
         href: /rest/api/cosmos-db-resource-provider/
-  - name: Documentos de la API de MongoDB
+  - name: MongoDB API
     items:
     - name: Introducción
       href: mongodb-introduction.md
-    - name: Soporte técnico de MongoDB
+    - name: Compatibilidad con protocolo de transferencia
       href: mongodb-feature-support.md
     - name: Tutoriales
       items:
@@ -346,11 +346,11 @@ items:
         href: mongodb-time-to-live.md
       - name: Administración de la indexación de datos
         href: mongodb-indexing.md
-  - name: Documentación sobre Gremlin API
+  - name: API de Gremlin
     items:
     - name: Introducción
       href: graph-introduction.md
-    - name: Compatibilidad con Gremlin
+    - name: Compatibilidad con protocolo de transferencia
       href: gremlin-support.md
     - name: Tutoriales
       items:
@@ -362,11 +362,11 @@ items:
         href: bulk-executor-graph-dotnet.md
       - name: Creación de particiones de datos de gráfico
         href: graph-partitioning.md
-  - name: Documentos de Cassandra API
+  - name: Cassandra API
     items:
     - name: Introducción
       href: cassandra-introduction.md
-    - name: Compatibilidad con Cassandra
+    - name: Compatibilidad con protocolo de transferencia
       href: cassandra-support.md
     - name: Tutoriales
       items:
@@ -400,7 +400,7 @@ items:
         href: cassandra-spark-aggregation-ops.md
       - name: Copia de datos de tabla
         href: cassandra-spark-table-copy-ops.md
-  - name: Documentos de Table API
+  - name: Table API
     items:
     - name: Introducción
       href: table-introduction.md
@@ -615,9 +615,9 @@ items:
       href: use-cases.md
     - name: Aplicaciones de redes sociales
       href: social-media-apps.md
-ms.openlocfilehash: 34fc77f13f0c0bd394d96e19b86a1632ce2846b1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0afac84a08028219e5aa0acdc94ec9775d16c368
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410115"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728030"
