@@ -1,12 +1,11 @@
 ---
-title: Creación de puntos de conexión de servicio web en Machine Learning con Azure Machine Learning Studio | Microsoft Docs
-description: Creación de puntos de conexión de servicio web en Azure Machine Learning
+title: Crear puntos de conexión de servicio web - Azure Machine Learning Studio | Microsoft Docs
+description: Crear punto de conexión de servicio web en Azure Machine Learning. Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314020"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275897"
 ---
-# <a name="creating-endpoints"></a>Creación de puntos de conexión 
+# <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Crear puntos de conexión para los servicios web de Azure Machine Learning Studio implementados
 > [!NOTE]
 >  En este tema se describen técnicas que se aplican a un servicio web Machine Learning **clásico**.
 > 
@@ -33,7 +32,7 @@ Al crear servicios web que puede vender a sus clientes, necesitará proporcionar
 
 Para ello, Azure Machine Learning Studio permite crear varios puntos de conexión en un servicio web implementado. Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente. Cada punto de conexión es una dirección URL única y clave de autorización que se puede distribuir a sus clientes.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="adding-endpoints-to-a-web-service"></a>Incorporación de puntos de conexión al servicio web
 Hay dos maneras de agregar un punto de conexión a un servicio web.

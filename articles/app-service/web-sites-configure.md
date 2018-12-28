@@ -1,5 +1,5 @@
 ---
-title: Configuración de aplicaciones web en Azure App Service
+title: Configuración de aplicaciones web - Azure App Service
 description: Cómo configurar una aplicación web en Azure App Service
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443515"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269437"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configuración de aplicaciones web en Azure App Service
 
@@ -38,8 +39,8 @@ La hoja **Configuración de la aplicación** tiene configuraciones agrupadas en 
 ### <a name="general-settings"></a>Configuración general
 **Versiones del marco**. Configure estas opciones si su aplicación utiliza cualquiera de estos marcos: 
 
-* **.NET Framework**: configure la versión de .NET Framework. 
-* **PHP**: defina la versión de PHP, o bien seleccione **DESACTIVADO** para deshabilitar PHP. 
+* **.NET Framework**: establezca la versión de .NET Framework. 
+* **PHP**: establezca la versión de PHP, o bien seleccione **DESACTIVADO** para deshabilitar PHP. 
 * **Java**: seleccione la versión de Java o **DESACTIVADO** para deshabilitar Java. Utilice la opción **Contenedor web** para elegir entre las versiones Tomcat y Jetty.
 * **Python**: seleccione la versión de Python o seleccione **DESACTIVADO** para deshabilitar Python.
 
@@ -164,7 +165,7 @@ Para ver las ranuras de implementación, haga clic en **Toda la configuración**
 ### <a name="monitoring"></a>Supervisión
 En modo estándar o básico, pruebe la disponibilidad de los puntos de conexión HTTP o HTTPS desde ubicaciones geodistribuidas. Una prueba de supervisión da error si el código de respuesta HTTP es un error (4xx o 5xx) o si la respuesta se retrasa más de 30 segundos. Un extremo se considera disponible si sus pruebas de supervisión se realizan correctamente desde todas las ubicaciones especificadas. 
 
-Para obtener más información, consulte [Supervisión de estado de extremo web].
+Para obtener más información, consulte [Cómo supervisar el estado del punto de conexión de web].
 
 > [!NOTE]
 > Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service], donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
@@ -179,14 +180,14 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Configuración de un nombre de dominio personalizado en Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Configuración de entornos de ensayo para Web Apps en Azure App Service]: ./web-sites-staged-publishing.md
 [Habilitación de HTTPS para una aplicación en Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[Supervisión de estado de extremo web]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Cómo supervisar el estado del punto de conexión de web]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Aspectos básicos de supervisión para Web Apps en Azure App Service]: ./web-sites-monitor.md
-[modo de canalización]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[modo de canalización]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Escalación de una aplicación web en Azure App Service]: ./web-sites-scale.md
 [Prueba de App Service]: https://azure.microsoft.com/try/app-service/
 

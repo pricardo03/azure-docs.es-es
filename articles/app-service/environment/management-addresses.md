@@ -1,5 +1,5 @@
 ---
-title: Direcciones de administración de Azure App Service Environment
+title: Direcciones de administración de App Service Environment - Azure
 description: Enumera las direcciones de administración utilizadas en App Service Environment
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 590679daff20f9c469fb8fcfcc0fbbad77f91b5b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 7fb39886b19a2229188821eb39d4fb8a5928bb43
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162869"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276696"
 ---
 # <a name="app-service-environment-management-addresses"></a>Direcciones de administración de App Service Environment
 
@@ -46,7 +47,7 @@ Puede enumerar las direcciones de administración que coinciden con el ASE con l
 
 La API devuelve un documento JSON que incluye todas las direcciones entrantes para su ASE. La lista de direcciones incluye las direcciones de administración, la dirección IP virtual que utiliza su ASE y el intervalo de direcciones de subred de ASE propio.  
 
-Para llamar a la API con [armclient](http://github.com/projectkudu/ARMClient), use los siguientes comandos pero sustituya el identificador de suscripción, el grupo de recursos y el nombre de ASE.  
+Para llamar a la API con [armclient](https://github.com/projectkudu/ARMClient), use los siguientes comandos pero sustituya el identificador de suscripción, el grupo de recursos y el nombre de ASE.  
 
     armclient login
     armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01

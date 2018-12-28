@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/28/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: bb8eb4eae192cf0dd3a3555a3b1209705dd83aaf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583698"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268451"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
 Los presupuestos en Cost Management le ayudan a planear y dirigir la presentación de cuentas de la organización. Con presupuestos, puede tener en cuenta los servicios de Azure que consume o a los que se suscribe durante un período específico. Le ayudan a informar a otros usuarios sobre sus gastos a fin de administrar de manera proactiva los costos y supervisar cómo avanza el gasto a lo largo del tiempo. Cuando se superan los umbrales presupuestarios que ha creado, solo se desencadenan las notificaciones. Ninguno de los recursos se ve afectado y no se detiene el consumo. Puede usar los presupuestos para comparar y realizar un seguimiento de gastos para analizar los costos.
+
+Los presupuestos mensuales se evalúan en función del gasto cada cuatro horas. Sin embargo, las notificaciones y datos de los recursos consumidos están disponibles pasadas ocho horas.  
 
 Los presupuestos se restablecen automáticamente al final de un período (mensual, trimestral o anualmente) para el mismo importe presupuestario al seleccionar una fecha de expiración futura. Dado que se restablecen con el mismo importe presupuestario, deberá crear presupuestos independientes cuando los importes presupuestarios en moneda difieran para períodos futuros.
 
@@ -45,7 +47,7 @@ Para más información sobre cómo asignar permisos a los datos de Cost Manageme
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-- Inicie sesión en Azure Portal en http://portal.azure.com.
+- Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Crear un presupuesto en Azure Portal
 
@@ -57,23 +59,23 @@ Después de crear los presupuestos, muestran a un lado una vista sencilla de su 
 
 Haga clic en **Agregar**.
 
-![Administración de costos, presupuestos](./media/tutorial-acm-create-budgets/budgets01.png)
+![Presupuestos de Cost Management que se muestran en Azure Portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
 En la ventana **Crear presupuesto**, escriba un nombre de presupuesto y el importe presupuestario. A continuación, elija un período mensual, trimestral o anual. A continuación, seleccione una fecha de finalización. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Cuando se alcanza un umbral de presupuesto, las notificaciones por correo electrónico se reciben normalmente en menos de ocho horas.
 
 Este es un ejemplo de creación de un presupuesto mensual para 4500 USD. Se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto.
 
-![Ejemplo de presupuesto mensual](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Información de ejemplo que se muestra en el cuadro para crear un presupuesto](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
 Cuando crea un presupuesto trimestral, funciona de la misma manera que un presupuesto mensual. La diferencia es que el importe presupuestario para el trimestre se divide de manera uniforme entre los tres meses del trimestre. Como cabría esperar, un importe presupuestario anual se divide de manera uniforme entre los 12 meses del año natural.
 
 El gasto actual respecto a presupuestos se actualiza cada vez que Cost Management recibe datos actualizados de facturación. Normalmente, esto sucede a diario.
 
-![Gasto actual frente a presupuestos](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
+![Información de ejemplo que muestra el gasto actual con respecto a los presupuestos](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
 
 Después de crear un presupuesto, se muestra en el análisis de costos. Ver el presupuesto en relación con la tendencia del gasto es uno de los primeros pasos cuando empieza a [analizar los costos y los gastos](quick-acm-cost-analysis.md).
 
-![Presupuesto en el análisis de costos](./media/tutorial-acm-create-budgets/cost-analysis.png)
+![Presupuesto y gasto de ejemplo que se muestra en el análisis de costos](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 En el ejemplo anterior, creó un presupuesto para una suscripción. Sin embargo, también puede crear un presupuesto para un grupo de recursos. Si quiere crear un presupuesto para un grupo de recursos, vaya a **Administración de costos + facturación** &gt; **Suscripciones** &gt; seleccione una suscripción > **Grupos de recursos** > seleccione un grupo de recursos > **Presupuestos** > y, luego, **Agregar** un presupuesto.
 
@@ -81,7 +83,7 @@ En el ejemplo anterior, creó un presupuesto para una suscripción. Sin embargo,
 
 Según el nivel de acceso que tenga, puede editar un presupuesto para cambiar sus propiedades. En el ejemplo siguiente, algunas de las propiedades son de solo lectura porque el usuario solo tiene permiso de colaborador en la suscripción. Actualmente, la **Fecha de expiración** está deshabilitada y no puede modificarse una vez establecida.
 
-![Editar presupuesto, permiso de colaborador](./media/tutorial-acm-create-budgets/edit-budget.png)
+![Ejemplo de edición de un presupuesto para cambiar varias propiedades](./media/tutorial-acm-create-budgets/edit-budget.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

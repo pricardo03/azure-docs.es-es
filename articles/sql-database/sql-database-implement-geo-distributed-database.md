@@ -3,7 +3,7 @@ title: Implementar una solución distribuida geográficamente de Azure SQL Datab
 description: Aprenda a configurar Azure SQL Database y su aplicación para realizar conmutación por error a una base de datos replicada y probar una conmutación por error.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,42 +12,41 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: 2508d43e876a7e463d68eed1b1ca93ddf0d1e9d1
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0fe24c22c42c826db28b6cee460936597b8de83c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913351"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269257"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementación de una base de datos distribuida geográficamente
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar una base de datos distribuida geográficamente
 
-En este tutorial, configurará una instancia de Azure SQL Database y una aplicación para realizar conmutación por error a una región remota y, luego, probar el plan de conmutación por error. Aprenderá a: 
+En este tutorial, configurará una instancia de Azure SQL Database y una aplicación para realizar conmutación por error a una región remota y, luego, probar el plan de conmutación por error. Aprenderá a:
 
 > [!div class="checklist"]
-> * Crear usuarios de base de datos y concederles permisos
-> * Configurar una regla de firewall de nivel de base de datos
-> * Crear un [grupo de conmutación por error de replicación geográfica](sql-database-geo-replication-overview.md)
-> * Crear y compilar una aplicación de Java para consultar una instancia de Azure SQL Database
-> * Obtener detalles de recuperación ante desastres
+> - Crear usuarios de base de datos y concederles permisos
+> - Configurar una regla de firewall de nivel de base de datos
+> - Cree un [grupo de conmutación por error](sql-database-auto-failover-group.md).
+> - Crear y compilar una aplicación de Java para consultar una instancia de Azure SQL Database
+> - Obtener detalles de recuperación ante desastres
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
-- Versión más reciente de [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) instalada. 
+- Versión más reciente de [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) instalada.
 - Instancia de Azure SQL Database instalada. En este tutorial se usa la base de datos de ejemplo AdventureWorksLT con el nombre **mySampleDatabase** proveniente de uno de estos inicios rápidos:
 
-   - [Creación de la base de datos: Azure Portal](sql-database-get-started-portal.md)
-   - [Creación de la base de datos: CLI](sql-database-cli-samples.md)
-   - [Creación de la base de datos: PowerShell](sql-database-powershell-samples.md)
+  - [Creación de la base de datos: Azure Portal](sql-database-get-started-portal.md)
+  - [Creación de la base de datos: CLI](sql-database-cli-samples.md)
+  - [Creación de la base de datos: PowerShell](sql-database-powershell-samples.md)
 
 - Si ha identificado un método para ejecutar scripts SQL en la base de datos, puede usar una de las herramientas de consulta siguientes:
-   - El editor de consultas de [Azure Portal](https://portal.azure.com). Para más información sobre el empleo del editor de consultas de Azure Portal, vea [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database) (Conectar y consultar mediante el editor de consultas).
-   - La versión más reciente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), que es un entorno integrado para administrar cualquier infraestructura de SQL, desde SQL Server hasta SQL Database para Microsoft Windows.
-   - La versión más reciente de [Visual Studio Code](https://code.visualstudio.com/docs), que es un editor de código gráfico para Linux, macOS y Windows que admite extensiones, incluida la [extensión mssql](https://aka.ms/mssql-marketplace) para realizar consultas en Microsoft SQL Server, Azure SQL Database y SQL Data Warehouse. Para más información sobre el empleo de esta herramienta con Azure SQL Database, vea [Connect and query with VS Code](sql-database-connect-query-vscode.md) (Conectar y consultar con VS Code). 
+  - El editor de consultas de [Azure Portal](https://portal.azure.com). Para más información sobre el empleo del editor de consultas de Azure Portal, vea [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database) (Conectar y consultar mediante el editor de consultas).
+  - La versión más reciente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), que es un entorno integrado para administrar cualquier infraestructura de SQL, desde SQL Server hasta SQL Database para Microsoft Windows.
+  - La versión más reciente de [Visual Studio Code](https://code.visualstudio.com/docs), que es un editor de código gráfico para Linux, macOS y Windows que admite extensiones, incluida la [extensión mssql](https://aka.ms/mssql-marketplace) para realizar consultas en Microsoft SQL Server, Azure SQL Database y SQL Data Warehouse. Para más información sobre el empleo de esta herramienta con Azure SQL Database, vea [Connect and query with VS Code](sql-database-connect-query-vscode.md) (Conectar y consultar con VS Code).
 
 ## <a name="create-database-users-and-grant-permissions"></a>Crear usuarios de base de datos y concederles permisos
 
@@ -59,12 +58,12 @@ Conéctese a la base de datos y cree cuentas de usuario con una de las herramien
 
 Estas cuentas de usuario se replican automáticamente en el servidor secundario (y se mantienen sincronizadas). Para usar SQL Server Management Studio o Visual Studio Code, es posible que tenga que configurar una regla de firewall si se conecta desde un cliente en una dirección IP para la que todavía no tiene configurado un firewall. Para consultar los pasos detallados, vea [Create a server-level firewall rule](sql-database-get-started-portal-firewall.md) (Crear una regla de firewall de nivel de servidor).
 
-- En una ventana de consulta, ejecute la consulta siguiente para crear dos cuentas de usuario en la base de datos. Este script concede permisos **db_owner** a la cuenta **app_admin** y permisos **SELECT** y **UPDATE** a la cuenta **app_user**. 
+- En una ventana de consulta, ejecute la consulta siguiente para crear dos cuentas de usuario en la base de datos. Este script concede permisos **db_owner** a la cuenta **app_admin** y permisos **SELECT** y **UPDATE** a la cuenta **app_user**.
 
    ```sql
    CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
    --Add SQL user to db_owner role
-   ALTER ROLE db_owner ADD MEMBER app_admin; 
+   ALTER ROLE db_owner ADD MEMBER app_admin;
    --Create additional SQL user
    CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
    --grant permission to SalesLT schema
@@ -82,9 +81,9 @@ Cree una [regla de firewall de nivel de base de datos](https://docs.microsoft.co
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```
 
-## <a name="create-an-active-geo-replication-auto-failover-group"></a>Crear un grupo de conmutación por error automático de replicación geográfica activa 
+## <a name="create-a-failover-group"></a>Creación de un grupo de conmutación por error
 
-Con Azure PowerShell, cree un [grupo de conmutación por error automático de replicación geográfica activa](sql-database-geo-replication-overview.md) entre la instancia existente de Azure SQL Server y la nueva instancia vacía de Azure SQL Server en una región de Azure y luego agregue la base de datos de ejemplo al grupo de conmutación por error.
+Gracias a Azure PowerShell, podrá crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) entre la instancia existente de Azure SQL Server y la nueva instancia vacía de Azure SQL Server en una región de Azure, y luego agregar la base de datos de ejemplo al grupo de conmutación por error.
 
 > [!IMPORTANT]
 > Estos cmdlets necesitan Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
@@ -111,7 +110,7 @@ Con Azure PowerShell, cree un [grupo de conmutación por error automático de re
       -ServerName $mydrservername `
       -Location $mydrlocation `
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-   $mydrserver   
+   $mydrserver
    ```
 
 3. Cree un grupo de conmutación por error entre los dos servidores.
@@ -124,7 +123,7 @@ Con Azure PowerShell, cree un [grupo de conmutación por error automático de re
       –FailoverGroupName $myfailovergroupname `
       –FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
-   $myfailovergroup   
+   $myfailovergroup
    ```
 
 4. Agregue la base de datos al grupo de conmutación por error.
@@ -138,15 +137,16 @@ Con Azure PowerShell, cree un [grupo de conmutación por error automático de re
       -ResourceGroupName $myresourcegroupname ` `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname
-   $myfailovergroup   
+   $myfailovergroup
    ```
 
 ## <a name="install-java-software"></a>Instalación del software de Java
 
-En esta sección se da por hecho que está familiarizado con el desarrollo mediante Java y que nunca ha utilizado Azure SQL Database. 
+En esta sección se da por hecho que está familiarizado con el desarrollo mediante Java y que nunca ha utilizado Azure SQL Database.
 
-### <a name="mac-os"></a>**Mac OS**
-Abra el terminal y desplácese hasta el directorio donde planea crear su proyecto de Java. Escriba los siguientes comandos para instalar **brew** y **Maven**: 
+### <a name="mac-os"></a>Mac OS
+
+Abra el terminal y desplácese hasta el directorio donde planea crear su proyecto de Java. Escriba los siguientes comandos para instalar **brew** y **Maven**:
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -156,7 +156,8 @@ brew install maven
 
 Para obtener instrucciones detalladas sobre la instalación y la configuración del entorno de Java y Maven, vaya a [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Java**, **MacOS** y luego siga las instrucciones detalladas para configurar Java y Maven del paso 1.2 y 1.3.
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
+
 Abra el terminal y desplácese hasta el directorio donde planea crear su proyecto de Java. Escriba los siguientes comandos para instalar **Maven**:
 
 ```bash
@@ -165,15 +166,18 @@ sudo apt-get install maven
 
 Para obtener instrucciones detalladas sobre la instalación y la configuración del entorno de Java y Maven, vaya a [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Java**, **Ubuntu** y luego siga las instrucciones detalladas para configurar Java y Maven del paso 1.2, 1.3 y 1.4.
 
-### <a name="windows"></a>**Windows**
+### <a name="windows"></a> Windows
+
 Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial. Use Maven para ayudar a administrar dependencias, compilar, probar y ejecutar el proyecto de Java. Para obtener instrucciones detalladas sobre la instalación y la configuración del entorno de Java y Maven, vaya a [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Java**, Windows y luego siga las instrucciones detalladas para configurar Java y Maven del paso 1.2 y 1.3.
 
 ## <a name="create-sqldbsample-project"></a>Crear proyecto SqlDbSample
 
-1. En la consola de comandos (por ejemplo, Bash), cree un proyecto de Maven. 
+1. En la consola de comandos (por ejemplo, Bash), cree un proyecto de Maven.
+
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
+
 2. Escriba **Y** y haga clic en **Entrar**.
 3. Cambie el directorio al proyecto recién creado.
 
@@ -181,9 +185,9 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    cd SqlDbSamples
    ```
 
-4. Con el editor que prefiera, abra el archivo pom.xml de la carpeta del proyecto. 
+4. Con el editor que prefiera, abra el archivo pom.xml de la carpeta del proyecto.
 
-5. Agregue la dependencia Microsoft JDBC Driver para SQL Server al proyecto de Maven. Para ello, abra el editor de texto preferido y copie y pegue las líneas siguientes en el archivo pom.xml. No sobrescriba los valores existentes ya rellenados en el archivo. La dependencia JDBC se debe pegar en la sección "dependencias" de mayor tamaño ( ).   
+5. Agregue la dependencia Microsoft JDBC Driver para SQL Server al proyecto de Maven. Para ello, abra el editor de texto preferido y copie y pegue las líneas siguientes en el archivo pom.xml. No sobrescriba los valores existentes ya rellenados en el archivo. La dependencia JDBC se debe pegar en la sección "dependencias" de mayor tamaño ( ).
 
    ```xml
    <dependency>
@@ -193,7 +197,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    </dependency>
    ```
 
-6. Especifique la versión de Java con la que compilar el proyecto. Para ello, agregue la siguiente sección "propiedades" al archivo pom.xml tras la sección "dependencias". 
+6. Especifique la versión de Java con la que compilar el proyecto. Para ello, agregue la siguiente sección "propiedades" al archivo pom.xml tras la sección "dependencias".
 
    ```xml
    <properties>
@@ -201,7 +205,8 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
      <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
    ```
-7. Agregue la siguiente sección "compilación" al archivo pom.xml tras la sección "propiedades" para admitir archivos de manifiesto en archivos JAR.       
+
+7. Agregue la siguiente sección "compilación" al archivo pom.xml tras la sección "propiedades" para admitir archivos de manifiesto en archivos JAR.
 
    ```xml
    <build>
@@ -221,6 +226,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
      </plugins>
    </build>
    ```
+
 8. Guarde y cierre el archivo pom.xml.
 9. Abra el archivo App.java (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) y sustituya el contenido por el siguiente. Sustituya el nombre del grupo de conmutación por error por el nombre de su grupo de conmutación por error. Si ha cambiado los valores de nombre de base de datos, usuario o contraseña, cambie también esos valores.
 
@@ -251,7 +257,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
          System.out.println("#######################################");
          System.out.println("## GEO DISTRIBUTED DATABASE TUTORIAL ##");
          System.out.println("#######################################");
-         System.out.println(""); 
+         System.out.println("");
 
          int highWaterMark = getHighWaterMarkId();
 
@@ -272,7 +278,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
       // Insert data into the product table with a unique product name that we can use to find the product again later
       String sql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
-      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
               PreparedStatement pstmt = connection.prepareStatement(sql)) {
          pstmt.setString(1, "BrandNewProduct" + id);
          pstmt.setInt(2, 200989 + id + 10000);
@@ -290,7 +296,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
       // Query the data that was previously inserted into the primary database from the geo replicated database
       String sql = "SELECT Name, Color, ListPrice FROM SalesLT.Product WHERE Name = ?";
 
-      try (Connection connection = DriverManager.getConnection(READ_ONLY_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_ONLY_URL);
               PreparedStatement pstmt = connection.prepareStatement(sql)) {
          pstmt.setString(1, "BrandNewProduct" + id);
          try (ResultSet resultSet = pstmt.executeQuery()) {
@@ -302,11 +308,10 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    }
 
    private static int getHighWaterMarkId() {
-      // Query the high water mark id that is stored in the table to be able to make unique inserts 
+      // Query the high water mark id that is stored in the table to be able to make unique inserts
       String sql = "SELECT MAX(ProductId) FROM SalesLT.Product";
       int result = 1;
-        
-      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
+      try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
               Statement stmt = connection.createStatement();
               ResultSet resultSet = stmt.executeQuery(sql)) {
          if (resultSet.next()) {
@@ -319,7 +324,8 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
       }
    }
    ```
-6. Guarde y cierre el archivo App.java.
+
+10. Guarde y cierre el archivo App.java.
 
 ## <a name="compile-and-run-the-sqldbsample-project"></a>Compilar y ejecutar el proyecto SqlDbSample
 
@@ -328,11 +334,12 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    ```bash
    mvn package
    ```
+
 2. Cuando termine, ejecute el siguiente comando para ejecutar la aplicación (se ejecuta durante aproximadamente una hora a menos que detenga manualmente):
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-   
+
    #######################################
    ## GEO DISTRIBUTED DATABASE TUTORIAL ##
    #######################################
@@ -344,7 +351,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
 
 ## <a name="perform-disaster-recovery-drill"></a>Obtener detalles de recuperación ante desastres
 
-1. Llame a la conmutación por error manual del grupo de conmutación por error. 
+1. Llame a la conmutación por error manual del grupo de conmutación por error.
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
@@ -353,7 +360,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. Observe los resultados de la aplicación durante la conmutación por error. Se producirá un error en algunas inserciones mientras se actualiza la caché DNS.     
+2. Observe los resultados de la aplicación durante la conmutación por error. Se producirá un error en algunas inserciones mientras se actualiza la caché DNS.
 
 3. Averigüe qué rol realiza el servidor de recuperación ante desastres.
 
@@ -370,7 +377,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. Observe los resultados de la aplicación durante la conmutación por recuperación. Se producirá un error en algunas inserciones mientras se actualiza la caché DNS.     
+5. Observe los resultados de la aplicación durante la conmutación por recuperación. Se producirá un error en algunas inserciones mientras se actualiza la caché DNS.
 
 6. Averigüe qué rol realiza el servidor de recuperación ante desastres.
 
@@ -384,17 +391,16 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a configurar una instancia de Azure SQL Database y una aplicación para realizar la conmutación por error a una región remota y, luego, probar el plan de conmutación por error.  Ha aprendido a: 
+En este tutorial, ha aprendido a configurar una instancia de Azure SQL Database y una aplicación para realizar la conmutación por error a una región remota y, luego, probar el plan de conmutación por error.  Ha aprendido a:
 
 > [!div class="checklist"]
-> * Crear usuarios de base de datos y concederles permisos
-> * Configurar una regla de firewall de nivel de base de datos
-> * Crear un grupo de conmutación por error de replicación geográfica
-> * Crear y compilar una aplicación de Java para consultar una instancia de Azure SQL Database
-> * Obtener detalles de recuperación ante desastres
+> - Crear usuarios de base de datos y concederles permisos
+> - Configurar una regla de firewall de nivel de base de datos
+> - Crear un grupo de conmutación por error de replicación geográfica
+> - Crear y compilar una aplicación de Java para consultar una instancia de Azure SQL Database
+> - Obtener detalles de recuperación ante desastres
 
 Avance al siguiente tutorial para migrar de SQL Server a Instancia administrada de Azure SQL Database mediante DMS.
 
 > [!div class="nextstepaction"]
 >[Migración de SQL Server a Instancia administrada de Azure SQL Database mediante DMS](../dms/tutorial-sql-server-to-managed-instance.md)
-

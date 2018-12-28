@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492247"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276458"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obtenga y establezca la programación de chaos.
@@ -29,7 +29,7 @@ Obtenga y establezca la programación de chaos.
 |Get-Help|DESCRIPCIÓN|
 | --- | --- |
 | get | Obtenga el valor de Chaos Schedule que define cómo y cuándo se ejecuta Chaos. |
-| set | Establezca el valor de Chaos Schedule que usará Chaos. |
+| set | Establezca la programación que usa Chaos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl chaos schedule get
 Obtenga el valor de Chaos Schedule que define cómo y cuándo se ejecuta Chaos.
@@ -53,9 +53,9 @@ Obtiene la versión de Chaos Schedule en uso y la programación Chaos Schedule q
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
-Establezca el valor de Chaos Schedule que usará Chaos.
+Establezca la programación que usa Chaos.
 
-Establezca la programación Chaos Schedule actualmente en uso por Chaos. Chaos programará automáticamente ejecuciones según la programación Chaos Schedule. La versión en la programación de entrada proporcionada debe coincidir con la versión de Chaos Schedule del servidor. Si la versión proporcionada no coincide con la versión del servidor, no se actualiza Chaos Schedule. Si la versión que se proporciona coincide con la versión del servidor, se actualiza Chaos Schedule y la versión de Chaos Schedule en el servidor se incrementa en uno y se ajusta hacia 0 después de 2,147,483,647. Si está ejecutando Chaos cuando se realiza esta llamada, se producirá un error en la llamada.
+Chaos programará automáticamente ejecuciones según la programación Chaos Schedule. La versión en la programación de entrada proporcionada debe coincidir con la versión de Chaos Schedule del servidor. Si la versión proporcionada no coincide con la versión del servidor, no se actualiza Chaos Schedule. Si la versión que se proporciona coincide con la versión del servidor, se actualiza Chaos Schedule y la versión de Chaos Schedule en el servidor se incrementa en uno y se ajusta hacia 0 después de 2,147,483,647. Si está ejecutando Chaos cuando se realiza esta llamada, se producirá un error en la llamada.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -143,6 +143,7 @@ El comando siguiente establece una programación (suponiendo que la programació
         ]
     }
     ]
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.

@@ -1,5 +1,5 @@
 ---
-title: Creación de un ASE de ILB mediante las plantillas de Azure Resource Manager | Microsoft Docs
+title: Crear un ASE de ILB mediante las plantillas de Azure Resource Manager - App Service | Microsoft Docs
 description: Aprenda a crear un ASE de equilibrador de carga interno mediante las plantillas de Azure Resource Manager.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
-ms.openlocfilehash: 20531cb301cad23fbadb617bdf33e710a4481be4
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.custom: seodec18
+ms.openlocfilehash: d9d94a7ece4b3758792cc0df8e013d14ac40c027
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050041"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276373"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Creación de un ASE de un ILB mediante las plantillas de Azure Resource Manager
 
@@ -41,9 +42,9 @@ Hay un ejemplo de plantilla de Azure Resource Manager y su archivo de parámetro
 
 La mayoría de los parámetros del archivo *azuredeploy.parameters.json* son comunes para la creación de los dos ASE de ILB, así como de los ASE enlazados a una VIP pública.  La lista siguiente llama a los parámetros especiales o únicos al crear un ASE de ILB:
 
-* *interalLoadBalancingMode*: en la mayoría de los casos se establece en 3, lo que significa que tanto el tráfico HTTP/HTTPS de los puertos 80 y 443 como los puertos de los canales de control o de datos a los que escucha el servicio FTP en el ASE estarán enlazados a una dirección de red virtual interna asignada al ILB.  Si esta propiedad se establece en 2, solo los puertos relacionados con el servicio FTP (los canales de control y de datos) estarán enlazados a una dirección de ILB, mientras que el tráfico HTTP/HTTPS permanecerá en la VIP pública.
-* *dnsSuffix*: este parámetro define el dominio raíz predeterminado que se asignará al ASE.  En la variación pública de Azure App Service, el dominio raíz predeterminado de todas las aplicaciones web es *azurewebsites.net*.  Sin embargo, dado que un ASE de ILB está dentro de la red virtual de un cliente, no tiene sentido utilizar el dominio raíz predeterminado del servicio público.  En su lugar, un ASE de ILB debe tener un dominio raíz predeterminado que tenga sentido usar en la red virtual interna de una compañía.  Por ejemplo, una empresa hipotética, Contoso Corporation, puede usar el dominio raíz predeterminado *interno contoso.com* para aquellas aplicaciones que se pretende que solo se puedan resolver en la red virtual de Contoso, y a las que solo se pueda acceder desde ella. 
-* *ipSslAddressCount*: automáticamente, el valor predeterminado de este parámetro es 0 en el archivo *azuredeploy.json*, ya que los ASE de ILB solo tienen una dirección de ILB individual.  No hay direcciones IP-SSL explícitas para un ASE de ILB y, por consiguiente, el grupo de direcciones IP SSL de un ASE de ILB debe establecerse en cero, ya que, de lo contrario, se producirá un error de aprovisionamiento. 
+* *interalLoadBalancingMode*:  en la mayoría de los casos se establece en 3, lo que significa que tanto el tráfico HTTP/HTTPS de los puertos 80 y 443 como los puertos de los canales de control o de datos a los que escucha el servicio FTP en el ASE estarán enlazados a una dirección de red virtual interna asignada al ILB.  Si esta propiedad se establece en 2, solo los puertos relacionados con el servicio FTP (los canales de control y de datos) estarán enlazados a una dirección de ILB, mientras que el tráfico HTTP/HTTPS permanecerá en la VIP pública.
+* *dnsSuffix*:  este parámetro define el dominio raíz predeterminado que se asignará al ASE.  En la variación pública de Azure App Service, el dominio raíz predeterminado de todas las aplicaciones web es *azurewebsites.net*.  Sin embargo, dado que un ASE de ILB está dentro de la red virtual de un cliente, no tiene sentido utilizar el dominio raíz predeterminado del servicio público.  En su lugar, un ASE de ILB debe tener un dominio raíz predeterminado que tenga sentido usar en la red virtual interna de una compañía.  Por ejemplo, una empresa hipotética, Contoso Corporation, puede usar el dominio raíz predeterminado *interno contoso.com* para aquellas aplicaciones que se pretende que solo se puedan resolver en la red virtual de Contoso, y a las que solo se pueda acceder desde ella. 
+* *ipSslAddressCount*:  el valor predeterminado de este parámetro se establece en 0 automáticamente y se puede encontrar en el archivo *azuredeploy.json*, ya que los ASE de ILB solo tienen una dirección de ILB individual.  No hay direcciones IP-SSL explícitas para un ASE de ILB y, por consiguiente, el grupo de direcciones IP SSL de un ASE de ILB debe establecerse en cero, ya que, de lo contrario, se producirá un error de aprovisionamiento. 
 
 Una vez que se haya rellenado el archivo *azuredeploy.parameters.json* de un ASE de ILB, este puede crearse mediante el siguiente fragmento de código de Powershell.  Cambie las carpetas PATH del archivo para que coincidan con la ubicación de la máquina en la que se encuentran los archivos de plantilla de Azure Resource Manager.  Recuerde también especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Azure Resource Manager.
 
@@ -59,8 +60,8 @@ Una vez que se crea el ASE de ILB, es preciso asociarle un certificado SSL "pred
 
 Hay varias maneras de obtener un certificado SSL válido, entre las que se incluyen las CA internas, la adquisición de un certificado de un emisor externo y el uso de un certificado autofirmado.  Independientemente del origen del certificado SSL, es preciso configurar correctamente los siguientes atributos del certificado:
 
-* *Subject*: el valor de este atributo debe ser **.your-root-domain-here.com*
-* *Nombre alternativo del firmante*: este atributo debe incluir tanto **.your-root-domain-here.com* como **.scm.your-root-domain-here.com*.  El motivo de la segunda entrada es que las conexiones SSL con el sitio de SCM/Kudu asociadas a cada aplicación se realizarán mediante una dirección, cuyo formato será *your-app-name.scm.your-root-domain-here.com*.
+* *Firmante*:  este atributo se debe establecer en **.su-dominio-raíz.com*
+* *Nombre alternativo del firmante*:  este atributo debe incluir tanto **.su-dominio-raíz.com* como **.scm.su-dominio-raíz.com*.  El motivo de la segunda entrada es que las conexiones SSL con el sitio de SCM/Kudu asociadas a cada aplicación se realizarán mediante una dirección, cuyo formato será *your-app-name.scm.your-root-domain-here.com*.
 
 Con un certificado SSL válido, se necesitan dos pasos preparatorios adicionales.  El certificado SSL se debe guardar en formato .pfx, o bien convertirse a dicho formato.  Recuerde que es preciso que el archivo .pfx incluya todos los certificados raíz e intermedios, y también debe protegerse con una contraseña.
 
@@ -84,17 +85,17 @@ Una vez que el certificado SSL se ha generado y convertido correctamente en una 
 
 Los parámetros del archivo *azuredeploy.parameters.json* se enumeran a continuación:
 
-* *appServiceEnvironmentName*: el nombre del ASE de ILB que se configura.
-* *existingAseLocation*: cadena de texto que contiene la región de Azure en que se implementó el ASE de ILB.  Por ejemplo, "centro-sur de EE. UU.".
-* *pfxBlobString*: la representación de la cadena con codificación Base64 del archivo pfx.  Mediante el fragmento de código que se ha mostrado anteriormente, se copiaría la cadena de "exportedcert.pfx.b64" y se pegaría como el valor del atributo *pfxBlobString* .
-* *password*: la contraseña que se usa para proteger el archivo pfx.
-* *certificateThumbprint*: la huella digital del certificado.  Si este valor se recupera de Powershell (por ejemplo, *$certificate.Thumbprint* del fragmento de código anterior), se puede usar tal cual.  Sin embargo, si copia el valor del cuadro de diálogo del certificado de Windows, no olvide eliminar los espacios superfluos.  *certificateThumbprint* debería ser similar a: AF3143EB61D43F6727842115BB7F17BBCECAECAE
-* *certificateName*: un identificador de cadena fácil de usar que elija y que se usa para identificar el certificado.  El nombre se utiliza como parte del identificador único de Azure Resource Manager para la entidad *Microsoft.Web/certificates* que representa el certificado SSL.  El nombre **debe** terminar con el sufijo siguiente: \__yourASENameHere_InternalLoadBalancingASE.  El portal utiliza este sufijo como un indicador de que el certificado se usa para asegurar un ASE habilitado para ILB.
+* *appServiceEnvironmentName*:  el nombre del ASE de ILB que se configura.
+* *existingAseLocation*:  cadena de texto que contiene la región de Azure en que se implementó el ASE de ILB.  Por ejemplo:   "Centro-sur de EE. UU."
+* *pfxBlobString*:  la representación de la cadena con codificación Base64 del archivo pfx.  Mediante el fragmento de código que se ha mostrado anteriormente, se copiaría la cadena de "exportedcert.pfx.b64" y se pegaría como el valor del atributo *pfxBlobString* .
+* *password*:  la contraseña que se usa para proteger el archivo pfx.
+* *certificateThumbprint*:  la huella digital del certificado.  Si este valor se recupera de Powershell (por ejemplo, *$certificate.Thumbprint* del fragmento de código anterior), se puede usar tal cual.  Sin embargo, si copia el valor del cuadro de diálogo del certificado de Windows, no olvide eliminar los espacios superfluos.  El elemento *certificateThumbprint* debe ser similar a:  AF3143EB61D43F6727842115BB7F17BBCECAECAE
+* *certificateName*:  es el identificador de cadena fácil de usar que elija y que se usa para identificar el certificado.  El nombre se utiliza como parte del identificador único de Azure Resource Manager para la entidad *Microsoft.Web/certificates* que representa el certificado SSL.  El nombre **debe** terminar con el sufijo siguiente: \__yourASENameHere_InternalLoadBalancingASE.  El portal utiliza este sufijo como un indicador de que el certificado se usa para asegurar un ASE habilitado para ILB.
 
 A continuación se muestra un ejemplo abreviado de *azuredeploy.parameters.json* :
 
     {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
          "contentVersion": "1.0.0.0",
          "parameters": {
               "appServiceEnvironmentName": {
@@ -138,6 +139,6 @@ Para empezar a trabajar con los entornos de App Service, consulte [Introducción
 
 <!-- LINKS -->
 [quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
-[examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
+[examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/ 
 
