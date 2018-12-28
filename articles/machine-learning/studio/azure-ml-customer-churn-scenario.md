@@ -1,12 +1,11 @@
 ---
-title: Análisis de la pérdida de clientes en Azure Machine Learning Studio | Microsoft Docs
+title: Análisis de la pérdida de clientes - Azure Machine Learning Studio | Microsoft Docs
 description: Caso práctico para desarrollar un modelo integrado para analizar y puntuar la pérdida de clientes con Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314991"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272174"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Análisis de la pérdida de clientes mediante Azure Machine Learning Studio
 ## <a name="overview"></a>Información general
@@ -31,11 +30,11 @@ En este artículo se presenta una implementación de referencia de un proyecto d
 Este experimento lo desarrolló y probó Serge Berger, principal científico de datos de Microsoft y Roger Barga, anterior director de productos para Microsoft Azure Machine Learning. El equipo de documentación de Azure quiere expresar su agradecimiento por los conocimientos aportados y por compartir estas notas del producto.
 
 > [!NOTE]
-> Los datos utilizados para este experimento no están disponibles públicamente. Para ver un ejemplo de cómo crear un modelo de Machine Learning de análisis de abandono de clientes, consulte [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) (Plantilla de modelo de abandono de clientes minoristas) de [Azure AI Gallery](http://gallery.cortanaintelligence.com/).
+> Los datos utilizados para este experimento no están disponibles públicamente. Para ver un ejemplo de cómo crear un modelo de Machine Learning de análisis de abandono de clientes, consulte: [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) (Plantilla de modelo de abandono de clientes minoristas) de [Azure AI Gallery](http://gallery.cortanaintelligence.com/).
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>El problema del abandono de clientes
 Los negocios del mercado de consumidores y de todos los sectores empresariales han de tratar con el abandono de clientes. En ocasiones el abandono es excesivo e influye sobre las decisiones políticas. La solución tradicional pasa por predecir a los clientes con una alta propensión a abandonar y abordar sus necesidades a través de un servicio de asistencia personal, campañas de marketing o mediante la aplicación de exenciones especiales. Estos enfoques pueden variar de un sector a otro. Pueden variar de un clúster determinado de consumidor a otro dentro de un sector (por ejemplo, el de telecomunicaciones).
@@ -66,7 +65,7 @@ Este enfoque de previsión es la mejor manera de tratar el abandono, pero result
 
 ![][2]
 
-*Ilustración 4: Arquetipo basado en varios modelos unificado*  
+*Ilustración 4: Arquetipo unificado basado en varios modelos*  
 
 La interacción entre los modelos es clave si vamos a proporcionar un enfoque holístico sobre la retención de clientes. Cada modelo se degrada necesariamente con el paso del tiempo; por lo tanto, la arquitectura es un bucle implícito (similar al arquetipo establecido por el estándar de minería de datos de CRISP-DM, [***3***]).  
 
@@ -112,7 +111,7 @@ Los siguientes diagramas ilustran los datos usados.
  
 
 > Tenga en cuenta que estos datos son privados y, por tanto, no se pueden compartir el modelo y los datos.
-> Pero, para obtener un modelo similar utilizando los datos disponibles públicamente, consulte este experimento de ejemplo en [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Abandono de clientes en las empresas de telecomunicaciones).
+> Sin embargo, para obtener un modelo similar mediante los datos disponibles de forma pública, consulte este experimento de ejemplo en [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Abandono de clientes en las empresas de telecomunicaciones).
 > 
 > Para obtener más información sobre cómo se puede implementar un modelo de análisis de pérdida de clientes con Cortana Intelligence Suite, también se recomienda ver [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del director de programas Wee Hyong Tok. 
 > 
@@ -175,7 +174,7 @@ El siguiente gráfico muestra los resultados sin formato desde la puntuación ut
 
 ![][9]
 
-*Ilustración 11: Características del modelo de árbol de decisión ampliado*
+*Ilustración 11: Características del modelo del árbol de decisión ampliado*
 
 ## <a name="performance-comparison"></a>Comparación del rendimiento
 Hemos comparado la velocidad a la que se han calificado los datos mediante Machine Learning Studio y un modelo comparable creado con la edición de escritorio de SAS Enterprise Miner 12.1.  
@@ -223,7 +222,7 @@ En este documento se describe un enfoque sensato para abordar el problema común
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf) (Metodología CRISP-DM 1.0: Guía paso a paso de minería de datos)   
 
-[4] [[Big Data Marketing: Engage Your Customers More Effectively and Drive Value]](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn) (Marketing de macrodatos: atraer más eficazmente a los clientes e impulsar el valor)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn) (Marketing de macrodatos: atraer más eficazmente a los clientes e impulsar el valor)
 
 [5] [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) (Plantilla de modelo de abandono de clientes de telecomunicaciones) en [Azure AI Gallery](http://gallery.cortanaintelligence.com/) 
  
@@ -231,7 +230,7 @@ En este documento se describe un enfoque sensato para abordar el problema común
 ## <a name="appendix"></a>Anexo
 ![][10]
 
-*Ilustración 12. Instantánea de una presentación sobre un prototipo de abandono*
+*Ilustración 12: Instantánea de una presentación sobre un prototipo de abandono*
 
 [1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/azure-ml-customer-churn-scenario/churn-2.png

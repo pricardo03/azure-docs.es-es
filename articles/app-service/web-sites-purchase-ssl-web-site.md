@@ -1,5 +1,5 @@
 ---
-title: Compra y configuración de un certificado SSL para Azure App Service | Microsoft Docs
+title: Comprar y configurar un certificado SSL de Azure - App Service | Microsoft Docs
 description: Aprenda a comprar un certificado de App Service y a enlazarlo a esta aplicación
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c775798591a3063fdfe6d399c8337aac2e2f207e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351361"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268723"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -59,7 +60,7 @@ Use la tabla siguiente para obtener ayuda para configurar el certificado. Cuando
 
 Una vez completado el proceso de compra del certificado, hay algunos pasos más que debe completar antes de poder empezar a usarlo. 
 
-Seleccione el certificado en la página [certificados de App Service](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) y, después, haga clic en **Configuración del certificado** > **Paso 1: Almacenamiento**.
+Seleccione el certificado en la página [certificados de App Service](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) y, a continuación, haga clic en **Configuración del certificado** > **Paso 1: Almacenamiento**.
 
 ![insertar imagen de listo para almacenar en KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
@@ -114,7 +115,7 @@ Utilice la siguiente tabla para ayudarle a configurar el enlace en el cuadro de 
 |-|-|
 | Nombre de host. | El nombre de dominio al que agregará el enlace SSL. |
 | Huella digital de certificado privado | El certificado a enlazar. |
-| Tipo de SSL | <ul><li>**SSL basada en SNI**: pueden agregarse varios enlaces SSL basados en SNI. Esta opción permite que varios certificados SSL protejan varios dominios en una misma dirección IP. Los exploradores más modernos (como Internet Explorer, Chrome, Firefox y Opera) admiten SNI (encontrará información de compatibilidad con exploradores más completa en [Indicación de nombre de servidor](http://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**SSL basada en IP**: solo pueden agregarse enlaces SSL basados en IP. Esta opción solo permite que un único certificado SSL proteja una dirección IP dedicada. Tras configurar el enlace, siga los pasos descritos en [Reasignar un registro D en SSL de IP](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| Tipo de SSL | <ul><li>**SSL basada en SNI**: pueden agregarse varios enlaces SSL basados en SNI. Esta opción permite que varios certificados SSL protejan varios dominios en una misma dirección IP. Los exploradores más modernos (como Internet Explorer, Chrome, Firefox y Opera) admiten SNI (encontrará información de compatibilidad con exploradores más completa en [Indicación de nombre de servidor](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**SSL basada en IP**: solo pueden agregarse enlaces SSL basados en IP. Esta opción solo permite que un único certificado SSL proteja una dirección IP dedicada. Tras configurar el enlace, siga los pasos descritos en [Reasignar un registro D en SSL de IP](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>Comprobación del acceso HTTPS
 
@@ -147,15 +148,15 @@ En cambio, para renovar manualmente el certificado, haga clic en **Renovación m
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Más recursos
 
 * [Aplicación de HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Aplicación de TLS 1.1 y 1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Uso de un certificado SSL en el código de aplicación de Azure App Service](app-service-web-ssl-cert-load.md)
-* [Preguntas frecuentes: Certificados de App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [Preguntas más frecuentes: Certificados de App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

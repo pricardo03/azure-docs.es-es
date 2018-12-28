@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3ce0b63c579412d9d8d35b835803becab09f7ef4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: d71b0c020fb9ceb305b56216d466bacb42ad21e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494159"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278158"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Cree, elimine y administre aplicaciones de Docker Compose.
@@ -33,6 +33,7 @@ Cree, elimine y administre aplicaciones de Docker Compose.
 | remove | Elimina una implementación existente de Compose de Service Fabric del clúster. |
 | status | Obtiene información sobre una implementación de Compose de Service Fabric. |
 | upgrade | Inicia la actualización de una implementación de Compose en el clúster de Service Fabric. |
+| upgrade-rollback | Inicia el proceso de reversión la actualización de una implementación de Compose en el clúster de Service Fabric. |
 | upgrade-status | Obtiene detalles de la actualización más reciente realizada en esta implementación de Compose de Service Fabric. |
 
 ## <a name="sfctl-compose-create"></a>sfctl compose create
@@ -140,21 +141,43 @@ Valida los parámetros de actualización proporcionados e inicia la actualizaci�
 | --default-svc-type-health-map | Diccionario JSON codificado que describe la directiva de estado que se usa para evaluar el estado de los servicios. |
 | --encrypted-pass | En lugar de solicitar una contraseña de registro de contenedor, utilice una frase de contraseña ya cifrada. |
 | --failure-action | Los valores posibles son\: "Invalid", "Rollback", "Manual". |
-| --force-restart | Fuerza el reinicio. |
+| --force-restart | Los procesos se reinician de forma forzosa durante la actualización incluso si no ha cambiado la versión del código. <br><br> La actualización solo cambia la configuración o los datos. |
 | --has-pass | Solicitará una contraseña para el registro de contenedor. |
-| --health-check-retry | Tiempo de espera de reintentos de comprobación de mantenimiento medido en milisegundos. |
-| --health-check-stable | Duración estable de comprobación de mantenimiento medida en milisegundos. |
-| --health-check-wait | Duración de espera de comprobación de mantenimiento medida en milisegundos. |
-| --replica-set-check | Tiempo de espera de comprobación del conjunto de réplicas de actualización medido en segundos. |
+| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no son correctos. |
+| --health-check-stable | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
+| --health-check-wait | El período de tiempo de espera después de completar un dominio de actualización antes de iniciar el proceso de comprobaciones de mantenimiento. |
+| --replica-set-check | El período de tiempo máximo para bloquear el procesamiento de un dominio de actualización y evitar la pérdida de disponibilidad cuando hay problemas inesperados. <br><br> Cuando este tiempo de espera expira, el procesamiento del dominio de actualización se llevará a cabo independientemente de los problemas de pérdida de disponibilidad. El tiempo de espera se restablece al principio de cada dominio de actualización. Los valores válidos oscilan entre 0 y 42949672925, ambos inclusive. |
 | --svc-type-health-map | Lista codificada en JSON de objetos que describen las directivas de estado que se usan para evaluar el estado de los distintos tipos de servicio. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 | --unhealthy-app | El porcentaje máximo permitido de aplicaciones en mal estado antes de informar de un error. <br><br> Por ejemplo, para permitir el 10 % de las aplicaciones en mal estado, este valor sería 10. El valor representa el porcentaje máximo tolerado de aplicaciones que pueden ser incorrectas antes de que el clúster se considere erróneo. Si se respeta el porcentaje, pero hay al menos una aplicación en mal estado, el estado se evalúa como Warning. Se calcula dividiendo el número de aplicaciones en mal estado sobre el número total de instancias de aplicación en el clúster. |
-| --upgrade-domain-timeout | Tiempo de espera del dominio de actualización medido en milisegundos. |
+| --upgrade-domain-timeout | El período de tiempo del que dispone cada dominio de actualización para completarse antes de la ejecución de FailureAction. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --upgrade-kind | Valor predeterminado\: Rolling. |
 | --upgrade-mode | Los valores posibles son\: "Invalid", "UnmonitoredAuto", "UnmonitoredManual", "Monitored".  Valor predeterminado\: UnmonitoredAuto. |
-| --upgrade-timeout | Tiempo de espera de actualización medido en milisegundos. |
+| --upgrade-timeout | El período de tiempo en el que se debe completar la actualización general antes de que se ejecute FailureAction. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --user | Nombre de usuario para conectarse al registro de contenedor. |
-| --warning-as-error | Las advertencias se tratan con el mismo nivel de gravedad que los errores. |
+| --warning-as-error | Indica si las advertencias se tratan con el mismo nivel de gravedad que los errores. |
+
+### <a name="global-arguments"></a>Argumentos globales
+
+|Argumento|DESCRIPCIÓN|
+| --- | --- |
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
+## <a name="sfctl-compose-upgrade-rollback"></a>sfctl compose upgrade-rollback
+Inicia el proceso de reversión la actualización de una implementación de Compose en el clúster de Service Fabric.
+
+Revierte una actualización de la implementación de Compose de Service Fabric.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|DESCRIPCIÓN|
+| --- | --- |
+| --deployment-name [Obligatorio] | La identidad de la implementación. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

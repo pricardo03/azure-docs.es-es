@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31ca79976ec2ecf2755b975749e9c9150c4a49e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441080"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272717"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de la versión preliminar de la directiva personalizada de Azure Active Directory B2C
 El conjunto de características de la directiva personalizada está disponible para su evaluación en versión preliminar pública para todos los clientes de Azure Active Directory B2C (Azure AD B2C). Este conjunto de características está destinado a desarrolladores de identidades avanzados que crean las soluciones de identidad más complejas.  
@@ -25,24 +25,23 @@ En la actualidad, este conjunto de características requiere que los desarrollad
 ## <a name="features-included-in-this-public-preview"></a>Características que se incluyen en la versión preliminar pública
 Con las nuevas características introducidas en la versión preliminar pública los desarrolladores pueden realizar las siguientes tareas:<br>
 
-* Crear y cargar recorridos del usuario de autenticación personalizada mediante directivas personalizadas. 
+*Crear y cargar recorridos del usuario de autenticación personalizada mediante directivas personalizadas. 
    * Describir los recorridos del usuario paso a paso como intercambios entre proveedores de notificaciones. 
-   * Definir la creación de ramas condicional en recorridos del usuario. 
-* Integrar servicios con la API de REST habilitada en los recorridos del usuario de autenticación personalizada.  
+   * Definir la creación de ramas condicional en recorridos del usuario. *Integrar servicios con la API REST habilitada en los recorridos del usuario de autenticación personalizada.  
 * Agregar federación con proveedores de identidades compatibles con el estándar de OpenIDConnect. <br>
 * Agregar federación con proveedores de identidades que cumplen el protocolo SAML 2.0. 
 
 ## <a name="terms-of-the-public-preview"></a>Términos de la versión preliminar pública
 
-* Se aconseja usar las nuevas características solo con fines de evaluación.<br>
-* Las nuevas características no están pensadas para que se usen en entornos de producción.<br>
-* Los Acuerdos de Nivel de Servicio (SLA) no se aplican a las nuevas características. <br>
-* Las solicitudes de soporte técnico pueden enviarse a través de los canales de soporte técnico habituales. <br>
-* No se puede garantizar ninguna fecha de disponibilidad general.<br>
-* Microsoft se reserva el derecho, a su entera discreción y por cualquier motivo, de marcar y rechazar o restringir aquellos escenarios y recorridos del usuario que superen el ámbito de la carta de producto de Azure AD B2C para actuar como plataforma de administración de acceso e identidad de clientes (CIAM).
+*Se aconseja usar las nuevas características solo con fines de evaluación.<br>
+*Las nuevas características no están pensadas para que se usen en entornos de producción.<br>
+*Los Acuerdos de Nivel de Servicio (SLA) no se aplican a las nuevas características. <br>
+*Las solicitudes de soporte técnico pueden enviarse a través de los canales de soporte técnico habituales. <br>
+*No se puede garantizar ninguna fecha de disponibilidad general.<br>
+*Microsoft se reserva el derecho, a su entera discreción y por cualquier motivo, de marcar y rechazar o restringir aquellos escenarios y recorridos del usuario que superen el ámbito de la carta de producto de Azure AD B2C para actuar como plataforma de administración de acceso e identidad de clientes (CIAM).
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilidades de los desarrolladores de conjunto de características de directivas personalizadas
-La configuración manual de directivas concede un acceso de nivel inferior a la plataforma subyacente de Azure AD B2C y da como resultado la creación de un marco de confianza único y totalmente personalizable. Las posibles permutaciones de proveedores de identidades personalizados, las relaciones de confianza, las integraciones con servicios externos y los flujos de trabajo paso a paso exigen más a los desarrolladores avanzados que los utilizan.
+La configuración manual de directivas concede un acceso de nivel inferior a la plataforma subyacente de Azure AD B2C y da como resultado la creación de un marco de confianza único y totalmente personalizable. Las posibles permutaciones de proveedores de identidades personalizados, las relaciones de confianza, las integraciones con servicios externos y los flujos de trabajo paso a paso exigen más a los desarrolladores avanzados que los utilizan.
 
 Para aprovechar de forma completa la versión preliminar pública, se recomienda que los desarrolladores que utilizan el conjunto de características de directivas personalizadas cumplan las directrices siguientes:
 * Conocer el lenguaje de configuración de Identity Experience Framework y la administración de claves y secretos.
@@ -52,7 +51,7 @@ Para aprovechar de forma completa la versión preliminar pública, se recomienda
 * Mantenerse informado sobre los nuevos desarrollos de los proveedores de identidad y los servicios con los que está integrado. Por ejemplo, realizar un seguimiento de cambios en los secretos y los cambios programados y no programados en el servicio.
 * Configurar la supervisión activa y supervisar la capacidad de respuesta de los entornos de producción.
 * Mantenga actualizadas las direcciones de correo electrónico de contacto y responda a los correos mensajes de correo electrónico del equipo de Microsoft.
-* Realizar las acciones pertinentes cuando se lo indique el equipo del sitio activo de Microsoft. 
+* Realizar las acciones pertinentes cuando se lo indique el equipo del sitio activo de Microsoft. 
 
 ## <a name="features-by-stage-and-known-issues"></a>Características por fase y problemas conocidos
 Las directiva personalizadas y las funcionalidades de Identity Experience Framework están en desarrollo constante y rápido.  Esta tabla es un índice de disponibilidad de características y componentes.
@@ -100,7 +99,7 @@ Interfaces con aplicaciones y componentes externos
 |   Inicio de sesión en cuenta local, api.localaccountsignin |  | x |  |  |
 |   Registro en cuenta local, api.localaccountsignup |  | x |  |  |
 |   Página de MFA, api.phonefactor |  | x |  |  |
-|   Autoaserción: por ejemplo registro en cuenta social, api.selfasserted |  | x |  |  |
+|   Autoaserción: por ejemplo, un registro en la cuenta social, api.selfasserted |  | x |  |  |
 |   Actualización de perfil de autoaserción, api.selfasserted.profileupdate |  | x |  |  |
 |   Página unificada de registro o inicio de sesión, api.signuporsignin |  | x |  |  |
 

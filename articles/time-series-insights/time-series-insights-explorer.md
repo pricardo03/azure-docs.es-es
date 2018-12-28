@@ -1,5 +1,5 @@
 ---
-title: Exploración de los datos con el explorador de Azure Time Series Insights | Microsoft Docs
+title: 'Exploración de datos en el explorador de Azure Time Series Insights: explorar datos en el explorador de Azure Time Series Insights | Microsoft Docs'
 description: En este artículo se describe cómo usar el explorador de Azure Time Series Insights en el explorador web para tener rápidamente una visión global de los macrodatos y validar el entorno de IoT.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364242"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273143"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 En este artículo se analizan las distintas características y opciones disponibles dentro de la aplicación web del explorador de Time Series Insights. Puede usar el explorador de Time Series Insights en el explorador web para crear visualizaciones de los datos.
@@ -55,15 +56,15 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
 
 5. A continuación, verá un gráfico que muestra un recuento de todos los eventos durante el intervalo de tiempo seleccionado.  A continuación tiene varios controles:
 
-    **Terms Editor Panel** (Panel Editor de términos): el espacio para los términos es donde consulta al entorno.  Se encuentra en el lado izquierdo de la pantalla y habilita lo siguiente: 
-      - **Measure** (Medida): este menú desplegable muestra todas las columnas numéricas (dobles)
-      - **Split By** (Dividir por): este menú desplegable muestra las columnas de categoría (cadenas)
+    **Panel Editor de términos**:  el espacio para los términos es donde consulta al entorno.  Se encuentra en el lado izquierdo de la pantalla y habilita lo siguiente: 
+      - **Medida**:  este menú desplegable muestra todas las columnas numéricas (dobles).
+      - **Dividir por**: este menú desplegable muestra las columnas de categoría (cadenas).
       - Puede habilitar la interpolación escalonada, mostrar el valor mínimo y el valor máximo, y ajustar el eje Y desde el panel de control que está junto a la medida.  Además, puede ajustar si los datos que se muestran son un recuento, un promedio o la suma de los datos.
       - Puede agregar hasta cinco términos para verlos en el mismo eje X.  Use el botón **copy-down** para agregar un término adicional o haga clic en el botón **Add** (Agregar) para agregar un término nuevo.
      
         ![Panel Editor de términos](media/time-series-insights-explorer/explorer2.png)
 
-      - **Predicate** (Predicado): el predicado permite filtrar rápidamente los eventos con el conjunto de operados que aparecen a continuación. Si realiza una búsqueda mediante selección o clic, el predicado se actualizará automáticamente según esa búsqueda.      Los tipos de operando compatibles incluyen:
+      - **Predicado**:  el predicado permite filtrar rápidamente los eventos con el conjunto de operandos que aparecen a continuación. Si realiza una búsqueda mediante selección o clic, el predicado se actualizará automáticamente según esa búsqueda.      Los tipos de operando compatibles incluyen:
 
          |Operación  |Tipos admitidos  |Notas  |
          |---------|---------|---------|
@@ -102,7 +103,7 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
 
    ![Mapa térmico](media/time-series-insights-explorer/explorer6.png)
 
-12. **Events** (Eventos): cuando elige explorar eventos cuando selecciona o hace clic con el botón derecho arriba, aparece disponible el panel de eventos.  En el panel puede ver todos los eventos sin procesar y exportar los eventos como archivos JSON o CSV. Tenga en cuenta que Time Series Insights almacena todos los datos sin procesar.
+12. **Eventos**:  cuando decide explorar eventos al seleccionar o hacer clic con el botón derecho los elementos de arriba, aparece disponible el panel de eventos.  En el panel puede ver todos los eventos sin procesar y exportar los eventos como archivos JSON o CSV. Tenga en cuenta que Time Series Insights almacena todos los datos sin procesar.
 
    ![Eventos](media/time-series-insights-explorer/explorer7.png)
 
@@ -110,7 +111,7 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
 
    - **Patterns** (Patrones): esta característica muestra de manera proactiva los patrones con mayor importancia estadística de una región de datos seleccionada. Esto evita tener que buscar en miles de eventos para comprender cuáles son los patrones que garantizan más tiempo y energía. Además, Time Series Insights permite ir directamente a estos patrones con importancia estadística para seguir realizando el análisis. Esta característica también resulta útil para las investigaciones de análisis final de datos históricos. 
 
-   - **Column stats** (Estadísticas de columna): las estadísticas de columna proporcionan gráficos y tablas que desglosan los datos de cada columna de la serie de datos seleccionada durante el intervalo de tiempo seleccionado.  
+   - **Estadísticas de columna**:  las estadísticas de columna proporcionan gráficos y tablas que desglosan los datos de cada columna de la serie de datos seleccionada durante el intervalo de tiempo seleccionado.  
  
       ![STATS](media/time-series-insights-explorer/explorer8.png) 
 
