@@ -1,5 +1,5 @@
 ---
-title: 'Ciclo de vida del Proceso de ciencia de datos en equipo: Azure | Microsoft Docs'
+title: El ciclo de vida del proceso de ciencia de datos en equipo
 description: Pasos necesarios para ejecutar los proyectos de ciencia de datos.
 services: machine-learning
 author: marktab
@@ -10,19 +10,21 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 24807d00170ed46a95d2726e1172b15775e0376d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a2a4a8c895bddb03271014c50f57b666faa0c2cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443400"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135957"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>El ciclo de vida del proceso de ciencia de datos en equipo
 
 El Proceso de ciencia de datos en equipo (TDSP) ofrece un ciclo de vida recomendado que se puede usar para estructurar los proyectos de ciencia de datos. El ciclo de vida describe el proceso, de principio a fin, que suelen seguir los proyectos al ejecutarlos. Si usa otro ciclo de vida de la ciencia de datos, como Cross Industry Standard Process for Data Mining [(CRISP-DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), Knowledge Discovery in Databases [(KDD)](https://wikipedia.org/wiki/Data_mining#Process) o propio proceso personalizado de la organización, puede seguir usando el TDSP basado en tareas. 
 
 Este ciclo de vida está diseñado para los proyectos de ciencia de datos que se enviarán como parte de aplicaciones inteligentes. Estas aplicaciones implementan modelos de aprendizaje o inteligencia artificial de máquina para realizar un análisis predictivo. Los proyectos de ciencia de datos exploratorios y los proyectos de análisis ad hoc también se pueden beneficiar del uso de este proceso. Pero para esos proyectos, algunos de los pasos descritos a continuación pueden no ser necesarios. 
+
+## <a name="five-lifecycle-stages"></a>Cinco fases del ciclo de vida
 
 El ciclo de vida de TDSP se compone de cinco fases principales que se ejecutan de forma iterativa. Estas fases incluyen:
 
@@ -41,7 +43,7 @@ El ciclo de vida del TDSP se modela como una secuencia de pasos repetidos que le
 
 Para cada fase, damos la siguiente información:
 
-   * **Objetivos**: los objetivos específicos.
+   * **Objetivos**: objetivos específicos.
    * **Cómo hacerlo**: un esquema de las tareas específicas y orientación sobre cómo realizarlas.
    * **Artefactos**: las entregas y la asistencia para producirlas.
 

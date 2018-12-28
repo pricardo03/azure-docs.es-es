@@ -1,6 +1,6 @@
 ---
-title: Creación e implementación de un modelo de aprendizaje automático mediante SQL Server en una VM de Azure | Microsoft Docs
-description: Tecnología y procesos de análisis avanzado en acción
+title: 'Compilación e implementación de un modelo en una VM con SQL Server: Proceso de ciencia de datos en equipo'
+description: Compile e implemente un modelo de aprendizaje automático mediante SQL Server en una VM de Azure con un conjunto de datos disponible públicamente.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: cad56d2e8de071feb9a02e0cfc6bcc884eebe91a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445470"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141414"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
 En este tutorial, se describe el proceso de creación e implementación de un modelo de Machine Learning con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
@@ -46,15 +46,15 @@ La clave única para unir trip\_data and trip\_fare se compone de los campos: me
 ## <a name="mltasks"></a>Ejemplos de tareas de predicción
 Se formularán tres problemas de predicción basados en *tip\_amount*, a saber:
 
-1. Clasificación binaria: permite predecir si se pagó una propina tras una carrera, o no; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
-2. Clasificación con múltiples clases: para predecir el intervalo de la propina de la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
+1. Clasificación binaria: Permite predecir si se pagó una propina tras una carrera, o no; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
+2. Clasificación con múltiples clases: Permite predecir el intervalo de la propina de la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Tarea de regresión: para predecir la cantidad de propina pagada en una carrera.  
+3. Tarea de regresión: Permite predecir el importe de la propina pagada por una carrera.  
 
 ## <a name="setup"></a>Configuración del entorno de ciencia de datos de Azure para análisis avanzado
 Como puede ver en la guía [Planear su entorno de ciencia de datos de aprendizaje automático de Azure](plan-your-environment.md) , existen varias opciones para trabajar con el conjunto de datos NYC Taxi Trips en Azure:
@@ -87,7 +87,7 @@ Para obtener el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nycta
 Para copiar los datos mediante AzCopy:
 
 1. Inicie sesión en la máquina virtual (VM)
-2. Cree un nuevo directorio en disco de datos de la máquina virtual (Nota: no use el disco temporal que se incluye con la máquina virtual como disco de datos).
+2. Cree un nuevo directorio en el disco de datos de VM (tenga en cuenta: no use el disco temporal que se incluye con la VM como disco de datos).
 3. En una ventana de símbolo del sistema, ejecute la siguiente línea de comandos de Azcopy, reemplazando <ruta_a_carpeta_datos> por la carpeta de datos que se creó en (2):
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -163,7 +163,7 @@ Para una comprobación rápida del número de filas y columnas en las tablas que
     -- Report number of columns in table nyctaxi_trip
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
-#### <a name="exploration-trip-distribution-by-medallion"></a>Exploración: distribución de carreras por licencia
+#### <a name="exploration-trip-distribution-by-medallion"></a>Exploración: Distribución de carreras por licencia
 Este ejemplo identifica las licencias (números de taxi) con más de 100 carreras dentro de un período de tiempo. La consulta se beneficiaría del acceso de la tabla con particiones, ya que está condicionada por el esquema de partición de **pickup\_datetime**. La consulta el conjunto de datos completo también hará uso de la tabla con particiones o del recorrido de índice.
 
     SELECT medallion, COUNT(*)
@@ -172,14 +172,14 @@ Este ejemplo identifica las licencias (números de taxi) con más de 100 carrera
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploración: distribución de carreras por medallion y hack_license
+#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploración: Distribución de carreras por medallion y hack_license
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Evaluación de la calidad de los datos: comprobar los registros con longitud o latitud incorrectas
+#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Evaluación de la calidad de los datos: Verifique los registros con longitud o latitud incorrectas
 En este ejemplo se investiga si alguno de los campos de longitud y latitud contiene un valor no válido (los grados radianes deben encontrarse entre -90 y 90) o tienen coordenadas (0, 0).
 
     SELECT COUNT(*) FROM nyctaxi_trip
@@ -191,7 +191,7 @@ En este ejemplo se investiga si alguno de los campos de longitud y latitud conti
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploración: distribución de carreras con propinas frente a sin propinas
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploración: Distribución de carreras con propinas frente a sin propinas
 En este ejemplo se busca el número de carreras en las que se han dado propinas frente a aquellas en las que no se han dado, en un período de tiempo determinado (o en el conjunto de datos completo si se abarca todo el año). Esta distribución refleja la distribución de etiquetas binarias que se usará más adelante para el modelado de clasificación binaria.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -200,7 +200,7 @@ En este ejemplo se busca el número de carreras en las que se han dado propinas 
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-#### <a name="exploration-tip-classrange-distribution"></a>Exploración: distribución por intervalos y clases de propinas
+#### <a name="exploration-tip-classrange-distribution"></a>Exploración: Distribución por intervalos y clases de propinas
 Este ejemplo calcula la distribución de los intervalos de propinas de un período de tiempo determinado (o en el conjunto de datos completo si abarca todo el año). Esta es la distribución de las clases de etiquetas que se usarán posteriormente para el modelado de clasificación multiclase.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
@@ -215,7 +215,7 @@ Este ejemplo calcula la distribución de los intervalos de propinas de un perío
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploración: calcular y comparar la distancia de la carrera
+#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploración: Proceso y comparación de la distancia de la carrera
 En este ejemplo se convierte la longitud y latitud de los puntos de recogida y destino a puntos geográficos de SQL, se calcula la distancia de la carrera mediante la diferencia de puntos geográficos de SQL y se devuelve una muestra aleatoria de los resultados de la comparación. En el ejemplo se limitan los resultados a coordenadas válidas usando solo la consulta de evaluación de calidad de datos tratada anteriormente.
 
     SELECT
@@ -328,14 +328,14 @@ Ya se pueden explorar los datos de muestreo. Comenzamos echando un vistazo a las
 
     df1['trip_distance'].describe()
 
-#### <a name="visualization-box-plot-example"></a>Visualización: ejemplo de diagrama de caja
+#### <a name="visualization-box-plot-example"></a>Visualización: Ejemplo de diagrama de caja
 A continuación, observaremos el diagrama de caja de la distancia de la carrera para ver los cuantiles
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Diagrama 1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualización: ejemplo de diagrama de distribución
+#### <a name="visualization-distribution-plot-example"></a>Visualización: Ejemplo de diagrama de distribución
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -344,7 +344,7 @@ A continuación, observaremos el diagrama de caja de la distancia de la carrera 
 
 ![Diagrama 2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualización: diagramas de barras y líneas
+#### <a name="visualization-bar-and-line-plots"></a>Visualización: Diagrama de barras y líneas
 En este ejemplo, se discretiza la distancia de la carrera en cinco discretizaciones y se visualizan los resultados de la discretización.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -362,7 +362,7 @@ Podemos trazar la distribución de discretización anterior en un gráfico de ba
 
 ![Diagrama 4][4]
 
-#### <a name="visualization-scatterplot-example"></a>Visualización: ejemplo de gráfico de dispersión
+#### <a name="visualization-scatterplot-example"></a>Visualización: Ejemplo de gráfico de dispersión
 Se muestra el gráfico de dispersión entre **trip\_time\_in\_secs** y **trip\_distance** para ver si existe algún tipo de correlación
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -407,7 +407,7 @@ En esta sección, se combinan las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, 
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Exploración de datos mediante consultas SQL en Blocs de notas de IPython
 En esta sección, se explorarán las distribuciones de datos con los datos de 1 % de muestreo que se conservan en la nueva tabla que se creó anteriormente. Tenga en cuenta que se pueden realizar exploraciones similares mediante las tablas originales, con el uso opcional de **TABLESAMPLE** para limitar el ejemplo de exploración o mediante la limitación de los resultados a un período de tiempo determinado con las particiones **pickup\_datetime**, como se muestra en la sección [Exploración de datos e ingeniería de características en SQL Server](#dbexplore).
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Exploración: distribución diaria de carreras
+#### <a name="exploration-daily-distribution-of-trips"></a>Exploración: Distribución diaria de carreras
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM nyctaxi_one_percent
@@ -416,7 +416,7 @@ En esta sección, se explorarán las distribuciones de datos con los datos de 1�
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Exploración: distribución de carreras por licencia
+#### <a name="exploration-trip-distribution-per-medallion"></a>Exploración: Distribución de carreras por licencia
     query = '''
         SELECT medallion,count(*) AS c
         FROM nyctaxi_one_percent
@@ -428,7 +428,7 @@ En esta sección, se explorarán las distribuciones de datos con los datos de 1�
 ### <a name="feature-generation-using-sql-queries-in-ipython-notebook"></a>Generación de características mediante consultas SQL en Blocs de notas de IPython
 En esta sección, se generarán nuevas etiquetas y características directamente mediante consultas SQL, que funcionarán con la muestra de 1 % que se creó en la sección anterior.
 
-#### <a name="label-generation-generate-class-labels"></a>Generación de etiquetas: generar etiquetas de clase
+#### <a name="label-generation-generate-class-labels"></a>Generación de etiquetas: Generar etiquetas de clase
 En el ejemplo siguiente, se generan dos conjuntos de etiquetas que se usan para el modelado:
 
 1. Etiquetas de clase binaria **tipped** (que predecirán si se dará propina)
@@ -456,7 +456,7 @@ En el ejemplo siguiente, se generan dos conjuntos de etiquetas que se usan para 
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Ingeniería de características: características de recuento de columnas de categorías
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Ingeniería de características: Características de recuento de columnas de categorías
 En este ejemplo se transforma un campo de categoría en un campo numérico mediante el reemplazo de cada categoría por el recuento de sus apariciones en los datos.
 
     nyctaxi_one_percent_insert_col = '''
@@ -486,7 +486,7 @@ En este ejemplo se transforma un campo de categoría en un campo numérico media
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Ingeniería de características: características de discretización de columnas numéricas
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Ingeniería de características: Características de discretización de columnas numéricas
 En este ejemplo se transforma un campo numérico continuo en intervalos de categoría preestablecidos; por ejemplo, la transformación de un campo numérico en un campo de categoría.
 
     nyctaxi_one_percent_insert_col = '''
@@ -514,7 +514,7 @@ En este ejemplo se transforma un campo numérico continuo en intervalos de categ
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Ingeniería de características: extraer las características de ubicación a partir de una latitud o longitud decimal
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Ingeniería de características: Extraer las características de ubicación a partir de una latitud o longitud decimal
 En este ejemplo se desglosa la representación decimal de un campo de longitud o latitud en varios campos de región de granularidad diferente, como país, provincia, localidad, bloque, etc.  Tenga en cuenta que los nuevos campos geográficos no están asignados a ubicaciones reales. Para obtener información sobre la asignación de ubicaciones de códigos geográficos, consulte [Servicios REST de Mapas de Bing](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
@@ -546,9 +546,9 @@ En este ejemplo se desglosa la representación decimal de un campo de longitud o
 
 Ya está todo listo para pasar a la creación del modelo y la implementación del mismo en [Azure Machine Learning](https://studio.azureml.net). Los datos están listos para cualquiera de los problemas de predicción identificados anteriormente, a saber:
 
-1. Clasificación binaria: para predecir si se dio propina en una carrera, o no.
-2. Clasificación multiclase: para predecir el intervalo de la propina dada, según las clases definidas anteriormente.
-3. Tarea de regresión: para predecir la cantidad de propina pagada en una carrera.  
+1. Clasificación binaria: Permite predecir si se dio propina en una carrera o no.
+2. Clasificación con múltiples clases: Permite predecir el rango de la propina dada, según las clases definidas anteriormente.
+3. Tarea de regresión: Permite predecir el importe de la propina pagada por una carrera.  
 
 ## <a name="mlmodel"></a>Creación de modelos en Azure Machine Learning
 Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de Azure Machine Learning. Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md).

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 40ec204f105b32c8b7d9e2dda6f6f3c3023b2d44
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0f608dc89d3a9bc8914fc9be142c442246ce13b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495465"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278549"
 ---
 # <a name="sfctl-application"></a>aplicación de sfctl
 Cree, elimine y administre aplicaciones y tipos de aplicaciones.
@@ -435,22 +435,22 @@ Valida los parámetros de actualización de la aplicación proporcionados e inic
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. <br><br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
-| --application-version [Obligatorio] | Versión de aplicación de destino. |
+| --application-version [Obligatorio] | La versión del tipo de aplicación de destino (que se encuentra en el manifiesto de aplicación) para la actualización de la aplicación. |
 | --parameters          [Obligatorio] | Una lista codificada en JSON de reemplazos de parámetros de aplicación que se aplicarán al actualizar la aplicación. |
 | --default-service-health-policy | Especificación codificada en JSON de la directiva de mantenimiento que se usa de forma predeterminada para evaluar el estado de un tipo de servicio. |
 | --failure-action | La acción para realizar cuando una actualización supervisada detecta infracciones de directivas de mantenimiento o supervisión. |
 | --force-restart | Reinicia de forma forzosa los procesos durante la actualización incluso si no ha cambiado la versión de código. |
-| --health-check-retry-timeout | La cantidad de tiempo que se reintentan las evaluaciones de mantenimiento cuando la aplicación o el clúster no tienen un estado correcto antes de que se ejecute la acción de error. Se mide en milisegundos.  Valor predeterminado\: PT0H10M0S. |
-| --health-check-stable-duration | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización. Se mide en milisegundos.  Valor predeterminado\: PT0H2M0S. |
-| --health-check-wait-duration | La cantidad de tiempo de espera después de completar un dominio de actualización antes de aplicar directivas de mantenimiento. Se mide en milisegundos.  Valor predeterminado\: 0. |
+| --health-check-retry-timeout | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no son correctos.  Valor predeterminado\: PT0H10M0S. |
+| --health-check-stable-duration | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización.  Valor predeterminado\: PT0H2M0S. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
+| --health-check-wait-duration | El período de tiempo de espera después de completar un dominio de actualización antes de iniciar el proceso de comprobaciones de mantenimiento.  Valor predeterminado\: 0. |
 | --max-unhealthy-apps | El porcentaje máximo permitido de aplicaciones implementadas con un estado incorrecto. Se representa como un número entre 0 y 100. |
 | --mode | El modo usado para supervisar el mantenimiento durante una actualización gradual.  Valor predeterminado\: UnmonitoredAuto. |
 | --replica-set-check-timeout | El período de tiempo máximo para bloquear el procesamiento de un dominio de actualización y evitar la pérdida de disponibilidad cuando hay problemas inesperados. Se mide en segundos. |
 | --service-health-policy | Mapa codificado en JSON con una directiva de mantenimiento de tipo de servicio por cada nombre de tipo de servicio. El mapa está vacío de forma predeterminada. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
-| --upgrade-domain-timeout | El período de tiempo del que dispone cada dominio de actualización para completarse antes de la ejecución de FailureAction. Se mide en milisegundos.  Valor predeterminado\: P10675199DT02H48M05.4775807S. |
-| --upgrade-timeout | El período de tiempo en el que se debe completar la actualización general antes de que se ejecute FailureAction. Se mide en milisegundos.  Valor predeterminado\: P10675199DT02H48M05.4775807S. |
-| --warning-as-error | Trata las advertencias de evaluación de mantenimiento con el mismo nivel de gravedad que los errores. |
+| --upgrade-domain-timeout | El período de tiempo del que dispone cada dominio de actualización para completarse antes de la ejecución de FailureAction.  Valor predeterminado\: P10675199DT02H48M05.4775807S. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
+| --upgrade-timeout | El período de tiempo en el que se debe completar la actualización general antes de que se ejecute FailureAction.  Valor predeterminado\: P10675199DT02H48M05.4775807S. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
+| --warning-as-error | Indica si las advertencias se tratan con el mismo nivel de gravedad que los errores. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

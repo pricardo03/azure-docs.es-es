@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce1e82971f10541bf3a67d46b48c5fc93b5432b4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 4285c633062386657cbea478f327c9a1b088f16a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687085"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383823"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Presto en clústeres de Hadoop para HDInsight
 
@@ -22,13 +22,13 @@ En este documento aprenderá a instalar Presto en clústeres de Hadoop para HDIn
 
 HDInsight también ofrece la aplicación Starburst Presto para clústeres de Apache Hadoop. Para más información, vea [Instalación de aplicaciones de terceros en Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Los pasos descritos en este documento requieren un **clúster de Hadoop para HDInsight 3.5** que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte las [versiones de HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="what-is-presto"></a>¿Qué es Presto?
 [Presto](https://prestodb.io/overview.html) es un motor de consultas SQL de distribución rápida para macrodatos. Presto es adecuado para las consultas interactivas de petabytes de datos. Para más información sobre los componentes de Presto y cómo funcionan en conjunto, consulte [Presto concepts](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst) (Conceptos de Presto).
 
-> [!WARNING]
+> [!WARNING]  
 > Los componentes ofrecidos con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
 > 
 > Los componentes personalizados, como Presto, reciben un soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org), por ejemplo: [Hadoop](http://hadoop.apache.org/).
@@ -50,11 +50,11 @@ En esta sección se proporcionan instrucciones sobre cómo usar el script de eje
 
 2. En el área **Configuración avanzada**, seleccione **Acciones de script** y proporcione la información siguiente. También puede elegir la opción "Instalar Presto" para el tipo de script.
    
-   * **NOMBRE**: escriba un nombre sencillo para la acción de script.
+   * **NOMBRE**: escriba un nombre descriptivo para la acción de script.
    * **URI de script de Bash**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
    * **PRINCIPAL**: active esta opción.
-   * **TRABAJADOR**: active esta opción.
-   * **ZOOKEEPER**: deje esta casilla en blanco.
+   * **TRABAJO**: active esta opción.
+   * **ZOOKEEPER**: Deje en blanco esta casilla de verificación.
    * **PARÁMETROS**: deje este campo en blanco.
 
 
@@ -62,7 +62,7 @@ En esta sección se proporcionan instrucciones sobre cómo usar el script de eje
 
 4. Siga aprovisionando el clúster como se describe en [Aprovisionamiento de clústeres de HDInsight basados en Linux](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > También se puede utilizar Azure PowerShell, la CLI de Azure clásica, el SDK de HDInsight para .NET o las plantillas de Azure Resource Manager para aplicar las acciones de script. También puede aplicar acciones de script a clústeres que ya se estén ejecutando. Para obtener más información, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md).
     > 
     > 
@@ -86,7 +86,7 @@ Para trabajar con Presto en un clúster de HDInsight, siga estos pasos:
    
         select count (*) from hivesampletable;
    
-    De forma predeterminada, los conectores [Hive](https://prestodb.io/docs/current/connector/hive.html) y [TPCH](https://prestodb.io/docs/current/connector/tpch.html) para Presto ya están configurados. El conector de Hive está configurado para usar la instalación de Hive que se instala de forma predeterminada, de modo que todas las tablas de Hive estarán visibles automáticamente en Presto.
+    De forma predeterminada, los conectores [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) y [TPCH](https://prestodb.io/docs/current/connector/tpch.html) para Presto ya están configurados. El conector de Hive está configurado para usar la instalación de Hive que se instala de forma predeterminada, de modo que todas las tablas de Hive estarán visibles automáticamente en Presto.
 
     Consulte la [documentación de Presto](https://prestodb.io/docs/current/index.html) para más información.
 
@@ -168,11 +168,11 @@ TPC-DS es el estándar del sector para medir el rendimiento de muchos sistemas d
 
 
 ## <a name="see-also"></a>Otras referencias
-* [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md). Hue es una interfaz de usuario web que facilita el proceso de crear, ejecutar y guardar trabajos de Pig y Hive.
+* [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md). Hue es una interfaz de usuario web que facilita el proceso de crear, ejecutar y guardar trabajos de Apache Pig y Hive.
 
-* [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md). Use la personalización del clúster para instalar Giraph en clústeres de Hadoop para HDInsight. Giraph permite realizar un procesamiento gráfico mediante Hadoop, y se puede usar con HDInsight de Azure.
+* [Instalación de Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md). Use la personalización del clúster para instalar Giraph en clústeres de Hadoop para HDInsight. Giraph permite realizar un procesamiento gráfico mediante Hadoop, y se puede usar con HDInsight de Azure.
 
-* [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md). Use la personalización del clúster para instalar Solr en clústeres de Hadoop para HDInsight. Solr le permite realizar potentes operaciones de búsqueda en los datos almacenados.
+* [Instalación de Apache Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md). Use la personalización del clúster para instalar Solr en clústeres de Hadoop para HDInsight. Solr le permite realizar potentes operaciones de búsqueda en los datos almacenados.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

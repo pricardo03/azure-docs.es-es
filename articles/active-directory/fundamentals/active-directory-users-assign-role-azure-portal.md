@@ -1,6 +1,6 @@
 ---
 title: Asignación de roles de directorio a usuarios con Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo asignar roles de directorio a usuarios con Azure Active Directory.
+description: Instrucciones acerca de cómo asignar roles de administrador y de no administrador a usuarios con Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: b73df5ec0381e83c54c8cd9f8c0335448def0c6d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: e8646893d6dd57fd3f743f450f438cd962f02b36
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733049"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095127"
 ---
-# <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Asignación de roles y administradores a usuarios con Azure Active Directory
+# <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Asignación de roles de administrador y de no administrador a usuarios con Azure Active Directory
 Si un usuario de su organización necesita permiso para administrar recursos de Azure Active Directory (Azure AD), debe asignar al usuario un rol adecuado en Azure AD, en función de las acciones para las que el usuario necesita permisos.
 
 Para más información acerca de los roles disponibles, consulte [Asignación de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Para obtener información sobre cómo agregar usuarios, consulte [Incorporación de nuevos usuarios a Azure Active Directory](add-users-azure-active-directory.md).
@@ -59,7 +60,7 @@ Si necesita quitar la asignación de roles de un usuario, también puede hacerlo
 ## <a name="next-steps"></a>Pasos siguientes
 - [Adición o eliminación de usuarios](add-users-azure-active-directory.md)
 
-- [Adiciones o cambios a la información del perfil](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](active-directory-users-profile-azure-portal.md) (Incorporación o modificación de la información del perfil)
 
 - [Adición de usuarios invitados de otro directorio](../b2b/what-is-b2b.md)
 

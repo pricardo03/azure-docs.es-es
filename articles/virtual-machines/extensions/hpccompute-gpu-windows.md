@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 12/5/2018
 ms.author: roiyz
-ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495961"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971970"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de NVIDIA para Windows
 
@@ -78,17 +78,8 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 | Tipo | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
-### <a name="settings"></a>Configuración
-
-Todos los parámetros son opcionales. El comportamiento predeterminado es instalar el controlador compatible más reciente según corresponda.
-
-| NOMBRE | DESCRIPCIÓN | Valor predeterminado | Valores válidos | Tipo de datos |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: versión del controlador de GRID<br> NC o ND: versión del controlador de CUDA | más reciente | GRID: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | string |
-| installGridND | Instalación de controladores de GRID en máquinas virtuales de la serie NV | false | true, false | boolean |
 
 ## <a name="deployment"></a>Implementación
-
 
 ### <a name="azure-resource-manager-template"></a>Plantilla de Azure Resource Manager 
 
@@ -135,8 +126,6 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
-El siguiente ejemplo refleja el ejemplo anterior de PowerShell y ARM y también agrega una configuración personalizada de ejemplo para la instalación del controlador no predeterminado. En concreto, instala un controlador específico de GRID, incluso si se está aprovisionando una VM de la serie ND.
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -145,8 +134,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 
@@ -176,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Operación correcta |
 | 1 | Operación correcta. Se requiere reiniciar. |
-| 100 | La operación no es compatible o no se pudo completar. | Causas posibles: no se admite la versión de PowerShell, el tamaño de la VM no corresponde con una VM de la serie N, no se pudieron descargar los datos. Compruebe los archivos de registro para determinar la causa del error. |
+| 100 | La operación no es compatible o no se pudo completar. | Causas posibles: No se admite la versión de PowerShell, el tamaño de la VM no corresponde con una VM de la serie N, no se pudieron descargar los datos. Compruebe los archivos de registro para determinar la causa del error. |
 | 240, 840 | Tiempo de espera de la operación. | Reintentar operación. |
 | -1 | Se produjo una excepción. | Comprobar los archivos de registro para determinar la causa de la excepción. |
 | -5x | La operación se interrumpió debido a un reinicio pendiente. | Reinicie la VM. La instalación continuará después del reinicio. La desinstalación se debe invocar manualmente. |

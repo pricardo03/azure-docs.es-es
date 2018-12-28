@@ -1,26 +1,21 @@
 ---
-title: Administración de Azure Cosmos DB en el Explorador de Azure Storage
-description: Aprenda a administrar Azure Cosmos DB en el Explorador de Azure Storage.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: Administración de recursos de Azure Cosmos DB mediante Explorador de Azure Storage
+description: Obtenga información sobre cómo conectarse a Azure Cosmos DB y administrar sus recursos con el Explorador de Azure Storage.
 author: Jejiang
-manager: kfile
-editor: ''
 tags: Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 12/07/2018
 ms.author: jejiang
-ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162473"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138133"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Administración de Azure Cosmos DB en el Explorador de Azure Storage
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Administración de recursos de Azure Cosmos DB con el Explorador de Azure Storage
 
 El uso de Azure Cosmos DB en el Explorador de Azure Storage permite a los usuarios administrar entidades de Azure Cosmos DB, manipular datos, actualizar procedimientos y desencadenadores almacenados, además de otras entidades de Azure, como los blobs y las colas de Storage. Ahora puede usar la misma herramienta para administrar las diferentes entidades de Azure en un solo lugar. Actualmente, el Explorador de Azure Storage admite cuentas de SQL, MongoDB, Graph y Table.
 
@@ -31,7 +26,7 @@ Una cuenta de Azure Cosmos DB para SQL API <!--or MongoDB API-->. Si no tiene un
 
 ## <a name="installation"></a>Instalación
 
-Instale los bits más recientes del Explorador de Azure Storage aquí: [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/), ahora se admite la versión de Windows, Linux y MAC.
+Instale la versión más reciente del Explorador de Azure Storage aquí: [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/), ahora se admite la versión de Windows, Linux y MAC.
 
 ## <a name="connect-to-an-azure-subscription"></a>Conexión a una suscripción de Azure
 
@@ -229,7 +224,7 @@ Cuando el Explorador de Storage se encuentra uno de estos "certificados autofirm
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (cualquiera de las versiones ligeras vale)
      - Mac y Linux: debe estar incluido con el sistema operativo
 2. Ejecute Open SSL.
-    - Windows: Vaya al directorio de instalación y después a **/bin/**, a continuación, haga doble clic en **openssl.exe**.
+    - Windows: Vaya al directorio de instalación y después a **/bin/** y, después, haga doble clic en **openssl.exe**.
     - Mac y Linux: ejecute **openssl** desde un terminal
 3. Ejecute `s_client -showcerts -connect microsoft.com:443`
 4. Busque certificados autofirmados. Si no está seguro de cuáles son autofirmados, busque cualquier lugar en el que el asunto ("s:") y el emisor ("i:") sean el mismo.
@@ -242,11 +237,11 @@ Si no encuentra ningún certificado autofirmado siguiendo los pasos anteriores, 
 
 Si no puede recuperar las suscripciones después de haber iniciado sesión correctamente en:
 
-- Verifique que la cuenta tiene acceso a las suscripciones iniciando sesión en [Azure Portal](http://portal.azure.com/)
-- Asegúrese de que ha iniciado sesión usando el entorno correcto ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Alemania](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/), o entorno personalizado o Azure Stack)
+- Verifique que la cuenta tiene acceso a las suscripciones iniciando sesión en [Azure Portal](https://portal.azure.com/)
+- Asegúrese de que ha iniciado sesión usando el entorno correcto ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Alemania](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/), o entorno personalizado o Azure Stack)
 - Si está detrás de un proxy, asegúrese de que ha configurado correctamente el proxy del Explorador de Storage
 - Pruebe a eliminar la cuenta y volver a agregarla
-- Intente eliminar los siguientes archivos del directorio de inicio (como, C:\Users\ContosoUser) y, luego, vuelva a agregar la cuenta:
+- Intente eliminar los siguientes archivos del directorio de inicio (como: C:\Users\ContosoUser) y, después, intente volver a agregar la cuenta:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -310,6 +305,6 @@ Si ninguna de las soluciones funciona, envíe un correo electrónico al equipo d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para ver cómo se usa Azure Cosmos DB en el Explorador de Azure Storage, vea este vídeo: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be) (Usar Azure Cosmos DB en el Explorador de Azure Storage).
+* Vídeo de información acerca del uso de Azure Cosmos DB en el Explorador de Azure Storage: [Uso de Azure Cosmos DB en el Explorador de Azure Storage](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Puede ver más información acerca del Explorador de Storage y conectarse a más servicios en [Introducción al Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

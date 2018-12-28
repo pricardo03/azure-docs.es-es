@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a9e3529f9d68ecdc614ea69cffc6897891f4548
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4454448809411c6390bc1f65c33b4abe76094ded
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056957"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407752"
 ---
 # <a name="overview-of-resources-in-batch-ai"></a>Información general de los recursos de Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Cuando empiece a usar el servicio Batch AI, querrá entender los recursos disponibles de dicho servicio. Al igual que con otros servicios de Azure, creará recursos de Batch AI en uno o más *grupos de recursos* de Azure. Cree una o varias *áreas de trabajo* de Batch AI en un grupo de recursos. Cada área de trabajo contiene una mezcla de *clústeres*, *servidores de archivos* y *experimentos* de Batch AI. Un experimento de Batch AI encapsula un grupo de *trabajos*.
 
@@ -50,7 +53,7 @@ Un experimento agrupa una colección de trabajos relacionados que se consultan y
 
 ## <a name="job"></a>Trabajo
 
-Un trabajo es una sola tarea o un script que se debe ejecutar, por ejemplo, para entrenar un modelo de aprendizaje profundo. Cada trabajo ejecuta un script específico en un clúster en el área de trabajo. (El script podría almacenarse en un servidor de archivos de Batch AI u otra solución de almacenamiento). Cada trabajo de Batch AI tiene un tipo de marco de trabajo asociado: TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, MPI personalizado o personalizado. Para cada marco, el servicio Batch AI configura la infraestructura necesaria y administra los procesos de trabajo. Cada experimento puede tener varios trabajos que son similares, aparte de algunos cambios en parámetros diferentes.
+Un trabajo es una sola tarea o un script que se debe ejecutar, por ejemplo, para entrenar un modelo de aprendizaje profundo. Cada trabajo ejecuta un script específico en un clúster en el área de trabajo. (El script podría almacenarse en un servidor de archivos de Batch AI u otra solución de almacenamiento). Cada trabajo de Batch AI tiene un tipo de marco asociado: TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, MPI personalizado o personalizado. Para cada marco, el servicio Batch AI configura la infraestructura necesaria y administra los procesos de trabajo. Cada experimento puede tener varios trabajos que son similares, aparte de algunos cambios en parámetros diferentes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

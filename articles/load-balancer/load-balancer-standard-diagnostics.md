@@ -1,13 +1,11 @@
 ---
-title: 'Azure Load Balancer Estándar: diagnóstico | Microsoft Docs'
+title: Diagnóstico de Azure Standard Load Balancer
+titlesuffix: Azure Load Balancer
 description: Use las métricas y la información de mantenimiento disponibles para el diagnóstico de Azure Load Balancer Estándar.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426475"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189054"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Métricas y diagnóstico de mantenimiento de Load Balancer Estándar
 
 Azure Load Balancer Estándar expone las siguientes funcionalidades de diagnóstico para los recursos:
-* **Métricas multidimensionales**: proporciona nuevas funcionalidades de diagnóstico multidimensionales para configuraciones del equilibrador de carga tanto públicas como internas mediante [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Puede supervisar, administrar y solucionar problemas con los recursos del equilibrador de carga.
+* **Métricas multidimensionales**: Proporciona nuevas funcionalidades de diagnóstico multidimensionales para configuraciones del equilibrador de carga tanto públicas como internas mediante [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Puede supervisar, administrar y solucionar problemas con los recursos del equilibrador de carga.
 
-* **Resource Health**: la página de Load Balancer en Azure Portal y la página de Resource Health (en Monitor) exponen la sección Resource Health de la configuración del equilibrador de carga de Load Balancer Estándar.
+* **Estado de los recursos**: La página Load Balancer en Azure Portal y la página Resource Health (en Monitor) exponen la sección Resource Health de la configuración del equilibrador de carga público de Standard Load Balancer.
 
 En este artículo se proporciona una introducción a estas funcionalidades y maneras de usarlas con Load Balancer Estándar.
 
@@ -59,7 +57,7 @@ Para ver las métricas de los recursos de Load Balancer Estándar:
 
 ![Versión preliminar de Métricas para Load Balancer Estándar](./media/load-balancer-standard-diagnostics/LBMetrics1.png)
 
-*Figura: Métrica de disponibilidad de DIP o estado de sondeo de mantenimiento para Load Balancer Estándar*
+*Ilustración: Métrica de disponibilidad de DIP o estado de sondeo de mantenimiento para Standard Load Balancer*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperación de las métricas multidimensionales mediante programación con API
 
@@ -82,7 +80,7 @@ Para obtener la disponibilidad de VIP para los recursos de Load Balancer Estánd
 
 ![Sondeo de VIP](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Figura: Detalles de sondeo de VIP de Load Balancer*
+*Ilustración: Detalles de sondeo de VIP de Load Balancer*
 
 La métrica se genera mediante una medición activa en la banda. Un servicio de sondeo dentro de la región origina el tráfico para la medida. El servicio se activa tan pronto como cree una implementación con un front-end público, y continúa hasta que quite el front-end. 
 
@@ -109,7 +107,7 @@ Para obtener la disponibilidad de DIP para los recursos de Load Balancer Estánd
 
 ![Disponibilidad de DIP](./media/load-balancer-standard-diagnostics/LBMetrics-DIPAvailability.png)
 
-*Figura: Disponibilidad de VIP para Load Balancer*
+*Ilustración: Disponibilidad de VIP para Load Balancer*
 
 Se producirá un error en el sondeo de mantenimiento por los motivos siguientes:
 - Se configura un sondeo de mantenimiento en un puerto que no está escuchando o no responde, o que usa un protocolo incorrecto. Si el servicio utiliza reglas DSR (IP flotante), debe asegurarse de que el servicio está escuchando en la dirección IP de la configuración de IP de la NIC y no solo en el bucle invertido configurado con la dirección IP de front-end.
@@ -129,7 +127,7 @@ Para obtener las estadísticas de conexión SNAT:
 
 ![Conexión SNAT](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Figura: Recuento de conexiones SNAT para Load Balancer*
+*Ilustración: Recuento de conexiones SNAT para Load Balancer*
 
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>¿Cómo se comprueban los intentos de conexión entrantes y salientes de mi servicio?
@@ -140,7 +138,7 @@ Use **Total** como agregación para la mayoría de los escenarios.
 
 ![Conexión SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*Figura: Recuento de SYN para Load Balancer*
+*Ilustración: Recuento de SYN para Load Balancer*
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>¿Cómo se comprueba el consumo de ancho de banda de la red? 
@@ -157,7 +155,7 @@ Para obtener las estadísticas de recuento de bytes o paquetes:
 
 ![Recuento de bytes](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Figura: Recuento de bytes para Load Balancer*
+*Ilustración: Recuento de bytes para Load Balancer*
 
 #### <a name = "vipavailabilityandhealthprobes"></a>¿Cómo se diagnostica la implementación de Load Balancer?
 
@@ -169,7 +167,7 @@ Puede dar otro paso y usar las métricas de disponibilidad de VIP para comprende
 
 ![Diagnóstico de VIP](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
 
-*Figura: Combinación de las métricas de disponibilidad DIP y VIP*
+*Ilustración: Combinación de las métricas de disponibilidad DIP y VIP*
 
 En este gráfico se muestra la siguiente información:
 - La infraestructura era correcta, la infraestructura que hospeda las máquinas virtuales era alcanzable y más de una máquina virtual se colocó en el back-end. Esta información se indica mediante el seguimiento azul para la disponibilidad de VIP, que se muestra al 100 %. 
@@ -193,19 +191,19 @@ Para ver el mantenimiento de los recursos públicos de Load Balancer Estándar:
 
    ![Página Supervisar](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   *Figura: Vínculo de Service Health en Azure Monitor*
+   *Ilustración: Vínculo de Service Health en Azure Monitor*
 
 2. Seleccione **Resource Health** y asegúrese de que **Id. de suscripción** y **Resource Type = Load Balancer** (Tipo de recurso = Load Balancer) están seleccionados.
 
    ![Estado de mantenimiento de los recursos](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   *Figura: Selección de un recurso para ver su mantenimiento*
+   *Ilustración: Selección de un recurso para ver su mantenimiento*
 
 3. Haga clic en el recurso de Load Balancer de la lista para ver sus datos históricos de estado de mantenimiento.
 
     ![Estado de mantenimiento de Load Balancer](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Figura: Vista del mantenimiento de los recursos de Load Balancer*
+   *Ilustración: Vista del mantenimiento de los recursos de Load Balancer*
  
 En la tabla siguiente se enumeran los estados de mantenimiento de varios recursos y su descripción. 
 

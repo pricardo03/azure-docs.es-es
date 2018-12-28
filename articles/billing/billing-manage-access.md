@@ -1,6 +1,6 @@
 ---
 title: Administración del acceso a la facturación de Azure | Microsoft Docs
-description: ''
+description: Obtenga información acerca de cómo acceder a la información de facturación de Azure para los miembros del equipo.
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: a15d055505ca0f28ad28b477e90e6fe859cc9ac7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582622"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094294"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Administración del acceso a la información de facturación de Azure
 
@@ -72,9 +73,10 @@ La característica Lector de facturación está en versión preliminar y aún no
 
 1. Seleccione **Access Control (IAM)**.
 1. Seleccione **Asignaciones de roles** para ver todas las asignaciones de roles de esta suscripción.
-1. Seleccione **Agregar** > **Agregar asignación de roles**.
+1. Seleccione **Agregar asignación de roles**.
 1. En la lista desplegable **Rol**, elija **Lector de facturación**.
 1. En el cuadro de texto **Seleccionar**, escriba el nombre o el correo electrónico del usuario que quiere agregar.
+1. Seleccione el usuario.
 1. Seleccione **Guardar**.
 1. Transcurridos unos instantes, al usuario se le asigna el rol Lector de facturación en el ámbito de la suscripción.
 1. El Lector de facturación recibe un correo electrónico con un vínculo para iniciar sesión.

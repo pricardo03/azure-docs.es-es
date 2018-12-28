@@ -1,5 +1,5 @@
 ---
-title: 'Fase de implementación del ciclo de vida del Proceso de ciencia de datos en equipo: Azure| Microsoft Docs'
+title: Fase de implementación del ciclo de vida del proceso de ciencia de datos en equipos
 description: Los objetivos, las tareas y los resultados de la fase de implementación de los proyectos de ciencia de datos.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 30d54b1475188fa886a811b22460d88e53aa564e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d05f831aa1ae1f9b0912dce66bf7f5e15c109d49
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446592"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138575"
 ---
-# <a name="deployment"></a>Implementación
+# <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase de implementación del ciclo de vida del proceso de ciencia de datos en equipos
 
 En este artículo se describen los objetivos, las tareas y los resultados asociados a la implementación del Proceso de ciencia de datos en equipo (TDSP). Este proceso proporciona un ciclo de vida recomendado que puede usar para estructurar los proyectos de ciencia de datos. El ciclo de vida describe las fases principales por las que pasan normalmente los proyectos, a menudo de forma iterativa:
 
@@ -39,7 +39,7 @@ Implemente modelos con canalización de datos en un entorno de producción o sim
 ## <a name="how-to-do-it"></a>Modo de hacerlo
 La tarea principal que se aborda en esta fase es la siguiente:
 
-**Uso del modelo**: implemente el modelo y la canalización en un entorno de producción o semejante para el consumo de aplicaciones.
+**Poner en marcha el modelo**: implemente el modelo y la canalización en un entorno de producción o semejante para el consumo de aplicaciones.
 
 ### <a name="operationalize-a-model"></a>Uso de modelos
 Cuando ya disponga de un conjunto de modelos que funcionan bien, los puede hacer operativos para que los consuman otras aplicaciones. Dependiendo de los requisitos empresariales, se realizan predicciones en tiempo real o por lotes. Para implementar modelos, los expone con una interfaz de API abierta. La interfaz permite que el modelo se utilice fácilmente por diferentes aplicaciones, como las siguientes:

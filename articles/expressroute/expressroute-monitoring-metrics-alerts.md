@@ -1,26 +1,31 @@
 ---
-title: Supervisión, métricas y alertas de ExpressRoute | Microsoft Docs
+title: Supervisión, métricas y alertas de Azure ExpressRoute | Microsoft Docs
 description: En esta página se proporciona información acerca de la supervisión de ExpressRoute.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377804"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091771"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervisión, métricas y alertas de ExpressRoute
 
- Este artículo le servirá para comprender la supervisión, las métricas y las alertas de ExpressRoute. Azure Monitor es un centro único para todas las métricas, alertas y registros de diagnóstico en todo Azure.
+Este artículo le servirá para comprender la supervisión, las métricas y las alertas de ExpressRoute con Azure Monitor. Azure Monitor es un centro único para todas las métricas, alertas y registros de diagnóstico en todo Azure.
+ 
+>[!NOTE]
+>No se recomienda el uso de **métricas clásicas**.
+>
 
 ## <a name="circuit-metrics"></a>Métricas de circuito
 
-Para ir a **Métricas**, haga clic en la página de ExpressRoute del circuito que desea supervisar. En **Supervisión** puede ver las **Métricas**. Seleccione BitsInPerSecond o BitsOutPerSecond y la agregación. Opcionalmente puede aplicar la división, que mostrará las métricas por tipo de emparejamiento.
+Para ir a **Métricas**, haga clic en la página de ExpressRoute del circuito que desea supervisar. En **Supervisión**, puede ver las **Métricas**. Seleccione BitsInPerSecond o BitsOutPerSecond y la agregación. Opcionalmente puede aplicar la división, que mostrará las métricas por tipo de emparejamiento.
 
 ![métricas de circuito](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
@@ -47,7 +52,6 @@ Puede ver las métricas de emparejamiento público, privado y de Microsoft en bi
 
   ![grupo de acciones](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
-
 4. Defina y agregue el grupo de acciones.
 
   ![adición de grupo de acciones](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
@@ -61,9 +65,10 @@ Puede ver las métricas de emparejamiento público, privado y de Microsoft en bi
 En **Criterios de alerta**, puede seleccionar **Registro de actividad** para el tipo de señal y seleccionar la señal.
 
   ![otro](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
+  
 ## <a name="next-steps"></a>Pasos siguientes
-* Configure su conexión ExpressRoute.
+
+Configure su conexión ExpressRoute.
   
   * [Creación y modificación de un circuito](expressroute-howto-circuit-arm.md)
   * [Creación y modificación de la configuración de emparejamiento](expressroute-howto-routing-arm.md)

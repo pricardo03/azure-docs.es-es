@@ -1,6 +1,6 @@
 ---
-title: Plantillas de Azure Resource Manager para mantener la coherencia en la nube | Microsoft Docs
-description: Desarrolle plantillas de Azure Resource Manager para mantener la coherencia en la nube. Cree o actualice plantillas existentes de Azure Stack.
+title: Volver a usar plantillas en la nube con Azure Resource Manager
+description: Desarrollar plantillas de Azure Resource Manager que funcionen de forma coherente para distintos entornos en la nube. Cree o actualice plantillas existentes de Azure Stack.
 services: azure-resource-manager
 documentationcenter: na
 author: marcvaneijk
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/09/2018
 ms.author: mavane
-ms.openlocfilehash: f1ff151c0b8d89910949d961b732c10901f19293
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723377"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135634"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube
 
@@ -434,7 +435,7 @@ Los recursos pueden tener referencias a otros servicios en la plataforma. Por ej
 Los dos ejemplos siguientes son espacios de nombres de punto de conexión comunes que se deben especificar de forma explícita al crear un recurso:
 
 * Cuentas de almacenamiento (blob, cola, tabla y archivo)
-* Cadenas de conexión para las bases de datos y Redis Cache
+* Cadenas de conexión para las bases de datos y Azure Cache for Redis
 
 Los espacios de nombres de punto de conexión también se pueden usar en la salida de una plantilla como información para el usuario cuando se complete la implementación. A continuación se muestran ejemplos comunes:
 

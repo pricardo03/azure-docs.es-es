@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas en Azure IoT Edge | Microsoft Docs
-description: Resolución de problemas habituales y adquisición de conocimientos sobre solución de problemas para Azure IoT Edge
+title: 'Solución de problemas: Azure IoT Edge | Microsoft Docs'
+description: Use este artículo para obtener información sobre las aptitudes de diagnóstico estándar para Azure IoT Edge, como la recuperación de los registros y el estado del componente, así como la resolución de problemas comunes.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a553798a3ac15340805984a0e87312875f82c46c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: cd9ff1a1a7730ae870ef4e80fbca2d934aa5c8e2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567662"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342670"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -100,7 +101,7 @@ En Windows:
 
 ### <a name="check-container-logs-for-issues"></a>Comprobación de los registros del contenedor para detectar problemas
 
-Cuando el demonio de seguridad de IoT Edge se esté ejecutando, examine los registros de los contenedores para detectar problemas. Empiece por los contenedores implementados y, a continuación, examine los contenedores que componen el entorno de ejecución de IoT Edge: agente de Edge y centro de Edge. Los registros del agente de Edge normalmente proporcionan información sobre el ciclo de vida de cada contenedor. Los registros del centro de Edge proporcionan información sobre mensajería y enrutamiento. 
+Cuando el demonio de seguridad de IoT Edge se esté ejecutando, examine los registros de los contenedores para detectar problemas. Empiece por los contenedores implementados y, a continuación, examine los contenedores que componen el entorno en tiempo de ejecución de IoT Edge: Agente de Edge y centro de Microsoft Edge. Los registros del agente de Edge normalmente proporcionan información sobre el ciclo de vida de cada contenedor. Los registros del centro de Edge proporcionan información sobre mensajería y enrutamiento. 
 
    ```cmd
    iotedge logs <container name>
@@ -146,7 +147,7 @@ Reemplace `env: {}` por:
 
 Guarde el archivo y reinicie el administrador de seguridad de IoT Edge.
 
-También puede comprobar los mensajes que se envían entre los dispositivos de IoT Hub e IoT Edge. Vea estos mensajes mediante la extensión de [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) para Visual Studio Code. Para más información, consulte [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Herramienta práctica para desarrollar con Azure IoT).
+También puede comprobar los mensajes que se envían entre los dispositivos de IoT Hub e IoT Edge. Consulte estos mensajes mediante la extensión [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente extensión Azure IoT Toolkit) para Visual Studio Code. Para más información, consulte [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Herramienta práctica para desarrollar con Azure IoT).
 
 ### <a name="restart-containers"></a>Reinicio de los contenedores
 Después de investigar los registros y mensajes para obtener información, puede intentar reiniciar los contenedores:
@@ -243,7 +244,7 @@ Cuando vea este error, puede resolverlo configurando el nombre DNS de la máquin
 1. En Azure Portal, navegue a la hoja de introducción de la máquina virtual. 
 2. Seleccione **configurar** en el nombre DNS. Si la máquina virtual ya tiene configurado un nombre DNS, no es necesario configurar uno nuevo. 
 
-   ![Configuración del nombre DNS](./media/troubleshoot/configure-dns.png)
+   ![Configuración del nombre DNS de la máquina virtual](./media/troubleshoot/configure-dns.png)
 
 3. Proporcione un valor para **Etiqueta de nombre DNS** y seleccione **Guardar**.
 4. Copie el nuevo nombre DNS, que debe tener el formato **\<etiquetanombreDNS\>.\< ubicaciónvm\>.cloudapp.azure.com**.
@@ -274,7 +275,7 @@ En la interfaz de usuario:
 
 En el portal de *Detalles del dispositivo*->*Establecer módulos*->*Configurar las opciones avanzadas del entorno en tiempo de ejecución de Edge*, cree una variable de entorno llamada *OptimizeForPerformance* que se establece en *false* para el *centro de Edge*.
 
-![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
+![OptimizeForPerformance establecido en false](./media/troubleshoot/optimizeforperformance-false.png)
 
 **O bien**
 

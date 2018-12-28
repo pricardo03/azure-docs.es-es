@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0bbfafcda77ca48fb22ad919c5848a7670a102
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67658d75f7ad4a6db1af5db97a525774b0ab6e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309681"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095285"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copia de datos de ServiceNow con Azure Data Factory
 
@@ -42,9 +42,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de ServiceN
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **ServiceNow**. | SÍ |
+| Tipo | La propiedad type debe establecerse en: **ServiceNow** | SÍ |
 | punto de conexión | El punto de conexión del servidor de ServiceNow (`http://<instance>.service-now.com`).  | SÍ |
-| authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Basic** y **OAuth2**. | SÍ |
+| authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Basic** y **OAuth2** | SÍ |
 | nombre de usuario | Nombre de usuario utilizado para conectarse al servidor de ServiceNow para la autenticación Basic y OAuth2.  | SÍ |
 | contraseña | Contraseña correspondiente al nombre de usuario para la autenticación Basic y OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
 | clientId | Id. de cliente para la autenticación OAuth2.  | Sin  |
@@ -77,7 +77,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de ServiceN
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades compatibles con el conjunto de datos de ServiceNow.
 
-Para copiar datos de ServiceNow, establezca la propiedad type del conjunto de datos en **ServiceNowObject**. No hay ninguna propiedad específica de tipo adicional en este tipo de conjunto de datos.
+Para copiar datos de ServiceNow, establezca la propiedad type del conjunto de datos en **ServiceNowObject**. Se admiten las siguientes propiedades:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **ServiceNowObject** | SÍ |
+| tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
 
@@ -89,7 +94,8 @@ Para copiar datos de ServiceNow, establezca la propiedad type del conjunto de da
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -104,8 +110,8 @@ Para copiar datos de ServiceNow, establezca el tipo de origen de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **ServiceNowSource**. | SÍ |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Actual.alm_asset"`. | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **ServiceNowSource** | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Actual.alm_asset"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 Tenga en cuenta lo siguiente cuando especifique el esquema y la columna para ServiceNow en la consulta, y **consulte los [consejos de rendimiento](#performance-tips) en la implicación de rendimiento de copia**.
 
@@ -113,7 +119,7 @@ Tenga en cuenta lo siguiente cuando especifique el esquema y la columna para Ser
 - **Columna:** el nombre de columna del valor real del esquema `Actual` es `[columne name]_value`, mientras que el valor de visualización del esquema `Display` es `[columne name]_display_value`. Tenga en cuenta que el nombre de columna se debe asignar al esquema que se usa en la consulta.
 
 **Consulta de ejemplo:**
-`SELECT col_value FROM Actual.alm_asset` O 
+`SELECT col_value FROM Actual.alm_asset` OR 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Ejemplo:**

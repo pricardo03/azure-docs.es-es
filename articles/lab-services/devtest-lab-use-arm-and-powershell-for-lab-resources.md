@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7cf6e5569e9d47b2a279f39cf837a4c0558bf3c9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2c15cac7897e25018057aa47cc2043050ed0ae5b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783364"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413207"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Creación o modificación de laboratorios automáticamente con plantillas de Azure Resource Manager y PowerShell
 
@@ -28,7 +28,7 @@ DevTest Labs proporciona muchas plantillas de Azure Resource Manager y los scrip
 Este artículo le guía a través del proceso de uso de estas plantillas y scripts para automatizar la creación, la modificación y la implementación de los laboratorios. En este artículo también se muestra dónde puede encontrar más información sobre cómo usar PowerShell para realizar algunas tareas comunes en DevTest Labs.
 
 ## <a name="step-1-gather-your-templates-and-scripts"></a>Paso 1: Recopilación de las plantillas y los scripts
-Puede encontrar [plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) y [scripts de PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) creados previamente en nuestro [repositorio de Github](https://github.com/Azure/azure-devtestlab) público. Úselos como están o personalícelos según sus necesidades y almacénelos en su propio [repositorio Git privado](devtest-lab-add-artifact-repo.md). 
+Puede encontrar [plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) y [scripts de PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) creados previamente en nuestro [repositorio de GitHub](https://github.com/Azure/azure-devtestlab) público. Úselos como están o personalícelos según sus necesidades y almacénelos en su propio [repositorio Git privado](devtest-lab-add-artifact-repo.md).
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Paso 2: Edición de la plantilla de Azure Resource Manager
 Si nunca ha creado una plantilla antes, puede seguir los pasos que se indican en [Creación de la primera plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).

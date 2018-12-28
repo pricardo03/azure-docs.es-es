@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634513"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322437"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configuración de Samanage para el aprovisionamiento automático de usuarios
 
@@ -76,7 +76,9 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Sugerencias importantes para asignar usuarios a Samanage
 
-*   Se recomienda asignar un único usuario de Azure AD a Samanage para probar la configuración de aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
+*    Los roles de Samanage se rellenan automática y dinámicamente en la interfaz de usuario de Azure Portal actualmente. Antes de asignar roles de Samanage a los usuarios, asegúrese de que se ha completado una sincronización inicial con Samanage para recuperar los roles más recientes en el inquilino de Samanage.
+
+*    Se recomienda asignar un único usuario de Azure AD a Samanage para probar la configuración inicial de aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos una vez realizadas las pruebas correctamente.
 
 *   Al asignar un usuario a Samanage, debe seleccionar un rol válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
 
@@ -154,7 +156,7 @@ Esta operación inicia la sincronización inicial de todos los usuarios o grupos
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Limitaciones de los conectores
+## <a name="connector-limitations"></a>Limitaciones del conector
 
 * Si se selecciona la opción **Sincronizar todos los usuarios y grupos** y se configura un valor predeterminado para el atributo **roles** de Samanage, asegúrese de que el valor deseado en el campo **Default value if null (is optional)** (Valor predeterminado si es null [es opcional]) se expresa en el siguiente formato **{"displayName":"role"}** donde rol es el valor predeterminado deseado.
 

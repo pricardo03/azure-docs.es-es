@@ -8,22 +8,22 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 12/07/2018
 ms.author: glenga
-ms.openlocfilehash: 00735293d8fa8c6056f1ecf89fd312fe4b90bcac
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 78011e799fb4ddaf89fb1fd24c1f2a313ef49ba5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637580"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338114"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicación de Durable Functions en Azure Event Grid (versión preliminar)
 
-En este artículo se muestra cómo configurar Azure Durable Functions para publicar eventos de ciclo de vida de orquestación (como los creados, los completados y los que contienen errores) en un [tema de Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) personalizado. 
+En este artículo se muestra cómo configurar Durable Functions para publicar eventos de ciclo de vida de orquestación (como los creados, los completados y los que contienen errores) en un [tema de Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) personalizado.
 
 A continuación se muestran algunos escenarios donde esta característica resulta útil:
 
-* **Escenarios de DevOps como las implementaciones Azul/Verde**: por si desea saber si hay tareas en ejecución antes de implementar la [estrategia de implementación en paralelo](https://docs.microsoft.com/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
+* **Escenarios de DevOps, como las implementaciones Azul/Verde**: por si quiere saber si hay tareas en ejecución antes de implementar la [estrategia de implementación en paralelo](durable-functions-versioning.md#side-by-side-deployments).
 
 * **Compatibilidad con la supervisión y el diagnóstico avanzados**: puede realizar el seguimiento de la información de estado de la orquestación en un almacén externo optimizado para las consultas, como SQL Database o CosmosDB.
 
@@ -39,12 +39,12 @@ A continuación se muestran algunos escenarios donde esta característica result
 
 Cree un tema de Event Grid para enviar eventos desde Durable Functions. Las instrucciones siguientes muestran cómo crear un tema con la CLI de Azure. Para información acerca de cómo hacerlo con PowerShell o Azure Portal, consulte los artículos siguientes:
 
-* [Inicio rápido en EventGrid: creación de eventos personalizados con PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
-* [Inicio rápido en EventGrid: creación de eventos personalizados con Azure Portal](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
+* [Inicios rápidos de EventGrid: Creación de eventos personalizados: PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
+* [Inicios rápidos de EventGrid: Creación de eventos personalizados: Azure Portal](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando `az group create`. Actualmente, Event Grid no se admite en todas las regiones. Para información sobre las regiones donde se admite, consulte la [introducción a Event Grid](https://docs.microsoft.com/azure/event-grid/overview). 
+Cree un grupo de recursos con el comando `az group create`. Actualmente, Event Grid no se admite en todas las regiones. Para información sobre las regiones donde se admite, consulte la [introducción a Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -55,7 +55,7 @@ az group create --name eventResourceGroup --location westus2
 Un tema de Event Grid proporciona un punto de conexión definido por el usuario en el que se publicar eventos. Reemplace `<topic_name>` por un nombre único para el tema. El nombre del tema debe ser único, ya que se convierte en entrada DNS.
 
 ```bash
-az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup 
+az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
 ```
 
 ## <a name="get-the-endpoint-and-key"></a>Obtención del punto de conexión y la clave
@@ -119,7 +119,7 @@ Cree una aplicación de función. Se recomienda ubicarla en la misma región que
 
 ### <a name="create-an-event-grid-trigger-function"></a>Creación de una función de desencadenador de Event Grid
 
-Cree una función que reciba los eventos de ciclo de vida. Seleccione **Función personalizada**. 
+Cree una función que reciba los eventos de ciclo de vida. Seleccione **Función personalizada**.
 
 ![Selección de creación de una función personalizada](./media/durable-functions-event-publishing/functions-portal.png)
 
@@ -131,7 +131,7 @@ Escriba el nombre de la función y seleccione `Create`.
 
 ![Creación de Desencadenador de Event Grid](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
 
-Se creará una función con el código siguiente: 
+Se creará una función con el código siguiente:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -153,11 +153,11 @@ Seleccione `Event Grid Topics` como **Tipo de tema**. Seleccione el grupo de rec
 
 ![Cree una suscripción de Event Grid.](./media/durable-functions-event-publishing/eventsubscription.png)
 
-Ahora está preparado para recibir eventos de ciclo de vida. 
+Ahora está preparado para recibir eventos de ciclo de vida.
 
 ## <a name="create-durable-functions-to-send-the-events"></a>Creación de una instancia de Durable Functions para enviar eventos
 
-En el proyecto de Durable Functions, inicie la depuración en la máquina local.  El código siguiente es el mismo que el de la plantilla de Durable Functions. Ya se han configurado `host.json` y `local.settings.json` en la máquina local. 
+En el proyecto de Durable Functions, inicie la depuración en la máquina local.  El código siguiente es el mismo que el de la plantilla de Durable Functions. Ya se han configurado `host.json` y `local.settings.json` en la máquina local.
 
 ```csharp
 using System.Collections.Generic;
@@ -217,7 +217,7 @@ Consulte los registros de la función que ha creado en Azure Portal.
 ```
 2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
 2018-04-20T09:28:21.104 [Info] {
-    "id": "054fe385-c017-4ce3-b38a-052ac970c39d",    
+    "id": "054fe385-c017-4ce3-b38a-052ac970c39d",
     "subject": "durable/orchestrator/Running",
     "data": {
         "hubName": "DurableFunctionsHub",
@@ -261,15 +261,15 @@ En la lista siguiente se explica el esquema de los eventos de ciclo de vida:
 * **id**: identificador único del evento de Event Grid.
 * **subject**: ruta de acceso al asunto del evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` será `Running`, `Completed`, `Failed` y `Terminated`.  
 * **data**: parámetros específicos de Durable Functions.
-    * **hubName**: nombre de [TaskHub](https://docs.microsoft.com/azure/azure-functions/durable-functions-task-hubs).
-    * **functionName**: nombre de la función de orquestador.
-    * **instanceId**: identificador de la instancia de Durable Functions.
-    * **reason**: información adicional asociada al evento de seguimiento. Para más información, consulte [Diagnóstico con Durable Functions (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-diagnostics)
-    * **runtimeStatus**: estado del tiempo de ejecución de la orquestación. Running, Completed, Failed, Canceled. 
+  * **hubName**: nombre de [TaskHub](durable-functions-task-hubs.md).
+  * **functionName**: nombre de una función de orquestador.
+  * **instanceId**: instanceId de Durable Functions.
+  * **reason**: información adicional asociada al evento de seguimiento. Para más información, consulte [Diagnóstico con Durable Functions (Azure Functions)](durable-functions-diagnostics.md)
+  * **runtimeStatus**: estado del entorno en tiempo de ejecución de la orquestación. Running, Completed, Failed, Canceled.
 * **eventType**: "orchestratorEvent".
 * **eventTime**: hora del evento (UTC).
 * **dataVersion**: versión del esquema de los eventos de ciclo de vida.
-* **metadataVersion**: versión de los metadatos.
+* **metadataVersion**:  versión de los metadatos.
 * **topic**: recurso del tema de Event Grid.
 
 ## <a name="how-to-test-locally"></a>Prueba local

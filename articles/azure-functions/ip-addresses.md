@@ -7,14 +7,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 12/03/2018
 ms.author: glenga
-ms.openlocfilehash: a92a4183962f71005577478bf27df9b5fb945acf
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 83e5a15d8a7f9c01f6a180ebceb715600b8a39db
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634369"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849486"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
 
@@ -88,13 +88,13 @@ Por ejemplo, este sería el aspecto del fragmento JSON de Europa Occidental:
 
 ## <a name="inbound-ip-address-changes"></a>Cambios en la dirección IP de entrada
 
- La dirección IP de entrada **puede** cambiar cuándo se:
+La dirección IP de entrada **puede** cambiar cuándo se:
 
 - Elimina una aplicación de función y se vuelve a crearla en otro grupo de recursos.
 - Elimina la última aplicación de función de una combinación de grupo de recursos y región, y se vuelve a crear.
 - Elimina un enlace SSL, como por ejemplo, cuando se [renuevan certificados](../app-service/app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-La dirección IP de entrada también puede cambiar cuando no ha realizado ninguna acción como las que se muestran.
+Cuando la aplicación de función se ejecuta en un [Plan de consumo](functions-scale.md#consumption-plan), la dirección IP de entrada también puede cambiar cuando no ha realizado ninguna acción como las que se muestran.
 
 ## <a name="outbound-ip-address-changes"></a>Cambios en la dirección IP de salida
 
@@ -103,7 +103,7 @@ El conjunto de direcciones IP de salida disponibles para una aplicación de func
 * Realiza alguna acción que puede cambiar la dirección IP de entrada.
 * Cambia el plan de tarifa del plan de App Service. La lista de todas las posibles direcciones IP de salida que puede utilizar una aplicación, para todos los planes de tarifa, está en la propiedad `possibleOutboundIPAddresses`. Consulte [Búsqueda de las direcciones IP de salida](#find-outbound-ip-addresses).
 
-La dirección IP de entrada también puede cambiar cuando no ha realizado ninguna acción como las que se muestran.
+Cuando la aplicación de función se ejecuta en un [Plan de consumo](functions-scale.md#consumption-plan), la dirección IP de salida también puede cambiar cuando no ha realizado ninguna acción como las que se muestran.
 
 Para forzar deliberadamente el cambio de la dirección IP de salida:
 

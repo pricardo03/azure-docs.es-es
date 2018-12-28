@@ -4,15 +4,15 @@ description: En este artículo se resumen las preguntas comunes al configurar la
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.author: mayg
+ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162490"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256524"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -27,8 +27,8 @@ Consulte los detalles de los [precios de Azure Site Recovery](https://azure.micr
 Durante la replicación, los datos se replican en Azure Storage y no se paga ningún cambio en las máquinas virtuales. Cuando se ejecuta una conmutación por error en Azure, Site Recovery crea automáticamente máquinas virtuales IaaS de Azure. Después de eso, se le facturan los recursos de proceso que consume en Azure.
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>¿Qué puedo hacer con la replicación de VMware en Azure?
-- **Recuperación ante desastres**: puede configurar la recuperación ante desastres completa. En este escenario, replica máquinas virtuales de VMware locales en Azure Storage. Luego, si la infraestructura local no está disponible, puede conmutar por error en Azure. Cuando conmuta por error, las máquinas virtuales de Azure se crean con los datos replicados. Puede acceder a aplicaciones y cargas de trabajo en las máquinas virtuales de Azure hasta que el centro de datos local vuelva a estar disponible. Luego, puede conmutar por recuperación desde Azure al sitio local.
-- **Migración**: puede usar Site Recovery para migrar máquinas virtuales de VMware locales a Azure. En este escenario, replica máquinas virtuales de VMware locales en Azure Storage. Luego, conmuta por error desde el entorno local a Azure. Después de la conmutación por error, las aplicaciones y cargas de trabajo están disponibles y se ejecutan en máquinas virtuales de Azure.
+- **Recuperación ante desastres**: Puede configurar la recuperación ante desastres completa. En este escenario, replica máquinas virtuales de VMware locales en Azure Storage. Luego, si la infraestructura local no está disponible, puede conmutar por error en Azure. Cuando conmuta por error, las máquinas virtuales de Azure se crean con los datos replicados. Puede acceder a aplicaciones y cargas de trabajo en las máquinas virtuales de Azure hasta que el centro de datos local vuelva a estar disponible. Luego, puede conmutar por recuperación desde Azure al sitio local.
+- **Migración**: Puede usar Site Recovery para migrar VM de VMware locales a Azure. En este escenario, replica máquinas virtuales de VMware locales en Azure Storage. Luego, conmuta por error desde el entorno local a Azure. Después de la conmutación por error, las aplicaciones y cargas de trabajo están disponibles y se ejecutan en máquinas virtuales de Azure.
 
 
 
@@ -74,7 +74,7 @@ Puede replicar cualquier aplicación o carga de trabajo en ejecución en una má
 Site Recovery replica los datos desde el entorno local a una instancia de Azure Storage a través de un punto de conexión público o mediante el uso del emparejamiento público de ExpressRoute. No se admite la replicación a través de una red VPN de sitio a sitio.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>¿Puedo replicar en Azure con ExpressRoute?
-Sí, puede usar ExpressRoute para replicar máquinas virtuales en Azure. Site Recovery replica datos en una cuenta de Azure Storage a través de un punto de conexión público y es necesario configurar el [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) para la replicación de Site Recovery. Una vez que las máquinas virtuales conmutan por error en una red virtual de Azure, puede acceder a ellas a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Sí, puede usar ExpressRoute para replicar máquinas virtuales en Azure. Site Recovery replica datos en una cuenta de Azure Storage a través de un punto de conexión público y es necesario configurar el [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) para la replicación de Site Recovery. Una vez que las máquinas virtuales conmutan por error en una red virtual de Azure, puede acceder a ellas a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>¿Por qué no puedo replicar a través de VPN?
@@ -146,11 +146,14 @@ Sí. Descargue MySQL y colóquelo en la carpeta **C:\Temp\ASRSetup**. Después, 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>¿Se puedo evitar descargar MySQL pero dejar que Site Recovery lo instale?
 Sí. Descargue el instalador de MySQL y colóquelo en la carpeta **C:\Temp\ASRSetup**.  Al configurar la máquina virtual del servidor de configuración, acepte los términos y haga clic en **Descargar e instalar**; el portal usará el instalador que ha agregado para instalar MySQL.
  
-### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>¿Se puede usar la máquina virtual del servidor de configuración para cualquier otra cosa?
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>¿Se puede usar la VM del servidor de configuración para cualquier otra cosa?
 No, solo se debe usar la máquina virtual para el servidor de configuración. 
 
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>¿Puedo clonar un servidor de configuración y usarlo para orquestación?
+No, debe configurar un nuevo servidor de configuración para evitar problemas de registro.
+
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>¿Se puede cambiar el almacén registrado en el servidor de configuración?
- No. Una vez que un almacén está registrado con el servidor de configuración, no se puede cambiar.
+ No. Una vez que un almacén está registrado con el servidor de configuración, no se puede cambiar. Revise [este artículo](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) para conocer los pasos para un nuevo registro.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>¿Se puede usar el mismo servidor de configuración para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos?
 Sí, pero tenga en cuenta que solo se puede realizar la conmutación por recuperación de una máquina física a una máquina virtual de VMware.

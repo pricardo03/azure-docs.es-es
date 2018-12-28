@@ -11,18 +11,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: b90009c1cd08a1004e58c4b9f25cd6350712fbcd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358615"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184549"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Resolución de errores del registro del proveedor de recursos
 
-Este artículo describe los errores que pueden producirse al usar un proveedor de recursos que no ha usado anteriormente en la suscripción.
+En este artículo se describen los errores que pueden producirse al usar un proveedor de recursos que no ha usado anteriormente en la suscripción.
 
 ## <a name="symptom"></a>Síntoma
 
@@ -41,15 +41,15 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
-El mensaje de error debería proporcionarle sugerencias con respecto a las versiones de API y a las ubicaciones admitidas. Puede cambiar la plantilla a uno de los valores sugeridos. La mayoría de los proveedores se registran automáticamente mediante el Portal de Azure o la interfaz de línea de comandos que esté utilizando; pero no ocurre con todos. Si no ha utilizado un proveedor de recursos determinado antes, debe registrar dicho proveedor.
+El mensaje de error debería proporcionarle sugerencias con respecto a las versiones de API y a las ubicaciones admitidas. Puede cambiar la plantilla a uno de los valores sugeridos. La mayoría de los proveedores se registran automáticamente mediante Azure Portal o la interfaz de línea de comandos que esté usando; pero no ocurre con todos. Si no ha usado un proveedor de recursos determinado antes, debe registrar dicho proveedor.
 
 ## <a name="cause"></a>Causa
 
 Recibirá estos errores por uno de estos tres motivos:
 
-1. El proveedor de recursos no se ha registrado para la suscripción
-1. No se permite esta versión de API para el tipo de recurso
-1. No se permite esta ubicación para el tipo de recurso
+* El proveedor de recursos no se ha registrado para la suscripción
+* No se permite esta versión de API para el tipo de recurso
+* No se permite esta ubicación para el tipo de recurso
 
 ## <a name="solution-1---powershell"></a>Solución 1: PowerShell
 
@@ -101,9 +101,21 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 Puede ver el estado de registro y registrar un espacio de nombres de proveedor de recursos a través del portal.
 
+1. En Azure Portal, seleccione **Todos los servicios**.
+
+   ![Seleccionar todos los servicios](./media/resource-manager-register-provider-errors/select-all-services.png)
+
+1. Seleccione **Suscripciones**.
+
+   ![Selección de suscripciones](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+
+1. En la lista de suscripciones, seleccione la suscripción que quiere usar para registrar el proveedor de recursos.
+
+   ![Selección de la suscripción para registrar el proveedor de recursos](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
+
 1. Para la suscripción, seleccione **Proveedores de recursos**.
 
-   ![seleccionar proveedores de recursos](./media/resource-manager-register-provider-errors/select-resource-provider.png)
+   ![Selección de proveedores de recursos](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
 1. Examine la lista de proveedores de recursos y, si es necesario, seleccione el vínculo **Registrar** para registrar el proveedor de recursos del tipo que está intentando implementar.
 

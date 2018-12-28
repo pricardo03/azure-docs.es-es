@@ -1,24 +1,25 @@
 ---
 title: Arquitectura de implementación de HSM dedicado de Azure | Microsoft Docs
-description: HSM dedicado de Azure proporciona funcionalidades de almacenamiento de claves dentro de Azure que cumplen con la certificación FIPS 140-2 nivel 3
+description: Consideraciones de diseño básica al usar HSM dedicado de Azure como parte de una arquitectura de aplicación
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 8481f444464135a24d42612f334ac6096cba7b21
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 913be9d1ee6ce92d71f5f0c7eda46a618483ce8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318994"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078300"
 ---
-# <a name="deployment-architecture"></a>Arquitectura de implementación
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitectura de implementación de HSM dedicado de Azure
 
 HSM dedicado de Azure proporciona almacenamiento de claves criptográficas en Azure. Cumple estrictos requisitos de seguridad. Los clientes se beneficiarán del uso de HSM dedicado de Azure si:
 

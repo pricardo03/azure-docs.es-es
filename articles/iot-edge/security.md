@@ -1,6 +1,6 @@
 ---
-title: Seguridad en Azure IoT Edge | Microsoft Docs
-description: Seguridad, autenticación y autorización de dispositivos de IoT Edge
+title: Marco de seguridad en Azure IoT Edge | Microsoft Docs
+description: Obtenga información sobre la seguridad, la autenticación y los estándares de autorización que se usaron para desarrollar Azure IoT Edge y que se deben considerar al diseñar la solución
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,15 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4292dc3abf775d48ee33cc7a48793d080156efb1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 1042f53147122a7370b464f6bfc892dcee70fe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568944"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100147"
 ---
-# <a name="securing-azure-iot-edge"></a>Protección de Azure IoT Edge
+# <a name="security-standards-for-azure-iot-edge"></a>Estándares de seguridad para Azure IoT Edge
 
 Es necesaria la protección del dispositivo perimetral inteligente para otorgar confianza en el funcionamiento de una solución de IoT de un extremo a otro. Azure IoT Edge está pensado para la seguridad que es extensible a diferentes perfiles de riesgo y escenarios de implementación, y ofrece la misma protección que se espera de todos los servicios de Azure.
 

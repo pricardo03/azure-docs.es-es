@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e4b33552c4b070164b55a84f1d8586422aced2f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c733c148994b06e6d7cd13ee98e1a8157f26010a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446680"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163184"
 ---
-# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Collecting Logs (Azure Active Directory B2C: recopilación de registros)
+# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Recopilación de registros
 
 En este artículo se proporcionan los pasos para recopilar registros de Azure AD B2C de forma que pueda diagnosticar problemas con sus directivas personalizadas.
 
@@ -108,7 +108,7 @@ La versión del visor que lee los eventos de Application Insights se encuentra [
 >[!NOTE]
 >Actualmente, los registros de actividad descritos aquí están diseñados **SOLO** para ayudar en el desarrollo de directivas personalizadas. No use el modo de desarrollo en producción.  Los registros recopilan todas las notificaciones que se envían y se reciben de los proveedores de identidad durante el desarrollo.  Si se utilizan en producción, el programador asume la responsabilidad sobre la PII (información personal de identificación) recopilada en el registro de información de la instancia de App Insights que le pertenece.  Estos registros detallados solo se recopilan cuando la directiva se coloca en **MODO DE DESARROLLO**.
 
-[Github Repository for Unsupported Custom Policy Samples and Related tools](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies) (Repositorio de Github con ejemplos de directivas personalizadas no admitidas y herramientas relacionadas)
+[GitHub Repository for Unsupported Custom Policy Samples and Related tools](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies) (Repositorio de GitHub con ejemplos de directivas personalizadas no admitidas y herramientas relacionadas)
 
 
 

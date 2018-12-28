@@ -1,5 +1,5 @@
 ---
-title: Tutoriales de ciencia de datos de Azure Data Lake con U-SQL | Microsoft Docs
+title: 'Análisis con U-SQL en Azure Data Lake: proceso de ciencia de datos en equipos'
 description: Ejemplos que le guían en el uso de U-SQL en Azure Data Lake para realizar análisis predictivo.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2f01ec6dc97dccbca15c61d4f1a087f6f1a9abe2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ecf19ec484e03f4cbc9e396ff80818c192da4d17
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444229"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132796"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Tutoriales de ciencia de datos de Azure Data Lake con U-SQL
 

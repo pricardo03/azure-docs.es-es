@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1b7499990a049f276bf1af9e31b639ea4944d8f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 8e2b65f83395c9e8991338864d2037d0572dd269
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167579"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078013"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copia de datos de Netezza con Azure Data Factory 
 
@@ -43,14 +43,14 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Netezza:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** debe establecerse en **Netezza**. | SÍ |
-| connectionString | Cadena de conexión de ODBC para conectarse a Netezza. Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacen referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| connectionString | Cadena de conexión de ODBC para conectarse a Netezza. Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
 | connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede elegir una instancia autohospedada de Integration Runtime o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |Sin  |
 
 Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. En la tabla siguiente se describen más propiedades que puede establecer:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| SecurityLevel | El nivel de seguridad (SSL/TLS) que usa el controlador para la conexión con el almacén de datos. Ejemplo: `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- **Only unsecured** (**onlyUnSecured**): el controlador no usa SSL.<br/>- **Preferred unsecured (preferredUnSecured) (valor predeterminado)**: si el servidor proporciona una elección, el controlador no usa SSL. <br/>- **Preferred secured (preferredSecured)**: si el servidor proporciona una elección, el controlador usa SSL. <br/>- **Only secured (onlySecured)**: el controlador no se conectará a menos que haya una conexión SSL disponible. | Sin  |
+| SecurityLevel | El nivel de seguridad (SSL/TLS) que usa el controlador para la conexión con el almacén de datos. Ejemplo: `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- **Solo sin protección** (**onlyUnSecured**): el controlador no usa SSL.<br/>- **Sin protección preferido (preferredUnSecured) (valor predeterminado)**: si el servidor proporciona una opción, el controlador no usa SSL. <br/>- **Con protección preferido (preferredSecured)**: si el servidor proporciona una opción, el controlador usa SSL. <br/>- **Solo con protección (onlySecured)**: el controlador no se conectará a menos que haya una conexión SSL disponible. | Sin  |
 | CaCertFile | La ruta de acceso completa al certificado SSL que usa el servidor. Ejemplo: `CaCertFile=<cert path>;`| Sí, si se ha habilitado SSL |
 
 **Ejemplo**
@@ -80,7 +80,12 @@ En esta sección se proporciona una lista de las propiedades que admite el conju
 
 Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Conjuntos de datos](concepts-datasets-linked-services.md). 
 
-Para copiar datos desde Netezza, establezca la propiedad **type** del conjunto de datos en **NetezzaTable**. No hay ninguna propiedad específica de tipo adicional en este tipo de conjunto de datos.
+Para copiar datos desde Netezza, establezca la propiedad **type** del conjunto de datos en **NetezzaTable**. Se admiten las siguientes propiedades:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **NetezzaTable** | SÍ |
+| tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
 
@@ -92,7 +97,8 @@ Para copiar datos desde Netezza, establezca la propiedad **type** del conjunto d
         "linkedServiceName": {
             "referenceName": "<Netezza linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -110,7 +116,7 @@ Para copiar datos desde Netezza, establezca el tipo **source** en la actividad d
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **NetezzaSource**. | SÍ |
-| query | Use la consulta SQL personalizada para leer los datos. Ejemplo: `"SELECT * FROM MyTable"` | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Ejemplo: `"SELECT * FROM MyTable"` | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
 

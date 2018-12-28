@@ -4,15 +4,15 @@ description: Proporciona información sobre el dispositivo del recopilador de Az
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241198"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255982"
 ---
 # <a name="about-the-collector-appliance"></a>Dispositivo del recopilador
 
@@ -20,23 +20,11 @@ ms.locfileid: "50241198"
 
 Azure Migrate Collector es un dispositivo ligero que sirve para detectar un entorno de vCenter local a efectos de evaluación con el servicio [Azure Migrate](migrate-overview.md) antes de realizar la migración a Azure.  
 
-## <a name="discovery-methods"></a>Métodos de detección
+## <a name="discovery-method"></a>Método de detección
 
-El dispositivo del recopilador puede usar dos opciones: detección de una sola vez o detección continua.
+Anteriormente, el dispositivo del recopilador podía usar dos opciones: detección de una sola vez o detección continua. El modelo de detección de una sola vez está en desuso, ya que se basaba en la configuración de las estadísticas de vCenter Server para la recopilación de datos de rendimiento (requería que la configuración de las estadísticas se estableciese en el nivel 3) y también recopilaba los contadores promedio (en lugar del máximo), lo que daba lugar a un cálculo inferior. El modelo de detección continua garantiza la recopilación de datos pormenorizados y da como resultado un tamaño preciso, debido a la recopilación de contadores de máximo. Así funciona:
 
-### <a name="one-time-discovery"></a>Detección de una sola vez
-
-El dispositivo del recopilador se comunica una sola vez con vCenter Server para recopilar metadatos sobre las máquinas virtuales. Con este método:
-
-- El dispositivo no está conectado continuamente al proyecto de Azure Migrate.
-- Los cambios en el entorno local no se reflejan Azure Migrate una vez terminada la detección. Para reflejar los cambios, deberá detectar el mismo entorno en el mismo proyecto de nuevo.
-- Cuando se recopilan datos de rendimiento para una máquina virtual, el dispositivo se basa en los datos de rendimiento históricos almacenados en vCenter Server. Recopila el historial de rendimiento del mes pasado.
-- Para la recopilación del historial de datos de rendimiento, deberá establecer la configuración de estadísticas en vCenter Server en el nivel tres. Después de establecer el nivel en tres, deberá esperar al menos un día para que vCenter recopile los contadores de rendimiento. Por tanto, se recomienda ejecutar la detección después de un día como mínimo. Si desea evaluar el entorno según los datos de rendimiento de 1 semana o 1 mes, deberá esperar en consecuencia.
-- En este método de detección, Azure Migrate recopila los valores medios de contador (en lugar de los valores máximos) de cada métrica, lo que puede provocar un cálculo inferior. Se recomienda que utilice la opción de detección continua para obtener unos resultados de tamaño más adecuados.
-
-### <a name="continuous-discovery"></a>Detección continua
-
-El dispositivo del recopilador está conectado constantemente al proyecto de Azure Migrate y recopila continuamente datos de rendimiento de las máquinas virtuales.
+El dispositivo del recopilador está conectado constantemente al proyecto de Azure Migrate y recopila continuamente datos de rendimiento de las VM.
 
 - El recopilador realiza un perfil del entorno local continuamente para recopilar datos de uso en tiempo real cada 20 segundos.
 - El dispositivo acumula ejemplos de 20 segundos y crea un único punto de datos cada 15 minutos.
@@ -44,21 +32,23 @@ El dispositivo del recopilador está conectado constantemente al proyecto de Azu
 - Este modelo no depende de la configuración de estadísticas de vCenter Server para la recopilación de datos de rendimiento.
 - Puede detener la generación de perfiles continua en cualquier momento desde el recopilador.
 
-Tenga en cuenta que el dispositivo solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (por ejemplo, adición de máquina virtual, eliminación o adición de disco, entre otros). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
+**Gratificación instantánea:** Con el dispositivo de detección continua, una vez que la detección se ha completado (tarda un par de horas según el número de VM), podrá crear valoraciones de forma instantánea. Puesto que la recopilación de datos de rendimiento se inicia al iniciar la detección, si desea obtener gratificación instantánea, para el criterio de tamaño en la valoración debe seleccionar *como local*. Para obtener valoraciones basadas en el rendimiento, se recomienda esperar al menos un día después de iniciar la detección para obtener recomendaciones de tamaño que sean confiables.
 
-- Adición de elementos (máquinas virtuales, discos, núcleos, etc.): para reflejar estos cambios en Azure Portal, puede detener la detección desde el dispositivo y después iniciarla de nuevo. Así se asegurará de que los cambios se actualizan en el proyecto de Azure Migrate.
+El dispositivo solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (por ejemplo, adición de VM, eliminación o adición de disco, entre otros). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
 
-- Eliminación de máquinas virtuales: debido a la forma en que está diseñado el dispositivo, la eliminación de las máquinas virtuales no se refleja aunque detenga e inicie la detección. Esto se debe a que los datos de las detecciones posteriores se agregan a las detecciones más antiguas y no se reemplazan. En este caso, puede simplemente omitir la máquina virtual en el portal quitándola del grupo y recalculando la valoración.
+- Adición de elementos (VM, discos, núcleos, etc.): Para reflejar estos cambios en Azure Portal, puede detener la detección desde el dispositivo y después iniciarla de nuevo. Así se asegurará de que los cambios se actualizan en el proyecto de Azure Migrate.
+
+- Eliminación de VM: Debido a la forma en que está diseñado el dispositivo, la eliminación de las VM no se refleja aunque detenga e inicie la detección. Esto se debe a que los datos de las detecciones posteriores se agregan a las detecciones más antiguas y no se reemplazan. En este caso, puede simplemente omitir la máquina virtual en el portal quitándola del grupo y recalculando la valoración.
 
 > [!NOTE]
-> La función de detección continua está en versión preliminar. Se recomienda utilizar este método ya que recopila datos pormenorizados de rendimiento y da como resultado un tamaño correcto y preciso.
+> El dispositivo de detección de una sola vez está en desuso, ya que este método dependía de la configuración de las estadísticas de vCenter Server para la disponibilidad de punto de datos de rendimiento y la media recopilada de los contadores de rendimiento, lo que daba lugar a un cálculo de tamaño insuficiente de las máquinas virtuales para la migración a Azure.
 
 ## <a name="deploying-the-collector"></a>Implementar el recopilador
 
 Para implementar el dispositivo del recopilador mediante una plantilla OVF:
 
 - Descargue la plantilla OVF desde un proyecto de Azure Migrate en Azure Portal. Importe el archivo descargado en vCenter Server para configurar la máquina virtual del dispositivo del recopilador.
-- Desde OVF, VMware configura una máquina virtual con 4 núcleos, 8 GB de RAM y un disco de 80 GB. El sistema operativo es Windows Server 2012 R2 (64 bits).
+- Desde OVF, VMware configura una máquina virtual con 8 núcleos, 16 GB de RAM y un disco de 80 GB. El sistema operativo es Windows Server 2016 (64 bits).
 - Cuando ejecute el recopilador, se ejecuta un número de comprobaciones de requisitos previos para asegurarse de que el recopilador puede conectarse a Azure Migrate.
 
 - [Más información](tutorial-assessment-vmware.md#create-the-collector-vm) sobre el recopilador.
@@ -68,21 +58,25 @@ Para implementar el dispositivo del recopilador mediante una plantilla OVF:
 
 El recopilador debe pasar algunas comprobaciones de requisitos previos para asegurarse de que puede conectarse al servicio Azure Migrate a través de Internet y cargar los datos detectados.
 
-- **Compruebe la conexión a Internet**: el recopilador puede conectarse a Internet directamente o a través de un proxy.
+- **Verifique la nube de Azure**: El recopilador debe conocer la nube de Azure a la que se va a migrar.
+    - Si va a migrar a la nube de Azure Government, seleccione Azure Government.
+    - Si va a migrar a la nube comercial de Azure, seleccione Azure Global.
+    - Según la nube especificada aquí, el dispositivo enviará metadatos detectados a los puntos de conexión respectivos.
+- **Compruebe la conexión a Internet**: El recopilador puede conectarse a Internet directamente o a través de un proxy.
     - La comprobación de requisitos previos comprueba la conectividad a las [direcciones URL obligatorias y opcionales](#connect-to-urls).
     - Si tiene una conexión directa a Internet, no es necesario realizar ninguna acción específica, salvo asegurarse de que el recolector puede llegar a las direcciones URL necesarias.
     - Si se conecta a través de un proxy, tenga en cuenta los [requisitos](#connect-via-a-proxy) que se indican más abajo.
-- **Comprobar sincronización temporal**: el recopilador debe estar sincronizado con el servidor horario de Internet para asegurarse de que se autentiquen las solicitudes al servicio.
+- **Compruebe la sincronización temporal**: El recopilador debe estar sincronizado con el servidor horario de Internet para asegurarse de que se autentiquen las solicitudes al servicio.
     - La dirección URL portal.azure.com debe ser accesible desde el recopilador para que se pueda validar la hora.
     - Si la máquina no está sincronizada, debe cambiar la hora del reloj de la máquina virtual del recopilador para que coincida con la hora actual. Para hacerlo, abra un símbolo del sistema de administración en la máquina virtual y ejecute **w32tm /tz** para comprobar la zona horaria. Ejecute **w32tm /resync** para sincronizar la hora.
-- **Comprobar que el servicio del recopilador se está ejecutando**: el servicio Azure Migrate Collector debe estar ejecutándose en la máquina virtual del recopilador.
+- **Compruebe que el servicio del recopilador se está ejecutando**:  El servicio Azure Migrate Collector debe estar ejecutándose en la VM del recopilador.
     - Este servicio se inicia automáticamente cuando se inicia la máquina.
     - Si el servicio no se está ejecutando, inícielo desde el Panel de control.
     - El servicio del recopilador se conecta a vCenter Server, recopila los metadatos y los datos de rendimiento de la máquina virtual, y los envía al servicio Azure Migrate.
-- **Comprobar si está instalado VMware PowerCLI 6.5**: el módulo de VMware PowerCLI 6.5 de PowerShell debe estar instalado en la máquina virtual del recopilador para que pueda comunicarse con vCenter Server.
+- **Compruebe si está instalado VMware PowerCLI 6.5**: El módulo de VMware PowerCLI 6.5 de PowerShell debe estar instalado en la VM del recopilador para que pueda comunicarse con vCenter Server.
     - Si el recopilador puede tener acceso a las direcciones URL necesarias para instalar el módulo, se instala automáticamente durante la implementación del recopilador.
     - Si el recopilador no puede instalar el módulo durante la implementación, deberá [instalarlo manualmente](#install-vwware-powercli-module-manually).
-- **Comprobar la conexión a vCenter Server**: el recopilador debe ser capaz de conectarse a vCenter Server y consultar las máquinas virtuales, sus metadatos y los contadores de rendimiento. [Comprobar los requisitos previos](#connect-to-vcenter-server) para la conexión.
+- **Compruebe la conexión a vCenter Server**: El recopilador debe ser capaz de conectarse a vCenter Server y consultar las VM, sus metadatos y los contadores de rendimiento. [Comprobar los requisitos previos](#connect-to-vcenter-server) para la conexión.
 
 
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Conectarse a Internet a través de un servidor proxy
@@ -117,7 +111,8 @@ La comprobación de conectividad se valida mediante la conexión a una lista de 
 
 **URL** | **Detalles**  | **Comprobación de requisitos previos**
 --- | --- | ---
-*.portal.azure.com | Comprueba la conectividad con el servicio de Azure y la sincronización horaria. | Se necesita acceso a URL.<br/><br/> Se produce un error de comprobación de requisitos previos si no hay conectividad.
+*.portal.azure.com | Se aplica a Azure Global. Comprueba la conectividad con el servicio de Azure y la sincronización horaria. | Se necesita acceso a URL.<br/><br/> Se produce un error de comprobación de requisitos previos si no hay conectividad.
+*.portal.azure.us | Se aplica solo a Azure Government. Comprueba la conectividad con el servicio de Azure y la sincronización horaria. | Se necesita acceso a URL.<br/><br/> Se produce un error de comprobación de requisitos previos si no hay conectividad.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Sirve para descargar el módulo vCenter PowerCLI de PowerShell. | El acceso a direcciones URL es opcional.<br/><br/> No se producirá un error en la comprobación de requisitos previos.<br/><br/> Se producirá un error en la instalación automática del módulo en la máquina virtual del recopilador. Es necesario instalar manualmente el módulo.
 
 
@@ -211,7 +206,7 @@ Una vez configurado el dispositivo, puede ejecutar la detección. Así es como f
 
 ### <a name="collected-metadata"></a>Metadatos recopilados
 
-El dispositivo de recopilación detecta estos metadatos estáticos para las máquinas virtuales:
+El dispositivo del recopilador detecta los siguientes metadatos de configuración para cada VM. Los datos de configuración de las VM están disponibles una hora después de iniciar la detección.
 
 - Nombre para mostrar de la máquina virtual (en vCenter Server)
 - Ruta de acceso de inventario de la máquina virtual (el host o la carpeta en vCenter Server)
@@ -224,26 +219,18 @@ El dispositivo de recopilación detecta estos metadatos estáticos para las máq
 
 #### <a name="performance-counters"></a>contadores de rendimiento
 
-- **Detección de un solo uso**: cuando se recopilan contadores para una detección de un solo uso, tenga en cuenta lo siguiente:
+ El dispositivo del recopilador recopila los siguientes contadores de rendimiento para cada VM desde el host ESXi en un intervalo de 20 segundos. Estos son los contadores de vCenter y, aunque la terminología indica el promedio, los ejemplos de 20 segundos son contadores en tiempo real. Los datos de rendimiento para las VM comienzan a estar disponibles en el portal dos horas después de haberse iniciado la detección. Se recomienda encarecidamente esperar al menos un día antes de crear evaluaciones basadas en el rendimiento para obtener recomendaciones de tamaño precisas. Si busca una gratificación instantánea, puede crear evaluaciones con criterio de tamaño, por ejemplo *Como local*, que no tendrá en cuenta los datos de rendimiento para el ajuste del tamaño.
 
-    - Puede tardar hasta 15 minutos en recopilar y enviar metadatos de configuración al proyecto.
-    - Después de recopilar datos de configuración, los datos de rendimiento pueden tardar hasta una hora en estar disponibles en el portal.
-    - Una vez que los metadatos están disponibles en el portal, aparece la lista de máquinas virtuales y puede empezar a crear grupos para su evaluación.
-- **Detección continua**: para la detección continua, tenga en cuenta lo siguiente:
-    - Los datos de configuración de la máquina virtual están disponibles una hora después de iniciar la detección.
-    - Los datos de rendimiento empiezan a estar disponibles después de 2 horas.
-    - Después de iniciar la detección, espere al menos un día para que el dispositivo genere el perfil del entorno, antes de crear las evaluaciones.
-
-**Contador** | **Level** | **Nivel por dispositivo** | **Impacto en la evaluación**
---- | --- | --- | ---
-cpu.usage.average | 1 | N/D | Costo y tamaño de VM recomendados  
-mem.usage.average | 1 | N/D | Costo y tamaño de VM recomendados  
-virtualDisk.read.average | 2 | 2 | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
-virtualDisk.write.average | 2 | 2  | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
-virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
-virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
-net.received.average | 2 | 3 |  Calcula el tamaño de la máquina virtual                          |
-net.transmitted.average | 2 | 3 | Calcula el tamaño de la máquina virtual     
+**Contador** |  **Impacto en la evaluación**
+--- | ---
+cpu.usage.average | Costo y tamaño de VM recomendados  
+mem.usage.average | Costo y tamaño de VM recomendados  
+virtualDisk.read.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+virtualDisk.write.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+virtualDisk.numberReadAveraged.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+virtualDisk.numberWriteAveraged.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+net.received.average | Calcula el tamaño de la máquina virtual                          
+net.transmitted.average | Calcula el tamaño de la máquina virtual     
 
 ## <a name="next-steps"></a>Pasos siguientes
 

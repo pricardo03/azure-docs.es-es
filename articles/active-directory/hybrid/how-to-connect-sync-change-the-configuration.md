@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8aa337be2dd3c4209a3095d8733893d78f6cb74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6579e2ced3742eb1a70ccca96b9608fc6da628ee
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310054"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190642"
 ---
-# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronización de Azure AD Connect: Realización de un cambio en la configuración predeterminada
+# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronización de Azure AD Connect: cambio en la configuración predeterminada
 El objetivo de este artículo es guiarle para realizar cambios en la configuración predeterminada de la sincronización de Azure Active Directory (Azure AD) Connect. Proporciona las instrucciones para algunos escenarios comunes. Con este conocimiento, podrá realizar cambios sencillos en su propia configuración en función de sus propias reglas de negocio.
 
 > [!WARNING]
@@ -59,13 +59,13 @@ De forma predeterminada, el [programador](how-to-connect-sync-feature-scheduler.
 1. Haga clic en **Agregar nueva regla**.
 2. En la página **Descripción**, escriba lo siguiente:  
    ![Regla de filtrado de entrada](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   * **Name** (Nombre): asigne un nombre descriptivo a la regla.
-   * **Description** (Descripción): facilite alguna aclaración para que cualquier otro usuario entienda para qué sirve la regla.
-   * **Connected system** (Sistema conectado): el sistema donde se puede encontrar el objeto. En este caso, seleccione el **Conector Active Directory**.
-   * **Connected System/Metaverse Object Type** (Sistema conectado/Tipo de objeto de metaverso): seleccione **User** y **Person**, respectivamente.
-   * **Link Type** (Tipo de vínculo): cambie este valor a **Join**.
-   * **Precedence** (Prioridad): proporcione un valor que sea único en el sistema. Un valor numérico inferior indica una mayor prioridad.
-   * **Tag** (Etiqueta): deje esto en blanco. Solo las reglas de serie de Microsoft tienen esta casilla rellena con un valor.
+   * **Nombre**: Asigne un nombre descriptivo a la regla.
+   * **Descripción**: Escriba alguna aclaración para que cualquier otro usuario entienda para qué sirve la regla.
+   * **Sistema conectado**: El sistema donde se puede encontrar el objeto. En este caso, seleccione el **Conector Active Directory**.
+   * **Connected System/Metaverse Object Type** (Tipo de objeto de sistema conectado/metaverso): Seleccione **Usuario** y **Persona**, respectivamente.
+   * **Tipo de vínculo**: Cambie este valor a **Unirse**.
+   * **Precedencia**: Proporcione un valor que sea único en el sistema. Un valor numérico inferior indica una mayor prioridad.
+   * **Etiqueta**: Deje esto en blanco. Solo las reglas de serie de Microsoft tienen esta casilla rellena con un valor.
 3. En la página **Scoping filter** (Filtro de ámbito), escriba **givenName ISNOTNULL**.  
    ![Filtro del ámbito de la regla entrada](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Esta sección se utiliza para definir los objetos a los que debería aplicarse la regla. Si se deja vacía, la regla se aplica a todos los objetos de usuario. Sin embargo, eso también incluiría a salas de conferencias, cuentas de servicio y otros objetos de usuario que no son personas.
@@ -91,7 +91,7 @@ Abra el **Servicio de sincronización** desde el menú **Inicio**. Los pasos de 
    2. En **Acciones**, seleccione **Ejecutar**.
    3. Seleccione **Sincronización completa**y, a continuación, seleccione **Aceptar**.
    ![Sincronización completa](./media/how-to-connect-sync-change-the-configuration/fullsync.png)  
-   Los objetos se actualizan ahora en el metaverso. Compruebe los cambios examinando el objeto en el metaverso.
+    Los objetos se actualizan ahora en el metaverso. Compruebe los cambios examinando el objeto en el metaverso.
 
 **Vista previa y sincronización completa en un solo objeto**  
 
@@ -100,7 +100,7 @@ Abra el **Servicio de sincronización** desde el menú **Inicio**. Los pasos de 
    3. Use el **ámbito** para encontrar un objeto que se vaya a utilizar para probar el cambio. Seleccione el objeto y haga clic en **Vista previa**. 
    4. En la nueva pantalla, seleccione **Vista previa de confirmación**.  
    ![Commit preview](./media/how-to-connect-sync-change-the-configuration/commitpreview.png)  
-   Ahora, el cambio se confirma en el metaverso.
+    Ahora, el cambio se confirma en el metaverso.
 
 **Visualización del objeto en el metaverso**  
 
@@ -211,7 +211,7 @@ Antes de habilitar la sincronización del atributo UserType, primero debe decidi
 
     Si elige este enfoque, debe asegurarse de que el atributo designado se rellena con el valor correcto para todos los objetos User existentes en Active Directory local que se sincronizan con Azure AD antes de que se habilite la sincronización del atributo UserType.
 
-- Como alternativa, puede obtener el valor del atributo UserType de otras propiedades. Por ejemplo, desea sincronizar todos los usuarios como **Invitado** si su atributo de UserPrincipalName de AD local termina con la parte del dominio de *@partners.fabrikam123.org*. 
+- Como alternativa, puede obtener el valor del atributo UserType de otras propiedades. Por ejemplo, desea sincronizar todos los usuarios como **Invitado** si su atributo de UserPrincipalName de AD local termina con la parte del dominio de <em>@partners.fabrikam123.org</em>. 
 
     Como se ha mencionado anteriormente, Azure AD Connect no permite que Azure AD Connect cambie el atributo UserType en usuarios de Azure AD existentes. Por lo tanto, debe asegurarse de que la lógica que haya decidido es coherente con cómo está ya configurado el atributo UserType para todos los usuarios existentes de Azure AD en el inquilino.
 
@@ -228,7 +228,7 @@ Los pasos para habilitar la sincronización del atributo UserType se pueden resu
 >[!NOTE]
 > El resto de esta sección tratará estos pasos. Se describen en el contexto de una implementación de Azure AD con topología de bosque único y sin reglas de sincronización personalizadas. Si tiene una topología de varios bosques, reglas de sincronización personalizadas configuradas o un servidor de ensayo, debe ajustar los pasos según corresponda.
 
-### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Paso 1: deshabilite el programador de sincronizaciones y compruebe que no hay ninguna sincronización en curso.
+### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Paso 1: Deshabilitar el programador de sincronización y verificar que no hay ninguna sincronización en curso
 Asegúrese de que no realiza ninguna sincronización mientras está actualizando reglas de sincronización para evitar que se exporten cambios no deseados a Azure AD. Para deshabilitar el programador de sincronización integrado:
 
  1. Inicie una sesión de PowerShell en el servidor de Azure AD Connect.
@@ -246,7 +246,7 @@ No todos los atributos de Azure AD se importan en el espacio de conector de AD l
  5. Haga clic en **Aceptar** para guardarlo.
 ![Agregar el atributo de origen al esquema de Conector de AD local](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Paso 3: agregue UserType al esquema de conector de Azure AD.
+### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Paso 3: Agregar UserType al esquema de Conector de Azure AD
 De forma predeterminada, el atributo UserType no se importa en el espacio de Azure AD Connect. Para agregar el atributo UserType a la lista de atributos importados:
 
  1. Vaya a la pestaña **Connectors** (Conectores) de Synchronization Service Manager.
@@ -289,7 +289,7 @@ La regla de sincronización de entrada permite enviar el valor del atributo desd
     | --- | --- | --- | --- | --- |
     | Directo | UserType | extensionAttribute1 | No activado | Actualizar |
 
-    En otro ejemplo, puede que desee obtener el valor del atributo UserType de otras propiedades. Por ejemplo, desea sincronizar todos los usuarios como Invitado si su atributo UserPrincipalName de AD local termina con la parte del dominio de *@partners.fabrikam123.org*. Puede implementar una expresión como esta:
+    En otro ejemplo, puede que desee obtener el valor del atributo UserType de otras propiedades. Por ejemplo, desea sincronizar todos los usuarios como Invitado si su atributo UserPrincipalName de AD local termina con la parte del dominio de <em>@partners.fabrikam123.org</em>. Puede implementar una expresión como esta:
 
     | Tipo de flujo | Atributo de destino | Origen | Aplicar una vez | Tipo de combinación |
     | --- | --- | --- | --- | --- |
@@ -299,7 +299,7 @@ La regla de sincronización de entrada permite enviar el valor del atributo desd
 
 ![Crear regla de sincronización de entrada](./media/how-to-connect-sync-change-the-configuration/usertype3.png)
 
-### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Paso 5: Crear una regla de sincronización de salida para enviar el valor de atributo a Azure AD
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Paso 5: Crear una regla de sincronización de salida para enviar el valor del atributo a Azure AD
 La regla de sincronización de salida permite enviar el valor del atributo desde el metaverso al atributo UserType en Azure AD:
 
 1. Vaya al Editor de Reglas de sincronización.
@@ -336,7 +336,7 @@ La regla de sincronización de salida permite enviar el valor del atributo desde
 
 ![Crear regla de sincronización de salida](./media/how-to-connect-sync-change-the-configuration/usertype4.png)
 
-### <a name="step-6-run-a-full-synchronization-cycle"></a>Paso 6: ejecute un ciclo de sincronización completo.
+### <a name="step-6-run-a-full-synchronization-cycle"></a>Paso 6: Ejecutar un ciclo de sincronización completo
 En general, se requiere el ciclo de sincronización completo porque hemos agregado nuevos atributos a los esquemas de los conectores Azure AD y AD, y hemos introducido reglas de sincronización personalizadas. Es posible que desee comprobar los cambios antes de exportarlos a Azure AD. 
 
 Puede usar los pasos siguientes para comprobar los cambios mientras sigue los pasos que forman un ciclo de sincronización completo manualmente.
@@ -349,7 +349,7 @@ Puede usar los pasos siguientes para comprobar los cambios mientras sigue los pa
    4. Espere a que se complete la operación.
 
     > [!NOTE]
-    > Puede omitir la importación completa en el conector de AD local si el atributo de origen ya está incluido en la lista de atributos importados. En otras palabras, no tuvo que realizar ningún cambio durante el [Paso 2: Agregar el atributo de origen al esquema de Conector AD local](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+    > Puede omitir la importación completa en el conector de AD local si el atributo de origen ya está incluido en la lista de atributos importados. En otras palabras, no debería haber hecho ningún cambio en el [Paso 2: Agregar el atributo de origen al esquema de Conector AD local](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Ejecute una **importación completa** en el **conector de Azure AD**:
 
@@ -375,7 +375,7 @@ Puede usar los pasos siguientes para comprobar los cambios mientras sigue los pa
    2. En el cuadro de diálogo emergente **Search Connector Space** (Buscar espacio conector):
 
       - Establezca el **ámbito** en **Pending Export** (Exportación pendiente).
-      - Seleccione las tres casillas: **Agregar**, **Modificar** y **Eliminar**.
+      - Seleccione las tres casillas de verificación: **Agregar**, **Modificar** y **Eliminar**.
       - Haga clic en el botón **Buscar** para obtener la lista de objetos con los cambios que se exportarán. Para examinar los cambios de un determinado objeto, haga doble clic en el objeto.
       - Compruebe que los cambios sean los previstos.
 
@@ -388,7 +388,7 @@ Puede usar los pasos siguientes para comprobar los cambios mientras sigue los pa
 > [!NOTE]
 > Estos pasos no incluyen los pasos de sincronización completa y exportación en el conector de Azure AD. Estos pasos no son necesarios, ya que los valores de atributo solo se envían desde la instancia local de Active Directory a Azure AD.
 
-### <a name="step-7-re-enable-the-sync-scheduler"></a>Paso 7: vuelva a habilitar el programador de sincronizaciones.
+### <a name="step-7-re-enable-the-sync-scheduler"></a>Paso 7: Volver a habilitar el programador de sincronización
 Vuelva a habilitar el programador de sincronización integrado:
 
 1. Inicie una sesión de PowerShell.

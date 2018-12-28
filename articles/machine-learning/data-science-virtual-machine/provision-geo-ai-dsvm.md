@@ -1,11 +1,12 @@
 ---
 title: Aprovisionamiento de una máquina virtual para inteligencia artificial y análisis geoespacial en Azure - Azure | Microsoft Docs
-description: Aprovisionamiento de una máquina virtual para inteligencia artificial y análisis geoespacial en Azure.
+description: Obtenga información acerca de cómo crear y configurar la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine. Geo AI Data Science Virtual Machine proporciona las herramientas necesarias para crear soluciones de inteligencia artificial y aprendizaje automático con datos geográficos.
 keywords: aprendizaje profundo, IA, herramientas de ciencia de datos, máquina virtual de ciencia de datos, análisis geoespacial
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239804"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103955"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionamiento de una máquina virtual para inteligencia artificial y análisis geoespacial en Azure 
 
@@ -52,20 +53,20 @@ A continuación, se describe el procedimiento para crear una instancia de la má
 
       2. **Nombre de usuario**: identificador de inicio de sesión de la cuenta del administrador.
 
-      3. **Contraseña**: contraseña de la cuenta del administrador.
+      3. **Contraseña**: contraseña de la cuenta de administrador.
 
-      4. **Suscripción**: si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina.
+      4. **Suscripción**: Si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina.
 
-      5. **Grupo de recursos**: puede crear uno nuevo o usar un grupo de recursos **vacío** existente de Azure en su suscripción.
+      5. **Grupos de recursos**: puede crear uno nuevo o usar un grupo de recursos **vacío** existente de Azure en su suscripción.
 
-      6. **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red. Si necesita realizar aprendizaje profundo en GPU, debe seleccionar una de las ubicaciones de Azure que tiene las instancias de máquina virtual de GPU de la serie NC. Actualmente las ubicaciones que tienen máquinas virtuales de GPU son: **Este de EE. UU., Centro y norte de EE. UU., Centro y Sur de EE. UU., Oeste de EE.UU. 2, Europa del Norte, Europa Occidental**. Para obtener la lista más reciente, compruebe la página de [productos de Azure por región](https://azure.microsoft.com/regions/services/) y busque **Serie NC** en **Proceso**. 
+      6. **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red. Si necesita realizar aprendizaje profundo en GPU, debe seleccionar una de las ubicaciones de Azure que tiene las instancias de máquina virtual de GPU de la serie NC. Actualmente, las ubicaciones que tienen máquinas virtuales de GPU son: **Este de EE. UU., Centro y norte de EE. UU., Centro y sur de EE. UU., Oeste de EE. UU. 2, Europa del Norte, Europa Occidental**. Para obtener la lista más reciente, compruebe la página de [productos de Azure por región](https://azure.microsoft.com/regions/services/) y busque **Serie NC** en **Proceso**. 
 
 
    - **Configuración**: seleccione un tamaño de máquina virtual de GPU de la serie NC si tiene previsto ejecutar aprendizaje profundo en GPU en su instancia de Geo-DSVM. En caso contrario, puede elegir una de las instancias basadas en CPU.  Cree una cuenta de almacenamiento para su máquina virtual. 
    
    - **Resumen**: Compruebe que toda la información que ha especificado es correcta.
 
-   - **Compra**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos del servicio. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
+   - **Comprar**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos del servicio. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
 
 >[!NOTE]
 > El aprovisionamiento tardará entre 20 y 30 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.

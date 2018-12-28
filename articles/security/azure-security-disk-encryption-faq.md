@@ -1,20 +1,21 @@
 ---
-title: Preguntas frecuentes sobre Azure Disk Encryption | Microsoft Docs
+title: 'Preguntas más frecuentes: Azure Disk Encryption para máquinas virtuales IaaS | Microsoft Docs'
 description: En este artículo se ofrecen respuestas a las preguntas más frecuentes sobre Microsoft Azure Disk Encryption para máquinas virtuales IaaS con Windows y Linux.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/16/2018
-ms.openlocfilehash: 8da966154f1da8cb1be090f70d80e4484e9bce0d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba955e9e71926a513f6c083acb6508b3ec330d17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377298"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094566"
 ---
-# <a name="azure-disk-encryption-faq"></a>Preguntas más frecuentes de Azure Disk Encryption
+# <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
 En este artículo se ofrecen respuestas a las preguntas más frecuentes (P+F) sobre Azure Disk Encryption para máquinas virtuales IaaS con Windows y Linux. Para más información sobre este servicio, consulte [Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux](azure-security-disk-encryption-overview.md).
 
@@ -62,7 +63,7 @@ Azure Disk Encryption se admite en las siguientes distribuciones y versiones del
 | SLES | 12 SP1 | Disco de datos |
 | SLES | Prioridad: 12-SP1 | Disco de datos |
 | SLES | HPC 12 | Disco de datos |
-| SLES | Prioridad: 11-SP4 | Disco de datos |
+| SLES | Prioridad: 11 SP4 | Disco de datos |
 | SLES | 11 SP4 | Disco de datos |
 
 

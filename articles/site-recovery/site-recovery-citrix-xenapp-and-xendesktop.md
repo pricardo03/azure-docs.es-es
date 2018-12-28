@@ -5,14 +5,14 @@ author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210319"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310528"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configuración de la recuperación ante desastres para una implementación de XenApp y XenDesktop de Citrix de niveles múltiples
 
@@ -130,17 +130,17 @@ Un plan de recuperación agrupa las máquinas virtuales con requisitos similares
 
 1. Agregue las máquinas virtuales del componente XenApp al plan de recuperación.
 2. Haga clic en Planes de recuperación > + Plan de recuperación. Proporcione un nombre intuitivo para el plan de recuperación.
-3. Para las máquinas virtuales de VMware, seleccione como origen un servidor de procesos de VMware, como destino Microsoft Azure y como modelo de implementación el Administrador de recursos. Después, haga clic en Seleccionar elementos.
-4. Para las máquinas virtuales de Hyper-V, seleccione como origen un servidor VMM, como destino Microsoft Azure y como modelo de implementación el Administrador de recursos. Después, haga clic en Seleccionar elementos y elija las máquinas virtuales de implementación de XenApp.
+3. Para máquinas virtuales de VMware: seleccione como origen un servidor de procesos de VMware, como destino Microsoft Azure y como modelo de implementación el Administrador de recursos. Después, haga clic en Seleccionar elementos.
+4. Para máquinas virtuales de Hyper-V: seleccione como origen un servidor VMM, como destino Microsoft Azure y como modelo de implementación el Administrador de recursos. Después, haga clic en Seleccionar elementos y elija las máquinas virtuales de implementación de XenApp.
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>Incorporación de máquinas virtuales a grupos de conmutación por error
 
 Puede personalizar los planes de recuperación para agregar grupos de conmutación por error para especificar un orden de inicio, scripts o acciones manuales. Debe agregar los grupos siguientes al plan de recuperación.
 
-1. Grupo de conmutación por error 1: DNS de AD
-2. Grupo de conmutación por error 2: máquinas virtuales con SQL Server
-2. Grupo de conmutación por error 3: máquina virtual de imagen maestra de VDA
-3. Grupo de conmutación por error 4: máquinas virtuales del controlador de entrega y del servidor de StoreFront
+1. Grupo de conmutación por error 1: AD DNS
+2. Grupo de conmutación por error 2: VM con SQL Server
+2. Grupo de conmutación por error 3: VM de imagen maestra de VDA
+3. Grupo de conmutación por error 4: VM del controlador de entrega y del servidor de StoreFront
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Incorporación de scripts al plan de recuperación
@@ -149,16 +149,17 @@ Puede ejecutar los scripts antes o después de un grupo específico en un plan d
 
 El plan de recuperación personalizado es similar al siguiente:
 
-1. Grupo de conmutación por error 1: DNS de AD
-2. Grupo de conmutación por error 2: máquinas virtuales con SQL Server
-3. Grupo de conmutación por error 3: máquina virtual de imagen maestra de VDA
+1. Grupo de conmutación por error 1: AD DNS
+2. Grupo de conmutación por error 2: VM con SQL Server
+3. Grupo de conmutación por error 3: VM de imagen maestra de VDA
 
    >[!NOTE]     
    >Los pasos 4, 6 y 7, que contienen acciones manuales o de script, solo son aplicables a un entorno de XenApp local con catálogos MCS/PVS.
 
-4. Acción manual o de script del grupo 3: apagado de la máquina virtual del VDA maestro. Esta máquina, cuando se realice la conmutación por error a Azure, se encontrará en el estado "En ejecución". Para crear catálogos MCS con el hospedaje de Azure, la máquina virtual del VDA maestro debe encontrarse en el estado "Detenido" (desasignada). Apague la máquina virtual desde Azure Portal.
+4. Acción manual o de script del grupo 3: Apagar VM de VDA maestro.
+Cuando la VM de VDA maestro conmuta por error en Azure, estará en estado de ejecución. Para crear catálogos MCS con el hospedaje de Azure, la máquina virtual del VDA maestro debe encontrarse en el estado "Detenido" (desasignada). Apague la máquina virtual desde Azure Portal.
 
-5. Grupo de conmutación por error 4: máquinas virtuales del controlador de entrega y del servidor de StoreFront
+5. Grupo de conmutación por error 4: VM del controlador de entrega y del servidor de StoreFront
 6. Acción manual o de script 1 del grupo 3:
 
     ***Agregar conexión de host de Azure RM***

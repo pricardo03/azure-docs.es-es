@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo: crear una aptitud personalizada en una canalización de Cognitive Search (Azure Search) | Microsoft Docs'
+title: 'Ejemplo: crear una aptitud personalizada en una canalización de Cognitive Search: Azure Search'
 description: Aquí se muestra cómo utilizar Text Translate API en la aptitud personalizada asignada a una canalización de indexación de Cognitive Search en Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: d78959ba415c837e931edcc0278de84daa879bc1
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec2018
+ms.openlocfilehash: d5bbdac74b0afa745993dd848ef73352d996e8b6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393957"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315067"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Ejemplo: crear una aptitud personalizada mediante Text Translate API
 

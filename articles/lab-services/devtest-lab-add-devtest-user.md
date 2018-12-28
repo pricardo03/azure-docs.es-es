@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243716"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834135"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adición de propietarios y usuarios en Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -69,15 +69,11 @@ Los siguientes pasos le guiarán a través del proceso de agregación de un prop
 3. En la lista de laboratorios, seleccione el laboratorio que desee.
 4. En la hoja del laboratorio, seleccione **Directivas y configuración**. 
 5. En la página **Configuración y directivas**, seleccione **Control de acceso (IAM)** en el menú de la izquierda. 
-6. Seleccione **Agregar** en la barra de herramientas para agregar un usuario a un rol.
-
-    ![Agregar usuario](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+6. Seleccione **Agregar asignación de roles** en la barra de herramientas para agregar un usuario a un rol.
 1. En la ventana **Agregar permisos**, realice las siguientes acciones: 
     1. Seleccione un rol (por ejemplo: Usuario de DevTest Labs). En la sección [Acciones que se pueden realizar en cada rol](#actions-that-can-be-performed-in-each-role) se enumeran las distintas acciones que pueden realizar los usuarios de los roles de Propietario, Usuario de DevTest y Colaborador.
     2. Seleccione el usuario que se va a agregar al rol. 
     3. Seleccione **Guardar**. 
-
-        ![Agregar usuario al rol](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Cuando vuelva a la hoja **Usuarios** , el usuario ya se habrá agregado.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Incorporación de un usuario externo a un laboratorio mediante PowerShell

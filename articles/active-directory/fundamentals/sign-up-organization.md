@@ -1,6 +1,6 @@
 ---
-title: Suscripción a Azure Active Directory como organización | Microsoft Docs
-description: Obtenga información sobre cómo suscribir su organización para usar Azure y Azure Active Directory.
+title: Suscripción de la organización para usar Azure Active Directory | Microsoft Docs
+description: Instrucciones acerca de cómo suscribir su organización para usar Azure y Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: ccff64b88787291832b9d2ed84eb81919152d887
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364778"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100725"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>Suscripción a Azure Active Directory como organización
+# <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Suscripción de la organización para usar Azure Active Directory
 Suscriba para Azure Active Directory (Azure AD) una suscripción nueva de Microsoft Azure mediante una de las siguientes opciones:
 
 - **Cuenta Microsoft.** Use su cuenta Microsoft personal para obtener acceso a todos los productos y servicios en la nube de Microsoft orientados al cliente, como Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE u Office 365. El registro en un buzón de Outlook.com crea automáticamente una cuenta Microsoft con una dirección @Outlook.com. Para más información, consulte [Introducción a las cuentas Microsoft](https://account.microsoft.com/account).

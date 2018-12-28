@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7e0734790a0b33a52ace01ad961b1bc3127fa3d4
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976526"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726906"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Generación de perfiles de aplicaciones de producción en Azure con Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Habilitación de Profiler para la aplicación
@@ -50,7 +49,7 @@ Seleccione una muestra para mostrar un desglose de nivel de código del tiempo d
 
 El explorador de seguimiento muestra la siguiente información:
 
-* **Mostrar ruta de acceso activa** abre el nodo hoja más grande o al menos algo que se aproxime. En la mayoría de los casos, este nodo está cerca de un cuello de botella de rendimiento.
+* **Mostrar ruta de acceso activa**: abre el nodo hoja más grande o al menos algo que se aproxime. En la mayoría de los casos, este nodo está cerca de un cuello de botella de rendimiento.
 * **Etiqueta**: nombre de la función o el evento. El árbol muestra una combinación de código y eventos que se han producido (como, por ejemplo, eventos HTTP y SQL). El evento superior representa la duración total de la solicitud.
 * **Transcurrido**: el intervalo de tiempo entre el inicio y el final de la operación.
 * **Cuándo**: el momento en que se ejecutó la función o el evento con relación a otras funciones.

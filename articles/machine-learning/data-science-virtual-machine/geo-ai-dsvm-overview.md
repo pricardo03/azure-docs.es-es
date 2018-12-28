@@ -1,11 +1,13 @@
 ---
-title: 'Introducción a la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine: Azure | Microsoft Docs'
-description: Se describen la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial, y los componentes.
+title: Información general de Geo Artificial Intelligence Data Science Virtual Machine
+titleSuffix: Azure
+description: Geo Artificial Intelligence Data Science Virtual Machine proporciona ArcGIS Pro para trabajar con datos geográficos. También proporciona kits de herramientas de ciencia de datos, R y Python para trabajar con aprendizaje automático e inteligencia artificial.
 keywords: aprendizaje profundo, IA, herramientas de ciencia de datos, máquina virtual de ciencia de datos, análisis geoespacial
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2fb49212b8480fa550558e14e890cbf7395406da
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0152056dcb8716a407e022d2b30c48e6b534b2a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407459"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074577"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introducción a la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine
 

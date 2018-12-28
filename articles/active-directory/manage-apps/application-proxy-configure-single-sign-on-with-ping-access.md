@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282522"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140853"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -51,7 +51,7 @@ Este artículo va dirigido a quienes publican por primera vez una aplicación co
 
 Si ya tiene habilitado el proxy de aplicación y tiene instalado un conector, puede omitir esta sección y pasar a [agregar la aplicación a Azure AD con el proxy de aplicación](#add-your-app-to-azure-ad-with-application-proxy).
 
-El conector del proxy de la aplicación es un servicio de Windows Server que dirige el tráfico de los empleados remotos a las aplicaciones publicadas. Para más información acerca de las instrucciones de instalación, consulte [Habilitación del proxy de aplicación en Azure Portal](application-proxy-enable.md).
+El conector del proxy de la aplicación es un servicio de Windows Server que dirige el tráfico de los empleados remotos a las aplicaciones publicadas. Para más información acerca de las instrucciones de instalación, consulte [Habilitación del proxy de aplicación en Azure Portal](application-proxy-add-on-premises-application.md).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
 2. Seleccione **Azure Active Directory** > **Proxy de la aplicación**.
@@ -66,20 +66,20 @@ El conector del proxy de la aplicación es un servicio de Windows Server que dir
 
 Hay dos acciones que se deben tomar en Azure Portal. En primer lugar, debe publicar la aplicación con el proxy de aplicación. Después, debe recopilar información acerca de la aplicación que puede usar en los pasos de PingAccess.
 
-Siga estos pasos para publicar la aplicación. Para obtener un tutorial más detallado de los pasos 1 a 8, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-publish-azure-portal.md).
+Siga estos pasos para publicar la aplicación. Para obtener un tutorial más detallado de los pasos 1 a 8, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-add-on-premises-application.md).
 
 1. Si no lo hizo en la sección anterior, inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
 2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales**.
 3. Seleccione **Agregar** en la parte superior de la hoja.
 4. Seleccione **Aplicación local**.
 5. Rellene los campos requeridos con la información de la aplicación nueva. Utilice las siguientes instrucciones para realizar la configuración:
-   - **Dirección URL interna**: normalmente, especifica la dirección URL que lleva a la página de inicio de sesión la aplicación cuando esté en la red corporativa. En este escenario, el conector tiene que tratar el proxy de PingAccess como la página principal de la aplicación. Use este formato: `https://<host name of your PA server>:<port>`. El puerto predeterminado es 3000, pero puedo configurar uno distinto en PingAccess.
+   - **Dirección URL interna**: Normalmente, especifica la dirección URL que lleva a la página de inicio de sesión la aplicación cuando esté en la red corporativa. En este escenario, el conector tiene que tratar el proxy de PingAccess como la página principal de la aplicación. Use este formato: `https://<host name of your PA server>:<port>`. El puerto predeterminado es 3000, pero puedo configurar uno distinto en PingAccess.
 
     > [!WARNING]
     > Para este tipo de inicio de sesión único, la dirección URL interna debe usar https y no puede emplear http.
 
-   - **Método de autenticación previa**: Azure Active Directory.
-   - **Traducir URL en encabezados**: No.
+   - **Método de autenticación previa**: Azure Active Directory
+   - **Traducir URL en encabezados**: Sin 
 
    >[!NOTE]
    >Si esta es su primera aplicación, utilice el puerto 3000 para empezar y regrese para actualizar este valor si cambia la configuración de PingAccess. Si no es la primera, tendrá que coincidir con la escucha que ha configurado en PingAccess. Obtenga más información sobre [escucha en PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).

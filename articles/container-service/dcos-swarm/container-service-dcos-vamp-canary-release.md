@@ -1,5 +1,5 @@
 ---
-title: Lanzamiento controlado con Vamp en un clúster de DC/OS en Azure
+title: (EN DESUSO) Lanzamiento controlado con Vamp en un clúster de DC/OS en Azure
 description: Cómo usar Vamp para lanzar servicios de forma controlada y aplicar el filtrado inteligente de tráfico en un clúster de DC/OS de Azure Container Service
 services: container-service
 author: gggina
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975863"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002067"
 ---
-# <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Lanzamiento controlado de microservicios con Vamp en un clúster de DC/OS de Azure Container Service
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(EN DESUSO) Lanzamiento controlado de microservicios con Vamp en un clúster de DC/OS de Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 En este tutorial, se configura Vamp en Azure Container Service con un clúster de DC/OS. Se lanza de forma controlada el servicio de demostración de Vamp "sava" y, después, se resuelve una incompatibilidad del servicio con Firefox aplicando el filtrado inteligente de tráfico. 
 
@@ -198,7 +200,7 @@ Para combinar el nuevo servicio sava 1.1 con la implementación en ejecución:
 
 1. En la interfaz de usuario de Vamp, haga clic en **Blueprints** (Planos).
 
-2. Haga clic en **Add** (Agregar) y pegue el siguiente código YAML de plano: este plano describe una nueva variante de un servicio (sava:1.1.0) para implementarla en el clúster existente (sava_cluster).
+2. Haga clic en **Agregar** y pegue el siguiente código YAML de plano: este plano describe una nueva variante de un servicio (sava:1.1.0) para implementarla en el clúster existente (sava_cluster).
 
   ```YAML
   name: sava:1.1.0      # blueprint name

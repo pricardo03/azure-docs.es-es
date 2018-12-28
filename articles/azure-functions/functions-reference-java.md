@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e4d96fa558e1122ef9e0fe0b265166757c45e678
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686899"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321057"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
@@ -105,7 +105,9 @@ Aquí está el elemento `function.json` correspondiente que generó [azure-funct
 
 ## <a name="jdk-runtime-availability-and-support"></a>Disponibilidad y soporte técnico del entorno de ejecución de JDK 
 
-Descargue y utilice los JDK de [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) de [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) para el desarrollo local de aplicaciones de función Java. Los JDK están disponibles para Windows, Linux y macOS. El [Soporte técnico de Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) está disponible con un [plan de soporte técnico completo](https://azure.microsoft.com/support/plans/).
+Descargue y utilice los JDK de Java 8 de [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) de [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) para el desarrollo local de aplicaciones de función Java. Azure Functions usa el entorno en tiempo de ejecución del JDK de Java 8 de Azul al implementar las aplicaciones de función en la nube.
+
+El [Soporte técnico de Azure](https://azure.microsoft.com/en-us/support/) para problemas con los JDK y las aplicaciones de función está disponible con un [plan de soporte técnico cualificado](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Bibliotecas de terceros 
 
@@ -361,11 +363,11 @@ Debe haber habilitado el registro del sistema de archivos en Azure Portal o la C
 
 ## <a name="environment-variables"></a>Variables de entorno
 
-En Functions, [la configuración de la aplicación](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), como las cadenas de conexión del servicio, se exponen como variables de entorno durante la ejecución. Puede obtener acceso a estas opciones mediante, `System.getenv("AzureWebJobsStorage")`.
+En Functions, [la configuración de la aplicación](https://docs.microsoft.com/azure/azure-functions/functions-app-settings), como las cadenas de conexión del servicio, se exponen como variables de entorno durante la ejecución. Puede obtener acceso a estas opciones mediante, `System.getenv("AzureWebJobsStorage")`.
 
 Ejemplo:
 
-Agregue [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) con el nombre testAppSetting y el valor testAppSettingValue.
+Agregue [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) con el nombre testAppSetting y el valor testAppSettingValue.
 
 ```java
 

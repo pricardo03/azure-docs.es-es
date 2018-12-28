@@ -11,19 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239090"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164405"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelos de compra de Azure SQL Database
 
 Azure SQL Database le permite comprar fácilmente motores de base de datos PaaS completamente administrados que se ajusten a sus necesidades de rendimiento y costos. Según el modelo de implementación de Azure SQL Database, puede seleccionar el modelo de compra que se adapte a sus necesidades:
+- [Modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) (recomendado) que le permite elegir la cantidad exacta de la capacidad de almacenamiento y proceso que necesita para la carga de trabajo.
+- [Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) donde puede elegir paquetes de proceso y almacenamiento agrupados equilibrados para cargas de trabajo comunes.
 
-- Los [servidores lógicos](sql-database-logical-servers.md) de [Azure SQL Database](sql-database-technical-overview.md) ofrecen dos modelos de compra para recursos de proceso, de almacenamiento y de E/S: uno [basado en DTU](sql-database-service-tiers-dtu.md) y el otro en [núcleos virtuales](sql-database-service-tiers-vcore.md). En este modelo de compra, puede elegir [bases de datos únicas](sql-database-single-databases-manage.md) o [grupos elásticos](sql-database-elastic-pool.md).
+Hay disponibles distintos modelos de compra en los modelos de implementación de Azure SQL Database:
+- Los [servidores lógicos](sql-database-logical-servers.md) en [Azure SQL Database](sql-database-technical-overview.md) ofrecen el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). En este modelo de compra, puede elegir [bases de datos únicas](sql-database-single-databases-manage.md) o [grupos elásticos](sql-database-elastic-pool.md).
 - Las [Instancias administradas](sql-database-managed-instance.md) de Azure SQL Database solo ofrecen el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -51,7 +54,7 @@ El modelo de compra basado en núcleos virtuales permite elegir los recursos de 
 
 > [!IMPORTANT]
 > Los recursos de proceso, E/S y almacenamiento de datos y registros se cobran por base de datos o grupo elástico. El almacenamiento de copia de seguridad se cobra por cada base de datos. Para más información sobre los precios de Instancia administrada, consulte [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md).
-> **Limitaciones de región:** el modelo de compra basado en núcleos virtuales aún no está disponible en las regiones siguientes: Europa Occidental, Centro de Francia, Sur de Reino Unido, Oeste de Reino Unido y Sudeste de Australia.
+> **Limitaciones regionales:** El modelo de compra basado en núcleos virtuales aún no está disponible en las regiones siguientes: Europa Occidental, Centro de Francia, Sur de Reino Unido, Oeste de Reino Unido y Sudeste de Australia.
 
 Si la base de datos o el grupo elástico consumen más de 300 DTU, la conversión a núcleos virtuales puede reducir los costos. Puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es necesaria. Si el modelo de compra de DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo. Si decide pasar del modelo de DTU al modelo de núcleos virtuales, debe seleccionar el tamaño de proceso mediante la siguiente regla general: cada 100 DTU del nivel Estándar requieren al menos 1 núcleo virtual en el nivel De uso general, y cada 125 DTU del nivel Premium requieren como mínimo 1 núcleo virtual en el nivel Crítico para la empresa.
 

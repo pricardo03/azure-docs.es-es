@@ -1,5 +1,5 @@
 ---
-title: Tareas del proceso de ciencia de datos en equipo para un colaborador individual en Azure | Microsoft Docs
+title: Tareas para un colaborador individual en el proceso de ciencia de datos en equipos
 description: Esquema de las tareas de un colaborador individual en un proyecto de equipo de ciencia de datos.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: d8e51dcf8434508664801f53391592aab34d7e4a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447068"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136768"
 ---
-# <a name="individual-contributor-tasks"></a>Tareas de colaborador individual
+# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tareas para un colaborador individual en el proceso de ciencia de datos en equipos
 
 En este tema se describen las tareas que debe realizar un colaborador individual en su equipo de ciencia de datos. El objetivo es establecer el entorno de colaboración de equipo que se estandariza en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). Para un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso, consulte [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md).
 
@@ -42,12 +42,12 @@ En este tutorial se usan abreviaturas de nombres de los repositorios y directori
 - **R5**: repositorio Project de Git que se ha establecido por el responsable de proyecto.
 - **D2**: el directorio local se clona de R2.
 - **D4**: el directorio local se clona de R4.
-- **D5**: el directorio local clonado de R5.
+- **D5**: el directorio local se clona de R5.
 
 
 ## <a name="step-0-prerequisites"></a>Paso 0: Requisitos previos
 
-Para cumplir los requisitos previos, es necesario realizar las tareas asignadas al administrador de grupo que se describen en [Tareas del administrador de grupo en un equipo de ciencia de datos](group-manager-tasks.md). Para resumir aquí, se deben cumplir los siguientes requisitos antes de comenzar las tareas del responsable de equipo: 
+Para cumplir los requisitos previos, es necesario realizar las tareas asignadas al administrador del grupo que se describen en [Tareas del administrador del grupo en un equipo de ciencia de datos](group-manager-tasks.md). Para resumir aquí, se deben cumplir los siguientes requisitos antes de comenzar las tareas del responsable de equipo: 
 - El administrador del grupo ha configurado el repositorio **GroupUtilities** (si existe). 
 - El responsable de equipo ha configurado el repositorio **TeamUtilities** (si existe).
 - El responsable de proyecto ha configurado el repositorio del proyecto. 

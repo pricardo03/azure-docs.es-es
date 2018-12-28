@@ -1,13 +1,12 @@
 ---
-title: Predicción de respuestas con un modelo de regresión simple - Azure Machine Learning Studio | Microsoft Docs
+title: 'Predicción de respuestas con un modelo de regresión: Azure Machine Learning Studio | Microsoft Docs'
 description: Descubra cómo crear un modelo de regresión simple para predecir un precio en el vídeo 4 de Ciencia de datos para principiantes. Incluye una regresión lineal con los datos de destino.
 keywords: crear un modelo, modelo simple, predicción del precio, modelo de regresión simple
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
@@ -17,15 +16,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2862310623b2725cbeeaa4f5972a89ffcef44ff6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e2c49b9da215c038cfa47689f11da22b2dffc2dc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309783"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253602"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Predicción de respuestas con un modelo sencillo
-## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: serie Ciencia de datos para principiantes
+## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Ciencia de datos para principiantes
 Aprenda a crear un modelo de regresión simple para predecir el precio de un diamante en el vídeo 4 de Ciencia de datos para principiantes. Dibujaremos un modelo de regresión con los datos de destino.
 
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
@@ -66,7 +65,7 @@ En realidad, hemos creado un pequeño conjunto de datos aquí: una tabla. Observ
 * Y, como veremos, hay **suficientes** datos para responder a nuestra pregunta.
 
 ## <a name="ask-a-sharp-question"></a>Formulación de una pregunta directa
-Ahora platearemos nuestra pregunta de forma directa: "¿cuánto costará comprar un diamante 1,35 quilates?"
+Ahora platearemos nuestra pregunta de forma directa: "¿Cuánto costará comprar un diamante de 1,35 quilates?"
 
 Nuestra lista no contiene ningún diamante de 1,35 quilates, por lo que debemos utilizar el resto de nuestros datos para obtener una respuesta a la pregunta.
 
@@ -97,9 +96,9 @@ El hecho de que todos los puntos no pasen exactamente por la línea es correcto.
 Dado que estamos intentando responder a la pregunta *¿cuánto?*, esto se denomina una *regresión*. Y puesto que estamos usando una línea recta, es una *regresión lineal*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Uso del modelo para encontrar la respuesta
-Ahora ya tenemos un modelo y le planteamos nuestra pregunta: ¿cuánto costará un diamante de 1,35 quilates?
+Ahora tenemos un modelo y le planteamos nuestra pregunta: ¿Cuánto costará un diamante de 1,35 quilates?
 
-Para responder a la pregunta, calculamos la posición de 1,35 quilates y dibujamos una línea vertical. Donde cruza la línea del modelo, dibujamos una línea horizontal hasta el eje de dólares. Se encuentra justo en 10 000. ¡Bum! Esa es la respuesta: un diamante de 1,35 quilates cuesta aproximadamente 10 000 USD.
+Para responder a la pregunta, calculamos la posición de 1,35 quilates y dibujamos una línea vertical. Donde cruza la línea del modelo, dibujamos una línea horizontal hasta el eje de dólares. Se encuentra justo en 10 000. ¡Bum! Esa es la respuesta: Un diamante de 1,35 quilates cuesta aproximadamente 10 000 USD.
 
 ![Encontrar la respuesta en el modelo](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
@@ -108,7 +107,7 @@ Es natural preguntarse si es muy precisa esta predicción. Resulta útil saber s
 
 ![intervalo de confianza](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Ahora podemos decir algo sobre nuestro intervalo de confianza: podemos decir con seguridad que el precio de un diamante de 1,35 quilates es aproximadamente de 10 000 USD, con un mínimo de 8000 USD y un máximo de 12 000 USD.
+Ahora podemos decir algo sobre nuestro intervalo de confianza:  podemos decir con seguridad que el precio de un diamante de 1,35 quilates es aproximadamente de 10 000 USD, con un mínimo de 8000 USD y un máximo de 12 000 USD.
 
 ## <a name="were-done-with-no-math-or-computers"></a>Hemos terminado, sin matemáticas ni equipos informáticos.
 Hemos hecho lo que hacen los científicos de datos, y lo hemos hecho simplemente con un dibujo:

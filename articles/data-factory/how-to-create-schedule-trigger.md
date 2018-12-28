@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: c27c9c16e493dc596856288c4dbecff655e89396
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f6b7764bf994079f7f3ef9e6243720da0d2f4a28
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976356"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868232"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 En este artículo se proporciona información sobre el desencadenador de programación y los pasos para crear, iniciar y supervisar un desencadenador de programación. Para otros tipos de desencadenadores, consulte [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -67,7 +67,7 @@ Puede crear un **programador de desencadenador** para programar la ejecución de
     ![Supervisión de las ejecuciones del desencadenador](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y supervisar un desencadenador de la programación. Para ver este ejemplo en funcionamiento, primero debe seguir la [Guía de inicio rápido: Creación de una factoría de datos con Azure PowerShell](quickstart-create-data-factory-powershell.md). A continuación, agregue el código siguiente al método principal, de modo que se crea e inicia un desencadenador de programación que se ejecuta cada 15 minutos. El desencadenador está asociado a una canalización llamada **Adfv2QuickStartPipeline** que se crea como parte de la guía de inicio rápido.
+En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y supervisar un desencadenador de la programación. Para ver este ejemplo en funcionamiento, primero debe seguir el [Inicio rápido: Creación de una factoría de datos de Azure PowerShell](quickstart-create-data-factory-powershell.md). A continuación, agregue el código siguiente al método principal, de modo que se crea e inicia un desencadenador de programación que se ejecuta cada 15 minutos. El desencadenador está asociado a una canalización llamada **Adfv2QuickStartPipeline** que se crea como parte de la guía de inicio rápido.
 
 1. Cree un archivo JSON llamado **MyTrigger.json** en la carpeta C:\ADFv2QuickStartPSH con el siguiente contenido:
 
@@ -143,7 +143,7 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
 
 
 ## <a name="net-sdk"></a>.NET SDK
-En esta sección se muestra cómo usar el SDK de.NET para crear, iniciar y supervisar un desencadenador. Para ver este ejemplo en funcionamiento, primero debe seguir los pasos que se incluyen en [Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md). A continuación, agregue el código siguiente al método principal, de modo que se crea e inicia un desencadenador de programación que se ejecuta cada 15 minutos. El desencadenador está asociado a una canalización llamada **Adfv2QuickStartPipeline** que se crea como parte de la guía de inicio rápido.
+En esta sección se muestra cómo usar el SDK de.NET para crear, iniciar y supervisar un desencadenador. Para ver este ejemplo en funcionamiento, primero debe seguir el [Inicio rápido: Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md). A continuación, agregue el código siguiente al método principal, de modo que se crea e inicia un desencadenador de programación que se ejecuta cada 15 minutos. El desencadenador está asociado a una canalización llamada **Adfv2QuickStartPipeline** que se crea como parte de la guía de inicio rápido.
 
 Para crear e iniciar un desencadenador de programación que se ejecuta cada 15 minutos, agregue el código siguiente al método principal:
 
@@ -223,7 +223,7 @@ Para supervisar las ejecuciones del desencadenador y de la canalización en Azur
 
 
 ## <a name="python-sdk"></a>SDK de Python
-En esta sección se muestra cómo usar el SDK de Python para crear, iniciar y supervisar un desencadenador. Para ver este ejemplo en funcionamiento, primero debe seguir la [Creación de una factoría de datos y una canalización con SDK de Python](quickstart-create-data-factory-python.md). A continuación, agregue el siguiente bloque de código después del bloque de código para "supervisar la ejecución de canalización" en el script de Python. Este código crea un desencadenador de programación que se ejecuta cada 15 minutos entre las horas de inicio y finalización especificadas. Actualice la variable **start_time** a la hora UTC actual y la variable **end_time** a una hora posterior a la hora UTC actual.
+En esta sección se muestra cómo usar el SDK de Python para crear, iniciar y supervisar un desencadenador. Para ver este ejemplo en funcionamiento, primero debe seguir el [Inicio rápido: Creación de una factoría de datos y una canalización con el SDK de Python](quickstart-create-data-factory-python.md). A continuación, agregue el siguiente bloque de código después del bloque de código para "supervisar la ejecución de canalización" en el script de Python. Este código crea un desencadenador de programación que se ejecuta cada 15 minutos entre las horas de inicio y finalización especificadas. Actualice la variable **start_time** a la hora UTC actual y la variable **end_time** a una hora posterior a la hora UTC actual.
 
 ```python
     # Create a trigger
@@ -246,7 +246,7 @@ Para supervisar las ejecuciones del desencadenador y de la canalización en Azur
 Puede usar una plantilla de Azure Resource Manager para crear un desencadenador. Para obtener instrucciones detalladas, consulte [Creación de una instancia de Azure Data Factory mediante una plantilla de Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Transmisión de la hora de inicio del desencadenador a una canalización
-La versión 1 de Azure Data Factory admite la lectura y la escritura de datos con particiones por medio de las variables del sistema **SliceStart**, **SliceEnd**, **WindowStart** y **WindowEnd**. En la versión actual de Azure Data Factory, puede lograr este comportamiento con un parámetro de la canalización. La hora de inicio y la hora programada para el desencadenador se establecen como el valor del parámetro de la canalización. En el siguiente ejemplo, la hora programada del desencadenador se pasa como un valor al parámetro de canalización **scheduledRunTime**.
+La versión 1 de Azure Data Factory admite la lectura y la escritura de datos con particiones por medio de las variables del sistema: **SliceStart**, **SliceEnd**, **WindowStart** y **WindowEnd**. En la versión actual de Azure Data Factory, puede lograr este comportamiento con un parámetro de la canalización. La hora de inicio y la hora programada para el desencadenador se establecen como el valor del parámetro de la canalización. En el siguiente ejemplo, la hora programada del desencadenador se pasa como un valor al parámetro de canalización **scheduledRunTime**.
 
 ```json
 "parameters": {
@@ -275,7 +275,7 @@ La siguiente definición de JSON le muestra cómo crear un desencadenador de pro
           "weekDays": : [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
-          "monthlyOccurences": [
+          "monthlyOccurrences": [
                {
                     "day": <<Monday-Sunday>>,
                     "occurrence": <<1-5>>
@@ -362,7 +362,7 @@ En la siguiente tabla se describen los elementos de **schedule** con detalle:
 | **minutes** | Minutos de la hora en la que se ejecuta el desencadenador. | <ul><li>Entero</li><li>Matriz de enteros</li></ul>
 | **hours** | Horas del día en la que se ejecuta el desencadenador. | <ul><li>Entero</li><li>Matriz de enteros</li></ul> |
 | **weekDays** | Días de la semana en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia semanal. | <ul><li>Lunes, martes, miércoles, jueves, viernes, sábado, domingo</li><li>Matriz de valores de día (el tamaño máximo de la matriz es 7)</li><li>Los valores de día no distinguen mayúsculas de minúsculas.</li></ul> |
-| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Matriz de objetos **monthlyOccurrence**: `{ "day": day,  "occurrence": occurence }`.</li><li>El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.</li><li>El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.</li></ul> |
+| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Matriz de objetos de **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`.</li><li>El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.</li><li>El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.</li></ul> |
 | **monthDays** | Día del mes en el que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Cualquier valor <= -1 y >= -31</li><li>Cualquier valor >= 1 y <= 31</li><li>Matriz de valores</li></ul> |
 
 

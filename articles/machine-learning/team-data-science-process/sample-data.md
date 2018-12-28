@@ -1,6 +1,6 @@
 ---
-title: Muestra de datos en contenedores de blob de Azure, SQL Server y tablas de Hive | Microsoft Docs
-description: Exploración de datos almacenados en diversos entornos de Azure
+title: 'Datos de ejemplo en diferentes ubicaciones de almacenamiento de Azure: proceso de ciencia de datos en equipos'
+description: Datos de ejemplo en contenedores de blob de Azure, SQL Server y tablas de Hive para reducirlos a un tamaño más pequeño pero representativo y más manejable.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b7b233532a526879e886950c3a0d8cfe169251a7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7bc4174121a58353219e73eef86ec6c64f806647
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441509"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133220"
 ---
 # <a name="heading"></a>Muestra de datos en contenedores de blob de Azure, SQL Server y tablas de Hive
 
@@ -26,7 +26,7 @@ Los artículos siguientes describen cómo realizar un muestreo de los datos que 
 * Los [**datos de SQL Server**](sample-data-sql-server.md) se muestrean tanto con SQL como con el lenguaje de programación de Python. 
 * Los [**datos de las tablas de Hive**](sample-data-hive.md) se muestrean con consultas de Hive.
 
-Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 **Razones para el uso de datos de ejemplo**
 

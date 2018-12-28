@@ -1,33 +1,23 @@
 ---
-title: Cambiar un emparejamiento público en Azure ExpressRoute a emparejamiento de Microsoft | Microsoft Docs
+title: Cambiar un emparejamiento público a emparejamiento de Microsoft | Microsoft Docs
 description: En este artículo se detallan los pasos para cambiar un emparejamiento público a emparejamiento de Microsoft en ExpressRoute.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: f34fabc95d5b56edc6e37c323bebf60bd98c8b90
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: seodec18
+ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314306"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100028"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Cambiar un emparejamiento público a emparejamiento de Microsoft
 
-ExpressRoute admite el uso del emparejamiento de Microsoft con filtros de ruta para los servicios de PaaS de Azure, como Azure Storage y Azure SQL Database. Ahora solo se necesita un dominio de enrutamiento para tener acceso a PaaS de Microsoft y a los servicios de SaaS. Puede usar los filtros de ruta para anunciar los prefijos del servicio de PaaS de forma selectiva en las regiones de Azure que quiere que se usen.
-
-Este artículo le servirá para cambiar una configuración de emparejamiento público a emparejamiento de Microsoft sin sufrir ningún tiempo de inactividad. Para más información sobre cómo enrutar emparejamientos y dominios de enrutamiento, vea [Circuitos ExpressRoute y dominios de enrutamiento](expressroute-circuit-peerings.md).
-
+Este artículo le servirá para cambiar una configuración de emparejamiento público a emparejamiento de Microsoft sin sufrir ningún tiempo de inactividad. ExpressRoute admite el uso del emparejamiento de Microsoft con filtros de ruta para los servicios de PaaS de Azure, como Azure Storage y Azure SQL Database. Ahora solo se necesita un dominio de enrutamiento para tener acceso a PaaS de Microsoft y a los servicios de SaaS. Puede usar los filtros de ruta para anunciar los prefijos del servicio de PaaS de forma selectiva en las regiones de Azure que quiere que se usen. Para más información sobre cómo enrutar emparejamientos y dominios de enrutamiento, vea [Circuitos ExpressRoute y dominios de enrutamiento](expressroute-circuit-peerings.md).
 
 ## <a name="before"></a>Antes de empezar
 
@@ -57,7 +47,7 @@ Compruebe que el emparejamiento de Microsoft está habilitado y que los prefijos
 
 De forma predeterminada, los emparejamientos de Microsoft nuevos no publican ningún prefijo hasta que se adjunta un filtro de ruta al circuito. Cuando se crea una regla de filtro de ruta, puede especificar la lista de comunidades de servicio correspondientes a las regiones de Azure que quiere usar para los servicios de PaaS de Azure, como se muestra en la siguiente captura de pantalla:
 
-![Combinar emparejamientos públicos](.\media\how-to-move-peering\public.png)
+![Combinar emparejamientos públicos](./media/how-to-move-peering/public.png)
 
 Para configurar filtros de ruta, use cualquiera de los siguientes artículos:
 

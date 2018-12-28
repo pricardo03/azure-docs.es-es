@@ -1,6 +1,6 @@
 ---
-title: Información sobre los certificados de Azure IoT Edge | Microsoft Docs
-description: Más información sobre los certificados de Azure IoT Edge y cómo se usan.
+title: Certificados para la seguridad del dispositivo en Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge usa certificados para validar los dispositivos, los módulos y los dispositivos hoja, y establecer conexiones seguras entre ellos.
 author: stevebus
 manager: philmea
 ms.author: stevebus
@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ff85f2c9ef708c7cbac9be4933541f063a6c95b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1cf1411e227363e7dc9d54f04d0c630341f55a6e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568597"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099908"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Información de uso de los certificados de Azure IoT Edge
 
@@ -51,7 +51,7 @@ En cualquier caso, el fabricante utiliza un certificado de CA intermedio al fina
 
 ### <a name="device-ca-certificate"></a>Certificado de entidad de certificación de dispositivo
 
-El certificado de CA de dispositivo se genera a partir del certificado de CA intermedio final y obtiene la firma de este en el proceso. Este certificado se instala en el dispositivo de Edge, preferiblemente en un almacenamiento seguro, como un módulo de seguridad de hardware (HSM). Además, un certificado de CA de dispositivo identifica un dispositivo IoT Edge. En el caso de IoT Edge, el certificado de CA de dispositivo es capaz de emitir otros certificados. Por ejemplo, el certificado de CA de dispositivo emite certificados de dispositivo hoja que se usan para autenticar los dispositivos en el [servicio Azure IoT Device Provisioning](..\iot-dps\about-iot-dps.md).
+El certificado de CA de dispositivo se genera a partir del certificado de CA intermedio final y obtiene la firma de este en el proceso. Este certificado se instala en el dispositivo de Edge, preferiblemente en un almacenamiento seguro, como un módulo de seguridad de hardware (HSM). Además, un certificado de CA de dispositivo identifica un dispositivo IoT Edge. En el caso de IoT Edge, el certificado de CA de dispositivo es capaz de emitir otros certificados. Por ejemplo, el certificado de CA de dispositivo emite certificados de dispositivo hoja que se usan para autenticar los dispositivos en el [servicio Azure IoT Device Provisioning](../iot-dps/about-iot-dps.md).
 
 ### <a name="iot-edge-workload-ca"></a>Entidad de certificación de carga de trabajo de IoT Edge
 

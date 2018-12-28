@@ -1,23 +1,24 @@
 ---
-title: Flujos de trabajo para configurar un circuito de Azure ExpressRoute | Microsoft Docs
-description: Esta página le guiará a través de los flujos de trabajo para configurar el circuito ExpressRoute y las configuraciones entre pares
+title: 'Flujos de trabajo de configuración de circuito en ExpressRoute: Azure | Microsoft Docs'
+description: En esta página se muestran los flujos de trabajo para configurar el circuito ExpressRoute y las configuraciones entre pares
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.custom: seodec18
+ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301045"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101694"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
 Esta página le guiará a través del aprovisionamiento de servicios y de los flujos de trabajo de configuración del enrutamiento a alto nivel.
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![flujo de trabajo de circuito](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 Tanto la ilustración como los pasos correspondientes siguientes muestran las tareas que se deben realizar para aprovisionar un circuito ExpressRoute de un extremo a otro. 
 
@@ -35,7 +36,7 @@ Tanto la ilustración como los pasos correspondientes siguientes muestran las ta
      > 
      > 
      
-     ![](./media/expressroute-workflows/routing-workflow.png)
+     ![flujos de trabajo de enrutamiento](./media/expressroute-workflows/routing-workflow.png)
 5. Vinculación de redes virtuales a circuitos de ExpressRoute: puede vincular redes virtuales a un circuito ExpressRoute. Siga las instrucciones [para vincular redes virtuales](expressroute-howto-linkvnet-arm.md) al circuito. Dichas redes virtuales pueden estar en la misma suscripción de Azure que el circuito ExpressRoute, o bien pueden estar en una suscripción diferente.
 
 ## <a name="expressroute-circuit-provisioning-states"></a>Estados de aprovisionamiento de circuitos de ExpressRoute

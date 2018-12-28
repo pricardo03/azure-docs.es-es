@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 0b2fa1541eafa3acf28690005a6d40fac76deba6
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 9d80f4e7422d881393c8e626ddfc75c4067ef1e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353482"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250355"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidad y Azure SQL Database
 
@@ -55,7 +55,7 @@ En el modelo Premium, Azure SQL Database integra el proceso y el almacenamiento 
 
 ![Clúster de nodos del motor de base de datos](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-El proceso del motor de base de datos SQL y los archivos mdf o ldf subyacentes se colocan en el mismo nodo con el almacenamiento SSD conectado localmente, lo que proporciona baja latencia para la carga de trabajo. La alta disponibilidad se implementa mediante tecnología parecida a la de los [grupos de disponibilidad AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server. Cada base de datos es un clúster de nodos de base de datos con una base de datos principal, a la que se puede acceder para la carga de trabajo de cliente, y a tres procesos secundarios que contienen copias de los datos. El nodo principal inserta constantemente los cambios a los nodos secundarios para garantizar que los datos estén disponibles en réplicas secundarias si el nodo principal se bloquea por cualquier motivo. El Motor de base de datos de SQL Server controla la conmutación por error: una réplica secundaria se convierte en el nodo principal y se crea una nueva réplica secundaria para garantizar que hay suficientes nodos en el clúster. La carga de trabajo se redirige automáticamente al nuevo nodo principal.
+El proceso del motor de base de datos SQL y los archivos mdf o ldf subyacentes se colocan en el mismo nodo con el almacenamiento SSD conectado localmente, lo que proporciona baja latencia para la carga de trabajo. La alta disponibilidad se implementa mediante tecnología parecida a la de los [grupos de disponibilidad AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server. Cada base de datos es un clúster de nodos de base de datos con una base de datos principal, a la que se puede acceder para la carga de trabajo de cliente, y a tres procesos secundarios que contienen copias de los datos. El nodo principal inserta constantemente los cambios a los nodos secundarios para garantizar que los datos estén disponibles en réplicas secundarias si el nodo principal se bloquea por cualquier motivo. Azure Service Fabric controla la conmutación por error: una réplica secundaria se convierte en el nodo principal y se crea una nueva réplica secundaria para garantizar que haya suficientes nodos en el clúster. La carga de trabajo se redirige automáticamente al nuevo nodo principal.
 
 Además, el clúster Crítico para la empresa incorpora la funcionalidad [Escalado horizontal de lectura](sql-database-read-scale-out.md) que proporciona un nodo de solo lectura integrado gratuito que se puede usar para ejecutar consultas de solo lectura (por ejemplo, informes) que no deberían afectar al rendimiento de la carga de trabajo principal.
 

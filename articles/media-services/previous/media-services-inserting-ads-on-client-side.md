@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 36cdd944dd33f9aa9ae1c805011df23fc864c345
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: de084b2139bcc3ddef09b4438f8774df177b6f3c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705997"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315945"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserción de anuncios en el lado cliente
 Este tema contiene información sobre cómo insertar varios tipos de anuncios en el lado cliente.
@@ -32,7 +32,7 @@ Para obtener información acerca de la compatibilidad con anuncios y subtítulos
 > 
 
 ## <a id="insert_ads_into_media"></a>Inserción de anuncios en contenido multimedia
-Azure Media Services admite la inserción de anuncios mediante Plataforma multimedia de Microsoft: Player Frameworks. Player framework con compatibilidad con anuncios está disponible para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada marco de trabajo de reproductor contiene código de ejemplo que muestra cómo implementar una aplicación de reproductor. Hay tres tipos diferentes de anuncios que se pueden insertar en el archivo multimedia:
+Azure Media Services admite la inserción de anuncios mediante la plataforma de Windows Media: Player Frameworks. Player framework con compatibilidad con anuncios está disponible para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada marco de trabajo de reproductor contiene código de ejemplo que muestra cómo implementar una aplicación de reproductor. Hay tres tipos diferentes de anuncios que se pueden insertar en el archivo multimedia:
 
 * **Lineales** : anuncios de fotograma completo que pausan el vídeo principal.
 * **No lineales** : anuncios superpuestos que se muestran mientras se reproduce el vídeo principal, normalmente un logotipo u otra imagen estática colocada dentro del reproductor.
@@ -94,7 +94,7 @@ Un archivo VAST especifica qué anuncios mostrar. El siguiente código XML es un
     </VAST>
 ```
 
-El anuncio lineal se describe en el elemento <**Linear**>. Especifica la duración del anuncio, eventos de seguimiento, click-through, el seguimiento de clics y diversos elementos **MediaFile**. Los eventos de seguimiento se especifican dentro del elemento <**TrackingEvents**> y permiten que un servidor de anuncios realice el seguimiento de diversos eventos que se producen mientras se visualiza el anuncio. En este caso se realiza un seguimiento de los eventos start, midpoint, complete y expand. El evento start se produce cuando se muestra el anuncio. El evento midpoint se produce cuando se visualiza al menos el 50% de la escala de tiempo del anuncio. Cuando el anuncio llega al final, se produce el evento complete. El evento expand se produce cuando el usuario expande el reproductor de vídeo a pantalla completa. Los click-through se especifican con un elemento <**ClickThrough**> dentro de un elemento <**VideoClicks**>, que especifica el identificador URI de un recurso que se muestra cuando el usuario hace clic en el anuncio. ClickTracking se especifica en un elemento <**ClickTracking**>, también dentro del elemento <**VideoClicks**> y especifica un recurso de seguimiento para que el reproductor lo solicite cuando el usuario hace clic en el anuncio. Los elementos <**MediaFile**> especifican información sobre una codificación específica de un anuncio. Cuando haya más de un elemento <**MediaFile**>, el reproductor de vídeo puede elegir la mejor codificación para la plataforma. 
+El anuncio lineal se describe en el elemento <**Linear**>. Especifica la duración del anuncio, eventos de seguimiento, click-through, el seguimiento de clics y diversos elementos **MediaFile**. Los eventos de seguimiento se especifican dentro del elemento <**TrackingEvents**> y permiten que un servidor de anuncios realice el seguimiento de diversos eventos que se producen mientras se visualiza el anuncio. En este caso se realiza un seguimiento de los eventos start, midpoint, complete y expand. El evento start se produce cuando se muestra el anuncio. El evento midpoint se produce cuando se visualiza al menos el 50% de la escala de tiempo del anuncio. Cuando el anuncio llega al final, se produce el evento complete. El evento expand se produce cuando el usuario expande el reproductor de vídeo a pantalla completa. Los click-through se especifican con un elemento <**ClickThrough**> dentro de un elemento <**VideoClicks**>, que especifica el identificador URI de un recurso que se muestra cuando el usuario hace clic en el anuncio. ClickTracking se especifica en un elemento <**ClickTracking**>, también dentro del elemento <**VideoClicks**> y especifica un recurso de seguimiento para que el reproductor lo solicite cuando el usuario hace clic en el anuncio. Los elementos <**MediaFile**> especifican información sobre una codificación específica de un anuncio. Cuando haya más de un elemento <**MediaFile**>, el reproductor de vídeo puede elegir la mejor codificación para la plataforma.
 
 Los anuncios lineales pueden mostrarse en un orden especificado. Para ello, agregue elementos <Ad> adicionales al archivo VAST y especifique el orden usando el atributo sequence. Esto se ilustra en el ejemplo siguiente:
 
@@ -325,16 +325,16 @@ Un archivo MAST permite especificar desencadenadores que definen cuándo se mues
 ```
 
 
-Un archivo MAST comienza con un elemento **MAST** que contiene un elemento **triggers**. El elemento <triggers> contiene uno o varios elementos **trigger** que definen cuándo se debe reproducir un anuncio. 
+Un archivo MAST comienza con un elemento **MAST** que contiene un elemento **triggers**. El elemento <triggers> contiene uno o varios elementos **trigger** que definen cuándo se debe reproducir un anuncio.
 
-El elemento **trigger** contiene un elemento **startConditions** que especifica cuándo debe comenzar a reproducirse un anuncio. El elemento **startConditions** contiene uno o varios elementos <condition>. Cuando cada <condition> se evalúa como true, se inicia o se revoca un desencadenador en función de si <condition> está dentro de un elemento **startConditions** o **endConditions**, respectivamente. Cuando hay varios elementos <condition> presentes, se tratan como un OR implícito y cualquier condición que se evalúe como true hará que el desencadenador se inicie. Los elementos <condition> pueden estar anidados. Cuando hay elementos <condition> secundarios predefinidos, se tratan como un AND implícito y todas las condiciones deben evaluarse como true para iniciar el desencadenador. El elemento <condition> contiene los siguientes atributos que definen la condición: 
+El elemento **trigger** contiene un elemento **startConditions** que especifica cuándo debe comenzar a reproducirse un anuncio. El elemento **startConditions** contiene uno o varios elementos <condition>. Cuando cada <condition> se evalúa como true, se inicia o se revoca un desencadenador en función de si <condition> está dentro de un elemento **startConditions** o **endConditions**, respectivamente. Cuando hay varios elementos <condition> presentes, se tratan como un OR implícito y cualquier condición que se evalúe como true hará que el desencadenador se inicie. Los elementos <condition> pueden estar anidados. Cuando hay elementos <condition> secundarios predefinidos, se tratan como un AND implícito y todas las condiciones deben evaluarse como true para iniciar el desencadenador. El elemento <condition> contiene los siguientes atributos que definen la condición:
 
 1. **type**: especifica el tipo de condición, evento o propiedad.
 2. **name** : nombre de la propiedad o evento que se usará durante la evaluación.
 3. **value** : valor de una propiedad con la que se evaluará.
-4. **operator** : operación que se va a usar durante la evaluación: EQ (igual), NEQ (distinto), GTR (mayor que), GEQ (mayor o igual que), LT (menor que), LEQ (menor o igual que), MOD (módulo)
+4. **operator**: operación que se va a usar durante la evaluación: EQ (igual), NEQ (distinto), GTR (mayor que), GEQ (mayor o igual que), LT (menor que), LEQ (menor o igual que), MOD (módulo)
 
-**endConditions** también contiene elementos <condition>. Cuando una condición se evalúa como true, el desencadenador se restablece. El elemento <trigger> también contiene un elemento <sources> que contiene uno o varios elementos <source>. Los elementos <source> definen el URI a la respuesta de anuncio y el tipo de respuesta de anuncio. En este ejemplo se proporciona un URI a una respuesta VAST. 
+**endConditions** también contiene elementos <condition>. Cuando una condición se evalúa como true, el desencadenador se restablece. El elemento <trigger> también contiene un elemento <sources> que contiene uno o varios elementos <source>. Los elementos <source> definen el URI a la respuesta de anuncio y el tipo de respuesta de anuncio. En este ejemplo se proporciona un URI a una respuesta VAST.
 
 ```xml
     <trigger id="postroll" description="postroll"  >
@@ -352,7 +352,7 @@ El elemento **trigger** contiene un elemento **startConditions** que especifica 
 ### <a name="using-video-player-ad-interface-definition-vpaid"></a>Uso de Video Player-Ad Interface Definition (VPAID)
 VPAID es una API que permite a las unidades de anuncios ejecutables comunicarse con un reproductor de vídeo. Esto permite disfrutar de experiencias de anuncios altamente interactivas. El usuario puede interactuar con el anuncio y el anuncio puede responder a las acciones realizadas por el espectador. Por ejemplo, un anuncio puede mostrar botones que permiten al usuario ver más información o una versión más larga del anuncio. El reproductor de vídeo debe admitir la API VPAID y el anuncio ejecutable debe implementar la API. Cuando un reproductor solicita un anuncio de un servidor de anuncios, el servidor puede responder con una respuesta VAST que contiene un anuncio VPAID.
 
-Se crea un anuncio ejecutable en el código que debe ejecutarse en un entorno en tiempo de ejecución, como Adobe Flash ™ o JavaScript, que se pueden ejecutar en un explorador web. Cuando un servidor de anuncios devuelve una respuesta VAST que contiene un anuncio VPAID, el valor del atributo apiFramework en el elemento <MediaFile> debe ser "VPAID". Este atributo especifica que el anuncio contenido es un ejecutable VPAID. El atributo type debe establecerse en el tipo MIME del ejecutable, por ejemplo, "application/x-shockwave-flash" o "application/x-javascript". El siguiente fragmento XML muestra el elemento <MediaFile> de una respuesta VAST que contiene un anuncio ejecutable VPAID. 
+Se crea un anuncio ejecutable en el código que debe ejecutarse en un entorno en tiempo de ejecución, como Adobe Flash ™ o JavaScript, que se pueden ejecutar en un explorador web. Cuando un servidor de anuncios devuelve una respuesta VAST que contiene un anuncio VPAID, el valor del atributo apiFramework en el elemento <MediaFile> debe ser "VPAID". Este atributo especifica que el anuncio contenido es un ejecutable VPAID. El atributo type debe establecerse en el tipo MIME del ejecutable, por ejemplo, "application/x-shockwave-flash" o "application/x-javascript". El siguiente fragmento XML muestra el elemento <MediaFile> de una respuesta VAST que contiene un anuncio ejecutable VPAID.
 
 ```xml
     <MediaFiles>
@@ -586,7 +586,7 @@ Los ejemplos usan VmapSchedulerPlugin para programar anuncios con un archivo VMA
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementación de un reproductor de vídeo de iOS con compatibilidad para anuncios
-Microsoft Media Platform: Player Framework para iOS contiene una colección de aplicaciones de ejemplo que muestran cómo implementar una aplicación de reproductor de vídeo usando el marco. Puede descargar la plataforma del reproductor y los ejemplos de [Plataforma de Azure Media Player](https://github.com/Azure/azure-media-player-framework). La página de Github incluye un vínculo a un wiki que contiene información adicional sobre Media Player y una introducción al ejemplo del reproductor: [Wiki de Azure Media Player](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+Microsoft Media Platform: Player Framework para iOS contiene una colección de aplicaciones de ejemplo que muestran cómo implementar una aplicación de reproductor de vídeo usando el marco. Puede descargar la plataforma del reproductor y los ejemplos de [Plataforma de Azure Media Player](https://github.com/Azure/azure-media-player-framework). La página de GitHub incluye un vínculo a un wiki que contiene información adicional sobre el marco del reproductor y una introducción al ejemplo del reproductor: [Wiki de Azure Media Player](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Programación de anuncios con VMAP
 El ejemplo siguiente muestra cómo programar anuncios usando un archivo VMAP.
@@ -605,7 +605,7 @@ El ejemplo siguiente muestra cómo programar anuncios usando un archivo VMAP.
                 if (![framework scheduleVMAPWithManifest:manifest])
                 {
                     [self logFrameworkError];
-                }          
+                }
             }
 ```
 

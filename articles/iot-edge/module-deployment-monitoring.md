@@ -1,6 +1,6 @@
 ---
-title: Implementación de módulos para Azure IoT Edge | Microsoft Docs
-description: Aprenda cómo se implementan los módulos en los dispositivos perimetrales.
+title: Implementación automática para grupos de dispositivos en Azure IoT Edge | Microsoft Docs
+description: Uso de implementaciones automáticas en Azure IoT Edge para administrar grupos de dispositivos basándose en etiquetas compartidas
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584849"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100113"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala
 

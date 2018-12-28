@@ -1,6 +1,6 @@
 ---
-title: Identidades administradas para recursos de Azure con Azure Event Hubs en versión preliminar | Microsoft Docs
-description: Uso de identidades administradas para recursos de Azure con Azure Event Hubs
+title: Identidades administradas para recursos de Azure con Azure Event Hubs | Microsoft Docs
+description: En este artículo se proporciona información sobre cómo usar identidades administradas para recursos de Azure con Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 815a6ff528e024ed1685b09b66f8fabce4d360c1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784560"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087735"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identidades administradas para recursos de Azure con Event Hubs
 
@@ -47,7 +48,7 @@ El primer paso es crear una aplicación ASP.NET de App Service. Si no está fami
 
 Una vez creada la aplicación, vaya a la aplicación web recién creada en Azure Portal (también se muestra en la guía de procedimientos); a continuación, vaya a la página **Identidad de servicio administrada** y habilite la característica: 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![Página Managed Service Identity](./media/event-hubs-managed-service-identity/msi1.png)
  
 Una vez habilitada la característica, se crea una identidad de servicio en Azure Active Directory y se configura en el host de App Service.
 
@@ -55,11 +56,7 @@ Una vez habilitada la característica, se crea una identidad de servicio en Azur
 
 A continuación, [cree un espacio de nombres de Event Hubs](event-hubs-create.md) en una de las regiones de Azure que admite la versión preliminar de las identidades administradas para los recursos de Azure: **Este de EE. UU.**, **Este de EE. UU. 2** o **Europa Occidental**. 
 
-Vaya a la página **Control de acceso (IAM)** del espacio de nombres en Azure Portal y, a continuación, haga clic en **Agregar** para agregar la identidad administrada al rol de **Propietario**. Para ello, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**.
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-La identidad administrada de la aplicación web ya tiene acceso al espacio de nombres de Event Hubs y al centro de eventos que creó anteriormente. 
+Vaya a la página **Control de acceso (IAM)** del espacio de nombres en Azure Portal y, después, haga clic en **Agregar asignación de roles** para agregar la identidad administrada al rol **Propietario**. Para ello, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**. La identidad administrada de la aplicación web ya tiene acceso al espacio de nombres de Event Hubs y al centro de eventos que creó anteriormente. 
 
 ### <a name="run-the-app"></a>Ejecución de la aplicación
 
@@ -71,7 +68,7 @@ Tenga en cuenta cómo se inicializa el objeto [MessagingFactory](/dotnet/api/mic
 
 Una vez realizados estos cambios, publique y ejecute la aplicación. Puede obtener los datos de publicación correctos mediante la descarga y posterior importación de un perfil de publicación en Visual Studio:
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![Importar perfil de publicación](./media/event-hubs-managed-service-identity/msi3.png)
  
 Para enviar o recibir mensajes, escriba el nombre del espacio de nombres y el nombre de la entidad que creó y, a continuación, haga clic en **enviar** o **recibir**. 
  

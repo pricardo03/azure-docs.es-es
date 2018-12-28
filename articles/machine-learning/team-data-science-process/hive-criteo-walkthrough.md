@@ -1,5 +1,5 @@
 ---
-title: 'Proceso de ciencia de datos en equipos en acción: uso de un clúster de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB | Microsoft Docs'
+title: Uso del clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB - Proceso de ciencia de datos en equipos
 description: Uso del proceso de ciencia de datos en equipos en un escenario completo con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3aef1b85a462eea74fbe977e9a48054f11acf47a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447051"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135821"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB
 
@@ -33,7 +33,7 @@ Cada registro de este conjunto de datos contiene 40 columnas:
 * Las 13 columnas siguientes son numéricas.
 * Las últimas 26 son columnas de categorías.
 
-Las columnas son anónimas y utilizan una serie de nombres enumerados: desde "Col1" (para la columna de etiqueta) hasta 'Col40 "(para la última columna de categoría).            
+Las columnas son anónimas y utilizan una serie de nombres enumerados: De "Col1" (para la columna de etiqueta) a "Col40" (para la última columna de la categoría).            
 
 Este es un extracto de las 20 primeras columnas de dos observaciones (filas) de este conjunto de datos:
 
@@ -44,24 +44,24 @@ Este es un extracto de las 20 primeras columnas de dos observaciones (filas) de 
 
 Hay valores que faltan en las columnas numéricas y de categorías de este conjunto de datos. A continuación, se describe un método sencillo para controlar los valores que faltan. Más adelante, se describirán detalles adicionales de los datos cuando estos se almacenen en tablas de Hive.
 
-**Definición:***Porcentaje de clics (CTR, del inglés Click-through rate):* es el porcentaje de clics que se hacen en los datos. En este conjunto de datos de Criteo, el valor de CTR es aproximadamente del 3,3 % (o 0,033).
+**Definición:** *Tasa de click-through (CTR):* porcentaje de clics en los datos. En este conjunto de datos de Criteo, el valor de CTR es aproximadamente del 3,3 % (o 0,033).
 
 ## <a name="mltasks"></a>Ejemplos de tareas de predicción
 En este tutorial, se describen dos problemas de predicción de ejemplo:
 
 1. **Clasificación binaria**: predice si un usuario ha hecho clic o no en un anuncio:
    
-   * Clase 0: no hace clic.
-   * Clase 1: sí hace clic.
-2. **Regresión**: predice la probabilidad de que se haga clic en un anuncio en función de las características del usuario.
+   * Clase 0: no hace clic
+   * Clase 1: sí hace clic
+2. **Regresión**. predice la probabilidad de que se haga clic en un anuncio en función de las características del usuario.
 
 ## <a name="setup"></a>Configuración de un clúster de Hadoop de HDInsight para la ciencia de los datos
-**Nota:** Esta tarea la suelen hacer los **administradores**.
+**Nota:** Esta tarea la suelen hacer los **administradores** .
 
 Configure su entorno de ciencia de datos de Azure para crear soluciones de análisis predictivos con los clústeres de HDInsight en tres pasos:
 
 1. [Cree una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight se almacenan aquí.
-2. [Personalice los clústeres de Hadoop de HDInsight de Azure para la ciencia de los datos](customize-hadoop-cluster.md): en este paso, se crea un clúster de Hadoop de HDInsight de Azure con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay que llevar a cabo dos pasos importantes (descritos en este tema) para personalizar el clúster de HDInsight.
+2. [Personalice los clústeres de Hadoop de HDInsight de Azure para ciencia de datos](customize-hadoop-cluster.md): Este paso crea un clúster de Hadoop de HDInsight de Azure con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay que llevar a cabo dos pasos importantes (descritos en este tema) para personalizar el clúster de HDInsight.
    
    * Hay que vincular la cuenta de almacenamiento que creó en el paso 1 con el clúster de HDInsight en el momento de su creación. Esta cuenta de almacenamiento se utiliza para tener acceso a datos que se pueden procesar en el clúster.
    * Debe habilitar el acceso remoto en el nodo principal del clúster después de crearlo. Recuerde las credenciales de acceso remoto que especifique aquí (distintas de las especificadas para el clúster durante su creación), ya que las necesitará para realizar los procedimientos a continuación.
@@ -435,12 +435,12 @@ Para el módulo **Importar datos** , los valores de los parámetros que se propo
 
 1. Elija "Consulta de Hive" como **Origen de datos**
 2. En el cuadro **Consulta de base de datos de Hive**, basta con seleccionar SELECT * FROM <nombre\_base\_datos.nombre\_tabla\_>.
-3. **URI del servidor de Hcatalog**: si el clúster es "abc", este valor simplemente será: https://abc.azurehdinsight.net
-4. **Nombre de la cuenta de usuario de Hadoop**: el nombre de usuario elegido en el momento de dar de alta el clúster. (No es el nombre de usuario de acceso remoto).
-5. **Contraseña de la cuenta de usuario de Hadoop**: la contraseña de usuario elegida en el momento de dar de alta el clúster. (NO es la contraseña de acceso remoto).
+3. **URI del servidor de HCatalog** : si el clúster es "abc", este valor simplemente será: https://abc.azurehdinsight.net
+4. **Nombre de cuenta de usuario de Hadoop**: el nombre de usuario elegido en el momento de dar de alta el clúster. (No es el nombre de usuario de acceso remoto).
+5. **Contraseña de cuenta de usuario de Hadoop**: la contraseña del nombre de usuario elegido en el momento de dar de alta el clúster. (NO es la contraseña de acceso remoto).
 6. **Ubicación de los datos de salida**: elija "Azure".
-7. **Nombre de la cuenta de almacenamiento de Azure**: la cuenta de almacenamiento asociada al clúster.
-8. **Clave de la cuenta de almacenamiento de Azure**: la clave de almacenamiento asociada al clúster.
+7. **Nombre de la cuenta de Azure Storage**: cuenta de almacenamiento asociada con el clúster.
+8. **Clave de la cuenta de Azure Storage**: clave de la cuenta de almacenamiento asociada con el clúster.
 9. **Nombre del contenedor de Azure**: si el nombre de clúster es "abc", este campo suele ser simplemente "abc".
 
 Una vez que el módulo **Importar datos** finaliza la obtención de datos (aparece una marca de verificación verde en el módulo), guarde estos datos como un conjunto de datos (con el nombre que desee). Este es el aspecto:
@@ -454,7 +454,7 @@ Para seleccionar el conjunto de datos guardado para usarlo en un experimento de 
 ![Movimiento de arrastre del conjunto de datos hasta el panel principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
-> Realice esta acción para los conjuntos de datos "test" y "train". Además, recuerde usar el nombre de la base de datos y los nombres de tabla que ha asignado para este propósito. Los valores usados en la ilustración tienen únicamente fines ilustrativos.**
+> Realice esta acción para los conjuntos de datos "test" y "train". Además, recuerde usar el nombre de la base de datos y los nombres de tabla que ha asignado para este propósito. Los valores usados en la ilustración tienen únicamente fines ilustrativos.\*\*
 > 
 > 
 
@@ -478,7 +478,7 @@ Puede haber millones de valores únicos para algunas características de categor
 ##### <a name="building-counting-transforms"></a>Creación de transformaciones de recuento
 Para crear características de recuento, use el módulo **Crear transformación de recuento**, que está disponible en Azure Machine Learning. El módulo tiene este aspecto:
 
-![Módulo Crear transformación de recuento](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![Propiedades del módulo Crear transformación de recuento](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![Módulo Crear transformación de recuento](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 
@@ -535,7 +535,7 @@ En este extracto, se muestra que para las columnas en las que se ha hecho el rec
 
 Ahora ya está listo para crear un modelo de Azure Machine Learning con estos conjuntos de datos transformados. En la siguiente sección se explica cómo se puede hacer esto.
 
-### <a name="step3"></a>Paso 3: Creación, entrenamiento y puntuación del modelo
+### <a name="step3"></a> Paso 3: Crear, entrenar y puntuar el modelo
 
 #### <a name="choice-of-learner"></a>Elección del aprendiz
 En primer lugar, tiene que elegir un aprendiz. Use como aprendiz un árbol de decisiones incrementado de dos clases. Aquí están las opciones predeterminadas para este aprendiz:

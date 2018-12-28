@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: cfb4dabea12f2988108d24b025e324cf05afb325
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: cd599a45ef4d3bfd38789a71647847f55cc0b966
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301726"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085899"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de suscripción de Event Grid
 
@@ -29,8 +29,8 @@ Por ejemplo, con el fin de crear una suscripción de eventos para una cuenta de 
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-En el artículo se describen las propiedades y el esquema del cuerpo de la solicitud.
- 
+El nombre de la suscripción de eventos debe tener entre 3 y 64 caracteres de longitud y solo puede contener los siguientes caracteres: a-z, A-z, 0-9, y "-". En el artículo se describen las propiedades y el esquema del cuerpo de la solicitud.
+ 
 ## <a name="event-subscription-properties"></a>Propiedades de la suscripción de eventos
 
 | Propiedad | Escriba | DESCRIPCIÓN |

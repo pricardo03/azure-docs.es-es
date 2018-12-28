@@ -10,17 +10,15 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 5e19c7c1ed15183fdb796a6fa4e537da946b40b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637340"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194239"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Conectar equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics
 En este documento, se describe cómo configurar la comunicación con Azure Automation y Log Analytics mediante la puerta de enlace de Log Analytics cuando los equipos conectados directamente o supervisados por Operations Manager no tengan acceso a Internet.  La puerta de enlace de Log Analytics, que es un proxy de reenvío HTTP que admite la tunelización de HTTP con el comando HTTP CONNECT, puede recopilar datos y enviarlos a Azure Automation y Log Analytics en su nombre.  
@@ -82,15 +80,15 @@ La puerta de enlace de Log Analytics está disponible en los idiomas siguientes:
 - Español (internacional)
 
 ### <a name="supported-encryption-protocols"></a>Protocolos de cifrado admitidos
-La puerta de enlace de Log Analytics solo admite Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2.  No se admite Capa de sockets seguros (SSL).  Para garantizar la seguridad de los datos en tránsito a Log Analytics, se recomienda encarecidamente configurar la puerta de enlace para que use al menos Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.  Para información adicional, revise [Sending data securely using TLS 1.2](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
+La puerta de enlace de Log Analytics solo admite Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2.  No se admite Capa de sockets seguros (SSL).  Para garantizar la seguridad de los datos en tránsito a Log Analytics, se recomienda encarecidamente configurar la puerta de enlace para que use al menos Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.  Para información adicional, revise [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número admitido de conexiones del agente
 En la siguiente tabla se resalta el número admitido de agentes que se comunican con un servidor de puerta de enlace.  Esta compatibilidad se basa en los agentes que cargan aproximadamente 200 KB de datos cada 6 segundos. El volumen de datos por agente de prueba es de unos 2,7 GB por día.
 
 |Puerta de enlace |Número aproximado de agentes admitidos|  
 |--------|----------------------------------|  
-|- CPU: Intel XEON E5-2660 v3 \@ 2,6 GHz 2 núcleos<br> - Memoria: 4 GB<br> - Ancho de banda de red: 1 Gbps| 600|  
-|- CPU: Intel XEON E5-2660 v3 \@ 2,6 GHz 4 núcleos<br> - Memoria: 8 GB<br> - Ancho de banda de red: 1 Gbps| 1000|  
+|- CPU: Intel XEON E5-2660 v3 \@ 2,6 GHz 2 núcleos<br> - Memoria: 4 GB<br> - Ancho de banda de la red: 1 Gbps| 600|  
+|- CPU: Intel XEON E5-2660 v3 \@ 2,6 GHz 4 núcleos<br> - Memoria: 8 GB<br> - Ancho de banda de la red: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Descargar la puerta de enlace de Log Analytics
 
@@ -136,13 +134,13 @@ Para más información sobre cómo diseñar e implementar un clúster de equilib
 1. Inicie sesión en el servidor Windows que sea miembro del clúster NLB con una cuenta administrativa.  
 1. Abra el Administrador de equilibrio de carga de red en el Administrador del servidor, haga clic en **Herramientas** y, luego, en **Administrador de equilibrio de carga de red**.
 1. Para conectar un servidor de puerta de enlace de Log Analytics con Microsoft Monitoring Agent instalado, haga clic con el botón derecho en la dirección IP del clúster y, después, seleccione **Agregar host al clúster**.<br><br> ![Administrador de equilibrio de carga de red – Agregar host al clúster](./media/gateway/nlb02.png)<br> 
-1. Escriba la dirección IP del servidor de la puerta de enlace al que desea conectarse.<br><br> ![Administrador de equilibrio de carga de red – Agregar host al clúster: Conectar](./media/gateway/nlb03.png) 
+1. Escriba la dirección IP del servidor de la puerta de enlace al que desea conectarse.<br><br> ![Administrador de equilibrio de carga de red: Agregar host al clúster: Conectar](./media/gateway/nlb03.png) 
     
 ## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Configurar el agente de Log Analytics y el grupo de administración de Operations Manager
 En la sección siguiente, se indican los pasos para configurar los agentes de Log Analytics conectados directamente, un grupo de administración de Operations Manager o Hybrid Runbook Workers de Azure Automation con la puerta de enlace de Log Analytics para comunicarse con Azure Automation o Log Analytics.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Configurar el agente de Log Analytics independiente
-Para obtener información sobre los requisitos y pasos para instalar el agente de Log Analytics en equipos con Windows mediante una conexión directa a Log Analytics, vea [Conectar equipos con Windows al servicio Log Analytics](agent-windows.md); o bien, para equipos con Linux, vea [Conectar equipos con Linux a Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md). En lugar de especificar un servidor proxy al configurar el agente, cambie ese valor por la dirección IP del servidor de puerta de enlace de Log Analytics y el número de puerto.  Si ha implementado varios servidores de puerta de enlace detrás de un equilibrador de carga de red, la configuración de proxy del agente de Log Analytics es la dirección IP virtual de NLB.  
+Para obtener información sobre los requisitos y pasos para instalar el agente de Log Analytics en equipos con Windows mediante una conexión directa a Log Analytics, vea [Conectar equipos con Windows al servicio Log Analytics](agent-windows.md); o bien, para equipos con Linux, vea [Conectar equipos con Linux a Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). En lugar de especificar un servidor proxy al configurar el agente, cambie ese valor por la dirección IP del servidor de puerta de enlace de Log Analytics y el número de puerto.  Si ha implementado varios servidores de puerta de enlace detrás de un equilibrador de carga de red, la configuración de proxy del agente de Log Analytics es la dirección IP virtual de NLB.  
 
 Para información relacionada con el Hybrid Runbook Worker de Automation, consulte la [Implementación de Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
@@ -256,7 +254,7 @@ Los cmdlets pueden ayudarle a completar las tareas necesarias para actualizar la
 1. Si no se ha producido ningún error en el paso anterior, el módulo se ha importado correctamente y se pueden usar los cmdlets. Escriba `Get-Module OMSGateway`
 1. Después de realizar los cambios mediante los cmdlets, asegúrese de reiniciar el servicio Gateway.
 
-Un error en el paso 3 indica que el módulo no se ha importado. El error puede producirse si PowerShell no puede encontrar el módulo. Es posible encontrarlo en la ruta de instalación de la puerta de enlace: *C:\Archivos de programa\Microsoft OMS Gateway\PowerShell\OmsGateway*.
+Un error en el paso 3 indica que el módulo no se ha importado. El error puede producirse si PowerShell no puede encontrar el módulo. Puede encontrarlo en la ruta de instalación de la puerta de enlace: *C:\Archivos de programa\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
 | **Cmdlet** | **Parámetros** | **Descripción** | **Ejemplo** |
 | --- | --- | --- | --- |  

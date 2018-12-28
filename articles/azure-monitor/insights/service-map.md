@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c25bc5d577096078694e3af0de74debe0f906251
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827992"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186504"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores en la forma en que piensa en ellos: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
@@ -38,7 +37,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 2. En la barra de búsqueda, escriba **Service Map** y presione **ENTRAR**.
 3. En la página de resultados de la búsqueda de Marketplace, seleccione **Service Map** en la lista.<br><br> ![Seleccionar la solución Service Map en los resultados de la búsqueda en Azure Marketplace](./media/service-map/marketplace-search-results.png)<br>
 4. En el panel de información general de **Service Map**, revise los detalles de la solución y, a continuación, haga clic en **Crear** para comenzar el proceso de incorporación al área de trabajo de Log Analytics.<br><br> ![Incorpore la solución Service Map](./media/service-map/service-map-onboard.png).
-5. En el panel **Configurar una solución**, seleccione un área de trabajo de Log Analytics existente o cree uno nuevo.  Para obtener más información sobre cómo crear una nueva área de trabajo, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../log-analytics/log-analytics-quick-create-workspace.md). Después de proporcionar la información necesaria, haga clic en **Crear**.  
+5. En el panel **Configurar una solución**, seleccione un área de trabajo de Log Analytics existente o cree uno nuevo.  Para obtener más información sobre cómo crear una nueva área de trabajo, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/learn/quick-create-workspace.md). Después de proporcionar la información necesaria, haga clic en **Crear**.  
 
 Mientras se comprueba la información y se implementa la solución, puede realizar un seguimiento de su progreso en **Notificaciones** en el menú. 
 
@@ -277,7 +276,7 @@ En el panel **Machine Updates** (Actualizaciones de la máquina) se muestran dat
 ![Panel de seguimiento de cambios del equipo](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
-Los datos de inventario de equipos y procesos de Service Map están disponibles para [buscar](../../log-analytics/log-analytics-queries.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
+Los datos de inventario de equipos y procesos de Service Map están disponibles para [buscar](../../azure-monitor/log-query/log-query-overview.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
 
 Se genera un registro por hora para cada equipo y proceso únicos, además de los registros generados cuando un proceso o equipo se inicia o se integra en Service Map. Estos registros tienen las propiedades de las tablas siguientes. Los campos y valores de los eventos ServiceMapComputer_CL se asignan a los campos del recurso Equipo en la API ServiceMap de Azure Resource Manager. Los campos y valores de los eventos ServiceMapProcess_CL se asignan a los campos del recurso Proceso en la API ServiceMap de Azure Resource Manager. El campo ResourceName_s coincide con el campo de nombre del recurso correspondiente de Resource Manager. 
 
@@ -286,8 +285,8 @@ Se genera un registro por hora para cada equipo y proceso únicos, además de lo
 
 Hay propiedades generadas internamente que puede usar para identificar los equipos y procesos únicos:
 
-- Equipo: use *ResourceId* o *ResourceName_s* para identificar de forma exclusiva un equipo dentro de un área de trabajo de Log Analytics.
-- Proceso: use *ResourceId* para identificar de forma exclusiva un proceso dentro de un área de trabajo de Log Analytics. *ResourceName_s* es único dentro del contexto de la máquina en la que se está ejecutando el proceso (MachineResourceName_s) 
+- Equipo: Use *ResourceId* o *ResourceName_s* para identificar de forma exclusiva un equipo dentro de un área de trabajo de Log Analytics.
+- Proceso: Use *ResourceId* para identificar de forma exclusiva un proceso dentro de un área de trabajo de Log Analytics. *ResourceName_s* es único dentro del contexto de la máquina en la que se está ejecutando el proceso (MachineResourceName_s) 
 
 Puesto que pueden existir varios registros para un proceso y equipo especificados en un intervalo de tiempo concreto, las consultas pueden devolver más de un registro para el mismo proceso o equipo. Para incluir solo el registro más reciente agregue "| dedup ResourceId" a la consulta.
 
@@ -504,7 +503,7 @@ Para más información sobre el uso y la recopilación de datos, vea la [Declara
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información sobre las [búsquedas de registros](../../log-analytics/log-analytics-queries.md) de Log Analytics para recuperar datos recopilados por Service Map.
+Más información sobre las [búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) de Log Analytics para recuperar datos recopilados por Service Map.
 
 
 ## <a name="troubleshooting"></a>solución de problemas

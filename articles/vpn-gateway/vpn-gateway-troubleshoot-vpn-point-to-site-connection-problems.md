@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 12/05/2018
 ms.author: genli
-ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238334"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994178"
 ---
-# <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: conexión de punto a sitio de Azure
+# <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
 
 En este artículo se enumeran problemas comunes de conexión de punto a sitio que puede experimentar. También se tratan las posibles causas de estos problemas y sus soluciones.
 
-## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Error de cliente de VPN: no se encontró un certificado
+## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Error de cliente de VPN: No se encontró ningún certificado.
 
 ### <a name="symptom"></a>Síntoma
 
@@ -41,7 +41,7 @@ Este problema se produce si el certificado de cliente no está en **Certificados
 
 Para solucionar este problema, siga estos pasos:
 
-1. Abra el Administrador de certificados: haga clic en **Inicio**, escriba **Administrar certificados de equipo** y, a continuación, haga clic en **Administrar certificados de equipo** en el resultado de la búsqueda.
+1. Abra el Administrador de certificados: haga clic en **Inicio**, escriba **Administrar certificados de equipo** y, después, haga clic en **Administrar certificados de equipo** en el resultado de la búsqueda.
 
 2. Asegúrese de que los certificados siguientes están en la ubicación correcta:
 
@@ -58,7 +58,7 @@ Para más información sobre cómo instalar el certificado de cliente, consulte 
 > [!NOTE]
 > Al importar el certificado de cliente, no seleccione la opción **Habilitar la protección de clave privada de alta seguridad**.
 
-## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Error de cliente de VPN: no se esperaba el mensaje recibido o tiene un formato incorrecto
+## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Error de cliente de VPN: Mensaje recibido inesperado o con formato incorrecto.
 
 ### <a name="symptom"></a>Síntoma
 
@@ -101,7 +101,7 @@ Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, apar
 
 2. Si los certificados ya están en la ubicación, pruebe a eliminarlos y a volver a instalarlos. El certificado **azuregateway-*GUID*.cloudapp.net** se encuentra en el paquete de configuración del cliente de VPN descargado de Azure Portal. Puede usar archivadores de archivos para extraer los archivos del paquete.
 
-## <a name="file-download-error-target-uri-is-not-specified"></a>Error en la descarga del archivo. No se ha especificado el URI de destino
+## <a name="file-download-error-target-uri-is-not-specified"></a>Error en la descarga del archivo: no se ha especificado ningún URI de destino.
 
 ### <a name="symptom"></a>Síntoma
 
@@ -185,7 +185,7 @@ Asegúrese de que los datos del certificado no contienen caracteres no válidos 
     e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
     -----END CERTIFICATE-----
 
-## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Error de Azure Portal: error al guardar la puerta de enlace de la VPN y el nombre del recurso no es válido
+## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Error de Azure Portal: error al guardar la puerta de enlace de VPN y el nombre del recurso no es válido
 
 ### <a name="symptom"></a>Síntoma
 
@@ -300,7 +300,7 @@ Este problema puede producirse si el cliente VPN no obtiene las rutas de la inst
 
 ### <a name="solution"></a>Solución
 
-Para solucionar este problema, [restablezca la instancia de Azure VPN Gateway](vpn-gateway-resetgw-classic.md).
+Para solucionar este problema, [restablezca la instancia de Azure VPN Gateway](vpn-gateway-resetgw-classic.md). Para asegurarse de que se están usando las nuevas rutas, los clientes VPN de punto a sitio deben descargarse de nuevo después de que el emparejamiento de red virtual se haya configurado correctamente.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Error: "La función de revocación no pudo comprobar la revocación debido a que el servidor de revocación estaba sin conexión (Error 0x80092013)"
 
@@ -311,7 +311,7 @@ Este mensaje de error se produce si el cliente no puede tener acceso a http://cr
 
 Compruebe la configuración del servidor proxy, asegúrese de que el cliente puede tener acceso a http://crl3.digicert.com/ssca-sha2-g1.crl y http://crl4.digicert.com/ssca-sha2-g1.crl.
 
-## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Error del cliente VPN: Se impidió la conexión debido a una directiva configurada en el servidor RAS/VPN (Error 812)
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Error de cliente de VPN: se impidió la conexión debido a una directiva configurada en el servidor RAS/VPN. (Error 812)
 
 ### <a name="cause"></a>Causa
 
@@ -327,7 +327,7 @@ Asegúrese de que el servidor RADIUS está configurado correctamente. Para más 
 
 No se instaló el certificado raíz. El certificado raíz está instalado en el almacén de **certificados de confianza** del cliente.
 
-## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>Error del cliente VPN: No se pudo establecer la conexión remota porque se produjo un error en los túneles VPN probados. (Error 800) 
+## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>Error de cliente de VPN: no se pudo establecer la conexión remota porque se produjo un error en los túneles VPN probados. (Error 800) 
 
 ### <a name="cause"></a>Causa
 

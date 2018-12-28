@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 69802c6c4246b91f62a0e49ec0c34bdd3a1bec8b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c94c88aa088745a2ed421bff43c8d87382564a43
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958435"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141482"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Diseño de un sistema de protección de contenido con control de acceso mediante Azure Media Services
 
@@ -130,11 +130,11 @@ Otro factor importante a tener en cuenta es el uso de licencias persistentes y n
 
 Si usa una nube pública para la entrega de licencias, las licencias persistentes y no persistentes tendrán un impacto directo en el costo de entrega de licencias. Los dos casos siguientes de distinto diseño sirven para mostrar lo siguiente:
 
-* Suscripción mensual: utiliza una licencia persistente y la asignación 1 a varios entre claves de contenido y recursos. Por ejemplo, para todas las películas de niños, usamos una única clave de contenido para el cifrado. En este caso:
+* Suscripción mensual: Se usa una licencia persistente y la asignación de 1 a varios entre claves de contenido y recursos. Por ejemplo, para todas las películas de niños, usamos una única clave de contenido para el cifrado. En este caso:
 
     Número total de licencias solicitadas para todas las películas o dispositivos de niños = 1
 
-* Suscripción mensual: utiliza una licencia no persistente y la asignación 1 a 1 entre claves de contenido y recursos. En este caso:
+* Suscripción mensual: Se usa una licencia no persistente y la asignación de 1 a 1 entre claves de contenido y recursos. En este caso:
 
     El número total de licencias solicitadas para todas las películas o dispositivos de niños = [numero de películas vistas] x [número de sesiones]
 
@@ -256,7 +256,7 @@ Utilice la siguiente información para solución de problemas para obtener ayuda
 
 * Otorgue privilegios de notificaciones de pertenencia a grupo. Asegúrese de que lo siguiente se encuentra en el archivo de manifiesto de aplicación de Azure AD: 
 
-    "groupMembershipClaims": "All",    (el valor predeterminado es nulo)
+    "groupMembershipClaims": "All"    (el valor predeterminado es null)
 
 * Establezca el valor adecuado de TokenType al crear los requisitos de restricción.
 
@@ -367,13 +367,13 @@ Cuando se utiliza un servicio de token de seguridad personalizado, se deben real
 
 Hay dos tipos de claves de seguridad:
 
-* Clave simétrica: la misma clave se usa para generar y comprobar un token JWT.
-* Clave asimétrica: se utiliza un par de claves pública-privada de un certificado X509 junto con la clave privada para cifrar o generar un token JWT y con la clave pública para comprobar el token.
+* Clave simétrica: La misma clave se usa para generar y verificar un token JWT.
+* Clave asimétrica: Se usa un par de claves público-privadas de un certificado X509 junto con la clave privada para cifrar o generar un token JWT y con la clave pública para verificar el token.
 
 > [!NOTE]
 > Si utiliza .NET Framework o C# como plataforma de desarrollo, el certificado X509 usado en una clave de seguridad asimétrica debe tener una longitud de clave de al menos 2048. Se trata de un requisito de la clase System.IdentityModel.Tokens.X509AsymmetricSecurityKey en .NET Framework. De lo contrario, se produce la siguiente excepción:
-
-> IDX10630: El valor 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' de la firma no puede ser inferior a '2048' bits.
+> 
+> IDX10630: El valor 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para la firma no puede ser menor que 2048 bits.
 
 ## <a name="the-completed-system-and-test"></a>Finalización del sistema y prueba
 En esta sección permite recorrer los escenarios siguientes en el sistema de un extremo a otro completado para que se pueda tener una idea general del comportamiento antes de obtener una cuenta de inicio de sesión:
@@ -407,15 +407,15 @@ Puede ponerse en contacto con cualquiera de los autores para que le creen o le a
 
 Las capturas de pantalla siguientes muestran diferentes páginas de inicio de sesión que se usan con distintas cuentas de dominio:
 
-**Cuenta de dominio de inquilino de Azure AD personalizado**: la página de inicio de sesión personalizada del dominio de inquilino de Azure AD personalizado.
+**Cuenta de dominio de inquilino de Azure AD personalizado**: Página de inicio de sesión personalizada del dominio de inquilino de Azure AD personalizado.
 
 ![Cuenta de dominio de inquilino de Azure AD personalizado](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
-**Cuenta de dominio de Microsoft con tarjeta inteligente**: la página de inicio de sesión personalizada por el responsable de TI corporativa de Microsoft con autenticación en dos fases.
+**Cuenta de dominio de Microsoft con tarjeta inteligente**: Página de inicio de sesión personalizada por el responsable de TI corporativo de Microsoft con autenticación en dos fases.
 
 ![Cuenta de dominio de inquilino de Azure AD personalizado](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
-**Cuenta Microsoft**: la página de inicio de sesión de la cuenta Microsoft para los consumidores.
+**Cuenta de Microsoft**: Página de inicio de sesión de la cuenta de Microsoft para los consumidores.
 
 ![Cuenta de dominio de inquilino de Azure AD personalizado](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 

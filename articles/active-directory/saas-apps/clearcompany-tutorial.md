@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con ClearCompany | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con ClearCompany | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ClearCompany.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 0463a89b8c320b31929bf5e0322079088c2cdeab
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9cf5092dabf5649f4d063ce05dae169b90228378
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054138"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834101"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Tutorial: integración de Azure Active Directory con ClearCompany
+# <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Tutorial: Integración de Azure Active Directory con ClearCompany
 
 En este tutorial, aprenderá a integrar ClearCompany con Azure Active Directory (Azure AD).
 
@@ -119,7 +119,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.clearcompany.com`.
     
     > [!NOTE] 
-    > El valor de dirección URL de inicio de sesión no es un valor real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de ClearCompany](http://www.clearcompany.com/support) para obtener este valor. 
+    > El valor de dirección URL de inicio de sesión no es un valor real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de ClearCompany](https://www.clearcompany.com/support) para obtener este valor. 
 
 5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
@@ -133,10 +133,10 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de ClearCompany](./media/clearcompany-tutorial/tutorial_clearcompany_configure.png) 
 
-8. Para configurar el inicio de sesión único en **ClearCompany**, es preciso enviar el **certificado (Base64)** descargado y la **dirección URL del servicio de inicio de sesión único de SAML** al [equipo de soporte técnico de ClearCompany](http://www.clearcompany.com/support). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+8. Para configurar el inicio de sesión único en **ClearCompany**, es preciso enviar el **certificado (Base64)** descargado y la **dirección URL del servicio de inicio de sesión único de SAML** al [equipo de soporte técnico de ClearCompany](https://www.clearcompany.com/support). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -162,7 +162,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/clearcompany-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -172,7 +172,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-clearcompany-test-user"></a>Creación de un usuario de prueba ClearCompany
 
-En esta sección, creará un usuario llamado Britta Simon en ClearCompany. Trabaje con el [equipo de soporte técnico de ClearCompany](http://www.clearcompany.com/support) para agregar los usuarios en la plataforma de ClearCompany. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en ClearCompany. Trabaje con el  [equipo de soporte técnico de ClearCompany](https://www.clearcompany.com/support)  para agregar los usuarios en la plataforma de ClearCompany. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -209,7 +209,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de ClearCompany en el panel de acceso, debería iniciar sesión automáticamente en su aplicación ClearCompany.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309369"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310381"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Planeamiento de la implementación de Unión a Azure AD
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Control de Planeación de la implementación de la unión a Azure AD
 
 
 Unión a Azure AD permite unir dispositivos directamente a Azure AD sin necesidad de unirlos a un entorno local de Active Directory, al tiempo que mantiene la productividad y la seguridad de los usuarios. La opción Unión a Azure AD está preparada para la empresa tanto para implementaciones de ámbito como a escala.   
@@ -49,7 +49,7 @@ Para planear la implementación de Azure AD híbrido, debe familiarizarse con:
 |![Comprobar][1]|Explicación de las consideraciones de aplicaciones y recursos|
 |![Comprobar][1]|Explicación de las opciones de aprovisionamiento|
 |![Comprobar][1]|Configuración de Enterprise State Roaming|
-|![Comprobar][1]|Configuración del acceso condicional|
+|![Comprobar][1]|Configure el acceso condicional|
 
 
 
@@ -213,7 +213,7 @@ Los dispositivos unidos a AD Azure no admiten las aplicaciones locales basadas e
 
 ### <a name="remote-desktop-services"></a>Servicios de Escritorio remoto
 
-La conexión a Escritorio remoto para dispositivos unidos a Azure AD requiere que el equipo host esté unido a Azure AD o unido a Azure AD híbrido. No se admite el escritorio remoto desde un dispositivo no unido o que no sea Windows. Para obtener más información, consulte [Conectarse a un equipo remoto unido a Azure Active Directory](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
+La conexión a Escritorio remoto para dispositivos unidos a Azure AD requiere que el equipo host esté unido a Azure AD o unido a Azure AD híbrido. No se admite el escritorio remoto desde un dispositivo no unido o que no sea Windows. Para obtener más información, consulte [Conectarse a un equipo remoto unido a Azure Active Directory](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Explicación de las opciones de aprovisionamiento
@@ -340,7 +340,7 @@ MAM no es aplicable a la unión a Azure AD.
 
 Si quiere habilitar State Roaming en Azure AD para que los usuarios puedan sincronizar su configuración entre dispositivos, consulte [Habilitación de Enterprise State Roaming en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
 
-**Recomendación**: Habilite esta opción incluso para los dispositivos unidos a Azure AD híbrido.
+**Recomendación:** Habilite esta opción incluso para los dispositivos unidos a Azure AD híbrido.
 
 
 ## <a name="configure-conditional-access"></a>Configure el acceso condicional

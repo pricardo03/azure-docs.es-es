@@ -1,5 +1,5 @@
 ---
-title: Implementación de módulos de Azure IoT Edge (CLI) | Microsoft Docs
+title: Implementación de módulos desde una línea de comandos en Azure IoT Edge | Microsoft Docs
 description: Uso de la extensión de IoT de la CLI de Azure para la implementación de módulos en un dispositivo IoT Edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8f39befbe1a329091da19eeba14a8dcc749fa93
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: f9aa3fff8750dc20053072c939a6db9362a2b0d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564993"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093580"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implementación de módulos de Azure IoT Edge con la CLI de Azure
 
@@ -117,7 +118,7 @@ Utilice el siguiente comando para aplicar la configuración a un dispositivo IoT
 
 El parámetro "device id" distingue mayúsculas y minúsculas. El parámetro "content" apunta al archivo del manifiesto de implementación que guardó. 
 
-   ![Establecimiento de los módulos](./media/how-to-deploy-cli/set-modules.png)
+   ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>Visualización de módulos en el dispositivo
 
@@ -131,7 +132,7 @@ Vea los módulos en el dispositivo de IoT Edge:
 
 El parámetro "device id" distingue mayúsculas y minúsculas.
 
-   ![Enumere los módulos](./media/how-to-deploy-cli/list-modules.png)
+   ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

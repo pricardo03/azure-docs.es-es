@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 48cb88b9815ba723d93c18caf63f33b50eea850c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011983"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412947"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 Puede usar Azure NetApp Files para crear una instantánea a petición para un volumen o restaurar desde una instantánea a un nuevo volumen.
@@ -60,12 +60,16 @@ Actualmente, puede restaurar una instantánea solo a un nuevo volumen.
         El campo **Cuota disponible** muestra la cantidad de espacio no utilizado en el grupo de capacidad elegido que puede usar para crear un nuevo volumen. El tamaño del volumen nuevo no debe superar la cuota disponible.
 
     *   **Red virtual**  
-        Especifique la red virtual de Azure (Vnet) desde la que desea tener acceso al volumen. 
-        
-        La red virtual que especifique debe tener configurado Azure NetApp Files. Solo puede tener acceso al servicio Azure NetApp Files desde una red virtual que se encuentre en la misma ubicación que el volumen.  
+        Especifique la red virtual de Azure (Vnet) desde la que desea tener acceso al volumen.  
+        La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede tener acceso al servicio Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de redes virtuales. También puede tener acceso al volumen desde la red local a través de Express Route. 
 
-    ![Nuevo volumen restaurado](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-    
+    * **Subred**  
+        Especifique la subred que desea usar para el volumen.  
+        La red virtual que especifique debe estar delegada en el servicio Azure NetApp Files. Puede crear una nueva subred seleccionando **Crear nuevo** en el campo de la subred.  
+<!--
+    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
+-->
+
 5. Haga clic en **OK**.   
     El nuevo volumen al que se restaura la instantánea aparece en la hoja Volúmenes.
 

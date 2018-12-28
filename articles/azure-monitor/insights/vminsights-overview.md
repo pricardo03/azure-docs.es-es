@@ -8,53 +8,59 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2018
 ms.author: magoedte
-ms.openlocfilehash: d37ca7d46f1231a8e1b0b258c10089fe6ba81fba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 69aa2cbcaa6861b1d5c5c71769be2fb8046d9ea5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714856"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188525"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>¿Qué es Azure Monitor para VM (versión preliminar)?
 
-La característica Azure Monitor para VM supervisa las máquinas virtuales (VM) de Azure y los conjuntos de escalado de máquinas virtuales de Azure a escala y analiza el rendimiento y el estado de las máquinas virtuales de Windows y Linux, incluidos los diferentes procesos y las dependencias interconectadas con otros recursos y con procesos externos. La solución permite supervisar el rendimiento y las dependencias de las aplicaciones en máquinas virtuales hospedadas en el entorno local o en otro proveedor en la nube. Incluye tres características clave para ofrecer esta información detallada:
+Azure Monitor para VM supervisa las máquinas virtuales (VM) y los conjuntos de escalado de máquinas virtuales de Azure. El servicio analiza el rendimiento y el estado de las VM Windows y Linux, supervisa sus procesos y sus dependencias en otros recursos y procesos externos. 
 
-* Los componentes lógicos de las VM de Azure que ejecutan el sistema operativo Windows y Linux se miden en función de un conjunto de criterios de estado configurados previamente y de alertas cuando se cumple la condición evaluada.  
-* Las métricas de rendimiento de núcleos del procesador, la memoria, el disco y el adaptador de red del sistema operativo de VM de invitado se recopilan y se presentan en gráficos de rendimiento de tendencias predefinidos.
-* Mapa de dependencias que muestra los componentes interconectados detectados con esa VM desde varios grupo de recursos y suscripciones.  
+Como solución, Azure Monitor para VM permite supervisar el rendimiento y las dependencias de las aplicaciones en VM hospedadas en el entorno local o en otro proveedor en la nube. Tres características clave ofrecen información detallada:
 
-Estas características se organizan en tres perspectivas:
+* **Componentes lógicos de VM de Azure que ejecutan Windows y Linux**: Se miden con respecto a criterios de mantenimiento configurados previamente, y le avisen cuando se cumple la condición evaluada.  
+
+* **Gráficos de rendimiento de tendencias previamente definidos**: Muestra las principales métricas de rendimiento del sistema operativo de la VM.
+
+* **Mapa de dependencias**: Muestra los componentes interconectados con la VM de varios grupos de recursos y suscripciones.  
+
+Las características se organizan en tres perspectivas:
 
 * Health
 * Rendimiento
 * Map
 
 >[!NOTE]
->Actualmente, solo se ofrece la característica de mantenimiento para las máquinas virtuales y los conjuntos de escalado de máquinas virtuales de Azure. Las vistas de rendimiento y mapa son compatibles con máquinas virtuales de Azure y con máquinas virtuales hospedadas en su entorno o en otro proveedor de la nube.
->
+>Actualmente, solo se ofrece la característica de mantenimiento para las máquinas virtuales y los conjuntos de escalado de máquinas virtuales de Azure. Las características de Rendimiento y Asignación son compatibles con VM de Azure y con máquinas virtuales hospedadas en su entorno o en otro proveedor de la nube.
 
-La integración con Log Analytics ofrece agregación, filtrado y capacidad de desempeño eficaces de análisis de tendencias de los datos a lo largo del tiempo. La supervisión integral de las cargas de trabajo no se puede lograr únicamente con Azure Monitor, Service Map o Log Analytics.  
+La integración con Log Analytics ofrece agregación y filtrado eficaces, y puede analizar la tendencias de los datos a lo largo del tiempo. Dicha supervisión integral de las cargas de trabajo no se puede lograr únicamente con Azure Monitor, Service Map o Log Analytics.  
 
-Puede ver estos datos directamente en el contexto de la VM única de la máquina virtual, o bien Azure Monitor ofrece una vista agregada de las VM según la perspectiva siguiente de cada característica:
+Puede ver estos datos directamente en una sola VM desde la máquina virtual, o puede usar a Azure Monitor para ofrecer una vista agregada de las VM. Esta vista se basa en la perspectiva de la característica:
 
-* Estado: VM relacionadas con un grupo de recursos
-* Asignación y rendimiento: VM configuradas para informar a un área de trabajo específica de Log Analytics
+* **Estado**: VM relacionadas con un grupo de recursos.
+* **Asignación** y **Rendimiento**: VM configuradas para informar a un área de trabajo específica de Log Analytics.
 
-![Perspectiva de conclusiones de la máquina virtual desde el portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
+![Perspectiva de conclusiones de la máquina virtual desde Azure Portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
-DevOps puede ofrecer de forma eficaz un rendimiento predecible y disponibilidad de las aplicaciones vitales mediante la identificación de eventos críticos del sistema operativo y cuellos de botella de rendimiento, proporcionar problemas de red, así como comprender si un problema está relacionado con otras dependencias.  
+Azure DevOps puede ofrecer un rendimiento y disponibilidad predecibles de aplicaciones vitales. Identifica los eventos críticos del sistema operativo, los cuellos de botella de rendimiento y problemas de red. Azure DevOps también puede ayudarle a entender si un problema está relacionado con otras dependencias.  
 
 ## <a name="data-usage"></a>Uso de datos 
 
-Tan pronto como incorpore Azure Monitor para las VM, los datos que recopilen sus VM se ingieren y almacenan en Azure Monitor. Azure Monitor para máquinas virtuales se factura según los datos ingeridos y retenidos, el número de series temporales de métricas de criterios de estado supervisadas, las reglas de alertas creadas y las notificaciones enviadas, a partir de los precios publicados en la [página de precios](https://azure.microsoft.com/pricing/details/monitor/) de Azure Monitor.
+Cuando implementa Azure Monitor para VM, los datos que recopilen sus VM se ingieren y almacenan en Azure Monitor. Según los precios que se publican en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor para VM se factura según:
+* Los datos que se ingieren y almacenan.
+* El número de series temporales de métricas de criterios de mantenimiento que se supervisan.
+* Las reglas de alerta que se crean.
+* Las notificaciones que se envían. 
 
-El tamaño del registro varía en función de las longitudes de cadena de los contadores y puede aumentar con el número de discos lógicos y adaptadores de red. Si ya tiene un área de trabajo y está recopilando estos contadores, no se aplicará ningún cargos duplicado. Si ya usa Service Map, el único cambio que verá son los datos de conexión adicionales que se envían a Azure Monitor.
+El tamaño del registro varía en función de las longitudes de cadena de los contadores y puede aumentar con el número de discos lógicos y adaptadores de red. Si ya tiene un área de trabajo y está recopilando estos contadores, no se aplicará ningún cargo duplicado. Si ya usa Service Map, el único cambio que verá son los datos de conexión adicionales que se envían a Azure Monitor.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [Incorporación de Azure Monitor para VM](vminsights-onboard.md) para conocer los requisitos y los métodos necesarios para habilitar la supervisión de máquinas virtuales.
+Para conocer los requisitos y los métodos para habilitar la supervisión de máquinas virtuales, consulte [Implementación de Azure Monitor para VM](vminsights-onboard.md).

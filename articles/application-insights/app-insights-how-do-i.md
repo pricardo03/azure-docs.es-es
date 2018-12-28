@@ -9,16 +9,15 @@ ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8cee346a45cd20e7dd677fd7f2efed5500175598
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1c76e25c29d79213fbdf36d563b4bd316b832b06
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096401"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017038"
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
 ## <a name="get-an-email-when-"></a>Recibir un correo electrónico cuando...
@@ -83,8 +82,8 @@ Algunos puntos que se deben tener en cuenta:
 
 ## <a name="separate-telemetry-from-different-versions"></a>Telemetría independiente de diferentes versiones
 
-* Varios roles en una aplicación: usar un único recurso de Application Insights y filtrar por cloud_NombreDelRol. [Más información](app-insights-monitor-multi-role-apps.md)
-* Separación de versiones de desarrollo, prueba y publicación: utilizar diferentes recursos de Application Insights. Tome las claves de instrumentación de web.config. [Más información](app-insights-separate-resources.md)
+* Varias roles en una aplicación: usar un único recurso de Application Insights y filtrar por [cloud_NombreDelRol](app-insights-app-map.md).
+* Separación de desarrollo, prueba y versiones de lanzamiento: Use diferentes recursos de Application Insights. Tome las claves de instrumentación de web.config. [Más información](app-insights-separate-resources.md)
 * Generación de informes de versiones de compilación: agregar una propiedad usando un inicializador de telemetría. [Más información](app-insights-separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Supervisar servidores back-end y aplicaciones de escritorio

@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: c437f350e394dc8c264903508a2a5a66fa8225a7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346573"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161991"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Solución de problemas en las consultas de Azure Stream Analytics
 
@@ -47,49 +48,49 @@ En el procesamiento de datos en tiempo real, puede ser útil conocer qué aspect
 
 La siguiente consulta de ejemplo en un trabajo de Azure Stream Analytics tiene una entrada de secuencias, dos entradas de datos de referencia y una salida a Azure Table Storage. La consulta combina datos del centro de eventos y dos blobs de referencia para obtener la información de nombre y categoría:
 
-![Ejemplo de consulta SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
+![Ejemplo de consulta SELECT INTO de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
 Tenga en cuenta que el trabajo está en ejecución, pero no se genera ningún evento en la salida. En el icono **Supervisión**, que se muestra aquí, puede ver que la entrada genera datos, pero no sabe qué paso de la cláusula **JOIN** ha hecho que se descarten todos los eventos.
 
-![Icono de Supervisión](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
+![Icono de Supervisión de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
 En esta situación, puede agregar unas cuantas instrucciones SELECT INTO adicionales para "registrar" los resultados intermedios de JOIN y los datos que se leen de la entrada.
 
 En este ejemplo, hemos agregado dos nuevas "salidas temporales". Estas pueden ser cualquier receptor que desee. Aquí usamos Azure Storage como ejemplo:
 
-![Adición de instrucciones SELECT INTO adicionales](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
+![Adición de instrucciones SELECT INTO adicionales a la consulta de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 
 A continuación, puede volver a escribir la consulta del modo siguiente:
 
-![Consulta SELECT INTO reescrita](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
+![Consulta SELECT INTO reescrita de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
 
 Ahora, inicie de nuevo el trabajo y deje que se ejecute durante unos minutos. A continuación, consulte temp1 y temp2 con Visual Studio Cloud Explorer para generar las siguientes tablas:
 
-**tabla temp1**
-![SELECT INTO tabla temp1](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+**Tabla temp1**
+![tabla temp1 de la consulta SELECT INTO de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
-**tabla temp2**
-![SELECT INTO tabla temp2](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+**Tabla temp2**
+![tabla temp2 de la consulta SELECT INTO de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Como puede ver, temp1 y temp2 tienen ambas datos, y la columna de nombre está rellenada correctamente en temp2. Sin embargo, dado que todavía no hay ningún dato en la salida, algo sucede:
 
-![Tabla SELECT INTO output1 sin datos](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
+![Tabla output1 sin datos de la consulta SELECT INTO de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
 
 Mediante el muestreo de los datos, puede estar casi seguro de que el problema está relacionado con la segunda cláusula JOIN. Puede descargar los datos de referencia del blob y echar un vistazo:
 
-![Tabla de referencia de SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
+![Tabla de referencia de la consulta SELECT INTO de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
 
 Como puede ver, el formato del GUID en los datos de esta referencia es distinto del formato de la columna [from] en temp2. Por eso los datos no llegan a output1 como estaba previsto.
 
 Puede corregir el formato de datos, cargarlo para que haga referencia al blob e intentarlo de nuevo:
 
-![Tabla temporal de SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
+![Tabla temporal de la consulta SELECT INTO de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
 
 Esta vez, los datos en la salida tienen el formato adecuado y se han rellenado según lo previsto.
 
-![Tabla final de SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
+![Tabla final de la consulta SELECT INTO de Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 
 Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

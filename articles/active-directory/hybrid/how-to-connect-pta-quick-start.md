@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 831e5bff412f80f2140f6fd1b935a57bd412ccba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582755"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188136"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticación de paso a través de Azure Active Directory: inicio rápido
+# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticación de paso a través de Azure Active Directory: Inicio rápido
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Implementación de la autenticación de paso a través de Azure AD
 
@@ -58,18 +58,18 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
 4. Si hay un firewall entre los servidores y Azure AD, configure los elementos siguientes:
    - Asegúrese de que los agentes de autenticación pueden realizar solicitudes *salientes* a Azure AD a través de los puertos siguientes:
 
-    | Número de puerto | Cómo se usa |
-    | --- | --- |
-    | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado SSL |
-    | **443** | Controla toda la comunicación saliente con el servicio |
-    | **8080** (opcional) | Los agentes de autenticación notifican su estado cada diez minutos a través del puerto 8080, si el puerto 443 no está disponible. Este estado se muestra en el portal de Azure AD. El puerto 8080 _no_ se usa para inicios de sesión de usuario. |
-
-    Si el firewall fuerza las reglas según los usuarios que las originan, abra estos puertos para el tráfico de servicios de Windows que se ejecutan como un servicio de red.
+     | Número de puerto | Cómo se usa |
+     | --- | --- |
+     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado SSL |
+     | **443** | Controla toda la comunicación saliente con el servicio |
+     | **8080** (opcional) | Los agentes de autenticación notifican su estado cada diez minutos a través del puerto 8080, si el puerto 443 no está disponible. Este estado se muestra en el portal de Azure AD. El puerto 8080 _no_ se usa para inicios de sesión de usuario. |
+     
+     Si el firewall fuerza las reglas según los usuarios que las originan, abra estos puertos para el tráfico de servicios de Windows que se ejecutan como un servicio de red.
    - Si el firewall o el proxy permiten la creación de listas blancas con DNS, cree una lista blanca para las conexiones a **\*.msappproxy.net** y **\*.servicebus.windows.net**. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana.
    - Los agentes de autenticación necesitan acceder a **login.windows.net** y **login.microsoftonline.com** para el registro inicial. Abra el firewall también para esas direcciones URL.
    - Para la validación de certificados, desbloquee las siguientes direcciones URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** y **www.microsoft.com:80**. Como estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, es posible que estas direcciones URL ya estén desbloqueadas.
 
-## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitación de la característica
+## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitar la característica
 
 Habilite la [autenticación de paso a través mediante Azure AD Connect](whatis-hybrid-identity.md).
 
@@ -97,13 +97,13 @@ Siga estas instrucciones para verificar que ha habilitado la autenticación de p
 4. Verifique que la característica **Autenticación de paso a través** aparece como **Habilitado**.
 5. Seleccione **Autenticación de paso a través**. En el panel **Autenticación de paso a través** se enumeran los servidores donde están instalados los agentes de autenticación.
 
-![Centro de administración de Azure Active Directory: panel de Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
+![Centro de administración de Azure Active Directory: Panel de Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 
-![Centro de administración de Azure Active Directory: panel de Autenticación de paso a través](./media/how-to-connect-pta-quick-start/pta8.png)
+![Centro de administración de Azure Active Directory: Panel de autenticación de paso a través](./media/how-to-connect-pta-quick-start/pta8.png)
 
 En esta fase, los usuarios de todos los dominios administrados del inquilino pueden iniciar sesión con la autenticación de paso a través. Sin embargo, los usuarios de dominios federados siguen iniciando sesión mediante AD FS o cualquier otro proveedor de federación que se haya configurado previamente. Si convierte un dominio de federado a administrado, todos los usuarios del mismo empiezan automáticamente a iniciar sesión mediante la autenticación de paso a través. La característica de autenticación de paso a través no afecta a los usuarios que están solo en la nube.
 
-## <a name="step-4-ensure-high-availability"></a>Paso 4: Garantía de alta disponibilidad
+## <a name="step-4-ensure-high-availability"></a>Paso 4: Asegurar la alta disponibilidad
 
 Si tiene previsto implementar la autenticación de paso a través en un entorno de producción, debe instalar un agente de autenticación independiente adicional. Instale los agentes de autenticación en servidores _distintos_ que el servidor en que se ejecuta Azure AD Connect. Esta configuración proporciona alta disponibilidad para las solicitudes de inicio de sesión.
 
@@ -117,9 +117,9 @@ Siga estas instrucciones para descargar el software de agente de autenticación:
 3. Seleccione **Azure AD Connect**, **Autenticación de paso a través** y **Descargar agente**.
 4. Seleccione el botón **Aceptar las condiciones y descargar**.
 
-![Centro de administración de Azure Active Directory: botón Descargar agente de autenticación](./media/how-to-connect-pta-quick-start/pta9.png)
+![Centro de administración de Azure Active Directory: Botón Descargar agente de autenticación](./media/how-to-connect-pta-quick-start/pta9.png)
 
-![Centro de administración de Azure Active Directory: panel Descargar agente](./media/how-to-connect-pta-quick-start/pta10.png)
+![Centro de administración de Azure Active Directory: Panel Descargar agente](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
 >También puede descargar [directamente el software del agente de autenticación](https://aka.ms/getauthagent). Revise y acepte las [Condiciones del servicio](https://aka.ms/authagenteula) del agente de autenticación _antes_ de instalarlo.
@@ -143,11 +143,11 @@ En segundo lugar, puede crear y ejecutar un script de implementación desatendid
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Migración de AD FS a la autenticación de paso a través](https://aka.ms/adfstoptadp): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
-- [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
-- [Limitaciones actuales](how-to-connect-pta-current-limitations.md): conozca qué escenarios son compatibles con la autenticación de paso a través y cuáles no.
-- [Profundización técnica](how-to-connect-pta-how-it-works.md): conozca cómo funciona la característica de autenticación de paso a través.
-- [Preguntas más frecuentes](how-to-connect-pta-faq.md): encuentre respuestas a las preguntas más frecuentes.
-- [Solución de problemas](tshoot-connect-pass-through-authentication.md): obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
-- [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): obtenga información técnica sobre la característica de autenticación de paso a través.
-- [SSO de conexión directa de Azure AD](how-to-connect-sso.md): obtenga más información sobre esta característica complementaria.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use el foro de Azure Active Directory para solicitar nuevas características.
+- [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): Obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
+- [Limitaciones actuales](how-to-connect-pta-current-limitations.md): Conozca qué escenarios son compatibles con la autenticación de paso a través y cuáles no.
+- [Profundización técnica](how-to-connect-pta-how-it-works.md): Conozca cómo funciona la característica de autenticación de paso a través.
+- [Preguntas más frecuentes](how-to-connect-pta-faq.md): Obtenga respuestas a las preguntas más frecuentes.
+- [Solución de problemas](tshoot-connect-pass-through-authentication.md): Obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
+- [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): Obtenga información técnica sobre la característica de autenticación de paso a través.
+- [SSO de conexión directa de Azure AD](how-to-connect-sso.md): Más información sobre esta característica complementaria.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use el foro de Azure Active Directory para solicitar nuevas características.

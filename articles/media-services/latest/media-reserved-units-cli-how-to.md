@@ -1,6 +1,6 @@
 ---
-title: 'Escalado de unidades reservadas de multimedia: Azure | Microsoft Docs'
-description: Este tema ofrece una introducción al escalado de procesamiento de medios con on Azure Media Services.
+title: Use la CLI para escalar unidades reservadas de multimedia en Azure | Microsoft Docs
+description: En este tema se muestra cómo usar la CLI para escalar el procesamiento multimedia con Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: dd587e5fc2082d1e496fbc05d5b25cf6692413bc
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: 2b10de83e00b3668f70461f76634c560bcbea1a4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713068"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133798"
 ---
 # <a name="scaling-media-processing"></a>Escalado de procesamiento de elementos multimedia
 

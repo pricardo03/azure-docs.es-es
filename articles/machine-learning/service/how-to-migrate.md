@@ -1,5 +1,6 @@
 ---
-title: Migración al servicio Azure Machine Learning
+title: Migración desde Workbench
+titleSuffix: Azure Machine Learning service
 description: Aprenda a actualizar o migrar a la versión más reciente del servicio Azure Machine Learning desde una versión anterior.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22e7e513c7ec015b070ae37c1dbdd168404ee768
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253455"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140758"
 ---
-# <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migración a la versión más reciente del servicio Azure Machine Learning 
+# <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Migración de Workbench a la versión más reciente de Azure Machine Learning Service 
 
-**Si ha instalado la aplicación Workbench (versión preliminar) o tiene cuentas de la versión preliminar para la administración de modelos o de experimentación, use este artículo para migrar a la versión más reciente.**  Si no tiene instalada la versión preliminar de Workbench ni una cuenta de administración de modelos o de experimentación, no es necesario migrar nada.
+**Si ha instalado la aplicación Workbench o tiene cuentas de la versión preliminar para la administración de modelos o de experimentación, use este artículo para migrar a la versión más reciente.**  Si no tiene instalada la versión preliminar de Workbench ni una cuenta de administración de modelos o de experimentación, no es necesario migrar nada.
 
 ## <a name="what-can-i-migrate"></a>¿Qué puedo migrar?
 La mayoría de los artefactos creados en la primera versión preliminar del servicio Azure Machine Learning se almacenan en su propio almacenamiento local o en la nube. Estos artefactos no desaparecerán. Para migrar, registre los artefactos con el servicio de Azure Machine Learning actualizado. 
@@ -52,7 +53,7 @@ Más información acerca de lo [que cambió en esta versión](overview-what-happ
 
 Recursos como las cuentas de experimentación, las cuentas de administración de modelos y los entornos de proceso del aprendizaje automático no se pueden migrar a la versión más reciente del servicio Azure Machine Learning. Consulte en la [escala de tiempo](overview-what-happened-to-workbench.md#timeline) cuánto tiempo seguirán funcionando los recursos.
 
-Introducción a la versión más reciente mediante la creación de un área de trabajo del servicio Azure Machine Learning en [Azure Portal](quickstart-get-started.md). El panel del área de trabajo del portal solo es compatible con los exploradores Microsoft Edge, Chrome y Firefox.
+Introducción a la versión más reciente mediante la creación de un área de trabajo del servicio Azure Machine Learning en [Azure Portal](quickstart-get-started.md). El panel del área de trabajo del portal solo es compatible con los exploradores de Edge, Chrome y Firefox.
 
 Esta nueva área de trabajo es el recurso de servicio de nivel superior y le permite usar todas las características más recientes del servicio Azure Machine Learning. Más información sobre esta [área de trabajo y esta arquitectura](concept-azure-machine-learning-architecture.md).
 
@@ -75,12 +76,11 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 Para migrar los servicios web, vuelva a implementar los modelos mediante el nuevo SDK o la CLI en los nuevos destinos de implementación. No es necesario cambiar su archivo original de puntuación, los archivos de dependencias de archivos de modelo, el archivo de entorno ni los archivos de esquema. 
 
-En la versión más reciente, los modelos se implementan como servicios web para clústeres de [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) o [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS). 
+En la versión más reciente, los modelos se implementan como servicios web para clústeres de Azure Container Instances (ACI) o Azure Kubernetes Service (AKS). 
 
 Para más información, consulte estos artículos:
-+ [Implementación en ACI](how-to-deploy-to-aci.md)
-+ [Implementación en AKS](how-to-deploy-to-aks.md)
-+ [Tutorial: Implementación de modelos con el servicio Azure Machine Learning](tutorial-deploy-models-with-aml.md)
++ [Cómo implementar y dónde](how-to-deploy-and-where.md)
++ [Tutorial: Implementación de modelos con Azure Machine Learning Service](tutorial-deploy-models-with-aml.md)
 
 Cuando la [compatibilidad con la CLI finalice](overview-what-happened-to-workbench.md#timeline), no podrá administrar los servicios web que implementó originalmente con su cuenta de Administración de modelos de Machine Learning. Sin embargo, dichos servicios web seguirán funcionando siempre y cuando todavía se admita Azure Container Service (ACS).
 
@@ -108,7 +108,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## <a name="data-preparation-files"></a>Archivos de preparación de los datos
-Los archivos de preparación de los datos no son portables sin Workbench. Sin embargo, puede seguir preparando un conjunto de datos de cualquier tamaño para el modelado con el nuevo SDK de preparación de datos de Azure Machine Learning o bien usar Azure Databricks para conjuntos de macrodatos.  [Obtenga información acerca de cómo obtener el SDK de preparación de datos](how-to-data-prep.md). 
+Los archivos de preparación de los datos no son portables sin Workbench. Sin embargo, puede seguir preparando un conjunto de datos de cualquier tamaño para el modelado con el nuevo SDK de preparación de datos de Azure Machine Learning o bien usar Azure Databricks para conjuntos de macrodatos. [Obtenga información acerca de cómo obtener el SDK de preparación de datos](https://aka.ms/data-prep-sdk).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

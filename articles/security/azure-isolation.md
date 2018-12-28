@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239056"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311004"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 ##  <a name="introduction"></a>Introducción
@@ -149,9 +149,7 @@ La plataforma de proceso de Azure se basa en la virtualización, lo que signific
 
 Cada nodo tiene también una máquina virtual raíz especial, que ejecuta el sistema operativo host. Un límite crítico es el aislamiento de la máquina virtual raíz de las máquinas virtuales invitadas y de las máquinas virtuales invitadas entre sí, administrado por el hipervisor y el sistema operativo raíz. El emparejamiento del hipervisor y el sistema operativo raíz aprovecha las décadas de experiencia de Microsoft en seguridad del sistema operativo y su aprendizaje más reciente en Hyper-V para proporcionar un aislamiento sólido de las máquinas virtuales invitadas.
 
-La plataforma de Azure usa un entorno virtualizado. Las instancias de usuario funcionan como máquinas virtuales independientes que no tienen acceso a un servidor host físico y este aislamiento se aplica mediante niveles de privilegios de procesador (anillo 0/anillo 3) físicos.
-
-El anillo 0 tiene los mayores privilegios y el anillo 3 tiene los menores. El sistema operativo invitado se ejecuta en el anillo 1, con menos privilegios, y las aplicaciones en el anillo 3, el que menos privilegios tiene. Esta virtualización de recursos físicos conduce a una separación clara entre el sistema operativo invitado e hipervisor, lo que resulta en la separación de seguridad adicional entre los dos.
+La plataforma de Azure usa un entorno virtualizado. Las instancias de usuario funcionan como máquinas virtuales independientes que no tienen acceso a un servidor host físico.
 
 El hipervisor de Azure actúa como un micronúcleo y pasa todas las solicitudes de acceso al hardware desde las máquinas virtuales invitadas hasta el host para procesarlas mediante una interfaz de memoria compartida denominada VMBus. Esto impide que los usuarios obtengan acceso de lectura/escritura/ejecución sin procesar en el sistema y reduce el riesgo de compartir recursos del sistema.
 
@@ -187,9 +185,9 @@ De forma predeterminada, cuando se crea una máquina virtual, se bloquea todo el
 
 Se programan dos categorías de reglas:
 
--   **Reglas de configuración de la máquina o la infraestructura**: de forma predeterminada, se bloquea toda la comunicación. Existen excepciones para permitir que una máquina virtual envíe y reciba tráfico DHCP y DNS. Las máquinas virtuales también pueden enviar tráfico a la Internet "pública" y a otras máquinas virtuales de la instancia de Azure Virtual Network y al servidor de activación del sistema operativo. La lista de destinos de salida permitidos de las máquinas virtuales no incluye subredes de enrutador de Azure, administración de Azure y otras propiedades de Microsoft.
+-   **Reglas de infraestructura o configuración de la máquina:** De forma predeterminada, se bloquea toda comunicación. Existen excepciones para permitir que una máquina virtual envíe y reciba tráfico DHCP y DNS. Las máquinas virtuales también pueden enviar tráfico a la Internet "pública" y a otras máquinas virtuales de la instancia de Azure Virtual Network y al servidor de activación del sistema operativo. La lista de destinos de salida permitidos de las máquinas virtuales no incluye subredes de enrutador de Azure, administración de Azure y otras propiedades de Microsoft.
 
--   **Archivo de configuración de roles**: define las listas de control de acceso (ACL) de entrada según el modelo de servicio del inquilino.
+-   **Archivo de configuración de roles:** define las listas de control de acceso (ACL) de entrada según el modelo de servicio del inquilino.
 
 ### <a name="vlan-isolation"></a>Aislamiento de VLAN
 Hay tres redes VLAN en cada clúster:
@@ -256,7 +254,7 @@ La solución Cifrado de discos para Windows se basa en la tecnología de [Cifrad
 La solución admite los siguientes escenarios para las máquinas virtuales IaaS cuando se habilitan en Microsoft Azure:
 -   Integración con Azure Key Vault
 
--   Máquinas virtuales de nivel estándar: máquinas virtuales IaaS de las series A, D, DS, G, GS, etc.
+-   VM de nivel estándar: VM IaaS de las series A, D, DS, G, GS, etc.
 
 -   Habilitación del cifrado en máquinas virtuales IaaS Linux y Windows
 
@@ -295,7 +293,7 @@ SQL Database es un servicio de bases de datos relacionales de Microsoft Cloud qu
 
 [Microsoft SQL Azure Database](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) es un servicio de base de datos relacional en la nube que se basa en la tecnología de SQL Server. Proporciona un servicio de base de datos de alta disponibilidad, escalable y multiinquilino, hospedado por Microsoft en la nube.
 
-Desde la perspectiva de una aplicación, SQL Azure proporciona la siguiente jerarquía: cada nivel puede contener uno o varios de los niveles inferiores.
+Desde una perspectiva de la aplicación, SQL Azure proporciona la siguiente jerarquía: Cada nivel tiene independencia de niveles de uno a varios.
 
 ![Modelo de aplicación de SQL Azure](./media/azure-isolation/azure-isolation-fig10.png)
 

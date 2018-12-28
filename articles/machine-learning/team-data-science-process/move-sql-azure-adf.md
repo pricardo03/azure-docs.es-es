@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos desde un servidor SQL Server local hasta SQL Azure con Azure Data Factory de Azure | Microsoft Docs
+title: 'Datos de SQL Server en SQL Azure con Azure Data Factory: proceso de ciencia de datos en equipos'
 description: Configure una canalización de ADF que componga dos actividades de migración de datos que se combinen para mover datos diariamente entre bases de datos locales y de nube.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: bddb54d9a00c5ec88fcebe498d7f959c0f8e3dbf
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a1bb841c1218be0a418583af8ca95b2dff2f67d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447043"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309508"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Movimiento de datos desde un servidor SQL Server local hasta SQL Azure con Azure Data Factory
 
@@ -43,7 +43,7 @@ Configuramos una canalización ADF que se compone de dos actividades de migraci�
 * copiar datos de la cuenta de Azure Blob Storage a una Azure SQL Database.
 
 > [!NOTE]
-> Los pasos que aparecen aquí se han adaptado de un tutorial más detallado que ofrece el equipo de ADF: [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md). Las referencias a las secciones pertinentes de ese tema se darán cuando corresponda.
+> Los pasos que se muestra a continuación se han adaptado del tutorial más detallado que ofrece el equipo ADF: [Copia de datos de una base de datos de SQL Server local a Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) hace referencia a que las secciones correspondientes de ese tema se proporcionan cuando corresponde.
 >
 >
 
@@ -68,15 +68,10 @@ Puede adaptar el procedimiento que se proporciona aquí para un conjunto de dato
 ## <a name="create-adf"></a> Crear una factoría de datos de Azure
 Las instrucciones para crear una nueva factoría de datos de Azure y un grupo de recursos en [Azure Portal](https://portal.azure.com/) se proporcionan en [Creación de Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Ponga el nombre *adfdsp* a la nueva instancia de ADF y el nombre *adfdsprg* al grupo de recursos creado.
 
-## <a name="install-and-configure-up-the-data-management-gateway"></a>Instalar y configurar Data Management Gateway
-Para permitir que las canalizaciones de una factoría de datos de Azure funcionen con un servidor SQL Server local, debe agregar el servidor como un servicio vinculado a la factoría de datos. Para crear un servicio vinculado para un servidor SQL Server local, debe hacer lo siguiente:
+## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Instalación y configuración de Integration Runtime de Azure Data Factory 
+Integration Runtime es una infraestructura de integración de datos administrados que usa Azure Data Factory para proporcionar funcionalidades de integración de datos en distintos entornos de red. Este entorno en tiempo de ejecución se denominaba "Data Management Gateway". 
 
-* Descargue e instale Microsoft Data Management Gateway en el equipo local.
-* Configure el servicio vinculado para el origen de datos local para utilizar la puerta de enlace.
-
-Data Management Gateway serializa y deserializa los datos de origen y receptor en el equipo donde se hospeda.
-
-Para obtener instrucciones de instalación e información detallada sobre Data Management Gateway, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md)
+Para configurarlo, [siga las instrucciones para crear una canalización](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline).
 
 ## <a name="adflinkedservices"></a>Crear servicios vinculados para conectarse a los recursos de datos
 Un servicio vinculado define la información necesaria para que Azure Data Factory se conecte a un recurso de datos. Tenemos tres recursos en este escenario para los que se necesitan servicios vinculados:

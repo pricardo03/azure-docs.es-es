@@ -1,19 +1,20 @@
 ---
-title: Creación de una puerta de enlace transparente con Azure IoT Edge | Microsoft Docs
-description: Uso de un dispositivo Azure IoT Edge como una puerta de enlace transparente que puede procesar información para varios dispositivos
+title: Creación de un dispositivo de puerta de enlace transparente con Azure IoT Edge | Microsoft Docs
+description: Uso de un dispositivo Azure IoT Edge como una puerta de enlace transparente que puede procesar información para dispositivos de bajada
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568478"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094362"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
 
@@ -31,7 +32,7 @@ Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga 
 
 Puede crear cualquier infraestructura de certificados que permita la confianza necesaria para la topología de la puerta de enlace de dispositivo. En este artículo, se da por hecho que usa la misma configuración de certificado que usaría para habilitar la [seguridad de entidad de certificación X.509](../iot-hub/iot-hub-x509ca-overview.md) en IoT Hub, lo que implica un certificado de entidad de certificación X.509 asociado a una instancia de IoT Hub específica (la entidad de certificación del propietario de la instancia de IoT Hub) y una serie de certificados, firmados con esta entidad de certificación, y una entidad de certificación para el dispositivo Edge.
 
-![Instalación de la puerta de enlace](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![Configuración del certificado de puerta de enlace](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 La puerta de enlace presenta su certificado de entidad de certificación de Edge al dispositivo de bajada durante el inicio de la conexión. El dispositivo de bajada comprueba que el certificado de entidad de certificación del dispositivo Edge está firmado con el certificado de entidad de certificación del propietario. Este proceso permite que el dispositivo de bajada confirme que la puerta de enlace procede de un origen de confianza.
 
@@ -59,9 +60,9 @@ Instale OpenSSL para Windows en el equipo que usa para generar los certificados.
    >[!NOTE]
    >Si ya ha instalado OpenSSL en el dispositivo Windows, puede omitir este paso, pero asegúrese de que openssl.exe está disponible en la variable de entorno PATH.
 
-* **Sencillo:** Descargue e instale cualquier [archivo binario de OpenSSL de terceros](https://wiki.openssl.org/index.php/Binaries), por ejemplo, de [este proyecto en SourceForge](https://sourceforge.net/projects/openssl/). Agregue la ruta de acceso completa al archivo openssl.exe a la variable de entorno PATH. 
+* **Más fácil:** Descargue e instale cualquier [archivo binario de OpenSSL de terceros](https://wiki.openssl.org/index.php/Binaries), por ejemplo, de [este proyecto en SourceForge](https://sourceforge.net/projects/openssl/). Agregue la ruta de acceso completa al archivo openssl.exe a la variable de entorno PATH. 
    
-* **Recomendado:** Descargue el código fuente de OpenSSL y compile los archivos binarios en su máquina por sí mismo o mediante [vcpkg](https://github.com/Microsoft/vcpkg). Las instrucciones que aparecen a continuación usan vcpkg para descargar el código fuente, compilar e instalar OpenSSL en el equipo Windows con pasos fáciles.
+* **Se recomienda que use:** Descargue el código fuente de OpenSSL y compile los archivos binarios en su máquina por sí mismo o a través de [vcpkg](https://github.com/Microsoft/vcpkg). Las instrucciones que aparecen a continuación usan vcpkg para descargar el código fuente, compilar e instalar OpenSSL en el equipo Windows con pasos fáciles.
 
    1. Vaya al directorio donde quiera instalar vcpkg. Nos referiremos a este directorio como *\<VCPKGDIR>*. Siga las instrucciones para descargar e instalar [vcpkg](https://github.com/Microsoft/vcpkg).
    
@@ -258,7 +259,11 @@ Puede comprobar qué módulos se ejecutan en un dispositivo con el comando `iote
 6. En la página **Review template** (Revisar plantilla), seleccione **Submit** (Enviar).
 
 ## <a name="route-messages-from-downstream-devices"></a>Enrutamiento de mensajes desde dispositivos de bajada
-El entorno de ejecución de Azure IoT Edge puede enrutar los mensajes enviados desde dispositivos de bajada igual que los mensajes enviados por los módulos. Esto le permite realizar análisis en un módulo que se ejecuta en la puerta de enlace antes de enviar datos a la nube. La siguiente ruta se usaría para enviar mensajes desde un dispositivo de bajada llamado `sensor` a un módulo llamado `ai_insights`.
+El entorno de ejecución de Azure IoT Edge puede enrutar los mensajes enviados desde dispositivos de bajada igual que los mensajes enviados por los módulos. Esto le permite realizar análisis en un módulo que se ejecuta en la puerta de enlace antes de enviar datos a la nube. 
+
+Actualmente, la manera de enrutar los mensajes enviados por los dispositivos de bajada es diferenciándolos de los mensajes enviados por los módulos. Los mensajes enviados por los módulos contienen una propiedad del sistema denominada **connectionModuleId**, pero los mensajes enviados por los dispositivos de bajada no la tienen. Puede usar la cláusula WHERE de la ruta para excluir los mensajes que contengan dicha propiedad del sistema. 
+
+La siguiente ruta se usaría para enviar mensajes desde cualquier dispositivo de bajada a un módulo denominado `ai_insights`.
 
 ```json
 {
@@ -269,7 +274,7 @@ El entorno de ejecución de Azure IoT Edge puede enrutar los mensajes enviados d
 }
 ```
 
-Para obtener más información sobre el enrutamiento de mensajes, consulte la [composición del módulo](./module-composition.md).
+Para obtener más información sobre el enrutamiento de mensajes, vea [Implementar módulos y establecer rutas](./module-composition.md#declare-routes).
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 

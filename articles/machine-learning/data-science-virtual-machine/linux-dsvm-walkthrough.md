@@ -1,11 +1,13 @@
 ---
-title: Ciencia de los datos con Data Science Virtual Machine de Linux en Azure | Microsoft Docs
+title: Aprenda a usar Linux Data Science Virtual Machine
+titleSuffix: Azure
 description: Procedimiento para realizar varias tareas comunes de ciencia de los datos con la máquina virtual de Linux Data Science.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037590"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190652"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 En este tutorial se muestra cómo realizar varias tareas comunes de ciencia de los datos con la máquina virtual de Linux Data Science. Linux Data Science Virtual Machine (DSVM) es una imagen de máquina virtual disponible en Azure que viene preinstalada con una colección de herramientas usadas normalmente en el análisis de los datos y el aprendizaje automático. Los componentes de software principales se detallan en el tema [Aprovisionamiento de Linux Data Science Virtual Machine](linux-dsvm-intro.md) . La imagen de máquina virtual permite comenzar a trabajar fácilmente con la ciencia de los datos en cuestión de minutos, sin tener que instalar ni configurar cada una de las herramientas de forma individual. Puede escalar la máquina virtual verticalmente de manera fácil, si es necesario, y detenerla cuando no la use. Así que este recurso es tanto elástico como rentable.
@@ -316,19 +318,19 @@ La distribución Anaconda en la DSVM viene con Jupyter Notebook, un entorno mult
 
 > [!NOTE]
 > Para usar el Administrador de paquetes de Python (con el comando `pip`) de Jupyter Notebook en el kernel actual, puede usar el comando siguiente en la celda de código, por ejemplo:
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > Para usar el instalador de Conda (con el comando `conda`) de Jupyter Notebook en el kernel actual, puede usar el comando siguiente en la celda de código, por ejemplo:
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 
@@ -344,7 +346,7 @@ Hay varios cuadernos de muestra ya instalados en la máquina virtual:
 >
 
 ## <a name="rattle"></a>Rattle
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (R Analytical Tool To Learn Easily) es una herramienta gráfica de R para la minería de datos. Presenta una interfaz intuitiva que permite cargar, explorar y transformar los datos y crear y evaluar modelos de forma fácil.  El artículo [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: una GUI de minería de datos para R) proporciona un tutorial que demuestra sus características.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (R Analytical Tool To Learn Easily) es una herramienta gráfica de R para la minería de datos. Presenta una interfaz intuitiva que permite cargar, explorar y transformar los datos y crear y evaluar modelos de forma fácil.  En el artículo [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: una GUI de minería de datos para R), se proporciona un tutorial que demuestra sus características.
 
 Instale e inicie Rattle con los siguientes comandos:
 
@@ -357,7 +359,7 @@ Instale e inicie Rattle con los siguientes comandos:
 >
 >
 
-Rattle usa una interfaz de usuario basada en pestañas. La mayoría de las pestañas corresponden a pasos del [proceso de ciencia de los datos](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), como cargar los datos o explorarlos. El proceso de ciencia de los datos fluye de izquierda a derecha por las pestañas. Pero la última pestaña contiene un registro de los comandos de R ejecutados por Rattle.
+Rattle usa una interfaz de usuario basada en pestañas. La mayoría de las pestañas corresponden a pasos del [proceso de ciencia de los datos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), como cargar los datos o explorarlos. El proceso de ciencia de los datos fluye de izquierda a derecha por las pestañas. Pero la última pestaña contiene un registro de los comandos de R ejecutados por Rattle.
 
 Para cargar y configurar el conjunto de datos:
 

@@ -3,21 +3,21 @@ title: Creación y administración de trabajos elásticos mediante PowerShell | 
 description: PowerShell usada para administrar grupos de Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9ed5026211bec11b510d095decac25f8d4b8a52a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243204"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278464"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creación y administración de trabajos elásticos de SQL Database mediante PowerShell (versión preliminar)
 
@@ -31,7 +31,7 @@ Las API de PowerShell para **Trabajos de Elastic Database** permiten definir el 
 * Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Un conjunto de bases de datos creadas con las herramientas de Elastic Database. Consulte [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
-* **Trabajos de Elastic Database**: consulte [Instalación de trabajos de Elastic Database](sql-database-elastic-jobs-service-installation.md)
+* Paquete de PowerShell de **trabajos de Elastic Database**: Consulte [Instalación de trabajos de Elastic Database](sql-database-elastic-jobs-service-installation.md).
 
 ### <a name="select-your-azure-subscription"></a>Selección de su suscripción a Azure
 Para seleccionar la suscripción, necesitará el identificador de la suscripción (**-SubscriptionId**) o el nombre de la suscripción (**-SubscriptionName**). Si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureRmSubscription** y copiar la información de la suscripción que quiera del conjunto de resultados. Cuando tenga la información de la suscripción, ejecute el siguiente cmdlet para establecer esta suscripción como predeterminada, es decir, el destino para crear y administrar trabajos:
@@ -193,8 +193,8 @@ El trabajo ejecuta scripts de Transact-SQL (T-SQL) o la aplicación de archivos 
 
 Hay dos tipos de grupos que puede crear: 
 
-* [Mapa de particiones](sql-database-elastic-scale-shard-map-management.md) : cuando se envía un trabajo con destino a un mapa de particiones, el trabajo consulta primero el mapa de particiones para determinar su conjunto actual de particiones y luego crea trabajos secundarios para cada partición del mapa de particiones.
-* Grupo Colección personalizada: conjunto personalizado de bases de datos. Cuando un trabajo está destinado a una colección personalizada, crea trabajos secundarios para cada base de datos de la colección personalizada.
+* Grupo [Mapa de particiones](sql-database-elastic-scale-shard-map-management.md): Cuando se envía un trabajo con destino a un mapa de particiones, el trabajo consulta primero el mapa de particiones para determinar su conjunto actual de particiones y luego crea trabajos secundarios para cada partición del mapa de particiones.
+* Grupo Colección personalizada: Un conjunto personalizado y definido de bases de datos. Cuando un trabajo está destinado a una colección personalizada, crea trabajos secundarios para cada base de datos de la colección personalizada.
 
 ## <a name="to-set-the-elastic-database-jobs-connection"></a>Para establecer la conexión de trabajos de Elastic Database
 Se debe establecer una conexión con la *base de datos de control* de trabajos antes de usar las API de trabajos. Al ejecutar este cmdlet se desencadena una ventana de credenciales emergente que solicita el nombre de usuario y la contraseña creados al instalar trabajos de Elastic Database. En todos los ejemplos que se ofrecen en este tema se da por hecho que este primer paso ya se realizó.
@@ -414,21 +414,21 @@ Los trabajos de Elastic Database admiten la creación de directivas de ejecució
 
 Actualmente, las directivas de ejecución permiten definir:
 
-* Nombre: identificador de la directiva de ejecución.
-* Tiempo de espera del trabajo: tiempo total antes de que trabajos de Elastic Database cancele un trabajo.
+* Nombre: Identificador de la directiva de ejecución.
+* Tiempo de espera del trabajo: tiempo total antes de que Trabajos de Elastic Database cancele un trabajo.
 * Intervalo de reintento inicial: intervalo de espera antes del primer reintento.
-* Intervalo máximo de reintento: límite de intervalos de reintento que se usan.
-* Coeficiente de retroceso de intervalo de reintento: coeficiente que se usa para calcular el siguiente intervalo entre reintentos.  Se usa la siguiente fórmula: (intervalo de reintento inicial) * Math.pow ((coeficiente de retroceso de intervalo), (número de intentos de) - 2). 
+* Intervalo máximo de reintento: límite de intervalos de reintentos que se va a usar.
+* Coeficiente de retroceso del intervalo de reintento: coeficiente que se usa para calcular el siguiente intervalo entre reintentos.  Se usa la siguiente fórmula: (Intervalo de reintento inicial) * Math.pow((Coeficiente de retroceso del intervalo), (Número de reintentos) - 2). 
 * Número máximo de intentos: número máximo de reintentos para llevar a cabo un trabajo.
 
 La directiva de ejecución predeterminada usa los valores siguientes:
 
-* Nombre: directiva de ejecución predeterminada
+* Nombre: Directiva de ejecución predeterminada
 * Tiempo de espera del trabajo: 1 semana
-* Intervalo de reintento inicial: 100 milisegundos
+* Intervalo de reintento inicial:  100 milisegundos
 * Intervalo máximo de reintento: 30 minutos
 * Coeficiente de intervalo de reintento: 2
-* Número máximo de intentos: 2.147.483.647
+* Número máximo de intentos: 2 147 483 647
 
 Crear la directiva de ejecución que quiera:
 
@@ -459,7 +459,7 @@ Los trabajos de Elastic Database admiten solicitudes de cancelación de trabajos
 
 Trabajos de Elastic Database puede realizar una cancelación de dos formas distintas:
 
-1. Cancelar las tareas actualmente en ejecución: si se detecta una cancelación mientras se ejecuta una tarea, se intentará cancelar el aspecto de la tarea que se está ejecutando actualmente.  Por ejemplo: si hay una consulta de larga ejecución en curso en el momento en que se intenta realizar una cancelación, se intentará cancelar la consulta.
+1. Cancelar las tareas en ejecución actualmente: si se detecta una cancelación mientras se ejecuta una tarea, se intentará cancelar el aspecto de la tarea que se está ejecutando actualmente.  Por ejemplo:  si hay una consulta de larga ejecución en curso en el momento en que se intenta realizar una cancelación, se intentará cancelar la consulta.
 2. Cancelación de reintentos de tareas: si el subproceso de control detecta una cancelación antes de iniciar una tarea para su ejecución, evitará iniciar la tarea y declarará cancelada la solicitud.
 
 Si se solicita una cancelación de trabajo para un trabajo primario, se respetará la solicitud de cancelación para el trabajo primario y todos los trabajos secundarios.

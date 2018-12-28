@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: b4e1ffa0b7bd524fc9029b21e77b09ea07e1f202
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276659"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103428"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Descripción de los informes de administración de costos de Cloudyn
 
@@ -25,7 +25,7 @@ Este artículo le ayuda a entender la estructura y las funciones básicas de los
 
 A continuación se muestra un ejemplo del informe de costo a lo largo del tiempo. La mayoría de los informes de Cloudyn tienen un diseño similar.
 
-![informe de ejemplo](./media/understanding-cost-reports/sample-report.png)
+![Ejemplo del informe de costo a lo largo del tiempo con áreas numeradas que se corresponden con las descripciones](./media/understanding-cost-reports/sample-report.png)
 
 Cada área numerada de la imagen anterior se describe detalladamente en la siguiente información:
 
@@ -47,11 +47,11 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
 
     Utilice el área Tags (Etiquetas) para agrupar por categorías de etiquetas. Las etiquetas que aparecen en el menú son etiquetas de departamento o centro de costo de Azure, o bien, son la entidad de costo y las etiquetas de suscripción de Cloudyn. Seleccione las etiquetas para filtrar los resultados. También puede escribir un nombre de etiqueta (palabra clave) para filtrar los resultados.
 
-    ![selección de opciones](./media/understanding-cost-reports/select-options.png)
+    ![Ejemplo de una lista de etiquetas para filtrar los resultados](./media/understanding-cost-reports/select-options.png)
 
     Haga clic en **Add** (Agregar) para agregar un filtro nuevo.
 
-    ![adición de filtro](./media/understanding-cost-reports/add-filter.png)
+    ![Agregar un cuadro de filtro que muestre las opciones y las condiciones para filtrar](./media/understanding-cost-reports/add-filter.png)
 
     La agrupación o el filtrado de etiquetas no se refiere a los recursos de Azure ni a las etiquetas de grupos de recursos.
 
@@ -61,9 +61,9 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
 
     Utilice grupos en los informes de análisis de costos para mostrar en su informe categorías desglosadas y estándar de los datos de facturación.  Sin embargo, los grupos en los informes de asignación de costos muestran categorías basadas en etiquetas. Las categorías basadas en etiquetas se definen en el modelo de asignación de costos y en las categorías desglosadas estándar de los datos de facturación.
 
-    ![etiquetas de grupos](./media/understanding-cost-reports/groups-tags01.png)
+    ![Primer ejemplo de lista de etiquetas por las que puede agrupar](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![etiquetas de grupos](./media/understanding-cost-reports/groups-tags02.png)
+    ![Segundo ejemplo de lista de etiquetas por las que puede agrupar](./media/understanding-cost-reports/groups-tags02.png)
 
     En los informes de asignación de costos, los grupos en las categorías de grupos basados en etiquetas podrían incluir:
       - Etiquetas
@@ -166,7 +166,7 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
 
     Utilice Display formats para seleccionar varias vistas de gráfico o tabla.
 
-    ![formatos de presentación](./media/understanding-cost-reports/display-formats.png)
+    ![Símbolos de los formatos de presentación que se pueden seleccionar](./media/understanding-cost-reports/display-formats.png)
 
 13. **Multi-color** (Multicolor)
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: d7a6abaeff0e939ed9e299e16e2fe59b65127aba
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81618446930a23a7ea713da19bb7c63a06d135ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785964"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162450"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Tutorial de censura de rostros con Azure Media Analytics
 
@@ -35,7 +35,7 @@ Para más información, consulte [este blog](https://azure.microsoft.com/blog/re
 
 ## <a name="azure-media-services-explorer-workflow"></a>Flujo de trabajo del Explorador de Azure Media Services
 
-La manera más fácil de empezar a trabajar con Censura de rostros es usar la herramienta AMSE de código abierto en GitHub. Puede ejecutar un flujo de trabajo simplificado a través del modo **combinado** si no necesita acceso al JSON de anotaciones o a las imágenes JPG de rostros.
+La manera más fácil de empezar a trabajar con Redactor es usar la herramienta AMSE de código abierto en GitHub. Puede ejecutar un flujo de trabajo simplificado a través del modo **combinado** si no necesita acceso al JSON de anotaciones o a las imágenes JPG de rostros.
 
 ### <a name="download-and-setup"></a>Descarga e instalación
 

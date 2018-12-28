@@ -1,6 +1,6 @@
 ---
-title: Exploración de los datos de una máquina virtual de SQL Server en Azure | Microsoft Docs
-description: Cómo explorar los datos que se almacenan en una máquina virtual de SQL Server en Azure.
+title: 'Exploración de datos en una máquina virtual de SQL Server: proceso de ciencia de datos en equipos'
+description: Cómo explorar los datos que se almacenan en una máquina virtual de SQL Server en Azure con SQL o un lenguaje de programación como Python.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: da01a1a386e1ffc590f4cbbb85d9d50a180d4973
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 45b842f7ff136f2d53b7724c11141f6b9104ebd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442937"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140122"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Exploración de los datos de una máquina virtual de SQL Server en Azure
 

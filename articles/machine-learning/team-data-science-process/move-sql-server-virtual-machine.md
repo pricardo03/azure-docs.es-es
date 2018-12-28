@@ -1,5 +1,5 @@
 ---
-title: Mover datos a un servidor SQL Server en una máquina virtual de Azure| Microsoft Docs
+title: 'Mover datos a una máquina virtual de SQL Server: proceso de ciencia de datos en equipos'
 description: Mover datos desde archivos planos o desde un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 649c98c235adc2435840c6c43d3e2f9d5755265f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: fbc23d53687b908245ffe25bdd418cbe64af080b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446201"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136195"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover datos a un servidor SQL Server en una máquina virtual de Azure
 
@@ -26,7 +26,7 @@ Para ver un tema que describa las opciones para mover datos a una base de datos 
 
 En la tabla siguiente se resumen las opciones para mover datos a un servidor SQL Server en una máquina virtual de Azure.
 
-| <b>ORIGEN</b> | <b>DESTINO: servidor SQL Server en una máquina virtual de Azure</b> |
+| <b>ORIGEN</b> | <b>DESTINO: SQL Server en máquinas virtuales de Azure</b> |
 | --- | --- |
 | <b>Archivo plano</b> |1. <a href="#insert-tables-bcp">Utilidad de copia masiva (BCP) de la línea de comandos</a><br> 2. <a href="#insert-tables-bulkquery">Consulta SQL de inserción masiva</a><br> 3. <a href="#sql-builtin-utilities">Utilidades integradas gráficas de SQL Server</a> |
 | <b>SQL Server local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportación a un archivo plano </a><br> 3. <a href="#sql-migration">SQL Database Migration Wizard </a> <br> 4. <a href="#sql-backup">Copia de seguridad y restauración de una base de datos </a><br> |

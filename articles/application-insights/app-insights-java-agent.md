@@ -9,16 +9,15 @@ ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 30983e283f47761d103829f02b02bc281bd785ee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a62c6cbb6594aaf7c2c57d7efee1832d7b1430b7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091939"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000722"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones detectadas y tiempos de ejecución del método en aplicaciones web de Java
 
@@ -28,7 +27,7 @@ Si ha [instrumentado la aplicación web de Java con Application Insights][java],
 * **Dependencias:** datos sobre las llamadas realizadas por la aplicación a otros componentes, por ejemplo:
   * Las **llamadas REST** realizadas a través de HttpClient, OkHttp y RestTemplate (Spring) se capturan.
   * Las llamadas **Redis** realizadas a través del cliente de Jedis se capturan.
-  * **[Llamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: los comandos de MySQL, SQL Server y Oracle DB se capturan automáticamente. En el caso de MySQL, si la llamada tarda más de 10 s, el agente notifica el plan de consulta.
+  * **[Llamadas JDBC](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: los comandos de MySQL, SQL Server y Oracle DB se capturan automáticamente. En el caso de MySQL, si la llamada tarda más de 10 s, el agente notifica el plan de consulta.
 * **Excepciones detectadas:** información sobre las excepciones que controla el código.
 * **Tiempo de ejecución del método:** información sobre el tiempo necesario para ejecutar métodos específicos.
 

@@ -1,6 +1,6 @@
 ---
 title: Métricas de Azure Event Hubs en Azure Monitor (versión preliminar) | Microsoft Docs
-description: Uso de Azure Monitoring para supervisar Event Hubs
+description: En este artículo se proporciona información sobre cómo usar Azure Monitoring para supervisar Azure Event Hubs.
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c59cb8277bee13a83d0bf17c26deef1b8fc8d3e6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 27a9f2619801346660dfedbda3eefe57b41ad6ac
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822850"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094328"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métricas de Azure Event Hubs en Azure Monitor (versión preliminar)
 
@@ -37,13 +38,13 @@ De forma predeterminada, las métricas están habilitadas y puede acceder a dato
 
 Una vez transcurrido un tiempo, las métricas se pueden supervisar en [Azure Portal](https://portal.azure.com). En el ejemplo siguiente se muestra cómo ver las solicitudes correctas y las solicitudes entrantes en el nivel de cuenta:
 
-![][1]
+![Ver las métricas de éxito][1]
 
 También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y, después, haga clic en **Metrics (Preview)** (Métricas [Versión preliminar]). Para mostrar las métricas filtradas al ámbito de la entidad, seleccione la entidad y haga clic en **Metrics (Preview)** (Métricas [Versión preliminar]).
 
 Para ver métricas que admitan las dimensiones, debe filtrar por el valor de la dimensión que desee como se muestra en el siguiente ejemplo:
 
-![][2]
+![Filtrar por valor de dimensión][2]
 
 ## <a name="billing"></a>Facturación
 
@@ -62,34 +63,34 @@ Cuenta el número de solicitudes de operaciones de datos y administración.
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| Solicitudes entrantes (versión preliminar) | Número de solicitudes realizadas al servicio de Azure Event Hubs durante un período determinado. <br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName |
-| Solicitudes correctas (versión preliminar)   | Número de solicitudes correctas realizadas al servicio de Azure Event Hubs durante un período determinado. <br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName |
-| Errores del servidor (versión preliminar) | Número de solicitudes no procesadas debido a un error en el servicio de Azure Event Hubs durante un período determinado. <br/><br/>Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName |
-|Errores de usuario (versión preliminar)|Número de solicitudes no procesadas debido a errores de usuario durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Cuota de errores superada (versión preliminar)|El número de solicitudes que superó la cuota disponible. Para más información sobre las cuotas de Event Hubs, vea [este artículo](event-hubs-quotas.md).<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+| Solicitudes entrantes (versión preliminar) | Número de solicitudes realizadas al servicio de Azure Event Hubs durante un período determinado. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName |
+| Solicitudes correctas (versión preliminar)   | Número de solicitudes correctas realizadas al servicio de Azure Event Hubs durante un período determinado. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName |
+| Errores del servidor (versión preliminar) | Número de solicitudes no procesadas debido a un error en el servicio de Azure Event Hubs durante un período determinado. <br/><br/>Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName |
+|Errores de usuario (versión preliminar)|Número de solicitudes no procesadas debido a errores de usuario durante un período determinado.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Cuota de errores superada (versión preliminar)|El número de solicitudes que superó la cuota disponible. Para más información sobre las cuotas de Event Hubs, vea [este artículo](event-hubs-quotas.md).<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="throughput-metrics"></a>Métricas de procesamiento
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-|Solicitudes limitadas (versión preliminar)|Número de solicitudes que se han limitado porque se superó el uso de la unidad de procesamiento.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|Solicitudes limitadas (versión preliminar)|Número de solicitudes que se han limitado porque se superó el uso de la unidad de procesamiento.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="message-metrics"></a>Métricas de mensaje
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-|Mensajes entrantes (versión preliminar)|Número de eventos o mensajes enviados a Event Hubs durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Mensajes salientes (versión preliminar)|Número de eventos o mensajes recuperados de Event Hubs durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Bytes de entrada (versión preliminar)|El número de bytes enviado al servicio de Azure Event Hubs durante un período determinado.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Bytes de salida (versión preliminar)|El número de bytes recuperado del servicio de Azure Event Hubs durante un período determinado.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|Mensajes entrantes (versión preliminar)|Número de eventos o mensajes enviados a Event Hubs durante un período determinado.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Mensajes salientes (versión preliminar)|Número de eventos o mensajes recuperados de Event Hubs durante un período determinado.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Bytes de entrada (versión preliminar)|El número de bytes enviado al servicio de Azure Event Hubs durante un período determinado.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Bytes de salida (versión preliminar)|El número de bytes recuperado del servicio de Azure Event Hubs durante un período determinado.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="connection-metrics"></a>Métricas de conexión
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-|ActiveConnections (versión preliminar)|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Conexiones abiertas (versión preliminar)|Número de conexiones abiertas.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Conexiones cerradas (versión preliminar)|Número de conexiones cerradas.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|ActiveConnections (versión preliminar)|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Conexiones abiertas (versión preliminar)|Número de conexiones abiertas.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Conexiones cerradas (versión preliminar)|Número de conexiones cerradas.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="event-hubs-capture-metrics"></a>Métricas de captura de Event Hubs
 
@@ -97,9 +98,9 @@ Puede supervisar las métricas de captura de Event Hubs cuando se habilita la ca
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-|Captura de trabajo pendiente (versión preliminar)|El número de bytes que se aún se tiene que capturar en el destino elegido.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Mensajes capturados (versión preliminar)|El número de mensajes o eventos que se capturan en el destino elegido durante un período determinado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|Bytes capturados (versión preliminar)|El número de bytes que se capturan en el destino elegido durante un período determinado.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|Captura de trabajo pendiente (versión preliminar)|El número de bytes que se aún se tiene que capturar en el destino elegido.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Mensajes capturados (versión preliminar)|El número de mensajes o eventos que se capturan en el destino elegido durante un período determinado.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Bytes capturados (versión preliminar)|El número de bytes que se capturan en el destino elegido durante un período determinado.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensiones de métricas
 

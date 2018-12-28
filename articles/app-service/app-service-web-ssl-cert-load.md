@@ -1,6 +1,6 @@
 ---
-title: Uso de un certificado SSL cargado en el código de aplicación de Azure App Service | Microsoft Docs
-description: ''
+title: 'Uso de un certificado SSL de cliente en el código de aplicación: Azure App Service | Microsoft Docs'
+description: Obtenga información sobre cómo utilizar certificados de cliente para conectarse a recursos remotos que los necesiten.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
-ms.openlocfilehash: 87c9cd5955dda1a379733e5ad48d58f8361f0e6b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.custom: seodec18
+ms.openlocfilehash: 763aadc50a8760b4265dbfc21e9278f909b68433
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051483"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342024"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Uso de un certificado SSL en el código de aplicación de Azure App Service
 

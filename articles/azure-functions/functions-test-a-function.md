@@ -1,443 +1,362 @@
 ---
-title: Prueba de Azure Functions | Microsoft Docs
-description: Pruebe las funciones de Azure con Postman, cURL y Node.js.
+title: Prueba de Azure Functions
+description: Creación de pruebas automatizadas para una función de C# en Visual Studio y una función de JavaScript en VS Code
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: funciones de Azure, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
-ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/02/2017
-ms.author: glenga
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2605bb30d7a1442c471c8cf1483b106ca27581
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.date: 12/10/2018
+ms.author: cshoe
+ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086768"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408041"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
-En este tema se muestran las diversas maneras de probar las funciones, entre ellas, la utilización de los siguientes enfoques generales:
+En este artículo se muestra cómo crear pruebas automatizadas para Azure Functions. 
 
-+ Herramientas basadas en HTTP, como cURL, Postman e incluso un explorador web para los desencadenadores basados en web
-+ El explorador de Azure Storage para probar los desencadenadores basados en Azure Storage
-+ Pestaña Test (Probar) del portal de Azure Functions
-+ Función desencadenada por un temporizador
-+ Comprobación de la aplicación o del marco
+Se recomienda probar todo el código, sin embargo, es posible que obtenga los mejores resultados encapsulando una lógica de función y creando pruebas fuera de la función. La abstracción lógica siempre limita las líneas de código de una función y permite esta sea el único responsable de llamar a otras clases o módulos. En este artículo, sin embargo, se muestra cómo crear pruebas automatizadas mediante una función HTTP o desencadenada por temporizador.
 
-Todos los métodos de prueba usan una función de desencadenador de HTTP que acepta la entrada a través de un parámetro de cadena de consulta o el cuerpo de la solicitud. Esta función se crea en la primera sección de Azure Portal.
+El contenido siguiente se divide en dos secciones distintas diseñadas para diferentes lenguajes y entornos de destino. Puede aprender a compilar pruebas en:
 
-## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>Crear una función sencilla para probar el uso de Azure Portal
-Durante la mayor parte de este tutorial, utilizaremos una versión ligeramente modificada de la plantilla de la función HttpTrigger JavaScript que está disponible al crear una función. Si necesita ayuda para crear una función, revise este [tutorial](functions-create-first-azure-function.md). Elija la plantilla **HttpTrigger - JavaScript** al crear la función de prueba en [Azure Portal].
+- [C# en Visual Studio con xUnit](#c-in-visual-studio)
+- [JavaScript en VS Code con Jest](#javascript-in-vs-code)
 
-Básicamente, la plantilla de función predeterminada es una función de tipo "Hola a todos" que devuelve el nombre desde el cuerpo de la solicitud o el parámetro de cadena de consulta, `name=<your name>`.  Actualizaremos el código para que también pueda proporcionar el nombre y una dirección como contenido JSON en el cuerpo de la solicitud. A continuación, la función los envía de vuelta al cliente cuando estén disponibles.   
+El repositorio de ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
-Actualice la función con el siguiente código que se usa para las pruebas:
+## <a name="c-in-visual-studio"></a>C# en Visual Studio
+El ejemplo siguiente describe cómo crear una aplicación de función C# en Visual Studio y cómo ejecutar pruebas con [xUnit](https://xunit.github.io).
 
-```javascript
-module.exports = function (context, req) {
-    context.log("HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-    context.log("Request Headers = " + JSON.stringify(req.headers));
-    var res;
+![Prueba de Azure Functions con C# en Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-    if (req.query.name || (req.body && req.body.name)) {
-        if (typeof req.query.name != "undefined") {
-            context.log("Name was provided as a query string param...");
-            res = ProcessNewUserInformation(context, req.query.name);
+### <a name="setup"></a>Configuración
+
+Para configurar el entorno, cree una función y pruebe la aplicación. Los pasos siguientes le ayudarán a crear las aplicaciones y funciones necesarias para admitir las pruebas:
+
+1. [Cree una nueva aplicación de Functions](./functions-create-first-azure-function.md) y asígnele el nombre *Functions*.
+2. [Cree una función HTTP a partir de la plantilla](./functions-create-first-azure-function.md) y asígnele el nombre *HttpTrigger*.
+3. [Cree una función de temporizador a partir de la plantilla](./functions-create-scheduled-function.md) y asígnele el nombre *TimerTrigger*.
+4. [Cree una aplicación de prueba de xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) y asígnele el nombre *Functions.Test*.
+5. [Haga referencia a la aplicación *Functions*](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) desde la aplicación *Functions.Test*.
+
+### <a name="create-test-classes"></a>Crear clases de prueba
+
+Ahora que se han creado las aplicaciones, puede crear las clases utilizadas para ejecutar las pruebas automatizadas.
+
+Cada función toma una instancia de [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) para controlar el registro de mensajes. Algunas pruebas no registran los mensajes o no tiene que preocuparse por cómo se implementa el registro. Otras pruebas deben evaluar los mensajes registrados para determinar si están pasando una prueba.
+
+La clase `ListLogger` pretende implementar la interfaz `ILogger` y mantener una lista interna de mensajes para su evaluación durante una prueba.
+
+**Haga clic con el botón derecho** en la aplicación *Functions.Test* y seleccione **Agregar > Clase**, asígnele el nombre **ListLogger.cs** y escriba el código siguiente:
+
+```csharp
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions.Internal;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Functions.Tests
+{
+    public class ListLogger : ILogger
+    {
+        public IList<string> Logs;
+
+        public IDisposable BeginScope<TState>(TState state) => NullScope.Instance;
+
+        public bool IsEnabled(LogLevel logLevel) => false;
+
+        public ListLogger()
+        {
+            this.Logs = new List<string>();
         }
-        else {
-            context.log("Processing user info from request body...");
-            res = ProcessNewUserInformation(context, req.body.name, req.body.address);
+
+        public void Log<TState>(LogLevel logLevel, 
+                                EventId eventId,
+                                TState state,
+                                Exception exception,
+                                Func<TState, Exception, string> formatter)
+        {
+            string message = formatter(state, exception);
+            this.Logs.Add(message);
         }
     }
-    else {
-        res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-    context.done(null, res);
-};
-function ProcessNewUserInformation(context, name, address) {
-    context.log("Processing user information...");
-    context.log("name = " + name);
-    var echoString = "Hello " + name;
-    var res;
-
-    if (typeof address != "undefined") {
-        echoString += "\n" + "The address you provided is " + address;
-        context.log("address = " + address);
-    }
-    res = {
-        // status: 200, /* Defaults to 200 */
-        body: echoString
-    };
-    return res;
 }
 ```
 
-## <a name="test-a-function-with-tools"></a>Prueba de una función con herramientas
-Aparte de Azure Portal, existen diversas herramientas que puede usar para desencadenar las funciones que se van a probar. Entre estas se incluyen las herramientas de prueba de HTTP, tanto las basadas en interfaz de usuario como en la línea de comandos, las herramientas de acceso de Azure Storage e incluso un simple explorador web.
+La clase `ListLogger` implementa los siguientes miembros según los contrata la interfaz `ILogger`:
 
-### <a name="test-with-a-browser"></a>Prueba con un explorador
-El explorador web es una manera sencilla de desencadenar funciones a través de HTTP. Puede utilizar un explorador para las solicitudes GET que no requieran una carga del cuerpo y que usen solo los parámetros de la cadena de consulta.
+- **BeginScope**: Los ámbitos agregan contexto al registro. En este caso, la prueba simplemente apunta a la instancia estática en la clase [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) para permitir la prueba de la función.
 
-Para probar la función que definimos antes, copie la **dirección URL de la función** del portal. Tiene el siguiente formato:
+- **IsEnabled**: Se proporciona un valor predeterminado de `false`.
 
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+- **Log**: Este método usa la función `formatter` proporcionada para dar formato al mensaje y, a continuación, agrega el texto resultante a la colección `Logs`.
 
-Anexe el parámetro `name` a la cadena de consulta. Use un nombre real para el marcador de posición `<Enter a name here>`.
+La colección `Logs` es una instancia de `List<string>` y se inicializa en el constructor.
 
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
+A continuación, **haga clic con el botón derecho** en la aplicación *Functions.Test* y seleccione **Agregar > Clase**, asígnele el nombre **LoggerTypes.cs** y escriba el código siguiente:
 
-Pegue la dirección URL en el explorador y obtendrá una respuesta similar a la siguiente.
-
-![Captura de pantalla de la pestaña del explorador Chrome con respuesta de prueba](./media/functions-test-a-function/browser-test.png)
-
-En este ejemplo se trata del explorador Chrome que encapsula la cadena devuelta en XML. Otros exploradores muestran solo el valor de la cadena.
-
-En la ventana **Registros** del portal, se registra una salida similar a la siguiente al ejecutar la función:
-
-    2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
-    2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Glenn from a browser
-    2016-03-23T07:35:10.338 Request Headers = {"cache-control":"max-age=0","connection":"Keep-Alive","accept":"text/html","accept-encoding":"gzip","accept-language":"en-US"}
-    2016-03-23T07:35:10.338 Name was provided as a query string param.
-    2016-03-23T07:35:10.338 Processing User Information...
-    2016-03-23T07:35:10.369 Function completed (Success, Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-
-### <a name="test-with-postman"></a>Prueba con Postman
-La herramienta recomendada para probar la mayoría de las funciones es Postman, que viene integrada en el explorador Chrome. Para instalar Postman, consulte [Postman](https://www.getpostman.com/). Postman proporciona control sobre muchos más atributos de una solicitud HTTP.
-
-> [!TIP]
-> Use la herramienta de prueba de HTTP con la que se sienta más cómodo. Estas son algunas alternativas a Postman:  
->
-> * [Fiddler](http://www.telerik.com/fiddler)  
-> * [Paw](https://luckymarmot.com/paw)  
->
->
-
-Para probar la función con un cuerpo de solicitud en Postman:
-
-1. Inicie Postman con el botón **Aplicaciones** en la esquina superior izquierda de una ventana del explorador Chrome.
-2. Copie la **dirección URL de la función** y péguela en Postman. Incluye el parámetro de cadena de consulta de código de acceso.
-3. Cambie el método HTTP a **POST**.
-4. Haga clic en **Body** > **raw** (Cuerpo > sin formato) y agregue el cuerpo de la solicitud JSON que se parece al siguiente:
-
-    ```json
+```csharp
+namespace Functions.Tests
+{
+    public enum LoggerTypes
     {
-        "name" : "Wes testing with Postman",
-        "address" : "Seattle, WA 98101"
+        Null,
+        List
     }
-    ```
-5. Haga clic en **Enviar**.
+}
+```
+Esta enumeración especifica el tipo de registrador utilizado por las pruebas. 
 
-La siguiente imagen muestra la prueba del ejemplo simple de función de eco en este tutorial.
+A continuación, **haga clic con el botón derecho** en la aplicación *Functions.Test* y seleccione **Agregar > Clase**, asígnele el nombre **TestFactory.cs** y escriba el código siguiente:
 
-![Captura de pantalla de la interfaz de usuario de Postman](./media/functions-test-a-function/postman-test.png)
+```csharp
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Internal;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Primitives;
+using System.Collections.Generic;
 
-En la ventana **Registros** del portal, se registra una salida similar a la siguiente al ejecutar la función:
+namespace Functions.Tests
+{
+    public class TestFactory
+    {
+        public static IEnumerable<object[]> Data()
+        {
+            return new List<object[]>
+            {
+                new object[] { "name", "Bill" },
+                new object[] { "name", "Paul" },
+                new object[] { "name", "Steve" }
 
-    2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
-    2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
-    2016-03-23T08:04:57.763 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
-    2016-03-23T08:04:57.763 Request Headers = {"cache-control":"no-cache","connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
-    2016-03-23T08:04:57.763 Processing user info from request body...
-    2016-03-23T08:04:57.763 Processing User Information...
-    2016-03-23T08:04:57.763 name = Wes testing with Postman
-    2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
-    2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
+            };
+        }
 
-### <a name="test-with-curl-from-the-command-line"></a>Prueba con cURL desde la línea de comandos
-A menudo, al probar software, basta con la línea de comandos para depurar la aplicación. No varía con respecto a la prueba de funciones. Tenga en cuenta que cURL está disponible de forma predeterminada en los sistemas basados en Linux. En Windows, primero debe descargar e instalar la [herramienta cURL](https://curl.haxx.se/).
+        private static Dictionary<string, StringValues> CreateDictionary(string key, string value)
+        {
+            var qs = new Dictionary<string, StringValues>
+            {
+                { key, value }
+            };
+            return qs;
+        }
 
-Para probar la función que se ha definido antes, copie la **dirección URL de la función** del portal. Tiene el siguiente formato:
+        public static DefaultHttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
+        {
+            var request = new DefaultHttpRequest(new DefaultHttpContext())
+            {
+                Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue))
+            };
+            return request;
+        }
 
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+        public static ILogger CreateLogger(LoggerTypes type = LoggerTypes.Null)
+        {
+            ILogger logger;
 
-Se trata de la dirección URL que desencadena la función. Para probarla, use el comando cURL en la línea de comandos para enviar una solicitud GET (`-G` o `--get`) a la función:
+            if (type == LoggerTypes.List)
+            {
+                logger = new ListLogger();
+            }
+            else
+            {
+                logger = NullLoggerFactory.Instance.CreateLogger("Null Logger");
+            }
 
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+            return logger;
+        }
+    }
+}
+```
+La clase `TestFactory` implementa los siguientes miembros:
 
-En este ejemplo concreto se requiere un parámetro de cadena de consulta que se pueda pasar como datos (`-d`) en el comando cURL:
+- **Data**: Esta propiedad devuelve una colección [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) de datos de ejemplo. Los pares clave-valor representan los valores que se pasan en una cadena de consulta.
 
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
+- **CreateDictionary**: Este método acepta un par clave-valor como argumento y devuelve un `Dictionary` nuevo usado para crear `QueryCollection` para representar los valores de cadena de consulta.
 
-Ejecute el comando y verá la salida siguiente de la función en la línea de comandos:
+- **CreateHttpRequest**: Este método crea una solicitud HTTP que se inicializa con los parámetros de cadena de consulta indicados.
 
-![Captura de pantalla de la salida del símbolo del sistema del comando](./media/functions-test-a-function/curl-test.png)
+- **CreateLogger**: Según el tipo de registrador, este método devuelve una clase de registrador que se usa para las pruebas. `ListLogger` realiza un seguimiento de los mensajes registrados disponibles para su evaluación en las pruebas.
 
-En la ventana **Registros** del portal, se registra una salida similar a la siguiente al ejecutar la función:
+A continuación, **haga clic con el botón derecho** en la aplicación *Functions.Test* y seleccione **Agregar > Clase**, asígnele el nombre **FunctionsTests.cs** y escriba el código siguiente:
 
-    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
-    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
-    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
-    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+```csharp
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Xunit;
 
-### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>Prueba de un desencadenador de blob mediante el Explorador de Storage
-Puede probar una función de desencadenador de blob mediante el [Explorador de Azure Storage](http://storageexplorer.com/).
+namespace Functions.Tests
+{
+    public class FunctionsTests
+    {
+        private readonly ILogger logger = TestFactory.CreateLogger();
 
-1. En [Azure Portal] para la Function App, cree una función de desencadenador de blob de C#, F# o JavaScript. Establezca la ruta de acceso que se va a supervisar en el nombre de su contenedor de blobs. Por ejemplo: 
+        [Fact]
+        public async void Http_trigger_should_return_known_string()
+        {
+            var request = TestFactory.CreateHttpRequest("name", "Bill");
+            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            Assert.Equal("Hello, Bill", response.Value);
+        }
 
-        files
-2. Haga clic en el botón **+** para seleccionar o crear la cuenta de almacenamiento que desea usar. A continuación, haga clic en **Crear**.
-3. Cree un archivo de texto con el siguiente texto y guárdelo:
+        [Theory]
+        [MemberData(nameof(TestFactory.Data), MemberType = typeof(TestFactory))]
+        public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
+        {
+            var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
+            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            Assert.Equal($"Hello, {queryStringValue}", response.Value);
+        }
 
-        A text file for blob trigger function testing.
-4. Ejecute el [Explorador de Azure Storage](http://storageexplorer.com/) y conéctese al contenedor de blobs en la cuenta de almacenamiento que se está supervisando.
-5. Haga clic en **Cargar** para cargar el archivo de texto.
+        [Fact]
+        public void Timer_should_log_message()
+        {
+            var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
+            TimerFunction.Run(null, logger);
+            var msg = logger.Logs[0];
+            Assert.Contains("C# Timer trigger function executed at", msg);
+        }
+    }
+}
+```
+Los miembros implementados en esta clase son:
 
-    ![Captura de pantalla del Explorador de Storage](./media/functions-test-a-function/azure-storage-explorer-test.png)
+- **Http_trigger_should_return_known_string**: Esta prueba crea una solicitud con los valores de la cadena de consulta de `name=Bill` en una función HTTP y comprueba que se devuelve la respuesta esperada.
 
-El código de la función de desencadenador de blobs predeterminada notifica el procesamiento del blob en los registros:
+- **Http_trigger_should_return_string_from_member_data**: Esta prueba usa atributos de xUnit para proporcionar datos de ejemplo a la función HTTP.
 
-    2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
-    2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
-    2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
-    2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+- **Timer_should_log_message**: Esta prueba crea una instancia de `ListLogger` y la pasa a una función de temporizador. Una vez que se ejecuta la función, se comprueba el registro para garantizar que esté presente el mensaje esperado.
 
-## <a name="test-a-function-within-functions"></a>Prueba de una función dentro de funciones
-El portal de Azure Functions está diseñado para permitirle probar funciones de HTTP y funciones desencadenadas por un temporizador. También puede crear funciones para desencadenar otras funciones que se están probando.
+### <a name="run-tests"></a>Ejecución de las pruebas
 
-### <a name="test-with-the-functions-portal-run-button"></a>Prueba con el botón Ejecutar del portal de Functions
-En el portal hay un botón **Ejecutar** que puede usar para realizar algunas pruebas limitadas. Puede proporcionar un cuerpo de solicitud por medio de este botón, pero no puede proporcionar parámetros de cadena de consulta ni encabezados de solicitud de actualización.
+Para ejecutar las pruebas, vaya al **Explorador de pruebas** y haga clic en **Ejecutar todas**.
 
-Pruebe la función de desencadenador HTTP creada anteriormente agregando una cadena JSON similar a la siguiente en el campo **Cuerpo de la solicitud**. Después, haga clic en el botón **Ejecutar**.
+![Prueba de Azure Functions con C# en Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
+
+### <a name="debug-tests"></a>Depuración de pruebas
+
+Para depurar las pruebas, establezca un punto de interrupción en una prueba, vaya al **Explorador de pruebas** y haga clic en **Ejecutar > Última ejecución de depuración**.
+
+## <a name="javascript-in-vs-code"></a>JavaScript en VS Code
+
+El ejemplo siguiente describe cómo crear una aplicación de función de JavaScript en VS Code y cómo ejecutar pruebas con [Jest](https://jestjs.io). Este procedimiento utiliza la [extensión Functions de VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para crear funciones de Azure Functions.
+
+![Prueba de Azure Functions con JavaScript en VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+
+### <a name="setup"></a>Configuración
+
+Para configurar el entorno, inicialice una nueva aplicación de Node.js en una carpeta vacía mediante la ejecución de `npm init`.
+
+```bash
+npm init -y
+```
+A continuación, instale Jest ejecutando el siguiente comando:
+
+```bash
+npm i jest
+```
+Ahora actualice _package.json_ para reemplazar el comando de prueba existente por el siguiente comando:
+
+```bash
+"scripts": {
+    "test": "jest"
+}
+```
+
+### <a name="create-test-modules"></a>Creación de módulos de prueba
+Con el proyecto inicializado, puede crear los módulos usados para ejecutar las pruebas automatizadas. Empiece creando una nueva carpeta denominada *pruebas* para mantener la compatibilidad con los módulos.
+
+En la carpeta *pruebas*, agregue un nuevo archivo, asígnele el nombre **defaultContext.js** y agregue el código siguiente:
+
+```javascript
+module.exports = {
+    log: jest.fn()
+};
+```
+Este módulo simula la función *log* para representar el contexto de ejecución predeterminado.
+
+A continuación, agregue un nuevo archivo, asígnele el nombre **defaultTimer.js** y agregue el código siguiente:
+
+```javascript
+module.exports = {
+    isPastDue: false
+};
+```
+Este módulo implementa la propiedad `isPastDue` para que permanezca como una instancia de temporizador falsa.
+
+A continuación, utilice la extensión Functions de VS Code para [crear una nueva función HTTP de JavaScript](https://code.visualstudio.com/tutorials/functions-extension/getting-started) y asígnele el nombre *HttpTrigger*. Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
+
+```javascript
+const httpFunction = require('./index');
+const context = require('../testing/defaultContext')
+
+test('Http trigger should return known text', async () => {
+
+    const request = {
+        query: { name: 'Bill' }
+    };
+
+    await httpFunction(context, request);
+
+    expect(context.log.mock.calls.length).toBe(1);
+    expect(context.res.body).toEqual('Hello Bill');
+});
+```
+La función HTTP de la plantilla devuelve una cadena de "Hello" concatenada con el nombre proporcionado en la cadena de consulta. Esta prueba crea una instancia falsa de una solicitud y la pasa a la función HTTP. La prueba comprueba que se llame una vez al método *log* y que el texto devuelto sea igual a "Hello Bill".
+
+A continuación, utilice la extensión Functions de VS Code para crear una nueva función de temporizador de JavaScript y asígnele el nombre *TimerTrigger*. Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
+
+```javascript
+const timerFunction = require('./index');
+const context = require('../testing/defaultContext');
+const timer = require('../testing/defaultTimer');
+
+test('Timer trigger should log message', () => {
+    timerFunction(context, timer);
+    expect(context.log.mock.calls.length).toBe(1);
+});
+```
+La función de temporizador de la plantilla registra un mensaje al final del cuerpo de la función. Esta prueba garantiza que la función *log* se llame una vez.
+
+### <a name="run-tests"></a>Ejecución de las pruebas
+Para ejecutar las pruebas, presione **CTRL + ~** para abrir la ventana de comandos y ejecute `npm test`:
+
+```bash
+npm test
+```
+
+![Prueba de Azure Functions con JavaScript en VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+
+### <a name="debug-tests"></a>Depuración de pruebas
+
+Para depurar las pruebas, agregue la siguiente configuración al archivo *launch.json*:
 
 ```json
 {
-    "name" : "Wes testing Run button",
-    "address" : "USA"
+  "type": "node",
+  "request": "launch",
+  "name": "Jest Tests",
+  "program": "${workspaceRoot}\\node_modules\\jest\\bin\\jest.js",
+  "args": [
+      "-i"
+  ],
+  "internalConsoleOptions": "openOnSessionStart"
 }
 ```
 
-En la ventana **Registros** del portal, se registra una salida similar a la siguiente al ejecutar la función:
+A continuación, establezca un punto de interrupción en la prueba y presione **F5**.
 
-    2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
-    2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
-    2016-03-23T08:03:18.697 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
-    2016-03-23T08:03:18.697 Request Headers = {"connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
-    2016-03-23T08:03:18.697 Processing user info from request body...
-    2016-03-23T08:03:18.697 Processing User Information...
-    2016-03-23T08:03:18.697 name = Wes testing Run button
-    2016-03-23T08:03:18.697 address = USA
-    2016-03-23T08:03:18.744 Function completed (Success, Id=753a01b0-45a8-4125-a030-3ad543a89409)
+## <a name="next-steps"></a>Pasos siguientes
 
-
-### <a name="test-with-a-timer-trigger"></a>Prueba con un desencadenador de temporizador
-Algunas funciones no se pueden probar correctamente con las herramientas ya mencionadas. Por ejemplo, considere una función de desencadenador de cola que se ejecuta cuando se coloca un mensaje en [Azure Queue Storage](../storage/queues/storage-dotnet-how-to-use-queues.md). Siempre puede escribir código para colocar un mensaje en la cola, y se proporciona un ejemplo de ello en un proyecto de consola más adelante en este artículo. Sin embargo, hay otro método que sirve para probar las funciones directamente.  
-
-Puede usar un desencadenador de temporizador configurado con un enlace de salida de cola. Después, ese código de desencadenador de temporizador puede escribir los mensajes de prueba en la cola. Esta sección lo guía a través de un ejemplo.
-
-Para ver información más detallada sobre el uso de enlaces con Azure Functions, consulte la [referencia para desarrolladores de Azure Functions](functions-reference.md).
-
-#### <a name="create-a-queue-trigger-for-testing"></a>Creación de un desencadenador de cola para las pruebas
-Para demostrar este enfoque, en primer lugar se crea una función de desencadenador de cola en la que se va a probar una cola llamada `queue-newusers`. Esta función procesa la información de nombre y dirección que se coloca en Queue Storage para un nuevo usuario.
-
-> [!NOTE]
-> Si usa un nombre de cola diferente, asegúrese de que se ajuste a las reglas en [Asignar nombres a colas y metadatos](https://msdn.microsoft.com/library/dd179349.aspx) . De lo contrario, obtiene un error.
->
->
-
-1. En [Azure Portal] para Function App, haga clic en **Nueva función** > **QueueTrigger - C#**.
-2. Escriba el nombre de cola que se va a supervisar con la función de cola:
-
-        queue-newusers
-3. Haga clic en el botón **+** para seleccionar o crear la cuenta de almacenamiento que desea usar. A continuación, haga clic en **Crear**.
-4. Deje esta ventana del explorador del portal abierta para poder supervisar las entradas del registro para el código de la plantilla de función de cola predeterminada.
-
-#### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Creación de un desencadenador de temporizador para colocar un mensaje en la cola
-1. Abra [Azure Portal] en una nueva ventana del explorador y vaya a la Function App.
-2. Haga clic en **Nueva función** > **TimerTrigger: - C#**. Escriba una expresión Cron para establecer la frecuencia con que el código del temporizador ejecuta las pruebas de la función de cola. A continuación, haga clic en **Crear**. Si desea que la prueba se ejecute cada 30 segundos, puede utilizar la siguiente [expresión CRON](https://wikipedia.org/wiki/Cron#CRON_expression):
-
-        */30 * * * * *
-3. Haga clic en la pestaña **Integrar** para el nuevo desencadenador de temporizador.
-4. En **Salida**, haga clic en **+ Nueva salida**. Después, haga clic en **Cola** y en **Seleccionar**.
-5. Anote el nombre que use para el **objeto de mensaje de cola**. Se usa en el código de la función de temporizador.
-
-        myQueue
-6. Escriba el nombre de la cola a la que se envía el mensaje:
-
-        queue-newusers
-7. Haga clic en el botón **+** para seleccionar la cuenta de almacenamiento que usó antes con el desencadenador de cola. A continuación, haga clic en **Guardar**.
-8. Haga clic en la pestaña **Desarrollar** del desencadenador de temporizador.
-9. Puede usar el siguiente código para la función de temporizador de C#, siempre que use el mismo nombre de objeto de mensaje de cola mostrado anteriormente. A continuación, haga clic en **Guardar**.
-
-    ```cs
-    using System;
-    using Microsoft.Extensions.Logging;
-
-    public static void Run(TimerInfo myTimer, out String myQueue, ILogger log)
-    {
-        String newUser =
-        "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
-
-        log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");   
-        log.Verbose($"{newUser}");   
-
-        myQueue = newUser;
-    }
-    ```
-
-En este momento, la función de temporizador de C# se ejecuta cada 30 segundos si usó la expresión Cron de ejemplo. Los registros para la función de temporizador notifican cada ejecución:
-
-    2016-03-24T10:27:02  Welcome, you are now connected to log-streaming service.
-    2016-03-24T10:27:30.004 Function started (Id=04061790-974f-4043-b851-48bd4ac424d1)
-    2016-03-24T10:27:30.004 C# Timer trigger function executed at: 3/24/2016 10:27:30 AM
-    2016-03-24T10:27:30.004 {"name":"User testing from C# timer function","address":"XYZ"}
-    2016-03-24T10:27:30.004 Function completed (Success, Id=04061790-974f-4043-b851-48bd4ac424d1)
-
-En la ventana del explorador para la función de cola, puede ver cada mensaje que se está procesando:
-
-    2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
-    2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
-    2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"User testing from C# timer function","address":"XYZ"}
-    2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
-
-## <a name="test-a-function-with-code"></a>Prueba de una función con código
-Puede que necesite crear una aplicación o un marco externos para probar las funciones.
-
-### <a name="test-an-http-trigger-function-with-code-nodejs"></a>Prueba de una función de desencadenador HTTP con código: Node.js
-Puede usar una aplicación de Node.js para ejecutar una solicitud HTTP para probar la función.
-Asegúrese de establecer lo siguiente:
-
-* El `host` en las opciones de solicitud en el host de la Function App.
-* El nombre de la función en `path`.
-* El código de acceso (`<your code>`) en `path`.
-
-Ejemplo de código:
-
-```javascript
-var http = require("http");
-
-var nameQueryString = "name=Wes%20Query%20String%20Test%20From%20Node.js";
-
-var nameBodyJSON = {
-    name : "Wes testing with Node.JS code",
-    address : "Dallas, T.X. 75201"
-};
-
-var bodyString = JSON.stringify(nameBodyJSON);
-
-var options = {
-  host: "functions841def78.azurewebsites.net",
-  //path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9&" + nameQueryString,
-  path: "/api/HttpTriggerNodeJS2?code=sc1wt62opn7k9buhrm8jpds4ikxvvj42m5ojdt0p91lz5jnhfr2c74ipoujyq26wab3wk5gkfbt9",
-  method: "POST",
-  headers : {
-      "Content-Type":"application/json",
-      "Content-Length": Buffer.byteLength(bodyString)
-    }    
-};
-
-callback = function(response) {
-  var str = ""
-  response.on("data", function (chunk) {
-    str += chunk;
-  });
-
-  response.on("end", function () {
-    console.log(str);
-  });
-}
-
-var req = http.request(options, callback);
-console.log("*** Sending name and address in body ***");
-console.log(bodyString);
-req.end(bodyString);
-```
-
-
-Salida:
-
-    C:\Users\Wesley\testing\Node.js>node testHttpTriggerExample.js
-    *** Sending name and address in body ***
-    {"name" : "Wes testing with Node.JS code","address" : "Dallas, T.X. 75201"}
-    Hello Wes testing with Node.JS code
-    The address you provided is Dallas, T.X. 75201
-
-En la ventana **Registros** del portal, se registra una salida similar a la siguiente al ejecutar la función:
-
-    2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
-    2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-    2016-03-23T08:09:01.153 HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
-    2016-03-23T08:09:01.153 Request Headers = {"connection":"Keep-Alive","host":"functionsExample.azurewebsites.net"}
-    2016-03-23T08:09:01.153 Name not provided as query string param. Checking body...
-    2016-03-23T08:09:01.153 Request Body Type = object
-    2016-03-23T08:09:01.153 Request Body = [object Object]
-    2016-03-23T08:09:01.153 Processing User Information...
-    2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-
-
-### <a name="test-a-queue-trigger-function-with-code-c"></a>Prueba de una función de desencadenador de cola con código: C# #
-Ya se ha mencionado que puede probar un desencadenador de cola usando código para colocar un mensaje en la cola. El siguiente ejemplo de código se basa en el código C# que se presenta en el tutorial [Introducción a Azure Queue Storage mediante .NET](../storage/queues/storage-dotnet-how-to-use-queues.md). También se ofrece código para otros lenguajes en ese vínculo.
-
-Para probar este código en una aplicación de consola, debe:
-
-* [Configurar la cadena de conexión de almacenamiento en el archivo app.config](../storage/queues/storage-dotnet-how-to-use-queues.md).
-* Pase `name` y `address` como parámetros a la aplicación. Por ejemplo, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (Este código acepta el nombre y la dirección de un nuevo usuario como argumentos de la línea de comandos durante el tiempo de ejecución).
-
-Ejemplo de código C#:
-
-```cs
-static void Main(string[] args)
-{
-    string name = null;
-    string address = null;
-    string queueName = "queue-newusers";
-    string JSON = null;
-
-    if (args.Length > 0)
-    {
-        name = args[0];
-    }
-    if (args.Length > 1)
-    {
-        address = args[1];
-    }
-
-    // Retrieve storage account from connection string
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
-
-    // Create the queue client
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-    // Retrieve a reference to a queue
-    CloudQueue queue = queueClient.GetQueueReference(queueName);
-
-    // Create the queue if it doesn't already exist
-    queue.CreateIfNotExists();
-
-    // Create a message and add it to the queue.
-    if (name != null)
-    {
-        if (address != null)
-            JSON = String.Format("{{\"name\":\"{0}\",\"address\":\"{1}\"}}", name, address);
-        else
-            JSON = String.Format("{{\"name\":\"{0}\"}}", name);
-    }
-
-    Console.WriteLine("Adding message to " + queueName + "...");
-    Console.WriteLine(JSON);
-
-    CloudQueueMessage message = new CloudQueueMessage(JSON);
-    queue.AddMessage(message);
-}
-```
-
-En la ventana del explorador para la función de cola, puede ver cada mensaje que se está procesando:
-
-    2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
-    2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
-    2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"Wes testing queues","address":"in a console app"}
-    2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
-
-
-<!-- URLs. -->
-
-[Azure Portal]: https://portal.azure.com
+Ahora que ha aprendido a escribir pruebas automatizadas para las funciones, continúe con estos recursos:
+- [Ejecución manual de una función no desencadenada por HTTP](./functions-manually-run-non-http.md)
+- [Control de errores de Azure Functions](./functions-bindings-error-pages.md)
+- [Depuración local de funciones de Azure desencadenadas por Event Grid](./functions-debug-event-grid-trigger-local.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: clúster de Azure Kubernetes para Windows'
+title: '(EN DESUSO) Inicio rápido: Clúster de Azure Kubernetes para Windows'
 description: Aprenda rápidamente a crear un clúster de Kubernetes para contenedores de Windows en Azure Container Service con la CLI de Azure.
 services: container-service
 author: dlepow
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 24659f60e44dc306451528cc7bfb823ad14268a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dfc1d2128e1cf3b4d6b4d9e5141116a2b2ff9c0d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946160"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000602"
 ---
-# <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Implementación de un clúster de Kubernetes para los contenedores de Windows
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(EN DESUSO) Implementación de un clúster de Kubernetes para los contenedores de Windows
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Esta guía ofrece información detallada sobre cómo implementar un clúster de [Kubernetes](https://kubernetes.io/docs/home/) en [Azure Container Service](../container-service-intro.md) usando la CLI de Azure. Una vez que se implemente el clúster, se conecta a él con la herramienta de línea de comandos `kubectl` de Kubernetes y se implementa el primer contenedor de Windows.
 

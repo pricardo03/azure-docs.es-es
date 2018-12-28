@@ -1,5 +1,5 @@
 ---
-title: Soporte técnico para las licencias de Azure Media Services y FairPlay de Apple | Microsoft Docs
+title: 'Soporte técnico para las licencias de Media Services y FairPlay de Apple: Azure | Microsoft Docs'
 description: En este tema se proporciona información general sobre los requisitos de licencia y la configuración de FairPlay de Apple.
 author: juliako
 manager: femila
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 19f382de3ffe11253005f5fa2874ee817abaeed3
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 66d816795ec06891aafce73036d7aea9bb52b2c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376761"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140551"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Configuración y requisitos de licencia de FairPlay de Apple 
 
@@ -34,7 +35,7 @@ Cuando se usa Media Services para proporcionar HLS cifrado con **FairPlay de App
 * En Apple es obligatorio que el propietario del contenido obtenga el [paquete de implementación](https://developer.apple.com/contact/fps/). Indique que ya ha implementado el módulo principal de seguridad (KSM) con Media Services y que está solicitando el paquete FPS final. Hay instrucciones que aparecen en el paquete FPS final para generar certificados y obtener la clave secreta de la aplicación (ASK). Utilice la ASK para configurar FairPlay.
 * En la entrega de claves o licencias de Media Services se debe establecer lo siguiente:
 
-    * **Certificado de la aplicación (CA)**: se trata de un archivo .pfx que contiene la clave privada. Puede crear este archivo y cifrarlo con una contraseña. El archivo .pfx debe estar en formato Base64.
+    * **Certificado de aplicación (CA)**: Se trata de un archivo .pfx que contiene la clave privada. Puede crear este archivo y cifrarlo con una contraseña. El archivo .pfx debe estar en formato Base64.
 
         En los pasos siguientes se describe cómo generar un certificado pfx para FairPlay:
 
@@ -48,12 +49,12 @@ Cuando se usa Media Services para proporcionar HLS cifrado con **FairPlay de App
 
             "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
             
-    * **Contraseña de certificado de la aplicación**: la contraseña para crear el archivo .pfx.
-    * **ASK**: esta clave se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibe una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Necesita configurar la ASK como FairPlayAsk con Media Services.
+    * **Contraseña de certificado de la aplicación**: La contraseña para crear el archivo .pfx.
+    * **ASK**: Esta clave se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibe una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Necesita configurar la ASK como FairPlayAsk con Media Services.
     
 * En el lado cliente FPS se debe establecer lo siguiente:
 
-  * **Certificado de aplicación (CA)**: se trata de un archivo .cer/.der que contiene la clave pública que el sistema operativo usa para cifrar alguna carga útil. Media Services necesita tener información sobre él porque lo necesita el reproductor. El servicio de entrega de claves lo descifra utilizando la clave privada correspondiente.
+  * **Certificado de aplicación (CA)**: Se trata de un archivo .cer/.der que contiene la clave pública que el sistema operativo usa para cifrar alguna carga útil. Media Services necesita tener información sobre él porque lo necesita el reproductor. El servicio de entrega de claves lo descifra utilizando la clave privada correspondiente.
 
 * Para reproducir una transmisión cifrada FairPlay, obtenga primero la ASK real y luego genere un certificado real. Este proceso crea todas las tres partes:
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955718"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261541"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticación de usuario final con Azure Data Lake Storage Gen1 mediante el SDK de .NET.
 > [!div class="op_single_selector"]
@@ -104,7 +104,7 @@ Para facilitar su uso, el siguiente fragmento de código emplea valores predeter
 
 Dos cosas que conviene saber acerca del fragmento de código anterior:
 
-* El fragmento de código anterior utiliza las funciones auxiliares `GetTokenCache` y `GetCreds_User_Popup`. El código de estas funciones auxiliares está disponible [aquí en Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* El fragmento de código anterior utiliza las funciones auxiliares `GetTokenCache` y `GetCreds_User_Popup`. El código de estas funciones auxiliares está disponible [aquí en GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
 * Para ayudarle a completar este tutorial con más rapidez, este fragmento de código usa el identificador de cliente de la aplicación nativa que está disponible de manera predeterminada para todas las suscripciones de Azure. Por lo tanto, puede **usar este fragmento de código tal cual en la aplicación**.
 * Sin embargo, si desea utilizar su propio identificador de cliente de dominio y de aplicación de Azure AD, debe crear una aplicación nativa de Azure AD y, después, utilizar el identificador de inquilino de Azure AD, el identificador de cliente y el identificador URI de redirección para la aplicación que ha creado. Consulte [Create an Active Directory Application for end-user authentication with Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) (Crear una aplicación de Active Directory para la autenticación del usuario final con Data Lake Storage Gen1) para obtener más instrucciones.
 

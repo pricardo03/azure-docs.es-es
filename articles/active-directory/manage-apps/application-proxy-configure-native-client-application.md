@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621095"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135533"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de la aplicación
 
@@ -35,7 +35,7 @@ Utilice la biblioteca de Autenticación de Azure AD, que se encarga de la autent
 Este artículo le guiará por los cuatro pasos para publicar una aplicación nativa con el proxy de aplicación y la biblioteca de Autenticación de Azure AD. 
 
 ## <a name="step-1-publish-your-application"></a>Paso 1: Publicación de la aplicación
-Publique su aplicación de proxy al igual que haría con cualquier otra aplicación y asigne a los usuarios el acceso a la aplicación. Para más información, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-publish-azure-portal.md).
+Publique su aplicación de proxy al igual que haría con cualquier otra aplicación y asigne a los usuarios el acceso a la aplicación. Para más información, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-add-on-premises-application.md).
 
 ## <a name="step-2-configure-your-application"></a>Paso 2: Configuración de la aplicación
 Configure su aplicación nativa de la manera siguiente:
@@ -55,8 +55,8 @@ Para más información sobre cómo crear un registro de aplicación, consulte [I
 Habilite la aplicación nativa para que se exponga a otras aplicaciones en el directorio:
 
 1. Todavía en **Registros de aplicaciones**, seleccione la aplicación nativa que acaba de crear.
-2. Seleccione **Permisos necesarios**.
-3. Seleccione **Agregar**.
+2. Seleccione **Permisos de API**.
+3. Seleccione **Agregar un permiso**.
 4. Abra el primer paso, **Seleccionar una API**.
 5. Use la barra de búsqueda para encontrar la aplicación de proxy de la aplicación que ha publicado en la primera sección. Elija la aplicación y haga clic en **Seleccionar**. 
 

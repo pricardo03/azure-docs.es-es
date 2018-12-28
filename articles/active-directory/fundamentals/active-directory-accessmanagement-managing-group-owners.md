@@ -1,6 +1,6 @@
 ---
-title: Adición o eliminación de propietarios del grupo en Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo agregar o quitar propietarios del grupo con Azure Active Directory.
+title: Adición o eliminación de propietarios de grupos en Azure Active Directory | Microsoft Docs
+description: Obtenga información acerca de cómo agregar o quitar propietarios del grupo con Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
-ms.custom: it-pro
-ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139727"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087157"
 ---
-# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Procedimientos: Adición o eliminación de propietarios del grupo en Azure Active Directory
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adición o eliminación de propietarios del grupo en Azure Active Directory
 Los grupos de Azure Active Directory (Azure AD) pertenecen a propietarios del grupo, quienes también lo administran. El propietario de un recurso (administrador) asigna propietarios del grupo para que administren un grupo y sus miembros. Los propietarios del grupo no deben ser miembros del grupo. Una vez se ha asignado un propietario del grupo, solo puede agregar o quitar propietarios el propietario de un recurso.
 
 En algunos casos, como administrador, usted podría optar por no asignar a un propietario del grupo. En este caso, usted se convertiría en el propietario del grupo. Además, los propietarios pueden asignar a otros propietarios a su grupo, a menos que haya restringido esta opción en la configuración del grupo.

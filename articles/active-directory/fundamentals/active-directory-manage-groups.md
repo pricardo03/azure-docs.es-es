@@ -1,6 +1,6 @@
 ---
-title: Obtenga más información acerca la administración de acceso de aplicaciones y recursos mediante los grupos de Azure Active Directory | Microsoft Docs
-description: Aprenda a administrar el acceso a las aplicaciones en la nube de su organización, a las aplicaciones locales y a los recursos mediante los grupos de Azure Active Directory.
+title: Administración del acceso a recursos y aplicaciones con grupos en Azure Active Directory | Microsoft Docs
+description: Obtenga información acerca de cómo administrar el acceso a las aplicaciones en la nube de su organización, a las aplicaciones locales y a los recursos mediante los grupos de Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 69be2cb8b57b34502d5a5688ac163d7451abe48e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 5a706a2a879ae3b4c4adb2690faa77846474ce49
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223979"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087293"
 ---
-# <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Aprenda a acceder a la administración mediante grupos de Azure Active Directory
+# <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Administración del acceso a recursos y aplicaciones con grupos en Azure Active Directory
 Azure Active Directory (Azure AD) le ayuda a administrar aplicaciones en la nube de su organización, aplicaciones locales y recursos locales mediante los grupos de su organización. Sus recursos pueden formar parte del directorio, como los permisos para administrar objetos a través de los roles del directorio, o puede estar fuera del directorio, como las aplicaciones SaaS (software como servicio), los servicios de Azure, los sitios de SharePoint y los recursos locales.
 
 >[!NOTE]
@@ -34,7 +35,7 @@ Hay cuatro maneras de asignar derechos de acceso a los recursos a los usuarios:
 
 - **Asignación directa.** El propietario del recurso asigna directamente el usuario al recurso.
 
-- **Asignación de un grupo.** El propietario del recurso asigna un grupo de Azure AD al recurso, que automáticamente concede a todos sus miembros acceso al recurso. La pertenencia a un grupo la administran el propietario del grupo y el propietario del recurso, lo que permite a ambos propietarios agregar o quitar miembros del grupo. Para más información acerca cómo agregar o quitar la pertenencia a un grupos, consulte [Procedimiento para agregar o quitar un grupo de otro mediante el portal de Azure Active Directory](active-directory-groups-membership-azure-portal.md). 
+- **Asignación de un grupo.** El propietario del recurso asigna un grupo de Azure AD al recurso, que automáticamente concede a todos sus miembros acceso al recurso. La pertenencia a un grupo la administran el propietario del grupo y el propietario del recurso, lo que permite a ambos propietarios agregar o quitar miembros del grupo. Para más información acerca de cómo agregar o eliminar miembros del grupo, consulte [Procedimiento para cómo agregar o quitar un grupo de otro grupo con Azure Active Directory](active-directory-groups-membership-azure-portal.md). 
 
 - **Asignación basada en reglas.** El propietario del recurso crea un grupo y usa una regla para definir qué usuarios están asignados a un recurso concreto. La regla se basa en atributos que se asignan a usuarios individuales. El propietario del recurso administra la regla, lo que determina los atributos y valores que son necesarios para permitir el acceso al recurso. Para más información, consulte [Creación de un grupo dinámico y comprobación de su estado](../users-groups-roles/groups-create-rule.md).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 12e2f96e66305370499fbacf9ae6a834a22eb504
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fec5ef3ef190270d22e9a7d0306eb9477b39a8c8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412506"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095245"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Autenticación RADIUS de Azure VPN Gateway de integración con el servidor NPS para Multi-Factor Authentication 
 
@@ -40,7 +40,7 @@ Para habilitar MFA, los usuarios deben estar en Azure Active Directory (Azure AD
     ![La imagen sobre cómo agregar una subred de puerta de enlace](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
 3. Cree una puerta de enlace de red virtual especificando la siguiente configuración:
 
-    - **Tipo de puerta de enlace**: seleccione **VPN**.
+    - **Tipo de puerta de enlace**: Seleccione **VPN**.
     - **Tipo de VPN**: seleccione **Basada en rutas**.
     - **SKU**: seleccione un tipo de SKU basada en sus requisitos.
     - **Red virtual**: seleccione la red virtual en la que creó la subred de puerta de enlace.
@@ -58,7 +58,7 @@ Para habilitar MFA, los usuarios deben estar en Azure Active Directory (Azure AD
     - **Dirección (IP o DNS)**: escriba la subred de puerta de enlace que creó en el Paso 1.
     - **Secreto compartido**: escriba cualquier clave secreta y recuérdela para su uso posterior.
 
-    ![La imagen sobre la configuración del cliente RADIUS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![La imagen sobre la configuración del cliente RADIUS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  En la pestaña **Avanzado**, establezca el nombre del proveedor en **RADIUS estándar** y asegúrese de que la casilla **Opciones adicionales** no está activada.
@@ -73,11 +73,11 @@ Para habilitar MFA, los usuarios deben estar en Azure Active Directory (Azure AD
 2. Abra la puerta de enlace de red virtual que creó. Asegúrese de que el tipo de puerta de enlace se establece en **VPN** y de que el tipo de VPN está **basado en rutas**.
 3. Haga clic en **Configuración de punto a sitio** > **Configurar ahora** y, a continuación, especifique la siguiente configuración:
 
-    - **Grupo de direcciones**: escriba la subred de puerta de enlace que creó en el paso 1.
+    - **Grupo de direcciones:** escriba la subred de puerta de enlace que creó en el paso 1.
     - **Tipo de autenticación**: seleccione **Autenticación RADIUS**.
     - **Dirección IP del servidor**: escriba la dirección IP del servidor NPS.
 
-    ![La imagen sobre la configuración de punto a sitio](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+      ![La imagen sobre la configuración de punto a sitio](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

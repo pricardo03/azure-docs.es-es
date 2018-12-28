@@ -1,6 +1,6 @@
 ---
-title: Versión preliminar del control de acceso basado en rol (RBAC) de Azure Event Hubs | Microsoft Docs
-description: Control de acceso basado en rol de Azure Event Hubs
+title: 'Versión preliminar del control de acceso basado en rol (RBAC): Azure Event Hubs | Microsoft Docs'
+description: En este artículo se proporciona información sobre el control de acceso basado en rol para Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ef74600fdf5051394f8b7bfbdd71e144b3f26d8a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005745"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384265"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Control de acceso basado en rol de Active Directory (versión preliminar)
 
@@ -41,15 +42,11 @@ El primer paso es opcional. Cada suscripción de Azure se empareja automáticame
 
 Si desea crear una cuenta específica para este escenario, [siga estos pasos](../automation/automation-create-aduser-account.md). Debe tener permiso para crear cuentas en el inquilino de Azure Active Directory, lo cual puede que no sea el caso para escenarios empresariales más grandes.
 
-### <a name="create-an-event-hubs-namespace"></a>Crear un espacio de nombres de Event Hubs
+### <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 
 A continuación, [cree un espacio de nombres de Event Hubs](event-hubs-create.md) en una de las regiones de Azure compatibles con la versión preliminar de Event Hubs para RBAC: **Este de EE. UU.**, **Este de EE. UU. 2** o **Europa Occidental**. 
 
-Una vez creado el espacio de nombres, vaya a su página de **Control de acceso (IAM)** en Azure Portal y, a continuación, haga clic en **Agregar** para agregar la cuenta de usuario de Azure AD al rol de propietario. Si usa su propia cuenta de usuario y ha creado el espacio de nombres, ya está en el rol de propietario. Para agregar una cuenta diferente al rol, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**.
- 
-![](./media/event-hubs-role-based-access-control/rbac1.PNG)
-
-Ahora, la cuenta de usuario ya tiene acceso al espacio de nombres de Event Hubs y a la cola que creó anteriormente.
+Una vez creado el espacio de nombres, vaya a su página de **Control de acceso (IAM)** en Azure Portal y, a continuación, haga clic en **Agregar asignación de roles** para agregar la cuenta de usuario de Azure AD al rol de propietario. Si usa su propia cuenta de usuario y ha creado el espacio de nombres, ya está en el rol de propietario. Para agregar una cuenta diferente al rol, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**. Ahora, la cuenta de usuario ya tiene acceso al espacio de nombres de Event Hubs y a la cola que creó anteriormente.
  
 ### <a name="register-the-application"></a>Registro de la aplicación
 
@@ -71,6 +68,8 @@ Antes de poder ejecutar el ejemplo, edite el archivo App.config y, según el esc
 - El URI de redireccionamiento que especificó en la aplicación en los pasos anteriores.
  
 Al ejecutar la aplicación de consola, deberá seleccionar un escenario. Haga clic en **Interactive User Login** (Inicio de sesión de usuario interactivo). Para ello, escriba su número y presione ENTRAR. La aplicación muestra una ventana de inicio de sesión, solicita su consentimiento para acceder a Event Hubs y, a continuación, utiliza el servicio para ejecutarse en el escenario de envío o recepción mediante la identidad de inicio de sesión.
+
+La aplicación usa `ServiceAudience.EventHubsAudience` como audiencia del token. Al usar otros lenguajes o SDK donde la audiencia no está disponible como una constante, el valor correcto que se debe usar es `https://eventhubs.azure.net/`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

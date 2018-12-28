@@ -1,6 +1,6 @@
 ---
-title: 'Escalado de unidades reservadas de multimedia: Azure | Microsoft Docs'
-description: Este tema ofrece una introducción al escalado de procesamiento de medios con on Azure Media Services.
+title: Uso de la CLI para crear filtros con Azure Media Services| Microsoft Docs
+description: En este tema se muestra cómo usar la CLI para crear filtros con Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 9099429097efb17629e88318430f004f0f763cc5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: a16024ad5d8b9d2355b579b9b508ef0de91f2ccd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336666"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133866"
 ---
 # <a name="creating-filters-with-cli"></a>Creación de filtros con la CLI 
 

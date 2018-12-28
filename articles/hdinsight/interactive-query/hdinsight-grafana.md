@@ -6,23 +6,21 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/17/2018
-ms.openlocfilehash: 8103c06e3fec51316e367de903ed84d0023568bc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/11/2018
+ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308161"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322301"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Acceso a Grafana en Azure HDInsight
 
 
 [Grafana](https://grafana.com/) es un software popular y de código abierto para crear gráficos y paneles. Grafana está lleno de características; no solo permite a los usuarios crear paneles que pueden personalizar y compartir, sino que también ofrece paneles con plantillas o scripts, integración de LDAP, varios orígenes de datos y mucho más.
 
-Actualmente, Grafana solo es compatible con el tipo de clúster de Consulta interactiva en Azure HDInsight.
-
+Actualmente, en Azure HDInsight, Grafana es compatible con los tipos de clúster de HBase e Interactive Query.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -76,16 +74,22 @@ En esta sección, se crea un clúster de Consulta interactiva en HDInsight media
 ## <a name="access-the-grafana-dashboard"></a>Acceso al panel de Grafana
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+
 2. Seleccione **Clústeres de HDInsight** y, a continuación, seleccione el nombre del clúster que creó en la última sección.
+
 3. En **Vínculos rápidos**, haga clic en **Panel de clúster**.
 
     ![Portal del panel de clúster de HDInsight](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "Panel de clúster de HDInsight en el portal")
 
-4. En el panel, haga clic en el icono **Grafana**.
+4. En el panel, haga clic en el icono **Grafana**. Como alternativa, vaya a la ruta de acceso `/grafana/` de la dirección URL del clúster. Por ejemplo, `https://<clustername>.azurehdinsight.net/grafana/`.
+
 5. Escriba las credenciales de usuario del clúster de Hadoop.
-6. El panel de Grafana tiene este aspecto:
+
+6. El panel de Grafana aparece y tiene un aspecto similar a este ejemplo:
 
     ![Panel de Grafana en HDInsight](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "Panel de Grafana en HDInsight")
+
+   
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Después de completar el artículo, puede eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando. 
@@ -137,5 +141,3 @@ Si desea más información acerca de cómo crear o administrar un clúster de HD
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

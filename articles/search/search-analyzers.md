@@ -1,5 +1,5 @@
 ---
-title: Analizadores en Azure Search | Microsoft Docs
+title: 'Analizadores para procesamientos lingüísticos y textuales: Azure Search'
 description: Asigne analizadores a los campos de texto que permiten búsquedas de un índice para reemplazar la API Lucene estándar personalizada por otras alternativas personalizadas, predefinidas o específicas del lenguaje.
 services: search
 ms.service: search
@@ -8,14 +8,15 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec2018
+ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116377"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310545"
 ---
-# <a name="analyzers-in-azure-search"></a>Analizadores de Azure Search
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Analizadores para procesamientos textuales en Azure Search
 
 Un *analizador* es un componente de la [búsqueda de texto completo](search-lucene-query-architecture.md) responsable del procesamiento de texto en las cadenas de consulta y de los documentos indexados. Las siguientes transformaciones son típicas durante el análisis:
 
@@ -208,7 +209,7 @@ Las API incluyen atributos de índice adicionales para especificar diferentes an
 ~~~~
 
 <a name="Example4"></a>
-### <a name="example-4-language-analyzer"></a>Ejemplo 4: analizador del lenguaje
+### <a name="example-4-language-analyzer"></a>Ejemplo 4: analizador de idioma
 
 Los campos que contienen cadenas en diferentes idiomas pueden utilizar un analizador del lenguaje, mientras que otros campos conservan el predeterminado (o usan otro analizador predefinido o personalizado). Si utiliza un analizador del lenguaje, debe hacerlo tanto para las operaciones de indexación como para las de búsqueda. Los campos que usan un analizador del lenguaje no pueden tener un analizador para la indexación y otro para la búsqueda.
 

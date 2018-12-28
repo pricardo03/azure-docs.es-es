@@ -4,14 +4,14 @@ description: Aborda las preguntas más frecuentes sobre Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: snehaa
-ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256382"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257801"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
 
@@ -40,15 +40,20 @@ Azure Migrate es un servicio de evaluación que le ayuda a detectar las cargas d
 
 Azure Migrate es una herramienta de planeación de migración y Azure Site Recovery Deployment Planner es una herramienta de planeación de recuperación ante desastres (DR).
 
-**Migración de VMware a Azure**: si piensa migrar las cargas de trabajo locales a Azure, use Azure Migrate para planear la migración. Azure Migrate evalúa las cargas de trabajo local y proporciona orientación, información y mecanismos que le ayudarán a realizar la migración a Azure. Cuando esté preparado para el plan de migración, puede usar servicios como Azure Site Recovery y Azure Database Migration Service para migrar las máquinas a Azure.
+**Migración de VMware a Azure**: Si piensa migrar las cargas de trabajo locales a Azure, use Azure Migrate para planear la migración. Azure Migrate evalúa las cargas de trabajo local y proporciona orientación, información y mecanismos que le ayudarán a realizar la migración a Azure. Cuando esté preparado para el plan de migración, puede usar servicios como Azure Site Recovery y Azure Database Migration Service para migrar las máquinas a Azure.
 
 **Migración de Hyper-V a Azure**: Azure Migrate solo admite actualmente la evaluación de las máquinas virtuales de VMware para la migración a Azure. La compatibilidad con Hyper-V está en el mapa de ruta de Azure Migrate. Mientras tanto, puede utilizar Site Recovery Deployment Planner. Una vez habilitada la compatibilidad con Hyper-V en Azure Migrate, puede usar Azure Migrate para planear la migración de las cargas de trabajo de Hyper-V.
 
-**Recuperación ante desastres de VMware o Hyper-V en Azure**: si tiene previsto realizar la recuperación ante desastres (DR) en Azure con Azure Site Recovery (Site Recovery), use Site Recovery Deployment Planner para el plan de la recuperación. Site Recovery Deployment Planner realiza una evaluación profunda específica de ASR de su entorno local. Proporciona recomendaciones que Site Recovery necesita para realizar correctamente las operaciones de recuperación ante desastres, tales como la replicación y la conmutación por error de las máquinas virtuales.  
+**Recuperación ante desastres de VMware o Hyper-V en Azure**: Si tiene previsto realizar la recuperación ante desastres (DR) en Azure con Azure Site Recovery (Site Recovery), use Site Recovery Deployment Planner para el plan de la recuperación. Site Recovery Deployment Planner realiza una evaluación profunda específica de ASR de su entorno local. Proporciona recomendaciones que Site Recovery necesita para realizar correctamente las operaciones de recuperación ante desastres, tales como la replicación y la conmutación por error de las máquinas virtuales.  
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>¿Qué regiones de Azure con compatibles con Azure Migrate?
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>¿Qué geografías de Azure con compatibles con Azure Migrate?
 
-Azure Migrate admite actualmente las ubicaciones de proyecto de migración de Este de EE. UU. y Centro-oeste de EE. UU. Aunque solo puede crear proyectos de migración en Centro-oeste de EE. UU. y Este de EE. UU., puede evaluar sus máquinas para [varias ubicaciones de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). La ubicación del proyecto solo se usa para almacenar los datos detectados.
+Azure Migrate admite actualmente Estados Unidos y Azure Government como ubicaciones geográficas de proyecto. Aunque solo puede crear proyectos de migración en estas geografías, puede evaluar sus máquinas para [varias ubicaciones de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). La geografía del proyecto solo se usa para almacenar los metadatos detectados.
+
+**Geografía** | **Ubicación de almacenamiento de metadatos**
+--- | ---
+Estados Unidos | Centro-oeste de EE. UU. o Este de EE. UU.
+Azure Government | Gobierno de EE. UU. - Virginia
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>¿Cómo se conecta el sitio local a Azure Migrate?
 
@@ -137,9 +142,12 @@ Puede detectar 1500 máquinas virtuales en un solo proyecto de migración. Si ti
 Actualmente, Azure Migrate no es compatible con la estimación de costes de la [oferta para Contrato Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support/). La solución alternativa consiste en especificar pago por uso como la oferta y especificar manualmente el porcentaje de descuento (se aplica a la suscripción) en el campo "Descuento" de las propiedades de valoración.
 
   ![Descuento](./media/resources-faq/discount.png)
-  
+
 
 ## <a name="dependency-visualization"></a>Visualización de dependencia
+
+> [!NOTE]
+> La funcionalidad de visualización de dependencias no está disponible en Azure Government.
 
 ### <a name="what-is-dependency-visualization"></a>¿Qué es la visualización de dependencias?
 
@@ -147,17 +155,17 @@ La visualización de dependencias permite evaluar los grupos de máquinas virtua
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>¿Tengo que pagar por usar la característica de visualización de dependencias?
 
-No. [Aquí](https://azure.microsoft.com/pricing/details/azure-migrate/) puede encontrar más información sobre los precios de Azure Migrate.
+ No. [Aquí](https://azure.microsoft.com/pricing/details/azure-migrate/) puede encontrar más información sobre los precios de Azure Migrate.
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>¿Es necesario instalar algo para la visualización de dependencias?
 
-Para usar la visualización de dependencias, debe descargar e instalar agentes en cada máquina local que vaya a evaluar. 
+Para usar la visualización de dependencias, debe descargar e instalar agentes en cada máquina local que vaya a evaluar.
 
 - Es necesario tener instalado [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) en cada máquina.
-- Es necesario tener instalado el [Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) en cada máquina.
+- Es necesario tener instalado [Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) en cada máquina.
 - Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la puerta de enlace de Log Analytics.
 
-No necesita estos agentes en las máquinas que desea evaluar a menos que esté usando la visualización de dependencias.
+No necesita estos agentes en las máquinas que quiera evaluar a menos que esté usando la visualización de dependencias.
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>¿Puedo usar un área de trabajo existente para la visualización de dependencias?
 

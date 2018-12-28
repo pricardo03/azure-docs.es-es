@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 6c62e2e559749ae8dc29e86d9c2414c28b487995
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97c02726c7e359195c6bf4ea793404562f2acccf
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965626"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001935"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Almacenamiento en caché con Azure Front Door Service
 En el documento siguiente se especifica el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché.
@@ -26,7 +26,7 @@ Azure Front Door Service proporciona archivos grandes sin un límite en el tama�
 
 </br>Una vez que el fragmento llega al entorno de Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se solicita), todos los intervalos de bytes están disponibles (si se solicitan) o el cliente finaliza la conexión.
 
-</br>Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](http://www.rfc-base.org/rfc-7233.html).
+</br>Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
 Front Door almacena en caché los fragmentos cuando se reciben, por lo que no es necesario poner todo el archivo en la caché de Front Door. Las solicitudes posteriores para el archivo o los intervalos de bytes se sirven desde la caché. Si no se almacenan en caché todos los fragmentos, se usa la captura previa para solicitar fragmentos del back-end. Esta optimización se basa en la capacidad del servidor de origen para admitir solicitudes de intervalo de bytes; si no las admite, esta optimización no es efectiva.
 
 ## <a name="file-compression"></a>Compresión de archivos
@@ -83,7 +83,7 @@ Cuando una solicitud de un recurso especifica la compresión gzip y la solicitud
 
 ## <a name="query-string-behavior"></a>Comportamiento de las cadenas de consulta
 Front Door permite controlar cómo se almacenan los archivos en caché para una solicitud web que contiene una cadena de consulta. En una solicitud web con una cadena de consulta, esta última es la parte de la solicitud que hay después del signo de interrogación (?). Una cadena de consulta puede contener uno o más pares clave-valor, en los cuales el nombre de campo y su valor están separados por un signo igual (=). Los pares clave-valor están separados entre ellos por una Y comercial (&). Por ejemplo, http://www.contoso.com/content.mov?field1=value1&field2=value2. Si hay más de un par clave-valor en una cadena de consulta de una solicitud, no importa el orden en el que se especifiquen.
-- **Ignorar cadenas de consulta**: este es el modo predeterminado. En este modo, Front Door pasa las cadenas de consulta del solicitante al back-end en la primera solicitud y almacena en la memoria caché el recurso. Todas las solicitudes posteriores del recurso que se ofrecen desde el entorno Front Door omiten las cadenas de consulta hasta que expira el recurso en caché.
+- **Pasar por alto las cadenas de consulta**: modo predeterminado. En este modo, Front Door pasa las cadenas de consulta del solicitante al back-end en la primera solicitud y almacena en la memoria caché el recurso. Todas las solicitudes posteriores del recurso que se ofrecen desde el entorno Front Door omiten las cadenas de consulta hasta que expira el recurso en caché.
 
 - **Almacenar en caché todas las URL únicas**: en este modo, cada solicitud con un URL único, incluida la cadena de consulta, se trata como un recurso único con su propia memoria caché. Por ejemplo, la respuesta desde el back-end a una solicitud de `www.example.ashx?q=test1` se almacena en caché en el entorno Front Door y se devuelve en los sucesivos almacenamientos en caché con la misma cadena de consulta. Se almacena en caché una solicitud de `www.example.ashx?q=test2` como un recurso independiente con su propia configuración de período de vida.
 
@@ -116,5 +116,5 @@ Los siguientes encabezados de solicitud no se reenviarán a un back-end cuando s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [crear una instancia de Front Door](quickstart-create-front-door.md).
-- Obtenga información sobre [cómo funciona Front Door](front-door-routing-architecture.md).
+- Aprenda a [crear una instancia de Front Door](quickstart-create-front-door.md).
+- Más información acerca de cómo [funciona Front Door](front-door-routing-architecture.md).

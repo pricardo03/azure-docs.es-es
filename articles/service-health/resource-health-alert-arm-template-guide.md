@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: ac1b9dbbb5739dd015c0bda5f1ea82fe26bb0c70
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625953"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184107"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
 
@@ -32,7 +32,7 @@ Azure Resource Health le mantiene informado sobre el estado actual y pasado de s
 Para seguir las instrucciones que aparecen en esta página, necesita de antemano algunas cosas:
 
 1. Debe instalar el [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
-2. Debe [crear o volver a usar un grupo de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md) configurado para recibir notificaciones
+2. Debe [crear o volver a usar un grupo de acciones](../azure-monitor/platform/action-groups.md) configurado para recibir notificaciones
 
 ## <a name="instructions"></a>Instrucciones
 1. Con PowerShell, inicie sesión en su cuenta de Azure y seleccione la suscripción con la que desee interactuar
@@ -233,7 +233,7 @@ Si desea recibir una notificación para las cuatro fases de los eventos de estad
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Ajuste de las alertas de Resource Health para evitar eventos desconocidos
 
-Azure Resource Health puede notificar el estado más reciente de los recursos gracias a la constante supervisión mediante ejecutores de pruebas. Los estados importantes que se notifican son: "Disponible", "No disponible" y "Degradado". Sin embargo, en situaciones en las que el ejecutor y el recurso de Azure no se pueden comunicar, se notifica un estado "Desconocido" para el recurso y que se considera un evento de estado "Activo".
+Azure Resource Health puede notificar el estado más reciente de los recursos gracias a la constante supervisión mediante ejecutores de pruebas. Los estados de mantenimiento notificados pertinentes son: "Disponible", "No disponible" y "Degradado". Sin embargo, en situaciones en las que el ejecutor y el recurso de Azure no se pueden comunicar, se notifica un estado "Desconocido" para el recurso y que se considera un evento de estado "Activo".
 
 No obstante, cuando un recurso se notifica como "Desconocido", es probable que su estado no haya cambiado desde el último informe preciso. Si desea eliminar las alertas de eventos desconocidos, puede especificar esa lógica en la plantilla:
 
@@ -435,4 +435,4 @@ Más información sobre Resource Health:
 -  [Tipos de recursos y comprobaciones de mantenimiento disponibles a través de Azure Resource Health](resource-health-checks-resource-types.md)
 
 Creación de alertas de Service Health:
--  [Configuración de alertas de Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Configuración de alertas de Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: c0525cfba16fb61f8388ae4d6a693be3bb71674c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0333bc5e95b74fc97cfff3d79adbe28aefff5d40
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628762"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834645"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Indexación en Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Se crea un pseudonodo raíz como primario de los nodos reales correspondientes a
 
 Azure Cosmos DB proyecta los elementos como documentos JSON y el índice como árboles. Posteriormente, puede ajustar las rutas de acceso a las directivas en el árbol. Puede elegir incluir o excluir rutas de la indexación. Esto puede mejorar el rendimiento de escritura y reducir el almacenamiento necesario para el índice en escenarios en los que se conocen de antemano los patrones de consulta. Para más información, consulte [Rutas de acceso del índice](index-paths.md).
 
-## <a name="indexing-under-the-hood"></a>Indexación: Funcionamiento en segundo plano
+## <a name="indexing-under-the-hood"></a>Indexación: En segundo plano
 
 Azure Cosmos DB aplica la indexación automática a los datos, en la que cada ruta de un árbol se indexa a menos que se haya configurado para excluir determinadas rutas.
 

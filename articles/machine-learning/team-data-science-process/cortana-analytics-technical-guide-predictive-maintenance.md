@@ -1,5 +1,5 @@
 ---
-title: 'Mantenimiento predictivo en empresas aeroespaciales con Azure: guía técnica de la solución Cortana Intelligence | Microsoft Docs'
+title: 'Guía para mantenimiento predictivo para el sector aeroespacial: proceso de ciencia de datos en equipos'
 description: Una guía técnica sobre la plantilla de solución con Microsoft Cortana Intelligence orientada al mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443753"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140190"
 ---
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos
+# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en el sector aeroespacial
 
 >[!Important]
 Este artículo está en desuso. El debate sobre el mantenimiento predictivo en el sector aeroespacial sigue siendo relevante, pero consulte la [introducción a la solución para audiencias empresariales](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) para obtener información actualizada.
@@ -162,7 +162,7 @@ Configure el panel de Power BI para visualizar los datos de Azure Stream Analyti
 ### <a name="set-up-the-cold-path-dashboard"></a>Configuración del panel de ruta de acceso inactiva
 En la canalización de datos de la ruta de acceso inactiva, el objetivo es obtener la predicción de la RUL (vida útil restante) de cada motor del avión cuando finaliza un vuelo (ciclo). El resultado de la predicción se actualiza cada 3 horas para poder predecir la vida útil restante de los motores de los aviones que hayan terminado un vuelo durante las últimas 3 horas.
 
-Power BI se conecta a una Base de datos SQL de Azure como su origen de datos, donde se almacenan los resultados de predicción. Observe que: 1) Al implementar la solución, aparecerá una predicción real en la base de datos dentro de 3 horas.
+Power BI se conecta a una Base de datos SQL de Azure como su origen de datos, donde se almacenan los resultados de predicción. Nota: 1) Al implementar la solución, aparecerá una predicción real en la base de datos dentro de 3 horas.
 El archivo pbix incluido con la descarga del generador, contiene algunos datos de inicialización para que pueda crear el panel de Power BI inmediatamente. 2) En este paso, el requisito previo es descargar e instalar gratuitamente el software [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
 Los siguientes pasos lo guiarán a la hora de conectar el archivo pbix con SQL Database que estaba en marcha en el momento de la implementación de la solución que contiene los datos (por ejemplo, resultados de predicción) para su visualización.
@@ -218,7 +218,7 @@ Los siguientes pasos lo guiarán en el proceso para visualizar la salida de dato
    * Asegúrese de que el panel ***Visualizaciones*** está abierto y se muestra en el lado derecho de la pantalla.
 3. Una vez que tenga los datos fluyendo en Power BI, puede comenzar a visualizar los datos de streaming. Este es un panel de ejemplo con algunas visualizaciones de la ruta de acceso en caliente ancladas. Puede crear otros iconos de panel basados en conjuntos de datos adecuados. Dependiendo de cuánto tiempo tarde en ejecutarse el generador de datos, los números en las visualizaciones pueden ser diferentes.
 
-    ![Vista de panel](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Vista de panel](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Estos son algunos pasos para crear uno de los iconos anteriores: "Fleet View of Sensor 11 vs. Threshold 48.26":
    
