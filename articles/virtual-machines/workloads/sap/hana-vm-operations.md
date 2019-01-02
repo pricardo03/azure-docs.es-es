@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/06/2018
+ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 45b6de7693325b5ccfcb01ad9babc61dd2f6e003
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: d716a27cc2b4879451a8d5edbca46ca1bbfeaf40
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289145"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968994"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -190,7 +190,11 @@ Compruebe si el rendimiento del almacenamiento para los diferentes volúmenes su
 Si tiene conectividad de sitio a sitio a Azure por medio de VPN o de ExpressRoute, debe tener como mínimo una red de Azure Virtual Network conectada a través de una puerta de enlace virtual al circuito VPN o ExpressRoute. En las implementaciones sencillas, la puerta de enlace virtual puede implementarse en una subred de la instancia de Azure Virtual Network (VNet) que también hospeda las instancias de SAP HANA. Para instalar SAP HANA, debe crear dos subredes adicionales en la instancia de Azure Virtual Network. Una subred hospeda las máquinas virtuales para ejecutar las instancias de SAP HANA. La otra subred ejecuta Jumpbox o máquinas virtuales de administración para hospedar SAP HANA Studio, otro software de administración o el software de la aplicación.
 
 > [!IMPORTANT]
-> Además de por la funcionalidad y, lo que es más importante, por motivos de rendimiento, no se puede configurar [Aplicaciones virtuales de red de Azure](https://azure.microsoft.com/solutions/network-appliances/) en la ruta de comunicación entre las instancias de bases de datos HANA y la aplicación de SAP de un sistema SAP basado en NetWeaver, Hybris o S/4HANA. Más escenarios donde no se admiten los NVA se dan en las rutas de comunicación entre las máquinas virtuales de Azure que representan los nodos de clúster de Linux Pacemaker y los dispositivos SBD, según se describe en [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). O bien, en las rutas de comunicación establecidas entre las máquinas virtuales de Azure y Windows Server SOFS configuradas como se describe en [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). Las aplicaciones virtuales de red en las rutas de comunicación pueden duplicar fácilmente la latencia de red entre dos socios de comunicación y restringir el rendimiento en las rutas críticas entre la capa de la aplicación de SAP y las instancias de base de datos HANA. En algunos escenarios que se han observado con los clientes, las aplicaciones virtuales de red pueden ocasionar que los clústeres Pacemaker Linux produzcan un error cuando las comunicaciones entre los nodos del clúster de Linux Pacemaker necesiten comunicarse con su dispositivo SBD mediante una NVA.   
+> Además de por la funcionalidad y, lo que es más importante, por motivos de rendimiento, no se puede configurar [Aplicaciones virtuales de red de Azure](https://azure.microsoft.com/solutions/network-appliances/) en la ruta de comunicación entre la aplicación de SAP y la capa DBMS de un sistema SAP basado en SAP NetWeaver, Hybris o S/4HANA. La comunicación entre la capa de la aplicación de SAP y la capa de DBMS debe ser directa. La restricción no incluye [reglas ASG ni NSG de Azure](https://docs.microsoft.com/azure/virtual-network/security-overview), siempre y cuando dichas reglas ASG y NSG permitan una comunicación directa. Más escenarios donde no se admiten los NVA se dan en las rutas de comunicación entre las máquinas virtuales de Azure que representan los nodos de clúster de Linux Pacemaker y los dispositivos SBD, según se describe en [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). O bien, en las rutas de comunicación establecidas entre las máquinas virtuales de Azure y Windows Server SOFS configuradas como se describe en [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). Las aplicaciones virtuales de red en las rutas de comunicación pueden duplicar fácilmente la latencia de red entre dos socios de comunicación y restringir el rendimiento en las rutas críticas entre la capa de la aplicación de SAP y la capa de DBMS. En algunos escenarios que se han observado con los clientes, las aplicaciones virtuales de red pueden ocasionar que los clústeres Pacemaker Linux produzcan un error cuando las comunicaciones entre los nodos del clúster de Linux Pacemaker necesiten comunicarse con su dispositivo SBD mediante una NVA.  
+> 
+
+> [!IMPORTANT]
+> Otro diseño que **NO** se admite es la segregación de la capa de la aplicación de SAP ni la capa de DBMS en diferentes redes virtuales de Azure que no están [emparejadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre sí. Se recomienda separar la capa de la aplicación de SAP y la capa de DBMS con subredes dentro de una red virtual de Azure, en lugar de usar diferentes redes virtuales de Azure. Si decide no seguir la recomendación y, en su lugar, separa las dos capas en redes virtuales diferentes, las dos redes virtuales deben estar [emparejadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Tenga en cuenta que el tráfico entre dos redes virtuales de Azure [emparejadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) está sujeto a costes de transferencia. Debido al intercambio de un gran volumen de datos en terabytes entre la capa de la aplicación de SAP y la capa de DBMS, pueden acumularse costos sustanciales si la capa de la aplicación de SAP y la capa de DBMS se separan entre dos redes virtuales de Azure emparejadas. 
 
 Al instalar las máquinas virtuales para ejecutar SAP HANA, estas necesitan lo siguiente:
 
@@ -399,8 +403,8 @@ Consulte información adicional sobre las redes aceleradas de Azure [aquí](http
 
 Según las instrucciones de procedimientos recomendados de DT 2.0, el rendimiento de E/S de disco debe ser de 50 MB/s por núcleo físico, como mínimo. Al observar la especificación de los dos tipos de máquina virtual de Azure, que son compatibles con DT 2.0, el límite máximo de rendimiento de E/S de disco para la máquina virtual es:
 
-- E32sv3: 768 MB/s (no almacenado en caché), lo que significa una proporción de 48 MB/s por núcleo físico
-- M64-32ms: 1000 MB/s (no almacenado en caché), lo que significa una proporción de 62,5 MB/s por núcleo físico
+- E32sv3:   768 MB/s (no almacenado en caché), lo que significa una proporción de 48 MB/s por núcleo físico
+- M64-32 ms:  1000 MB/s (no almacenado en caché), lo que significa una proporción de 62,5 MB/s por núcleo físico
 
 Es necesario conectar varios discos de Azure a la máquina virtual de DT 2.0 y crear una matriz redundante de discos independientes de software (seccionado) en el nivel del sistema operativo para lograr el límite máximo de rendimiento de disco por máquina virtual. Un único disco de Azure no puede proporcionar el rendimiento para alcanzar el límite máximo para las máquinas virtuales en este sentido. Se requiere Azure Premium Storage para ejecutar DT 2.0. 
 

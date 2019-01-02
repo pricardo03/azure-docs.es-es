@@ -1,20 +1,21 @@
 ---
-title: Recepción de eventos desde Azure Event Hubs mediante Java | Microsoft Docs
-description: Introducción a la recepción de eventos desde Event Hubs mediante Java
+title: 'Recepción de eventos mediante Java: Azure Event Hubs | Microsoft Docs'
+description: En este artículo se ofrece un tutorial para crear una aplicación de Java que recibe eventos de Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e29cf43f490bf5e8bac5e5c36b16476f93d80bfa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240639"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081969"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Recepción de eventos desde Azure Event Hubs mediante Java
 
@@ -44,11 +45,11 @@ Para usar EventProcessorHost, debe tener una [cuenta de Azure Storage][Azure Sto
 1. Inicie sesión en [Azure Portal][Azure portal] y haga clic en **+ Crear un recurso** en la parte izquierda de la pantalla.
 2. Haga clic en **Storage** y luego en **Cuenta de Storage**. En la ventana **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento. Complete el resto de los campos, seleccione la región que desee y, finalmente, haga clic en **Crear**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Crear cuenta de almacenamiento](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. Haga clic en la cuenta de almacenamiento recién creada y, a continuación, en **Claves de acceso**:
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Obtención de las claves de acceso](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
     Copie el valor key1 en una ubicación temporal. Lo usará más adelante en este tutorial.
 
@@ -277,7 +278,7 @@ Cree una clase que implemente la interfaz com.microsoft.azure.eventprocessorhost
 
 Use la implementación personalizada del administrador de puntos de control (com.microsoft.azure.eventprocessorhost.ICheckpointManager).
 
-Dentro de su implementación, puede reemplazar el mecanismo de puntos de control predeterminado e implementar nuestros propios puntos de control en función de su propio almacén de datos (SQL Server, CosmosDB, Redis Cache, etc.). Se recomienda que el almacén usado para respaldar la implementación del administrador de puntos de control sea accesible para todas las instancias de EPH que van a procesar eventos para el grupo de consumidores.
+Dentro de su implementación, puede reemplazar el mecanismo de puntos de control predeterminado e implementar nuestros propios puntos de control en función de su propio almacén de datos (SQL Server, CosmosDB, Azure Cache for Redis, etc.). Se recomienda que el almacén usado para respaldar la implementación del administrador de puntos de control sea accesible para todas las instancias de EPH que van a procesar eventos para el grupo de consumidores.
 
 Puede usar cualquier almacén de datos que esté disponible en su entorno.
 

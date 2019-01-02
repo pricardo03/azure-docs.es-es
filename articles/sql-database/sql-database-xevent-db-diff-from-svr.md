@@ -3,7 +3,7 @@ title: Eventos extendidos en SQL Database | Microsoft Docs
 description: Describe los eventos extendidos (XEvents) en Azure SQL Database y cómo las sesiones de eventos difieren ligeramente de las sesiones de eventos en Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 482faaea7089e095da13a2bae5f5937e20d50616
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b51f4a4a4d00bcfaa1baf1c46ad7f6eb638ad2b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246759"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867875"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos extendidos en SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -32,7 +32,7 @@ En este tema se explica cómo la implementación de eventos extendidos en Azure 
 
 Se puede encontrar información adicional sobre eventos extendidos, para Azure SQL Database y Microsoft SQL Server, en:
 
-- [Quick Start: Extended events in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Inicio rápido: Eventos extendidos en SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Eventos extendidos](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Requisitos previos

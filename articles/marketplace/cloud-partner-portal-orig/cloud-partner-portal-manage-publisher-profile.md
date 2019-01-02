@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 16e3e73e00af1cc6c2c531575345f12c288f1b69
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853700"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832690"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Administración del perfil de anunciante de "Azure Marketplace" y "AppSource"
 
@@ -27,7 +27,7 @@ Este documento es un tutorial para ver y administrar los usuarios del perfil de 
 
 En este punto, ha completado los pasos para convertirse en anunciante de Azure Marketplace y AppSource. El perfil de anunciante se ha registrado en **[Cloud Partner Portal](https://cloudpartner.azure.com/)**  después de que se haya aprobado la solicitud del asociado. El perfil de anunciante se aplicará a todas las ofertas y SKU que se publiquen desde la cuenta usada durante el registro del asociado.
 
-Si aún no ha registrado su empresa como Cloud Partner, vea [Introducción a Cloud Partner Portal](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal).
+Si aún no ha registrado su empresa como Cloud Partner, vea [Introducción a Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
 **Perfil de anunciante**: distingue su empresa en Azure Marketplace y AppSource. Consta de los Id. de anunciante, el nombre para mostrar y las direcciones de correo electrónico del propietario. Un perfil bien administrado aumenta la visibilidad y ayuda a los usuarios de marketplace a identificar fácilmente y seleccionar las ofertas adecuadas.
 

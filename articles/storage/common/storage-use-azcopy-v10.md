@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: a1b183e5b0929a2149502aa340e2e69c725dba6d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2ab933506ea03ae72198113d70888460e5001a6d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168249"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958429"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transferencia de datos con AzCopy v10 (versión preliminar)
 
@@ -84,6 +84,16 @@ Para ver la página de ayuda y los ejemplos de un comando específico, ejecute e
 .\azcopy cp -h
 ```
 
+## <a name="create-a-file-system-azure-data-lake-storage-gen2-only"></a>Creación de un sistema de archivos (solo Azure Data Lake Storage Gen2)
+
+Si ha habilitado espacios de nombres jerárquicos en la cuenta de almacenamiento de blobs, puede usar el comando siguiente para crear un sistema de archivos para poder cargar y descargar archivos en él.
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+```
+
+La parte ``account`` de esta cadena es el nombre de la cuenta de almacenamiento. La parte ``top-level-resource-name`` de esta cadena es el nombre del sistema de archivos que desea crear.
+
 ## <a name="copy-data-to-azure-storage"></a>Copia de datos a Azure Storage
 
 Utilice el comando de copia para transferir datos desde el origen al destino. El origen o el destino pueden ser:
@@ -107,10 +117,22 @@ El siguiente comando carga todos los archivos en la carpeta C:\local\ruta de acc
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
+Si ha habilitado espacios de nombres jerárquicos en la cuenta de almacenamiento de blobs, puede usar el comando siguiente para cargar archivos en el sistema de archivos:
+
+```azcopy
+.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
+```
+
 El siguiente comando carga todos los archivos en la carpeta C:\local\ruta de acceso (sin recurrencia en los subdirectorios) en el contenedor "mycontainer1":
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+```
+
+Si ha habilitado espacios de nombres jerárquicos en la cuenta de almacenamiento de blobs, puede usar el comando siguiente:
+
+```azcopy
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 Para obtener más ejemplos, use el siguiente comando:
@@ -127,6 +149,8 @@ Para copiar los datos entre dos cuentas de almacenamiento, use el siguiente coma
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
+
+Para trabajar con cuentas de almacenamiento de blobs que tienen espacios de nombres jerárquicos habilitados, reemplace la cadena ``blob.core.windows.net`` con ``dfs.core.windows.net`` en estos ejemplos.
 
 > [!NOTE]
 > El comando enumerará todos los contenedores de blobs y los copiará en la cuenta de destino. En este momento, AzCopy v10 admite copiar solo los blobs en bloques entre dos cuentas de almacenamiento. Se omitirán todos los demás objetos de la cuenta de almacenamiento (anexar blobs, blobs en páginas, archivos, tablas y colas).
@@ -154,6 +178,8 @@ Del mismo modo, puede sincronizar un contenedor de blobs en un sistema de archiv
 ```
 
 El comando le permite sincronizar de forma incremental el origen en el destino según las últimas marcas de tiempo modificadas. Si agrega o elimina un archivo en el origen, AzCopy v10 hará lo mismo en el destino.
+
+[!NOTE] Para trabajar con cuentas de almacenamiento de blobs que tienen espacios de nombres jerárquicos habilitados, reemplace la cadena ``blob.core.windows.net`` con ``dfs.core.windows.net`` en estos ejemplos.
 
 ## <a name="advanced-configuration"></a>Configuración avanzada
 

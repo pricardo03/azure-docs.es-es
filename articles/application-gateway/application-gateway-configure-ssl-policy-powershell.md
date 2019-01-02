@@ -1,23 +1,19 @@
 ---
 title: Configuración de la directiva SSL en Azure Application Gateway mediante PowerShell
-description: Esta página proporciona instrucciones para configurar la directiva SSL en Azure Application Gateway
-documentationcenter: na
+description: Este artículo proporciona instrucciones para configurar la directiva SSL en Azure Application Gateway.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: 4c9ca5cee14603fb39115defc574aa7e956886ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7afa628ea455aa28f1717de8da66b631baeee4f1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232143"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870460"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versiones de directivas SSL y conjuntos de cifrado en Application Gateway
 
@@ -110,7 +106,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Configuración de una directiva SSL personalizada
 
-Cuando configura una directiva SSL personalizada, pasa los parámetros siguientes: PolicyType, MinProtocolVersion, CipherSuite y ApplicationGateway. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway. 
+Al configurar una directiva SSL personalizada, se pasan los parámetros siguientes: PolicyType, MinProtocolVersion, CipherSuite y ApplicationGateway. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway. 
 
 En el ejemplo siguiente se establece una directiva SSL personalizada en una instancia de Application Gateway. Establece la versión mínima del protocolo en `TLSv1_1` y habilita los siguientes conjuntos de cifrado:
 
@@ -119,7 +115,8 @@ En el ejemplo siguiente se establece una directiva SSL personalizada en una inst
 
 > [!IMPORTANT]
 > Se debe seleccionar al menos un conjunto de cifrado de la siguiente lista al configurar una directiva SSL personalizada. Application Gateway usa conjuntos de cifrado RSA SHA256 para la administración de back-end.
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 > * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_RSA_WITH_AES_128_GCM_SHA256
@@ -142,7 +139,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Creación de una puerta de enlace de aplicaciones con una directiva SSL predefinida
 
-Cuando configura una directiva SSL predefinida, pasa los parámetros siguientes: PolicyType, PolicyName y ApplicationGateway. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway.
+Al configurar una directiva SSL predefinida, se pasan los parámetros siguientes: PolicyType, PolicyName y ApplicationGateway. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway.
 
 En el ejemplo siguiente se crea una nueva puerta de enlace de aplicaciones con una directiva SSL predefinida.
 
@@ -199,7 +196,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.Re
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Actualización de una instancia de Application Gateway existente con una directiva SSL predefinida
 
-Para establecer una directiva SSL personalizada, pase los parámetros siguientes: **PolicyType**, **MinProtocolVersion**, **CipherSuite** y **ApplicationGateway**. Para establecer una directiva SSL predefinida, pase los parámetros siguientes: **PolicyType**, **PolicyName** y **ApplicationGateway**. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway.
+Para configurar una directiva SSL personalizada, pase los parámetros siguientes: **PolicyType**, **MinProtocolVersion**, **CipherSuite** y **ApplicationGateway**. Para configurar una directiva SSL predefinida, pase los parámetros siguientes: **PolicyType**, **PolicyName** y **ApplicationGateway**. Si intenta pasar otros parámetros, obtiene un error cuando crea o actualiza Application Gateway.
 
 En el ejemplo siguiente, hay ejemplos de código para la directiva personalizada y la directiva predefinida. Quite la marca de comentario de la directiva que desea usar.
 

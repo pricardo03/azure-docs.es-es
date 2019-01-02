@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 6c16cd95fce7d3f367f0ded73c3635d8cefea7a0
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0000e5d8bfa7da6ebe1b6702649e56262c9d9cab
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493994"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277376"
 ---
 # <a name="sfctl-replica"></a>réplica de sfctl
 Administre las réplicas que pertenecen a las particiones del servicio.
@@ -184,7 +184,7 @@ Esta API simula un error de réplica de Service Fabric mediante la eliminación 
 ## <a name="sfctl-replica-report-health"></a>sfctl replica report-health
 Envía un informe de mantenimiento sobre la réplica de Service Fabric.
 
-Informa del estado de mantenimiento de la réplica de Service Fabric especificada. El informe debe contener la información sobre el origen del informe de mantenimiento y la propiedad sobre la cual se informa. El informe se envía a una réplica de puerta de enlace de Service Fabric, que lo reenvía al almacén de estado. El portal puede aceptar el informe, pero el almacén de estado puede rechazarlo después de una validación adicional. Por ejemplo, el almacén de estado puede rechazar el informe debido a un parámetro no válido, como un número de secuencia obsoleto. Para ver si el informe se ha aplicado en el almacén de estado, compruebe que aparece en la sección de eventos.
+Informa del estado de mantenimiento de la réplica de Service Fabric especificada. El informe debe contener la información sobre el origen del informe de mantenimiento y la propiedad sobre la cual se informa. El informe se envía a una réplica de puerta de enlace de Service Fabric, que lo reenvía al almacén de estado. El portal puede aceptar el informe, pero el almacén de estado puede rechazarlo después de una validación adicional. Por ejemplo, el almacén de estado puede rechazar el informe debido a un parámetro no válido, como un número de secuencia obsoleto. Para ver si el informe se ha aplicado en el almacén de estado, ejecute get replica health y compruebe que aparece en la sección HealthEvents.
 
 ### <a name="arguments"></a>Argumentos
 

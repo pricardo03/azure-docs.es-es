@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 558b426ea85decb0309390e36910eb18719e6e99
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002534"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680861"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen2 (versión preliminar) con Azure Data Factory
 
-[Azure Data Lake Storage Gen2 (versión preliminar)](../storage/data-lake-storage/introduction.md) agrega un protocolo con características de seguridad y espacio de nombres del sistema de archivo jerárquicas a Azure Blob Storage, lo que facilita conectar marcos de trabajo de análisis a una capa de almacenamiento duradero. En Data Lake Storage Gen2 (Versión preliminar), permanecen todas las cualidades del almacenamiento de objetos y se agregan las ventajas de una interfaz de sistema de archivos.
+Azure Data Lake Storage Gen2 (versión preliminar) es un conjunto de funcionalidades dedicadas al análisis de macrodatos, creadas en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Permite establecer una conexión con los datos usando tanto el sistema de archivos como el almacenamiento de objetos.
 
 Azure Data Factory es un servicio de integración de datos en la nube totalmente administrado. Puede utilizar el servicio para rellenar el lago con datos de un amplio conjunto de almacenes de datos locales y basados en la nube y ahorrar tiempo al crear las soluciones de análisis. Para una lista detallada de conectores admitidos, consulte la tabla de [Almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -33,9 +33,9 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* Una cuenta de Azure Storage con Data Lake Storage Gen2 habilitado: si no tiene una cuenta de Storage, haga clic [aquí](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) para crear una.
-* Una cuenta de AWS con un depósito S3 que contiene los datos: este artículo muestra cómo copiar datos desde Amazon S3. Puede usar otros almacenes de datos siguiendo los mismos pasos.
+* Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Cuenta de Azure Storage con Data Lake Storage Gen2 habilitado: Si no tiene una cuenta de Storage, haga clic [en este vínculo](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) para crear una.
+* Cuenta de AWS con un cubo de S3 que contiene datos: En este artículo se muestra cómo copiar datos de Amazon S3. Puede usar otros almacenes de datos siguiendo los mismos pasos.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
@@ -48,9 +48,9 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
  
     * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadADLSDemo\" no está disponible", escriba uno diferente. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
     * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
-    * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+    * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versión**: seleccione **V2**.
-    * **Ubicación**: seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. 
+    * **Ubicación**: Seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. 
 
 3. Seleccione **Crear**.
 4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos**, tal y como se muestra en la siguiente imagen: 
@@ -76,14 +76,14 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
     ![Página del almacén de datos de origen S3](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
     
 4. En la página **Specify Amazon S3 connection** (Especificar conexión de Amazon S3), siga estos pasos:
-   1. Especifique el valor de **Access Key ID** (Identificador de clave de acceso).
-   2. Especifique el valor de **Secret Access Key** (Clave de acceso secreta).
-   3. Haga clic en **Test connection** (Prueba de conexión) para validar la configuración y, después, seleccione **Finish** (Finalizar).
+
+    1. Especifique el valor de **Access Key ID** (Identificador de clave de acceso).
+    2. Especifique el valor de **Secret Access Key** (Clave de acceso secreta).
+    3. Haga clic en **Test connection** (Prueba de conexión) para validar la configuración y, después, seleccione **Finish** (Finalizar).
+    4. Podrá ver una nueva conexión creada. Seleccione **Next** (Siguiente).
    
-   ![Especificación de la cuenta de Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   
-   4. Podrá ver una nueva conexión creada. Seleccione **Next** (Siguiente).
-   
+    ![Especificación de la cuenta de Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      
 5. En la página **Choose the input file or folder** (Elegir archivo o carpeta de entrada), vaya a la carpeta y el archivo que desea copiar. Seleccione la carpeta o el archivo y seleccione **Choose** (Elegir):
 
     ![Elegir archivo o carpeta de entrada](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
@@ -99,7 +99,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 8. En la página **Specify Azure Data Lake Storage connection** (Especificar conexión de Azure Data Lake Storage), siga estos pasos:
 
    1. Seleccione la cuenta habilitada para Data Lake Storage Gen2 en la lista desplegable "Storage account name" (Nombre de la cuenta de almacenamiento).
-   2. Seleccione **Next** (Siguiente).
+   2. Seleccione **Finalizar** para crear la conexión. Luego, seleccione **Siguiente**.
    
    ![Especificación de una cuenta de Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
@@ -134,7 +134,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 Al copiar grandes volúmenes de datos desde un almacén de datos basado en archivos, se recomienda:
 
-- Particionar los archivos en conjuntos de archivos de 10 TB a 30 TB.
+- Particione los archivos en conjuntos de archivos de 10 TB a 30 TB.
 - No desencadenar demasiadas ejecuciones de copia simultáneas para evitar limitaciones en los almacenes de datos de origen y de destino. Puede comenzar con una ejecución de copia, supervisar el rendimiento y, gradualmente, agregar más según sea necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes

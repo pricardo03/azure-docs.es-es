@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e2dabc66a906d35525f51bf9a1c09b62430ded55
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434014"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874590"
 ---
 # <a name="azure-logging-and-auditing"></a>Registro y auditoría de Azure
 
@@ -147,7 +147,7 @@ Si está interesado en conservar los eventos de auditoría más tiempo, utilice 
 
 ![Registros de máquina virtual que usan Azure Diagnostics](./media/azure-log-audit/azure-log-audit-fig3.png)
 
-### <a name="azure-virtual-machineshttpsazuremicrosoftcomdocumentationlearning-pathsvirtual-machines-that-are-running-microsoft-windows-and-service-fabrichttpsdocsmicrosoftcomazureservice-fabricservice-fabric-overview"></a>[Máquinas virtuales de Azure](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/) con Microsoft Windows y [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview).
+### <a name="azure-virtual-machineslearnpathsdeploy-a-website-with-azure-virtual-machines-that-are-running-microsoft-windows-and-service-fabrichttpsdocsmicrosoftcomazureservice-fabricservice-fabric-overview"></a>[Máquinas virtuales de Azure](/learn/paths/deploy-a-website-with-azure-virtual-machines/) con Microsoft Windows y [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview).
 
 Puede habilitar Azure Diagnostics en una máquina virtual mediante alguna de las siguientes opciones:
 
@@ -227,11 +227,11 @@ Además de las funcionalidades de registro anteriores, Network Watcher tiene act
 
 * [Próximo salto](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): determina el próximo salto para los paquetes que se enrutan en el tejido de red de Azure, lo que le permite diagnosticar cualquier ruta definida por el usuario que se haya configurado incorrectamente.
 
-* [Vista de grupo de seguridad](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): obtiene las reglas de seguridad eficaces que se aplican en una VM.
+* [Vista de grupo de seguridad](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Obtiene las reglas de seguridad eficaces que se aplican en una máquina virtual.
 
-* [Solución de problemas de la puerta de enlace de red virtual y de las conexiones](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): le ayuda a solucionar problemas con las puertas de enlace de red virtual y las conexiones.
+* [Solución de problemas de las conexiones y la puerta de enlace de Virtual Network](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): ayuda a solucionar problemas de las conexiones y las puertas de enlace de Virtual Network.
 
-* [Límites de suscripción de red](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): le permite ver el uso de los recursos de la red en comparación con los límites.
+* [Límites de suscripción de red](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): permite ver el uso de los recursos de la red en comparación con los límites.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -245,13 +245,13 @@ Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como
 
 Application Insights está dirigido al equipo de desarrollo y sirve ayudarle a conocer el rendimiento de una aplicación y cómo se utiliza. Supervisa:
 
-* **Tasas de solicitud, tiempos de respuesta y tasas de error**: averigüe qué páginas son las más populares, en qué momento del día y dónde están los usuarios. Vea qué páginas presentan mejor rendimiento. Si los tiempos de respuesta y las tasas de error aumentan cuando hay más solicitudes, quizás tiene un problema de recursos.
+* **Tasas de solicitudes, tiempos de respuesta y tasas de error**: averigüe qué páginas son las más populares, en qué momento del día y dónde están los usuarios. Vea qué páginas presentan mejor rendimiento. Si los tiempos de respuesta y las tasas de error aumentan cuando hay más solicitudes, quizás tiene un problema de recursos.
 
-* **Tasas de dependencia, tiempos de respuesta y tasas de error**: averigüe si los servicios externos le ralentizan.
+* **Tasas de dependencias, tiempos de respuesta y tasas de error**: averigüe si los servicios externos producen ralentización.
 
 * **Excepciones**: analice las estadísticas agregadas o seleccione instancias concretas y profundice en el seguimiento de la pila y las solicitudes relacionadas. Se notifican tanto las excepciones de servidor como las de explorador.
 
-* **Vistas de página y rendimiento de carga**: obtenga informes de los exploradores de los usuarios.
+* **Rendimiento de carga y vistas de página**: obtenga informes de los exploradores de los usuarios.
 
 * **Llamadas AJAX**: obtenga tasas de páginas web, tiempos de respuesta y tasas de error.
 
@@ -278,7 +278,7 @@ La tabla siguiente enumera y describe escenarios de integración:
 |[Alertas automáticas y manuales](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Las alertas automáticas se adaptan a los patrones normales de telemetría de la aplicación y se desencadenan cuando algo no responde al patrón habitual. También puede establecer alertas sobre niveles de métricas estándares o personalizadas.||
 |[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Visualice los datos de rendimiento en el código. Vaya al código desde los seguimientos de la pila.||
 |[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integre métricas de uso con otra inteligencia empresarial.||
-|[API de REST](https://dev.applicationinsights.io/)|Escriba código para ejecutar consultas sobre las métricas y los datos sin procesar.||
+|[API DE REST](https://dev.applicationinsights.io/)|Escriba código para ejecutar consultas sobre las métricas y los datos sin procesar.||
 |[Exportación continua](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Exportación masiva de datos sin procesar al almacenamiento cuando llegan.||
 
 ### <a name="azure-security-center-alerts"></a>Alertas de Azure Security Center
@@ -290,7 +290,7 @@ Security Center utiliza análisis avanzados que superan con creces los enfoques 
 
 * **Información integrada sobre amenazas**: busca actores malintencionados conocidos aplicando la información global sobre amenazas de los productos y servicios de Microsoft, la Unidad de crímenes digitales de Microsoft (DCU), Microsoft Security Response Center (MSRC) y otras fuentes externas.
 
-* **Análisis del comportamiento**: aplica patrones conocidos para detectar comportamientos malintencionados.
+* **Análisis del comportamiento**: aplica patrones conocidos para identificar comportamientos malintencionados.
 
 * **Detección de anomalías**: usa la generación de perfiles estadísticos para crear una base de referencia histórica. Alerta de las desviaciones de las referencias que se ajustan a un posible vector de ataque.
 
@@ -371,15 +371,15 @@ Azure Log Integration admite actualmente la integración de registros de activid
 
 Escenarios de integración para SIEM:
 
-* [Pasos de configuración para soluciones de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): esta entrada de blog le muestra cómo configurar Azure Log Integration para que funcione con soluciones de asociados, como Splunk, HP ArcSight y IBM QRadar.
+* [Pasos de configuración de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): Esta entrada de blog muestra cómo configurar la integración de registro de Azure para trabajar con soluciones de asociados como Splunk, HP ArcSight e IBM QRadar.
 
-* [Preguntas más frecuentes sobre Azure Log Integration](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq). Este artículo de preguntas más frecuentes responde a preguntas sobre Azure Log Integration.
+* [Preguntas más frecuentes sobre Azure Log Integration](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): Este artículo responde a las preguntas sobre Azure Log Integration.
 
 * [Integración de las alertas de Security Center con Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): este artículo describe cómo sincronizar las alertas de Security Center, además de los eventos de seguridad de máquina virtual recopilados por los registros de Azure Diagnostics y los registros de auditoría de Azure, con Log Analytics o una solución SIEM.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Auditoría y registro](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview): proteja los datos mediante el mantenimiento de la visibilidad y la rápida respuesta a las alertas de seguridad puntuales
+- [Auditoría y registro](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview): proteja los datos mediante el mantenimiento de la visibilidad y la rápida respuesta a las alertas de seguridad puntuales.
 
 - [Registro de seguridad y recopilación de registros de auditoría en Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): aplique esta configuración para asegurarse de que las instancias de Azure están recopilando los registros de seguridad y auditoría correctos.
 

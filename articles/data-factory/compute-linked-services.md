@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390218"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873837"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -27,7 +27,7 @@ En la tabla siguiente se proporciona una lista de entornos de proceso compatible
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Clúster de HDInsight a petición](#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Personalizada](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Actividades de Machine Learning: ejecución de Batch y recurso de actualización](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Actividades de Machine Learning: ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) |
 | [Análisis con Azure Data Lake](#azure-data-lake-analytics-linked-service) | [U-SQL de análisis con Data Lake](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimiento almacenado](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
@@ -48,11 +48,7 @@ Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vincul
 * El clúster de HDInsight a petición se crea bajo la suscripción de Azure. Es capaz de ver el clúster en Azure Portal cuando el clúster está activo y en ejecución. 
 * Los registros de trabajos que se ejecutan en un clúster de HDInsight a petición se copian en la cuenta de almacenamiento asociada al clúster de HDInsight. clusterUserName, clusterPassword, clusterSshUserName y clusterSshPassword que aparecen en la definición del servicio vinculado se utilizan para iniciar sesión en el clúster para la solución de problemas detallada durante el ciclo de vida del clúster. 
 * Se le cobrará solo por el tiempo en el que el clúster de HDInsight esté en ejecución y realizando trabajos.
-* No se puede usar una acción de script con el servicio vinculado a petición de Azure HDInsight. Si, por ejemplo, tiene que instalar otras dependencias, considere la posibilidad de usar Azure Automation para ejecutar un script de PowerShell que realice lo siguiente:  
-  a. Cree el clúster de HDInsight.  
-  b. Ejecute una acción de script para instalar otras dependencias, por ejemplo.  
-  c. Ejecute la canalización de Data Factory.  
-  d. Elimine el clúster.  
+* La acción de script ahora es compatible con el servicio vinculado a petición de Azure HDInsight.  
 
 > [!IMPORTANT]
 > El aprovisionamiento bajo demanda de un clúster de Azure HDInsight suele tardar **20 minutos** o más.
@@ -230,9 +226,9 @@ Puede especificar los tamaños de los nodos principal, de datos y de zookeeper c
 
 | Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | :---------------- | :--------------------------------------- | :------- |
-| headNodeSize      | Especifica el tamaño del nodo principal. El valor predeterminado es: Standard_D3 Consulte la sección **Especificación de tamaños de nodos** para más información. | Sin        |
-| dataNodeSize      | Especifica el tamaño del nodo de datos. El valor predeterminado es: Standard_D3 | Sin        |
-| zookeeperNodeSize | Especifica el tamaño del nodo de Zoo Keeper. El valor predeterminado es: Standard_D3 | Sin        |
+| headNodeSize      | Especifica el tamaño del nodo principal. El valor predeterminado es: Standard_D3. Consulte la sección **Especificación de tamaños de nodos** para más información. | Sin        |
+| dataNodeSize      | Especifica el tamaño del nodo de datos. El valor predeterminado es: Standard_D3. | Sin        |
+| zookeeperNodeSize | Especifica el tamaño del nodo de Zoo Keeper. El valor predeterminado es: Standard_D3. | Sin        |
 
 #### <a name="specifying-node-sizes"></a>Especificación de tamaños de nodo
 Consulte el artículo [Tamaños de máquinas virtuales](../virtual-machines/linux/sizes.md) para conocer los valores de cadena que debe especificar para las propiedades mencionadas anteriormente. Los valores deben ser conformes a los **CMDLET y API** a los que se hace referencia en el artículo. Como puede ver en el artículo, el nodo de datos de tamaño grande (valor predeterminado) tiene 7 GB de memoria, que es posible que no sea lo suficientemente bueno para su escenario. 
@@ -244,7 +240,7 @@ Si quiere crear nodos de trabajo y principales de tamaño D4, especifique **Stan
 "dataNodeSize": "Standard_D4",
 ```
 
-Si especifica un valor incorrecto para estas propiedades, puede recibir el siguiente **error:** Error al crear el clúster. Excepción: No se puede completar la operación de creación del clúster. Error en la operación con el código '400'. El clúster generó el estado: 'Error'. Mensaje: 'PreClusterCreationValidationFailure'. Si recibe este error, asegúrese de que está usando el nombre de **CMDLET y API** de la tabla del artículo [Tamaños de las máquinas virtuales](../virtual-machines/linux/sizes.md).        
+Si especifica un valor incorrecto para estas propiedades, puede recibir el siguiente **error**: Error al crear el clúster. Excepción: No se puede completar la operación de creación del clúster. Error en la operación con el código '400'. El clúster generó el estado: “Error”. Mensaje: “PreClusterCreationValidationFailure”. Si recibe este error, asegúrese de que está usando el nombre de **CMDLET y API** de la tabla del artículo [Tamaños de las máquinas virtuales](../virtual-machines/linux/sizes.md).        
 
 ## <a name="bring-your-own-compute-environment"></a>Traer su propio entorno de procesos
 En este tipo de configuración, los usuarios pueden registrar un entorno de procesos existente como un servicio vinculado en la Factoría de datos. El usuario administra el entorno de procesos y el servicio Factoría de datos lo usa para ejecutar las actividades.
@@ -383,7 +379,7 @@ Un servicio vinculado de Azure Machine Learning se crea para registrar un punto 
 ### <a name="properties"></a>Properties (Propiedades)
 | Propiedad               | DESCRIPCIÓN                              | Obligatorio                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| type                   | La propiedad type se debe establecer en: **AzureML**. | SÍ                                      |
+| Escriba                   | La propiedad type se debe establecer en: **AzureML**. | SÍ                                      |
 | mlEndpoint             | La dirección URL de puntuación por lotes.                   | SÍ                                      |
 | apiKey                 | La API del modelo de área de trabajo publicado.     | SÍ                                      |
 | updateResourceEndpoint | Dirección URL de recursos de actualización para un punto de conexión de servicio web de Azure ML utilizado para actualizar el servicio web de predicción con el archivo de modelo entrenado. | Sin                                        |
@@ -487,7 +483,7 @@ Puede crear un **servicio vinculado de Azure Databricks** para registrar el áre
 | Propiedad             | DESCRIPCIÓN                              | Obligatorio                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | Nombre                 | Nombre del servicio vinculado               | SÍ   |
-| Tipo                 | La propiedad type se debe establecer en **AzureDatabricks**. | SÍ                                      |
+| Tipo                 | La propiedad type se debe establecer en: **AzureDatabricks**. | SÍ                                      |
 | dominio               | Especifica la región de Azure según corresponda en función de la región del área de trabajo de Databricks. Ejemplo: https://eastus.azuredatabricks.net | SÍ                                 |
 | accessToken          | El token de acceso es necesario para que Data Factory se autentique en Azure Databricks. El token de acceso debe generarse a partir del área de trabajo de Databricks. [Aquí](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token) encontrará más pasos detallados para encontrar el token de acceso.  | SÍ                                       |
 | existingClusterId    | Identificador de un clúster existente para ejecutar todos los trabajos en él. Debe tratarse de un clúster interactivo que ya se haya creado. Debe reiniciar manualmente el clúster si deja de responder. Databricks sugiere la ejecución de trabajos en clústeres nuevos para mayor confiabilidad. Encontrará el identificador del clúster interactivo en el área de trabajo de Databricks -> Clusters -> Interactive Cluster Name -> Configuration -> Tags (Clústeres -> Nombre del clúster interactivo -> Configuración -> Etiquetas). [Más detalles](https://docs.databricks.com/user-guide/clusters/tags.html) | Sin  

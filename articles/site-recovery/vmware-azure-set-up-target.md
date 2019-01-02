@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cbf9c1a49481de49fb8d9c6599acec7bc3600df3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233436"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837518"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparación del entorno de destino para la recuperación ante desastres de máquinas virtuales de VMware o servidores físicos en Azure
 
@@ -27,12 +27,12 @@ En este artículo se da por supuesto lo siguiente:
 
 ## <a name="prepare-target"></a>Preparación del destino
 
-Después de completar el **Paso 1: Selección del objetivo de protección** y el **Paso 2: Preparación del origen**, irá al **Paso 3: Destino**.
+Después de completar el **Paso 1: Selección del objetivo de protección** y el **Paso 2: Preparación del origen**, se le dirigirá al **Paso 3: Destino**
 
 ![Preparación del destino](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
-1. **Suscripción:** En el menú desplegable, seleccione la suscripción en la que quiere replicar las máquinas virtuales o los servidores físicos.
-2. **Modelo de implementación:** Seleccione el modelo de implementación (clásica o Resource Manager).
+1. **Suscripción:** en el menú desplegable, seleccione la suscripción en la que quiere replicar las máquinas virtuales o los servidores físicos.
+2. **Modelo de implementación:** seleccione el modelo de implementación (clásico o Resource Manager)
 
 Según el modelo de implementación elegido, se ejecuta una validación para asegurarse de que tiene al menos una cuenta de almacenamiento compatible y una red virtual en la conmutación de destino en la que replicar y conmutar por error las máquinas virtuales o los servidores físicos.
 

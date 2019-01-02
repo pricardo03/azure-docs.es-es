@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: fd00fb8da3cf36518f9e28e827e59fd7ff45d687
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8abbbba0cdac783dd315cd1f0965e03c4e5a1a05
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622217"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434552"
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Delegación de invitaciones de la colaboración B2B de Azure Active Directory
 
@@ -32,9 +32,12 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 ## <a name="control-who-can-invite"></a>Controlar quién puede invitar
 
-Vaya a Azure Active Directory > Configuración de usuario > Administrar configuración de colaboración externa.
+En Azure Active Directory, seleccione **Configuración de usuario**. En **Usuarios externos**, seleccione **Administrar la configuración de colaboración externa**.
 
-![externalusers](https://user-images.githubusercontent.com/13383753/45905128-2c47f680-bda4-11e8-955d-6219c67935e0.PNG)
+> [!NOTE]
+> La opción **Configuración de colaboración externa** también está disponible en la página **Relaciones de organización**. En Azure Active Directory, en **Administrar**, vaya a **Relaciones de organización** > **Configuración**.
+
+![Configuración de colaboración externa](./media/delegate-invitations/control-who-to-invite.png)
 
 Gracias a la colaboración B2B de Azure AD, el administrador de inquilinos puede establecer las siguientes directivas de invitación:
 

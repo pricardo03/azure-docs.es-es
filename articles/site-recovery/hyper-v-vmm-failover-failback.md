@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 828f8e78f24380303f30260c39f837f0ba3524e6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210013"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832381"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Conmutación por error y por recuperación de máquinas virtuales de Hyper-V replicadas a su sitio local secundario
 
@@ -30,8 +30,8 @@ En este artículo se describe cómo conmutar por error una máquina virtual admi
 
 La conmutación por error y por recuperación consta de tres etapas:
 
-1. **Conmutación por error al sitio secundario**: las máquinas conmutan por error del sitio primario al secundario.
-2. **Conmutación por recuperación desde el sitio secundario**: las máquinas virtuales se replican desde el sitio secundario al primario y ejecutan una conmutación por error planeada a la conmutación por recuperación.
+1. **Conmutación por error a un sitio secundario**: las máquinas conmutan por error del sitio principal al secundario.
+2. **Conmutación por recuperación desde el sitio secundario**: replicación de máquinas virtuales del sitio secundario al principal y ejecución de una conmutación por error planeada para conmutar por recuperación.
 3. Después de la conmutación por error planeada, tiene la opción de comenzar a replicar desde el sitio primario al sitio secundario.
 
 
@@ -58,7 +58,7 @@ En este procedimiento se describe cómo se ejecuta una conmutación por error no
 3. Después de comprobar la máquina virtual, **confirme** la conmutación por error. Esta acción elimina todos los puntos de recuperación disponibles.
 
 > [!WARNING]
-> **No cancele una conmutación por error en curso**: antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.  
+> **No cancele una conmutación por error en curso**: Antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Replicación inversa y conmutación por error

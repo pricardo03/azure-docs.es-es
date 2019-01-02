@@ -1,5 +1,5 @@
 ---
-title: Supervisión de Azure SQL Database con vistas de administración dinámica | Microsoft Docs
+title: Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica | Microsoft Docs
 description: Obtenga información sobre cómo detectar y diagnosticar problemas comunes de rendimiento con vistas de administración dinámica para supervisar Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: c690e9b864d4b2b378814b478ea4918a9f75fbba
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88e0ad847d8d779bd769ed73d4f0393ddfb65588
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288534"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876320"
 ---
-# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Supervisar Azure SQL Database con vistas de administración dinámica
+# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica
 
 Microsoft Azure SQL Database habilita un subconjunto de vistas de administración dinámica para diagnosticar problemas de rendimiento, que pueden deberse a consultas bloqueadas o de ejecución prolongada, cuellos de botella de recursos, planes de consulta deficientes, etc. En este tema se ofrece información sobre cómo encontrar problemas comunes de rendimiento con vistas de administración dinámica.
 
@@ -132,7 +132,7 @@ ORDER BY end_time DESC;
 Si se ha alcanzado el límite de E/S, tiene dos opciones:
 
 - Opción 1: Actualizar el tamaño de proceso o nivel de servicio
-- Opción 2: Identificar y optimizar las consultas que utilizan la mayoría de E/S.
+- Opción 2: Identificar y optimizar las consultas que utilizan la mayoría de E/S
 
 #### <a name="view-buffer-related-io-using-the-query-store"></a>Ver E/S relacionadas con el búfer mediante el Almacén de consultas
 

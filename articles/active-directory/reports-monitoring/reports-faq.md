@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cbf0895274672c053158cf07acb344908b37831
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 98a1dd3fb3fd733cc17ac9c6ccf9d0dfc77737e1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623475"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868028"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
@@ -94,7 +94,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: ¿Qué API utilizo para obtener información sobre los registros de actividad de Office 365?**
 
-**R:** Use las [API de Administración de Office 365](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview) para acceder a los registros de actividad de Office 365 a través de una API.
+**R:** Use las [API de Administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) para acceder a los registros de actividad de Office 365 a través de una API.
 
 ---
 
@@ -108,11 +108,11 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: Hay un evento de riesgo en Identity Protection, pero no veo el inicio de sesión correspondiente en el informe de inicios de sesión. ¿Es normal?**
 
-**R.:** Sí, Identity Protection evalúa el riesgo de todos los flujos de autenticación si es interactivo o no interactivo. Sin embargo, el informe únicamente de todos los inicios de sesión muestra los inicios de sesión interactivos.
+**R:** Sí, Identity Protection evalúa el riesgo de todos los flujos de autenticación si es interactivo o no interactivo. Sin embargo, el informe únicamente de todos los inicios de sesión muestra los inicios de sesión interactivos.
 
 ---
 
-**P: ¿Cómo puedo sé por qué un inicio de sesión o un usuario se marcó como en riesgo en Azure Portal?**
+**P: ¿Cómo puedo saber por qué un inicio de sesión o un usuario se marcó como peligroso en Azure Portal?**
 
 **R:** Si tiene una suscripción a **Azure AD Premium**, puede aprender más sobre los eventos de riesgo subyacentes mediante la selección de un usuario en **Usuarios marcados en riesgo** o la selección de un registro en el informe **Inicios de sesión de riesgo**. Si tiene una suscripción **gratuita** o **básica**, puede ver los usuarios en riesgo y los informes de inicios de sesión en riesgo, pero no puede ver la información de los eventos de riesgo subyacentes.
 
@@ -138,7 +138,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: ¿Cómo empiezo?**
 
-**R:** Para empezar:
+**R:** Primeros pasos:
     * Navegue hasta el informe de inicios de sesión en [Azure Portal](https://portal.azure.com). 
     * Haga clic en el inicio de sesión cuyos problemas desea solucionar.
     * Vaya a la pestaña **Acceso condicional**. Aquí puede ver todas las directivas que afectaron al inicio de sesión y el resultado de cada directiva. 

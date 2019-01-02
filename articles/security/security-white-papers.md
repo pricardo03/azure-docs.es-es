@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 5feedcd750841be159a7cf4a31f408aec2fffd38
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4bf99fb103850582ded56604d3f65ecd030cb167
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712983"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410043"
 ---
 # <a name="azure-security-white-papers"></a>Notas del producto de seguridad de Azure
 | | |
@@ -31,7 +31,7 @@ ms.locfileid: "51712983"
 |[Cifrado en reposo de datos de Azure](azure-security-encryption-atrest.md)|Se centra en cómo se protegen los datos en reposo en Azure y los distintos componentes que participan en la implementación de la protección de datos. Se revisan las ventajas y desventajas de los distintos enfoques clave de protección de la administración.|
 |[Registro y auditoría de Azure](azure-log-audit.md)|Se proporciona una introducción a la generación, recopilación y análisis de registros de seguridad provenientes de los servicios hospedados en Azure. Estos registros pueden ayudarle a obtener información detallada sobre la seguridad de las implementaciones de Azure. |
 |[Azure Network Security](abstract-azure-network-security.md)|Le introduce en la amplia variedad de controles de red que se pueden configurar para mejorar la seguridad de las soluciones que se implementan en Azure. Se centra en los controles de seguridad de red orientados al cliente.|
-|[Azure Functions y seguridad de plataforma sin servidor](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|En este documento descargable se tratan las ventajas de la informática sin servidor, y se ofrecen las consideraciones de seguridad y mitigaciones en el contexto de Azure. |
+|[Azure Functions y seguridad de plataforma sin servidor](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)|En este documento descargable se tratan las ventajas de la informática sin servidor, y se ofrecen las consideraciones de seguridad y mitigaciones en el contexto de Azure. |
 |[Seguridad del contenedor en Microsoft Azure](abstract-container-security-microsoft-azure.md)|Describe los contenedores, la implementación y administración de contenedores, y los servicios de plataforma nativa. También describe los problemas de seguridad en tiempo de ejecución que se producen con el uso de contenedores en la plataforma de Azure. |
 |[Seguridad operativa de Azure](abstract-azure-operational-security.md)|Se proporciona información completa sobre las tecnologías y los servicios de seguridad operativos orientados al cliente disponibles con Azure.|
 |[Funcionalidades técnicas de seguridad de Azure](azure-security-technical-capabilities.md)|Se centra en las características y la funcionalidad de seguridad que admiten Azure Storage, Azure SQL Database y el modelo de máquina virtual de Azure, y en las herramientas y la infraestructura para administrarlo todo.|
@@ -41,3 +41,5 @@ ms.locfileid: "51712983"
 |[Aislamiento en la nube pública de Azure](azure-isolation.md)|Se describe cómo Azure proporciona aislamiento contra usuarios malintencionados y no malintencionados. Sirve de guía para diseñar soluciones de nube al ofrecer a los arquitectos varias opciones de aislamiento. Se centra principalmente en los controles de seguridad orientados al cliente; no se abordan los Acuerdos de Nivel de Servicio, los modelos de precios y las consideraciones prácticas sobre DevOps.|
 |[Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Información general sobre cumplimiento de Azure)|En este documento descargable se describen las ofertas de cumplimiento de Azure, como certificaciones oficiales, atestaciones, validaciones, autorizaciones y evaluaciones producidos por empresas de auditoría de terceros independientes, así como enmiendas contractuales, autoevaluaciones y documento de instrucciones para el cliente producidos por Microsoft. <br/> Cada descripción de oferta expone qué servicios orientados al cliente de Azure están en el ámbito de la valoración, y proporciona vínculos a recursos descargables para ayudar a los clientes con sus propias obligaciones de cumplimiento.|
 |[Administración de la seguridad en Azure](azure-security-management.md)|Se describen los problemas en el acceso remoto de recursos de Azure. La nube, por naturaleza, exige la administración del acceso remoto y, por tanto, la seguridad es fundamental. Se tratan directrices generales de seguridad, configuración del cliente, procedimientos recomendados y principios y procedimientos operativos. |
+|[Seguridad y datos de Azure AD](https://aka.ms/aaddatawhitepaper) | El documento descargable explica los diferentes componentes de Azure Active Directory y su interacción entre sí. Describe cómo los distintos componentes protegen, cifran o mezclan sus datos en tránsito (por ejemplo, a través de Internet) y cómo se protegen en reposo. Explica las diversas ubicaciones del centro de datos de Azure AD y su interacción con directorios locales, así como los flujos hacia o desde Azure AD. Por último, describe los procedimientos operativos empleados por el equipo de ingeniería de Azure AD para administrar y proteger el servicio.|
+

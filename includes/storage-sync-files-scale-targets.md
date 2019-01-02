@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 03fe587ede297ac7dea90b7a5fb2d5323f60659e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 00124562d3bc21f9139ae54f022d7893a4eaf11c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628208"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326493"
 ---
 | Recurso | Destino | Límite máximo |
 |----------|--------------|------------|
@@ -22,7 +22,7 @@ ms.locfileid: "51628208"
 | Servidores registrados por servicio de sincronización de almacenamiento | 99 servidores | SÍ |
 | Puntos de conexión en la nube por grupo de sincronización | 1 punto de conexión en la nube | SÍ |
 | Puntos de conexión del servidor por grupo de sincronización | 50 puntos de conexión del servidor | Sin  |
-| Puntos de conexión del servidor por servidor | 33-99 puntos de conexión del servidor | Sí, pero varía en función de la configuración (CPU, memoria, volúmenes, renovación de archivo, número de archivos, etc.) |
+| Puntos de conexión del servidor por servidor | 30 puntos de conexión de servidor | SÍ |
 | Tamaño de punto de conexión | 4 TiB | Sin  |
 | Objetos del sistema de archivos (archivos y directorios) por grupo de sincronización | 25 millones de objetos | Sin  |
 | Número máximo de objetos del sistema de archivos (archivos y directorios) en un directorio | 200 000 de objetos | SÍ |

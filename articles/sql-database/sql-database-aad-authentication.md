@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/03/2018
+ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244089"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838623"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usar la autenticación de Azure Active Directory para autenticación con SQL
 
-La autenticación de Azure Active Directory es un mecanismo de conexión a Azure [SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure Active Directory (AD). 
+La autenticación de Azure Active Directory es un mecanismo de conexión a Azure [SQL Database](sql-database-technical-overview.md), [Instancia administrada](sql-database-managed-instance.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure Active Directory (Azure AD). 
 
 > [!NOTE]
 > Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
@@ -44,7 +44,7 @@ Con la autenticación de Azure AD puede administrar centralmente las identidades
 En los pasos de configuración se incluyen los siguientes procedimientos para configurar y usar la autenticación de Azure Active Directory.
 
 1. Cree y rellene una instancia de Azure AD.
-2. Opcional: asocie o cambie la instancia de Active Directory que está asociada a la suscripción de Azure.
+2. Opcional: asocie o cambie la instancia de Active Directory que esté asociada a la suscripción de Azure.
 3. Cree un administrador de Azure Active Directory para el servidor de Azure SQL Server, Instancia administrada o [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 4. Configure los equipos cliente.
 5. Cree usuarios de bases de datos independientes en la base de datos y asignados a identidades de Azure AD.
@@ -80,19 +80,11 @@ Para crear un usuario de base de datos independiente en Azure SQL Database, Inst
 Los siguientes miembros de Azure AD se pueden aprovisionar en Azure SQL Server o en SQL Data Warehouse:
 
 - Miembros nativos: un miembro creado en Azure AD en el dominio administrado o en un dominio personalizado. Para más información, consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../active-directory/active-directory-domains-add-azure-portal.md).
-- Miembros de dominio federado: un miembro creado en Azure AD con un dominio federado. Para más información, consulte [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)(Microsoft Azure ya admite la federación con Windows Server Active Directory).
+- Miembros del dominio federado: un miembro creado en Azure AD con un dominio federado. Para más información, consulte [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)(Microsoft Azure ya admite la federación con Windows Server Active Directory).
 - Miembros importados de otros directorios de Azure AD que son miembros nativos o miembros de dominio federado.
 - Grupos de Active Directory creados como grupos de seguridad.
 
-Limitaciones de Azure AD relacionados con Instancia administrada:
-
-- Solo el administrador de Azure AD puede crear bases de datos; el ámbito de los usuarios de Azure AD se reduce a una única base de datos y no tienen este permiso
-- Propiedad de la base de datos:
-  - La entidad de seguridad de Azure AD no puede cambiar la propiedad de la base de datos (ALTER AUTHORIZATION ON DATABASE) y no se puede establecer como propietario.
-  - Para bases de datos creadas por el administrador de Azure AD no se establece ninguna propiedad (campo owner_sid de sys.sysdatabases es 0x1).
-- No se puede administrar el Agente SQL cuando ha iniciado sesión con las entidades de seguridad de Azure AD.
-- El administrador de Azure AD no se puede suplantar mediante EXECUTE AS
-- La conexión DAC no es compatible con las entidades de seguridad de Azure AD.
+Se admiten inicios de sesión y usuarios de Azure AD como característica en versión preliminar para [instancias administradas](sql-database-managed-instance.md).
 
 Estas funciones del sistema devuelven valores NULL cuando se ejecutan en las entidades de seguridad de Azure AD:
 

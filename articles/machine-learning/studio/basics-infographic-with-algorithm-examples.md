@@ -1,13 +1,12 @@
 ---
-title: 'Infografía: Conceptos básicos de aprendizaje automático (ejemplos de algoritmos) - Azure Machine Learning Studio | Microsoft Docs'
+title: 'Ejemplos de algoritmos: Azure Machine Learning Studio | Microsoft Docs'
 description: Una introducción fácil de comprender de principios básicos de aprendizaje automático incluye ejemplos de algoritmos. La infografía descargable trata la mayoría de las preguntas sobre aprendizaje automático.
 keywords: conceptos básicos de aprendizaje automático,ejemplos de algoritmo, aprendizaje automático para principiantes,preguntas sobre aprendizaje automático,algoritmos populares,infografía de algoritmos
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodc18
+ms.author: garye
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: ccbe152901ff7f59548239a1d59e585b8e356c23
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: df628447a441d1580fa1a3862275f2b461f8d18a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308009"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275744"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos
 Descargue esta introducción infográfica de comprender sobre conceptos básicos de aprendizaje automático para aprender sobre populares utilizados para responder a preguntas comunes sobre el aprendizaje automático. Los ejemplos de algoritmos ayudan a los que empiezan a usar el aprendizaje automático a comprender qué algoritmos usar y para qué.
@@ -31,7 +30,7 @@ Descargue esta introducción infográfica de comprender sobre conceptos básicos
 [Azure Machine Learning Studio](https://studio.azureml.net/) incluye un gran biblioteca de algoritmos para el análisis predictivo. La infografía identifica cuatro populares familias de algoritmos (regresión, detección de anomalías, agrupación en clústeres y clasificación) y proporciona vínculos a ejemplos de trabajo en la [Galería de Azure AI](https://gallery.cortanaintelligence.com/). La galería contiene tutoriales y experimentos de ejemplo que muestran cómo se pueden aplicar estos algoritmos en muchas soluciones del mundo real.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Descargue la infografía con ejemplos de algoritmos
-**[Descarga: Infografía de conceptos básicos del aprendizaje automático con vínculos a ejemplos de algoritmos (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Descargar: infografía de conceptos básicos del aprendizaje automático con vínculos a ejemplos de algoritmos (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 ![Infografía: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos. Algoritmos populares. Aprendizaje automático para principiantes.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
@@ -42,7 +41,7 @@ Descargue esta introducción infográfica de comprender sobre conceptos básicos
 * Para descargar e imprimir un diagrama con información general de las funcionalidades de Machine Learning Studio, vea [Diagrama de información general de las funcionalidades de Azure Machine Learning Studio](studio-overview-diagram.md).
 * Para información general de la Galería de Azure AI y los numerosos recursos generados por la comunidad que allí se encuentran, vea [Uso compartido y descubrimiento de recursos en la Galería de Azure AI](gallery-how-to-use-contribute-publish.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx

@@ -5,15 +5,15 @@ services: container-instances
 author: seanmck
 ms.service: container-instances
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803518"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845814"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances y orquestadores de contenedores
 
@@ -27,7 +27,7 @@ La definición estándar de orquestación incluye las tareas siguientes:
 
 - **Programación**: en una solicitud de recurso e imagen de contenedor, busque una máquina adecuada en la cual ejecutar el contenedor.
 - **Afinidad/antiafinidad**: especifique que un conjunto de contenedores se deben ejecutar de manera cercana entre sí (para mejorar el rendimiento) o con la distancia suficiente como para mejorar la disponibilidad.
-- **Seguimiento de estado**: inspeccione los contenedores por si existen errores y vuelva a programarlos.
+- **Seguimiento del estado**: inspeccione los contenedores por si existen errores y vuelva a programarlos.
 - **Conmutación por error**: realice un seguimiento de qué se ejecuta en cada máquina y vuelva a programar los contenedores desde máquinas con error a nodos en estado correcto.
 - **Escalado**: agregue o quite instancias de contenedores para coincidir con la demanda, ya sea manual o automáticamente.
 - **Redes**: proporcione una red superpuesta para coordinar los contenedores a fin de que se comuniquen entre varios equipos host.
@@ -40,7 +40,7 @@ Azure Container Instances permite un enfoque por niveles a la orquestación, lo 
 
 Dado que Azure administra la infraestructura subyacente de Container Instances, una plataforma de orquestadores no necesita ocuparse de encontrar un equipo host adecuado en el cual ejecutar un solo contenedor. La elasticidad de la nube garantiza que siempre haya uno disponible. En lugar de eso, el orquestador se puede centrar en las tareas que simplifican la implementación de arquitecturas con varios contenedores, incluidas actualizaciones coordinadas y escalado.
 
-## <a name="potential-scenarios"></a>Escenarios potenciales
+## <a name="scenarios"></a>Escenarios
 
 Si bien la integración de los orquestadores con Azure Container Instances todavía es incipiente, podemos prever que surgirán algunos entornos distintos:
 
@@ -54,13 +54,15 @@ En el caso de cargas de trabajo estables y de ejecución prolongada, orquestar c
 
 En lugar de escalar horizontalmente el número de máquinas virtuales en el clúster y luego implementar contenedores adicionales en esas máquinas, el orquestador puede simplemente programar los contenedores adicionales con Azure Container Instances y eliminarlos una vez que deje de necesitarlos.
 
-## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Implementación de ejemplo: Virtual Kubelet para Kubernetes
+## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Implementación de ejemplo: nodos virtuales para Azure Kubernetes Service (AKS)
 
-El proyecto [Virtual Kubelet][aci-connector-k8s] muestra cómo las plataformas de orquestación de contenedores se pueden integrar con Azure Container Instances.
+Para escalar rápidamente las cargas de trabajo de aplicación en un clúster de [Azure Kubernetes Service](../aks/intro-kubernetes.md), puede usar *nodos virtuales* creados de manera dinámica en Azure Container Instances. Actualmente en versión preliminar, los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en ACI y el clúster de AKS. 
 
-Virtual Kubelet imita el [kubelet][kubelet-doc] de Kubernetes al registrarse como un nodo con capacidad ilimitada y distribuir la creación de [pods][pod-doc] como grupos de contenedores en Azure Container Instances.
+Actualmente, estos nodos virtuales admiten instancias de contenedor de Linux. Empiece a trabajar con los nodos virtuales mediante la [CLI de Azure](https://go.microsoft.com/fwlink/?linkid=2047538) o [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Es posible crear conectores para otros orquestadores que se integren simplemente con las primitivas de plataforma para combinar la eficacia de la API del orquestador con la velocidad y la simplicidad de la administración de contenedores en Azure Container Instances.
+Los nodos virtuales utilizan el código abierto [Virtual Kubelet][aci-connector-k8s] para imitar al [kubelet][kubelet-doc] de Kubernetes al registrarse como un nodo con capacidad ilimitada. Virtual Kubelet envía la creación de [pods][pod-doc] como grupos de contenedores en Azure Container Instances.
+
+Consulte el proyecto [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) para obtener ejemplos adicionales de la ampliación de la API de Kubernetes en plataformas de contenedores sin servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

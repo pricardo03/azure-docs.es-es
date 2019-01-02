@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 819e6364aebab11097260c54575ab65914293ce7
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f0f0b8e0cbb5fbab81a07a28a9d4a2c264be6545
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180536"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719868"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Twitter mediante Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Para usar Twitter como proveedor de identidades en Azure AD B2C, tiene que crear
 2. Seleccione **Create an app** (Crear una aplicación).
 3. Escriba un **nombre de aplicación** y una **descripción de aplicación**.
 4. En **URL del sitio web**, escriba `https://your-tenant.b2clogin.com`. Reemplace `your-tenant` por el nombre del inquilino. Por ejemplo, https://contosob2c.b2clogin.com.
-5. Para la **URL de devolución de llamada**, escriba `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`. Sustituya `your-tenant` por el nombre de inquilino y `your-policy-Id` por el identificador de la directiva. Por ejemplo, `b2c_1A_signup_signin_twitter`. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
+5. Para la **URL de devolución de llamada**, escriba `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Sustituya `your-tenant` por el nombre del inquilino y `your-user-flow-Id` por el identificador del flujo de usuario. Por ejemplo, `b2c_1A_signup_signin_twitter`. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
 6. En la parte inferior de la página, lea y acepte los términos y seleccione **Crear**.
 7. En la página **Detalles de la aplicación**, seleccione **Editar > Editar detalles**, active la casilla **Enable Sign in with Twitter** (Habilitar inicio de sesión con Twitter) y luego seleccione **Guardar**.
 8. Seleccione **Claves y tokens** y registre los valores de **clave de API de consumidor** y **clave secreta de API de consumidor** que se van a usar más adelante.

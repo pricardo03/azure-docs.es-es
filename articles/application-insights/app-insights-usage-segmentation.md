@@ -8,18 +8,17 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6fd8adab93f5741afe6d3eab0c50ca50a327fbff
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6a7f62d4018e5a8bd39cbf2bb2b1418137d93638
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140339"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720157"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análisis de usuarios, sesiones y eventos en Application Insights
 
@@ -35,9 +34,9 @@ Si aún no ve los datos en las hojas de usuarios, sesiones o eventos de Applicat
 
 Tres de las hojas de uso usan la misma herramienta para segmentar y desglosar telemetría de su aplicación web desde tres perspectivas. Mediante el filtrado y la división de los datos, puede descubrir información detallada sobre el uso relativo de distintas páginas y características.
 
-* **Herramienta de usuarios**: averigüe cuántas personas usan la aplicación y sus características.  Los usuarios se cuentan mediante el uso de identificadores anónimos almacenados en las cookies del explorador. Una sola persona que usa distintos exploradores o máquinas se contarán como más de un usuario.
-* **Herramienta de sesiones**: la cantidad de sesiones de actividad de usuario que han incluido determinadas páginas y características de la aplicación. Una sesión se cuenta después de media hora de inactividad del usuario o después de 24 horas de uso continuo.
-* **Herramienta de eventos**: la frecuencia con la que se usan ciertas páginas y características de la aplicación. Una vista de página se cuenta cuando un explorador carga una página de la aplicación, siempre que se haya [instrumentado](app-insights-javascript.md). 
+* **Herramienta Usuarios**: averigüe cuántas personas usan la aplicación y sus características.  Los usuarios se cuentan mediante el uso de identificadores anónimos almacenados en las cookies del explorador. Una sola persona que usa distintos exploradores o máquinas se contarán como más de un usuario.
+* **Herramienta Sesiones**: la cantidad de sesiones de actividad de usuario que han incluido determinadas páginas y características de la aplicación. Una sesión se cuenta después de media hora de inactividad del usuario o después de 24 horas de uso continuo.
+* **Herramienta Eventos**: la frecuencia con la que se usan ciertas páginas y características de la aplicación. Una vista de página se cuenta cuando un explorador carga una página de la aplicación, siempre que se haya [instrumentado](app-insights-javascript.md). 
 
     Un evento personalizado representa una repetición de algo que sucede en la aplicación, a menudo, una interacción del usuario como un clic en el botón o la realización de alguna tarea. Inserte código en su aplicación para [generar eventos personalizados](app-insights-api-custom-events-metrics.md#trackevent).
 
@@ -46,7 +45,7 @@ Tres de las hojas de uso usan la misma herramienta para segmentar y desglosar te
 Explore distintos grupos de usuarios mediante ajustando las opciones de consulta en la parte superior de la herramienta Usuarios:
 
 * Mostrar: elija una cohorte de usuarios que se va a analizar.
-* que usaron: elija eventos personalizados y vistas de página.
+* Que usaron: elija eventos personalizados y vistas de página.
 * Durante: elija un intervalo de tiempo.
 * Por: elija cómo se desglosarán los datos, por un periodo u otra propiedad como un explorador o una ciudad.
 * Dividir por: elija una propiedad por la que dividir o segmentar los datos. 

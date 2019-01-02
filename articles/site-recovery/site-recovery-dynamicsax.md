@@ -5,14 +5,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210829"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838147"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configuración de la recuperación ante desastres para una implementación de Dynamics AX en varios niveles 
 
@@ -118,15 +118,15 @@ En Site Recovery se puede crear un plan de recuperación para automatizar el pro
 Para personalizar el plan de recuperación de la aplicación Dynamics AX, agregue los siguientes pasos. La instantánea anterior muestra el plan de recuperación completo una vez que se han agregado todos los pasos.
 
 
-* **Pasos de conmutación por error de SQL Server**: para obtener información acerca de los pasos de recuperación específicos para SQL Server, consulte [Replicación de aplicaciones con SQL Server y Azure Site Recovery](site-recovery-sql.md).
+* **Pasos de conmutación por error de SQL Server**: para información sobre los pasos de recuperación específicos para SQL Server, consulte [Replicación de aplicaciones con SQL Server y Azure Site Recovery](site-recovery-sql.md).
 
-* **Grupo de conmutación por error 1**: conmutar por error las máquinas virtuales de Application Object Server.
+* **Grupo de conmutación por error 1**: conmuta por error las máquinas virtuales de Application Object Server.
 Asegúrese de que el punto de recuperación seleccionado esté lo más cercano posible a la base de datos PIT, sin adelantarla.
 
-* **Script**: agregar un equilibrador de carga (solo E-A).
+* **Script**: agrega un equilibrador de carga (solo E-A).
 Agregue un script (a través de Azure Automation) después de que se active el grupo de máquinas virtuales de Application Object Server para agregarle un equilibrador de carga. Puede usar un script para realizar esta tarea. Para más información, consulte el artículo [Cloud migration and disaster recovery of load balanced multi-tier applications](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/) (Migración a la nube y recuperación ante desastres de aplicaciones de niveles múltiples).
 
-* **Grupo de conmutación por error 2**: conmutar por error las máquinas virtuales del cliente de Dynamics AX. Conmute por error las máquinas virtuales de nivel web como parte del plan de recuperación.
+* **Grupo de conmutación por error 2**: conmuta por error las máquinas virtuales del cliente de Dynamics AX. Conmute por error las máquinas virtuales de nivel web como parte del plan de recuperación.
 
 
 ### <a name="perform-a-test-failover"></a>Realización de una conmutación por error de prueba

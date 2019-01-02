@@ -1,17 +1,17 @@
 ---
-title: Directivas de indexación de Azure Cosmos DB | Microsoft Docs
+title: Directivas de indexación de Azure Cosmos DB
 description: Comprenda cómo funciona la indexación en Azure Cosmos DB. Obtenga información sobre la configuración y cambio de la directiva de indexación para una indexación automática y un mayor rendimiento.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: ffb70ce8c26b7774e90801271c55cd8a80906c90
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2153f0a16df9e79b3f5324ce19880e2708855196
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628851"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848007"
 ---
 # <a name="indexing-policy-in-azure-cosmos-db"></a>Directiva de indexación en Azure Cosmos DB
 

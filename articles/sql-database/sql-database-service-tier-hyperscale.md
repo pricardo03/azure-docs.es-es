@@ -12,21 +12,26 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 526b6ac9c510b13461181d76c0032602d8f3f435
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377989"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872898"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Nivel de servicio Hiperescalado (versión preliminar) para hasta 100 TB
+
+Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL Server que se ajusta al entorno en la nube, con el fin de garantizar una disponibilidad del 99,99 % incluso en los casos de error de la infraestructura. Hay tres modelos de arquitectura que se usan en Azure SQL Database:
+- De uso general/Estándar 
+- Crítico para la empresa/Premium
+- Hiperescala
 
 El nivel de servicio de Hiperescalado en Azure SQL Database es el nivel de servicio más reciente en el modelo de compra basado en núcleos virtuales. Este nivel de servicio es un nivel altamente escalable de almacenamiento y de rendimiento de proceso que aprovecha la arquitectura de Azure para escalar horizontalmente el almacenamiento y los recursos de proceso para una instancia de Azure SQL Database considerablemente más allá de los límites disponibles para los niveles de servicio Uso general y Crítico para la empresa.
 
 > [!IMPORTANT]
 > El nivel de servicio Hiperescala se encuentra actualmente en versión preliminar pública y está disponible en regiones de Azure limitadas. Para obtener la lista completa de regiones, consulte las [regiones disponibles del nivel de servicio Hiperescalado](#available-regions). No se recomienda ejecutar ninguna carga de trabajo de producción en las bases de datos de hiperescala todavía. No se puede actualizar una base de datos de hiperescala a otros niveles de servicio. Con fines de prueba, se recomienda realizar una copia de la base de datos actual y actualizar la copia al nivel de servicio Hiperescala.
 > [!NOTE]
-> Para más información acerca de los niveles de servicios Uso general y Crítico para la empresa en el modelo de compra basado en núcleos virtuales, consulte [Niveles de servicio De uso general y Crítico para la empresa](sql-database-service-tiers-general-purpose-business-critical.md). Para ver una comparación entre el modelo de compra basado en núcleos virtuales y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-service-tiers.md).
+> Para más información acerca de los niveles de servicios Uso general y Crítico para la empresa en el modelo de compra basado en núcleos virtuales, consulte los niveles de servicio [de uso general](sql-database-service-tier-general-purpose.md) y [crítico para la empresa](sql-database-service-tier-business-critical.md). Para ver una comparación entre el modelo de compra basado en núcleos virtuales y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-service-tiers.md).
 > [!IMPORTANT]
 > El nivel de servicio Hiperescalado está actualmente en versión preliminar pública. No se recomienda ejecutar ninguna carga de trabajo de producción en las bases de datos de hiperescala todavía. No se puede actualizar una base de datos de hiperescala a otros niveles de servicio. Con fines de prueba, se recomienda realizar una copia de la base de datos actual y actualizar la copia al nivel de servicio Hiperescala.
 
@@ -142,7 +147,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Regiones disponibles
 
-El nivel de servicio Hiperescalado está actualmente en la versión preliminar pública y está disponible en las siguientes regiones de Azure: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+El nivel de servicio Hiperescala se encuentra actualmente en versión preliminar pública y está disponible en las siguientes regiones de Azure: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
 

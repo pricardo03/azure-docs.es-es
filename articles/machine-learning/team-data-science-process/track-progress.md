@@ -1,6 +1,6 @@
 ---
-title: Ejecución de proyectos de ciencia de datos - Azure Machine Learning | Microsoft Docs
-description: Cómo un científico de datos puede hacer un seguimiento del progreso de un proyecto de ciencia de datos.
+title: 'Seguimiento del progreso de los proyectos de ciencia de datos: Team Data Science Process'
+description: Cómo pueden realizar un seguimiento del progreso de un proyecto de ciencia de datos los administradores de grupo de ciencia de datos, los miembros del equipo y los responsables del proyecto.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 202ac89b8a281012dbcf5f4c4df11e97ba2c8c65
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441475"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134310"
 ---
-# <a name="track-progress-of-data-science-projects"></a>Seguimiento del progreso de proyectos de ciencia de datos
+# <a name="tracking-the-progress-of-data-science-projects"></a>Seguimiento del progreso de los proyectos de ciencia de datos
 
 Los administradores de grupo de ciencia de datos, los responsables de equipo y de proyecto tienen que realizar el seguimiento del progreso de sus proyectos, qué trabajo se ha realizado en ellos y por quién, y lo que queda en la lista de tareas pendientes. 
 
@@ -39,7 +39,7 @@ Este es un panel de ejemplo sencillo que se creó para hacer seguimiento de las 
 
 En el resto de los paneles se muestra el diagrama de flujo acumulado (CFD), la evolución y la evolución ascendente de un proyecto:
 
-- **Parte inferior izquierda**: CFD de la cantidad de trabajo con un estado determinado, donde el estado aprobado aparece en gris, el estado confirmado aparece en azul y el estado listo, en verde.
+- **Inferior izquierda**:  CFD de la cantidad de trabajo con un estado determinado, donde el estado aprobado aparece en gris, el estado confirmado aparece en azul y el estado listo, en verde.
 - **Parte superior derecha**: gráfico de evolución del trabajo que falta por completar en contraposición con el tiempo restante.
 - **Parte inferior derecha**: gráfico de evolución ascendente del trabajo que se completó en contraposición con la cantidad de trabajo total.
 

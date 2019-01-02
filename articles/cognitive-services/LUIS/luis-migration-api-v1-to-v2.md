@@ -1,24 +1,25 @@
 ---
-title: Guía de migración de API de v1 a v2
+title: Migración de API v1 a v2
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo migrar al conjunto de API más reciente.
+description: La versión 1 de las API de punto de conexión y creación va a quedar en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de punto de conexión y creación.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646582"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138830"
 ---
-# <a name="api-v2-migration-guide"></a>Guía para la migración a la v2 de la API
-La versión 1 de las API de [punto de conexión](https://aka.ms/v1-endpoint-api-docs) y [creación](https://aka.ms/v1-authoring-api-docs) estará en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de [punto de conexión](https://aka.ms/luis-endpoint-apis) y [creación](https://aka.ms/luis-authoring-apis). 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guía de migración la API v1 a v2 para las aplicaciones de LUIS
+La versión 1 de las API de [punto de conexión](https://aka.ms/v1-endpoint-api-docs) y [creación](https://aka.ms/v1-authoring-api-docs) va a quedar en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de [punto de conexión](https://aka.ms/luis-endpoint-apis) y [creación](https://aka.ms/luis-authoring-apis). 
 
 ## <a name="new-azure-regions"></a>Nuevas regiones de Azure
 LUIS tiene nuevas [regiones](https://aka.ms/LUIS-regions) que proporciona para las API de LUIS. LUIS proporciona otro sitio web para grupos de regiones. La aplicación se debe crear en la misma región que espera consultar. Las aplicaciones no migran las regiones de forma automática. Exporte la aplicación de una región y, luego, impórtela en otra para que esté disponible en una nueva región.
@@ -43,7 +44,7 @@ La API de punto de conexión tiene nuevos parámetros de cadena de consulta, as�
 
 
 Respuesta correcta de punto de conexión de v1:
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -54,7 +55,7 @@ Respuesta correcta de punto de conexión de v1:
 ```
 
 Respuesta correcta de punto de conexión de v2:
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {

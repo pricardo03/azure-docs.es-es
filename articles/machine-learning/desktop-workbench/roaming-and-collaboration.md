@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 07a9d46dff17b43d01a6b411292cf240c32476f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0117a08c76288cda25da2196ec18433b3678e24b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983725"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724645"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Movilidad y colaboración en Azure Machine Learning Workbench
 
@@ -124,9 +124,9 @@ Mediante el uso compartido de un repositorio de Git remoto para el proyecto, Ali
 ### <a name="use-the-azure-portal-to-add-users"></a>Uso de Azure Portal para agregar usuarios
 <a name="portal"></a>
 
-Las cuentas de Experimentación de Machine Learning, las áreas de trabajo y los proyectos son recursos de Azure Resource Manager. Para asignar roles, puede usar el vínculo **Control de acceso** de [Azure Portal](https://portal.azure.com). 
+Las cuentas de Experimentación de Machine Learning, las áreas de trabajo y los proyectos son recursos de Azure Resource Manager. Para asignar roles, puede usar el vínculo **Control de acceso (IAM)** de [Azure Portal](https://portal.azure.com). 
 
-Encuentre el recurso al que quiere agregar usuarios mediante la vista **Todos los recursos**. Seleccione el vínculo **Control de acceso (IAM)** y seleccione **Agregar usuarios**. 
+Encuentre el recurso al que quiere agregar usuarios mediante la vista **Todos los recursos**. Seleccione el vínculo **Control de acceso (IAM)** y seleccione **Agregar asignación de roles**. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 

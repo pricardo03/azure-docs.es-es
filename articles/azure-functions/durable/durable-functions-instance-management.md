@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9b85ce6bdb7f72c5e4f1cf0d47cc324f5f75ec20
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637270"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343945"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Administración de instancias con Durable Functions (Azure Functions)
 
@@ -23,15 +23,20 @@ Las instancias de orquestación de [Durable Functions](durable-functions-overvie
 
 ## <a name="starting-instances"></a>Inicio de instancias
 
-El método [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) en [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) inicia una nueva instancia de una función de orquestador. Las instancias de esta clase pueden adquirirse mediante el enlace `orchestrationClient`. Internamente, este método pone un mensaje en la cola de control, que, a su vez, desencadena el inicio de una función con el nombre especificado que utiliza el enlace de desencadenador `orchestrationTrigger`. 
+El método [StartNewAsync] (https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) en [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET)o `startNew` en `DurableOrchestrationClient` (JavaScript) inicia una nueva instancia de una función de orquestador. Las instancias de esta clase pueden adquirirse mediante el enlace `orchestrationClient`. Internamente, este método pone un mensaje en la cola de control, que, a su vez, desencadena el inicio de una función con el nombre especificado que utiliza el enlace de desencadenador `orchestrationTrigger`.
 
-La tarea se completa cuando se inicia el proceso de orquestación. El proceso de orquestación debería comenzar en 30 segundos. Si tarda más tiempo, se produce una excepción `TimeoutException`. 
+Esta operación de sincronización se completa cuando el proceso de orquestación se programa correctamente. El proceso de orquestación debería comenzar en 30 segundos. Si tarda más tiempo, se produce una excepción `TimeoutException`.
+
+> [!WARNING]
+> Al desarrollar de forma local en JavaScript, deberá establecer la variable de entorno `WEBSITE_HOSTNAME` en `localhost:<port>`, por ejemplo `localhost:7071` para usar métodos en `DurableOrchestrationClient`. Para más información sobre este requisito, consulte el [problema de GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
+
+### <a name="net"></a>.NET
 
 Los parámetros de [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) son los siguientes:
 
-* **Name**: el nombre de la función de orquestador que programar.
-* **Input**: todos los datos serializables con JSON que deben pasarse como entrada a la función de orquestador.
-* **InstanceId** (opcional): el identificador único de la instancia. Si no se especifica, se generará un identificador de instancia aleatorio.
+* **Nombre**: el nombre de la función de orquestador que programar.
+* **Entrada**: todos los datos serializables con JSON que deben pasarse como entrada a la función de orquestador.
+* **InstanceId**: (Opcional): el identificador único de la instancia. Si no se especifica, se generará un identificador de instancia aleatorio.
 
 A continuación, se muestra un ejemplo de C# sencillo:
 
@@ -47,33 +52,25 @@ public static async Task Run(
 }
 ```
 
-Para los lenguajes que no son de .NET, el enlace de salida de la función también se puede usar para iniciar nuevas instancias. En este caso, puede utilizarse cualquier objeto que se pueda serializar con JSON que tenga como campos los tres parámetros anteriores. Por ejemplo, considere la siguiente función de JavaScript:
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
 
-```js
-module.exports = function (context, input) {
-    var id = generateSomeUniqueId();
-    context.bindings.starter = [{
-        FunctionName: "HelloWorld",
-        Input: input,
-        InstanceId: id
-    }];
+Los parámetros de `startNew` son los siguientes:
 
-    context.done(null);
+* **Nombre**: el nombre de la función de orquestador que programar.
+* **InstanceId**: (Opcional) El identificador único de la instancia. Si no se especifica, se generará un identificador de instancia aleatorio.
+* **Entrada**: (Opcional) Todos los datos serializables con JSON que deben pasarse como entrada a la función de orquestador.
+
+Este es un ejemplo sencillo de JavaScript:
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function(context, input) {
+    const client = df.getClient(context);
+
+    const instanceId = await client.startNew("HelloWorld", undefined, input);
+    context.log(`Started orchestration with ID = ${instanceId}.`);
 };
-```
-
-En el código anterior se supone que, en el archivo function.json, ha definido un enlace de salida con el nombre `starter` y el tipo `orchestrationClient`. Si el enlace no está definido, no se creará la instancia de función duradera.
-
-Para que la instancia de función duradera se invoque, el archivo function.json debe modificarse de forma que contenga un enlace para el cliente de orquestación, tal como se describe a continuación.
-
-```js
-{
-    "bindings": [{
-        "name":"starter",
-        "type":"orchestrationClient",
-        "direction":"out"
-    }]
-}
 ```
 
 > [!NOTE]
@@ -84,47 +81,51 @@ Para que la instancia de función duradera se invoque, el archivo function.json 
 También es posible iniciar una instancia directamente a través del comando `durable start-new` de [Azure Functions Core Tools](../functions-run-local.md). Toma los parámetros siguientes:
 
 * **`function-name` (obligatorio)**: nombre de la función que se va a iniciar.
-* **`input` (opcional)**: entrada a la función, ya sea en línea o a través de un archivo JSON. En el caso de los archivos, preceda la ruta de acceso al archivo con el prefijo `@`, como `@path/to/file.json`.
+* **`input` (Opcional)**: entrada a la función, ya sea en línea o a través de un archivo JSON. En el caso de los archivos, preceda la ruta de acceso al archivo con el prefijo `@`, como `@path/to/file.json`.
 * **`id` (opcional)**: identificador de la instancia de orquestación. Si no se proporciona, se genera un GUID aleatorio.
 * **`connection-string-setting` (opcional)**: nombre de la configuración de la aplicación que contiene la cadena de conexión de almacenamiento que se va a usar. El valor predeterminado es AzureWebJobsStorage.
-* **`task-hub-name` (opcional)**: nombre de la central de tareas de Durable que se va a usar. El valor predeterminado es DurableFunctionsHub. También puede establecerse en [host.json](durable-functions-bindings.md#host-json) a través de durableTask:HubName. 
+* **`task-hub-name` (opcional)**: nombre de la central de tareas de Durable que se va a usar. El valor predeterminado es DurableFunctionsHub. También puede establecerse en [host.json](durable-functions-bindings.md#host-json) a través de durableTask:HubName.
 
 > [!NOTE]
 > Se supone que los comandos de Core Tools se ejecutan desde el directorio raíz de una aplicación de función. Si `connection-string-setting` y `task-hub-name` se proporcionan explícitamente, los comandos se pueden ejecutar desde cualquier directorio. Aunque estos comandos se pueden ejecutar sin un host de aplicación de función en ejecución, puede que algunos efectos no se observen a menos que el host se esté ejecutando. Por ejemplo, el comando `start-new` pondrá en cola un mensaje de inicio en el centro de tareas de destino, pero la orquestación no se ejecutará realmente a menos que haya un proceso de host de la aplicación de función en ejecución que pueda procesar el mensaje.
 
 El siguiente comando iniciaría la función denominada HelloWorld y le pasaría el contenido del archivo "counter-data.json":
+
 ```bash
 func durable start-new --function-name HelloWorld --input @counter-data.json --task-hub-name TestTaskHub
 ```
 
 ## <a name="querying-instances"></a>Consulta de instancias
 
-El método [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) de la clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) consulta el estado de una instancia de orquestación.
+El método [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) de la clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o el método `getStatus` en la clase `DurableOrchestrationClient` (JavaScript) consulta el estado de una instancia de orquestación.
 
-Toma los valores `instanceId` (obligatorio), `showHistory` (opcional), `showHistoryOutput` (opcional) y `showInput` (opcional) como parámetros. 
-* **`showHistory`**: si se establece en `true`, la respuesta contendrá el historial de ejecución. 
-* **`showHistoryOutput`**: si se establece en `true`, el historial de ejecución contendrá salidas de actividad. 
-* **`showInput`**: si se establece en `false`, la respuesta no contendrá la entrada de la función. El valor predeterminado es `true`.
+Toma los valores `instanceId` (obligatorio), `showHistory` (opcional), `showHistoryOutput` (opcional) y `showInput` (opcional, solo para .NET) como parámetros.
+
+* **`showHistory`**: si se establece en `true`, la respuesta contendrá el historial de ejecución.
+* **`showHistoryOutput`**: si se establece en `true`, el historial de ejecución contendrá salidas de actividad.
+* **`showInput`**: si se establece en `false`, la respuesta no contendrá la entrada de la función. El valor predeterminado es `true`. (Solo para .NET)
 
 El método devuelve un objeto JSON con las siguientes propiedades:
 
-* **Name**: el nombre de la función de orquestador.
+* **Nombre**: el nombre de la función de orquestador.
 * **InstanceId**: el identificador de instancia de la orquestación (debe ser el mismo que la entrada `instanceId`).
 * **CreatedTime**: la hora en que la función de orquestador empezó a ejecutarse.
 * **LastUpdatedTime**: la hora a la que la orquestación estableció el último punto de control.
-* **Input**: la entrada de la función como un valor JSON. Este campo no se rellenará si `showInput` es false.
-* **CustomStatus**: estado de orquestación personalizada en formato JSON. 
-* **Output**: la salida de la función como un valor JSON (si se ha completado la función). Si se produce un error en la función de orquestador, esta propiedad incluirá los detalles del error. Si se finaliza la función de orquestador, esta propiedad incluirá el motivo de la finalización indicado (si lo hubiera).
-* **RuntimeStatus**: uno de los siguientes valores:
-    * **Pending**: la instancia se ha programado, pero aún no ha empezado a ejecutarse.
-    * **Running**: la instancia ha empezado a ejecutarse.
-    * **Completed**: la instancia se ha completado con normalidad.
-    * **ContinuedAsNew**: la instancia se ha reiniciado con un nuevo historial. Este es un estado transitorio.
-    * **Failed**: se ha producido un error en la instancia.
-    * **Terminated**: la instancia se ha detenido abruptamente.
+* **Entrada**: la entrada de la función como un valor JSON. Este campo no se rellenará si `showInput` es false.
+* **CustomStatus**: estado de orquestación personalizada en formato JSON.
+* **Salida**: la salida de la función como un valor JSON (si se ha completado la función). Si se produce un error en la función de orquestador, esta propiedad incluirá los detalles del error. Si se finaliza la función de orquestador, esta propiedad incluirá el motivo de la finalización indicado (si lo hubiera).
+* **RuntimeStatus**: uno de los valores siguientes:
+  * **Pending**: la instancia se ha programado, pero aún no ha empezado a ejecutarse.
+  * **Running**: la instancia ha empezado a ejecutarse.
+  * **Completed**: la instancia se ha completado con normalidad.
+  * **ContinuedAsNew**: la instancia se ha reiniciado con un nuevo historial. Este es un estado transitorio.
+  * **Failed**: se ha producido un error en la instancia.
+  * **Terminated**: la instancia se ha detenido abruptamente.
 * **History**: el historial de ejecución de la orquestación. Este campo solo se rellena si `showHistory` está establecido en `true`.
-    
+
 Este método devuelve `null` si la instancia no existe o no ha empezado a ejecutarse.
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("GetStatus")]
@@ -137,24 +138,38 @@ public static async Task Run(
 }
 ```
 
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function(context, instanceId) {
+    const client = df.getClient(context);
+
+    const status = await client.getStatus(instanceId);
+    // do something based on the current status.
+}
+```
+
 ### <a name="using-core-tools"></a>Uso de Core Tools
 
-También es posible obtener el estado de una instancia de orquestación directamente a través del comando `durable get-runtime-status` de [Azure Functions Core Tools](../functions-run-local.md). Toma los parámetros siguientes: 
+También es posible obtener el estado de una instancia de orquestación directamente a través del comando `durable get-runtime-status` de [Azure Functions Core Tools](../functions-run-local.md). Toma los parámetros siguientes:
 
-* **`id` (obligatorio)**: identificador de la instancia de orquestación.
+* **`id` (obligatorio)** : Identificador de la instancia de orquestación
 * **`show-input` (opcional)**: si se establece en `true`, la respuesta contendrá la entrada de la función. El valor predeterminado es `false`.
 * **`show-output` (opcional)**: si se establece en `true`, la respuesta contendrá la salida de la función. El valor predeterminado es `false`.
 * **`connection-string-setting` (opcional)**: nombre de la configuración de la aplicación que contiene la cadena de conexión de almacenamiento que se va a usar. El valor predeterminado es AzureWebJobsStorage.
 * **`task-hub-name` (opcional)**: nombre de la central de tareas de Durable que se va a usar. El valor predeterminado es DurableFunctionsHub. También puede establecerse en [host.json](durable-functions-bindings.md#host-json) a través de durableTask:HubName.
 
 El siguiente comando recuperaría el estado (incluidas la entrada y salida) de una instancia con un identificador de instancia de orquestación de 0ab8c55a66644d68a3a8b220b12d209c. Se supone que el comando `func` se está ejecutando desde el directorio raíz de la aplicación de función:
+
 ```bash
 func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-input true --show-output true
 ```
 
 El comando `durable get-history` puede utilizarse para recuperar el historial de una instancia de orquestación. Toma los parámetros siguientes:
 
-* **`id` (obligatorio)**: identificador de la instancia de orquestación.
+* **`id` (obligatorio)** : Identificador de la instancia de orquestación
 * **`connection-string-setting` (opcional)**: nombre de la configuración de la aplicación que contiene la cadena de conexión de almacenamiento que se va a usar. El valor predeterminado es AzureWebJobsStorage.
 * **`task-hub-name` (opcional)**: nombre de la central de tareas de Durable que se va a usar. El valor predeterminado es DurableFunctionsHub. También puede establecerse en host.json a través de durableTask:HubName.
 
@@ -164,7 +179,9 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 ## <a name="querying-all-instances"></a>Consulta de todas las instancias
 
-Puede usar el método `GetStatusAsync` para consultar los estados de todas las instancias de orquestación. No es necesario ningún parámetro y puede pasar un objeto `CancellationToken` en caso de que desee cancelar la consulta. El método devuelve objetos con las mismas propiedades que el método `GetStatusAsync` con parámetros, salvo que no devuelve el historial. 
+Puede usar el método `GetStatusAsync` (.NET) o `getStatusAll` (JavaScript) para consultar los estados de todas las instancias de orquestación. En .NET se puede pasar un objeto `CancellationToken` en caso de que desee cancelarlo. El método devuelve objetos con las mismas propiedades que el método `GetStatusAsync` con parámetros.
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -179,6 +196,21 @@ public static async Task Run(
         log.LogInformation(JsonConvert.SerializeObject(instance));
     };
 }
+```
+
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function(context, req) {
+    const client = df.getClient(context);
+
+    const instances = await client.getStatusAll();
+    instances.forEach((instance) => {
+        context.log(JSON.stringify(instance));
+    });
+};
 ```
 
 ### <a name="using-core-tools"></a>Uso de Core Tools
@@ -196,7 +228,9 @@ func durable get-instances
 
 ## <a name="querying-instances-with-filters"></a>Consulta de instancias con filtros
 
-También puede usar el método `GetStatusAsync` para obtener una lista de instancias de orquestación que coinciden con un conjunto de filtros predefinidos. Las opciones de filtro posibles incluyen la hora de creación de la orquestación y el estado en tiempo de ejecución de la orquestación.
+También puede usar el método `GetStatusAsync` (.NET) o `getStatusBy` (JavaScript) para obtener una lista de instancias de orquestación que coinciden con un conjunto de filtros predefinidos. Las opciones de filtro posibles incluyen la hora de creación de la orquestación y el estado en tiempo de ejecución de la orquestación.
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("QueryStatus")]
@@ -221,13 +255,36 @@ public static async Task Run(
 }
 ```
 
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function(context, req) {
+    const client = df.getClient(context);
+
+    const runtimeStatus = [
+        df.OrchestrationRuntimeStatus.Completed,
+        df.OrchestrationRuntimeStatus.Running,
+    ];
+    const instances = await client.getStatusBy(
+        new Date(2018, 3, 10, 10, 1, 0),
+        new Date(2018, 3, 10, 10, 23, 59),
+        runtimeStatus
+    );
+    instances.forEach((instance) => {
+        context.log(JSON.stringify(instance));
+    });
+};
+```
+
 ### <a name="using-the-functions-core-tools"></a>Uso de Functions Core Tools
 
-El comando `durable get-instances` también se puede usar el comando con filtros. Además de los parámetros `top`, `continuation-token`, `connection-string-setting` y `task-hub-name` mencionados anteriormente, se pueden usar los tres parámetros de filtro (`created-after`, `created-before` y `runtime-status`). 
+El comando `durable get-instances` también se puede usar el comando con filtros. Además de los parámetros `top`, `continuation-token`, `connection-string-setting` y `task-hub-name` mencionados anteriormente, se pueden usar los tres parámetros de filtro (`created-after`, `created-before` y `runtime-status`).
 
 * **`created-after` (opcional)**: recuperación de las instancias creadas después de esta fecha y hora (UTC). Se aceptan valores de datetime con formato ISO 8601.
 * **`created-before` (opcional)**: recuperación de las instancias creadas antes de esta fecha y hora (UTC). Se aceptan valores de datetime con formato ISO 8601.
-* **`runtime-status` (opcional)**: recuperación de las instancias cuyo estado coincida con los indicados ("en ejecución", "completado", etc.). Puede proporcionar varios estados (separados por espacios).
+* **`runtime-status` (opcional)**: recuperación de las instancias cuyo estado coincida con los indicados ("running", "completed", etc.). Puede proporcionar varios estados (separados por espacios).
 * **`top` (opcional)**: número de instancias recuperadas por solicitud. El valor predeterminado es 10.
 * **`continuation-token` (opcional)**: un token para indicar qué página o sección de instancias se va a recuperar. Cada ejecución `get-instances` devuelve un token para el siguiente conjunto de instancias.
 * **`connection-string-setting` (opcional)**: nombre de la configuración de la aplicación que contiene la cadena de conexión de almacenamiento que se va a usar. El valor predeterminado es AzureWebJobsStorage.
@@ -241,7 +298,9 @@ func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before
 
 ## <a name="terminating-instances"></a>Finalización de instancias
 
-Una instancia de orquestación en ejecución se puede finalizar mediante el método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) de la clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Los dos parámetros son `instanceId` y una cadena `reason`, que se escribirá en los registros y en el estado de la instancia. Una instancia finalizada dejará de ejecutarse tan pronto como alcance el siguiente punto `await` o bien se finalizará inmediatamente si ya está en un punto `await`. 
+Una instancia de orquestación en ejecución se puede finalizar mediante el método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) de la clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o el método `terminate` de la case `DurableOrchestrationClient` (JavaScript). Los dos parámetros son `instanceId` y una cadena `reason`, que se escribirá en los registros y en el estado de la instancia. Una instancia finalizada dejará de ejecutarse tan pronto como alcance el siguiente punto `await` (.NET) o `yield` (JavaScript), o finalizará inmediatamente si ya está en un punto `await` (.NET) o `yield` (JavaScript).
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -254,6 +313,19 @@ public static Task Run(
 }
 ```
 
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function(context, instanceId) {
+    const client = df.getClient(context);
+
+    const reason = "It was time to be done.";
+    return client.terminate(instanceId, reason);
+};
+```
+
 > [!NOTE]
 > La finalización de la instancia no se propaga actualmente. Las funciones de actividad y las suborquestaciones se ejecutarán hasta completarse, independientemente de si ha finalizado la instancia de orquestación que las llamó.
 
@@ -261,25 +333,28 @@ public static Task Run(
 
 También es posible finalizar una instancia de orquestación directamente a través del comando `durable terminate` de [Core Tools](../functions-run-local.md). Toma los parámetros siguientes:
 
-* **`id` (obligatorio)**: identificador de la instancia de orquestación que se va a finalizar.
-* **`reason` (opcional)** : motivo de la terminación.
+* **`id` (obligatorio)** : identificador de la instancia de orquestación que se va a finalizar.
+* **`reason` (opcional)**: motivo de la terminación.
 * **`connection-string-setting` (opcional)**: nombre de la configuración de la aplicación que contiene la cadena de conexión de almacenamiento que se va a usar. El valor predeterminado es AzureWebJobsStorage.
 * **`task-hub-name` (opcional)**: nombre de la central de tareas de Durable que se va a usar. El valor predeterminado es DurableFunctionsHub. También puede establecerse en [host.json](durable-functions-bindings.md#host-json) a través de durableTask:HubName.
 
 El siguiente comando finalizaría una instancia de orquestación con un identificador de 0ab8c55a66644d68a3a8b220b12d209c:
+
 ```bash
 func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
 ```
 
 ## <a name="sending-events-to-instances"></a>Envío de eventos a instancias
 
-Pueden enviarse notificaciones de eventos a instancias en ejecución mediante el método [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) de la clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Las instancias que pueden controlar estos eventos son aquellas que están en espera de una llamada a [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
+Pueden enviarse notificaciones de eventos a instancias en ejecución mediante el método [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) de la clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o el método `raiseEvent` de la clase `DurableOrchestrationClient` (JavaScript). Las instancias que pueden controlar estos eventos son aquellas que están en espera de una llamada a [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) o `waitForExternalEvent` (JavaScript).
 
-Los parámetros de [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) son los siguientes:
+Los parámetros de [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) y `raiseEvent` (JavaScript) son los siguientes:
 
 * **InstanceId**: el identificador único de la instancia.
 * **EventName**: el nombre del evento que se va a enviar.
 * **EventData**: una carga que se puede serializar con JSON que enviar a la instancia.
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("RaiseEvent")]
@@ -292,6 +367,19 @@ public static Task Run(
 }
 ```
 
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function(context, instanceId) {
+    const client = df.getClient(context);
+
+    const eventData = [ 1, 2, 3 ];
+    return client.raiseEvent(instanceId, "MyEvent", eventData);
+};
+```
+
 > [!WARNING]
 > Si no hay ninguna instancia de orquestación con el *identificador de instancia* especificado o si la instancia no está esperando el *nombre de evento* especificado, se descarta el mensaje de evento. Para más información acerca de este comportamiento, consulte el [problema de GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
@@ -299,7 +387,7 @@ public static Task Run(
 
 También es posible generar un evento para una instancia de orquestación directamente a través del comando `durable raise-event` de [Core Tools](../functions-run-local.md). Toma los parámetros siguientes:
 
-* **`id` (obligatorio)**: identificador de la instancia de orquestación.
+* **`id` (obligatorio)** : Identificador de la instancia de orquestación
 * **`event-name` (opcional)**: nombre del evento que se va a generar. El valor predeterminado es `$"Event_{RandomGUID}"`.
 * **`event-data` (opcional)**: datos que se van a enviar a la instancia de orquestación. Puede ser la ruta de acceso a un archivo JSON o se pueden proporcionar los datos directamente en la línea de comandos.
 * **`connection-string-setting` (opcional)**: nombre de la configuración de la aplicación que contiene la cadena de conexión de almacenamiento que se va a usar. El valor predeterminado es AzureWebJobsStorage.
@@ -308,17 +396,20 @@ También es posible generar un evento para una instancia de orquestación direct
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
 ```
+
 ```bash
 func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 ```
 
 ## <a name="wait-for-orchestration-completion"></a>Esperar a que finalice la orquestación
 
-La clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) expone una API [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) que se puede usar para obtener la salida real de manera sincrónica de una instancia de orquestación. El método usa un valor predeterminado de 10 segundos para `timeout` y de 1 segundo para `retryInterval` cuando no se establecen.  
+La clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) expone una [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API en .NET que se puede usar para obtener la salida real de manera sincrónica de una instancia de orquestación. En JavaScript, la clase `DurableOrchestrationClient` expone una `waitForCompletionOrCreateCheckStatusResponse` API para el mismo propósito. El método usa un valor predeterminado de 10 segundos para `timeout` y de 1 segundo para `retryInterval` cuando no se establecen.  
 
 Este ejemplo de función que se desencadena mediante HTTP muestra cómo utilizar la API:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
 La función se puede llamar con la siguiente línea mediante el tiempo de espera de 2 segundos y el intervalo de reintento de 0,5 segundos:
 
@@ -365,25 +456,27 @@ Dependiendo del tiempo necesario para obtener la respuesta de la instancia de or
     ```
 
 > [!NOTE]
-> El formato de las direcciones URL del webhook puede diferir en función de la versión del host de Azure Functions en ejecución. El ejemplo anterior es para el host de Azure Functions 2.0.
+> El formato de las direcciones URL del webhook puede diferir en función de la versión del host de Azure Functions en ejecución. El ejemplo anterior es para el host de Azure Functions 2.x.
 
 ## <a name="retrieving-http-management-webhook-urls"></a>Recuperación de las direcciones URL del webhook de administración de HTTP
 
-Los sistemas externos se pueden comunicar con Durable Functions a través de direcciones URL de webhook que forman parte de la respuesta predeterminada descrita en [Detección de la dirección URL de la API de HTTP](durable-functions-http-api.md). No obstante, se puede acceder también a las direcciones URL de webhook mediante programación en el cliente de orquestación o en una función de actividad mediante el método [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) de la clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). 
+Los sistemas externos se pueden comunicar con Durable Functions a través de direcciones URL de webhook que forman parte de la respuesta predeterminada descrita en [Detección de la dirección URL de la API de HTTP](durable-functions-http-api.md). No obstante, se puede acceder también a las direcciones URL de webhook mediante programación en el cliente de orquestación o en una función de actividad mediante el método [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) de la clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o el método `createHttpManagementPayload` de la clase `DurableOrchestrationClient` (JavaScript).
 
-[CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) tiene un parámetro:
+[CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) y `createHttpManagementPayload` tienen un parámetro:
 
 * **instanceId**: el identificador único de la instancia.
 
-El método devuelve una instancia de la carga [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) con las siguientes propiedades de cadena:
+Los métodos devuelven una instancia de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) (.NET) o un objeto (JavaScript) con las siguientes propiedades de cadena:
 
 * **Id**: el identificador de instancia de la orquestación (debe ser el mismo que la entrada `InstanceId`).
-* **StatusQueryGetUri**: la dirección URL del estado de la instancia de orquestación.
-* **SendEventPostUri**: la dirección URL de generación del evento de la instancia de orquestación.
-* **TerminatePostUri**: la dirección URL de generación del evento de la instancia de orquestación.
-* **RewindPostUri**: la dirección URL de "rebobinado" de la instancia de orquestación.
+* **StatusQueryGetUri**: Dirección URL del estado de la instancia de orquestación.
+* **SendEventPostUri**: Dirección URL de generación del evento de la instancia de orquestación.
+* **TerminatePostUri**: Dirección URL de finalización de la instancia de orquestación.
+* **RewindPostUri**: Dirección URL de rebobinado de la instancia de orquestación.
 
-Las funciones de la actividad pueden enviar una instancia de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) a sistemas externos para supervisar o generar eventos en una orquestación:
+Las funciones de la actividad pueden enviar una instancia de estos objetos a sistemas externos para supervisar o generar eventos en una orquestación:
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SendInstanceInfo")]
@@ -402,17 +495,37 @@ public static void SendInstanceInfo(
 }
 ```
 
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+modules.exports = async function(context, ctx) {
+    const client = df.getClient(context);
+
+    const payload = client.createHttpManagementPayload(ctx.instanceId);
+
+    // send the payload to Cosmos DB
+    context.bindings.document = JSON.stringify({
+        id: ctx.instanceId,
+        payload,
+    });
+};
+```
+
 ## <a name="rewinding-instances-preview"></a>Rebobinado de instancias (versión preliminar)
 
-Una instancia de orquestación con error se puede *rebobinar* de vuelta a un estado correcto anterior mediante la API [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_). Funciona colocando la orquestación de nuevo en el estado *En ejecución* y ejecutando nuevamente los errores de la actividad o de la ejecución de suborquestación que produjeron el error en la orquestación.
+Una instancia de orquestación con error se puede *devolver* a un estado correcto anterior mediante [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API (.NET) o `rewindAsync` API (JavaScript). Funciona colocando la orquestación de nuevo en el estado *En ejecución* y ejecutando nuevamente los errores de la actividad o de la ejecución de suborquestación que produjeron el error en la orquestación.
 
 > [!NOTE]
 > Esta API no pretende ser un sustituto para el control de errores y las directivas de reintentos pertinentes. En su lugar, el objetivo es que se use solo en casos donde las instancias de orquestación producen un error por razones inesperadas. Para obtener más detalles sobre el control de errores y las directivas de reintento, consulte el tema sobre [control de errores](durable-functions-error-handling.md).
 
-Un ejemplo de caso de uso para el *rebobinado* es un flujo de trabajo que requiere de una serie de [aprobaciones realizadas por humanos](durable-functions-overview.md#pattern-5-human-interaction). Suponga que hay una serie de funciones de actividad que notifican a alguien cuando se requiere su aprobación y que esperan la respuesta en tiempo real. Después de que todas las actividades de aprobación han recibido respuestas o se ha agotado el tiempo de espera, otra actividad devuelve un error debido a un error de configuración en la aplicación (por ejemplo, una cadena de conexión de base de datos no válida). El resultado es un error de orquestación en el flujo de trabajo. Con la API `RewindAsync`, un administrador de aplicaciones puede corregir el error de configuración y *rebobinar* la orquestación con error de vuelta al estado inmediatamente anterior al error. No es necesario volver a aprobar ninguno de los pasos de interacción humana y, ahora, la orquestación se puede completar correctamente.
+Un ejemplo de caso de uso para el *rebobinado* es un flujo de trabajo que requiere de una serie de [aprobaciones realizadas por humanos](durable-functions-overview.md#pattern-5-human-interaction). Suponga que hay una serie de funciones de actividad que notifican a alguien cuando se requiere su aprobación y que esperan la respuesta en tiempo real. Después de que todas las actividades de aprobación han recibido respuestas o se ha agotado el tiempo de espera, otra actividad devuelve un error debido a un error de configuración en la aplicación (por ejemplo, una cadena de conexión de base de datos no válida). El resultado es un error de orquestación en el flujo de trabajo. Con `RewindAsync` API (.NET) o `rewindAsync` API (JavaScript), un administrador de aplicaciones puede corregir el error de configuración y *devolver* la orquestación con error de vuelta al estado inmediatamente anterior al error. No es necesario volver a aprobar ninguno de los pasos de interacción humana y, ahora, la orquestación se puede completar correctamente.
 
 > [!NOTE]
 > La característica para *rebobinar* no admite el rebobinado de instancias de orquestación que utilizan temporizadores durables.
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("RewindInstance")]
@@ -425,12 +538,25 @@ public static Task Run(
 }
 ```
 
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function(context, instanceId) {
+    const client = df.getClient(context);
+
+    const reason = "Orchestrator failed and needs to be revived.";
+    return client.rewind(instanceId, reason);
+};
+```
+
 ### <a name="using-core-tools"></a>Uso de Core Tools
 
 También es posible rebobinar una instancia de orquestación directamente a través del comando `durable rewind` de [Core Tools](../functions-run-local.md). Toma los parámetros siguientes:
 
-* **`id` (obligatorio)**: identificador de la instancia de orquestación.
-* **`reason` (opcional)**: motivo para rebobinar la instancia de orquestación.
+* **`id` (obligatorio)** : Identificador de la instancia de orquestación
+* **`reason` (opcional)**: motivo para devolver a un estado anterior a la instancia de orquestación.
 * **`connection-string-setting` (opcional)**: nombre de la configuración de la aplicación que contiene la cadena de conexión de almacenamiento que se va a usar. El valor predeterminado es AzureWebJobsStorage.
 * **`task-hub-name` (opcional)**: nombre de la central de tareas de Durable que se va a usar. El valor predeterminado es DurableFunctionsHub. También puede establecerse en [host.json](durable-functions-bindings.md#host-json) a través de durableTask:HubName.
 
@@ -439,6 +565,9 @@ func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator
 ```
 
 ## <a name="purge-instance-history"></a>Purga del historial de instancias
+
+> [!NOTE]
+> `PurgeInstanceHistoryAsync` API actualmente solo está disponible para C#. Se agregará a JavaScript en una próxima versión.
 
 Se puede purgar el historial de orquestación mediante el uso de [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_). La funcionalidad quitará todos los datos asociados a una orquestación: las filas de la tabla de Azure y los blobs de mensajes de gran tamaño, si existen. El método tiene dos sobrecargas. La primera de ellas purga el historial por el Id. de la instancia de orquestación:
 
@@ -460,13 +589,13 @@ public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
     [TimerTrigger("0 0 12 * * *")]TimerInfo myTimer)
 {
-    return client.InnerClient.PurgeInstanceHistoryAsync( 
+    return client.PurgeInstanceHistoryAsync(
                     DateTime.MinValue,
                     DateTime.UtcNow.AddDays(-30),  
-                    new List<OrchestrationStatus> 
-                    { 
+                    new List<OrchestrationStatus>
+                    {
                         OrchestrationStatus.Completed
-                    }); 
+                    });
 }
 ```
 
@@ -479,26 +608,28 @@ Es posible purgar el historial de una instancia de orquestación mediante el com
 
 * **`created-after` (opcional)**: purga del historial de instancias creado después de esta fecha y hora (UTC). Se aceptan valores de datetime con formato ISO 8601.
 * **`created-before` (opcional)**: purga del historial de instancias creado antes de esta fecha y hora (UTC). Se aceptan valores de datetime con formato ISO 8601.
-* **`runtime-status` (opcional)**: purga del historial de instancias cuyo estado coincida con los indicados ("en ejecución", "completado", etc.). Puede proporcionar varios estados (separados por espacios).
+* **`runtime-status` (opcional)**: purga del historial de instancias cuyo estado coincida con los indicados ("running", "completed", etc.). Puede proporcionar varios estados (separados por espacios).
 * **`connection-string-setting` (opcional)**: nombre de la configuración de la aplicación que contiene la cadena de conexión de almacenamiento que se va a usar. El valor predeterminado es AzureWebJobsStorage.
 * **`task-hub-name` (opcional)**: nombre de la central de tareas de Durable que se va a usar. El valor predeterminado es DurableFunctionsHub. También puede establecerse en [host.json](durable-functions-bindings.md#host-json) a través de durableTask:HubName.
 
 El comando siguiente eliminaría el historial de todas las instancias erróneas creadas antes del 14 de noviembre de 2018 a las 7:35 p. m. (UTC).
+
 ```bash
 func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runtime-status failed
 ```
 
 ## <a name="deleting-a-task-hub"></a>Eliminación de una central de tareas
-Mediante el comando `durable delete-task-hub` de [Core Tools](../functions-run-local.md), es posible eliminar todos los artefactos de almacenamiento asociados a una central de tareas determinada. Se incluyen los blobs, las colas y las tablas de Azure Storage. El comando tiene dos parámetros: 
+
+Mediante el comando `durable delete-task-hub` de [Core Tools](../functions-run-local.md), es posible eliminar todos los artefactos de almacenamiento asociados a una central de tareas determinada. Se incluyen los blobs, las colas y las tablas de Azure Storage. El comando tiene dos parámetros:
 
 * **`connection-string-setting` (opcional)**: nombre de la configuración de la aplicación que contiene la cadena de conexión de almacenamiento que se va a usar. El valor predeterminado es AzureWebJobsStorage.
 * **`task-hub-name` (opcional)**: nombre de la central de tareas de Durable que se va a usar. El valor predeterminado es DurableFunctionsHub. También puede establecerse en [host.json](durable-functions-bindings.md#host-json) a través de durableTask:HubName.
 
 El siguiente comando eliminaría todos los datos de Azure Storage asociados a la central de tareas "UserTest".
+
 ```bash
 func durable delete-task-hub --task-hub-name UserTest
 ```
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

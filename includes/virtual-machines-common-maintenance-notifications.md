@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 609389460ab18ba947130e64dbe7b599574816a5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981733"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53216000"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visualización de las máquinas virtuales programadas para mantenimiento en el portal
 
@@ -49,7 +49,7 @@ Puede usar Azure Portal y buscar máquinas virtuales con mantenimiento programad
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificaciones y alertas en el portal
 
-Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales adicionales a esta comunicación creando alertas de registro de actividad de Azure. Para más información, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales adicionales a esta comunicación creando alertas de registro de actividad de Azure. Para más información, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 Asegúrese de establecer **Tipo de evento** como **Mantenimiento planeado** y **Servicios** como **Virtual Machine Scale Sets** o **Virtual Machines**.
     

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2017
+ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 15b609bbf4ab048722f2512371eeffece92b3245
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 27057f16d10d0859a486551091e135bfb9160813
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138147"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890354"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
@@ -37,7 +37,7 @@ Para configurar la supervisión de los puntos de conexión, debe especificar la 
 
     ![Supervisión de puntos de conexión de Traffic Manager](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-    **Ilustración: supervisión de puntos de conexión de Traffic Manager**
+    **Ilustración:  Supervisión de puntos de conexión de Traffic Manager**
 
 ## <a name="how-endpoint-monitoring-works"></a>Funcionamiento de la supervisión de puntos de conexión
 
@@ -112,7 +112,7 @@ La escala de tiempo de la siguiente ilustración es una descripción detallada d
 
 ![Secuencia de conmutación por error y conmutación por error de puntos de conexión del Administrador de tráfico](./media/traffic-manager-monitoring/timeline.png)
 
-**Ilustración: secuencia de conmutación por error y recuperación de un punto de conexión con Traffic Manager**
+**Ilustración:  Secuencia de conmutación por error y recuperación de un punto de conexión con Traffic Manager**
 
 1. **GET**. Para cada punto de conexión, el sistema de supervisión de Traffic Manager realiza una solicitud GET en la ruta de acceso especificada en la configuración de supervisión.
 2. **Respuesta correcta de 200 o intervalo de código personalizado especificados en la configuración de supervisión del perfil de Traffic Manager**. El sistema de supervisión espera que se devuelva una respuesta HTTP 200 correcta o el mensaje de intervalo de código personalizado especificado en la configuración de supervisión del perfil de Traffic Manager en 10 segundos. Cuando recibe esta respuesta, reconoce que el servicio está disponible.

@@ -4,14 +4,14 @@ description: En este artículo se proporciona una introducción a los cálculos 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165694"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849180"
 ---
 # <a name="assessment-calculations"></a>Cálculos de evaluación
 
@@ -21,7 +21,6 @@ ms.locfileid: "47165694"
 ## <a name="overview"></a>Información general
 
 Una evaluación de Azure Migrate tiene tres etapas. La valoración comienza con un análisis de idoneidad, seguido de las estimaciones de ajuste de tamaño y, por último, la estimación del costo mensual. Una máquina solo se mueve a una fase posterior si aprueba la anterior. Por ejemplo, si no supera la comprobación de idoneidad de Azure, se marca como no adecuada para Azure, y el ajuste de tamaño y los costos no se calculan.
-
 
 ## <a name="azure-suitability-analysis"></a>Análisis de idoneidad de Azure
 
@@ -54,11 +53,11 @@ Azure Migrate emplea la siguiente lógica para identificar la preparación de Az
 
 **Sistema operativo** | **Detalles** | **Estado de la preparación para Azure**
 --- | --- | ---
-Windows Server 2016 y todos los Service Pack | Azure proporciona compatibilidad completa. | Preparado para Azure
-Windows Server 2012 R2 y todos los Service Pack | Azure proporciona compatibilidad completa. | Preparado para Azure
-Windows Server 2012 y todos los Service Pack | Azure proporciona compatibilidad completa. | Preparado para Azure
-Windows Server 2008 R2 con todos los Service Pack | Azure proporciona compatibilidad completa.| Preparado para Azure
-Windows Server 2008 (32 bits y 64 bits) | Azure proporciona compatibilidad completa. | Preparado para Azure
+Windows Server 2016 y todos los Service Pack | Azure proporciona compatibilidad completa. | Preparada para Azure
+Windows Server 2012 R2 y todos los Service Pack | Azure proporciona compatibilidad completa. | Preparada para Azure
+Windows Server 2012 y todos los Service Pack | Azure proporciona compatibilidad completa. | Preparada para Azure
+Windows Server 2008 R2 con todos los Service Pack | Azure proporciona compatibilidad completa.| Preparada para Azure
+Windows Server 2008 (32 bits y 64 bits) | Azure proporciona compatibilidad completa. | Preparada para Azure
 Windows Server 2003 y 2003 R2 | El sistema operativo alcanzó la fecha de finalización del soporte técnico y necesita un [contrato de soporte técnico personalizado (CSA)](https://aka.ms/WSosstatement) para obtener soporte técnico en Azure. | Condicionalmente preparada para Azure, considere la posibilidad de actualizar el sistema operativo antes de migrar a Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Estos sistemas operativos han alcanzado la fecha de finalización del soporte técnico, la máquina pude arrancar en Azure, pero Azure no proporciona ningún soporte técnico para el sistema operativo. | Condicionalmente preparada para Azure, se recomienda actualizar el sistema operativo antes de migrar a Azure.
 Cliente de Windows 7, 8 y 10 | Azure solo proporciona compatibilidad con la [suscripción de Visual Studio](https://docs.microsoft.com/azure/virtual-machines/windows/client-images). | Condicionalmente preparada para Azure
@@ -119,22 +118,14 @@ Para ajustar el tamaño basado en el rendimiento, Azure Migrate necesita los dat
 
    Estos son los motivos por los que una evaluación puede obtener una clasificación de confianza baja:
 
-   **Detección de una sola vez**
-
-   - La configuración de estadísticas en vCenter Server no se establece en el nivel 3. Dado que el modelo de detección de una sola vez depende de la configuración de estadísticas de vCenter Server, si la configuración de estadísticas en vCenter Server es inferior al nivel 3, no se recopilan los datos de rendimiento de disco y de red de vCenter Server. En este caso, la recomendación que proporciona Azure Migrate de disco y de red no se basa en el uso. Sin tener en cuenta el valor de IOPS o del rendimiento del disco, Azure Migrate no puede saber si el disco necesitará un disco premium en Azure; por lo tanto, en este caso, Azure Migrate recomienda usar discos estándar para todos los discos.
-   - La configuración de estadísticas en vCenter Server se estableció en el nivel 3 durante un período más corto antes de iniciar la detección. Por ejemplo, veamos un escenario en el que hoy cambia el nivel de configuración de estadísticas a 3 y mañana inicia la detección mediante el dispositivo recopilador (una vez pasadas 24 horas). Si va a crear una valoración durante un día, tiene todos los puntos de datos y la clasificación de confianza de la valoración sería 5 estrellas. Pero, si cambia la duración del rendimiento a un mes en las propiedades de la valoración, la clasificación de confianza descenderá dado que los datos de disco y rendimiento de la red durante el último mes no estarían disponibles. Si quisiera considerar los datos de rendimiento del último mes, se recomienda que mantenga la configuración de las estadísticas de vCenter Server en el nivel 3 durante un mes antes de iniciar la detección.
-
-   **Detección continua**
-
    - No generó un perfil de su entorno durante el tiempo que está creando la evaluación. Por ejemplo, si está creando la evaluación con la duración de rendimiento establecida en 1 día, debe esperar al menos un día después de empezar la detección para que se recopilen todos los puntos de datos.
 
-   **Motivos comunes**  
-
    - Se apagaron algunas máquinas virtuales en el período durante el que se calcula la valoración. Si alguna máquina virtual se apagó por algún tiempo, no podremos recopilar los datos de rendimiento durante ese período.
+
    - Algunas máquinas virtuales se crearon en algún momento del período durante el cual se calcula la valoración. Por ejemplo, si va a crear una valoración para el historial de rendimiento del último mes, pero algunas máquinas virtuales se crearon en el entorno hace solo una semana. En tales casos, el historial de rendimiento de las nuevas máquinas virtuales no permanecerá durante toda la duración.
 
    > [!NOTE]
-   > Si la clasificación de confianza de cualquier valoración es inferior a 4 estrellas, para el modelo de detección de una sola vez, recomendamos que cambie el nivel de configuración de las estadísticas de vCenter Server a 3, espere la duración que quiera considerar para la valoración (un día, una semana o un mes) y, después, realice la detección y la valoración. Para el modelo de detección continua, espere al menos un día para que el dispositivo genere el perfil del entorno y luego *recalcule* las evaluaciones. Si no se puede realizar lo anterior, el ajuste de tamaño basado en el rendimiento podría no ser de confianza y se recomienda cambiar a *como local* cambiando las propiedades de la valoración.
+   > Si la clasificación de confianza de una valoración se sitúa por debajo de las 5 estrellas, le recomendamos que espere al menos un día para que el dispositivo genere el perfil del entorno y luego *recalcule* la valoración. Si no se puede realizar lo anterior, el ajuste de tamaño basado en el rendimiento podría no ser de confianza y se recomienda cambiar a *como local* cambiando las propiedades de la valoración.
 
 ## <a name="monthly-cost-estimation"></a>Estimación del costo mensual
 

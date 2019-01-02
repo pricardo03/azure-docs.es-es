@@ -3,7 +3,7 @@ title: Uso de la biblioteca de clientes de Elastic Database con Entity Framework
 description: Uso de la biblioteca de cliente de Elastic Database y Entity Framework para la codificación de bases de datos
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 030ec9db16f90430a544ca8715a4e1dea02e2c62
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261934"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873247"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de cliente de Elastic Database con Entity Framework
 Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con las [herramientas de Elastic Database](sql-database-elastic-scale-introduction.md). Se centra en la composición de la [administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) y el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) con el enfoque **Code First** de Entity Framework. El tutorial [Code First – Nueva base de datos](https://msdn.microsoft.com/data/jj193542.aspx) para EF sirve como ejemplo en ejecución en este documento. El código de ejemplo que acompaña a este documento forma parte del conjunto de ejemplos de las herramientas de bases de datos elásticas en los ejemplos de código de Visual Studio.

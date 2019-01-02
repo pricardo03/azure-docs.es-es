@@ -1,24 +1,24 @@
 ---
-title: Azure Event Hubs para Apache Kafka | Microsoft Docs
-description: Información general e introducción a Azure Event Hubs habilitados para Kafka
+title: 'Uso del centro de eventos desde una aplicación de Apache Kafka: Azure Event Hubs | Microsoft Docs'
+description: En este artículo se proporciona información sobre la compatibilidad de Apache Kafka con Azure Event Hubs.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 11/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 7f452fe9797e688dc05b644c003117461b4f8bb9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1c484b6418fd5a453713bc464fff690ef444f109
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277501"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091193"
 ---
-# <a name="azure-event-hubs-for-apache-kafka"></a>Azure Event Hubs para Apache Kafka 
-
-Event Hubs proporciona un punto de conexión de Kafka que las aplicaciones basadas en Kafka existentes pueden usar como alternativa a la ejecución de su propio clúster de Kafka. Event Hubs admite el [protocolo de Apache Kafka 1.0 y versiones más recientes](https://kafka.apache.org/documentation/) y funciona con las aplicaciones existentes de Kafka, incluida MirrorMaker. 
+# <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Uso de Azure Event Hubs desde aplicaciones de Apache Kafka
+Event Hubs proporciona un punto de conexión de Kafka que las aplicaciones basadas en Kafka existentes pueden usar como alternativa a la ejecución de su propio clúster de Kafka. Event Hubs admite el [protocolo de Apache Kafka 1.0 y versiones más recientes](https://kafka.apache.org/documentation/) y funciona con las aplicaciones existentes de Kafka, incluida MirrorMaker.  
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>¿Qué proporciona Event Hubs para Kafka?
 

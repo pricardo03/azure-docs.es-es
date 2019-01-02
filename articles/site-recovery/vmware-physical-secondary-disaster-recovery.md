@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2198d7520d660904423eabbec8df71e55e3011dd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215470"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338641"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos locales en un sitio secundario
 
@@ -28,8 +28,8 @@ El escenario de Azure Site Recovery para la replicación entre los centros de da
 
 Durante la 2018 y 2019, se lanzarán dos actualizaciones: 
 
--   Actualización 7: Corrige problemas de cumplimiento y configuración de red y proporciona compatibilidad con TLS 1.2.
--   Actualización de 8: Agrega compatibilidad para sistemas operativos Linux RHEL/CentOS 7.3/7.4/7.5 y para SUSE 12
+-   Actualización 7: corrige problemas de cumplimiento y configuración de red y proporciona compatibilidad con TLS 1.2.
+-   Actualización 8: agrega compatibilidad para sistemas operativos Linux RHEL/CentOS 7.3/7.4/7.5 y para SUSE 12.
 
 Después de la actualizaciones 8, no se publicarán más actualizaciones. Habrá soporte técnico de revisiones limitadas para los sistemas operativos agregados en la actualización 8 y correcciones de errores basadas en el mejor esfuerzo.
 
@@ -97,18 +97,18 @@ Descargue el archivo .zip de la [actualización](https://aka.ms/asr-scout-update
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
   - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - UA actualización 4 bits para RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - Actualización de UA de 4 bits para RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. Extraiga los archivos .zip.
-2. **Servidor RX**: copie **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** en el servidor RX y extráigalo. En la carpeta extraída, ejecute **/Install**.
-3. **Servidor de configuración o servidor de procesos**: copie **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** en el servidor de configuración y el servidor de procesos. Haga doble clic para ejecutarlo.<br>
-4. **Servidor de destino maestro de Windows**: para actualizar el agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** en el servidor. Haga doble clic en él para ejecutarlo. La misma actualización del agente unificado también se aplica al servidor de origen. Si el origen no se ha actualizado a Update 4, debe actualizar el agente unificado.
+2. **Servidor de RX**: copie **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** en el servidor RX y extráigalo. En la carpeta extraída, ejecute **/Install**.
+3. **Servidor de configuración y servidor de procesos**: copie **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** en el servidor de configuración y el servidor de procesos. Haga doble clic para ejecutarlo.<br>
+4. **Servidor de destino principal de Windows**: Para actualizar el agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** en el servidor. Haga doble clic en él para ejecutarlo. La misma actualización del agente unificado también se aplica al servidor de origen. Si el origen no se ha actualizado a Update 4, debe actualizar el agente unificado.
   La actualización no necesita aplicarse en el destino maestro preparado con **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** puesto que este es el nuevo instalador de disponibilidad general con todos los cambios más recientes.
-5. **Servidor vContinuum**: copie **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** en el servidor.  Asegúrese de que ha cerrado el asistente de vContinuum. Haga doble clic en el archivo para ejecutarlo.
+5. **Servidor de vContinuum**:  copie **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** en el servidor.  Asegúrese de que ha cerrado el asistente de vContinuum. Haga doble clic en el archivo para ejecutarlo.
     La actualización no tiene que aplicarse en el destino maestro preparado con **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** puesto que este es el nuevo instalador de GA con todos los cambios más recientes.
 6. **Servidor de destino maestro Linux**: para actualizar el agente unificado, copie **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** en el servidor de destino maestro y extráigalo. En la carpeta extraída, ejecute **/Install**.
-7. **Servidor de origen de Windows**: para actualizar el agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** en el servidor. Haga doble clic en el archivo para ejecutarlo. 
+7. **Servidor de origen Windows**: Para actualizar el agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** en el servidor de origen. Haga doble clic en el archivo para ejecutarlo. 
     No es necesario instalar el agente de Update 5 en el servidor de origen si ya se ha actualizado a Update 4, o si se ha instalado el agente de origen con el instalador de base más reciente **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Servidor de origen Linux**: para actualizar el agente unificado, copie la versión correspondiente del archivo del agente unificado en el servidor Linux y extráigalo. En la carpeta extraída, ejecute **/Install**.  Ejemplo: para el servidor RHEL 6.7 de 64 bits, copie **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** en el servidor y extráigalo. En la carpeta extraída, ejecute **/Install**.
+8. **Servidor de origen Linux**: para actualizar el agente unificado, copie la versión correspondiente del archivo del agente unificado en el servidor Linux y extráigalo. En la carpeta extraída, ejecute **/Install**.  Ejemplo: Para el servidor RHEL 6.7 de 64 bits, copie **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** en el servidor y extráigalo. En la carpeta extraída, ejecute **/Install**.
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
@@ -124,7 +124,7 @@ Descargue el archivo .zip de la [actualización](https://aka.ms/asr-scout-update
 ## <a name="updates"></a>Actualizaciones
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
-Actualización: 12 de octubre de 2017
+Actualizado: 12 de octubre de 2017
 
 Descargue la [actualización 6 de Scout](https://aka.ms/asr-scout-update6).
 
@@ -142,7 +142,7 @@ La actualización 6 de Scout es una actualización acumulativa. Contiene todas l
 > [!NOTE]
 > * Se ha actualizado el instalador de base del agente unificado para Windows para admitir Windows Server 2016. El nuevo instalador **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** está empaquetado con el paquete de base de Scout GA (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). El mismo instalador se usará para todas las versiones compatibles de Windows. 
 > * El instalador de destino maestro y vContinuum de Windows de base se ha actualizado para admitir Windows Server 2016. El nuevo instalador **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** está empaquetado con el paquete de base de disponibilidad general de Scout (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). El mismo instalador se utilizará para implementar el destino maestro de Windows 2016 y el destino maestro de Windows 2012 R2.
-> * Descargue el paquete de GA del portal, como se describe en el artículo sobre la [creación de un almacén](#create-a-vault).
+> * ASR Scout no admite Windows Server 2016 en un servidor físico. Solo admite la máquina virtual de VMware de Windows Server 2016. 
 >
 
 #### <a name="bug-fixes-and-enhancements"></a>Mejoras y correcciones de errores
@@ -203,7 +203,7 @@ La actualización 4 de Scout es una actualización acumulativa. Incluye todas la
 * Se agregaron registros y comprobaciones adicionales para los cambios en la configuración de red durante maniobras de conmutación por error y recuperación ante desastres.
 * Corrección de un problema que ocasionaba que la información de retención no se informaba al servidor de configuración.  
 * En el caso de los clústeres físicos, la corrección de un problema que provocaba un error del redimensionamiento del volumen en el asistente de vContinuum al reducir el volumen de origen.
-* Corrección de un problema de protección de clúster con el error: "Failed to find the disk signature" (No se pudo encontrar la firma de disco), cuando el disco del clúster es un disco de PRDM.
+* Una corrección para un problema de protección de clústeres con error: "No se pudo encontrar la firma de disco", cuando el disco de clúster es un disco PRDM.
 * Corrección de un bloqueo del servidor de transporte cxps provocado por una excepción fuera de intervalo.
 * Ahora se puede modificar el tamaño de las columnas Nombre del servidor y Dirección IP en la página **Instalación de inserción** del asistente de vContinuum.
 * Mejoras de la API de RX:
@@ -246,10 +246,10 @@ Update 3 corrige los problemas siguientes:
   * CentOS 6 actualización 7
 * Las consolas RX y del servidor de configuración ahora muestran notificaciones para el par, el que va en modo de mapa de bits.
 * Las siguientes revisiones de seguridad se han agregado a RX:
-    * Omisión de la autorización mediante la alteración de parámetros: se ha restringido el acceso a usuarios no aplicables.
-    * Falsificación de solicitud entre sitios: se implementó el concepto de token que se genera aleatoriamente para cada página. Esto significa que solo hay una instancia de inicio de sesión único para el mismo usuario y que la actualización de la página no funciona. En lugar de eso, redirige al panel.
+    * Omisión de la autorización mediante la alteración de parámetros: Se ha restringido el acceso a usuarios no aplicables.
+    * Falsificación de solicitud entre sitios: se ha implementado el concepto de token de página que se genera aleatoriamente para cada página. Esto significa que solo hay una instancia de inicio de sesión único para el mismo usuario y que la actualización de la página no funciona. En lugar de eso, redirige al panel.
     * Carga de archivos malintencionados: los archivos están restringidos a extensiones específicas: z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml y zip.
-    * Scripting entre sitios persistente: se agregaron validaciones de entrada.
+    * Scripting entre sitios persistente: se han agregado las validaciones de entradas.
 
 ### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 actualización 2 (actualización del 3 de diciembre de 2015)
 

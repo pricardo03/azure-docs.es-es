@@ -1,6 +1,6 @@
 ---
-title: Excepciones de mensajería de Azure Event Hubs | Microsoft Docs
-description: Lista de excepciones de mensajería y acciones sugeridas de Azure Event Hubs.
+title: 'Excepciones de mensajería: Azure Event Hubs | Microsoft Docs'
+description: En este artículo se proporciona una lista de las excepciones de mensajería y acciones sugeridas de Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4576aad82b8c581cbe1630b56a07fc469207ef5f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 013386d86d29b75591a938b2805bde25ecf176d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038409"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104482"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Excepciones de mensajería de Event Hubs
 
@@ -45,7 +46,7 @@ En la tabla siguiente se describen los tipos de excepción de mensajería, sus c
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | La entidad asociada a la operación no existe o se eliminó. | Asegúrese de que la entidad exista. | El reintento no le será de ayuda. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | El cliente no puede establecer una conexión al Centro de eventos. |Asegúrese de que el nombre de host proporcionado sea correcto y que este sea accesible. | El reintento podría resultar útil si hay problemas de conectividad intermitente. |
 | [Microsoft.ServiceBus.Messaging ServerBusyException ](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | El servicio no puede procesar la solicitud en este momento. | El cliente puede esperar durante un período de tiempo y volver a intentar realizar la operación. <br /> Consulte [ServerBusyException](#serverbusyexception). | El cliente puede volver a intentarlo tras un determinado intervalo de tiempo. Si el reintento genera otra excepción, compruebe el comportamiento de reintento de esa excepción. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Excepción de mensajería genérica que puede producirse en los siguientes casos: intento de crear [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) con un nombre o una ruta de acceso que pertenece a un tipo de entidad diferente (por ejemplo, un tema). Intento de enviar un mensaje mayor de 256 KB. El servidor o servicio encontró un error durante el procesamiento de la solicitud. Consulte el mensaje de excepción para obtener detalles. Por lo general, se trata de una excepción transitoria. | Compruebe el código y asegúrese de que solo se usan objetos serializables en el cuerpo del mensaje (o use un serializador personalizado). Consulte la documentación de los tipos de valor de las propiedades admitidos y use solo los tipos compatibles. Compruebe la propiedad [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient) . Si es **true**, puede volver a intentar la operación. | El comportamiento de reintento es indefinido y quizá no resulte útil. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Excepción de mensajería genérica que puede producirse en los siguientes casos: Se intentó crear [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) con un nombre o una ruta de acceso que pertenece a un tipo de entidad diferente (por ejemplo, un tema). Intento de enviar un mensaje mayor de 256 KB. El servidor o servicio encontró un error durante el procesamiento de la solicitud. Consulte el mensaje de excepción para obtener detalles. Por lo general, se trata de una excepción transitoria. | Compruebe el código y asegúrese de que solo se usan objetos serializables en el cuerpo del mensaje (o use un serializador personalizado). Consulte la documentación de los tipos de valor de las propiedades admitidos y use solo los tipos compatibles. Compruebe la propiedad [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient) . Si es **true**, puede volver a intentar la operación. | El comportamiento de reintento es indefinido y quizá no resulte útil. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | Se intenta crear una entidad con un nombre que ya se usa en otra entidad de ese espacio de nombres de servicio. | Elimine la entidad existente o elija un nombre diferente para la entidad que quiere crear. | El reintento no le será de ayuda. |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | La entidad de mensajería alcanzó su tamaño máximo permitido. Esta excepción puede suceder si ya ha abierto el número máximo de destinatarios (que es cinco) en un nivel de grupo por consumidor. | Cree espacio en la entidad recibiendo mensajes de esta o de sus subcolas. <br /> Consulte [QuotaExceededException](#quotaexceededexception). | El reintento podría resultar útil si los mensajes se eliminan mientras este se lleva a cabo. |
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | Solicitud para realizar una operación en tiempo de ejecución en una entidad deshabilitada. |Active la entidad. | El reintento podría ser útil si la entidad se activa mientras este se lleva a cabo. |
@@ -80,11 +81,11 @@ Este error puede producirse por uno de estos dos motivos:
 
 1. La carga no se distribuye uniformemente en todas las particiones del centro de eventos y una partición ha alcanzado la limitación de unidades de rendimiento local.
     
-    Solución: revisar la estrategia de distribución de particiones o probar [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) puede que le sirva de ayuda.
+    Resolución: revisar la estrategia de distribución de particiones o probar [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) puede que le sirva de ayuda.
 
 2. El espacio de nombres de Event Hubs no tiene suficientes unidades de rendimiento (puede comprobar la pantalla **Métrica** en la ventana de espacio de nombres de Event Hubs en [Azure Portal](https://portal.azure.com) para confirmar). El portal muestra información agregada (un minuto), pero el rendimiento se mide en tiempo real, por lo que esto es solo una estimación.
 
-    Solución: aumentar las unidades de rendimiento en el espacio de nombres puede resultar útil. Puede hacer esta operación en este portal, en la ventana **Escala** de la pantalla de espacio de nombres de Event Hubs. O bien, puede usar el [inflado automático](event-hubs-auto-inflate.md).
+    Resolución: aumentar las unidades de rendimiento en el espacio de nombres puede resultar útil. Puede hacer esta operación en este portal, en la ventana **Escala** de la pantalla de espacio de nombres de Event Hubs. O bien, puede usar el [inflado automático](event-hubs-auto-inflate.md).
 
 ### <a name="error-code-50001"></a>Código de error 50001
 

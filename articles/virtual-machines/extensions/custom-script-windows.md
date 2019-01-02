@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282343"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963511"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -54,13 +54,13 @@ Si el script se encuentra en un servidor local, puede que aún necesite que haya
 * Escriba scripts que sean idempotentes, para que, si se ejecutan más de una vez por accidente, no provoquen cambios en el sistema.
 * Asegúrese de que los scripts no requieran intervención del usuario cuando se ejecutan.
 * Los scripts tienen permitido un plazo de 90 minutos para ejecutarse; todo lo que dure más provocará un error de aprovisionamiento de la extensión.
-* No coloque reinicios dentro del script, ya que esto provocará problemas con otras extensiones que se estén instalando y, tras reiniciar el equipo, la extensión no continuará. 
-* Si tiene un script que provocará un reinicio, instale las aplicaciones y ejecute los scripts, etc. Debe programar el reinicio mediante una tarea programada de Windows o usar herramientas como DSC, o extensiones de Chef o Puppet.
+* No incluya reinicios en el script, ya que esta acción provocará errores con otras extensiones que se instalen. Después del reinicio, la extensión no continuará después del reinicio. 
+* Si tiene un script que provocará un reinicio, instale las aplicaciones y ejecute los scripts, etc. Puede programar el reinicio mediante una tarea programada de Windows o usar herramientas como DSC, o extensiones de Chef o Puppet.
 * La extensión solo ejecutará un script una vez. Si quiere ejecutar un script en cada inicio, debe usar la extensión para crear una tarea programada de Windows.
 * Si quiere programar cuándo se ejecutará un script, debe usar la extensión para crear una tarea programada de Windows. 
 * Cuando el script se esté ejecutando, solo verá un estado de extensión "en transición" desde Azure Portal o la CLI. Si quiere recibir actualizaciones de estado más frecuentes de un script en ejecución, debe crear su propia solución.
 * La extensión de script personalizada no admite de forma nativa servidores proxy, pero puede usar una herramienta de transferencia de archivos que admita servidores proxy en el script, como *Curl*. 
-* Tenga en cuenta las ubicaciones de directorio no predeterminadas en las que se puedan basar los scripts o comandos y aplique lógica para controlarlas.
+* Tenga en cuenta las ubicaciones de directorio no predeterminadas en las que se puedan basar los scripts o comandos y aplique lógica para controlar esta situación.
 
 
 ## <a name="extension-schema"></a>Esquema de extensión
@@ -92,7 +92,8 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
         "settings": {
             "fileUris": [
                 "script location"
-            ]
+            ],
+            "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
@@ -113,6 +114,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 | Tipo | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (p. ej.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| timestamp (p. ej.) | 123456789 | Entero de 32 bits |
 | commandToExecute (p. ej.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (p. ej.) | examplestorageacct | string |
 | storageAccountKey (p. ej.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
@@ -123,13 +125,14 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 #### <a name="property-value-details"></a>Detalles del valor de propiedad
  * `commandToExecute` (**necesario**, cadena): script de punto de entrada que se va a ejecutar. Use este campo si el comando contiene secretos, como contraseñas, o si los fileUris son confidenciales.
 * `fileUris` (opcional, matriz de cadenas): direcciones URL de los archivos que se van a descargar.
+* `timestamp` (opcional, entero de 32 bits) use este campo solo para desencadenar una nueva ejecución del script; para ello, cambie el valor de este campo.  Se acepta cualquier valor entero; solo debe ser distinto del valor anterior.
 * `storageAccountName` (opcional, cadena): nombre de la cuenta de almacenamiento. Si especifica credenciales de almacenamiento, todos los valores de `fileUris` deben ser direcciones URL de blobs de Azure.
 * `storageAccountKey` (opcional, cadena): clave de acceso de la cuenta de almacenamiento.
 
 Los valores siguientes se pueden establecer en la configuración pública o protegida. La extensión rechazará una configuración si los valores siguientes están establecidos en la configuración tanto pública como protegida.
 * `commandToExecute`
 
-Usar la configuración pública puede resultar útil para la depuración, pero se recomienda encarecidamente usar la configuración protegida.
+Usar la configuración pública puede resultar útil para la depuración, pero se recomienda usar la configuración protegida.
 
 La configuración pública se envía en texto no cifrado a la máquina virtual donde se ejecutará el script.  La configuración protegida se cifra con una clave que solo conocen Azure y la máquina virtual. La configuración se guarda en la máquina virtual tal cual se envió; es decir, si la configuración estaba cifrada, se guarda cifrada en la máquina virtual. El certificado usado para descifrar los valores cifrados se almacena en la máquina virtual y se usa para descifrar la configuración (si es necesario) en tiempo de ejecución.
 
@@ -137,7 +140,7 @@ La configuración pública se envía en texto no cifrado a la máquina virtual d
 
 Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. El esquema JSON detallado en la sección anterior se puede usar en una plantilla de Azure Resource Manager para ejecutar la extensión de script personalizado durante la implementación de una plantilla de Azure Resource Manager. En los ejemplos siguientes se muestra cómo usar la extensión de script personalizado:
 
-* [Tutorial: Implementación de extensiones de máquina virtual con plantillas de Azure Resource Manager.](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Tutorial: Implementación de extensiones de máquina virtual con plantillas de Azure Resource Manager](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows) (Implementación de aplicaciones de dos niveles en Windows y Azure SQL DB)
 
 ## <a name="powershell-deployment"></a>Implementación de PowerShell
@@ -199,9 +202,9 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ```
 
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Cómo ejecutar un script personalizado más de una vez con la CLI
-Si quiere ejecutar la extensión de script personalizado más de una vez, solo puede hacerlo si se cumplen las condiciones siguientes:
+Si quiere ejecutar la extensión de script personalizado más de una vez, solo puede hacer esta acción si se cumplen las condiciones siguientes:
 1. El parámetro "Name" de la extensión coincide con la implementación anterior de la extensión.
-2. Debe actualizar la configuración para que el comando se vuelva a ejecutar. Por ejemplo, podría agregar una propiedad dinámica al comando, como una marca de tiempo. 
+2. Debe actualizar la configuración; de lo contrario, el comando no volverá a ejecutarse. Puede agregar una propiedad dinámica en el comando, como una marca de tiempo.
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
@@ -224,7 +227,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
 donde `<n>` es un entero decimal que puede variar entre las ejecuciones de la extensión.  El valor `1.*` coincide con el valor `typeHandlerVersion` actual y real de la extensión.  Por ejemplo, el directorio real podría ser `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
 
-Cuando se ejecute el comando `commandToExecute`, la extensión establece este directorio (por ejemplo, `...\Downloads\2`) como directorio de trabajo actual. Esto permite el uso de rutas de acceso relativas para buscar los archivos descargados a través de la propiedad `fileURIs`. En la tabla siguiente se muestran algunos ejemplos.
+Cuando se ejecute el comando `commandToExecute`, la extensión establece este directorio (por ejemplo, `...\Downloads\2`) como directorio de trabajo actual. Este proceso permite el uso de rutas de acceso relativas para buscar los archivos descargados mediante la propiedad `fileURIs`. En la tabla siguiente se muestran algunos ejemplos.
 
 Dado que la ruta de acceso absoluta de descarga puede variar con el paso del tiempo, es mejor optar por rutas de acceso relativas de archivo o script en la cadena `commandToExecute`, siempre que sea posible. Por ejemplo: 
 ```json
@@ -244,4 +247,4 @@ La información de ruta de acceso después del primer segmento de URI se conserv
 
 ### <a name="support"></a>Soporte técnico
 
-Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione Obtener soporte. Para obtener información sobre el uso del soporte técnico, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/). También puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione Obtener soporte. Para obtener información sobre el uso del soporte técnico, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).

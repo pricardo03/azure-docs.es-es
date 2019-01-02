@@ -1,11 +1,12 @@
 ---
 title: 'Uso de la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine: Azure | Microsoft Docs'
-description: Uso de una máquina virtual para inteligencia artificial y análisis geoespacial en Azure.
+description: Aprenda a usar la instancia de Geo AI Data Science Virtual Machine para analizar datos y crear modelos basados en datos geoespaciales.
 keywords: aprendizaje profundo, IA, herramientas de ciencia de datos, máquina virtual de ciencia de datos, análisis geoespacial
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: f346b086a0269f247d64edf9346b01849ba3d0ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 872bfdfdef28dbb88861b723bd3186faea461cad
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408044"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410013"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Uso de la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine
 
@@ -46,7 +47,7 @@ Además de ejemplos basados en la plataforma de aprendizaje automático y aprend
 
 2. [Introducción al análisis geoespacial con R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): un ejemplo introductorio muestra cómo trabajar con datos geoespaciales mediante la interfaz de R para ArcGIS proporcionada por la biblioteca [arcgisbinding](https://github.com/R-ArcGIS/r-bridge). 
 
-3. [Clasificación de uso del suelo a nivel de píxeles](https://github.com/Azure/pixel_level_land_classification): un tutorial que muestra cómo crear un modelo de red neuronal profunda que acepta una imagen aérea como entrada y devuelve una etiqueta de cobertura del suelo. Ejemplos de etiquetas de cobertura del suelo son "bosque" o "agua". El modelo devuelve este tipo de etiqueta para cada píxel de la imagen. El modelo se crea mediante la plataforma de aprendizaje profundo de código abierto [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) de Microsoft. El ejemplo también muestra cómo escalar horizontalmente el aprendizaje a [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) y consumir las predicciones del modelo en el software ArcGIS Pro. 
+3. [Clasificación de uso del suelo a nivel de píxeles](https://github.com/Azure/pixel_level_land_classification): un tutorial que muestra cómo crear un modelo de red neuronal profunda que acepta una imagen aérea como entrada y devuelve una etiqueta de cobertura del suelo. Ejemplos de etiquetas de cobertura del suelo son "bosque" o "agua". El modelo devuelve este tipo de etiqueta para cada píxel de la imagen. El modelo se crea mediante la plataforma de aprendizaje profundo de código abierto [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) de Microsoft. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

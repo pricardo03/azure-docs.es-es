@@ -4,22 +4,22 @@ description: Aprenda sobre la solución de problemas relacionados con los runboo
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094871"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015473"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Errores de autenticación al trabajar con runbooks de Azure Automation
 
-### <a name="sign-in-failed"></a>Escenario: Fallo del inicio de sesión en la cuenta de Azure
+### <a name="sign-in-failed"></a>Escenario: Error al iniciar de sesión en la cuenta de Azure
 
 #### <a name="issue"></a>Problema
 
@@ -123,11 +123,11 @@ Si dispone de autenticación multifactor en su cuenta de Azure, no puede usar un
 
 #### <a name="resolution"></a>Resolución
 
-Para usar un certificado con los cmdlets del modelo de implementación clásica de Azure, consulte el artículo sobre [cómo crear y agregar un certificado para administrar los servicios de Azure](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Para usar una entidad de servicio con los cmdlets de Azure Resource Manager, consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../../active-directory/develop/howto-create-service-principal-portal.md) y [Autenticación de una entidad de servicio con Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Para usar un certificado con los cmdlets del modelo de implementación clásica de Azure, consulte el artículo sobre [cómo crear y agregar un certificado para administrar los servicios de Azure](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Para usar una entidad de servicio con los cmdlets de Azure Resource Manager, consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../../active-directory/develop/howto-create-service-principal-portal.md) y [Autenticación de una entidad de servicio con Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Errores comunes al trabajar con runbooks
 
-### <a name="task-was-cancelled"></a>Escenario: El runbook genera el error: Se canceló una tarea
+### <a name="task-was-cancelled"></a>Escenario: Se produce el siguiente error en el runbook: Se ha cancelado una tarea
 
 #### <a name="issue"></a>Problema
 
@@ -208,7 +208,7 @@ Si el módulo es un módulo de Azure, consulte [Actualización de módulos de Az
 
 Si es un módulo independiente, asegúrese de que el módulo se importa en su cuenta de Automation.
 
-### <a name="job-attempted-3-times"></a>Escenario: se intentó iniciar el trabajo de runbook tres veces, pero en las tres se produjo un error
+### <a name="job-attempted-3-times"></a>Escenario: Se intentó iniciar el trabajo de runbook tres veces, pero en las tres se produjo un error
 
 #### <a name="issue"></a>Problema
 
@@ -238,7 +238,7 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 
 * Otra solución consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Los Hybrid Worker no están limitados por los límites de memoria y de red como lo están los espacios aislados de Azure.
 
-### <a name="fails-deserialized-object"></a>Escenario: error en runbook debido a un objeto deserializado
+### <a name="fails-deserialized-object"></a>Escenario: Error en runbook debido a un objeto deserializado
 
 #### <a name="issue"></a>Problema
 
@@ -262,7 +262,7 @@ Cualquiera de las siguientes tres alternativas solucionará este problema:
 2. En lugar de pasar el objeto complejo entero, pase solamente el nombre o valor del mismo que necesite.
 3. Use un runbook de PowerShell en lugar de un runbook de flujo de trabajo de PowerShell.
 
-### <a name="quota-exceeded"></a>Escenario: Error de trabajo de Runbook porque superó la cuota asignada
+### <a name="quota-exceeded"></a>Escenario: Error de trabajo de runbook porque superó la cuota asignada
 
 #### <a name="issue"></a>Problema
 
@@ -285,7 +285,7 @@ Si desea usar más de 500 minutos de procesamiento por mes tiene que cambiar la 
 3. Haga clic en **Configuración** > **Precios**.
 4. Haga clic en **Habilitar** en la parte inferior de la página para actualizar su cuenta al nivel **Básico**.
 
-### <a name="cmdlet-not-recognized"></a>Escenario: No se reconoce el Cmdlet cuando se ejecuta un runbook
+### <a name="cmdlet-not-recognized"></a>Escenario: No se reconoce el cmdlet cuando se ejecuta un runbook
 
 #### <a name="issue"></a>Problema
 
@@ -308,7 +308,7 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 * Si tiene un conflicto de nombres y el cmdlet está disponible en dos módulos diferentes, puede resolver este problema mediante el nombre completo del cmdlet. Por ejemplo, puede usar **NombreDeMódulo\NombredeCmdlet**.  
 * Si está ejecutando el runbook en un entorno local en un grupo de trabajo híbrido, asegúrese de que el cmdlet o el módulo están instalados en la máquina que hospeda el trabajo híbrido.
 
-### <a name="long-running-runbook"></a>Escenario: un runbook de larga ejecución no se puede completar
+### <a name="long-running-runbook"></a>Escenario: Un runbook de larga ejecución no se puede completar
 
 #### <a name="issue"></a>Problema
 
@@ -338,6 +338,45 @@ Los cmdlets de PowerShell que habilitan el escenario de runbook secundario son:
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob): este cmdlet permite comprobar el estado del trabajo de cada elemento secundario si hay operaciones que deben realizarse después de que se complete el runbook secundario.
 
+### <a name="expired webhook"></a>Escenario: Estado: Solicitud incorrecta 400 al invocar un webhook
+
+#### <a name="issue"></a>Problema
+
+Cuando intenta invocar un webhook para un runbook de Azure Automation, recibe el siguiente error.
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>Causa
+
+El webhook que intenta invocar está deshabilitado o ha expirado.
+
+#### <a name="resolution"></a>Resolución
+
+Si el webhook está deshabilitado, puede volver a habilitarlo a través de Azure Portal. Si el webhook ha expirado, dicho webhook debe eliminarse y volver a crearse. Solo puede [renovar un webhook](../automation-webhooks.md#renew-webhook) si ya no ha expirado.
+
+### <a name="429"></a>Escenario: 429: Actualmente la tasa de solicitud es demasiado grande. Vuelva a intentarlo.
+
+#### <a name="issue"></a>Problema
+
+Recibe el siguiente mensaje de error al ejecutar el cmdlet `Get-AzureRmAutomationJobOutput`:
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>Causa
+
+Este error puede producirse al recuperar la salida de trabajo de un runbook que tiene muchas [flujos detallados](../automation-runbook-output-and-messages.md#verbose-stream).
+
+#### <a name="resolution"></a>Resolución
+
+Hay dos maneras de resolver este error:
+
+* Edite el runbook y reduzca el número de flujos de trabajo que emite.
+* Reduzca el número de flujos para recuperar cuando se ejecuta el cmdlet. Para ello, puede especificar el parámetro `-Stream Output` para el cmdlet `Get-AzureRmAutomationJobOutput` para recuperar solo los flujos de salida. 
+
 ## <a name="common-errors-when-importing-modules"></a>Errores comunes al importar módulos
 
 ### <a name="module-fails-to-import"></a>Escenario: No se puede importar el módulo o no se pueden ejecutar cmdlets después de la importación
@@ -359,7 +398,7 @@ Algunas razones comunes por las que un módulo no se importa correctamente a Azu
 
 Cualquiera de las siguientes soluciones resolverá el problema:
 
-* Asegúrese de que el módulo sigue el formato siguiente: NombreMódulo.Zip **->** NombreMódulo o número de versión **->** (NombreMódulo.psm1, NombreMódulo.psd1)
+* Asegúrese de que el módulo sigue el formato siguiente: nombreDeMódulo.Zip **->** nombreDeMódulo o un número de versión **->** (nombreDeMódulo.psm1, nombreDeMódulo.psd1)
 * Abra el archivo. psd1 y compruebe si el módulo tiene dependencias. Si es así, cargue estos módulos en la cuenta de Automation.
 * Asegúrese de que todos los archivos .dll a los que se hace referencia están presentes en la carpeta del módulo.
 

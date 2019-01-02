@@ -1,22 +1,24 @@
 ---
-title: Conexiones salientes en Azure | Microsoft Docs
+title: Conexiones salientes en Azure
+titlesuffix: Azure Load Balancer
 description: En este artículo se explica cómo Azure permite que las máquinas virtuales puedan comunicarse con servicios de la red Internet pública.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: fdcc039eb71eaeea03aaae856a6d031d4c528669
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687578"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190975"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -54,7 +56,7 @@ Una dirección IP pública asignada a una máquina virtual es una relación 1:1 
 
 Si la aplicación inicia muchos flujos de salida y experimenta el agotamiento de puertos SNAT, considere la posibilidad de asignar una [ILPIP para mitigar las restricciones de SNAT](#assignilpip). Revise la sección [Administración de agotamiento de SNAT](#snatexhaust) en su totalidad.
 
-### <a name="lb"></a>Escenario 2: Máquina virtual de carga equilibrada sin dirección IP pública en el nivel de instancia
+### <a name="lb"></a>Escenario 2: máquina virtual de carga equilibrada sin dirección IP pública en el nivel de instancia
 
 En este escenario, la máquina virtual forma parte de un grupo de servidores back-end de Load Balancer. La máquina virtual no tiene ninguna dirección IP pública asignada. El recurso Load Balancer debe configurarse con una regla de equilibrador de carga que cree un vínculo entre el front-end de dirección IP pública y el grupo de back-end.
 
@@ -70,7 +72,7 @@ Cuando hay [varias direcciones IP públicas asociadas a Load Balancer básico](l
 
 Para supervisar el mantenimiento de las conexiones salientes con Load Balancer básico, puede usar [Log Analytics para Load Balancer](load-balancer-monitor-log.md) y [registros de eventos de alerta](load-balancer-monitor-log.md#alert-event-log).
 
-### <a name="defaultsnat"></a>Escenario 3: Máquina virtual independiente sin una dirección IP pública en el nivel de instancia
+### <a name="defaultsnat"></a>Escenario 3: máquina virtual independiente sin una dirección IP pública en el nivel de instancia
 
 En este escenario, la máquina virtual no forma parte de un grupo público de un grupo de Load Balancer (ni tampoco de un grupo de Load Balancer estándar interno) y no tiene asignada una dirección ILPIP. Cuando la máquina virtual crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP de origen público. La dirección IP pública usada para este flujo de salida no es configurable y no cuenta para el límite de recursos de IP pública de la suscripción. Esta dirección IP pública no le pertenece y no se puede reservar. Si vuelve a implementar la máquina virtual, el conjunto de disponibilidad o el conjunto de escalado de máquinas virtuales, esta dirección IP pública se publicará y se solicitará una nueva dirección IP pública. No use este escenario para direcciones IP permitidas. En su lugar, utilice uno de los otros dos escenarios en el que declare explícitamente el escenario de salida y la dirección IP pública que se utilizará para la conectividad de salida.
 

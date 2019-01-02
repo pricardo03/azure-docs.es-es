@@ -1,6 +1,6 @@
 ---
-title: ¿Qué es el host del procesador de eventos de Azure Event Hubs y por qué usarlo? | Microsoft Docs
-description: Información general e introducción al host de procesador de eventos de Azure Event Hubs
+title: 'Recepción de eventos mediante el host del procesador de eventos: Azure Event Hubs | Microsoft Docs'
+description: En este artículo se describe el host del procesador de eventos de Azure Event Hubs, que simplifica la administración de los eventos de punto de comprobación, concesión y lectura en paralelo.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258959"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089640"
 ---
-# <a name="azure-event-hubs-event-processor-host-overview"></a>Introducción al host del procesador de eventos de Azure Event Hubs
+# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Recepción de eventos desde Azure Event Hubs mediante el host del procesador de eventos
 
 Azure Event Hubs es un eficaz servicio de ingesta de telemetría que se puede usar para hacer streaming de millones de eventos a un bajo costo. En este artículo se describe cómo usar eventos ingeridos mediante el *host del procesador de eventos* (EPH), un agente de consumidor inteligente que simplifica la administración de la creación de puntos de comprobación, la concesión y los lectores de eventos paralelos.  
 
@@ -83,7 +84,7 @@ public class SimpleEventProcessor : IEventProcessor
 A continuación, cree una instancia de una instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Según la sobrecarga, al crear la instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) en el constructor, se usan los siguientes parámetros:
 
 - **hostName:** el nombre de cada instancia de consumidor. Cada instancia de **EventProcessorHost** debe tener un valor único para esta variable dentro de un grupo de consumidores, por lo que es mejor no codificar de forma rígida este valor.
-- **eventHubPath:** el nombre del centro de eventos.
+- **eventHubPath:** El nombre del centro de eventos.
 - **consumerGroupName:** Event Hubs usa **$Default** como nombre del grupo de consumidores predeterminado, pero es recomendable crear un grupo de consumidores para sus necesidades específicas de procesamiento.
 - **eventHubConnectionString:** la cadena de conexión al centro de eventos que se puede recuperar desde Azure Portal. Esta cadena de conexión debe tener permisos de **escucha** en el centro de eventos.
 - **storageConnectionString:** la cuenta de almacenamiento que se usa para la administración de recursos internos.

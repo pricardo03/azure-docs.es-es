@@ -1,11 +1,13 @@
 ---
-title: Lenguajes para Data Science Virtual Machine en Azure | Microsoft Docs
-description: Lenguajes para Data Science Virtual Machine en Azure
+title: Lenguajes compatibles con Data Science Virtual Machine
+titleSuffix: Azure
+description: Obtenga información sobre los lenguajes de programación y las herramientas relacionadas que se instalaron previamente en Data Science Virtual Machine.
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 411729155f5135c7e45588b69995274c9cac1315
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8cc5d1a2d78179624ee1ba17482e9d1892625d6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418322"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104295"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Lenguajes admitidos en Data Science Virtual Machine 
 
@@ -191,7 +193,7 @@ R se instala en DSVM en un entorno global que todos los usuarios pueden leer, pe
 | ------------- | ------------- |
 | Versiones de lenguajes admitidas | 0.6 |
 | Ediciones compatibles de DSVM      | Linux y Windows     |
-| ¿Cómo se configura/instala en DSVM?  | Windows: Instalado en `C:\JuliaPro-VERSION`<br /> Linux: Instalado en `/opt/JuliaPro-VERSION`    |
+| ¿Cómo se configura/instala en DSVM?  | Windows: se instaló en `C:\JuliaPro-VERSION`<br /> Linux: se instaló en `/opt/JuliaPro-VERSION`    |
 | Vínculos a ejemplos      | Se incluyen blocs de notas de Jupyter de ejemplo para Julia     |
 | Herramientas relacionadas en DSVM      | Python y R      |
 ### <a name="how-to-use--run-it"></a>¿Cómo se usa o ejecuta?    
@@ -232,12 +234,12 @@ La ubicación predeterminada de Julia es un entorno global que todos los usuario
 
 ## <a name="other-languages"></a>Otros lenguajes
 
-**C#**: Disponible en Windows y accesible a través de la edición Visual Studio Community o en un `Developer Command Prompt for Visual Studio`, donde solo puede ejecutar el comando `csc`. 
+**C#**: disponible en Windows y accesible a través de la edición Visual Studio Community o en un `Developer Command Prompt for Visual Studio`, donde solo puede ejecutar el comando `csc`. 
 
 **Java**: OpenJDK está disponible en la edición para Windows y Linux de DSVM y establecido en la ruta de acceso. Puede escribir el comando `javac` o `java` en el símbolo del sistema (Windows) o en el shell Bash (Linux) para usar Java. 
 
 **node.js**: node.js está disponible en la edición para Windows y Linux de DSVM y establecido en la ruta de acceso. Puede escribir el comando `node` o `npm` en el símbolo del sistema (Windows) o en el shell Bash (Linux) para obtener acceso a node.js. En Windows, la extensión de las Herramientas de Node.js para Visual Studio se instala para proporcionar un IDE gráfico para desarrollar su aplicación node.js. 
 
-**F#**: Disponible en Windows y accesible a través de la edición Visual Studio Community o en un `Developer Command Prompt for Visual Studio`, donde solo puede ejecutar el comando `fsc`. 
+**F#**: disponible en Windows y accesible a través de la edición Visual Studio Community o en un `Developer Command Prompt for Visual Studio`, donde solo puede ejecutar el comando `fsc`. 
 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: c4aa311018603b32e854d3d3423d342350e6520d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d99209af9b1b6697419a046812928e75fed70321
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044491"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076961"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Asignación de usuarios y grupos en una aplicación de Azure Active Directory
 En este artículo se muestra cómo asignar usuarios o grupos a una aplicación en Azure Active Directory (Azure AD). Los usuarios deben asignarse primero a una aplicación antes de que un administrador les conceda acceso para hacer lo siguiente:
@@ -57,7 +57,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+    * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
 6.  Seleccione la aplicación que desea asignar a un usuario de la lista.
 
@@ -95,7 +95,7 @@ Para asignar uno o varios grupos a una aplicación directamente, siga estos paso
 
 5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+    * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
 6.  Seleccione la aplicación que desea asignar a un usuario de la lista.
 
@@ -109,7 +109,7 @@ Para asignar uno o varios grupos a una aplicación directamente, siga estos paso
 
 11. Mantenga el puntero sobre el **grupo** en la lista para que aparezca una **casilla**. Haga clic en la casilla situada junto a la foto o el logotipo del perfil del grupo para agregar ese usuario a la lista de **seleccionados**.
 
-12. **Opcional**: si desea **agregar más de un grupo**, escriba otro **nombre de grupo completo** o en el cuadro de búsqueda **Buscar por nombre o dirección de correo** y haga clic en la casilla para agregar ese grupo a la lista de **seleccionados**.
+12. **Opcional:** si desea **agregar más de un grupo**, escriba otro **nombre de grupo completo** o en el cuadro de búsqueda **Buscar por nombre o dirección de correo** y haga clic en la casilla para agregar ese grupo a la lista de **seleccionados**.
 
 13. Cuando haya terminado de seleccionar grupos, haga clic en el botón **Seleccionar** para agregarlos a la lista de usuarios y grupos que se asignarán a la aplicación.
 

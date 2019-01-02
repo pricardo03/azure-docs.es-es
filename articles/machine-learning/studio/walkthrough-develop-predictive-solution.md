@@ -4,9 +4,9 @@ description: Un tutorial detallado que muestra cómo crear una solución de aná
 keywords: riesgo de crédito, solución de análisis predictivo, evaluación de riesgos
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: a5dd8432ca79cca8de37f5d64027e0b9c498f3b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fce8f03adfad348c9daddf3c2a225d6df29552d7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311949"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252532"
 ---
-# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Guía detallada: Desarrollar una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio
+# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Tutorial: Desarrollo de una solución predictiva para la evaluación del riesgo de crédito en Azure Machine Learning Studio
 
 En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo en Machine Learning Studio. Desarrollaremos un modelo simple en Machine Learning Studio y lo implementaremos como un servicio web Azure Machine Learning, donde podrá realizar predicciones utilizando datos nuevos. 
 
 En este tutorial, se presupone que usó Machine Learning Studio con anterioridad al menos una vez y que tiene ciertos conocimientos sobre los conceptos de aprendizaje automático. Pero no se asume de que sea un experto.
 
-Si nunca ha utilizado **Azure Machine Learning Studio**, sería conveniente que realizara primero el tutorial [Creación del primer experimento de ciencia de datos en Azure Machine Learning Studio](create-experiment.md). Este tutorial lo guiará por primera vez por Machine Learning Studio. Aquí se muestran los conceptos básicos de cómo arrastrar y colocar módulos en el experimento, conectarlos, ejecutar el experimento y examinar los resultados. Otra herramienta que puede resultar útil para comenzar es un diagrama que muestra información general sobre las funcionalidades de Machine Learning Studio. Puede descargarlo e imprimirlo desde aquí: [Diagrama de información general de las funcionalidades de Azure Machine Learning Studio](studio-overview-diagram.md).
+Si nunca ha utilizado **Azure Machine Learning Studio**, sería conveniente que realizara primero el tutorial [Creación del primer experimento de ciencia de datos en Azure Machine Learning Studio](create-experiment.md). Este tutorial lo guiará por primera vez por Machine Learning Studio. Aquí se muestran los conceptos básicos de cómo arrastrar y colocar módulos en el experimento, conectarlos, ejecutar el experimento y examinar los resultados. Otra herramienta que puede resultar útil para comenzar es un diagrama que muestra información general sobre las funcionalidades de Machine Learning Studio. Puede descargarla e imprimirla aquí: [Diagrama de información general de las funcionalidades de Azure Machine Learning Studio](studio-overview-diagram.md).
  
 Si es su primera vez en el campo del aprendizaje automático en general, hay una serie de vídeos que puede resultarle útil. La serie se llama [Ciencia de datos para principiantes](data-science-for-beginners-the-5-questions-data-science-answers.md) y le puede brindar una excelente introducción al aprendizaje automático con un lenguaje y conceptos de uso diario.
 

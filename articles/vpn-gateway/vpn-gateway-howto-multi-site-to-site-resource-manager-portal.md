@@ -1,5 +1,5 @@
 ---
-title: 'Agregar varias conexiones de sitio a sitio de VPN Gateway a una red virtual: Azure Portal: Resource Manager| Microsoft Docs'
+title: 'Adición de varias conexiones sitio a sitio de una instancia de VPN Gateway a una red virtual: Azure Portal: Resource Manager| Microsoft Docs'
 description: Agregar conexiones S2S de varios sitios a VPN Gateway con una conexión existente
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a0074cf703c5d30dca3c8353f4821e71684a190c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164567"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873128"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente
 
@@ -62,8 +62,8 @@ Compruebe los siguientes aspectos:
     ![Botón Agregar conexión](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Botón Agregar conexión")<br>
 5. En la página **Agregar conexión**, rellene los campos siguientes:
    
-   * **Nombre:** el nombre que quiere darle al sitio para el que está creando la conexión.
-   * **Tipo de conexión:** seleccione **Sitio a sitio (IPsec)**.
+   * **Nombre**: el nombre que quiere darle al sitio para el que está creando la conexión.
+   * **Tipo de conexión**: seleccione **De sitio a sitio (IPsec)**.
      
      ![Agregar página de conexión](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection page")<br>
 
@@ -76,9 +76,9 @@ Compruebe los siguientes aspectos:
     ![Página Crear puerta de enlace de red local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
 3. En la página **Crear puerta de enlace de red local**, rellene los campos siguientes:
    
-   * **Nombre:** el nombre que quiere darle al recurso de puerta de enlace de red local.
-   * **Dirección IP:** la dirección IP pública del dispositivo VPN del sitio al que quiere conectarse.
-   * **Espacio de direcciones:** el espacio de direcciones al que quiere que se enrute el nuevo sitio de red local.
+   * **Nombre**: el nombre que quiere darle al recurso de puerta de enlace de red local.
+   * **Dirección IP**: la dirección IP pública del dispositivo VPN del sitio al que quiere conectarse.
+   * **Espacio de direcciones**: el espacio de direcciones al que quiere que se enrute el nuevo sitio de red local.
 4. Haga clic en **Aceptar** en la página **Crear puerta de enlace de red local** para guardar los cambios.
 
 ## <a name="part3"></a>Parte 3: Agregar la clave compartida y crear la conexión
@@ -94,4 +94,4 @@ Compruebe los siguientes aspectos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) de las máquinas virtuales para más información.
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [ruta de aprendizaje](/learn/paths/deploy-a-website-with-azure-virtual-machines/) de las máquinas virtuales para más información.

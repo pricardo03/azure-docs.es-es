@@ -1,23 +1,23 @@
 ---
 title: Uso de los informes de Cloudyn en Azure | Microsoft Docs
-description: En este artículo se describe cómo usar diversos informes en el portal de Cloudyn.
+description: En este artículo se describe el propósito de los informes de Cloudyn que se incluyen en el portal de Cloudyn para ayudarlo a usarlas de manera eficaz.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276030"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075887"
 ---
-# <a name="use-cloudyn-reports"></a>Uso de los informes de Cloudyn
+# <a name="reports-available-in-the-cloudyn-portal"></a>Informes disponibles en el portal de Cloudyn
 
 En este artículo se describe el propósito de los informes de Cloudyn que se incluyen en el portal de Cloudyn. También se describe cómo puede usar eficazmente los informes. La mayoría de los informes son intuitivos y tienen un aspecto uniforme. La mayor parte de las acciones que puede realizar en un informe también puede hacerlas en otros informes. Para información general sobre cómo usar los informes de Cloudyn, lo que incluye cómo personalizarlos, guardarlos o programarlos, consulte [Informes de costos](understanding-cost-reports.md).
 
@@ -59,7 +59,7 @@ Los paneles de Cloudyn proporcionan una visión general de los informes. Los pan
 
 ## <a name="budget-information-in-reports"></a>Información del presupuesto en informes
 
-Muchos informes de Cloudyn muestran información de presupuesto después de que se ha creado manualmente uno. Así que, hasta que no cree un presupuesto, los informes no mostrarán información al respecto. Para más información, consulte [Configuración del presupuesto](#budget-settings).
+Muchos informes de Cloudyn muestran información de presupuesto después de que se ha creado manualmente uno. Así que, hasta que no cree un presupuesto, los informes no mostrarán información al respecto. Para más información, consulte el artículo sobre la [configuración de la administración de presupuesto](#budget-management-settings).
 
 ## <a name="reports-and-reporting-features"></a>Informes y características de informes
 
@@ -208,7 +208,7 @@ Los cargos personalizados se muestran en los informes de costos. Por ejemplo, ab
 
 Use la asignación de costos 360 para crear modelos de asignación de costos personalizados para asignar costos a los recursos en la nube consumidos. Muchos informes muestran información de modelos de costos personalizado que ha creado con modelos de costos personalizados. Y algunos informes solo muestran información después de haber creado un modelo de costos personalizados con asignación de costos.
 
-Para más información sobre la creación de modelos de costos personalizados, consulte [Tutorial: Administración de costos con Cloudyn](tutorial-manage-costs.md).
+Para más información sobre cómo crear modelos de costos personalizados, consulte [Tutorial: Administración de costos mediante Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Informe de costo frente a presupuesto a lo largo del tiempo
 
@@ -448,7 +448,7 @@ La sección **CPU Utilization** (Utilización de CPU) proporciona la utilizació
 
 Haga clic en el gráfico para explorarlo en profundidad y abra el informe de CPU de instancias a lo largo del tiempo para ver un desglose de las instancias.
 
-- Use **Show/Hide Fields** (Mostrar u ocultar campos) para agregar o quitar campos, como el de marca de tiempo, CPU media, CPU mínima o CPU máxima.
+- Use la opción **Show/Hide Fields** (Mostrar u ocultar campos) para agregar o quitar campos: Timestamp, Avg CPU, Min CPU, Max CPU.
 - Use **Date Range** (Intervalo de fechas) para escribir una fecha o un intervalo de fechas y profundizar en un identificador de instancia específico.
 - Use **Extended Filters** (Filtros extendidos) para mostrar todos los identificadores de instancia o uno específico.
 - Haga clic en **Zoom in** (Acercar) para abrir el informe de utilización de CPU.

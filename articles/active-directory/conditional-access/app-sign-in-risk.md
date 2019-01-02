@@ -13,17 +13,17 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: abd9aeab88dc723ddcdff90ce58268296841dc4e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705929"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413309"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Inicio rápido: bloquear el acceso cuando se detecta riesgo en una sesión con el acceso condicional de Azure Active Directory  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Inicio rápido: bloqueo del acceso cuando se detecta riesgo en una sesión con el acceso condicional de Azure Active Directory  
 
 Para mantener el entorno protegido, puede bloquear el inicio de sesión de cualquier usuario sospechoso. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analiza todos los inicios de sesión y calcula la probabilidad que hay de que el legítimo propietario de una cuenta de usuario no haya sido el que haya realizado un intento de inicio de sesión. Dicha probabilidad (baja, media, alta) se indica en forma de un valor calculado denominado [niveles de riesgo de inicio de sesión](conditions.md#sign-in-risk). Al establecer la condición de riesgo del inicio de sesión, puede configurar una directiva de acceso condicional que responda a niveles de riesgo de inicio de sesión concretos. 
 
@@ -87,7 +87,7 @@ En esta sección se muestra cómo crear la directiva de acceso condicional que s
 
     ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-3. En la página **Azure Active Directory**, en la sección **Administrar**, haga clic en **Acceso condicional**.
+3. En la página **Azure Active Directory**, en la sección **Seguridad**, haga clic en **Acceso condicional**.
 
     ![Acceso condicional](./media/app-sign-in-risk/03.png)
  

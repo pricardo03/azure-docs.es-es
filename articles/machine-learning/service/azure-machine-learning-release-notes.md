@@ -1,6 +1,7 @@
 ---
-title: Novedades de Azure Machine Learning
-description: En este documento se detallan las actualizaciones de Azure Machine Learning.
+title: Novedades de la versión
+titleSuffix: Azure Machine Learning service
+description: Obtenga información acerca de las actualizaciones más recientes de Azure Machine Learning Service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,85 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
-ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 34d084bc4115d0abf8f57c576c16330611f3a21b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291347"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409877"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
 En este artículo obtendrá información acerca de las versiones del servicio Azure Machine Learning. 
+
+## <a name="2018-12-04-general-availability"></a>04-12-2018: Disponibilidad general
+
+Azure Machine Learning Service está disponible con carácter general.
+
+### <a name="azure-machine-learning-compute"></a>Proceso de Azure Machine Learning
+Con esta versión, anunciamos una nueva experiencia de proceso administrado a través del [proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute). Este proceso se puede usar para inferencias de aprendizaje y por lotes, abarca de uno a varios nodos y realiza la administración del clúster y la programación del trabajo para el usuario. Se escala automáticamente de forma predeterminada, es compatible con los recursos de CPU y GPU, y también permite el uso de máquinas virtuales de prioridad baja para reducir el costo. Reemplace el proceso de Batch AI para Azure Machine Learning.
+  
+El proceso de Azure Machine Learning se puede crear en Python, mediante Azure Portal o la CLI. Debe crearse en la región de su área de trabajo y no se puede asociar a ninguna otra área de trabajo. Este proceso usa un contenedor de Docker para su ejecución y empaqueta sus dependencias para replicar el mismo entorno en todos sus nodos.
+
+> [!Warning]
+> Recomendamos crear una nueva área de trabajo para usar el proceso de Azure Machine Learning. Existe la remota posibilidad de que los usuarios que tratan de crear el proceso de Azure Machine Learning a partir de un área de trabajo existente puedan ver un error. El proceso existente en su área de trabajo debería continuar funcionando del modo habitual.
+
+### <a name="azure-machine-learning-sdk-for-python-v102"></a>SDK de Azure Machine Learning para Python v1.0.2
++ **Cambios importantes**
+  + Con esta versión, eliminamos el soporte para crear una máquina virtual desde Azure Machine Learning. Aún puede asociar una máquina virtual de la nube existente o un servidor local remoto. 
+  + También eliminamos el soporte para BatchAI, que ahora debe recibirlo a través del proceso de Azure Machine Learning.
+
++ **Nuevo**
+  + Para las canalizaciones de Machine Learning:
+    + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
+    + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
+    + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
+
+
++ **Updated**
+  + Para las canalizaciones de Machine Learning:
+    + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) ahora acepta runconfig
+    + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) ahora se copia en y desde un origen de datos de SQL
+    + Programación de la funcionalidad en el SDK para crear y actualizar programaciones a fin de ejecutar canalizaciones publicadas
+
+<!--+ **Bugs fixed**-->
+
+### <a name="azure-machine-learning-data-prep-sdk-v052"></a>SDK de preparación de datos de Azure Machine Learning v0.5.2
++ **Cambios importantes** 
+  * Se ha cambiado el nombre de `SummaryFunction.N` a `SummaryFunction.Count`.
+  
++ **Correcciones de errores**
+  * Use el token de ejecución de AML al leer desde almacenes de datos de ejecuciones remotas y escribir en estos. Anteriormente, si el token de ejecución de AML se actualizaba en Python, el tiempo de ejecución de preparación de datos no se actualizaba con el token de ejecución de AML actualizado.
+  * Mensajes de error más claros adicionales
+  * to_spark_dataframe() ya no se bloqueará cuando Spark use la serialización Kryo
+  * Ahora, el inspector del recuento de valores puede mostrar más de 1000 valores únicos
+  * La división aleatoria ya no producirá ningún error si el flujo de datos original no tiene nombre  
+
++ **Más información**
+  * [SDK de preparación de datos de Azure Machine Learning](https://aka.ms/data-prep-sdk)
+
+### <a name="docs-and-notebooks"></a>Documentos y cuadernos
++ Canalizaciones de Machine Learning
+  + Cuadernos nuevos y actualizados para empezar a trabajar con canalizaciones, ámbitos de lote y ejemplos de transferencia del estilo: https://aka.ms/aml-pipeline-notebooks
+  + Aprenda a [crear su primera canalización](how-to-create-your-first-pipeline.md)
+  + Aprenda a [ejecutar predicciones por lotes mediante canalizaciones](how-to-run-batch-predictions.md)
++ Proceso de Azure Machine Learning
+  + [Cuadernos de ejemplo] (https://aka.ms/aml-notebooks) se actualizan ahora para usar este nuevo proceso administrado).
+  + [Obtenga información sobre este proceso](how-to-set-up-training-targets.md#amlcompute)
+
+### <a name="azure-portal-new-features"></a>Azure Portal: nuevas características
++ Cree y administre los tipos de [proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) en el portal.
++ Supervise el uso de cuota y [solicite una cuota](how-to-manage-quotas.md) para el proceso de Azure Machine Learning.
++ Vea el estado del clúster del proceso de Azure Machine Learning en tiempo real.
++ La compatibilidad con la red virtual se agregó para la creación de Azure Kubernetes Service y el proceso de Azure Machine Learning.
++ Vuelva a ejecutar sus canalizaciones publicadas con los parámetros existentes.
++ Nuevos [gráficos de aprendizaje automático automatizados](how-to-track-experiments.md#auto) para modelos de clasificación (gráfico de importancia de características, elevación, ganancias y calibración con explicabilidad de modelo) y modelos de regresión (gráfico de importancia de características y valores residuales con explicabilidad de modelo). 
++ Las canalizaciones se pueden ver en Azure Portal
+
+
+
 
 ## <a name="2018-11-20"></a>2018-11-20
 
@@ -167,9 +236,9 @@ La [versión 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) incluye la
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (Actualización de la versión preliminar pública)
 
-Una versión nueva completamente actualizada de Azure Machine Learning. Obtenga más información acerca de esta versión: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+Una versión nueva completamente actualizada de Azure Machine Learning: obtenga más información sobre esta versión: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>Notas anteriores: septiembre de 2017 - junio de 2018
+## <a name="older-notes-sept-2017---jun-2018"></a>Notas anteriores: septiembre de 2017 a junio de 2018
 ### <a name="2018-05-sprint-5"></a>2018-05 (Sprint 5)
 
 Con esta versión de Azure Machine Learning, puede:
@@ -384,7 +453,7 @@ Para más información sobre la creación de destinos de proceso, consulte [Conf
 En esta versión, hemos realizado mejoras de seguridad, estabilidad y mantenimiento en la aplicación Workbench, en la CLI y en el nivel de servicios back-end. Le agradecemos enormemente sus comentarios tanto positivos como negativos. Muchas de las actualizaciones descritas aquí son consecuencia directa de esos comentarios. ¡No deje de enviarlos!
 
 #### <a name="notable-new-features"></a>Nuevas características destacables
-- Ahora, Azure Machine Learning está disponible en dos nuevas regiones de Azure: **Europa Occidental** y el **Sudeste Asiático**. Ambas se unen a las regiones ya incluidas de **Este de EE. UU. 2**, **Oeste del centro de EE. UU.** y **Este de Australia**, lo que eleva a cinco el número total de regiones de implementación.
+- Azure ML está ahora disponible en dos nuevas regiones de Azure: **Europa Occidental** y **Sudeste Asiático**. Ambas se unen a las regiones ya incluidas de **Este de EE. UU. 2**, **Oeste del centro de EE. UU.** y **Este de Australia**, lo que eleva a cinco el número total de regiones de implementación.
 - Hemos habilitado el resaltado de sintaxis de código de Python en la aplicación Workbench para que el código fuente de Python sea más fácil de leer y editar. 
 - Ahora, puede iniciar su IDE favorito directamente desde un archivo, en lugar de desde el proyecto global.  Si abre un archivo en Workbench y, después, hace clic en "Editar", se abre el IDE (actualmente se admiten VS Code y PyCharm) con el archivo y proyecto actuales.  También puede hacer clic en la flecha situada junto al botón Editar para modificar el archivo en el editor de texto de Workbench.  Los archivos serán de solo lectura hasta que haga clic en Editar, lo que evita que se realicen cambios por error.
 - Ahora, la conocida biblioteca de trazado `matplotlib` versión 2.1.0 se incluye con la aplicación Workbench.

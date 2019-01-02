@@ -3,7 +3,7 @@ title: 'Creación y administración de grupos elásticos: Azure SQL Database | M
 description: Cree y administre grupos elásticos de Azure SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/29/2018
-ms.openlocfilehash: acf17533ee73313937c2edb9badaef9007309373
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 366bdf73c6b62ffa98ce44076374df8be8b3de3c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243102"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865886"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Creación y administración de grupos elásticos en Azure SQL Database
 
@@ -93,7 +93,7 @@ Para crear y mover bases de datos en grupos elásticos existentes o para devolve
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devuelve estadísticas de uso de recursos de todos los grupos de bases de datos elásticas de un servidor lógico. Para cada grupo de bases de datos elásticas hay una fila por cada ventana de informe de 15 segundos (cuatro filas por minuto). Esto incluye uso de CPU, E/S, registro, almacenamiento y empleo simultáneo de solicitudes o sesiones por parte de todas las bases de datos del grupo.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devuelve la edición (nivel de servicio), el objetivo de servicio (plan de tarifa) y el nombre del grupo elástico, si existe, para una base de datos SQL de Azure o una instancia de Azure SQL Data Warehouse. Si inició sesión en la base de datos maestra en un servidor de Azure SQL Database, devuelve información sobre todas las bases de datos. Para Azure SQL Data Warehouse, debe estar conectado a la base de datos maestra.|
 
-## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>API de REST: administración de grupos elásticos y bases de datos agrupadas
+## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>API REST: administración de grupos elásticos y bases de datos agrupadas
 
 Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database, use estas solicitudes de la API de REST.
 

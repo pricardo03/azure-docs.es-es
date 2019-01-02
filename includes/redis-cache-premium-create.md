@@ -4,19 +4,19 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
-ms.openlocfilehash: 2c96604093542c2697c691ad8fb8bf11e77e2d0b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 2627554647c6c20cbdedfec53c1028b3edfa9c9c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572697"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111658"
 ---
-Para crear una memoria caché premium, inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Crear un recurso** > **Bases de datos** > **Redis Cache**.
+Para crear una memoria caché premium, inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Crear un recurso** > **Bases de datos** > **Azure Cache for Redis**.
 
 ![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> Además de crear memorias caché en el Portal de Azure, también puede crearlas mediante las plantillas de Resource Manager, PowerShell o la CLI de Azure. Para más información sobre cómo crear una instancia de Azure Redis Cache, consulte [Creación de una caché](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+> Además de crear memorias caché en el Portal de Azure, también puede crearlas mediante las plantillas de Resource Manager, PowerShell o la CLI de Azure. Para más información sobre cómo crear una instancia de Azure Cache for Redis, consulte [Creación de una caché](../articles/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: Incorporación o eliminación de un grupo de otro grupo en Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo agregar o quitar un grupo de otro grupo con Azure Active Directory.
+title: 'Incorporación o eliminación de un grupo de otro grupo: Azure Active Directory | Microsoft Docs'
+description: Información sobre cómo agregar o quitar un grupo de otro grupo con Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468041"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104278"
 ---
-# <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Procedimiento para cómo agregar o quitar un grupo de otro grupo con Azure Active Directory
+# <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Incorporación o eliminación de un grupo de otro grupo con Azure Active Directory
 En este artículo encontrará ayuda para agregar y quitar un grupo de otro grupo con Azure Active Directory.
 
 >[!Note]
@@ -29,7 +29,7 @@ En este artículo encontrará ayuda para agregar y quitar un grupo de otro grupo
 Puede agregar un grupo de seguridad existente a otro grupo de seguridad existente (lo que también se conoce como grupos anidados), y crear un grupo de miembros (subgrupo) y un grupo principal. El grupo miembro hereda los atributos y las propiedades del grupo primario, lo que le ahorra tiempo de configuración.
 
 >[!Important]
->En este momento, no se admite:<ul><li>Agregar grupos de seguridad a grupos de Office 365</li><li>Agregar grupos de Office 365 a grupos de seguridad u otros grupos de Office 365</li><li>Asignar aplicaciones a grupos anidados</li><li>Aplicar licencias a grupos anidados</li></ul>
+>En este momento, no se admite:<ul><li>Agregar grupos a un grupo sincronizado con Active Directory local</li><li>Agregar grupos de seguridad a grupos de Office 365</li><li>Agregar grupos de Office 365 a grupos de seguridad u otros grupos de Office 365</li><li>Asignar aplicaciones a grupos anidados</li><li>Aplicar licencias a grupos anidados</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Para agregar un grupo como miembro de otro grupo, siga estos pasos:
 

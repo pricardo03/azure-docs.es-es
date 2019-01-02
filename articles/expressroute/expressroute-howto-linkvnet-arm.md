@@ -1,19 +1,19 @@
 ---
-title: Vinculación de una red virtual a un circuito ExpressRoute mediante PowerShell y Azure | Microsoft Docs
+title: 'Vinculación de una red virtual a un circuito ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Este documento proporciona información general sobre cómo vincular redes virtuales a circuitos ExpressRoute mediante el modelo de implementación de Resource Manager y PowerShell.
 services: expressroute
-documentationcenter: na
 author: ganesr
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: ganesr
-ms.openlocfilehash: 02b765b3efe933a1dd8d12d422efff8142bdc553
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 5dde6dfdfaed23dbbfe61b06a433f731d90a0440
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234704"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076005"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conexión de una red virtual a un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -R
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conexión de una red virtual en una suscripción diferente a un circuito
 Puede compartir un circuito ExpressRoute entre varias suscripciones. En la ilustración siguiente se muestra un sencillo esquema de cómo funciona el uso compartido de circuitos ExpressRoute entre varias suscripciones.
 
-Cada una de las nubes más pequeñas dentro de la nube de gran tamaño se usa para representar las suscripciones que pertenecen a diferentes departamentos dentro de una organización. Cada departamento de la organización puede usar su propia suscripción para implementar sus servicios, pero puede compartir un único circuito ExpressRoute para volver a conectarse a la red local. Un solo departamento (en este ejemplo: TI) puede ser el propietario del circuito ExpressRoute. Otras suscripciones dentro de la organización pueden usar el circuito ExpressRoute.
+Cada una de las nubes más pequeñas dentro de la nube de gran tamaño se usa para representar las suscripciones que pertenecen a diferentes departamentos dentro de una organización. Cada departamento de la organización puede usar su propia suscripción para implementar sus servicios, pero puede compartir un único circuito ExpressRoute para volver a conectarse a la red local. Un solo departamento (en este ejemplo: TI) puede ser el propietario de ExpressRoute. Otras suscripciones dentro de la organización pueden usar el circuito ExpressRoute.
 
 > [!NOTE]
 > Los cargos de conectividad y ancho de banda de un circuito ExpressRoute recaerán en el propietario de la suscripción. Todas las redes virtuales comparten el mismo ancho de banda.

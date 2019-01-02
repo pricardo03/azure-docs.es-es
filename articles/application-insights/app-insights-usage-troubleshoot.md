@@ -8,21 +8,20 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: c1e5b420c4821732aa8cc19328b0955070100926
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138518"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995539"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solución de problemas de las herramientas de análisis de comportamiento de usuario en Application Insights
-¿Tiene alguna pregunta sobre las [herramientas de análisis de comportamiento de usuario en Application Insights](app-insights-usage-overview.md): [usuarios, sesiones, eventos](app-insights-usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuarios](app-insights-usage-flows.md), [retención](app-insights-usage-retention.md) o cohortes? Estas son algunas respuestas.
+¿Tiene alguna pregunta sobre las [herramientas de análisis de comportamiento de usuario en Application Insights](app-insights-usage-overview.md): [usuarios, sesiones, eventos](app-insights-usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuario](app-insights-usage-flows.md), [retención](app-insights-usage-retention.md) o cohortes? Estas son algunas respuestas.
 
 ## <a name="counting-users"></a>Recuento de usuarios
 **Las herramientas de análisis de comportamiento de usuario muestran que mi aplicación tiene una sesión y un usuario, pero sé que tiene varios usuarios y sesiones. ¿Cómo se solucionan estos recuentos incorrectos?**
@@ -57,5 +56,5 @@ Si la aplicación envía demasiados nombres de evento personalizados, cambie los
 * [Introducción a las herramientas de análisis de comportamiento de usuario](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>Obtención de ayuda
-* [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Desbordamiento de la pila](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

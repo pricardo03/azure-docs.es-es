@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7602524675edbf0e3ca96c74a2aba2eac48c417b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416943"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084080"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +70,7 @@ Puntos a tener en cuenta:
     </tr>
     <tr>
         <td>Red</td>
-        <td>Interfaz de Internet: 10 Gbps; interfaz de intranet: 40 Gbps</td>
+        <td>Interfaz de Internet: 10 Gbps. Interfaz de intranet: 40 Gbps</td>
     </tr>
     </table>
 
@@ -194,7 +194,10 @@ Configure la opción **enableStaging** de la actividad de copia para especificar
 | **enableStaging** |Especifique si desea copiar los datos a través de un almacén provisional. |False |No |
 | **linkedServiceName** |Especifique el nombre de un servicio vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la instancia de Storage que se usa como almacenamiento provisional. <br/><br/> No puede usar Storage con una firma de acceso compartido para cargar datos en SQL Data Warehouse mediante PolyBase. Puede usarlo en todos los demás casos. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
 | **path** |Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para almacenar los datos temporales. <br/><br/> Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. |N/D |No |
-| **enableCompression** |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |No |
+| **enableCompression** |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |Sin  |
+
+>[!NOTE]
+> Si usa una copia almacenada provisionalmente con la compresión habilitada, no se admite la autenticación de MSI o de entidad de servicio para el almacenamiento provisional de un servicio vinculado de blob.
 
 Este es un ejemplo de definición de actividad de copia con las propiedades que se han descrito en la tabla anterior:
 
@@ -278,12 +281,12 @@ Para almacenes de datos de Microsoft, consulte los [temas sobre supervisión y o
 
 ### <a name="file-based-data-stores"></a>Almacenes de datos basados en archivos
 
-* **Tamaño de archivo medio y número de archivos**: la actividad de copia transfiere datos de archivo en archivo. Siendo la misma cantidad de datos la que se va a mover, el rendimiento general es menor si los datos constan de muchos archivos pequeños en lugar de algunos grandes, debido a la fase de arranque de cada archivo. Por lo tanto, si es posible, combine archivos pequeños en archivos de mayor tamaño para obtener una capacidad de proceso mayor.
+* **Tamaño de archivo promedio y recuento de archivos**: la actividad de copia transfiere datos de archivo en archivo. Siendo la misma cantidad de datos la que se va a mover, el rendimiento general es menor si los datos constan de muchos archivos pequeños en lugar de algunos grandes, debido a la fase de arranque de cada archivo. Por lo tanto, si es posible, combine archivos pequeños en archivos de mayor tamaño para obtener una capacidad de proceso mayor.
 * **Formato de archivo y compresión**: para ver más formas de mejorar el rendimiento, consulte las secciones [Consideraciones sobre serialización y deserialización](#considerations-for-serialization-and-deserialization) y [Consideraciones sobre la compresión](#considerations-for-compression).
 
 ### <a name="relational-data-stores"></a>Almacenes de datos relacionales
 
-* **Patrón de datos**: el esquema de tabla afecta al rendimiento de la copia. Un tamaño de fila grande le ofrece un mejor rendimiento que el tamaño de fila pequeño para copiar la misma cantidad de datos. El motivo es que la base de datos puede recuperar más eficazmente menos lotes de datos que contienen menos filas.
+* **Patrón de datos**: El esquema de tabla afecta al rendimiento de la copia. Un tamaño de fila grande le ofrece un mejor rendimiento que el tamaño de fila pequeño para copiar la misma cantidad de datos. El motivo es que la base de datos puede recuperar más eficazmente menos lotes de datos que contienen menos filas.
 * **Consulta o procedimiento almacenado**: optimice la lógica de la consulta o del procedimiento almacenado que se especifica en el origen de la actividad de copia para que capture los datos de forma más eficiente.
 
 ## <a name="considerations-for-the-sink"></a>Consideraciones sobre el receptor
@@ -336,9 +339,9 @@ La serialización y deserialización pueden tener lugar cuando el conjunto de da
 
 Cuando el conjunto de datos de entrada o salida es un archivo, puede configurar la actividad de copia para realizar la compresión y descompresión de los datos a medida que se escriben en el destino. Si elige compresión, está buscando el equilibrio entre entrada/salida (E/S) y CPU. La compresión de los datos supone un costo adicional en recursos de proceso. Pero, a cambio, se reduce la E/S de red y el almacenamiento. Según los datos, puede que observe un aumento en el rendimiento general de la actividad de copia.
 
-**Códec**: cada códec de compresión tiene sus ventajas. Por ejemplo, bzip2 tiene el rendimiento de copia más bajo, pero obtiene el mejor rendimiento de consulta de Hive porque puede dividirlo para el procesamiento. Gzip es la opción más equilibrada y es la que se usa con mayor frecuencia. Elija el códec que mejor se adapte a su escenario de principio a fin.
+**Códec**: Cada códec de compresión tiene sus ventajas. Por ejemplo, bzip2 tiene el rendimiento de copia más bajo, pero obtiene el mejor rendimiento de consulta de Hive porque puede dividirlo para el procesamiento. Gzip es la opción más equilibrada y es la que se usa con mayor frecuencia. Elija el códec que mejor se adapte a su escenario de principio a fin.
 
-**Nivel:** para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime los datos tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
+**Nivel**: para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime los datos tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
 
 **Una consideración**: para copiar una gran cantidad de datos entre un almacén local y la nube, considere usar la [copia almacenada provisionalmente](#staged-copy) con compresión habilitada. El uso de almacenamiento provisional resulta de utilidad cuando el ancho de banda de la red corporativa y los servicios de Azure son el factor limitador, y si quiere que el conjunto de datos de entrada y el conjunto de datos de salida estén ambos en formato sin comprimir.
 
@@ -358,7 +361,7 @@ Tenga cuidado con el número de conjuntos de datos y actividades de copia que ne
 
 ## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Escenario de ejemplo: Copia de una instancia local de SQL Server a Blob Storage
 
-**Escenario**: se crea una canalización para copiar datos de una instancia de SQL Server local a Almacenamiento de blobs en formato CSV. Para acelerar el trabajo de copia, los archivos CSV se deben comprimir en formato bzip2.
+**Escenario**: se crea una canalización para copiar datos de una instancia de SQL Server local a Blob Storage en formato CSV. Para acelerar el trabajo de copia, los archivos CSV se deben comprimir en formato bzip2.
 
 **Análisis y pruebas**: el rendimiento de la actividad de copia es inferior a 2 MBps, que es mucho más lento que la referencia de rendimiento.
 
@@ -368,20 +371,20 @@ Tenga cuidado con el número de conjuntos de datos y actividades de copia que ne
 2. **Serialización y compresión de datos**: Integration Runtime serializa el flujo de datos en formato CSV y comprime los datos en una secuencia bzip2.
 3. **Escritura de datos**: Integration Runtime carga la secuencia bzip2 en Blob Storage a través de Internet.
 
-Como puede ver, los datos se procesan y se mueven en streaming de forma secuencial: SQL Server > LAN > Integration Runtime > WAN > Blob Storage. **El rendimiento general viene determinado por el rendimiento mínimo a través de la canalización**.
+Como puede ver, los datos se procesan y se mueven en streaming de manera secuencial: SQL Server > LAN > Integration Runtime > WAN > Blob Storage. **El rendimiento general viene determinado por el rendimiento mínimo a través de la canalización**.
 
 ![flujo de datos](./media/copy-activity-performance/case-study-pic-1.png)
 
 Puede que uno o varios de los siguientes factores provoquen el cuello de botella en el rendimiento:
 
-* **Origen:** el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
+* **Origen**: el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
 * **Integration Runtime autohospedado**:
   * **LAN**: Integration Runtime se encuentra lejos de la máquina de SQL Server y tiene una conexión de ancho de banda bajo.
   * **Integration Runtime**: Integration Runtime alcanzó sus limitaciones de carga para llevar a cabo las siguientes operaciones:
-    * **Serialización:** la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
+    * **Serialización**: la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
     * **Compresión**: ha elegido un códec de compresión lenta (por ejemplo, bzip2, a 2,8 MBps con Core i7).
   * **WAN**: el ancho de banda entre la red corporativa y los servicios de Azure es bajo (por ejemplo, T1 = 1544 kbps. T2 = 6312 kbps).
-* **Receptor**: el Almacenamiento de blobs tiene un rendimiento bajo. (Esta situación es improbable porque su SLA garantiza un mínimo de 60 MBps).
+* **Receptor**: Blob Storage tiene un rendimiento bajo. (Esta situación es improbable porque su SLA garantiza un mínimo de 60 MBps).
 
 En este caso, la compresión de datos bzip2 podría estar ralentizando la canalización entera. El cambio a un códec de compresión gzip podría aliviar este cuello de botella.
 
@@ -389,12 +392,12 @@ En este caso, la compresión de datos bzip2 podría estar ralentizando la canali
 
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos admitidos:
 
-* Azure Storage (que incluyeBlob Storage y Table Storage): [Objetivos de escalabilidad de Azure Storage](../storage/common/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/common/storage-performance-checklist.md)
+* Azure Storage (incluido Blob Storage y Table Storage): [Objetivos de escalabilidad de Azure Storage](../storage/common/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/common/storage-performance-checklist.md)
 * Azure SQL Database: puede [supervisar el rendimiento](../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
 * Azure SQL Data Warehouse: su capacidad se mide en unidades de almacenamiento de datos (DWU); consulte [Administración de la potencia de proceso en Azure SQL Data Warehouse (información general)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure Cosmos DB: [Niveles de rendimiento de Azure Cosmos DB](../cosmos-db/performance-levels.md)
-* Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
-* Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
+* Azure Cosmos DB: [Niveles de rendimiento en Azure Cosmos DB](../cosmos-db/performance-levels.md)
+* SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
+* Servidor de archivos local: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx) (Ajuste del rendimiento para los servidores de archivos)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los otros artículos de la actividad de copia:

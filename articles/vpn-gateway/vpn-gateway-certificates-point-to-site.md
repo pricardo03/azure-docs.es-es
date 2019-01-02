@@ -5,15 +5,15 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18d705f68ff06621e30c051dac9fb9607fd043ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300943"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850965"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Generación y exportación de certificados para conexiones de punto a sitio con PowerShell
 
@@ -27,7 +27,7 @@ Si no tiene acceso a un equipo con Windows 10 o Windows Server 2016, puede usar 
 
 Use el cmdlet New-SelfSignedCertificate para crear un certificado raíz autofirmado. Para obtener información adicional sobre los parámetros, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. En un equipo con Windows 10 o Windows Server 2016, abra una consola de Windows PowerShell con privilegios elevados.
+1. En un equipo con Windows 10 o Windows Server 2016, abra una consola de Windows PowerShell con privilegios elevados. Estos ejemplos no funcionan en Azure Cloud Shell "Try It". Debe ejecutar estos ejemplos localmente.
 2. Utilice el ejemplo siguiente para crear el certificado raíz autofirmado. En el ejemplo siguiente se crea un certificado raíz firmado automáticamente con el nombre "P2SRootCert" que se instala automáticamente en "Certificates-Current User\Personal\Certificates". Puede ver el certificado si abre *certmgr.msc*, o bien *Administrar certificados de usuario*.
 
   ```powershell

@@ -4,18 +4,18 @@ description: Versión actualizada del esquema 2015-08-01-preview con definicione
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: stepsic-microsoft-com
-ms.author: stepsic
-ms.reviewer: klam, estfan, LADocs
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122784"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080017"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Actualizaciones de esquema para Azure Logic Apps de la versión preliminar del 1 de agosto de 2015
 
@@ -72,12 +72,16 @@ En esta definición, estas acciones se denominan `APIConnection`. A continuació
 }
 ```
 
-El objeto `host` es una parte de las entradas que es exclusiva de las conexiones de API y que contiene estas partes: `api` y `connection`. El objeto `api` especifica la URL de tiempo de ejecución del lugar donde se hospeda la API administrada. Puede ver todas las API administradas disponibles mediante una llamada a `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+El objeto `host` es una parte de las entradas que es exclusiva de las conexiones de API y que contiene estas partes: `api` y `connection`. El objeto `api` especifica la URL de tiempo de ejecución del lugar donde se hospeda la API administrada. Puede ver todas las API administradas disponibles mediante una llamada a este método:
+
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
+```
 
 Al usar una API, esta puede o no tener *parámetros de conexión* definidos. Por lo tanto, si la API no define estos parámetros, no se requiere ninguna conexión. Si la API define estos parámetros, debe crear una conexión con un nombre especificado.  
 Haga referencia a ese nombre en el objeto `connection` dentro del objeto `host`. Para crear una conexión en un grupo de recursos, llame a este método:
 
-```
+```text
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
@@ -99,8 +103,8 @@ Con el siguiente cuerpo:
 
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Implementación de API administradas en una plantilla de Azure Resource Manager
 
-Puede crear una aplicación completa en una plantilla de Azure Resource Manager siempre que no se requiera inicio de sesión interactivo.
-Si se requiere inicio de sesión, puede configurar todo con la plantilla de Azure Resource Manager, pero aun así tiene que visitar Azure Portal para autorizar las conexiones. 
+Si no se requiere el inicio de sesión interactivo, puede crear una aplicación completa con una plantilla de Resource Manager.
+Si se requiere inicio de sesión, de todos modos puede usar una plantilla de Resource Manager pero debe autorizar las conexiones a través de Azure Portal. 
 
 ``` json
 "resources": [ {
@@ -194,7 +198,7 @@ En este ejemplo puede ver que las conexiones son solo recursos que residen en su
 
 ### <a name="your-custom-web-apis"></a>Sus API web personalizadas
 
-Si usa sus propias API, las no administradas por Microsoft, use la acción integrada **HTTP** para llamarlas. Para tener una experiencia ideal, debe exponer un punto de conexión de Swagger para la API. Este punto de conexión permite al Diseñador de aplicación lógica representar las entradas y salidas de la API. Sin Swagger, el diseñador solo puede mostrar las entradas y salidas como objetos JSON opacos.
+Si usa sus propias API en lugar de las administradas por Microsoft, use la acción integrada **HTTP** para llamarlas. Idealmente, debería proporcionar un punto de conexión de Swagger para la API. Este punto de conexión ayuda al diseñador de aplicaciones lógicas a mostrar las entradas y salidas de la API. Sin un punto de conexión de Swagger, el diseñador solo puede mostrar las entradas y salidas como objetos JSON opacos.
 
 Este es un ejemplo que muestra la nueva propiedad `metadata.apiDefinitionUrl` :
 
@@ -259,7 +263,7 @@ Por ejemplo, si utiliza Dropbox para enumerar archivos, la definición de la ver
 }
 ```
 
-Ahora puede construir la acción HTTP equivalente como en el siguiente ejemplo, dejando la sección de parámetros de la definición de aplicación lógica sin cambios:
+Ahora puede crear una acción HTTP similar y dejar sin modificaciones la sección `parameters` de la definición de la aplicación lógica, por ejemplo:
 
 ``` json
 "actions": {
@@ -292,8 +296,8 @@ Vamos a recorrer estas propiedades una a una:
 | `metadata.apiDefinitionUrl` | Para usar esta acción en el Diseñador de aplicación lógica, incluya el punto de conexión de metadatos, que se construye a partir de: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` | Se construye a partir de: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | Siempre `POST` |
-| `inputs.body` | Idéntico a los parámetros de la aplicación de API |
-| `inputs.authentication` | Idéntico a la autenticación de la aplicación de API |
+| `inputs.body` | Igual que los parámetros de aplicación de API |
+| `inputs.authentication` | Igual que la autenticación de aplicación de API |
 
 Este enfoque debería funcionar para todas las acciones de aplicación de API. Sin embargo, recuerde que estas aplicaciones de API anteriores ya no se admiten. Por lo que debe mover una API administrada a una de las dos opciones anteriores u hospedar su propia API web personalizada.
 
@@ -407,15 +411,15 @@ Ahora se puede usar esta versión en su lugar:
 
 ## <a name="native-http-listener"></a>Agente de escucha HTTP nativo
 
-Las funcionalidades de la escucha HTTP ahora están integradas. Así que ya no necesita implementar una aplicación de API de escucha HTTP. Consulte aquí [los detalles completos de cómo hacer que los puntos de conexión de aplicación lógica](../logic-apps/logic-apps-http-endpoint.md). 
+Ahora las características del agente de escucha HTTP están integradas, por lo que no es necesario implementar una aplicación de API del agente de escucha HTTP. Para más información, consulte cómo [hacer que se pueda llamar al punto de conexión de la aplicación lógica](../logic-apps/logic-apps-http-endpoint.md). 
 
-Con estos cambios, eliminamos la función `@accessKeys()`, que sustituimos por la función `@listCallbackURL()` para obtener el punto de conexión cuando sea necesario. Además, ahora debe definir al menos un desencadenador en la aplicación lógica. Si desea `/run` el flujo de trabajo, debe tener uno de estos desencadenadores: `manual`, `apiConnectionWebhook` o `httpWebhook`.
+Con estos cambios, Logic Apps reemplaza la función `@accessKeys()` por la función `@listCallbackURL()`, que obtiene el punto de conexión cuando es necesario. Además, ahora debe definir al menos un desencadenador en la aplicación lógica. Si quiere `/run` el flujo de trabajo, debe usar uno de estos tipos de desencadenador: `Manual`, `ApiConnectionWebhook` o `HttpWebhook`
 
 <a name="child-workflows"></a>
 
 ## <a name="call-child-workflows"></a>Llamada a flujos de trabajo secundarios
 
-Anteriormente, para llamar a los flujos de trabajo secundarios era necesario ir al flujo de trabajo, obtener el token de acceso y luego pegarlo en la definición de la aplicación lógica donde quiere llamar a ese flujo de trabajo secundario. Con la nueva versión de esquema, el motor de Logic Apps genera automáticamente una firma SAS en tiempo de ejecución para el flujo de trabajo secundario, lo que significa que no tiene que pegar ningún secreto en la definición. Este es un ejemplo:
+Anteriormente, para llamar a los flujos de trabajo secundarios era necesario ir al flujo de trabajo, obtener el token de acceso y luego pegarlo en la definición de la aplicación lógica donde quiere llamar a ese flujo de trabajo secundario. Con este esquema, el motor de Logic Apps genera automáticamente una firma SAS en tiempo de ejecución para el flujo de trabajo secundario, lo que significa que no tiene que pegar ningún secreto en la definición. Este es un ejemplo:
 
 ``` json
 "myNestedWorkflow": {
@@ -441,9 +445,9 @@ Anteriormente, para llamar a los flujos de trabajo secundarios era necesario ir 
 }
 ```
 
-Una segunda mejora es se va a proporcionar a los flujos de trabajo secundarios acceso completo a la solicitud entrante. Eso significa que puede pasar parámetros en la sección *queries* y en el objeto *headers*, y que puede definir completamente todo el cuerpo.
+Además, los flujos de trabajo secundarios obtienen acceso total a la solicitud entrante. Por tanto, puede pasar parámetros en la sección `queries` y en el objeto `headers`. También puede definir completamente toda la sección `body`.
 
-Por último, hay cambios necesarios en el flujo de trabajo secundario. Mientras que antes podía llamar a un flujo de trabajo secundario directamente, ahora debe definir un punto de conexión de desencadenador en el flujo de trabajo para que el elemento primario realice la llamada. Por lo general, agrega un desencadenador que tiene el tipo `manual` y luego usa desencadenador en la definición del elemento primario. Tenga en cuenta que la propiedad `host` tiene un valor `triggerName`, ya que siempre debe especificar el desencadenador que va a invocar.
+Por último, los flujos de trabajo secundarios tienen estos cambios obligatorios. Mientras que antes podía llamar a un flujo de trabajo secundario directamente, ahora debe definir un punto de conexión de desencadenador en el flujo de trabajo para que el elemento primario realice la llamada. Por lo general, agrega un desencadenador que tiene el tipo `Manual` y luego usa desencadenador en la definición del elemento primario. Específicamente, la propiedad `host` tiene un valor `triggerName`, ya que siempre debe especificar el desencadenador que va a llamar.
 
 ## <a name="other-changes"></a>Otros cambios
 
@@ -453,8 +457,8 @@ Todos los tipos de acción admiten ahora una nueva entrada llamada `queries`. Es
 
 ### <a name="renamed-parse-function-to-json"></a>Cambio de nombre de la función "parse()" a "json()"
 
-Pronto se agregarán más tipos de contenido, por lo que hemos cambiado el nombre de la función `parse()` a `json()`.
+El nombre de la función `parse()` ahora se cambió a la función `json()` para tipos de contenido a futuro.
 
-## <a name="coming-soon-enterprise-integration-apis"></a>Próximamente: API de Enterprise Integration
+## <a name="enterprise-integration-apis"></a>API de integración empresarial
 
-Aún no disponemos de versiones administradas de las API de integración empresarial, como AS2. Mientras tanto, puede usar sus API de BizTalk implementadas existentes a través de la acción HTTP. Para más información, consulte el uso de aplicaciones de API ya administradas en el [plan de integración](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Este esquema todavía no admite las versiones administradas de las API de integración empresarial, como AS2. Sin embargo, puede usar API de BizTalk implementadas existentes a través de la acción HTTP. Para más información, consulte el uso de aplicaciones de API ya administradas en el [plan de integración](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

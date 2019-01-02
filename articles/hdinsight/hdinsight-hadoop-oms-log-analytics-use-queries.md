@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: a4c4017d7fa798559817c281d159148ec675d158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281360"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386509"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Consulta de Azure Log Analytics para supervisar clústeres de HDInsight
 
@@ -46,7 +46,7 @@ Aprenda a buscar métricas específicas de su clúster de HDInsight.
 
 5. En el panel izquierdo, en **Tipo**, seleccione una métrica en la que quiera profundizar y luego seleccione **Aplicar**. La siguiente captura de pantalla muestra que se ha seleccionado el tipo `metrics_resourcemanager_queue_root_default_CL`.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Puede que deba seleccionar el botón **[+]Más** para encontrar la métrica que busca. Además, el botón **Aplicar** se encuentra en la parte inferior de la lista por lo que debe desplazarse hacia abajo para verlo.
 
     Tenga en cuenta que la consulta del cuadro de texto cambia a la que se muestra en el cuadro resaltado en la captura de pantalla siguiente:

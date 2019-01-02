@@ -1,21 +1,22 @@
 ---
-title: Adición de Bing Spell Check API v7 a consultas de LUIS | Microsoft Docs
+title: Corrección de palabras mal escritas
 titleSuffix: Azure
 description: Corrija palabras incorrectas en expresiones mediante la adición de Bing Spell Check API V7 a las consultas de punto de conexión de LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6d197b014d6936b12b34a6d8783d1ebd29dfa28a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 478970c6b5f4035949c8b6579f1021dfa161fd39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443336"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096798"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corregir palabras incorrectas con Bing Spell Check
 
@@ -75,7 +76,7 @@ La dirección URL del punto de conexión tiene varios valores que se deben pasar
 
 4. LUIS responde con un resultado JSON para `How far is the mountain?`. Si Bing Spell Check API v7 detecta un error ortográfico, el campo `query` de la respuesta JSON de la aplicación de LUIS contiene la consulta original y el campo `alteredQuery` contiene la consulta corregida enviada a LUIS.
 
-```
+```json
 {
   "query": "How far is the mountainn?",
   "alteredQuery": "How far is the mountain?",

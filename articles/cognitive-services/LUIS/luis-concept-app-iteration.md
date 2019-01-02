@@ -1,23 +1,24 @@
 ---
-title: Diseño de aplicaciones iterativo en Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
-description: LUIS aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión.  Las aplicaciones de LUIS requieren iteraciones de diseño para entrenar a LUIS para obtener la mejor extracción de datos.
+title: Diseño de aplicaciones iterativo
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 2bd30aad995e9d1f334988652477f8b017c187b9
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: c86805527d6ac79fa31496fe06695d448a8b835b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638297"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134092"
 ---
-# <a name="authoring-cycle"></a>Ciclo de creación
+# <a name="authoring-cycle-for-your-luis-app"></a>Ciclo de creación de una aplicación de LUIS
 LUIS aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión. 
 
 ![Ciclo de creación](./media/luis-concept-app-iteration/iteration.png)

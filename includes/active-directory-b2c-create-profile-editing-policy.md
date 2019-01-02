@@ -2,50 +2,52 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 9ad715f47f2de9c6f9032ed07232f45fb33b0114
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133788"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742307"
 ---
-Si desea habilitar la edición del perfil en la aplicación, debe seguir una directiva de **edición de perfil**. Esta directiva describe las experiencias de los consumidores durante la edición del perfil y el contenido de los tokens que recibirá la aplicación al finalizarla correctamente.
+Si desea habilitar la edición de perfiles en la aplicación, debe usar un flujo de usuario de **edición de perfiles**. Este flujo de usuario describe las experiencias de los consumidores durante la edición de perfiles y el contenido de los tokens que recibirá la aplicación al finalizarla correctamente.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-En la sección de directivas de configuración, seleccione **Directivas de edición de perfil** y haga clic en **+ Agregar**.
+En **Administrar**, seleccione **Flujos de usuario** y haga clic en **+Nuevo flujo de usuario**.
 
-![Seleccionar directivas de edición de perfil y hacer clic en el botón Agregar](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-policy.png)
+![Selección del nuevo flujo de usuario](media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
 
-Escriba un **nombre** de directiva al que la aplicación haga referencia. Por ejemplo, escriba: `SiPe`.
+En la pestaña **Recomendado**, seleccione **Edición de perfiles**.
 
-Seleccione **Proveedores de identidades** y active **Inicio de sesión de cuenta local**. También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
+Escriba un **nombre** de flujo de usuario al que la aplicación haga referencia. Por ejemplo, escriba: `SiPe`.
 
-![Seleccionar inicio de sesión de cuenta local como proveedor de identidades y hacer clic en el botón Aceptar](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-identity-providers.png)
+En **Proveedores de identidades**, active **Inicio de sesión de cuenta local**. También puede seleccionar proveedores de identidades sociales, si ya se han configurado.
 
-Seleccione **Atributos de perfil**. Elija los atributos que el consumidor puede ver y editar en su perfil. Por ejemplo, seleccione **País o región**, **Nombre para mostrar** y **Código postal**. Haga clic en **OK**.
+![Seleccionar inicio de sesión de cuenta local como proveedor de identidades y hacer clic en el botón Aceptar](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
 
-![Seleccionar algunos atributos y hacer clic en el botón Aceptar](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-attributes.png)
+En **Atributos de usuario**, haga clic en **Mostrar más**. En la columna **Recopilar atributo**, elija los atributos que el consumidor puede ver y editar en su perfil. Por ejemplo, seleccione **País o región**, **Nombre para mostrar** y **Código postal**.
 
-Seleccione **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens de autorización a su aplicación después de una experiencia de edición de perfiles correcta. Por ejemplo, seleccione **Nombre para mostrar** y **Código postal**.
+En la columna **Notificación de devolución**, elija las notificaciones que quiere que se devuelvan en los tokens de autorización enviados de vuelta a su aplicación después de una experiencia de edición de perfiles correcta. Por ejemplo, seleccione **Nombre para mostrar** y **Código postal**.
 
-![Seleccionar algunas notificaciones de aplicación y hacer clic en el botón Aceptar](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-application-claims.png)
+Haga clic en **OK**.
 
-Haga clic en **Crear** para agregar la directiva. La directiva aparece como **B2C_1_SiPe**. El prefijo **B2C_1_** se anexa al nombre.
+![Seleccionar algunas notificaciones de aplicación y hacer clic en el botón Aceptar](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
 
-Para abrir la directiva, haga clic en **B2C_1_SiPe**. Compruebe la configuración especificada en la tabla y haga clic en **Ejecutar ahora**.
+Haga clic en **Crear** para agregar el flujo de usuario. El flujo de usuario aparece como **B2C_1_SiPe**. El prefijo **B2C_1_** se anexa al nombre.
 
-![Seleccionar la directiva y ejecutarla](media/active-directory-b2c-create-profile-editing-policy/run-b2c-editing-policy.png)
+Seleccione **Ejecutar flujo de usuario**. Compruebe la configuración especificada en la tabla y, luego, haga clic en **Ejecutar flujo de usuario**.
+
+![Seleccione el flujo de usuario y ejecútelo.](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
 
 | Configuración      | Valor  |
 | ------------ | ------ |
-| **Aplicaciones** | Aplicación B2C de Contoso |
-| **Seleccionar dirección URL de respuesta** | `https://localhost:44316/` |
+| **Aplicación** | Aplicación B2C de Contoso |
+| **URL de respuesta** | `https://localhost:44316/` |
 
 Se abrirá una nueva pestaña del explorador y podrá comprobar la experiencia del consumidor de edición de perfiles que configuró.
 
 > [!NOTE]
-> Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+> Tiene que transcurrir hasta un minuto para que se cree el flujo de usuario y las actualizaciones surtan efecto.
 >

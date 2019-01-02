@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
-ms.custom: ''
-ms.openlocfilehash: a41136837a56137ce92bd186cb4ee825e4f664c4
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274966"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097223"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adición de métricas extendidas a máquinas virtuales de Azure
 
@@ -35,7 +35,7 @@ Por ejemplo, puede supervisar los porcentajes de CPU y de memoria de las máquin
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinar si las métricas extendidas están habilitadas
 
-1. Inicie sesión en Azure Portal en http://portal.azure.com.
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
 2. En **Máquinas virtuales**, seleccione una máquina virtual y en **Supervisión**, seleccione **Métricas**. Se muestra una lista de las métricas disponibles.
 3. Seleccione algunas métricas y un gráfico mostrará los datos de las mismas.  
     ![Métrica de ejemplo: porcentaje de CPU de host](./media/azure-vm-extended-metrics/metric01.png)
@@ -55,18 +55,18 @@ Tenga en cuenta que tanto la supervisión a nivel de invitado de Azure como la d
 1. En **Máquinas virtuales**, vea la lista de las máquinas virtuales y seleccione una de ellas.
 2. En **Supervisión**, seleccione **Configuración de diagnóstico**.
 3. En la página Configuración de diagnóstico, haga clic en **Habilitar supervisión a nivel de invitado**.  
-    ![Habilitar la supervisión a nivel de invitado](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
+    ![Habilitación de la supervisión a nivel de invitado en la página de información general](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. Pocos minutos después, el agente de Azure Diagnostics está instalado en la máquina virtual. Se agrega un conjunto básico de métricas. Actualice la página. Los contadores de rendimiento agregados aparecen en la pestaña de información general.
 5. En Supervisión, seleccione **Métricas**.
 6. En **Espacio de nombres de métrica** del gráfico de métricas, seleccione **Invitado (clásico)**.
 7. En la lista Métrica podrá ver todos los contadores de rendimiento disponibles para la máquina virtual invitada.  
-    ![Métricas extendidas](./media/azure-vm-extended-metrics/extended-metrics.png)
+    ![lista de métricas extendidas de ejemplo](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Habilitar la supervisión a nivel de invitado en las máquinas virtuales nuevas
 
 Cuando cree nuevas máquinas virtuales, en la pestaña Administración, seleccione **Activados** para **Diagnósticos del SO invitado**.
 
-![Habilitar los diagnósticos del SO invitado](./media/azure-vm-extended-metrics/new-enable-diag.png)
+![establecimiento de Diagnósticos del SO invitado en Activado](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 Para obtener más información acerca de cómo habilitar las métricas extendidas para las máquinas virtuales de Azure, consulte la [Información y uso del agente de Linux de Azure](../virtual-machines/extensions/agent-linux.md) y la [Información general del agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md).
 
@@ -82,7 +82,7 @@ Las métricas de una máquina virtual se pueden habilitar con scripts de Azure P
 
 Para ver métricas del rendimiento de las instancias de Azure en el portal de Cloudyn, vaya a **Assets** (Recursos) > **Compute** > **Instance Explorer** (Explorador de instancias). En la lista de instancias de máquina virtual, expanda una de ellas y, después, expanda un recurso para ver sus detalles.
 
-![Instance Explorer (Explorador de instancias)](./media/azure-vm-extended-metrics/instance-explorer.png)
+![información de ejemplo que se muestra en el Explorador de instancias](./media/azure-vm-extended-metrics/instance-explorer.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

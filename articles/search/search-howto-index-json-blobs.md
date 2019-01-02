@@ -1,6 +1,6 @@
 ---
-title: Indexación de blobs JSON con el indexador de blobs de Azure Search
-description: Indexación de blobs JSON con el indexador de blobs de Azure Search
+title: 'Indexación de blobs JSON desde el indexador de blobs de Azure para la búsqueda de texto completo: Azure Search'
+description: Rastree el contenido de texto de los blobs JSON de Azure mediante el indexador de blobs de Azure Search. Los indexadores automatizan la ingesta de datos para orígenes de datos seleccionados, como Azure Blob Storage.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec2018
+ms.openlocfilehash: 7eb215271a8d5d21403cc7c5a49028bb366e61fd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711079"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312534"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexación de blobs JSON con el indexador de blobs de Azure Search
 En este artículo se muestra cómo configurar un indexador de blobs de Azure Search para extraer contenido estructurado de los blobs JSON en Azure Blob Storage.
@@ -186,7 +187,7 @@ También puede hacer referencia a elementos individuales de la matriz mediante u
 >
 >
 
-## <a name="example-indexer-request-with-field-mappings"></a>Ejemplo: solicitud del indexador con asignaciones de campos
+## <a name="example-indexer-request-with-field-mappings"></a>Ejemplo: Solicitud del indexador con asignaciones de campos
 
 El ejemplo siguiente es una carga de indexador completamente especificada, incluidas las asignaciones de campos:
 
@@ -216,4 +217,4 @@ Si tiene solicitudes o ideas para mejorar las características, póngase en cont
 + [Indexadores de Azure Search](search-indexer-overview.md)
 + [Indexación de Azure Blob Storage con Azure Search](search-howto-index-json-blobs.md)
 + [Indexación de blobs CSV con el indexador de blobs de Azure Search](search-howto-index-csv-blobs.md)
-+ [Tutorial: Búsqueda de datos semiestructurados en el almacenamiento en la nube](search-semi-structured-data.md)
++ [Tutorial: Búsqueda de datos semiestructurados en Azure Blob Storage](search-semi-structured-data.md)

@@ -9,21 +9,21 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a57e481093bca12a1726a4cc16fa090aa158c1d8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093448"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320904"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Planes de tarifa de Azure Database for PostgreSQL
 
-Puede crear un servidor de Azure Database for PostgreSQL en tres planes de tarifa diferentes: Básico, Uso general y Optimizado para memoria. Los planes de tarifa se diferencian por la cantidad de proceso en núcleos virtuales que se puede aprovisionar, la cantidad de memoria por núcleo virtual y la tecnología de almacenamiento usada para almacenar los datos. Todos los recursos se aprovisionan en el nivel de servidor PostgreSQL. Un servidor puede tener una o varias bases de datos.
+Puede crear un servidor de Azure Database for PostgreSQL en tres planes de tarifa diferentes: Básico, De uso general y Optimizado para memoria. Los planes de tarifa se diferencian por la cantidad de proceso en núcleos virtuales que se puede aprovisionar, la cantidad de memoria por núcleo virtual y la tecnología de almacenamiento usada para almacenar los datos. Todos los recursos se aprovisionan en el nivel de servidor PostgreSQL. Un servidor puede tener una o varias bases de datos.
 
 |    | **Básico** | **Uso general** | **Memoria optimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Generación de procesos | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memoria por núcleo virtual | 2 GB | 5 GB | 10 GB |
 | Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 4 TB | De 5 GB a 4 TB |
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -43,6 +43,9 @@ Después de crear un servidor, el número de núcleos virtuales, la generación 
 ## <a name="compute-generations-and-vcores"></a>Procesar generaciones y núcleos virtuales
 
 Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. Actualmente, puede elegir entre dos generaciones de proceso, Gen 4 y Gen 5. Las CPU lógicas Gen 4 se basan en los procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz. Las CPU lógicas Gen 5 se basan en los procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz. Las CPU lógicas Gen 4 y Gen 5 están disponibles en las siguientes regiones ("X" indica disponible). 
+
+> [!IMPORTANT]
+> A partir del 12 de diciembre de 2018, los clientes nuevos no podrán aprovisionar servidores de proceso de cuarta generación en estas regiones: Sur de Brasil, Centro de Canadá, Este de Canadá, Asia Oriental, Este de EE. UU. 2, India central, India occidental, Oeste de la India, Centro-norte de EE. UU., Oeste de EE. UU. Los servidores de proceso de la cuarta generación anteriormente creados se migrarán a los de la quinta generación a partir del 1 de febrero de 2019 en estas regiones.
 
 | **Región de Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5ef7ddc068fea7703dad67b80b96c292bfd26943
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279745"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870714"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalización de clústeres de HDInsight basados en Linux mediante acciones de script
 
@@ -53,7 +53,7 @@ Una acción de script es un script de Bash que se ejecuta en los nodos de un cl�
 
 * Deben almacenarse en un URI accesible desde el clúster de HDInsight. A continuación, se proponen varias ubicaciones de almacenamiento posibles:
 
-    * Una **cuenta de Azure Data Lake Store** accesible para el clúster de HDInsight. Para obtener información sobre el uso de Azure Data Lake Store con HDInsight, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+    * Una **cuenta de Azure Data Lake Store** accesible para el clúster de HDInsight. Para obtener información sobre el uso de Azure Data Lake Store con HDInsight, consulte [Inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
         Cuando se usa un script almacenado en Data Lake Store, el formato del URI es `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
@@ -111,7 +111,7 @@ En el siguiente diagrama se ilustra el momento en que la acción de script se ej
 El script se ejecuta mientras se configura HDInsight. El script se ejecuta de forma paralela en todos los nodos especificados del clúster con privilegios raíz en los nodos.
 
 > [!NOTE]
-> Puede realizar operaciones, como detener e iniciar servicios, incluidos los servicios relacionados con Hadoop. Si detiene los servicios, tiene que asegurarse de que los servicios de Ambari y los demás servicios de Hadoop estén en ejecución antes de que finalice el script. Estos servicios son necesarios para determinar correctamente el estado del clúster mientras se crea.
+> Puede realizar operaciones, como detener e iniciar servicios, incluidos los servicios relacionados con Apache Hadoop. Si detiene los servicios, tiene que asegurarse de que los servicios de Ambari y los demás servicios de Hadoop estén en ejecución antes de que finalice el script. Estos servicios son necesarios para determinar correctamente el estado del clúster mientras se crea.
 
 
 Durante la creación del clúster, puede usar varias acciones de script a la vez. Estos scripts se invocan en el orden en el que se hayan especificado.
@@ -168,7 +168,7 @@ En esta sección se proporcionan ejemplos sobre las distintas maneras de usar ac
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Uso de una acción de script durante la creación de un clúster desde Azure Portal
 
-1. Comience a crear un clúster, tal y como se describe en [Creación de clústeres de Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Durante la creación del clúster, llegará a una página __Resumen del clúster__. En la página __Resumen del clúster__, seleccione el vínculo __editar__ de __Configuración avanzada__.
+1. Comience a crear un clúster, tal y como se describe en [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Durante la creación del clúster, llegará a una página __Resumen del clúster__. En la página __Resumen del clúster__, seleccione el vínculo __editar__ de __Configuración avanzada__.
 
     ![Vínculo Configuración avanzada](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -402,11 +402,11 @@ Si desea ver un ejemplo de uso del SDK de .NET para recuperar el historial de sc
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Soporte técnico para el software de código abierto utilizado en clústeres de HDInsight
 
-El servicio Microsoft Azure HDInsight usa un ecosistema de tecnologías de código abierto formado en torno a Hadoop. Microsoft Azure proporciona un nivel general de soporte técnico para las tecnologías de código abierto. Para más información, vea la sección de **ámbito de soporte técnico** del [sitio web Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). Además, el servicio HDInsight ofrece un nivel adicional de soporte técnico para los componentes incorporados.
+El servicio Microsoft Azure HDInsight usa un ecosistema de tecnologías de código abierto formado en torno a Apache Hadoop. Microsoft Azure proporciona un nivel general de soporte técnico para las tecnologías de código abierto. Para más información, vea la sección de **ámbito de soporte técnico** del [sitio web Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). Además, el servicio HDInsight ofrece un nivel adicional de soporte técnico para los componentes incorporados.
 
 Hay dos tipos de componentes de código abierto que están disponibles en el servicio de HDInsight:
 
-* **Componentes integrados** : estos componentes están instalados previamente en clústeres de HDInsight y proporcionan la funcionalidad básica del clúster. Por ejemplo, el administrador de recursos de YARN, el lenguaje de consulta Hive (HiveQL) y la biblioteca Mahout pertenecen a esta categoría. Hay una lista completa de componentes del clúster disponible en [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight](hdinsight-component-versioning.md).
+* **Componentes integrados** : estos componentes están instalados previamente en clústeres de HDInsight y proporcionan la funcionalidad básica del clúster. Por ejemplo, el administrador de recursos de [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), el lenguaje de consulta de Hive ([HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)) y la biblioteca [Apache Mahout](https://mahout.apache.org/) pertenecen a esta categoría. Hay una lista completa de componentes del clúster disponible en [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight](hdinsight-component-versioning.md).
 * **Componentes personalizados** : el usuario del clúster puede instalar o usar en la carga de trabajo cualquier componente que esté disponible en la comunidad o que haya creado personalmente.
 
 > [!WARNING]
@@ -426,7 +426,7 @@ El servicio HDInsight proporciona varias maneras de utilizar los componentes per
 
 Puede usar la interfaz de usuario web de Ambari para ver la información registrada por las acciones de script. Si se produce un error en el script durante la creación del clúster, los registros también están disponibles en la cuenta de almacenamiento predeterminada asociada al clúster. Esta sección proporciona información sobre cómo recuperar los registros mediante ambas opciones.
 
-### <a name="using-the-ambari-web-ui"></a>Uso de la interfaz de usuario web de Ambari
+### <a name="using-the-apache-ambari-web-ui"></a>Uso de la interfaz de usuario web de Apache Ambari
 
 1. Abra el explorador y vaya a https://CLUSTERNAME.azurehdinsight.net. Reemplace CLUSTERNAME por el nombre del clúster de HDInsight.
 
@@ -513,8 +513,8 @@ Hay dos excepciones:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md)
-* [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Instalación y uso de Apache Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md)
+* [Instalación y uso de Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Adición de almacenamiento adicional a un clúster HDInsight](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"

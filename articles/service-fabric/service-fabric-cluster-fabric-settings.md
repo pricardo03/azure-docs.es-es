@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 9da213525a5921295d6271adfd473b7a05a049a4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14513e23aafd05796767e1ae08d4d4c14cecdfbc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497916"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728317"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -139,6 +139,13 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |PartitionPrefix|string, el valor predeterminado es "--"|estática|Controla el valor de cadena del prefijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>No puede ser una cadena vacía.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md).|
 |PartitionSuffix|string, el valor predeterminado es "".|estática|Controla el valor de cadena del sufijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md). |
 
+## <a name="eventstore"></a>EventStore
+| **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|int, el valor predeterminado es 0|estática|MinReplicaSetSize para el evento EventStore |
+|PlacementConstraints|string, el valor predeterminado es "".|estática|  PlacementConstraints para el servicio EventStore |
+|TargetReplicaSetSize|int, el valor predeterminado es 0|estática| TargetReplicaSetSize para el servicio EventStore |
+
 ## <a name="fabricclient"></a>FabricClient
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
@@ -172,7 +179,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ClientAuthX509FindValue |string, el valor predeterminado es "". | Dinámica|Valor de filtro de búsqueda usado para encontrar el certificado para el rol de administrador predeterminado FabricClient. |
 |ClientAuthX509FindValueSecondary |string, el valor predeterminado es "". |Dinámica|Valor de filtro de búsqueda usado para encontrar el certificado para el rol de administrador predeterminado FabricClient. |
 |ClientAuthX509StoreName |string, el valor predeterminado es "My". |Dinámica|Nombre del almacén de certificados X.509 que contiene el certificado para el rol de administrador predeterminado FabricClient. |
-|ClusterX509FindType |string, el valor predeterminado es "FindByThumbprint". |Dinámica|Indica cómo buscar certificados de clúster en el almacén especificado mediante los valores admitidos de ClusterX509StoreName: "FindByThumbprint"; "FindBySubjectName" con "FindBySubjectName"; cuando existen varias coincidencias, se usa la que tiene la expiración más lejana. |
+|ClusterX509FindType |string, el valor predeterminado es "FindByThumbprint". |Dinámica|Indica cómo buscar el certificado del clúster en el almacén especificado mediante el valor admitido ClusterX509StoreName: "FindByThumbprint"; "FindBySubjectName" con "FindBySubjectName"; cuando hay varias coincidencias, se usa la que tiene la fecha de expiración más lejana. |
 |ClusterX509FindValue |string, el valor predeterminado es "". |Dinámica|Valor de filtro de búsqueda usado para encontrar el certificado de clúster. |
 |ClusterX509FindValueSecondary |string, el valor predeterminado es "". |Dinámica|Valor de filtro de búsqueda usado para encontrar el certificado de clúster. |
 |ClusterX509StoreName |string, el valor predeterminado es "My". |Dinámica|Nombre del almacén de certificados X.509 que contiene el certificado de clúster para proteger la comunicación dentro del clúster. |
@@ -456,12 +463,12 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|AffinityConstraintPriority | Int, el valor predeterminado es 0. | Dinámica|Determina la prioridad de la restricción de afinidad: 0: máxima; 1: mínima; negativo: ignorar. |
-|ApplicationCapacityConstraintPriority | Int, el valor predeterminado es 0. | Dinámica|Determina la prioridad de la restricción de capacidad: 0: máxima; 1: mínima; negativo: ignorar. |
+|AffinityConstraintPriority | Int, el valor predeterminado es 0. | Dinámica|Determina la prioridad de la restricción de afinidad: 0: máxima; 1: mínima; negativo: omitir |
+|ApplicationCapacityConstraintPriority | Int, el valor predeterminado es 0. | Dinámica|Determina la prioridad de la restricción de capacidad: 0: máxima; 1: mínima; negativo: omitir |
 |AutoDetectAvailableResources|bool, el valor predeterminado es TRUE|estática|Esta configuración desencadenará la detección automática de los recursos disponibles en el nodo (CPU y memoria). Cuando esta configuración se establece en true, se leen las capacidades reales y se corrigen si el usuario especificó unas capacidades erróneas de nodo o no las definió. Si esta configuración se establece en false, se hará el seguimiento de una advertencia en que el usuario especificó capacidades incorrectas para el nodo, pero no se corregirán. Esto significa que el usuario quiere especificar capacidades superiores a las reales del nodo o, si no se define ninguna capacidad, se asumirá una capacidad ilimitada. |
 |BalancingDelayAfterNewNode | Tiempo en segundos, el valor predeterminado es 120. |Dinámica|Especifique el intervalo de tiempo en segundos. No inicie actividades de equilibrio dentro de este período después de agregar un nuevo nodo. |
 |BalancingDelayAfterNodeDown | Tiempo en segundos, el valor predeterminado es 120. |Dinámica|Especifique el intervalo de tiempo en segundos. No inicie actividades de equilibrio dentro de este período después de un evento de inactividad de nodos. |
-|CapacityConstraintPriority | Int, el valor predeterminado es 0. | Dinámica|Determina la prioridad de la restricción de capacidad: 0: máxima; 1: mínima; negativo: ignorar. |
+|CapacityConstraintPriority | Int, el valor predeterminado es 0. | Dinámica|Determina la prioridad de la restricción de capacidad: 0: máxima; 1: mínima; negativo: omitir |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, el valor predeterminado es 20. | Dinámica|Define el número de veces consecutivas que los movimientos emitidos por ResourceBalancer se descartan antes de que se realicen diagnósticos y se emitan advertencias de mantenimiento. Negativo: no se emiten advertencias bajo esta condición. |
 |ConstraintFixPartialDelayAfterNewNode | Tiempo en segundos, el valor predeterminado es 120. |Dinámica| Especifique el intervalo de tiempo en segundos. No resuelva infracciones de restricciones FaultDomain y UpgradeDomain dentro de este período después de agregar un nuevo nodo. |
 |ConstraintFixPartialDelayAfterNodeDown | Tiempo en segundos, el valor predeterminado es 120. |Dinámica| Especifique el intervalo de tiempo en segundos. No resuelva infracciones FaultDomain y UpgradeDomain dentro de este período después de un evento de inactividad de nodos. |
@@ -471,7 +478,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |DetailedNodeListLimit | Int, el valor predeterminado es 15. |Dinámica| Define el número de nodos por restricción que se incluirán antes del truncamiento en los informes de réplicas sin colocar. |
 |DetailedPartitionListLimit | Int, el valor predeterminado es 15. |Dinámica| Define el número de particiones por entrada de diagnóstico que se incluirán para una restricción antes del truncamiento en Diagnostics. |
 |DetailedVerboseHealthReportLimit | Int, el valor predeterminado es 200. | Dinámica|Define el número de veces que una réplica sin colocar tiene que estar sin colocar de forma persistente antes de que se emitan informes de mantenimiento detallados. |
-|FaultDomainConstraintPriority | Int, el valor predeterminado es 0. |Dinámica| Determina la prioridad de la restricción del dominio de error: 0: máxima; 1: mínima; negativo: ignorar. |
+|FaultDomainConstraintPriority | Int, el valor predeterminado es 0. |Dinámica| Determina la prioridad de la restricción del dominio de error: 0: máxima; 1: mínima; negativo: omitir |
 |GlobalMovementThrottleCountingInterval | Tiempo en segundos, el valor predeterminado es 600. |estática| Especifique el intervalo de tiempo en segundos. Indique la longitud del intervalo pasado para rastrear movimientos de réplicas por dominio (se usa en combinación con GlobalMovementThrottleThreshold). Puede establecerse en 0 para omitir por completo la limitación global. |
 |GlobalMovementThrottleThreshold | Uint, el valor predeterminado es 1000. |Dinámica| Número máximo de movimientos permitidos en la fase de equilibrio en el intervalo pasado indicado por GlobalMovementThrottleCountingInterval. |
 |GlobalMovementThrottleThresholdForBalancing | Uint, el valor predeterminado es 0. | Dinámica|Número máximo de movimientos permitidos en la fase de equilibrio en el intervalo pasado indicado por GlobalMovementThrottleCountingInterval. 0 indica sin límite. |
@@ -491,18 +498,18 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |MoveParentToFixAffinityViolation | Bool, el valor predeterminado es false. |Dinámica| Valor que determina si se pueden mover las réplicas primarias para corregir restricciones de afinidad.|
 |PartiallyPlaceServices | Bool, el valor predeterminado es true. |Dinámica| Determina si todas las réplicas de servicio del clúster se colocarán "todo o nada" dados los nodos adecuados limitados para ellas.|
 |PlaceChildWithoutParent | Bool, el valor predeterminado es true. | Dinámica|Valor que determina si puede colocarse la réplica de servicio secundaria si no hay ninguna réplica principal activa. |
-|PlacementConstraintPriority | Int, el valor predeterminado es 0. | Dinámica|Determina la prioridad de la restricción de ubicación: 0: máxima; 1: mínima; negativo: ignorar. |
+|PlacementConstraintPriority | Int, el valor predeterminado es 0. | Dinámica|Determina la prioridad de la restricción de ubicación: 0: máxima; 1: mínima; negativo: omitir |
 |PlacementConstraintValidationCacheSize | Int, el valor predeterminado es 10 000. |Dinámica| Limita el tamaño de la tabla usada para la validación rápida y el almacenamiento en caché de expresiones de restricciones de ubicación. |
 |PlacementSearchTimeout | Tiempo en segundos, el valor predeterminado es 0.5. |Dinámica| Especifique el intervalo de tiempo en segundos. Al ubicar servicios, busque como máximo este período antes de devolver un resultado. |
 |PLBRefreshGap | Tiempo en segundos, el valor predeterminado es 1. |Dinámica| Especifique el intervalo de tiempo en segundos. Define la cantidad mínima de tiempo que debe transcurrir antes de que PLB actualice el estado de nuevo. |
-|PreferredLocationConstraintPriority | Int, el valor predeterminado es 2.| Dinámica|Determina la prioridad de la restricción de ubicación preferida: 0 para máxima; 1 para mínima; 2 para optimización; negativo para ignorar |
+|PreferredLocationConstraintPriority | Int, el valor predeterminado es 2.| Dinámica|Determina la prioridad de la restricción de ubicación preferida: 0: máxima; 1: mínima; 2: optimización; negativo: Ignorar |
 |PreventTransientOvercommit | Bool, el valor predeterminado es false. | Dinámica|Determina si PLB cuenta inmediatamente con los recursos que liberarán los movimientos iniciados. De forma predeterminada, PLB puede iniciar movimientos dentro y fuera en el mismo nodo, lo que puede generar confirmaciones en exceso transitorias. Si establece este parámetro en true, impedirá esta clase de confirmaciones en exceso y se deshabilitará la desfragmentación a petición (también conocida como placementWithMove). |
-|ScaleoutCountConstraintPriority | Int, el valor predeterminado es 0. |Dinámica| Determina la prioridad de la restricción de recuento de escalado horizontal: 0: máxima; 1: mínima; negativo: ignorar. |
+|ScaleoutCountConstraintPriority | Int, el valor predeterminado es 0. |Dinámica| Determina la prioridad de la restricción de recuento de escalado horizontal: 0: máxima; 1: mínima; negativo: omitir |
 |SwapPrimaryThrottlingAssociatedMetric | string, el valor predeterminado es "".|estática| El nombre de métrica asociado de esta limitación. |
 |SwapPrimaryThrottlingEnabled | Bool, el valor predeterminado es false.|Dinámica| Determina si está habilitada la limitación principal de intercambio. |
 |SwapPrimaryThrottlingGlobalMaxValue | Int, el valor predeterminado es 0. |Dinámica| El número máximo de réplicas principales de intercambio que se permiten a nivel global. |
 |TraceCRMReasons |Bool, el valor predeterminado es true. |Dinámica|Especifica si se rastrearán los motivos de los movimientos emitidos por CRM al canal de eventos operativos. |
-|UpgradeDomainConstraintPriority | Int, el valor predeterminado es 1.| Dinámica|Determina la prioridad de la restricción del dominio de actualización: 0: máxima; 1: mínima; negativo: ignorar. |
+|UpgradeDomainConstraintPriority | Int, el valor predeterminado es 1.| Dinámica|Determina la prioridad de la restricción del dominio de actualización: 0: máxima; 1: mínima; negativo: omitir |
 |UseMoveCostReports | Bool, el valor predeterminado es false. | Dinámica|Indica a LB que ignore el elemento de coste de la función de puntuación. Esto da lugar a un número posiblemente grande de movimientos para una ubicación mejor equilibrada. |
 |UseSeparateSecondaryLoad | Bool, el valor predeterminado es true. | Dinámica|Valor que determina si se deben usar cargas secundarias diferentes. |
 |ValidatePlacementConstraint | Bool, el valor predeterminado es true. |Dinámica| Especifica si la expresión PlacementConstraint de un servicio se valida o no cuando se actualiza la descripción de un servicio. |
@@ -587,7 +594,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |CertificateHealthReportingInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(3600 * 8)|estática|Especifique el intervalo de tiempo en segundos. Especifica el intervalo para los informes de mantenimiento del certificado. El valor predeterminado es 8 horas. Establecerlo en 0 deshabilita el informe de mantenimiento del certificado. |
 |ClientCertThumbprints|string, el valor predeterminado es "".|Dinámica|Huellas digitales de certificados que usan los clientes para comunicarse con el clúster. El clúster las usa para autorizar la conexión entrante. Lista de nombres separados por comas. |
 |ClientClaimAuthEnabled|bool, el valor predeterminado es FALSE|estática|Indica si la autenticación basada en notificaciones está habilitada en los clientes. Si se establece en true, se establece implícitamente ClientRoleEnabled. |
-|ClientClaims|string, el valor predeterminado es "".|Dinámica|Todas las notificaciones posibles que se esperan de los clientes para conectarse a la puerta de enlace. Se trata de una lista "OR": ClaimsEntry \|\|ClaimsEntry \|\| ClaimsEntry... cada valor de ClaimsEntry es una lista "AND": ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue... |
+|ClientClaims|string, el valor predeterminado es "".|Dinámica|Todas las notificaciones posibles que se esperan de los clientes para conectarse a la puerta de enlace. Se trata de una lista "OR": ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry... Cada valor de ClaimsEntry es una lista "AND": ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
 |ClientIdentities|string, el valor predeterminado es "".|Dinámica|Identidades de Windows de FabricClient; la puerta de enlace de nomenclatura las usa para autorizar las conexiones entrantes. Lista separada por comas; cada entrada es un nombre de grupo o de cuenta de dominio. Para mayor comodidad; la cuenta que ejecuta fabric.exe se permite automáticamente. Lo mismo sucede con ServiceFabricAllowedUsers y ServiceFabricAdministrators. |
 |ClientRoleEnabled|bool, el valor predeterminado es FALSE|estática|Indica si está habilitado el rol de cliente. Cuando se establece en true, se asignan roles a clientes en función de sus identidades. Para V2; habilitar esto significa que los clientes que no estén en AdminClientCommonNames/AdminClientIdentities solo pueden ejecutar operaciones de solo lectura. |
 |ClusterCertThumbprints|string, el valor predeterminado es "".|Dinámica|Huellas digitales de certificados que pueden unirse al clúster; lista de nombres separados por comas. |
@@ -755,7 +762,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="tokenvalidationservice"></a>TokenValidationService
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|Proveedores |string, el valor predeterminado es "DSTS". |estática|Lista separada por comas de proveedores de validación de tokens para habilitar (proveedores válidos son: DSTS; AAD). Actualmente solo se puede habilitar un único proveedor cada vez. |
+|Proveedores |string, el valor predeterminado es "DSTS". |estática|Lista separada por comas de proveedores de validación de tokens para habilitar (proveedores válidos: DSTS; AAD). Actualmente solo se puede habilitar un único proveedor cada vez. |
 
 ## <a name="traceetw"></a>Trace/Etw
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |

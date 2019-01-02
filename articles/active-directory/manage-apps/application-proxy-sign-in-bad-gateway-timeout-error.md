@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2af5ed294c4a53e38690991f1f65b3f7d2f46c73
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355475"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134835"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Error "Can't Access this Corporate Application" al usar una aplicación de Proxy de aplicación
 
@@ -62,7 +62,7 @@ Estos errores indican que el conector no puede alcanzar la aplicación back-end.
 
 Este tipo de error indica que el usuario no se ha asignado a la aplicación, ya sea en Azure Active Directory o en la aplicación de back-end.
 
-Para información sobre cómo asignar usuarios a la aplicación en Azure, consulte la [documentación de configuración](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
+Para información sobre cómo asignar usuarios a la aplicación en Azure, consulte la [documentación de configuración](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
 
 Si confirma que el usuario está asignado a la aplicación en Azure, compruebe la configuración del usuario en la aplicación de back-end. Si está utilizando la delegación limitada de kerberos o la autenticación integrada de Windows, consulte la página de solución de problemas de KCD para obtener directrices.
 
@@ -82,11 +82,11 @@ Para comprobar que la aplicación está asignada a un grupo de conectores en fun
 
 4.  Desde aquí, podemos profundizar de varias maneras:
 
-  * Mueva un conector activo al grupo: si tiene un conector de active que debería pertenecer a este grupo y tiene la línea de visión a la aplicación de back-end, puede moverlo al grupo asignado. Para ello, haga clic en el conector. En el campo "Grupo de conectores", seleccione el grupo correcto en la lista desplegable y haga clic en Guardar.
+  * Mueva un conector activo al grupo: si tiene un conector activo que debería pertenecer a este grupo y tiene línea de visión a la aplicación back-end de destino, puede moverlo al grupo asignado. Para ello, haga clic en el conector. En el campo "Grupo de conectores", seleccione el grupo correcto en la lista desplegable y haga clic en Guardar.
 
-  * Descargue un nuevo conector para ese grupo: desde esta página, puede obtener el vínculo a [descargar un nuevo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale el conector en una máquina con línea directa de visión a la aplicación de back-end. Normalmente, el conector se instala en el mismo servidor que la aplicación. Utilice el vínculo de descarga del conector para descargarlo en la máquina de destino. A continuación, haga clic en el conector y compruebe en la lista desplegable "Grupo de conectores" que pertenece al grupo adecuado.
+  * Descargue un conector nuevo para ese grupo: en esta página, puede obtener el vínculo para [descargar un conector nuevo](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale el conector en una máquina con línea directa de visión a la aplicación de back-end. Normalmente, el conector se instala en el mismo servidor que la aplicación. Utilice el vínculo de descarga del conector para descargarlo en la máquina de destino. A continuación, haga clic en el conector y compruebe en la lista desplegable "Grupo de conectores" que pertenece al grupo adecuado.
 
-  * Investigue si el conector está inactivo: si el conector se muestra como inactivo, no podrá alcanzar el servicio. Este error suele deberse al bloqueo de algunos puertos necesarios. Para resolver este problema, pase a "verify all required ports are whitelisted" (comprobar que todos los puertos necesarios están en la lista de permitidos).
+  * Investigue un conector inactivo: si un conector aparece como inactivo, no puede conectarse con el servicio. Este error suele deberse al bloqueo de algunos puertos necesarios. Para resolver este problema, pase a "verify all required ports are whitelisted" (comprobar que todos los puertos necesarios están en la lista de permitidos).
 
 Después de seguir estos pasos para asegurarse de que la aplicación está asignada a un grupo de conectores que funcionan, vuelva a probar la aplicación. Si sigue sin funcionar, continúe con la siguiente sección.
 

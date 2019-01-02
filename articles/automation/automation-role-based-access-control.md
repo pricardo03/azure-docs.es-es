@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094224"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727909"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
 
@@ -274,12 +274,13 @@ En la sección siguiente se muestra cómo configurar RBAC en su cuenta de Automa
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y abra su cuenta de Automation en la página Cuentas de Automation.
 2. Haga clic en el control **Control de acceso (IAM)** de la esquina superior izquierda. Se abre la página **Control de acceso (IAM)**, donde puede añadir nuevos usuarios, grupos y aplicaciones para administrar la cuenta de Automation y ver los roles existentes que se pueden configurar para la cuenta de Automation.
+3. Haga clic en la pestaña **Asignaciones de roles**.
 
    ![Botón de acceso](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Adición de usuarios nuevos y asignación de roles
 
-1. En la página **Control de acceso (IAM)**, haga clic en **+ Agregar** para abrir la página **Agregar permisos**, donde puede agregar un usuario, un grupo o una aplicación y asignarles un rol.
+1. En la página **Control de acceso (IAM)**, haga clic en **+ Agregar asignación de roles** para abrir la página **Agregar asignación de roles**, donde puede agregar un usuario, un grupo o una aplicación y asignarles un rol.
 
 2. Seleccione en rol en la lista de roles disponibles. Puede elegir cualquiera de los roles integrados disponibles que admitan las cuentas de Automation o cualquier rol personalizado que haya definido.
 
@@ -333,7 +334,7 @@ AssignableScopes : {/}
 ```
 
 [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) enumera las asignaciones de roles RBAC de Azure AD en el ámbito especificado. Sin parámetros, este comando devuelve todas las asignaciones de roles realizadas en la suscripción. Use el parámetro **ExpandPrincipalGroups** para enumerar las asignaciones de acceso del usuario especificado, así como los grupos a los que pertenezca.
-    **Ejemplo:** use el siguiente comando para enumerar todos los usuarios de una cuenta de Automatización y sus roles.
+    **Ejemplo:** use el siguiente comando para enumerar todos los usuarios de una cuenta de automatización y sus roles.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'

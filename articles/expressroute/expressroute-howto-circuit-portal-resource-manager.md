@@ -1,26 +1,19 @@
 ---
-title: Creación y modificación de un circuito ExpressRoute mediante Azure Portal | Microsoft Docs
-description: Este artículo describe cómo crear, aprovisionar, comprobar, actualizar, eliminar y desaprovisionar un circuito ExpressRoute.
-documentationcenter: na
+title: 'Creación y modificación de un circuito ExpressRoute: portal: Azure | Microsoft Docs'
+description: Cree, aprovisione, compruebe, actualice, elimine y desaprovisione un circuito ExpressRoute.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/20/2017
+ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 94d7b743bdec0d22254144d5316e0d94f5660a55
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235333"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091534"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -31,7 +24,7 @@ ms.locfileid: "51235333"
 > * [PowerShell (clásico)](expressroute-howto-circuit-classic.md)
 >
 
-En este artículo se describe cómo crear un circuito Azure ExpressRoute con el Portal de Azure y el modelo de implementación de Azure Resource Manager. Los siguientes pasos también le mostrarán cómo comprobar el estado del circuito, actualizarlo, o eliminarlo y desaprovisionarlo.
+Este artículo lo ayudará a crear un circuito ExpressRoute mediante Azure Portal y el modelo de implementación de Azure Resource Manager. También puede comprobar el estado, la actualización, la eliminación o el desaprovisionamiento de un circuito.
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -85,19 +78,19 @@ En esta página, en **Estado de proveedor** se ofrece información sobre el esta
 Cuando se crea un nuevo circuito ExpressRoute, dicho circuito tiene el siguiente estado:
 
 Estado de proveedor: No aprovisionado<BR>
-Estado de circuito: Habilitado
+Estado de circuito: habilitado
 
 ![Inicio del proceso de aprovisionamiento](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 El circuito pasa al estado siguiente cuando el proveedor de conectividad se encuentra en el proceso de habilitarlo:
 
 Estado de proveedor: Aprovisionamiento<BR>
-Estado de circuito: Habilitado
+Estado de circuito: habilitado
 
 Para poder usar un circuito ExpressRoute, dicho circuito tiene que estar en el siguiente estado.
 
-Estado de proveedor: Aprovisionado<BR>
-Estado de circuito: Habilitado
+Estado de proveedor: aprovisionado<BR>
+Estado de circuito: habilitado
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Comprobación periódica del estado y la condición de la clave del circuito
 Puede ver las propiedades del circuito que le interese seleccionándolo. Compruebe el **Estado de proveedor** y asegúrese de que se ha pasado a **Aprovisionado** antes de continuar.

@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/20/2018
+ms.date: 12/12/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 4aa4809c57eaf26b10053d432f9191580ec143a0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 856d702bcf1f566d0cc455cdd2676e6c2e23d179
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44381098"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53326494"
 ---
 Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Se pueden aumentar muchos de los límites para su suscripción fácilmente hasta el límite máximo; para ello, póngase en contacto con el soporte técnico.
 
@@ -24,8 +24,7 @@ Data Factory es un servicio multiinquilino que tiene los siguientes límites pre
 | Factorías de datos en una suscripción de Azure | 50 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Número total de entidades (canalización, conjuntos de datos, desencadenadores, servicios vinculados y tiempos de ejecución de integración) dentro de una factoría de datos | 5000 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Núcleos de CPU totales para Integration Runtime de SSIS de Azure en una suscripción | 128 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Ejecuciones de canalizaciones simultáneas por cada canalización | 100 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Ejecuciones de canalizaciones simultáneas por cada factoría de datos | 10 000  | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Ejecuciones de canalizaciones simultáneas por factoría de datos (que se comparten entre todas las canalizaciones de la fábrica) | 10 000  | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Número máximo de actividades por canalización (incluye las actividades internas para contenedores) | 40 | 40 |
 | Parámetros máximos por canalización | 50 | 50 |
 | Elementos ForEach | 100 000 | 100 000 |

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394840"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846477"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Conviértase en anunciante de Cloud Marketplace
 
@@ -78,9 +78,9 @@ Se le solicitará incluir la información siguiente:
 Nuestro equipo encargado de la incorporación en Marketplace validará los detalles del registro de Marketplace que se proporcionaron en el paso 3. Una vez aprobados, recibirá un correo electrónico de bienvenida con las credenciales de la cuenta e instrucciones acerca de cómo iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 Usará [Cloud Partner Portal](https://cloudpartner.azure.com) para crear, publicar y administrar ofertas de Marketplace. Una vez que reciba el correo electrónico de bienvenida de aprobación, puede iniciar sesión inmediatamente en [Cloud Partner Portal](https://cloudpartner.azure.com) con su cuenta de Microsoft para obtener acceso a información técnica adicional acerca de cómo publicar en Marketplace y crear su oferta. 
-*   Para más información sobre cómo usar Cloud Partner Portal, [consulte el artículo Introducción de la sección de aprendizaje](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Debe iniciar sesión en Cloud Partner Portal para tener acceso a estos detalles.
+*   Para más información sobre cómo usar Cloud Partner Portal, [consulte el artículo Introducción de la sección de aprendizaje](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Debe iniciar sesión en Cloud Partner Portal para tener acceso a estos detalles.
 *   Si tiene alguna pregunta o prefiere programar una llamada para obtener información general acerca de la incorporación, consulte otros artículos de esta guía del anunciante o abra una solicitud de soporte técnico en Tipo de problema > Marketplace Onboarding (Incorporación de Marketplace) desde Cloud Partner Portal.
-*   Si no ha recibido el correo electrónico de bienvenida, compruebe su carpeta de correo no deseado para ver si hay algún correo electrónico de bienvenida a Microsoft Marketplace. Si no hay ningún correo electrónico en su carpeta de correo no deseado, [póngase en contacto con el soporte técnico de Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). En la página de soporte técnico, seleccione: Tipo de problema > Marketplace Onboarding (Incorporación de Marketplace).  Nuestro equipo encargado de la incorporación como anunciante de Marketplace estará encantado de ayudarle con sus consultas. 
+*   Si no ha recibido el correo electrónico de bienvenida, compruebe su carpeta de correo no deseado para ver si hay algún correo electrónico de bienvenida a Microsoft Marketplace. Si no hay ningún correo electrónico en su carpeta de correo no deseado, [póngase en contacto con el soporte técnico de Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). En la página de soporte técnico, seleccione: Problem type (Tipo de problema) > Marketplace Onboarding (Incorporación a Marketplace).  Nuestro equipo encargado de la incorporación como anunciante de Marketplace estará encantado de ayudarle con sus consultas. 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. Regístrese en el Centro de desarrollo (solo para la opción de publicación de transacciones) 
@@ -104,7 +104,7 @@ Cuando haya completado el registro del [Centro de desarrollo](https://developer.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información sobre los escaparates de Marketplace: [Administración de reglas de firewall mediante Azure PowerShell](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+* Obtenga información acerca de los escaparates de Marketplace: [Comparación de AppSource y Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
 *   [Determinación del tipo de aplicación para la solución](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  

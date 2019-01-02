@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214739"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846018"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solución de problemas de replicación de máquinas virtuales de VMware y de servidores físicos
 
@@ -59,7 +59,7 @@ En caso negativo vaya al Panel de Control > Servicios y compruebe si los siguien
 
 * **Compruebe si el servidor de proceso es capaz de conectarse a través del puerto 443 a la dirección IP pública de Azure**
 
-Abra el archivo CBEngineCurr.errlog más reciente desde `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` y busque :443 e intento fallido de conexión.
+Abra el archivo CBEngineCurr.errlog más reciente desde `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` y busque: 443 e intento de conexión con error.
 
 ![Habilitar replicación](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
@@ -69,9 +69,9 @@ Si hay problemas, a continuación, desde la línea de comandos del servidor de p
 Si no puede conectarse, compruebe si el problema de acceso es debido al firewall o Proxy, como se describe en el paso siguiente.
 
 
-* **Compruebe si el firewall basado en direcciones IP en el servidor de proceso no está bloqueando el acceso**: si está usando reglas de firewall basadas en direcciones IP en el servidor, descargue la lista completa de los intervalos IP de Microsoft Azure Datacenter desde [aquí](https://www.microsoft.com/download/details.aspx?id=41653) y agréguelos a la configuración del firewall para asegurarse de que permiten la comunicación a Azure [y el puerto HTTPS (443)].  Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
+* **Compruebe si el firewall basado en direcciones IP en el servidor de proceso no está bloqueando el acceso**: si está usando reglas de firewall basadas en direcciones IP en el servidor, descargue la lista completa de los intervalos IP de Microsoft Azure Datacenter desde [aquí](https://www.microsoft.com/download/details.aspx?id=41653) y agréguelos a la configuración del firewall para asegurarse de que permiten la comunicación a Azure (y el puerto HTTPS [443]).  Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
 
-* **Compruebe si el firewall basado en direcciones URL en el servidor de proceso no está bloqueando el acceso**: si está usando reglas de firewall basadas en direcciones URL en el servidor, asegúrese de que las direcciones URL siguientes se agregan a la configuración del firewall.
+* **Compruebe si el firewall basado en direcciones URL en el servidor de proceso no está bloqueando el acceso**:  si está usando reglas de firewall basadas en direcciones URL en el servidor, asegúrese de que las direcciones URL siguientes se agregan a la configuración del firewall.
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -86,7 +86,7 @@ Busque Microsoft Azure Backup
 Ábralo y haga clic en Acción > Cambiar propiedades. En la pestaña Configuración de Proxy, debería ver la dirección del proxy, que debe ser la misma que la que se muestra en la configuración del registro. En caso negativo, cámbiela por la misma dirección.
 
 
-* **Compruebe si la limitación de ancho de banda no está restringida en el servidor de proceso**: aumente el ancho de banda y compruebe si el problema persiste.
+* **Compruebe si la limitación de ancho de banda no está restringida en el servidor de proceso**:  aumente el ancho de banda y compruebe si el problema persiste.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si necesita más ayuda, puede enviar una consulta al [foro de Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Contamos con una comunidad activa y uno de nuestros ingenieros podrá ayudarle.

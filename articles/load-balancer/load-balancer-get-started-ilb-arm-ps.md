@@ -1,5 +1,6 @@
 ---
-title: Creación de un equilibrador de carga interno mediante PowerShell | Microsoft Docs
+title: Creación de un equilibrador de carga interno de Azure mediante PowerShell
+titlesuffix: Azure Load Balancer
 description: Obtenga información acerca de cómo crear un equilibrador de carga interno mediante el módulo de Azure PowerShell con Azure Resource Manager
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4e99411ec56f25e249429e4e65bae4a8e7071cc1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a85c5e90be465b324248f961fd297b15c008d02
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412693"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075877"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Creación de un equilibrador de carga interno mediante el módulo de Azure PowerShell
 
@@ -39,7 +41,7 @@ En este artículo se explica cómo crear un equilibrador de carga interno median
 
 Para implementar un equilibrador de carga, se deben crear los objetos siguientes:
 
-* Grupo de IP de front-end: la dirección IP privada de todo tráfico de red entrante.
+* Grupo de direcciones IP de front-end: la dirección IP privada de todo tráfico de red entrante.
 * Grupo de direcciones de back-end: las interfaces de red que reciben el tráfico con equilibrio de carga de la dirección IP front-end.
 * Reglas de equilibrio de carga: la configuración del puerto (de origen y local) del equilibrador de carga.
 * Configuración de sondeo: el estado de mantenimiento sondea si hay máquinas virtuales.
@@ -53,7 +55,7 @@ Los pasos siguientes explican cómo configurar un equilibrador de carga entre do
 
 Asegúrese de que tiene la última versión de producción del módulo de Azure PowerShell. PowerShell debe estar configurado correctamente para acceder a su suscripción de Azure.
 
-### <a name="step-1-start-powershell"></a>Paso 1: Inicio de PowerShell
+### <a name="step-1-start-powershell"></a>Paso 1: Iniciar PowerShell
 
 Inicie el módulo de PowerShell para Azure Resource Manager.
 
@@ -61,7 +63,7 @@ Inicie el módulo de PowerShell para Azure Resource Manager.
 Connect-AzureRmAccount
 ```
 
-### <a name="step-2-view-your-subscriptions"></a>Paso 2: Visualización de las suscripciones
+### <a name="step-2-view-your-subscriptions"></a>Paso 2: Visualizar las suscripciones
 
 Compruebe las suscripciones de Azure disponibles.
 
@@ -71,7 +73,7 @@ Get-AzureRmSubscription
 
 Escriba sus credenciales cuando se le pida para la autenticación.
 
-### <a name="step-3-select-the-subscription-to-use"></a>Paso 3: Selección de la suscripción que se va a usar
+### <a name="step-3-select-the-subscription-to-use"></a>Paso 3: Seleccione la suscripción que se va a usar
 
 Elija qué suscripciones de Azure va a usar para implementar el equilibrador de carga.
 
@@ -79,7 +81,7 @@ Elija qué suscripciones de Azure va a usar para implementar el equilibrador de 
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
-### <a name="step-4-choose-the-resource-group-for-the-load-balancer"></a>Paso 4: Elección del grupo de recursos del equilibrador de carga
+### <a name="step-4-choose-the-resource-group-for-the-load-balancer"></a>Paso 4: Elegir el grupo de recursos del equilibrador de carga
 
 Cree un nuevo grupo de recursos para el equilibrador de carga. Si utiliza un grupo de recursos existente, omita este paso.
 
@@ -119,7 +121,7 @@ Cree un grupo de direcciones IP de front-end con la dirección IP privada 10.0.2
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 ```
 
-### <a name="step-2-create-a-back-end-address-pool"></a>Paso 2: Creación de un grupo de direcciones de back-end
+### <a name="step-2-create-a-back-end-address-pool"></a>Paso 2: Creación del grupo de direcciones de back-end
 
 Cree un grupo de direcciones de back-end para recibir el tráfico entrante proveniente del grupo de direcciones IP de front-end:
 

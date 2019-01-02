@@ -1,5 +1,5 @@
 ---
-title: Exploración de datos en una máquina virtual de SQL Server de Azure | Microsoft Docs
+title: 'Exploración de datos en una máquina virtual de SQL Server: proceso de ciencia de datos en equipos'
 description: Exploración de datos y creación de características en una máquina virtual de SQL Server de Azure
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 73e56497834344e0e41d89313086c051683b4fbb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d14f03be3f6d62c201218f5073ba9af61765f55c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442564"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136450"
 ---
 # <a name="heading"></a>Proceso de datos en una máquina virtual de SQL Server en Azure
 En este documento se aborda cómo explorar datos y generar características para los datos almacenados en una VM de SQL Server en Azure. Esto puede hacerse mediante la administración de datos usando SQL o mediante un lenguaje de programación como Python.

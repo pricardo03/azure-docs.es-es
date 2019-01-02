@@ -1,5 +1,5 @@
 ---
-title: Indexadores en Azure Search | Microsoft Docs
+title: 'Los indizadores para rastrear orígenes de datos durante la indexación: Azure Search'
 description: Rastree Azure SQL Database, Azure Cosmos DB o Azure Storage para extraer los datos utilizables en búsquedas y rellenar un índice de Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 2164e0b7cc973969e39f5708bb6509c1ed5f636a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 8dae593dea36944f8db037803c0dfac68cbac7c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641142"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384911"
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores de Azure Search
 
@@ -46,7 +47,8 @@ Los indexadores rastrean los almacenes de datos en Azure.
 * [SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md) 
+    * Tenga en cuenta que Azure Table Storage no es compatible con [Cognitive Search](cognitive-search-concept-intro.md)
 
 
 ## <a name="basic-configuration-steps"></a>Pasos básicos de configuración
@@ -63,7 +65,7 @@ Un indexador automatizará algunas tareas relacionadas con la ingesta de datos, 
 > [!Tip]
 > Aunque los indexadores no pueden generar un índice, el Asistente para **importar datos** del portal puede ayudarle. En la mayoría de los casos, el asistente puede inferir un esquema de índice de los metadatos existentes en el origen y presentar un esquema de índice preliminar que se pueda modificar en línea mientras el asistente esté activo. Una vez que el índice se crea en el servicio, la mayoría de las posteriores modificaciones se limitan a agregar nuevos campos. Tenga en cuenta al asistente para crear índices, pero no para revisarlos. Para obtener conocimientos prácticos, recorra el [tutorial del portal](search-get-started-portal.md).
 
-### <a name="step-3-create-and-schedule-the-indexer"></a>Paso 3: Creación y programación del indexador
+### <a name="step-3-create-and-schedule-the-indexer"></a>Paso 3: Creación y programación del indizador
 La definición del indexador es una construcción que especifica el índice, el origen de datos y una programación. Un indexador puede hacer referencia a un origen de datos desde otro servicio, siempre que ese origen de datos pertenezca a la misma suscripción. Para más información sobre la estructura de un indexador, consulte [Crear el indizador (API de REST de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 ## <a name="next-steps"></a>Pasos siguientes

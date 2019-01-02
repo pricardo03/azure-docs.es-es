@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2351e0cdeb6fd17efbe70fdebb12e6c9776c1fa1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 899adc8d4fb26ac64cd3fbd7096a8b8387900517
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498325"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722299"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Creación de aplicaciones .NET para HDInsight con autenticación no interactivas
 Puede ejecutar su aplicación Microsoft .NET para Azure HDInsight en la propia identidad de la aplicación (no interactiva) o en la identidad del usuario con sesión iniciada de la aplicación (interactiva). En este artículo se muestra cómo crear aplicaciones .NET de autenticación no interactivas para conectarse a Azure y administrar HDInsight. Para ver un ejemplo de una aplicación interactiva, consulte [Conexión a Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -34,11 +34,12 @@ Asigne un [rol](../role-based-access-control/built-in-roles.md) a la aplicación
 **Para agregar el rol de propietario a la aplicación de Azure AD**
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En el menú de la izquierda, seleccione **Grupo de recursos**.
+2. En el menú de la izquierda, seleccione **Grupos de recursos**.
 3. Seleccione el grupo de recursos que tiene el clúster de HDInsight en el que se ejecutará su consulta de Hive posteriormente en este tutorial. Si tiene un gran número de grupos de recursos, puede usar el filtro para buscar el que desee.
 4. En el menú de grupo de recursos, haga clic en **Control de acceso (IAM)**.
-5. En **Usuarios**, seleccione **Agregar**.
-6. Siga las instrucciones para agregar el rol Propietario a la aplicación de Azure AD. Después de agregar el rol correctamente, la aplicación aparece en **Usuarios**, con el rol Propietario. 
+5. Seleccione la pestaña **Asignaciones de roles** para ver las asignaciones de roles actuales.
+6. En la parte superior de la página, seleccione **Agregar asignación de roles**.
+7. Siga las instrucciones para agregar el rol Propietario a la aplicación de Azure AD. Después de agregar el rol correctamente, la aplicación aparece en el rol Propietario. 
 
 ## <a name="develop-an-hdinsight-client-application"></a>Desarrollo de una aplicación de cliente de HDInsight
 

@@ -1,5 +1,5 @@
 ---
-title: Restauración y copia de seguridad periódica de Azure Service Fabric (versión preliminar) | Microsoft Docs
+title: Restauración y copia de seguridad periódicas de Azure Service Fabric | Microsoft Docs
 description: Use la característica de copia de seguridad periódica y restauración de Service Fabric para habilitar la copia de seguridad periódica de los datos de su aplicación.
 services: service-fabric
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2018
+ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: bcbb8e60d14615d4bddb4a1efa5ecf1487aab093
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2ff7221a3742f59cdef2c5c7c220cc80148b94d0
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234687"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721568"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Restauración y copia de seguridad periódica de Azure Service Fabric (versión preliminar)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [Clústeres en Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clústeres independientes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -42,10 +42,6 @@ Service Fabric proporciona una API integrada para realizar [copias de seguridad 
 
 La realización de copias de seguridad de los datos de la aplicación de forma periódica es una necesidad básica para la administración de una aplicación distribuida y para la protección frente a la pérdida de datos o la pérdida prolongada de la disponibilidad del servicio. Service Fabric proporciona un servicio de restauración y copia de seguridad opcional, que le permite configurar la copia de seguridad periódica de Reliable Services con estado (incluidos los servicios de actor) sin tener que escribir ningún código adicional. También facilita la restauración de las copias de seguridad realizadas previamente. 
 
-> [!NOTE]
-> La característica de restauración y copia de seguridad periódica está actualmente en **versión preliminar** y no es compatible con las cargas de trabajo de producción. 
->
-
 Service Fabric proporciona un conjunto de API para lograr la siguiente funcionalidad relacionada con la característica de restauración y copia de seguridad periódica:
 
 - Programación de copias de seguridad periódicas de los servicios de confianza con estado y Reliable Actors con compatibilidad con la carga de la copia de seguridad en ubicaciones de almacenamiento (externas). Ubicaciones de almacenamiento admitidas
@@ -58,7 +54,7 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
 - Administración de la retención de copias de seguridad (próximamente)
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Clúster de Service Fabric con la versión 6.2 de Fabric y versiones posteriores. El clúster debe configurarse en Windows Server. Consulte el [artículo](service-fabric-cluster-creation-for-windows-server.md) para ver los pasos para descargar el paquete necesario.
+* Clúster de Service Fabric con la versión 6.2 de Fabric y versiones posteriores. El clúster debe configurarse en Windows Server. Consulte este [artículo](service-fabric-cluster-creation-for-windows-server.md) para ver los pasos para descargar el paquete necesario.
 * Se requiere el certificado X.509 para el cifrado de secretos a fin de conectarse al almacenamiento y almacenar las copias de seguridad. Consulte este [artículo](service-fabric-windows-cluster-x509-security.md) para saber cómo adquirir o crear un certificado X.509 autofirmado.
 * Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. En el caso de las aplicaciones destinadas a .Net Core 2.0, la aplicación debe compilarse con la versión 3.1 del SDK de Service Fabric o una versión posterior.
 
@@ -114,7 +110,7 @@ Vamos a examinar los pasos para habilitar la copia de seguridad periódica del s
 
 ### <a name="create-backup-policy"></a>Creación de una directiva de copia de seguridad
 
-El primer paso consiste en crear una directiva de copia de seguridad que describa la programación de las copias de seguridad, el almacenamiento de destino para los datos de la copia de seguridad, el nombre de la directiva y el número máximo de copias de seguridad incrementales permitidas antes de desencadenar la copia de seguridad completa. 
+El primer paso consiste en crear una directiva de copia de seguridad que describa la programación de las copias de seguridad, el almacenamiento de destino para los datos de la copia de seguridad, el nombre de la directiva y el número máximo de copias de seguridad incrementales permitidas antes de desencadenar la copia de seguridad completa y la directiva de retención para el almacenamiento de copia de seguridad. 
 
 Para el almacenamiento de copia de seguridad, cree un recurso compartido de archivos y conceda acceso de lectura y escritura a este recurso compartido de archivos para todas las máquinas de nodo de Service Fabric. En este ejemplo se asume que el recurso compartido denominado `BackupStore` existe en `StorageServer`.
 
@@ -131,15 +127,21 @@ $StorageInfo = @{
     StorageKind = 'FileShare'
 }
 
+$RetentionPolicy = @{ 
+    RetentionPolicyType = 'Basic'
+    RetentionDuration =  'P10D'
+}
+
 $BackupPolicy = @{
     Name = 'BackupPolicy1'
     MaxIncrementalBackups = 20
     Schedule = $ScheduleInfo
     Storage = $StorageInfo
+    RetentionPolicy = $RetentionPolicy
 }
 
 $body = (ConvertTo-Json $BackupPolicy)
-$url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.2-preview"
+$url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
@@ -155,7 +157,7 @@ $BackupPolicyReference = @{
 }
 
 $body = (ConvertTo-Json $BackupPolicyReference)
-$url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version=6.2-preview"
+$url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ``` 
@@ -173,7 +175,7 @@ Las copias de seguridad asociadas a todas las particiones que pertenecen a los s
 Ejecute el siguiente script de PowerShell para invocar la API de HTTP a fin de enumerar las copias de seguridad creadas para todas las particiones dentro de la aplicación `SampleApp`.
 
 ```powershell
-$url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.2-preview"
+$url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
 
 $response = Invoke-WebRequest -Uri $url -Method Get
 
@@ -220,10 +222,9 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
-## <a name="preview-limitation-caveats"></a>Limitaciones o advertencias sobre la versión preliminar
+## <a name="limitation-caveats"></a>Limitaciones o advertencias
 - No hay ninguna instancia de Service Fabric compilada en los cmdlets de PowerShell.
 - Sin compatibilidad con la CLI de Service Fabric.
--  Sin compatibilidad con la purga de copia de seguridad automatizada. Se puede hacer referencia al [script de retención de copia de seguridad](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) para configurar la automatización externa basada en script para purgar copias de seguridad.
 - Sin compatibilidad con los clústeres de Service Fabric en Linux.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,18 +1,19 @@
 ---
-title: Cómo configurar Azure ExpressRoute Direct | Microsoft Docs
-description: En esta página aprenderá a configurar ExpressRoute Direct (versión preliminar)
+title: 'Configuración de ExpressRoute Direct: Azure | Microsoft Docs'
+description: En esta página aprenderá a configurar ExpressRoute Direct (versión preliminar).
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
-ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 9dadd61c8c4c2d1cd2305aa852e4528bfb9a1421
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959681"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076617"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Cómo configurar ExpressRoute Direct (versión preliminar)
 
@@ -228,7 +229,7 @@ ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red
 
 De forma predeterminada, puede crear 10 circuitos en la suscripción donde se encuentra el recurso ExpressRoute Direct. Si desea aumentar este número, puede ponerse en contacto con el soporte técnico. Recuerde que debe realizar usted mismo el seguimiento tanto del ancho de banda aprovisionado como el del utilizado. El ancho de banda aprovisionado es la suma del ancho de banda de todos los circuitos en el recurso ExpressRoute Direct, y el ancho de banda utilizado corresponde al uso físico de las interfaces físicas subyacentes.
 
-Asimismo, existen anchos de banda de circuito adicionales que se pueden utilizar en ExpressRoute Direct solo para admitir los escenarios descritos anteriormente. Estos son: 40 Gbps y 100 Gbps.
+Asimismo, existen anchos de banda de circuito adicionales que se pueden utilizar en ExpressRoute Direct solo para admitir los escenarios descritos anteriormente. Dichos componentes son: 40 Gbps y 100 Gbps.
 
 Se pueden crear circuitos estándar o premium. Los circuitos estándar están incluidos en el costo, mientras que los circuitos premium tienen un costo basado en el ancho de banda seleccionado. Los circuitos solo se pueden crear de modo que estén limitados, ya que si se establecen como ilimitados no serán compatibles con ExpressRoute Direct.
 

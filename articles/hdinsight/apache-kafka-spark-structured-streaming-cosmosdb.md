@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b1a4354db23cdfdc6201decbb793a3f9a3ad8206
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c35082d7aa1e9d669bc9c5b89948f190d3edd2f3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496153"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014538"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Uso del flujo estructurado de Apache Spark con Apache Kafka y Azure Cosmos DB
 
@@ -45,7 +45,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 1. Utilice el siguiente botón para iniciar sesión en Azure y abrir la plantilla en Azure Portal.
     
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
     </a>
 
     La plantilla de Azure Resource Manager se encuentra en el repositorio de GitHub para este proyecto ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
@@ -70,24 +70,24 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
    
     ![Implementación personalizada de HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
 
-    * **Suscripción**: seleccione su suscripción de Azure.
+    * **Suscripción**: Seleccione su suscripción a Azure.
    
-    * **Grupo de recursos**: cree un nuevo grupo de recursos o seleccione uno existente. Este grupo contiene el clúster de HDInsight.
+    * **Grupos de recursos**: cree un grupo o seleccione uno existente. Este grupo contiene el clúster de HDInsight.
 
     * **Ubicación**: seleccione una ubicación geográfica próxima a usted.
 
     * **Nombre de cuenta de Cosmos DB**: este valor se utiliza como nombre para la cuenta de Cosmos DB.
 
-    * **Base Cluster Name** (Nombre base del clúster): este valor se utiliza como nombre base en los clústeres Spark y Kafka. Por ejemplo, si especifica **myhdi**, creará un clúster de Spark denominado __spark-myhdi__ y un clúster de Kafka denominado **kafka-myhdi**.
+    * **Nombre base del clúster**: este valor se utiliza como nombre base en los clústeres Spark y Kafka. Por ejemplo, si especifica **myhdi**, creará un clúster de Spark denominado __spark-myhdi__ y un clúster de Kafka denominado **kafka-myhdi**.
 
-    * **Versión de clúster**: la versión del clúster de HDInsight.
+    * **Versión del clúster**: versión del clúster de HDInsight.
 
         > [!IMPORTANT]
         > Este ejemplo se ha probado con HDInsight 3.6 y podría no funcionar con otros tipos de clúster.
 
     * **Nombre de usuario de inicio de sesión del clúster**: nombre de usuario del administrador de los clústeres Spark y Kafka.
 
-    * **Contraseña de inicio de sesión de clúster**: contraseña del usuario administrador para los clústeres Spark y Kafka.
+    * **Contraseña de inicio de sesión del clúster**: contraseña de usuario del administrador de los clústeres Spark y Kafka.
 
     * **Nombre de usuario SSH**: usuario de SSH que se va a crear para los clústeres Spark y Kafka.
 

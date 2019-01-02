@@ -1,6 +1,6 @@
 ---
-title: Obtención de soporte técnico para Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo obtener soporte técnico para Azure Active Directory.
+title: 'Instrucciones para buscar ayuda y abrir una incidencia de soporte técnico: Azure Active Directory | Microsoft Docs'
+description: Instrucciones sobre cómo obtener ayuda y abrir una incidencia de soporte técnico para Azure Active Directory.
 services: active-directory
 documentationcenter: na
 author: eross-msft
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: d7d499ed43ee2eab03e46e408104eca4af6a2945
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729405"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083910"
 ---
-# <a name="how-to-get-support-for-azure-active-directory"></a>Obtención de soporte técnico para Azure Active Directory
+# <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Instrucciones para buscar ayuda y abrir una incidencia de soporte técnico para Azure Active Directory
 Microsoft proporciona internacionalmente soporte técnico de preventa, facturación y suscripción para Azure Active Directory (Azure AD). El soporte técnico está disponible tanto en línea como por teléfono para las suscripciones de prueba y de pago de Microsoft Azure. El soporte técnico por teléfono y el soporte técnico para la facturación en línea están disponibles en otros idiomas. 
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>Recibir ayuda sin abrir una incidencia de soporte técnico
@@ -68,9 +68,9 @@ Si no encuentra una respuesta en estos recursos de autoayuda, puede abrir una in
 
 1. Inicie sesión en el [Centro de administración de Office 365](https://portal.office.com) con una cuenta que tenga una licencia de Enterprise Mobility + Security (EMS).
 
-2. En el icono **Soporte técnico**, seleccione **Nueva solicitud de servicio**: ![captura de pantalla del Portal de Office 365](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. En el icono **Soporte técnico**, seleccione **Nueva solicitud de servicio**: ![captura de pantalla del portal de Office 365](./media/active-directory-troubleshooting-support-howto/office-portal.png)
 
-3. En la página **Descripción general del soporte técnico**, seleccione **Administración de identidades** o **User and domain management** (Administración de usuarios y dominios): ![captura de pantalla de las categorías de soporte técnico de Azure AD](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. En la página **Información general de soporte técnico**, seleccione **Administración de identidades** o **User and domain management** (Administración de usuarios y dominios): ![captura de pantalla de las categorías de soporte técnico de Azure AD](./media/active-directory-troubleshooting-support-howto/select-identity.png)
 
 4. En **Característica**, seleccione la característica de Azure AD para la que quiere recibir soporte técnico.
 

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2018
+ms.date: 12/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: f46837751901015fd80d3ecc7a620878cadb3f12
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317881"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343877"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Protección de App Service con Azure Security Center
 Este artículo le ayuda a usar Azure Security Center para supervisar y proteger las aplicaciones que se ejecutan en App Service.
 
-App Service le permite crear y hospedar aplicaciones web en el lenguaje de programación que prefiera sin tener que administrar la infraestructura. App Service ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux, así como implementaciones automatizadas desde GitHub, Visual Studio Team Services o cualquier repositorio Git. 
+App Service le permite crear y hospedar aplicaciones web en el lenguaje de programación que prefiera sin tener que administrar la infraestructura. App Service ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux, así como implementaciones automatizadas desde GitHub, Azure DevOps o cualquier repositorio Git. 
 
 Los atacantes se aprovechan frecuentemente de las vulnerabilidades en las aplicaciones web, ya que tienen una interfaz común y dinámica para casi todas las organizaciones en Internet. Las solicitudes a las aplicaciones que se ejecutan en App Service pasan por varias puertas de enlace implementadas en los centros de datos de Azure de todo el mundo, responsables de enrutar cada solicitud a su aplicación correspondiente. 
 
@@ -63,8 +63,8 @@ Para deshabilitar la supervisión y recomendaciones para la instancia de App Ser
 ## <a name="see-also"></a>Otras referencias
 En este artículo, aprendió a usar las funcionalidades de supervisión en Azure Security Center. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): obtenga información sobre cómo configurar los ajustes de seguridad en Azure Security Center.
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): Aprenda a configurar opciones de seguridad en Azure Security Center.
+* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): Aprenda a administrar y responder a las alertas de seguridad.
+* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): Aprenda cómo supervisar el estado de mantenimiento de las soluciones de sus asociados.
+* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Preguntas más frecuentes acerca del uso del servicio.
+* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.

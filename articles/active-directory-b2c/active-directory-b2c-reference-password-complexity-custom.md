@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ed0001d8d88a2604e3128a4d5f7a365aeb7b00b1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c6b8312a08d1d92bccf70e7d3dda5f01811b4f87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440798"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848534"
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Configuración de la complejidad de contraseñas en las directivas personalizadas
 
@@ -27,7 +27,7 @@ Este artículo es una descripción avanzada de cómo funciona y cómo se habilit
 
 Azure Active Directory B2C (Azure AD B2C) admite el cambio de los requisitos de complejidad de las contraseñas proporcionadas por un usuario final al crear una cuenta.  De forma predeterminada, Azure AD B2C utiliza contraseñas **seguras**.  Azure AD B2C también admite opciones de configuración para controlar la complejidad de las contraseñas que los clientes pueden usar.  En este artículo se habla sobre cómo configurar la complejidad de las contraseñas en las directivas personalizadas.  También es posible utilizar [la configuración de complejidad de contraseñas en las directivas integradas](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Configuración de un inquilino de Azure AD B2C para completar el registro o inicio de sesión de una cuenta local como se describe en [Introducción](active-directory-b2c-get-started-custom.md).
 
@@ -124,8 +124,8 @@ Este ejemplo contiene una validación para contraseñas de pin y otra para las c
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="yourtenant.onmicrosoft.com"

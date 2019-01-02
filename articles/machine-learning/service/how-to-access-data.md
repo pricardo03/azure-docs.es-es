@@ -1,6 +1,7 @@
 ---
-title: Uso de almacenes de datos en Azure Machine Learning para acceder a los datos
-description: Uso de almacenes de datos al almacenamiento de datos de acceso durante el aprendizaje
+title: Acceso a datos en almacenes de datos para aprendizaje
+titleSuffix: Azure Machine Learning service
+description: Aprenda a usar los almacenes de datos para acceder al almacenamiento de datos con Azure Machine Learning Service
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ef183397cf7ca3f1f561f6951290b722df31e5ed
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.custom: seodec18
+ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620207"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187150"
 ---
-# <a name="how-to-access-data-during-training"></a>Acceso a los datos durante el aprendizaje
+# <a name="access-data-during-training-from-your-datastores"></a>Acceso a los datos durante el entrenamiento desde los almacenes de datos
 Uso de un almacén de datos para acceder e interactuar con los datos en los flujos de trabajo de Azure Machine Learning.
 
 En el servicio Azure Machine Learning, un almacén de datos es una abstracción de [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction). El almacén de datos puede hacer referencia a un contenedor de [blobs de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) o a un [recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) como almacenamiento subyacente. 

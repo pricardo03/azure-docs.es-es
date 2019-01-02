@@ -1,6 +1,6 @@
 ---
-title: Cómo agregar personalización de marca a la página de inicio de sesión de Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo agregar personalización de marca de la organización a la página de inicio de sesión de Azure Active Directory.
+title: 'Incorporación de la personalización de marca en la página de inicio de sesión de la organización: Azure Active Directory | Microsoft Docs'
+description: Instrucciones sobre cómo agregar la personalización de marca de la organización a la página de inicio de sesión de Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-custom: it-pro
-ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 0ce0d42e37bcc5c936798947bacf0232891c24ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367567"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090319"
 ---
-# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>Cómo agregar personalización de marca a la página de inicio de sesión de Azure Active Directory
+# <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Office 365, que usan Azure AD como proveedor de identidades.
 
 >[!Note]

@@ -3,23 +3,22 @@ title: Instalación de Azure Backup Server en Azure Stack | Microsoft Docs
 description: Use Azure Backup Server para proteger cargas de trabajo o realizar una copia de seguridad de ellas en Azure Stack.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: servidor de copia de seguridad de Azure; proteger cargas de trabajo; copias de seguridad de cargas de trabajo
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
-ms.author: markgal
-ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: raynew
+ms.openlocfilehash: 1e8c8efa590b6cce4543255dd33afbfd79aecef6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576704"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877174"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -91,7 +90,7 @@ La máquina virtual de Azure Backup Server debe unirse a un dominio. El usuario 
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Uso de una máquina virtual de IaaS en Azure Stack
 
-Al elegir un servidor para Azure Backup Server, empiece con una imagen de la galería de Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. En el artículo [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creación de la primera máquina virtual de Windows en Azure Portal), se proporciona un tutorial de introducción a la máquina virtual recomendada. Los requisitos mínimos recomendados para la máquina virtual (VM) servidor deben ser A2 estándar con dos núcleos y 3,5 GB de RAM.
+Al elegir un servidor para Azure Backup Server, empiece con una imagen de la galería de Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. En el artículo [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creación de la primera máquina virtual de Windows en Azure Portal), se proporciona un tutorial de introducción a la máquina virtual recomendada. Los requisitos mínimos recomendados para la máquina virtual servidor deben ser: A2 estándar con 2 núcleos y 3,5 GB de RAM.
 
 La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. El artículo [Instalación de DPM como una máquina virtual de Azure](https://technet.microsoft.com/library/jj852163.aspx)le ayudará a comprender estos matices. Lea este artículo completamente antes de implementar la máquina.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial de Azure Security Center: Definición y evaluación de las directivas de seguridad | Microsoft Docs'
-description: 'Tutorial de Azure Security Center: Definición y evaluación de las directivas de seguridad'
+title: Trabajo con directivas de seguridad | Microsoft Docs
+description: En este artículo se describe cómo trabajar con directivas de seguridad en Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -9,102 +9,233 @@ editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027068"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339339"
 ---
-# <a name="tutorial-define-and-assess-security-policies"></a>Tutorial: Definición y evaluación de las directivas de seguridad
-Security Center ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa mediante el uso de directivas de seguridad para definir la configuración deseada de las cargas de trabajo. Después de definir las directivas de las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o al nivel de confidencialidad de los datos, Security Center puede proporcionar recomendaciones de seguridad para sus recursos de proceso, aplicaciones, redes, datos y almacenamiento e identidad y recursos de acceso. En este tutorial, aprenderá a:
+# <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
-> [!div class="checklist"]
-> * Configuración de la directiva de seguridad
-> * Evaluar la seguridad de los recursos
+En este artículo se explica cómo configurar directivas de seguridad y cómo visualizarlas en Security Center. Azure Security Center asigna automáticamente sus [directivas de seguridad integradas](security-center-policy-definitions.md) en cada suscripción que se incorpora. Puede configurarlas en [Azure Policy](../azure-policy/azure-policy-introduction.md), que también le permite establecer directivas en grupos de administración y entre varias suscripciones.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
+Para obtener instrucciones sobre cómo establecer directivas con PowerShell, consulte [Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante Azure PowerShell](../azure-policy/assign-policy-definition-ps.md).
 
-## <a name="prerequisites"></a>Requisitos previos
-Para recorrer todas las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita los primeros 60 días. En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
+## <a name="what-are-security-policies"></a>¿Qué son las directivas de seguridad?
+Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Azure Policy, puede definir directivas para las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o a la confidencialidad de los datos. Por ejemplo, es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad que otras cargas de trabajo. Para establecer una directiva en varias suscripciones o grupos de administración, debe configurarla en [Azure Policy](../azure-policy/azure-policy-introduction.md).
 
-## <a name="configure-security-policy"></a>Configuración de la directiva de seguridad
-Security Center crea automáticamente una directiva de seguridad predeterminada para cada una de las suscripciones de Azure. Las directivas de seguridad se componen de recomendaciones que puede activar o desactivar según los requisitos de seguridad de esa suscripción. Para hacer cambios en la directiva de seguridad predeterminada debe ser propietario, colaborador o administrador de seguridad de la suscripción.
 
-1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
-2. Seleccione la suscripción que quiere usar.
 
-  ![Directiva de seguridad](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
+Las directivas de seguridad generan las recomendaciones de seguridad que se muestran en Azure Security Center. Puede supervisar si se cumplen para identificar posibles puntos vulnerables y mitigar amenazas. Consulte la lista de [directivas de seguridad integradas](security-center-policy-definitions.md) para más información sobre cómo determinar la opción más adecuada en su caso.
 
-3. En **Procesos y aplicaciones**, **Red** y **Datos**, establezca la configuración de seguridad que desee supervisar en **Activado**. Security Center evaluará continuamente la configuración del entorno y cuando exista una vulnerabilidad generará una recomendación de seguridad. Seleccione **Desactivado** si la configuración de seguridad no es recomendable o no es pertinente. Por ejemplo, en un entorno de desarrollo y pruebas seguramente no necesite el mismo nivel de seguridad que en un entorno de producción. Después de seleccionar las directivas que son aplicables al entorno, haga clic en **Guardar**.
 
-  ![Configuración de seguridad](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
+### <a name="management-groups"></a>Grupos de administración
+Si su organización tiene varias suscripciones, puede que necesite una manera de administrar el acceso, las directivas y el cumplimiento de esas suscripciones de forma eficaz. Los grupos de administración de Azure proporcionan un nivel de ámbito por encima de las suscripciones. Las suscripciones se organizan en contenedores llamados "grupos de administración" y aplican sus condiciones de gobierno a los grupos de administración. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las directivas que se aplican al grupo de administración. Cada directorio tiene un grupo de administración de nivel superior único denominado "raíz". Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de control de acceso basado en rol (RBAC) se apliquen en el nivel de directorio. Para configurar grupos de administración para usarlos con Azure Security Center, siga las instrucciones que se describen en [Visibilidad de todos los inquilinos en Azure Security Center](security-center-management-groups.md).
 
-Espere a que Security Center procese estas directivas y genere las recomendaciones. Algunas configuraciones, como las actualizaciones del sistema y las configuraciones del sistema operativo pueden tardar hasta 12 horas, mientras que las configuraciones de los grupos de seguridad de red y de cifrado se evalúan casi al instante. Una vez que ve las recomendaciones en el panel de Security Center, puede continuar con el paso siguiente.
-
-## <a name="assess-security-of-resources"></a>Evaluación de la seguridad de los recursos
-1. Según las directivas de seguridad que se hayan habilitado, Security Center proporcionará un conjunto de recomendaciones de seguridad según sea necesario. Debe empezar por revisar las recomendaciones acerca de las máquinas virtuales y equipos. En el panel de Security Center, haga clic en **Información general** y, a continuación, en **Compute & apps** (Proceso y aplicaciones).
-
-  ![Compute](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
-
-  Revise cada recomendación dando prioridad a las recomendaciones en rojo (prioridad alta). Algunas de estas recomendaciones incluyen correcciones que se pueden implementar directamente desde Security Center, como los [problemas de protección de puntos de conexión](https://docs.microsoft.com/azure/security-center/security-center-install-endpoint-protection). Otras recomendaciones incluyen solo las directrices para aplicar la corrección como, por ejemplo, la recomendación acerca del cifrado de discos que faltan.
-
-2. Una vez resueltas todas las recomendaciones de proceso pertinentes, debe pasar a la siguiente carga de trabajo: redes. En el panel Security Center, haga clic en **Información general** y, a continuación, en **Redes**.
-
-  ![Redes](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
-
-  La página de recomendaciones de red incluye una lista con problemas de seguridad de la configuración de red, los puntos de conexión accesibles desde Internet y la topología de red. Al igual que con **Compute & app** (Proceso y aplicaciones), algunas recomendaciones acerca de la red incluirán una corrección integrada y otras no.
-
-3. Una vez resueltas todas las recomendaciones de red relevantes, debe pasar a la siguiente carga de trabajo: almacenamiento y datos. En el panel de Security Center, haga clic en **Información general** y, a continuación, en **Data & storage** (Datos y almacenamiento).
-
-  ![Recursos de datos](./media/tutorial-security-policy/tutorial-security-policy-fig4.png)
-
-  La página **Recursos de datos** contiene recomendaciones acerca de la habilitación de la auditoría de servidores y bases de datos de Azure SQL, el cifrado de bases de datos SQL Database y la habilitación del cifrado de su cuenta de Azure Storage. Si no tiene estas cargas de trabajo, no verá ninguna recomendación. Al igual que con **Compute & apps** (Proceso y aplicaciones), algunas recomendaciones relativas a datos y almacenamiento incluirán una corrección integrada y otras no.
-
-4. Una vez resueltas todas las recomendaciones apropiadas sobre datos y almacenamiento, debe pasar a la siguiente carga de trabajo: identidad y acceso. En el panel Security Center, haga clic en **Información general** y, a continuación, en **Identity & access** (Identidad y acceso).
-
-  ![Identidad y acceso](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
-
-  La página **Identity & Access** (Identidad y acceso) contiene recomendaciones como:
-
-   - Habilitar MFA para las cuentas con privilegios en la suscripción
-   - Quitar las cuentas externas con permisos de escritura de la suscripción
-   - Quitar las cuentas externas con privilegios de la suscripción
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si planea continuar trabajando con las guías rápidas y tutoriales posteriores, debe seguir ejecutando el plan de tarifa Estándar y mantener el aprovisionamiento automático habilitado. Si no planea continuar o desea volver al nivel Gratis:
-
-1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
-2. Seleccione la suscripción o directiva que desea que vuelva al nivel Gratis. Se abre **Directiva de seguridad**.
-3. En **COMPONENTES DE LA DIRECTIVAS**, seleccione **Plan de tarifa**.
-4. Seleccione **Gratis** para cambiar la suscripción de Estándar a Gratis.
-5. Seleccione **Guardar**.
-
-Si desea deshabilitar el aprovisionamiento automático:
-
-1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
-2. Seleccione la suscripción en la que quiere deshabilitar el aprovisionamiento automático.
-3. En **Directiva de seguridad: Colección de datos**, en **Incorporación**, seleccione **Desactivado** para deshabilitar el aprovisionamiento automático.
-4. Seleccione **Guardar**.
-
->[!NOTE]
-> La deshabilitación del aprovisionamiento automático no quita Microsoft Monitoring Agent de las máquinas virtuales de Azure en las que se ha aprovisionado el agente. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
+> [!NOTE]
+> Es importante que comprenda la jerarquía de grupos de administración y suscripciones. Para más información sobre los grupos de administración, la administración raíz y el acceso a grupos de administración, consulte [Organización de recursos con grupos de administración de Azure](../governance/management-groups/index.md#root-management-group-for-each-directory).
 >
 
+## <a name="how-security-policies-work"></a>¿Cómo funcionan las directivas de seguridad?
+Security Center crea automáticamente una directiva de seguridad predeterminada para cada una de las suscripciones de Azure. Puede modificar las directivas de Azure Policy para realizar lo siguiente:
+- Crear nuevas definiciones de directiva.
+- Asignar directivas entre grupos de administración y suscripciones, que pueden representar una organización entera o una unidad de negocio dentro de la organización.
+- Supervisar el cumplimiento de las directivas.
+
+Para más información sobre Azure Policy, consulte [Creación y administración de directivas para aplicar el cumplimiento](../azure-policy/create-manage-policy.md).
+
+Una directiva de Azure consta de los siguientes componentes:
+
+- Una **directiva** es una regla.
+- Una **iniciativa** es una colección de directivas.
+- Una **asignación** es la aplicación de una iniciativa o una directiva para un ámbito concreto (grupo de administración, suscripción o grupo de recursos).
+
+Un recurso se evalúa con las directivas que están asignadas a él y recibe una proporción de cumplimiento en función del número de directivas con las que guarda conformidad el recurso.
+
+## <a name="view-security-policies"></a>Visualización de directivas de seguridad
+
+Para ver las directivas de seguridad de Security Center:
+
+1. En el panel de **Security Center**, seleccione **Directiva de seguridad**.
+
+    ![El panel Administración de directivas](./media/security-center-policies/security-center-policy-mgt.png)
+
+  En la pantalla **Administración de directivas**, puede ver el número de grupos de administración, suscripciones y áreas de trabajo, así como la estructura del grupo de administración.
+
+  > [!NOTE]
+  > - El panel de Security Center podría mostrar un número de suscripciones en **Cobertura de la suscripción** superior al que se muestra en **Administración de directivas**. En la cobertura de suscripción se muestra el número de suscripciones Estándar, Gratis y "no cubiertas". Las suscripciones "no cubiertas" no tienen habilitado Security Center y no se muestran en **Administración de directivas**.
+  >
+
+  En las columnas de la tabla se muestra:
+
+ - **Policy initiative assignment** (Asignación de iniciativa de directiva): iniciativas y [directivas integradas](security-center-policy-definitions.md) de Security Center que se asignan a una suscripción o un grupo de administración.
+ - **Compliance** (Cumplimiento): puntuación general de cumplimiento para un grupo de administración, una suscripción o un área de trabajo. La puntuación es la media ponderada de las asignaciones. La media ponderada tiene en cuenta el número de directivas en una única asignación y el número de recursos al que se aplica la asignación.
+
+ Por ejemplo, si la suscripción tiene dos máquinas virtuales y tiene asignada una iniciativa con cinco directivas, entonces usted tiene 10 valoraciones en la suscripción. Si una de las máquinas virtuales no cumple las dos directivas, la puntuación general de cumplimiento de la asignación de la suscripción es del 80 %.
+
+ - **Coverage** (Cobertura): identifica el plan de tarifa, Gratis o Estándar, en el que se ejecuta el grupo de administración, la suscripción o el área de trabajo.  Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+ - **Settings** (Configuración): las suscripciones tienen el vínculo **Edit settings** (Editar configuración). Seleccionar **Edit settings** (Editar configuración) le permite actualizar su [configuración de Security Center](security-center-policies-overview.md) para cada grupo de administración o suscripción.
+
+2. Seleccione el grupo de administración o la suscripción cuyas directivas desea ver.
+
+  - La pantalla **Directiva de seguridad** refleja la acción realizada por las directivas asignadas en el grupo de administración o la suscripción que ha seleccionado.
+  - En la parte superior, use los vínculos proporcionados para abrir cada **asignación** de directiva que se aplique al grupo de administración o la suscripción. Puede usar los vínculos para obtener acceso a la asignación y editar o deshabilitar la directiva. Por ejemplo, si ve que una asignación de directiva determinada está denegando la protección de puntos de conexión, puede usar el vínculo para acceder a la directiva y editarla o deshabilitarla.
+  - En la lista de directivas, puede ver la aplicación efectiva de la directiva en su suscripción o grupo de administración. Esto significa que se tiene en cuenta la configuración de cada directiva que se aplica al ámbito y se proporciona el resultado acumulado de la acción que realiza la directiva. Por ejemplo, si en una asignación la directiva está deshabilitada, pero en otra está definida en AuditIfNotExist, el efecto acumulado aplica AuditIfNotExist. El efecto más activo siempre tiene prioridad.
+  - El efecto de las directivas puede ser: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. Para más información sobre cómo se aplican los efectos, consulte [Descripción de los efectos de Policy](../governance/policy/concepts/effects.md).
+
+   ![pantalla de la directiva](./media/security-center-policies/policy-screen.png)
+
+> [!NOTE]
+> - Cuando vea directivas asignadas, puede ver varias asignaciones y cómo se configura cada asignación individualmente.
+
+## <a name="edit-security-policies"></a>Edición de directivas de seguridad
+Puede editar la directiva de seguridad predeterminada de cada una de las suscripciones y grupos de administración de Azure en [Azure Policy](../governance/policy/tutorials/create-and-manage.md). Para modificar una directiva de seguridad, debe ser propietario, colaborador o administrador de seguridad de la suscripción o del grupo de administración que la contiene.
+
+Para obtener instrucciones sobre cómo editar una directiva de seguridad en Azure Policy, consulte [Creación y administración de directivas para aplicar el cumplimiento](../governance/policy/tutorials/create-and-manage.md).
+
+Puede editar directivas de seguridad mediante el portal de Azure Policy, la API REST o con Windows PowerShell. En el siguiente ejemplo se proporcionan instrucciones para la edición mediante la API REST.
+
+### <a name="configure-a-security-policy-using-the-rest-api"></a>Configuración de una directiva de seguridad mediante la API REST
+
+Como parte de la integración nativa con Azure Policy, Azure Security Center le permite aprovechar la API REST de Azure Policy para crear asignaciones de directivas. Las siguientes instrucciones le guiarán en la creación de asignaciones de directivas, así como en la personalización de asignaciones existentes. 
+
+Conceptos importantes de Azure Policy: 
+
+- Un **definición de directiva** es una regla 
+
+- Un **iniciativa** es una colección de definiciones de directivas (reglas) 
+
+- Una **asignación** es una aplicación de una iniciativa o una directiva para un ámbito concreto (grupo de administración o suscripción, entre otras). 
+
+Security Center tiene una iniciativa incorporada que incluye todas las directivas de seguridad. Para evaluar las directivas de Security Center sobre los recursos de Azure, debe crear una asignación en el grupo de administración o en la suscripción que desee evaluar.  
+
+De forma predeterminada, lºa iniciativa integrada tiene todas las directivas de Security Center habilitadas. Puede elegir deshabilitar ciertas directivas de la iniciativa integrada; por ejemplo, puede aplicar todas las directivas de Security Center excepto **firewall de aplicación web**, cambiando el valor del parámetro de efecto de la directiva a **Deshabilitado**. 
+
+### <a name="api-examples"></a>Ejemplos de API
+
+En los siguientes ejemplos, reemplace estas variables:
+
+- **{scope}** escriba el nombre del grupo de administración o de suscripción al que está aplicando la directiva.
+- **{policyAssignmentName}** escriba el [nombre de la asignación de directiva pertinente](#policy-names).
+- **{name}** escriba su nombre o el nombre del administrador que ha aprobado el cambio de directiva.
+
+En este ejemplo se muestra cómo asignar la iniciativa integrada de Security Center a una suscripción o grupo de administración.
+ 
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+    Request Body (JSON) 
+
+    { 
+
+      "properties":{ 
+
+    "displayName":"Enable Monitoring in Azure Security Center", 
+
+    "metadata":{ 
+
+    "assignedBy":"{Name}" 
+
+    }, 
+
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+    "parameters":{}, 
+
+    } 
+
+    } 
+
+En este ejemplo se muestra cómo asignar la iniciativa integrada de Security Center a una suscripción, con las siguientes directivas deshabilitadas: 
+
+- Actualizaciones del sistema ("systemUpdatesMonitoringEffect") 
+
+- Configuraciones de seguridad ("systemConfigurationsMonitoringEffect") 
+
+- Protección de extremos ("endpointProtectionMonitoringEffect") 
+
+ 
+      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+      Request Body (JSON) 
+
+      { 
+
+        "properties":{ 
+
+      "displayName":"Enable Monitoring in Azure Security Center", 
+
+      "metadata":{ 
+
+      "assignedBy":"{Name}" 
+
+      }, 
+
+      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+      "parameters":{ 
+
+      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+
+      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+
+      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+
+      }, 
+
+       } 
+
+      } 
+
+En este ejemplo se muestra cómo quitar una asignación:
+
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+
+### Referencia de los nombres de directiva <a name="policy-names"></a>
+
+|Nombre de directiva de Security Center|El nombre de la directiva aparece en Azure Policy |Nombre de parámetro del efecto de directiva|
+|----|----|----|
+|Cifrado de SQL |Supervisión de la base de datos SQL sin cifrar en Azure Security Center |sqlEncryptionMonitoringEffect| 
+|Auditoría de SQL |Supervisión de la base de datos SQL no auditada en Azure Security Center |sqlAuditingMonitoringEffect|
+|Actualizaciones del sistema |Supervisión de las actualizaciones del sistema que faltan en Azure Security Center |systemUpdatesMonitoringEffect|
+|Cifrado de almacenamiento |Auditoría de la falta del cifrado de blob de las cuentas de almacenamiento |storageEncryptionMonitoringEffect|
+|Acceso de red JIT |Supervisión del posible acceso de red Just-In-Time (JIT) en Azure Security Center |jitNetworkAccessMonitoringEffect |
+|Controles de aplicación adaptables |Supervisión de una posible inclusión de aplicaciones en la lista de permitidos en Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Grupos de seguridad de red |Supervisión del acceso de red permisivo en Azure Security Center |networkSecurityGroupsMonitoringEffect| 
+|Configuraciones de seguridad |Supervisión de los puntos vulnerables del sistema operativo en Azure Security Center |systemConfigurationsMonitoringEffect| 
+|Endpoint Protection |Supervisión de la falta de Endpoint Protection en Azure Security Center |endpointProtectionMonitoringEffect |
+|Cifrado de discos |Supervisión de discos de máquinas virtuales sin cifrar en Azure Security Center |diskEncryptionMonitoringEffect|
+|Evaluación de vulnerabilidades |Supervisión de los puntos vulnerables de máquinas virtuales en Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Firewall de aplicaciones web |Supervisión de la aplicación web desprotegida en Azure Security Center |webApplicationFirewallMonitoringEffect |
+|Firewall de próxima generación |Supervisión de puntos de conexión de red desprotegidos en Azure Security Center| |
+
+
+### <a name="who-can-edit-security-policies"></a>¿Quién puede editar directivas de seguridad?
+Security Center usa el control de acceso basado en rol (RBAC), que proporciona roles integrados que se pueden asignar a usuarios, grupos y servicios en Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que tiene acceso. Esto significa que a los usuarios se les asigna el rol de propietario, colaborador o lector para la suscripción o el grupo de recursos a los que pertenece un recurso. Además de estos roles, hay dos roles específicos de Security Center:
+
+- Lector de seguridad: el usuario tiene derecho a visualizar el contenido de Security Center (recomendaciones, alertas, directivas y estados) pero no puede realizar cambios.
+- Administrador de seguridad: tiene los mismos derechos que el lector de seguridad, pero también puede actualizar la directiva de seguridad o descartar recomendaciones y alertas.
+
+
+
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido los conceptos básicos acerca de la definición de directivas y evaluación de la seguridad de la carga de trabajo con Security Center. Conceptos como:
+En este artículo, ha aprendido cómo editar las directivas de seguridad en Azure Policy. Para más información sobre Security Center, consulte los siguientes artículos:
 
-> [!div class="checklist"]
-> * Configuración de directivas de seguridad para garantizar el cumplimiento con los requisitos normativos de seguridad o los de la empresa
-> * Evaluación de la seguridad de los recursos de proceso, redes, SQL y almacenamiento, y aplicaciones
+* [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): Aprenda a planificar y entender las consideraciones de diseño sobre Azure Security Center.
+* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): Aprenda a supervisar el estado de los recursos de Azure.
+* [Administración y respuesta a alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): Aprenda a administrar y responder a las alertas de seguridad.
+* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): Aprenda cómo supervisar el estado de mantenimiento de las soluciones de sus asociados.
+* [Obtención de visibilidad de todos los inquilinos en Azure Security Center](security-center-management-groups.md): Aprenda a configurar grupos de administración para Azure Security Center.
+* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): Obtenga respuestas para las preguntas más frecuentes acerca del uso del servicio.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.
 
-Continúe en el siguiente tutorial para aprender a usar Security Center para proteger los recursos.
-
-> [!div class="nextstepaction"]
-> [Protección de los recursos](tutorial-protect-resources.md)
+Para más información acerca de Azure Policy, consulte [¿Qué es Azure Policy?](../azure-policy/azure-policy-introduction.md)

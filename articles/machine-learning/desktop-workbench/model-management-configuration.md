@@ -2,8 +2,8 @@
 title: Instalación y configuración de Administración de modelos de Azure Machine Learning| Microsoft Docs
 description: Este documento describe los pasos y conceptos implicados en la instalación y configuración de Administración de modelos de Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d10f61e6276b1ce0a0237e3cf2e35a68edf4a0cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968720"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257587"
 ---
 # <a name="model-management-setup"></a>Instalación de Administración de modelos
 
@@ -91,7 +91,7 @@ Para empezar, tiene que configurar el entorno de implementación. La configuraci
 
 Cuando realice la configuración del entorno:
 - Se le pide que inicie sesión en Azure. Para iniciar sesión, use un explorador web para abrir la página https://aka.ms/devicelogin y escriba el código proporcionado para autenticarse.
-- Durante el proceso de autenticación, el sistema solicita una cuenta con la que autenticar. Importante: seleccione una cuenta que tenga una suscripción válida de Azure y los permisos necesarios para crear recursos en la cuenta. Cuando se haya realizado el inicio de sesión, se presenta la información de suscripción y se le pregunta si desea continuar con la cuenta seleccionada.
+- Durante el proceso de autenticación, el sistema solicita una cuenta con la que autenticar. Importante: Seleccione una cuenta que tenga una suscripción válida de Azure y los permisos necesarios para crear recursos en la cuenta. Cuando haya realizado el inicio de sesión, se presentará la información de suscripción y se le preguntará si desea continuar con la cuenta seleccionada.
 
 ### <a name="environment-setup"></a>Configuración del entorno
 Para iniciar el proceso de configuración, tiene que registrar al proveedor de entorno escribiendo el comando siguiente:

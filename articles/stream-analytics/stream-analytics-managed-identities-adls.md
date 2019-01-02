@@ -1,20 +1,21 @@
 ---
-title: Uso de identidades administradas para autenticar trabajos de Azure Stream Analytics en la salida de Azure Data Lake Storage Gen1 (versión preliminar)
-description: ''
+title: Autenticación de un trabajo de Azure Stream Analytics en una salida de Azure Data Lake Storage Gen1
+description: En este artículo se describe cómo usar las identidades administradas para autenticar un trabajo de Azure Stream Analytics en la salida de Azure Data Lake Storage Gen1.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2018
-ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365295"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090438"
 ---
-# <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Uso de identidades administradas para autenticar trabajos de Azure Stream Analytics en la salida de Azure Data Lake Storage Gen1 (versión preliminar)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticación de Stream Analytics en Azure Data Lake Storage Gen1 mediante las entidades administradas (versión preliminar)
 
 Azure Stream Analytics admite la autenticación de identidades administradas con la salida de Azure Data Lake Storage (ADLS) Gen1. La identidad es una aplicación administrada registrada en Azure Active Directory que representa un trabajo de Stream Analytics determinado y que puede usarse para autenticar un recurso de destino. Las identidades administradas eliminan las limitaciones de los métodos de autenticación basada en usuario, como la necesidad de volver a realizar la autenticación debido a los cambios de contraseña o la expiración de tokens de usuario que se produce cada 90 días. Además, las identidades administradas sirven de ayuda en la automatización de las implementaciones de trabajos de Stream Analytics cuya salida es Azure Data Lake Storage Gen1.
 
@@ -32,7 +33,7 @@ En este artículo se muestran dos formas de habilitar la identidad administrada 
 
    Cuando se guarda la configuración, el Id. de objeto (OID) de la entidad de servicio aparece como Id. de entidad de seguridad, tal como se muestra a continuación:
 
-   ![Id. de entidad de seguridad de Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
+   ![Identificador de la entidad de servicio de Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
    La entidad de servicio se llama igual que el trabajo de Stream Analytics. Por ejemplo, si es el nombre del trabajo es **MyASAJob**, el nombre de la entidad de servicio creada también será **MyASAJob**.
 
@@ -56,11 +57,11 @@ En este artículo se muestran dos formas de habilitar la identidad administrada 
  
 8. En el panel **Permissions** (Permisos), compruebe los permisos **Read** (Lectura) y **Execute** (Ejecución), y asígnelo a **This Folder and all children** (Esta carpeta y todos los elementos secundarios). Luego, haga clic en **Aceptar**.
 
-   ![Seleccionar un permiso](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+   ![Selección de permisos de escritura y ejecución](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
 9. La entidad de servicio aparece en **Assigned Permissions** (Permisos asignados) en el panel de **acceso**, como se muestra a continuación. Ya puede volver e iniciar el trabajo de Stream Analytics.
 
-   ![Lista de acceso](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
+   ![Lista de acceso de Stream Analytics en el portal](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Para más información acerca de los permisos del sistema de archivos de Data Lake Storage Gen1, consulte [Control de acceso en Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 

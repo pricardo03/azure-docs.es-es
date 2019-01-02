@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979206"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387002"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: preguntas más frecuentes (P+F)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: Preguntas más frecuentes (P+F)
 
 En este artículo se incluyen las preguntas frecuentes sobre la configuración y los problemas de administración de [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). También puede consultar la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md) para obtener información de tamaño.
 
@@ -53,7 +53,7 @@ En este artículo se incluyen las preguntas frecuentes sobre la configuración y
 **Permisos**
 
 - [¿Pueden los ingenieros dentro de Microsoft ejecutar instancias de protocolo de escritorio remoto en el servicio en la nube sin permiso?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [No puedo usar el escritorio remoto con una máquina virtual del servicio en la nube mediante el archivo RDP. Aparece el siguiente error: se ha producido un error de autenticación (código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [No puedo usar el escritorio remoto con una máquina virtual del servicio en la nube mediante el archivo RDP. Obtengo el siguiente error: Error de autenticación (código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Escalado**
 
@@ -170,7 +170,7 @@ Puede especificar el tiempo de espera en el archivo de definición se servicio (
     </Endpoints>
   </WorkerRole>
 ```
-Para más información consulte ///[New: Configurable Idle Timeout for Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) (Nuevo: Tiempo de espera de inactividad configurable para Azure Load Balancer).
+Consulte [Nuevo: Tiempo de espera de inactividad configurable para Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) para más información.
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>¿Cómo se asocia una dirección IP estática a un servicio en la nube?
 Para configurar una dirección IP estática, tiene que crear una dirección IP reservada. Esta dirección IP reservada se puede asociar a un nuevo servicio en la nube o a una implementación existente. Consulte los siguientes documentos para más información:
@@ -199,7 +199,7 @@ Windows 10 y Windows Server 2016 incluyen compatibilidad con HTTP/2 en el lado s
 Para más información, consulte:
 
 - [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 en IIS)
-- [Vídeo: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88) (HTTP/2 en Windows 10: explorador, aplicaciones y servidor web)
+- [Vídeo: HTTP/2 en Windows 10: explorador, aplicaciones y servidor web](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 Estos pasos se pueden automatizar mediante una tarea de inicio para que, cada vez que se cree una instancia de PaaS, pueda realizar los cambios anteriores en el registro del sistema. Para más información, consulte [Configuración y ejecución de tareas de inicio para un servicio en la nube](cloud-services-startup-tasks.md).
@@ -208,7 +208,7 @@ Estos pasos se pueden automatizar mediante una tarea de inicio para que, cada ve
 Una vez hecho esto, puede verificar si se ha habilitado HTTP/2 o no mediante alguno de los métodos siguientes:
 
 - Habilite la versión del protocolo en los registros de IIS y busque en dichos registros. Mostrará HTTP/2 en los registros. 
-- Habilite la herramienta de desarrollo F12 en Internet Explorer/Microsoft Edge y cambie a la pestaña Red para verificar el protocolo. 
+- Habilite la herramienta de desarrollo F12 en Internet Explorer/Edge y cambie a la pestaña Red para verificar el protocolo. 
 
 Para más información, vea [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 en IIS).
 
@@ -224,7 +224,7 @@ Consulte [Descripción de los distintos roles en Azure](../role-based-access-con
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>¿Pueden los ingenieros dentro de Microsoft ejecutar instancias de protocolo de escritorio remoto en el servicio en la nube sin permiso?
 Microsoft sigue un proceso estricto que no permite a los ingenieros internos ejecutar instancias de escritorio remoto en su servicio en la nube sin autorización por escrito (correo electrónico u otra comunicación escrita) del propietario o la persona designada a tal fin.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>No puedo usar el escritorio remoto con una máquina virtual del servicio en la nube mediante el archivo RDP. Aparece el siguiente error: se ha producido un error de autenticación (código: 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>No puedo usar el escritorio remoto con una máquina virtual del servicio en la nube mediante el archivo RDP. Obtengo el siguiente error: Error de autenticación (código: 0x80004005)
 
 Este error puede producirse si usa el archivo RDP desde un equipo replicado en Azure Active Directory. Para resolver el problema, siga estos pasos:
 
@@ -242,9 +242,9 @@ Actualmente no se admite el escalado automático en función de las métricas de
 
 Para solucionar este problema, puede usar Application Insights. El escalado automático admite Application Insights como origen de métricas y puede escalar el número de instancias de rol en función de una métrica de invitado como "Memoria".  Tiene que configurar Application Insights en el archivo de paquete del proyecto del servicio en la nube (*.cspkg) y habilitar la extensión de Azure Diagnostics en el servicio para implementar esta operación.
 
-Para más información acerca de cómo usar una métrica personalizada a través de Application Insights para configurar el escalado automático en Cloud Services, consulte [Introducción al escalado automático mediante métricas personalizadas en Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+Para más información acerca de cómo usar una métrica personalizada a través de Application Insights para configurar el escalado automático en Cloud Services, consulte [Introducción al escalado automático mediante métricas personalizadas en Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 
-Para más información acerca de cómo integrar Azure Diagnostics con Application Insights para Cloud Services, consulte [Envío de datos de diagnóstico de Cloud Services, Virtual Machines o Service Fabric a Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+Para más información acerca de cómo integrar Azure Diagnostics con Application Insights para Cloud Services, consulte [Envío de datos de diagnóstico de Cloud Services, Virtual Machines o Service Fabric a Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 Para más información acerca de cómo habilitar Application Insights para Cloud Services, consulte [Application Insights para Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
@@ -303,7 +303,7 @@ Para obtener más información sobre los escenarios de implementación de antima
 
 Puede habilitar SNI en Cloud Services con alguno de los siguientes métodos:
 
-**Método 1: Use PowerShell**
+**Método 1: Uso de PowerShell**
 
 El enlace de SNI se puede configurar mediante el cmdlet de PowerShell **New-WebBinding** en una tarea de inicio de una instancia de rol de servicio en la nube como la siguiente:
     
@@ -318,7 +318,7 @@ Como se describe [aquí](https://technet.microsoft.com/library/ee790567.aspx), $
 |2 |Sin enlace de SNI que use el almacén de certificados central|
 |3|Enlace de SNI que usa el almacén de certificados central |
  
-**Método 2: Use código**
+**Método 2: Uso de código**
 
 El enlace de SNI también puede configurarse a través de código en el inicio del rol, tal y como se describe en esta [entrada de blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 

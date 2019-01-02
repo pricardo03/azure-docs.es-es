@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a21a21f40e731e8bc1d20e01d3671c372df65d84
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622047"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877483"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo
 En este tutorial se muestra cómo usar la directiva de grupo para instalar de forma remota la extensión de panel de acceso para Internet Explorer en los equipos de los usuarios. Esta extensión es necesaria para los usuarios de Internet Explorer que deben iniciar sesión en aplicaciones que están configuradas con un [inicio de sesión único basado en contraseña](what-is-single-sign-on.md#password-based-sso).
@@ -31,7 +31,7 @@ La extensión de panel de acceso también está disponible para [Chrome](https:/
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Configuró [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)y unió los equipos de los usuarios a su dominio.
-* Debe tener el permiso "Editar configuración" para editar el objeto de directiva de grupo (GPO). De forma predeterminada, los miembros de los siguientes grupos de seguridad poseen este permiso: Administradores de dominio, Administradores de organización y Propietarios del creador de directivas de grupo. [Más información.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* Debe tener el permiso "Editar configuración" para editar el objeto de directiva de grupo (GPO). De forma predeterminada, los miembros de los siguientes grupos de seguridad tienen este permiso: administradores de dominio, administradores de empresa y propietarios del creador de directivas de grupo. [Más información.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>Paso 1: Crear el punto de distribución
 En primer lugar, debe colocar el paquete del instalador en una ubicación de red a la que se pueda acceder desde todas las máquinas donde desee instalar la extensión de forma remota. Para ello, siga estos pasos.
@@ -97,7 +97,7 @@ Ahora se implementa la extensión en la unidad organizativa que seleccionó. [M�
 ## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Paso 4: Habilitar automáticamente la extensión para Internet Explorer
 Además de ejecutar el programa de instalación, todas las extensiones de Internet Explorer deben habilitarse explícitamente para poder usarlas. Siga estos pasos para habilitar la extensión de panel de acceso mediante la directiva de grupo:
 
-1. En la ventana **Editor de administración de directivas de grupo** , vaya a cualquiera de las siguientes rutas, en función del tipo de configuración que eligiera en [Paso 3: Asignar el paquete de instalación](#step-3-assign-the-installation-package):
+1. En la ventana **Editor de administración de directivas de grupo**, vaya a cualquiera de las siguientes rutas, en función del tipo de configuración que eligiera en el [Paso 3: Asignar el paquete de instalación](#step-3-assign-the-installation-package):
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
@@ -117,7 +117,7 @@ Además de ejecutar el programa de instalación, todas las extensiones de Intern
 
 Ahora, la extensión debería estar habilitada para los equipos de la unidad organizativa seleccionada. [Más información acerca de cómo usar la directiva de grupo para habilitar o deshabilitar complementos de Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
-## <a name="step-5-optional-disable-remember-password-prompt"></a>Paso 5 (opcional): deshabilitar el mensaje "Recordar contraseña"
+## <a name="step-5-optional-disable-remember-password-prompt"></a>Paso 5 (opcional): Deshabilitar el mensaje "Recordar contraseña"
 Cuando los usuarios inician sesión en sitios web mediante la extensión del panel de acceso, es posible que Internet Explorer muestre el siguiente mensaje preguntándole "¿Desea almacenar su contraseña?"
 
 ![Solicitud de contraseña](./media/deploy-access-panel-browser-extension/remember-password-prompt.png)
@@ -151,7 +151,7 @@ Los usuarios ya no podrán almacenar sus credenciales ni usar Autocompletar para
 ## <a name="step-6-testing-the-deployment"></a>Paso 6: Prueba de la implementación
 Siga estos pasos para comprobar si la implementación de la extensión se realizó correctamente:
 
-1. Si implementó con **Configuración del equipo**, inicie sesión en un equipo cliente que pertenezca a la unidad organizativa que seleccionó en el [Paso 2: Crear el objeto de directiva de grupo](#step-2-create-the-group-policy-object). Si implementó con **Configuración de usuario**, asegúrese de iniciar sesión como un usuario que pertenezca a esa unidad organizativa.
+1. Si implementó con **Configuración del equipo**, inicie sesión en un equipo cliente que pertenezca a la unidad organizativa que seleccionó en el [Paso 2:. Crear el objeto de directiva de grupo](#step-2-create-the-group-policy-object). Si implementó con **Configuración de usuario**, asegúrese de iniciar sesión como un usuario que pertenezca a esa unidad organizativa.
 2. Es posible que se deba iniciar sesión un par de veces para que los cambios de la directiva de grupo se actualicen totalmente en el equipo. Para forzar la actualización, abra una ventana **Símbolo del sistema** y ejecute el siguiente comando: `gpupdate /force`
 3. Deberá reiniciar la máquina para que se lleve a cabo la instalación. El arranque puede tardar mucho más tiempo del habitual mientras la extensión se instala.
 4. Después de reiniciar, abra **Internet Explorer**. En la esquina superior derecha de la ventana, haga clic en **Herramientas** (el icono de engranaje) y después seleccione **Administrar complementos**.

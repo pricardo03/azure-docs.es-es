@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857081"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842839"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identidades administradas para recursos de Azure con Service Bus 
 
@@ -53,10 +53,8 @@ Una vez habilitada la característica, se crea una identidad de servicio en Azur
 
 A continuación, [cree un espacio de nombres de mensajería de Service Bus](service-bus-create-namespace-portal.md) en una de las regiones de Azure compatibles con la versión preliminar de RBAC: **Este de EE. UU.**, **Este de EE. UU. 2** o **Europa Occidental**. 
 
-Vaya a la página **Control de acceso (IAM)** del espacio de nombres en Azure Portal y, después, haga clic en **Agregar** para agregar la identidad administrada al rol **Propietario**. Para ello, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**.
+Vaya a la página **Control de acceso (IAM)** del espacio de nombres en el portal y, después, haga clic en **Agregar asignación de roles** para agregar la identidad administrada al rol **Propietario**. Para ello, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**.
 
-![](./media/service-bus-managed-service-identity/msi2.png)
- 
 La identidad administrada de la aplicación web ya tiene acceso al espacio de nombres de Service Bus y a la cola que ha creado antes. 
 
 ### <a name="run-the-app"></a>Ejecución de la aplicación

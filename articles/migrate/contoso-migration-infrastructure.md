@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 2210aaa5d4d0ba9d730e5aee97972565ea0c1090
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092988"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726991"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso: implementar una infraestructura de migración
 
@@ -27,20 +27,20 @@ Este artículo forma parte de una serie que documenta cómo la compañía fictic
 
 **Artículo** | **Detalles** | **Estado**
 --- | --- | ---
-[Artículo 1: Introducción](contoso-migration-overview.md) | Información general de la serie de artículos, la estrategia de migración de Contoso y las aplicaciones de ejemplo que se usan en esta serie. | Disponible
-Artículo 2: Implementación de una infraestructura de Azure | Contoso prepara la infraestructura local y la infraestructura de Azure para la migración. Se usa la misma infraestructura en todos los artículos de la serie sobre migración. | Este artículo
-[Artículo 3: Evaluación de los recursos locales para la migración a Azure](contoso-migration-assessment.md)  | Contoso ejecuta una valoración de su aplicación local SmartHotel360 que se ejecuta en VMware. Contoso evalúa las máquinas virtuales de la aplicación mediante el servicio Azure Migrate, y la base de datos SQL Server de la aplicación con Data Migration Assistant. | Disponible
-[Artículo 4: Rehospedaje de una aplicación en una máquina virtual de Azure e Instancia administrada de Azure SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso ejecuta una migración mediante lift-and-shift a Azure para su aplicación SmartHotel360 local. Contoso migra la máquina virtual de front-end de la aplicación mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migra la base de datos de la aplicación a una instancia administrada de Azure SQL Database mediante [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible   
-[Artículo 5: Rehospedaje de una aplicación en VM de Azure](contoso-migration-rehost-vm.md) | Contoso migra sus máquinas virtuales de la aplicación SmartHotel360 a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
-[Artículo 6: Rehospedaje de una aplicación en máquinas virtuales de Azure y en un grupo de disponibilidad Always On de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso migra la aplicación usando Site Recovery para migrar las VM de la aplicación, y Database Migration Service para migrar la base de datos de la aplicación a un clúster de SQL Server protegido por un grupo de disponibilidad Always On. | Disponible
-[Artículo 7: Rehospedaje de una aplicación Linux en VM de Azure](contoso-migration-rehost-linux-vm.md) | Contoso realiza una migración mediante "lift-and-shift" de su aplicación osTicket de Linux a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
-[Artículo 8: Rehospedaje de una aplicación de Linux en máquinas virtuales de Azure y Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migra su aplicación osTicket de Linux a máquinas virtuales de Azure mediante Site Recovery. Migra la base de datos de la aplicación a Azure Database for MySQL con MySQL Workbench. | Disponible
-[Artículo 9: Refactorización de una aplicación en una aplicación web de Azure y en Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migra su aplicación SmartHotel360 a una aplicación web de Azure, y migra la base de datos de la aplicación a una instancia de Azure SQL Server con Database Migration Assistant. | Disponible    
-[Artículo 10: Refactorización de una aplicación de Linux en una aplicación web de Azure y en Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migra su aplicación osTicket de Linux a una aplicación web de Azure en varios sitios. La aplicación web está integrada con GitHub para la entrega continua. Migra la base de datos de la aplicación a una instancia de Azure Database for MySQL. | Disponible
-[Artículo 11: Refactorización de Team Foundation Server en Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migra su implementación local de Team Foundation Server a Azure DevOps Services en Azure. | Disponible
-[Artículo 12: Rediseño de la arquitectura de una aplicación en Azure Containers y Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migra su aplicación SmartHotel a Azure. A continuación, rediseña la capa de aplicación web como un contenedor de Windows que se ejecuta en Azure Service Fabric, y la base de datos de la aplicación con Azure SQL Database. | Disponible    
-[Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel mediante una serie de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible
-[Artículo 14: Escalado de una migración en Azure](contoso-migration-scale.md) | Después de probar combinaciones de migración, Contoso se prepara para escalar una migración completa a Azure. | Disponible 
+[Artículo 1: Introducción](contoso-migration-overview.md) | Información general de la serie de artículos, la estrategia de migración de Contoso y las aplicaciones de ejemplo que se usan en esta serie. | Disponible
+Artículo 2: Implementación de una infraestructura de Azure | Contoso prepara la infraestructura local y la infraestructura de Azure para la migración. Se usa la misma infraestructura en todos los artículos de la serie sobre migración. | Este artículo
+[Artículo 3: Valoración de los recursos locales para migrarse a Azure](contoso-migration-assessment.md)  | Contoso ejecuta una valoración de su aplicación local SmartHotel360 que se ejecuta en VMware. Contoso evalúa las máquinas virtuales de la aplicación mediante el servicio Azure Migrate, y la base de datos SQL Server de la aplicación con Data Migration Assistant. | Disponible
+[Artículo 4: Rehospedaje de una aplicación en una máquina virtual de Azure e Instancia administrada de Azure SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso ejecuta una migración mediante lift-and-shift a Azure para su aplicación SmartHotel360 local. Contoso migra la máquina virtual de front-end de la aplicación mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migra la base de datos de la aplicación a una instancia administrada de Azure SQL Database mediante [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible   
+[Artículo 5: Rehospedaje de una aplicación en máquinas virtuales de Azure](contoso-migration-rehost-vm.md) | Contoso migra sus máquinas virtuales de la aplicación SmartHotel360 a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
+[Artículo 6: Rehospedaje de una aplicación en máquinas virtuales de Azure y en el grupo de disponibilidad Always On de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso migra la aplicación usando Site Recovery para migrar las VM de la aplicación, y Database Migration Service para migrar la base de datos de la aplicación a un clúster de SQL Server protegido por un grupo de disponibilidad Always On. | Disponible
+[Artículo 7: Rehospedaje de una aplicación de Linux en máquinas virtuales de Azure](contoso-migration-rehost-linux-vm.md) | Contoso realiza una migración mediante "lift-and-shift" de su aplicación osTicket de Linux a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
+[Artículo 8: Rehospedaje de una aplicación de Linux en máquinas virtuales de Azure y Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migra su aplicación osTicket de Linux a máquinas virtuales de Azure mediante Site Recovery. Migra la base de datos de la aplicación a Azure Database for MySQL con MySQL Workbench. | Disponible
+[Artículo 9: Refactorización de una aplicación en una aplicación web de Azure y en Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migra su aplicación SmartHotel360 a una aplicación web de Azure, y migra la base de datos de la aplicación a una instancia de Azure SQL Server con Database Migration Assistant. | Disponible    
+[Artículo 10: Refactorización de una aplicación de Linux en una aplicación web de Azure y en Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migra su aplicación osTicket de Linux a una aplicación web de Azure en varios sitios. La aplicación web está integrada con GitHub para la entrega continua. Migra la base de datos de la aplicación a una instancia de Azure Database for MySQL. | Disponible
+[Artículo 11: Refactorización de Team Foundation Server en Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migra su implementación local de Team Foundation Server a Azure DevOps Services en Azure. | Disponible
+[Artículo 12: Rediseño de una aplicación en contenedores de Azure y en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migra su aplicación SmartHotel a Azure. A continuación, rediseña la capa de aplicación web como un contenedor de Windows que se ejecuta en Azure Service Fabric, y la base de datos de la aplicación con Azure SQL Database. | Disponible    
+[Artículo 13: Recompilación de una aplicación en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel mediante una serie de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible
+[Artículo 14: Escalado de una migración en Azure](contoso-migration-scale.md) | Después de probar combinaciones de migración, Contoso se prepara para escalar una migración completa a Azure. | Disponible 
 
 En este artículo, Contoso configura todos los elementos de infraestructura necesarios para completar todos los escenarios de migración. 
 
@@ -49,12 +49,12 @@ En este artículo, Contoso configura todos los elementos de infraestructura nece
 
 Antes de poder migrar Contoso a Azure, es fundamental preparar una infraestructura de Azure.  Por lo general, hay cinco áreas generales en la que Contoso debe pensar:
 
-**Paso 1: Suscripciones a Azure**: ¿cómo compra Contoso Azure y cómo interactúa con la plataforma y los servicios de Azure?  
-**Paso 2: Identidad híbrida**: ¿cómo administra y controla el acceso a recursos de Azure y locales después de la migración? ¿Cómo Contoso amplía o mueve la administración de identidades a la nube?  
-**Paso 3: Recuperación ante desastres y resiliencia**: ¿cómo garantiza Contoso que las aplicaciones y las infraestructuras son resilientes si se producen interrupciones y desastres?  
-**Paso 4: Redes**: ¿cómo debe diseñar Contoso la infraestructura de red y establecer la conectividad entre el centro de datos local y Azure?  
-**Paso 5: Seguridad**: ¿cómo protege Contoso la implementación híbrida o de Azure?  
-**Paso 6: Gobierno**: ¿cómo mantiene Contoso alineada la implementación con los requisitos de seguridad y gobierno?
+**Paso 1: Suscripciones a Azure**. ¿Cómo compra Contoso Azure y cómo interactúa con la plataforma y los servicios de Azure?  
+**Paso 2: Identidad híbrida**. ¿Cómo administra y controla el acceso a recursos de Azure y locales después de la migración? ¿Cómo Contoso amplía o mueve la administración de identidades a la nube?  
+**Paso 3: Recuperación ante desastres y resiliencia**. ¿Cómo garantiza Contoso que las aplicaciones y las infraestructuras son resilientes si se producen interrupciones y desastres?  
+**Paso 4: Redes**. ¿Cómo debe diseñar Contoso la infraestructura de red y establecer la conectividad entre el centro de datos local y Azure?  
+**Paso 5: Seguridad**. ¿Cómo protege Contoso la implementación híbrida o de Azure?  
+**Paso 6: Gobierno**. ¿Cómo mantiene Contoso alineada la implementación con los requisitos de seguridad y gobierno?
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -78,10 +78,10 @@ Aquí se muestra un diagrama de la infraestructura local de Contoso en la actual
 - Cada una de las sucursales está conectada localmente a Internet con conexiones de categoría empresarial, y con túneles VPN con IPSec hacia el centro de datos principal. Esto permite que toda la red esté conectada de forma permanente, así como optimizar la conectividad a Internet.
 - El centro de datos principal está completamente virtualizado con VMware. Contoso tiene dos hosts de virtualización de ESXi 6.5, que administra vCenter Server 6.5.
 - Contoso usa Active Directory para la administración de identidades y servidores DNS en la red interna.
-- Los controladores de dominio del centro de datos se ejecutan en VM de VMware. Los controladores de dominio en las sucursales locales se ejecutan en servidores físicos.
+- Los controladores de dominio del centro de datos se ejecutan en VM de VMware. Los controladores de dominio de las sucursales locales se ejecutan en servidores físicos.
 
 
-## <a name="step-1-buy-and-subscribe-to-azure"></a>Paso 1: Comprar y suscribirse a Azure
+## <a name="step-1-buy-and-subscribe-to-azure"></a>Paso 1: Compra y suscripción a Azure
 
 Contoso debe averiguar cómo comprar Azure, cómo diseñar las suscripciones y cómo conceder bajo licencia servicios y recursos.
 
@@ -256,8 +256,8 @@ Observe lo siguiente:
 
 Los administradores de Contoso ahora asignan roles a los grupos de AD que sincronizan desde el entorno local.
 
-1. En el grupo de recursos **ControlCobRG**, haga clic en **Control de acceso (IAM)** > **Agregar**.
-2. En **Agregar permisos** > **Rol** > **Colaborador,**  se selecciona el grupo de AD **ContosoCobRG** de la lista. El grupo aparece entonces en la lista **Miembros seleccionados**. 
+1. En el grupo de recursos **ControlCobRG**, haga clic en **Control de acceso (IAM)** > **Agregar asignación de roles**.
+2. En **Agregar asignación de roles** > **Rol** > **Colaborador,**  se selecciona el grupo de AD **ContosoCobRG** de la lista. El grupo aparece entonces en la lista **Miembros seleccionados**. 
 3. Esto se repite con los mismos permisos para otros grupos de recursos (excepto para **ContosoAzureAdmins**), mediante la adición de los permisos de colaborador a la cuenta de AD que coincide con el grupo de recursos.
 4. Para el grupo de AD **ContosoAzureAdmins**, se asigna el rol **Propietario**.
 
@@ -302,8 +302,8 @@ Contoso implementará zonas de disponibilidad a medida que las aplicaciones requ
 
 Con el diseño de la región establecido, Contoso está listo para considerar una estrategia en la red. Debe pensar en cómo se conectan y comunican entre sí el centro de datos local y Azure, y cómo diseñar la infraestructura de red en Azure. En concreto, Contoso debe:
 
-- **Planear la conectividad de red híbrida**: averiguar cómo van a conectarse las redes entre las instancias locales y Azure.
-- **Diseñar una infraestructura de red de Azure**: decidir cómo implementará las redes a través de las regiones. Cómo se comunicarán las redes dentro de la misma región y entre las diferentes regiones.
+- **Planear conectividad de red híbrida**: averiguar cómo van a conectarse las redes entre las instancias locales y Azure.
+- **Diseño de una infraestructura de red de Azure**: decidir cómo implementar las redes en las regiones. Cómo se comunicarán las redes dentro de la misma región y entre las diferentes regiones.
 - **Diseñar y configurar redes de Azure**: configurar redes y subredes de Azure, y decidir qué residirá en cada una.
 
 ### <a name="plan-hybrid-network-connectivity"></a>Planear conectividad de red híbrida
@@ -399,8 +399,8 @@ Con una red y una topología de enrutamiento, Contoso está preparado para confi
 
 El Este de EE. UU. 2 es la región principal que Contoso usará para implementar servicios y recursos de Contoso. Así es como Contoso diseñará sus redes:
 
-- **Concentrador**: la VNET del concentrador del Este de EE. UU. 2 es el punto de conectividad central con el centro de datos local.
-- **Redes virtuales**: las redes virtuales de radios del Este de EE. UU. 2 pueden usarse para aislar las cargas de trabajo si fuera necesario. Además de la red virtual del concentrador, Contoso tendrá dos redes virtuales de radios en el Este de EE. UU. 2:
+- **Concentrador**: la red virtual del concentrador del Este de EE. UU. 2 es el punto de conectividad central con el centro de datos local.
+- **Redes virtuales**: las redes virtuales de radios del Este de EE. UU. 2 pueden usarse para aislar las cargas de trabajo si fuera necesario. Además de la red virtual del concentrador, Contoso tendrá dos redes virtuales de radios en el Este de EE. UU. 2:
     - **VNET-DEV-EUS2**. Esta red virtual proporcionará al equipo de desarrollo y pruebas una red completamente funcional para proyectos de desarrollo. Actuará como una zona piloto de producción y dependerá de la infraestructura de producción para su funcionamiento.
     - **VNET-PROD-EUS2**: los componentes de producción de IaaS de Azure se encontrarán en esta red. 
     -  Cada red virtual tendrá su propio espacio de dirección única, sin superposiciones. Contoso intenta configurar el enrutamiento sin necesidad de NAT.
@@ -461,12 +461,12 @@ Los componentes de IaaS de Azure se encuentran en la red de producción. Cada ni
 
 El Centro de EE. UU. es la región secundaria de Contoso. Así es como Contoso diseñará sus redes:
 
-- **Concentrador**: la red virtual del concentrador del Este de EE. UU. 2 es el punto central de conectividad con el centro de datos local, y las redes virtuales de radios del Este de EE. UU. 2 pueden usarse para aislar las cargas de trabajo, si es necesario, y se administran por separado de otros radios.
-- **Redes virtuales**: Contoso tendrá dos redes virtuales en el Centro de EE. UU.:
+- **Concentrador**: la red virtual del concentrador del Este de EE. UU. 2 es el punto central de conectividad con el centro de datos local, y las redes virtuales de radios del Este de EE. UU. 2 pueden usarse para aislar las cargas de trabajo, si es necesario, y se administran por separado de otros radios.
+- **Redes virtuales**: Contoso tendrá dos redes virtuales en el Centro de EE. UU.:
     - VNET-PROD-CUS. Esta red virtual es una red de producción, similar a VNET-PROD_EUS2. 
     - VNET-ASR-CUS. Esta red virtual actuará como una ubicación en la que las VM se crean después de la conmutación por error desde el entorno local, o como una ubicación para las VM de Azure que se conmuten por error desde el servidor principal en la región secundaria. Esta red es similar a las redes de producción, pero sin ningún controlador de dominio.
     -  Cada red virtual de la región tendrá su propio espacio de dirección, sin superposición. Contoso configurará el enrutamiento sin NAT.
-- **Subredes**: las subredes se diseñarán de una manera similar a las del Este de EE. UU. 2. La excepción es que Contoso no se necesita ninguna subred para los controladores de dominio.
+- **Subredes**: as subredes se diseñarán de una manera similar a las del Este de EE. UU. 2. La excepción es que Contoso no se necesita ninguna subred para los controladores de dominio.
 
 Las redes virtuales del Centro de EE. UU. se resumen en la tabla siguiente.
 
@@ -632,7 +632,7 @@ AD es un servicio crítico en la red y debe estar configurado correctamente. Los
 
     ![Centro de administración de AD](./media/contoso-migration-infrastructure/ad-center.png)
 
-## <a name="step-5-plan-for-governance"></a>Paso 5: Planificación para el gobierno
+## <a name="step-5-plan-for-governance"></a>Paso 5: Planeación para el gobierno
 
 Azure proporciona una gama de controles de gobierno a través de los servicios y la plataforma de Azure. [Siga leyendo](https://docs.microsoft.com/azure/security/governance-in-azure) para conocer las opciones básicas.
 
@@ -722,13 +722,13 @@ Por ejemplo:
 Después de crear la etiqueta, Contoso volverá atrás y creará nuevas asignaciones y definiciones de la directiva de Azure para exigir el uso de las etiquetas necesarias en toda la organización.
 
 
-## <a name="step-6-consider-security"></a>Paso 6: Considere la seguridad
+## <a name="step-6-consider-security"></a>Paso 6: Consideración de la seguridad
 
 La seguridad es fundamental en la nube y Azure proporciona una amplia gama de herramientas y funcionalidades de seguridad. Esto le ayuda a crear soluciones seguras, en la plataforma segura de Azure. Lea [Seguridad en una nube confianza](https://azure.microsoft.com/overview/trusted-cloud/) para obtener más información acerca de la seguridad de Azure.
 
 Hay algunos aspectos que Contoso debe contemplar:
 
-- **Azure Security Center**: Azure Security Center proporciona una administración unificada de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Con Security Center, puede aplicar directivas de seguridad en las cargas de trabajo, limitar la exposición a amenazas y detectar y responder a los ataques.  [Más información](https://docs.microsoft.com/azure/security-center/security-center-intro).
+- **Azure Security Center**: Azure Security Center proporciona administración unificada de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Con Security Center, puede aplicar directivas de seguridad en las cargas de trabajo, limitar la exposición a amenazas y detectar y responder a los ataques.  [Más información](https://docs.microsoft.com/azure/security-center/security-center-intro).
 - **Grupos de seguridad de red (NSG)**: un grupo de seguridad de red es un filtro (firewall) que contiene una lista de reglas de seguridad que, cuando se aplican, permiten o deniegan el tráfico de red a recursos que están conectados a redes virtuales de Azure. [Más información](https://docs.microsoft.com/azure/virtual-network/security-overview).
 - **Cifrado de datos**: Azure Disk Encryption es una funcionalidad que permite cifrar los discos de las máquinas virtuales IaaS con Windows y Linux. [Más información](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
 

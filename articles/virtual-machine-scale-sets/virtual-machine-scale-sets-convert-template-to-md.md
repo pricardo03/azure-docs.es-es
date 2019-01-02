@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739573"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339882"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Conversión de una plantilla de conjunto de escalado en una plantilla de conjunto de escalado de un disco administrado
 
@@ -126,7 +126,7 @@ No hay ninguna propiedad explícita en la configuración del conjunto de escalad
 
 ## <a name="data-disks"></a>Discos de datos
 
-Con los cambios anteriores, el conjunto de escalado utiliza discos administrados para el disco del SO, pero ¿y para los discos de datos? Para agregar discos de datos, agregue la propiedad "dataDisks" en "storageProfile" al mismo nivel que "osDisk". El valor de la propiedad es una lista JSON de objetos, cada uno de los cuales tiene propiedades "lun" (que deben ser únicas para cada disco de datos de una máquina virtual), "createOption" ("empty" es actualmente la única opción admitida) y "diskSizeGB" (el tamaño del disco en gigabytes; debe ser mayor que 0 y menor que 1024) como en el ejemplo siguiente: 
+Con los cambios anteriores, el conjunto de escalado utiliza discos administrados para el disco del SO, pero ¿y para los discos de datos? Para agregar discos de datos, agregue la propiedad "dataDisks" en "storageProfile" al mismo nivel que "osDisk". El valor de la propiedad es una lista JSON de objetos, cada uno de los cuales tiene propiedades "lun" (que deben ser únicas para cada disco de datos de una máquina virtual), "createOption" ("empty" es actualmente la única opción admitida) y "diskSizeGB" (el tamaño del disco en gigabytes; debe ser mayor que 0 y menor que 1024) como en el ejemplo siguiente:
 
 ```
 "dataDisks": [
@@ -146,5 +146,5 @@ Para más información acerca del uso de discos de datos con conjuntos de escala
 ## <a name="next-steps"></a>Pasos siguientes
 Para las plantillas de Azure Resource Manager de ejemplo que usan conjuntos de escalado, busque "vmss" en el [repositorio de GitHub de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Para obtener información general, consulte la [página de destino principal de los conjuntos de escalado](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Para información general, consulte la [página de destino principal de los conjuntos de escalado](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Fase de comprensión y adquisición de los datos del ciclo de vida del Proceso de ciencia de datos en equipo: Azure | Microsoft Docs'
+title: Adquisición y comprensión de los datos del proceso de ciencia de datos en equipos
 description: Los objetivos, las tareas y los resultados de la fase de adquisición y comprensión de los datos de los proyectos de ciencia de datos.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 13cbcead381257c87f17dc8ed6666a1b8964d81a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 77c67c491b3157103b267864417678c83326814c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441588"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141159"
 ---
-# <a name="data-acquisition-and-understanding"></a>Adquisición y comprensión de los datos
+# <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Fase de adquisición y comprensión de los datos del proceso de ciencia de datos en equipos
 
 En este artículo se describen los objetivos, las tareas y los resultados asociados a la fase de adquisición y comprensión de los datos del Proceso de ciencia de datos en equipo (TDSP). Este proceso proporciona un ciclo de vida recomendado que puede usar para estructurar los proyectos de ciencia de datos. El ciclo de vida describe las fases principales por las que pasan normalmente los proyectos, a menudo de forma iterativa:
 
@@ -67,8 +67,8 @@ En esta fase, desarrolla una arquitectura de solución de la canalización de da
 Estos son los resultados de esta fase:
 
    * [Informe de la calidad de los datos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): este informe contiene resúmenes de los datos, las relaciones entre cada atributo y objetivo, la clasificación de las variables, etc. La herramienta [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) que se incluye como parte del TDSP permite generar rápidamente este informe sobre cualquier conjunto de datos tabular, como un archivo CSV o una tabla relacional. 
-   * **Arquitectura de la solución**: la arquitectura de la solución puede ser un diagrama o una descripción de la canalización de datos utilizada para llevar a cabo la tarea de puntuación o las predicciones con los nuevos datos una vez que se ha creado un modelo. También contiene la canalización para volver a entrenar el modelo basándose en los nuevos datos. Almacene el documento en el directorio [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) cuando se usa la plantilla de estructura de directorios de TDSP.
-   * **Decisión de punto de comprobación**: antes de comenzar con el proceso completo de diseño de características y con la compilación del modelo, puede volver a evaluar el proyecto para determinar si el valor que está previsto que aporte es suficiente para seguir adelante con él. Por ejemplo, podría estar preparado para continuar, requerir más datos o abandonar el proyecto si no existen datos que respondan a la pregunta.
+   * **Arquitectura de la solución**: la arquitectura de la solución puede ser un diagrama o una descripción de la canalización de datos que utiliza para llevar a cabo la tarea de puntuación o las predicciones con los nuevos datos una vez que se ha compilado un modelo. También contiene la canalización para volver a entrenar el modelo basándose en los nuevos datos. Almacene el documento en el directorio [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) cuando se usa la plantilla de estructura de directorios de TDSP.
+   * **Decisión de punto de control**: antes de comenzar con el proceso completo de diseño de características y con la compilación del modelo, puede volver a evaluar el proyecto para determinar si el valor que está previsto que aporte es suficiente para seguir adelante con él. Por ejemplo, podría estar preparado para continuar, requerir más datos o abandonar el proyecto si no existen datos que respondan a la pregunta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

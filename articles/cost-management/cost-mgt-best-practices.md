@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 77a5b455e3ef86484119983af24b6461a2fba229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273806"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074494"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimización de la inversión en la nube con Azure Cost Management
 
@@ -64,7 +64,7 @@ Actúe para reducir los gastos. Aproveche al máximo en función de las conclusi
 
 Todas las personas de la organización deben participar en el ciclo de vida de la administración de costos. Deben permanecer implicados de forma continuada para optimizar los costos. Sea riguroso en este proceso iterativo y conviértalo en una pieza clave del gobierno responsable de la nube en la organización.
 
-![Principios fundamentales](./media/cost-mgt-best-practices/principles.png)
+![Diagrama de principios clave que muestra la visibilidad, responsabilidad y optimización](./media/cost-mgt-best-practices/principles.png)
 
 ## <a name="plan-with-cost-in-mind"></a>Planear teniendo en cuenta los costos
 
@@ -140,7 +140,7 @@ Para más información, consulte [Análisis de costos](quick-acm-cost-analysis.m
 
 ### <a name="export-billing-data-on-a-schedule"></a>Exportación de los datos de facturación según una programación
 
-¿Es necesario importar los datos de facturación en un sistema externo como un panel o un sistema financiero? Puede programar informes automatizados diarios para evitar la descarga manual de archivos cada mes. Y puede exportar los datos de facturación a una cuenta de Azure Storage y recibir una notificación mediante los [grupos de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md). A continuación, puede usar los datos de Azure para combinarlos con datos personalizados de sus propios sistemas.
+¿Es necesario importar los datos de facturación en un sistema externo como un panel o un sistema financiero? Configure las exportación automatizadas en Azure Storage y evite descargar manualmente archivos de manera mensual. Luego, puede configurar fácilmente las integraciones automáticas con otros sistemas para mantener sincronizados los datos de facturación.
 
 Para más información acerca de cómo exportar datos de facturación, consulte [Creación y administración de datos exportados](tutorial-export-acm-data.md).
 

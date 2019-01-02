@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4cd88490118343a9a00dbd919d7820f0334df92e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162723"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016153"
 ---
 # <a name="manage-your-security-info-preview"></a>Administración de la información de seguridad (versión preliminar)
 
@@ -67,7 +67,7 @@ Si pierde el dispositivo o este está en peligro, tendrá que repetir el proceso
 
 3. En el área **Administrar cuenta**, seleccione **No aplicar MFA en los dispositivos recordados**.
     
-    Si elige esta opción, tendrá que pasar por el proceso de autenticación multifactor de nuevo después de iniciar sesión.
+    Si elige esta opción, tendrá que pasar por el proceso Multi-Factor Authentication (MFA) de nuevo después de iniciar sesión.
 
     ![Pantalla de perfil con el vínculo no aplicado resaltado](media/security-info/security-info-forget.png)
 
@@ -77,7 +77,7 @@ Este artículo le ayuda a solucionar problemas con la información de seguridad,
 
 |Problema|Solución|
 |-------|--------|
-|No tengo mi teléfono conmigo|Es posible que no tenga el teléfono consigo en todo momento, pero que, a pesar de ello, desee iniciar sesión en su cuenta profesional o educativa. Para solucionar este problema, puede iniciar sesión mediante un método de autenticación diferente que no requiera el teléfono como, por ejemplo, el correo electrónico o el número de teléfono de la oficina. Para agregar métodos adicionales a la información de seguridad, puede seguir los pasos descritos en la sección [Cambio de la información](#change-your-info).|
+|No tengo mi teléfono conmigo|Es posible que no tenga el teléfono consigo en todo momento, pero que, a pesar de ello, desee iniciar sesión en su cuenta profesional o educativa. Para solucionar este problema, puede iniciar sesión mediante un método de autenticación diferente que no requiera el teléfono como, por ejemplo, el número de teléfono de la oficina. Para agregar métodos adicionales a la información de seguridad, puede seguir los pasos descritos en la sección [Cambio de la información](#change-your-info).|
 |Perdí el teléfono o me lo robaron|Por desgracia, a veces se produce la pérdida o robo del teléfono. En este caso, es muy recomendable hacérselo saber a su organización para que el personal de TI pueda restablecer las contraseñas de las aplicaciones y borrar cualquier dispositivo recordado de la lista de dispositivos de confianza. También puede olvidar sus propios dispositivos de confianza siguiendo los pasos que se indican en la sección [Administración de la información de seguridad para un dispositivo perdido o potencialmente en peligro](#manage-your-security-info-for-a-lost-or-potentially-compromised-device).|
 |Tengo un nuevo número de teléfono|Existen dos formas de solucionar este problema. Puede iniciar sesión mediante un método de autenticación alternativo que no requiera el número de teléfono como, por ejemplo, el correo electrónico, o si eso no es una opción, puede ponerse en contacto con el personal de TI de su organización y pedirles que borren su configuración. Para agregar métodos adicionales a la información de seguridad, puede seguir los pasos descritos en la sección [Cambio de la información](#change-your-info).|
 |Mi método predeterminado es incorrecto|Puede actualizar el método predeterminado en las opciones de seguridad. Para obtener detalles concretos, puede ir a la sección [Cambio de la información](#change-your-info).|

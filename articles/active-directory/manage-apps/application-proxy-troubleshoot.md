@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 8be0e909ea391ed1b66fc78349cc2283d009e8cb
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2904de3243e37d7ee575a504934d5975789c00ef
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240382"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135073"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 Si se producen errores al obtener acceso a una aplicación publicada o al publicar aplicaciones, compruebe las siguientes opciones para ver si Proxy de aplicación de Microsoft Azure AD funciona correctamente:
@@ -49,12 +49,12 @@ Una vez que encuentre el error del conector en el registro de eventos, use esta 
 
 | Error | Pasos recomendados |
 | ----- | ----------------- |
-| Error de registro del conector: asegúrese de haber habilitado Proxy de aplicación en el Portal de administración de Azure, así como de haber escrito correctamente su nombre de usuario y contraseña de Active Directory. Error: 'Se han producido uno o más errores'. | Si cierra la ventana de registro sin iniciar sesión en Azure AD, vuelva a ejecutar el Asistente para conector y registre el conector. <br><br> Si se abre la ventana de registro y, a continuación, se cierra inmediatamente sin permitirle iniciar sesión, es probable que reciba este error. Este error se produce cuando hay un error de red en el sistema. Asegúrese de que es posible conectarse desde un explorador a un sitio web público y de que los puertos están abiertos como se especifica en [Requisitos previos del proxy de aplicación](application-proxy-enable.md). |
+| Error de registro del conector: asegúrese de haber habilitado Proxy de aplicación en el Portal de administración de Azure, así como de haber escrito correctamente su nombre de usuario y contraseña de Active Directory. Error: "Se han producido uno o varios errores". | Si cierra la ventana de registro sin iniciar sesión en Azure AD, vuelva a ejecutar el Asistente para conector y registre el conector. <br><br> Si se abre la ventana de registro y, a continuación, se cierra inmediatamente sin permitirle iniciar sesión, es probable que reciba este error. Este error se produce cuando hay un error de red en el sistema. Asegúrese de que es posible conectarse desde un explorador a un sitio web público y de que los puertos están abiertos como se especifica en [Requisitos previos del proxy de aplicación](application-proxy-add-on-premises-application.md). |
 | Aparecerá un error de borrado en la ventana de registro. No se puede continuar | Si ve este error y luego se cierra la ventana, significa que escribió el nombre de usuario o contraseña incorrectos. Inténtelo de nuevo. |
-| Error de registro del conector: asegúrese de haber habilitado Proxy de aplicación en el Portal de administración de Azure, así como de haber escrito correctamente su nombre de usuario y contraseña de Active Directory. Error: ' AADSTS50059: No se ha producido ningún error en la información de identificación del inquilino en la solicitud o implícita en ninguna credencial proporcionada y búsqueda por identificador URI de la entidad de servicio. | Intenta iniciar sesión con una cuenta Microsoft y no un dominio que forma parte del id. de organización del directorio al que intenta tener acceso. Asegúrese de que el administrador forma parte del mismo nombre de dominio que el dominio del inquilino, por ejemplo, si el dominio de Azure AD es contoso.com, el administrador debe ser admin@contoso.com. |
+| Error de registro del conector: asegúrese de haber habilitado Proxy de aplicación en el Portal de administración de Azure, así como de haber escrito correctamente su nombre de usuario y contraseña de Active Directory. Error: "AADSTS50059: No se ha producido ningún error en la información de identificación del inquilino en la solicitud o implícita en ninguna credencial proporcionada y búsqueda por identificador URI de la entidad de servicio. | Intenta iniciar sesión con una cuenta Microsoft y no un dominio que forma parte del id. de organización del directorio al que intenta tener acceso. Asegúrese de que el administrador forma parte del mismo nombre de dominio que el dominio del inquilino, por ejemplo, si el dominio de Azure AD es contoso.com, el administrador debe ser admin@contoso.com. |
 | Error al recuperar la directiva de ejecución actual para ejecutar scripts de PowerShell. | Si se produce un error en la instalación del conector, compruebe que la directiva de ejecución de PowerShell no está deshabilitada. <br><br>1. Abra el Editor de directivas de grupo.<br>2. Vaya a **Configuración del equipo** > **Plantillas administrativas** > **Componentes de Windows** > **Windows PowerShell** y haga doble clic en **Activar la ejecución de scripts**.<br>3. La directiva de ejecución puede definirse como **No configurado** o **Habilitado**. Si elige **Habilitado**, asegúrese de que, en Opciones, en Directiva de ejecución se selecciona en **Permitir scripts locales y scripts remotos firmados** o en **Permitir todos los scripts**. |
 | El conector no pudo descargar la configuración. | El certificado de cliente del conector, que se utiliza para la autenticación, ha expirado. Esto también puede ocurrir si tiene instalado el conector detrás de un proxy. En este caso, el conector no puede acceder a Internet ni tampoco podrá proporcionar aplicaciones a usuarios remotos. Renueve la confianza manualmente mediante el cmdlet `Register-AppProxyConnector` en Windows PowerShell. Si el conector está detrás de un proxy, es preciso otorgar acceso a Internet a las cuentas del conector "servicios de red" y "sistema local". Esto puede realizarse concediéndoles acceso al proxy o estableciéndoles para omitir el proxy. |
-| Error de registro del conector: asegúrese de que es administrador global de su Active Directory para registrar el conector. Error: 'Se ha denegado la solicitud de registro'. | El alias con el que intenta iniciar sesión no es administrador en este dominio. Su conector siempre está instalado para el directorio que posee el dominio del usuario. Asegúrese de que la cuenta de administrador con que intenta iniciar sesión tiene permisos globales para el inquilino de Azure AD. |
+| Error de registro del conector: asegúrese de que es administrador global de Active Directory para registrar el conector. Error: "Se ha denegado la solicitud de registro". | El alias con el que intenta iniciar sesión no es administrador en este dominio. Su conector siempre está instalado para el directorio que posee el dominio del usuario. Asegúrese de que la cuenta de administrador con que intenta iniciar sesión tiene permisos globales para el inquilino de Azure AD. |
 
 ## <a name="kerberos-errors"></a>Errores de Kerberos
 
@@ -86,8 +86,8 @@ En esta lista se muestran los errores que los usuarios finales pueden encontrar 
 Si se produce un error o un problema con el Proxy de aplicación de Azure AD que no aparece en esta guía de solución de problemas, es conveniente obtener información al respecto. Envíe un correo electrónico al [equipo de comentarios](mailto:aadapfeedback@microsoft.com) con los detalles del error que se ha producido.
 
 ## <a name="see-also"></a>Otras referencias
-* [Habilitación del proxy de aplicación de Azure Active Directory](application-proxy-enable.md)
-* [Publicar aplicaciones con Proxy de aplicación](application-proxy-publish-azure-portal.md)
+* [Habilitación del proxy de aplicación de Azure Active Directory](application-proxy-add-on-premises-application.md)
+* [Publicar aplicaciones con Proxy de aplicación](application-proxy-add-on-premises-application.md)
 * [Habilitar el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Habilitar el acceso condicional](application-proxy-integrate-with-sharepoint-server.md)
 

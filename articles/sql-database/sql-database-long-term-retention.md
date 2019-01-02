@@ -3,7 +3,7 @@ title: Almacenamiento de copias de seguridad de Azure SQL Database durante diez 
 description: Obtenga información acerca de cómo Azure SQL Database admite almacenar copias de seguridad de bases de datos completas durante un máximo de 10 años.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: 7fe34423e706054daf84eaa8baf45fe201a661c9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 7225c90d0d85b2a7fe53f9d2d3b13f68a45d0471
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026184"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868215"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo
 
 Muchas aplicaciones tienen finalidades normativas, de conformidad u otras de carácter empresarial que requieren que se conserven copias de seguridad de las bases de datos más allá de entre los 7 y 35 días proporcionados por las [copias de seguridad automáticas](sql-database-automated-backups.md) de Azure SQL Database. Con la característica Retención a largo plazo, puede almacenar copias de seguridad completas de SQL Database en Blob Storage de [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) durante un máximo de 10 años. Así, podrá restaurar cualquier copia de seguridad como si fuera una base de datos nueva.
 
 > [!NOTE]
-> LTR puede habilitarse en las bases de datos hospedadas en los servidores lógicos de Azure SQL Database. Aún no está disponible para las bases de datos hospedadas en Instancias administradas.
+> LTR puede habilitarse en las bases de datos hospedadas en los servidores lógicos de Azure SQL Database. Aún no está disponible para las bases de datos hospedadas en Instancias administradas. Puede usar los trabajos del Agente SQL para programar [copias de seguridad de base de datos de solo copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como alternativa a la retención a largo plazo después de 35 días.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Funcionamiento de la retención a largo plazo de SQL Database

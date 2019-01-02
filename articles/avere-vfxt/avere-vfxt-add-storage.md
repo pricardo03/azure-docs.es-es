@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163178"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001969"
 ---
 # <a name="configure-storage"></a>Configurar el almacenamiento
 
@@ -19,6 +19,12 @@ En este paso podrá configurar el sistema de almacenamiento de back-end para el 
 
 > [!TIP]
 > Si usó el script `create-cloudbacked-cluster` de prototipo para crear un nuevo contenedor de blobs junto con el clúster de Avere vFXT, ese contenedor ya está configurado para su uso y no es necesario agregar el almacenamiento.
+>
+> Sin embargo, si su nuevo contenedor de blobs se cifró con una clave de cifrado predeterminada, debe descargar el archivo de recuperación de claves del clúster o reemplazar la clave predeterminada por una nueva clave antes de almacenar datos. La clave predeterminada solo se guarda en el clúster y no se puede recuperar si el clúster se pierde o deja de estar disponible.
+>
+> Después de conectarse al panel de control de Avere, haga clic en el **Settings** (Configuración) y, después, elija **Core filtro** (Archivador principal) > **Cloud Encryption Settings** (Configuración de cifrado en la nube). En la sección **Local Key Store** (Almacén de claves local), elija una de estas opciones: 
+> * Use el botón **Redownload Recovery File** (Volver a cargar archivo de recuperación) para obtener el archivo de recuperación para la clave existente. El archivo de recuperación se cifra con la contraseña administrativa del clúster. Asegúrese de guardar el archivo en un lugar confiable. 
+> * Siga las instrucciones de la sección **Generate a New Master Key** (Generar una clave maestra nueva) de la página para crear una nueva clave de cifrado que usted controla. Esta opción permite especificar una frase de contraseña única y requiere cargar y volver a descargar el archivo de recuperación para validar el par frase de contraseña-archivo.
 
 Siga estas instrucciones si usó el script `create-minimal-cluster` de prototipo para el clúster, o si quiere agregar un hardware adicional o un sistema de almacenamiento basado en la nube.
 

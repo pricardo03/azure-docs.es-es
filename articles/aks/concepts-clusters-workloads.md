@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155990"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998091"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Puede compilar y ejecutar aplicaciones modernas, portátiles y basadas en micros
 
 Como plataforma abierta, Kubernetes le permite compilar aplicaciones con el lenguaje de programación, el sistema operativo, las bibliotecas o el bus de mensajería que prefiera. La integración continua y las herramientas de entrega continua (CI/CD) existentes pueden integrarse con Kubernetes para programar e implementar versiones.
 
-Azure Kubernetes Service (AKS) proporciona un servicio de Kubernetes administrado que reduce la complejidad de las principales tareas de administración e implementación, incluida la coordinación de actualizaciones. Los patrones de clúster de AKS se administran mediante la plataforma Azure y el usuario solo paga por los nodos de AKS que ejecuten sus aplicaciones. AKS se ha diseñado sobre el código abierto del motor de Azure Container Service (acs-engine).
+Azure Kubernetes Service (AKS) proporciona un servicio de Kubernetes administrado que reduce la complejidad de las principales tareas de administración e implementación, incluida la coordinación de actualizaciones. Los patrones de clúster de AKS se administran mediante la plataforma Azure y el usuario solo paga por los nodos de AKS que ejecuten sus aplicaciones. AKS se ha diseñado sobre el motor de código abierto de Azure Kubernetes Service (aks-engine).
 
 ## <a name="kubernetes-cluster-architecture"></a>Arquitectura del clúster de Kubernetes
 
@@ -54,7 +54,7 @@ AKS proporciona un patrón de clúster de inquilino único con un servidor de AP
 
 Este patrón de clúster administrado significa que no es necesario configurar componentes como el almacén *etcd* de alta disponibilidad, pero también significa que no puede obtener acceso al patrón de clúster directamente. Las actualizaciones de Kubernetes se organizan a través de la CLI de Azure o Azure Portal, que actualiza el patrón de clúster y, a continuación, los nodos. Para solucionar posibles problemas, puede revisar los registros del patrón de clúster a través de Azure Log Analytics.
 
-Si tiene que configurar el patrón de clúster de una manera determinada o necesita acceso directo a él, puede implementar su propio clúster de Kubernetes con [acs-engine][acs-engine].
+Si tiene que configurar el patrón de clúster de una manera determinada o necesita acceso directo a él, puede implementar su propio clúster de Kubernetes con [aks-engine][aks-engine].
 
 ## <a name="nodes-and-node-pools"></a>Nodos y grupos de nodos
 
@@ -70,7 +70,7 @@ El tamaño de la máquina virtual de Azure para los nodos define el número de C
 
 En AKS, la imagen de la máquina virtual para los nodos del clúster se basa en Ubuntu Linux actualmente. Al crear un clúster de AKS o escalar verticalmente el número de nodos, la plataforma Azure crea el número solicitado de máquinas virtuales y las configura. No se puede realizar ninguna configuración manual.
 
-Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ejecución del contenedor o incluir paquetes personalizados, puede implementar su propio clúster de Kubernetes mediante [acs-engine][acs-engine]. El componente `acs-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan oficialmente en los clústeres de AKS. Por ejemplo, si quiere usar contenedores de Windows o un entorno de ejecución del contenedor que no sea Docker, puede usar `acs-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
+Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ejecución del contenedor o incluir paquetes personalizados, puede implementar su propio clúster de Kubernetes mediante [aks-engine][aks-engine]. El componente `aks-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan oficialmente en los clústeres de AKS. Por ejemplo, si quiere usar contenedores de Windows o un entorno de ejecución del contenedor que no sea Docker, puede usar `aks-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
@@ -218,7 +218,7 @@ En este artículo se tratan algunos de los componentes básicos de Kubernetes y 
 - [Kubernetes / AKS scale][aks-concepts-scale] (Escala de Kubernetes/AKS)
 
 <!-- EXTERNAL LINKS -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
 [kubernetes-deployments]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/

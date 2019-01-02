@@ -1,6 +1,6 @@
 ---
 title: Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple | Microsoft Docs
-description: 'En este tema se describe cómo configurar un canal que recibe una transmisión en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una transmisión de velocidad de bits adaptable con Media Services. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más puntos de conexión de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream y MPEG DASH.'
+description: 'En este tema se describe cómo configurar un canal que recibe una transmisión en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una transmisión de velocidad de bits adaptable con Media Services. Posteriormente, la transmisión se puede enviar a aplicaciones de reproducción cliente a través de uno o más puntos de conexión de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream y MPEG DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/29/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262625"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682663"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -29,8 +29,8 @@ ms.locfileid: "52262625"
 ## <a name="overview"></a>Información general
 En Azure Media Services (AMS), un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
 
-* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
-* Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de velocidad de bits múltiple al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales**sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming con velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek y Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTMP o Smooth Streaming (Fragmented MP4). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de velocidad de bits múltiple al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales**sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek y Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
   
   > [!NOTE]
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
@@ -80,7 +80,7 @@ A partir del 25 de enero de 2016, Media Services implementó una actualización 
 El umbral para un período sin usar nominalmente es de 12 horas, pero está sujeta a cambios.
 
 ## <a name="live-encoding-workflow"></a>Flujo de trabajo de Live Encoding
-El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde un canal recibe una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP o Smooth Streaming. A continuación, la codifica como secuencia de varias velocidades de bits. 
+El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde un canal recibe una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP o Smooth Streaming. A continuación, la codifica como secuencia de velocidad de bits múltiple. 
 
 ![Flujo de trabajo activo][live-overview]
 
@@ -214,18 +214,17 @@ Especifica el valor preestablecido que usará el codificador en directo dentro d
 
 Tenga en cuenta que, si necesita valores preestablecidos personalizados, debe ponerse en contacto con amslived@microsoft.com.
 
-**Default720p** codificará el vídeo en las 7 capas siguientes.
+**Default720p** codificará el vídeo en las 6 capas siguientes.
 
 #### <a name="output-video-stream"></a>Secuencia de vídeo de salida
 | Velocidad de bits | Ancho | Alto | Fotogramas/seg. máx. | Perfil | Nombre secuencia salida |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Principal |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Principal |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Principal |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Principal |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Línea base |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Línea base |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Secuencia de audio de salida
 

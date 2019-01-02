@@ -3,7 +3,7 @@ title: Guía para la solución de problemas de Azure Backup para máquinas virtu
 description: Información para la solución de problemas en la realización de copias de seguridad de máquinas virtuales con SQL Server en Azure.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: ''
@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: markgal;anuragm
+ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 1c87382c2aae70b022fb391f80f7c75b0a4e5fe6
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296962"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339525"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solución de problemas de copia de seguridad de SQL Server en Azure
 
@@ -79,13 +78,13 @@ Las siguientes tablas se organizan por código de error.
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
 | No se puede realizar una copia de seguridad porque el registro de transacciones del origen de datos está lleno. | El espacio del registro de transacciones de la base de datos está lleno. | Para corregir este problema, consulte la [documentación de SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Las réplicas secundarias de los grupos de disponibilidad AlwaysOn no admiten copias de seguridad completas y diferenciales. | <ul><li>Si ha desencadenado una copia de seguridad ad hoc, desencadene las copias de seguridad en el nodo principal.</li><li>Si la directiva ha programado la copia de seguridad, asegúrese de que está registrado el nodo principal. Para registrar el nodo [siga los pasos necesarios para detectar una base de datos de SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> | 
+| Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Las réplicas secundarias de los grupos de disponibilidad AlwaysOn no admiten copias de seguridad completas y diferenciales. | <ul><li>Si ha desencadenado una copia de seguridad ad hoc, desencadene las copias de seguridad en el nodo principal.</li><li>Si la directiva ha programado la copia de seguridad, asegúrese de que está registrado el nodo principal. Para registrar el nodo [siga los pasos necesarios para detectar una base de datos de SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Errores de restauración
 
 Los siguientes códigos de error se muestran cuando se produce un error al restaurar trabajos.
 
-### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite 
+### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
@@ -108,7 +107,7 @@ Los siguientes códigos de error se muestran cuando se produce un error al resta
 
 Los siguientes códigos de error son de errores de registro.
 
-### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError 
+### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
@@ -125,6 +124,16 @@ Los siguientes códigos de error son de errores de registro.
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
 | El servicio Azure Backup usa el agente invitado de la máquina virtual de Azure para realizar la copia de seguridad, pero dicho agente no está disponible en el servidor de destino. | El agente invitado no está habilitado o es incorrecto | [Instale el agente invitado de la máquina virtual](../virtual-machines/extensions/agent-windows.md) manualmente. |
+
+## <a name="configure-backup-failures"></a>Configuración de errores de copia de seguridad
+
+Los siguientes códigos de error son para la configuración de errores de copia de seguridad.
+
+### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
+
+| Mensaje de error | Causas posibles | Acción recomendada |
+|---|---|---|
+| La intención de la protección automática se ha quitado o ya no es válida. | Cuando se habilita la protección automática en una instancia de SQL, se ejecutan los trabajos **Configurar copia de seguridad** para todas las bases de datos de esa instancia. Si se deshabilita la protección automática mientras se ejecutan los trabajos, los trabajos **en curso** se cancelan con este código de error. | Habilite la protección automática una vez más proteger todas las bases de datos restantes. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

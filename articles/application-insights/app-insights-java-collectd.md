@@ -9,21 +9,20 @@ ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: fd8c45bf3d7fd9e392d55a82001aa8768fcce8ba
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 528b344063dd9f84720ee55c4b3663c20127e5fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096606"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995046"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de rendimiento de Linux en Application Insights
 
 
-Para explorar las métricas de rendimiento del sistema de Linux en [Application Insights](app-insights-overview.md), instale [collectd](http://collectd.org/) junto con su complemento Application Insights. Esta solución de código abierto recopila diversas estadísticas de red y del sistema.
+Para explorar las métricas de rendimiento del sistema de Linux en [Application Insights](app-insights-overview.md), instale [collectd](https://collectd.org/) junto con su complemento Application Insights. Esta solución de código abierto recopila diversas estadísticas de red y del sistema.
 
 Normalmente, usará collectd si ya ha [instrumentado el servicio web de Java con Application Insights][java]. Así obtendrá más datos para ayudarlo a mejorar el rendimiento de la aplicación o a diagnosticar los problemas. 
 
@@ -39,7 +38,7 @@ Realice una copia de la clave de instrumentación, que identifica al recurso.
 ## <a name="install-collectd-and-the-plug-in"></a>Instalación de collectd y del complemento
 En los equipos de servidor Linux:
 
-1. Instale la versión de [collectd](http://collectd.org/) 5.4.0 o posterior.
+1. Instale la versión de [collectd](https://collectd.org/) 5.4.0 o posterior.
 2. Descargue el [complemento del escritor collectd de Application Insights](https://aka.ms/aijavasdk). Anote el número de versión.
 3. Copie el archivo JAR del complemento en `/usr/share/collectd/java`.
 4. Edite `/etc/collectd/collectd.conf`:

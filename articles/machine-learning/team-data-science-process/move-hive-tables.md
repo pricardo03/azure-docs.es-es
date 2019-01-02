@@ -1,6 +1,6 @@
 ---
-title: Creación de tablas de Hive y carga de datos desde Azure Blob Storage | Microsoft Docs
-description: Crear tablas de subárbol y cargar datos de blob en tablas de subárbol
+title: 'Creación de tablas de Hive y carga de datos desde Blob Storage: Proceso de ciencia de datos en equipo'
+description: Use consultas de Hive para crear tablas de Hive y cargar datos desde Azure Blob Azure. Cree particiones de las tablas de Hive y use el formato Columnas de filas optimizadas (ORC) para mejorar el rendimiento de las consultas.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 42911c347cd055f37f7fe8f31b6d22cc18a78662
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442887"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134954"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
 
@@ -65,14 +65,14 @@ Los usuarios disponen de tres maneras de enviar consultas de Hive en la línea d
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Envíe consultas de subárbol directamente en la línea de comandos de Hadoop.
 Los usuarios pueden ejecutar el comando como `hive -e "<your hive query>;` para enviar consultas de Hive sencillas directamente en la línea de comandos de Hadoop. Este es un ejemplo, donde el cuadro rojo muestra el comando que envía la consulta de subárbol y el cuadro verde muestra el resultado de la consulta de subárbol.
 
-![Creación del espacio de trabajo](./media/move-hive-tables/run-hive-queries-1.png)
+![Comando para enviar una consulta de Hive con la salida de la consulta de Hive](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>Enviar consultas de subárbol en archivos .hql
 Cuando la consulta de subárbol es más complicada y tiene varias líneas, no resulta práctico modificar consultas en la línea de comandos o la consola de comandos de subárbol. Una alternativa es usar un editor de texto en el nodo principal del clúster de Hadoop y guardar las consultas de subárbol en un archivo .hql de un directorio local del nodo principal. A continuación, la consulta de Hive del archivo .hql puede enviarse mediante el argumento `-f` del modo indicado a continuación:
 
     hive -f "<path to the .hql file>"
 
-![Creación del espacio de trabajo](./media/move-hive-tables/run-hive-queries-3.png)
+![Consulta de Hive en un archivo .hql](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Suprimir la impresión de pantalla del estado de progreso de las consultas de subárbol**
 
@@ -84,7 +84,7 @@ De forma predeterminada, después de enviar la consulta de Hive en la línea de 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Envíe consultas de subárbol en la consola de comandos de subárbol.
 Los usuarios también pueden especificar en primer lugar la consola de comandos de Hive al ejecutar el comando `hive` en la línea de comandos de Hadoop y, a continuación, enviar consultas de Hive en la consola de comandos de Hive. Aquí tiene un ejemplo. En este ejemplo, los dos cuadros de color rojo resaltan los comandos que se utilizan para escribir en la consola de comandos de subárbol y la consulta de subárbol enviada en la consola de comandos de subárbol, respectivamente. El cuadro verde resalta el resultado de la consulta de subárbol.
 
-![Creación del espacio de trabajo](./media/move-hive-tables/run-hive-queries-2.png)
+![Abra la consola de comandos de Hive y escriba el comando view Hive query output](./media/move-hive-tables/run-hive-queries-2.png)
 
 Los ejemplos anteriores generan directamente los resultados de la consulta de subárbol en pantalla. Los usuarios también pueden escribir la salida en un archivo local del nodo principal o en un blob de Azure. A continuación, los usuarios pueden utilizar otras herramientas para analizar más el resultado de las consultas de Hive.
 
@@ -95,7 +95,7 @@ Para generar los resultados de consultas de Hive en un directorio local del nodo
 
 En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un archivo `hivequeryoutput.txt` del directorio `C:\apps\temp`.
 
-![Creación del espacio de trabajo](./media/move-hive-tables/output-hive-results-1.png)
+![Salida de la consulta de Hive](./media/move-hive-tables/output-hive-results-1.png)
 
 **Generar los resultados de consulta de subárbol en un blob de Azure**
 
@@ -105,11 +105,11 @@ Los usuarios también pueden generar resultados de consulta de Hive en un blob d
 
 En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un directorio de blob `queryoutputdir` dentro del contenedor predeterminado del clúster de Hadoop. En este caso, solo necesita proporcionar el nombre del directorio, sin el nombre del blob. Se produce un error si proporciona los nombres de directorio y de blob, como `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Creación del espacio de trabajo](./media/move-hive-tables/output-hive-results-2.png)
+![Salida de la consulta de Hive](./media/move-hive-tables/output-hive-results-2.png)
 
 Si abre el contenedor predeterminado del clúster de Hadoop mediante herramientas como el Explorador de Azure Storage, verá el resultado de la consulta de Hive como se muestra en la ilustración siguiente. Puede aplicar el filtro (resaltado mediante un cuadro rojo) para recuperar solo el blob con letras especificadas en los nombres.
 
-![Creación del espacio de trabajo](./media/move-hive-tables/output-hive-results-3.png)
+![Explorador de Azure Storage mostrando la salida de la consulta de Hive](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Enviar consultas de Hive con el Editor de Hive
 También puede utilizar la consola de consultas (Editor de Hive) escribiendo una dirección URL del formulario *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* en un explorador web. Debe haber iniciado sesión para ver esta consola; así pues, tiene que escribir sus credenciales de Hadoop aquí.

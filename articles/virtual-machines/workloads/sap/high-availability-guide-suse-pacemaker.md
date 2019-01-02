@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9d3d1e5ba7ebc7e2afefb31df3be9f2a8f43e153
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685402"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076362"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -436,7 +436,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Agregue el siguiente contenido en negrita al archivo si los valores no están ahí o son diferentes. No olvide cambiar el token a 30000 para permitir el mantenimiento con conservación de memoria. Para obtener más información, consulte [este artículo para Linux][virtual-machines-linux-maintenance] o [Windows][virtual-machines-windows-maintenance].
+   Agregue el siguiente contenido en negrita al archivo si los valores no están ahí o son diferentes. No olvide cambiar el token a 30000 para permitir el mantenimiento con conservación de memoria. Para obtener más información, consulte [este artículo para Linux][virtual-machines-linux-maintenance] o [Windows][virtual-machines-windows-maintenance]. Además, asegúrese de quitar el parámetro mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -449,6 +449,8 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
         [...] 
      }
      <b>transport:      udpu</b>
+     # remove parameter mcastaddr
+     <b># mcastaddr: IP</b>
    } 
    <b>nodelist {
      node {
@@ -527,10 +529,10 @@ Asigne el rol personalizado "Rol del agente de barrera de Linux" que se creó en
 1. Abra la hoja Todos los recursos
 1. Seleccione la máquina virtual del primer nodo de clúster.
 1. Haga clic en Control de acceso (IAM)
-1. Haga clic en Agregar
+1. Haga clic en Agregar asignación de roles
 1. Seleccione el rol "Rol de agente de barrera de Linux".
 1. Escriba el nombre de la aplicación que creó anteriormente
-1. Haga clic en Aceptar
+1. Haga clic en Guardar
 
 Repita los pasos anteriores para el segundo nodo de clúster.
 

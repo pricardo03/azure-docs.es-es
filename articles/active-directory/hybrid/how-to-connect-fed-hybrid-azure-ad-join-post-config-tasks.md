@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2306c03480956a63859355428cbffe0706f43cbc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306644"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999229"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tareas posteriores a la configuración de la combinación de Azure AD híbrido
 
@@ -30,12 +30,12 @@ Después de ejecutar Azure AD Connect para configurar la organización para la c
 Todos los dispositivos unidos a un dominio que ejecuten Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD una vez que se han completado todos los pasos de configuración. Si prefiere realizar un lanzamiento controlada en lugar de este registro automático, puede usar la directiva de grupo para habilitar o deshabilitar el lanzamiento automático de forma selectiva.  Esta directiva de grupo debe establecerse antes de iniciar otros pasos de configuración: Azure AD.
 * Cree un objeto de directiva de grupo en Active Directory.
 * Póngale nombre (por ejemplo, combinación de Azure AD híbrido).
-* Edítelo y vaya a Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Registro de dispositivos.
+* Edite y vaya a:  Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Registro de dispositivos.
 
 >[!NOTE]
 >Para 2012R2, la configuración de directivas se encuentra en **Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Workplace Join > Automatically workplace join client computers** (Unión automática al área de trabajo de equipos cliente).
 
-* Deshabilite esta opción: Register domain-joined computers as devices (Registrar equipos unidos a un dominio como dispositivos).
+* Deshabilite esta configuración:  Registro de equipos unidos a un dominio como dispositivos.
 * Aplique las opciones y haga clic en Aceptar.
 * Vincule GPO a la ubicación de su elección (unidad organizativa, grupo de seguridad o dominio para todos los dispositivos).
 
@@ -69,7 +69,7 @@ Si su organización usa la sincronización de hash de contraseñas o la autentic
 Para registrar dispositivos de nivel inferior de Windows, es preciso asegurarse de que la directiva de Azure AD permite a los usuarios registrar dispositivos. 
 
 * Inicie sesión en su cuenta en Azure Portal.
-* Vaya a: Azure Active Directory > Dispositivos > Configuración de dispositivo.
+* Vaya a:  Azure Active Directory > Dispositivos > Configuración de dispositivo.
 * Establezca "Los usuarios pueden registrar sus dispositivos con Azure AD" en TODOS.
 * Haga clic en Guardar
 
@@ -77,7 +77,7 @@ Para registrar dispositivos de nivel inferior de Windows, es preciso asegurarse 
 
 Agregue el punto de conexión de autenticación de dispositivos de Azure AD a las zonas de la intranet locales en los dispositivos de nivel inferior de Windows para evitar las solicitudes de certificado al autenticar los dispositivos: https://device.login.microsoftonline.com. 
 
-Si utiliza un [SSO de conexión directa](https://aka.ms/hybrid/sso), habilite también la opción "Permitir actualizaciones de barra de estado a través de scripts" en esa zona y agregue el siguiente punto de conexión: https://autologon.microsoftazuread-sso.com. 
+Si utiliza un [SSO de conexión directa](how-to-connect-sso.md), habilite también la opción "Permitir actualizaciones de barra de estado a través de scripts" en esa zona y agregue el siguiente punto de conexión: https://autologon.microsoftazuread-sso.com. 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Instalar Microsoft Workplace Join en dispositivos de nivel inferior de Windows
 
@@ -87,8 +87,8 @@ El instalador crea una tarea programada en el sistema del dispositivo que se eje
 
 * Cree un objeto de directiva de grupo en Active Directory, si no lo creó aún.
 * Póngale nombre (por ejemplo, combinación de Azure AD híbrido).
-* Edite y vaya a Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Registro de dispositivos.
-* Habilite: Register domain-joined computers as devices (Registrar equipos unidos a un dominio como dispositivos).
+* Edite y vaya a:  Configuración del equipo > Directivas > Plantillas administrativas > Componentes de Windows > Registro de dispositivos.
+* Habilite:  Registro de equipos unidos a un dominio como dispositivos
 * Aplique las opciones y haga clic en Aceptar.
 * Vincule GPO a la ubicación de su elección (unidad organizativa, grupo de seguridad o dominio para todos los dispositivos).
 

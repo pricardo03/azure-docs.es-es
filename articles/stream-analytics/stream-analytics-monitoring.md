@@ -1,30 +1,31 @@
 ---
 title: Descripción de la supervisión de trabajos en Azure Stream Analytics
-description: En este artículo se describe cómo analizar los registros de diagnóstico en Azure Stream Analytics.
+description: En este artículo se describe cómo supervisar los trabajos de Azure Stream Analytics en Azure Portal.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 200df7602f94f70f3fb9c62ad81a0710923184c7
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291426"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096630"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Descripción de la supervisión del trabajo de Stream Analytics y cómo supervisar consultas
 
-## <a name="introduction-the-monitor-page"></a>Introducción: Página de supervisión
+## <a name="introduction-the-monitor-page"></a>Introducción: La página de supervisión
 Azure Portal muestra las métricas de rendimiento clave que se pueden usar para supervisar y solucionar problemas de rendimiento del trabajo y consultas. Para ver estas métricas, vaya al trabajo de Stream Analytics para el que le interesa ver las métricas y consulte la sección **Supervisión** de la página de información general.  
 
-![Vínculo de supervisión](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![Vínculo de supervisión de trabajos de Stream Analytics](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
 Se mostrará la siguiente ventana:
 
-![Panel de supervisión de trabajos](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+![Panel de supervisión de trabajos de Stream Analytics](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponibles para Stream Analytics
 | Métrica                 | Definición                               |
@@ -49,7 +50,7 @@ Se mostrará la siguiente ventana:
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Personalización de la supervisión en Azure Portal
 Puede ajustar el tipo de gráfico, las métricas que se muestran y el intervalo de tiempo en la configuración de Editar gráfico. Para obtener detalles, vea [Personalización de la supervisión](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-  ![Escala de tiempo de supervisión de consultas](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Gráfico del tiempo de supervisión de consultas de Stream Analytics](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
 ## <a name="latest-output"></a>Salida más reciente

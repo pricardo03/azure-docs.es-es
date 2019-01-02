@@ -12,22 +12,26 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/6/2017
+ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643039"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727722"
 ---
-# <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Copia de seguridad y restauración de Reliable Services y Reliable Actors
+# <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Copia de seguridad y restauración de Reliable Services y Reliable Actors
 Azure Service Fabric es una plataforma de alta disponibilidad que replica el estado entre varios nodos para mantener esta disponibilidad alta.  Por lo tanto, incluso si se produce un error en un nodo del clúster, los servicios siguen estando disponibles. Aunque esta redundancia integrada proporcionada por la plataforma puede ser suficiente para algunos casos, en otros es conveniente que el servicio haga una copia de seguridad de los datos (en un almacén externo).
 
 > [!NOTE]
 > Es fundamental hacer una copia de seguridad de los datos y restaurarlos (y comprobar que funcionan según lo esperado) para que se pueda recuperar de escenarios de pérdida de datos.
 > 
+
+> [!NOTE]
+> Microsoft recomienda usar [copias de seguridad y restauraciones periódicas](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar la copia de seguridad de datos de servicios de confianza con estado y de Reliable Actors. 
 > 
+
 
 Por ejemplo, es posible que un servicio quiera realizar copias de seguridad de los datos como medida de protección en los escenarios siguientes:
 
@@ -82,7 +86,7 @@ Si la copia de seguridad solicitada es incremental, puede producirse la excepci�
 - La réplica ha superado el límite de `MaxAccumulatedBackupLogSizeInMB`.
 
 Para que la probabilidad de realizar correctamente copias de seguridad incrementales sea mayor, los usuarios pueden configurar `MinLogSizeInMB` o `TruncationThresholdFactor`.
-Tenga en cuenta que, si se aumentan estos valores, lo hará también el uso del disco por parte de cada réplica.
+Si se aumentan estos valores, lo hará también el uso del disco por parte de cada réplica.
 Para obtener más información, consulte el artículo de [configuración de Reliable Services](service-fabric-reliable-services-configuration.md).
 
 `BackupInfo` proporciona información sobre la copia de seguridad, como la ubicación de la carpeta donde el entorno de tiempo de ejecución guardó la copia de seguridad (`BackupInfo.Directory`). La función de devolución de llamada puede transferir `BackupInfo.Directory` a un almacén externo u otra ubicación.  Además, esta función devuelve un valor booleano que indica si se pudo mover correctamente la carpeta de copia de seguridad a su ubicación de destino.
@@ -176,7 +180,7 @@ Observe lo siguiente:
   - Con cada restauración, es posible que la copia de seguridad que se restaura sea anterior al estado de la partición antes de la pérdida de datos. Por este motivo, la restauración se debe utilizar solo como último recurso para recuperar tantos datos como sea posible.
   - La cadena que representa la ruta de acceso de la carpeta de copia de seguridad, así como las rutas de acceso de los archivos dentro de la misma, puede tener más de 255 caracteres, según la ruta de acceso de FabricDataRoot y la longitud del nombre del tipo de aplicación. Esto puede hacer que algunos métodos .NET, como `Directory.Move`, inicien la excepción `PathTooLongException`. Como solución alternativa, puede llamarse directamente a las API de kernel32, como `CopyFile`.
 
-## <a name="backup-and-restore-reliable-actors"></a>Copia de seguridad y restauración de Reliable Actors
+## <a name="back-up-and-restore-reliable-actors"></a>Copia de seguridad y restauración de Reliable Actors
 
 
 El marco de Reliable Actors está basado en Reliable Services. El servicio ActorService que hospeda los actores es un servicio con estado confiable. Por lo tanto, toda la funcionalidad de copia de seguridad y restauración disponible en Reliable Services también está disponible para Reliable Actors (excepto los comportamientos específicos para el proveedor de estado). Puesto que las copias de seguridad se realizan por partición, se llevará a cabo una copia de seguridad de los estados para todos los actores de esa partición. La restauración es similar y se realizará por partición. Para realizar la copia de seguridad y restauración, el propietario del servicio debe crear una clase de servicio de actor personalizada que derive de la clase ActorService y, luego, hacer la copia de seguridad y restauración de forma similar a Reliable Services, tal como se describió en las secciones anteriores.
@@ -231,7 +235,7 @@ Cuando se realiza la restauración a partir de una cadena de copias de seguridad
 > En la actualidad, `KvsActorStateProvider` omite la opción RestorePolicy.Safe. La compatibilidad con esta característica está pensada para un próximo lanzamiento.
 > 
 
-## <a name="testing-backup-and-restore"></a>Prueba de la copia de seguridad y la restauración
+## <a name="testing-back-up-and-restore"></a>Prueba de copias de seguridad y restauraciones
 Es importante asegurarse de que se hace una copia de seguridad de los datos y que se pueden restaurar desde dicha copia. Esto se puede hacer invocando el cmdlet `Start-ServiceFabricPartitionDataLoss` de PowerShell, que puede provocar la pérdida de datos en una partición determinada para comprobar si la funcionalidad de copia de seguridad y restauración de los datos del servicio funciona según lo esperado.  También es posible invocar la pérdida de datos mediante programación y restaurar a partir de ese evento también.
 
 > [!NOTE]
@@ -242,12 +246,12 @@ Es importante asegurarse de que se hace una copia de seguridad de los datos y qu
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Bajo el capó: Más detalles sobre la copia de seguridad y la restauración
 A continuación se proporcionan más detalles sobre la copia de seguridad y la restauración.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Copia de seguridad
 El Administrador de estado fiable proporciona la capacidad de crear copias de seguridad coherentes sin bloquear ninguna operación de lectura ni escritura. Para ello, usa un mecanismo de persistencia de registro y punto de control.  El Administrador de estado fiable instaura puntos de control aproximados (ligeros) en determinados puntos para aliviar la presión sobre el registro transaccional y mejorar los tiempos de recuperación.  Cuando se llama a `BackupAsync`, Reliable State Manager indica a todos los objetos Reliable que copien los archivos de punto de control más recientes en una carpeta local de copia de seguridad.  Después, el Administrador de estado confiable copia todas las entradas del registro desde el "puntero de inicio" hasta la entrada del registro más reciente en la carpeta de copia de seguridad.  Como todas las entradas del registro, de la primera a la última, se incluyen en la copia de seguridad y Reliable State Manager conserva el registro de escritura previa, Reliable State Manager garantiza que todas las transacciones confirmadas (aquellas en las que se devuelva `CommitAsync` correctamente) estarán incluidas en la copia de seguridad.
 
 Cualquier transacción que se confirme después de la llamada a `BackupAsync` puede estar o no incluida en la copia de seguridad.  Una vez que la plataforma rellene la carpeta de copia de seguridad (es decir, el tiempo de ejecución completó la copia de seguridad local), se invoca la devolución de llamada de la copia de seguridad del servicio.  Esta devolución de llamada se encarga de mover la carpeta de copia de seguridad a una ubicación externa, como Azure Storage.
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>Restauración
 Reliable State Manager ofrece la posibilidad de restaurar los datos de una copia de seguridad mediante la API `RestoreAsync`.  
 El método `RestoreAsync` de `RestoreContext` solo puede invocarse desde el método `OnDataLossAsync`.
 El valor booleano devuelto por `OnDataLossAsync` indica si el servicio restauró su estado a partir de un origen externo.
@@ -260,7 +264,7 @@ En primer lugar, `RestoreAsync` quita todos los estados existentes en la réplic
 
 ## <a name="next-steps"></a>Pasos siguientes
   - [Colecciones confiables](service-fabric-work-with-reliable-collections.md)
-  - [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
+  - [Guía de inicio rápido de Reliable Services](service-fabric-reliable-services-quick-start.md)
   - [Notificaciones de Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuración de Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

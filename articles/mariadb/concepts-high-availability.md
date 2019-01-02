@@ -7,16 +7,16 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 2f06c9515c6ee79ea7475452b7000d1babdbecfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 043988066cae672225b850b57864bddb3155689c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956530"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833846"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Conceptos de alta disponibilidad en Azure Database for MariaDB
-El servicio Azure Database for MariaDB garantiza un alto nivel de disponibilidad. El Acuerdo de Nivel de Servicio con respaldo financiero tiene un 99,99 % de disponibilidad general. El SLA no es aplicable a la versión preliminar pública. Al usar este servicio, las aplicaciones prácticamente no tienen tiempo de inactividad.
+El servicio Azure Database for MariaDB garantiza un alto nivel de disponibilidad. El Acuerdo de Nivel de Servicio con respaldo financiero tiene un 99,99 % de disponibilidad general. Al usar este servicio, las aplicaciones prácticamente no tienen tiempo de inactividad.
 
 ## <a name="high-availability"></a>Alta disponibilidad
 El modelo de alta disponibilidad se basa en los mecanismos de conmutación por error integrados cuando se produce una interrupción en el nivel de nodo. Una interrupción en el nivel de nodo podría producirse debido a un error de hardware o como respuesta a la implementación de un servicio.
@@ -34,4 +34,4 @@ De forma similar al modelo de alta disponibilidad, cuando Azure Database for Mar
 Durante la operación de escalado, se produce una interrupción en las conexiones de la base de datos. Las aplicaciones cliente se desconectan y las transacciones abiertas no confirmadas se cancelan. Una vez que la aplicación cliente reintenta la conexión o crea una conexión nueva, la puerta de enlace dirige la conexión a la instancia cuyo tamaño se modificó.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para obtener información general sobre el servicio, consulte [Introducción a Azure Database for MariaDB](overview.md)
+- Para información general sobre el servicio, consulte  [Introducción a Azure Database for MariaDB](overview.md).

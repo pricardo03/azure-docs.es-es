@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457398"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344098"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
 
@@ -21,7 +21,7 @@ Las directivas de asignación definidas por el servicio de aprovisionamiento adm
 
 * **Geolocalización o geolatencia**: puesto que un dispositivo se mueve entre ubicaciones, la latencia de red se mejora mediante su aprovisionamiento en el centro de IoT más cercano a cada ubicación. En este escenario, se selecciona un grupo de centros de IoT, que abarcan varias regiones, para las inscripciones. La directiva de asignación **Latencia más baja** está seleccionada para estas inscripciones. Esta directiva hace que Device Provisioning Service evalúe la latencia del dispositivo y determine el centro de IoT más cercano del grupo de centros de IOT. 
 
-* **Multiinquilinato**: puede que los dispositivos que se usan en una solución de IoT se tengan que asignar a un centro de IoT o un grupo de centros de IoT específicos. La solución puede requerir que todos los dispositivos de un inquilino determinado se comuniquen con un grupo específico de centros de IoT. En algunos casos, un inquilino puede tener centros de IoT y requerir que los dispositivos se asignen a sus centros.
+* **Servicios multiinquilino**: puede que los dispositivos que se usan en una solución de IoT se tengan que asignar a un centro de IoT o un grupo de centros de IoT específicos. La solución puede requerir que todos los dispositivos de un inquilino determinado se comuniquen con un grupo específico de centros de IoT. En algunos casos, un inquilino puede tener centros de IoT y requerir que los dispositivos se asignen a sus centros.
 
 Es habitual combinar estos dos escenarios. Por ejemplo, una solución de IoT multiinquilino normalmente asignará los dispositivos de los inquilinos mediante un grupo de centros de IoT repartidos en regiones. Estos dispositivos de los inquilinos se pueden asignar al centro de IoT de ese grupo que tiene la menor latencia según la ubicación geográfica.
 
@@ -92,13 +92,13 @@ Para que sea más sencillo, en este artículo se usa la [atestación de clave si
 
 3. En **Agregar grupo de inscripciones**, escriba la siguiente información y haga clic en el botón **Guardar**.
 
-    **Nombre del grupo**: escriba **contoso-us-devices**.
+    **Nombre del grupo**: Escriba **contoso-us-devices**.
 
     **Tipo de atestación**: seleccione **Clave simétrica**.
 
-    **Generar claves automáticamente**: esta casilla ya debe estar seleccionada.
+    **Generar claves automáticamente**: ya debe estar activada esta casilla.
 
-    **Seleccione cómo quiere asignar los dispositivos a los centros**: seleccione **Latencia más baja**.
+    **Seleccione cómo quiere asignar los dispositivos a los centros**: Seleccione **Latencia más baja**.
 
     ![Agregar grupo de inscripción multiinquilino para la atestación de clave simétrica](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
@@ -139,7 +139,7 @@ Para que la limpieza sea más sencilla, estas máquinas virtuales se agregarán 
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceEest \
+    --name ContosoSimDeviceEast \
     --location eastus \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
@@ -220,7 +220,7 @@ En esta sección, clonará el SDK de C para Azure IoT en cada máquina virtual. 
 1. Para ambas máquinas virtuales, ejecute el siguiente comando para compilar una versión del SDK específica para su plataforma de cliente de desarrollo. 
 
     ```bash
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
     Una vez realizada la compilación, las últimas líneas de salida tendrán un aspecto similar al siguiente:
@@ -327,28 +327,28 @@ El código de ejemplo simula una secuencia de arranque de dispositivo que envía
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-
-1. Abra **~/azure-iot-sdk-c/provisioning\_client/adapters/hsm\_client\_key.c** en las dos máquinas virtuales. 
-
-    ```bash
-     vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
-    ```
-
-1. Busque la declaración de las constantes `REGISTRATION_NAME` y `SYMMETRIC_KEY_VALUE`. Realice los siguientes cambios en los archivos de ambas máquinas virtuales regionales y guarde los archivos.
-
-    Actualice el valor de la constante `REGISTRATION_NAME` con el **identificador de registro único de su dispositivo**.
-    
-    Actualice el valor de la constante `SYMMETRIC_KEY_VALUE` con su **clave de dispositivo derivada**.
+1. En ambas máquinas virtuales, encuentre la llamada a `prov_dev_set_symmetric_key_info()` en **prov\_dev\_client\_sample.c** que se marcó como comentario.
 
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
+    Quite la marca del comentario en las llamadas de función y reemplace los valores de marcador de posición (incluidos los corchetes angulares) por los identificadores de registro únicos y las claves de dispositivo derivada para cada dispositivo. Las claves que se muestran a continuación son solo para fines ilustrativos. Use las claves que generó anteriormente.
+
+    Este de EE. UU:
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
-    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
     ```
+
+    Oeste de EE. UU.:
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
+    ```
+
+    Guarde los archivos.
 
 1. En ambas máquinas virtuales, vaya a la carpeta de ejemplo que se muestra a continuación y compile el ejemplo.
 
@@ -358,6 +358,13 @@ El código de ejemplo simula una secuencia de arranque de dispositivo que envía
     ```
 
 1. Una vez que la compilación se realice correctamente, ejecute **prov\_dev\_client\_sample.exe** en ambas máquinas virtuales para simular un dispositivo de inquilino de cada región. Tenga en cuenta que cada dispositivo se asigna al centro de IoT del inquilino más cercano a las regiones del dispositivo simulado.
+
+    Ejecución de la simulación:
+    ```bash
+    ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
+    ```
+
+    Salida de ejemplo de la máquina virtual de Este de EE. UU.:
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -374,6 +381,7 @@ El código de ejemplo simula una secuencia de arranque de dispositivo que envía
 
     ```
 
+    Salida de ejemplo de la máquina virtual de Oeste de EE. UU.:
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9

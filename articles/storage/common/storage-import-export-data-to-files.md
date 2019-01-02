@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820314"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384775"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
 
@@ -29,7 +29,7 @@ Antes de crear un trabajo de importación para transferir datos en Azure Files, 
 - Tener al menos una cuenta de Azure Storage. Consulte la lista de [las cuenta de almacenamiento y los tipos de almacenamiento admitidos para el servicio Import/Export](storage-import-export-requirements.md). Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
 - Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks). 
 - Tener un sistema de Windows que ejecute una [versión admitida del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
-- [Descargar la versión 2 de WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) en el sistema de Windows. Descomprima en la carpeta predeterminada `waimportexport`. Por ejemplo, `C:\WaImportExport`.
+- [Descargar la versión 2 de WAImportExport](https://aka.ms/waiev2) en el sistema de Windows. Descomprima en la carpeta predeterminada `waimportexport`. Por ejemplo, `C:\WaImportExport`.
 - Tener una cuenta de FedEx o DHL. 
     - La cuenta debe ser válida, debe tener saldo positivo y debe tener capacidades de devolución de envíos.
     - Generar un número de seguimiento del trabajo de exportación.
@@ -112,7 +112,7 @@ Realice los pasos siguientes para preparar las unidades de disco.
 
 Para ejemplos adicionales, vaya a [Ejemplos para archivos de diario](#samples-for-journal-files).
 
-## <a name="step-2-create-an-import-job"></a>Paso 2: Creación de un trabajo de importación 
+## <a name="step-2-create-an-import-job"></a>Paso 2: Crear un trabajo de importación 
 
 Siga estos pasos para crear un trabajo de importación en Azure Portal.
 1. Inicie sesión en https://portal.azure.com/.
@@ -170,7 +170,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Paso 5: Verificación de la carga de datos en Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Paso 5: Comprobación de la carga de datos en Azure
 
 Siga el trabajo hasta su finalización. Una vez que se haya finalizado el trabajo, compruebe que los datos se han cargado en Azure. Elimine los datos de forma local después de comprobar que la carga fue correcta.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1d00dbe23fbd724893ba2b964fc54a3ea9066dcb
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250831"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876543"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Introducción al uso de Azure DevTest Labs
 Una vez que decide explorar DevTest Labs, hay dos rutas generales: prueba de concepto frente a implementación a escala. 
@@ -51,7 +51,7 @@ Crear y administrar entornos de prueba en una empresa puede requerir un esfuerzo
 
 - Los evaluadores pueden probar la última versión de la aplicación aprovisionando rápidamente entornos de Windows y Linux mediante plantillas y artefactos reutilizables.
 - Los evaluadores pueden escalar verticalmente la prueba de carga aprovisionando varios agentes de prueba.
-- Los administradores pueden conectar el laboratorio a VSTS para habilitar escenarios de DevOps.
+- Los administradores pueden conectar el laboratorio a Azure DevOps para habilitar escenarios de DevOps.
 - Los administradores pueden controlar los costos garantizando que:
     - Los evaluadores no puedan obtener más máquinas virtuales de las que necesitan.
     - Las máquinas virtuales se apagan cuando no están en uso.
@@ -62,4 +62,4 @@ Un laboratorio de Azure DevTest Labs actúa como un magnífico contenedor para a
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el siguiente artículo de esta serie: [Escalado vertical de la implementación de DevTest Labs](devtest-lab-guidance-scale.md).
+Lea el siguiente artículo de esta serie: [Escalado vertical de la implementación de DevTest Labs](devtest-lab-guidance-scale.md)

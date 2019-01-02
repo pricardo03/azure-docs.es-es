@@ -1,20 +1,18 @@
 ---
-title: 'Informática de base de datos sin servidor: Azure Functions y Azure Cosmos DB | Microsoft Docs'
+title: 'Informática de base de datos sin servidor: Azure Functions y Azure Cosmos DB'
 description: Obtenga información sobre cómo Azure Cosmos DB y Azure Functions se pueden usar en conjunto para crear aplicaciones informáticas sin servidor basadas en eventos.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f0f0308233334e2662704e818c765c625a80019d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582792"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878342"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -51,7 +49,7 @@ Los casos de uso siguientes muestran algunas formas en las que puede aprovechar 
 
 En las implementaciones de IoT, puede invocar una función cuando la luz de comprobación del motor se muestra en un automóvil conectado.
 
-**Implementación:** use un desencadenador de Azure Cosmos DB y un enlace de salida
+**Implementación**: use un desencadenador de Azure Cosmos DB y un enlace de salida
 
 1. Un **desencadenador de Azure Cosmos DB** se usa para desencadenar eventos relacionados con alertas de automóviles, como la luz de comprobación del motor que aparece en un automóvil conectado.
 2. Cuando aparece la luz de comprobación del motor, los datos del sensor se envían a Azure Cosmos DB.
@@ -69,7 +67,7 @@ La imagen siguiente muestra el código escrito en Azure Portal para este desenca
 
 En implementaciones financieras, puede invocar una función cuando el saldo de una cuenta bancaria cae por debajo de cierto importe.
 
-**Implementación:** desencadenador de temporizador con un enlace de entrada de Azure Cosmos DB
+**Implementación**: desencadenador de temporizador con un enlace de entrada de Azure Cosmos DB
 
 1. Con un [desencadenador de temporizador](../azure-functions/functions-bindings-timer.md), puede recuperar la información del saldo de la cuenta bancaria almacenada en un contenedor de Azure Cosmos DB a intervalos de tiempo con un **enlace de entrada**.
 2. Si el saldo está por debajo del umbral de saldo mínimo que establece el usuario, debe hacer seguimiento con una acción desde Azure Function.
@@ -85,7 +83,7 @@ En las imágenes siguientes se muestra el código de Azure Portal para este esce
 
 En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros usuarios que tal vez lo conozcan con [Azure Cosmos DB Gremlin API](graph-introduction.md). A continuación, puede escribir los resultados en una [base de datos SQL de Azure Cosmos DB] para poder recuperarlos fácilmente.
 
-**Implementación:** use un desencadenador de Azure Cosmos DB y un enlace de salida
+**Implementación**: use un desencadenador de Azure Cosmos DB y un enlace de salida
 
 1. Con una [base de datos de gráficos](graph-introduction.md) de Azure para almacenar a todos los usuarios, puede crear una función nueva con un desencadenador de Azure Cosmos DB. 
 2. Cada vez que se inserta un usuario nuevo, se invoca la función y, luego, el resultado se almacena con un **enlace de salida**.
@@ -96,7 +94,7 @@ En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros
 
 En implementaciones de venta minorista, cuando un usuario agrega un elemento a su cesta, ahora se tiene la flexibilidad de crear e invocar funciones para componentes opcionales de la canalización comercial.
 
-**Implementación:** varios desencadenadores de Azure Cosmos DB que escuchan un contenedor
+**Implementación**: varios desencadenadores de Azure Cosmos DB que escuchan un contenedor
 
 1. Puede crear varias instancias de Azure Functions si agrega desencadenadores de Azure Cosmos DB a cada una de ellas, todas las cuales escuchan la misma fuente de cambios de los datos del carro de la compra. Tenga en cuenta que cuando varias funciones escuchan en la misma fuente de cambios, es necesario una colección de concesiones para cada función. Para más información sobre las colecciones de concesiones, consulte [Biblioteca del procesador de fuente de cambios](change-feed-processor.md).
 2. Cada vez que un elemento nuevo se agrega al carro de la compra de los usuarios, la fuente de cambios invoca cada función de manera independiente desde el contenedor de carros de la compra.

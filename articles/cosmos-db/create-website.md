@@ -1,21 +1,19 @@
 ---
-title: 'Implementación de una aplicación web con una plantilla: Azure Cosmos DB | Microsoft Docs'
+title: 'Implementación de una aplicación web con una plantilla: Azure Cosmos DB'
 description: Aprenda a implementar una cuenta de Azure Cosmos DB, Azure App Service Web Apps y una aplicación web de ejemplo mediante una plantilla de Azure Resource Manager.
 services: cosmos-db, app-service\web
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 29a2335a3a4077866b71e4303c240ad8352371ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8af76c64e755b9c72ae4ebcc223e5f69549b92b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243784"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076742"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar Azure Cosmos DB y Azure App Service Web Apps con una plantilla de Azure Resource Manager
 En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), una aplicación web de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
@@ -121,12 +119,12 @@ Ahora implementaremos su segunda plantilla.  Esta plantilla resulta útil para m
 ## <a name="next-steps"></a>Pasos siguientes
 Felicidades. Ha implementado Azure Cosmos DB, una aplicación web de App Service y una aplicación web de ejemplo mediante plantillas de Azure Resource Manager.
 
-* Para más información sobre Azure Cosmos DB, haga clic [aquí](http://azure.com/docdb).
+* Para más información sobre Azure Cosmos DB, haga clic [aquí](https://azure.microsoft.com/services/cosmos-db/).
 * Para obtener más información acerca de aplicaciones de servicio web de la aplicación de Azure, haga clic en [aquí](https://go.microsoft.com/fwlink/?LinkId=325362).
 * Para obtener más información sobre las plantillas del Administrador de recursos de Azure, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>Lo que ha cambiado
-* Para obtener una guía del cambio de Websites a App Service, consulte: [Azure App Service y su impacto en los servicios de Azure existentes](https://go.microsoft.com/fwlink/?LinkId=529714)
+* Si desea ver una guía para el cambio de Websites a App Service, consulte: [Azure App Service y su impacto en los servicios de Azure existentes](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
 > Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.

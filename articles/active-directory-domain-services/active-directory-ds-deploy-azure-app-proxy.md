@@ -1,5 +1,5 @@
 ---
-title: 'Active Directory Domain Services: Implementación del proxy de aplicación de Azure Active Directory | Microsoft Docs'
+title: Azure Active Directory Domain Services. Implementación de Azure Active Directory Application Proxy | Microsoft Docs
 description: En este artículo se explica cómo usar el proxy de aplicación en dominios administrados de Azure Active Directory Domain Services.
 services: active-directory-ds
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 96ef005f095e5ab774a88ec766080f647414a7ce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155548"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840306"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implementación del proxy de aplicación de Azure AD en dominios administrados de Azure Active Directory Domain Services.
 El proxy de aplicación de Azure Active Directory (AD) permite publicar aplicaciones locales para acceder a ellas a través de Internet y poder admitir trabajadores remotos. Con Azure AD Domain Services, ahora podrá trasladar aplicaciones heredadas que se ejecutan de forma local en los servicios de infraestructura de Azure. Después, podrá publicar estas aplicaciones mediante el proxy de aplicación de Azure AD para proporcionar acceso remoto seguro a los usuarios de su organización.
 
-También, si no está familiarizado con el proxy de aplicación de Azure AD, obtenga más información sobre esta característica con el siguiente artículo [Provisión de acceso remoto seguro a aplicaciones locales](../active-directory/manage-apps/application-proxy.md).
+Si no está familiarizado con Azure AD Application Proxy, aprenda más sobre esta característica con el siguiente artículo: [Provisión de acceso remoto seguro a aplicaciones locales](../active-directory/manage-apps/application-proxy.md).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -42,7 +42,7 @@ Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Tarea 1: Habilitar el proxy de aplicación de Azure AD en su directorio de Azure AD
 Realice los pasos siguientes para habilitar el proxy de aplicación de Azure AD en su directorio Azure AD.
 
-1. Inicie sesión como administrador en [Azure Portal](http://portal.azure.com).
+1. Inicie sesión como administrador en [Azure Portal](https://portal.azure.com).
 
 2. Haga clic en **Azure Active Directory** para que aparezca la información general del directorio. Haga clic en **Aplicaciones empresariales**.
 
@@ -96,9 +96,9 @@ Anteriormente, aprovisionó una máquina virtual Windows Server y la unió al do
 ## <a name="next-steps"></a>Pasos siguientes
 Ha configurado el proxy de aplicación de Azure AD y lo ha integrado con el dominio administrado de Azure AD Domain Services.
 
-* **Migrar las aplicaciones a las máquinas virtuales de Azure**: puede trasladas sus aplicaciones de servidores locales a máquinas virtuales de Azure unidas al dominio administrado. Si lo hace, lo ayudará a evitar los costos de infraestructura de los servidores que se ejecutan en un entorno local.
+* **Migrar las aplicaciones a máquinas virtuales de Azure:** puede migrar mediante lift-and-shift sus aplicaciones de servidores locales a máquinas virtuales de Azure unidas al dominio administrado. Si lo hace, lo ayudará a evitar los costos de infraestructura de los servidores que se ejecutan en un entorno local.
 
-* **Publicar aplicaciones mediante el proxy de aplicación de Azure AD**: publique aplicaciones que se ejecuten en máquinas virtuales de Azure mediante el proxy de aplicación de Azure AD. Para obtener más información, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
+* **Publicar las aplicaciones mediante Azure AD Application Proxy:** publique aplicaciones que se ejecuten en máquinas virtuales de Azure mediante Azure AD Application Proxy. Para obtener más información, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Nota de implementación: publique las aplicaciones de IWA (autenticación integrada) mediante el proxy de aplicación de Azure AD.

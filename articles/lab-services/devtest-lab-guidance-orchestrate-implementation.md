@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 62c89861d784931b2a13297abac578010e0fea5f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 61ec9d0639f4bee950be69ee951492974ac95c64
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250841"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867484"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestación de la implementación de Azure DevTest Labs
 En este artículo se proporciona un enfoque recomendado para una rápida implementación de Azure DevTest Labs. La siguiente imagen resalta el proceso general como orientación prescriptiva observando la flexibilidad para admitir diversos escenarios y requisitos del sector.
@@ -46,7 +46,7 @@ Cuando ya exista la topología de red, se puede crear el primer laboratorio o un
 2. Determine los tamaños y las imágenes de máquina virtual permitidos para su uso con el laboratorio. Decida si se pueden cargar imágenes personalizadas en Azure para su uso con DevTest Labs.
 3. Proteja el acceso al laboratorio mediante la creación de controles de acceso basado en rol (RBAC) iniciales para el laboratorio (propietarios del laboratorio y usuarios del laboratorio). Se recomienda utilizar cuentas de Active Directory sincronizadas con Azure Active Directory para la identidad con DevTest Labs.
 4. Configure DevTest Labs para usar directivas, como programaciones, administración de costos, máquinas virtuales reclamables, imágenes personalizadas o fórmulas.
-5. Establezca un repositorio en línea como VSTS/Git.
+5. Establezca un repositorio en línea como Azure Repos/Git.
 6. Decida sobre el uso de repositorios públicos o privados o una combinación de ambos. Organice las plantillas JSON para las implementaciones y un sostenimiento a largo plazo.
 7. Si es necesario, cree artefactos personalizados. Este paso es opcional. 
 
@@ -60,4 +60,4 @@ Los equipos pilotos iniciales pueden requerir asistencia exhaustiva para empezar
 5. Asegúrese de que se han llevado a cabo las revisiones de cumplimiento y seguridad apropiadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el siguiente artículo de esta serie: [Gobierno de la infraestructura de Azure DevTest Labs](devtest-lab-guidance-governance-resources.md).
+Lea el siguiente artículo de esta serie: [Gobierno de la infraestructura de Azure DevTest Labs](devtest-lab-guidance-governance-resources.md)

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4f4aedd1d85a83e6f55d5729b82b88e2e9e8c00d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ec67cb6b4bc1dd29dbbac4056d3365a74b31a24c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415940"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013716"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Prácticas recomendadas de almacenamiento para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
-En este artículo se proporcionan recomendaciones para el almacenamiento de datos en sistemas de Azure HDInsight. Así mismo, este artículo forma parte de una serie de artículos que proporcionan prácticas recomendadas para ayudar a migrar sistemas locales de Apache Hadoop a Azure HDInsight.
+En este artículo se proporcionan recomendaciones para el almacenamiento de datos en sistemas de Azure HDInsight. Forma parte de una serie de artículos que proporcionan prácticas recomendadas para ayudar a migrar sistemas locales de Apache Hadoop a Azure HDInsight.
 
-## <a name="choose-the-right-storage-system-for-hdinsight-clusters"></a>Elegir el sistema de almacenamiento correcto para los clústeres de HDInsight
+## <a name="choose-right-storage-system-for-hdinsight-clusters"></a>Elección del sistema de almacenamiento correcto para los clústeres de HDInsight
 
 Puede volver a crear la estructura del directorio local del sistema de archivos de Apache Hadoop (HDFS) en Azure Storage o en Azure Data Lake Storage. A continuación, podrá eliminar de forma segura los clústeres de HDInsight que se usan para el cálculo sin perder datos del usuario. Ambos servicios se pueden usar como sistema de archivos predeterminado y sistema de archivos adicional para un clúster de HDInsight. El clúster de HDInsight y la cuenta de almacenamiento deben ubicarse en la misma región.
 
@@ -34,9 +34,12 @@ El almacenamiento de Azure Storage se puede replicar geográficamente. Aunque la
 
 Uno de los formatos siguientes puede utilizarse para acceder a los datos almacenados en Azure Storage:
 
-- `wasb:///`: accede al almacenamiento predeterminado mediante una comunicación sin cifrar.
-- `wasbs:///`: accede al almacenamiento predeterminado mediante una comunicación cifrada.
-- `wasb://<container-name>@<account-name>.blob.core.windows.net/`: se usa al comunicarse con una cuenta de almacenamiento no predeterminada. 
+|Formato de acceso a datos |DESCRIPCIÓN |
+|---|---|
+|`wasb:///`|Permite acceder al almacenamiento predeterminado mediante una comunicación sin cifrar.|
+|`wasbs:///`|Permite acceder al almacenamiento predeterminado mediante una comunicación cifrada.|
+|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Se usa al comunicarse con una cuenta de almacenamiento no predeterminada. |
+
 
 [Objetivos de escalabilidad y rendimiento de Azure Storage](../../storage/common/storage-scalability-targets.md) proporciona información sobre los límites actuales de las cuentas de Azure Storage. Si las necesidades de la aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, la aplicación puede compilarse de forma que use varias cuentas de almacenamiento y, después, se dividan los datos entre dichas cuentas de almacenamiento.
 
@@ -96,13 +99,13 @@ Una característica fundamental de Data Lake Storage Gen2 es la adición de un �
 
 Anteriormente, los análisis basados en la nube tenían que llegar a un acuerdo en materia de rendimiento, administración y seguridad. Las características clave de Azure Data Lake Storage (ADLS) Gen2 son las siguientes:
 
-- **Acceso compatible con Hadoop**: Azure Data Lake Storage Gen2 le permite administrar y obtener acceso a los datos igual que lo haría con un  [Sistema de archivos distribuido de Hadoop (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). El nuevo [controlador ABFS](../../storage/data-lake-storage/abfs-driver.md) está disponible en todos los entornos de Apache Hadoop que se incluyen en [Azure HDInsight](../index.yml). Este controlador permite acceder a datos almacenados en Data Lake Storage Gen2.
+- **Acceso compatible con Hadoop**: Azure Data Lake Storage Gen2 le permite administrar y acceder a los datos igual que lo haría con un  [sistema de archivos distribuido de Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). El nuevo [controlador ABFS](../../storage/data-lake-storage/abfs-driver.md) está disponible en todos los entornos de Apache Hadoop que se incluyen en [Azure HDInsight](../index.yml). Este controlador permite acceder a datos almacenados en Data Lake Storage Gen2.
 
 - **Superconjunto de permisos POSIX**: el modelo de seguridad de Data Lake Gen2 es totalmente compatible con los permisos de ACL y POSIX junto con granularidad adicional específica de Data Lake Storage Gen2. Se puede realizar la configuración mediante herramientas de administración o marcos, como Hive y Spark.
 
-- **Rentabilidad**: Data Lake Storage Gen2 ofrece transacciones y capacidad de almacenamiento de bajo costo. Al igual que las transiciones de datos a lo largo de su ciclo de vida completo, las tasas de facturación cambian para minimizar los costos a través de características integradas, como el  [ciclo de vida de Azure Blob Storage](../../storage/common/storage-lifecycle-managment-concepts.md).
+- **Rentabilidad**: Data Lake Storage Gen2 ofrece transacciones y capacidad de almacenamiento de bajo costo. Al igual que las transiciones de datos a lo largo de su ciclo de vida completo, las tasas de facturación cambian para minimizar los costos a través de características integradas, como el  [ciclo de vida de Azure Blob Storage](../../storage/common/storage-lifecycle-management-concepts.md).
 
-- **Funciona con herramientas, marcos y aplicaciones de Blob Storage**: Data Lake Storage Gen2 sigue funcionando con una amplia gama de herramientas, marcos y aplicaciones que existen actualmente para Blob Storage.
+- **Funciona con aplicaciones, marcos y herramientas de Blob Storage**: Data Lake Storage Gen2 sigue funcionando con una amplia gama de herramientas, marcos y aplicaciones que existen actualmente para Blob Storage.
 
 - **Controlador optimizado**: el controlador del sistema de archivos de Azure Blob (ABFS) está  [específicamente optimizado](../../storage/data-lake-storage/abfs-driver.md) para el análisis de macrodatos. Las API REST correspondientes se exponen a través del punto de conexión dfs, dfs.core.windows.net.
 
@@ -115,7 +118,7 @@ Para más información, consulte los siguientes artículos.
 - [Introducción a Azure Data Lake Storage Gen2 (versión preliminar)](../../storage/data-lake-storage/introduction.md)
 - [Controlador del sistema de archivos de Azure Blob (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
 
-## <a name="protect-azure-storage-key-visibility-within-the-on-premises-hadoop-cluster-configuration"></a>Proteger la visibilidad de la clave de Azure Storage en la configuración del clúster local de Hadoop
+## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Claves seguras de Azure Storage dentro de la configuración del clúster local de Hadoop
 
 Las claves de almacenamiento de Azure que se agregan a los archivos de configuración de Hadoop, establecen conectividad entre la instancia local de HDFS y Azure Blob Storage. Estas claves se pueden proteger mediante su cifrado con el marco de proveedores de credenciales de Hadoop. Una vez cifradas, pueden almacenarse y se puede acceder a ellas de forma segura.
 
@@ -144,18 +147,21 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
 ```
 
-## <a name="restrict-access-to-azure-storage-data-using-sas-signatures"></a>Restringir el acceso a los datos de Azure Storage mediante firmas SAS
+## <a name="restrict-azure-storage-data-access-using-sas"></a>Restricción del acceso de Azure Storage mediante SAS
 
 Por defecto, HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociadas con el clúster. Las firmas de acceso compartido (SAS) en el contenedor de blobs pueden usarse para restringir el acceso a los datos, como por ejemplo, para proporcionar a los usuarios acceso de solo lectura a los datos.
 
 ### <a name="using-the-sas-token-created-with-python"></a>Uso del token SAS creado con python
 
 1. Abra el archivo [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) y cambie los valores siguientes:
-    - policy_name: nombre que se usará para la directiva almacenada que se va a crear.
-    - storage_account_name: nombre de la cuenta de almacenamiento.
-    - storage_account_key: clave de su cuenta de almacenamiento.
-    - storage_container_name: contenedor de la cuenta de almacenamiento al que desea restringir el acceso.
-    - example_file_path: ruta de acceso a un archivo que se carga en el contenedor.
+
+    |Propiedad del token|DESCRIPCIÓN|
+    |---|---|
+    |policy_name|El nombre que se usará para la directiva almacenada que se va a crear.|
+    |storage_account_name|El nombre de la cuenta de almacenamiento.|
+    |storage_account_key|La clave de la cuenta de almacenamiento.|
+    |storage_container_name|El contenedor de la cuenta de almacenamiento a la que desea restringir el acceso.|
+    |example_file_path|La ruta de acceso a un archivo que se carga en el contenedor.|
 
 2. El archivo SASToken.py viene con los permisos de `ContainerPermissions.READ + ContainerPermissions.LIST` y se puede ajustar según el caso de uso.
 
@@ -183,7 +189,7 @@ Hay tres cosas importantes que se deben tener en cuenta sobre el uso de tokens d
 
 3. Lamentablemente, el proveedor de credenciales de Hadoop y el proveedor de claves de descifrado (ShellDecryptionKeyProvider) no funcionan actualmente con los tokens de SAS y, por lo tanto, no pueden protegerse actualmente de la visibilidad.
 
-Para obtener más información, consulte [Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md)
+Para más información, consulte [Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md).
 
 ## <a name="use-data-encryption-and-replication"></a>Uso de cifrado de datos y replicación
 
@@ -201,7 +207,7 @@ Para más información, consulte los siguientes artículos.
 - [Replicación de almacenamiento de Azure](../../storage/common/storage-redundancy.md)
 - [Guía de recuperación ante desastres para datos de Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
-## <a name="attach-additional-azure-storage-accounts-to-the-cluster"></a>Adjuntar cuentas adicionales de almacenamiento de Azure al clúster
+## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Adjuntar cuentas adicionales de almacenamiento de Azure al clúster
 
 Durante el proceso de creación de HDInsight, se elige una cuenta de Azure Storage o de Azure Data Lake Storage como el sistema de archivos predeterminado. Además de esta cuenta de almacenamiento predeterminada, puede agregar otras desde la misma suscripción de Azure o desde otras diferentes tanto durante el proceso de creación del clúster como después de que el clúster se haya creado.
 

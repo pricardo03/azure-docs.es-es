@@ -8,13 +8,13 @@ keywords: servidor de copia de seguridad de Azure; proteger cargas de trabajo; c
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan; kasinh
-ms.openlocfilehash: e1ed8b1f62eeb52d65ba178c8ca13f94b57da6f0
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: adigan
+ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616323"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728283"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ En este artículo se explica cómo preparar el entorno para la copia de segurida
 También puede proteger las cargas de trabajo de Infraestructura como servicio (IaaS), como es el caso de las máquinas virtuales de Azure.
 
 > [!NOTE]
-> Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
+> Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
 >
 >
 
@@ -43,7 +43,7 @@ Azure Backup Server hereda gran parte de la funcionalidad de copia de seguridad 
 El primer paso para que funcione Azure Backup Server es configurar un equipo con Windows Server. El servidor puede estar en Azure o en el entorno local.
 
 ### <a name="using-a-server-in-azure"></a>Uso de un servidor en Azure
-Al elegir un servidor para ejecutar Azure Backup Server, se recomienda comenzar con una imagen de la galería de Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter o Windows Server 2019 Datacenter. En el artículo [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se proporciona un tutorial de introducción a la máquina virtual recomendada en Azure, incluso si nunca ha usado Azure antes. Los requisitos mínimos recomendados para la máquina virtual (VM) servidor deben ser: A2 estándar con dos núcleos y 3,5 GB de RAM.
+Al elegir un servidor para ejecutar Azure Backup Server, se recomienda comenzar con una imagen de la galería de Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter o Windows Server 2019 Datacenter. En el artículo [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se proporciona un tutorial de introducción a la máquina virtual recomendada en Azure, incluso si nunca ha usado Azure antes. Los requisitos mínimos recomendados para la máquina virtual servidor deben ser: A2 estándar con 2 núcleos y 3,5 GB de RAM.
 
 La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. El artículo [Instalación de DPM como una máquina virtual de Azure](https://technet.microsoft.com/library/jj852163.aspx)le ayudará a comprender estos matices. Lea este artículo completamente antes de implementar la máquina.
 
@@ -263,7 +263,7 @@ Estos son los pasos en caso de que necesite migrar MABS a un nuevo servidor sin 
 9. Desde SQL, restaure la base de datos DPM
 10. Desde la línea de comandos de administrador en el nuevo servidor, cambie al directorio de la ubicación de instalación de Microsoft Azure Backup y a la carpeta bin
 
-Ejemplo de ruta de acceso: C:\windows\system32>cd "c:\Archivos de programa\Microsoft Azure Backup\DPM\DPM\bin\
+Ejemplo de ruta de acceso: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
 a Azure Backup. Ejecute DPMSYNC -SYNC
 
 10) Ejecute DPMSYNC-SYNC Nota: Si ha agregado nuevos discos al bloque de almacenamiento DPM en lugar de mover los antiguos, ejecute DPMSYNC -Reallocatereplica

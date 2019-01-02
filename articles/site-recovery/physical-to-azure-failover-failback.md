@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 309da6f7753d95bc6830d61ecca7d86e002ddedf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214845"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848636"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos replicados en Azure
 
@@ -27,7 +27,7 @@ La conmutación por error y la conmutación por recuperación constan de cuatro 
 1. **Conmutación por error en Azure**: se conmutan por error las máquinas del sitio local a Azure.
 2. **Volver a proteger máquinas virtuales de Azure**: vuelva a proteger las máquinas virtuales de Azure de modo que comiencen a replicarse de nuevo en las máquinas virtuales locales de VMware.
 3. **Conmutación por error en el entorno local**: ejecute una conmutación por error para realizar una conmutación por recuperación desde Azure.
-4. **Volver a proteger máquinas virtuales locales**: después de que los datos se hayan conmutado por recuperación, vuelva a proteger las máquinas virtuales locales de VMware conmutadas por recuperación para que comiencen a replicarse en Azure.
+4. **Volver a proteger las máquinas virtuales locales**: después de que los datos se hayan conmutado por recuperación, vuelva a proteger las máquinas virtuales de VMware locales a las que conmutó por recuperación, para que comiencen a replicarse en Azure.
 
 ## <a name="verify-server-properties"></a>Comprobar lar propiedades del servidor
 
@@ -46,7 +46,7 @@ Compruebe las propiedades del servidor y asegúrese de que cumpla con los [requi
 2. En **Conmutación por error**, seleccione un **punto de recuperación** en el que realizar la conmutación por error. Puede seleccionar una de las siguientes opciones:
    - **Último**: esta opción procesa primero todos los datos enviados a Site Recovery. Ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
    - **Procesado más recientemente**: con esta opción se realiza una conmutación por error de la máquina al último punto de recuperación que procesó Site Recovery. Esta opción proporciona un objetivo de tiempo de recuperación (RTO) bajo, ya que no se invierte tiempo en el procesamiento de datos sin procesar.
-   - **Más reciente coherente con la aplicación**: esta opción realiza una conmutación por error de la máquina al punto de recuperación más reciente coherente con la aplicación que haya procesado Site Recovery.
+   - **Más reciente coherente con la aplicación**: con esta opción se realiza una conmutación por error de la máquina al punto de recuperación más reciente coherente con la aplicación que procesó Site Recovery.
    - **Personalizado**: especifique un punto de recuperación.
 
 3. Seleccione **Apague la máquina antes de comenzar con la conmutación por error** si desea que Site Recovery intente apagar la máquina de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.

@@ -1,5 +1,5 @@
 ---
-title: Creación de una instancia de App Service Environment v1
+title: Creación de una instancia de App Service Environment v1 en Azure
 description: Descripción del flujo de creación de una instancia de App Service Environment v1
 services: app-service
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/11/2017
+ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 1df3b790d0c6c0f597a8559551ff5e42c9f110e4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.custom: seodec18
+ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230274"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339899"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Creación de una instancia de App Service Environment v1 
 
@@ -55,7 +56,7 @@ Para crear una instancia de App Service Environment v1, puede buscar ***App Serv
 4. Realice las selecciones de red virtual y ubicación. Puede crear una red virtual nueva o seleccionar una red virtual existente. Si selecciona una red virtual nueva, puede especificar un nombre y una ubicación. La red virtual nueva tendrá el intervalo de dirección 192.168.250.0/23 y una subred denominada **predeterminada** que se define como 192.168.250.0/24. Puede seleccionar también simplemente una red virtual de Resource Manager o clásica creadas previamente. La selección del tipo de VIP determina si es posible obtener acceso directo a su ASE desde Internet (externo) o si usa un equilibrador de carga interno (ILB). Para obtener más información sobre ellos, consulte [Uso de un equilibrador de carga interno con un entorno de App Service][ILBASE]. Si selecciona un tipo de VIP externo, puede seleccionar la cantidad de direcciones IP externas que crea el sistema con fines de IPSSL. Si selecciona Interno, debe especificar el subdominio que utilizará el ASE. Se pueden implementar los ASE en redes virtuales que usen *o bien* intervalos de direcciones públicas *o bien* espacios de direcciones de RFC1918 (es decir, direcciones privadas). Para usar una red virtual con un intervalo de direcciones públicas, es necesario crear la red virtual por adelantado. Cuando seleccione una red virtual creada previamente, debe crear una nueva subred durante la creación de ASE. **No se puede usar una subred creada previamente en el portal. Puede crear un ASE con una subred creada previamente si crea su ASE con una plantilla de Resource Manager.** Para crear un ASE a partir de una plantilla, use la información de estos artículos: [Creación de un entorno de App Service a partir de una plantilla][ILBAseTemplate] y [Creación de un entorno de App Service de ILB a partir una plantilla][ASEfromTemplate].
 
 ### <a name="details"></a>Detalles
-Se crea un ASE con 2 servidores front-end y 2 trabajos. Los front-end actúan como los puntos de conexión HTTP/HTTPS y envían tráfico a los trabajos que son los roles que hospedan sus aplicaciones. Puede ajustar la cantidad después de la creación de ASE y puede incluso configurar reglas de escalado automático en estos grupos de recursos. Para obtener información sobre el escalado manual, la administración y la supervisión del entorno de App Service, consulte [Configuración de un entorno de App Service][ASEConfig]. 
+Se crea un ASE con 2 servidores front-end y 2 trabajos. Los front-end actúan como los puntos de conexión HTTP/HTTPS y envían tráfico a los trabajos que son los roles que hospedan sus aplicaciones. Puede ajustar la cantidad después de la creación de ASE y puede incluso configurar reglas de escalado automático en estos grupos de recursos. Para más información sobre el escalado manual, la administración y la supervisión de una instancia de App Service Environment, vaya aquí: [Cómo configurar App Service Environment][ASEConfig] 
 
 Solo un ASE puede existir en la subred usada por ASE. La subred no se puede usar para cualquier elemento que no sea el ASE
 
@@ -67,9 +68,9 @@ Después de la creación de ASE puede ajustar:
 * Cantidad de direcciones IP disponibles para SSL de IP
 * Los tamaños de recursos de proceso usados por los servidores front-end o los trabajos (el tamaño mínimo de front-end es P2)
 
-Aquí podrá obtener información sobre el escalado manual, la administración y la supervisión del entorno de App Service: [Configuración de un entorno de App Service][ASEConfig]. 
+Hay más información sobre el escalado manual, la administración y la supervisión de los entornos de App Service Environment aquí: [Cómo configurar App Service Environment][ASEConfig] 
 
-Para obtener información sobre el escalado automático, puede encontrar aquí una guía: [Configuración del escalado automático para un entorno de App Service][ASEAutoscale].
+Para obtener información sobre el escalado automático, consulte aquí la siguiente guía: [Configuración la escalabilidad automática para una instancia de App Service Environment][ASEAutoscale]
 
 Existen dependencias adicionales que no están disponibles para personalización, como la base de datos y el almacenamiento. Estas son controlados por Azure y se incluyen con el sistema. El almacenamiento del sistema admite hasta 500 GB para todo el entorno de App Service Environment, y la base de datos se ajusta con Azure según sea necesario por medio de la escala del sistema.
 
@@ -85,8 +86,8 @@ Para empezar a trabajar con App Service Environment v1, consulte [Introducción 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md
-[ILBAseTemplate]: http://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
+[ILBAseTemplate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
 [ASEfromTemplate]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

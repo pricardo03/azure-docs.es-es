@@ -1,6 +1,6 @@
 ---
-title: Preguntas más frecuentes (P+F) sobre Azure Search | Microsoft Docs
-description: Respuestas a preguntas habituales sobre el servicio Microsoft Azure Search
+title: 'Preguntas frecuentes (FAQ): Azure Search'
+description: Obtenga respuestas a preguntas comunes sobre Microsoft Azure Search Service, un servicio de búsqueda hospedado en la nube en Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 1491fdb0f208100619e569f9a74d5e697a0065a6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.custom: seodec2018
+ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841684"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312823"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Microsoft Azure Search: preguntas más frecuentes (P+F)
 

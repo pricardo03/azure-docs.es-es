@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: bd20ea58c7693b3be8f583810384aa26dde572d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219569"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409180"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas. Actualmente, este documento no cubre todos los servicios de Azure. Con el tiempo, esta lista se expandirá y actualizará para abarcar más de la plataforma.
@@ -54,10 +54,9 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Redis Cache](#azure-redis-cache-limits)
+* [Azure Cache for Redis](#azure-redis-cache-limits)
 * [Copia de seguridad](#backup-limits)
 * [Batch](#batch-limits)
-* [Inteligencia artificial de Batch](#batch-ai-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [SERVICIO CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
@@ -220,9 +219,6 @@ Entre los siguientes límites de App Service se incluyen límites para Web Apps,
 ### <a name="batch-limits"></a>Límites de Batch
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-### <a name="batch-ai-limits"></a>Límites de Batch AI
-[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
-
 ### <a name="biztalk-services-limits"></a>Límites de BizTalk Services
 La tabla siguiente muestra los límites de Azure BizTalk Services.
 
@@ -329,7 +325,7 @@ Para más información sobre otros límites, incluido el tamaño de documento, l
 ### <a name="api-management-limits"></a>Límites de API Management
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-### <a name="azure-redis-cache-limits"></a>Límites de Azure Redis Cache
+### <a name="azure-cache-for-redis-limits"></a>Límites de Azure Cache for Redis
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
 ### <a name="key-vault-limits"></a>Límites de Key Vault

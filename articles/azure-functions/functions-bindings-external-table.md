@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 5566ea8b21682c5023afc4af357e1a80e1d37384
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 62924488b776a1a89e1abf492db1881a44585b1a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248478"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997822"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Enlace de tabla externa para Azure Functions (experimental)
 
@@ -49,7 +49,7 @@ Al asignar un enlace, puede crear una nueva conexión de API o usar una conexió
 |[Salesforce](https://docs.microsoft.com/azure/connectors/connectors-create-api-salesforce)||x|x
 |[SharePoint](https://docs.microsoft.com/azure/connectors/connectors-create-api-sharepointonline)||x|x
 |[SQL Server](https://docs.microsoft.com/azure/connectors/connectors-create-api-sqlazure)||x|x
-|[Teradata](http://www.teradata.com/products-and-services/azure/products/)||x|x
+|[Teradata](https://www.teradata.com/products-and-services/azure/products/)||x|x
 |UserVoice||x|x
 |Zendesk||x|x
 
@@ -166,7 +166,7 @@ GO
 
 ### <a name="google-sheets-data-source"></a>Origen de datos de Hojas de cálculo de Google
 
-Para crear una tabla para usar en este ejemplo en Documentos de Google, cree una hoja de cálculo con una hoja denominada `Contact`. El conector no puede usar el nombre para mostrar de la hoja de cálculo. El nombre interno (en negrita) tiene que usarse como dataSetName, por ejemplo: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Agregar los nombres de columna `Id`, `LastName`, `FirstName` a la primera fila, y luego completar los datos en las filas siguientes.
+Para crear una tabla para usar en este ejemplo en Documentos de Google, cree una hoja de cálculo con una hoja denominada `Contact`. El conector no puede usar el nombre para mostrar de la hoja de cálculo. El nombre interno (en negrita) debe usarse como dataSetName, por ejemplo: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Agregue los nombres de columna `Id`, `LastName` y `FirstName` a la primera fila y, a continuación, rellene los datos de las filas posteriores.
 
 ### <a name="salesforce"></a>Salesforce
 

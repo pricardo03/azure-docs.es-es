@@ -1,5 +1,5 @@
 ---
-title: 'Solución del error de Azure Backup: no está disponible el estado del agente invitado'
+title: 'Solución de problemas de Azure Backup: Estado del agente invitado no disponible'
 description: Síntomas, causas y soluciones de errores de Azure Backup relacionados con el agente, la extensión y los discos.
 services: backup
 author: genlin
@@ -7,16 +7,16 @@ manager: cshepard
 keywords: Azure Backup; Agente de máquina virtual; Conectividad de red;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: d8b78551a762b4388344aaf3b44e7472127737ae
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977121"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833880"
 ---
-# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
+# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
 En este artículo se proporcionan los pasos de solución de problemas que pueden ayudar a resolver los errores de Azure Backup relacionados con la comunicación con el agente y la extensión de máquina virtual.
 
@@ -28,11 +28,11 @@ En este artículo se proporcionan los pasos de solución de problemas que pueden
 **Mensaje de error**: El agente de máquina virtual no se puede comunicar con Azure Backup<br>
 
 Después de registrar y programar una máquina virtual para el servicio Backup, dicho servicio inicia el trabajo comunicándose con el agente de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Cuando una instantánea no se desencadena, se puede producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:<br>
-**Causa 1: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Causa 2: [El agente instalado en la máquina virtual está obsoleto (en máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
-**Causa 4: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 5: [La VM no tiene acceso a Internet](#the-vm-has-no-internet-access)**
+**Causa 1: [el agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 2: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [no se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Causa 4: [no se puede actualizar ni cargar la extensión de copia de seguridad](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 5: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError: No se pudo comunicar con el agente de máquina virtual para el estado de la instantánea
 
@@ -41,13 +41,13 @@ Después de registrar y programar una máquina virtual para el servicio Backup, 
 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:  
 **Causa 1: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 2: [El agente instalado en la máquina virtual está obsoleto (en máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
+**Causa 2: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached: Se ha alcanzado el límite máximo de colecciones del punto de restauración
 
 **Código de error**: UserErrorRpCollectionLimitReached <br>
-**Mensaje de error**: Se ha alcanzado el límite máximo de colecciones del punto de restauración. <br>
+**Mensaje de error**: se ha alcanzado el límite máximo de colecciones del punto de restauración. <br>
 * Este problema puede ocurrir si hay un bloqueo en el grupo de recursos del punto de recuperación que impida la limpieza automática del punto de recuperación.
 * Este problema también puede ocurrir si se desencadenan varias copias de seguridad al día. Actualmente recomendamos solo una copia de seguridad por día, ya que los puntos de restauración instantáneos se retienen durante 7 días y solo 18 puntos de restauración instantáneos se pueden asociar a una máquina virtual en cualquier momento dado. <br>
 
@@ -55,15 +55,15 @@ Acción recomendada:<br>
 Para resolver este problema, elimine el bloqueo del grupo de recursos y vuelva a intentar la operación para desencadenar la limpieza.
 
 > [!NOTE]
-    > El servicio Backup crea un grupo de recursos diferente al de la máquina virtual para guardar la colección de puntos de restauración. Es conveniente que los clientes no bloqueen el grupo de recursos que se ha creado para que lo utilice el servicio Backup. El formato de nomenclatura del grupo de recursos creado por el servicio Backup es: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+    > El servicio Backup crea un grupo de recursos diferente al de la máquina virtual para guardar la colección de puntos de restauración. Es conveniente que los clientes no bloqueen el grupo de recursos que se ha creado para que lo utilice el servicio Backup. El formato de nombres del grupo de recursos creado por el servicio Backup es: AzureBackupRG_`<Geo>`_`<number>`, por ejemplo: AzureBackupRG_northeurope_1
 
 **Paso 1: [Eliminación del bloqueo del grupo de recursos de punto de restauración](#remove_lock_from_the_recovery_point_resource_group)** <br>
-**Paso 2:[ Limpieza de la colección de puntos de restauración](#clean_up_restore_point_collection)**<br>
+**Paso 2: [Eliminación de la colección de puntos de restauración](#clean_up_restore_point_collection)**<br>
 
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured: Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las VM cifradas.
 
 **Código de error**: UserErrorKeyvaultPermissionsNotConfigured <br>
-**Mensaje de error**: Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las VM cifradas. <br>
+**Mensaje de error**: Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las máquinas virtuales cifradas. <br>
 
 Para que la operación de copia de seguridad se complete correctamente en las VM cifradas, debe tener permisos para acceder al almacén de claves. Esto puede hacerse mediante [Azure Portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) o [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
@@ -73,33 +73,33 @@ Para que la operación de copia de seguridad se complete correctamente en las VM
 **Mensaje de error**: Error de la operación de instantánea debido a que no hay conectividad de red en la máquina virtual<br>
 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:    
-**Causa 1: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 2: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 3: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
+**Causa 1: [no se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 2: [no se puede actualizar ni cargar la extensión de copia de seguridad](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 3: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks: error en la operación de extensión VMSnapshot
 
 **Código de error**: ExtentionOperationFailedForManagedDisks <br>
-**Mensaje de error**: Error en la operación de extensión VMSnapshot<br>
+**Mensaje de error**: Error en la operación de extensión de VMSnapshot<br>
 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:  
-**Causa 1: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 2: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 1: [no se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 2: [no se puede actualizar ni cargar la extensión de copia de seguridad](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 3: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 4: [El agente instalado en la máquina virtual está obsoleto (en máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Causa 4: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed/BackUpOperationFailedV2: Se ha producido un error interno en la copia de seguridad
 
 **Código de error**: BackUpOperationFailed/BackUpOperationFailedV2 <br>
-**Mensaje de error**: Error interno al realizar la copia de seguridad. Intente volver a realizar la operación en unos minutos <br>
+**Mensaje de error**: Error interno en la copia de seguridad. Reintente la operación en unos minutos <br>
 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:  
-**Causa 1: [El agente está instalado en la VM, pero no responde (en VM Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 2: [El agente instalado en la máquina virtual está obsoleto (en máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 4: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 5: [El servicio de Backup no tiene permiso para eliminar los puntos de restauración antiguos debido a un bloqueo del grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
-**Causa 6: [La VM no tiene acceso a Internet](#the-vm-has-no-internet-access)**
+**Causa 1: [el agente está instalado en la máquina virtual pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 2: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [no se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 4: [no se puede actualizar ni cargar la extensión de copia de seguridad](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 5: [el servicio Backup no tiene permiso para eliminar los puntos de restauración antiguos debido a un bloqueo del grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Causa 6: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize: Azure Backup no admite actualmente tamaños de disco mayores que 1023 GB.
 
@@ -156,11 +156,11 @@ Además, si la subred no tiene una ruta para el tráfico saliente de Internet, d
 #### <a name="solution"></a>Solución
 Es posible que el agente de máquina virtual se haya dañado o que el servicio se haya detenido. Puede intentar volver a instalar al agente de máquina virtual para obtener la versión más reciente. O bien, intente restablecer la comunicación con el servicio.
 
-1. Determine si el servicio Windows Guest Agent se ejecuta en los servicios de máquina virtual (services.msc). Intente reiniciar el servicio Windows Guest Agent e inicie la copia de seguridad.    
-2. Si el servicio Windows Guest Agent no se muestra en los servicios, vaya al Panel de control y seleccione **Programas y características** para determinar si dicho servicio está instalado.
-4. Si aparece en **Programas y características**, desinstálelo.
+1. Determine si el servicio de agente invitado de Microsoft Azure se ejecuta en los servicios de máquina virtual (services.msc). Intente reiniciar el servicio de agente invitado de Microsoft Azure e inicie la copia de seguridad.    
+2. Si el servicio de agente invitado de Microsoft Azure no está visible en los servicios, en el Panel de control, vaya a **Programas y características** para determinar si está instalado.
+4. Si el agente invitado de Microsoft Azure aparece en **Programas y características**, desinstálelo.
 5. Descargue e instale la [versión más reciente del MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Debe tener derechos de administrador para completar la instalación.
-6. Compruebe que los servicios de agente invitado de Windows aparecen en los servicios.
+6. Compruebe que el servicio de agente de invitado de Microsoft Azure aparece en los servicios.
 7. Ejecute un trabajo de copia de seguridad a petición:
     * En el portal, seleccione **Crear copia de seguridad ahora**.
 
@@ -192,7 +192,7 @@ La mayoría de los errores relacionados con el agente o la extensión de máquin
 
 Si se requiere el registro detallado para waagent, siga estos pasos:
 
-1. En el archivo /etc/waagent.conf, localice la línea siguiente: **Enable verbose logging (y|n)** (Habilitar registro detallado [s/n]).
+1. En el archivo /etc/waagent.conf, busque la línea siguiente: **Habilitar el registro detallado (s/n)**
 2. Cambie el valor de **Logs.Verbose** de *n* a *y*.
 3. Guarde el cambio y, a continuación, reinicie waagent siguiendo los pasos descritos anteriormente en esta sección.
 

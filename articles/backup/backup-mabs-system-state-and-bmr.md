@@ -2,19 +2,19 @@
 title: Azure Backup Server protege el estado del sistema y restaura a una reconstrucción completa
 description: Use Azure Backup Server para realizar una copia de seguridad del estado del sistema y proporcionar protección de reconstrucción completa (BMR).
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: ''
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal
-ms.openlocfilehash: 7cb87847d6a1e191fb20dfa9cdf263066704eb6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238819"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880104"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Realizar una copia de seguridad del estado del sistema y restaurar a una reconstrucción completa con Azure Backup Server
 
@@ -23,8 +23,8 @@ Azure Backup Server realiza una copia de seguridad del estado del sistema y prop
 *   **Copia de seguridad del estado de sistema**: realiza una copia de seguridad de los archivos del sistema operativo, para que se pueda recuperar cuando se inicia un equipo, pero los archivos de sistema y el Registro se pierden. Una copia de seguridad del estado del sistema incluye lo siguiente:
     * Miembro de dominio: archivos de arranque, base de datos de registro de clase COM+, Registro.
     * Controlador de dominio: Windows Server Active Directory (NTDS), archivos de arranque, base de datos de registro de clase COM+, Registro, volumen del sistema (SYSVOL).
-    * Equipo que ejecuta servicios de clúster: metadatos del servidor de clúster.
-    * Equipo que ejecuta servicios de certificados: datos del certificado.
+    * Equipo que ejecuta servicios de cluster: metadatos del servidor de clúster
+    * Equipo que ejecuta servicios de certificado: Datos del certificado
 * **Copia de seguridad de reconstrucción completa**: realiza una copia de seguridad de los archivos del sistema operativo y de todos los datos de volúmenes críticos (excepto los datos de usuario). Por definición, una copia de seguridad de BMR incluye una copia de seguridad del estado del sistema. Proporciona protección cuando un equipo no se inicia y es necesario recuperarlo todo.
 
 En la tabla siguiente se resumen los elementos de los que se pueden realizar copias de seguridad y que se pueden recuperar. Para obtener información detallada sobre las versiones de las aplicaciones que se pueden proteger con el estado del sistema y BMR, vea [los elementos de los que Azure Backup Server puede realizar una copia de seguridad](backup-mabs-protection-matrix.md).

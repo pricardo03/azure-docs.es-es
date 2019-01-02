@@ -1,5 +1,5 @@
 ---
-title: 'Supervisión de un clúster de Azure DC/OS: pila ELK'
+title: '(EN DESUSO) Supervisión de un clúster de Azure DC/OS: pila ELK'
 description: Supervisión de un clúster de DC/OS en un clúster de Azure Container Service con ELK (Elasticsearch, Logstash y Kibana).
 services: container-service
 author: sauryadas
@@ -9,18 +9,20 @@ ms.topic: article
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: dc863894d8846e066c90bdf7b309f141d32a1186
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163187"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998124"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Supervisión de un clúster de Azure Container Service con ELK
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(EN DESUSO) Supervisión de un clúster de Azure Container Service con ELK
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 En este artículo se muestra cómo implementar la pila ELK (Elasticsearch, Logstash, Kibana) en un clúster de DC/OS de Azure Container Service. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 [Implemente](container-service-deployment.md) y [conecte](../container-service-connect.md) un clúster de DC/OS configurado por Azure Container Service. Explore el panel de DC/OS y los servicios de Marathon [aquí](container-service-mesos-marathon-ui.md). Instale también el [equilibrador de carga de Marathon](container-service-load-balancing.md).
 
 

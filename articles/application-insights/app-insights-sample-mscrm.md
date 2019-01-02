@@ -9,17 +9,16 @@ ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 5d61c3a3232645fc5f1c18696cf3232bf9b37aa2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3106e523e3f8edd17cc27991181267acfab4308b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957755"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002137"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Tutorial: Habilitar la telemetría para Microsoft Dynamics CRM Online con Application Insights
 En este artículo se muestra cómo obtener datos de telemetría de [Microsoft Dynamics CRM Online](https://www.dynamics.com/) con [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Analizaremos el proceso completo para agregar scripts de Application Insights a la aplicación, capturar datos y visualizar datos.
@@ -33,7 +32,7 @@ En este artículo se muestra cómo obtener datos de telemetría de [Microsoft Dy
 Para supervisar la aplicación, agregue un SDK de Application Insights a la aplicación. El SDK envía telemetría al [portal de Application Insights](https://portal.azure.com), donde puede usar nuestras potentes herramientas de análisis y diagnóstico o exportar los datos al almacenamiento.
 
 ### <a name="create-an-application-insights-resource-in-azure"></a>Creación de un recurso de Application Insights en Azure
-1. Obtenga una [cuenta en Microsoft Azure](http://azure.com/pricing). 
+1. Obtenga una [cuenta en Microsoft Azure](https://azure.com/pricing). 
 2. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y agregue un nuevo recurso de Application Insights. Aquí es donde se procesarán y mostrarán los datos.
 
     ![Haga clic en +, Servicios para desarrolladores, Application Insights.](./media/app-insights-sample-mscrm/01.png)

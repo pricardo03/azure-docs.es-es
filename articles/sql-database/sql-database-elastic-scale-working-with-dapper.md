@@ -3,7 +3,7 @@ title: Uso de la biblioteca de cliente de bases de datos elásticas con Dapper |
 description: Uso de la biblioteca de cliente de bases de datos elásticas con Dapper.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3a25d68b0f0bdd97b204906af87fac8013ad3cff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14eb92141a9d27d9f8978abb6d5c9a738c821ead
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253030"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866311"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Uso de la biblioteca de cliente de bases de datos elásticas con Dapper
 Este documento está dirigido a desarrolladores que utilizan Dapper para compilar aplicaciones, pero que también desean adaptar las [herramientas de bases de datos elásticas](sql-database-elastic-scale-introduction.md) para crear aplicaciones que implementen el particionamiento para escalar horizontalmente su capa de datos.  Este documento muestra los cambios que es necesario realizar en las aplicaciones basadas en Dapper para su integración con las herramientas de bases de datos elásticas. Nuestro enfoque se centra en componer la administración de particiones de bases de datos elásticas y el enrutamiento dependiente de los datos con Dapper. 
@@ -137,7 +137,7 @@ Y este es el código de ejemplo para la consulta:
     }
 
 ### <a name="handling-transient-faults"></a>Control de errores transitorios
-El equipo de Microsoft Patterns & Practices publicó el artículo sobre el [bloque de aplicación de gestión de errores transitorios](https://msdn.microsoft.com/library/hh680934.aspx) para ayudar a los desarrolladores a mitigar los estados de error transitorios que se producen al realizar ejecuciones en la nube. Si desea obtener más información, consulte: [La perseverancia, el secreto de todos los triunfos: uso del bloque de aplicaciones de control de errores transitorios](https://msdn.microsoft.com/library/dn440719.aspx).
+El equipo de Microsoft Patterns & Practices publicó el artículo sobre el [bloque de aplicación de gestión de errores transitorios](https://msdn.microsoft.com/library/hh680934.aspx) para ayudar a los desarrolladores a mitigar los estados de error transitorios que se producen al realizar ejecuciones en la nube. Para obtener más información, consulte [Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719.aspx) (Perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios).
 
 El ejemplo de código está basado en la biblioteca de errores transitorios para protegerse frente a errores transitorios. 
 

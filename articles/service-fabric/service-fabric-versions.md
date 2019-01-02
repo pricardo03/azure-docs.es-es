@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: TylerMSFT
-ms.openlocfilehash: 1041f37486c556ae29eed47728336a1ccb518e78
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 154869c3e6bcd44a71480a3cf7363537dddcebf9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040373"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727688"
 ---
 # <a name="supported-service-fabric-versions"></a>Versiones admitidas de Service Fabric
 
@@ -42,5 +42,6 @@ A continuación, aparece una lista con las versiones compatibles de Service Fabr
 | 5.7.* | 5.4.164.* |Versión 2.7 o anterior |15 de diciembre de 2017  |
 | 6.0.* | 5.6.205.* |Versión menor o igual que la 2.8 |30 de marzo de 2018     |
 | 6.1.* | 5.7.221.* |Versión 3.0 o anterior |15 de julio de 2018      |
-| 6.2.* | 6.0.232.* |Versión 3.1 o anterior |26 de octubre de 2018 |
-| 6.3.* | 6.1.480.* |Versión 3.2 o anterior |Versión actual y, por lo tanto, sin fecha de finalización |
+| 6.2.* | 6.0.232.* |Versión 3.1 o anterior |26 de octubre de 2018   |
+| 6.3.* | 6.1.480.* |Versión 3.2 o anterior |28 de febrero de 2019  |
+| 6.4.* | 6.2.301.* |Versión 3.3 o anterior |Versión actual y, por lo tanto, sin fecha de finalización |

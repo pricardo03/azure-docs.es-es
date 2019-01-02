@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a0dad228f23b055d68009eb737e0347ade49e94b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274186"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968055"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -28,11 +28,11 @@ Esta característica está disponible en versión preliminar pública.
 
 Antes de vincular su Id. de partner, el cliente debe concederle acceso a sus recursos de Azure mediante una de las siguientes opciones:
 
-- **Usuario invitado:** el cliente puede añadirle como usuario invitado y asignar roles RBAC. Para más información, consulte [Adición de usuarios invitados de otro directorio](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Usuario invitado**: el cliente puede añadirle como usuario invitado y asignar roles RBAC. Para más información, consulte [Adición de usuarios invitados de otro directorio](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Cuenta de directorio:** el cliente puede crear un nuevo usuario de su organización en el directorio del cliente y asignarle cualquier rol RBAC.
+- **Cuenta de directorio**:  el cliente puede crear una cuenta de usuario automáticamente en su propio directorio y asignarle cualquier rol RBAC.
 
-- **Entidad de servicio:** el cliente puede añadir una aplicación o un script de su organización en el directorio del cliente y asignarle cualquier rol RBAC. La identidad de la aplicación o el script se conoce como entidad de servicio.
+- **Entidad de servicio**:  el cliente puede añadir una aplicación o un script de su organización en el directorio del cliente y asignarle cualquier rol RBAC. La identidad de la aplicación o el script se conoce como entidad de servicio.
 
 ## <a name="link-partner-id"></a>Vinculación de Id. de partner
 

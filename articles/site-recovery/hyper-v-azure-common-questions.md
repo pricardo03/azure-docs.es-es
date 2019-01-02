@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 6345cf47d19f7990e776e0fe4ec2bafd005c9cf2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3e71c4e31c6d57cb54a654e0e1c28dcb0fa82cda
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212495"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875338"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Preguntas comunes: recuperación ante desastres de Hyper-V a Azure
 
@@ -124,7 +124,7 @@ Site Recovery replica los datos desde el entorno local a una instancia de Azure 
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>¿Puedo replicar en Azure con ExpressRoute?
 
-Sí, puede usar ExpressRoute para replicar máquinas virtuales en Azure. Site Recovery replica datos en una cuenta de Azure Storage a través de un punto de conexión público y es necesario configurar el [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) para la replicación de Site Recovery. Una vez que las máquinas virtuales conmutan por error en una red virtual de Azure, puede acceder a ellas a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Sí, puede usar ExpressRoute para replicar máquinas virtuales en Azure. Site Recovery replica datos en una cuenta de Azure Storage a través de un punto de conexión público y es necesario configurar el [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) para la replicación de Site Recovery. Una vez que las máquinas virtuales conmutan por error en una red virtual de Azure, puede acceder a ellas a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>¿Por qué no puedo replicar a través de VPN?
@@ -197,7 +197,7 @@ Una vez que la infraestructura local está activa y ejecutándose, puede conmuta
 
 1. Puede iniciar una conmutación por error planeada desde Azure en el sitio local con un par de opciones diferentes:
 
-    - Minimizar el tiempo de inactividad: si usa esta opción Site Recovery sincroniza los datos antes de la conmutación por error. Comprueba si hay bloques de datos que han cambiado y los descarga en el sitio local, mientras la máquina virtual de Azure se sigue ejecutando, lo que minimiza el tiempo de inactividad. Cuando especifica manualmente que la conmutación por error se debe completar, la máquina virtual de Azure se apaga, los cambios de deferencias finales se copian y se inicia la conmutación por error.
+    - Minimizar el tiempo de inactividad: si usa esta opción, Site Recovery sincroniza los datos antes de la conmutación por error. Comprueba si hay bloques de datos que han cambiado y los descarga en el sitio local, mientras la máquina virtual de Azure se sigue ejecutando, lo que minimiza el tiempo de inactividad. Cuando especifica manualmente que la conmutación por error se debe completar, la máquina virtual de Azure se apaga, los cambios de deferencias finales se copian y se inicia la conmutación por error.
     - Descarga completa: con esta opción, los datos se sincronizan durante la conmutación por error. Esta opción descarga todo el disco. Es más rápido porque no se calculan las sumas de comprobación, pero hay más tiempo de inactividad. Utilice esta opción si ha ejecutado la réplica de máquinas virtuales de Azure durante algún tiempo, o si se ha eliminado la máquina virtual local.
 
 2. Puede seleccionar conmutar por recuperación en la misma máquina virtual o en otra alternativa. Puede especificar que Site Recovery deba crear la máquina virtual si aún no existe.

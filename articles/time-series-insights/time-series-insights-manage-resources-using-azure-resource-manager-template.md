@@ -1,5 +1,5 @@
 ---
-title: Administración del entorno de Azure Time Series Insights mediante plantillas de Azure Resource Manager| Microsoft Docs
+title: 'Administración de plantillas de Azure Time Series Insights: Administración del entorno de Azure Time Series Insights mediante plantillas de Azure Resource Manager| Microsoft Docs'
 description: En este artículo se describe cómo administrar el entorno de Azure Time Series Insights mediante programación con Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 3ca9af8c2c504f75322e00fdaaeac9a3e727a820
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 70f82c19bced7618027379fcf9451348ac2591eb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627134"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270627"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Time Series Insights mediante plantillas de Azure Resource Manager
 
@@ -91,7 +92,7 @@ Para crear un archivo de parámetros, copie el archivo [201-timeseriesinsights-e
    | --- | --- |
    | eventHubNamespaceName | El espacio de nombres del centro de eventos de origen. |
    | eventHubName | El nombre del centro de eventos de origen. |
-   | consumerGroupName | El nombre del grupo de consumidores que usará el servicio Time Series Insights para leer los datos del centro de eventos. **NOTA:** Para evitar la contención de los recursos, este grupo de consumidores debe estar dedicado al servicio Time Series Insights y no se debe compartir con otros lectores. |
+   | consumerGroupName | El nombre del grupo de consumidores que usará el servicio Time Series Insights para leer los datos del centro de eventos. **NOTA:** Para evitar la contención de los recursos, este grupo de consumidores tiene que estar dedicado al servicio Time Series Insights y no se debe compartir con otros lectores. |
    | environmentName | El nombre del entorno. El nombre no puede incluir:   '<', '>', '%', '&', ':', '\\', '?', '/' ni ningún carácter de control. Todos los demás caracteres se permiten.|
    | eventSourceName | El nombre del recurso de secundarios del origen de eventos. El nombre no puede incluir:   '<', '>', '%', '&', ':', '\\', '?', '/' ni ningún carácter de control. Todos los demás caracteres se permiten. |
 
@@ -99,7 +100,7 @@ Para crear un archivo de parámetros, copie el archivo [201-timeseriesinsights-e
 
    | Parámetro | DESCRIPCIÓN |
    | --- | --- |
-   | existingEventHubResourceId | Un identificador de recurso opcional de un centro de eventos existente que se conectará al entorno de Time Series Insights mediante el origen de eventos. **NOTA:** El usuario que implementa la plantilla debe tener privilegios para realizar la operación listkeys en el centro de eventos. Si no se pasa ningún valor, se crea un nuevo centro de eventos mediante la plantilla. |
+   | existingEventHubResourceId | Un identificador de recurso opcional de un centro de eventos existente que se conectará al entorno de Time Series Insights mediante el origen de eventos. **NOTA:** El usuario que implementa la plantilla tiene que tener privilegios para realizar la operación listkeys en el centro de eventos. Si no se pasa ningún valor, se crea un nuevo centro de eventos mediante la plantilla. |
    | environmentDisplayName | Un nombre descriptivo opcional que se muestra en las herramientas o las interfaces de usuario en el lugar del nombre del entorno. |
    | environmentSkuName | El nombre de la SKU. Para más información, consulte la [página de precios de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
    | environmentSkuCapacity | La capacidad unitaria de la SKU. Para más información, consulte la [página de precios de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|

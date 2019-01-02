@@ -7,14 +7,14 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994809"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387053"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -38,9 +38,7 @@ Esta extensión funciona con los dos modelos de implementación de Azure.
 
 ## <a name="installing-the-extension-in-your-vm"></a>Instalación de la extensión en la máquina virtual
 
-Puede habilitar esta extensión mediante cmdlets de Azure PowerShell, scripts de CLI de Azure o plantillas de implementación de Azure. Para obtener más información, consulte [Funciones de la extensión](features-linux.md).
-
-No se puede usar Azure portal para habilitar LAD 3.0 ni configurarlo. En su lugar, instala versión 2.3 y la configura. Los grafos y las alertas de Azure Portal funcionan con datos procedentes de ambas versiones de la extensión.
+Puede habilitar esta extensión mediante cmdlets de Azure PowerShell, scripts de la CLI de Azure, plantillas de ARM o Azure Portal. Para obtener más información, consulte [Funciones de la extensión](features-linux.md).
 
 Mediante estas instrucciones de instalación y una [configuración de ejemplo descargable](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) se configura LAD 3.0 para:
 
@@ -54,8 +52,8 @@ La configuración que se puede descargar es solo un ejemplo; modifíquela como c
 ### <a name="prerequisites"></a>Requisitos previos
 
 * **Versión 2.2.0 o posterior del agente Linux de Azure**. La mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.2.7 o posterior. Ejecute `/usr/sbin/waagent -version` para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior del agente invitado, siga [estas instrucciones](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para actualizarla.
-* **CLI de Azure** [Instale el entorno de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
-* El comando wget, si aún no lo tiene: ejecute `sudo apt-get install wget`.
+* **Azure CLI**. [Instale el entorno de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
+* El comando wget, si aún no lo tiene: Ejecute `sudo apt-get install wget`.
 * Una suscripción a Azure existente con una cuenta de almacenamiento para almacenar los datos.
 * La lista de distribuciones de Linux compatibles se encuentra en https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
@@ -359,7 +357,7 @@ La recopilación de syslogEventConfiguration tiene una entrada para cada recurso
 
 Elemento | Valor
 ------- | -----
-sinks | Es una lista separada por comas de nombres de receptores en los que se publican los eventos de registros individuales. Todos los eventos de registro que coincidan con las restricciones de syslogEventConfiguration se publican en cada receptor indicado. Por ejemplo, "EHforsyslog".
+sinks | Es una lista separada por comas de nombres de receptores en los que se publican los eventos de registros individuales. Todos los eventos de registro que coincidan con las restricciones de syslogEventConfiguration se publican en cada receptor indicado. Ejemplo: "EHforsyslog"
 facilityName | Es un nombre de recurso de syslog (como "LOG\_USER" o "LOG\_LOCAL0"). Consulte la sección "facility" de la [página man de syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obtener la lista completa.
 minSeverity | Es un nivel de gravedad de syslog (como "LOG\_ERR" o "LOG\_INFO"). Consulte la sección "level" de la [página man de syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obtener la lista completa. La extensión captura eventos enviados al recurso al nivel especificado o uno superior.
 

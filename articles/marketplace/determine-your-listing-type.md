@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261078"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081547"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 La opción de publicación que elige para su oferta está relacionada directamente con los requisitos de idoneidad y las ventajas de GTM de Marketplace. Y, aún más importante, la selección de la opción de publicación y el tipo de oferta en Cloud Partner Portal define cómo interactúan los usuarios con su oferta de Marketplace.
 
 Para habilitar las opciones de publicación, seleccione un tipo de oferta y, a continuación, cree una oferta de Marketplace en Cloud Partner Portal. Para ello, necesita comprender los siguientes conceptos clave de Marketplace: las opciones de publicación, la configuración y los tipos de oferta, y las llamadas a la acción que rigen cómo y dónde se presenta la oferta en los escaparates de Marketplace.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >En la tabla anterior se describe cómo se asigna la solución o el servicio al escaparate, la opción de publicación y el tipo de oferta usados para presentar la oferta en Marketplace.
@@ -44,7 +44,7 @@ Antes de seleccionar una opción de publicación, es importante comprender los r
 
 Las aplicaciones de **Azure Marketplace** son soluciones técnicas de "bloques de creación" integradas en Azure o creadas para Azure. Los servicios de consultoría de Azure Marketplace son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Azure o a acelerar su uso.
 
-Las aplicaciones de **AppSource** son soluciones de línea de negocio que se pueden basar en Azure o diseñar para Dynamics 365, Office 365, Power BI o Power Apps. Los servicios de consultoría de AppSource son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Dynamics 365 y Power BI o a acelerar su uso.
+Las aplicaciones de **AppSource** son soluciones de línea de negocio que se pueden basar en Azure o diseñar para: Dynamics 365, Office 365, Power BI o Power Apps. Los servicios de consultoría de AppSource son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Dynamics 365 y Power BI o a acelerar su uso.
 
 Una vez que se haya registrado para convertirse en editor y haya recibido acceso a Cloud Partner Portal para crear, configurar y publicar ofertas de Marketplace, podrá:
 

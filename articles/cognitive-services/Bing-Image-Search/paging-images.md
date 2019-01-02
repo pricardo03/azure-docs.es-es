@@ -1,7 +1,7 @@
 ---
-title: 'Navegación por las páginas de las imágenes disponibles: Bing Image Search API'
+title: Navegación por las páginas de las imágenes que devuelve Bing Image Search API
 titleSuffix: Azure Cognitive Services
-description: Aprenda a navegar por las páginas de todas las imágenes que puede devolver Bing.
+description: Navegue por distintas páginas de las imágenes que devuelve Bing Image Search API.
 services: cognitive-services
 author: swhite-msft
 manager: cgonlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec2018
+ms.openlocfilehash: 69829066e543e5ab3badc4d1d3f77ff3c1d16ffd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739373"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259756"
 ---
-# <a name="paging-results"></a>Paginación de resultados
+# <a name="page-through-the-images-results"></a>Navegue por las páginas de resultados de imagen.
 
 Cuando se llama a Bing Image Search API, Bing devuelve una lista de resultados. La lista es un subconjunto del número total de resultados que están relacionados con la consulta. Para obtener el número total estimado de resultados disponibles, consulte el campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) del objeto de respuesta.  
 

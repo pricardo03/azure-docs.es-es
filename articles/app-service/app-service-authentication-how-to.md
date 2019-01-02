@@ -1,5 +1,5 @@
 ---
-title: Uso avanzado de la autenticación y autorización en Azure App Service | Microsoft Docs
+title: 'Uso avanzado de la autenticación y autorización: Azure App Service | Microsoft Docs'
 description: Muestra cómo personalizar la autenticación y autorización en App Service y obtener las notificaciones de usuario y los diferentes tokens.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685334"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409758"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -28,11 +29,11 @@ Para comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
 * [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
 * [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service para Linux](containers/tutorial-auth-aad.md)
-* [Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Configuración de la aplicación para usar el inicio de sesión de Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Configuración de la aplicación para usar el inicio de sesión de Google](app-service-mobile-how-to-configure-google-authentication.md)
-* [Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Configuración de la aplicación para usar el inicio de sesión de Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory](configure-authentication-provider-aad.md)
+* [Configuración de la aplicación para usar el inicio de sesión de Facebook](configure-authentication-provider-facebook.md)
+* [Configuración de la aplicación para usar el inicio de sesión de Google](configure-authentication-provider-google.md)
+* [Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft](configure-authentication-provider-microsoft.md)
+* [Configuración de la aplicación para usar el inicio de sesión de Twitter](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Uso de varios proveedores de inicio de sesión
 
@@ -181,9 +182,9 @@ Cuando el token de acceso del proveedor expira, debe volver a autenticar el usua
 
 - **Google**: anexe un parámetro de cadena de consulta `access_type=offline` en su llamada API `/.auth/login/google`. Si usa el SDK de Mobile Apps, puede agregar el parámetro a una de las sobrecargas `LogicAsync` (vea [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Tokens de actualización de Google)).
 - **Facebook**: no proporciona tokens de actualización. Los tokens de larga duración expiran en 60 días (vea [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiración y extensión de tokens de acceso de Facebook)).
-- **Twitter**: los tokens de acceso no expiran (vea [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq) (Preguntas más frecuentes sobre Twitter OAuth)).
-- **Cuenta Microsoft**: cuando [defina la configuración de autenticación de Cuenta Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), seleccione el ámbito `wl.offline_access`.
-- **Azure Active Directory**: en [https://resources.azure.com](https://resources.azure.com), realice los pasos siguientes:
+- **Twitter**: los tokens de acceso no expiran [vea [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ) (Preguntas más frecuentes sobre Twitter OAuth)].
+- **Cuenta Microsoft**: cuando [defina la configuración de autenticación de Cuenta Microsoft](configure-authentication-provider-microsoft.md), seleccione el ámbito `wl.offline_access`.
+- **Azure Active Directory**: en [https://resources.azure.com](https://resources.azure.com), siga estos pasos:
     1. En la parte superior de la página, seleccione **Lectura y escritura**.
     1. En el explorador de la izquierda, desplácese hasta **subscriptions** > **_\<nombre\_suscripción_** > **resourceGroups** > _**\<nombre\_grupo\_recursos>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<nombre\_aplicación>**_ > **config** > **authsettings**. 
     1. Haga clic en **Editar**.

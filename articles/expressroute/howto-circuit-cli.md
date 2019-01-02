@@ -1,26 +1,18 @@
 ---
-title: 'Creación y modificación de un circuito Azure ExpressRoute: CLI | Microsoft Docs'
-description: Este artículo describe cómo crear, aprovisionar, comprobar, actualizar, eliminar y desaprovisionar un circuito ExpressRoute con la CLI.
-documentationcenter: na
+title: 'Creación y modificación de un circuito ExpressRoute: CLI de Azure | Microsoft Docs'
+description: En este artículo se muestra cómo crear, aprovisionar, comprobar, actualizar, eliminar y desaprovisionar un circuito ExpressRoute con la CLI.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/19/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: a53fe43365100c6d71fcc2b9e0944a221adf188d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2013b3b96fddd32f01245655c1feb600bc426e2a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249241"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084148"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creación y modificación de un circuito ExpressRoute mediante la CLI
 
@@ -44,7 +36,7 @@ En este artículo se describe cómo crear un circuito Azure ExpressRoute con la 
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Iniciar sesión en la cuenta de Azure y seleccione la suscripción
 
-Para empezar la configuración, inicie sesión en la cuenta de Azure. Use los siguientes ejemplos para conectarse:
+Para empezar la configuración, inicie sesión en la cuenta de Azure. Si usa la funcionalidad "Try It" de CloudShell, iniciará sesión de manera automática. Use los siguientes ejemplos para conectarse:
 
 ```azurecli
 az login
@@ -52,13 +44,13 @@ az login
 
 Compruebe las suscripciones para la cuenta.
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 Seleccione la suscripción para la que desea crear un circuito ExpressRoute.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
@@ -66,7 +58,7 @@ az account set --subscription "<subscription ID>"
 
 Para crear un circuito ExpressRoute, necesita la lista de proveedores de conectividad, ubicaciones y opciones de ancho de banda admitidas. El comando "az network express-route list-service-providers" de la CLI devuelve esta información que se usará en pasos posteriores:
 
-```azurecli
+```azurecli-interactive
 az network express-route list-service-providers
 ```
 
@@ -140,7 +132,7 @@ Ahora está listo para crear un circuito ExpressRoute.
 
 Si todavía no tiene un grupo de recursos, debe crear uno antes de crear ExpressRoute. Puede crear uno si ejecuta el comando siguiente:
 
-```azurecli
+```azurecli-interactive
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
@@ -154,7 +146,7 @@ Asegúrese de que especifica el nivel y la familia correctos de SKU.
 
 El circuito ExpressRoute se factura a partir del momento en que se emite una clave de servicio. El ejemplo siguiente es una solicitud para una nueva clave de servicio:
 
-```azurecli
+```azurecli-interactive
 az network express-route create --bandwidth 200 -n MyCircuit --peering-location "Silicon Valley" -g ExpressRouteResourceGroup --provider "Equinix" -l "West US" --sku-family MeteredData --sku-tier Standard
 ```
 
@@ -164,7 +156,7 @@ La respuesta contiene la clave del servicio.
 
 Para una lista de todos los circuitos ExpressRoute que creó, ejecute el comando "az network express-route list". Puede recuperar esta información en cualquier momento con este comando. Para mostrar todos los circuitos, realice la llamada sin parámetros.
 
-```azurecli
+```azurecli-interactive
 az network express-route list
 ```
 
@@ -201,7 +193,7 @@ La clave de servicio aparece en el campo *ServiceKey* de la respuesta.
 
 Puede ejecutar el comando con el parámetro "-h" para obtener descripciones detalladas de todos los parámetros.
 
-```azurecli
+```azurecli-interactive
 az network express-route list -h
 ```
 
@@ -211,21 +203,21 @@ az network express-route list -h
 
 Cuando se crea un nuevo circuito ExpressRoute, dicho circuito tiene el siguiente estado:
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "NotProvisioned"
 "circuitProvisioningState": "Enabled"
 ```
 
 El circuito pasa al estado siguiente cuando el proveedor de conectividad se encuentra en el proceso de habilitarlo:
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
 Para poder usar un circuito ExpressRoute, dicho circuito tiene que estar en el siguiente estado.
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
@@ -234,7 +226,7 @@ Para poder usar un circuito ExpressRoute, dicho circuito tiene que estar en el s
 
 La comprobación del estado y la condición de la clave de circuito le informa cuando el proveedor ha habilitado el circuito. Después de configurar el circuito, "ServiceProviderProvisioningState" aparece como "Provisioned", tal como se muestra en el ejemplo siguiente:
 
-```azurecli
+```azurecli-interactive
 az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
 ```
 
@@ -297,7 +289,7 @@ Para más información sobre los límites y las limitaciones, consulte las [preg
 
 Puede habilitar el complemento ExpressRoute Premium en el circuito existente mediante el comando siguiente:
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Premium
 ```
 
@@ -318,7 +310,7 @@ Antes de deshabilitar el complemento premium de ExpressRoute, debe comprender lo
 
 Puede deshabilitar el complemento premium de ExpressRoute en el circuito existente mediante el ejemplo siguiente:
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Standard
 ```
 
@@ -334,7 +326,7 @@ Consulte la página de [preguntas más frecuentes de ExpressRoute](expressroute-
 
 Cuando haya decidido el tamaño que necesita, use el comando siguiente para cambiar el tamaño del circuito:
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --bandwidth 1000
 ```
 
@@ -344,7 +336,7 @@ El circuito se cambia de tamaño en el lado de Microsoft. Luego, debe ponerse en
 
 Puede cambiar la SKU de un circuito ExpressRoute mediante el ejemplo siguiente:
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-family UnlimitedData
 ```
 
@@ -362,7 +354,7 @@ Para desaprovisionar y eliminar un circuito ExpressRoute, asegúrese de comprend
 
 Puede eliminar el circuito ExpressRout con la ejecución del siguiente comando:
 
-```azurecli
+```azurecli-interactive
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 ```
 

@@ -9,35 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e17412636a904508352370bc7292a7d64bac6bc
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280444"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385574"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifica la administración y la supervisión de un clúster de Hadoop al brindar una API de REST y una interfaz de usuario web fácil de usar. Ambari se incluye en los clústeres de HDInsight basado en Linux y, además, se usa para supervisar el clúster y realizar cambios en la configuración.
+Apache Ambari simplifica la administración y la supervisión de un clúster de Apache Hadoop al brindar una API de REST y una interfaz de usuario web fácil de usar. Ambari se incluye en los clústeres de HDInsight basado en Linux y, además, se usa para supervisar el clúster y realizar cambios en la configuración.
 
 Con este documento aprende a usar la interfaz de usuario web de Ambari con un clúster de HDInsight.
 
-## <a id="whatis"></a>¿Qué es Ambari?
+## <a id="whatis"></a>¿Qué es Apache Ambari?
 
 [Apache Ambari](http://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario de web fácil de usar. Puede usar Ambari para administrar y supervisar los clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 La interfaz de usuario web de Ambari se proporciona de forma predeterminada con clústeres de HDInsight que usan el sistema operativo Linux.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 
 ## <a name="connectivity"></a>Conectividad
 
 La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en HTTPS://CLUSTERNAME.azurehdinsight.net, donde **CLUSTERNAME** es el nombre del clúster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > La conexión a Ambari en HDInsight requiere HTTPS. Cuando se le solicite autenticación, use el nombre de la cuenta de administrador y la contraseña que proporcionó cuando se creó el clúster.
 
 ## <a name="ssh-tunnel-proxy"></a>Túnel SSH (proxy)
@@ -46,7 +46,7 @@ A pesar de que es posible tener acceso directamente a través de Internet a Amba
 
 ## <a name="ambari-web-ui"></a>Interfaz de usuario web de Ambari
 
-> [!WARNING]
+> [!WARNING]  
 > No todas las características de la interfaz de usuario web de Ambari son compatibles con HDInsight. Para más información, consulte la sección sobre las [operaciones no admitidas](#unsupported-operations) de este documento.
 
 Cuando se conecte a la interfaz de usuario web de Ambari, se le pedirá que se autentique en la página. Use el nombre de usuario y la contraseña de administrador del clúster (valor predeterminado, Admin) que utilizó durante la creación del clúster.
@@ -120,7 +120,7 @@ La barra lateral **Services** (Servicios) del panel proporciona información rá
 
 ![barra lateral de servicios](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Los servicios mostrados difieren entre las versiones y los tipos de clúster de HDInsight. Los servicios mostrados aquí pueden ser diferentes de los servicios que se muestran para el clúster.
 
 Al seleccionar un servicio se muestra información más detallada sobre el mismo.
@@ -138,7 +138,7 @@ Algunos servicios muestran un vínculo **Quick Links** (Vínculos rápidos) en l
 
 Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explorador, donde aparecerá la página seleccionada.
 
-> [!NOTE]
+> [!NOTE]  
 > Al seleccionar la entrada **Vínculos rápidos** para un servicio, puede aparecer un error de "servidor no encontrado". Si se produce este error, debe usar un túnel SSH al emplear la entrada **Vínculos rápidos** para este servicio. Para más información, consulte [Uso de la tunelización SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="management"></a>Administración
@@ -147,7 +147,7 @@ Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explo
 
 Se puede trabajar con usuarios, grupos y permisos cuando se usa un clúster de HDInsight [unido a un dominio](./domain-joined/apache-domain-joined-introduction.md). Para más información sobre el uso de la interfaz de usuario de administración de Ambari en un clúster unidos a un dominio, consulte [Manage domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md) (Administración de clústeres de HDInsight unidos a dominio).
 
-> [!WARNING]
+> [!WARNING]  
 > No cambie la contraseña del guardián Ambari (hdinsightwatchdog) en el clúster de HDInsight basado en Linux. El cambio de la contraseña impide usar acciones de script o realizar operaciones de escalado con el clúster.
 
 ### <a name="hosts"></a>Hosts
@@ -156,7 +156,7 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
 
 ![página de hosts](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
-> [!NOTE]
+> [!NOTE]  
 > No se debe agregar, retirar o volver a programar un host con los clústeres de HDInsight.
 
 1. Seleccione los hosts que desee administrar.
@@ -195,7 +195,7 @@ En la página **Dashboard** (Panel) o **Services** (Servicios), use el botón **
 
 ![Service Actions](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [!WARNING]
+> [!WARNING]  
 > Aunque **Add Service** (Agregar servicio) aparece en este menú, no debe usarse para agregar servicios al clúster de HDInsight. Se deben agregar nuevos servicios deben mediante una acción de script durante el aprovisionamiento del clúster. Para obtener más información sobre el uso de las acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 A pesar de que el botón **Actions** puede reiniciar todos los servicios, con frecuencia se desea iniciar, detener o reiniciar un servicio específico. Use los siguientes pasos para realizar acciones sobre un servicio individual:
@@ -206,12 +206,12 @@ A pesar de que el botón **Actions** puede reiniciar todos los servicios, con fr
 
     ![acción de servicio](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Reiniciar algunos servicios mientras el clúster está en ejecución puede generar alertas. Para evitarlo, puede usar el botón **Service Actions** (Acciones de servicio) para habilitar el **modo de mantenimiento** del servicio antes del reinicio.
 
 3. Una vez que se selecciona una acción, la entrada **# op** que aparece en la parte superior de la página aumenta para mostrar que se está produciendo una operación en segundo plano. La lista de operaciones en segundo plano aparecerá si está configurada de ese modo.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Si habilitó el **modo de mantenimiento** para el servicio, recuerde deshabilitarlo con el botón **Service Actions** (Acciones de servicio) una vez finalizada la operación.
 
 Para configurar un servicio, use los siguientes pasos:
@@ -226,12 +226,12 @@ Para configurar un servicio, use los siguientes pasos:
 
 ## <a name="ambari-views"></a>Vistas de Ambari
 
-Las vistas de Ambari permiten a los desarrolladores conectar elementos de interfaz de usuario a la interfaz de usuario web de Ambari mediante el [marco de vistas de Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight proporciona las siguientes vistas con los tipos de clúster de Hadoop:
+Las vistas de Ambari permiten a los desarrolladores conectar elementos de interfaz de usuario a la interfaz de usuario web de Ambari mediante el [marco de vistas de Apache Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight proporciona las siguientes vistas con los tipos de clúster de Hadoop:
 
 
-* Vista de Hive: la vista de Hive permite ejecutar consultas de Hive directamente desde el explorador web. Puede guardar consultas, ver resultados, guardar resultados en el almacenamiento del clúster o descargar los resultados en el sistema local. Para más información sobre el uso de vistas de Hive, consulte [Uso de vistas de Hive con HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
+* Vista de Hive: la vista de Hive permite ejecutar consultas de Hive directamente desde el explorador web. Puede guardar consultas, ver resultados, guardar resultados en el almacenamiento del clúster o descargar los resultados en el sistema local. Para más información sobre el uso de vistas de Hive, consulte [Uso de vistas de Apache Hive con HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
-* Vista Tez: la vista de Tez permite comprender mejor y optimizar los trabajos. Puede ver información sobre cómo se ejecutan los trabajos de Tez y qué recursos se usan.
+* Vista de Tez: la vista de Tez permite comprender mejor y optimizar los trabajos. Puede ver información sobre cómo se ejecutan los trabajos de Tez y qué recursos se usan.
 
 ## <a name="unsupported-operations"></a>Operaciones no admitidas
 
@@ -241,4 +241,4 @@ Las operaciones de Ambari siguientes no son compatibles con HDInsight:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo usar la [API de REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) con HDInsight.
+Obtenga información sobre cómo usar la [API de REST de Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) con HDInsight.

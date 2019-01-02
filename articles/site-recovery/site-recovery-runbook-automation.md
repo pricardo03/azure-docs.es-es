@@ -1,18 +1,18 @@
 ---
 title: Incorporación de runbooks de Azure Automation a los planes de recuperación de Site Recovery | Microsoft Docs
 description: Obtenga información sobre cómo extender los planes de recuperación con Azure Automation para la recuperación ante desastres con Azure Site Recovery
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/27/2018
+ms.author: rajanaki
+ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244022"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866379"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Incorporación de runbooks de Azure Automation a los planes de recuperación
 En este artículo se explica cómo se integra Azure Site Recovery con Azure Automation para ayudarle a ampliar los planes de recuperación. Los planes de recuperación pueden organizar la recuperación de máquinas virtuales protegidas con Site Recovery. Los planes de recuperación funcionan para la replicación en una nube secundaria y para la replicación en Azure. Los planes de recuperación además ayudan a que la recuperación sea **coherente y precisa**, **repetible** y **automatizada**. Si conmuta por error las máquinas virtuales en Azure, la integración con Azure Automation amplía los planes de recuperación. Se puede usar para ejecutar runbooks, que ofrecen eficaces tareas de automatización.
@@ -29,7 +29,7 @@ En este artículo se explica cómo integrar runbooks de Azure Automation en los 
 
 2. Haga clic con el botón derecho en **Grupo 1: Iniciar** y luego seleccione **Agregar acción posterior**.
 
-    ![Clic con el botón derecho en Grupo 1: Iniciar y adición de acción posterior](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![Hacer clic con el botón derecho en Grupo 1: Iniciar y Agregar acción posterior](media/site-recovery-runbook-automation-new/customize-rp.png)
 
 3. Haga clic en **Elegir un script**.
 
@@ -213,7 +213,7 @@ En el siguiente ejemplo se usa una técnica nueva y se crea una [variable comple
 4. Use esta variable en el runbook. Si el GUID indicado de la máquina virtual se encuentra en el contexto del plan de recuperación, aplique el NSG en la máquina virtual:
 
     ```
-    $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
 4. En el runbook, cree un bucle con las máquinas virtuales del contexto del plan de recuperación. Compruebe si la máquina virtual existe en **$VMDetailsObj**. En caso afirmativo, acceda a las propiedades de la variable para aplicar el NSG:
@@ -223,13 +223,13 @@ En el siguiente ejemplo se usa una técnica nueva y se crea una [variable comple
         $vmMap = $RecoveryPlanContext.VmMap
 
         foreach($VMID in $VMinfo) {
-            Write-output $VMDetailsObj.value.$VMID
-
-            if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
+            $VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+            Write-output $VMDetails
+            if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
                 $VM = $vmMap.$VMID
                 # Access the properties of the variable
-                $NSGname = $VMDetailsObj.value.$VMID.'NSGName'
-                $NSGRGname = $VMDetailsObj.value.$VMID.'NSGResourceGroupName'
+                $NSGname = $VMDetails.NSGName
+                $NSGRGname = $VMDetails.NSGResourceGroupName
 
                 # Add code to apply the NSG properties to the VM
             }

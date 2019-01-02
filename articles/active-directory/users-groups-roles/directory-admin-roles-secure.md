@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821096"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387087"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -58,17 +58,17 @@ Este documento se centra principalmente en la creación de un mapa de ruta para 
 
 ## <a name="develop-a-roadmap"></a>Desarrollo de una hoja de ruta 
 
-Microsoft recomienda que se desarrolle una hoja de ruta, y se siga, para proteger el acceso con privilegios frente a ciberatacantes. Dicha hoja de ruta se puede ajustar en cualquier momento para adecuarla a las funcionalidades existentes y a los requisitos concretos de cualquier organización. Cada fase de la hoja de ruta debería no solo aumentar el costo que supone a los adversarios atacar el acceso con privilegios en los recursos locales, híbridos y en la nube, sino también dificultar dicho ataque. Microsoft recomienda las cuatro siguientes fases de la hoja de ruta. En esta hoja de ruta que se recomienda, están programadas en primer lugar las implementaciones más rápidas y eficaces, según la experiencia de Microsoft en ciberataques e implementación de respuestas a ellos. Los plazos indicados en esta hoja son aproximados.
+Microsoft recomienda que se desarrolle una hoja de ruta, y se siga, para proteger el acceso con privilegios frente a ciberatacantes. Dicha hoja de ruta se puede ajustar en cualquier momento para adecuarla a las funcionalidades existentes y a los requisitos concretos de cualquier organización. Cada fase de la hoja de ruta debería no solo aumentar el costo que supone a los adversarios atacar el acceso con privilegios en los recursos locales, híbridos y en la nube, sino también dificultar dicho ataque. Microsoft recomienda las siguientes cuatro fases de la hoja de ruta: en esta hoja de ruta que se recomienda, están programadas en primer lugar las implementaciones más rápidas y eficaces, según la experiencia de Microsoft en ciberataques e implementación de respuestas a ellos. Los plazos indicados en esta hoja son aproximados.
 
 ![Fases de la hoja de ruta con plazos:](./media/directory-admin-roles-secure/roadmap-timeline.png)
 
-* Fase 1 (24 a 48 horas): elementos críticos que es aconsejable realizar de inmediato.
+* Fase 1 (24 a 48 horas): elementos críticos que es aconsejable realizar de inmediato
 
-* Fase 2 (2 a 4 semanas): mitigar las técnicas de ataque que se usan con más frecuencia.
+* Fase 2 (2 a 4 semanas): mitigar las técnicas de ataque que se usan con más frecuencia
 
-* Fase 3 (1 a 3 meses): crear visibilidad y crear control total de la actividad de administración.
+* Fase 3 (1 a 3 meses): crear visibilidad y crear control total de la actividad de administración
 
-* Fase 4 (6 meses, y más): seguir creando defensas que protejan aún más la plataforma de seguridad.
+* Fase 4 (seis meses y más allá): seguir creando defensas que protejan aún más la plataforma de seguridad
 
 El marco de esta hoja de ruta está diseñado para maximizar el uso de tecnologías de Microsoft que es posible que ya haya implementado. También se puede sacar provecho de las principales tecnologías de seguridad actuales y futuras, e integrar herramientas de seguridad de otros proveedores que ya se hayan implementado o que se puedan implementar. 
 
@@ -121,7 +121,7 @@ Evalúe las cuentas que están asignadas al rol de administrador global o que so
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Activación de la autenticación multifactor y registro de las restantes cuentas de administrador no federadas de usuario único con privilegios elevados 
 
-Requiera Azure Multi-Factor Authentication (MFA) en el inicio de sesión a todos los usuarios individuales a los que se haya asignado permanentemente uno o varios de los roles de administrador de Azure AD: Administrador global, Administrador de rol con privilegios, Administrador de Exchange Online y Administrador de SharePoint Online. Use la guía para habilitar [Multi-Factor Authentication (MFA) en sus cuentas de administrador](../authentication/howto-mfa-userstates.md) y asegúrese de que todos esos usuarios se hayan registrado en [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Puede encontrar más información en los pasos 2 y 3 de [Protección del acceso a datos y servicios de Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Requiera Azure Multi-Factor Authentication (MFA) en el inicio de sesión para todos los usuarios asignados de forma permanente a uno o varios de los roles de administrador de Azure AD: administrador global, administrador de roles con privilegios, administrador de Exchange Online y administrador de SharePoint Online. Use la guía para habilitar [Multi-Factor Authentication (MFA) en sus cuentas de administrador](../authentication/howto-mfa-userstates.md) y asegúrese de que todos esos usuarios se hayan registrado en [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Puede encontrar más información en los pasos 2 y 3 de [Protección del acceso a datos y servicios de Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: mitigar las técnicas de ataque que se usan con más frecuencia
 
@@ -196,7 +196,7 @@ Responder eficazmente a los incidentes es una tarea compleja. Por consiguiente, 
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>Proteja las cuentas administrativas con privilegios locales, si no lo ha hecho
 
-Si su inquilino de Azure Active Directory está sincronizado con la instancia local de Active Directory, a continuación, siga las instrucciones de [Hoja de ruta de la seguridad del acceso con privilegios guía básica de acceso con privilegios](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): fase 1. Aquí se incluye la creación de cuentas de administrador independientes para usuarios que necesiten realizar tareas administrativas locales, la implementación de Estaciones de trabajo con privilegios de acceso para administradores de Active Directory y la creación de contraseñas de administrador local únicas para estaciones de trabajo y servidores.
+Si su inquilino de Azure Active Directory está sincronizado con la instancia local de Active Directory, a continuación, siga las instrucciones de [Hoja de ruta de la seguridad del acceso con privilegios](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Fase 1. Aquí se incluye la creación de cuentas de administrador independientes para usuarios que necesiten realizar tareas administrativas locales, la implementación de Estaciones de trabajo con privilegios de acceso para administradores de Active Directory y la creación de contraseñas de administrador local únicas para estaciones de trabajo y servidores.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Pasos adicionales para las organizaciones que administran el acceso a Azure
 
@@ -210,7 +210,7 @@ Las cuentas Microsoft de otros programas, como Xbox, Live y Outlook no deben usa
 
 #### <a name="monitor-azure-activity"></a>Supervise la actividad de Azure
 
-El registro de actividad de Azure proporciona un historial de los eventos de nivel de suscripción en Azure. Ofrece información acerca de quién creó, actualizó o eliminó los recursos y cuándo se produjeron estos eventos. Para más información, consulte, [Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md).
+El registro de actividad de Azure proporciona un historial de los eventos de nivel de suscripción en Azure. Ofrece información acerca de quién creó, actualizó o eliminó los recursos y cuándo se produjeron estos eventos. Para más información, consulte, [Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Pasos adicionales para las organizaciones que administran el acceso a otras aplicaciones en la nube a través de Azure AD 
@@ -247,7 +247,7 @@ Los atacantes pueden intentar dirigirse a cuentas con privilegios para obtener a
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Consulte las recomendaciones de control de incidentes que realiza el Instituto Nacional de Normas y Tecnología 
 
-El Instituto Nacional de Normas y Tecnología (NIST) proporciona directrices para el control de incidentes, especialmente para analizar los datos relacionados con los incidentes y determinar la respuesta más apropiada ante cada incidente. Para más información, consulte [la guía para el control de incidentes de seguridad en los equipos del NIST (SP 800-61, revisión 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+El Instituto Nacional de Normas y Tecnología (NIST) proporciona directrices para el control de incidentes, especialmente para analizar los datos relacionados con los incidentes y determinar la respuesta más apropiada ante cada incidente. Para más información, consulte [la guía para el control de incidentes de seguridad en los equipos del NIST (SP 800-61, revisión 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Implemente Privileged Identity Management (PIM) para JIT en más roles administrativos
 
@@ -275,7 +275,7 @@ Este informe se puede descargar de [Security Incident Management in Microsoft Of
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Continúe con la protección de las cuentas administrativas con privilegios locales
 
-Si Azure Active Directory está conectado con la instancia local de Active Directory, siga las instrucciones de [Hoja de ruta de la seguridad del acceso con privilegios guía básica de acceso con privilegios](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): fase 2. Esto incluye implementar estaciones de trabajo de acceso con privilegios para todos los administradores, requerir MFA, usar Just Enough Admin para el mantenimiento de controladores de dominio, reducir la superficie expuesta al ataque de los dominios e implementar ATA para la detección de ataques.
+Si Azure Active Directory está conectado con la instancia local de Active Directory, siga las instrucciones de [Hoja de ruta de la seguridad del acceso con privilegios](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Fase 2. Esto incluye implementar estaciones de trabajo de acceso con privilegios para todos los administradores, requerir MFA, usar Just Enough Admin para el mantenimiento de controladores de dominio, reducir la superficie expuesta al ataque de los dominios e implementar ATA para la detección de ataques.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Pasos adicionales para las organizaciones que administran el acceso a Azure
 
@@ -390,15 +390,15 @@ Determine si necesita [transferir la propiedad de una suscripción de Azure a ot
 
 Para más información acerca de la forma en que Microsoft Office 365 controla los incidentes de seguridad, consulte [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM) (Administración de incidentes de seguridad en Microsoft Office 365).
 
-## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>Preguntas más frecuentes: preguntas que recibimos habitualmente con respecto a la protección de acceso con privilegios  
+## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>PREGUNTAS MÁS FRECUENTES: preguntas que recibimos habitualmente con respecto a la protección de acceso con privilegios  
 
 
-**P:**  ¿Qué tengo hago si aún no he implementado ningún componente de acceso seguro?
+**P:** ¿Qué hago si aún no he implementado ningún componente de acceso seguro?
 
 **Respuesta:** Defina un mínimo de dos cuentas para casos de emergencia, asigne MFA a sus cuentas de administrador con privilegios y separe las cuentas de usuario de las cuentas de administrador global.
 
 
-**P:**  Después de una infracción, ¿qué problema es el primero que se debe solucionar?
+**P:** Después de una infracción, ¿qué problema es el primero que se debe solucionar?
 
 **Respuesta:** Asegúrese de que requiere la máxima autenticación a los usuarios con mayor exposición.
 
@@ -415,10 +415,10 @@ Para más información acerca de la forma en que Microsoft Office 365 controla l
 
 **P:** ¿Cómo puedo proteger a los administradores en mi organización?
 
-**Respuesta:** Indique a los administradores que siempre deben realizar sus tareas cotidianas como usuarios estándar de "sin privilegios".
+**Respuesta:** Indique a los administradores que siempre deben realizar sus tareas cotidianas como usuarios estándar "sin privilegios".
  
 
-**P:** ¿Cuáles son los procedimientos recomendadas para la creación de cuentas de administrador en Azure AD?
+**P:** ¿Cuáles son los procedimientos recomendados para la creación de cuentas de administrador en Azure AD?
 
 **Respuesta:** Reserva el acceso con privilegios para tareas de administrador específicas.
 

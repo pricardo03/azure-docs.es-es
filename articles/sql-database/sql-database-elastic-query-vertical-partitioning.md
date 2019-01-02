@@ -3,7 +3,7 @@ title: Consulta entre bases de datos en la nube con diferente esquema | Microsof
 description: cómo configurar consultas entre bases de datos en particiones verticales
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 5dbf6fb1b59999481348d3b4ad4775a77295b70d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 75c021f7b2c2584580f2d9dbf30cbcdf11d3fdc5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238904"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875372"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)
 ![Consultas entre tablas de bases de datos diferentes][1]
@@ -159,7 +159,7 @@ La consulta elástica también incluye un procedimiento almacenado que proporcio
 * Nombre de origen de datos (nvarchar): nombre del origen de datos externo de tipo RDBMS. 
 * Consulta (nvarchar): la consulta T-SQL que se va a ejecutar en la base de datos remota. 
 * Declaración de parámetro (nvarchar) - opcional: cadena con definiciones de tipos de datos de los parámetros usados en el parámetro Query (como sp_executesql). 
-* Lista de valores de los parámetros (opcional): lista separada por comas de valores de los parámetros (por ejemplo, sp_executesql)
+* Lista de valores de los parámetros (opcional): lista separada por comas de valores de los parámetros (por ejemplo, sp_executesql).
 
 sp\_execute\_remote utiliza el origen de datos externo proporcionado en los parámetros de invocación para ejecutar la instrucción T-SQL determinada en la base de datos remota. Utiliza la credencial del origen de datos externo para conectarse a la base de datos remota.  
 

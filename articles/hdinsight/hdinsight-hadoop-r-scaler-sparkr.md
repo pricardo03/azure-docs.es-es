@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: da486b25a9a35cb4f00d6e5a4689d5be3d270e36
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013282"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386907"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinación de ScaleR y SparkR en HDInsight
 
 Este documento muestra cómo predecir retrasos en la llegada de vuelos con un modelo de regresión logística **ScaleR**. En el ejemplo se usan datos meteorológicos y de retraso de vuelos, combinados mediante **SparkR**.
 
-Aunque ambos paquetes se procesan en el motor de ejecución de Spark de Hadoop, se les impide compartir datos en memoria, ya que cada uno de ellos requiere sus correspondientes sesiones de Spark. Hasta que este problema se solucione en una próxima versión de ML Server, la solución alternativa consiste en mantener sesiones de Spark no superpuestas e intercambiar datos mediante archivos intermedios. Las siguientes instrucciones muestran que estos requisitos son fáciles de lograr.
+Aunque ambos paquetes se procesan en el motor de ejecución de Spark de Apache Hadoop, se les impide compartir datos en memoria, ya que cada uno de ellos requiere sus correspondientes sesiones de Spark. Hasta que este problema se solucione en una próxima versión de ML Server, la solución alternativa consiste en mantener sesiones de Spark no superpuestas e intercambiar datos mediante archivos intermedios. Las siguientes instrucciones muestran que estos requisitos son fáciles de lograr.
 
 Este ejemplo se presentó originalmente en una charla en Strata 2016 de Mario Inchiosa y Roni Burd. Esta charla puede encontrarse en [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Creación de una plataforma de ciencia de datos escalable con R).
 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Puntuación en otros lugares
 
-También se puede usar el modelo para puntuar datos en otra plataforma. Para ello, se guardan en un archivo RDS y luego se transfiere e importa dicho archivo a un entorno de puntuación de destino, como SQL Server R Services. Es importante asegurarse de que los niveles de factor de los datos que se van a puntuar coincidan con aquellos sobre los que se creó el modelo. Esa coincidencia se puede lograr extrayendo y guardando la información de columna asociada a los datos de modelado mediante la función `rxCreateColInfo()` de ScaleR y luego aplicando esa información de columna al origen de datos de entrada para realizar la predicción. Ahora guardamos algunas filas del conjunto de datos de prueba y extraemos y usamos la información de columna de este ejemplo en el script de predicción:
+También se puede usar el modelo para puntuar datos en otra plataforma. Para ello, se guardan en un archivo RDS y luego se transfiere e importa dicho archivo a un entorno de puntuación de destino, como Microsoft SQL Server R Services. Es importante asegurarse de que los niveles de factor de los datos que se van a puntuar coincidan con aquellos sobre los que se creó el modelo. Esa coincidencia se puede lograr extrayendo y guardando la información de columna asociada a los datos de modelado mediante la función `rxCreateColInfo()` de ScaleR y luego aplicando esa información de columna al origen de datos de entrada para realizar la predicción. Ahora guardamos algunas filas del conjunto de datos de prueba y extraemos y usamos la información de columna de este ejemplo en el script de predicción:
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ En este artículo hemos mostrado cómo es posible combinar el uso de SparkR para
 
 ## <a name="next-steps-and-more-information"></a>Pasos siguientes y más información
 
-- Para más información sobre el uso de ML Server en Spark, consulte la [guía de introducción](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- Para más información sobre el uso de ML Server en Apache Spark, consulte la [guía de introducción](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
 - Para información general sobre ML Server, consulte el artículo [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) (Introducción a R).
 

@@ -3,7 +3,7 @@ title: Introducción a trabajos de base de datos elástica | Microsoft Docs
 description: Utilice los trabajos de Elastic Database para ejecutar scripts de T-SQL que abarcan varias bases de datos.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,27 +12,27 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241368"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863540"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introducción a trabajos de Elastic Database
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 Trabajos de Elastic Database (versión preliminar) para Azure SQL Database permite ejecutar de forma confiable scripts de T-SQL que abarcan varias bases de datos al tiempo que realizan reintentos automáticos y ofrecen garantías de finalización futura. Para más información sobre la característica de trabajo de Elastic Database, vea [Trabajos elásticos](sql-database-elastic-jobs-overview.md).
 
 Este artículo amplía el ejemplo que aparece en [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md). Cuando termine, habrá aprendido a crear y administrar trabajos que administran un grupo de bases de datos relacionadas. No es necesario usar las herramientas de escalado elástico para aprovechar las ventajas de los trabajos elásticos.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Descargue [Introducción al ejemplo de herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creación de un administrador de mapas de particiones con la aplicación de ejemplo
+
 Aquí se crea un administrador del mapa de particiones junto con varias particiones, seguido de la inserción de datos en las particiones. Si ya dispone de particiones configuradas con datos particionados en ellas, puede omitir los pasos siguientes y pasar a la sección siguiente.
 
 1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de Elastic Database**. Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Al final del paso 7, verá el siguiente símbolo del sistema:
@@ -49,7 +49,8 @@ Aquí se crea un administrador del mapa de particiones junto con varias particio
 Aquí normalmente se crearía un destino del mapa de particiones, con el cmdlet **New-AzureSqlJobTarget** . Se debe establecer la base de datos de administrador de mapa de particiones como destino de la base de datos y luego especificar el mapa de particiones específico como destino. En lugar de eso, vamos a enumerar todas las bases de datos del servidor y a agregar las bases de datos, excepto la base de datos maestra, a la nueva colección personalizada.
 
 ## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Crea una colección personalizada y agregar todas las bases de datos del servidor, excepto la maestra, al destino de la colección personalizada
-   ```
+
+   ```Powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -257,21 +258,21 @@ Los trabajos de Elastic Database admiten la creación de directivas de ejecució
 
 Actualmente, las directivas de ejecución permiten definir:
 
-* Nombre: identificador de la directiva de ejecución.
+* Nombre: Identificador de la directiva de ejecución.
 * Tiempo de espera del trabajo: tiempo total antes de que Trabajos de Elastic Database cancele un trabajo.
 * Intervalo de reintento inicial: intervalo de espera antes del primer reintento.
-* Intervalo máximo de reintento: límite de intervalos de reintento que se usan.
-* Coeficiente de retroceso de intervalo de reintento: coeficiente que se usa para calcular el siguiente intervalo entre reintentos.  Se usa la siguiente fórmula: (intervalo de reintento inicial) * Math.pow ((coeficiente de retroceso de intervalo), (número de intentos de) - 2).
+* Intervalo máximo de reintento: límite de intervalos de reintentos que se va a usar.
+* Coeficiente de retroceso del intervalo de reintento: coeficiente que se usa para calcular el siguiente intervalo entre reintentos.  Se usa la siguiente fórmula: (Intervalo de reintento inicial) * Math.pow((Coeficiente de retroceso del intervalo), (Número de reintentos) - 2).
 * Número máximo de intentos: número máximo de reintentos para llevar a cabo un trabajo.
 
 La directiva de ejecución predeterminada usa los valores siguientes:
 
-* Nombre: directiva de ejecución predeterminada
+* Nombre: Directiva de ejecución predeterminada
 * Tiempo de espera del trabajo: 1 semana
-* Intervalo de reintento inicial: 100 milisegundos
+* Intervalo de reintento inicial:  100 milisegundos
 * Intervalo máximo de reintento: 30 minutos
 * Coeficiente de intervalo de reintento: 2
-* Número máximo de intentos: 2.147.483.647
+* Número máximo de intentos: 2 147 483 647
 
 Crear la directiva de ejecución que quiera:
 
@@ -301,23 +302,25 @@ Actualizar la directiva de ejecución que se quiere actualizar:
    ```
 
 ## <a name="cancel-a-job"></a>Cancelación de un trabajo
+
 Los trabajos de Elastic Database admiten solicitudes de cancelación de trabajos.  Si Trabajos de Elastic Database detecta una solicitud de cancelación para un trabajo que está ejecutándose en ese momento, intenta detener el trabajo.
 
 Trabajos de Elastic Database puede realizar una cancelación de dos formas distintas:
 
-1. Cancelación de tareas actualmente en ejecución: si se detecta una cancelación mientras se ejecuta una tarea, se intenta cancelar el aspecto de la tarea que se esté ejecutando actualmente.  Por ejemplo, si hay una consulta de larga ejecución en curso en el momento en que se intenta realizar una cancelación, se intenta cancelar la consulta.
-2. Cancelación de reintentos de tareas: si el subproceso de control detecta una cancelación antes de iniciar una tarea para su ejecución, evita iniciar la tarea y declare cancelada la solicitud.
+1. Cancelar las tareas en ejecución actualmente: si se detecta una cancelación mientras se ejecuta una tarea, se intenta cancelar el aspecto de la tarea que se está ejecutando actualmente.  Por ejemplo:  si hay una consulta de larga ejecución en curso en el momento en que se intenta realizar una cancelación, se intentará cancelar la consulta.
+2. Cancelación de reintentos de tareas: si el subproceso de control detecta una cancelación antes de iniciar una tarea para su ejecución, evitará iniciar la tarea y declarará cancelada la solicitud.
 
 Si se solicita una cancelación de un trabajo para un trabajo primario, se respeta la solicitud de cancelación para el trabajo primario y para todos sus trabajos secundarios.
 
 Para enviar una solicitud de cancelación, use el cmdlet **Stop-AzureSqlJobExecution** y establezca el parámetro **JobExecutionId**.
 
-   ```
+   ```Powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Eliminación de un trabajo por nombre y el historial de trabajos
+
 Los trabajos de Elastic Database admiten la eliminación asincrónica de trabajos. Un trabajo se puede marcar para eliminación y el sistema elimina el trabajo y su historial de trabajos una vez completadas todas las ejecuciones de trabajos para ese trabajo. El sistema no cancela automáticamente las ejecuciones de trabajos activos.  
 
 En su lugar, se debe invocar Stop-AzureSqlJobExecution para cancelar las ejecuciones de trabajos activos.

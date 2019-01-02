@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: solución de problemas de configuración de grupo de seguridad de red | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Solución de problemas relacionados con la configuración del grupo de seguridad de red | Microsoft Docs'
 description: Solución de problemas de configuración de NSG para Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: bca92e933b1f75c330999f0d55723eb9f26a7382
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6e7d025e9e83f5511fce25d0c24e4da3b04d7e54
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426111"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957545"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Solución de problemas de configuración de red no válida para el dominio administrado
 Este artículo le ayuda a solucionar problemas y resolver errores de configuración relacionados con la red que generan el mensaje de alerta siguiente:
 
-## <a name="alert-aadds104-network-error"></a>Alerta AADDS104: error de red
+## <a name="alert-aadds104-network-error"></a>Alerta AADDS104: Error de red
 **Mensaje de alerta:** *Microsoft no puede tener acceso a los controladores de dominio de este dominio administrado. Esto puede ocurrir si un grupo de seguridad de red (NSG) configurado en la red virtual bloquea el acceso al dominio administrado. Otro motivo posible es que hay una ruta definida por el usuario que bloquea el tráfico entrante desde Internet.*
 
 Las configuraciones de NSG no válidas son la causa más común de los errores de red en Azure AD Domain Services. El grupo de seguridad de red (NSG) configurado para la red virtual debe permitir el acceso a [puertos específicos](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Si estos puertos están bloqueados, Microsoft no puede supervisar ni actualizar el dominio administrado. Además, se afecta la sincronización entre el directorio de Azure AD y el dominio administrado. Al crear el NSG, mantenga abiertos estos puertos para evitar la interrupción del servicio.
@@ -41,7 +41,7 @@ Las configuraciones de NSG no válidas son la causa más común de los errores d
 ## <a name="sample-nsg"></a>NSG de ejemplo
 En la tabla siguiente se muestra un NSG de ejemplo que mantendría protegido el dominio administrado al permitir que Microsoft supervise, administre y actualice la información.
 
-![NSG de ejemplo](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![NSG de ejemplo](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 >[!NOTE]
 > Azure AD Domain Services requiere acceso saliente sin restricciones desde la red virtual. No se recomienda crear ninguna regla de NSG adicional que restrinja el acceso saliente para la red virtual.

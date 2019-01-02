@@ -1,6 +1,6 @@
 ---
-title: Lista de comprobación de la implementación de Azure AD de 30 días, 90 días y más
-description: Lista de comprobación de la implementación de la característica de Azure Active Directory Premium P2
+title: 'Lista de comprobación de la característica de licencia Premium P2: Azure Active Directory | Microsoft Docs'
+description: Lista de comprobación de la implementación de la característica Azure Active Directory Premium P2 en 30 días, 90 días y más.
 services: active-directory
 ms.service: active-directory
 ms.component: ''
@@ -9,13 +9,13 @@ ms.date: 09/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: ''
-ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705658"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078249"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Lista de comprobación de la característica de licencia de Azure Active Directory Premium P2
 
@@ -33,7 +33,7 @@ En esta guía, se supone que dispone de las licencias de Azure AD Premium P2, En
 
 [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
-## <a name="plan-and-deploy-day-1-30"></a>Planeamiento e implementación: del día 1 al 30
+## <a name="plan-and-deploy-day-1-30"></a>Planeamiento e implementación: Día 1 a 30
 
 - Designación de más de un administrador global (cuenta excepcional)
    - [Administración de cuentas administrativas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md)
@@ -64,7 +64,7 @@ En esta guía, se supone que dispone de las licencias de Azure AD Premium P2, En
    - [Implementación de Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
 - [Asignación de licencias a usuarios según su pertenencia a un grupo en Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
 
-## <a name="plan-and-deploy-day-31-90"></a>Planeamiento e implementación: del día 31 al 90
+## <a name="plan-and-deploy-day-31-90"></a>Planeamiento e implementación: Día 31 a 90
 
 - [Planeamiento del acceso de usuarios invitados](../b2b/what-is-b2b.md)
    - [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../b2b/add-users-administrator.md)
@@ -75,7 +75,7 @@ En esta guía, se supone que dispone de las licencias de Azure AD Premium P2, En
    - [Escenarios de uso y consideraciones de implementación de Azure AD Join](../devices/azureadjoin-plan.md)
 - [Habilitación de Windows Hello para empresas en su organización](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 
-## <a name="plan-and-deploy-day-90-and-beyond"></a>Planeamiento e implementación: a partir del día 90
+## <a name="plan-and-deploy-day-90-and-beyond"></a>Planeamiento e implementación: Día 90 y más
 
 - [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
    - [Configuración de roles de directorio de Azure AD en PIM](../privileged-identity-management/pim-how-to-change-default-settings.md)

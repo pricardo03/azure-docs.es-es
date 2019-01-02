@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: fa6e70fe58e5066fcf308425a4c0d104c072a756
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7b7aad2cb8aa9b4faeada795f20c818995f62fb6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164310"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720446"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solución de problemas de activación o visualización de Application Insights Profiler
 
@@ -95,7 +94,7 @@ Cuando se configura Profiler, se realizan las siguientes actualizaciones en la c
 
 Actualmente, puede habilitar Profiler en hasta cuatro aplicaciones web de Azure y ranuras de implementación que se ejecuten en el mismo plan de servicio. Si tiene más aplicaciones web de las que se ejecutan en un plan de App Service, podría ver la excepción Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionExproducida por el generador de perfiles. El generador de perfiles se ejecuta por separado para cada aplicación web e intenta iniciar una sesión de ETW para cada una. Sin embargo, hay un número limitado de sesiones de ETW que pueden estar activas al mismo tiempo. Si el trabajo web de Profiler notifica demasiadas sesiones activas de generación de perfiles, mueva algunas aplicaciones web a un plan de servicio diferente.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Deployment error: Directory Not Empty (Error de implementación: el directorio no está vacío) "D:\\home\\site\\wwwroot\\App_Data\\jobs"
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Error de implementación: El directorio no está vacío "D:\\home\\site\\wwwroot\\App_Data\\jobs"
 
 Si va a volver a implementar su aplicación web en un recurso de Web Apps con Profiler habilitado, puede que aparezca un mensaje similar al siguiente:
 

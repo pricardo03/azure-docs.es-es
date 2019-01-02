@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: 15fbf254eb479f0935e154806795ebd00cff6adf
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d94f70771cf3ee364dbb3e4c4256cd2248ce3828
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345954"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164779"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Uso de Draft con Azure Kubernetes Service (AKS)
 
-Draft es una herramienta de código abierto que ayuda a empaquetar e implementar contenedores de aplicaciones en un clúster de Kubernetes, lo que le permite concentrarse en el ciclo de desarrollo: el "bucle interno" del desarrollo concentrado. Draft trabaja durante el desarrollo del código y antes de la confirmación en el control de versiones. Con Draft, puede reimplementar rápidamente una aplicación en Kubernetes cuando se producen cambios en el código. Para obtener más información sobre Draft, consulte la [documentación de Draft en Github][draft-documentation].
+Draft es una herramienta de código abierto que ayuda a empaquetar e implementar contenedores de aplicaciones en un clúster de Kubernetes, lo que le permite concentrarse en el ciclo de desarrollo: el "bucle interno" del desarrollo concentrado. Draft trabaja durante el desarrollo del código y antes de la confirmación en el control de versiones. Con Draft, puede reimplementar rápidamente una aplicación en Kubernetes cuando se producen cambios en el código. Para obtener más información sobre Draft, consulte la [documentación de Draft en GitHub][draft-documentation].
 
 En este artículo se muestra cómo usar Draft con un clúster de Kubernetes en AKS.
 
@@ -139,7 +139,7 @@ $ draft connect
 Connect to java:4567 on localhost:49804
 [java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 [java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
-[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 [java]: == Spark has ignited ...
 [java]: >> Listening on 0.0.0.0:4567
 ```

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca9f2fa249a3d9f4387d0fa45e3c5874eea26120
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2091fb75e07b9ed01394621af2d82c02f5598430
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625494"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721330"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Storage utilizando una credencial de SAS
 
@@ -68,7 +68,7 @@ Azure Storage no admite la autenticación de Azure AD de forma nativa.  No obsta
 
 1. Vuelva a la cuenta de almacenamiento recién creada.   
 2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.  
-3. Haga clic en **+ Agregar** en la parte superior de la página para agregar una nueva asignación de roles para la máquina virtual.
+3. Haga clic en **+ Agregar asignación de rol** en la parte superior de la página para agregar una asignación de roles nueva para la máquina virtual.
 4. Establezca **Rol** en "Colaborador de la cuenta de almacenamiento", en el lado derecho de la página.  
 5. En el menú desplegable siguiente, establezca **Asignar acceso a** en el recurso "Máquina virtual".  
 6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y después, establezca **Grupo de recursos** en "Todos los grupos de recursos".  

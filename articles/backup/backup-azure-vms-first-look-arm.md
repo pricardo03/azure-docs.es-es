@@ -1,22 +1,22 @@
 ---
-title: 'Primer análisis: protección de máquinas virtuales con un almacén de Recovery Services'
+title: 'Primer análisis: protección de máquina virtuales de Azure con un almacén de Recovery Services'
 description: Copia de seguridad de máquinas virtuales de Azure con ARM en un almacén de Servicios de recuperación. Use copias de seguridad de máquinas virtuales implementadas con Resource Manager, máquinas virtuales implementadas con el modelo clásico, máquinas virtuales con Premium Storage, máquinas virtuales cifradas y máquinas virtuales en instancias de Managed Disks para proteger los datos. Cree y registre un almacén de Servicios de recuperación. Registre máquinas virtuales, cree directivas y proteja máquinas virtuales en Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: H1Hack27Feb2017
 keywords: copias de seguridad; copia de seguridad de máquina virtual
-ms.openlocfilehash: daa2355d028af9b61b0b14a453452c1a96487403
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233548"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869935"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
 

@@ -1,27 +1,31 @@
 ---
-title: Códecs y formatos de Media Encoder Standard
+title: 'Códecs y formatos de Media Encoder Standard: Azure'
 description: En este tema se ofrece información general sobre los códecs y formatos de Estándar de codificador multimedia.
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255717"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384741"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Códecs y formatos de Media Encoder Standard
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versión 2](media-services-media-encoder-standard-formats.md)
+> * [Versión 3](../latest/media-encoder-standard-formats.md)
+
 Este documento contiene una lista de los formatos de archivo de importación y exportación más comunes que puede usar con Media Encoder Standard.
 
 ## <a name="input-containerfile-formats"></a>Formatos de archivo/contenedor de entrada
@@ -52,8 +56,6 @@ Media Encoder Standard admite el transporte de los siguientes formatos de audio 
 o
 
 * Archivos MXF, GXF y QuickTime donde el audio se transporte como pistas PCM independientes, pero la asignación de canal (a estéreo o 5.1) se pueda deducir de los metadatos del archivo
-
-La compatibilidad con la asignación de canal explícita o proporcionada por el usuario se incluirá en un futuro próximo.
 
 ## <a name="input-video-codecs"></a>Códecs de vídeo de entrada
 | Códecs de vídeo de entrada | Compatible |

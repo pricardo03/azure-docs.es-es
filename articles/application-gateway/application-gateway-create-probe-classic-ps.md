@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2b661968fd64f4d2a61bc59f9b99b1eea6b01f86
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201953"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997270"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell
 
@@ -74,7 +74,7 @@ En el ejemplo siguiente, se usa un archivo XML para configurar todos los valores
 Copie el texto siguiente y péguelo en el Bloc de notas.
 
 ```xml
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
 <FrontendIPConfigurations>
     <FrontendIPConfiguration>
         <Name>fip1</Name>
@@ -148,9 +148,9 @@ Se agrega un nuevo elemento de configuración \<Probe\> para configurar sondeos 
 
 Los parámetros de configuración son:
 
-|.|DESCRIPCIÓN|
+|Parámetro|DESCRIPCIÓN|
 |---|---|
-|**Name** |Nombre de referencia del sondeo personalizado. |
+|**Nombre** |Nombre de referencia del sondeo personalizado. |
 * **Protocol** | Protocolo usado (los valores posibles son HTTP o HTTPS).|
 | **Host** y **Path** | Dirección URL completa que invoca la puerta de enlace de aplicaciones para determinar el mantenimiento de la instancia. Por ejemplo, si tiene el sitio web http://contoso.com/, el sondeo personalizado se puede configurar para "http://contoso.com/path/custompath.htm", con el fin de que las comprobaciones del sondeo tengan una respuesta HTTP satisfactoria.|
 | **Intervalo** | Configura las comprobaciones de intervalo de sondeo en segundos.|

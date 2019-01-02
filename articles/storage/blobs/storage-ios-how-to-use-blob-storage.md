@@ -6,23 +6,21 @@ author: michaelhauss
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262002"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961933"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Uso del almacenamiento de blobs desde iOS
 
 En este artículo se muestran escenarios comunes con Microsoft Azure Blob Storage. Los ejemplos están escritos en Objective-C y usan la [Biblioteca del cliente de Azure Storage para iOS](https://github.com/Azure/azure-storage-ios). Entre los escenarios descritos se incluyen cargar, enumerar, descargar y eliminar blobs. Para obtener más información acerca de los blobs, consulte la sección [Pasos siguientes](#next-steps) . También puede descargar la [aplicación de ejemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rápidamente el uso de Azure Storage en una aplicación de iOS.
 
-## <a name="what-is-blob-storage"></a>¿Qué es Blob Storage?
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
+Para saber más de Blob Storage, consulte [Introducción a Azure Blob Storage](storage-blobs-introduction.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -132,7 +130,7 @@ Para confirmar que esto funciona, examine el [Explorador de Microsoft Azure Stor
 De manera predeterminada, los permisos de un contenedor se configuran para el acceso **Privado** . Sin embargo, los contenedores proporcionan varias opciones diferentes para acceder a ellos:
 
 * **Privado**: el propietario de la cuenta es el único que puede leer los datos del contenedor y de los blobs.
-* **Blob**: los datos de los blobs de este contenedor se pueden leer a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes no pueden enumerar los blobs incluidos en el contenedor mediante una solicitud anónima.
+* **Blob**: Los datos de blob dentro de este contenedor pueden leerse a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes no pueden enumerar los blobs incluidos en el contenedor mediante una solicitud anónima.
 * **Contenedor**: los datos del contenedor y de los blobs se pueden leer mediante una solicitud anónima. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
 
 En el ejemplo siguiente se muestra cómo crear un contenedor con permiso de acceso de **Contenedor** que permita el acceso público, de solo lectura, a todos los usuarios de Internet:
@@ -218,12 +216,12 @@ En el ejemplo siguiente se muestra cómo enumerar todos los blobs en un contened
 * **prefix** : puede especificar el prefijo que se va a usar para la lista de blobs. Solo se enumerarán los blobs que comiencen por dicho prefijo.
 * **useFlatBlobListing**: como se mencionó en la sección [Asignación de nombres y referencia a contenedores y blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata), aunque Blob service es un esquema plano de almacenamiento, puede crear una jerarquía virtual asignando a los blobs el nombre de la información de la ruta de acceso. Sin embargo, actualmente no se admiten listas que no sean planas. Esta característica estará disponible próximamente. Por el momento, este valor debe ser **SÍ**.
 * **blobListingDetails** : puede especificar qué elementos desea incluir al enumerar los blobs
-  * _AZSBlobListingDetailsNone_: solo muestra los blobs confirmados y no devuelve los metadatos de blob.
-  * _AZSBlobListingDetailsSnapshots_: muestra los blobs confirmados y las instantáneas de blob.
-  * _AZSBlobListingDetailsMetadata_: recupera los metadatos de cada blob que se devuelve.
-  * _AZSBlobListingDetailsUncommittedBlobs_: muestra los blobs confirmados y sin confirmar.
-  * _AZSBlobListingDetailsCopy_: incluye las propiedades de copia en la lista.
-  * _AZSBlobListingDetailsAll_: muestra todos los blobs confirmados, blobs sin confirmar e instantáneas disponibles. Además, se devuelven todos los metadatos y estados de copia de dichos blobs.
+  * _AZSBlobListingDetailsNone_: se enumeran solo los blobs confirmados y no se devuelven los metadatos de los blobs.
+  * _AZSBlobListingDetailsSnapshots_: se enumeran los blobs confirmados y las instantáneas de los blobs.
+  * _AZSBlobListingDetailsMetadata_: se recuperan los metadatos de los blobs que se devuelven en la lista.
+  * _AZSBlobListingDetailsUncommittedBlobs_: se enumeran los blobs confirmados y sin confirmar.
+  * _AZSBlobListingDetailsCopy_: se incluyen propiedades de copia en la lista.
+  * _AZSBlobListingDetailsAll_: se enumeran todos los blobs confirmados, blobs sin confirmar e instantáneas disponibles y se devuelven todos los metadatos y estados de copia de dichos blobs.
 * **maxResults** : el número máximo de resultados que se devuelven para esta operación. Utilice -1 para no establecer un límite.
 * **completionHandler** : el bloque de código que se ejecutará con los resultados de la operación de lista.
 

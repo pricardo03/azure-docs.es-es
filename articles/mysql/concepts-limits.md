@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 12/6/2018
+ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982885"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090999"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
@@ -31,13 +31,15 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 |Uso general| 8| 1250|
 |Uso general| 16| 2.500|
 |Uso general| 32| 5000|
+|Uso general| 64| 10000|
 |Memoria optimizada| 2| 600|
 |Memoria optimizada| 4| 1250|
 |Memoria optimizada| 8| 2.500|
 |Memoria optimizada| 16| 5000|
+|Memoria optimizada| 32| 10000|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
-> ERROR 1040 (08004): Too many connections
+> ERROR 1040 (08004): Too many connections (Demasiadas conexiones)
 
 ## <a name="storage-engine-support"></a>Compatibilidad del motor de almacenamiento
 

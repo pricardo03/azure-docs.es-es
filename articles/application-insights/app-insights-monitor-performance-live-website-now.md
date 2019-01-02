@@ -9,26 +9,25 @@ ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: abc3d5832cd85cb3297077f2d661ec8fe32fde9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230927"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105298"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicaciones web en tiempo de ejecución con Application Insights
 
-Puede instrumentar una aplicación web activa con Azure Application Insights sin tener que modificar ni volver a implementar el código. Si las aplicaciones se hospedan en un servidor IIS local, instale el Monitor de estado. Si son aplicaciones web de Azure o se ejecutan en una máquina virtual de Azure, puede activar la supervisión de Application Insights en el panel de control de Azure. (También hay varios artículos sobre cómo configurar [aplicaciones web en directo de J2EE](app-insights-java-live.md) y [Azure Cloud Services](app-insights-cloudservices.md)). Necesita una suscripción a [Microsoft Azure](http://azure.com) .
+Puede instrumentar una aplicación web activa con Azure Application Insights sin tener que modificar ni volver a implementar el código. Si las aplicaciones se hospedan en un servidor IIS local, instale el Monitor de estado. Si son aplicaciones web de Azure o se ejecutan en una máquina virtual de Azure, puede activar la supervisión de Application Insights en el panel de control de Azure. (También hay varios artículos sobre cómo configurar [aplicaciones web en directo de J2EE](app-insights-java-live.md) y [Azure Cloud Services](app-insights-cloudservices.md)). Necesita una suscripción a [Microsoft Azure](https://azure.com) .
 
 ![Captura de pantalla de gráficos de información general de App Insights con información sobre las solicitudes con error, el tiempo de respuesta del servidor y las solicitudes del servidor](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 Puede optar entre tres vías de aplicar Application Insights a sus aplicaciones web .NET:
 
-* **Tiempo de compilación:**[agregue el SDK de Application Insights][greenbrown] al código de la aplicación web.
+* **Tiempo de compilación:** [agregue el SDK de Application Insights][greenbrown] al código de la aplicación web.
 * **Tiempo de ejecución:** instrumenta la aplicación web en el servidor, como se describe a continuación, sin volver a generar e implementar el código.
 * **Ambos:** compila el SDK en el código de aplicación web y aplica las extensiones del sistema en tiempo de ejecución. Obtenga lo mejor de ambas opciones.
 
@@ -120,6 +119,7 @@ Si desea volver a publicar sin agregar Application Insights al código, tenga en
   * En el Administrador de IIS, seleccione el grupo de aplicaciones, abra **Configuración avanzada** y en **Modelo de proceso**, anote la identidad.
   * En el panel de control de administración del equipo, agregue esta identidad al grupo Usuarios del monitor de sistema.
 * Si tiene instalado MMA/SCOM (Systems Center Operation Manager) en el servidor, algunas versiones pueden entrar en conflicto. Desinstale SCOM y el Monitor de estado y vuelva a instalar las versiones más recientes.
+* De manera predeterminada, los registros de Monitor de estado pueden estar en esta ubicación: "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * Consulte [Solución de problemas][qna].
 
 ## <a name="system-requirements"></a>Requisitos del sistema
@@ -133,9 +133,9 @@ Compatibilidad de sistema operativo para el Monitor de estado de Application Ins
 
 con el último Service Pack y .NET Framework 4.5
 
-En el lado de cliente: Windows 7, 8, 8.1 y 10, de nuevo con .NET Framework 4.5
+En el lado cliente: Windows 7, 8, 8.1 y 10, nuevamente con .NET Framework 4.5
 
-La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
+La compatibilidad con IIS es: IIS 7, 7.5, 8, 8.5 (se requiere IIS)
 
 ## <a name="automation-with-powershell"></a>Automatización con PowerShell
 Puede iniciar y detener la supervisión mediante PowerShell en el servidor IIS.
@@ -218,9 +218,12 @@ No recopila telemetría por sí mismo. Simplemente configura las aplicaciones we
 
 Cuando selecciona una aplicación web para instrumentarla con el Monitor de estado:
 
-* Descarga y coloca los ensamblados de Application Insights y el archivo .config en la carpeta de archivos binarios de la aplicación web.
-* Modifica `web.config` para agregar el módulo de seguimiento HTTP de Application Insights.
+* Descarga y coloca los ensamblados de Application Insights y el archivo ApplicationInsights.config en la carpeta de archivos binarios de la aplicación web.
 * Habilita la generación de perfiles de CLR para recopilar llamadas de dependencia.
+
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>¿Qué versión del SDK de Application Insights realiza la instalación de Monitor de estado?
+
+A partir de ahora, Monitor de estado solo puede instalar las versiones 2.3 o 2.4 del SDK de Application Insights.
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>¿Tengo que actualizar el Monitor de estado siempre que actualice la aplicación?
 
@@ -243,7 +246,7 @@ En el caso de las aplicaciones ya instrumentadas en el momento de la compilació
  * Llamadas de dependencia (.NET 4.5); valores devueltos en las llamadas de dependencia (.NET 4.6).
  * Valores de seguimiento de la pila de excepción.
 
-[Más información](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Más información](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Vídeo
 

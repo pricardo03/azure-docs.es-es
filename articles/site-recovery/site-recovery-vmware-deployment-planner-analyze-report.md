@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: d709b13aaf6b6ee9a913484ed503da1e76982d17
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 995c4bbbde87315e92c182fbc91b58ee34cda04e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213923"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839558"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analice el informe de Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
 
@@ -22,23 +22,23 @@ La hoja de cálculo de resumen local proporciona una introducción al entorno de
 
 ![Resumen local del entorno de VMware](media/site-recovery-vmware-deployment-planner-analyze-report/on-premises-summary-v2a.png)
 
-**Fecha de inicio** y **Fecha de finalización**: las fechas de inicio y finalización de los datos de generación de perfiles que se tienen en cuenta para la generación de informes. De forma predeterminada, la fecha de inicio es la fecha en que comienza la generación de perfiles, mientras que la de finalización es la fecha en la que se detiene. Esta se puede especificar mediante los valores "StartDate" y "EndDate" si el informe se genera con estos parámetros.
+**Start Date** (Fecha de inicio) y **End Date** (Fecha de finalización): las fechas de inicio y finalización de los datos de generación de perfiles que se tienen en cuenta para la generación del informe. De forma predeterminada, la fecha de inicio es la fecha en que comienza la generación de perfiles, mientras que la de finalización es la fecha en la que se detiene. Esta se puede especificar mediante los valores "StartDate" y "EndDate" si el informe se genera con estos parámetros.
 
-**Número total de días de generación de perfiles**: el número total de días de generación de perfiles comprendido entre las fechas de inicio y de finalización para el que se genera el informe.
+**Total number of profiling days** (Número total de días de generación de perfiles): el número total de días de generación de perfiles comprendido entre las fechas de inicio y de finalización para el que se genera el informe.
 
-**Número de máquinas virtuales compatibles**: el número total de máquinas virtuales compatibles para el que se calculan el ancho de banda de red necesario, el número de cuentas de almacenamiento requeridas, los núcleos de Microsoft Azure y los servidores de configuración y los servidores de proceso adicionales.
+**Number of compatible virtual machines** (Número de máquinas virtuales compatibles): el número total de máquinas virtuales compatibles para el que se calculan el ancho de banda de red necesario, el número de cuentas de almacenamiento requeridas, los núcleos de Microsoft Azure, los servidores de configuración y los servidores de proceso adicionales.
 
-**Número total de discos en todas las máquinas virtuales compatibles**: el número que se usa como una de las entradas para decidir el número de servidores de configuración y servidores de proceso adicionales que se usarán en la implementación.
+**Total number of disks across all compatible virtual machines** (Número total de discos en todas las máquinas virtuales compatibles): este número se usa como una de las entradas para decidir el número de servidores de configuración y servidores de procesos adicionales que se usarán en la implementación.
 
-**Número medio de discos por máquina virtual compatible**: el número medio de discos calculado en todas las máquinas virtuales compatibles.
+**Average number of disks per compatible virtual machine** (Número medio de discos en cada máquina virtual compatible): el número medio de discos calculado para todas las máquinas virtuales compatibles.
 
-**Tamaño medio de disco (GB)**: el tamaño medio de disco calculado en todas las máquinas virtuales compatibles.
+**Average disk size (GB)** (Tamaño medio de disco [GB]): el tamaño medio de disco calculado en todas las máquinas virtuales compatibles.
 
-**RPO deseado (en minutos)**: el objetivo de punto de recuperación predeterminado o el valor pasado para el parámetro "DesiredRPO" en el momento de la generación de informes para calcular el ancho de banda necesario.
+**Desired RPO (minutes)** (RPO deseado [en minutos]): el objetivo de punto de recuperación predeterminado o el valor pasado para el parámetro "DesiredRPO" en el momento de la generación de informes para calcular el ancho de banda necesario.
 
-**Ancho de banda deseado (Mbps)**: el valor que ha pasado para el parámetro "Bandwidth" en el momento de la generación de informes para calcular el RPO factible.
+**Desired bandwidth (Mbps)** (Ancho de banda deseado [Mbps]): el valor que ha pasado para el parámetro "Bandwidth" en el momento de la generación de informes para calcular el RPO factible.
 
-**Actividad de datos normal observada por día (GB)**: el valor medio de la actividad de datos observada en todos los días de generación de perfiles. Este número se utiliza como una de las entradas para decidir el número de servidores de configuración y servidores de procesos adicionales que se usarán en la implementación.
+**Observed typical data churn per day (GB)** (Renovación de datos normal observada por día [GB]): el valor medio de renovación de datos observada en todos los días de generación de perfiles. Este número se utiliza como una de las entradas para decidir el número de servidores de configuración y servidores de procesos adicionales que se usarán en la implementación.
 
 ## <a name="recommendations"></a>Recomendaciones
 
@@ -49,33 +49,33 @@ La hoja de recomendaciones del informe de VMware a Azure tiene los siguientes de
 ### <a name="profiled-data"></a>Datos de generación de perfiles
 ![La vista de datos de generación de perfiles en Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/profiled-data-v2a.png)
 
-**Período de datos de generación de perfiles**: el período durante el que se ejecutó la generación de perfiles. De manera predeterminada, la herramienta incluye todos los datos de generación de perfiles en el cálculo, a menos que genere el informe para un período específico mediante las opciones StartDate y EndDate durante la generación de informes.
+**Profiled data period** (Periodo de datos de generación de perfiles): el período durante el que se ejecutó la generación de perfiles. De manera predeterminada, la herramienta incluye todos los datos de generación de perfiles en el cálculo, a menos que genere el informe para un período específico mediante las opciones StartDate y EndDate durante la generación de informes.
 
-**Nombre del servidor**: el nombre o la dirección IP del servidor VMware vCenter o host de ESXi cuyo informe de máquinas virtuales se genera.
+**Server Name** (Nombre del servidor): el nombre o la dirección IP del servidor VMware vCenter o host de ESXi cuyo informe de máquinas virtuales se genera.
 
-**RPO deseado**: el objetivo de punto de recuperación para la implementación. De manera predeterminada, se calcula el ancho de banda de red necesario para los valores de RPO de 15, 30 y 60 minutos. En función de la selección, los valores afectados se actualizan en la hoja. Si ha usado el parámetro *DesiredRPOinMin* al generar el informe, ese valor se muestra en el resultado de RPO deseado.
+**Desired RPO** (RPO deseado): el objetivo de punto de recuperación de la implementación. De manera predeterminada, se calcula el ancho de banda de red necesario para los valores de RPO de 15, 30 y 60 minutos. En función de la selección, los valores afectados se actualizan en la hoja. Si ha usado el parámetro *DesiredRPOinMin* al generar el informe, ese valor se muestra en el resultado de RPO deseado.
 
 ### <a name="profiling-overview"></a>Información general sobre la generación de perfiles
 
 ![Resultados de generación de perfiles en Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/profiling-overview-v2a.png)
 
-**Total de máquinas virtuales de las que se ha generado el perfil**: El número total de las máquinas virtuales cuyos datos de generación de perfiles están disponibles. Si VMListFile contiene los nombres de las máquinas virtuales de las que no se ha generado el perfil, dichas máquinas virtuales no se tienen en cuenta en la generación de informes y se excluyen del número total de máquinas virtuales de las que se ha generado el perfil.
+**Total Profiled Virtual Machines** (Total de máquinas virtuales de las que se ha generado el perfil): el número total de las máquinas virtuales cuyos datos de generación de perfiles están disponibles. Si VMListFile contiene los nombres de las máquinas virtuales de las que no se ha generado el perfil, dichas máquinas virtuales no se tienen en cuenta en la generación de informes y se excluyen del número total de máquinas virtuales de las que se ha generado el perfil.
 
-**Máquinas virtuales compatibles**: el número de máquinas virtuales que se pueden proteger en Azure mediante Site Recovery. Es el número total de máquinas virtuales compatibles para el que se calculan el ancho de banda de red, el número de cuentas de almacenamiento, el número de núcleos de Azure y el número de servidores de configuración y de servidores de proceso adicionales que se requieren. Los detalles de todas las máquinas virtuales compatibles están disponibles en la sección "Máquinas virtuales compatibles".
+**Compatible Virtual Machines** (Máquinas virtuales compatibles): número de máquinas virtuales que se pueden proteger en Azure mediante Site Recovery. Es el número total de máquinas virtuales compatibles para el que se calculan el ancho de banda de red, el número de cuentas de almacenamiento, el número de núcleos de Azure y el número de servidores de configuración y de servidores de proceso adicionales que se requieren. Los detalles de todas las máquinas virtuales compatibles están disponibles en la sección "Máquinas virtuales compatibles".
 
-**Máquinas virtuales no compatibles**: el número de máquinas virtuales de las que se ha generado el perfil que no son compatibles para la protección con Site Recovery. Los motivos de dicha incompatibilidad se indican en la sección "Máquinas virtuales no compatibles". Si VMListFile contiene los nombres de las máquinas virtuales cuyo perfil no se ha generado, dichas máquinas se excluyen del número de máquinas virtuales no compatibles. Estas máquinas aparecen como "Datos no encontrados" al final de la sección "Máquinas virtuales no compatibles".
+**Incompatible Virtual Machines** (Máquinas virtuales no compatibles): el número de máquinas virtuales de las que se ha generado el perfil que no son compatibles para la protección con Site Recovery. Los motivos de dicha incompatibilidad se indican en la sección "Máquinas virtuales no compatibles". Si VMListFile contiene los nombres de las máquinas virtuales cuyo perfil no se ha generado, dichas máquinas se excluyen del número de máquinas virtuales no compatibles. Estas máquinas aparecen como "Datos no encontrados" al final de la sección "Máquinas virtuales no compatibles".
 
-**RPO deseado**: el objetivo del punto de recuperación deseado, en minutos. El informe se genera para tres valores de RPO: 15 (valor predeterminado), 30 y 60 minutos. La recomendación que se hace sobre el ancho de banda en el informe se cambia en función de la selección que se realice en la lista desplegable de Desired RPO (RPO deseado) de la parte superior derecha de la hoja. Si el informe se ha generado mediante el parámetro *-DesiredRPO* con un valor personalizado, dicho valor personalizado se mostrará como valor predeterminado en la lista desplegable Desired RPO (RPO deseado).
+**Desired RPO** (RPO deseado): el objetivo de punto de recuperación deseado, en minutos. El informe se genera para tres valores de RPO: 15 (valor predeterminado), 30 y 60 minutos. La recomendación que se hace sobre el ancho de banda en el informe se cambia en función de la selección que se realice en la lista desplegable de Desired RPO (RPO deseado) de la parte superior derecha de la hoja. Si el informe se ha generado mediante el parámetro *-DesiredRPO* con un valor personalizado, dicho valor personalizado se mostrará como valor predeterminado en la lista desplegable Desired RPO (RPO deseado).
 
 ### <a name="required-network-bandwidth-mbps"></a>Ancho de banda de red requerido (Mbps)
 
 ![Ancho de banda de red requerido en Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-network-bandwidth-v2a.png)
 
-**Para cubrir el RPO en el 100 % de las ocasiones:** el ancho de banda recomendado, en Mbps, que se debe asignar para cubrir el RPO deseado en todo momento. Esta cantidad de ancho de banda debe estar dedicada a la replicación diferencial de estado estable de todas las máquinas virtuales compatibles para evitar infracciones de RPO.
+**To meet RPO 100 percent of the time** (Para cubrir el RPO el 100 % del tiempo): el ancho de banda recomendado, en Mbps, que se debe asignar para satisfacer el RPO en el 100 % de las ocasiones. Esta cantidad de ancho de banda debe estar dedicada a la replicación diferencial de estado estable de todas las máquinas virtuales compatibles para evitar infracciones de RPO.
 
-**Para cubrir el RPO en el 90 % de las ocasiones**: a causa de los precios del ancho de banda o por cualquier otra razón, si no puede establecer el ancho de banda necesario para cubrir el RPO deseado en todo momento, puede elegir usar un valor de ancho de banda inferior que le permita satisfacer el RPO deseado en el 90 % de las ocasiones. Para conocer las implicaciones de establecer un ancho de banda inferior, el informe proporciona el análisis de hipótesis del número previsible de infracciones de RPO y su duración.
+**To meet RPO 90 percent of the time** (Para cubrir el RPO el 90 por ciento del tiempo): a causa de los precios del ancho de banda o por cualquier otra razón, si no puede establecer el ancho de banda necesario para cubrir el RPO deseado en todo momento, puede elegir usar un valor de ancho de banda inferior que le permita satisfacer el RPO deseado en el 90 % de las ocasiones. Para conocer las implicaciones de establecer un ancho de banda inferior, el informe proporciona el análisis de hipótesis del número previsible de infracciones de RPO y su duración.
 
-**Rendimiento obtenido**: El rendimiento del servidor en el que ha ejecutado el comando GetThroughput para la región de Microsoft Azure en la que se encuentra la cuenta de almacenamiento. Este número de rendimiento indica el nivel estimado que se puede lograr al proteger las máquinas virtuales compatibles mediante Site Recovery, siempre que las características de red y de almacenamiento tanto del servidor de configuración como del servidor de procesos sean las mismas que las del servidor en el que se ha ejecutado la herramienta.
+**Achieved Throughput** (Rendimiento conseguido): el rendimiento del servidor en el que ha ejecutado el comando GetThroughput para la región de Microsoft Azure en la que se encuentra la cuenta de almacenamiento. Este número de rendimiento indica el nivel estimado que se puede lograr al proteger las máquinas virtuales compatibles mediante Site Recovery, siempre que las características de red y de almacenamiento tanto del servidor de configuración como del servidor de procesos sean las mismas que las del servidor en el que se ha ejecutado la herramienta.
 
 En la replicación, debe establecer el ancho de banda recomendado de forma que cubra el RPO el 100 % del tiempo. Después de establecer el ancho de banda, si no percibe un aumento en el rendimiento obtenido que notifica la herramienta, siga estos pasos:
 
@@ -130,11 +130,11 @@ El resumen le ayuda a comprender lo que debe pagar por los servicios de almacena
 
 Puede ver el costo mensual o anual. Obtenga más información sobre las [regiones de destino admitidas](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) y las [monedas admitidas](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Cost by components**: el costo total de la recuperación ante desastres se divide entre cuatro componentes: Compute, Storage, Network y el costo de la licencia de Azure Site Recovery. El costo se calcula en función del consumo en el que se incurrirá durante la replicación y en el transcurso del simulacro de recuperación ante desastres por los servicios de proceso, almacenamiento (premium y estándar), circuito ExpressRoute o VPN configurados entre el sitio local y Azure, y la licencia de Azure Site Recovery.
+**Cost by components** (Costo por componentes): el costo total de recuperación ante desastres se divide en cuatro componentes: costo de proceso, almacenamiento, red y licencia de Azure Site Recovery. El costo se calcula en función del consumo en el que se incurrirá durante la replicación y en el transcurso del simulacro de recuperación ante desastres por los servicios de proceso, almacenamiento (premium y estándar), circuito ExpressRoute o VPN configurados entre el sitio local y Azure, y la licencia de Azure Site Recovery.
 
 **Cost by states**: el costo total de recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres.
 
-**Replication cost**: costo en el que se incurrirá durante la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery.
+**Replication cost** (Costo de replicación):  costo en el que se incurrirá durante la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery.
 
 **DR-Drill cost** (Costo del simulacro de recuperación ante desastres): costo en el que se incurrirá durante las conmutaciones por error de prueba. Azure Site Recovery pone en marcha las máquinas virtuales durante la conmutación por error de prueba. El costo del simulacro de recuperación ante desastres incluye el costo de los servicios de proceso y almacenamiento de las máquinas virtuales en ejecución.
 
@@ -158,26 +158,26 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 
 ![Selección de ubicación de almacenamiento de máquina virtual](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Tipo de almacenamiento en disco**: cuenta de Standard o Premium Storage, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **Máquinas virtuales que se colocan**.
+**Disk Storage Type** (Tipo de almacenamiento en disco): cuenta de almacenamiento estándar o premium, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **VMs to Place** (Máquinas virtuales para colocar).
 
-**Prefijo sugerido**: el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](https://aka.ms/storage-performance-checklist).
+**Suggested Prefix** (Prefijo sugerido): el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](https://aka.ms/storage-performance-checklist).
 
-**Nombre de cuenta sugerido**: el nombre de la cuenta de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
+**Suggested Account Name** (Nombre de cuenta sugerido): el nombre de la cuenta de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
 
-**Cuenta de almacenamiento del registro**: todos los registros de la replicación se almacenan en una cuenta de almacenamiento Estándar. En el caso de las máquinas virtuales que se replican en una cuenta de almacenamiento Premium, configure una cuenta de almacenamiento Estándar adicional para el almacenamiento de registros. Varias cuentas de almacenamiento de replicación Premium puede usar una única cuenta de almacenamiento de registros Estándar. Las máquinas virtuales que se replican en las cuentas de almacenamiento Estándar usan la misma cuenta de almacenamiento para los registros.
+**Log Storage Account** (Cuenta de almacenamiento del registro): todos los registros de la replicación se almacenan en una cuenta de almacenamiento estándar. En el caso de las máquinas virtuales que se replican en una cuenta de almacenamiento Premium, configure una cuenta de almacenamiento Estándar adicional para el almacenamiento de registros. Varias cuentas de almacenamiento de replicación Premium puede usar una única cuenta de almacenamiento de registros Estándar. Las máquinas virtuales que se replican en las cuentas de almacenamiento Estándar usan la misma cuenta de almacenamiento para los registros.
 
-**Nombre de cuenta de registros sugerido**: el nombre de la cuenta de registros de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
+**Suggested Log Account Name** (Nombre de cuenta de registros sugerido): el nombre de la cuenta de registro de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
 
-**Resumen de la selección de ubicación**: un resumen de la carga total de máquinas virtuales en la cuenta de almacenamiento en el momento de la replicación y la conmutación por error real o de prueba. Incluye el número total de máquinas virtuales asignadas a la cuenta de almacenamiento, el total de IOPS de lectura/escritura en todas las máquinas virtuales colocadas en esta cuenta de almacenamiento, el total de IOPS de escritura (replicación), el tamaño total configurado en todos los discos y el número total de discos.
+**Placement Summary** (Resumen de la selección de ubicación): un resumen de la carga total de máquinas virtuales en la cuenta de almacenamiento en el momento de la replicación y la conmutación por error real o de prueba. Incluye el número total de máquinas virtuales asignadas a la cuenta de almacenamiento, el total de IOPS de lectura/escritura en todas las máquinas virtuales colocadas en esta cuenta de almacenamiento, el total de IOPS de escritura (replicación), el tamaño total configurado en todos los discos y el número total de discos.
 
-**Máquinas virtuales que se colocan**: una lista de todas las máquinas virtuales que se deben colocar en la cuenta de almacenamiento especificada para que tanto el rendimiento como el uso sean óptimos.
+**Virtual Machines to Place** (Máquinas virtuales para colocar): una lista de todas las máquinas virtuales que se deben colocar en la cuenta de almacenamiento especificada para que tanto el rendimiento como el uso sean óptimos.
 
 ## <a name="compatible-vms"></a>Máquinas virtuales compatibles
 ![Hoja de cálculo de Excel de las máquinas virtuales compatibles](media/site-recovery-vmware-deployment-planner-analyze-report/compatible-vms-v2a.png)
 
-**Nombre de máquina virtual**: el nombre o la dirección IP de la máquina virtual que se utilizan en VMListFile cuando se genera un informe. Esta columna también muestra los discos (VMDK) que están conectados a las máquinas virtuales. Para distinguir las máquinas virtuales de vCenter con nombres o direcciones IP, los nombres incluyen el nombre del host de ESXi. El host de ESXi enumerado es en el que se colocó la máquina virtual cuando la herramienta la detecto en el período de generación de perfiles.
+**VM Name** (Nombre de la máquina virtual): el nombre o la dirección IP de la máquina virtual que se utilizan en VMListFile cuando se genera un informe. Esta columna también muestra los discos (VMDK) que están conectados a las máquinas virtuales. Para distinguir las máquinas virtuales de vCenter con nombres o direcciones IP, los nombres incluyen el nombre del host de ESXi. El host de ESXi enumerado es en el que se colocó la máquina virtual cuando la herramienta la detecto en el período de generación de perfiles.
 
-**Compatibilidad de máquina virtual**: los valores son **Sí** y **Sí**\*. **Sí**\* es para las instancias en que la máquina virtual es una opción para [Azure Premium Storage](https://aka.ms/premium-storage-workload). En este caso, la alta actividad de la generación de perfiles o el disco de IOPS se encuadra en las categorías P20 o P30, pero el tamaño del disco hace que se asigne a una categoría P10 o P20. La cuenta de almacenamiento decide a qué tipo de disco de almacenamiento Premium se asigna un disco, en función de su tamaño. Por ejemplo: 
+**VM Compatibility** (Compatibilidad de la máquina virtual): los valores son **Yes** (Sí) y **Yes**\* (Sí). **Sí**\* es para las instancias en que la máquina virtual es una opción para [Azure Premium Storage](https://aka.ms/premium-storage-workload). En este caso, la alta actividad de la generación de perfiles o el disco de IOPS se encuadra en las categorías P20 o P30, pero el tamaño del disco hace que se asigne a una categoría P10 o P20. La cuenta de almacenamiento decide a qué tipo de disco de almacenamiento Premium se asigna un disco, en función de su tamaño. Por ejemplo: 
 * Menos de 128 GB es P10.
 * De 128 GB a 256 GB es P15
 * De 256 GB a 512 GB es P20.
@@ -187,40 +187,40 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 
 Por ejemplo, si las características de carga de trabajo de un disco lo colocan en la categoría P20 o P30, pero el tamaño lo asigna a un tipo de disco de almacenamiento Premium inferior, la herramienta marca la máquina virtual como **Sí**\*. La herramienta también recomienda que cambie el tamaño del disco de origen para poder encuadrarlo en el tipo de disco de almacenamiento Premium recomendado o que cambie el tipo de disco de destino después de la conmutación por error.
 
-**Tipo de almacenamiento**: Estándar o Premium.
+**Storage Type** (Tipo de almacenamiento): estándar o premium.
 
-**Prefijo sugerido**: el prefijo de tres caracteres de la cuenta de almacenamiento.
+**Suggested Prefix** (Prefijo sugerido): el prefijo de tres caracteres de la cuenta de almacenamiento.
 
-**Cuenta de almacenamiento**: el nombre que utiliza el prefijo sugerido para la cuenta de almacenamiento.
+**Storage Account** (Cuenta de almacenamiento): el nombre que utiliza el prefijo sugerido para la cuenta de almacenamiento.
 
-**IOPS de lectura y escritura máximos (con factor de crecimiento)**: el valor máximo de IOPS de lectura/escritura en carga de trabajo en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de IOPS de lectura y escritura de una máquina virtual no es siempre la suma de las IOPS de lectura y escritura de los discos individuales de la máquina virtual, ya que las IOPS de lectura y escritura máximas de la máquina virtual es el máximo de la suma de las IOPS de lectura y escritura sus discos individuales durante cada minuto del período de generación de perfiles.
+**Peak R/W IOPS (with Growth Factor)** (Valor máximo de IOPS de lectura y escritura [con factor de crecimiento]): el valor máximo de IOPS de lectura/escritura de la carga de trabajo en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de IOPS de lectura y escritura de una máquina virtual no es siempre la suma de las IOPS de lectura y escritura de los discos individuales de la máquina virtual, ya que las IOPS de lectura y escritura máximas de la máquina virtual es el máximo de la suma de las IOPS de lectura y escritura sus discos individuales durante cada minuto del período de generación de perfiles.
 
-**Actividad de datos máxima, en Mbps, (con factor de crecimiento)**: el máximo índice de actividad en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de actividad de datos de la máquina virtual no siempre es la suma de la actividad de datos de los discos individuales de la máquina virtual, ya que la actividad de datos máxima de la máquina virtual es el máximo de la suma de las actividades de los discos individuales durante cada minuto del período de generación de perfiles.
+**Peak Data Churn in Mbps (with Growth Factor)** (Renovación máxima de datos en MB/s [con factor de crecimiento]): la tasa de renovación máxima en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de actividad de datos de la máquina virtual no siempre es la suma de la actividad de datos de los discos individuales de la máquina virtual, ya que la actividad de datos máxima de la máquina virtual es el máximo de la suma de las actividades de los discos individuales durante cada minuto del período de generación de perfiles.
 
-**Tamaño de la máquina virtual de Azure**: el tamaño ideal de la máquina virtual de Azure Cloud Services asignada para esta máquina virtual local. La asignación basada en la memoria, el número de núcleos de discos/núcleos/NIC y las IOPS de lectura y escritura de la máquina virtual local. La recomendación es usar siempre el menor tamaño de máquina virtual de Azure que cumpla todas las características de la máquina virtual local.
+**Azure VM Size** (Tamaño de la máquina virtual de Azure): el tamaño ideal de la máquina virtual de Azure Cloud Services asignada para esta máquina virtual local. La asignación basada en la memoria, el número de núcleos de discos/núcleos/NIC y las IOPS de lectura y escritura de la máquina virtual local. La recomendación es usar siempre el menor tamaño de máquina virtual de Azure que cumpla todas las características de la máquina virtual local.
 
-**Número de discos**: el número total de discos (VMDK) de la máquina virtual.
+**Number of Disks** (Número de discos): el número total de discos de máquina virtual (VMDK) en la máquina virtual.
 
-**Tamaño de disco (en GB)** : el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
+**Disk size (GB)** (Tamaño del disco [GB]): el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
-**Núcleos**: el número de núcleos de CPU de la máquina virtual.
+**Cores** (Núcleos): el número de núcleos de CPU en la máquina virtual.
 
-**Memoria (en MB)**: la memoria RAM de la máquina virtual.
+**Memory (MB)** (Memoria [MB]): la memoria RAM de la máquina virtual.
 
-**NIC**: el número de NIC de la máquina virtual.
+**NICs** (Tarjetas NIC): el número de tarjetas NIC de la máquina virtual.
 
-**Boot Type**: tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.  Actualmente, Azure Site Recovery admite máquinas virtuales de EFI de Windows Server (Windows Server 2012, 2012 R2 y 2016) siempre que el número de particiones en el disco de arranque sea menor que 4 y el tamaño del sector de arranque sea de 512 bytes. Para proteger las máquinas virtuales de EFI, la versión de Mobility Service de Azure Site Recovery debe ser la 9.13, o cualquier versión superior. Solo se admite la conmutación por error de las máquinas virtuales de EFI. No se admite la conmutación por recuperación.  
+**Boot Type** (Tipo de arranque): el tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.  Actualmente, Azure Site Recovery admite máquinas virtuales de EFI de Windows Server (Windows Server 2012, 2012 R2 y 2016) siempre que el número de particiones en el disco de arranque sea menor que 4 y el tamaño del sector de arranque sea de 512 bytes. Para proteger las máquinas virtuales de EFI, la versión de Mobility Service de Azure Site Recovery debe ser la 9.13, o cualquier versión superior. Solo se admite la conmutación por error de las máquinas virtuales de EFI. No se admite la conmutación por recuperación.  
 
-**Tipo de sistema operativo**: se trata del tipo de sistema operativo de la máquina virtual. Puede ser Windows o Linux u otra, según la plantilla de VMware vSphere elegida al crear la máquina virtual.  
+**OS Type** (Tipo de sistema operativo): el tipo de sistema operativo de la máquina virtual. Puede ser Windows o Linux u otra, según la plantilla de VMware vSphere elegida al crear la máquina virtual.  
 
 ## <a name="incompatible-vms"></a>Máquinas virtuales no compatibles
 
 ![Hoja de cálculo de Excel de máquinas virtuales no compatibles
 ](media/site-recovery-vmware-deployment-planner-analyze-report/incompatible-vms-v2a.png)
 
-**Nombre de máquina virtual**: el nombre o la dirección IP de la máquina virtual que se utilizan en VMListFile cuando se genera un informe. Esta columna también muestra los VMDK que están conectados a las máquinas virtuales. Para distinguir las máquinas virtuales de vCenter con nombres o direcciones IP, los nombres incluyen el nombre del host de ESXi. El host de ESXi enumerado es en el que se colocó la máquina virtual cuando la herramienta la detecto en el período de generación de perfiles.
+**VM Name** (Nombre de la máquina virtual): el nombre o la dirección IP de la máquina virtual que se utilizan en VMListFile cuando se genera un informe. Esta columna también muestra los VMDK que están conectados a las máquinas virtuales. Para distinguir las máquinas virtuales de vCenter con nombres o direcciones IP, los nombres incluyen el nombre del host de ESXi. El host de ESXi enumerado es en el que se colocó la máquina virtual cuando la herramienta la detecto en el período de generación de perfiles.
 
-**Compatibilidad de la máquina virtual**: indica el motivo por el que una máquina virtual dada no es compatible con Site Recovery. Se describen las razones de cada disco incompatible de la máquina virtual, que, en función de los [límites de almacenamiento](https://aka.ms/azure-storage-scalbility-performance) publicados, pueden ser cualesquiera de las siguientes:
+**VM Compatibility** (Compatibilidad de la máquina virtual): indica el motivo por el que una máquina virtual dada no es compatible con Site Recovery. Se describen las razones de cada disco incompatible de la máquina virtual, que, en función de los [límites de almacenamiento](https://aka.ms/azure-storage-scalbility-performance) publicados, pueden ser cualesquiera de las siguientes:
 
 * El tamaño del disco es superior a 4095 GB. Azure Storage no admite actualmente discos de datos cuyo tamaño supere 4095 GB.
 
@@ -245,23 +245,23 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 * La actividad de datos total por día supera el límite de 2 TB que admite un servidor de procesos por día.
 
 
-**IOPS máximo de lectura y escritura (con factor de crecimiento)**: el valor máximo de IOPS en carga de trabajo en el disco (el percentil 95 es el predeterminado) incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de IOPS de lectura y escritura de la máquina virtual no es siempre la suma de las IOPS de lectura y escritura de los discos individuales de la máquina virtual, ya que las IOPS de lectura y escritura máximas de la máquina virtual es el máximo de la suma de las IOPS de lectura y escritura sus discos individuales durante cada minuto del período de generación de perfiles.
+**Peak R/W IOPS (with Growth Factor)** (Valor máximo de IOPS de lectura y escritura [con factor de crecimiento]): el valor máximo de IOPS de la carga de trabajo en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de IOPS de lectura y escritura de la máquina virtual no es siempre la suma de las IOPS de lectura y escritura de los discos individuales de la máquina virtual, ya que las IOPS de lectura y escritura máximas de la máquina virtual es el máximo de la suma de las IOPS de lectura y escritura sus discos individuales durante cada minuto del período de generación de perfiles.
 
-**Actividad de datos máxima, en Mbps, (con factor de crecimiento)**: el máximo índice de actividad en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de actividad de datos de la máquina virtual no siempre es la suma de la actividad de datos de los discos individuales de la máquina virtual, ya que la actividad de datos máxima de la máquina virtual es el máximo de la suma de las actividades de los discos individuales durante cada minuto del período de generación de perfiles.
+**Peak Data Churn in Mbps (with Growth Factor)** (Renovación máxima de datos en MB/s [con factor de crecimiento]): la tasa de renovación máxima en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de actividad de datos de la máquina virtual no siempre es la suma de la actividad de datos de los discos individuales de la máquina virtual, ya que la actividad de datos máxima de la máquina virtual es el máximo de la suma de las actividades de los discos individuales durante cada minuto del período de generación de perfiles.
 
-**Número de discos**: el número total de VMDK de la máquina virtual.
+**Number of Disks** (Número de discos): el número total de discos duros virtuales en la máquina virtual.
 
-**Tamaño de disco (en GB)**: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
+**Disk size (GB)** (Tamaño del disco [GB]): el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
-**Núcleos**: el número de núcleos de CPU de la máquina virtual.
+**Cores** (Núcleos): el número de núcleos de CPU en la máquina virtual.
 
-**Memoria (en MB)**: la cantidad de memoria RAM de la máquina virtual.
+**Memory (MB)** (Memoria [MB]): la cantidad de memoria RAM en la máquina virtual.
 
-**NIC**: el número de NIC de la máquina virtual.
+**NICs** (Tarjetas NIC): el número de tarjetas NIC de la máquina virtual.
 
-**Boot Type**: tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.  Actualmente, Azure Site Recovery admite máquinas virtuales de EFI de Windows Server (Windows Server 2012, 2012 R2 y 2016) siempre que el número de particiones en el disco de arranque sea menor que 4 y el tamaño del sector de arranque sea de 512 bytes. Para proteger las máquinas virtuales de EFI, la versión de Mobility Service de Azure Site Recovery debe ser la 9.13, o cualquier versión superior. Solo se admite la conmutación por error de las máquinas virtuales de EFI. No se admite la conmutación por recuperación.
+**Boot Type** (Tipo de arranque): el tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.  Actualmente, Azure Site Recovery admite máquinas virtuales de EFI de Windows Server (Windows Server 2012, 2012 R2 y 2016) siempre que el número de particiones en el disco de arranque sea menor que 4 y el tamaño del sector de arranque sea de 512 bytes. Para proteger las máquinas virtuales de EFI, la versión de Mobility Service de Azure Site Recovery debe ser la 9.13, o cualquier versión superior. Solo se admite la conmutación por error de las máquinas virtuales de EFI. No se admite la conmutación por recuperación.
 
-**Tipo de sistema operativo**: se trata del tipo de sistema operativo de la máquina virtual. Puede ser Windows o Linux u otra, según la plantilla de VMware vSphere elegida al crear la máquina virtual.
+**OS Type** (Tipo de sistema operativo):  el tipo de sistema operativo de la máquina virtual. Puede ser Windows o Linux u otra, según la plantilla de VMware vSphere elegida al crear la máquina virtual.
 
 ## <a name="azure-site-recovery-limits"></a>Límites de Azure Site Recovery
 En la tabla siguiente se proporcionan los límites de Azure Site Recovery. Estos límites se basan en nuestras pruebas, pero no pueden cubrir todas las combinaciones de E/S posibles de la aplicación. Los resultados reales pueden variar en función de la combinación de E/S de la aplicación. Para unos mejores resultados, incluso después del planeamiento de la implementación, es aconsejable probar siempre la aplicación de forma exhaustiva mediante una conmutación por error de prueba para obtener una imagen real del rendimiento de la aplicación.

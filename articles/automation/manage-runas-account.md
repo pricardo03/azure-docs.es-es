@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958166"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726175"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
@@ -40,7 +40,7 @@ Existen dos tipos de cuentas de ejecución:
 
 Para crear o actualizar una cuenta de ejecución, debe tener los permisos y privilegios específicos. Un administrador global o coadministrador pueden completar todas las tareas. En una situación en la que tenga separación de tareas, la siguiente tabla muestra una lista de las tareas, el cmdlet equivalente y los permisos necesarios:
 
-|Task|Cmdlet  |Permisos mínimos  |
+|Tarea|Cmdlet  |Permisos mínimos  |
 |---|---------|---------|
 |Crear una aplicación de Azure AD|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Rol de desarrollador de aplicaciones        |
 |Agregar una credencial a la aplicación.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Administrador de la aplicación o administrador global         |
@@ -358,11 +358,11 @@ Para renovar el certificado, realice estos pasos:
 
 Para controlar el destino de la automatización en los recursos de Azure Automation, a la cuenta de ejecución se le concede de forma predeterminada derechos de colaborador en la suscripción. Si tiene que restringir lo que puede hacer la entidad de servicio de ejecución, puede quitar la cuenta del rol de colaborador de la suscripción y agregarla como colaborador a los grupos de recursos que quiere especificar.
 
-En Azure Portal, seleccione **Suscripciones** y elija la suscripción de su cuenta de Automation. Seleccione **Control de acceso (IAM)** y busque la entidad de servicio de su cuenta de Automation (se parece a \<AutomationAccountName\>_unique identifier). Seleccione la cuenta y haga clic en **Quitar** para quitarla de la suscripción.
+En Azure Portal, seleccione **Suscripciones** y elija la suscripción de su cuenta de Automation. Seleccione **Control de acceso (IAM)** y después la pestaña **Asignaciones de roles**. Busque la entidad de servicio de su cuenta de Automation (se parece a \<AutomationAccountName\>_unique identifier). Seleccione la cuenta y haga clic en **Quitar** para quitarla de la suscripción.
 
 ![Colaboradores de suscripción](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Para agregar la entidad de servicio a un grupo de recursos, seleccione el grupo de recursos en Azure Portal y elija **Control de acceso (IAM)**. Seleccione **Agregar**; se abre la página **Agregar permisos**. En **Rol**, seleccione **Colaborador**. En el cuadro de texto **Seleccionar**, escriba el nombre de la entidad de servicio de la cuenta de ejecución y selecciónela de la lista. Haga clic en **Guardar** para guardar los cambios. Siga estos pasos con todos los grupos de recursos a los que desee dar acceso a la entidad de servicio de ejecución de Azure Automation.
+Para agregar la entidad de servicio a un grupo de recursos, seleccione el grupo de recursos en Azure Portal y elija **Control de acceso (IAM)**. Seleccione **Agregar asignación de roles** para abrir la página **Agregar asignación de roles**. En **Rol**, seleccione **Colaborador**. En el cuadro de texto **Seleccionar**, escriba el nombre de la entidad de servicio de la cuenta de ejecución y selecciónela de la lista. Haga clic en **Guardar** para guardar los cambios. Siga estos pasos con todos los grupos de recursos a los que desee dar acceso a la entidad de servicio de ejecución de Azure Automation.
 
 ## <a name="misconfiguration"></a>Error de configuración
 

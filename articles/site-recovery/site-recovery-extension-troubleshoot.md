@@ -5,14 +5,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7a4ff22bbb4c7c13d8c2feae3638ce8e33a8f7ad
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227491"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845831"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Solución de problemas con el agente de Azure Site Recovery
 
@@ -26,34 +26,34 @@ Código de error: "151076"
 
  Azure Site Recovery instala una extensión en la máquina virtual como parte de la habilitación del trabajo de protección. Cualquiera de las condiciones siguientes puede evitar que se desencadene la protección y producir un error del trabajo. Siga los pasos de solución de problemas siguientes y luego vuelva a intentar la operación:
 
-**Causa 1: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Causa 2: [El agente instalado en la máquina virtual está obsoleto (en máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [La extensión de Site Recovery no se actualiza ni se carga](#the-site-recovery-extension-fails-to-update-or-load)**  
+**Causa 1: [el agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 2: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [la extensión de Site Recovery no se actualiza ni se carga](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 Mensaje de error: "la operación de extensión de Site Recovery anterior está tardando más tiempo del esperado".<br>
 Código de error: "150066"<br>
 
-**Causa 1: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Causa 2: [El agente instalado en la máquina virtual está obsoleto (en máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [El estado de la extensión de Site Recovery es incorrecto](#the-site-recovery-extension-fails-to-update-or-load)**  
+**Causa 1: [el agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 2: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [el estado de la extensión de Site Recovery es incorrecto](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>Error de protección porque el agente de máquina virtual no responde
 
-Mensaje de error: "se ha superado el tiempo de espera de ejecución de la tarea al realizar el seguimiento del inicio de la operación de extensión"<br>
+Mensaje de error: "se ha superado el tiempo de espera de ejecución de la tarea al realizar el seguimiento del inicio de la operación de extensión".<br>
 Código de error: "151099"<br>
 
 Este error puede producirse si el agente invitado de Azure en la máquina virtual no está listo.
 Puede comprobar el estado del agente invitado de Azure en [Azure Portal](https://portal.azure.com/). Vaya a la máquina virtual que está intentando proteger y compruebe el estado en "VM > Configuración > Propiedades > Estado del agente". La mayoría de las veces el estado del agente pasa a ser Listo después de reiniciar la máquina virtual. Pero si el reinicio no es una opción viable o todavía se enfrenta al problema, siga los siguientes pasos de solución de problemas.
 
-**Causa 1: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Causa 2: [El agente instalado en la máquina virtual está obsoleto (en máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 1: [el agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 2: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
-Mensaje de error: "se ha superado el tiempo de espera de ejecución de la tarea al realizar el seguimiento del inicio de la operación de extensión"<br>
+Mensaje de error: "se ha superado el tiempo de espera de ejecución de la tarea al realizar el seguimiento del inicio de la operación de extensión".<br>
 Código de error: "151095"<br>
 
 Se produce cuando la versión del agente en el equipo Linux es antigua. Siga estos pasos de solución de problemas.<br>
-  **Causa 1: [El agente instalado en la máquina virtual está obsoleto (en máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+  **Causa 1: [el agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 ## <a name="causes-and-solutions"></a>Causas y soluciones
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)

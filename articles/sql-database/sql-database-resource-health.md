@@ -3,7 +3,7 @@ title: Uso de Azure Resource Health para supervisar el estado de SQL Database | 
 description: Use Azure Resource Health para supervisar el estado de SQL Database, ayudar a diagnosticar problemas y obtener soporte técnico cuando un problema de Azure afecta a los recursos de SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 12/06/2018
+ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632635"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083893"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Uso de Resource Health para solucionar problemas de conectividad para Azure SQL Database
 
@@ -67,11 +67,11 @@ Cuando SQL Database experimenta un tiempo de inactividad, se realizan análisis 
 
 #### <a name="planned-maintenance"></a>Mantenimiento planeado
 
-La infraestructura de Azure realiza periódicamente un mantenimiento planeado: actualización de componentes de hardware o software en el centro de datos. Mientras la base de datos se somete a mantenimiento, SQL puede terminar algunas conexiones existentes y rechazar otras nuevas. Los errores de inicio de sesión sufridos durante un mantenimiento planeado suelen ser transitorios, y lógica de reintento ayuda a reducir el impacto. Si sigue experimentando errores de inicio de sesión, póngase en contacto con soporte técnico.
+La infraestructura de Azure realiza periódicamente un mantenimiento planeado: actualización de componentes de hardware o software en el centro de datos. Mientras la base de datos se somete a mantenimiento, SQL puede terminar algunas conexiones existentes y rechazar otras nuevas. Los errores de inicio de sesión sufridos durante un mantenimiento planeado suelen ser transitorios y la [lógica de reintento](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) ayuda a reducir el impacto. Si sigue experimentando errores de inicio de sesión, póngase en contacto con soporte técnico.
 
 #### <a name="reconfiguration"></a>Reconfiguración
 
-Las reconfiguraciones se consideran condiciones transitorias y se espera que se produzcan de vez en cuando. Estos eventos pueden desencadenarse por errores de software y hardware o de equilibrio de carga. Cualquier aplicación de producción cliente que se conecte a un servicio de base de datos en la nube debe implementar una lógica de reintento de conexión sólida con la lógica de interrupción, ya que podría ayudar a mitigar estas situaciones y, en general, debería hacer que los errores sean transparentes para el usuario final.
+Las reconfiguraciones se consideran condiciones transitorias y se espera que se produzcan de vez en cuando. Estos eventos pueden desencadenarse por errores de software y hardware o de equilibrio de carga. Cualquier aplicación de producción cliente que se conecte a un servicio de base de datos en la nube debe implementar una [lógica de reintento](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) de conexión sólida, ya que podría ayudar a mitigar estas situaciones y, en general, debería hacer que los errores sean transparentes para el usuario final.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

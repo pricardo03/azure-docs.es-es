@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: eabae0f3575719c6cb93affefe0a393dd13d1439
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6c44bebad6b54ab673fcbf3b2ef5e5d34c8c6882
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014013"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847735"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C se integra directamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) de forma que puede agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones. La autenticación multifactor se habilita sin necesidad de escribir una sola línea de código. Aunque haya creado directivas de registro e inicio de sesión, puede habilitar la autenticación multifactor.
+Azure Active Directory (Azure AD) B2C se integra directamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) de forma que puede agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones. La autenticación multifactor se habilita sin necesidad de escribir una sola línea de código. Aunque haya creado flujos de usuario de registro e inicio de sesión, puede habilitar la autenticación multifactor.
 
 Esta característica ayuda a las aplicaciones a tratar escenarios como los siguientes:
 
@@ -28,25 +28,24 @@ Esta característica ayuda a las aplicaciones a tratar escenarios como los sigui
 
 ## <a name="set-multi-factor-authentication"></a>Configuración de la autenticación multifactor
 
-Cuando se crea una directiva, tiene la opción de habilitar la autenticación multifactor.
+Cuando se crea un nuevo flujo de usuario, tiene la opción de habilitar la autenticación multifactor.
 
 ![Configuración de la autenticación multifactor](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-Establezca **Estado** en **Activado**.
+Configure **Autenticación multifactor** en **Habilitado**.
 
-Puede usar **Ejecutar ahora** en la directiva para comprobar la experiencia. Considere el siguiente escenario:
+Puede usar **Ejecutar flujo de usuario** para comprobar la experiencia. Considere el siguiente escenario:
 
 Se crea una cuenta de cliente en el inquilino antes de que se produzca el paso de autenticación multifactor. Durante el paso, se pide al cliente que proporcione un número de teléfono y que lo compruebe. Si la comprobación es satisfactoria, el número de teléfono se asocia a la cuenta para usarlo más adelante. Incluso si el cliente cancela o abandona, se le puede pedir que compruebe de nuevo un número de teléfono durante el siguiente inicio de sesión con la autenticación multifactor habilitada.
 
 ## <a name="add-multi-factor-authentication"></a>Incorporación de la autenticación multifactor
 
-Es posible habilitar la autenticación multifactor en una directiva que creó anteriormente. 
+Es posible habilitar la autenticación multifactor en un flujo de usuario que creó anteriormente. 
 
 Para habilitar la autenticación multifactor:
 
-1. Abra la directiva y, a continuación, seleccione **Editar**. 
-2. Seleccione **Multi-Factor Authentication**.
-3. Establezca **Estado** en **Activado**.
-4. Haga clic en **Guardar** en la parte superior de la página.
+1. Abra el flujo de usuario y, a continuación, seleccione **Propiedades**. 
+2. Junto a **Autenticación multifactor**, seleccione **Habilitado**.
+3. Haga clic en **Guardar** en la parte superior de la página.
 
 

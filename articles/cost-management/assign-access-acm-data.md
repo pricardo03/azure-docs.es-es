@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/28/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: secdec18
+ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582605"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075648"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
@@ -64,12 +64,12 @@ Para obtener acceso al ámbito de la cuenta de facturación es necesario tener p
 1. Inicie sesión en el portal de EA en [https://ea.azure.com](https://ea.azure.com) con una cuenta de administrador de empresa.
 2. Seleccione **Manage** (Administrar) en el panel izquierdo.
 3. En la pestaña **Enrollment** (Inscripción), seleccione la inscripción que quiere administrar.  
-    ![Portal de EA](./media/assign-access-acm-data/ea-portal.png)
+    ![selección de la inscripción en el portal de EA](./media/assign-access-acm-data/ea-portal.png)
 4. Haga clic en **+ Add Administrator** (+ Agregar administrador).
 5. En el cuadro Add Administrator (Agregar administrador), seleccione el tipo de autenticación y escriba la dirección de correo electrónico del usuario.
 6. Si el usuario debe tener acceso de solo lectura a los datos de costo y uso, en **Read-only** (Solo lectura), seleccione **Yes** (Sí).  De lo contrario, seleccione **No**.
 7. Haga clic en **Add** (Agregar) para crear la cuenta.  
-    ![Cuadro para agregar un administrador](./media/assign-access-acm-data/add-admin.png)
+    ![información de ejemplo que se muestra en el cuadro Agregar administrador](./media/assign-access-acm-data/add-admin.png)
 
 Pueden pasar hasta 30 minutos antes de que el nuevo usuario pueda obtener acceso a los datos de Cost Management.
 
@@ -85,7 +85,7 @@ Para obtener acceso al ámbito del departamento es necesario tener acceso de adm
 6. Si el usuario debe tener acceso de solo lectura a los datos de costo y uso, en **Read-only** (Solo lectura), seleccione **Yes** (Sí).  De lo contrario, seleccione **No**.
 7. Seleccione los departamentos a los que quiera otorgar el permiso administrativo de departamento.
 8. Haga clic en **Add** (Agregar) para crear la cuenta.  
-    ![Cuadro para agregar el administrador de departamento](./media/assign-access-acm-data/add-depart-admin.png)
+    ![escriba la información necesaria en el cuadro Agregar administrador de departamento](./media/assign-access-acm-data/add-depart-admin.png)
 
 ## <a name="assign-enrollment-account-scope-access"></a>Asignar acceso al ámbito de la cuenta de inscripción
 
@@ -99,7 +99,7 @@ Para obtener acceso al ámbito de la cuenta de inscripción es necesario tener a
 6. Seleccione el tipo de autenticación y escriba el nombre de cuenta.
 7. Escriba la dirección de correo electrónico del usuario y, opcionalmente, escriba el centro de coste.
 8. Haga clic en **Add** (Agregar) para crear la cuenta.  
-    ![Cuadro para agregar una cuenta](./media/assign-access-acm-data/add-account.png)
+    ![escriba la información necesaria en el cuadro Agregar cuenta para agregar una cuenta de inscripción](./media/assign-access-acm-data/add-account.png)
 
 Después de completar los pasos anteriores, la cuenta de usuario se convierte en una cuenta de inscripción en Enterprise Portal y puede crear suscripciones. El usuario puede tener acceso a los datos de costo y uso para las suscripciones que crea.
 
@@ -107,7 +107,7 @@ Después de completar los pasos anteriores, la cuenta de usuario se convierte en
 
 Para obtener acceso al ámbito de grupo de administración es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos de un grupo de administración en Azure Portal. Debe tener al menos el permiso de acceso de usuario administrador (o propietario) para el grupo de Administrador de acceso de usuario (o Propietario) del grupo de administración para habilitar el acceso de otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
-1. Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
+1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. Seleccione **All Services** (Todos los servicios)en la barra lateral, busque los _grupos de administración_ y, a continuación, seleccione los **grupos de administración** que necesite.
 3. Seleccione el grupo de administración que necesite en la jerarquía.
 4. Haga clic en **Details** (Detalles) al lado del nombre del grupo de administración.
@@ -117,13 +117,13 @@ Para obtener acceso al ámbito de grupo de administración es necesario tener al
 8. En **Assign access to** (Asignar acceso a), seleccione **Azure AD, user, group, or application** (Usuario, grupo o aplicación de Azure AD).
 9. Para asignar el acceso, búsquelo y, a continuación, seleccione el usuario.
 10. Haga clic en **Save**(Guardar).  
-    ![Cuadro para agregar permisos](./media/assign-access-acm-data/add-permissions.png)
+    ![información de ejemplo en el cuadro Agregar permisos para un grupo de administración](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Asignar acceso de ámbito de suscripción
 
 Para obtener acceso a la suscripción, es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos a una suscripción en Azure Portal. Debe tener al menos el permiso de Administrador de acceso de usuario (o Propietario) de la suscripción para habilitar el acceso de otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
-1. Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
+1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. Seleccione **All Services** (Todos los servicios) en la barra lateral, busque _suscripciones_ y , a continuación, seleccione la opción **Subscriptions** (Suscripciones).
 3. Seleccione su suscripción.
 4. Seleccione **Access Control (IAM)** (Control de acceso [IAM]) en el panel izquierdo.
@@ -137,7 +137,7 @@ Para obtener acceso a la suscripción, es necesario tener al menos permiso de Le
 
 Para obtener acceso al grupo de recursos es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos de un grupo de recursos en Azure Portal. Debe tener al menos el permiso de Administrador de acceso de usuario (o Propietario) del grupo de recursos para habilitar el acceso de otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
-1. Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
+1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. Seleccione **All Services** (Todos los servicios)en la barra lateral, busque los _grupos de recursos_ y, a continuación, seleccione la opción **Resource groups** (Grupos de recursos).
 3. Seleccione el grupo de recursos que necesite.
 4. Seleccione **Access Control (IAM)** (Control de acceso [IAM]) en el panel izquierdo.

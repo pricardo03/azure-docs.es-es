@@ -1,19 +1,19 @@
 ---
 title: Procedimientos de administración de la cuenta y las claves de Azure Maps | Microsoft Docs
 description: Puede usar Azure Portal para administrar su cuenta y sus claves de acceso de Azure Maps.
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 351bc26d6c5b3dcfa9479138f2bd523f64a2912a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541626"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335819"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Procedimientos de administración de la cuenta y las claves de Azure Maps
 
@@ -53,5 +53,10 @@ Aparecerá una página de confirmación. Puede escribir el nombre de la cuenta p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda a usar las API de búsqueda de Azure Maps en el [procedimiento para buscar una dirección](./how-to-search-for-address.md).
-* Aprenda a usar el [control de mapas de JavaScript](./how-to-use-map-control.md) de Azure Maps.
+Aprenda a administrar el plan de tarifa de la cuenta de Azure Maps:
+> [!div class="nextstepaction"]
+> [Administración del plan de tarifa](./how-to-manage-pricing-tier.md)
+
+Aprenda a ver las métricas de uso de API para la cuenta de Azure Maps:
+> [!div class="nextstepaction"]
+> [Visualización de métricas de uso](./how-to-view-api-usage.md)

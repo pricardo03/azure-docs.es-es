@@ -1,25 +1,19 @@
 ---
-title: Azure ExpressRoute para proveedores de soluciones en la nube | Microsoft Docs
-description: Este artículo proporciona información para los proveedores de servicios en la nube que deseen incorporar servicios de Azure y ExpressRoute en su oferta de servicios.
-documentationcenter: na
+title: 'ExpressRoute para proveedores de soluciones en la nube: Azure | Microsoft Docs'
+description: Este artículo proporciona información para los proveedores de soluciones en la nube que deseen incorporar servicios de Azure y ExpressRoute en su oferta de servicios.
 services: expressroute
 author: richcar
-manager: carmonm
-editor: ''
-ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: seodec18
+ms.openlocfilehash: 842654f860a94481b53ebf9732fc4ed8be24cf4a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405711"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077518"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para proveedores de soluciones en la nube (CSP)
 Microsoft proporciona servicios de hiperescala para que los revendedores y distribuidores tradicionales (CSP) puedan aprovisionar rápidamente nuevos servicios y soluciones para sus clientes, sin que sea preciso invertir en el desarrollo de dichos servicios nuevos. Para que el proveedor de soluciones en la nube (CSP) disponga de la capacidad para administrar directamente estos nuevos servicios, Microsoft proporciona programas y API que permiten que el CSP administre recursos de Microsoft Azure en nombre de sus clientes. Uno de esos recursos es ExpressRoute. ExpressRoute permite que el CSP conecte recursos existentes de clientes a servicios de Azure. ExpressRoute es un vínculo privado de comunicaciones a gran velocidad con los servicios de Azure. 
@@ -94,7 +88,7 @@ Puede ayudar a establecer la conexión y configurar las rutas para permitir que 
 ## <a name="expressroute-routing-domains"></a>Dominios de enrutamiento de ExpressRoute
 ExpressRoute ofrece tres dominios de enrutamiento: público, privado y emparejamiento de Microsoft. Todos los dominios de enrutamiento utilizan los mismos enrutadores con una configuración en activo-activo de alta disponibilidad. Para ver más detalles sobre los dominios de enrutamiento de ExpressRoute, consulte [este artículo](expressroute-circuit-peerings.md).
 
-Puede definir filtros de rutas personalizados para permitir solamente las rutas que desee o necesite. Para más información o para ver cómo se hacen estos cambios, consulte el artículo [Creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell](expressroute-howto-routing-classic.md) , donde se ofrece más información acerca de los filtros de enrutamiento.
+Puede definir filtros de rutas personalizados para permitir solamente las rutas que desee o necesite. Para más información o para saber cómo hacer estos cambios, consulte el artículo sobre la [creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell](expressroute-howto-routing-classic.md) para más detalles sobre los filtros de enrutamiento.
 
 > [!NOTE]
 > Para la conectividad con emparejamiento de Microsoft y pares públicos, se debe utilizar una dirección IP pública que sea propiedad del cliente o el CSP, y se deben cumplir todas las reglas definidas. Para más información, consulte la página [Requisitos previos de ExpressRoute](expressroute-prerequisites.md) .  
@@ -126,7 +120,7 @@ En función del modelo que se use (Conexión directa o Conexión a través), su 
 1. **Aislamiento de clientes**: la plataforma Azure proporciona el aislamiento de los clientes mediante el almacenamiento del Id. de cliente y la información de la red virtual en una base de datos segura, que se utiliza para encapsular el tráfico de cada cliente en un túnel GRE.
 2. **grupo de seguridad de red (NSG)** sirven para definir el tráfico que se permite que entre y salga de las subredes dentro de las redes virtuales en Azure. De forma predeterminada, el NSG contiene reglas de bloqueo para bloquear el tráfico procedente de Internet hacia la red virtual y reglas de permiso para el tráfico dentro de una red virtual. Para más información sobre los grupos de seguridad de red, consulte [este artículo](https://azure.microsoft.com/blog/network-security-groups/).
 3. **Túnel forzado** : se trata de una opción para redirigir el tráfico que se origina en Azure y va destinado a Internet a través de la conexión ExpressRoute con el centro de datos local. Para más información acerca de Túnel forzado, consulte [este artículo](expressroute-routing.md#advertising-default-routes).  
-4. **Cifrado** : aunque los circuitos ExpressRoute están dedicados a un cliente específico, es posible que el proveedor de red sufra una infracción de seguridad, lo que permitiría que un intruso examinara el tráfico de paquetes. Para evitar esta posible situación, un cliente o un CSP puede cifrar el tráfico que atraviesa la conexión si define directivas de modo de túnel IPSec para todo el tráfico que fluye entre los recursos locales y los recursos de Azure (consulte el modo de túnel IPSec opcional para el cliente 1 en la figura 5 sobre la seguridad de ExpressRoute, más arriba). La segunda opción es usar un dispositivo de firewall en cada punto de conexión del circuito ExpressRoute. Para esto, será necesario instalar más dispositivos o máquinas virtuales de firewall de terceros en ambos puntos de conexión para cifrar el tráfico que atraviesa el circuito ExpressRoute.
+4. **Cifrado** : aunque los circuitos ExpressRoute están dedicados a un cliente específico, es posible que el proveedor de red sufra una infracción de seguridad, lo que permitiría que un intruso examinara el tráfico de paquetes. Para evitar esta posible situación, un cliente o un CSP puede cifrar el tráfico que atraviesa la conexión si define directivas de modo de túnel IPSec para todo el tráfico que fluye entre los recursos locales y los recursos de Azure (consulte el modo de túnel IPSec opcional para el cliente 1 en la ilustración 5: sobre la seguridad de ExpressRoute, más arriba). La segunda opción es usar un dispositivo de firewall en cada punto de conexión del circuito ExpressRoute. Para esto, será necesario instalar más dispositivos o máquinas virtuales de firewall de terceros en ambos puntos de conexión para cifrar el tráfico que atraviesa el circuito ExpressRoute.
 
 ![texto alternativo](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 

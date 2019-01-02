@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 666e4c434d05bb953950893f32c262183055becd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311252"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728181"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Crear un emparejamiento de redes virtuales de Azure: diferentes modelos de implementación y suscripciones
 
@@ -50,14 +50,14 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
     - **Nombre**: *myVnetA*
     - **Espacio de direcciones**: *10.0.0.0/16*
     - **Nombre de subred**: *default*
-    - **Intervalo de direcciones de subred**: *10.0.0.0/24*
-    - **Suscripción**: seleccione la suscripción A
-    - **Grupo de recursos**: seleccione **Crear nuevo** y escriba *myResourceGroupA*
-    - **Ubicación**: *este de EE. UU.*
+    - **Rango de direcciones de subred**: *10.0.0.0/24*
+    - **Suscripción**: Seleccione la suscripción A.
+    - **Grupo de recursos**: seleccione **Crear nuevo** y escriba *myResourceGroupA*.
+    - **Ubicación**: *Este de EE. UU.*
 4. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetA*. Haga clic en **myVnetA** cuando aparezca en los resultados de la búsqueda. Aparece una hoja para la red virtual **myVnetA**.
 5. En la hoja **myVnetA** que aparece, haga clic en **Control de acceso (IAM)** en la lista vertical de opciones que aparece a la izquierda de la hoja.
-6. En la hoja **myVnetA - Control de acceso (IAM)** que aparece, haga clic en **+ Agregar**.
-7. En la hoja **Agregar permisos** que aparece, seleccione **Colaborador de la red** en el cuadro **Rol**.
+6. En la hoja **myVnetA - Control de acceso (IAM)** que aparece, haga clic en **+ Agregar asignación de roles**.
+7. En la hoja **Agregar asignación de roles** que aparece, seleccione **Colaborador de la red** en el cuadro **Rol**.
 8. En el cuadro **Seleccionar**, seleccione otro usuario (UserB) o escriba la dirección de correo de UserB para buscarlo. La lista de usuario que se muestra proviene del mismo inquilino de Azure Active Directory que la red virtual para la que configura el emparejamiento. Haga clic en UserB cuando aparezca en la lista.
 9. Haga clic en **Save**(Guardar).
 10. Cierre sesión en el portal como UserA e inicie sesión como UserB.
@@ -68,10 +68,10 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
     - **Nombre**: *myVnetB*
     - **Espacio de direcciones**: *10.1.0.0/16*
     - **Nombre de subred**: *default*
-    - **Intervalo de direcciones de subred**: *10.1.0.0/24*
-    - **Suscripción**: seleccione la suscripción B
-    - **Grupo de recursos**: seleccione **Crear nuevo** y escriba *myResourceGroupB*
-    - **Ubicación**: *este de EE. UU.*
+    - **Rango de direcciones de subred**: *10.1.0.0/24*
+    - **Suscripción**: Seleccione la suscripción B.
+    - **Grupo de recursos**: haga clic en **Crear nuevo** y escriba *myResourceGroupB*.
+    - **Ubicación**: *Este de EE. UU.*
 
 14. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetB*. Haga clic en **myVnetB** cuando aparezca en los resultados de la búsqueda. Aparece una hoja para la red virtual **myVnetB**.
 15. En la hoja **myVnetB** que aparece, haga clic en **Propiedades** en la lista vertical de opciones que aparece a la izquierda de la hoja. Copie el **ID. DE RECURSO**, ya que se usará en un paso posterior. El identificador de recurso es similar al ejemplo siguiente: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
@@ -83,17 +83,17 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 21. En la hoja **myVnetA - Emparejamientos** que aparece, haga clic en **+ Agregar**.
 22. En la hoja **Agregar emparejamiento** que aparece, escriba o seleccione las opciones siguientes y, luego, haga clic en **Aceptar**:
      - **Nombre**: *myVnetAToMyVnetB*
-     - **Modelo de implementación de red virtual**: seleccione **Clásico**.
-     - **Conozco mi id. de recurso**: active esta casilla.
-     - **Id. de recurso**: Escriba el identificador de recurso de myVnetB del paso 15.
-     - **Permitir acceso a red virtual:** asegúrese de que esté seleccionada la opción **Habilitado**.
+     - **Modelo de implementación de red virtual**:  Seleccione **Clásico**.
+     - **Conozco mi Id. de recurso**: Active esta casilla.
+     - **Identificador de recurso**: escriba el identificador de recurso de myVnetB del paso 15.
+     - **Permitir acceso a red virtual**: asegúrese de que está seleccionada la opción **Habilitado**.
     En este tutorial no se usa ninguna otra configuración. Para conocer todas las configuraciones de emparejamiento, lea [Manage virtual network peerings](virtual-network-manage-peering.md#create-a-peering) (Administración de emparejamientos de redes virtuales).
 23. Una vez que haga clic en **Aceptar** en el paso anterior, se cerrará la hoja **Agregar emparejamiento** y se volverá a mostrar la hoja **myVnetA - Emparejamientos**. Unos segundos después, el emparejamiento que creó aparece en la hoja. El estado **Conectado** aparece en la columna **ESTADO DE EMPAREJAMIENTO** correspondiente al emparejamiento **myVnetAToMyVnetB** que ha creado. El emparejamiento está ahora establecido. No es necesario emparejar la red virtual (clásica) a la red virtual (Resource Manager).
 
     Los recursos de Azure que cree en cualquiera de las redes virtuales ahora se pueden comunicar entre sí mediante sus direcciones IP. Si usa la resolución de nombres predeterminada de Azure para las redes virtuales, los recursos de las redes virtuales no pueden resolver nombres entre las redes virtuales. Si desea resolver nombres entre las redes virtuales de un emparejamiento, debe crear su propio servidor DNS. Obtenga información sobre cómo configurar la [resolución de nombres mediante su propio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 24. **Opcional**: Si bien este tutorial no aborda la creación de máquinas virtuales, puede crear una máquina virtual en cada red virtual y conectar de una máquina virtual a la otra para así validar la conectividad.
-25. **Opcional**: Para eliminar los recursos que crea en este tutorial, complete los pasos que aparecen en la sección [Eliminación de recursos](#delete-portal) de este artículo.
+25. **Opcional**: para eliminar los recursos que crea en este tutorial, complete los pasos que aparecen en la sección [Eliminación de recursos](#delete-portal) de este artículo.
 
 ## <a name="cli"></a>Creación de emparejamiento: CLI de Azure
 
@@ -177,7 +177,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
     Los recursos de Azure que cree en cualquiera de las redes virtuales ahora se pueden comunicar entre sí mediante sus direcciones IP. Si usa la resolución de nombres predeterminada de Azure para las redes virtuales, los recursos de las redes virtuales no pueden resolver nombres entre las redes virtuales. Si desea resolver nombres entre las redes virtuales de un emparejamiento, debe crear su propio servidor DNS. Obtenga información sobre cómo configurar la [resolución de nombres mediante su propio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 10. **Opcional**: Si bien este tutorial no aborda la creación de máquinas virtuales, puede crear una máquina virtual en cada red virtual y conectar de una máquina virtual a la otra para así validar la conectividad.
-11. **Opcional**: para eliminar los recursos que crea en este tutorial, complete los pasos que aparecen en la sección [Eliminar recursos](#delete-cli) de este artículo.
+11. **Opcional**: para eliminar los recursos creados en este tutorial, complete los pasos de la sección [Eliminar recursos](#delete-cli) de este artículo.
 
 ## <a name="powershell"></a>Creación de emparejamiento: PowerShell
 
@@ -267,7 +267,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
     Los recursos de Azure que cree en cualquiera de las redes virtuales ahora se pueden comunicar entre sí mediante sus direcciones IP. Si usa la resolución de nombres predeterminada de Azure para las redes virtuales, los recursos de las redes virtuales no pueden resolver nombres entre las redes virtuales. Si desea resolver nombres entre las redes virtuales de un emparejamiento, debe crear su propio servidor DNS. Obtenga información sobre cómo configurar la [resolución de nombres mediante su propio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 12. **Opcional**: Si bien este tutorial no aborda la creación de máquinas virtuales, puede crear una máquina virtual en cada red virtual y conectar de una máquina virtual a la otra para así validar la conectividad.
-13. **Opcional**: para eliminar los recursos que crea en este tutorial, complete los pasos que aparecen en la sección [Eliminar recursos](#delete-powershell) de este artículo.
+13. **Opcional**: para eliminar los recursos creados en este tutorial, complete los pasos de la sección [Eliminar recursos](#delete-powershell) de este artículo.
 
 ## <a name="delete"></a>Eliminación de recursos
 Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos que creó en el tutorial, para no incurrir en gastos de uso. Al eliminar un grupo de recursos se eliminan también todos los recursos contenidos en el mismo.

@@ -1,5 +1,5 @@
 ---
-title: CI/CD con Azure Container Service Engine y modo Swarm
+title: (EN DESUSO) CI/CD con Azure Container Service Engine y modo Swarm
 description: Uso de Azure Container Service Engine con modo Docker Swarm, Azure Container Registry y Azure DevOps para proporcionar de forma continua una aplicación .NET Core de varios contenedores
 services: container-service
 author: diegomrtnzg
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 296c097ee3302eaa39210274b16c6352866eac8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299583"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995072"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con ACS Engine y modo Docker Swarm mediante Azure DevOps
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(EN DESUSO) Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con ACS Engine y modo Docker Swarm mediante Azure DevOps
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *Este artículo se basa en el documento [Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con Docker Swarm mediante Azure DevOps](container-service-docker-swarm-setup-ci-cd.md)*
 
@@ -106,7 +108,7 @@ En este paso, se va a configurar una canalización de compilación para el proye
 
     ![Azure DevOps (nueva canalización de compilación vacía)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
 
-4. Luego, haga clic en la pestaña **Variables** y cree dos nuevas variables: **RegistryURL** y **AgentURL**. Pegue los valores de su registro y DNS de agentes de clúster.
+4. Luego, haga clic en la pestaña **Variables** y cree dos variables: **RegistryURL** y **AgentURL**. Pegue los valores de su registro y DNS de agentes de clúster.
 
     ![Azure DevOps (configuración de las variables de compilación)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.png)
 

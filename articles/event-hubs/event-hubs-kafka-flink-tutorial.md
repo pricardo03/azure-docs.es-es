@@ -1,21 +1,21 @@
 ---
-title: Uso de Apache Flink con Azure Event Hubs para Apache Kafka | Microsoft Docs
-description: Conexión de Apache Flink a una instancia de Event Hubs habilitada para Kafka
+title: 'Uso de Apache Flink para Apache Kafka: Azure Event Hubs | Microsoft Docs'
+description: En este artículo se proporciona información sobre cómo conectar Apache Flink a un centro de eventos de Azure habilitado para Apache Kafka.
 services: event-hubs
 documentationcenter: ''
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.custom: mvc
-ms.date: 08/06/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 28ebcd0fe10492b730d73e19f9206545084b4030
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: cb964451d25bb381ee9cca84628852a61e4be9b6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277348"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090914"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Uso de Apache Flink con Azure Event Hubs para Apache Kafka
 En este tutorial se muestra cómo conectar instancias de Event Hubs habilitadas para Apache Flink sin cambiar los clientes del protocolo o ejecutar sus propios clústeres. Azure Event Hubs admite [Apache Kafka versión 1.0.](https://kafka.apache.org/10/documentation.html).
@@ -24,7 +24,7 @@ Uno de los beneficios clave de usar Apache Kafka es el ecosistema de plataformas
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-> * Crear un espacio de nombres de Event Hubs
+> * Creación de un espacio de nombres de Event Hubs
 > * Clonación del proyecto de ejemplo
 > * Ejecutar el productor Flink 
 > * Ejecutar el consumidor Flink
@@ -46,7 +46,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 * [Git](https://www.git-scm.com/downloads)
     * En Ubuntu, puede ejecutar `sudo apt-get install git` para instalar Git.
 
-## <a name="create-an-event-hubs-namespace"></a>Crear un espacio de nombres de Event Hubs
+## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 
 Se requiere un espacio de nombres de Event Hubs para enviar o recibir de cualquier servicio de Event Hubs. Consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](event-hubs-create-kafka-enabled.md) para obtener información sobre cómo obtener un punto de conexión de Kafka para Event Hubs. Asegúrese de copiar la cadena de conexión de Event Hubs para su uso posterior.
 
@@ -127,7 +127,7 @@ Revise la [guía del conector Kafka de Flink](https://ci.apache.org/projects/fli
 En este tutorial aprendió a conectar Apache Flink a instancias de Event Hubs habilitadas para Kafka sin cambiar los clientes del protocolo o ejecutar sus propios clústeres. Como parte de este tutorial, realizó los pasos siguientes: 
 
 > [!div class="checklist"]
-> * Crear un espacio de nombres de Event Hubs
+> * Creación de un espacio de nombres de Event Hubs
 > * Clonación del proyecto de ejemplo
 > * Ejecutar el productor Flink 
 > * Ejecutar el consumidor Flink

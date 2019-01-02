@@ -1,5 +1,5 @@
 ---
-title: Creación de un espacio de nombres y un grupo de consumidores de Azure Event Hubs mediante una plantilla | Microsoft Docs
+title: 'Creación de un centro de eventos con un grupo de consumidores: Azure Event Hubs | Microsoft Docs'
 description: Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante plantillas de Azure Resource Manager
 services: event-hubs
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 584696303bfbaed07f416fb0b3febbcf59d05b35
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: db5bb30c4049eca699f8adb45a923915033b4216
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085754"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134461"
 ---
-# <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>Guía de inicio rápido: Creación de un centro de eventos mediante una plantilla de Azure Resource Manager
+# <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>Inicio rápido: Creación de un centro de eventos mediante una plantilla de Azure Resource Manager
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
 
 En esta guía de inicio rápido, creará un centro de eventos mediante una plantilla de Azure Resource Manager. Usará una plantilla de Azure Resource Manager para crear un espacio de nombres de tipo [Event Hubs](event-hubs-what-is-event-hubs.md), con un centro de eventos y un grupo de consumidores. El artículo muestra cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades. Para información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Authoring Azure Resource Manager templates].
@@ -38,7 +38,7 @@ Si desea usar **Azure PowerShell** para implementar la plantilla de Resource Man
 Si desea usar la **CLI de Azure** para implementar la plantilla de Resource Manager, [instale la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-the-resource-manager-template-json"></a>Creación del archivo JSON de la plantilla de Resource Manager
-Cree un archivo JSON llamado MyEventHub.json con el contenido siguiente y guárdelo en una carpeta (por ejemplo: C:\EventHubsQuickstarts\ResourceManagerTemplate).
+Cree un archivo JSON denominado MyEventHub.json con el contenido siguiente y guárdelo en una carpeta (por ejemplo: C:\EventHubsQuickstarts\ResourceManagerTemplate).
 
 ```json
 {
@@ -180,8 +180,8 @@ Felicidades. Ha usado la plantilla de Azure Resource Manager para crear un espac
 
 En este artículo, ha creado el espacio de nombres de Event Hubs y ha usado aplicaciones de ejemplo para enviar eventos al centro de eventos y recibirlos de este. Puede encontrar instrucciones paso a paso para enviar eventos a un centro de eventos o recibirlos de este en los siguientes tutoriales: 
 
-- **Envío de eventos a un centro de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js ](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-- **Recepción de eventos desde un centro de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js ](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- **Envío de eventos a un centro de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js ](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+- **Recepción de eventos desde un centro de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js ](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png

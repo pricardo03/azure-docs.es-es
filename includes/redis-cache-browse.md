@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: a9d0f4c8de26d3c501c3b04e42864efaa880ee62
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7f03072c2b7ee1f08fc5fa306da6c5b8368742ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32297610"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111666"
 ---
 Si no ancló la memoria caché en el panel, búsquela en [Azure Portal](https://portal.azure.com) a través de **Todos los servicios**.
 
-![Azure Redis Cache - Hoja Examinar](media/redis-cache-browse/redis-cache-browse.png)
+![Azure Cache for Redis: hoja Examinar](media/redis-cache-browse/redis-cache-browse.png)
 
-Para ver sus memorias caché, haga clic en **Todos los servicios** y busque **Cachés en Redis**. 
+Para ver sus cachés, haga clic en **Todos los servicios** y busque **Azure Cache for Redis**. 
 
 Seleccione la memoria caché deseada para ver y configurar las opciones de esa caché.
 
-![Azure Redis Cache - Examinar lista en caché](media/redis-cache-browse/redis-caches.png)
+![Azure Cache for Redis - Examinar lista en caché](media/redis-cache-browse/redis-caches.png)
 
-Puede ver y configurar la caché desde la hoja **Redis Caché**.
+Puede ver y configurar la caché en la hoja **Azure Cache for Redis**.
 
-![Caché en Redis - Todas las configuraciones](media/redis-cache-browse/redis-cache-blade.png)
+![Todas las configuraciones de Azure Cache for Redis](media/redis-cache-browse/redis-cache-blade.png)
 
 

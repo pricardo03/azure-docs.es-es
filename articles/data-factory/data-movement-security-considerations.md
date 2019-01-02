@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ad6fe023c4e93328331140dc3552ae1afd7c83ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783379"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970652"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -167,7 +167,7 @@ En la tabla siguiente, se proporcionan los requisitos del puerto de entrada para
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Requerido por el cmdlet de cifrado de PowerShell como se describe en el [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) o en la aplicación de administrador de credenciales para establecer de forma segura credenciales para almacenes de datos locales en el entorno de ejecución de integración. |
 
-![Requisitos de puerto de la puerta de enlace](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![Requisitos de puerto de la puerta de enlace](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>Configuraciones IP y lista de admitidos en los almacenes de datos
 Algunos almacenes de datos en la nube también requieren listas de direcciones IP admitidas para que la máquina acceda a ellos. Asegúrese de que la dirección IP de la máquina de Integration Runtime autohospedado aparece en la lista o está configurada en el firewall correctamente.

@@ -11,25 +11,21 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: 7f05bd6c96a8e22b1e039c3edcec491b7c079d54
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/06/2018
+ms.openlocfilehash: a456a214143f39ed9504af40129f9199b2535e46
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162416"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997137"
 ---
-# <a name="azure-sql-database-managed-instance-threat-detection"></a>Detección de amenazas de Instancia administrada de Azure SQL Database
+# <a name="azure-sql-database-managed-instance-threat-detection-preview"></a>Detección de amenazas de Instancia administrada de Azure SQL Database (versión preliminar)
 
-Detección de amenazas de SQL detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad en una instancia de Instancia administrada de Azure SQL Database.
+[Detección de amenazas](sql-database-threat-detection-overview.md) de Azure SQL para [Instancia administrada de SQL Database](sql-database-managed-instance-index.yml) detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad. La detección de amenazas puede identificar **posible inyección SQL**, **acceso desde un centro de datos o una ubicación inusuales**, **acceso desde una aplicación potencialmente peligrosa o entidad de seguridad desconocida** y **credenciales SQL por fuerza bruta**; vea más detalles en [Alertas de detección de amenazas](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 
-## <a name="overview"></a>Información general
+Puede recibir notificaciones sobre las amenazas detectadas mediante [notificaciones por correo electrónico](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) o en [Azure Portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal).
 
-Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad a Instancia administrada. Detección de amenazas está en versión preliminar para Instancia administrada.
-
-Detección de amenazas proporciona una nueva capa de seguridad, que permite a los clientes detectar amenazas potenciales y responder a ellas cuando se producen, gracias a las alertas de seguridad sobre actividades anómalas en la base de datos que se proporcionan. Detección de amenazas facilita la solución de las posibles amenazas a la instancia administrada sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de seguridad avanzada. Para obtener una experiencia completa de investigación, se recomienda habilitar la auditoría de Instancia administrada de Azure, que escribe los eventos de base de datos en un registro de auditoría en su cuenta de Azure Storage. 
-
-Detección de amenazas de SQL integra alertas con [Azure Security Center](https://azure.microsoft.com/services/security-center/). Cada instancia administrada protegida se factura al mismo precio que el nivel Estándar de Azure Security Center, a 15 USD/nodo/mes (cada instancia administrada protegida cuenta como un nodo).  
+La [detección de amenazas](sql-database-threat-detection-overview.md) forma parte de la oferta de [protección contra amenazas avanzada de SQL](sql-advanced-threat-protection.md) (ATP), que es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Puede acceder a la característica de detección de amenazas y administrarla a través del portal central de SQL ATP. El servicio de detección de amenazas se cobra a 15 USD al mes por instancia administrada, siendo los primeros 30 días gratis.
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configuración de la detección de amenazas para instancias administradas en Azure Portal
 1. Inicie Azure Portal en [https://portal.azure.com](https://portal.azure.com).
@@ -42,39 +38,10 @@ Detección de amenazas de SQL integra alertas con [Azure Security Center](https:
 
    ![detección de amenazas](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
 
-## <a name="explore-anomalous-managed-instance-activities-upon-detection-of-a-suspicious-event"></a>Exploración de las actividades anómalas de la instancia administrada cuando se detecta un evento sospechoso
-
-1. Cuando se detecten actividades anómalas en las bases de datos, recibirá una notificación por correo electrónico. 
-
-   El correo electrónico proporciona información acerca del evento de seguridad sospechoso, en la que se incluyen la naturaleza de las actividades anómalas, el nombre de la base de datos, el nombre del servidor y la hora del evento. Proporciona información también sobre las posibles causas y las medidas recomendadas para investigar y mitigar la amenaza potencial para la instancia administrada.
-
-   ![correo electrónico de detección de amenazas](./media/sql-database-managed-instance-threat-detection/threat-detection-email.png)
-
-2. Haga clic en el vínculo **View recent SQL alerts** (Ver las alertas recientes de SQL) del correo electrónico para iniciar Azure Portal y mostrar la página de alertas de Azure Security Center, que proporciona información general sobre amenazas activas de SQL detectadas en la base de datos de la instancia administrada.
-
-   ![amenazas activas](./media/sql-database-managed-instance-threat-detection/active-threats.png)
-
-3. Haga clic en una alerta específica para obtener detalles y acciones adicionales para investigar esta amenaza y solucionar amenazas futuras.
-
-   Por ejemplo, la inyección de código SQL es uno de los problemas de seguridad habituales entre las aplicaciones web en Internet. La inyección de código SQL se utiliza para atacar aplicaciones controladas por datos. Los atacantes aprovechan las vulnerabilidades de la aplicación para inyectar instrucciones SQL malintencionadas en los campos de entrada de la aplicación, con el fin de infringir la seguridad o modificar datos en la base de datos. Para las alertas de inyección de código SQL, los detalles de la alerta incluyen la instrucción SQL vulnerable que se ha aprovechado.
-
-   ![Inyección de código SQL](./media/sql-database-managed-instance-threat-detection/sql-injection.png)
-
-## <a name="managed-instance-threat-detection-alerts"></a>Alertas de detección de amenazas de Instancia administrada 
-
-Detección de amenazas para Instancia administrada detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a bases de datos, o de vulnerar su seguridad y puede desencadenar las siguientes alertas:
-- **Vulnerabilidad ante ataques por inyección de código SQL**: esta alerta se desencadena cuando una aplicación genera una instrucción SQL errónea en la base de datos. Esto puede indicar una posible vulnerabilidad ante ataques por inyección de código SQL. Hay dos posibles razones para la generación de una instrucción errónea:
- - Existe un defecto en el código de la aplicación que crea la instrucción SQL errónea
- - El código de la aplicación o los procedimientos almacenados no corrigen los datos que proporciona el usuario al construir la instrucción SQL errónea, lo que se puede aprovechar para ataques por inyección de código SQL
-- **Potencial inyección de código SQL**: esta alerta se desencadena cuando se produce una vulnerabilidad de seguridad activa contra una vulnerabilidad de la aplicación identificada ante inyección de código SQL. Esto significa que el atacante está intentando inyectar instrucciones SQL malintencionadas mediante el código de la aplicación vulnerable o procedimientos almacenados.
-- **Acceso desde una ubicación inusual**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso a una instancia administrada, en el que alguien ha iniciado sesión en la instancia administrada desde una ubicación geográfica inusual. En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o una operación de mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado, un atacante externo, etc.)
-- **Acceso desde un centro de datos de Azure inusual**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso a la instancia administrada, en el que alguien ha iniciado sesión en la instancia administrada desde un centro de datos de Azure que no había accedido a la instancia administrada recientemente. En algunos casos, la alerta detecta una acción legítima (una aplicación nueva en Azure, Power BI, Azure SQL Query Editor, etc.) En otros casos, la alerta detecta una acción malintencionada procedente de un recurso o servicio de Azure (por ejemplo, un antiguo empleado o un atacante externo).
-- **Acceso desde una entidad de seguridad desconocida**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Instancia administrada, en el cual alguien ha iniciado sesión en la instancia administrada mediante una entidad de seguridad inusual (usuario de SQL). En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o una operación de mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
-- **Acceso desde una aplicación potencialmente dañina**: esta alerta se desencadena cuando una aplicación potencialmente dañina se utiliza para acceder a la base de datos. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta un ataque que se realiza con herramientas de ataque comunes.
-- **Credenciales de SQL por fuerza bruta**: esta alerta se desencadena cuando hay un número anormalmente elevado de inicios de sesión infructuosos con distintas credenciales. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta ataques por fuerza bruta.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de Instancia administrada, consulte [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md)
-- Más información acerca de la [auditoría de Instancia administrada](https://go.microsoft.com/fwlink/?linkid=869430) 
-- Más información acerca de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Más información sobre [Detección de amenazas](sql-database-threat-detection-overview.md) 
+- Para más información acerca de Instancia administrada, vea [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md) 
+- Más información sobre la [detección de amenazas en base de datos única](sql-database-threat-detection.md). 
+- Más información sobre la [auditoría de Instancia administrada](https://go.microsoft.com/fwlink/?linkid=869430) 
+- Más información sobre [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

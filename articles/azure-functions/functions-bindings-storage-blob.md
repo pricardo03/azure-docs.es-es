@@ -9,14 +9,14 @@ keywords: azure functions, funciones, procesamiento de eventos, proceso dinámic
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/03/2018
+ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: c9e6898d83e5bc1360bb5b1539b12bace8acdb3f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: efccea36dd94120934b1a9729f583e0596316bc7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251046"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338573"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -29,11 +29,11 @@ En este artículo se explica cómo trabajar con enlaces de Azure Blob Storage en
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Use el desencadenador de Event Grid en lugar del desencadenador de Blob Storage para las cuentas de Blob Storage, para operaciones a gran escala o para evitar retrasos por arranques en frío. Para obtener más información, consulte la sección [Desencadenador](#trigger). 
+> Utilice el desencadenador de Event Grid en lugar del desencadenador de Blob Storage para las cuentas de almacenamiento solo para blobs, para operaciones a gran escala o para reducir la latencia. Para obtener más información, consulte la sección [Desencadenador](#trigger).
 
 ## <a name="packages---functions-1x"></a>Paquetes: Functions 1.x
 
-Los enlaces de Blob Storage se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) de GitHub.
+Los enlaces de Blob Storage se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) de GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -55,7 +55,7 @@ Utilice Event Grid en lugar del desencadenador de Blob Storage en los escenarios
 
 * Cuentas de Almacenamiento de blobs
 * Gran escala
-* Minimizar el retraso por arranques en frío
+* Minimización de la latencia
 
 ### <a name="blob-storage-accounts"></a>Cuentas de Almacenamiento de blobs
 
@@ -65,9 +65,9 @@ Las [cuentas de Blob Storage](../storage/common/storage-account-overview.md#type
 
 Gran escala se aplica generalmente a contenedores que tienen más de 100 000 blobs en ellos o a cuentas de almacenamiento que tienen más de 100 actualizaciones de blob por segundo.
 
-### <a name="cold-start-delay"></a>Retrasos por arranques en frío
+### <a name="latency-issues"></a>Problemas de latencia
 
-Si la aplicación de función está en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Para evitar este retraso por un arranque en frío, puede cambiar a un plan de App Service con AlwaysOn habilitado, o usar un tipo de desencadenador diferente.
+Si la aplicación de función está en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Para evitar esta latencia, puede cambiar a un plan de App Service con Always On habilitado. También puede usar un [desencadenador de Event Grid](functions-bindings-event-grid.md) con su cuenta de almacenamiento de blobs. Para ver un ejemplo, consulte el [tutorial de Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json). 
 
 ### <a name="queue-storage-trigger"></a>Desencadenador de Queue Storage
 
@@ -79,8 +79,9 @@ Vea el ejemplo específico del lenguaje:
 
 * [C#](#trigger---c-example)
 * [Script de C# (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
@@ -100,7 +101,7 @@ Para obtener más información sobre el atributo `BlobTrigger`, consulte [Desenc
 
 ### <a name="trigger---c-script-example"></a>Desencadenador: ejemplo de script de C#
 
-En el ejemplo siguiente se muestra un enlace de desencadenador de blobs en un archivo *function.json* y código de [script de C# (.csx)](functions-reference-csharp.md) que usa el enlace. La función escribe un registro cuando se agrega o actualiza un blob en el contenedor `samples-workitems`.
+En el ejemplo siguiente se muestra un enlace de desencadenador de blobs en un archivo *function.json* y el [código de Python](functions-reference-python.md) que usa el enlace. La función escribe un registro cuando se agrega o actualiza un blob en el [contenedor](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) `samples-workitems`.
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -179,6 +180,42 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="trigger---python-example"></a>Ejemplo de desencadenador de Python
+
+En el ejemplo siguiente se muestra un enlace de desencadenador de blobs en un archivo *function.json* y el [código de Python](functions-reference-python.md) que usa el enlace. La función escribe un registro cuando se agrega o actualiza un blob en el [contenedor](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) `samples-workitems`.
+
+Este es el archivo *function.json*:
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myblob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+La cadena `{name}` en la ruta de acceso del desencadenador de blobs `samples-workitems/{name}` crea una [expresión de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) que puede usar en el código de función para acceder al nombre de archivo del blob de desencadenamiento. Para más información, consulte [Patrones de nombre de blob](#trigger---blob-name-patterns) que aparece más adelante en este artículo.
+
+Para más información sobre las propiedades del archivo *function.json*, consulte la sección [Configuración](#trigger---configuration) donde se explican estas propiedades.
+
+Este es el código de Python:
+
+```python
+import logging
+import azure.functions as func
+
+def main(myblob: func.InputStream):
+    logging.info('Python Blob trigger function processed %s', myblob.name)
+```
+
 ### <a name="trigger---java-example"></a>Desencadenador: ejemplo de Java
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de blob en un archivo *function.json* y el [código de Java](functions-reference-java.md) que usa el enlace. La función escribe un registro cuando se agrega o actualiza un blob en el contenedor `myblob`.
@@ -228,7 +265,7 @@ Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice l
   ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
-      [BlobTrigger("sample-images/{name}")] Stream image, 
+      [BlobTrigger("sample-images/{name}")] Stream image,
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
   {
       ....
@@ -240,7 +277,7 @@ Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice l
    ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
-      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
+      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
   {
       ....
@@ -282,7 +319,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**type** | N/D | Se debe establecer en `blobTrigger`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. Las excepciones se indican en la sección [uso](#trigger---usage). |
 |**name** | N/D | Nombre de la variable que representa el blob en el código de la función. | 
-|**path** | **BlobPath** |El contenedor que se va a supervisar.  Puede ser un [patrón de nombre de blob](#trigger---blob-name-patterns). | 
+|**path** | **BlobPath** |El [contenedor](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) que se va a supervisar.  Puede ser un [patrón de nombre de blob](#trigger---blob-name-patterns). | 
 |**conexión** | **Connection** | El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de Blob Storage](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -329,7 +366,7 @@ El ejemplo siguiente se desencadena solo en blobs del contenedor `input` que com
 ```json
 "path": "input/original-{name}",
 ```
- 
+
 Si el nombre de blob es *original Blob1.txt*, el valor de la variable `name` en el código de la función es `Blob1`.
 
 ### <a name="filter-on-file-type"></a>Filtrar por tipo de archivo
@@ -348,7 +385,7 @@ Para buscar llaves en nombres de archivo, escape las llaves mediante dos llaves.
 "path": "images/{{20140101}}-{name}",
 ```
 
-Si el blob se denomina *{20140101}-soundfile.mp3*, el valor de variable `name` en el código de la función es *soundfile.mp3*. 
+Si el blob se denomina *{20140101}-soundfile.mp3*, el valor de variable `name` en el código de la función es *soundfile.mp3*.
 
 ## <a name="trigger---metadata"></a>Desencadenador: metadatos
 
@@ -393,7 +430,7 @@ Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la rec
 
 ## <a name="trigger---poison-blobs"></a>Desencadenador: blobs dudosos
 
-Si se produce un error en una función de desencadenador de blob, Azure Functions vuelve a intentar ejecutar esa función hasta 5 veces de forma predeterminada. 
+Si se produce un error en una función de desencadenador de blob, Azure Functions vuelve a intentar ejecutar esa función hasta 5 veces de forma predeterminada.
 
 Si se produce un error en los 5 intentos, Azure Functions agregará un mensaje a una cola de Storage llamada *webjobs-blobtrigger-poison*. El mensaje de cola para los blobs dudosos es un objeto JSON que contiene las siguientes propiedades:
 
@@ -425,8 +462,9 @@ Vea el ejemplo específico del lenguaje:
 
 * [C#](#input---c-example)
 * [Script de C# (.csx)](#input---c-script-example)
-* [JavaScript](#input---javascript-example)
 * [Java](#input---java-example)
+* [JavaScript](#input---javascript-example)
+* [Python](#input---python-example)
 
 ### <a name="input---c-example"></a>Entrada: ejemplo de C#
 
@@ -478,7 +516,7 @@ En el archivo *function.json*, la propiedad de metadatos `queueTrigger` se utili
   ],
   "disabled": false
 }
-``` 
+```
 
 En la sección de [configuración](#input---configuration) se explican estas propiedades.
 
@@ -527,7 +565,7 @@ En el archivo *function.json*, la propiedad de metadatos `queueTrigger` se utili
   ],
   "disabled": false
 }
-``` 
+```
 
 En la sección de [configuración](#input---configuration) se explican estas propiedades.
 
@@ -539,6 +577,57 @@ module.exports = function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
+```
+
+### <a name="input---python-example"></a>Entrada: ejemplo de Python
+
+<!--Same example for input and output. -->
+
+En el ejemplo siguiente se muestran enlaces de entrada y salida de blobs en un archivo *function.json* y el [código de Python](functions-reference-python.md) que usa los enlaces. La función realiza una copia de un blob. La función se activa mediante un mensaje de cola que contiene el nombre del blob que se va a copiar. El nuevo blob se denomina *{nombreoriginaldelblob}-Copy*.
+
+En el archivo *function.json*, la propiedad de metadatos `queueTrigger` se utiliza para especificar el nombre del blob en las propiedades de `path`:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+En la sección de [configuración](#input---configuration) se explican estas propiedades.
+
+Este es el código de Python:
+
+```python
+import logging
+import azure.functions as func
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    return inputblob
 ```
 
 ### <a name="input---java-example"></a>Entrada: ejemplo de Java
@@ -555,7 +644,7 @@ public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-item
  }
  ```
 
-  En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@BlobInput` en los parámetros cuyo valor provendría de un blob.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante `Optional<T>`. 
+  En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@BlobInput` en los parámetros cuyo valor provendría de un blob.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante `Optional<T>`.
 
 
 ## <a name="input---attributes"></a>Entrada: atributos
@@ -600,8 +689,8 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**type** | N/D | Se debe establecer en `blob`. |
 |**dirección** | N/D | Se debe establecer en `in`. Las excepciones se indican en la sección [uso](#input---usage). |
 |**name** | N/D | Nombre de la variable que representa el blob en el código de la función.|
-|**path** |**BlobPath** | Ruta de acceso al blob. | 
-|**conexión** |**Connection**| El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de Blob Storage](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**path** |**BlobPath** | Ruta de acceso al blob. |
+|**conexión** |**Connection**| El nombre de una configuración de aplicación que contiene la [cadena de conexión de almacenamiento](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions utiliza la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |N/D | **Acceder** | Indica si va a leer o escribir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -639,18 +728,19 @@ Vea el ejemplo específico del lenguaje:
 
 * [C#](#output---c-example)
 * [Script de C# (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Salida: ejemplo de C#
 
-El ejemplo siguiente es una [función de C#](functions-dotnet-class-library.md) que utiliza un desencadenador de blobs y dos enlaces de blobs de salida. La función se activa por la creación de un blob de imágenes en el contenedor *sample-images*. Crea copias pequeñas y medianas del blob de imágenes. 
+El ejemplo siguiente es una [función de C#](functions-dotnet-class-library.md) que utiliza un desencadenador de blobs y dos enlaces de blobs de salida. La función se activa por la creación de un blob de imágenes en el contenedor *sample-images*. Crea copias pequeñas y medianas del blob de imágenes.
 
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall,
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
 {
     var imageBuilder = ImageResizer.ImageBuilder.Current;
@@ -710,7 +800,7 @@ En el archivo *function.json*, la propiedad de metadatos `queueTrigger` se utili
   ],
   "disabled": false
 }
-``` 
+```
 
 En la sección de [configuración](#output---configuration) se explican estas propiedades.
 
@@ -759,7 +849,7 @@ En el archivo *function.json*, la propiedad de metadatos `queueTrigger` se utili
   ],
   "disabled": false
 }
-``` 
+```
 
 En la sección de [configuración](#output---configuration) se explican estas propiedades.
 
@@ -771,6 +861,58 @@ module.exports = function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
+```
+
+### <a name="output---python-example"></a>Salida: ejemplo de Python
+
+<!--Same example for input and output. -->
+
+En el ejemplo siguiente se muestran enlaces de entrada y salida de blobs en un archivo *function.json* y el [código de Python](functions-reference-python.md) que usa los enlaces. La función realiza una copia de un blob. La función se activa mediante un mensaje de cola que contiene el nombre del blob que se va a copiar. El nuevo blob se denomina *{nombreoriginaldelblob}-Copy*.
+
+En el archivo *function.json*, la propiedad de metadatos `queueTrigger` se utiliza para especificar el nombre del blob en las propiedades de `path`:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "outputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+En la sección de [configuración](#output---configuration) se explican estas propiedades.
+
+Este es el código de Python:
+
+```python
+import logging
+import azure.functions as func
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
+         outputblob: func.Out[func.InputStream]):
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    outputblob.set(inputblob)
 ```
 
 ### <a name="output---java-example"></a>Salida: ejemplo de Java
@@ -800,7 +942,7 @@ El constructor del atributo toma la ruta de acceso al blob y un parámetro `File
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
 {
     ...
@@ -812,7 +954,7 @@ Puede establecer la propiedad `Connection` para especificar la cuenta de almacen
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
 {
     ...
@@ -832,8 +974,8 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**type** | N/D | Se debe establecer en `blob`. |
 |**dirección** | N/D | Debe establecerse en `out` para un enlace de salida. Las excepciones se indican en la sección [uso](#output---usage). |
 |**name** | N/D | Nombre de la variable que representa el blob en el código de la función.  Se establece en `$return` para hacer referencia al valor devuelto de la función.|
-|**path** |**BlobPath** | Ruta de acceso al blob. | 
-|**conexión** |**Connection**| El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de Blob Storage](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**path** |**BlobPath** | La ruta de acceso al blob. |
+|**conexión** |**Connection**| El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions utiliza la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |N/D | **Acceder** | Indica si va a leer o escribir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

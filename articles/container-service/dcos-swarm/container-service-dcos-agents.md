@@ -1,5 +1,5 @@
 ---
-title: Grupos de agentes de DC/OS para Azure Container Service
+title: (EN DESUSO) Grupos de agentes de DC/OS para Azure Container Service
 description: Funcionamiento de los grupos de agentes públicos y privados con un clúster de DC/OS de Azure Container Service.
 services: container-service
 author: iainfoulds
@@ -9,20 +9,23 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9c614d18b96c182fa166a4bc43fb1bb2f8d5d6f5
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ee1a2a75d6a003a6bc53c5216dd01d379193ea77
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976745"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994950"
 ---
-# <a name="dcos-agent-pools-for-azure-container-service"></a>Grupos de agentes de DC/OS para Azure Container Service
+# <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(EN DESUSO) Grupos de agentes de DC/OS para Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
 Los clústeres de DC/OS en Azure Container Service contienen nodos de agente en dos grupos, uno público y otro privado. Una aplicación se puede implementar en cualquier grupo, lo que afecta a la accesibilidad entre las máquinas del servicio de contenedores. Las máquinas pueden estar expuestas a Internet (públicas) o mantenerse internas (privadas). En este artículo se ofrece una breve descripción de por qué hay grupos públicos y privados.
 
 
-* **Agentes privados**: los nodos de agentes privados se ejecutan mediante una red no enrutable. Esta red solo es accesible desde la zona de administración o a través del enrutador de borde de la zona pública. De forma predeterminada, DC/OS inicia aplicaciones en nodos de agente privado. 
+* **Agentes privados**: Los nodos de agente privado se ejecutan a través de una red no enrutable. Esta red solo es accesible desde la zona de administración o a través del enrutador de borde de la zona pública. De forma predeterminada, DC/OS inicia aplicaciones en nodos de agente privado. 
 
-* **Agentes públicos**: los nodos de agentes públicos ejecutan servicios y aplicaciones de DC/OS por medio de una red de acceso público. 
+* **Agentes públicos**: Los nodos de agente público ejecutan servicios y aplicaciones de DC/OS a través de una red de acceso público. 
 
 Para más información sobre la seguridad de red de DC/OS, consulte la [documentación de DC/OS](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
 

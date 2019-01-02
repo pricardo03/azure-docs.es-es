@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: 078f6bcd7aa48f2a63118e6dfb625d9b2c69fbb3
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248030"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879395"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Compatibilidad de plataformas de SDK de IoT de Azure
 
@@ -20,7 +20,7 @@ Los [SDK de IoT de Azure](iot-hub-devguide-sdks.md) son un conjunto de bibliotec
 
 Microsoft admite una variedad de sistemas operativos, plataformas y marcos de trabajo y se puede extender mediante el SDK de C de IoT de Azure. Algunos reciben soporte oficial por el equipo, agrupados en niveles que representan el nivel de compatibilidad de los usuarios pueden esperar. Las *plataformas completamente compatibles* implican que Microsoft:
 
-    * Compila y ejecuta pruebas de un extremo a otro continuamente sobre la versión maestra y otras versiones admitidas de LTS.
+    * Compila y ejecuta pruebas de un extremo a otro continuamente sobre la versión maestra y otras versiones admitidas de LTS.  Para proporcionar cobertura de pruebas en las distintas versiones, se suele realizar una prueba en comparación con la última versión de LTS y la versión más popular.  Otras versiones de la misma plataforma pueden admitirse mediante la compatibilidad de versiones de plataforma.
     * Proporciona instrucciones de instalación o paquetes si corresponde.
     * Es totalmente compatible con las plataformas en GitHub.
 
@@ -31,7 +31,6 @@ Además, diversos socios han trasladado nuestro SDK de C a más plataformas y se
 * Windows CE 2013 (en desuso en octubre de 2018)
 * .NET Standard 1.3 con .NET Core 2.1 y .NET Framework 4.7
 * Xamarin iOS, Android, UWP
-* Android con Java
 
 ## <a name="supported-platforms"></a>Plataformas compatibles
 
@@ -83,6 +82,7 @@ Hay varias plataformas compatibles.
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| Android API 28 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>Plataformas de asociados compatibles
 

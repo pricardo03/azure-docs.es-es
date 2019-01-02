@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: v-jysur
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 1d077fc8a853f145d271fa69d453ea2ea70ab696
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ff66b386a6293c11ad67ec90e165b927ad6669b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319084"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870561"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de la versión de Microsoft Azure Backup Server
 Este artículo describe los problemas conocidos y las soluciones alternativas para Microsoft Azure Backup Server (MABS) v3.
 
 ##  <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Errores de copia de seguridad y recuperación para cargas de trabajo agrupadas
 
-**Descripción:** Errores de copia de seguridad y restauración de orígenes de datos agrupados como un clúster de Hyper-V, un clúster de SQL (SQL Always On) o Exchange en un grupo de disponibilidad de base de datos (DAG) después de actualizar MABS v2 a MABS v3.
+**Descripción:** Errores de copia de seguridad y restauración de orígenes de datos agrupados como un clúster de Hyper-V, un clúster de SQL (SQL AlwaysOn) o Exchange en un grupo de disponibilidad de base de datos (DAG) después de actualizar MABS v2 a MABS v3.
 
-**Solución alternativa:** Para evitar estos errores, abra SQL Server Management Studio (SSMS) y ejecute el siguiente script SQL en la BD de DPM:
+**Solución alternativa**: Para evitar estos errores, abra SQL Server Management Studio (SSMS) y ejecute el siguiente script SQL en la BD de DPM:
 
 
     IF EXISTS (SELECT * FROM dbo.sysobjects
@@ -56,7 +56,7 @@ Este artículo describe los problemas conocidos y las soluciones alternativas pa
 
 **Descripción:** Error al actualizar de MABS v2 a MABS v3 en la configuración regional en ruso con el código **4387**.
 
-**Solución alternativa:** Realice los pasos siguientes para actualizar a MABS v3 con el paquete de instalación de ruso:
+**Solución alternativa**: Realice los pasos siguientes para actualizar a MABS v3 con el paquete de instalación de ruso:
 
 1.  [Realice una copia de seguridad](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) de su base de datos SQL y desinstale MABS v2 (seleccione conservar los datos protegidos durante la desinstalación).
 2.  Actualice a SQL 2017 (Enterprise) y desinstale Reporting como parte de la actualización.

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144584"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410081"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>¿Qué son las condiciones en el acceso condicional de Azure Active Directory? 
 
-Puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube con el [acceso condicional de Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). En una directiva de acceso condicional, definirá la respuesta ("haga esto") al motivo para desencadenarla ("cuando esto suceda"). 
+Puede controlar el modo en que los usuarios acceden a las aplicaciones en la nube con el [acceso condicional de Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). En una directiva de acceso condicional, definirá la respuesta ("haga esto") al motivo para desencadenarla ("cuando esto suceda"). 
 
 ![Motivo y respuesta](./media/conditions/10.png)
 
@@ -50,7 +50,7 @@ Si selecciona **Todos los usuarios**, la directiva se aplica a todos los usuario
 
 Al **Seleccionar usuarios y grupos**, puede establecer las siguientes opciones:
 
-* **Todos los usuarios invitados** permite tener como destino una directiva para usuarios invitados de B2B. Esta condición coincide con cualquier cuenta de usuario que tenga el atributo **userType** establecido en **Invitado**. Puede usar esta configuración en caso de que tenga que aplicar una directiva tan pronto como se cree una cuenta en un flujo de invitación de Azure AD.
+* **Todos los usuarios invitados** permite tener como destino una directiva para usuarios invitados de B2B. Esta condición coincide con cualquier cuenta de usuario que tenga el atributo **userType** establecido en **Invitado**. Use esta configuración en caso de que tenga que aplicar una directiva tan pronto como se cree una cuenta en un flujo de invitación de Azure AD.
 
 * **Roles de directorio** permite tener como destino una directiva según la asignación de roles del usuario. Esta condición admite roles de directorio como **Administrador global** o **Administrador de contraseñas**.
 
@@ -74,7 +74,7 @@ Seleccione:
 
 - **Todas las aplicaciones en la nube** para establecer como referencia las directivas de línea de base que se aplicarán a toda la organización. Use esta selección para directivas que requieren autenticación multifactor cuando se detecta un riesgo de inicio de sesión en cualquier aplicación en la nube. Una directiva que se aplica a **todas las aplicaciones en la nube** se aplica al acceso a todos los sitios web y servicios. Este valor no se limita solo a las aplicaciones en la nube que aparecen en la lista **Seleccionar aplicaciones**. 
 
-- Aplicaciones de nube individuales para dirigir servicios específicos por directiva. Por ejemplo, puede requerir que los usuarios tengan un [dispositivo compatible](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para acceder a SharePoint Online. Esta directiva también se aplica a otros servicios cuando se accede al contenido de SharePoint. Un ejemplo es Microsoft Teams. 
+- **Seleccione aplicaciones** para dirigir servicios específicos por su directiva. Por ejemplo, puede requerir que los usuarios tengan un [dispositivo compatible](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para acceder a SharePoint Online. Esta directiva también se aplica a otros servicios cuando se accede al contenido de SharePoint. Un ejemplo es Microsoft Teams. 
 
 Puede excluir aplicaciones específicas de una directiva. Sin embargo, estas aplicaciones siguen estando sujetas a las directivas aplicadas a los servicios a los que acceden. 
 
@@ -82,7 +82,7 @@ Puede excluir aplicaciones específicas de una directiva. Sin embargo, estas apl
 
 ## <a name="sign-in-risk"></a>Riesgo de inicio de sesión
 
-El riesgo del inicio de sesión es un indicador de la probabilidad (alta, media o baja) que hay de que el legítimo propietario de una cuenta de usuario no haya realizado un intento de inicio de sesión. Azure AD calcula el nivel de riesgo de inicio de sesión durante el inicio de sesión de un usuario. Puede utilizar el nivel calculado de riesgo de inicio de sesión como condición en una directiva de acceso condicional.
+El riesgo del inicio de sesión es un indicador de la probabilidad (alta, media o baja) que hay de que el legítimo propietario de una cuenta de usuario no haya realizado un inicio de sesión. Azure AD calcula el nivel de riesgo de inicio de sesión durante el inicio de sesión de un usuario. Puede utilizar el nivel calculado de riesgo de inicio de sesión como condición en una directiva de acceso condicional.
 
 ![Niveles de riesgo de inicio de sesión](./media/conditions/22.png)
 
@@ -93,7 +93,7 @@ Los casos de uso comunes para esta condición son directivas que tienen las prot
 - Bloquear a los usuarios con un riesgo alto de inicio de sesión. Esta protección impide que usuarios potencialmente no legítimos accedan a sus aplicaciones en la nube. 
 - Requieren la autenticación multifactor para aquellos usuarios con un riesgo medio de inicio de sesión. Al aplicar la autenticación multifactor, puede proporcionar más confianza de que el inicio de sesión lo realiza el propietario legítimo de una cuenta.
 
-Para más información, consulte [Inicios de sesión no seguros](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+Para obtener más información, consulte [Bloqueo del acceso si se detecta un riesgo de sesión](app-sign-in-risk.md).  
 
 ## <a name="device-platforms"></a>Plataformas de dispositivo
 
@@ -111,13 +111,12 @@ Un caso de uso común para esta condición es una directiva que restringe el acc
 
 ## <a name="device-state"></a>Estado del dispositivo
 
-La condición de estado del dispositivo excluye de una política de acceso condicional los dispositivos híbridos unidos a Azure AD y aquellos que estén marcados como compatibles. Esta condición es útil cuando la directiva solo debe aplicarse a un dispositivo no administrado para proporcionar seguridad adicional a la sesión. Por ejemplo, aplique el control de sesión de Microsoft Cloud App Security únicamente cuando un dispositivo no esté administrado. 
+La condición de estado del dispositivo excluye de una política de acceso condicional los dispositivos híbridos unidos a Azure AD y aquellos que estén marcados como compatibles. 
 
 
 ![Configuración del estado del dispositivo](./media/conditions/112.png)
 
-Si desea bloquear el acceso de dispositivos no administrados, implemente el [acceso condicional basado en dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
+Esta condición es útil cuando la directiva solo debe aplicarse a un dispositivo no administrado para proporcionar seguridad adicional a la sesión. Por ejemplo, aplique el control de sesión de Microsoft Cloud App Security únicamente cuando un dispositivo no esté administrado. 
 
 ## <a name="locations"></a>Ubicaciones
 
@@ -136,98 +135,67 @@ Para más información, vea [¿Qué es la condición de ubicación en el acceso 
 
 ## <a name="client-apps"></a>Aplicaciones cliente
 
-Con el uso de la condición de aplicaciones cliente, puede aplicar una directiva a distintos tipos de aplicaciones. Algunos ejemplos son los sitios web, los servicios, las aplicaciones móviles y las aplicaciones de escritorio. 
+De forma predeterminada, una directiva de acceso condicional se aplica a las siguientes aplicaciones:
+
+- **[Aplicaciones del explorador](technical-reference.md#supported-browsers)**: entre las aplicaciones del explorador se incluyen sitios web que usan los protocolos de inicio de sesión único web de SAML, WS-Federation u OpenID Connect. Esto también se aplicará a cualquier sitio web o servicio web que se haya registrado como un cliente confidencial de OAuth. Por ejemplo, el sitio web de Office 365 SharePoint. 
+
+- **[Aplicaciones móviles y de escritorio que usan la autenticación moderna](technical-reference.md#supported-mobile-applications-and-desktop-clients)**: entre estas aplicaciones se incluyen las aplicaciones de escritorio de Office y aplicaciones telefónicas. 
 
 
+Además, puede destinar una directiva a aplicaciones cliente específicas que no usan la autenticación moderna, por ejemplo:
 
-Una aplicación se clasifica como sigue:
+- **[Clientes de Exchange ActiveSync](conditions.md#exchange-activesync-clients)**: cuando una directiva bloquea el uso de Exchange ActiveSync, los usuarios afectados reciben un solo correo electrónico de cuarentena con información sobre la razón de dicho bloqueo. Si es necesario, en el correo electrónico se incluyen instrucciones para inscribir su dispositivo con Intune.
 
-- Un sitio web o servicio si utiliza los protocolos web SSO, SAML, WS-Fed u OpenID Connect para un cliente confidencial.
+- **[Otros clientes](block-legacy-authentication.md)**: estas aplicaciones incluyen clientes que usan la autenticación básica con protocolos de correo electrónico como IMAP, MAPI, POP, SMTP y aplicaciones de Office más antiguas que no usan la autenticación moderna. Para obtener más información, consulte [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
-- Una aplicación móvil o aplicación de escritorio si utiliza la aplicación móvil de OpenID Connect para un cliente nativo.
+![Aplicaciones cliente](./media/conditions/41.png)
 
-Para obtener una lista de las aplicaciones cliente que puede utilizar en la directiva de acceso condicional, consulte [Condición de aplicaciones cliente](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#client-apps-condition) en Referencia de configuración del acceso condicional de Azure Active Directory.
+Los casos de uso comunes para esta condición son directivas con los requisitos siguientes:
 
-Los casos de uso comunes para esta condición son directivas con las protecciones siguientes: 
+- **[Requieren un dispositivo administrado](require-managed-devices.md)** para aplicaciones móviles y de escritorio que descarguen datos en un dispositivo. Al mismo tiempo, permiten el acceso a través del explorador desde cualquier dispositivo. Este escenario evita que se guarden y sincronicen documentos en un dispositivo no administrado. Con este método, puede reducir la probabilidad de pérdida de datos en caso de que se pierda o se robe el dispositivo.
 
-- Requieren un [dispositivo compatible](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para aplicaciones móviles y de escritorio que descarguen grandes cantidades de datos al dispositivo. Al mismo tiempo, permiten el acceso a través del explorador desde cualquier dispositivo.
+- **[Requieren un dispositivo administrado](require-managed-devices.md)** para aplicaciones que usan ActiveSync para tener acceso a Exchange Online.
+
+- **[Bloquean la autenticación heredada](block-legacy-authentication.md)** a Azure AD (otros clientes)
 
 - Bloquean el acceso de aplicaciones web, pero permiten el acceso desde aplicaciones de escritorio y móviles.
 
-Puede aplicar esta condición a protocolos de autenticación modernos y SSO web. También puede aplicarla a las aplicaciones de correo que usan Microsoft Exchange ActiveSync. Algunos ejemplos son las aplicaciones de correo nativas en la mayoría de los smartphones. 
 
-Solo puede seleccionar la condición de las aplicaciones cliente si Microsoft Office 365 Exchange Online es la única aplicación en la nube que ha seleccionado.
 
-![Aplicaciones de nube](./media/conditions/32.png)
+### <a name="exchange-activesync-clients"></a>Clientes de Exchange ActiveSync
 
-La selección de **Exchange ActiveSync** como condición de aplicaciones cliente solo se admite si no hay otras condiciones configuradas en una directiva. Sin embargo, puede restringir el ámbito de esta condición para que solo se aplique a las plataformas compatibles.
+Solo puede seleccionar **clientes de Exchange ActiveSync** si:
 
+
+- Microsoft Office 365 Exchange Online es la única aplicación en la nube que ha seleccionado.
+
+    ![Aplicaciones de nube](./media/conditions/32.png)
+
+- No tiene otras condiciones configuradas en una directiva. Sin embargo, puede restringir el ámbito de esta condición para que solo se aplique a las [plataformas compatibles](technical-reference.md#device-platform-condition).
  
-![Aplicación de directiva solo en las plataformas compatibles](./media/conditions/33.png)
-
-Aplicar esta condición solo a las plataformas compatibles equivale a todas las plataformas de dispositivo en una [condición de plataforma de dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
-![Configuración de plataformas de dispositivos](./media/conditions/34.png)
+    ![Aplicación de directiva solo en las plataformas compatibles](./media/conditions/33.png)
 
 
- Para obtener más información, consulte estos artículos:
+Al bloquearse el acceso porque se requiere un [dispositivo administrado](require-managed-devices.md), los usuarios afectados reciben un solo correo electrónico que les guía en el uso de Intune. 
+
+Si se requiere una aplicación aprobada, los usuarios afectados obtienen directrices para instalar y usar el cliente móvil de Outlook.
+
+En otros casos, por ejemplo, si se requiere MFA, se bloquean los usuarios afectados, ya que los clientes que usan la autenticación básica no admiten MFA.
+
+Solo puede dirigir esta configuración a usuarios y grupos. No admite invitados ni roles. Si se configura la condición de invitado o de rol, todos los usuarios se bloquearán, ya que el acceso condicional no puede determinar si la directiva debe aplicarse al usuario, o no.
+
+
+ Para más información, consulte:
 
 - [Configuración de SharePoint Online y Exchange Online para el acceso condicional de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)
  
 - [Acceso condicional basado en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) 
 
 
-### <a name="legacy-authentication"></a>Autenticación heredada  
-
-El acceso condicional ahora se aplica a los clientes de Microsoft Office más antiguos que no admiten la autenticación moderna. También se aplica a los clientes que usan protocolos de correo como POP, IMAP y SMTP. Mediante el uso de la autenticación heredada, puede configurar directivas, como **bloquear el acceso desde otros clientes**.
-
-
-![Configuración de aplicaciones cliente](./media/conditions/160.png)  
-
-
-#### <a name="known-issues"></a>Problemas conocidos
-
-- La configuración de una directiva para **otros clientes** bloquea toda la organización ante determinados clientes como SPConnect. Este bloqueo se produce porque clientes más antiguos se autentican de formas inesperadas. Este problema no aplica a las aplicaciones principales de Office, como los clientes de Office anteriores. 
-
-- La directiva puede tardar hasta 24 horas en surtir efecto. 
-
-
-#### <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-
-**P:** ¿Bloqueará esta autenticación los servicios Web Microsoft Exchange?
-
-Depende del protocolo de autenticación que usen los Servicio web Exchange. Si la aplicación Servicios Web Exchange utiliza la autenticación moderna, lo cubrirá la aplicación cliente **Aplicaciones móviles y clientes de escritorio**. La autenticación básica está cubierta por la aplicación cliente **Otros clientes**.
-
-
-**P:** ¿Qué controles se pueden usar en **Otros clientes**?
-
-Cualquier control puede configurarse para **Otros clientes**. Sin embargo, la experiencia del usuario final será bloquear el acceso en todos los casos. **Otros clientes** no admiten controles como MFA, dispositivo compatible y unión a un dominio. 
- 
-**P:** ¿Qué condiciones uso para **Otros clientes**?
-
-Para **Otros clientes** se pueden configurar cualesquiera condiciones.
-
-**P:** ¿Admite Exchange ActiveSync todas las condiciones y controles?
-
-No. En la lista siguiente se resume la compatibilidad de Exchange ActiveSync: 
-
-- Exchange ActiveSync solo admite usuarios y grupos como destino. No admite invitados ni roles. Si se configura una condición de invitado o rol, se bloquean todos los usuarios. Exchange ActiveSync bloquea todos los usuarios porque no se puede determinar si se debe aplicar la directiva al usuario o no.
-
-- Exchange ActiveSync solo funciona con Microsoft Exchange Online como la aplicación en la nube. 
-
-- Exchange ActiveSync no es compatible con cualquier condición, excepto la propia aplicación cliente. 
-
-- Exchange ActiveSync se puede configurar con cualquier control. Todos los controles, excepto el cumplimiento de dispositivos, generan un bloqueo.
-
-**P:** ¿Se aplicarán las directivas a todas las aplicaciones cliente de manera predeterminada a partir de ahora?
-
-No. No hay ningún cambio en el comportamiento predeterminado de las directivas. Las directivas continuarán aplicándose al explorador y a las aplicaciones móviles y clientes de escritorio de forma predeterminada.
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre cómo configurar una directiva de acceso condicional, vea [Inicio rápido: Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
+- Para averiguar cómo configurar una directiva de acceso condicional, consulte [Guía de inicio rápido: Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
 
 - Para configurar directivas de acceso condicional para su entorno, vea [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md). 
 

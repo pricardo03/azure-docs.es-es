@@ -3,7 +3,7 @@ title: Glosario de las herramientas de Elastic Database | Microsoft Docs
 description: Explicación de los términos usados en las herramientas de bases de datos elásticas
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 7af8e25fa46155d5054d494485de336c68caa7f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 75da9fd6dbd6218e46925eb2fc6cbec4969d5925
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239073"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867807"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glosario de las herramientas de Elastic Database
 Los siguientes términos se definen para las [herramientas de Elastic Database](sql-database-elastic-scale-introduction.md), una característica de Azure SQL Database. Las herramientas se usan para administrar [mapas de particiones](sql-database-elastic-scale-shard-map-management.md) e incluyen la [biblioteca de cliente](sql-database-elastic-database-client-library.md), la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md), los [grupos elásticos](sql-database-elastic-pool.md) y las [consultas](sql-database-elastic-query-overview.md). 
@@ -26,11 +26,11 @@ Estos términos se usan en [Incorporación de una partición con herramientas de
 
 ![Términos de Escalado elástico][1]
 
-**Base de datos**: una base de datos SQL de Azure. 
+**Base de datos**: Una base de datos SQL de Azure. 
 
 **Enrutamiento dependiente de los datos**: la funcionalidad que permite que una aplicación se conecte a una partición dada una clave de partición específica. Consulte [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md). Comparar con **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
 
-**Mapa de particiones global**: el mapa entre las claves de particionamiento y sus respectivas particiones dentro de un **conjunto de datos**. El mapa de particiones global se almacena en el **administrador de mapas de particiones**. Comparar con **mapa de particiones local**.
+**Mapa de particiones global**: el mapa entre las claves de particionamiento y sus respectivas particiones dentro de un **conjunto de particiones**. El mapa de particiones global se almacena en el **administrador de mapas de particiones**. Comparar con **mapa de particiones local**.
 
 **Mapa de particiones de lista**: un mapa de particiones en el que las claves de particionamiento se asignan de manera individual. Comparar con **Mapa de particiones de intervalo**.   
 
@@ -69,7 +69,7 @@ Aquí se muestra una representación de bases de datos de inquilino único y mul
 ![Asignaciones][2]
 
 ## <a name="verbs"></a>Verbos
-**Escalado horizontal**: el acto de escalar (o reducir) horizontalmente una recopilación de particiones agregando o quitando particiones de un mapa de particiones.
+**Escalado horizontal**: el acto de escalar o reducir horizontalmente una recopilación de particiones agregando o quitando particiones de un mapa de particiones.
 
 ![Escalado horizontal y vertical][3]
 

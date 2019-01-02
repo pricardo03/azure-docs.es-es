@@ -1,5 +1,5 @@
 ---
-title: Recomendaciones para la solución de problemas con Cognitive Search en Azure Search | Microsoft Docs
+title: Recomendaciones para solucionar problemas con Cognitive Search en Azure Search
 description: Recomendaciones y solución de problemas para configurar canalizaciones de Cognitive Search en Azure Search.
 services: search
 manager: pablocas
@@ -10,33 +10,34 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575325"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316301"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Recomendaciones para solucionar problemas con Cognitive Search
 
 En este artículo encontrará una lista de recomendaciones y trucos para avanzar sin pausa a medida que trabaja con las funcionalidades de Cognitive Search en Azure Search. 
 
-Si aún no lo ha hecho, siga las instrucciones de [Tutorial: Learn how to call the cognitive search APIs](cognitive-search-quickstart-blob.md) (Tutorial: aprender a llamar a las API de Cognitive Search) para practicar la aplicación de las opciones de enriquecimiento de Cognitive Search a un origen de datos de blobs.
+Si aún no lo ha hecho, siga las instrucciones de [Tutorial: Learn how to call the cognitive search APIs](cognitive-search-quickstart-blob.md) (Tutorial: Aprender a llamar a las API de Cognitive Search) para practicar la aplicación de las opciones de enriquecimiento de Cognitive Search a un origen de datos de blobs.
 
-## <a name="tip-1-start-with-a-small-dataset"></a>Recomendación 1: comience con un pequeño conjunto de datos
+## <a name="tip-1-start-with-a-small-dataset"></a>Sugerencia 1: Comience con un pequeño conjunto de datos.
 La mejor forma de detectar problemas rápidamente es aumentar la velocidad de solución de esos problemas. La mejor forma de reducir el tiempo de indexación es reducir el número de documentos que se indexarán. 
 
 Comience creando un origen de datos con un pequeño conjunto de documentos y registros. La muestra de documentos debe ser una representación adecuada de la variedad de documentos que se indexarán. 
 
 Ejecute la muestra de documentos mediante la canalización de un extremo a otro, y compruebe que los resultados satisfagan sus necesidades. Una vez que esté satisfecho con los resultados, puede agregar más archivos a la fuente de datos.
 
-## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Recomendación 2: asegúrese de que las credenciales del origen de datos sean correctas
+## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Sugerencia 2: Asegúrese de que las credenciales del origen de datos sean correctas.
 La conexión del origen de datos no se validará hasta que se defina un indexador que la use. Si ve algún error que indique que el indexador no puede acceder a los datos, asegúrese de que:
 - La cadena de conexión es correcta. Igualmente, cuando cree tokens de SAS, asegúrese de usar el formato que espera Azure Search. Consulte [la sección de especificación de credenciales ](
 https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) para conocer los diferentes formatos compatibles.
 - El nombre del contenedor en el indexador es correcto.
 
-## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>Recomendación 3: confirme los elementos que funcionan incluso si hay algunos errores
+## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>Sugerencia 3: Confirme los elementos que funcionan incluso si hay algunos errores.
 A veces, un pequeño error detiene el proceso del indexador. Esto no supone ningún problema si planea solucionar los errores uno por uno. Sin embargo, es posible que quiera ignorar un tipo particular de error, permitiendo así que el indexador continúe con el proceso para poder ver qué flujos están funcionando realmente.
 
 En ese caso, le puede indicar al indexador que ignore los errores. Para ello, establezca los valores de *maxFailedItems* y *maxFailedItemsPerBatch* en -1, como parte de la definición del indexador.
@@ -51,7 +52,7 @@ En ese caso, le puede indicar al indexador que ignore los errores. Para ello, es
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Recomendación 4: examine los documentos enriquecidos en segundo plano 
+## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Sugerencia 4: Examine los documentos enriquecidos en segundo plano. 
 Los documentos enriquecidos son estructuras temporales que se crean durante el enriquecimiento, y que se eliminan cuando se completa el proceso.
 
 Para capturar una instantánea del documento enriquecido creado durante la indexación, agregue un campo denominado ```enriched``` al índice. El indexador vuelca automáticamente en el campo una representación de cadena del enriquecimiento del documento.
@@ -79,7 +80,7 @@ Agregue un campo ```enriched``` como parte de la definición del índice para fi
 }
 ```
 
-## <a name="tip-5-expected-content-fails-to-appear"></a>Recomendación 5: el contenido esperado no aparece
+## <a name="tip-5-expected-content-fails-to-appear"></a>Sugerencia 5: El contenido esperado no aparece.
 
 Si falta contenido, esto puede deberse a que se descartaron documentos durante la indexación. Los niveles Gratuito y Básico tienen límites bajos en lo que respecta al tamaño de los documentos. Cualquier archivo que exceda el límite se descarta durante la indexación. Puede comprobar si hay documentos descartados en Azure Portal. En el panel del servicio de búsqueda, haga doble clic en el icono Indexadores. Revise la proporción de documentos que se indexaron con éxito. Si no es del 100 %, puede hacer clic en la proporción para obtener más detalles. 
 
@@ -87,24 +88,24 @@ Si el problema está relacionado con el tamaño del archivo, es posible que vea 
 
 Una segunda razón por la que el contenido no aparece, puede deberse errores de asignación de entradas y salidas relacionadas. Por ejemplo, el nombre de destino de salida es "Personas", pero el nombre del campo de índice es "personas" en minúsculas. El sistema puede devolver 201 mensajes de éxito de toda la canalización y hacerle creer que la indexación tuvo éxito, cuando en realidad uno de los campos está vacío. 
 
-## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Recomendación 6: ampliar el procesamiento más allá del tiempo máximo de ejecución (periodo de 24 horas)
+## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Sugerencia 6: Amplíe el procesamiento más allá del tiempo máximo de ejecución (periodo de 24 horas).
 
 El análisis de imágenes es un proceso intensivo a nivel computacional, incluso cuando se trata de casos simples; debido a ello, cuando las imágenes son especialmente grandes o complejas, los tiempos de procesamiento pueden exceder el tiempo máximo permitido. 
 
 El tiempo máximo de ejecución varía según el nivel: varios minutos en el nivel gratuito, y una indexación de 24 horas en niveles de pago. Si el procesamiento no se completa dentro de un período de 24 horas según el procesamiento bajo demanda, use una programación en la que el indexador pueda retomar el procesamiento desde donde lo dejó. 
 
-En cuanto a los indexadores programados, la indexación se reanuda según la programación del último documento válido conocido. Al usar una programación recurrente, el indexador puede abrirse camino a través de las imágenes pendientes durante una serie de horas o días, hasta que se procesen todas aquellas imágenes que no estén procesadas. Para obtener más información acerca de la sintaxis de programación, consulte el [paso 3: crear un indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+En cuanto a los indexadores programados, la indexación se reanuda según la programación del último documento válido conocido. Al usar una programación recurrente, el indexador puede abrirse camino a través de las imágenes pendientes durante una serie de horas o días, hasta que se procesen todas aquellas imágenes que no estén procesadas. Para más información acerca de la sintaxis de programación, consulte [Paso 3: Creación de un indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
 
 Si realiza una indexación basada en el portal (tal como se describe en la guía de inicio rápido), la elección de la opción del indexador "ejecutar una vez" limita el procesamiento a 1 hora (`"maxRunTime": "PT1H"`). Es posible que quiera extender el período de procesamiento para que sea algo más largo.
 
-## <a name="tip-7-increase-indexing-throughput"></a>Recomendación 7: aumentar el rendimiento de la indexación
+## <a name="tip-7-increase-indexing-throughput"></a>Sugerencia 7: Aumente el rendimiento de la indexación.
 
 Para realizar una [indexación paralela](search-howto-large-index.md), coloque los datos en varios contenedores o carpetas virtuales múltiples dentro del mismo contenedor. A continuación, cree varios pares de orígenes de datos e indexadores. Todos los indexadores pueden usar el mismo conjunto de aptitudes y escribir en el mismo índice de búsqueda de destino, por lo que la aplicación de búsqueda no necesita conocer esta partición.
 Para obtener más información, consulte [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets) (Indexar grandes conjuntos de datos).
 
 ## <a name="see-also"></a>Otras referencias
-+ [Guía de inicio rápido: crear una canalización de Cognitive Search en el portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: obtener información sobre las API REST de Cognitive Search](cognitive-search-tutorial-blob.md)
++ [Inicio rápido: Creación de una canalización de Cognitive Search en el portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Obtención de información sobre las API REST de Cognitive Search](cognitive-search-tutorial-blob.md)
 + [Especificar las credenciales de origen de datos.](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexar grandes conjuntos de datos](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Cómo definir un conjunto de aptitudes](cognitive-search-defining-skillset.md)

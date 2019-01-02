@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304244"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089708"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creación de plantillas de Azure Resource Manager para implementar aplicaciones lógicas
 
@@ -27,11 +27,11 @@ Para obtener más información sobre las plantillas de Resource Manager, consult
 
 Una aplicación lógica consta de tres componentes básicos:
 
-* **Recurso de la aplicación lógica**: contiene información acerca de cuestiones como el plan de precios, la ubicación y la definición del flujo de trabajo.
+* **Recurso de aplicación lógica**: contiene información acerca de cuestiones como el plan de precios, la ubicación y la definición del flujo de trabajo.
 * **Definición del flujo de trabajo**: describe los pasos del flujo de trabajo de la aplicación lógica y el modo en que el motor de Logic Apps debe ejecutar el flujo de trabajo.
 Puede ver esta definición en la ventana **Vista código** de su aplicación lógica.
 En el recurso de la aplicación lógica, puede encontrar esta definición en la propiedad `definition`.
-* **Conexiones**: consulta recursos independientes que almacenan los metadatos de manera segura sobre las conexiones del conector, como una cadena de conexión y un token de acceso.
+* **Conexiones**: hace referencia a recursos independientes que almacenan los metadatos de manera segura acerca de las conexiones del conector, como una cadena de conexión y un token de acceso.
 En el recurso de la aplicación lógica, su aplicación lógica consulta estos recursos en la sección `parameters`.
 
 Puede ver todas estas piezas de las aplicaciones lógicas existentes mediante herramientas como el [Explorador de recursos de Azure](http://resources.azure.com).
@@ -173,7 +173,7 @@ Si tiene un proyecto de grupo de recursos existente, puede agregar la aplicació
 
 ## <a name="deploy-a-logic-app-template"></a>Implementación de una plantilla de aplicación lógica
 
-Puede implementar su plantilla mediante cualquier herramienta, entre las que se incluyen PowerShell, API REST, [Release Management para Azure DevOps](#team-services) o la implementación de plantillas de Azure Portal.
+Puede implementar su plantilla mediante cualquier herramienta, entre las que se incluyen PowerShell, API REST, [Azure Pipelines para Azure DevOps](#team-services) o la implementación de plantillas mediante Azure Portal.
 Además, para almacenar los valores de parámetros, se recomienda crear un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 Aprenda cómo [implementar recursos con las plantillas de Azure Resource Manager y PowerShell](../azure-resource-manager/resource-group-template-deploy.md) o cómo [implementar recursos con las plantillas de Azure Resource Manager y Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -185,11 +185,11 @@ Para autorizar las conexiones de OAuth, abra la aplicación lógica en Diseñado
 Hay un script de ejemplo en GitHub, en el proyecto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
 
 <a name="team-services"></a>
-## <a name="azure-devops-release-management"></a>Release Management de Azure DevOps
+## <a name="azure-devops-azure-pipelines"></a>Azure Pipelines para Azure DevOps
 
-Un escenario común para implementar y administrar un entorno es usar una herramienta como Release Management en Azure DevOps con una plantilla de implementación de aplicación lógica. Azure DevOps incluye la tarea [Implementación de un grupo de recursos de Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup), que se puede agregar a cualquier canalización de la compilación o versión. Es preciso tener una [entidad de servicio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para implementar la autorización y, a continuación, generar la canalización de la versión.
+Un escenario común para implementar y administrar un entorno es usar una herramienta como Azure Pipelines en Azure DevOps con una plantilla de implementación de aplicación lógica. Azure DevOps incluye la tarea [Implementación de un grupo de recursos de Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup), que se puede agregar a cualquier canalización de la compilación o versión. Es preciso tener una [entidad de servicio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para implementar la autorización y, a continuación, generar la canalización de la versión.
 
-1. En Release Management, seleccione **Vacío** para crear una canalización vacía.
+1. En Azure Pipelines, seleccione **Empty** (Vacía) para que pueda crear una canalización vacía.
 
     ![Creación de una canalización vacía][1]
 

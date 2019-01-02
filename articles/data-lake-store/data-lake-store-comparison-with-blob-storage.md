@@ -12,15 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: d24a268cf389dfe9dec914b2d27bbe8e466ea675
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a6272f0a6da10075db299d0f8c87f0d748a7a946
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737199"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996482"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparación de Azure Data Lake Storage Gen1 y Azure Blob Storage
+  >[!NOTE] 
+    >[Azure Data Lake Storage Gen2 (versión preliminar)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) se ha anunciado recientemente. Azure Data Lake Storage Gen2 (versión preliminar) es el resultado de la convergencia de las funcionalidades de nuestros dos servicios de almacenamiento existentes: Azure Blob Storage y [Azure Data Lake Storage Gen1] (https://docs.microsoft.com/azure/data-lake-store/index)). Las características de Azure Data Lake Storage Gen1, como la semántica del sistema de archivos, la seguridad de nivel de archivo y la escala se combinan con las funcionalidades de recuperación ante desastres o alta disponibilidad, y de almacenamiento por niveles de bajo costo de [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> Se recomienda encarecidamente empezar a usar Data Lake Storage Gen2 (versión preliminar) como base para crear instancias empresariales de Data Lake y sacar el máximo partido a Azure Blob Storage y Azure Data Lake Storage Gen1.
+
 La tabla de este artículo resume las diferencias entre Azure Data Lake Storage Gen1 y Azure Blob Storage en algunos aspectos clave del procesamiento de macrodatos. Azure Blob Storage es un almacén de objetos general escalable que está diseñado para una amplia variedad de escenarios de almacenamiento. Azure Data Lake Storage Gen1 es un repositorio a hiperescala optimizado para cargas de trabajo de análisis de macrodatos.
+
+
+
+
 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
 | --- | --- | --- |

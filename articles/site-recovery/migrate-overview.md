@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 6f510ac394b939996defe0a7ed49317ec0aabe3b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9a5c45b66e775ce83625e1f6d9507aaf456c7c7b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212002"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843995"
 ---
 # <a name="about-migration"></a>Información sobre la migración
 
@@ -21,9 +21,9 @@ Lea este artículo para obtener información general rápida sobre cómo el serv
 
 A continuación se indica qué puede migrar con Site Recovery:
 
-- **Migrar desde un entorno local a Azure**: migre las máquinas virtuales Hyper-V locales, las máquinas virtuales de VMware y los servidores físicos a Azure. Después de la migración, las cargas de trabajo que se ejecutan en las máquinas locales se ejecutarán en las máquinas virtuales de Azure. 
-- **Migrar dentro de Azure**: migre las máquinas virtuales de Azure entre regiones de Azure. 
-- **Migrar AWS**: migre instancias de Windows AWS a máquinas virtuales IaaS de Azure. 
+- **Migración desde un entorno local a Azure**: puede migrar las máquinas virtuales de Hyper-V locales, las máquinas virtuales de VMware y los servidores físicos a Azure. Después de la migración, las cargas de trabajo que se ejecutan en las máquinas locales se ejecutarán en las máquinas virtuales de Azure. 
+- **Migrar dentro de Azure**: puede migrar las máquinas virtuales de Azure entre regiones de Azure. 
+- **Migración de AWS**: puede migrar instancias de Windows de AWS a máquinas virtuales de IaaS de Azure. 
 
 
 ## <a name="what-do-we-mean-by-migration"></a>¿Qué entendemos por migración?

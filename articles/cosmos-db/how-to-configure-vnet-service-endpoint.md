@@ -3,16 +3,15 @@ title: Configuración del acceso basado en red virtual y subred para la cuenta d
 description: En este documento se describen los pasos necesarios para configurar un punto de conexión de servicio de Virtual Network en Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4e8891302346fa2655a4b1280b65fdd969f12909
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 73858cac4176c10ff8ce14347acb9b869471ebc2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620598"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838096"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Acceso a los recursos de Azure Cosmos DB desde redes virtuales
 
@@ -50,8 +49,8 @@ En las secciones siguientes se describe cómo configurar un punto de conexión d
 
 > [!NOTE]
 > Para habilitar los puntos de conexión de servicio de red virtual, necesitará los siguientes permisos de suscripción:
-  * Suscripción con una red virtual: colaborador de la red
-  * Suscripción con la cuenta de Azure Cosmos DB: colaborador de la cuenta de DocumentDB
+  * Suscripción con red virtual: colaborador de red
+  * Suscripción con cuenta de Azure Cosmos DB: colaborador de cuenta de DocumentDB
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configuración de un punto de conexión de servicio para una subred y red virtual de Azure nuevas
 

@@ -8,16 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 61a4e3700e88efba1ea9cea876b19e2f7ed4168b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b76bea6207cd6ac5d2ed570cf54dde7c52d5ff97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137077"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309627"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Introducción al acelerador de soluciones de mantenimiento predictivo
 
 El acelerador de soluciones de mantenimiento predictivo es una solución completa para escenarios empresariales que predice el punto en el que es probable que se produzca un error. Este acelerador se puede utilizar de forma proactiva para actividades como, por ejemplo, la optimización del mantenimiento. La solución combina servicios esenciales de los aceleradores de soluciones de IoT de Azure, como IoT Hub y un área de trabajo de [Azure Machine Learning][lnk-machine-learning]. Esta área de trabajo contiene un modelo, basado en un conjunto público de datos de ejemplo para predecir la vida útil restante (RUL) de un motor de avión. La solución proporciona una implementación completa del escenario empresarial como punto de partida para planear e implementar una solución que satisfaga sus propios requisitos empresariales específicos.
+
+El código del acelerador de soluciones de Mantenimiento predictivo [está disponible en GitHub](https://github.com/Azure/azure-iot-predictive-maintenance).
 
 ## <a name="logical-architecture"></a>Arquitectura lógica
 
@@ -43,7 +45,7 @@ Al aprovisionar el acelerador de soluciones, recibirá un mensaje de correo elec
 
 ## <a name="simulated-devices"></a>Dispositivos simulados
 
-En el acelerador de soluciones, un dispositivo simulado es un motor de avión. La solución se aprovisiona con dos motores que se asignan a un avión único. Cada motor emite cuatro tipos de telemetría: Sensor 9, Sensor 11, Sensor 14 y Sensor 15 proporcionan los datos necesarios para el modelo de Machine Learning a fin de calcular la vida útil restante (RUL) del motor. Cada dispositivo simulado envía los siguientes mensajes de telemetría a IoT Hub:
+En el acelerador de soluciones, un dispositivo simulado es un motor de avión. La solución se aprovisiona con dos motores que se asignan a un avión único. Cada motor emite cuatro tipos de datos de telemetría: Sensor 9, Sensor 11, Sensor 14 y Sensor 15 proporcionan los datos necesarios para el modelo de Machine Learning a fin de calcular la vida útil restante (RUL) del motor. Cada dispositivo simulado envía los siguientes mensajes de telemetría a IoT Hub:
 
 *Recuento de ciclos*. Un ciclo es un vuelo completo con una duración de entre dos y diez horas. Durante el vuelo, se capturan datos de telemetría cada media hora.
 

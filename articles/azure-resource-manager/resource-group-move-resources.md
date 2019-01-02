@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15ec028046b7c2b21f1892c460d53c73499680fe
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c589d1a11903f761fa791f36014fe235c1973514
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312545"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386917"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -58,7 +58,7 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
   * [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md)
   * [Asociación o adición de una suscripción de Azure a Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. La suscripción de destino correspondiente al proveedor de recursos del recurso que se traslada debe estar registrada. Si no es así, recibirá un error en el que se indicará que la **suscripción no está registrada para un tipo de recurso**. Podría encontrar este problema al mover un recurso a una nueva suscripción que nunca se ha utilizado el suscripción con ese tipo de recurso.
+1. La suscripción de destino correspondiente al proveedor de recursos del recurso que se traslada debe estar registrada. Si no es así, recibirá un error en el que se indicará que la **suscripción no está registrada para un tipo de recurso**. Podría encontrar este error al mover un recurso a una nueva suscripción que nunca se ha utilizado con ese tipo de recurso.
 
   En PowerShell, use los siguientes comandos para obtener el estado de registro:
 
@@ -93,7 +93,7 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
 
 1. Antes de mover los recursos, compruebe las cuotas de la suscripción a la que está trasladando los recursos. Si trasladar los recursos significa que la suscripción excederá sus límites, debe revisar si puede solicitar un aumento de la cuota. Para ver una lista de estos límites y cómo solicitar un aumento, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
-1. Cuando sea posible, divida las operaciones de movimiento grandes en varias operaciones de movimiento independientes. Resource Manager inmediatamente generará un error si intenta mover más de 800 recursos en una sola operación. No obstante, también se puede producir un error por agotamiento del tiempo de espera al mover menos de 800 recursos.
+1. Cuando sea posible, divida las operaciones de movimiento grandes en varias operaciones de movimiento independientes. Resource Manager inmediatamente devolverá un error si hay más de 800 recursos en una sola operación. No obstante, también se puede producir un error por agotamiento del tiempo de espera al mover menos de 800 recursos.
 
 1. El servicio debe permitir la capacidad de traslado de recursos. Para determinar si el traslado se realizará correctamente, [valide la solicitud de movimiento](#validate-move). Consulte las secciones siguientes de este artículo sobre los [servicios que permiten mover recursos](#services-that-can-be-moved) y los [servicios que no permiten mover recursos](#services-that-cannot-be-moved).
 
@@ -130,7 +130,7 @@ Con un cuerpo de la solicitud:
 
 ```json
 {
- "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "resources": ["<resource-id-1>", "<resource-id-2>"],
  "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
 }
 ```
@@ -169,7 +169,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Analysis Services
 * API Management
 * Aplicaciones de App Service (aplicaciones web) - consulte las [limitaciones de App Service](#app-service-limitations)
-* App Service Certificate
+* Certificados de App Service: consulte [Limitaciones de App Service Certificate](#app-service-certificate-limitations)
 * Application Insights
 * Automation
 * Azure Active Directory B2C
@@ -215,7 +215,8 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Paneles del portal
 * Power BI (tanto Power BI Embedded como Colección de áreas de trabajo de Power BI)
 * IP pública (consulte las [limitaciones de las direcciones IP públicas](#pip-limitations)).
-* Redis Cache: si la instancia de Redis Cache está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Virtual Networks limitations](#virtual-networks-limitations) (Limitaciones de las redes virtuales).
+* Almacén de Recovery Services: debe inscribirse en una versión preliminar privada. Consulte [Limitaciones de Recovery Services](#recovery-services-limitations).
+* Azure Cache for Redis: si la instancia de Azure Cache for Redis está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Virtual Networks limitations](#virtual-networks-limitations) (Limitaciones de las redes virtuales).
 * Scheduler
 * Search
 * Azure Service Bus
@@ -244,7 +245,6 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Azure Database Migration
 * Azure Databricks
 * Azure Migrate
-* Batch AI
 * Certificados: los certificados de App Service se pueden trasladar, pero los certificados cargados tienen [limitaciones](#app-service-limitations).
 * Azure Container Instances
 * Container Service
@@ -259,7 +259,6 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Microsoft Genomics
 * NetApp
 * IP pública (consulte las [limitaciones de las direcciones IP públicas](#pip-limitations)).
-* Almacén de Recovery Services: no mueva tampoco los recursos de Compute, Network y Storage asociados con el almacén de Recovery Services, vea [Limitaciones de Recovery Services](#recovery-services-limitations).
 * SAP HANA en Azure
 * Seguridad
 * Site Recovery
@@ -312,15 +311,7 @@ Esta compatibilidad significa que también puede mover:
 Estas son las restricciones que aún no se admiten:
 
 * Los recursos de Virtual Machines con certificado almacenados en Key Vault se pueden trasladar al nuevo grupo de recursos en la misma suscripción, pero no entre suscripciones.
-* Máquinas de virtuales configuradas con Azure Backup. Use la siguiente solución alternativa para mover estas máquinas virtuales
-  * Busque la ubicación de la máquina virtual.
-  * Busque un grupo de recursos con el patrón de nombres siguiente: `AzureBackupRG_<location of your VM>_1`, por ejemplo, AzureBackupRG_westus2_1
-  * Si está en Azure Portal, active "Mostrar tipos ocultos"
-  * Si se encuentra en PowerShell, use el cmdlet `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-  * Si está en la CLI, use `az resource list -g AzureBackupRG_<location of your VM>_1`
-  * Ahora busque el recurso con el tipo `Microsoft.Compute/restorePointCollections` que tiene el patrón de nombres `AzureBackup_<name of your VM that you're trying to move>_###########`
-  * Elimine este recurso
-  * Una vez completada la eliminación, puede mover la máquina virtual
+* Si su máquina virtual se ha configurado para la creación de copias de seguridad, consulte [Limitaciones de Recovery Services](#recovery-services-limitations).
 * No es posible mover Virtual Machine Scale Sets con equilibrador de carga o IP pública de SKU estándar
 * Las máquinas virtuales creadas a partir de recursos de Marketplace con planes adjuntos no se pueden mover entre suscripciones o grupos de recursos. Desaprovisione el recurso en la suscripción activa y vuelva a implementarlo en la nueva suscripción.
 
@@ -330,23 +321,21 @@ Si mueve una red virtual, también deberá mover sus recursos dependientes. En e
 
 Para mover una red virtual emparejada, primero debe deshabilitar el emparejamiento de red virtual. Una vez deshabilitado, puede mover la red virtual. Después de moverla, vuelva a habilitar el emparejamiento de red virtual.
 
-Si una red virtual contiene una subred con vínculos de navegación de los recursos, no se puede mover a otra suscripción. Por ejemplo, si un recurso de Redis Cache está implementado en una subred, esta contiene un vínculo de navegación de recursos.
+Si una red virtual contiene una subred con vínculos de navegación de los recursos, no se puede mover a otra suscripción. Por ejemplo, si un recurso de Azure Cache for Redis está implementado en una subred, esta contiene un vínculo de navegación de recursos.
 
 ## <a name="app-service-limitations"></a>limitaciones de App Service
 
-Las limitaciones para mover recursos de App Service son diferentes en función de si los recursos se mueven dentro de una suscripción o a una nueva.
-
-Las limitaciones descritas en las siguientes secciones se aplican a los certificados cargados, no a instancias de App Service Certificate. Puede mover instancias de App Service Certificate a un nuevo grupo de recursos o suscripción sin ninguna limitación. Si tiene varias aplicaciones web que utilizan la misma instancia de App Service Certificate, mueva primero todas las aplicaciones web, a continuación, mueva el certificado.
+Las limitaciones para mover recursos de App Service son diferentes en función de si los recursos se mueven dentro de una suscripción o a una nueva. Si su aplicación web usa una instancia de App Service Certificate, consulte [Limitaciones de App Service Certificate](#app-service-certificate-limitations)
 
 ### <a name="moving-within-the-same-subscription"></a>Moverlos dentro de la misma suscripción
 
-Al mover una instancia de Web App _dentro de la misma suscripción_, no se pueden mover los certificados SSL cargados. Sin embargo, puede mover una instancia de Web App al nuevo grupo de recursos sin mover su certificado SSL cargado y la funcionalidad SSL de la aplicación seguirá funcionando.
+Al mover una instancia de Web App _dentro de la misma suscripción_, no se pueden mover los certificados SSL de terceros. Sin embargo, puede mover una instancia de Web App al nuevo grupo de recursos sin mover su certificado de terceros y la funcionalidad SSL de la aplicación seguirá funcionando.
 
 Si desea mover el certificado SSL junto con la instancia de Web App, siga estos pasos:
 
-1. Elimine el certificado cargado desde la instancia de Web App.
+1. Elimine el certificado de terceros desde Web App, pero guarde una copia de su certificado.
 2. Traslade la instancia.
-3. Cargue el certificado en la instancia de Web App trasladada.
+3. Cargue el certificado de terceros en la instancia de Web App trasladada.
 
 ### <a name="moving-across-subscriptions"></a>Moverlos entre suscripciones
 
@@ -359,6 +348,10 @@ Al mover una instancia de Web App _entre suscripciones_, se aplican las limitaci
     - Entornos de App Service
 - Todos los recursos de App Service del grupo de recursos se deben mover conjuntamente.
 - Los recursos de App Service solo se pueden mover del grupo de recursos en el que se crearon originalmente. Si un recurso de App Service ya no se encuentra en su grupo de recursos original, deberá devolverse a este en primer lugar y, a continuación, se podrá mover entre suscripciones.
+
+## <a name="app-service-certificate-limitations"></a>Limitaciones de App Service Certificate
+
+Puede mover su instancia de App Service Certificate a un nuevo grupo de recursos o a una nueva suscripción. Si su instancia de App Service Certificate está enlazada a una aplicación web, debe seguir algunos pasos antes de trasladar los recursos a una nueva suscripción. Elimine el enlace SSL y el certificado privado de la aplicación web antes de trasladar los recursos. No es necesario eliminar la instancia de App Service Certificate, solo el certificado privado en la aplicación web.
 
 ## <a name="classic-deployment-limitations"></a>limitaciones de la implementación clásica
 
@@ -446,15 +439,23 @@ Es posible que esta operación tarde varios minutos.
 
 ## <a name="recovery-services-limitations"></a>Limitaciones de Recovery Services
 
-No se admite el traslado para recursos de Storage, Network o Compute que se usan para configurar la recuperación ante desastres de Azure Site Recovery.
+Para trasladar un almacén de Recovery Services, debe inscribirse en una versión preliminar privada. Para probarlo, escriba a AskAzureBackupTeam@microsoft.com.
 
-Por ejemplo, suponga que ha configurado la replicación de las máquinas locales en una cuenta de almacenamiento (Storage1) y desea que la máquina protegida aparezca después de la conmutación por error en Azure como una máquina virtual (VM1) conectada a una red virtual (Network1). No puede mover ninguno de estos recursos de Azure: Storage1, VM1 y Network1, a grupos de recursos dentro de la misma suscripción o entre suscripciones.
+Actualmente, puede trasladar un almacén de Recovery Services, por región, cada vez. No puede trasladar aquellos almacenes que realizan copias de seguridad de Azure Files, Azure File Sync o SQL en máquinas virtuales de IaaS. 
 
-Procedimiento para mover una máquina virtual inscrita en **Azure Backup** entre grupos de recursos:
- 1. Detenga temporalmente la copia de seguridad y conserve los datos de esta
- 2. Traslade la máquina virtual al grupo de recursos de destino
- 3. Vuelva a protegerla en el mismo almacén o en otro nuevo. Los usuarios pueden restaurar los puntos de restauración disponibles creados antes de la operación de traslado.
-Aunque el usuario traslade la máquina virtual de la que se ha realizado la copia de seguridad entre suscripciones, los pasos 1 y 2 serán los mismos. En el paso 3, el usuario necesita proteger la máquina virtual en un nuevo almacén presente o en uno creado en la suscripción de destino. El almacén de Recovery Services no admite copias de seguridad entre suscripciones.
+Si una máquina virtual no se traslada con el almacén, los puntos de recuperación de máquinas virtuales actuales permanecerán en el almacén hasta su expiración. Independientemente de que la máquina virtual se trasladara con el almacén o no, podrá restaurar la máquina virtual desde el historial de copia de seguridad en el almacén.
+
+El almacén de Recovery Services no admite copias de seguridad entre suscripciones. Si traslada un almacén con datos de copia de seguridad de máquinas virtuales entre las suscripciones, deberá trasladar sus máquinas virtuales a la misma suscripción y usar el mismo grupo de recursos de destino para continuar con las copias de seguridad.
+
+Las directivas de copia de seguridad definidas para el almacén se conservan una vez trasladado el almacén. La creación de informes y la supervisión deben configurarse de nuevo para el almacén tras el traslado.
+
+Para trasladar una máquina virtual a una nueva suscripción sin trasladar el almacén de Recovery Services:
+
+ 1. Detenga temporalmente la creación de las copias de seguridad
+ 2. Traslade las máquinas virtuales a la nueva suscripción
+ 3. Vuelva a protegerla en un nuevo almacén de esa suscripción
+
+No se admite el traslado para recursos de Storage, Network o Compute que se usan para configurar la recuperación ante desastres de Azure Site Recovery. Por ejemplo, suponga que ha configurado la replicación de las máquinas locales en una cuenta de almacenamiento (Storage1) y desea que la máquina protegida aparezca después de la conmutación por error en Azure como una máquina virtual (VM1) conectada a una red virtual (Network1). No puede mover ninguno de estos recursos de Azure: Storage1, VM1 y Network1, a grupos de recursos dentro de la misma suscripción o entre suscripciones.
 
 ## <a name="hdinsight-limitations"></a>Limitaciones de HDInsight
 
@@ -464,7 +465,7 @@ Al mover un clúster de HDInsight a una nueva suscripción, mueva primero otros 
 
 ## <a name="search-limitations"></a>Limitaciones de Search
 
-No puede mover varios recursos de Search ubicados en regiones diferentes a la vez.
+No puede trasladar varios recursos de Search en regiones diferentes a la vez.
 Si se da el caso, deberá moverlos por separado.
 
 ## <a name="lb-limitations"></a> Limitaciones del equilibrador de carga
@@ -479,7 +480,7 @@ Las direcciones IP públicas de SKU Estándar no se pueden mover.
 
 ## <a name="use-portal"></a>Mediante el portal
 
-Para trasladar recursos, seleccione el grupo de recursos que contiene esos recursos y, después, el botón **Mover**.
+Para trasladar recursos, seleccione el grupo de recursos con esos recursos y, después, el botón **Mover**.
 
 ![Mover recursos](./media/resource-group-move-resources/select-move.png)
 

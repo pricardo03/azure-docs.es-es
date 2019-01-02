@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210268"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847803"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configuración de la recuperación ante desastres para SQL Server 
 
@@ -26,9 +26,9 @@ Antes de empezar, asegúrese de que comprende las funcionalidades de recuperaci�
 
 Muchas cargas de trabajo usan SQL Server como base que, además, se puede integrar con aplicaciones como SharePoint, Dynamics y SAP para implementar servicios de datos.  SQL Server se puede implementar de varias maneras:
 
-* **Servidor SQL independiente**: SQL Server y todas las bases de datos se hospedan en una sola máquina (física o virtual). Cuando se virtualiza, la agrupación en clústeres de host se utiliza para conseguir una elevada disponibilidad local. No se implementa alta disponibilidad de nivel de invitado.
-* **Instancias de agrupación en clústeres de conmutación por error de SQL Server**: dos o más nodos que ejecutan instancias de SQL Server con discos compartidos se configuran en un clúster de conmutación por error de Windows. Si un nodo está inactivo, el clúster puede conmutar por error SQL Server en otra instancia. Esta configuración normalmente se usa para implementar la alta disponibilidad en un sitio principal. Esta implementación no protege frente a errores o una interrupción en la capa de almacenamiento compartido. Un disco compartido se puede implementar con iSCSI, canal de fibra o VHDx compartido.
-* **Grupos de disponibilidad AlwaysOn de SQL**: se configuran dos o más nodos en un clúster no compartido, con bases de datos SQL Server configuradas en un grupo de disponibilidad, con replicación sincrónica y conmutación por error automática.
+* **SQL Server independiente**: SQL Server y todas las bases de datos se hospedan en una sola máquina (física o virtual). Cuando se virtualiza, la agrupación en clústeres de host se utiliza para conseguir una elevada disponibilidad local. No se implementa alta disponibilidad de nivel de invitado.
+* **Instancias de agrupación en clústeres de conmutación por error de SQL Server (FCI AlwaysOn)**: dos o más nodos que ejecutan instancias de SQL Server con discos compartidos se configuran en un clúster de conmutación por error de Windows. Si un nodo está inactivo, el clúster puede conmutar por error SQL Server en otra instancia. Esta configuración normalmente se usa para implementar la alta disponibilidad en un sitio principal. Esta implementación no protege frente a errores o una interrupción en la capa de almacenamiento compartido. Un disco compartido se puede implementar con iSCSI, canal de fibra o VHDx compartido.
+* **Grupos de disponibilidad AlwaysOn de SQL**: dos o más nodos se configuran en un clúster no compartido con bases de datos de SQL Server configurado en un grupo de disponibilidad con replicación sincrónica y conmutación por error automática.
 
  En este artículo se aprovechan las siguientes tecnologías nativas de recuperación ante desastres de SQL para recuperar bases datos en un sitio de remoto:
 

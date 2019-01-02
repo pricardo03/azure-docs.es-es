@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6d58a62ef70cb5bacb44a3a9832516a30fc91ffa
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: fcc81c8eb3a34b0bda5d91a1a67dd2e04e052967
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248066"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967766"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitación de Mantener la sesión iniciada (KMSI) en Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Los usuarios no deben habilitar esta opción en equipos públicos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Un inquilino de Azure AD B2C configurado para permitir el registro o inicio de sesión de la cuenta local. Si no dispone de un inquilino, puede crear uno con los pasos de [Creación de un inquilino de Azure Active Directory B2C](tutorial-create-tenant.md).
+Un inquilino de Azure AD B2C configurado para permitir el registro o inicio de sesión de la cuenta local. Si no dispone de un inquilino, puede crear uno con los pasos de [Tutorial: Creación de un inquilino de Azure Active Directory B2C](tutorial-create-tenant.md).
 
 ## <a name="add-a-content-definition-element"></a>Incorporación de un elemento de la definición de contenido 
 
@@ -152,7 +152,9 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
 
     KMSI se configura mediante el elemento **UserJourneyBehaviors**. El atributo **KeepAliveInDays** controla el tiempo que permanece conectado el usuario. En el ejemplo siguiente, la sesión de KMSI expira automáticamente tras `7` días con independencia de la frecuencia con la que el usuario realiza la autenticación en modo silencioso. El establecimiento del valor **KeepAliveInDays** en `0` desactiva la funcionalidad KMSI. De manera predeterminada, este valor es `0`. Si el valor de **SessionExpiryType** es `Rolling`, la sesión de KMSI se amplía en `7` días cada vez que el usuario realiza la autenticación silenciosa.  Si `Rolling` está seleccionado, debe mantener el número de días al mínimo. 
 
-    El valor de **SessionExpiryInSeconds** representa la hora de expiración de una sesión de inicio de sesión único (SSO). Azure AD B2C lo usa internamente para comprobar si la sesión de KMSI ha expirado o no. El valor de **KeepAliveInDays** determina el valor de Max-Age y Expires de la cookie de SSO en el explorador web. A diferencia de **SessionExpiryInSeconds**, **KeepAliveInDays** se usa para evitar que el explorador borre la cookie cuando se cierre. Un usuario solo puede iniciar sesión en modo silencioso si existe la cookie de sesión de SSO, lo que controla **KeepAliveInDays**, y no ha expirado, lo que controla **SessionExpiryInSeconds**. Se recomienda establecer el valor de **SessionExpiryInSeconds** para que sea el tiempo equivalente de **KeepAliveInDays** en segundos, tal y como se muestra en el ejemplo siguiente.
+    El valor de **SessionExpiryInSeconds** representa la hora de expiración de una sesión de inicio de sesión único (SSO). Azure AD B2C lo usa internamente para comprobar si la sesión de KMSI ha expirado o no. El valor de **KeepAliveInDays** determina el valor de Max-Age y Expires de la cookie de SSO en el explorador web. A diferencia de **SessionExpiryInSeconds**, **KeepAliveInDays** se usa para evitar que el explorador borre la cookie cuando se cierre. Un usuario solo puede iniciar sesión en modo silencioso si existe la cookie de sesión de SSO, lo que controla **KeepAliveInDays**, y no ha expirado, lo que controla **SessionExpiryInSeconds**. 
+    
+    Si un usuario no habilita **Keep me signed in** (Mantener la sesión iniciada) en la página de registro e inicio de sesión, la sesión expira una vez transcurrido el tiempo indicado por **SessionExpiryInSeconds** o cuando se cierra el explorador. Si un usuario habilita **Keep me signed in** (Mantener la sesión iniciada), el valor de **KeepAliveInDays** reemplaza el valor de **SessionExpiryInSeconds** y dicta el tiempo de expiración de la sesión. Aunque los usuarios cierren el explorador y vuelvan a abrirlo, pueden seguir con la sesión iniciada en modo silencioso siempre que el tiempo esté dentro del establecido por **KeepAliveInDays**. Se recomienda que establezca el valor de **SessionExpiryInSeconds** para un período breve (1200 segundos), mientras que el valor de **KeepAliveInDays** se puede establecer en un período relativamente largo (7 días), como se muestra en el ejemplo siguiente:
 
     ```XML
     <RelyingParty>
@@ -160,7 +162,7 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
       <UserJourneyBehaviors>
         <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
         <SessionExpiryType>Absolute</SessionExpiryType>
-        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+        <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
       </UserJourneyBehaviors>
       <TechnicalProfile Id="PolicyProfile">
         <DisplayName>PolicyProfile</DisplayName>

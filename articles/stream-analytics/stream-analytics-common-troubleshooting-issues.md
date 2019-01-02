@@ -2,19 +2,19 @@
 title: Problemas comunes y solución en Azure Stream Analytics
 description: En este artículo se describen varios problemas comunes de Azure Stream Analytics y los pasos necesarios para solucionar dichos problemas.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 2fe180873f8f410d80b06d29d16881eb49f7fc2a
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978453"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090982"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problemas comunes de Stream Analytics y pasos de solución de problemas
 
@@ -24,9 +24,9 @@ ms.locfileid: "50978453"
  
  Cuando un trabajo de Stream Analytics recibe un mensaje con formato incorrecto desde una entrada, descarta el mensaje y lo notifica al usuario con una advertencia. Aparece un símbolo de advertencia en el icono **Entradas** de su trabajo de Stream Analytics (este signo de advertencia persiste mientras el estado del trabajo sea en ejecución):
 
-![Icono de entradas](media/stream-analytics-malformed-events/inputs_tile.png)
+![Icono de entradas en el panel de Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Si desea más información, habilite los registros de diagnóstico para ver los detalles de la advertencia. En el caso de los eventos de entrada de formato incorrecto, los registros de ejecución contienen una entrada con un mensaje similar a: "Mensaje: no se pudieron deserializar como json los eventos de entrada del recurso <blob URI>". 
+Si desea más información, habilite los registros de diagnóstico para ver los detalles de la advertencia. Para los eventos de entrada con formato incorrecto, los registros de ejecución contienen una entrada con un mensaje similar al siguiente: "Message: Could not deserialize the input event(s) from resource <blob URI> as json". 
 
 ### <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 
@@ -34,7 +34,7 @@ Si desea más información, habilite los registros de diagnóstico para ver los 
 
 2. El icono de detalles de entrada muestra un conjunto de advertencias con detalles sobre el problema. A continuación se muestra un ejemplo de un mensaje de advertencia con la partición, el desplazamiento y los números de secuencia donde hay datos JSON con un formato incorrecto. 
 
-   ![Mensaje de advertencia con desplazamiento](media/stream-analytics-malformed-events/warning_message_with_offset.png)
+   ![Mensaje de advertencia de entrada con desplazamiento](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
 3. Para obtener los datos JSON que tienen un formato incorrecto, ejecute el código CheckMalformedEvents.cs. Este ejemplo está disponible en el [repositorio de ejemplos de GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código lee el identificador de la partición y el desplazamiento e imprime los datos de este último. 
 

@@ -3,7 +3,7 @@ title: Introducción sobre las transacciones de base de datos elástica con Base
 description: Introducción sobre las transacciones de Elastic Database con Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 02cf72bf9fe06993ef859d1789983b7611c8472e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257476"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877191"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Introducción sobre las transacciones de base de datos elástica con Base de datos SQL de Azure
 Las transacciones de base de datos elástica para Azure SQL Database le permiten ejecutar transacciones que abarcan varias bases de datos de SQL Database. Están disponibles para aplicaciones .NET mediante ADO .NET y se integran con la conocida experiencia de programación en la que se hace uso de las clases [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Para obtener la biblioteca, vea [.NET Framework 4.6.1 (instalador web)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -30,7 +30,7 @@ De forma local, este escenario requiere normalmente la ejecución del Coordinado
 Las transacciones de base de datos elástica para SQL Database permiten a las aplicaciones realizar cambios atómicos en los datos almacenados en varias instancias de SQL Database diferentes. La versión preliminar se centra en las experiencias de desarrollo del lado cliente en C# y. NET. Para más adelante está prevista una experiencia en el lado servidor mediante T-SQL.  
 Las transacciones de base de datos elástica están orientadas a los siguientes escenarios:
 
-* Aplicaciones de varias bases de datos en Azure: con este escenario, los datos se particionan verticalmente entre varias bases de datos de Base de datos SQL de forma que diferentes clases de datos residen en diferentes bases de datos. Algunas operaciones requieren cambios en los datos que se mantienen en dos o más bases de datos. La aplicación emplea transacciones de base de datos elástica para coordinar los cambios entre las bases de datos y garantizar la atomicidad.
+* Aplicaciones de varias bases de datos en Azure: con este escenario, los datos se particionan verticalmente entre varias bases de datos de SQL DB de forma que diferentes clases de datos residen en diferentes bases de datos. Algunas operaciones requieren cambios en los datos que se mantienen en dos o más bases de datos. La aplicación emplea transacciones de base de datos elástica para coordinar los cambios entre las bases de datos y garantizar la atomicidad.
 * Aplicaciones de base de datos particionada en Azure: con este escenario, la capa de datos usa la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md) o el particionamiento automático para particionar horizontalmente los datos entre muchas bases de datos en SQL Database. Un caso destacado de uso es cuando existe la necesidad de realizar cambios atómicos en una aplicación particionada multiempresa cuando los cambios abarcan a los inquilinos. Piense por ejemplo en una transferencia desde un inquilino a otro, donde cada uno reside en una base de datos diferente. Un segundo caso es el particionamiento específico para satisfacer las necesidades de capacidad de un inquilino de gran tamaño, lo que a su vez supone normalmente que algunas operaciones atómicas deban extenderse entre varias bases de datos usadas para el mismo inquilino. Un tercer caso es el de las actualizaciones atómicas para hacer referencia a los datos que se replican entre bases de datos. Ahora se pueden coordinar operaciones de transacciones atómicas a lo largo de estas líneas entre varias bases de datos mediante la versión preliminar.
   Las transacciones de base de datos elástica usan una confirmación en dos fases para garantizar la atomicidad de las transacciones entre las bases de datos. Esto resulta adecuado para transacciones que suponen menos de 100 bases de datos a la vez en una única transacción. Aunque estos límites no se aplican, se supone que las tasas de rendimiento y éxito de las transacciones de base de datos elástica se verán afectadas cuando se excedan estos límites.
 
@@ -122,9 +122,9 @@ Se admiten transacciones de la base de datos elástica entre diferentes servidor
 
 Use los siguientes cmdlets de PowerShell para administrar las relaciones de comunicación entre los servidores para las transacciones de la base de datos elástica:
 
-* **New-AzureRmSqlServerCommunicationLink**: Este cmdlet se usa para crear una nueva relación de comunicación entre dos servidores lógicos en Base de datos SQL de Azure. La relación es simétrica, lo que significa que ambos servidores pueden iniciar transacciones con el otro servidor.
-* **Get-AzureRmSqlServerCommunicationLink**: Este cmdlet se usa para recuperar una relación de comunicación existente y sus propiedades.
-* **Remove-AzureRmSqlServerCommunicationLink**: Este cmdlet se usa para eliminar una relación de comunicación existente. 
+* **New-AzureRmSqlServerCommunicationLink**: este cmdlet se usa para crear una relación de comunicación entre dos servidores lógicos en Azure SQL DB. La relación es simétrica, lo que significa que ambos servidores pueden iniciar transacciones con el otro servidor.
+* **Get-AzureRmSqlServerCommunicationLink**: este cmdlet se usa para recuperar una relación de comunicación existente y sus propiedades.
+* **Remove-AzureRmSqlServerCommunicationLink**: este cmdlet se usa para eliminar una relación de comunicación existente. 
 
 ## <a name="monitoring-transaction-status"></a>Supervisión del estado de la transacción
 Use vistas de administración dinámica (DMV) en Base de datos SQL para supervisar el estado y el progreso de las transacciones en curso de base de datos elástica. Todas las DMV relacionadas con las transacciones son pertinentes para las transacciones distribuidas en Base de datos SQL. Puede encontrar la lista correspondiente de DMV aquí: [Funciones y vistas de administración dinámica relacionadas con transacciones (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).

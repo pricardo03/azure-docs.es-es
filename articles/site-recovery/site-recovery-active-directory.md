@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232178"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851031"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configuración de la recuperación ante desastres para Active Directory y DNS
 
@@ -165,7 +165,7 @@ Si se cumplen las condiciones anteriores, es probable que el controlador de domi
 1. Realice una restauración autoritativa del controlador de dominio. Recuerde la siguiente información:
     * Aunque no se recomienda la [replicación FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si utiliza la replicación de FRS, siga los pasos para una restauración autoritativa. El proceso se describe en [Using the BurFlags registry key to reinitialize File Replication Service](https://support.microsoft.com/kb/290762) (Uso de la clave del Registro BurFlags para reinicializar el servicio de replicación de archivos).
 
-        Para obtener más información acerca de BurFlags, consulte la entrada de blog [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/) (D2 y D4: ¿para qué sirven?).
+        Para obtener más información sobre BurFlags, consulte la entrada de blog [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/) (D2 y D4: ¿para qué sirven?).
     * Si utiliza la replicación DFSR, complete los pasos para una restauración autoritativa. El proceso se describe en [Cómo forzar una sincronización autoritaria y no autoritaria de SYSVOL DFSR replicado (por ejemplo, "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
 
         También puede utilizar las funciones de PowerShell. Para obtener más información, consulte [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) (Funciones de PowerShell para restauración autoritativa y no autoritativa de DFSR-SYSVOL).
@@ -174,7 +174,7 @@ Si se cumplen las condiciones anteriores, es probable que el controlador de domi
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
-    Para obtener más información, consulte [Solucionar problemas del DNS ID 4013: El servidor DNS no pudo cargar zonas DNS integradas en AD](https://support.microsoft.com/kb/2001093).
+    Para obtener más información, consulte el artículo sobre cómo [Solucionar problemas del DNS ID 4013: El servidor DNS no pudo cargar zonas DNS integradas en AD](https://support.microsoft.com/kb/2001093).
 
 3. Deshabilite el requisito de que haya un servidor de catálogo global disponible para validar el inicio de sesión de usuario. Para ello, en el controlador de dominio local, establezca la siguiente clave del Registro en **1**. Si la DWORD no existe, puede crearla en el nodo **Lsa**.
 

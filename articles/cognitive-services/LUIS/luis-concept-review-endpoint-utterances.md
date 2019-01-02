@@ -1,23 +1,24 @@
 ---
-title: Revisión de las expresiones de punto de conexión para usar el aprendizaje activo en Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
-description: El aprendizaje activo es una de las tres estrategias para mejorar la precisión de la predicción y la más fácil de implementar. Con el aprendizaje activo, puede revisar las expresiones de punto de conexión para intenciones y entidades correctas. LUIS elige las expresiones de punto de conexión de las cuales no está seguro.
+title: Revisión de la declaración de usuario
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Con el aprendizaje activo, puede revisar las expresiones de punto de conexión para intenciones y entidades correctas. LUIS elige las expresiones de punto de conexión de las cuales no está seguro.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/07/2018
 ms.author: diberry
-ms.openlocfilehash: 4ef6f5022b3c38eab2cda20123f179811f46390f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 0eaf411afdcd66345f64c2b6dd93e4799183de78
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637245"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141040"
 ---
-# <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Habilitar el aprendizaje activo mediante la revisión de expresiones de punto de conexión
+# <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceptos para habilitar el aprendizaje activo mediante la revisión de expresiones de punto de conexión
 El aprendizaje activo es una de las tres estrategias para mejorar la precisión de la predicción y la más fácil de implementar. Con el aprendizaje activo, puede revisar las expresiones de punto de conexión para intenciones y entidades correctas. LUIS elige las expresiones de punto de conexión de las cuales no está seguro.
 
 ## <a name="what-is-active-learning"></a>¿Qué es el aprendizaje activo?

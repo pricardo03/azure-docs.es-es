@@ -3,7 +3,7 @@ title: Límites de recursos basados en DTU de Azure SQL Database para grupos el�
 description: En esta página se describen algunos límites de recursos basados en DTU comunes para grupos elásticos en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pools
+ms.subservice: elastic-poolss
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: e3b46620d15f8c08d0da69aef3d8c0920e5ad4ec
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a31a2bc3fa1edc0f4424dde4b5c8934e26669fc0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830079"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873451"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU 
 
@@ -28,7 +28,7 @@ Para los límites de recursos del modelo de compra basado en DTU para una sola b
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Grupos elásticos: tamaños de almacenamiento y de proceso
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Grupo elástico: tamaños de almacenamiento y de proceso
 
 Para los grupos elásticos de SQL Database, las siguientes tablas muestran los recursos disponibles en cada nivel de servicio y tamaño de proceso. Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento mediante [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), la [CLI de Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) o la [API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
@@ -111,7 +111,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 ||||||||
 
 > [!IMPORTANT]
-> Hay más de 1 TB de almacenamiento en el nivel Premium disponible actualmente en todas las regiones, excepto en las siguientes: Centro-oeste de EE. UU., Este de China, USDoD (centro), Centro de Alemania, USDoD (este), US Gov (suroeste), Nordeste de Alemania, USGov Iowa, Norte de China. En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto las siguientes: Centro-oeste de EE. UU., Este de China, USDoD centro, Centro de Alemania, USDoD este, Suroeste de USGov, Nordeste de Alemania, USGov Iowa y Norte de China. En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Si se usan todas las unidades DTU de un grupo elástico, cada una de las bases de datos del grupo recibe una misma cantidad de recursos para procesar consultas. El servicio SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de DTU por base de datos se establece en un valor distinto de cero.
 

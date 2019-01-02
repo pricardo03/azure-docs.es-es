@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/25/2017
+ms.date: 12/5/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 5f999a17cd375a3338aa936e2f405c36f6021ebc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 01693f16b0af59881c22fefb6ec8abe0c4fb3874
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984822"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996621"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propiedades de un usuario de colaboración B2B de Azure Active Directory
 
@@ -25,31 +25,43 @@ En función de las necesidades de la organización invitadora, un usuario de col
 
 - Estado 1: alojado en una instancia externa de Azure AD y representado como un usuario invitado en la organización que invita. En este caso, el usuario de B2B inicia sesión con una cuenta de Azure AD que pertenece al inquilino invitado. Aunque la organización asociada no use Azure AD, se crea el usuario invitado en Azure AD. Los requisitos son que el usuario canjea su invitación y Azure AD comprueba su dirección de correo electrónico. Esta solución también se denomina inquilino Just-In-Time (JIT) o inquilino "viral".
 
-- Estado 2: alojado en una cuenta Microsoft y representado como usuario invitado en la organización host. En este caso, el usuario invitado inicia sesión con una cuenta Microsoft. La identidad social (google.com o similar), que no es una cuenta Microsoft, se crea como una cuenta Microsoft durante el canje de la oferta.
+- Estado 2: alojado en una cuenta Microsoft u otra cuenta y representado como usuario invitado en la organización host. En este caso, el usuario invitado inicia sesión con una cuenta de Microsoft o una cuenta social (google.com o similar). La identidad del usuario invitado se crea como una cuenta de Microsoft en el directorio de la organización que invita durante el canje de la oferta.
 
-- Estado 3: alojado en la instancia de Active Directory local de la organización host y sincronizado con la instancia de Azure AD de la organización host. Durante esta versión se debe usar PowerShell para cambiar manualmente el valor de UserType de dichos usuarios en la nube.
+- Estado 3: alojado en la instancia de Active Directory local de la organización host y sincronizado con la instancia de Azure AD de la organización host. Puede usar Azure AD Connect para sincronizar las cuentas de asociado con la nube como usuarios B2B de Azure AD con UserType = Invitado. Vea [Conceder a las cuentas de asociado administradas localmente acceso a los recursos en la nube](hybrid-on-premises-to-cloud.md).
 
-- Estado 4: alojado en la instancia de Azure AD de la organización host con UserType = Guest y credenciales que administra dicha organización.
+- Estado 4: alojado en la instancia de Azure AD de la organización host con UserType = Invitado y credenciales que administra dicha organización.
 
   ![Se muestran las iniciales del invitador](media/user-properties/redemption-diagram.png)
 
 
-Ahora, veamos cómo es un usuario de colaboración de B2B de Azure AD en estado 1 en Azure AD.
+Ahora, veamos cómo es un usuario de colaboración de B2B de Azure AD en Azure AD.
 
 ### <a name="before-invitation-redemption"></a>Antes del canje de la invitación
+
+Las cuentas de estado 1 y estado 2 resultan de los usuarios invitados que invitan a colaborar con el uso de las propias credenciales de los usuarios invitados. Cuando se envía inicialmente la invitación al usuario invitado, se crea una cuenta en el directorio. Esta cuenta no tiene ninguna credencial asociada, ya que la autenticación la realiza el proveedor de identidades del usuario invitado. La propiedad **Origen** de la cuenta de usuario invitado del directorio se establece en **Usuario invitado**. 
 
 ![Antes del canje de la oferta](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Después del canje de la invitación
 
-![Después del canje de la oferta](media/user-properties/after-redemption.png)
+Una vez que el usuario invitado acepta la invitación, la propiedad **Origen** se actualiza según determine el proveedor de identidades del usuario invitado.
+
+Para los usuarios invitados en estado 1, el **origen** es **Azure Active Directory externo**.
+
+![Usuario invitado en estado 1 después de canjear la oferta](media/user-properties/after-redemption-state1.png)
+
+Para los usuarios invitados en estado 2, el **origen** es **Cuenta Microsoft**.
+
+![Usuario invitado en estado 2 después de canjear la oferta](media/user-properties/after-redemption-state2.png)
+
+Para los usuarios invitados en estado 3 y estado 4, la propiedad **Origen** se establece en **Azure Active Directory** o **Windows Server Active Directory**, como se describe en la siguiente sección.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Propiedades clave del usuario de colaboración de B2B de Azure AD
 ### <a name="usertype"></a>UserType
 Esta propiedad indica la relación del usuario con el espacio host. Esta propiedad puede tener dos valores:
-- Member: este valor indica un empleado de la organización host y un usuario en la plantilla de dicha organización. Por ejemplo, este usuario espera tener acceso solo a sitios internos. Este usuario no se consideraría un colaborador externo.
+- Miembro: este valor indica un empleado de la organización host y un usuario en la plantilla de dicha organización. Por ejemplo, este usuario espera tener acceso solo a sitios internos. Este usuario no se considera como un colaborador externo.
 
-- Invitado: este valor indica un usuario que no se considera interno de la empresa, como un colaborador externo, un asociado, un cliente o un usuario similar. No se espera que un usuario así reciba una comunicación interna del CEO o que reciba beneficios de la empresa, por ejemplo.
+- Invitado: Este valor indica un usuario que no se considera interno de la empresa, como un colaborador externo, un asociado o un cliente. No se espera que dicho usuario reciba una comunicación interna del CEO o que reciba beneficios de la empresa, por ejemplo.
 
   > [!NOTE]
   > UserType no tiene relación alguna con la forma en que el usuario inicia sesión, el rol de directorio del usuario, etc. Esta propiedad simplemente indica la relación del usuario con la organización host y permite a la organización exigir directivas que dependan de esta propiedad.
@@ -57,11 +69,11 @@ Esta propiedad indica la relación del usuario con el espacio host. Esta propied
 ### <a name="source"></a>Origen
 Esta propiedad indica la forma en que el usuario inicia sesión.
 
-- Invited User: este usuario ha recibido la invitación, pero aún no la ha canjeado.
+- Usuario invitado: este usuario ha recibido la invitación, pero aún no la ha canjeado.
 
-- External Active Directory: este usuario está alojado en una organización externa y se autentica mediante una cuenta de Azure AD que pertenece a la otra organización. Este tipo de inicio de sesión corresponde al estado 1.
+- Active Directory externo: este usuario está alojado en una organización externa y se autentica mediante una cuenta de Azure AD que pertenece a la otra organización. Este tipo de inicio de sesión corresponde al estado 1.
 
-- Microsoft account: el usuario está alojado en una cuenta Microsoft y se autentica mediante una cuenta Microsoft. Este tipo de inicio de sesión corresponde al estado 2.
+- Cuenta de Microsoft: el usuario está alojado en una cuenta de Microsoft y se autentica mediante una cuenta de Microsoft. Este tipo de inicio de sesión corresponde al estado 2.
 
 - Windows Server Active Directory: este usuario inicia sesión desde una instancia de Active Directory local que pertenece a esta organización. Este tipo de inicio de sesión corresponde al estado 3.
 
@@ -77,20 +89,20 @@ Normalmente, un usuario invitado y uno de B2B de Azure AD son sinónimos. Por ta
 ![Filtrar usuarios invitados](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>Conversión de UserType
-Actualmente, los usuarios pueden convertir el valor Member de UserType en Guest, y viceversa, mediante PowerShell. Sin embargo, se supone que la propiedad UserType representa la relación del usuario con la organización. Por tanto, el valor de esta propiedad solo se debe cambiar si cambia la relación del usuario con la organización. Si cambia la relación del usuario, ¿deben atenderse problemas como si se debe cambiar el nombre principal de usuario (UPN)? ¿Debe el usuario seguir teniendo acceso a los mismos recursos? ¿Debe asignarse un buzón de correo? Por lo tanto, no se recomienda cambiar el valor de UserType mediante el uso de PowerShell como una actividad atómica. Además, en caso de que esta propiedad se vuelva inmutable mediante PowerShell, no se recomienda depender de este valor.
+Es posible convertir UserType de miembro a invitado, y viceversa, mediante PowerShell. Sin embargo, la propiedad UserType representa la relación del usuario con la organización. Por tanto, debe cambiar esta propiedad solo si cambia la relación del usuario con la organización. Si cambia la relación del usuario, ¿se debe cambiar el nombre principal de usuario (UPN)? ¿Debe el usuario seguir teniendo acceso a los mismos recursos? ¿Debe asignarse un buzón de correo? No se recomienda cambiar el valor de UserType mediante el uso de PowerShell como una actividad atómica. Además, en caso de que esta propiedad se vuelva inmutable mediante PowerShell, no se recomienda depender de este valor.
 
 ## <a name="remove-guest-user-limitations"></a>Eliminación de limitaciones de usuarios invitados
 Puede haber casos en los que desee ofrecer a los usuarios invitados privilegios más altos. Puede agregar un usuario invitado a cualquier rol e, incluso, eliminar las restricciones de usuario invitado predeterminadas en el directorio para concederle los mismos privilegios que a los miembros.
 
-Se pueden desactivar las limitaciones de usuarios invitados predeterminadas para que a los usuarios invitados del directorio de la empresa se les concedan los mismos permisos que a los usuarios que son miembros.
+Se pueden desactivar las limitaciones predeterminadas para que un usuario invitado del directorio de la empresa tenga los mismos permisos que un usuario que sea miembro.
 
 ![Eliminación de limitaciones de usuarios invitados](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>¿Puedo hacer visibles a los usuarios invitados en la lista global de direcciones de Exchange?
-Sí. De forma predeterminada, los objetos de invitado no son visibles en la lista global de direcciones de su organización, pero puede usar PowerShell de Azure Active Directory para que lo sean. Para más información, consulte **¿Puedo hacer visibles los objetos de invitado de la lista global de direcciones?** en [Acceso de invitado en grupos de Office 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ). 
+Sí. De forma predeterminada, los objetos de invitado no aparecen en la lista global de direcciones de la organización, pero puede usar Azure Active Directory PowerShell para que figuren. Para más información, consulte **¿Puedo hacer visibles los objetos de invitado de la lista global de direcciones?** en [Acceso de invitado en grupos de Office 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
+* [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 * [Tokens de usuario de colaboración B2B](user-token.md)
 * [Asignación de notificaciones de usuario de colaboración B2B](claims-mapping.md)

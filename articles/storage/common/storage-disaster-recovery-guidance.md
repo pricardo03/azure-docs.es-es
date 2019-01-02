@@ -6,15 +6,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39a938d45c8f15c21b44bb5b04b1429fb4733b5a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033930"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323275"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Qué hacer si se produce una interrupción del servicio Azure Storage
 En Microsoft, hacemos todo lo posible para garantizar que los servicios siempre estén disponibles. A veces, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas en una o varias regiones. Para ayudarlo a gestionar estos raros imprevistos, ofrecemos la siguiente guía general para los servicios de Azure Storage.
@@ -34,10 +34,10 @@ La manera recomendada de determinar el estado del servicio de Azure es suscribir
 ## <a name="what-to-do-if-a-storage-outage-occurs"></a>Qué hacer si se produce una interrupción de los servicios de almacenamiento
 Si uno o varios servicios de almacenamiento no están disponibles temporalmente en una o varias regiones, hay dos opciones para tener en cuenta. Si desea acceder de inmediato a los datos, plantéese la opción 2.
 
-### <a name="option-1-wait-for-recovery"></a>Opción 1: esperar a que se recupere el servicio
+### <a name="option-1-wait-for-recovery"></a>Opción 1: Espera para la recuperación
 En este caso, no se requieren acciones por su parte. Trabajaremos con rapidez para que el servicio de Azure vuelva a estar disponible. Puede supervisar el estado del servicio en el [panel de estado del servicio de Azure](https://azure.microsoft.com/status/).
 
-### <a name="option-2-copy-data-from-secondary"></a>Opción 2: copiar los datos de la región secundaria
+### <a name="option-2-copy-data-from-secondary"></a>Opción 2: Copia de los datos de la región secundaria
 Si eligió el [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recomendado) en las cuentas de almacenamiento, tendrá acceso de lectura a los datos de la región secundaria. Puede usar herramientas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) y la [biblioteca de movimiento de datos de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar los datos de la región secundaria en otra cuenta de almacenamiento de una región donde no se haya producido la interrupción. Después, haga que las aplicaciones apunten a esa cuenta de almacenamiento para proporcionar acceso de lectura y escritura.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Qué esperar si se produce una conmutación por error de almacenamiento

@@ -2,18 +2,18 @@
 title: Aprovisionamiento de grupos de Azure Batch desde una imagen personalizada |Microsoft Docs
 description: Cree un grupo de Batch a partir de una imagen personalizada para aprovisionar los nodos de proceso que contienen el software y los datos que se necesitan para la aplicación. Las imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
-ms.author: danlep
-ms.openlocfilehash: 7d0526dd233afd3976b22d257300681db0bfcead
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: lahugh
+ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885225"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840374"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Uso de una imagen personalizada para crear un grupo de máquinas virtuales 
 
@@ -50,7 +50,13 @@ En Azure se puede preparar una imagen administrada a partir de instantáneas del
 
 ### <a name="prepare-a-vm"></a>Preparación de la máquina virtual 
 
-Si va a crear una máquina virtual para la imagen, use una imagen de Azure Marketplace admitida por Batch como imagen base para la imagen administrada y, luego, personalícela.  Para obtener una lista de las referencias de imagen de Marketplace de Azure compatibles con Azure Batch, consulte la operación [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus). No se puede usar una imagen de terceros como imagen base.
+Si va a crear una máquina virtual para la imagen, use una imagen de Azure Marketplace admitida por Batch como imagen base para la imagen administrada y, luego, personalícela.  Para obtener una lista de las referencias de imagen de Marketplace de Azure compatibles con Azure Batch, consulte la operación [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus). 
+
+> [!NOTE]
+> No se puede usar una imagen de terceros que tenga licencias adicionales y términos de compra como imagen base. Para información sobre estas imágenes de Marketplace, consulte las instrucciones para las máquinas virtuales [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+).
+
 
 * Asegúrese de que la máquina virtual se crea con un disco administrado. Se trata de la configuración de almacenamiento predeterminada cuando se crea una máquina virtual.
 * No instale extensiones de Azure, como la extensión de script personalizado, en la máquina virtual. Si la imagen contiene una extensión preinstalada, Azure podría experimentar problemas al implementar el grupo de Batch.

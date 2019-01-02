@@ -9,16 +9,15 @@ ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822677"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994407"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detallados para servicios y aplicaciones web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>¿Por qué necesito Application Insights?
@@ -79,8 +78,8 @@ Las principales categorías de datos son:
 * Eventos personalizados que puede utilizar para realizar el seguimiento de eventos empresariales.
 * Seguimientos de registros usados para la depuración.
 
-## <a name="case-study-real-madrid-fc"></a>Caso práctico: Real Madrid C.F.
-El servicio web del [Club de fútbol del Real Madrid](http://www.realmadrid.com/) presta servicio a aproximadamente 450 millones de aficionados de todo el mundo. Los aficionados acceden a él tanto mediante exploradores web como las aplicaciones móviles del Club. No solo reservan entradas, sino que también acceden a información y a clips de vídeo sobre resultados, jugadores y próximos partidos. Pueden realizar búsquedas con filtros, como el número de goles marcados. También hay vínculos a redes sociales. La experiencia del usuario está enormemente personalizada y está diseñada como una comunicación bidireccional para favorecer la participación de los aficionados.
+## <a name="case-study-real-madrid-fc"></a>Caso práctico: Real Madrid F.C.
+El servicio web del [Club de fútbol del Real Madrid](https://www.realmadrid.com/) presta servicio a aproximadamente 450 millones de aficionados de todo el mundo. Los aficionados acceden a él tanto mediante exploradores web como las aplicaciones móviles del Club. No solo reservan entradas, sino que también acceden a información y a clips de vídeo sobre resultados, jugadores y próximos partidos. Pueden realizar búsquedas con filtros, como el número de goles marcados. También hay vínculos a redes sociales. La experiencia del usuario está enormemente personalizada y está diseñada como una comunicación bidireccional para favorecer la participación de los aficionados.
 
 La solución [es un sistema de servicios y aplicaciones en Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). La escalabilidad es un requisito clave: el tráfico es variable y puede alcanzar volúmenes elevados antes y durante los partidos.
 
@@ -103,7 +102,7 @@ En ambos casos, la alerta no solo indica los síntomas detectados, sino que tamb
 
 ![Correo electrónico procedente de diagnóstico proactivo](./media/app-insights-devops/030.png)
 
-El cliente Samtec afirmaba: "Durante una migración reciente de características, nos encontramos con una base de datos no escalada lo suficiente que estaba llegando al límite de sus recursos y ocasionando tiempos de espera. Las alertas de detección proactiva nos salvaron literalmente mientras clasificábamos el problema, casi en tiempo real como anunciábamos. Estas alertas junto con las alertas de la plataforma Azure nos ayudaron a solucionar el problema de forma casi instantánea. Tiempo de inactividad total < 10 minutos".
+El cliente Samtec afirmó: "Durante una migración reciente de características, nos encontramos con una base de datos no escalada lo suficiente que estaba llegando al límite de sus recursos y ocasionando tiempos de espera. Las alertas de detección proactiva nos salvaron literalmente mientras clasificábamos el problema, casi en tiempo real como anunciábamos. Estas alertas junto con las alertas de la plataforma Azure nos ayudaron a solucionar el problema de forma casi instantánea. Tiempo de inactividad total < 10 minutos".
 
 ## <a name="live-metrics-stream"></a>Secuencia de métricas en directo
 La implementación de la compilación más reciente puede ser una experiencia Implementar la compilación más reciente puede ser una experiencia inquietante. Si hay problemas, querrá saberlo enseguida para poder dar marcha atrás en caso necesario. La secuencia de métricas activas le proporciona métricas claves con una latencia de aproximadamente un segundo.
@@ -134,7 +133,7 @@ Por ejemplo, es fácil:
 * Realizar un seguimiento de las sesiones y los tiempos de respuesta para usuarios específicos para que los equipos de operaciones y soporte técnico puedan proporcionar soporte al cliente al instante.
 * Determinar las características de aplicaciones utilizadas con frecuencia para responder a preguntas de priorización de características.
 
-El cliente DNN afirma: "Application Insights nos ha proporcionado la parte que faltaba de la ecuación para poder combinar, ordenar, consultar y filtrar los datos de acuerdo con nuestras necesidades. Al permitir que nuestro equipo use su propio ingenio y experiencia para buscar datos con un lenguaje de consulta avanzado, hemos podido descubrir cosas y resolver problemas que ni siquiera sabíamos que teníamos. Un gran número de respuestas interesantes proceden de las preguntas que comienzan con *'Me pregunto si...'*".
+El cliente DNN afirmó: "Application Insights nos ha proporcionado la parte que faltaba de la ecuación para poder combinar, ordenar, consultar y filtrar los datos de acuerdo con nuestras necesidades. Al permitir que nuestro equipo use su propio ingenio y experiencia para buscar datos con un lenguaje de consulta avanzado, hemos podido descubrir cosas y resolver problemas que ni siquiera sabíamos que teníamos. Un gran número de respuestas interesantes proceden de las preguntas que comienzan con *'Me pregunto si...'*".
 
 ## <a name="development-tools-integration"></a>Integración de herramientas de desarrollo
 ### <a name="configuring-application-insights"></a>Configuración de Application Insights

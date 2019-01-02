@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: c05a97dc5a5fe9a0e8a6f1a8598ff82fcf488ab2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e682850d331770766a9b97c2b4b9102af143f2e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253285"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836277"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configuración del direccionamiento IP para la conexión a máquinas virtuales de Azure tras la conmutación por error
 
@@ -30,8 +30,8 @@ En este artículo, aprenderá sobre:
 
 Al planear su estrategia de conmutación por error y replicación, una de las preguntas claves es cómo conectarse a la máquina virtual de Azure después de la conmutación por error. Hay un par de opciones al diseñar la estrategia de red para máquinas virtuales de réplica de Azure:
 
-- **Use different IP address** (Usar una dirección IP distinta): puede seleccionar el uso de otro intervalo de direcciones IP para la red de máquinas virtuales de Azure replicada. En este escenario, la máquina virtual obtiene una nueva dirección IP después de la conmutación por error y se requiere una actualización de DNS.
-- **Retain same IP address** (Conservar la misma dirección IP): tal vez prefiera usar el mismo intervalo de direcciones IP que usa en el sitio local principal para la red de Azure después de la conmutación por error. La conservación de las mismas direcciones IP simplifica la recuperación al reducir los problemas relacionados con la red después de la conmutación por error. Pero, cuando replique en Azure, tendrá que actualizar las rutas con la nueva ubicación de las direcciones IP después de la conmutación por error.
+- **Usar una dirección IP distinta**: puede seleccionar la opción de usar un intervalo de direcciones IP diferente para la red de máquina virtual de Azure replicada. En este escenario, la máquina virtual obtiene una nueva dirección IP después de la conmutación por error y se requiere una actualización DNS.
+- **Conservar la misma dirección IP**: tal vez prefiera usar el mismo intervalo de direcciones IP que en el sitio local principal para la red de Azure después de la conmutación por error. La conservación de las mismas direcciones IP simplifica la recuperación al reducir los problemas relacionados con la red después de la conmutación por error. Pero, cuando replique en Azure, tendrá que actualizar las rutas con la nueva ubicación de las direcciones IP después de la conmutación por error.
 
 ## <a name="retaining-ip-addresses"></a>Conservación de direcciones IP
 

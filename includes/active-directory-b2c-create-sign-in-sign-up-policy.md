@@ -2,48 +2,56 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 3485cc96ad1d9ab8f89facf33687a7ab2be43b1e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f23d2b02bc2a23c5333a48a50532c03f3aa6a031
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133107"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742415"
 ---
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-En la sección de directivas de configuración, seleccione **Directivas de inicio de sesión o de registro** y haga clic en **+ Agregar**.
+En **Administrar**, seleccione **Flujos de usuario** y haga clic en **+Nuevo flujo de usuario**.
 
-![Seleccionar directivas de registro o inicio de sesión y hacer clic en el botón Agregar](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-policy.png)
+![Selección del nuevo flujo de usuario](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow.png)
 
-Escriba un **nombre** de directiva al que la aplicación haga referencia. Por ejemplo, escriba: `SiUpIn`.
+En la pestaña **Recomendado**, haga clic en **Sign up and sign in** (Registrarse e iniciar sesión).
 
-Seleccione **Proveedores de identidades** y **Registro por correo electrónico**. También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
+![Selección del flujo de usuario de registro e inicio de sesión](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow-type.png)
 
-![Seleccionar registro por correo electrónico como proveedor de identidades y hacer clic en el botón Aceptar](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
+Escriba un **nombre** de flujo de usuario al que la aplicación haga referencia. Por ejemplo, escriba: `SiUpIn`.
 
-Seleccione **Atributos de registro**. Elija los atributos que quiere recopilar del consumidor durante el registro. Por ejemplo, seleccione **País o región**, **Nombre para mostrar** y **Código postal**. Haga clic en **OK**.
+Seleccione **Proveedores de identidades** y active **Registro por correo electrónico**. También puede seleccionar proveedores de identidades sociales, si ya se han configurado.
 
-![Seleccionar algunos atributos y hacer clic en el botón Aceptar](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
+En **Autenticación multifactor**, elija **Habilitado** o **Deshabilitado**.
 
-Seleccione **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens de autorización enviados de vuelta a su aplicación después de una experiencia de registro o de inicio de sesión correcta. Por ejemplo, seleccione **Nombre para mostrar**, **Proveedor de identidades**, **Código postal**, **El usuario es nuevo** e **Id. de objeto del usuario**.
+![Escribir un nombre y seleccionar Registro por correo electrónico como proveedor de identidades](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-name-identity-providers.png)
 
-![Seleccionar algunas notificaciones de aplicación y hacer clic en el botón Aceptar](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-application-claims.png)
+En **Atributos y notificaciones de usuario**, seleccione **Mostrar más** para ver la lista completa de atributos y notificaciones de los que puede elegir.
 
-Haga clic en **Crear** para agregar la directiva. La directiva aparece como **B2C_1_SiUpIn**. El prefijo **B2C_1_** se anexa al nombre.
+En la columna **Recopilar atributo**, elija los atributos que quiere recopilar del cliente durante el registro. Por ejemplo, seleccione **País o región**, **Nombre para mostrar** y **Código postal**.
 
-Para abrir la directiva, haga clic en **B2C_1_SiUpIn**. Compruebe la configuración especificada en la tabla y haga clic en **Ejecutar ahora**.
+En la columna **Notificación de devolución**, elija las notificaciones que quiere que se devuelvan en los tokens de autorización enviados de vuelta a su aplicación después de una experiencia correcta de registro o inicio de sesión. Por ejemplo, seleccione **Nombre para mostrar**, **Proveedor de identidades**, **Código postal**, **El usuario es nuevo** e **Id. de objeto del usuario**.
 
-![Seleccionar la directiva y ejecutarla](media/active-directory-b2c-create-sign-in-sign-up-policy/run-b2c-signup-signin-policy.png)
+Haga clic en **OK**.
+
+![Seleccionar algunos atributos de usuario y notificaciones y hacer clic en el botón Aceptar](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
+
+Haga clic en **Crear** para agregar el flujo de usuario. El flujo de usuario aparece como **B2C_1_SiUpIn**. El prefijo **B2C_1_** se anexa al nombre.
+
+Seleccione **Ejecutar flujo de usuario**. Compruebe la configuración especificada en la tabla y, luego, haga clic en **Ejecutar flujo de usuario**.
+
+![Seleccionar Ejecutar flujo de usuario](media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
 
 | Configuración      | Valor  |
 | ------------ | ------ |
-| **Aplicaciones** | Aplicación B2C de Contoso |
-| **Seleccionar dirección URL de respuesta** | `https://localhost:44316/` |
+| **Aplicación** | Aplicación B2C de Contoso |
+| **URL de respuesta** | `https://localhost:44316/` |
 
 Se abrirá una nueva pestaña del explorador y podrá comprobar la experiencia del consumidor de registro o de inicio de sesión tal como se configuró.
 
 > [!NOTE]
-> Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+> Tiene que transcurrir hasta un minuto para que se cree el flujo de usuario y las actualizaciones surtan efecto.
 >

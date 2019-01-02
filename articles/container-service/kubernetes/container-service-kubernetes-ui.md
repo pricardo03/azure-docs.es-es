@@ -1,5 +1,5 @@
 ---
-title: Administración de un clúster de Azure Kubernetes con una interfaz de usuario web
+title: (EN DESUSO) Administración de un clúster de Azure Kubernetes con una interfaz de usuario web
 description: Uso de la interfaz de usuario web de Kubernetes en Azure Container Service
 services: container-service
 author: bburns
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998532"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996134"
 ---
-# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Uso de la interfaz de usuario web de Kubernetes con Azure Container Service
+# <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(EN DESUSO) Uso de la interfaz de usuario web de Kubernetes con Azure Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para la versión actualizada de este artículo que utiliza Azure Kubernetes Service, consulte [Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)](../../aks/kubernetes-dashboard.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este tutorial se da por supuesto que ha [creado un clúster de Kubernetes con Azure Container Service](container-service-kubernetes-walkthrough.md).

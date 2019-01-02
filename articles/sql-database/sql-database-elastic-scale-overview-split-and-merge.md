@@ -3,7 +3,7 @@ title: Desplazamiento de datos entre bases de datos en la nube escaladas horizon
 description: Explica cómo manipular las particiones y mover los datos a través de un servicio autohospedado mediante las API de bases de datos elásticas.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: fb87a67d84588b5199a5d31530530d5afb7985e7
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0f5dc5cc7d981eb162ba101671b1e967ddf4bfff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353689"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868470"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
 
@@ -212,7 +212,7 @@ El servicio División y combinación proporciona la tabla **RequestStatus** en l
 
 ### <a name="azure-diagnostics"></a>Diagnóstico de Azure
 
-El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Para controlar la configuración de diagnóstico, consulte la información explicada aquí: [Habilitación de diagnósticos en Azure Cloud Services y Azure Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
+El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Puede controlar la configuración de diagnósticos como se explica aquí: [Habilitación de diagnósticos en Azure Cloud Services y Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
 
 ## <a name="deploy-diagnostics"></a>Implementar diagnósticos
 
@@ -230,7 +230,7 @@ Para habilitar la supervisión y el diagnóstico mediante el uso de la configura
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-Puede encontrar más información sobre cómo configurar e implementar los ajustes de diagnóstico aquí: [Habilitación de diagnósticos en Azure Cloud Services ](../cloud-services/cloud-services-dotnet-diagnostics.md).
+Puede encontrar más información sobre cómo configurar e implementar la configuración de diagnósticos aquí: [Habilitación de diagnósticos en Azure Cloud Services y Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## <a name="retrieve-diagnostics"></a>Recuperar diagnósticos
 

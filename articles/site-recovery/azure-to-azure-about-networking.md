@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976255"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992130"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Acerca de las redes en Azure para la replicación de Azure
 
@@ -60,8 +60,8 @@ Si utiliza un firewall basado en IP, proxy o reglas NSG para controlar la conect
 - Todos los intervalos de direcciones IP que correspondan a las cuentas de almacenamiento en la región de origen.
     - Cree una regla de NSG basada en la [etiqueta del servicio Storage](../virtual-network/security-overview.md#service-tags) para la región de origen.
     - Permita estas direcciones para que los datos se puedan escribir en la cuenta de almacenamiento en caché, desde la máquina virtual.
-- Cree una regla de NSG basada en una [etiqueta de servicio de Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) para permitir el acceso a todas las direcciones IP correspondientes a AAD.
-    - Si se agregan en el futuro nuevas direcciones a Azure Active Directory (AAD), deberá crear nuevas reglas de NSG.
+- Cree una regla de grupos de seguridad de red basada en la [etiqueta de servicio de Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) para permitir el acceso a todas las direcciones IP correspondientes a AAD.
+    - Si en el futuro se agregan nuevas direcciones a Azure Active Directory (AAD), tendrá que crear nuevas reglas de grupos de seguridad de red.
 - Las direcciones IP de punto de conexión de servicio de Site Recovery ([disponibles en un archivo XML](https://aka.ms/site-recovery-public-ips)), que dependen de la ubicación de destino:
 - Se recomienda crear las reglas de NSG necesarias en un grupo NSG de NSG de prueba y comprobar que no haya ningún problema antes de crear las reglas en un grupo de NSG de producción.
 
@@ -114,7 +114,10 @@ En este ejemplo se muestra cómo configurar reglas de NSG para la replicación d
 
       ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Cree reglas HTTPS (443) de salida para todos los intervalos de direcciones IP que se correspondan con los [puntos de conexión de autenticación e identidad IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Cree una regla de seguridad HTTPS (443) de salida para "AzureActiveDirectory" en el NSG tal y como se muestra en la captura de pantalla siguiente.
+
+      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+
 3. Cree reglas HTTPS (443) de salida para las direcciones IP de Site Recovery que corresponden a la ubicación de destino:
 
    **Ubicación** | **Dirección IP de Site Recovery** |  **Dirección IP de supervisión de Site Recovery**
@@ -127,7 +130,7 @@ Estas reglas son necesarias para que la replicación se pueda habilitar de la re
 
 1. Cree una regla de seguridad HTTPS (443) de salida saliente para "Storage.CentralUS" en el NSG.
 
-2. Cree reglas HTTPS (443) de salida para todos los intervalos de direcciones IP que se correspondan con los [puntos de conexión de autenticación e identidad IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Cree una regla de seguridad HTTPS (443) de salida para "AzureActiveDirectory" en el NSG.
 
 3. Cree reglas HTTPS (443) de salida para las direcciones IP de Site Recovery que corresponden a la ubicación de origen:
 

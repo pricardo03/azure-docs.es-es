@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 201bf1e5d3580902934f139b70ca5363e7cc5930
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523022"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876509"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Requerir transferencia segura en Azure Storage
 
 La opción "Se requiere transferencia segura" mejora la seguridad de su cuenta de almacenamiento, ya que solo permite enviar solicitudes a la cuenta desde conexiones seguras. Por ejemplo, al llamar a las API de REST para acceder a una cuenta de almacenamiento, es preciso conectarse mediante HTTPS. "Se requiere transferencia segura" rechaza las solicitudes que utilizan HTTP.
 
-Si se usa el servicio Azure Files, se produce un error en todas las conexiones sin cifrado cuando la opción "Se requiere transferencia segura" está habilitada. Aquí se incluyen los escenarios que usan SMB 2.1 y SMB 3.0 sin cifrado, y algunas versiones del cliente SMB de Linux. 
+Si se usa el servicio Azure Files, se produce un error en todas las conexiones sin cifrado cuando la opción "Se requiere transferencia segura" está habilitada. Aquí se incluyen los escenarios que usan SMB 2.1 y SMB 3.0 sin cifrado, y algunas versiones del cliente SMB de Linux. 
 
-De forma predeterminada, la opción "Se requiere transferencia segura" está deshabilitada.
+De forma predeterminada, la opción "Se requiere transferencia segura" está deshabilitada cuando se crea una cuenta de almacenamiento con el SDK. Y está habilitada de forma predeterminada al crear una cuenta de almacenamiento en Azure Portal.
 
 > [!NOTE]
 > Dado que Azure Storage no admite HTTPS para los nombres de dominio personalizados, esta opción no se aplica cuando se utiliza un nombre de dominio personalizado. Y las cuentas de almacenamiento clásico no se admiten.
@@ -53,7 +53,7 @@ Para requerir una transferencia segura mediante programación, use la configurac
 * [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (versión: 4.1.0)
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (versión: 2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (versión: 1.1.0)
-* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (versión: 6.3.0)
+* [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (versión: 6.3.0)
 * [SDK de Python](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (versión: 1.1.0)
 * [SDK de Ruby](https://rubygems.org/gems/azure_mgmt_storage) (versión: 0.11.0)
 

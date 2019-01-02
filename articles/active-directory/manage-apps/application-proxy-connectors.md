@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445965"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134980"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -47,7 +47,7 @@ El servidor de Windows debe tener habilitado TLS 1.2 antes de instalar el conect
 2. Reinicio del servidor
 
 
-Para más información sobre los requisitos de red del servidor del conector, vea [Get started with Application Proxy and install a connector (Información general sobre Proxy de aplicación e instalación de un conector)](application-proxy-enable.md).
+Para más información sobre los requisitos de red del servidor del conector, vea [Get started with Application Proxy and install a connector (Información general sobre Proxy de aplicación e instalación de un conector)](application-proxy-add-on-premises-application.md).
 
 ## <a name="maintenance"></a>Mantenimiento 
 Los conectores y el servicio se encargan de todas las tareas de alta disponibilidad. Se pueden agregar o quitar de forma dinámica. Cada vez que llega una solicitud nueva, esta se enruta a uno de los conectores que estén disponibles en ese momento. Si un conector no está disponible temporalmente, no responde a este tráfico.
@@ -64,7 +64,7 @@ No es necesario que elimine manualmente los conectores que no se están utilizan
 
 ## <a name="automatic-updates"></a>Actualizaciones automáticas
 
-Azure AD proporciona actualizaciones automáticas para todos los conectores que se implementen. Mientras se esté ejecutando el servicio de actualización de conectores del Proxy de aplicación, los conectores se actualizan automáticamente. Si no ve el servicio de actualización de conectores en el servidor, debe [volver a instalar el conector](application-proxy-enable.md) con el fin de obtener las actualizaciones. 
+Azure AD proporciona actualizaciones automáticas para todos los conectores que se implementen. Mientras se esté ejecutando el servicio de actualización de conectores del Proxy de aplicación, los conectores se actualizan automáticamente. Si no ve el servicio de actualización de conectores en el servidor, debe [volver a instalar el conector](application-proxy-add-on-premises-application.md) con el fin de obtener las actualizaciones. 
 
 Si no quiere esperar a que una actualización automática llegue al conector, puede realizar una actualización manual. Vaya a la [página de descarga del conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) en el servidor en el que se encuentra el conector y seleccione **Descargar**. Este proceso inicia una actualización del conector local. 
 
@@ -122,7 +122,7 @@ Otro factor que incide el rendimiento es la calidad de las conexiones entre los 
 
 * **El servicio en línea**: unas conexiones de baja o alta latencia al servicio Proxy de aplicación de Azure influyen en el rendimiento del conector. Para optimizar el rendimiento, conecte la organización a Azure con Express Route. Si no, el equipo de redes debe asegurarse de que las conexiones a Azure se administren de la manera más eficaz posible. 
 * **Las aplicaciones de back-end:** en algunos casos, hay servidores proxy adicionales entre el conector y las aplicaciones de back-end que pueden ralentizar o evitar las conexiones. Para solucionar esta situación, abra un explorador desde el servidor del conector e intente acceder a la aplicación. Si ejecuta los conectores en Azure pero las aplicaciones están en local, la experiencia podría no corresponderse a lo que esperan los usuarios.
-* **Los controladores de dominio:** si los conectores realizan el SSO mediante delegación limitada de kerberos, se ponen en contacto con los controladores de dominio antes de enviar la solicitud al back-end. Los conectores tienen una memoria caché de vales Kerberos, pero en un entorno ocupado, la capacidad de respuesta de los controladores de dominio puede repercutir en el rendimiento. Este problema es más común en el caso de los conectores que se ejecutan en Azure pero se comunican con controladores de dominio que están en local. 
+* **Los controladores de dominio:** si los conectores realizan el SSO mediante delegación limitada de Kerberos, se ponen en contacto con los controladores de dominio antes de enviar la solicitud al back-end. Los conectores tienen una memoria caché de vales Kerberos, pero en un entorno ocupado, la capacidad de respuesta de los controladores de dominio puede repercutir en el rendimiento. Este problema es más común en el caso de los conectores que se ejecutan en Azure pero se comunican con controladores de dominio que están en local. 
 
 Para más información sobre la optimización de la red, vea [Consideraciones sobre la topología de red al utilizar el Proxy de aplicación de Azure Active Directory](application-proxy-network-topology.md).
 
@@ -136,7 +136,7 @@ Los conectores también pueden estar unidos a dominios o bosques que tienen una 
 
 Por lo general, la implementación del conector es sencilla y no requiere ninguna configuración especial. Sin embargo, hay algunas condiciones únicas que deben tenerse en cuenta:
 
-* Las organizaciones que limitan el tráfico saliente deben [abrir los puertos necesarios](application-proxy-enable.md#open-your-ports).
+* Las organizaciones que limitan el tráfico saliente deben [abrir los puertos necesarios](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 * Podría ser necesario que las máquinas compatibles con FIPS cambiaran su configuración para permitir que los procesos del conector generaran y almacenaran un certificado.
 * Las organizaciones que bloquean su entorno en función de los procesos que emiten las solicitudes de red tienen que asegurarse de que los servicios del conector estén habilitados para tener acceso a todas las direcciones IP y puertos necesarios.
 * En algunos casos, los proxy de reenvío de salida pueden interrumpir la autenticación de certificado de dos direcciones y provocar un error en la comunicación.

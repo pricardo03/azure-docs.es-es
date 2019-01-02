@@ -1,5 +1,5 @@
 ---
-title: Recepción de eventos desde Azure Event Hubs mediante .NET Framework | Microsoft Docs
+title: 'Recepción de eventos mediante .NET Framework: Azure Event Hubs | Microsoft Docs'
 description: Siga este tutorial para recibir eventos desde Azure Event Hubs mediante .NET Framework.
 services: event-hubs
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cb1d26082fe4fbbd14b2b77f54d1bc7697b3538d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8052b797707f7913fdd678f4dd51822754623104
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227967"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077263"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Recepción de eventos de Azure Event Hubs mediante .NET Framework
 
@@ -44,14 +45,14 @@ El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para cr
 
 En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual C# con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **Receptor**.
    
-![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
+![Creación de una aplicación de consola](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Incorporación del paquete NuGet de Event Hubs
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **Receptor** y luego haga clic en **Administrar paquetes NuGet para la solución**.
 2. Haga clic en la pestaña **Examinar** y luego busque `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Haga clic en **Instalar**y acepte las condiciones de uso.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
+    ![Búsqueda del paquete NuGet del host del procesador de eventos](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
     Visual Studio descarga, instala y agrega una referencia al [paquete de NuGet de Azure Service Bus - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), con todas sus dependencias.
 
@@ -59,7 +60,7 @@ En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual 
 
 1. Haga clic con el botón derecho en el proyecto **Receptor**, haga clic en **Agregar** y, después, haga clic en **Clase**. Asigne a la nueva clase el nombre **SimpleEventProcessor** y después haga clic en **Agregar** para crear la clase.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
+    ![Incorporación de la clase SimpleEventProcessor](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
 2. Agregue las siguientes instrucciones en la parte superior del archivo SimpleEventProcessor.cs:
     
       ```csharp

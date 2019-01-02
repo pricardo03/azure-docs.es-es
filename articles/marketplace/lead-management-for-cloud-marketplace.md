@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258551"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840170"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Administración de clientes potenciales de Marketplace en la nube
 
@@ -39,15 +39,15 @@ Para empezar a recibir clientes potenciales, el conector de administración de c
 
 Estas son las instrucciones paso a paso sobre cómo conectar cada uno de los destinos posibles de clientes potenciales:
 
-**Dynamics CRM Online**: [haga clic aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) para ver instrucciones sobre cómo configurar Dynamics CRM Online a fin de obtener clientes potenciales. - 
+**Dynamics CRM Online**: [haga clic aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) para ver instrucciones sobre cómo configurar Dynamics CRM Online a fin de obtener clientes potenciales. - 
 
-**Marketo**: [haga clic aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-marketo) para ver instrucciones que le permitan establecer la configuración de clientes potenciales de Marketo a fin de obtener clientes potenciales. - 
+**Marketo**: [haga clic aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) para ver instrucciones que le permitan establecer la configuración de clientes potenciales de Marketo a fin de obtener clientes potenciales. - 
 
-**Salesforce**: [haga clic aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-salesforce) para ver instrucciones sobre cómo configurar la instancia de Salesforce a fin de obtener clientes potenciales. - 
+**Salesforce**: [haga clic aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) para ver instrucciones sobre cómo configurar la instancia de Salesforce a fin de obtener clientes potenciales. - 
 
-**Tabla de Azure**: [haga clic aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table) para ver instrucciones para configurar la cuenta de Azure Storage a fin de obtener clientes potenciales en una tabla de Azure.
+**Tabla de Azure**: [haga clic aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) para ver instrucciones para configurar la cuenta de Azure Storage a fin de obtener clientes potenciales en una tabla de Azure.
 
-**Punto de conexión HTTPS**: [haga clic aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-https) para ver instrucciones que le permitan establecer la configuración de su punto de conexión HTTPS para obtener clientes potenciales.
+**Punto de conexión HTTPS**: [haga clic aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) para ver instrucciones que le permitan establecer la configuración de su punto de conexión HTTPS para obtener clientes potenciales.
 
 Una vez que haya configurado correctamente el destino de clientes potenciales y haya presionado Publicar en su oferta, validaremos la conexión y le enviaremos un cliente potencial de prueba. Si está viendo la oferta antes de publicarla en Internet, también puede probar la conexión de los clientes potenciales tratando de adquirir la oferta en el entorno de versión preliminar. Es importante asegurarse de que la configuración de los clientes potenciales se mantenga actualizada para no perder ninguno de estos clientes; así pues, asegúrese de actualizar estas conexiones siempre que cambie algo por su parte.
 
@@ -62,36 +62,36 @@ Una vez que esté implementada la configuración técnica, debería incorporar e
 
 **No se pudo guardar el cliente potencial en Dynamics CRM. Compruebe la configuración de la cuenta de Dynamics CRM. LastCRMError: no se puede iniciar sesión en Dynamics CRM; LastCRMException:** 
 
-> Si ha seleccionado la autenticación de O365, compruebe si la cuenta de usuario y la contraseña son válidas. Si ha seleccionado AAD, compruebe si el identificador del inquilino, el identificador de la aplicación y la clave secreta de la aplicación coinciden con lo que ha configurado en AAD. Siga las instrucciones que se proporcionan [aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics). Si el nombre de usuario y la contraseña de la cuenta son válidos, asegúrese de que tiene acceso a Dynamics 365 y una licencia asignada (es decir, los pasos 11 al 15 si usa Azure Active Directory o la configuración de seguridad si usa un usuario de Office). 
+> Si ha seleccionado la autenticación de O365, compruebe si la cuenta de usuario y la contraseña son válidas. Si ha seleccionado AAD, compruebe si el identificador del inquilino, el identificador de la aplicación y la clave secreta de la aplicación coinciden con lo que ha configurado en AAD. Siga las instrucciones que se proporcionan [aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics). Si el nombre de usuario y la contraseña de la cuenta son válidos, asegúrese de que tiene acceso a Dynamics 365 y una licencia asignada (es decir, los pasos 11 al 15 si usa Azure Active Directory o la configuración de seguridad si usa un usuario de Office). 
 
  
 **No se pudo guardar el cliente potencial en Dynamics CRM. El usuario no tiene permisos de creación para el atributo leadsourcecode en la entidad de cliente potencial.** 
 
-> La aplicación o el usuario no tienen roles de seguridad para el sistema de escritura de clientes potenciales de Microsoft Marketplace. Siga los pasos 11 a 15 que se indican [aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) si usa Azure Active Directory o la configuración de seguridad si usa un usuario de Office.
+> La aplicación o el usuario no tienen roles de seguridad para el sistema de escritura de clientes potenciales de Microsoft Marketplace. Siga los pasos 11 a 15 que se indican [aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) si usa Azure Active Directory o la configuración de seguridad si usa un usuario de Office.
 
-**No se pudo guardar el cliente potencial en Dynamics CRM mediante AAD. Excepción:: no se encuentra el inquilino. Esta instancia puede ocurrir si no hay suscripciones activas para el inquilino.**  
+**No se pudo guardar el cliente potencial en Dynamics CRM mediante AAD. Excepción: No se ha podido encontrar el inquilino. Esta instancia puede ocurrir si no hay suscripciones activas para el inquilino.**  
 
-> El identificador de directorio proporcionado en la sección de administración de clientes potenciales no es un directorio válido. Obtenga el identificador de directorio basándose en las instrucciones que aparecen en el paso 2 (en Azure Active Directory, a partir de [aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> El identificador de directorio proporcionado en la sección de administración de clientes potenciales no es un directorio válido. Obtenga el identificador de directorio basándose en las instrucciones que aparecen en el paso 2 (en Azure Active Directory, a partir de [aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**No se pudo guardar el cliente potencial en Dynamics CRM. LastCRMError: Error con SecLib::RetrievePrivilegeForUser: no hay ningún rol asignado al usuario.**  
+**No se pudo guardar el cliente potencial en Dynamics CRM. LastCRMError: error de SecLib::RetrievePrivilegeForUser: no hay ningún rol asignado al usuario.**  
 
-> Solución: asigne el rol de seguridad para el sistema de escritura de clientes potenciales de Microsoft Marketplace. Siga las instrucciones que se proporcionan [aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) en la configuración de seguridad. 
+> Resolución: asigne el rol de seguridad al sistema de escritura de clientes potenciales de Microsoft Marketplace. Siga las instrucciones que se proporcionan [aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) en la configuración de seguridad. 
 
-**No se pudo guardar el cliente potencial en Dynamics CRM mediante AAD. Exception:: No se encontró la aplicación con el identificador en el directorio.** 
+**No se pudo guardar el cliente potencial en Dynamics CRM mediante AAD. Excepción: No se encontró la aplicación con el identificador en el directorio.** 
 
-> El identificador de aplicación proporcionado en la sección de administración de clientes potenciales no es un directorio válido. Obtenga el identificador de directorio basándose en las instrucciones que aparecen en el paso 8 (en Azure Active Directory, a partir de [aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> El identificador de aplicación proporcionado en la sección de administración de clientes potenciales no es un directorio válido. Obtenga el identificador de directorio basándose en las instrucciones que aparecen en el paso 8 (en Azure Active Directory, a partir de [aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**No se pudo guardar el cliente potencial en Dynamics CRM mediante AAD. Excepción:: El identificador del inquilino solicitado no es válido y el formato de dominio externo no es válido** 
+**No se pudo guardar el cliente potencial en Dynamics CRM mediante AAD. Excepción: El identificador del inquilino solicitado no es válido y el formato de dominio externo no es válido** 
 
-> El identificador de directorio proporcionado en la sección de administración de clientes potenciales no es un directorio válido. Obtenga el identificador de directorio basándose en las instrucciones que aparecen en el paso 2 (en Azure Active Directory, a partir de [aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> El identificador de directorio proporcionado en la sección de administración de clientes potenciales no es un directorio válido. Obtenga el identificador de directorio basándose en las instrucciones que aparecen en el paso 2 (en Azure Active Directory, a partir de [aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**No se pudo guardar el cliente potencial en Dynamics CRM mediante AAD. Excepción:: Error al validar las credenciales: se proporcionó un secreto de cliente no válido.** 
+**No se pudo guardar el cliente potencial en Dynamics CRM mediante AAD. Excepción: Error al validar las credenciales: se ha proporcionado un secreto de cliente no válido.** 
 
-> Solución: Inicie sesión en Azure Portal y compruebe que la clave de aplicación coincida con lo que hay en Cloud Partner Portal. Obtenga la contraseña basándose en las instrucciones que aparecen en el paso 10 (en Azure Active Directory, a partir de [aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> Resolución: Inicie sesión en Azure Portal y compruebe que la clave de aplicación coincida con lo que hay en Cloud Partner Portal. Obtenga la contraseña basándose en las instrucciones que aparecen en el paso 10 (en Azure Active Directory, a partir de [aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **No se pudo guardar el cliente potencial en Dynamics CRM. LastCRMError: Se agotó el tiempo de espera del canal de solicitud mientras se esperaba una respuesta después de 00:02:00. Aumente el valor de tiempo de espera que se pasa a la llamada a la solicitud o aumente el valor de SendTimeout en el enlace. El tiempo asignado a esta operación puede haber sido una fracción de un tiempo de espera mayor.**  
 
-> Solución: Inicie sesión en Cloud Partner Portal, compruebe los detalles del escaparate electrónico >> Lead destination (Destino de clientes potenciales) >> Dirección URL y verifique que la instancia de Dynamic CRM sea válida.
+> Resolución: Inicie sesión en Cloud Partner Portal, compruebe los detalles del escaparate electrónico >> Lead destination (Destino de clientes potenciales) >> Dirección URL y compruebe que la instancia de Dynamic CRM sea válida.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -102,7 +102,7 @@ Los clientes potenciales son los clientes que están implementando sus productos
 
 **¿Dónde puedo obtener ayuda para la configuración de mi destino de clientes potenciales?** 
 
-Puede encontrar documentación aquí: https://cloudpartner.azure.com/#documentation/get-customer-leads o enviar una incidencia de soporte técnico mediante aka.ms/marketplacepublishersupport, donde debe seleccionar el tipo de oferta y la administración de clientes potenciales. 
+Puede encontrar documentación aquí: [Obtención de clientes potenciales](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads), o envíe una incidencia de soporte técnico mediante aka.ms/marketplacepublishersupport, donde debe seleccionar el tipo de oferta y la administración de clientes potenciales. 
 
 
 
@@ -150,7 +150,7 @@ title = MSFT_TEST_636573304831318844
 
 **Tengo una oferta activa, pero no veo a los clientes potenciales.**
 
-Cada cliente potencial tendrá datos que se pasen en campos al destino de clientes potenciales seleccionado; los clientes potenciales se incluirán en este formato: **Origen-Acción|Oferta** 
+Cada cliente potencial tendrá datos que se pasen en campos al destino de clientes potenciales seleccionado; los clientes potenciales se incluirán en este formato: **Acción de origen | Oferta** 
 
   *Orígenes:*:
 
@@ -199,7 +199,7 @@ Cada cliente potencial tendrá datos que se pasen en campos al destino de client
 
     } 
 
-Obtenga más detalles en [Lead Info](https://cloudpartner.azure.com/#documentation/get-customer-leads) (Información de cliente potencial). 
+Obtenga más detalles en [Lead Info](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) (Información de cliente potencial). 
 
 
 **He configurado el blob de Azure como destino de cliente potencial, ¿por qué no veo al cliente potencial?** 
@@ -219,7 +219,7 @@ Puede tener acceso a las tablas o blobs desde Azure Portal, o puede descargar e 
 
 **He configurado la tabla de Azure como destino del cliente potencial, ¿puedo recibir una notificación cada vez que Marketplace envíe un nuevo cliente potencial?** 
 
-Sí, siga las instrucciones para configurar la combinación de función y tabla de Azure en la documentación que se proporciona [aquí](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table). 
+Sí, siga las instrucciones para configurar la combinación de función y tabla de Azure en la documentación que se proporciona [aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table). 
 
 
 

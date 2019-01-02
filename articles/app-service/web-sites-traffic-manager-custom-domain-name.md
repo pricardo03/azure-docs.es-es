@@ -1,5 +1,5 @@
 ---
-title: Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service que usa el Administrador de tráfico para el equilibrio de carga.
+title: Configuración de nombres DNS para aplicaciones que usan Traffic Manager en Azure App Service
 description: Use un nombre de dominio personalizado para un una aplicación web en Azure App Service que incluya el Administrador de tráfico para el equilibrio de carga.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: b140ccba2b45dbfb1e4413c9fbeb12e9fec6bc8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 35493d9a7f47bda3344dbc8b0ea415d4492c5741
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227185"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340067"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service utilizando el Administrador de tráfico
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -70,8 +71,6 @@ Una vez que haya terminado de agregar o modificar registros DNS en su proveedor 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, vea el [Centro para desarrolladores de Node.js](https://azure.microsoft.com/develop/nodejs/).
-
-[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 

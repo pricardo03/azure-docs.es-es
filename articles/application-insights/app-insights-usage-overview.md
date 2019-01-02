@@ -8,18 +8,17 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 968c5fb093f3ebdb6ce7eb239f79573f19b89e0f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278640"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955436"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análisis de uso con Application Insights
 
@@ -29,17 +28,17 @@ ms.locfileid: "51278640"
 
 La mejor experiencia se obtiene mediante la instalación de Application Insights en el código de servidor de aplicaciones y en las páginas web. Los componentes de cliente y servidor de la aplicación devuelven telemetría a Azure Portal para su análisis.
 
-1. **Código de servidor:** instale el módulo adecuado para [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-overview.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), u [otra aplicación ](app-insights-platforms.md).
+1. **Código de servidor**: instale el módulo adecuado para [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-overview.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md) u [otra](app-insights-platforms.md) aplicación.
 
     * *¿No desea instalar código del servidor? Simplemente [cree un recurso de Azure Application Insights](app-insights-create-new-resource.md).*
 
-2. **Código de página web:** abra el [Azure Portal](https://portal.azure.com), abra el recurso de Application Insights para su aplicación y luego abra **Introducción &gt; Supervisar y diagnosticar la aplicación del lado cliente**. 
+2. **Código de página web**: abra [Azure Portal](https://portal.azure.com), abra el recurso de Application Insights para su aplicación y luego abra **Introducción > Supervisar y diagnosticar la aplicación del lado cliente**. 
 
     ![Copie el script en el encabezado de la página web maestra.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
-3. **Código de aplicación móvil:** utilice el SDK de App Center para recopilar eventos de la aplicación y después enviar copias de estos eventos a Application Insights para el análisis; para ello, [siga esta guía](app-insights-mobile-center-quickstart.md).
+3. **Código de aplicación móvil**: utilice el SDK de App Center para recopilar eventos de la aplicación y después enviar copias de estos eventos a Application Insights para el análisis; para ello, [siga esta guía](app-insights-mobile-center-quickstart.md).
 
-4. **Obtener telemetría:** ejecute su proyecto en modo de depuración durante unos minutos y luego busque resultados en la hoja de información general en Application Insights.
+4. **Obtener telemetría**: ejecute su proyecto en modo de depuración durante unos minutos y luego busque resultados en la hoja de información general en Application Insights.
 
     Publique su aplicación para supervisar el rendimiento de su aplicación y descubra lo que hacen sus usuarios con ella.
 
@@ -61,26 +60,6 @@ La información de la derecha señala patrones de interés en el conjunto de dat
 * El informe **Sesiones** indica el número de sesiones de usuario que acceden al sitio. Una sesión es un periodo de actividad por parte de un usuario, que finaliza con un periodo de inactividad de más de media hora.
 
 [Más información sobre las herramientas Usuarios, Sesiones y Eventos](app-insights-usage-segmentation.md)  
-
-## <a name="page-views"></a>Vistas de página
-
-En la hoja Uso, haga clic en el icono de vistas de página para obtener un desglose de las páginas más populares:
-
-![En la hoja de información general, haga clic en el gráfico de vistas de páginas.](./media/app-insights-usage-overview/05-games.png)
-
-El ejemplo anterior es de un sitio web de juegos. A partir de los gráficos, podemos ver al instante:
-
-* El uso no ha mejorado durante la semana anterior. ¿Quizás debemos pensar en la optimización de motor de búsqueda?
-* Tennis es la página de juegos más popular. Vamos a centrarnos en mejorar aún más esta página.
-* Por término medio, los usuarios visitan la página Tennis una tres veces por semana. (Hay unas tres veces más sesiones que usuarios.)
-* La mayoría de usuarios visitan el sitio durante la semana laboral en EE. UU. y en el horario laborable. Quizás deberíamos proporcionar un botón "ocultar rápidamente" en la página web.
-* Las [anotaciones](app-insights-annotations.md) en el gráfico muestran cuándo se implementaron nuevas versiones del sitio web. Ninguna de las implementaciones ha tenido un efecto notable sobre el uso.
-
-¿Qué ocurre si desea investigar el tráfico de su sitio con más detalle, por ejemplo, dividiendo por propiedad personalizada que el sitio envía en su telemetría de vista de página?
-
-1. Abra la herramienta **Eventos** del menú de recursos de Application Insights. Esta herramienta permite analizar el número de eventos personalizados y vistas de página que se enviaron desde su aplicación, en función de una variedad de opciones de filtrado, cohorte y segmentación.
-2. En la lista desplegable "que usaron", seleccione "Cualquier página de vista".
-3. En la lista desplegable de "Dividir por", seleccione una propiedad por la que va a dividir la telemetría de vista de página.
 
 ## <a name="retention---how-many-users-come-back"></a>Retención : ¿cuántos usuarios regresan?
 

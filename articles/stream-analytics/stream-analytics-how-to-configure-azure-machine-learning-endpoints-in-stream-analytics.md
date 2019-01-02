@@ -4,17 +4,16 @@ description: En este artículo se describe cómo utilizar las funciones definida
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 024d7094a9baa90eebd57b4c76db367f81bd0400
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/07/2018
+ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700874"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104950"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integración de Machine Learning en Análisis de transmisiones
 Stream Analytics proporciona compatibilidad con las funciones definidas por el usuario que llamen a puntos de conexión de Azure Machine Learning. La compatibilidad con la API de REST para esta característica se detalla en la [biblioteca API de REST de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artículo proporciona información adicional necesaria para una implementación correcta de esta capacidad en Stream Analytics. También se ha publicado un tutorial, que está disponible [aquí](stream-analytics-machine-learning-integration-tutorial.md).
@@ -51,7 +50,7 @@ Por ejemplo, el siguiente código de ejemplo crea una función definida por el u
 
 Ejemplo del cuerpo de solicitud:  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -67,7 +66,7 @@ Ejemplo del cuerpo de solicitud:
             }
         }
     }
-````
+```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Llamada al punto de conexión RetrieveDefaultDefinition para la función definida por el usuario predeterminada
 Una vez creado el esqueleto de la función definida por el usuario, es necesaria la definición completa de la función definida por el usuario. El punto de conexión RetreiveDefaultDefinition ayuda a obtener la definición predeterminada para una función escalar enlazada a un punto de conexión de Azure Machine Learning. La siguiente carga requiere obtener la definición de la función definida por el usuario predeterminada para una función escalar enlazada a un punto de conexión de Azure Machine Learning. No especifica el punto de conexión real, porque ya se ha proporcionado durante la solicitud PUT. Stream Analytics llamará al punto de conexión proporcionado en la solicitud si se proporciona explícitamente. De lo contrario, usará al que se hace referencia desde el principio. Aquí, la función definida por el usuario toma un parámetro de una sola cadena (una frase) y devuelve una única salida de tipo "string" que indica la etiqueta "sentiment" para esa frase.
@@ -78,7 +77,7 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 
 Ejemplo del cuerpo de solicitud:  
 
-````
+```json
     {
         "bindingType": "Microsoft.MachineLearning/WebService",
         "bindingRetrievalProperties": {
@@ -86,11 +85,11 @@ Ejemplo del cuerpo de solicitud:
             "udfType": "Scalar"
         }
     }
-````
+```
 
 Un ejemplo de salida tendría el aspecto siguiente.  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -126,7 +125,7 @@ Un ejemplo de salida tendría el aspecto siguiente.
             }
         }
     }
-````
+```
 
 ## <a name="patch-udf-with-the-response"></a>Revisión de la función definida por el usuario con la respuesta
 Ahora se debe revisar la función definida por el usuario con la respuesta anterior, tal como se muestra a continuación.
@@ -137,7 +136,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 Cuerpo de la solicitud (salida de RetrieveDefaultDefinition):
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -173,12 +172,12 @@ Cuerpo de la solicitud (salida de RetrieveDefaultDefinition):
             }
         }
     }
-````
+```
 
 ## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Implementación de una transformación de Stream Analytics que llame a la función definida por el usuario
 Ahora consulte la función definida por el usuario (aquí llamada scoreTweet) para cada evento de entrada y escriba una respuesta para ese evento en una salida.  
 
-````
+```json
     {
         "name": "transformation",
         "properties": {
@@ -186,7 +185,7 @@ Ahora consulte la función definida por el usuario (aquí llamada scoreTweet) pa
             "query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
         }
     }
-````
+```
 
 
 ## <a name="get-help"></a>Obtención de ayuda

@@ -1,10 +1,8 @@
 ---
-title: Table API de Azure Cosmos DB para Java | Microsoft Docs
-description: Infórmese acerca de Table API de Azure Cosmos DB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión.
+title: Table API de Azure Cosmos DB para Java
+description: Obtenga toda la información acerca de Table API de Azure Cosmos DB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión.
 services: cosmos-db
 author: yarong
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: java
@@ -12,14 +10,14 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 3bb4a433b06deff27ce80ab1fb631efde29a3f83
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 54fad2e830ae7ff1d07cc8f67e50d2b5bc4fe8a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465583"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096600"
 ---
-# <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Table API de Azure Cosmos DB para Java: notas de la versión y recursos
+# <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Table API de Azure Cosmos DB para Java: Notas de la versión y recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -31,7 +29,7 @@ ms.locfileid: "49465583"
 |   |   |
 |---|---|
 |**Descarga del SDK**|[Opciones de descarga](https://github.com/azure/azure-storage-java#download)|
-|**Documentación de la API**|[Documentación de referencia de API](http://azure.github.io/azure-storage-java/)|
+|**Documentación de la API**|[Documentación de referencia de API](https://azure.github.io/azure-storage-java/)|
 |**Contribuya al SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]

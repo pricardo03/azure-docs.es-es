@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 1d49403ec04b2ec35291869385c316cb5ab3b0da
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044916"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724067"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Administración de Azure Data Lake Analytics mediante Azure Portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -32,9 +32,9 @@ En este artículo se describe cómo administrar cuentas, orígenes de datos, usu
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Crear un recurso** > **Inteligencia y análisis** > **Data Lake Analytics**.
 3. Seleccione los valores de los siguientes elementos: 
-   1. **Nombre**: nombre de la cuenta de Azure Data Lake Analytics.
+   1. **Nombre**: nombre de la cuenta de Data Lake Analytics.
    2. **Suscripción**: suscripción de Azure usada para la cuenta.
-   3. **Grupo de recursos**: grupo de recursos de Azure en el que se va a crear la cuenta. 
+   3. **Grupo de recursos**: grupo de recursos de Azure en el que se crea la cuenta. 
    4. **Ubicación**: centro de datos de Azure para la cuenta de Data Lake Analytics. 
    5. **Data Lake Store**: almacén predeterminado que se va a usar para la cuenta de Data Lake Analytics. Las cuentas de Azure Data Lake Store y de Data Lake Analytics deben estar en la misma ubicación.
 4. Haga clic en **Create**(Crear). 
@@ -111,7 +111,7 @@ Emplee el rol de desarrollador de Data Lake Analytics para permitir que los desa
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Agregar usuarios o grupos de seguridad a una cuenta de Data Lake Analytics
 
 1. En Azure Portal, vaya a la cuenta de Data Lake Analytics.
-2. Haga clic en **Control de acceso (IAM)** > **Agregar**.
+2. Haga clic en **Control de acceso (IAM)** > **Agregar asignación de roles**.
 3. Seleccione un rol.
 4. Agregue un usuario.
 5. Haga clic en **OK**.
@@ -131,7 +131,7 @@ Emplee el rol de desarrollador de Data Lake Analytics para permitir que los desa
 
 2. Haga clic en **Nuevo trabajo**. Para cada trabajo, configure:
 
-    1. **Nombre del trabajo**: nombre del trabajo.
+    1. **Nombre del trabajo**: Nombre del trabajo.
     2. **Prioridad**: los números más bajos tienen mayor prioridad. Si hay dos trabajos en cola, se ejecuta primero el que tenga un valor de prioridad más bajo.
     3. **Paralelismo**: número máximo de procesos de cálculo que se van a reservar para este trabajo.
 
