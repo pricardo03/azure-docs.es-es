@@ -19,7 +19,7 @@ ms.locfileid: "53136212"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Enlaces de Azure Cosmos DB para Azure Functions 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Seleccione la versión del tiempo de ejecución de Azure Funciones que está utilizando: "]
 > * [Versión 1](functions-bindings-cosmosdb.md)
 > * [Versión 2](functions-bindings-cosmosdb-v2.md)
 
