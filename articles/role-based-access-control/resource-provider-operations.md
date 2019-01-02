@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 396dbfcfd13f508c33d8a1bb7370d9170b8f8a56
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499695"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410540"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
@@ -80,7 +80,7 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Obtiene el valor de preferencia del usuario del bosque.<br>Ejemplo: MetricCounterName como ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes, ldapsearches.<br>Configuración de los gráficos de la interfaz de usuario, etc. |
 > | . | Microsoft.ADHybridHealthService/addsservices/forestsummary/read | Obtiene el resumen del bosque para el bosque dado como el nombre de bosque, el número de dominios de este bosque, el número y los detalles de los sitios, etc. |
 > | . | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | Obtiene la lista de métricas admitidas de un servicio determinado.<br>Por ejemplo, Bloqueos de cuenta de extranet, Solicitudes erróneas totales, Solicitudes de token pendientes (proxy), Solicitudes de token/segundo etc. del servicio ADFS.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio ADSync. |
-> | . | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Dado un servicio, esta API obtiene la información de las métricas.<br>Por ejemplo, esta API se puede usar para obtener información relacionada con: bloqueos de cuenta de extranet, solicitudes erróneas totales, solicitudes de token pendientes (proxy), solicitudes de token/segundo etc. del Servicio de federación de AD.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio Sync. |
+> | . | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Dado un servicio, esta API obtiene la información de las métricas.<br>Por ejemplo, esta API se puede usar para obtener información relacionada con: Bloqueos de cuenta de extranet, Solicitudes erróneas totales, Solicitudes de token pendientes (proxy), Solicitudes de token/segundo, etc., del servicio de federación de Active Directory.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio Sync. |
 > | . | Microsoft.ADHybridHealthService/addsservices/premiumcheck/read | Esta API obtiene la lista de todos los servicios ADDomain incorporados para un inquilino Premium. |
 > | . | Microsoft.ADHybridHealthService/addsservices/read | Obtiene los detalles del servicio del nombre de servicio especificado. |
 > | . | Microsoft.ADHybridHealthService/addsservices/replicationdetails/read | Obtiene los detalles de la replicación de todos los servidores del nombre de servicio especificado. |
@@ -115,9 +115,9 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.ADHybridHealthService/services/exportstatus/read | Obtiene el estado de exportación de un servicio dado. |
 > | . | Microsoft.ADHybridHealthService/services/feedbacktype/feedback/read | Obtiene los comentarios de las alertas de un servicio y servidor dados. |
 > | . | Microsoft.ADHybridHealthService/services/metricmetadata/read | Obtiene la lista de métricas admitidas de un servicio determinado.<br>Por ejemplo, Bloqueos de cuenta de extranet, Solicitudes erróneas totales, Solicitudes de token pendientes (proxy), Solicitudes de token/segundo etc. del servicio ADFS.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio ADSync. |
-> | . | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Dado un servicio, esta API obtiene el promedio de las métricas para un servicio dado.<br>Por ejemplo, esta API se puede usar para obtener información relacionada con: bloqueos de cuenta de extranet, solicitudes erróneas totales, solicitudes de token pendientes (proxy), solicitudes de token/segundo etc. del Servicio de federación de AD.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio Sync. |
-> | . | Microsoft.ADHybridHealthService/services/metrics/groups/read | Dado un servicio, esta API obtiene la información de las métricas.<br>Por ejemplo, esta API se puede usar para obtener información relacionada con: bloqueos de cuenta de extranet, solicitudes erróneas totales, solicitudes de token pendientes (proxy), solicitudes de token/segundo etc. del Servicio de federación de AD.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio Sync. |
-> | . | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Dado un servicio, esta API obtiene la vista agregada de las métricas de un servicio dado.<br>Por ejemplo, esta API se puede usar para obtener información relacionada con: bloqueos de cuenta de extranet, solicitudes erróneas totales, solicitudes de token pendientes (proxy), solicitudes de token/segundo etc. del Servicio de federación de AD.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio Sync. |
+> | . | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Dado un servicio, esta API obtiene el promedio de las métricas para un servicio dado.<br>Por ejemplo, esta API se puede usar para obtener información relacionada con: Bloqueos de cuenta de extranet, Solicitudes erróneas totales, Solicitudes de token pendientes (proxy), Solicitudes de token/segundo, etc., del servicio de federación de Active Directory.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio Sync. |
+> | . | Microsoft.ADHybridHealthService/services/metrics/groups/read | Dado un servicio, esta API obtiene la información de las métricas.<br>Por ejemplo, esta API se puede usar para obtener información relacionada con: Bloqueos de cuenta de extranet, Solicitudes erróneas totales, Solicitudes de token pendientes (proxy), Solicitudes de token/segundo, etc., del servicio de federación de Active Directory.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio Sync. |
+> | . | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Dado un servicio, esta API obtiene la vista agregada de las métricas de un servicio dado.<br>Por ejemplo, esta API se puede usar para obtener información relacionada con: Bloqueos de cuenta de extranet, Solicitudes erróneas totales, Solicitudes de token pendientes (proxy), Solicitudes de token/segundo, etc., del servicio de federación de Active Directory.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio Sync. |
 > | . | Microsoft.ADHybridHealthService/services/monitoringconfiguration/write | Agrega o actualiza la configuración de supervisión de un servicio. |
 > | . | Microsoft.ADHybridHealthService/services/monitoringconfigurations/read | Obtiene las configuraciones de supervisión de un servicio dado. |
 > | . | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | Agrega o actualiza las configuraciones de supervisión de un servicio. |
@@ -130,7 +130,7 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.ADHybridHealthService/services/servicemembers/datafreshness/read | En un servidor determinado, esta API obtiene una lista de los tipos de datos que cargan los servidores y la hora más reciente en que se realizó cada carga. |
 > | . | Microsoft.ADHybridHealthService/services/servicemembers/delete | Elimina una instancia de servidor en el servicio. |
 > | . | Microsoft.ADHybridHealthService/services/servicemembers/exportstatus/read | Obtiene los detalles de los errores de exportación de sincronización de un servicio de sincronización dado. |
-> | . | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Dado un servicio, esta API obtiene la información de las métricas.<br>Por ejemplo, esta API se puede usar para obtener información relacionada con: bloqueos de cuenta de extranet, solicitudes erróneas totales, solicitudes de token pendientes (proxy), solicitudes de token/segundo etc. del Servicio de federación de AD.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio Sync. |
+> | . | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Dado un servicio, esta API obtiene la información de las métricas.<br>Por ejemplo, esta API se puede usar para obtener información relacionada con: Bloqueos de cuenta de extranet, Solicitudes erróneas totales, Solicitudes de token pendientes (proxy), Solicitudes de token/segundo, etc., del servicio de federación de Active Directory.<br>Autenticaciones NTLM/segundo, Nº de enlaces LDAP correctos/s, Duración de enlace LDAP, Nº de subprocesos LDAP activos, Autenticaciones Kerberos/s, Nº total de subprocesos ATQ, etc. para el servicio ADDomain.<br>Latencia de perfil de ejecución, Conexiones TCP establecidas, Bytes privados de agente de Insights, Exportación de estadísticas a Azure AD para el servicio Sync. |
 > | . | Microsoft.ADHybridHealthService/services/servicemembers/read | Lee la instancia de servidor en el servicio. |
 > | . | Microsoft.ADHybridHealthService/services/servicemembers/serviceconfiguration/read | Obtiene la configuración del servicio de un inquilino dado. |
 > | . | Microsoft.ADHybridHealthService/services/tenantwhitelisting/read | Obtiene el estado de la listas blanca de características de un inquilino dado. |
@@ -600,38 +600,6 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.Batch/register/action | Registra la suscripción para el proveedor de recursos de Batch y habilita la creación de cuentas de Batch |
 > | . | Microsoft.Batch/unregister/action | Quita el registro de la suscripción para el proveedor de recursos de Batch evitando así la creación de cuentas de Batch. |
 
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Tipo de acción | Operación | DESCRIPCIÓN |
-> | --- | --- | --- |
-> | . | Microsoft.BatchAI/clusters/read | Enumera los clúster de Batch AI u obtiene las propiedades de un clúster de Batch AI. |
-> | . | Microsoft.BatchAI/fileservers/read | Enumera los servidores de archivos de Batch AI u obtiene las propiedades de servidor de archivos de Batch AI. |
-> | . | Microsoft.BatchAI/locations/operationresults/read | Obtiene el resultado de la operación asincrónica Batch AI en la región de Azure especificada. |
-> | . | Microsoft.BatchAI/locations/operationstatuses/read | Obtiene el estado de la operación asincrónica Batch AI en la región de Azure especificada. |
-> | . | Microsoft.BatchAI/locations/usages/read | Obtiene los usos de Batch AI de la suscripción especificada en la región de Azure especificada. |
-> | . | Microsoft.BatchAI/register/action | Registra la suscripción del proveedor de recursos de Batch AI y habilita la creación de recursos de Batch AI. |
-> | . | Microsoft.BatchAI/unregister/action | Cancela el registro de la suscripción del proveedor de recursos de Batch AI e impide la creación de recursos de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/clusters/delete | Elimina un clúster de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/clusters/read | Enumera los clúster de Batch AI u obtiene las propiedades de un clúster de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/clusters/remoteLoginInformation/action | Enumera la información de inicio de sesión remoto de un clúster de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/clusters/write | Crea un nuevo clúster de Batch AI o actualiza un clúster de Batch AI ya existente. |
-> | . | Microsoft.BatchAI/workspaces/delete | Elimina un área de trabajo de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/experiments/delete | Elimina un experimento de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/experiments/jobs/delete | Elimina un trabajo de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/experiments/jobs/listoutputfiles/action | Enumera archivos de salida para un trabajo de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/experiments/jobs/read | Enumera los trabajos de Batch AI u obtiene las propiedades de un trabajo de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/experiments/jobs/remoteLoginInformation/action | Enumera la información de inicio de sesión remoto de un trabajo de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/experiments/jobs/terminate/action | Finaliza un trabajo de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/experiments/jobs/write | Crea un nuevo trabajo de Batch AI o actualiza un trabajo de Batch AI ya existente |
-> | . | Microsoft.BatchAI/workspaces/experiments/read | Enumera los experimentos de Batch AI u obtiene las propiedades de un experimento de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/experiments/write | Crea un nuevo experimento de Batch AI o actualiza un experimento de Batch AI existente. |
-> | . | Microsoft.BatchAI/workspaces/fileservers/delete | Elimina un servidor de archivos de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/fileservers/read | Enumera los servidores de archivos de Batch AI u obtiene las propiedades de servidor de archivos de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/fileservers/write | Crea un nuevo servidor de archivos de Batch AI o actualiza un servidor de archivos de Batch AI ya existente. |
-> | . | Microsoft.BatchAI/workspaces/read | Enumera las áreas de trabajo de Batch AI u obtiene las propiedades de un área de trabajo de Batch AI. |
-> | . | Microsoft.BatchAI/workspaces/write | Crea una nueva área de trabajo de Batch AI o actualiza un área de trabajo de Batch AI existente. |
-
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -658,12 +626,12 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de acción | Operación | DESCRIPCIÓN |
 > | --- | --- | --- |
-> | . | Microsoft.Blueprint/blueprintAssignments/delete | Elimina los artefactos de plano técnico. |
+> | . | Microsoft.Blueprint/blueprintAssignments/delete | Elimina los artefactos de plano técnico |
 > | . | Microsoft.Blueprint/blueprintAssignments/read | Lee los artefactos de plano técnico. |
-> | . | Microsoft.Blueprint/blueprintAssignments/write | Crea o actualiza los artefactos de plano técnico. |
-> | . | Microsoft.Blueprint/blueprints/artifacts/delete | Elimina los artefactos de plano técnico. |
+> | . | Microsoft.Blueprint/blueprintAssignments/write | Crea o actualiza los artefactos de plano técnico |
+> | . | Microsoft.Blueprint/blueprints/artifacts/delete | Elimina los artefactos de plano técnico |
 > | . | Microsoft.Blueprint/blueprints/artifacts/read | Lee los artefactos de plano técnico. |
-> | . | Microsoft.Blueprint/blueprints/artifacts/write | Crea o actualiza los artefactos de plano técnico. |
+> | . | Microsoft.Blueprint/blueprints/artifacts/write | Crea o actualiza los artefactos de plano técnico |
 > | . | Microsoft.Blueprint/blueprints/delete | Elimina los planos técnicos. |
 > | . | Microsoft.Blueprint/blueprints/read | Lee los planos técnicos. |
 > | . | Microsoft.Blueprint/blueprints/versions/artifacts/read | Lee los artefactos de plano técnico. |
@@ -695,31 +663,31 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de acción | Operación | DESCRIPCIÓN |
 > | --- | --- | --- |
-> | . | Microsoft.Cache/checknameavailability/action | Comprueba si un nombre está disponible para su uso con una nueva instancia de Redis Cache |
+> | . | Microsoft.Cache/checknameavailability/action | Comprueba si un nombre está disponible para su uso con una nueva instancia de Azure Cache for Redis. |
 > | . | Microsoft.Cache/locations/operationresults/read | Obtiene el resultado de una operación de larga ejecución para la cual el encabezado "Location" se devolvió previamente al cliente. |
 > | . | Microsoft.Cache/operations/read | Enumera las operaciones que admite el proveedor "Microsoft.Cache". |
-> | . | Microsoft.Cache/redis/delete | Elimina la instancia completa de Redis Cache |
+> | . | Microsoft.Cache/redis/delete | Se elimina la instancia completa de Azure Cache for Redis. |
 > | . | Microsoft.Cache/redis/export/action | Exporta datos de Redis a blobs de almacenamiento prefijados en un formato especificado |
-> | . | Microsoft.Cache/redis/firewallRules/delete | Elimina las reglas de firewall IP de una instancia de Redis Cache |
-> | . | Microsoft.Cache/redis/firewallRules/read | Obtiene las reglas de firewall IP de una instancia de Redis Cache |
-> | . | Microsoft.Cache/redis/firewallRules/write | Edita las reglas de firewall IP de una instancia de Redis Cache |
+> | . | Microsoft.Cache/redis/firewallRules/delete | Se eliminan las reglas de firewall de dirección IP de una instancia de Azure Cache for Redis. |
+> | . | Microsoft.Cache/redis/firewallRules/read | Se obtienen las reglas de firewall de dirección IP de una instancia de Azure Cache for Redis. |
+> | . | Microsoft.Cache/redis/firewallRules/write | Se modifican las reglas de firewall de dirección IP de una instancia de Azure Cache for Redis. |
 > | . | Microsoft.Cache/redis/forceReboot/action | Fuerza el reinicio de una instancia de memoria caché, posiblemente con pérdida de datos. |
 > | . | Microsoft.Cache/redis/import/action | Importa datos de un formato especificado desde varios blobs en Redis |
-> | . | Microsoft.Cache/redis/linkedservers/delete | Elimina un servidor vinculado de una instancia de Redis Cache |
-> | . | Microsoft.Cache/redis/linkedservers/read | Obtiene los servidores vinculados asociados con una instancia de Redis Cache. |
-> | . | Microsoft.Cache/redis/linkedservers/write | Agrega un servidor vinculado a una instancia de Redis Cache |
-> | . | Microsoft.Cache/redis/listKeys/action | Visualiza el valor de las claves de acceso de Redis Cache en el portal de administración |
+> | . | Microsoft.Cache/redis/linkedservers/delete | Se elimina el servidor vinculado de una instancia de Azure Cache for Redis. |
+> | . | Microsoft.Cache/redis/linkedservers/read | Se obtienen los servidores vinculados asociados con una instancia de Azure Cache for Redis. |
+> | . | Microsoft.Cache/redis/linkedservers/write | Se agrega el servidor vinculado a una instancia de Azure Cache for Redis. |
+> | . | Microsoft.Cache/redis/listKeys/action | Se visualiza el valor de las claves de acceso de Azure Cache for Redis en el portal de administración. |
 > | . | Microsoft.Cache/redis/listUpgradeNotifications/read | Enumera las notificaciones de actualización más recientes para el inquilino de la caché. |
-> | . | Microsoft.Cache/redis/metricDefinitions/read | Obtiene las métricas disponibles para una instancia de Redis Cache |
-> | . | Microsoft.Cache/redis/patchSchedules/delete | Elimina la programación de una aplicación de revisiones de una instancia de Redis Cache |
-> | . | Microsoft.Cache/redis/patchSchedules/read | Obtiene la programación de una aplicación de revisiones de una instancia de Redis Cache |
-> | . | Microsoft.Cache/redis/patchSchedules/write | Modifica la programación de una aplicación de revisiones de una instancia de Redis Cache |
-> | . | Microsoft.Cache/redis/read | Visualiza la configuración de Redis Cache en el portal de administración |
-> | . | Microsoft.Cache/redis/recommendations/read | Lee recomendaciones de Azure Redis Cache. |
-> | . | Microsoft.Cache/redis/regenerateKey/action | Cambia el valor de las claves de acceso de Redis Cache en el portal de administración |
+> | . | Microsoft.Cache/redis/metricDefinitions/read | Se obtienen las métricas disponibles para una instancia de Azure Cache for Redis. |
+> | . | Microsoft.Cache/redis/patchSchedules/delete | Se elimina la programación de una aplicación de revisiones de una instancia de Azure Cache for Redis. |
+> | . | Microsoft.Cache/redis/patchSchedules/read | Se obtiene la programación de una aplicación de revisiones de una instancia de Azure Cache for Redis. |
+> | . | Microsoft.Cache/redis/patchSchedules/write | Se modifica la programación de una aplicación de revisiones de una instancia de Azure Cache for Redis. |
+> | . | Microsoft.Cache/redis/read | Se visualiza la configuración de Azure Cache for Redis en el portal de administración. |
+> | . | Microsoft.Cache/redis/recommendations/read | Se leen las recomendaciones para Azure Cache for Redis. |
+> | . | Microsoft.Cache/redis/regenerateKey/action | Se cambia el valor de las claves de acceso de Azure Cache for Redis en el portal de administración. |
 > | . | Microsoft.Cache/redis/start/action | Inicia una instancia de la memoria caché. |
 > | . | Microsoft.Cache/redis/stop/action | Detiene una instancia de la memoria caché. |
-> | . | Microsoft.Cache/redis/write | Modifica la configuración de Redis Cache en el portal de administración |
+> | . | Microsoft.Cache/redis/write | Se modifica la configuración de Azure Cache for Redis en el portal de administración. |
 > | . | Microsoft.Cache/register/action | Registra el proveedor de recursos "Microsoft.Cache" con una suscripción |
 > | . | Microsoft.Cache/unregister/action | Anula el registro del proveedor de recursos "Microsoft.Cache" con una suscripción |
 
@@ -1227,9 +1195,9 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.Consumption/marketplaces/read | Enumera los detalles de uso de los recursos de Marketplace referentes a un ámbito de las suscripciones EA y WebDirect. |
 > | . | Microsoft.Consumption/operations/read | Enumera todas las operaciones que admite el proveedor de recursos de Microsoft.Consumption. |
 > | . | Microsoft.Consumption/pricesheets/read | Enumera los datos de las hojas de precios de una suscripción o un grupo de administración. |
-> | . | Microsoft.Consumption/reservationDetails/read | Enumera los detalles de uso de las instancias que se reservaron mediante una solicitud de reserva o los grupos de administración. Los datos de los detalles se distribuyen por instancia y día. |
+> | . | Microsoft.Consumption/reservationDetails/read | Se enumeran los detalles de uso de las instancias reservadas por pedido de reserva o grupos de administración. Los datos de los detalles se distribuyen por instancia y día. |
 > | . | Microsoft.Consumption/reservationRecommendations/read | Enumera recomendaciones individuales o compartidas de las instancias reservadas de una suscripción. |
-> | . | Microsoft.Consumption/reservationSummaries/read | Enumera el resumen de uso de las instancias que se reservaron mediante una solicitud de reserva o los grupos de administración. Los datos de resumen son mensuales o diarios. |
+> | . | Microsoft.Consumption/reservationSummaries/read | Se enumera el resumen de uso de las instancias reservadas por pedido de reserva o grupos de administración. Los datos de resumen son mensuales o diarios. |
 > | . | Microsoft.Consumption/reservationTransactions/read | Enumera el historial de transacciones de las instancias que reservaron grupos de administración. |
 > | . | Microsoft.Consumption/tenants/register/action | Registra la acción de ámbito de Microsoft.Consumption mediante un inquilino. |
 > | . | Microsoft.Consumption/terms/read | Enumera los términos de una suscripción o un grupo de administración. |

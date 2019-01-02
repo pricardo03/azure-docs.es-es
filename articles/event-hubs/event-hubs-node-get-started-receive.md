@@ -1,20 +1,21 @@
 ---
-title: Recepción de eventos de Azure Event Hubs mediante Node.js | Microsoft Docs
-description: Obtenga información sobre cómo recibir eventos de Event Hubs mediante Node.js.
+title: 'Recepción de eventos mediante Node.js: Azure Event Hubs | Microsoft Docs'
+description: En este artículo se ofrece un tutorial para crear una aplicación de Node.js que recibe eventos de Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 09/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2f59b7f47acc8ce8e566b7f0e2bcfed379ea60d2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d13f97ff7ec25fd638b92dc1c057afcaeecc2bf9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239091"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434076"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Recepción de eventos de Azure Event Hubs mediante Node.js
 
@@ -27,7 +28,7 @@ En este tutorial se muestra cómo recibir eventos de un centro de eventos median
 El código de esta guía de inicio rápido está disponible en [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/processor).
 
 > [!NOTE]
->  Para enviar eventos a Event Hubs mediante Node.js, consulte sobre cómo [enviar envíos a Azure Event Hubs mediante Node.js](event-hubs-node-get-started-send.md). 
+>  Para enviar eventos a Event Hubs con Node.js, vea este artículo: [Envío de eventos a Azure Event Hubs mediante Node.js](event-hubs-node-get-started-send.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 

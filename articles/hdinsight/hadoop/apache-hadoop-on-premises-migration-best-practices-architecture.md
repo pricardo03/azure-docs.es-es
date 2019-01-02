@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 62e15b5845ed9faa605f978f0d2fd427c9c3ee9b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008188"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434016"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Procedimientos recomendados de arquitectura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -49,7 +49,7 @@ La tabla siguiente muestra los distintos métodos que se pueden usar para crear 
 |[SDK de Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Plantillas del Administrador de recursos de Azure](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
-Para obtener más información, consulte el artículo [Tipos de clúster de HDInsight](../hadoop/apache-hadoop-introduction.md).
+Para obtener más información, vea el artículo [Tipos de clúster de HDInsight](../hadoop/apache-hadoop-introduction.md).
 
 ## <a name="use-transient-on-demand-clusters"></a>Uso de clústeres transitorios y a petición
 
@@ -57,7 +57,7 @@ Los clústeres de HDInsight pueden quedarse sin usar durante largos períodos de
 
 Cuando se elimina un clúster, no se quitan la cuenta de almacenamiento asociada ni los metadatos externos. El clúster se puede volver a crear más adelante utilizando las mismas cuentas de almacenamiento y tiendas de metadatos.
 
-Azure Data Factory puede usarse para programar la creación de clústeres de HDInsight a petición. Para obtener más información, consulte el artículo [Creación de clústeres de Hadoop a petición en HDInsight mediante Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
+Azure Data Factory puede usarse para programar la creación de clústeres de HDInsight a petición. Para obtener más información, vea el artículo [Creación de clústeres de Apache Hadoop a petición en HDInsight mediante Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
 
 ## <a name="decouple-storage-from-compute"></a>Separación del almacenamiento del proceso
 
@@ -65,17 +65,19 @@ Normalmente, las implementaciones locales de Hadoop utilizan el mismo conjunto d
 
 En los clústeres de HDInsight, no es necesario ubicar el almacenamiento junto al proceso, y puede encontrarse en Azure Storage, Azure Data Lake Storage o ambos. La separación del almacenamiento del proceso tiene las siguientes ventajas:
 
-- Uso compartido de datos entre los clústeres
-- Uso de clústeres transitorios, puesto que los datos no dependen del clúster
-- Costo de almacenamiento reducido
-- Escalado del almacenamiento y el proceso por separado
-- Replicación de datos entre regiones
+- Uso compartido de datos entre los clústeres.
+- Uso de clústeres transitorios, puesto que los datos no dependen del clúster.
+- Costo de almacenamiento reducido.
+- Escalado del almacenamiento y el proceso por separado.
+- Replicación de datos entre regiones.
 
 Los clústeres de proceso se crean cerca de los recursos de la cuenta de almacenamiento en una región de Azure para mitigar el costo de rendimiento derivado de la separación de proceso y almacenamiento. La redes de alta velocidad consiguen que los nodos de proceso puedan acceder de forma eficaz a los datos que están dentro del almacenamiento de Azure.
 
 ## <a name="use-external-metadata-stores"></a>Uso de almacenes de metadatos externos
 
-Hay dos tiendas de metadatos principales que funcionan con clústeres de HDInsight: Hive y Oozie. La tienda de metadatos de Hive es el repositorio de esquema central que puede usarse por motores de procesamiento de datos como Hadoop, Spark, LLAP, Presto y Pig. La tienda de metadatos de Oozie almacena los detalles sobre la programación y el estado de los trabajos de Hadoop completados y en curso.
+
+Hay dos tiendas de metadatos principales que funcionan con clústeres de HDInsight: [Apache Hive](https://hive.apache.org/) y [Apache Oozie](https://oozie.apache.org/). Hive Metastore es el repositorio de esquema central que se puede usar en motores de procesamiento de datos como Hadoop, Spark, LLAP, Presto y Apache Pig. La tienda de metadatos de Oozie almacena los detalles sobre la programación y el estado de los trabajos de Hadoop completados y en curso.
+
 
 HDInsight usa Azure SQL Database para las tiendas de metadatos de Hive y Oozie. Hay dos formas de configurar una tienda de metadatos para los clústeres de HDInsight:
 
@@ -83,14 +85,14 @@ HDInsight usa Azure SQL Database para las tiendas de metadatos de Hive y Oozie. 
 
     - No implica costes adicionales.
     - La tienda de metadatos se elimina cuando se elimina el clúster.
-    - La tienda de metadatos no se puede compartir entre diferentes clústeres.
+    - La tienda de metadatos no se puede compartir entre otros clústeres.
     - Usa el nivel básico de Azure SQL DB, que tiene un límite de cinco DTU.
 
 1. Tienda de metadatos externa personalizada.
 
-    - Se especifica una instancia de Azure SQL Database externa como tienda de metatados.
+    - Se especifica una instancia de Azure SQL Database externa como tienda de metadatos.
     - Los clústeres se pueden crear y eliminar sin pérdida de metadatos, incluidos los detalles de trabajo de Oozie del esquema de Hive.
-    - Una sola base de datos de la tienda de metadatos se puede compartir con diferentes tipos de clúster.
+    - Una sola base de datos de la tienda de metadatos se puede compartir con otros tipos de clúster.
     - La tienda de metadatos se puede escalar verticalmente según sea necesario.
     - Para más información, consulte [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md) (Uso de almacenes externos de metadatos en Azure HDInsight).
 
@@ -106,7 +108,7 @@ Estos son algunos procedimientos recomendados para Hive Metastore en HDInsight:
 - Supervise el rendimiento y la disponibilidad de su tienda de metadatos mediante herramientas de supervisión de Azure SQL Database, como Azure Portal o Azure Log Analytics.
 - Ejecute el comando **ANALYZE TABLE** según sea necesario para generar estadísticas para tablas y columnas. Por ejemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
-## <a name="best-practices-for-different-types-of-workloads"></a>Procedimientos recomendados para los distintos tipos de cargas de trabajo
+## <a name="best-practices-for-different-workloads"></a>Procedimientos recomendados para las distintas cargas de trabajo
 
 - Considere el uso del clúster LLAP para consultas de Hive interactivas con tiempo de respuesta mejorada [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) es una característica nueva en Hive 2.0 que permite el almacenamiento en caché en memoria de consultas. LLAP hace que las consultas de Hive sean mucho más rápidas, hasta  [26 veces más que Hive 1.x en algunos casos](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Considere la posibilidad de utilizar trabajos de Spark en lugar de trabajos de Hive.

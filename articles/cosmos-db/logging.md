@@ -1,23 +1,20 @@
 ---
-title: Registro de diagnóstico de Azure Cosmos DB | Microsoft Docs
-description: Use este tutorial para obtener ayuda para empezar a trabajar con el registro de Azure Cosmos DB.
-services: cosmos-db
+title: Registro de diagnóstico de Azure Cosmos DB
+description: Obtenga información sobre las diferentes formas de supervisar y registrar datos almacenados en Azure Cosmos DB.
 author: SnehaGunda
-manager: kfile
-tags: azure-resource-manager
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.custom: seodec18
+ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423240"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438513"
 ---
-# <a name="azure-cosmos-db-diagnostic-logging"></a>Registro de diagnóstico de Azure Cosmos DB
+# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registro de diagnóstico de Azure Cosmos DB 
 
 Después de comenzar a usar una o más bases de datos de Azure Cosmos DB, puede que quiera supervisar cómo y cuándo se accede a las bases de datos. En este artículo se proporciona información general de los registros que están disponibles en la plataforma Azure. Aprenderá cómo habilitar el registro de diagnóstico con fines de supervisión para enviar registros a [Azure Storage ](https://azure.microsoft.com/services/storage/), cómo transmitir registros a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y cómo exportar registros a [Azure Log Analytics ](https://azure.microsoft.com/services/log-analytics/).
 
@@ -78,14 +75,14 @@ Para habilitar el registro de diagnóstico en Azure Portal, siga estos pasos:
 
 2. En la página **Configuración de diagnóstico**, siga estos pasos: 
 
-    * **Name** (Nombre): escriba un nombre para los registros que quiere crear.
+    * **Nombre**: Escriba un nombre para los registros que quiere crear.
 
-    * **Archivar en una cuenta de almacenamiento**: para usar esta opción, necesita una cuenta de almacenamiento existente a la cual conectarse. Para crear una nueva cuenta de almacenamiento en el portal, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md) y siga las instrucciones para crear una cuenta de uso general de Azure Resource Manager. Luego, vuelva a esta página en el portal para seleccionar la cuenta de almacenamiento. Las cuentas de almacenamiento recién creadas pueden tardar unos minutos en aparecer en el menú desplegable.
+    * **Archivar en una cuenta de almacenamiento**: Para usar esta opción, necesita una cuenta de almacenamiento existente a la cual conectarse. Para crear una nueva cuenta de almacenamiento en el portal, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md) y siga las instrucciones para crear una cuenta de uso general de Azure Resource Manager. Luego, vuelva a esta página en el portal para seleccionar la cuenta de almacenamiento. Las cuentas de almacenamiento recién creadas pueden tardar unos minutos en aparecer en el menú desplegable.
     * **Transmitir a un centro de eventos**: para usar esta opción, necesita un espacio de nombres de Event Hubs y un centro de eventos al que conectarse. Para crear un espacio de nombres de Event Hubs, consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md). Luego, vuelva a esta página en el portal para seleccionar el espacio de nombres de Event Hubs y el nombre de la directiva.
-    * **Enviar a Log Analytics**: para usar esta opción, use un área de trabajo existente o cree una nueva área de trabajo de Log Analytics siguiendo los pasos necesarios para [crear una nueva área de trabajo](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) en el portal. Para más información sobre cómo ver los registros de Log Analytics, consulte [Visualización de los registros de Log Analytics](#view-in-loganalytics).
-    * **Log DataPlaneRequests** (Registrar DataPlaneRequests): seleccione esta opción para registrar las solicitudes de back-end procedentes de la plataforma distribuida subyacente para cuentas de SQL, Graph, MongoDB, Cassandra y Table API de Azure Cosmos DB. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
-    * **Log MongoRequests** (Registrar MongoRequests): seleccione esta opción para registrar las solicitudes iniciadas por el usuario procedentes del front-end de Azure Cosmos DB que funciona con cuentas de la API de MongoDB. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
-    * **Metric Requests** (Solicitudes de métricas): seleccione esta opción para almacenar los datos detallados en [Métricas de Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
+    * **Enviar a Log Analytics**: para usar esta opción, utilice un área de trabajo existente o cree un área de trabajo de Log Analytics siguiendo los pasos necesarios para [crear un área de trabajo](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) en el portal. Para más información sobre cómo ver los registros de Log Analytics, consulte [Visualización de los registros de Log Analytics](#view-in-loganalytics).
+    * **Registrar DataPlaneRequests**: seleccione esta opción para registrar las solicitudes de back-end procedentes de la plataforma distribuida de Azure Cosmos DB subyacente para cuentas de SQL, Graph, MongoDB, Cassandra y Table API. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
+    * **Registrar MongoRequests**: seleccione esta opción para registrar las solicitudes iniciadas por el usuario procedentes del front-end de Azure Cosmos DB para cuentas de la API de MongoDB. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
+    * **Solicitudes de métricas**: seleccione esta opción para almacenar los datos detallados en [Métricas de Azure](../azure-monitor/platform/metrics-supported.md). Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
 
 3. Seleccione **Guardar**.
 
@@ -445,7 +442,7 @@ En la tabla siguiente se describe el contenido de cada entrada del registro.
 | **time** | **TimeGenerated** | La fecha y hora (UTC) cuando se produjo la operación. |
 | **resourceId** | **Recurso** | La cuenta de Azure Cosmos DB para la cual los registros están habilitados.|
 | **category** | **Categoría** | Para los registros de Azure Cosmos DB, **DataPlaneRequests** es el único valor disponible. |
-| **operationName** | **OperationName** | Nombre de la operación. Este valor puede ser cualquiera de las siguientes operaciones: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
+| **operationName** | **OperationName** | Nombre de la operación. Este valor puede ser cualquiera de las operaciones siguientes: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
 | **properties** | N/D | El contenido de este campo se describe en las filas siguientes. |
 | **activityId** | **activityId_g** | GUID único para la operación registrada. |
 | **userAgent** | **userAgent_s** | Una cadena que especifica el agente de usuario de cliente que realiza la solicitud. El formato es {nombre de agente de usuario}/{versión}.|

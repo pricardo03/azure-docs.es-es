@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7819ed3e18092e8b7bdf52225e7025b4b6d8146a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f580c78fa2114905a0ef28f51feee50361717a27
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981889"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435334"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
@@ -26,7 +26,7 @@ Para colaborar con los usuarios de organizaciones de partners a través de la co
 
 ## <a name="redemption-through-a-direct-link"></a>Canje a través de un vínculo directo
 
-Un invitador puede invitar a un usuario invitado mediante el envío de un vínculo directo a una aplicación compartida. Para el usuario invitado, la experiencia de canje es tan sencilla como iniciar sesión en la aplicación que se compartió con él. Puede hacer clic en un vínculo a la aplicación, revisar y aceptar los términos de privacidad y, a continuación, acceder a la aplicación sin problemas. En la mayoría de los casos, los usuarios invitados ya no necesitan hacer clic en una dirección URL de canje en un correo electrónico de invitación.
+Un invitador de usuarios puede invitar a un usuario invitado mediante el envío de un [vínculo directo a una aplicación compartida](../manage-apps/end-user-experiences.md#direct-sign-on-links). Para el usuario invitado, la experiencia de canje es tan sencilla como iniciar sesión en la aplicación que se compartió con él. Puede hacer clic en un vínculo a la aplicación, revisar y aceptar los términos de privacidad y, a continuación, acceder a la aplicación sin problemas. En la mayoría de los casos, los usuarios invitados ya no necesitan hacer clic en una dirección URL de canje en un correo electrónico de invitación.
 
 Si ha invitado a usuarios a través de la interfaz de usuario, o si elige enviar el correo electrónico de invitación como parte de la experiencia de invitación de PowerShell, el usuario invitado recibirá igualmente un correo electrónico de invitación. Este correo electrónico es útil para los casos especiales siguientes:
 
@@ -51,11 +51,17 @@ Después de que un usuario invitado inicie sesión por primera vez para acceder 
 
 ![Captura de pantalla que muestra la configuración de usuario en el panel de acceso](media/redemption-experience/ConsentScreen.png) 
 
-Para obtener información sobre cómo puede, como administrador de inquilinos, vincular con la declaración de privacidad de su organización, consulte [Procedimiento: Incorporación de información de privacidad de su organización en Azure AD](https://aka.ms/adprivacystatement).
+Para obtener información sobre cómo puede, como administrador de inquilinos, vincular con la declaración de privacidad de su organización, vea [Procedimiento: Incorporación de información de privacidad de su organización en Azure Active Directory](https://aka.ms/adprivacystatement).
+
+## <a name="terms-of-use"></a>Términos de uso
+
+Puede presentar los términos de uso al usuario invitado durante el proceso de canje inicial mediante la característica de términos de uso de Azure AD. En Azure Active Directory, puede acceder a esta característica en **Administrar** > **Relaciones organizativas** > **Términos de uso** o en **Seguridad** > **Acceso condicional** > **Términos de uso**. Para obtener más información, vea [Característica de términos de uso de Azure AD](../governance/active-directory-tou.md).
+
+![Captura de pantalla en la que se muestran los nuevos términos de uso](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
+- [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 - [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](add-users-administrator.md)
 - [¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B a Azure Active Directory?](add-users-information-worker.md)
 - [Incorporación de usuarios de colaboración B2B de Azure Active Directory con PowerShell](customize-invitation-api.md#powershell)

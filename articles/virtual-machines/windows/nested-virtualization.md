@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e9b05751166ac200f4a9cdab4c7fe3ed797f2a10
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d1381ff16d0de382634b06fd081f1827588f8ee9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465255"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435113"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
 
@@ -98,9 +98,9 @@ Cree un adaptador de red virtual nuevo para la máquina virtual invitada y confi
 4. Cree una dirección IP para la puerta de enlace NAT.
     
 Para configurar la puerta de enlace, necesita información sobre la red:    
-  * IPAddress: la dirección IP de la puerta de enlace NAT especifica la dirección IPv4 o IPv6 que se usará como la dirección de puerta de enlace predeterminada de la subred de la red virtual. El formato genérico es a.b.c.1 (por ejemplo, "192.168.0.1"). Si bien no es necesario que la posición final sea .1, habitualmente sí lo es (según la longitud de prefijo). Típicamente, debe usar un espacio de direcciones de red privadas RFC 1918. 
+  * IPAddress: la dirección IP de la puerta de enlace NAT especifica la dirección IPv4 o IPv6 que se va a usar como la dirección de puerta de enlace predeterminada de la subred de la red virtual. El formato genérico es a.b.c.1 (por ejemplo, "192.168.0.1"). Si bien no es necesario que la posición final sea .1, habitualmente sí lo es (según la longitud de prefijo). Típicamente, debe usar un espacio de direcciones de red privadas RFC 1918. 
   * PrefixLength: la longitud de prefijo de la subred define el tamaño de la subred local (máscara de subred). La longitud de prefijo de la subred será un valor entero entre 0 y 32. 0 asignaría todo Internet, 32 solo permitiría una dirección IP asignada. Los valores comunes van de 24 a 12 en función de cuántas direcciones IP se deben adjuntar a NAT. Un valor de PrefixLength común es 24, que es una máscara de subred de 255.255.255.0.
-  * InterfaceIndex - **ifIndex** es el índice de interfaz del conmutador virtual que se creó en el paso anterior. 
+  * InterfaceIndex: **ifIndex** es el índice de interfaz del conmutador virtual que se creó en el paso anterior. 
 
     ```powershell
     New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 13
@@ -157,7 +157,7 @@ Siga estos pasos para configurar DHCP en la máquina virtual host para la asigna
   
 4. Defina un intervalo IP para el servidor DHCP (por ejemplo, de 192.168.0.100 a 192.168.0.200).
   
-5. Haga clic en **Siguiente** hasta la página Puerta de enlace predeterminada. Escriba la dirección IP que creó anteriormente (por ejemplo, 192.168.0.1) como la puerta de enlace predeterminada.
+5. Haga clic en **Siguiente** hasta la página Puerta de enlace predeterminada. Escriba la dirección IP que creó anteriormente (por ejemplo, 192.168.0.1) como la puerta de enlace predeterminada y después haga clic en **Agregar**.
   
 6. Haga clic en **Siguiente** hasta completar el asistente, deje todos los valores predeterminados y haga clic en **Finalizar**.
     

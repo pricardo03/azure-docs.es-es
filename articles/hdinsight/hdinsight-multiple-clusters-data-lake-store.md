@@ -10,19 +10,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: f92100e6e4dd7569a109aa01f3c998777568cce3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6b835dc300808453240dd3b9fe47957bd5feab9b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004601"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435232"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Uso de varios clústeres de HDInsight con una cuenta de Azure Data Lake Store
 
 A partir de la HDInsight 3.5, puede crear clústeres de HDInsight con cuentas de Azure Data Lake Store como el sistema de archivos predeterminado.
-Data Lake Store admite almacenamiento ilimitado, lo cual es idóneo no solo para hospedar grandes cantidades de datos, sino también para hospedar varios clústeres de HDInsight que compartan una única cuenta de Data Lake Store. Para obtener instrucciones sobre cómo crear un clúster de HDInsight con Data Lake Store como almacenamiento, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Data Lake Store admite almacenamiento ilimitado, lo cual es idóneo no solo para hospedar grandes cantidades de datos, sino también para hospedar varios clústeres de HDInsight que compartan una única cuenta de Data Lake Store. Para obtener instrucciones sobre cómo crear un clúster de HDInsight con Data Lake Store como almacenamiento, vea [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) (Inicio rápido: Configuración de clústeres en HDInsight).
 
-Este artículo se proporcionan recomendaciones para que el administrador de Data Lake Store configure una única cuenta compartida de Data Lake Store que pueda usarse en varios clústeres **activos** de HDInsight. Estas recomendaciones se aplican al hospedaje de varios clústeres de Hadoop seguros y no seguros en una cuenta compartida de Data Lake Store.
+Este artículo se proporcionan recomendaciones para que el administrador de Data Lake Store configure una única cuenta compartida de Data Lake Store que pueda usarse en varios clústeres **activos** de HDInsight. Estas recomendaciones se aplican al hospedaje de varios clústeres de Apache Hadoop seguros y no seguros en una cuenta compartida de Data Lake Store.
 
 
 ## <a name="data-lake-store-file-and-folder-level-acls"></a>ACL de nivel de archivo y carpeta de Data Lake Store
@@ -78,7 +78,7 @@ Al crear una entidad de servicio con acceso de un usuario con nombre (como se in
 
 Esta sección muestra los problemas conocidos de uso de HDInsight con Data Lake Store y sus soluciones alternativas.
 
-### <a name="publicly-visible-localized-yarn-resources"></a>Recursos YARN localizados visibles públicamente
+### <a name="publicly-visible-localized-apache-hadoop-yarn-resources"></a>Recursos YARN de Apache Hadoop localizados visibles públicamente
 
 Cuando se crea una nueva cuenta de Azure Data Lake Store, el directorio raíz se aprovisiona automáticamente con los bits de permiso de acceso ACL establecidos en 770. El usuario propietario de la carpeta raíz está configurado como el usuario que creó la cuenta (el administrador de Data Lake Store) y el grupo propietario está configurado como el grupo principal del usuario que creó la cuenta. No se proporciona acceso para otros usuarios.
 
@@ -93,6 +93,6 @@ Configure los permisos de lectura y ejecución para **otros** mediante la jerarq
 
 ## <a name="see-also"></a>Otras referencias
 
-* [Guía de inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) (Inicio rápido: Configuración de clústeres en HDInsight)
 
 

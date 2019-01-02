@@ -4,25 +4,25 @@ description: Obtenga información acerca de la solución de problemas con el age
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/06/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: adaeb3087fca57a4a868f4525d588e014ff36fcf
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335834"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438649"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Información sobre los resultados de la comprobación del agente de Linux en Update Management
 
-Puede haber muchas razones por las que su máquina de Azure no muestra el estado **Listo** en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas desde Azure Portal y en escenarios sin conexión.
+Puede haber muchas razones por las que el equipo no muestre el estado **Listo** en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y máquinas que son de Azure en [escenarios sin conexión](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>Iniciar el solucionador de problemas
 
-Si hace clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, abra la página **Solucionar problemas del Agente de actualización**. Esta página muestra los problemas con el agente y un vínculo a este artículo para ayudarle a solucionar sus problemas.
+Para las máquinas de Azure, al hacer clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, se abre la página **Solucionar problemas del Agente de actualización**. Para las máquinas que no son de Azure, el vínculo le lleva a este artículo. Vea las [instrucciones sin conexión](#offline) para solucionar problemas de una máquina que no es de Azure.
 
 ![Página de Lista de VM](../media/update-agent-issues-linux/vm-list.png)
 
@@ -54,12 +54,12 @@ La comprobación del sistema operativo comprueba si el Hybrid Runbook Worker eje
 
 ### <a name="oms-agent"></a>Agente OMS
 
-Esta comprobación garantiza que está instalado el Agente de OMS para Linux. Para obtener instrucciones sobre cómo instalarlo, consulte [Install the agent for Linux](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+Esta comprobación garantiza que está instalado el Agente de OMS para Linux. Para obtener instrucciones sobre cómo instalarlo, consulte [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ) (Instalación del agente para Linux).
 
 ### <a name="oms-agent-status"></a>Estado del Agente de OMS
 
-Esta comprobación garantiza que se está ejecutando el Agente de OMS para Linux. Si el agente no se está ejecutando, puede ejecutar el comando siguiente para intentar reiniciarlo. Para obtener más información sobre cómo solucionar problemas del agente, consulte [Solución de problemas de Hybrid Runbook Worker](hybrid-runbook-worker.md#linux).
+Esta comprobación garantiza que se está ejecutando el Agente de OMS para Linux. Si el agente no se está ejecutando, puede ejecutar el comando siguiente para intentar reiniciarlo. Para obtener más información sobre cómo solucionar problemas del agente, vea [Solución de problemas de Hybrid Runbook Worker en Linux](hybrid-runbook-worker.md#linux).
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -71,7 +71,7 @@ Esta comprobación determina si el agente está informando a varias áreas de tr
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-Esto se comprueba para asegurarse de que el Agente de OMS para Linux tiene el paquete de Hybrid Runbook Worker. Este paquete es necesario para que funcione Update Management.
+Esta comprobación es para asegurarse de que el Agente de OMS para Linux tiene el paquete de Hybrid Runbook Worker. Este paquete es necesario para que funcione Update Management.
 
 ### <a name="hybrid-runbook-worker-status"></a>Estado de Hybrid Runbook Worker
 
