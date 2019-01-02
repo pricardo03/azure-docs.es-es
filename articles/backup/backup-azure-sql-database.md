@@ -3,7 +3,7 @@ title: Copia de seguridad de bases de datos de SQL Server en Azure | Microsoft D
 description: Este tutorial explica cómo realizar una copia de seguridad de SQL Server en Azure. En este tutorial también se explica cómo se realiza la recuperación de SQL Server.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: ''
@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
-ms.author: markgal;anuragm
+ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 6091a3b3506adf87418b529c3cca6b96e9bb2af9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317694"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410370"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Copia de seguridad de bases de datos de SQL Server en Azure
 
@@ -47,6 +46,8 @@ Los elementos siguientes son las limitaciones conocidas de la versión prelimina
 - [Las copias de seguridad de grupos de disponibilidad distribuidos tienen limitaciones](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017).
 - No se admiten las instancias de clústeres de conmutación por error (FCI) de los grupos de disponibilidad Always On de SQL Server.
 - Use Azure Portal para configurar Azure Backup para proteger las bases de datos SQL Server. Actualmente no se admite Azure PowerShell, ni la CLI de Azure ni las API REST.
+- No se admiten las operaciones de copia de seguridad/restauración para bases de datos reflejadas, instantáneas de bases de datos y bases de datos en FCI.
+- No se puede proteger la base de datos con un gran número de archivos. El número máximo de archivos admitidos no es un número muy determinístico, ya que no solo depende del número de archivos sino también de la longitud de la ruta de los archivos. Sin embargo, estos casos son menos frecuentes. Estamos creando una solución para tratar esto.
 
 Consulte la [sección de preguntas frecuentes](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) para más información sobre los escenarios admitidos y no admitidos.
 
@@ -106,6 +107,7 @@ Para poder realizar copias de seguridad de la base de datos de SQL Server, prime
 - Identifique o [cree un almacén de Recovery Services](backup-azure-sql-database.md#create-a-recovery-services-vault) en la misma región o configuración regional que la máquina virtual que hospeda la instancia de SQL Server.
 - [Compruebe los permisos en la máquina virtual](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) necesarios para realizar la copia de seguridad de las bases de datos SQL.
 - Compruebe que [la máquina virtual SQL tiene conectividad de red](backup-azure-sql-database.md#establish-network-connectivity).
+- Compruebe si las bases de datos SQL se nombran según las [instrucciones de nomenclatura](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) para que Azure Backup realice copias de seguridad correctas.
 
 > [!NOTE]
 > Puede tener solo una solución de copia de seguridad a la vez para realizar copias de seguridad de las bases de datos de SQL Server. Deshabilite las demás copias de seguridad de SQL antes de usar esta característica; en caso contrario, las copias de seguridad interferirían y se produciría un error. Puede habilitar Azure Backup para máquinas virtuales IaaS con la copia de seguridad de SQL sin que se produzca ningún conflicto.
@@ -118,7 +120,7 @@ Si estas condiciones existen en su entorno, continúe en [Configuración de la c
 
 Para todas las operaciones, la máquina virtual SQL necesita conectividad a las direcciones IP públicas de Azure. Se producirá un error en las operaciones con máquinas virtuales SQL (como detección de base de datos, configuración de copias de seguridad, copias de seguridad programadas, restauración de puntos de recuperación, etc.) si no existe conectividad con las direcciones IP públicas. Use alguna de las siguientes opciones para ofrecer una ruta de acceso clara para el tráfico de copia de seguridad:
 
-- Incluya los intervalos de IP del centro de datos de Azure en una lista de permitidos: para incluir en una lista de permitidos los intervalos de IP del centro de datos de Azure, consulte la [página del centro de descargas para obtener información detallada sobre los intervalos de IP junto con instrucciones](https://www.microsoft.com/download/details.aspx?id=41653).
+- Incluya los intervalos de IP de un centro de datos de Azure en una lista de permitidos: Para incluir en una lista de permitidos los intervalos de IP del centro de datos de Azure, consulte la [página del centro de descargas para obtener información detallada sobre los intervalos de IP junto con instrucciones](https://www.microsoft.com/download/details.aspx?id=41653).
 - Implemente un servidor proxy HTTP para enrutar el tráfico: cuando haga copias de seguridad de una base de datos SQL en una máquina virtual, la extensión de copia de seguridad de la máquina virtual utiliza las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure Active Directory (Azure AD) para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. El de extensión es el único componente configurado para el acceso a la red pública de Internet.
 
 Los inconvenientes entre las opciones son: capacidad de administración, control granular y costo.
@@ -134,7 +136,7 @@ Los inconvenientes entre las opciones son: capacidad de administración, control
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Definición de permisos para máquinas virtuales SQL no incluidas en el catálogo de soluciones
 
-Para hacer una copia de seguridad de una máquina virtual, Azure Backup requiere la instalación de la extensión **AzureBackupWindowsWorkload**. Si usa máquinas virtuales de Azure Marketplace, siga en [Detección de bases de datos SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Si no se crea la máquina virtual que hospeda las bases de datos SQL desde Azure Marketplace, complete el siguiente procedimiento para instalar la extensión y establecer los permisos apropiados. Además de la extensión **AzureBackupWindowsWorkload**, Azure Backup requiere privilegios de administrador del sistema de SQL para proteger las bases de datos SQL. Para detectar las bases de datos en la máquina virtual, Azure Backup crea la cuenta **NT Service\AzureWLBackupPluginSvc**. Para que Azure Backup detecte las bases de datos SQL, la cuenta **NT Service\AzureWLBackupPluginSvc** debe disponer de permisos de administrador del sistema de SQL y en SQL. En el procedimiento siguiente se explica cómo proporcionar estos permisos.
+Para hacer una copia de seguridad de una máquina virtual, Azure Backup requiere la instalación de la extensión **AzureBackupWindowsWorkload**. Si usa máquinas virtuales de Azure Marketplace, siga en [Detección de bases de datos SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Si no se crea la máquina virtual que hospeda las bases de datos SQL desde Azure Marketplace, complete el siguiente procedimiento para instalar la extensión y establecer los permisos apropiados. Además de la extensión **AzureBackupWindowsWorkload**, Azure Backup requiere privilegios de administrador del sistema de SQL para proteger las bases de datos SQL. Para detectar las bases de datos en la máquina virtual, Azure Backup crea la cuenta **NT Service\AzureWLBackupPluginSvc**. Esta cuenta se utiliza para realizar copias de seguridad y restauraciones, y debe tener permiso del administrador del sistema SQL. Además, Azure Backup aprovechará la cuenta **NT AUTHORITYSYSTEM** para la detección o consulta de la base de datos, por lo que esta cuenta debe ser un inicio de sesión público en SQL.
 
 Para configurar permisos:
 
@@ -144,13 +146,13 @@ Para configurar permisos:
 
    ![Seleccionar Copia de seguridad para abrir el menú Objetivo de Backup](./media/backup-azure-sql-database/open-backup-menu.png)
 
-3. En el menú **Objetivo de Backup**, en **¿Dónde se ejecuta su carga de trabajo?**, deje **Azure** como opción predeterminada.
+3. En el menú **Objetivo de Backup**, establezca **¿Dónde se ejecuta su carga de trabajo?** en el valor predeterminado: **Azure**.
 
 4. En el menú **¿De qué quiere hacer una copia de seguridad?**, expanda el cuadro de lista desplegable y seleccione **SQL Server en una máquina virtual de Azure**.
 
     ![Seleccionar SQL Server en una máquina virtual de Azure para la copia de seguridad](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    En el menú **Objetivo de Backup** se muestran dos pasos: **Detección de bases de datos en máquinas virtuales** y **Configuración de copia de seguridad**. El paso **Detección de bases de datos en máquinas virtuales** inicia una búsqueda de máquinas virtuales de Azure.
+    El menú **Objetivo de Backup** muestra dos pasos: **Detectar bases de datos en máquinas virtuales** y **Configurar copia de seguridad**. El paso **Detección de bases de datos en máquinas virtuales** inicia una búsqueda de máquinas virtuales de Azure.
 
     ![Revisar los dos pasos de Objetivo de Backup](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -202,6 +204,14 @@ Durante el proceso de instalación, si ve el error `UserErrorSQLNoSysadminMember
 
 Una vez asociada la base de datos con el almacén de Recovery Services, el paso siguiente consiste en [configurar el trabajo de copia de seguridad](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
+## <a name="sql-database-naming-guidelines-for-azure-backup"></a>Instrucciones de nomenclatura de la base de datos SQL para Azure Backup
+Para asegurar copias de seguridad sin problemas con Azure Backup para SQL Server en IaaS VM, evite lo siguiente al asignar un nombre a las bases de datos:
+
+  * Espacios iniciales o finales
+  * Signos '!' finales
+
+Hay alias para los caracteres no admitidos de la tabla Azure, pero se recomienda evitarlos también. Para más información, consulte [este](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN) artículo.
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-sql-server-databases"></a>Detección de bases de datos SQL Server
@@ -216,7 +226,7 @@ Azure Backup detecta todas las bases de datos de una instancia de SQL Server. Pu
 
 3. En el cuadro de diálogo **Todos los servicios**, escriba **Recovery Services**. A medida que escribe, la entrada filtra la lista de recursos. Seleccione **Almacenes de Recovery Services** en la lista.
 
-    ![Escribir y elegir Almacenes de Recovery Services](./media/backup-azure-sql-database/all-services.png) <br/>
+  ![Escribir y elegir Almacenes de Recovery Services](./media/backup-azure-sql-database/all-services.png) <br/>
 
     Aparece la lista de almacenes de Recovery Services de la suscripción.
 
@@ -226,13 +236,13 @@ Azure Backup detecta todas las bases de datos de una instancia de SQL Server. Pu
 
    ![Seleccionar Copia de seguridad para abrir el menú Objetivo de Backup](./media/backup-azure-sql-database/open-backup-menu.png)
 
-6. En el menú **Objetivo de Backup**, en **¿Dónde se ejecuta su carga de trabajo?**, deje **Azure** como opción predeterminada.
+6. En el menú **Objetivo de Backup**, establezca **¿Dónde se ejecuta su carga de trabajo?** en el valor predeterminado: **Azure**.
 
 7. En el menú **¿De qué quiere hacer una copia de seguridad?**, expanda el cuadro de lista desplegable y seleccione **SQL Server en una máquina virtual de Azure**.
 
     ![Seleccionar SQL Server en una máquina virtual de Azure para la copia de seguridad](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    En el menú **Objetivo de Backup** se muestran dos pasos: **Detección de bases de datos en máquinas virtuales** y **Configuración de copia de seguridad**.
+    El menú **Objetivo de Backup** muestra dos pasos: **Detectar bases de datos en máquinas virtuales** y **Configurar copia de seguridad**.
 
     ![Revisar los dos pasos de Objetivo de Backup](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -274,13 +284,13 @@ Para configurar la protección de una base de datos SQL:
 
    ![Seleccionar Copia de seguridad para abrir el menú Objetivo de Backup](./media/backup-azure-sql-database/open-backup-menu.png)
 
-3. En el menú **Objetivo de Backup**, en **¿Dónde se ejecuta su carga de trabajo?**, deje **Azure** como opción predeterminada.
+3. En el menú **Objetivo de Backup**, establezca **¿Dónde se ejecuta su carga de trabajo?** en el valor predeterminado: **Azure**.
 
 4. En el menú **¿De qué quiere hacer una copia de seguridad?**, expanda el cuadro de lista desplegable y seleccione **SQL Server en una máquina virtual de Azure**.
 
     ![Seleccionar SQL Server en una máquina virtual de Azure para la copia de seguridad](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    En el menú **Objetivo de Backup** se muestran dos pasos: **Detección de bases de datos en máquinas virtuales** y **Configuración de copia de seguridad**.
+    El menú **Objetivo de Backup** muestra dos pasos: **Detectar bases de datos en máquinas virtuales** y **Configurar copia de seguridad**.
 
     Si ha completado los pasos de este artículo de forma ordenada, ya habrá detectado las máquinas virtuales no protegidas, y este almacén estará registrado con una máquina virtual. Ahora está listo para configurar la protección de las bases de datos SQL.
 
@@ -288,7 +298,7 @@ Para configurar la protección de una base de datos SQL:
 
     ![Seleccionar Configurar copia de seguridad](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    El servicio Azure Backup muestra todas las instancias de SQL Server con bases de datos independientes, además de los grupos de disponibilidad Always On de SQL Server. Para ver las bases de datos independientes en la instancia de SQL Server, seleccione el botón de contenido adicional que se encuentra a la izquierda del nombre de la instancia. De igual modo, seleccione el botón de contenido adicional situado a la izquierda del grupo de disponibilidad Always On para ver la lista de bases de datos. En la imagen siguiente se muestra un ejemplo de una instancia independiente y un grupo de disponibilidad Always On.
+    El servicio Azure Backup muestra todas las instancias de SQL Server con bases de datos independientes, además de los grupos de disponibilidad Always On de SQL Server. Para ver las bases de datos independientes en la instancia de SQL Server, seleccione el botón de contenido adicional que se encuentra a la izquierda del nombre de la instancia. De igual modo, seleccione el botón de contenido adicional situado a la izquierda del grupo de disponibilidad Always On para ver la lista de bases de datos. En la imagen siguiente se muestra un ejemplo de una instancia independiente y un grupo de disponibilidad Always On.
 
       ![Mostrar todas las instancias de SQL Server con bases de datos independientes](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -302,16 +312,9 @@ Para configurar la protección de una base de datos SQL:
     > Para optimizar las cargas de copia de seguridad, Azure Backup divide grandes trabajos de copia de seguridad en varios lotes. El número máximo de bases de datos de un trabajo de copia de seguridad es cincuenta.
     >
 
-    Como alternativa, puede habilitar la protección automática en la instancia completa o el grupo de disponibilidad Always On si selecciona la opción **ON** (Activado) en la lista desplegable correspondiente de la columna **AUTOPROTECT** (Protección automática). La característica de protección automática no solo habilita la protección en todas las bases de datos existentes en una sola operación, sino que también protege automáticamente las nuevas bases de datos que se agregarán a esa instancia o al grupo de disponibilidad en el futuro.  
+      Como alternativa, puede habilitar la [protección automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) en la instancia completa o el grupo de disponibilidad Always On si selecciona la opción **ON** (Activado) en la lista desplegable correspondiente de la columna **AUTOPROTECT** (Protección automática). La característica de [protección automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) no solo habilita la protección en todas las bases de datos existentes en una sola operación, sino que también protege automáticamente las nuevas bases de datos que se agregarán a esa instancia o al grupo de disponibilidad en el futuro.  
 
       ![Habilitar la protección automática en el grupo de disponibilidad Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
-
-      En caso de que una instancia o un grupo de disponibilidad ya tenga algunas de sus bases de datos protegidas, puede establecer en **ON** la opción de protección automática. En este caso, la directiva de copia de seguridad definida en el siguiente paso ahora solo será aplicable a las bases de datos no protegidas mientras que las bases de datos ya protegidas seguirán protegidas con sus respectivas directivas.
-
-      No hay ningún límite en el número de bases de datos que se seleccionan de una vez con la característica de protección automática (se pueden seleccionar tantas bases de datos como en el almacén).  
-
-      Se recomienda activar la protección automática para todas las instancias y grupos de disponibilidad Always On si desea que las bases de datos agregadas en el futuro se configuren automáticamente para la protección.
-
 
 7. Para crear o elegir una directiva de copia de seguridad, en el menú **Copia de seguridad**, seleccione **Directiva de copia de seguridad**. Se abre el menú **Directiva de copia de seguridad**.
 
@@ -325,7 +328,7 @@ Para configurar la protección de una base de datos SQL:
     ![Elegir una directiva de copia de seguridad de la lista](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     En el menú **Directiva de copia de seguridad** del cuadro de lista desplegable **Elegir directiva de copia de seguridad**, puede:
-    - Seleccionar la directiva predeterminada: **HourlyLogBackup**.
+    - Selección de la directiva predeterminada: **HourlyLogBackup**.
     - Elegir una directiva de copia de seguridad existente creada previamente para SQL.
     - [Definir una nueva directiva](backup-azure-sql-database.md#define-a-backup-policy) basada en el objetivo de punto de recuperación (RPO) y en la duración de retención.
 
@@ -341,6 +344,20 @@ Para configurar la protección de una base de datos SQL:
 
     ![Área de notificaciones](./media/backup-azure-sql-database/notifications-area.png)
 
+
+## <a name="auto-protect-sql-server-in-azure-vm"></a>Protección automática de SQL Server en la máquina virtual de Azure  
+
+La protección automática le permite proteger automáticamente todas las bases de datos existentes y las bases de datos que agregaría en el futuro a una instancia de SQL Server independiente o a un grupo de disponibilidad Always On de SQL Server. La **activación** de la protección automática y la elección de una directiva de copias de seguridad se aplicará a las bases de datos recientemente protegidas, las bases de datos protegidas existentes seguirán utilizando la directiva anterior.
+
+![Habilitar la protección automática en el grupo de disponibilidad Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
+
+No hay ningún límite en el número de bases de datos que se seleccionan de una vez con la característica de protección automática. Se desencadena la configuración de la copia de seguridad para todas las bases de datos juntas y se puede hacer un seguimiento en los **trabajos de copias de seguridad**.
+
+Si por alguna razón tiene que deshabilitar la protección automática en una instancia, haga clic en el nombre de la instancia en **Configurar copia de seguridad** para abrir el panel de información del lado derecho que tiene la opción **Deshabilitar la protección automática** en la parte superior. Haga clic en **Deshabilitar la protección automática** para deshabilitar la protección automática en esa instancia.
+
+![Deshabilitar la protección automática en dicha instancia](./media/backup-azure-sql-database/disable-auto-protection.png)
+
+Todas las bases de datos de esa instancia seguirán estando protegidas. Sin embargo, esta acción deshabilitará la protección automática en las bases de datos que se agreguen en el futuro.
 
 ### <a name="define-a-backup-policy"></a>Definición de una directiva de copia de seguridad
 
@@ -460,7 +477,7 @@ También puede seleccionar una copia de seguridad completa o diferencial especí
     - **Sobrescribir la base de datos**: restaura los datos en la misma instancia de SQL Server que el origen. El efecto de esta opción es que se sobrescribe la base de datos original.
 
     > [!Important]
-    > Si la base de datos seleccionada pertenece a un grupo de disponibilidad AlwaysOn, SQL no permite sobrescribir la base de datos. En este caso, solo está habilitada la opción **Ubicación alternativa**.
+    > Si la base de datos seleccionada pertenece a un grupo de disponibilidad Always On, SQL Server no permite sobrescribir la base de datos. En este caso, solo está habilitada la opción **Ubicación alternativa**.
     >
 
     ![Menú Restaurar configuración](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
@@ -737,15 +754,9 @@ Para detener la protección de una base de datos:
 
 7. Seleccione **Detener copia de seguridad** para dejar de proteger la base de datos.
 
-  Tenga en cuenta que la opción **Detener copia de seguridad** no funcionará para una base de datos en una instancia protegida automáticamente. La única forma de dejar de proteger esta base de datos consiste en deshabilitar la protección automática en la instancia por el momento y, a continuación, elegir la opción **Detener copia de seguridad** en **Elementos de copia de seguridad** para esa base de datos.  
+  Tenga en cuenta que la opción **Detener copia de seguridad** no funcionará para una base de datos en una instancia [protegida automáticamente](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm). La única forma de dejar de proteger esta base de datos consiste en deshabilitar la [protección automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) en la instancia por el momento y, a continuación, elegir la opción **Detener copia de seguridad** en **Elementos de copia de seguridad** para esa base de datos.<br>
+  Después de deshabilitar la protección automática, puede **detener la copia de seguridad** para la base de datos en **Elementos de copia de seguridad**. La instancia puede habilitarse de nuevo para la protección automática.
 
-  Puede deshabilitar la protección automática en una instancia o un grupo de disponibilidad Always On en **Configurar copia de seguridad**. Haga clic en el nombre de instancia para abrir el panel de información del lado derecho que tenga **Deshabilitar la protección automática** en la parte superior. Haga clic en **Deshabilitar la protección automática** para deshabilitar la protección automática en esa instancia.
-
-    ![Deshabilitar la protección automática en dicha instancia](./media/backup-azure-sql-database/disable-auto-protection.png)
-
-Todas las bases de datos de esa instancia seguirán estando protegidas. Sin embargo, esta acción deshabilitará la protección automática en las bases de datos que se agreguen en el futuro.
-
-Después de deshabilitar la protección automática, puede **detener la copia de seguridad** para la base de datos en **Elementos de copia de seguridad**. La instancia puede habilitarse de nuevo para la protección automática.
 
 ### <a name="resume-protection-for-a-sql-database"></a>Reanudación de la protección en una base de datos SQL
 
@@ -799,19 +810,15 @@ En la sección siguiente se proporciona información adicional acerca de la copi
 ### <a name="can-i-throttle-the-speed-of-the-sql-server-backup-policy"></a>¿Puedo limitar la velocidad de la directiva de copia de seguridad de SQL Server?
 
 Sí. Puede limitar la velocidad a la que se ejecuta la directiva de copia de seguridad para minimizar el impacto en una instancia de SQL Server.
-
 Para cambiar la configuración:
-
-1. En la instancia de SQL Server, en la carpeta C:\Archivos de programa\Azure Workload Backup\bin, abra el archivo **TaskThrottlerSettings.json**.
-
-2. En el archivo TaskThrottlerSettings.json, cambie el valor de **DefaultBackupTasksThreshold** por uno inferior, por ejemplo, 5.
+1. En la instancia de SQL Server, en la carpeta *C:\Archivos de programa\Azure Workload Backup\bin*, cree el archivo **ExtensionSettingsOverrides.json**.
+2. En el archivo **ExtensionSettingsOverrides.json**, cambie el valor de **DefaultBackupTasksThreshold** por uno inferior, por ejemplo, 5. <br>
+  ` {"DefaultBackupTasksThreshold": 5}`
 
 3. Guarde los cambios. Cierre el archivo.
-
-4. En la instancia de SQL Server, abra el **Administrador de tareas**. Reinicie el **servicio de coordinador de carga de trabajo de Azure Backup**.
+4. En la instancia de SQL Server, abra el **Administrador de tareas**. Reinicie el servicio **AzureWLBackupCoordinatorSvc**.
 
 ### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>¿Puedo ejecutar una copia de seguridad completa desde una réplica secundaria?
-
  No. No se admite esta característica.
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>¿Generan alertas los trabajos de copia de seguridad que se han realizado correctamente?
@@ -840,22 +847,22 @@ El almacén de Azure Backup Recovery Services puede detectar y proteger todos lo
 
 ### <a name="while-i-want-to-protect-most-of-the-databases-in-an-instance-i-would-like-to-exclude-a-few-is-it-possible-to-still-use-the-auto-protection-feature"></a>Aunque deseo proteger la mayoría de las bases de datos de una instancia, me gustaría excluir algunas. ¿Es posible seguir usando la característica de protección automática?
 
-No, la protección automática se aplica a toda la instancia. No puede proteger las bases de datos de una instancia de forma selectiva con la protección automática.
+No, la [protección automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) se aplica a toda la instancia. No puede proteger las bases de datos de una instancia de forma selectiva con la protección automática.
 
 ### <a name="can-i-have-different-policies-for-different-databases-in-an-auto-protected-instance"></a>¿Puedo tener directivas diferentes para distintas bases de datos en una instancia protegida automáticamente?
 
-Si ya tiene algunas bases de datos protegidas en una instancia, seguirá protegido por sus respectivas directivas incluso cuando establezca en **ON** (Activada) la opción de protección automática. Sin embargo, todas las bases de datos no protegidas junto con las que desearía agregar en el futuro tendrán solo una única directiva que se defina en **Configurar copia de seguridad** una vez seleccionadas las bases de datos. De hecho, a diferencia de otras bases de datos protegidas, ni siquiera puede cambiar la directiva para una base de datos en una instancia protegida automáticamente.
+Si ya tiene algunas bases de datos protegidas en una instancia, seguirá protegido por sus respectivas directivas incluso cuando establezca en **ON** (Activada) la opción de [protección automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm). Sin embargo, todas las bases de datos no protegidas junto con las que desearía agregar en el futuro tendrán solo una única directiva que se defina en **Configurar copia de seguridad** una vez seleccionadas las bases de datos. De hecho, a diferencia de otras bases de datos protegidas, ni siquiera puede cambiar la directiva para una base de datos en una instancia protegida automáticamente.
 Si desea hacerlo, la única manera es deshabilitar la protección automática en la instancia por el momento y, a continuación, cambiar la directiva para dicha base de datos. Ahora puede volver a habilitar la protección automática de esta instancia.
 
 ### <a name="if-i-delete-a-database-from-an-auto-protected-instance-will-the-backups-for-that-database-also-stop"></a>Si elimino una base de datos de una instancia protegida automáticamente, ¿las copias de seguridad para esa base de datos también se detendrán?
 
 No, si se quita una base de datos de una instancia protegida automáticamente, se siguen intentando las copias de seguridad en esa base de datos. Esto implica que la base de datos eliminada comienza a aparecer como incorrecta en **Elementos de copia de seguridad** y todavía se tratan como protegidas.
 
-La única forma de dejar de proteger esta base de datos consiste en deshabilitar la protección automática en la instancia por el momento y, a continuación, elegir la opción **Detener copia de seguridad** en **Elementos de copia de seguridad** para esa base de datos. Ahora puede volver a habilitar la protección automática de esta instancia.
+La única forma de dejar de proteger esta base de datos consiste en deshabilitar la [protección automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) en la instancia por el momento y, a continuación, elegir la opción **Detener copia de seguridad** en **Elementos de copia de seguridad** para esa base de datos. Ahora puede volver a habilitar la protección automática de esta instancia.
 
 ###  <a name="why-cant-i-see-the-newly-added-database-to-an-auto-protected-instance-under-the-protected-items"></a>¿Por qué no puedo ver la base de datos recién agregada a una instancia protegida automáticamente en los elementos protegidos?
 
-Puede que no vea en el momento una base de datos recién agregada a una instancia protegida automáticamente. Esto se debe a que la detección normalmente se ejecuta cada ocho horas. Sin embargo, el usuario puede ejecutar una detección manual utilizando la opción **Recuperar bases de datos** para detectar y proteger las nuevas bases de datos inmediatamente, como se muestra en la imagen siguiente:
+Puede que no vea en el momento una base de datos recién agregada a una instancia [protegida automáticamente](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm). Esto se debe a que la detección normalmente se ejecuta cada ocho horas. Sin embargo, el usuario puede ejecutar una detección manual utilizando la opción **Recuperar bases de datos** para detectar y proteger las nuevas bases de datos inmediatamente, como se muestra en la imagen siguiente:
 
   ![Ver las bases de datos recién agregadas](./media/backup-azure-sql-database/view-newly-added-database.png)
 

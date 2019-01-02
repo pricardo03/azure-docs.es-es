@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407561"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315781"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST
 
@@ -59,9 +59,9 @@ La arquitectura fundamental consta de los siguientes componentes:
 
 -   **[Matriz de implementación del cliente](https://aka.ms/healthcrmblueprint)** un libro de Microsoft Excel enumera los requisitos de HITRUST pertinentes y explica cómo Microsoft y el cliente son responsables del cumplimiento de cada uno de ellos.
 
--   **[Revisión de datos médicos.](https://aka.ms/healthreviewpaper)** La solución ha sido revisada por Coalfire Systems, Inc. El documento de revisión del cumplimiento en datos médicos (HIPAA y HITRUST) y las instrucciones para la implementación proporcionan la opinión del auditor \' sobre la solución y sus consideraciones para transformar el proyecto en una implementación lista para producción.
+-   **[Revisión de datos médicos.](https://aka.ms/healthreviewpaper)** La solución la revisó Coalfire systems, Inc. El documento de Revisión del cumplimiento de Health (HIPAA e HITRUST) e instrucciones para la implementación proporciona la opinión del auditor de la solución y sus reflexiones para transformar el proyecto en una implementación que esté lista para la producción.
 
-# <a name="architectural-diagram"></a>Diagrama de arquitectura
+## <a name="architectural-diagram"></a>Diagrama de arquitectura
 
 
 ![](images/ra2.png)
@@ -80,18 +80,18 @@ El administrador del sitio es responsable de la suscripción de Azure del client
 
 -   Asignaciones de roles personalizados: N/D
 
--   Ámbito: suscripción
+-   Ámbito: Subscription
 
 ### <a name="database-analyst"></a>Analista de base de datos
 
 El analista de base de datos administra la instancia de SQL Server y la base de datos.
 No tiene acceso a los historiales de los pacientes.
 
--   Asignaciones de roles integrados: [Colaborador de base de datos SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Colaborador de SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+-   Asignaciones de roles integrados: [Colaborador de base de datos de SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Colaborador de SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Asignaciones de roles personalizados: N/D
 
--   Ámbito: grupo de recursos
+-   Ámbito: ResourceGroup
 
  ### <a name="data-scientist"></a>Científico de datos
 
@@ -102,14 +102,14 @@ Los científicos de datos operan el servicio Azure Machine Learning Studio. Pued
 
 -   Asignaciones de roles personalizados: N/D
 
--   Ámbito: grupo de recursos
+-   Ámbito: ResourceGroup
 
 ### <a name="chief-medical-information-officer-cmio"></a>Director de información médica (CMIO)
 
 
 El director de información médica (CMIO) se encuentra en la línea divisoria entre los profesionales informáticos o técnicos y los profesionales sanitarios en un centro de atención médica. Sus tareas suelen incluir el uso de análisis para determinar si se están asignando correctamente los recursos en la organización.
 
--   Asignaciones de roles integrados: ninguno
+-   Asignaciones de roles integrados: None
 
 ### <a name="care-line-manager"></a>Administrador de la línea de atención al paciente
 
@@ -117,11 +117,11 @@ El director de información médica (CMIO) se encuentra en la línea divisoria e
 El administrador de la línea de atención al paciente está directamente implicado en la atención a los pacientes.
 Este rol requiere la supervisión del estado de cada paciente y asegurarse de que hay personal disponible para atender las necesidades de atención específicas de los pacientes. El administrador de la línea de atención al paciente es responsable de agregar y actualizar los historiales de los pacientes.
 
--   Asignaciones de roles integrados: ninguno
+-   Asignaciones de roles integrados: None
 
 -   Asignaciones de roles personalizados: tiene privilegios para ejecutar HealthcareDemo.ps1 para realizar tanto la admisión del paciente como el alta.
 
--   Ámbito: grupo de recursos
+-   Ámbito: ResourceGroup
 
 ### <a name="auditor"></a>Auditor
 
@@ -132,7 +132,7 @@ El auditor evalúa el cumplimiento de la solución. No tienen ningún acceso dir
 
 -   Asignaciones de roles personalizados: N/D
 
--   Ámbito: suscripción
+-   Ámbito: Subscription
 
 ## <a name="example-use-case"></a>Ejemplo de caso de uso
 
@@ -184,7 +184,7 @@ Como la persona directamente responsable de administrar la admisión y alta de p
 Han es un auditor certificado con experiencia en auditorías ISO, SOC y HiTrust. Han ha sido contratado para revisar la red de Contosoclinic. Han puede revisar la matriz de responsabilidades del cliente proporcionada por la solución para asegurarse de que el proyecto y la solución de duración de estancia se pueden utilizar para almacenar, procesar y mostrar datos personales confidenciales.
 
 
-# <a name="design-configuration"></a>Configuración de diseño
+## <a name="design-configuration"></a>Configuración de diseño
 
 
 En esta sección se describen las configuraciones predeterminadas y las medidas de seguridad integradas en el proyecto, que se desglosan en:
@@ -345,8 +345,8 @@ La solución es compatible con Azure Event Grid, un único servicio para adminis
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [El registro está habilitado](/azure/machine-learning/studio/web-services-logging) para los servicios web de Machine Learning Studio.
-- El uso de [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) requiere desarrollar experimentos, que permiten predecir un conjunto de soluciones. [La integración con Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) puede ayudar a simplificar la administración de experimentos.
+- [El registro está habilitado](/azure/machine-learning/studio/web-services-logging) para los servicios web de Machine Learning Studio.
+- El uso de [Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio) requiere desarrollar experimentos, que permiten predecir un conjunto de soluciones.
 
 ## <a name="security"></a>SEGURIDAD
 
