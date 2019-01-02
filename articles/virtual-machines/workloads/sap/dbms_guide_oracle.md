@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/07/2018
+ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e2d0d5073ffbeaed1c0215386a0c2c9f22a67d9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8686130e3b10ece605a6e648badf9aa1dae5e071
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288652"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435691"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de Oracle para la carga de trabajo de SAP
 
@@ -321,13 +321,13 @@ Las notas de SAP siguientes están relacionadas con SAP en Azure con respecto al
 
 | Número de nota | Título |
 | --- | --- |
-| [1928533] |SAP Applications on Azure: Supported Products and Azure VM types (Aplicaciones de SAP en Azure: tipos de máquina virtual de Azure y productos compatibles) |
-| [2015553] |SAP on Microsoft Azure: Support Prerequisites (SAP en Microsoft Azure: requisitos previos de compatibilidad) |
+| [1928533] |SAP Applications on Azure: Supported Products and Azure VM Types (Aplicaciones de SAP en Azure: productos y tipos de máquina virtual de Azure compatibles). |
+| [2015553] |SAP on Microsoft Azure: Support Prerequisites (Requisitos previos de soporte técnico de SAP en Microsoft Azure) |
 | [1999351] |Troubleshooting Enhanced Azure Monitoring for SAP (Solución de problemas de la supervisión mejorada de Azure para SAP) |
 | [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure (Métricas de supervisión clave para SAP en Microsoft Azure) |
-| [2191498] |SAP on Linux with Azure: Enhanced Monitoring (SAP en Linux con Azure: supervisión mejorada) |
+| [2191498] |SAP on Linux with Azure: Enhanced Monitoring" (SAP en Linux con Azure: supervisión mejorada). |
 | [2039619] |SAP Applications on Microsoft Azure using the Oracle Database: Supported Products and Versions (Aplicaciones de SAP en Microsoft Azure con Base de datos de Oracle: versiones y productos compatibles) |
-| [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP license issues (Linux y máquinas virtuales de Microsoft Azure (IaaS): problemas de licencia de SAP) |
+| [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP license issues (Linux en máquinas virtuales de Microsoft Azure (IaaS): problemas de licencia de SAP) |
 | [2069760] |Instalación y actualización de SAP en Oracle Linux 7.x |
 | [1597355] |Recomendación de espacio de intercambio para Linux |
 | [2171857] |Oracle Database 12c - compatibilidad con sistema de archivos en Linux |
@@ -428,7 +428,9 @@ De acuerdo con los manuales de instalación de SAP, los archivos relacionados co
 
 ### <a name="storage-configuration"></a>Configuración de almacenamiento
 
-Los sistemas de archivos xfs, ext4, o ASMOnly de Oracle se admiten para los archivos de base de datos de Oracle en Azure. Todos los archivos de la base de datos se deben almacenar en estos sistemas de archivos basados en discos VHD o Managed Disks. Estos discos se montan en la máquina virtual de Azure y se basan en Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) o en [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Los sistemas de archivos xfs, ext4, o Oracle ASM se admiten para los archivos de base de datos de Oracle en Azure. Todos los archivos de la base de datos se deben almacenar en estos sistemas de archivos basados en discos VHD o Managed Disks. Estos discos se montan en la máquina virtual de Azure y se basan en Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) o en [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+
+Para los kernels de Oracle Linux UEK, se requiere como mínimo la versión 4 de UEK para que sea compatible con [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
 
 Se recomienda encarecidamente el uso de [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). También se recomienda encarecidamente usar [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) para las implementaciones de Oracle Database.
 
@@ -454,7 +456,7 @@ Configuración mínima:
 | /oracle/<SID>/oraarch | Estándar | None | No es necesario |
 | Oracle Home, saptrace, ... | Disco del sistema operativo | | No es necesario |
 
-*Eliminación: bandas LVM o MDADM mediante RAID0
+*Eliminación: franja LVM o MDADM mediante RAID0
 
 La selección de discos para hospedar los registros de la fase de puesta al día en línea de Oracle debe basarse en los requisitos de IOPS. Es posible almacenar todos los sapdata1...n (espacios de tabla) en un solo disco montado, siempre que el volumen, IOPS y capacidad de proceso cumplan los requisitos. 
 
@@ -470,7 +472,7 @@ Configuración del rendimiento:
 | /oracle/<SID>/oraarch* | Premium | None | No es necesario |
 | Oracle Home, saptrace, ... | Disco del sistema operativo | No es necesario |
 
-*Eliminación: bandas LVM o MDADM con RAID0 *(n+1) - espacios de tabla SYSTEM, TEMP y UNDO. El patrón de E/S de los espacios de tablas System y Undo son diferentes de otros espacios de tabla que hospedan los datos de aplicación. No almacenar en caché es la mejor opción para el rendimiento de los espacios de tablas System y Undo.
+*Eliminación: franja LVM o MDADM con RAID0 *(n+1) - espacios de tabla SYSTEM, TEMP y UNDO de hospedaje. El patrón de E/S de los espacios de tablas System y Undo son diferentes de otros espacios de tabla que hospedan los datos de aplicación. No almacenar en caché es la mejor opción para el rendimiento de los espacios de tablas System y Undo.
 *oraarch: el bloque de almacenamiento no es necesario desde la vista de rendimiento. Se pueden usar para obtener más espacio.
 
 
@@ -493,7 +495,7 @@ Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ant
 Los aspectos de la recuperación ante desastres para bases de datos de Oracle en Azure se presentan en el artículo [Recuperación ante desastres para Oracle Database 12c en el entorno de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
-La compatibilidad con Azure Accelerated Networking en Oracle Linux se ofrece con Oracle Linux 7 Update 5 (Oracle Linux 7.5). Si no puede actualizar a la versión más reciente de Oracle Linux 7.5, es posible que haya una solución alternativa si se usa RedHat Compatible Kernel (RHCK) en lugar del kernel UEK de Oracle. El uso del kernel RHEL en Oracle Linux se admite según la nota de SAP [1565179](https://launchpad.support.sap.com/#/notes/1565179). Para Azure Accelerated Networking, la versión mínima del kernel RHCKL debe ser 3.10.0-862.13.1.el7.
+La compatibilidad con Azure Accelerated Networking en Oracle Linux se ofrece con Oracle Linux 7 Update 5 (Oracle Linux 7.5). Si no puede actualizar a la versión más reciente de Oracle Linux 7.5, es posible que haya una solución alternativa si se usa RedHat Compatible Kernel (RHCK) en lugar del kernel UEK de Oracle. El uso del kernel RHEL en Oracle Linux se admite según la nota de SAP [1565179](https://launchpad.support.sap.com/#/notes/1565179). Para Azure Accelerated Networking, la versión mínima del kernel RHCKL debe ser 3.10.0-862.13.1.el7. Para usar el kernel de UEK en Oracle Linux junto con las [redes aceleradas de Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), necesita usar el kernel de Oracle UEK versión 5.
 
 Si no va a implementar las máquinas virtuales desde una imagen que no se base en Azure Marketplace, necesita que los archivos de configuración adicionales se copien en la máquina virtual; para ello, hay que ejecutar: 
 <pre><code># Copy settings from github to correct place in VM

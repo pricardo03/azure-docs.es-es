@@ -1,21 +1,22 @@
 ---
-title: Uso de Microsoft Azure Traffic Manager para aumentar la cuota de punto de conexión en Language Understanding (LUIS)
+title: Aumento de la cuota de punto de conexión
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves).
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3f3dddca7944403ace6a9779be07b0d458fb3cd1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042183"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076770"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar Microsoft Azure Traffic Manager para administrar la cuota de punto de conexión en las claves
 Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves). 
@@ -36,7 +37,7 @@ Antes de crear los recursos de Azure, cree un grupo de recursos para que conteng
 
 Cree un grupo de recursos con el cmdlet **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)**:
 
-```PowerShell
+```powerShell
 New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
@@ -69,7 +70,7 @@ Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a c
 
     Use el siguiente cmdlet para crear el perfil. Asegúrese de cambiar `appIdLuis` y `subscriptionKeyLuis`. El valor de subscriptionKey es para la clave de LUIS Este de EE. UU. Si la ruta de acceso no es correcta, incluidos el identificador de la aplicación de LUIS y la clave de punto de conexión, el sondeo de Traffic Manager es un estado de `degraded` dado que Traffic Manager no puede solicitar correctamente el punto de conexión de LUIS. Asegúrese de que el valor de `q` es `traffic-manager-east` para que pueda ver este valor en los registros de punto de conexión de LUIS.
 
-    ```PowerShell
+    ```powerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
@@ -89,7 +90,7 @@ Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a c
 
 2. Agregue el punto de conexión Este de EE. UU. con el cmdlet **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)**:
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
     En esta tabla, se explica cada variable del cmdlet:
@@ -105,7 +106,7 @@ Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a c
 
     Una respuesta correcta tiene el siguiente aspecto:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-eastus
     Name                             : luis-profile-eastus
     ResourceGroupName                : luis-traffic-manager
@@ -124,7 +125,7 @@ Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a c
 
 3. Establezca el punto de conexión Este de EE. UU. con el cmdlet **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)**:
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
     ```
 
@@ -137,7 +138,7 @@ Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos:
 
     Use el siguiente cmdlet para crear el perfil. Asegúrese de cambiar `appIdLuis` y `subscriptionKeyLuis`. El valor de subscriptionKey es para la clave de LUIS Este de EE. UU. Si la ruta de acceso no es correcta, incluidos el identificador de la aplicación de LUIS y la clave de punto de conexión, el sondeo de Traffic Manager es un estado de `degraded` dado que Traffic Manager no puede solicitar correctamente el punto de conexión de LUIS. Asegúrese de que el valor de `q` es `traffic-manager-west` para que pueda ver este valor en los registros de punto de conexión de LUIS.
 
-    ```PowerShell
+    ```powerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
@@ -157,7 +158,7 @@ Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos:
 
 2. Agregue el punto de conexión Oeste de EE. UU. con el cmdlet **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)**:
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
@@ -174,7 +175,7 @@ Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos:
 
     Una respuesta correcta tiene el siguiente aspecto:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-westus
     Name                             : luis-profile-westus
     ResourceGroupName                : luis-traffic-manager
@@ -193,7 +194,7 @@ Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos:
 
 3. Establezca el punto de conexión Oeste de EE. UU. con el cmdlet **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)**:
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
     ```
 
@@ -204,7 +205,7 @@ Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de
 
 1. Cree el perfil primario con el cmdlet **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)**:
 
-    ```PowerShell
+    ```powerShell
     $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
     ```
 
@@ -224,7 +225,7 @@ Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de
 
 2. Agregue el perfil secundario de Este de EE. UU. con el cmdlet **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** y el tipo **NestedEndpoints**:
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
     ```
 
@@ -242,7 +243,7 @@ Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de
 
     Una respuesta correcta tendrá el siguiente aspecto e incluirá el nuevo punto de conexión `child-endpoint-useast`:    
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -261,7 +262,7 @@ Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de
 
 3. Agregue el perfil secundario de Oeste de EE. UU. con el cmdlet **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** y el tipo **NestedEndpoints**:
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
     ```
 
@@ -279,7 +280,7 @@ Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de
 
     Una respuesta correcta tendrá el aspecto siguiente e incluirá tanto el punto de conexión `child-endpoint-useast` anterior como el punto de conexión `child-endpoint-uswest` nuevo:
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -298,7 +299,7 @@ Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de
 
 4. Establezca los puntos de conexión con el cmdlet **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)**: 
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
     ```
 
@@ -309,7 +310,7 @@ En las secciones anteriores, se crearon tres variables de PowerShell: `$eastprof
 
 Reemplace los elementos que aparecen entre corchetes angulares, `<>`, con los valores correctos para cada uno de los tres perfiles que necesita. 
 
-```PowerShell
+```powerShell
 $<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
@@ -329,7 +330,7 @@ Traffic Manager sondea la ruta de acceso de cada punto de conexión para asegura
 ### <a name="validate-traffic-manager-polling-works"></a>Comprobar que el sondeo de Traffic Manager funciona
 Otra forma de comprobar que el sondeo de Traffic Manager funciona es con los registros de puntos de conexión de LUIS. En la página de la lista de aplicaciones del sitio web de [LUIS][LUIS], exporte el registro de puntos de conexión de la aplicación. Dado que, a menudo, Traffic Manager sondea los dos puntos de conexión, hay tres entradas en los registros, incluso si solo han estado activados durante unos minutos. No olvide comprobar las entradas en las que la consulta comienza por `traffic-manager-`.
 
-```text
+```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 traffic-manager-east    6/7/2018 19:20  {"query":"traffic-manager-east","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 ```
@@ -339,7 +340,7 @@ Para comprobar que la respuesta de DNS devuelve un punto de conexión de LUIS, s
 
 El siguiente código de Node.js realiza una solicitud al perfil primario y devuelve un punto de conexión de LUIS:
 
-```javascript
+```nodejs
 const dns = require('dns');
 
 dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {

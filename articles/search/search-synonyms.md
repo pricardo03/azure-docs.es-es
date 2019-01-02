@@ -1,20 +1,21 @@
 ---
-pageTitle: Synonyms in Azure Search | Microsoft Docs
-description: Uso de sinónimos para expandir el ámbito de una consulta de búsqueda
-author: mhko
+Title: Synonyms for query expansion over a search index  - Azure Search
+description: Creación de un mapa de sinónimos para expandir el ámbito de una consulta de búsqueda en un índice de Azure Search. El ámbito se ha ampliado para que incluya los términos equivalentes que proporcione en una lista.
+author: brjohnstmsft
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
-ms.author: nateko
-ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: ce9eb8ed099a232128ba924da1466917df542fbb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468558"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315675"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinónimos en Azure Search
 

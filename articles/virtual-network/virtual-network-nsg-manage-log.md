@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: bf7f1f58250d94d821e6ec41266b518d7ebe105b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ee1e70e58c2f6dd15ae48c15373d4b1dc58f9328
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427563"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384996"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registros de diagnóstico de un grupo de seguridad de red
 
@@ -88,7 +88,7 @@ Set-AzureRmDiagnosticSetting `
   -Enabled $true
 ```
 
-Si solo desea registrar los datos en una de las dos categorías, en lugar de en ambas, agregue la opción `-Categories` al comando anterior, seguida de *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Si desea realizar el registro en un [destino](#log-destinations) que no sea un área de trabajo de Log Analytics, utilice los parámetros adecuados para una [cuenta de almacenamiento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
+Si solo desea registrar los datos en una de las dos categorías, en lugar de en ambas, agregue la opción `-Categories` al comando anterior, seguida de *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Si desea realizar el registro en un [destino](#log-destinations) que no sea un área de trabajo de Log Analytics, utilice los parámetros adecuados para una [cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
 
 Vea y analice los registros. Para más información, consulte [Visualización y análisis de los registros](#view-and-analyze-logs).
 
@@ -121,18 +121,18 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Si no tiene ningún área de trabajo existente, puede crear una mediante [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Existen dos categorías de registro para las que se pueden habilitar registros. 
+Si no tiene ningún área de trabajo existente, puede crear una mediante [Azure Portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Existen dos categorías de registro para las que se pueden habilitar registros. 
 
-Si solo desea registrar los datos de una categoría o la otra, quite la categoría para la que no desea registrar los datos en el comando anterior. Si desea realizar el registro en un [destino](#log-destinations) que no sea un área de trabajo de Log Analytics, utilice los parámetros adecuados para una [cuenta de almacenamiento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
+Si solo desea registrar los datos de una categoría o la otra, quite la categoría para la que no desea registrar los datos en el comando anterior. Si desea realizar el registro en un [destino](#log-destinations) que no sea un área de trabajo de Log Analytics, utilice los parámetros adecuados para una [cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
 
 Vea y analice los registros. Para más información, consulte [Visualización y análisis de los registros](#view-and-analyze-logs).
 
 ## <a name="log-destinations"></a>Destinos de registro
 
 Los datos de diagnóstico se pueden:
-- [Escribir en una cuenta de Azure Storage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), para auditarlos o para comprobarlos manualmente. El tiempo de retención (en días) se puede especificar en la configuración del diagnóstico de recursos.
+- [Escribir en una cuenta de Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), para auditarlos o para comprobarlos manualmente. El tiempo de retención (en días) se puede especificar en la configuración del diagnóstico de recursos.
 - [Transmitir en secuencias a un centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para que los ingiera un servicio de terceros o una solución de análisis personalizada, como PowerBI.
-- [Escribir en Azure Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics)
+- [Escribir en Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics)
 
 ## <a name="log-categories"></a>Categorías de registro
 

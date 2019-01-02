@@ -1,5 +1,5 @@
 ---
-title: API REST del servicio Voz | Servicio Voz
+title: 'API REST de servicios de Voz: servicios de Voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar las API REST de voz a texto y texto a voz. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584866"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338897"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servicio Voz
 
@@ -321,9 +322,20 @@ La transferencia fragmentada (`Transfer-Encoding: chunked`) puede ayudar a reduc
 Este ejemplo de código muestra cómo enviar audio en fragmentos. Solo el primer fragmento debe contener el encabezado del archivo de audio. `request` es un objeto HTTPWebRequest conectado al punto de conexión de REST adecuado. `audioFile` es la ruta de acceso a un archivo de audio en disco.
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -423,20 +435,10 @@ La siguiente es una respuesta típica de reconocimiento de `detailed`.
 
 ## <a name="text-to-speech-api"></a>Text-to-Speech API
 
-Estas regiones son compatibles con la conversión de texto a voz mediante la API REST. Asegúrese de que selecciona el punto de conexión que coincida con la región de su suscripción.
+Text to Speech REST API admite voces neuronales y de texto a voz estándar, y cada una de ellas admite un idioma y un dialecto específicos, que se identifican mediante la configuración regional.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-El servicio Voz admite la salida de audio de 24 kHz además de la salida de 16 kHz que era compatible con Bing Speech. Se admiten cuatro formatos de salida de 24-kHz y dos voces de 24-kHz.
-
-### <a name="voices"></a>Voces
-
-| Configuración regional | Idioma   | Sexo | Asignación |
-|--------|------------|--------|---------|
-| en-US  | English (Estados Unidos) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" |
-| en-US  | English (Estados Unidos) | Hombre   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" |
-
-Hay una lista completa de voces disponibles en [Idiomas admitidos](language-support.md#text-to-speech).
+* Para ver una lista completa de voces, consulte [compatibilidad con idiomas](language-support.md#text-to-speech).
+* Para obtener información acerca de la disponibilidad regional, consulte las [regiones](regions.md#text-to-speech).
 
 ### <a name="request-headers"></a>Encabezados de solicitud
 
@@ -451,7 +453,7 @@ Esta tabla enumera los encabezados obligatorios y opcionales para las solicitude
 
 ### <a name="audio-outputs"></a>Salidas de audio
 
-Esta es una lista de formatos de audio admitidos que se envían en cada solicitud como encabezado `X-Microsoft-OutputFormat`. Cada uno de ellos incorpora una velocidad de bits y el tipo de codificación.
+Esta es una lista de formatos de audio admitidos que se envían en cada solicitud como encabezado `X-Microsoft-OutputFormat`. Cada uno de ellos incorpora una velocidad de bits y el tipo de codificación. El servicio Voz admite salidas de audio de 24 KHz y 16 KHz.
 
 |||
 |-|-|

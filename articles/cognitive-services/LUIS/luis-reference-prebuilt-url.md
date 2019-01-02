@@ -1,23 +1,24 @@
 ---
-title: 'Referencia de dirección URL de entidades de LUIS precompiladas: Azure | Microsoft Docs'
+title: Entidades creadas previamente de URL
 titleSuffix: Azure
 description: Este artículo contiene información acerca de la entidad precompilada de dirección URL en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 62872a3fd3e6e830e25fc4cdba01d1f32b80db91
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 5a1d86c58b6b6b8b54d170459157371e8e73f0e8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446541"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163674"
 ---
-# <a name="url-entity"></a>Entidad de dirección de URL
+# <a name="url-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada URL para una aplicación de LUIS
 La entidad de dirección URL extrae las direcciones URL con nombres de dominio o direcciones IP. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan direcciones URL de la aplicación. La entidad de la dirección URL se admite solamente en la referencia cultural `en-us`. 
 
 ## <a name="types-of-urls"></a>Tipos de direcciones URL
@@ -26,7 +27,7 @@ La dirección URL se administra desde el repositorio de GitHub [Recognizers-Text
 ## <a name="resolution-for-prebuilt-url-entity"></a>Resolución de la entidad de dirección URL precompilada
 En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.url**.
 
-```JSON
+```json
 {
   "query": "http://www.luis.ai is a great cognitive services example of artificial intelligence",
   "topScoringIntent": {

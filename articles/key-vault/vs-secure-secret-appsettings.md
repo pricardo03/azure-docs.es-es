@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625460"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252119"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura la configuración del secreto de la aplicación para una aplicación web
 
 ## <a name="overview"></a>Información general
 En este artículo se describe cómo guardar de forma segura las opciones de configuración del secreto de la aplicación para aplicaciones de Azure.
 
-Tradicionalmente, las opciones de configuración de las aplicaciones web se guardaban en archivos de configuración como Web.config. Esta práctica conduce al registro de las opciones de configuración del secreto, como credenciales de la nube, para sistemas de control de código fuente públicos como GitHub. Mientras tanto, puede resultar difícil seguir los procedimientos recomendados de seguridad debido a los gastos necesarios para modificar el código fuente y volver a configurar las opciones de desarrollo.
+Tradicionalmente, las opciones de configuración de las aplicaciones web se guardaban en archivos de configuración como Web.config. Esta práctica conduce al registro de las opciones de configuración del secreto, como las credenciales de la nube, para los sistemas de control de código fuente públicos como GitHub. Mientras tanto, puede resultar difícil seguir los procedimientos recomendados de seguridad debido a los gastos necesarios para modificar el código fuente y volver a configurar las opciones de desarrollo.
 
 Para asegurarse de que el proceso de desarrollo es seguro, se crean bibliotecas de herramientas y de marco para guardar las opciones de configuración del secreto de la aplicación de forma segura con pocos cambios en el código fuente o ninguno.
 

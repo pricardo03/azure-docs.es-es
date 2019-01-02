@@ -1,33 +1,34 @@
 ---
-title: 'Referencia de datetimeV2 de entidades de LUIS precompiladas: Azure | Microsoft Docs'
+title: Entidades precompiladas DatetimeV2
 titleSuffix: Azure
 description: Este artículo contiene información de la entidad precompilada datetimeV2 en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 0e2353107d6554a8ecbbd2e4d9850f8d8b5fda5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335783"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165187"
 ---
-# <a name="datetimev2-entity"></a>Entidad DatetimeV2
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada DatetimeV2 para una aplicación de LUIS
 
 La entidad precompilada **datetimeV2** extrae los valores de fecha y hora. Estos valores se resuelven en un formato estandarizado para que los programas de cliente los consuman. Cuando una expresión tiene una fecha u hora que no está completa, LUIS incluye _los valores pasados y futuros_ en la respuesta de punto de conexión. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la entidad datetimeV2 para las intenciones de la aplicación. 
 
 ## <a name="types-of-datetimev2"></a>Tipos de datetimeV2
 DatetimeV2 se administra desde el repositorio de GitHub [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml).
 
-## <a name="example-json"></a>JSON de ejemplo 
+## <a name="example-json"></a>Ejemplo de JSON 
 La siguiente respuesta de JSON de ejemplo tiene una entidad `datetimeV2` con un subtipo de `datetime`. Para obtener ejemplos de otros tipos de entidades datetimeV2, consulte [Subtypes of datetimeV2](#subtypes-of-datetimev2)</a> (Subtipos de datetimeV2).
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -103,7 +104,7 @@ Por ejemplo, dada la expresión "May 2nd":
 En el siguiente ejemplo, se muestra la resolución de la entidad "may 2nd". En esta resolución, se da por supuesto que la fecha de hoy es una fecha comprendida entre el 2 de mayo de 2017 y el 1 de mayo de 2018.
 Los campos con `X` en el campo `timex` forman parte de la fecha i no se especifican explícitamente en la expresión.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -132,7 +133,7 @@ Los campos con `X` en el campo `timex` forman parte de la fecha i no se especifi
 
 La entidad `datetimeV2` extrae los intervalos de fecha y hora. Los campos `start` y `end` especifican el principio y al final del intervalo. Para la expresión "May 2nd to May 5th", LUIS proporciona valores **daterange** valores para el año actual y el próximo año. En el campo `timex`, los valores `XXXX` indican la ambigüedad del año. `P3D` indica que el período de tiempo es de tres días de duración.
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -163,7 +164,7 @@ La entidad `datetimeV2` extrae los intervalos de fecha y hora. Los campos `start
 
 En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2** para resolver la expresión "Tuesday to Thursday" ("martes a jueves"). En este ejemplo, se supone que la fecha actual es el 19 de junio. LUIS incluye valores **daterange** para los dos intervalos de fechas que preceden y siguen la fecha actual.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -196,7 +197,7 @@ La matriz de valores tiene dos elementos de tiempo si la hora o el intervalo de 
 
 En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2** para resolver la expresión que tiene el intervalo de tiempo.
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

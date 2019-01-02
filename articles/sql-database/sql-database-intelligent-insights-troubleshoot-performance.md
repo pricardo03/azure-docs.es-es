@@ -8,20 +8,20 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230043"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273942"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights
 
-Esta página proporciona información sobre los problemas de rendimiento de Azure SQL Database e Instancia administrada detectados mediante el registro de diagnóstico de rendimiento de la base de datos de [Intelligent Insights](sql-database-intelligent-insights.md). Se puede realizar un flujo de datos de telemetría del registro de diagnóstico hacia [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
+Esta página proporciona información sobre los problemas de rendimiento de Azure SQL Database e Instancia administrada detectados mediante el registro de diagnóstico de rendimiento de la base de datos de [Intelligent Insights](sql-database-intelligent-insights.md). Se puede realizar un flujo de datos de telemetría del registro de diagnóstico hacia [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
 > [!NOTE]
 > Para una guía rápida de solución de problemas de rendimiento de SQL Database a través de Intelligent Insights, consulte el diagrama de flujo [Flujo de solución de problemas recomendado](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) de este documento.
@@ -109,7 +109,7 @@ Puede optimizar o quitar consultas relacionadas con los distribuidores que reali
 
 Otra manera de reducir la carga de trabajo es optimizarla o distribuirla entre varias bases de datos . Si ninguna de estas soluciones es posible, podría aumentar el plan de tarifa de su suscripción de SQL Database a fin de aumentar la cantidad de recursos de memoria disponibles para la base de datos.
 
-Para obtener más sugerencias de solución de problemas, consulte [Memory Grants Meditation: The mysterious SQL Server memory consumer with Many Names](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) (Meditación de concesiones de memoria: el consumidor de memoria misterioso de SQL Server con muchos nombres).
+Para obtener más sugerencias de solución de problemas, consulte [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) (Meditación sobre la concesión de memoria: el misterioso consumidor de memoria de SQL Server con muchos nombres).
 
 ## <a name="locking"></a>Bloqueo
 
@@ -281,7 +281,7 @@ Para más información, consulte [How SQL Server prevents plan regressions](http
 
 Este patrón de rendimiento detectable indica una condición en la que un cambio en la configuración del ámbito de base de datos provoca la regresión del rendimiento detectado en comparación con el comportamiento de la carga de trabajo de base de datos de los últimos 7 días. Este patrón indica que el cambio reciente realizado en la configuración de ámbito de base de datos no parece ser beneficioso para el rendimiento de la base de datos.
 
-Los cambios de configuración de ámbito de base de datos se pueden establecer para cada base de datos individual. Esta configuración se usa en función de cada caso para optimizar el rendimiento individual de su base de datos. Se pueden configurar las siguientes opciones para cada base de datos: MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES y CLEAR PROCEDURE_CACHE.
+Los cambios de configuración de ámbito de base de datos se pueden establecer para cada base de datos individual. Esta configuración se usa en función de cada caso para optimizar el rendimiento individual de su base de datos. Para cada base de datos individual se pueden configurar las opciones siguientes: MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES y CLEAR PROCEDURE_CACHE.
 
 ### <a name="troubleshooting"></a>solución de problemas
 

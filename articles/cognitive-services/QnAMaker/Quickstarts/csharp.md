@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: a93d6d939f1ccdaa7cbbe16de1e380227489ac45
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.custom: seodec18
+ms.openlocfilehash: e2bddb6ab2d7aeb801569102fa3387838f6c3104
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211492"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258107"
 ---
-# <a name="qna-maker-rest-api-with-c"></a>API de REST de QnA Maker con C# 
+# <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>Uso de la API REST de QnA Maker con C# 
 <a name="HOLTop"></a>
 
 En este artículo, se muestra cómo utilizar [Microsoft QnA Maker API](../Overview/overview.md) con C# para hacer lo siguiente.
@@ -37,7 +38,7 @@ En este artículo, se muestra cómo utilizar [Microsoft QnA Maker API](../Overvi
 - [Obtener el conjunto actual de modificaciones de palabras](#GetAlterations)
 - [Reemplazar el conjunto actual de modificaciones de palabras](#PutAlterations)
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

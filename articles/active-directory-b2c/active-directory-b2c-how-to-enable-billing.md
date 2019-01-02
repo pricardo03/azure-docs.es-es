@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 80ba42d7eab1726c7add6c4c9426b7dde3b55480
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445971"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100062"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Vinculación de una suscripción de Azure a un inquilino de Azure AD B2C
 
 > [!IMPORTANT]
-> La información más reciente acerca de la facturación del uso y los precios de Azure AD B2C se encuentra en la siguiente página: [Precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> La información más reciente sobre la facturación del uso y los precios de Azure AD B2C se encuentran en la siguiente página: [Pecios de B2C de Azure AD](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 Los cargos por el uso de Azure AD B2C se facturan a una suscripción de Azure. Cuando se crea un inquilino de Azure AD B2C, es preciso que el administrador de inquilinos vincule explícitamente dicho inquilino a una suscripción de Azure. Este artículo le muestra cómo.
 
 > [!NOTE]
-> Una suscripción vinculada a un inquilino de Azure AD B2C solo puede usarse para la facturación del uso de Azure AD B2C. La suscripción no se puede usar para agregar otros servicios de Azure o licencias de Office 365 *en el inquilino de Azure AD B2C*.
+> Se puede usar una suscripción vinculada a un inquilino de Azure AD B2C para la facturación del uso de Azure AD B2C u otros recursos de Azure, incluidos recursos adicionales de Azure AD B2C.  La suscripción no se puede usar para agregar otros servicios basados en licencias de Azure o licencias de Office 365 en el inquilino de Azure AD B2C.
 
  El vínculo de la suscripción se consigue mediante la creación de un "recurso" de Azure AD B2C en la suscripción de Azure de destino. Muchos "recursos" de Azure AD B2C se pueden crear en una sola suscripción de Azure, junto con otros recursos de Azure (por ejemplo, máquinas virtuales, almacenamiento de datos y LogicApps). Para ver todos los recursos de la suscripción, vaya al inquilino de Azure AD al que está asociado la suscripción.
 

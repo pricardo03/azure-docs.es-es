@@ -1,5 +1,5 @@
 ---
-title: Procedimientos recomendados para Azure App Service
+title: 'Procedimientos recomendados: Azure App Service'
 description: Información acerca de los procedimientos recomendados y la solución de problemas de Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ff79680c00a394790ba56db9ab4b237f06c677e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240637"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261830"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedimientos recomendados para Azure App Service
 En este artículo se resumen los procedimientos recomendados para usar el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -38,7 +39,7 @@ Si observa que una aplicación consume más memoria de lo esperado, lo que se in
 ## <a name="CPUresources"></a>Cuando las aplicaciones consumen más CPU de lo esperado
 Si observa que una aplicación consume más CPU de lo esperado o experimenta repetidas puntas de actividad de la CPU como indican la supervisión o las recomendaciones de servicio, considere la posibilidad de escalar el plan de App Service vertical u horizontalmente. Si se trata de una aplicación con estado, el escalado vertical es la única opción, mientras que si es sin estado, el escalado horizontal le proporcionará mayor flexibilidad y mayor potencial de escalado. 
 
-Para obtener más información sobre las aplicaciones "con estado" y "sin estado", puede ver este vídeo: [Planning a Scalable End-to-End Multi-Tier Application on Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid) (Planeamiento de una aplicación completa de niveles múltiples en una aplicación web de Microsoft Azure). Para más información sobre las opciones de escalado y escalado automático de App Service, consulte el artículo sobre el [escalado de una aplicación web en Azure App Service](web-sites-scale.md).  
+Para más información sobre las aplicaciones con y sin estado puede ver este vídeo: [Planning a Scalable End-to-End Multi-Tier Application on Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid) (Planeamiento de una aplicación de varios niveles y de un extremo a otro en Microsoft Azure Web App). Para más información sobre las opciones de escalado y escalado automático de App Service, consulte el artículo sobre el [escalado de una aplicación web en Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Cuando se agotan los recursos del socket
 Una razón habitual para agotar las conexiones TCP salientes es el uso de bibliotecas de cliente que no se han implementado para reutilizar las conexiones TCP o cuando no se usa un protocolo de nivel superior como HTTP de conexión persistente. Revise la documentación de las bibliotecas a las que hacen referencia las aplicaciones del plan de App Service para asegurarse de que se configuran o se tiene acceso a ellas en el código para una reutilización eficiente de las conexiones salientes. Siga también la guía de la documentación de la biblioteca para que la creación y liberación, o la limpieza sean correctas para evitar las conexiones con fugas. Aunque las investigaciones de estas bibliotecas de cliente están en curso, el impacto se pueden mitigar mediante el escalado horizontal a varias instancias.

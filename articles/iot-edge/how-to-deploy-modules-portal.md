@@ -1,5 +1,5 @@
 ---
-title: Implementación de módulos de Azure IoT Edge (Azure Portal) | Microsoft Docs
+title: 'Implementación de módulos desde Azure Portal: Azure IoT Edge | Microsoft Docs'
 description: Uso de Azure Portal para implementar módulos en un dispositivo de IoT Edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b135832c1f0cb8af23a513d4914d7e32b398be7e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: fab85b74fb53bec07843abf31aac1a8495d0fcfb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564942"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093989"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementación de módulos de Azure IoT Edge desde Azure Portal
 
@@ -38,7 +39,7 @@ Este artículo muestra cómo le puede ayudar Azure Portal en la creación de un 
 
 Un manifiesto de implementación es un documento JSON que describe qué módulos se van a implementar, cómo fluyen los datos entre los módulos y las propiedades deseadas de los módulos gemelos. Para más información sobre los manifiestos de implementación y cómo crearlos, consulte [Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).
 
-Azure Portal tiene un asistente que le guía en la creación del manifiesto de implementación, en lugar de crear el documento JSON de forma manual. Tiene tres pasos: **Adición de módulos**, **Especificación de rutas** y **Revisión de la implementación**. 
+Azure Portal tiene un asistente que le guía en la creación del manifiesto de implementación, en lugar de crear el documento JSON de forma manual. Consta de tres pasos: **Adición de módulos**, **Especificación de rutas** y **Revisión de la implementación**. 
 
 ### <a name="add-modules"></a>Adición de módulos
 

@@ -1,6 +1,6 @@
 ---
-title: Recopilación y análisis de mensajes de Syslog en Log Analytics (OMS) | Microsoft Docs
-description: Syslog es un protocolo de registro de eventos que es común a Linux. En este artículo se describe cómo configurar la recopilación de mensajes de Syslog en Log Analytics y detalles de los registros que crean en el repositorio de OMS.
+title: Recopilación y análisis de mensajes de Syslog en Azure Monitor | Microsoft Docs
+description: Syslog es un protocolo de registro de eventos que es común a Linux. En este artículo se describe cómo configurar la recopilación de mensajes de Syslog en Azure Monitor y detalles de los registros que se crean.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,35 +8,33 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 11/28/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: f2347601a775c0069c36d8ca453f677f6d0e1568
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 263f9dcd038bd9ec20036983e273f56191e9a300
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336656"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436728"
 ---
-# <a name="syslog-data-sources-in-log-analytics"></a>Orígenes de datos de Syslog en Log Analytics
-Syslog es un protocolo de registro de eventos que es común a Linux.  Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog.  Al instalar el agente de OMS para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente.  En ese momento, el agente envía el mensaje a Log Analytics, donde se crea un registro correspondiente en el repositorio de OMS.  
+# <a name="syslog-data-sources-in-azure-monitor"></a>Orígenes de datos de Syslog en Azure Monitor
+Syslog es un protocolo de registro de eventos que es común a Linux.  Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog.  Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente.  En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.  
 
 > [!NOTE]
-> Log Analytics admite la recopilación de mensajes enviados por rsyslog o syslog-ng, donde rsyslog es el demonio predeterminado. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar el [demonio rsyslog](http://rsyslog.com) y configurarlo para reemplazar Sysklog.
+> Azure Monitor admite la recopilación de mensajes enviados por rsyslog o syslog-ng, donde rsyslog es el demonio predeterminado. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar el [demonio rsyslog](http://rsyslog.com) y configurarlo para reemplazar Sysklog.
 >
 >
 
 ![Recopilación de Syslog](media/data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Configuración de Syslog
-El agente de OMS para Linux solo recopilará los eventos con los recursos y los niveles de gravedad que se especifican en su configuración.  Puede configurar Syslog a través de Azure Portal o mediante la administración de archivos de configuración de sus agentes de Linux.
+El agente de Log Analytics para Linux solo recopilará los eventos con los recursos y los niveles de gravedad que se especifican en su configuración.  Puede configurar Syslog a través de Azure Portal o mediante la administración de archivos de configuración de sus agentes de Linux.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configuración de Syslog en Azure Portal
-Configure Syslog desde el [menú de datos en la configuración avanzada de Log Analytics](agent-data-sources.md#configuring-data-sources).  Esta configuración se entrega al archivo de configuración de cada agente de Linux.
+Configure Syslog desde el [menú de datos en la configuración avanzada](agent-data-sources.md#configuring-data-sources).  Esta configuración se entrega al archivo de configuración de cada agente de Linux.
 
 Para agregar un nuevo recurso, escriba su nombre y haga clic en **+**.  Para cada recurso, solo se recopilarán los mensajes con los niveles de gravedad seleccionados.  Compruebe los niveles de gravedad del recurso determinado que desea recopilar.  No puede proporcionar criterios adicionales para filtrar mensajes.
 
@@ -45,7 +43,7 @@ Para agregar un nuevo recurso, escriba su nombre y haga clic en **+**.  Para cad
 De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes.  Si desea configurar Syslog manualmente en cada uno de los agentes de Linux, desactive la casilla *Apply below configuration to my Linux machines*(Aplicar la configuración siguiente a mis máquinas Linux).
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configuración de Syslog en agente de Linux
-Cuando el [agente de OMS se instala en un cliente Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md), instala un archivo de configuración de Syslog predeterminado que define el recurso y la gravedad de los mensajes que se recopilan.  Puede modificar este archivo para cambiar la configuración.  El archivo de configuración es diferente según el demonio Syslog que ha instalado el cliente.
+Cuando el [agente de Log Analytics se instala en un cliente Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), instala un archivo de configuración de Syslog predeterminado que define el recurso y la gravedad de los mensajes que se recopilan.  Puede modificar este archivo para cambiar la configuración.  El archivo de configuración es diferente según el demonio Syslog que ha instalado el cliente.
 
 > [!NOTE]
 > Si modifica la configuración de Syslog, tiene que reiniciar el demonio Syslog para que los cambios surtan efecto.
@@ -138,7 +136,7 @@ Para quitar un recurso, elimine su sección del archivo de configuración.  Pued
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Recopilación de datos de puertos de Syslog adicionales
-El agente de OMS escucha los mensajes de Syslog en el cliente local en el puerto 25224.  Cuando se instala el agente, se aplica una configuración de Syslog predeterminada, que se encuentra en la siguiente ubicación:
+El agente de Log Analytics escucha los mensajes de Syslog en el cliente local en el puerto 25224.  Cuando se instala el agente, se aplica una configuración de Syslog predeterminada, que se encuentra en la siguiente ubicación:
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
@@ -180,7 +178,7 @@ Puede cambiar el número de puerto si crea dos archivos de configuración: un ar
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
         log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
 
-Después de completar los cambios, Syslog y el servicio de agente de OMS deben reiniciarse para asegurarse de que los cambios de configuración surtan efecto.   
+Después de completar los cambios, Syslog y el servicio de agente de Log Analytics deben reiniciarse para asegurarse de que los cambios de configuración surtan efecto.   
 
 ## <a name="syslog-record-properties"></a>Propiedades de registros de Syslog
 Los registros de Syslog tienen un tipo **Syslog** y las propiedades que aparecen en la tabla siguiente.
@@ -207,6 +205,6 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Número de registros de Syslog por recurso. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información acerca de las [búsquedas de registros](../../log-analytics/log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos.
-* Use [Campos personalizados](../../log-analytics/log-analytics-custom-fields.md) para analizar datos de registros de Syslog en campos individuales.
-* [Configure agentes de Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) para recopilar otros tipos de datos.
+* Obtenga información acerca de las [consultas de registros](../../azure-monitor/log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.
+* Use [Campos personalizados](../../azure-monitor/platform/custom-fields.md) para analizar datos de registros de Syslog en campos individuales.
+* [Configure agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) para recopilar otros tipos de datos.

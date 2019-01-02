@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bc0cf0900ec9f87c75091b3bf219d92e0859aa1f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282146"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166139"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Creación de un modelo de Conversation Learner mediante Node.js
 
@@ -164,7 +164,7 @@ Esta opción utiliza la configuración estándar, que le permite ejecutar su bot
 
 - Etiquetar preguntas en [Stack Overflow](https://stackoverflow.com) con el valor "microsoft cognitive".
 - Solicitar una característica en nuestra [página de UserVoice](https://aka.ms/conversation-learner-uservoice).
-- Abrir un problema en nuestro [repositorio de github](https://github.com/Microsoft/ConversationLearner-Samples).
+- Abra una incidencia en nuestro [repositorio de GitHub](https://github.com/Microsoft/ConversationLearner-Samples).
 
 ## <a name="contributing"></a>Contribuir
 

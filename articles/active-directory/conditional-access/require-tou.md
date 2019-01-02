@@ -13,17 +13,17 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3cb403b7f2ac529c79af5f83a1cbe436dc670a25
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901896"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413377"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Inicio rápido: solicitar la aceptación de las condiciones de uso antes de acceder a aplicaciones en la nube 
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Inicio rápido: Solicitud de la aceptación de los términos de uso antes de acceder a aplicaciones en la nube 
 
 Antes de acceder a determinadas aplicaciones en la nube de su entorno, puede obtener el consentimiento de los usuarios en forma de aceptación de las condiciones de uso (CDU). El acceso condicional de Azure Active Directory (Azure AD) proporciona: 
 
@@ -78,7 +78,7 @@ En esta sección se explican los pasos necesarios para crear unas condiciones de
 
     ![Azure Active Directory](./media/require-tou/02.png)
 
-5. En la página **Azure Active Directory**, en la sección **Administrar**, haga clic en **Acceso condicional**.
+5. En la página **Azure Active Directory**, en la sección **Seguridad**, haga clic en **Acceso condicional**.
 
     ![Acceso condicional](./media/require-tou/03.png) 
 
@@ -94,7 +94,7 @@ En esta sección se explican los pasos necesarios para crear unas condiciones de
 
     ![Términos de uso](./media/require-tou/112.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba un **Mis CDU**.
+     a. En el cuadro de texto **Nombre**, escriba un **Mis CDU**.
 
     b. En el cuadro de texto **Nombre para mostrar**, escriba **Mis CDU**.
 
@@ -145,7 +145,7 @@ En la directiva, establezca:
 
     ![Usuarios y grupos](./media/require-tou/24.png)
 
-    a. Haga clic en **Seleccionar usuarios y grupos** y, luego, seleccione **Usuarios y grupos**.
+     a. Haga clic en **Seleccionar usuarios y grupos** y, luego, seleccione **Usuarios y grupos**.
 
     b. Haga clic en **Seleccionar**.
 
@@ -161,7 +161,7 @@ En la directiva, establezca:
 
     ![Seleccionar aplicaciones en la nube](./media/require-tou/26.png)
 
-    a. Haga clic en **Seleccionar aplicaciones**.
+     a. Haga clic en **Seleccionar aplicaciones**.
 
     b. Haga clic en **Seleccionar**.
 
@@ -178,9 +178,9 @@ En la directiva, establezca:
 
     ![Conceder](./media/require-tou/111.png)
 
-    a. Seleccione **Conceder acceso**.
+     a. Seleccione **Conceder acceso**.
 
-    a. Seleccione **Mis CDU**.
+     a. Seleccione **Mis CDU**.
 
     b. Haga clic en **Seleccionar**.
 
@@ -224,7 +224,7 @@ Al hacer clic en **What If**, se crea un informe de simulación que muestra:
 
     ![Aplicaciones de nube](./media/require-tou/16.png)
 
-    a. Haga clic en **Aplicaciones en la nube**.
+     a. Haga clic en **Aplicaciones en la nube**.
 
     b. En la **página Aplicaciones en la nube**, haga clic en **Seleccionar aplicaciones**.
 

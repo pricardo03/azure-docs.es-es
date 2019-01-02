@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e0c612407047a51c4e3d4101a0ee192f55458afe
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7bd63dc991500f1d7f68169342b9612c1b303a07
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497004"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320665"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -87,7 +87,7 @@ Configure la característica de _alerta de fraude_ para que los usuarios puedan 
 
 ### <a name="configuration-options"></a>Opciones de configuración
 
-* **Bloquear al usuario si se notifican fraudes**: si se informa de que un usuario ha cometido fraude, su cuenta se bloquea durante 90 días o hasta que un administrador la desbloquee. Un administrador puede revisar los inicios de sesión usando el informe de inicio de sesión y puede tomar las medidas adecuadas para prevenir el fraude en el futuro. El administrador puede, a continuación, [desbloquear](#unblock-a-user) la cuenta de usuario.
+* **Bloquear usuario al notificarse fraudes**: si se informa de que un usuario ha cometido fraude, su cuenta se bloquea durante 90 días o hasta que un administrador la desbloquee. Un administrador puede revisar los inicios de sesión usando el informe de inicio de sesión y puede tomar las medidas adecuadas para prevenir el fraude en el futuro. El administrador puede, a continuación, [desbloquear](#unblock-a-user) la cuenta de usuario.
 * **Código para notificar fraudes durante el saludo inicial**: cuando los usuarios reciben una llamada telefónica al realizar la verificación en dos pasos, normalmente presionan **#** para confirmar el inicio de sesión. Si desea notificar un fraude, el usuario introduce un código antes de presionar **#**. De manera predeterminada, dicho código es **0**, pero se puede personalizar.
 
    >[!NOTE]
@@ -257,6 +257,9 @@ Los usuarios también pueden crear contraseñas de aplicación después del regi
 
 Los administradores de un inquilino administrado o federado utilizan la característica de _IP de confianza_ de Azure Multi-Factor Authentication. La característica omite la verificación en dos pasos para los usuarios que inician sesión desde la intranet de la empresa. La característica está disponible con la versión completa de Azure Multi-Factor Authentication y no la versión que es gratis para administradores. Para más información sobre cómo obtener la versión completa de Azure Multi-Factor Authentication, consulte [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
+> [!NOTE]
+> Las direcciones IP de confianza de Multi-Factor Authentication y las ubicaciones con nombre del acceso condicional solo funcionan con direcciones IPV4.
+
 Si su organización implementa la extensión NPS para proporcionar Multi-Factor Authentication en aplicaciones locales, tenga en cuenta que la dirección IP de origen siempre parecerá ser el servidor NPS a través del que fluye el intento de autenticación.
 
 | Tipo de inquilino de Azure AD | Opciones de características de IP de confianza |
@@ -293,11 +296,11 @@ Independientemente de si la característica de la IP de confianza está habilita
 3. Seleccione **Configurar IP de confianza de MFA**.
 4. En la página **Configuración del servicio**, en **IP de confianza**, seleccione una de las dos opciones siguientes:
 
-   * **Para solicitudes de usuarios federados cuyo origen esté en mi intranet**: para elegir esta opción, active la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Si la regla no existe, cree la siguiente regla en AD FS:
+   * **Para solicitudes de usuarios federados cuyo origen esté en mi intranet**: Para elegir esta opción, seleccione la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Si la regla no existe, cree la siguiente regla en AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Para solicitudes de un intervalo específico de IP públicas**: para elegir esta opción, escriba las direcciones IP en el cuadro de texto mediante la notación CIDR.
+   * **Para solicitudes de un intervalo de IP públicas específico**: para elegir esta opción, escriba las direcciones IP en el cuadro de texto mediante la notación CIDR.
       * Para las direcciones IP que se encuentran en el intervalo xxx.xxx.xxx.1 mediante xxx.xxx.xxx.254, use una notación como **xxx.xxx.xxx.0/24**.
       * Para una única dirección IP, use esta notación: **xxx.xxx.xxx.xxx/32**.
       * Especifique un máximo de 50 intervalos de direcciones IP. Los usuarios que inician sesión desde estas direcciones IP omiten la comprobación en dos pasos.
@@ -312,7 +315,7 @@ Independientemente de si la característica de la IP de confianza está habilita
 4. En Multi-Factor Authentication, seleccione **Configuración del servicio**.
 5. En la página **Configuración del servicio**, en **IP de confianza**, seleccione una de las opciones siguientes (o ambas):
 
-   * **Para solicitudes de usuarios federados en mi intranet**: para elegir esta opción, active la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Si la regla no existe, cree la siguiente regla en AD FS:
+   * **Para solicitudes de usuarios federados en mi intranet**: Para elegir esta opción, seleccione la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Si la regla no existe, cree la siguiente regla en AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
@@ -384,3 +387,7 @@ La característica reduce el número de autenticaciones en las aplicaciones web,
 ### <a name="mark-a-device-as-trusted"></a>Marca de un dispositivo como de confianza
 
 Después de habilitar la característica Recordar Multi-Factor Authentication, al iniciar sesión los usuarios pueden marcar un dispositivo como de confianza si seleccionan **No volver a preguntar**.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Modificación de la personalización de marca de la página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md)

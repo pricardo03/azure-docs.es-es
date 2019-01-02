@@ -1,5 +1,5 @@
 ---
-title: Versiones de API de Azure Search | Microsoft Docs
+title: 'Administración de versiones de API para .NET SDK y API REST: Azure Search'
 description: Directiva de versión para las API de REST de Azure Search y la biblioteca de cliente en el SDK de .NET.
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
-ms.openlocfilehash: 8d1e30b0bca3c63fe4528c06e5389d8cbe27a7e6
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: seodec2018
+ms.openlocfilehash: 0cf5cac341cb36029c09ee2da5477323fac79cf5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113612"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311650"
 ---
 # <a name="api-versions-in-azure-search"></a>Versiones de API en Azure Search
 Azure Search implementa las actualizaciones de características de forma regular. A veces, aunque no siempre, estas actualizaciones requieren una nueva versión de la API para mantener la compatibilidad con versiones anteriores. La publicación de una nueva versión le permite controlar cuándo y cómo integrar en su código las actualizaciones del servicio de búsqueda.
@@ -31,7 +32,7 @@ A continuación se incluye una instantánea de las versiones actuales de todas l
 
 | Interfaces | Versión principal más reciente | Status |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Disponibilidad general, lanzada en abril de 2018 |
+| [SDK de .NET](https://aka.ms/search-sdk) |5.0 |Disponibilidad general, lanzada en abril de 2018 |
 | [Versión preliminar del SDK de .NET](https://aka.ms/search-sdk-preview) |4.0.1-preview |Versión preliminar, publicada en mayo de 2017 |
 | [API de REST de servicio](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Disponibilidad general |
 | [API REST de servicio 2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-Preview |Vista previa |
@@ -56,6 +57,6 @@ Las características en versión preliminar están disponibles para prueba y exp
 
 Por estos motivos, no se recomienda escribir código de producción que dependa de versiones preliminares. Si usa una versión preliminar antigua, se recomienda que migre a la versión de disponibilidad general (GA).
 
-Para el SDK de .NET: encontrará indicaciones para la migración de código en [Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure](search-dotnet-sdk-migration.md).
+Para .NET SDK: encontrará indicaciones para la migración de código en [Actualización de .NET SDK](search-dotnet-sdk-migration.md).
 
 La disponibilidad general significa que Azure Search está ahora sujeta al contrato de nivel de servicio. Encontrará dicho contrato en el [Acuerdo de Nivel de Servicio de Azure Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).

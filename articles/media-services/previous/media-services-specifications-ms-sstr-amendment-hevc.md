@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: 6330de2aa67fd83a5d4762c2c13d4916f642743d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 038eee18adf94f34a2e10d9ff7be76409c8c4322
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250941"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317430"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Modificación del protocolo Smooth Streaming (MS-SSTR) para HEVC
 
@@ -42,7 +42,7 @@ Los siguientes términos son específicos de este documento:
 
 >  **hora de composición:** la hora a la que se presenta una muestra en el cliente, tal como se define en [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
->   **CENC**: cifrado común, tal como se define en [ISO/IEC 23001-7] Segunda edición.
+>   **CENC**: Common Encryption, tal como se define en [ISO/IEC 23001-7] Segunda edición.
 
 >   **hora de descodificación:** la hora a la que se solicita la descodificación de una muestra en el cliente, tal como se define en [[ISO/IEC http://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
@@ -50,22 +50,21 @@ Los siguientes términos son específicos de este documento:
 
 >   **HEVC:** High Efficiency Video Coding (Codificación de vídeo de alta eficacia), tal como se define en [ISO/IEC 23008-2]
 
->   **manifiesto:** metadatos sobre la **presentación** que permiten a un cliente realizar solicitudes de **elementos multimedia**. **elementos multimedia:** datos de audio, vídeo y texto comprimidos utilizados por el cliente para reproducir una **presentación**. **formato multimedia:** un formato bien definido para representar audio o vídeo como una **muestra** comprimida.
+>   **manifiesto:** metadatos sobre la **presentación** que permiten a un cliente realizar solicitudes de **elementos multimedia**. **Elementos multimedia:** datos de audio, vídeo y texto comprimidos utilizados por el cliente para reproducir una **presentación**. **formato multimedia:** un formato bien definido para representar audio o vídeo como una **muestra** comprimida.
 
->   **presentación:** el conjunto de todas los **secuencias** y metadatos relacionados necesarios para reproducir una película única. **solicitud:** un mensaje HTTP enviado desde el cliente al servidor, como se define en [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **respuesta:** un mensaje HTTP enviado desde el servidor al cliente, como se define en [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **presentación:** el conjunto de todas las **secuencias** y metadatos relacionados necesarios para reproducir una sola película. **solicitud:** un mensaje HTTP enviado desde el cliente al servidor, como se define en [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **respuesta:** un mensaje HTTP enviado desde el servidor al cliente, como se define en [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
 
->   **muestra:** la unidad fundamental más pequeña (por ejemplo, un marco) en la que los **elementos multimedia** se almacenan y procesan.
+>   **muestra:** la unidad fundamental más pequeña (por ejemplo, un fotograma) en la que los **elementos multimedia** se almacenan y procesan.
 
->   **MAY, SHOULD, MUST, SHOULD NOT, MUST NOT:** (PUEDE, DEBERÍA, DEBE, NO DEBERÍA, NO DEBE) estos términos (en mayúsculas) se utilizan como se describe en [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) Todas las instrucciones de comportamiento opcional utilizan MAY, SHOULD o SHOULD NOT.
+>   **MAY, SHOULD, MUST, SHOULD NOT, MUST NOT:** estos términos (en mayúsculas) se utilizan como se describe en [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) Todas las instrucciones de comportamiento opcional utilizan MAY, SHOULD o SHOULD NOT.
 
-## <a name="12-references"></a>1.2 Referencias 
------------
+## <a name="12-references"></a>1.2 Referencias
 
 >   Las referencias a la documentación de Microsoft Open Specifications no incluyen el año de publicación porque los vínculos llevan a la versión más reciente de los documentos, que se actualizan con frecuencia. Las referencias a otros documentos incluyen el año de publicación cuando está disponible.
 
- ### <a name="121-normative-references"></a>1.2.1 Referencias de normativa 
+### <a name="121-normative-references"></a>1.2.1 Referencias de normativa 
 
->  [MS-SSTR] Protocolo Smooth Streaming *v20140502* [http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/[MS-SSTR].pdf](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+>  [MS-SSTR] Protocolo Smooth Streaming *v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
 
 >   [ISO/IEC 14496-12] International Organization for Standardization, "Tecnologías de la información: codificación de objetos audiovisuales, parte 12: formato de archivo multimedia básico ISO", ISO/IEC 14496-12:2014, Edición 4, además de la rectificación 1 y las enmiendas 1 y 2.
 >   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -73,7 +72,7 @@ Los siguientes términos son específicos de este documento:
 >   [ISO/IEC 14496-15] International Organization for Standardization, "Tecnologías de la información: codificación de objetos audiovisuales, parte 15: transporte de vídeo estructurado de unidad NAL en el formato de archivo multimedia básico ISO", ISO 14496-15:2015, Edición 3.
 >   <http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
 
->   [ISO/IEC 23008-2] Tecnologías de la información: entrega multimedia y codificación de alta eficacia en entornos heterogéneos: parte 2: codificación de vídeo de alta eficacia: 2013 o más reciente <http://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
+>   [ISO/IEC 23008-2] Tecnologías de la información: entrega multimedia y codificación de alta eficacia en entornos heterogéneos: parte 2: codificación de vídeo de alta eficacia: 2013 o más reciente   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
 
 >   [ISO/IEC 23001-7] Tecnologías de la información, tecnologías de sistemas MPEG, parte 7: cifrado común en archivos del formato de archivo multimedia básico ISO, CENC Edición 2:2015 <http://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
 
@@ -93,24 +92,18 @@ Los siguientes términos son específicos de este documento:
 
 
 ## <a name="13-overview"></a>1.3 Introducción 
----------
 
 >   Solo se indican a continuación los cambios de la especificación de Smooth Streaming necesarios para la entrega de HEVC. Los encabezados de las secciones sin modificaciones se enumeran para mantener la ubicación en la referida especificación de Smooth Streaming [MS-SSTR].
 
 ## <a name="14-relationship-to-other-protocols"></a>1.4 Relación con otros protocolos 
---------------------------------
 
 ## <a name="15-prerequisitespreconditions"></a>1.5 Requisitos previos y condiciones previas 
-----------------------------
 
 ## <a name="16-applicability-statement"></a>1.6 Declaración de aplicabilidad 
-------------------------
 
 ## <a name="17-versioning-and-capability-negotiation"></a>1.7 Control de versiones y negociación de funcionalidad 
---------------------------------------
 
 ## <a name="18-vendor-extensible-fields"></a>1.8 Campos extensibles por el proveedor 
--------------------------
 
 >   Se usará el método siguiente para identificar secuencias con el formato de vídeo HEVC:
 
@@ -118,15 +111,12 @@ Los siguientes términos son específicos de este documento:
 >   Los implementadores pueden asegurarse de que las extensiones no entran en conflicto mediante el registro de códigos de extensión en MPEG4-RA, como se especifica en [[ISO/IEC-14496-12] ](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 ## <a name="19-standards-assignments"></a>1.9 Asignaciones de estándares 
-----------------------
 
-# <a name="2-messages"></a>2 Mensajes 
+## <a name="2-messages"></a>2 Mensajes 
 
-## <a name="21-transport"></a>2.1 Transporte 
-----------
+## <a name="21-transport"></a>2.1 Transporte
 
 ## <a name="22-message-syntax"></a>2.2 Sintaxis de mensajes 
----------------
 
 ### <a name="221-manifest-request"></a>2.2.1 Solicitud de manifiesto 
 
@@ -221,7 +211,7 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
 
 >   tal como se define en [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
->   Nota: Esto evita un error de sincronización de vídeo provocado por un retraso de vídeo respecto al audio igual al retraso por eliminación del búfer de imagen decodificada más grande y mantiene los tiempos de presentación entre fragmentos alternativos que pueden tener retrasos de eliminación diferentes.
+>   Nota: Esto evita un error de sincronización de vídeo provocado por un retraso de vídeo respecto al audio igual al retraso por eliminación del búfer de imagen descodificada más grande y mantiene los tiempos de presentación entre fragmentos alternativos que pueden tener retrasos de eliminación diferentes.
 
 >   La sintaxis de los campos definidos en esta sección, tal como se especifica en ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) sigue siendo la misma, excepto en lo que se indica a continuación:
 
@@ -255,7 +245,7 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
     MinorVersion = STRING_UINT32
     CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
 
-**Nota**: las marcas de compatibilidad "ccff" e "iso8" indican que los fragmentos se ajustan al "Common Container File Format" (Formato de archivo de contenedor común) con cifrado común [ISO/IEC 23001-7] y al formato de archivo multimedia básico ISO Edición 4 [ISO/IEC 14496-12].
+**Nota**: Las marcas de compatibilidad "ccff" e "iso8" indican que los fragmentos se ajustan al "Common Container File Format" (Formato de archivo de contenedor común) con cifrado común [ISO/IEC 23001-7] y al formato de archivo multimedia básico ISO Edición 4 [ISO/IEC 14496-12].
 
 #### <a name="2272-streammanifestbox"></a>2.2.7.2 StreamManifestBox 
 
@@ -273,7 +263,7 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
 
 ### <a name="228-server-to-server-ingest"></a>2.2.8 Ingestión de servidor a servidor 
 
-# <a name="3-protocol-details"></a>3 Detalles del protocolo 
+## <a name="3-protocol-details"></a>3 Detalles del protocolo 
 
 
 ## <a name="31-client-details"></a>3.1 Detalles del cliente 
@@ -284,7 +274,7 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
 
 >   El elemento de datos Presentation Description (Descripción de la presentación) encapsula todos los metadatos de la presentación.
 
->   Presentation Metadata (Metadatos de la presentación): un conjunto de metadatos que es común a todas las secuencias de la presentación. Presentation Metadata consta de los siguientes campos, especificados en la sección *2.2.2.1*:
+>   Metadatos de presentación: un conjunto de metadatos que es común a todas las secuencias de la presentación. Presentation Metadata consta de los siguientes campos, especificados en la sección *2.2.2.1*:
 
 >   * **MajorVersion**
 >   * **MinorVersion**
@@ -305,15 +295,15 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
 
     TimeScale = 90000
 
->   Stream Collection (Colección de secuencia): una colección de elementos de datos Stream Description, como se especifica en la sección *3.1.1.1.2*.
+>   Colección de secuencia: una colección de elementos de datos Stream Description, como se especifica en la sección *3.1.1.1.2*.
 
->   Protection Description (Descripción de la protección): una colección de elementos de datos Protection System Metadata Description, como se especifica en la sección *3.1.1.1.1*.
+>   Descripción de la protección: una colección de elementos de datos Protection System Metadata Description, como se especifica en la sección *3.1.1.1.1*.
 
 ##### <a name="31111-protection-system-metadata-description"></a>3.1.1.1.1 Descripción de metadatos del sistema de protección 
 
 >   El elemento de datos Protection System Metadata Description (Descripción de metadatos del sistema de protección) encapsula los metadatos específicos de un único sistema de protección de contenido. (Sin cambios)
 
->   Protection Header Description (Descripción del encabezado de protección): Metadatos de protección de contenido que pertenecen a un único sistema de protección de contenido. Protection Header Description consta de los siguientes campos, especificados en la sección *2.2.2.2*:
+>   Descripción del encabezado de protección: metadatos de protección de contenido que pertenecen a un único sistema de Content Protection. Protection Header Description consta de los siguientes campos, especificados en la sección *2.2.2.2*:
 
 >   * **SystemID**
 >   * **ProtectionHeaderContent**
@@ -354,19 +344,17 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
 
 ## <a name="33-live-encoder-details"></a>3.3 Detalles de codificador en directo 
 
-# <a name="4-protocol-examples"></a>4 Ejemplos de protocolo 
+## <a name="4-protocol-examples"></a>4 Ejemplos de protocolo 
 
-# <a name="5-security"></a>5 Seguridad 
+## <a name="5-security"></a>5 Seguridad 
 
-## <a name="51-security-considerations-for-implementers"></a>5.1 Consideraciones de seguridad para los implementadores 
------------------------------------------
+## <a name="51-security-considerations-for-implementers"></a>5.1 Consideraciones de seguridad para los implementadores
 
 >   Si el contenido que se transporta mediante este protocolo tiene un alto valor comercial, debe utilizarse un sistema de protección de contenido para impedir el uso no autorizado del contenido. Se puede utilizar **ProtectionElement** para transportar los metadatos relacionados con el uso de un sistema de protección de contenido. El contenido de vídeo y audio protegido DEBERÁ cifrarse tal y como se especifica en Cifrado común de MPEG Segunda edición: 2015 [ISO/IEC 23001-7].
 
 >   **Nota**: Para vídeo HEVC, solo se cifran los datos de segmento en los elementos NAL de VCL. Los encabezados de segmento y otros NAL son accesibles a las aplicaciones de presentación antes del descifrado. En una ruta de acceso de vídeo segura, la información cifrada no está disponible para las aplicaciones de presentación.
 
-# <a name="52-index-of-security-parameters"></a>5.2 Índice de parámetros de seguridad 
------------------------------
+## <a name="52-index-of-security-parameters"></a>5.2 Índice de parámetros de seguridad 
 
 
 | **Parámetro de seguridad**  | **Sección**         |
@@ -374,8 +362,7 @@ ProtectionElement DEBERÁ estar presente cuando se ha aplicado cifrado común (C
 | ProtectionElement       | *2.2.2.2*           |
 | Cuadros de cifrado común | *[ISO/IEC 23001-7]* |
 
-# <a name="53-common-encryption-boxes"></a>5.3 Cuadros de cifrado común
------------------------
+## <a name="53-common-encryption-boxes"></a>5.3 Cuadros de cifrado común
 
 Los cuadros siguientes pueden estar presentes en las respuestas de fragmento cuando se aplica el cifrado común y se especifican en [ISO/IEC 23001-7] o [ISO/IEC 14496-12]:
 

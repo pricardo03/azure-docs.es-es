@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fef4ecd207fd32b5a92a4c072832f3ab45b58300
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627181"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872771"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guía sobre formatos y convenciones de nomenclatura para documentos
 
@@ -43,11 +43,13 @@ Para los diccionarios, Custom Translator es compatible con todos los formatos de
 
 Los documentos se pueden agrupar en un único archivo ZIP y cargarse. Custom Translator es compatible con los formatos de archivo ZIP (ZIP, GZ y TGZ).
 
-Cada documento en el archivo ZIP debe seguir la convención de nomenclatura siguiente:
+Todos los documentos del archivo zip con la extensión TXT, HTM, HTML, PDF, DOCX o ALIGN deben seguir esta convención de nomenclatura:
 
 {nombre del documento}\_{código de idioma} donde {nombre del documento} es el nombre del documento y {código de idioma} es el identificador de idioma ISO (dos caracteres), que indica que el documento contiene oraciones en ese idioma. Debe haber un guion bajo (_) antes del código de idioma.
 
 Por ejemplo, para cargar dos documentos paralelos dentro de un archivo ZIP para un sistema de inglés a español, los archivos deben tener los nombres "data_en" y "data_es".
+
+No es necesario que los archivos de la memoria de traducción (TMX, XLF, XLIFF, LCL y XLSX) sigan la convención de nomenclatura de un idioma específico.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

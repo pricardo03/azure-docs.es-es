@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321740"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190999"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
 
@@ -27,7 +27,7 @@ En este artículo se describen las directivas de contraseña y los requisitos de
 
 Con una directiva de dos puertas, los **administradores no tienen posibilidad de usar preguntas de seguridad**.
 
-Una directiva de dos puertas requiere dos elementos de datos de autenticación, como una dirección de correo electrónico *y* un número de teléfono. Se aplica una directiva de dos puertas en las siguientes circunstancias:
+Una directiva de dos puertas requiere dos elementos de datos de autenticación, como una **dirección de correo electrónico**, una **aplicación de autenticador** o un **número de teléfono**. Se aplica una directiva de dos puertas en las siguientes circunstancias:
 
 * Todos los roles de administrador siguientes se ven afectados:
   * Administrador del departamento de soporte técnico
@@ -80,7 +80,7 @@ En la tabla siguiente se describe la configuración de directivas de contraseña
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | Caracteres no permitidos |<ul><li>Caracteres Unicode.</li><li>Espacios.</li><li> Solo se admiten contraseñas seguras</li></ul> |
-| Restricciones de contraseña |<ul><li>Un mínimo de 8 caracteres y un máximo de 16 caracteres.</li><li>Solo contraseñas seguras: requiere al menos tres de los cuatro requisitos siguientes:<ul><li>Caracteres en minúsculas.</li><li>Caracteres en mayúsculas.</li><li>Números (0-9).</li><li>Símbolos (vea las anteriores restricciones de contraseña).</li></ul></li></ul> |
+| Restricciones de contraseña |<ul><li>Un mínimo de 8 caracteres y un máximo de 16 caracteres.</li><li>Solo se admiten contraseñas seguras: requiere al menos tres de los cuatro requisitos siguientes:<ul><li>Caracteres en minúsculas.</li><li>Caracteres en mayúsculas.</li><li>Números (0-9).</li><li>Símbolos (vea las anteriores restricciones de contraseña).</li></ul></li></ul> |
 | Duración de las contraseñas |<ul><li>Valor predeterminado: **90** días.</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`del módulo Active Directory para Windows PowerShell.</li></ul> |
 | Notificación de la expiración de contraseñas |<ul><li>Valor predeterminado: **14** días (antes de que expire la contraseña).</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
 | Expiración de las contraseñas |<ul><li>Valor predeterminado: **false** días (indica que la expiración de la contraseña está habilitada).</li><li>El valor se puede configurar para cuentas de usuario individuales mediante el cmdlet `Set-MsolUser`.</li></ul> |

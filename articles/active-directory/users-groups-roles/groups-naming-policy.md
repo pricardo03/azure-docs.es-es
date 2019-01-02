@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 12/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 3368133dec82d946318a755dc98b068a048b9e83
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243136"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275115"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Aplicación de una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory (versión preliminar)
 
@@ -58,6 +58,7 @@ Se recomienda usar atributos con valores ya rellenados para todos los usuarios d
 Una lista de palabras bloqueadas es una lista separada por comas de frases que se bloquearán en los nombres y alias de grupo. No se realiza ninguna búsqueda de subcadenas. Para desencadenar un error se requiere una coincidencia exacta entre el nombre de grupo y una o varias de las palabras bloqueadas personalizadas. Como no se realiza la búsqueda de subcadenas, los usuarios pueden usar palabras comunes como "Class" aunque "lass" sea una palabra bloqueada.
 
 Reglas de la lista de palabras bloqueadas:
+
 - Las palabras bloqueadas no distinguen mayúsculas de minúsculas.
 - Cuando un usuario escribe una palabra bloqueada que forma parte de un nombre de grupo, verá un mensaje de error con la palabra bloqueada.
 - No hay ninguna restricción de caracteres en las palabras bloqueadas.
@@ -120,7 +121,7 @@ Si se le pregunta sobre si desea acceder a un repositorio en el que no se confí
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Establecimiento de la directiva de nomenclatura y de las palabras bloqueadas personalizadas
 
-1. Establezca los prefijos y sufijos de nombre de grupo en Azure AD PowerShell.
+1. Establezca los prefijos y sufijos de nombre de grupo en Azure AD PowerShell. Para que la característica funcione correctamente, [nombre de grupo] debe estar incluido en la configuración.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -166,6 +167,27 @@ $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ````
+
+## <a name="remove-the-naming-policy"></a>Elimine la directiva de nomenclatura
+
+1. Vacíe los prefijos y sufijos de nombre de grupo en Azure AD PowerShell.
+  
+  ````
+  $Setting["PrefixSuffixNamingRequirement"] =""
+  ````
+  
+2. Vacíe las palabras bloqueadas personalizadas. 
+  
+  ````
+  $Setting["CustomBlockedWordsList"]=""
+  ````
+  
+3. Guarde la configuración
+  
+  ````
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+  ````
+
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Experiencias de la directiva de nomenclatura en aplicaciones de Office 365
 

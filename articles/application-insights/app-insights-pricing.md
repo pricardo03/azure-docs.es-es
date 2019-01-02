@@ -9,27 +9,26 @@ ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4407322dd415a7c8b2ef8b7ff470a247b8d68f69
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 8a0acbfa18053b6b50bd872d109b02d556a6f5f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319462"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436068"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Administración de precios y volúmenes de datos de Application Insights
 
 > [!NOTE]
 > En este artículo se describe cómo analizar el uso de datos de Application Insights.  Consulte los artículos siguientes para obtener información relacionada.
-> - En [Supervisión del uso y costos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) se describe cómo ver el uso y los costos estimados a través de varias características de supervisión de Azure para los distintos modelos de precios. También describe cómo cambiar el modelo de precios.
+> - En [Supervisión del uso y costos estimados](../azure-monitor/platform/usage-estimated-costs.md) se describe cómo ver el uso y los costos estimados a través de varias características de supervisión de Azure para los distintos modelos de precios. También describe cómo cambiar el modelo de precios.
 
 Los precios para [Azure Application Insights][start] se basan en el volumen de datos por aplicación. Cada recurso de Application Insights se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure.
 
-Application Insights dispone de dos planes de precios: Básico y Enterprise. El plan de precios Básico es el predeterminado. Incluye todas las características del plan Enterprise sin ningún costo adicional. En el plan Básico, la facturación se realiza principalmente en función del volumen de datos ingerido. 
+Application Insights tiene dos planes de precios. Básico y Enterprise. El plan de precios Básico es el predeterminado. Incluye todas las características del plan Enterprise sin ningún costo adicional. En el plan Básico, la facturación se realiza principalmente en función del volumen de datos ingerido. 
 
 En el plan Enterprise, se cobra por nodo y cada nodo recibe una asignación de datos diaria. En el plan de precios Enterprise, se cobran los datos ingeridos que sobrepasan la asignación incluida. Si usa Operations Management Suite, debería elegir el plan Enterprise. 
 
@@ -171,4 +170,4 @@ Para deshabilitar los correos electrónicos de límite de volumen diario, en la 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/

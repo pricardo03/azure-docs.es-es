@@ -1,5 +1,5 @@
 ---
-title: Configuración de la autenticación mutua de TLS para una aplicación web
+title: 'Configuración de la autenticación mutua TLS: Azure App Service'
 description: Aprenda a configurar la aplicación web para que use la autenticación de certificado de cliente en TLS.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: 894a77be05de131ab122f18c62d209e9829357f9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.custom: seodec18
+ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056215"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252888"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Configuración de la autenticación mutua de TLS para una aplicación web
 ## <a name="overview"></a>Información general
@@ -51,7 +52,7 @@ Asegúrese de cambiar el valor de "location" por aquel en el que se encuentre la
 
 También puede usar https://resources.azure.com para cambiar la propiedad `clientCertEnabled` a `true`.
 
-> **Nota**: Si ejecuta ARMClient desde PowerShell, debe usar la secuencia de escape del símbolo \@ del archivo JSON con una tilde aguda `.
+> **Nota:** Si ejecuta ARMClient desde PowerShell, debe usar la secuencia de escape del símbolo \@ del archivo JSON con una tilde aguda `.
 > 
 > 
 

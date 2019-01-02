@@ -1,5 +1,5 @@
 ---
-title: Creación de un conjunto de aptitudes en una canalización de búsqueda cognitiva (Azure Search) | Microsoft Docs
+title: 'Creación de un conjunto de aptitudes en una canalización de búsqueda cognitiva: Azure Search'
 description: Defina la extracción de datos, el procesamiento de lenguaje natural o los pasos de análisis de imagen para enriquecer y extraer información estructurada de los datos para utilizarla en Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.custom: seodec2018
+ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268027"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320802"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento
 
@@ -29,7 +30,7 @@ Puntos clave para recordar:
 
 + Solo puede tener un conjunto de aptitudes por indexador.
 + Un conjunto de aptitudes debe tener al menos una aptitud.
-+ Puede crear varias aptitudes del mismo tipo (por ejemplo, variantes de una aptitud de análisis de imagen), pero cada aptitud solo puede usarse una vez dentro del mismo conjunto de aptitudes.
++ Puede crear varias aptitudes del mismo tipo (por ejemplo, variantes de una aptitud de análisis de imagen).
 
 ## <a name="begin-with-the-end-in-mind"></a>Inicio pensando en el final
 

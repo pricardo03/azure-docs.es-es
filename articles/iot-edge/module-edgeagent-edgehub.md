@@ -1,5 +1,5 @@
 ---
-title: Referencia de Azure IoT EdgeAgent y EdgeHub | Microsoft Docs
+title: 'Referencia de propiedades deseadas de EdgeAgent y EdgeHub: Azure IoT Edge | Microsoft Docs'
 description: Revisión de las propiedades específicas y sus valores de los módulos gemelos edgeAgent y edgeHub
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 01e1942b12de126aa34130f5a4b77dd0fb958aa6
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: a0834e5886a1a088486109f967baf357e375ad05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568927"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100290"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propiedades de los módulos gemelos EdgeAgent y EdgeHub
 
@@ -70,7 +71,7 @@ La tabla siguiente no incluye la información que se copia de las propiedades de
 | Propiedad | DESCRIPCIÓN |
 | -------- | ----------- |
 | lastDesiredVersion | Este entero hace referencia a la última versión de las propiedades deseadas procesadas mediante el agente de Edge. |
-| lastDesiredStatus.code | Se trata del código de estado que hace referencia a las últimas propiedades que procesó el agente de Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida), `412` (versión de esquema no válido), `417` (las propiedades deseadas están vacías) y `500` (error). |
+| lastDesiredStatus.code | Se trata del código de estado que hace referencia a las últimas propiedades que procesó el agente de Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida), `412` (versión de esquema no válido), `417` (las propiedades deseadas están vacías) y `500` (error) |
 | lastDesiredStatus.description | Descripción de texto del estado. |
 | deviceHealth | `healthy` si el estado en tiempo de ejecución de todos los módulos es `running` o `stopped`; `unhealthy` otra condición. |
 | configurationHealth.{deploymentId}.health | `healthy` si el estado en tiempo de ejecución de todos los módulos establecidos mediante la implementación {deploymentId} es `running` o `stopped`; `unhealthy` otra condición. |
@@ -108,7 +109,7 @@ El módulo gemelo del centro de Edge se denomina `$edgeHub` y coordina las comun
 | Propiedad | DESCRIPCIÓN |
 | -------- | ----------- |
 | lastDesiredVersion | Este entero hace referencia a la última versión de las propiedades deseadas procesadas mediante el centro de Microsoft Edge. |
-| lastDesiredStatus.code | Se trata del código de estado que hace referencia a las últimas propiedades que procesó el centro de Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida) y `500` (error). |
+| lastDesiredStatus.code | Se trata del código de estado que hace referencia a las últimas propiedades que procesó el centro de Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida) y `500` (error) |
 | lastDesiredStatus.description | Descripción de texto del estado. |
 | clients.{device or moduleId}.status | El estado de conectividad de este dispositivo o módulo. Valores posibles {"connected" \| "disconnected"}. Solo las identidades de módulo pueden estar en el estado disconnected. Los dispositivos de nivel inferior que se conectan al centro de Edge solo aparecen cuando se conectan. |
 | clients.{device or moduleId}.lastConnectTime | Última vez que se conectó el dispositivo o módulo. |

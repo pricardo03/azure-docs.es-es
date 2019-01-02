@@ -1,25 +1,19 @@
 ---
-title: 'Optimización del enrutamiento de ExpressRoute: Azure | Microsoft Docs'
+title: 'Optimización del enrutamiento en circuitos ExpressRoute: Azure | Microsoft Docs'
 description: Esta página muestra información acerca de cómo optimizar el enrutamiento cuando tenga más de un circuito de ExpressRoute que se conecte entre Microsoft y la red corporativa.
-documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
-ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/06/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: charwen
-ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710004"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140938"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimización de enrutamiento de ExpressRoute
 Cuando hay varios circuitos ExpressRoute, tiene más de una ruta de acceso para conectarse a Microsoft. Como resultado, se puede producir un enrutamiento no óptimo: es decir, el tráfico puede utilizar una ruta más larga para conectarse con Microsoft y este a su vez, con su red. Cuanto más larga sea la ruta de acceso a la red, mayor será la latencia. La latencia tiene un efecto directo en la experiencia del usuario y en el rendimiento de las aplicaciones. En este artículo se describe este problema y se explica cómo optimizar el enrutamiento mediante las tecnologías de enrutamiento estándar.

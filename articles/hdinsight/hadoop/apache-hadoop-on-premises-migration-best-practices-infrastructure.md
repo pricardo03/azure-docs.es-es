@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 614fdae1865f008bdbc2cb8d5e8b96c0addcc112
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 6b0b047e74496fb9e58df05dc6118c5f376cb99d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036936"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437527"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Procedimientos recomendados de infraestructura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
 En este artículo se proporcionan recomendaciones para administrar la infraestructura de clústeres de Azure HDInsight. Forma parte de una serie de artículos que proporcionan prácticas recomendadas para ayudar a migrar sistemas locales de Apache Hadoop a Azure HDInsight.
 
-## <a name="plan-well-for-the-capacity-needed-for-hdinsight-clusters"></a>Planeación adecuada de la capacidad necesaria para clústeres de HDInsight
+## <a name="plan-for-hdinsight-cluster-capacity"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
 Estas son las principales decisiones que tiene que tomar para planear la capacidad del clúster de HDInsight:
 
@@ -29,17 +29,17 @@ Estas son las principales decisiones que tiene que tomar para planear la capacid
 - **Elija el tamaño y el tipo de máquina virtual (ya se admite la serie G)**: cada tipo de clúster tiene un conjunto de tipos de nodos, y cada uno de ellos incluye opciones específicas para el tamaño y el tipo de máquina virtual. El tamaño y el tipo de máquina virtual los determinan la capacidad de procesamiento de la CPU, el tamaño de RAM y la latencia de red. Se puede utilizar una carga de trabajo simulada para determinar el tamaño y el tipo óptimos de máquina virtual para cada tipo de nodo.
 - **Elija el número de nodos de trabajo**: se puede determinar el número inicial de nodos de trabajo con cargas de trabajo simuladas. Más adelante se puede escalar el clúster mediante la adición de más nodos de trabajo para satisfacer las demandas de carga máximas. A continuación, cuando los nodos de trabajo adicionales ya no sean necesarios, se puede revertir el escalado del clúster.
 
-Para obtener más información, vea el artículo [Planeamiento de la capacidad de los clústeres de HDInsight](../hdinsight-capacity-planning.md).
+Para más información, consulte el artículo [Planeamiento de la capacidad de los clústeres de HDInsight](../hdinsight-capacity-planning.md).
 
-## <a name="use-the-recommended-virtual-machine-types-for-cluster-nodes"></a>Uso de los tipos de máquina virtual recomendados para los nodos de clúster
+## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Uso del tipo de máquina virtual recomendado para el clúster
 
 Consulte [Configuración de nodo predeterminada y tamaños de máquina virtual para clústeres](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) para ver los tipos de máquinas virtuales recomendados para cada tipo de clúster de HDInsight.
 
-## <a name="check-the-availability-of-hadoop-components-in-hdinsight"></a>Comprobación de la disponibilidad de componentes de Hadoop en HDInsight
+## <a name="check-hadoop-components-availability-in-hdinsight"></a>Comprobación de la disponibilidad de componentes de Hadoop en HDInsight
 
 Cada versión de HDInsight es una distribución de nube de una versión de Hortonworks Data Platform (HDP) y consta de un conjunto de componentes del ecosistema de Hadoop. Consulte [¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?](../hdinsight-component-versioning.md) para obtener más información sobre todos los componentes de HDInsight y sus versiones actuales.
 
-También puede usar la IU de Ambari o la API REST de Ambari para consultar los componentes y las versiones de Hadoop en HDInsight.
+También puede usar la interfaz de usuario de Apache Ambari o la API REST de Ambari para consultar los componentes y las versiones de Hadoop en HDInsight.
 
 Las aplicaciones o componentes que estaban disponibles en clústeres locales pero no forman parte de los clústeres de HDInsight pueden agregarse en un nodo perimetral o en una máquina virtual en la misma red virtual que el clúster de HDInsight. Una aplicación de Hadoop de terceros que no esté disponible en Azure HDInsight puede instalarse con la opción "Aplicaciones" del clúster de HDInsight. Las aplicaciones de Hadoop personalizadas pueden instalarse en un clúster de HDInsight mediante "acciones de script". En la tabla siguiente se enumeran algunas de las aplicaciones habituales y sus opciones de integración de HDInsight:
 
@@ -90,14 +90,14 @@ HDInsight proporciona scripts escritos previamente para instalar los siguientes 
 - Carga previa de las bibliotecas de Hive
 - Instalación o actualización de Mono
 
-> [!Note]
+> [!Note]  
 > HDInsight no proporciona compatibilidad directa para los componentes de Hadoop personalizados ni los componentes instalados mediante acciones de script.
 
 Las acciones de script también pueden publicarse en Azure Marketplace como una aplicación de HDInsight.
 
 Para más información, consulte los siguientes artículos.
 
-- [Instalación de aplicaciones de Hadoop de terceros en Azure HDInsight](../hdinsight-apps-install-applications.md)
+- [Instalación de aplicaciones de Apache Hadoop de terceros en HDInsight](../hdinsight-apps-install-applications.md)
 - [Personalización de clústeres de HDInsight basados en Linux mediante acciones de script](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Publicación de una aplicación de HDInsight en Azure Marketplace](../hdinsight-apps-publish-applications.md)
 
@@ -130,7 +130,7 @@ New—AzureRmHDInsightCluster `
 
 Para más información, consulte el artículo [Personalización de los clústeres de HDInsight con Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="use-edge-nodes-on-hadoop-clusters-in-hdinsight-to-access-the-client-tools"></a>Uso de nodos perimetrales en clústeres de Hadoop en HDInsight para tener acceso a las herramientas de cliente
+## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>Acceso a las herramientas de cliente desde los nodos perimetrales del clúster HDInsight Hadoop
 
 Un nodo perimetral vacío es una máquina virtual Linux con las mismas herramientas de cliente instaladas y configuradas que en los nodos principales, pero sin que se ejecuten servicios de Hadoop. El nodo perimetral se puede utilizar para los siguientes fines:
 
@@ -140,9 +140,11 @@ Un nodo perimetral vacío es una máquina virtual Linux con las mismas herramien
 
 Los nodos perimetrales se pueden crear y eliminar a través de Azure Portal y pueden utilizarse durante la creación del clúster o después de esta. Después de haber creado un nodo perimetral, puede conectarse a él mediante SSH y ejecutar herramientas de cliente para acceder al clúster de Hadoop en HDInsight. El punto de conexión SSH del nodo perimetral es `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
-Para obtener más información, vea el artículo [Uso de nodos perimetrales en clústeres vacíos en HDInsight](../hdinsight-apps-use-edge-node.md).
 
-## <a name="use-the-scale-up-and-scale-down-feature-of-clusters"></a>Uso de la característica de escalado y reducción vertical de los clústeres
+Para más información, consulte el artículo [Uso de nodos perimetrales en clústeres vacíos en Apache Hadoop en HDInsight](../hdinsight-apps-use-edge-node.md).
+
+
+## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Uso de la característica de escalado vertical y de reducción vertical de los clústeres
 
 HDInsight proporciona elasticidad, lo que ofrece la opción de escalar y reducir verticalmente el número de nodos de trabajo de los clústeres. Esta característica le permite reducir un clúster una vez finalizada la jornada o durante los fines de semana y expandirlo durante períodos de máxima demanda empresarial.
 
@@ -174,7 +176,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 Después de salir del modo seguro, puede quitar manualmente los archivos temporales o esperar a que Hive los limpie automáticamente.
 
-Para obtener más información, consulte el artículo [Escalabilidad de clústeres de HDInsight](../hdinsight-scaling-best-practices.md).
+Para más información, consulte el artículo [Escalabilidad de clústeres de HDInsight](../hdinsight-scaling-best-practices.md).
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>Uso de HDInsight con Azure Virtual Network
 
@@ -186,9 +188,9 @@ El uso de una instancia de Azure Virtual Network con HDInsight hace posibles los
 - Conectar HDInsight a almacenes de datos en una instancia de Azure Virtual Network.
 - Obtener acceso directo a los servicios de Hadoop que no están disponibles públicamente en Internet. Por ejemplo, las API de Kafka o la API de Java de HBase.
 
-HDInsight puede agregarse a una instancia nueva o existente de Azure Virtual Network. Si se agrega HDInsight a una red virtual existente, será necesario actualizar los grupos de seguridad de red y las rutas definidas por el usuario ya establecidos para permitir el acceso sin restricciones a [varias direcciones IP](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip-1) en el centro de datos de Azure. Además, asegúrese de que no se bloquea el tráfico a los [puertos](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) que están siendo utilizados por los servicios de HDInsight.
+HDInsight puede agregarse a una instancia nueva o existente de Azure Virtual Network. Si se agrega HDInsight a una red virtual existente, será necesario actualizar los grupos de seguridad de red y las rutas definidas por el usuario ya establecidos para permitir el acceso sin restricciones a [varias direcciones IP](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) en el centro de datos de Azure. Además, asegúrese de que no se bloquea el tráfico a los [puertos](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) que están siendo utilizados por los servicios de HDInsight.
 
-> [!Note]
+> [!Note]  
 > HDInsight no es compatible actualmente con la tunelización forzada. La tunelización forzada es una configuración de subred que fuerza el tráfico de salida de Internet a un dispositivo para la inspección y el registro. Quite la tunelización forzada antes de instalar HDInsight en una subred, o bien cree una nueva subred para HDInsight. HDInsight no admite tampoco la restricción de la conectividad de red saliente.
 
 Para más información, consulte los siguientes artículos.
@@ -196,7 +198,7 @@ Para más información, consulte los siguientes artículos.
 - [¿Qué es Azure Virtual Network?](../../virtual-network/virtual-networks-overview.md)
 - [Extender Azure HDInsight mediante una instancia de Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md)
 
-## <a name="use-azure-virtual-network-service-endpoints-to-securely-connect-to-other-azure-services"></a>Uso de los puntos de conexión de servicio de Azure Virtual Network para conectarse de forma segura a otros servicios de Azure
+## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Conexión de forma segura a servicios de Azure con los puntos de conexión del servicio Azure Virtual Network
 
 HDInsight admite [puntos de conexión de servicio de redes virtuales](../../virtual-network/virtual-network-service-endpoints-overview.md)  para conectarse de forma segura a Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB y bases de datos SQL. Al habilitar un punto de conexión de servicio para Azure HDInsight, el tráfico fluye a través de una ruta protegida desde dentro del centro de datos de Azure. Con este nivel mejorado de seguridad en el nivel de red, puede bloquear las cuentas de almacenamiento de macrodatos en sus redes virtuales especificadas y seguir usando clústeres de HDInsight sin problemas para obtener acceso a los datos y procesarlos.
 

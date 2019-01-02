@@ -1,19 +1,20 @@
 ---
-title: Creación de directivas mediante programación y visualización de datos de cumplimiento con Azure Policy
+title: Creación de directivas mediante programación y visualización de datos de cumplimiento
 description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3c8fd185feff9a580e2d23926dcf60cb33121122
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242643"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312483"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creación de directivas mediante programación y visualización de datos de cumplimiento
 
@@ -29,7 +30,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de empezar:
 
 1. Actualice el módulo AzureRM de PowerShell a la versión más reciente. Para más información acerca de la versión más reciente, consulte [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Registre el proveedor de recursos de Policy Insights con Azure PowerShell para asegurarse de que la suscripción funciona con el proveedor de recursos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación de registro para este. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
+1. Registre el proveedor de recursos de Policy Insights con Azure PowerShell para validar que la suscripción funciona con el proveedor de recursos. Para registrar un proveedor de recursos, debe tener permiso para ejecutar la operación de registro de una acción para él. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
 
    ```azurepowershell-interactive
    Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'

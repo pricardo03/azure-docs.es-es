@@ -1,6 +1,6 @@
 ---
-title: Asignaciones de campos en los indexadores de Azure Search
-description: Configurar asignaciones de campos de indexador de Azure Search para tener en cuenta las diferencias en los nombres de campo y las representaciones de datos
+title: 'Asignaciones de campos para la indexación automatizada mediante indexadores: Azure Search'
+description: Configure asignaciones de campos de indexador de Azure Search para tener en cuenta las diferencias en los nombres de campo y las representaciones de datos.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 01edc7001ec463cb16d8b6c715794b0028508143
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 94a7274c0e950661d118ad5421e7c763fe555434
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404736"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312704"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Asignaciones de campos en los indexadores de Azure Search
 Al usar los indexadores de Azure Search, habrá ocasiones en que pueda encontrarse en situaciones donde sus datos de entrada no coincidan demasiado con el esquema de su índice de destino. En esos casos, puede usar **asignaciones de campos** para transformar sus datos en la forma deseada.
@@ -134,7 +135,7 @@ Si no se especifica ningún `parameters`, el valor predeterminado de `useHttpSer
 <a name="base64details"></a>
 
 ### <a name="details-of-base64-encoding-and-decoding"></a>Detalles de la codificación y descodificación Base64
-Azure Search admite dos codificaciones Base64: token de dirección URL de HttpServerUtility y codificación Base64 de seguridad de direcciones URL sin espaciado interno. Debe usar la misma codificación que las funciones de asignación si desea codificar una clave de documento para la búsqueda, codificar un valor que desea que descodifique el indexador, o descodificar un campo codificado por el indexador.
+Azure Search admite dos codificaciones base64: token de dirección URL de HttpServerUtility y codificación base64 segura para direcciones URL sin espaciado interno. Debe usar la misma codificación que las funciones de asignación si desea codificar una clave de documento para la búsqueda, codificar un valor que desea que descodifique el indexador, o descodificar un campo codificado por el indexador.
 
 Si los parámetros `useHttpServerUtilityUrlTokenEncode` o `useHttpServerUtilityUrlTokenDecode` para codificar y descodificar respectivamente se establecen en `true`, `base64Encode` se comporta como [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) y `base64Decode` se comporta como [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 

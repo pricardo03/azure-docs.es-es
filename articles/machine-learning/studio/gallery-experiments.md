@@ -1,12 +1,11 @@
 ---
 title: 'Experimentos de Azure AI Gallery: Azure Machine Learning Studio | Microsoft Docs'
-description: Descubra y comparta experimentos en la Galería de Azure AI.
+description: Descubra y comparta experimentos en la Galería de Azure AI. Un experimento es un lienzo de Machine Learning Studio que se puede usar para crear un modelo de análisis predictivo
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -16,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 12fb45b00848e5e34760ccb0691998c1f72237b8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317473"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269308"
 ---
-# <a name="discover-experiments-in-azure-ai-gallery"></a>Descubrimiento de experimentos en la Galería de Azure AI
+# <a name="discover-azure-machine-learning-studio-experiments-in-azure-ai-gallery"></a>Descubrimiento de los experimentos de Azure Machine Learning Studio en Azure AI Gallery
 
 [Azure AI Gallery](http://gallery.cortanaintelligence.com) tiene numerosos [experimentos](https://gallery.cortanaintelligence.com/experiments) que se han desarrollado en [Azure Machine Learning Studio](https://studio.azureml.net). Van desde experimentos rápidos de prueba de concepto que muestran una técnica específica de aprendizaje automático, hasta soluciones totalmente desarrolladas para problemas de aprendizaje automático complejos.
 
 > [!NOTE]
-> Un ***experimento*** es un lienzo de Machine Learning Studio que se puede usar para crear un modelo de análisis predictivo. El modelo se crea al conectar datos con diversos módulos analíticos. Puede probar diferentes ideas, realizar pruebas y finalmente implementar el modelo como un servicio web en Azure. Para ver un ejemplo de creación de un experimento básico, vea [Tutorial de aprendizaje automático: creación del primer experimento de ciencia de datos en Azure Machine Learning Studio](create-experiment.md). Para ver un tutorial más completo sobre la creación de una solución de análisis predictivo, vea [Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+> Un ***experimento*** es un lienzo de Machine Learning Studio que se puede usar para crear un modelo de análisis predictivo. El modelo se crea al conectar datos con diversos módulos analíticos. Puede probar diferentes ideas, realizar pruebas y finalmente implementar el modelo como un servicio web en Azure. Para un ejemplo de cómo crear un experimento básico, consulte el [tutorial de Machine Learning: creación del primer experimento en Azure Machine Learning Studio](create-experiment.md). Para un tutorial más completo sobre cómo crear una solución de análisis predictivo, consulte [Tutorial: Desarrollar una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio](walkthrough-develop-predictive-solution.md).
 >
 >
 
@@ -82,7 +81,7 @@ En el momento en que inicia sesión en la Galería, se convierte en un miembro d
 3. Cuando esté preparado para publicar el experimento en la Galería, seleccione **Publicar en la galería** en la lista de acciones debajo del lienzo de experimentos.
 
     ![Seleccionar "Publicar en la galería"](./media/gallery-experiments/publish-experiment-to-gallery.png)
-4. En la página **Descripción del experimento**, escriba un título y etiquetas. Intente que las etiquetas y el título sean descriptivos. Resalte las técnicas que ha usado o el problema real que resuelve. Un ejemplo de un título de experimento descriptivo es "Clasificación binaria: análisis de opinión de Twitter".
+4. En la página **Descripción del experimento**, escriba un título y etiquetas. Intente que las etiquetas y el título sean descriptivos. Resalte las técnicas que ha usado o el problema real que resuelve. Un ejemplo de un título de experimento descriptivo es "Clasificación binaria: análisis de sentimiento de Twitter".
 
     ![Escribir el título y las etiquetas para su publicación](./media/gallery-experiments/experiment-description.png)
 5. En el cuadro **RESUMEN**, escriba un resumen del experimento. Describa brevemente el problema que resuelve el experimento y cómo se ha abordado.
@@ -189,4 +188,4 @@ Después de escribir una etiqueta, para escribir otra, presione la tecla Tab.
 
 **[Ir a la Galería](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

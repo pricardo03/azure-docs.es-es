@@ -1,21 +1,22 @@
 ---
 title: Configuración de contenedores
-titlesuffix: Computer Vision - Cognitive Services - Azure
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: Opciones de configuración de contenedores en Computer Vision.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 8df293878486a9cd4ded6e899871c30498c4b68f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634972"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077025"
 ---
 # <a name="configure-containers"></a>Configuración de contenedores
 
@@ -86,7 +87,7 @@ Las opciones de configuración `Authentication` proporcionan opciones de segurid
 
 ## <a name="billing-configuration-setting"></a>Opción de configuración Billing
 
-La opción de configuración `Billing` especifica el URI del punto de conexión del recurso de Computer Vision en Azure que se usa para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un URI de punto de conexión válido para un recurso de Computer Vision en Azure.
+La opción de configuración `Billing` especifica el URI del punto de conexión del recurso de Computer Vision de Azure que se utiliza para medir la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un URI de punto de conexión válido para un recurso de Computer Vision en Azure.
 
 > [!IMPORTANT]
 > Las opciones de configuración [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) y [`Eula`](#eula-configuration-setting) se usan en conjunto, y debe proporcionar los valores válidos para las tres; en caso contrario, no se inicia el contenedor. Para obtener más información sobre el uso de estas opciones de configuración para crear instancias de un contenedor, consulte [Facturación](computer-vision-how-to-install-containers.md#billing).
@@ -97,6 +98,8 @@ La opción de configuración `Eula` indica que ha aceptado la licencia del conte
 
 > [!IMPORTANT]
 > Las opciones de configuración [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) y [`Eula`](#eula-configuration-setting) se usan en conjunto, y debe proporcionar los valores válidos para las tres; en caso contrario, no se inicia el contenedor. Para obtener más información sobre el uso de estas opciones de configuración para crear instancias de un contenedor, consulte [Facturación](computer-vision-how-to-install-containers.md#billing).
+
+Los contenedores de Cognitive Services tienen una licencia sujeta al [contrato](https://go.microsoft.com/fwlink/?linkid=2018657) que rige el uso de Azure. Si no tiene ningún contrato que rija el uso de Azure, acepta que el contrato que rige el uso de Azure es el [Contrato Microsoft Online Subscription](https://go.microsoft.com/fwlink/?linkid=2018755), que incorpora los [Términos de Online Services](https://go.microsoft.com/fwlink/?linkid=2018760). En el caso de las versiones preliminares, acepta también los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Al usar el contenedor, acepta estos términos.
 
 ## <a name="fluentd-configuration-settings"></a>Opciones de configuración Fluentd
 
@@ -127,7 +130,7 @@ Las opciones de configuración `Logging` administran la compatibilidad con el re
 
   | NOMBRE | Tipo de datos | DESCRIPCIÓN |
   |------|-----------|-------------|
-  | `Format` | string | Formato de salida de los archivos de registro.<br/> **Nota:** Este valor debe establecerse en `json` para habilitar el proveedor de registro. Si se especifica este valor sin especificar también un montaje de salida al crear una instancia de un contenedor, se produce un error. |
+  | `Format` | string | Formato de salida de los archivos de registro.<br/> **Nota:** este valor debe establecerse en `json` para habilitar el proveedor de registro. Si se especifica este valor sin especificar también un montaje de salida al crear una instancia de un contenedor, se produce un error. |
   | `MaxFileSize` | Entero | Tamaño máximo en megabytes (MB) de un archivo de registro. Cuando el tamaño del archivo de registro actual cumple este valor o lo supera, el proveedor de registro inicia un nuevo archivo de registro. Si se especifica -1, el tamaño del archivo de registro solo está limitado por el tamaño máximo de archivo, si existe, para el montaje de salida. El valor predeterminado es 1. |
 
 Para obtener más información acerca de cómo configurar la compatibilidad con el registro de ASP.NET Core, consulte [Configuración del archivo de configuración](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).

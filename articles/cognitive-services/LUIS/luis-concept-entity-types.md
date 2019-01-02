@@ -1,23 +1,24 @@
 ---
-title: 'Tipos de entidad en aplicaciones de LUIS: Language Understanding'
-titleSuffix: Azure Cognitive Services
+title: Tipos de entidades
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Agregue entidades (datos clave del dominio de la aplicación) a las aplicaciones de Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f0e543263c7a9890abc485d0f0cd6bec88f16dd4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085871"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135209"
 ---
-# <a name="entities-in-luis"></a>Entidades de LUIS
+# <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidad y sus propósitos en LUIS
 
 Las entidades son palabras o frases de expresiones que son datos clave en el dominio de la aplicación.
 
@@ -71,7 +72,7 @@ LUIS ofrece muchos tipos de entidades: entidades creadas previamente, entidades 
 | NOMBRE | Se puede etiquetar | DESCRIPCIÓN |
 | -- |--|--|
 | **Creada previamente** <br/>[Personalizada](#prebuilt)| |  **Definición**<br>Tipos integrados que representan conceptos comunes. <br><br>**Lista**<br/>número de frase clave, ordinal, temperatura, dimensión, moneda, edad, porcentaje, correo electrónico, dirección URL, número de teléfono y frase clave. <br><br>Los nombres de las entidades creadas previamente están reservados. <br><br>Todas las entidades creadas previamente que se agregan a la aplicación se devuelven en la consulta de [punto de conexión](luis-glossary.md#endpoint). Para obtener más información, vea [Entidades creadas previamente](./luis-prebuilt-entities.md). <br/><br/>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Expresión regular**<br/>[RegEx](#regex)||**Definición**<br>Expresión regular personalizada para el texto con formato de expresiones sin formato. No distingue entre mayúsculas y minúsculas e ignora la variante cultural.  <br><br>Esta entidad es adecuada para las palabras o frases que tienen un formato coherente con cualquier variación que también sea coherente.<br><br>La coincidencia de expresiones regulares se aplica después de las modificaciones de la ortografía. <br><br>Si la expresión regular es demasiado compleja (por ejemplo, uso excesivo de corchetes), no podrá agregar la expresión al modelo. <br><br>**Ejemplo**<br>`kb[0-9]{6,}` coincide con kb123456.<br/><br/>[Guía de inicio rápido](luis-quickstart-intents-regex-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Expresión regular**<br/>[RegEx](#regex)||**Definición**<br>Expresión regular personalizada para el texto con formato de expresiones sin formato. No distingue entre mayúsculas y minúsculas e ignora la variante cultural.  <br><br>Esta entidad es adecuada para las palabras o frases que tienen un formato coherente con cualquier variación que también sea coherente.<br><br>La coincidencia de expresiones regulares se aplica después de las modificaciones de la ortografía en los caracteres, no en el nivel de token. Usa una parte de la biblioteca [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) solamente.<br><br>Si la expresión regular es demasiado compleja (por ejemplo, uso excesivo de corchetes), no podrá agregar la expresión al modelo. <br><br>**Ejemplo**<br>`kb[0-9]{6,}` coincide con kb123456.<br/><br/>[Guía de inicio rápido](luis-quickstart-intents-regex-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md)|
 | **Simple** <br/>[Con aprendizaje automático](#machine-learned) | ✔ | **Definición**<br>Una entidad simple es una entidad genérica que describe un concepto único que se ha aprendido en un contexto de aprendizaje automático. El contexto incluye la elección de palabras, la colocación de las palabras y la longitud de la expresión.<br/><br/>Se trata de una entidad adecuada para las palabras o frases que no tienen un formato coherente pero que indican lo mismo. <br/><br/>[Guía de inicio rápido](luis-quickstart-primary-and-secondary-data.md)<br/>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Lista** <br/>[Coincidencia exacta](#exact-match)|| **Definición**<br>Las entidades de lista representan un conjunto fijo y cerrado de palabras relacionadas (y sus sinónimos) del sistema. <br><br>Cada entidad de lista puede tener uno o varios formatos. Es útil para un conjunto conocido de variaciones sobre cómo representar el mismo concepto.<br/><br/>LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual.<br/><br>Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión. <br/><br/>[Guía de inicio rápido](luis-quickstart-intent-and-list-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Mixto](#mixed) | ✔|**Definición**<br>Patterns.any es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad.  <br><br>**Ejemplo**<br>Dada una búsqueda de expresión de libros en función del título, pattern.any extrae el título completo. `Who wrote {BookTitle}[?]` es una expresión de plantilla que usa pattern.any.<br/><br/>[Tutorial](luis-tutorial-pattern.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#composite-entity-data)|  

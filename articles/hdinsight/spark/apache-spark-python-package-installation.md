@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5b90519120e64a905073eec6b73e4ced64fe4f64
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: bfb2df377030f14893b3e124e6112ef6c2994afd
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496056"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321193"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Uso de acción de script para instalar paquetes externos de Python para cuadernos de Jupyter en clústeres de Apache Spark en HDInsight
 > [!div class="op_single_selector"]
@@ -67,9 +67,7 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 2. En la hoja del clúster de Spark, haga clic en **Acciones de script** en el panel izquierdo. Use el tipo de script "Personalizado" y escriba un nombre descriptivo para la acción de script. Ejecute el script en los **nodos principal y de trabajo** y deje en blanco el campo de parámetros. Al script de Bash se puede hacer referencia desde: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh. Consulte la documentación acerca de [cómo usar acciones de script personalizadas](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
-   > Hay dos instalaciones de Python en el clúster. Spark usará la instalación de Python de Anaconda ubicada en `/usr/bin/anaconda/bin`. Haga referencia a esa instalación en sus acciones personalizadas mediante `/usr/bin/anaconda/bin/pip` y `/usr/bin/anaconda/bin/conda`.
-   > 
-   > 
+   > Hay dos instalaciones de Python en el clúster. Spark usará la instalación de Python de Anaconda ubicada en `/usr/bin/anaconda/bin` y usará como predeterminado el entorno de Python 2.7. Para usar Python 3.x e instalar paquetes en el kernel de PySpark3, use la ruta de acceso al ejecutable `conda` para ese entorno y use el parámetro `-n` para especificar el entorno. Por ejemplo, el comando `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, instala el paquete `ggplot` en el entorno de Python 3.5 mediante el canal `conda-forge`.
 
 3. Abrir un cuaderno de Jupyter de PySpark
 
@@ -93,12 +91,12 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
     ![Ejecución de código de TensorFlow](./media/apache-spark-python-package-installation/execution.png "Ejecución de código de TensorFlow")
 
 ## <a name="seealso"></a>Consulte también
-* [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md)
+* [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
-* [Apache Spark con BI: Realización de análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para analizar la temperatura de un edificio mediante datos de HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
@@ -108,9 +106,9 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Uso de paquetes externos con cuadernos de Jupyter en clústeres de Apache Spark en HDInsight](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones de Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Apache Spark de forma remota](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Apache Spark de forma remota)
 * [Uso de cuadernos de Apache Zeppelin con un clúster de Apache Spark en HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponible para Jupyter Notebook en clústeres de Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Kernels disponible para Jupyter Notebook en clústeres Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Administración de recursos

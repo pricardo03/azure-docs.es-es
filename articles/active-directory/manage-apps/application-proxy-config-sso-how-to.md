@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 91bbbf6cced8dc3ade4906961d68a99f810d9fd9
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c27649bc92b9874c6a669911d2b86273cf7adf0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956993"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136339"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Configuración del inicio de sesión único en una aplicación de proxy de aplicación
 
@@ -29,7 +29,7 @@ El inicio de sesión único (SSO) permite que los usuarios accedan a una aplicac
 ## <a name="how-to-configure-single-sign-on"></a>Configuración del inicio de sesión único
 Para configurar SSO, asegúrese de que la aplicación esté configurada para la autenticación previa a través de Azure Active Directory. Para realizar esta configuración, vaya a **Azure Active Directory** -&gt; **Aplicaciones empresariales** -&gt; **Todas las aplicaciones** -&gt; Su aplicación **-&gt; Proxy de la aplicación**. En esta página, asegúrese de que el campo "Autenticación previa" esté establecido en "Azure Active Directory". 
 
-Para más información sobre los métodos de autenticación previa, consulte el paso 4 del [documento sobre publicación de aplicaciones](application-proxy-publish-azure-portal.md).
+Para más información sobre los métodos de autenticación previa, consulte el paso 4 del [documento sobre publicación de aplicaciones](application-proxy-add-on-premises-application.md).
 
    ![Método de autenticación previa en Azure Portal](./media/application-proxy-config-sso-how-to/app-proxy.png)
 
@@ -38,9 +38,9 @@ Configure el tipo específico de inicio de sesión único. Los métodos de inici
 
 -   **Inicio de sesión con contraseña**: el inicio de sesión con contraseña sirve para cualquier aplicación que utilice los campos de nombre de usuario y contraseña para iniciar sesión. Los pasos de configuración están disponibles en [Configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD](configure-password-single-sign-on-gallery-applications.md).
 
--   **Autenticación de Windows integrada**: para las aplicaciones que utilizan la autenticación de Windows integrada (IWA), el inicio de sesión único se habilita a través de la delegación limitada de Kerberos (KCD). Este método concede permiso a los conectores de proxy de aplicación en Active Directory para suplantar a los usuarios, y para enviar y recibir tokens en su nombre. Puede ver más información sobre la configuración de KCD en la [documentación sobre el inicio de sesión único con KCD](application-proxy-configure-single-sign-on-with-kcd.md).
+-   **Autenticación integrada de Windows**: en el caso de las aplicaciones que utilizan la Autenticación integrada de Windows (IWA), el inicio de sesión único se habilita mediante de la delegación limitada de Kerberos (KCD). Este método concede permiso a los conectores de proxy de aplicación en Active Directory para suplantar a los usuarios, y para enviar y recibir tokens en su nombre. Puede ver más información sobre la configuración de KCD en la [documentación sobre el inicio de sesión único con KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Inicio de sesión basado en el encabezado**: el inicio de sesión basado en el encabezado se habilita a través de una asociación y requiere configuración adicional. Para ver detalles sobre la asociación y las instrucciones paso a paso para configurar el inicio de sesión único para una aplicación que use encabezados para la autenticación, consulte la [documentación de PingAccess para Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
+-   **Inicio de sesión basado en el encabezado**: se habilita mediante una asociación y requiere una configuración adicional. Para ver detalles sobre la asociación y las instrucciones paso a paso para configurar el inicio de sesión único para una aplicación que use encabezados para la autenticación, consulte la [documentación de PingAccess para Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
 
 Puede encontrar todas estas opciones si va a "Aplicaciones empresariales" en la aplicación y abre la página **Inicio de sesión único** en el menú de la izquierda. Tenga en cuenta que, si la aplicación se creó en el portal antiguo, es posible que no vea todas estas opciones.
 

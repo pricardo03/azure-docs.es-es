@@ -1,5 +1,5 @@
 ---
-title: 'Depuración de Apache Hadoop en HDInsight: ver registros e interpretar mensajes de error (Azure) '
+title: 'Depuración de Apache Hadoop: Consulta de registros e interpretación de mensajes de error en Azure HDInsight'
 description: Conozca los mensajes de error que puede recibir cuando administre HDInsight con PowerShell, así como los pasos que debe seguir para la recuperación.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634641"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438819"
 ---
-# <a name="analyze-hadoop-logs"></a>Análisis de los registros de Hadoop
+# <a name="analyze-apache-hadoop-logs"></a>Análisis de registros de Apache Hadoop
 
-Cada clúster de Apache Hadoop en Azure HDInsight tiene una cuenta de almacenamiento de Azure que se usa como sistema de archivos predeterminado. La cuenta de almacenamiento se conoce como la cuenta de almacenamiento predeterminada. El clúster usa Azure Table Storage y Blob Storage de la cuenta de Storage predeterminada para almacenar sus registros.  Para averiguar cuál es la cuenta de almacenamiento predeterminada de su clúster, consulte [Administración de clústeres de Hadoop en HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Los registros conservan la cuenta de almacenamiento incluso después de que se elimine el clúster.
+Cada clúster de Apache Hadoop en Azure HDInsight tiene una cuenta de almacenamiento de Azure que se usa como sistema de archivos predeterminado. La cuenta de almacenamiento se conoce como la cuenta de almacenamiento predeterminada. El clúster usa Azure Table Storage y Blob Storage de la cuenta de Storage predeterminada para almacenar sus registros.  Para averiguar cuál es la cuenta de almacenamiento predeterminada de su clúster, consulte [Administración de clústeres de Apache Hadoop en HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Los registros conservan la cuenta de almacenamiento incluso después de que se elimine el clúster.
 
 ## <a name="logs-written-to-azure-tables"></a>Registros escritos en tablas de Azure
 
@@ -72,7 +72,7 @@ Power Query puede instalarse desde [Microsoft Power Query para Excel](https://ww
    
     ![Registros de Hadoop de HDInsight almacenados en el almacenamiento de tablas de Azure](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. Haga clic con el botón derecho en la tabla hadoopservicelog, en el panel **Navegador**, y seleccione **Editar**. Verá cuatro columnas. Opcionalmente, puede eliminar las columnas **Clave de partición**, **Clave de fila** y **Marca de tiempo** seleccionándolas y haciendo clic en **Quitar columnas** en las opciones de la cinta.
-6. Haga clic en el icono Expandir, en la columna Contenido, para elegir las columnas que desea importar en la hoja de cálculo de Excel. Para esta demostración, se ha elegido TraceLevel y ComponentName, ya que pueden aportar información básica sobre qué componentes tenían problemas.
+6. Haga clic en el icono Expandir, en la columna Contenido, para elegir las columnas que desea importar en la hoja de cálculo de Excel. Para esta demostración, se ha elegido TraceLevel y ComponentName: Pueden aportar información básica sobre los componentes que tenían problemas.
    
     ![Registros de Hadoop de HDInsight: elegir columnas](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
 7. Haga clic en **Aceptar** para importar los datos.
@@ -101,9 +101,11 @@ Ahora puede usar Excel para filtrar y ordenar según sea necesario. Puede intere
 ## <a name="logs-written-to-azure-blob-storage"></a>Registros escritos en Azure Blob Storage
 [Los registros que se escriben en las tablas de Azure](#log-written-to-azure-tables) proporcionan un nivel de información sobre lo que ocurre en un clúster de HDInsight. Sin embargo, estas tablas no proporcionan registros de nivel de tarea, que pueden ser útiles para obtener detalles sobre los problemas cuando se producen. Para proporcionar este nivel de detalle superior, los clústeres de HDInsight están configurados para escribir registros de tareas en su cuenta de Blob Storage para cualquier trabajo que se envíe a través de Templeton. En la práctica, esto hace referencia a los trabajos enviados mediante los cmdlets de Microsoft Azure PowerShell o las API de envío de trabajos de .NET, no a los trabajos enviados a través de RDP o el acceso de línea de comandos al clúster. 
 
-Para ver los registros, consulte [Acceso a registros de aplicación de YARN en HDInsight basado en Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Para ver los registros, consulte [Acceso a registros de aplicación de YARN de Apache Hadoop en HDInsight basado en Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Para obtener más información sobre los registros de aplicación, consulte [Simplifying user-logs management and access in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)(Simplificar la administración de registros de usuario y el acceso en YARN).
+
+Para más información sobre los registros de aplicación, consulte [Simplifying user-logs management and access in YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/) (Simplificación de la administración de registros de usuario y el acceso en YARN).
+
 
 ## <a name="view-cluster-health-and-job-logs"></a>Visualización de los registros de trabajo y del estado del clúster
 ### <a name="access-the-ambari-ui"></a>Acceder a la interfaz de usuario de Ambari
@@ -136,23 +138,23 @@ Algunos de estos mensajes de error también podrían aparecer en el portal de Az
 * **Mitigación**: el usuario debe facilitar una tienda de metadatos SQL de Azure válida y volver a enviar la solicitud.  
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
-* **Descripción**: no se pudo crear un clúster en la región *nombredelaregión*. Utilice una región de HDInsight válida y vuelva a enviar la solicitud.
-* **Mitigación**: el cliente debe crear el clúster en una región que actualmente lo admita: sudeste asiático, Europa occidental, norte de Europa y este u oeste de Estados Unidos.  
+* **Descripción**: no se pudo crear un clúster en la región *nombreDeLaRegión*. Utilice una región de HDInsight válida y vuelva a enviar la solicitud.
+* **Mitigación**: el cliente debe crear el clúster en una región que actualmente lo admita: Sudeste Asiático, Europa Occidental, Europa del Norte, Este de EE. UU. u Oeste de EE. UU.  
 
 ### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
 * **Descripción**: el servidor no encuentra el registro de clúster solicitado.  
-* **Mitigación**: vuelva a intentarlo.
+* **Mitigación**: Vuelva a intentar la operación.
 
 ### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
 * **Descripción**: el nombre DNS del clúster *nombreDNS* no es válido. Asegúrese de que empiece y acabe con un carácter alfanumérico y de que no contenga ningún carácter especial aparte de “-”.  
 * **Mitigación**: asegúrese de que se haya utilizado un nombre DNS válido para el clúster que empiece y acabe con un carácter alfanumérico y que no contenga ningún carácter especial, aparte del guión (-), y, a continuación, vuelva a intentarlo.
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
-* **Descripción**: el nombre de clúster *nombredeclúster* no está disponible. Elija otro nombre.  
+* **Descripción**: el nombre de clúster *nombreDeClúster* no está disponible. Elija otro nombre.  
 * **Mitigación**: el usuario debe especificar un nombre de clúster que sea único y que no esté ya en uso, y, a continuación, volver a intentarlo. Si el usuario está usando el Portal, la IU le informará durante los pasos de creación si el nombre de clúster ya está en uso.
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
-* **Descripción**: la contraseña del clúster no es válida. La contraseña debe cumplir estos requisitos: tener al menos 10 caracteres, incluir como mínimo un número, una letra mayúscula, una letra minúscula y un carácter especial, no contener espacios, y no estar formada a partir del nombre de usuario.  
+* **Descripción**: La contraseña del clúster no es válida. La contraseña debe cumplir estos requisitos: tener al menos 10 caracteres, incluir como mínimo un número, una letra mayúscula, una letra minúscula y un carácter especial, no contener espacios, y no estar formada a partir del nombre de usuario.  
 * **Mitigación**: proporcione una contraseña de clúster válida y vuelva a intentarlo.
 
 ### <a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
@@ -164,19 +166,19 @@ Algunos de estos mensajes de error también podrían aparecer en el portal de Az
 * **Mitigación**: proporcione un nombre de usuario de clúster DNS válido y vuelva a intentarlo.
 
 ### <a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
-* **Descripción**: el nombre de contenedor del URI *URIdecontenedor* y el nombre DNS *nombreDNS* del cuerpo de la solicitud deben coincidir.  
+* **Descripción**: el nombre de contenedor del URI *URIdeContenedor* y el nombre DNS *nombreDNS* del cuerpo de la solicitud deben coincidir.  
 * **Mitigación**: asegúrese de que el nombre del contenedor y el nombre DNS coincidan y vuelva a intentarlo.
 
 ### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
-* **Descripción**: la configuración de clúster no es válida. No se puede encontrar ninguna definición de nodo de datos en el tamaño de nodo.  
-* **Mitigación**: vuelva a intentarlo.
+* **Descripción**: Configuración de clúster no es válida. No se puede encontrar ninguna definición de nodo de datos en el tamaño de nodo.  
+* **Mitigación**: Vuelva a intentar la operación.
 
 ### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
 * **Descripción**: error al eliminar la implementación del clúster.  
-* **Mitigación**: vuelva a intentar la eliminación.
+* **Mitigación**: vuelva a intentar la operación de eliminación.
 
 ### <a id="DnsMappingNotFound"></a>DnsMappingNotFound
-* **Descripción**: error de configuración del servicio. No se encuentra la información de asignación de DNS requerida.  
+* **Descripción**: error de configuración de servicio. No se encuentra la información de asignación de DNS requerida.  
 * **Mitigación**: elimine el clúster y cree uno nuevo.
 
 ### <a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
@@ -184,51 +186,51 @@ Algunos de estos mensajes de error también podrían aparecer en el portal de Az
 * **Mitigación**: proporcione un nombre exclusivo para el contenedor y vuelva a intentarlo.
 
 ### <a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
-* **Descripción**: el servicio hospedado *nombredelserviciohospedado* ya incluye un clúster. Los servicios hospedados no pueden contener varios clústeres.  
+* **Descripción**: el servicio hospedado *nombreDelServicioHospedado* ya incluye un clúster. Los servicios hospedados no pueden contener varios clústeres.  
 * **Mitigación**: hospede el clúster en otro servicio hospedado.
 
 ### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
 * **Descripción**: el servidor no pudo actualizar el estado de la implementación del clúster.  
-* **Mitigación**: vuelva a intentarlo. Si esto ocurre varias veces, póngase en contacto con CSS.
+* **Mitigación**: Vuelva a intentar la operación. Si esto ocurre varias veces, póngase en contacto con CSS.
 
 ### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
-* **Descripción**: el clúster *nombredelclúster* se eliminó durante el mantenimiento. Vuelva a crearlo.
+* **Descripción**: el clúster *nombreDelClúster* se eliminó durante el mantenimiento. Vuelva a crearlo.
 * **Mitigación**: vuelva a crear el clúster.
 
 ### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
-* **Descripción**: la configuración de clúster no es válida. Configuración de nodo principal requerida no encontrada en los tamaños de nodo.
-* **Mitigación**: vuelva a intentarlo.
+* **Descripción**: Configuración de clúster no es válida. Configuración de nodo principal requerida no encontrada en los tamaños de nodo.
+* **Mitigación**: Vuelva a intentar la operación.
 
 ### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
-* **Descripción**: no se puede crear el servicio hospedado *nombredelserviciohospedado*. Vuelva a intentarlo.  
-* **Mitigación**: vuelva a intentarlo.
+* **Descripción**: no se puede crear el servicio hospedado *nombreDelServicioHospedado*. Vuelva a intentarlo.  
+* **Mitigación**: Vuelva a intentarlo.
 
 ### <a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
-* **Descripción**: el servicio hospedado *nombredelserviciohospedado* ya incluye una implementación de producción. Los servicios hospedados no pueden contener varias implementaciones de producción. Vuelva a intentarlo con un nombre de clúster diferente.
+* **Descripción**: el servicio hospedado *nombreDelServicioHospedado* ya incluye una implementación de producción. Los servicios hospedados no pueden contener varias implementaciones de producción. Vuelva a intentarlo con un nombre de clúster diferente.
 * **Mitigación**: utilice un nombre de clúster diferente y vuelva a intentarlo.
 
 ### <a id="HostedServiceNotFound"></a>HostedServiceNotFound
-* **Descripción**: no se encuentra el servicio hospedado *nombredelserviciohospedado* del clúster.  
+* **Descripción**: no se encuentra el servicio hospedado *nombreDelServicioHospedado* del clúster.  
 * **Mitigación**: si el clúster se encuentra en estado de error, elimínelo y, a continuación, vuelva a intentarlo.
 
 ### <a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
-* **Descripción**: el servicio hospedado *nombredelserviciohospedado* no tiene asociada ninguna implementación.  
+* **Descripción**: el servicio hospedado *nombreDelServicioHospedado* no tiene asociada ninguna implementación.  
 * **Mitigación**: si el clúster se encuentra en estado de error, elimínelo y, a continuación, vuelva a intentarlo.
 
 ### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
-* **Descripción**: al identificador de suscripción *identificadordelasuscripción* no le quedan núcleos para crear el clúster *nombredelclúster*. Necesario: *recursosrequeridos*, Disponible: *recursosdisponibles*.  
+* **Descripción**: al identificador de suscripción *identificadorDeLaSuscripción* no le quedan núcleos para crear el clúster *nombreDelClúster*. Necesario: *recursosrequeridos*, Disponible: *recursosdisponibles*.  
 * **Mitigación**: libere recursos en la suscripción o aumente la cantidad de recursos disponibles para la suscripción e intente crear el clúster de nuevo.
 
 ### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
-* **Descripción**: el identificador de suscripción *identificadordelasuscripción* no tiene cuota para un nuevo servicio hospedado y, por tanto, no puede crear el clúster *nombredelclúster*.  
+* **Descripción**: el identificador de suscripción *identificadorDeLaSuscripción* no tiene cuota para un nuevo servicio hospedado y, por tanto, no puede crear el clúster *nombreDelClúster*.  
 * **Mitigación**: libere recursos en la suscripción o aumente la cantidad de recursos disponibles para la suscripción e intente crear el clúster de nuevo.
 
 ### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
-* **Descripción**: se produjo un error interno en el servidor. Vuelva a intentarlo.  
-* **Mitigación**: vuelva a intentarlo.
+* **Descripción**: Se produjo un error interno en el servidor. Vuelva a intentarlo.  
+* **Mitigación**: Vuelva a intentarlo.
 
 ### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
-* **Descripción**: la ubicación de Azure Storage *nombrederegióndedatos* no es válida. Asegúrese de que la región sea correcta y vuelva a intentarlo.
+* **Descripción**: la ubicación de Azure Storage *nombreDeRegiónDeDatos* no es válida. Asegúrese de que la región sea correcta y vuelva a intentarlo.
 * **Mitigación**: elija una ubicación de almacenamiento compatible con HDInsight, compruebe que el clúster esté colocalizado y vuelva a intentarlo.
 
 ### <a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
@@ -240,51 +242,51 @@ Algunos de estos mensajes de error también podrían aparecer en el portal de Az
 * **Mitigación**: especifique el tamaño de nodo admitido para el nodo principal y vuelva a intentarlo.
 
 ### <a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
-* **Descripción**: el identificador de suscripción *identificadordelasuscripción* que se está utilizando no dispone de suficientes permisos para ejecutar la operación de eliminación del clúster *nombredelclúster*.  
+* **Descripción**: el identificador de suscripción *identificadorDeLaSuscripción* que se está utilizando no dispone de suficientes permisos para ejecutar la operación de eliminación del clúster *nombreDelClúster*.  
 * **Mitigación**: si el clúster se encuentra en estado de error, elimínelo y, a continuación, vuelva a intentarlo.  
 
 ### <a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
-* **Descripción**: el nombre del contenedor de blobs de la cuenta de almacenamiento externa *nombredelcontenedor* no es válido. Asegúrese de que el nombre comience con una letra y solo contenga minúsculas, números y guiones.  
+* **Descripción**: el nombre del contenedor de blobs de la cuenta de almacenamiento externa *nombreDelContenedor* no es válido. Asegúrese de que el nombre comience con una letra y solo contenga minúsculas, números y guiones.  
 * **Mitigación**: especifique un nombre de contenedor de blobs de cuenta de almacenamiento válido y vuelva a intentarlo.
 
 ### <a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
-* **Descripción**: para configurar la cuenta de almacenamiento externa *nombredelacuentadealmacenamiento* es necesario establecer primero los datos de la clave secreta.  
+* **Descripción**: para configurar la cuenta de almacenamiento externa *nombreDeLaCuentaDeAlmacenamiento* es necesario establecer primero los datos de la clave secreta.  
 * **Mitigación**: especifique una clave secreta válida para la cuenta de almacenamiento y vuelva a intentarlo.
 
 ### <a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
-* **Descripción**: el encabezado de la versión *encabezadodelaversión* no tiene el formato válido de aaaa-mm-dd.  
+* **Descripción**: el encabezado de la versión *encabezadoDeLaVersión* no tiene el formato válido de aaaa-mm-dd.  
 * **Mitigación**: especifique un formato válido para el encabezado de la versión y vuelva a intentarlo.
 
 ### <a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
-* **Descripción**: la configuración de clúster no es válida. Se encontró más de una configuración de nodo principal.  
+* **Descripción**: Configuración de clúster no es válida. Se encontró más de una configuración de nodo principal.  
 * **Mitigación**: edite la configuración para que solo se especifique un nodo principal.
 
 ### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
 * **Descripción**: la operación no se pudo completar en el tiempo permitido, o bien se alcanzó el número máximo de intentos. Vuelva a intentarlo.  
-* **Mitigación**: vuelva a intentarlo.
+* **Mitigación**: Vuelva a intentarlo.
 
 ### <a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
-* **Descripción**: el parámetro *nombredelparámetro* no puede ser nulo ni estar vacío.  
+* **Descripción**: el parámetro *nombreDelParámetro* no puede ser nulo ni estar vacío.  
 * **Mitigación**: especifique un valor válido para el parámetro.
 
 ### <a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
 * **Descripción**: al menos uno de los datos de la solicitud de creación de clúster no es válido. Asegúrese de que los valores escritos sean correctos y vuelva a intentarlo.  
-* **Mitigación**: asegúrese de que los valores escritos sean correctos y vuelva a intentarlo.
+* **Mitigación**: Asegúrese de que los valores escritos sean correctos y vuelva a intentarlo.
 
 ### <a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
-* **Descripción**: la funcionalidad de región no está disponible para la región *nombredelaregión* y el identificador de suscripción *identificadordelasuscripción*.  
-* **Mitigación**: especifique una región compatible con los clústeres de HDInsight. Las regiones admitidas son: sudeste asiático, Europa occidental, norte y oeste de Europa y este u oeste de Estados Unidos.
+* **Descripción**: la funcionalidad de región no está disponible para la región *nombreDeLaRegión* y el identificador de suscripción *identificadorDeLaSuscripción*.  
+* **Mitigación**: especifique una región compatible con los clústeres de HDInsight. Las regiones admitidas de manera pública son: Sudeste Asiático, Europa Occidental, Europa del Norte, Este de EE. UU. u Oeste de EE. UU.
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
-* **Descripción**: la cuenta de almacenamiento *nombredelacuentadealmacenamiento* se encuentra en la región *nombredelaregiónactual*. Debería coincidir con la región del clúster *nombredelaregióndelclúster*.  
+* **Descripción**: la cuenta de almacenamiento *nombreDeLaCuentaDeAlmacenamiento* se encuentra en la región *nombreDeLaRegiónActual*. Debería coincidir con la región del clúster *nombredelaregióndelclúster*.  
 * **Mitigación**: especifique una cuenta de almacenamiento situada en la misma región que el clúster, o bien, si la cuenta de almacenamiento ya contiene datos, cree un nuevo clúster en la misma región que la cuenta de almacenamiento existente. Si está usando el Portal, la IU le informará de este problema con antelación.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
-* **Descripción**: el identificador de suscripción proporcionado *identificadordelasuscripción* no está activo.  
+* **Descripción**: el identificador de suscripción proporcionado *identificadorDeLaSuscripción* no está activo.  
 * **Mitigación**: vuelva a activar la suscripción u obtenga una nueva suscripción válida.
 
 ### <a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
-* **Descripción**: no se encuentra el identificador de suscripción *identificadordelasuscripción* .  
+* **Descripción**: no se encuentra el identificador de suscripción *identificadorDeLaSuscripción*.  
 * **Mitigación**: compruebe que el identificador de la suscripción sea válido y vuelva a intentarlo.
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
@@ -296,23 +298,23 @@ Algunos de estos mensajes de error también podrían aparecer en el portal de Az
 * **Mitigación**: proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida y, entre otras cosas, debe empezar por *http://* y acabar en *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
-* **Descripción**: la funcionalidad de versión no está disponible para la versión *versiónespecificada* y el identificador de suscripción *identificadordelasuscripción*.  
+* **Descripción**: la funcionalidad de versión no está disponible para la versión *versiónEspecificada* y el identificador de suscripción *identificadorDeLaSuscripción*.  
 * **Mitigación**: elija una versión disponible y vuelva a intentarlo.
 
 ### <a id="VersionNotSupported"></a>VersionNotSupported
-* **Descripción**: la versión *versiónespecificada* no es compatible.
+* **Descripción**: la versión *versiónEspecificada* no es compatible.
 * **Mitigación**: elija una versión compatible y vuelva a intentarlo.
 
 ### <a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
-* **Descripción**: la versión *versiónespecificada* no está disponible en la región de Azure *regiónespecificada*.  
+* **Descripción**: la versión *versiónEspecificada* no está disponible en la región de Azure *regiónEspecificada*.  
 * **Mitigación**: elija una versión admitida en la región y vuelva a intentarlo.
 
 ### <a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
-* **Descripción**: la configuración de clúster no es válida. No se encuentra la configuración de cuenta WASB requerida en las cuentas externas.  
+* **Descripción**: Configuración de clúster no es válida. No se encuentra la configuración de cuenta WASB requerida en las cuentas externas.  
 * **Mitigación**: compruebe que la cuenta exista y que esté bien especificada en la configuración, y luego, vuelva a intentarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Usar vistas de Ambari para depurar trabajos de Tez en HDInsight](../hdinsight-debug-ambari-tez-view.md)
-* [Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux (vista previa)](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](../hdinsight-hadoop-manage-ambari.md)
+* [Uso de vistas de Apache Ambari para depurar trabajos de Apache Tez en HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Habilitar los volcados de montón de los servicios de Apache Hadoop en HDInsight basado en Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](../hdinsight-hadoop-manage-ambari.md)

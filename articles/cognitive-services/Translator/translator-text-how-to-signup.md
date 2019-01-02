@@ -1,5 +1,5 @@
 ---
-title: Cómo suscribirse a Translator Text, Translator Text API
+title: Introducción a Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo suscribirse a Translator Text API y obtener una clave de suscripción.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: e7ba72c95959a0c31ca724f91f519ac705d669fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 011e1db141c36c44ef51edc62d0123fdf3c036c7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245790"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091568"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Cómo suscribirse a Translator Text API
 
@@ -48,6 +49,8 @@ Cuando se registra en Translator Text, obtendrá una clave de acceso personaliza
 
 - [Ejemplos de código en GitHub](https://github.com/MicrosoftTranslator)
 - [Foro de soporte técnico de Microsoft Translator](https://www.aka.ms/TranslatorForum)
+
+Microsoft Translator generalmente permitirá las primeras dos solicitudes antes de comprobar el estado de la cuenta de la suscripción. Si las primeras solicitudes a Microsoft Translator API se realizan correctamente y, a continuación, las llamadas producen un error, la respuesta del error indicará el problema. Registre la respuesta de la API para ver el motivo.
 
 ## <a name="pricing-options"></a>Opciones de precios
 

@@ -1,32 +1,33 @@
 ---
-title: 'Referencia de moneda de las entidades precompiladas de LUIS: Azure | Microsoft Docs'
+title: Entidad precompilada Currency
 titleSuffix: Azure
 description: Este artículo contiene información de la entidad precompilada de la moneda en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6346ce4e3c9e51852a9a98904b797b6eb64970e4
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c87bfddb611e3e232d4a43f45ae60412566b98fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334013"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161770"
 ---
-# <a name="currency-entity"></a>Entidad de la moneda
+# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada Currency para una aplicación de LUIS
 La entidad de la moneda precompilada detecta la moneda en muchas denominaciones y países, independientemente de la referencia cultural de la aplicación de LUIS. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la moneda para las intenciones de la aplicación. La entidad de la moneda se admite en [muchas referencias culturales](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Tipos de moneda
-La moneda se administra desde el repositorio de GitHub [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
+La moneda se administra desde el repositorio de GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
 ## <a name="resolution-for-currency-entity"></a>Resolución de la entidad de moneda
 En el siguiente ejemplo se muestra la resolución de la entidad **builtin.currency**.
 
-```JSON
+```json
 {
   "query": "search for items under $10.99",
   "topScoringIntent": {

@@ -15,12 +15,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622200"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408141"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory
 
@@ -46,7 +46,7 @@ Para conectar una aplicación con una plantilla de integración de aplicaciones,
 
 Si no se encontró la aplicación deseada en la galería de aplicaciones, puede agregar una aplicación que no figura en la lista mediante el icono **Aplicación situada fuera de la galería** que se muestra en los resultados de búsqueda. Después de escribir el nombre de la aplicación, puede configurar las opciones y el comportamiento de inicio de sesión único. 
 
-**Sugerencia rápida**: Como procedimiento recomendado, use la función de búsqueda para comprobar si la aplicación ya existe en la galería de aplicaciones. Si se encuentra la aplicación y su descripción menciona el inicio de sesión único, la aplicación ya es compatible con el inicio de sesión único federado.
+**Sugerencia rápida**:  Como procedimiento recomendado, use la función de búsqueda para comprobar si la aplicación ya existe en la Galería de aplicaciones. Si se encuentra la aplicación y su descripción menciona el inicio de sesión único, la aplicación ya es compatible con el inicio de sesión único federado.
 
   ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
@@ -163,7 +163,7 @@ Una vez que se captura la página de inicio de sesión, es posible asignar usuar
 >
 
 ## <a name="existing-single-sign-on"></a>Inicio de sesión único existente
-Seleccione esta opción si desea agregar un vínculo a una aplicación en el panel de acceso de Azure AD o en el Portal de Office 365 de la organización. Esto se puede usar para agregar vínculos a aplicaciones web personalizadas que actualmente utilizan los Servicios de federación de Azure Active Directory (u otro servicio de federación), en lugar de Azure AD para la autenticación. O bien, puede agregar vínculos profundos a páginas específicas de SharePoint o a otras páginas web que desee que aparezcan en los paneles de acceso de su usuario. 
+Seleccione esta opción si desea agregar un vínculo a una aplicación en el panel de acceso de Azure AD o en el Portal de Office 365 de la organización. Esto se puede usar para agregar vínculos a aplicaciones web personalizadas que actualmente utilizan los Servicios de federación de Active Directory (u otro servicio de federación), en lugar de Azure AD para la autenticación. O bien, puede agregar vínculos profundos a páginas específicas de SharePoint o a otras páginas web que desee que aparezcan en los paneles de acceso de su usuario. 
 
 Después de seleccionar **Siguiente**, se le solicitará que escriba la dirección URL de la aplicación con la que se va a establecer el vínculo. Una vez completada la operación, ya es posible asignar usuarios y grupos a la aplicación, lo que hace que la aplicación aparezca en el [iniciador de aplicaciones de Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o en el [panel de acceso de Azure AD](end-user-experiences.md) de dichos usuarios.
 

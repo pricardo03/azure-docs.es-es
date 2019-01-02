@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0aa45ae807f153e6f1a3fde1d648571b29802dc2
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 721bb93dc259bd2b4cc9f51d8d0d665c9b921128
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632482"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436847"
 ---
 # <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>Ejecución de trabajos de Apache Pig con el SDK de .NET para Apache Hadoop en HDInsight
 
@@ -118,11 +118,11 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre Pig en HDInsight, vea [Usar Pig con Hadoop en HDInsight](hdinsight-use-pig.md).
+Para más información sobre Pig en HDInsight, consulte [Uso de Apache Pig con Apache Hadoop en HDInsight](hdinsight-use-pig.md).
 
 Para más información sobre el uso de Hadoop con HDInsight, vea los documentos siguientes:
 
-* [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
-* [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
+* [Uso de Apache Hive con Apache Hadoop en HDInsight](hdinsight-use-hive.md)
+* [Uso de MapReduce con Apache Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/

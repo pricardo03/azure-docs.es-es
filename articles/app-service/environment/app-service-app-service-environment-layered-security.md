@@ -1,5 +1,5 @@
 ---
-title: Arquitectura de seguridad por capas con entornos de App Service
+title: 'Arquitectura de seguridad por capas con instancias de App Service Environment: Azure'
 description: Implementación de una arquitectura de seguridad por capas con entornos de App Service
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
-ms.openlocfilehash: 29c928c7d81eb3a2532f735be9132b49db5da373
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.custom: seodec18
+ms.openlocfilehash: 5e25de1ad2042ac978c3698165b9d9baba20e816
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356212"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274173"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementación de una arquitectura de seguridad por capas con entornos de App Service
 ## <a name="overview"></a>Información general
@@ -40,8 +41,8 @@ Para saber qué reglas de seguridad de red son necesarias, tiene que determinar 
 
 Puesto que los [Grupos de seguridad de red (NSG)][NetworkSecurityGroups] están aplicados a las subredes y los entornos de App Service están implementados en las subredes, las reglas contenidas en un NSG se aplican a **todas** las aplicaciones que se ejecutan en un entorno de App Service.  En la arquitectura de ejemplo de este artículo, una vez que un grupo de seguridad de red se aplica a la subred que contiene "apiase", todas las aplicaciones que se ejecuten en el entorno de App Service "apiase" estarán protegidas por el mismo conjunto de reglas de seguridad. 
 
-* **Determinar la dirección IP saliente de los autores de llamadas que preceden en la cadena:** ¿cuál es la dirección o direcciones IP de los autores de llamadas que preceden en la cadena?  Se tiene que garantizar de forma explícita el acceso de estas direcciones en el NSG.  Dado que las llamadas entre los entornos de App Service se consideran llamadas de "Internet", se tiene que permitir el acceso en el NSG correspondiente a la dirección IP saliente asignada a cada uno de los tres entornos de App Service ascendentes para la subred "apiase".   Para obtener más información sobre cómo determinar la dirección IP de salida para aplicaciones que se ejecutan en un entorno de App Service, consulte el artículo de información general sobre la [arquitectura de red][NetworkArchitecture].
-* **¿Tiene la aplicación de API de back-end que llamarse a sí misma?**  Un punto sutil que a veces se pasa por alto es el escenario en el que la aplicación back-end tiene que llamarse a sí misma.  Si una aplicación de API de back-end en un entorno de App Service tiene que llamarse a sí misma, también se trata como una llamada de "Internet".  En la arquitectura de ejemplo, esto requiere que se permita también el acceso desde la dirección IP saliente del entorno de App Service "apiase".
+* **Determinar la dirección IP de salida de los autores de llamadas ascendentes:**  ¿Cuál es la dirección o direcciones IP de los autores de llamadas ascendentes?  Se tiene que garantizar de forma explícita el acceso de estas direcciones en el NSG.  Dado que las llamadas entre los entornos de App Service se consideran llamadas de "Internet", se tiene que permitir el acceso en el NSG correspondiente a la dirección IP saliente asignada a cada uno de los tres entornos de App Service ascendentes para la subred "apiase".   Para obtener más información sobre cómo determinar la dirección IP de salida para aplicaciones que se ejecutan en un entorno de App Service, consulte el artículo de información general sobre la [arquitectura de red][NetworkArchitecture].
+* **¿Tiene la aplicación de API de back-end que llamarse a sí misma?**   Un punto sutil que a veces se pasa por alto es el escenario en el que la aplicación back-end tiene que llamarse a sí misma.  Si una aplicación de API de back-end en un entorno de App Service tiene que llamarse a sí misma, también se trata como una llamada de "Internet".  En la arquitectura de ejemplo, esto requiere que se permita también el acceso desde la dirección IP saliente del entorno de App Service "apiase".
 
 ## <a name="setting-up-the-network-security-group"></a>Creación del grupo de seguridad de red
 Una vez que se conozca el conjunto de direcciones IP salientes, el siguiente paso es crear un grupo de seguridad de red.  Se pueden crear grupos de seguridad de red para las redes virtuales basadas en Resource Manager, así como para las redes virtuales clásicas.  Los ejemplos siguientes muestran la creación y configuración de un grupo de seguridad de red en una red virtual clásica mediante Powershell.

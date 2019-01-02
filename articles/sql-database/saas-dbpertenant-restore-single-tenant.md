@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 12/04/2018
+ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056750"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274435"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restauración de un solo inquilino con una aplicación SaaS de base de datos por inquilino
 
@@ -26,10 +26,8 @@ El modelo de base de datos por inquilino facilita la restauración de un inquili
 En este tutorial, conocerá dos patrones de recuperación de datos:
 
 > [!div class="checklist"]
-
 > * Restauración de una base de datos en una base de datos en paralelo (lado a lado).
 > * Restauración de una base de datos en contexto, reemplazando la base de datos existente.
-
 
 |||
 |:--|:--|
@@ -44,13 +42,13 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Introducción a los patrones de restauración de inquilino de SaaS
 
-Hay dos patrones simples para restaurar los datos de un inquilino individual. Debido a que las bases de datos de inquilino están aisladas entre sí, restaurar un inquilino no afecta los datos de los demás inquilinos. La característica de restauración a un momento dado (PITR) de Azure SQL Database se usa en ambos patrones. Esta característica siempre crea una base de datos nueva.   
+Hay dos patrones simples para restaurar los datos de un inquilino individual. Debido a que las bases de datos de inquilino están aisladas entre sí, restaurar un inquilino no afecta los datos de los demás inquilinos. La característica de restauración a un momento dado (PITR) de Azure SQL Database se usa en ambos patrones. Esta característica siempre crea una base de datos nueva.
 
-* **Restauración en paralelo**: en el primer patrón, se crea una base de datos en paralelo junto con la base de datos actual del inquilino. A continuación, el inquilino recibe acceso de solo lectura a la base de datos restaurada. Los datos restaurados se pueden revisar y potencialmente usar para sobrescribir los valores de datos actuales. Del diseñador de la aplicación depende determinar cómo el inquilino accede a la base de datos restaurada y las opciones de recuperación que se proporcionan. En algunos escenarios, es posible que todo lo que se necesite sea simplemente permitir que el inquilino revise los datos en un punto anterior. 
+* **Restauración en paralelo**: en el primer patrón, se crea una base de datos en paralelo junto a la base de datos actual del inquilino. A continuación, el inquilino recibe acceso de solo lectura a la base de datos restaurada. Los datos restaurados se pueden revisar y potencialmente usar para sobrescribir los valores de datos actuales. Del diseñador de la aplicación depende determinar cómo el inquilino accede a la base de datos restaurada y las opciones de recuperación que se proporcionan. En algunos escenarios, es posible que todo lo que se necesite sea simplemente permitir que el inquilino revise los datos en un punto anterior.
 
 * **Restauración en contexto**: el segundo patrón resulta útil si se perdieron o dañaron datos y el inquilino quiere revertir a un punto anterior. El inquilino queda sin conexión mientras se restaura la base de datos. La base de datos original se elimina y se cambia el nombre de la base de datos restaurada. La cadena de copia de seguridad de la base de datos original sigue siendo accesible después de la eliminación, para que pueda restaurar la base de datos a un momento dado anterior si es necesario.
 
-Si la base de datos usa la [replicación geográfica](sql-database-geo-replication-overview.md) y la restauración en paralelo, se recomienda copiar los datos requeridos desde la copia restaurada a la base de datos original. Si reemplaza la base de datos original por la restaurada, debe volver a configurar y sincronizar la replicación geográfica.
+Si la base de datos usa la [replicación geográfica activa](sql-database-active-geo-replication.md) y la restauración en paralelo, se recomienda copiar los datos requeridos desde la copia restaurada a la base de datos original. Si reemplaza la base de datos original por la restaurada, debe volver a configurar y sincronizar la replicación geográfica.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
 
@@ -74,7 +72,6 @@ Para mostrar estos escenarios de recuperación, primero elimine de manera "accid
 
    ![Aparece el último evento](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
-
 ### <a name="accidentally-delete-the-last-event"></a>Eliminación "accidental" del último evento
 
 1. En PowerShell ISE, abra ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1*, y establezca el valor siguiente:
@@ -88,15 +85,13 @@ Para mostrar estos escenarios de recuperación, primero elimine de manera "accid
    ```
 
 3. Se abre la página de eventos de Contoso. Desplácese hacia abajo y compruebe que el evento desapareció. Si todavía está en la lista, seleccione **Actualizar**  y compruebe que ya no aparece.
-
    ![Último evento eliminado](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
-
 
 ## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>Restauración de una base de datos de inquilino en paralelo con la base de datos de producción
 
 En este ejercicio se restaura la base de datos de Contoso Concert Hall a un momento específico antes de que se eliminara el evento. Este escenario supone que desea revisar los datos eliminados en una base de datos en paralelo.
 
- El script *Restore-TenantInParallel.ps1* crea una base de datos de inquilino en paralelo denominada *ContosoConcertHall\_old*, con una entrada de catálogo en paralelo. Este patrón de restauración es más adecuado para recuperarse de una pérdida de datos sin importancia. También puede usar este patrón si necesita revisar los datos con fines de cumplimiento y auditoría. Es el enfoque que se recomienda cuando se usa la [replicación geográfica](sql-database-geo-replication-overview.md).
+ El script *Restore-TenantInParallel.ps1* crea una base de datos de inquilino en paralelo denominada *ContosoConcertHall\_old*, con una entrada de catálogo en paralelo. Este patrón de restauración es más adecuado para recuperarse de una pérdida de datos sin importancia. También puede usar este patrón si necesita revisar los datos con fines de cumplimiento y auditoría. Es el enfoque que se recomienda cuando se usa la [replicación geográfica activa](sql-database-active-geo-replication.md).
 
 1. Complete la sección en que se [simula que un usuario elimina datos de manera accidental](#simulate-a-tenant-accidentally-deleting-data).
 2. En PowerShell ISE, abra ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
@@ -115,7 +110,6 @@ Exponer al inquilino restaurado como un inquilino adicional, con su propia aplic
 2. Presione F5 para ejecutar el script.
 3. La entrada *ContosoConcertHall\_old* se eliminó del catálogo. Cierre la página de eventos de este inquilino en el explorador.
 
-
 ## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>Restauración de un inquilino en contexto, reemplazando la base de datos de inquilino existente
 
 En este ejercicio se restaura el inquilino de Contoso Concert Hall a un momento antes de que se eliminara el evento. El script *Restore-TenantInPlace* restaura una base de datos de inquilino a una base de datos nueva y elimina la original. Este patrón de restauración es más adecuado para la recuperación después de daños graves en los datos y el inquilino podría tener que adecuarse a la pérdida de datos importantes.
@@ -128,14 +122,13 @@ El script restaura la base de datos de inquilino a un punto antes de que se elim
 
 La base de datos se restauró correctamente a un momento dado antes de que se eliminara el evento. Cuando se abra la página de **eventos**, confirme que se restauró el último evento.
 
-Después de que restaure la base de datos, tardará otros 10 a 15 minutos antes de que la primera copia de seguridad completa esté disponible para volver a realizar la restauración. 
+Después de que restaure la base de datos, tardará otros 10 a 15 minutos antes de que la primera copia de seguridad completa esté disponible para volver a realizar la restauración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
-
 > * Restauración de una base de datos en una base de datos en paralelo (lado a lado).
 > * Restauración de una base de datos en contexto.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 4aa74aebfd9e0ef6c71913c76181a07045aa3ad7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231226"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959468"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implementación de Kubernetes en Azure Stack
 
@@ -70,7 +70,7 @@ Para empezar, asegúrese de tener los permisos adecuados y de que la instancia d
 
 1. Crear una aplicación de Azure.
 
-    a. Seleccione **Azure Active Directory** > **+ Registros de aplicaciones** > **Nuevo registro de aplicaciones**.
+     a. Seleccione **Azure Active Directory** > **+ Registros de aplicaciones** > **Nuevo registro de aplicaciones**.
 
     b. Escriba un **Nombre** para la aplicación.
 
@@ -84,7 +84,7 @@ Para empezar, asegúrese de tener los permisos adecuados y de que la instancia d
 
 1. Seleccione **Configuración** > **Claves**.
 
-    a. Escriba la **Descripción**.
+     a. Escriba la **Descripción**.
 
     b. Seleccione **Never expires** (Nunca expira) para **Expira**.
 
@@ -179,6 +179,6 @@ Puede que también le resulte útil el administrador de paquetes **Helm** para i
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Agregar un clúster de Kubernetes a Marketplace (para el operador de Azure Stack)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Agregar un clúster de Kubernetes a Marketplace (para el operador de Azure Stack)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes en Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

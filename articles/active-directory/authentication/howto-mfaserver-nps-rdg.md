@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 99ed74a9664fbeeb65d90e51d0afcd97dd0b0ca0
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 67c9cc5b46b7567674b3d0bf99bd85ab321c6bd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346506"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277180"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS
 
@@ -30,6 +30,9 @@ Instale el servidor Azure Multi-Factor Authentication en un servidor independien
 - Un servidor Azure MFA unido a un dominio. Si no tiene uno ya instalado, siga los pasos de [Introducción a Servidor Azure Multi-factor Authentication](howto-mfaserver-deploy.md).
 - Un servidor NPS configurado existente.
 - Una Puerta de enlace de Escritorio remoto que se autentica con los servicios de la directiva de red.
+
+> [!NOTE]
+> Este artículo se debe usar únicamente con implementaciones del servidor de MFA, no Azure MFA (basado en la nube).
 
 ## <a name="configure-the-remote-desktop-gateway"></a>Configuración de Puerta de enlace de Escritorio remoto
 Configure Puerta de enlace de Escritorio remoto para enviar la autenticación RADIUS a una instancia de Servidor Azure Multi-Factor Authentication. 

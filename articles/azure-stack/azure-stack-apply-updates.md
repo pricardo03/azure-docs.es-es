@@ -6,40 +6,42 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: 8e4c86a3c9ff40f23a2a758b450d685b81dabc1a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.reviewer: wfayed
+ms.openlocfilehash: 2a835e7cd9d4c45c1c39c3c135705cb4dff0e6fb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091907"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842193"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicación de actualizaciones en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack*
 
-Para aplicar paquetes de actualización de OEM o Microsoft a Azure Stack, los operadores de Azure Stack deben hacer clic en el icono Actualización del portal de administración. Debe descargar el paquete de actualización, importar los archivos del paquete en Azure Stack e instalar el paquete de actualización. 
+Puede utilizar el icono **Actualizar** del portal de administración para aplicar paquetes de actualización de OEM o Microsoft a Azure Stack. Debe descargar el paquete de actualización, importar los archivos del paquete en Azure Stack e instalar el paquete de actualización.
 
 ## <a name="download-the-update-package"></a>Descarga del paquete de actualización
 
 Cuando haya disponible un paquete de actualización de OEM o Microsoft para Azure Stack, descárguelo a una ubicación a la que se pueda acceder desde Azure Stack y revise el contenido del paquete. Normalmente, un paquete de actualización consta de los siguientes archivos:
 
-- Un archivo *PackageName*.exe autoextraíble. Este archivo contiene la carga útil de la actualización, por ejemplo la actualización acumulativa más reciente de Windows Server.   
-- Los archivos *PackageName*.bin correspondientes. Estos archivos proporcionan compresión para la carga que está asociada el archivo *PackageName*.exe. 
-- Un archivo Metadata.xml. Este archivo contiene información esencial acerca de la actualización, como el editor, nombre, requisito previo, tamaño y dirección URL de ruta de acceso de soporte.
+- Un archivo `<PackageName>.exe` autoextraíble. Este archivo contiene la carga útil de la actualización, por ejemplo la actualización acumulativa más reciente de Windows Server.
+
+- Los archivos `<PackageName>.bin` que correspondan. Estos archivos proporcionan compresión para la carga que está asociada el archivo *PackageName*.exe.
+
+- Un archivo `Metadata.xml`. Este archivo contiene información esencial acerca de la actualización, como el editor, nombre, requisito previo, tamaño y dirección URL de ruta de acceso de soporte.
 
 ## <a name="import-and-install-updates"></a>Importación e instalación de actualizaciones
 
 El siguiente procedimiento muestra cómo importar e instalar actualizaciones en el portal de administración.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Se recomienda firmemente notificar a los usuarios cualquier operación de mantenimiento, así como programar ventanas de mantenimiento normal durante el horario no laborable tanto como sea posible. Las operaciones de mantenimiento pueden afectar tanto a las cargas de trabajo del usuario como a las operaciones del portal.
 
 1. En el portal de administración, haga clic en **Todos los servicios**. Luego, en la categoría **DATOS Y ALMACENAMIENTO**, haga clic en **Cuentas de almacenamiento**. (o bien, en el cuadro de filtro, empiece a escribir **storage accounts** y selecciónelo).
@@ -53,7 +55,7 @@ El siguiente procedimiento muestra cómo importar e instalar actualizaciones en 
 3. En los detalles de la cuenta de almacenamiento, en **Servicios**, seleccione **Blobs**.
  
     ![Muestra como acceder a Blobs para la cuenta de almacenamiento](media/azure-stack-apply-updates/ApplyUpdates3.png) 
- 
+ 
 4. En **Blob service**, seleccione **+ Contenedor** para crear un contenedor. Escriba un nombre (por ejemplo *Update-1709*) y, después, haga clic en **Aceptar**.
  
      ![Muestra cómo agregar un contenedor en la cuenta de almacenamiento](media/azure-stack-apply-updates/ApplyUpdates4.png)
@@ -64,12 +66,12 @@ El siguiente procedimiento muestra cómo importar e instalar actualizaciones en 
 
 6. En **Cargar blob**, haga clic en el icono de la carpeta, vaya al archivo .exe del paquete de actualización y haga clic en **Abrir** en la ventana del explorador de archivos.
   
-7. En **Cargar blob**, haga clic en **Cargar**. 
+7. En **Cargar blob**, haga clic en **Cargar**. 
   
     ![Muestra dónde se carga cada archivo de paquete](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Repita los pasos 6 y 7 para los archivos *PackageName*.bin y Metadata.xml. No importe el archivo Supplemental Notice.txt si está incluido.
-9. Cuando haya finalizado, puede revisar las notificaciones (el icono de campana de la esquina superior derecha del portal). Las notificaciones deben indicar que la carga se ha completado. 
+8. Repita los pasos 6 y 7 para los archivos *PackageName*.bin y Metadata.xml. No importe el archivo Supplemental Notice.txt si está incluido.
+9. Cuando haya finalizado, puede revisar las notificaciones (el icono de campana de la esquina superior derecha del portal). Las notificaciones deben indicar que la carga se ha completado. 
 10. Vuelva al icono de actualización del panel. El icono debe indicar que hay una actualización disponible. Haga clic en el icono para revisar el paquete de actualización recién agregado.
 11. Para instalar la actualización, seleccione el paquete que está marcado como **Listo** y haga clic con el botón derecho en él y seleccione **Actualizar ahora**, o bien haga clic en la acción **Actualizar ahora** cerca de la parte superior.
 12. Al hacer clic en el paquete de actualización de instalación, puede ver el estado en el área **Update run details** (Detalles de ejecución de actualización). Aquí también puede hacer clic en **Download full logs** (Descargar registros completos) para descargar los archivos de registro.

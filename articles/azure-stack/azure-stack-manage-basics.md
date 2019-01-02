@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254526"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972395"
 ---
 # <a name="azure-stack-administration-basics"></a>Aspectos básicos de administración de Azure Stack
 Hay varias cosas que debe saber si no está familiarizado con la administración de Azure Stack. Esta guía proporciona información general acerca del rol de los operadores de Azure Stack, y de lo que debe decir a los usuarios para que aumenten su productividad rápidamente.
@@ -32,9 +32,9 @@ Si se usa un sistema integrado de Azure Stack, las versiones actualizadas de Azu
  
 ### <a name="development-kit"></a>Kit de desarrollo
 
-Si usa el Kit de desarrollo de Azure Stack, consulte el artículo [What is Azure Stack?](.\asdk\asdk-what-is.md) (¿Qué es Azure Stack?) para asegurarse de que comprende el propósito del Kit de desarrollo y sus limitaciones. Debe usar el kit de desarrollo como un “espacio aislado” donde puede evaluar Azure Stack, y desarrollar y probar sus aplicaciones en un entorno que no es de producción. (para obtener información acerca de la implementación, consulte el artículo [Implementación del Kit de desarrollo de Azure Stack](.\asdk\asdk-install.md)).
+Si usa el Kit de desarrollo de Azure Stack, consulte el artículo [What is Azure Stack?](./asdk/asdk-what-is.md) (¿Qué es Azure Stack?) para asegurarse de que comprende el propósito del Kit de desarrollo y sus limitaciones. Debe usar el kit de desarrollo como un “espacio aislado” donde puede evaluar Azure Stack, y desarrollar y probar sus aplicaciones en un entorno que no es de producción. (para obtener información acerca de la implementación, consulte el artículo [Implementación del Kit de desarrollo de Azure Stack](./asdk/asdk-install.md)).
 
-Como Azure, innovamos con rapidez. Publicaremos nuevas compilaciones con asiduidad. Si ejecuta el kit de desarrollo y desea pasar a la compilación más reciente, debe [volver a implementar Azure Stack](.\asdk\asdk-redeploy.md), no puede aplicar paquetes de actualización. Este proceso lleva tiempo, pero la ventaja es que puede probar las características más recientes. La documentación del kit de desarrollo que hay en nuestro sitio web refleja la versión de compilación más reciente.
+Como Azure, innovamos con rapidez. Publicaremos nuevas compilaciones con asiduidad. Si ejecuta el kit de desarrollo y desea pasar a la compilación más reciente, debe [volver a implementar Azure Stack](./asdk/asdk-redeploy.md), no puede aplicar paquetes de actualización. Este proceso lleva tiempo, pero la ventaja es que puede probar las características más recientes. La documentación del kit de desarrollo que hay en nuestro sitio web refleja la versión de compilación más reciente.
 
 ## <a name="learn-about-available-services"></a>Información sobre los servicios disponibles
 
@@ -44,7 +44,7 @@ Deberá saber qué servicios puede poner a disposición de los usuarios. Azure S
 
 De forma predeterminada, Azure Stack incluye los siguientes “servicios fundamentales” cuando se implementa Azure Stack:
 
-- Compute
+- Proceso
 - Storage
 - Redes
 - Key Vault
@@ -63,7 +63,7 @@ Estos servicios requieren una configuración adicional para que pueda ponerlos a
 
 **Mapa de ruta de los servicios**
 
-Azure Stack continuará agregando compatibilidad con los servicios de Azure. Para ve el mapa de ruta previsto, consulte las notas del producto [Azure Stack: una extensión de Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). También puede supervisar las [publicaciones de blog de Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) para conocer los nuevos anuncios.
+Azure Stack continuará agregando compatibilidad con los servicios de Azure. Para información sobre el mapa de ruta previsto, consulte las notas del producto [Azure Stack: una extensión de Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). También puede supervisar las [publicaciones de blog de Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) para conocer los nuevos anuncios.
 
 ## <a name="what-account-should-i-use"></a>¿Qué cuenta debo usar?
 Al administrar Azure Stack, debe considerar algunos aspectos con respecto a la cuenta, especialmente en las implementaciones que utilizan Servicios de federación de Active Directory (AD FS) de Windows Server como proveedor de identidades en lugar de Azure Active Directory (Azure AD). Las siguientes consideraciones sobre la cuenta se aplican a los sistemas integrados de Azure Stack y las implementaciones de ASDK:
@@ -108,7 +108,7 @@ Deberá informar a los usuarios cómo trabajar con los servicios en Azure Stack,
 
 Hay información que los usuarios deben comprender antes de usar los servicios y compilar aplicaciones en Azure Stack. Por ejemplo, existen requisitos específicos para las versiones de PowerShell y API. Además, existen algunas diferencias de características entre un servicio en Azure y el servicio equivalente en Azure Stack. Asegúrese de que los usuarios consulten los siguientes artículos:
 
-- [Key considerations: Using services or building apps for Azure Stack](user/azure-stack-considerations.md) (Consideraciones clave: uso de servicios o compilación de aplicaciones para Azure Stack)
+- [Consideraciones clave: uso de servicios o compilación de aplicaciones para Azure Stack](user/azure-stack-considerations.md)
 - [Consideraciones sobre máquinas virtuales en Azure Stack](user/azure-stack-vm-considerations.md)
 - [Storage: differences and considerations](user/azure-stack-acs-differences.md) (Storage: diferencias y consideraciones)
 

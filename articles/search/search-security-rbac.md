@@ -1,6 +1,6 @@
 ---
-title: Establecer roles RBAC para el acceso administrativo de Azure Search en el portal | Microsoft Docs
-description: Control administrativo basado en roles en Azure Portal.
+title: 'Establecer roles RBAC para el acceso administrativo de Azure en el portal: Azure Search'
+description: Control administrativo basado en roles (RBAC) en Azure Portal para controlar y delegar tareas administrativas para la administración de Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: 1a463c9eb52ffe2a667cdeace7478e67233a0806
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 38b8e8a0e413f367d34a4ccf5dbd87817891b8ea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792933"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313027"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Configuración de roles RBAC para el acceso administrativo
 
@@ -26,7 +27,7 @@ Azure proporciona un [modelo de autorización global basado en roles](../role-ba
 
 Para Azure Search, los roles están asociados a los niveles de permisos que admiten las siguientes tareas de administración:
 
-| Rol | Task |
+| Rol | Tarea |
 | --- | --- |
 | Propietario |Crear o eliminar el servicio o cualquier objeto del servicio, entre los que se incluyen claves de API, índices, indexadores, orígenes de datos de indexadores y programas de indexadores.<p>Ver el estado del servicio, incluidos el tamaño de almacenamiento y los recuentos.<p>Agregar o eliminar miembros del rol (solo un propietario puede administrar la pertenencia a roles).<p>Los administradores de suscripciones y los propietarios de servicios tienen pertenencia automática al rol Propietario. |
 | Colaborador |El mismo nivel de acceso que Propietario, menos el administración de roles RBAC. Por ejemplo, un usuario con el rol Colaborador puede crear o eliminar objetos, o ver y regenerar [claves de API](search-security-api-keys.md), pero no puede modificar pertenencias a roles. |

@@ -6,6 +6,7 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,36 +14,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 12/10/2018
 ms.author: gokuma
-ms.openlocfilehash: 0740ff7542d066442146b8e80e188ad5ba49a2b5
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 648b0818f07aca8763fa4af01380076ae307b0a2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309405"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408959"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Crear un grupo compartido de máquinas virtuales de Data Science Virtual Machine
 
 En este artículo se describe la creación de un grupo compartido de máquinas virtuales de Data Science Virtual Machine (DSVM) para que lo use un equipo. La ventaja de utilizar un grupo compartido es que mejora el uso de los recursos, facilita la colaboración y el uso compartido, y permite una administración de los recursos de DSVM más eficaz. 
 
-Puede utilizar muchos métodos y tecnologías para crear un grupo de DSVM. Este artículo se centra en los grupos de procesamiento por lotes y las máquinas virtuales interactivas.
-
-## <a name="batch-processing-pool"></a>Grupo de procesamiento por lotes
-Si quiere configurar un grupo de DSVM principalmente para ejecutar trabajos en un lote sin conexión, puede usar el servicio [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) o [Azure Batch](https://docs.microsoft.com/azure/batch/). Este artículo se centra en Azure Batch AI.
-
-Se admite la edición de Ubuntu de la DSVM como una de las imágenes de Azure Batch AI. En la CLI de Azure o el SDK de Python, donde crea el clúster de Azure Batch AI, puede especificar el parámetro `image` y establecerlo en `UbuntuDSVM`. Se puede elegir el tipo de nodos de procesamiento: instancias basadas en GPU o instancias solo de CPU, el número de CPU y la memoria de entre una [amplia gama de instancias de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) disponibles en Azure. 
-
-Si utiliza la imagen de DSVM de Ubuntu en Batch AI con nodos basados en GPU, todos los controladores de GPU y los marcos de aprendizaje profundo se preinstalan. La preinstalación ahora mucho tiempo de preparación de los nodos de Batch. De hecho, si lleva a cabo el desarrollo en una DSVM de Ubuntu de forma interactiva, observará que los nodos de Batch AI tienen exactamente la misma instalación y configuración del entorno. 
-
-Normalmente, cuando se crea un clúster de Batch AI, también se crea un recurso compartido de archivos que montan todos los nodos. El recurso compartido de archivos se utiliza para la entrada y salida de datos, así como para almacenar el código o los scripts de trabajos por lotes. 
-
-Una vez creado el clúster de Batch AI, puede usar la misma CLI o el mismo SDK de Python para enviar trabajos para que se ejecuten. Solo se paga por el tiempo empleado en ejecutar los trabajos por lotes. 
-
-Para más información, consulte:
-* Tutorial paso a paso sobre el uso de la [CLI de Azure](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) para administrar Batch AI
-* Tutorial paso a paso sobre el uso de [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) para administrar Batch AI
-* Hay [trucos de Batch AI](https://github.com/Azure/BatchAI) que muestran el uso de varios marcos de aprendizaje profundo y AI con Batch AI.
+Puede utilizar muchos métodos y tecnologías para crear un grupo de DSVM. Este artículo se centra en los grupos para las máquinas virtuales interactivas. Una infraestructura de proceso administrado alternativa es Proceso de Azure Machine Learning. Consulte [Configurar los destinos de proceso](../service/how-to-set-up-training-targets.md#amlcompute) para más información.
 
 ## <a name="interactive-vm-pool"></a>Grupo de máquinas virtuales interactivas
 

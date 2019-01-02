@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242830"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270406"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre SQL Database
 
@@ -31,7 +31,7 @@ Garantizamos la conectividad en el 99,99 % de las ocasiones, como mínimo, entre
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>¿Puedo controlar cuando se produce el tiempo de inactividad de la aplicación de revisiones?
 
-No. El impacto de la aplicación de revisiones no suele ser perceptible si [usa una lógica de reintento](sql-database-develop-overview.md#resiliency) en la aplicación.
+ No. El impacto de la aplicación de revisiones no suele ser perceptible si [usa una lógica de reintento](sql-database-develop-overview.md#resiliency) en la aplicación.
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>¿Qué es el nuevo modelo de compra basado en núcleos virtuales de Azure SQL Database?
 
@@ -196,9 +196,9 @@ Por ejemplo:
 > [!NOTE]
 > Por un período limitado, no se cobrará por las copias de seguridad ni las operaciones de E/S.
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>¿Cómo se muestra en mi factura el uso de la replicación geográfica activa en un grupo elástico?
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>¿Cómo se muestra en mi factura el uso de la replicación geográfica activa o de un grupo de conmutación por error automática en un grupo elástico?
 
-A diferencia de las bases de datos únicas, el uso de [replicación geográfica activa](sql-database-geo-replication-overview.md) con bases de datos elásticas no afecta a la facturación.  Solo se cobrarán los recursos aprovisionados para cada uno de los grupos (grupo principal y grupo secundario).
+A diferencia de las bases de datos únicas, el uso de [replicación geográfica activa](sql-database-active-geo-replication.md) o de [grupo de conmutación por error automática](sql-database-auto-failover-group.md) con bases de datos elásticas no afecta directamente a la facturación. Solo se cobrarán los recursos aprovisionados para cada uno de los grupos (grupo principal y grupo secundario).
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>¿Cómo afectará a mi factura el uso de la característica de auditoría?
 
@@ -217,7 +217,7 @@ Consulte [Administrar bases de datos e inicios de sesión](sql-database-manage-l
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>¿Cómo asegurarse de que solo se permiten las direcciones IP autorizadas para acceder al servidor?
 
-Vea [Configuración del firewall en SQL Database](sql-database-configure-firewall-settings.md).
+Consulte [Configuración de los valores de firewalll en SQL Database](sql-database-configure-firewall-settings.md).
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>¿Qué es un retraso de replicación esperado al replicar geográficamente una base de datos entre dos regiones dentro de la misma ubicación geográfica de Azure?
 

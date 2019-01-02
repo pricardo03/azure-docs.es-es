@@ -1,5 +1,6 @@
 ---
-title: Entrenamiento de modelos de aprendizaje automático con la clase Estimator con Azure Machine Learning
+title: Entrenamiento de modelos de aprendizaje automático con estimadores
+titleSuffix: Azure Machine Learning service
 description: Aprenda a realizar un entrenamiento de nodo único y distribuido de modelos de aprendizaje automático tradicional y modelos de aprendizaje profundo con la clase Estimator de Azure Machine Learning Service
 ms.author: minxia
 author: mx-iao
@@ -8,19 +9,20 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c47761c184d0e6c091ff49b3eca2fdf89574b49d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 0ebb12df835cf1c32e02419989b21684e9884c18
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114866"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184362"
 ---
-# <a name="how-to-train-models-with-azure-machine-learning"></a>Cómo entrenar modelos con Azure Machine Learning
+# <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
 El entrenamiento de modelos de Machine Learning, especialmente las redes neuronales profundas, suele ser una tarea de procesos intensivos y que requiere mucho tiempo. Una vez que haya terminado de escribir su script de aprendizaje y ejecutarse en un pequeño subconjunto de datos en su equipo local, es muy probable que desee escalar verticalmente su carga de trabajo.
 
-Para facilitar el entrenamiento, el SDK de Azure Machine Learning para Python proporciona una abstracción de alto nivel, la clase Estimator, que permite a los usuarios entrenar fácilmente sus modelos en el ecosistema de Azure. Puede crear y usar un objeto `Estimator` para enviar cualquier código de aprendizaje que desee ejecutar en un equipo remoto, ya se trate de una ejecución de nodo único o de un entrenamiento distribuido en un clúster de GPU. En los trabajos PyTorch y TensorFlow, Azure Machine Learning también proporciona los estimadores `PyTorch` y `TensorFlow` personalizados que facilitan el uso de estos marcos.
+Para facilitar el entrenamiento, el SDK de Azure Machine Learning para Python proporciona una abstracción de alto nivel, la clase Estimator, que permite a los usuarios entrenar fácilmente sus modelos en el ecosistema de Azure. Puede crear y usar un [`Estimator`objeto](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) para enviar cualquier código de aprendizaje que desee ejecutar en un equipo remoto, ya se trate de una ejecución de nodo único o de un entrenamiento distribuido en un clúster de GPU. En los trabajos PyTorch y TensorFlow, Azure Machine Learning también proporciona los estimadores `PyTorch` y `TensorFlow` personalizados que facilitan el uso de estos marcos.
 
 ## <a name="train-with-an-estimator"></a>Entrenamiento con un estimador
 
@@ -35,7 +37,7 @@ Este artículo se centra en los pasos 4 y 5. Para obtener información sobre los
 
 ### <a name="single-node-training"></a>Entrenamiento de nodo único
 
-Utilice un objeto `Estimator` para una ejecución de entrenamiento de nodo único en proceso remoto en Azure para un modelo scikit-learn. Debería haber creado su objeto de [destino de proceso](how-to-set-up-training-targets.md#batch) `compute_target` y su objeto de [almacén de datos](how-to-access-data.md) `ds`.
+Utilice un objeto `Estimator` para una ejecución de entrenamiento de nodo único en proceso remoto en Azure para un modelo scikit-learn. Debería haber creado su objeto de [destino de proceso](how-to-set-up-training-targets.md#amlcompute) `compute_target` y su objeto de [almacén de datos](how-to-access-data.md) `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -58,7 +60,7 @@ Parámetro | DESCRIPCIÓN
 --|--
 `source_directory`| Directorio local que contiene todo el código necesario para el trabajo de aprendizaje. Esta carpeta se copia desde el equipo local al proceso remoto 
 `script_params`| Diccionario que especifica los argumentos de línea de comandos para el script de aprendizaje `entry_script`, en forma de pares <argumento de línea de comandos, valor>
-`compute_target`| Proceso remoto que ejecutará el script de aprendizaje, en este caso un clúster [Batch AI](how-to-set-up-training-targets.md#batch)
+`compute_target`| El destino de proceso remoto que el script de entrenamiento ejecutará, en este caso, un clúster de Proceso de Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)).
 `entry_script`| Ruta del archivo (relativa al `source_directory`) del script de aprendizaje que se va a ejecutar en el proceso remoto. Este archivo y los archivos adicionales de los que depende deben encontrarse en esta carpeta
 `conda_packages`| Lista de paquetes de Python para instalarse mediante Conda que necesita el script de aprendizaje.  
 El constructor tiene otro parámetro llamado `pip_packages` que puede usar para los paquetes de pip necesarios
@@ -87,7 +89,7 @@ Hay dos escenarios de entrenamiento adicionales que puede llevar a cabo con el o
 
 El siguiente código muestra cómo llevar a cabo el entrenamiento distribuido para un modelo CNTK. Además, en lugar de usar las imágenes de Azure Machine Learning predeterminadas, supone que tiene su propia imagen de Docker personalizada para el entrenamiento.
 
-Debería haber creado su objeto de [destino de proceso](how-to-set-up-training-targets.md#batch) `compute_target`. Puede crear el estimador de la siguiente manera:
+Debería haber creado su objeto de [destino de proceso](how-to-set-up-training-targets.md#amlcompute) `compute_target`. Puede crear el estimador de la siguiente manera:
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -117,13 +119,11 @@ run = experiment.submit(cntk_est)
 ```
 
 ## <a name="examples"></a>Ejemplos
-Para ver un tutorial sobre cómo entrenar un modelo sklearn, consulte:
-* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+Para un cuaderno que entrena un modelo sklearn, consulte:
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Para ver un tutorial sobre el CNTK distribuido mediante un docker personalizado, consulte:
-* [training/06.distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/06.distributed-cntk-with-custom-docker)
-
-Obtenga estos cuadernos:
+Para los cuadernos de aprendizaje profundo distribuido, consulte:
+* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

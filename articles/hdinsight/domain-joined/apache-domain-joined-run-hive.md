@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 43b3e293bf2990c953aeb2947b1113ee30175dee
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632822"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435522"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configuración de directivas de Apache Hive en HDInsight con Enterprise Security Package
 Aprenda a configurar las directivas de Apache Ranger para Apache Hive. En este artículo, cree dos directivas Ranger para restringir el acceso a hivesampletable. hivesampletable viene con los clústeres de HDInsight. Una vez configuradas las directivas, utilice Excel y el controlador ODBC para conectarse a las tablas de Hive en HDInsight.
@@ -28,10 +28,9 @@ Aprenda a configurar las directivas de Apache Ranger para Apache Hive. En este a
 
 1. En un explorador, conéctese a la interfaz de usuario administrador de Ranger. La dirección URL es https://&lt;nombreDeClúster>.azurehdinsight.net/Ranger/.
 
-   > [!NOTE]
-   > Ranger usa credenciales diferentes de clúster de Hadoop. Para evitar que los exploradores usen credenciales almacenadas en caché de Hadoop, use nueva ventana del explorador InPrivate para conectarse a la interfaz de usuario administrador de Ranger.
-   >
-   >
+   > [!NOTE]  
+   > Ranger usa credenciales diferentes del clúster de Apache Hadoop. Para evitar que los exploradores usen credenciales almacenadas en caché de Hadoop, use nueva ventana del explorador InPrivate para conectarse a la interfaz de usuario administrador de Ranger.
+
 2. Inicie sesión con el nombre de usuario y la contraseña del dominio del administrador de clúster:
 
     ![Página principal de HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
@@ -59,7 +58,7 @@ En esta sección, creará dos directivas Ranger para acceder a hivesampletable. 
 
      ![Configuración de políticas de Hive para HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
-     > [!NOTE]
+     > [!NOTE]  
      > Si un usuario de dominio no se rellena en Seleccionar usuario, espere unos instantes para que Ranger se sincronice con AAD.
      >
      >
@@ -134,6 +133,6 @@ Para probar la segunda directiva (read-hivesampletable-devicemake) que creó en 
 * Para configurar un clúster de HDInsight con Enterprise Security Package, consulte [Configuración de clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-configure.md).
 * Para administrar un clúster de HDInsight con ESP, consulte [Administración de clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-manage.md).
 * Para ejecutar consultas de Hive mediante SSH en clústeres de HDInsight con ESP, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-* Para conectar Hive mediante Hive JDBC, consulte [Conexión a Hive en HDInsight de Azure con el controlador JDBC de Hive](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
-* Para conectar Excel a Hadoop con Hive ODBC, consulte [Conexión de Excel a Hadoop con el controlador ODBC de Microsoft Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
-* Para conectar Excel a Hadoop con Power Query, consulte [Conexión de Excel a Hadoop con Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md)
+* Para conectar Hive mediante Hive JDBC, consulte [Consulta de Apache Hive mediante el controlador JDBC en HDInsight](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
+* Para conectar Excel a Hadoop con Hive ODBC, consulte [Conexión de Excel a Apache Hadoop con el controlador ODBC de Microsoft Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
+* Para conectar Excel a Hadoop con Power Query, consulte [Conexión de Excel a Apache Hadoop con Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).

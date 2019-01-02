@@ -1,12 +1,11 @@
 ---
-title: Uso del portal de servicios web de Machine Learning en Azure Machine Learning Studio | Microsoft Docs
+title: Uso del portal de servicios web Azure Machine Learning Studio| Microsoft Docs
 description: Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: 78e776da17e8e068ff45e426795fa5d86a92cc79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cf5a15ba88a3a4d678e6856d270b98697ecf5a3d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308671"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271783"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning Studio
 Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
 
 En el portal Servicios web Machine Learning, puede realizar las siguientes acciones:
@@ -34,7 +33,7 @@ En el portal Servicios web Machine Learning, puede realizar las siguientes accio
 * Crear, eliminar o actualizar planes de facturación (solo en los nuevos)
 * Agregar y eliminar puntos de conexión (solo en los clásicos)
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permisos para administrar el administrador de nuevos recursos basados en servicios web
 

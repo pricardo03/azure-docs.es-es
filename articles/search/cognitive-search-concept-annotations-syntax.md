@@ -1,5 +1,5 @@
 ---
-title: Hacer referencia a una anotación de entradas y salidas en una canalización de Cognitive Search en Azure Search| Microsoft Docs
+title: 'Referencia sobre entradas y salidas de canalizaciones de búsqueda cognitivas: Azure Search'
 description: Aquí se explica la sintaxis de la anotación y cómo hacer referencia a una anotación en las entradas y salidas de un conjunto de aptitudes en una canalización de Cognitive Search en Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801954"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315839"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Cómo hacer referencia a las anotaciones en un conjunto de aptitudes de Cognitive Search
 
@@ -61,7 +62,7 @@ Debido a que el contexto predeterminado es `"/document"`, ahora se puede hacer r
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>Ejemplo 2: hacer referencia a una matriz dentro de un documento
+## <a name="example-2-reference-an-array-within-a-document"></a>Ejemplo 2: referencia a una matriz dentro de un documento
 
 En este ejemplo, que se basa en el anterior, le mostramos cómo invocar varias veces un paso de enriquecimiento en el mismo documento. Suponga que en el ejemplo anterior generó una matriz de cadenas con los nombres de 10 personas de un solo documento. El próximo paso lógico es crear un segundo enriquecimiento que extraiga el apellido de un nombre completo. Como hay 10 nombres, le interesa realizar este paso 10 veces en el documento; esto es, una vez por cada persona. 
 
@@ -93,7 +94,7 @@ Cuando las anotaciones son matrices o colecciones de cadenas, tal vez quiera tra
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Ejemplo 3: miembros de referencia de una matriz
+## <a name="example-3-reference-members-within-an-array"></a>Ejemplo 3: referencia a miembros de una matriz
 
 A veces es necesario agrupar todas las anotaciones de un tipo en particular para pasarlas a una aptitud en particular. Pongamos como ejemplo una habilidad hipotética personalizada que identifica el apellido más común de todos los apellidos extraídos en el Ejemplo 2. Para proporcionar solo los apellidos a esa habilidad personalizada, debe especificar el contexto como `"/document"` y la entrada como `"/document/people/*/lastname"`.
 

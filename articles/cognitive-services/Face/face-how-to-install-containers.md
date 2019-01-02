@@ -1,21 +1,22 @@
 ---
 title: Instalación y ejecución de contenedores
-titlesuffix: Face - Cognitive Services - Azure
+titlesuffix: Face - Azure Cognitive Services
 description: Cómo descargar, instalar y ejecutar contenedores para Face en este tutorial paso a paso.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634547"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086443"
 ---
 # <a name="install-and-run-containers"></a>Instalación y ejecución de contenedores
 
@@ -37,7 +38,7 @@ Docker debe configurarse para permitir que los contenedores se conecten con Azur
 
 Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Recomendaciones y requisitos del servidor
+### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 
 El contenedor de Face requiere como mínimo 1 núcleo de CPU, con una frecuencia de 2,6 gigahercios (GHz) o mayor, y 4 gigabytes (GB) de memoria asignada, pero se recomienda tener al menos 2 núcleos de CPU y 6 GB de memoria asignada.
 
@@ -57,7 +58,7 @@ Si quiere usar el contenedor de Face, debe crear un recurso de Face en Azure. De
 Realice los pasos siguientes para crear y recuperar información de un recurso de Face:
 
 1. Cree un recurso de Face en Azure Portal.  
-   Si quiere usar el contenedor de Face, primero debe crear un recurso correspondiente de Face en Azure Portal. Para obtener más información, consulte [Guía de inicio rápido: crear una cuenta de Cognitive Services en Azure Portal](../cognitive-services-apis-create-account.md).
+   Si quiere usar el contenedor de Face, primero debe crear un recurso correspondiente de Face en Azure Portal. Para más información, consulte [Inicio rápido: Creación de una cuenta de Cognitive Services en Azure Portal](../cognitive-services-apis-create-account.md).
 
 1. Obtenga la dirección URL del punto de conexión y la clave de suscripción para el recurso de Azure.  
    Una vez creado el recurso de Azure, debe usar la clave de suscripción y la dirección URL del punto de conexión de ese recurso para crear una instancia del contenedor correspondiente de Face. Puede copiar la dirección URL del punto de conexión y la clave de suscripción de las páginas Inicio rápido y Claves, respectivamente, del recurso de Face en Azure Portal.
@@ -167,7 +168,9 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
 * Las imágenes de contenedor se ejecutan en Docker.
 * Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Face mediante la especificación del URI del host del contenedor.
 * Debe especificar la información de facturación al crear una instancia de un contenedor.
-* **Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para la medición. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían datos de los clientes (por ejemplo, la imagen o el texto que se está analizando) a Microsoft.  
+
+> [!IMPORTANT]
+> Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían datos de los clientes (por ejemplo, la imagen o el texto que se está analizando) a Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

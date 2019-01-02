@@ -6,24 +6,24 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: cb02ecb06728f5f36a0d51a3ec22cc8ba5cb44e7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.reviewer: kivenkat
+ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094762"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847531"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Consideraciones sobre el uso de máquinas virtuales en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Las máquinas virtuales de Azure Stack proporcionan recursos informáticos escalables y a petición. Para poder implementar máquinas virtuales (VM), debe entender las diferencias entre las características de máquina virtual disponibles en la Azure Stack y en Microsoft Azure. Este artículo describe estas diferencias e identifica las principales consideraciones para planificar implementaciones de máquina virtual. Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el artículo [Key considerations](azure-stack-considerations.md) (Consideraciones clave).
 
@@ -40,7 +40,7 @@ Las máquinas virtuales de Azure Stack proporcionan recursos informáticos escal
 | Rendimiento de los discos de la máquina virtual | Depende del tamaño y tipo de disco. | En función del tamaño de la máquina virtual a la cual se asocian los discos, consulte el artículo [Tamaños de máquinas virtuales admitidos en Azure Stack](azure-stack-vm-sizes.md).
 | Versiones de API | Azure tiene siempre las últimas versiones de API para todas las características de la máquina virtual. | Azure Stack es compatible con servicios específicos de Azure y versiones de API específicas para estos servicios. Para ver la lista de versiones de API compatibles, consulte la sección [versiones de API](#api-versions) de este artículo. |
 |Conjuntos de disponibilidad de máquinas virtuales|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización<br>Compatible con el disco administrado|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización (hasta 20)<br>No compatible con el disco administrado|
-|Conjuntos de escalado de máquinas virtuales|Compatible con escalado automático|No compatible con escalado automático.<br>Agregar más instancias a un conjunto de escalado con el portal, las plantillas de Resource Manager o PowerShell.
+|Conjuntos de escalado de máquinas virtuales|Compatible con escalado automático|No compatible con escalado automático<br>Agregar más instancias a un conjunto de escalado con el portal, las plantillas de Resource Manager o PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Tamaños de máquina virtual
 

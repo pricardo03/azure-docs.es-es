@@ -1,23 +1,24 @@
 ---
-title: 'Entidades pregeneradas: LUIS'
+title: Todas las entidades creadas previamente
 titleSuffix: Azure Cognitive Services
 description: Este artículo contiene listas de las entidades precompiladas que se incluyen en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: ff529e7b828c195be89c9d11fc5f50e04104642e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 858d094dfa949a46fbffcdfd4b386c40b124bbd8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567356"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135665"
 ---
-# <a name="entities-per-culture"></a>Entidades por referencia cultural
+# <a name="entities-per-culture-in-your-luis-model"></a>Entidades por la referencia cultural en el modelo de LUIS
 
 Language Understanding (LUIS) proporciona entidades precompiladas. Cuando una entidad precompilada se incluye en la aplicación, LUIS incluye la predicción de entidad correspondiente en la respuesta del punto de conexión. Todas las expresiones de ejemplo también se etiquetan con la entidad. El comportamiento de las entidades predeterminadas **no puede** modificarse. A menos que se indique lo contrario, las entidades precompiladas están disponibles en todas las configuraciones locales de aplicación LUIS (referencias culturales). En la siguiente tabla se muestran las entidades precompiladas que se admiten para cada referencia cultural.
 
@@ -25,7 +26,7 @@ Language Understanding (LUIS) proporciona entidades precompiladas. Cuando una en
 |--|--|
 |Chino|[zh-CN](#chinese-entity-support)|
 |Neerlandés|[nl-NL](#dutch-entity-support)|
-|Inglés|[en-US (inglés de EE. UU.)](#english-american-entity-support)|
+|English|[en-US (inglés de EE. UU.)](#english-american-entity-support)|
 |Francés|[fr-CA (Canadá)](#french-canadian-entity-support), [fr-FR (Francia)](#french-france-entity-support), |
 |Alemán|[de-DE](#german-entity-support)|
 |Italiano|[it-IT](#italian-entity-support)|

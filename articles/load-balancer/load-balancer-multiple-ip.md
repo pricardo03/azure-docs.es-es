@@ -1,5 +1,6 @@
 ---
-title: Equilibrio de carga en varias configuraciones de IP en Azure | Microsoft Docs
+title: Equilibrio de carga en varias configuraciones de IP en Azure
+titlesuffix: Azure Load Balancer
 description: Equilibrio de carga entre las configuraciones de IP principales y secundarias.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0f092c471a7908eabe481adc8c722993818840b8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e6aff89fe45220e1642a91e6a2d31a9da422fdea
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219518"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163538"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Equilibrio de carga en varias configuraciones de IP mediante Azure Portal
 
@@ -128,7 +130,7 @@ Para cada sitio web (contoso.com y fabrikam.com), configure el grupo de direccio
 
 Después de configurar el grupo de servidores front-end, las direcciones IP se muestran en la configuración **Configuración de direcciones IP de front-end** del equilibrador de carga. 
     
-### <a name="step-4-configure-the-back-end-pool"></a>Paso 4: Configuración del grupo de servidores back-end
+### <a name="step-4-configure-the-back-end-pool"></a>Paso 4: Configuración del grupo back-end
 
 Para cada sitio web (contoso.com y fabrikam.com), configure el grupo de direcciones de servidores back-end en el equilibrador de carga:
         

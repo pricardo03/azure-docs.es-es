@@ -5,16 +5,15 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 84462b98e1006cadf34adecf948efd39ad4f69d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308139"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313979"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
 
@@ -38,7 +37,7 @@ Si los certificados raíz de confianza más recientes no están presentes en la 
 
 **Código de error** | **Causa posible** | **Recomendaciones**
 --- | --- | ---
-151066<br></br>**Mensaje**: error de configuración de Site Recovery. | Los certificados raíz de confianza necesarios usados para la autorización y la autenticación no están presentes en la máquina. | -En máquinas virtuales que ejecutan el sistema operativo Windows, asegúrese de que los certificados raíz de confianza estén presentes en la máquina. Para más información, consulte [Configurar raíces de confianza y certificados no permitidos](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-En máquinas virtuales que ejecutan el sistema operativo Linux, siga las instrucciones relativas a los certificados raíz de confianza publicados por el distribuidor de versiones de dicho sistema operativo.
+151066<br></br>**Mensaje**: Error de configuración de Site Recovery. | Los certificados raíz de confianza necesarios usados para la autorización y la autenticación no están presentes en la máquina. | -En máquinas virtuales que ejecutan el sistema operativo Windows, asegúrese de que los certificados raíz de confianza estén presentes en la máquina. Para más información, consulte [Configurar raíces de confianza y certificados no permitidos](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-En máquinas virtuales que ejecutan el sistema operativo Linux, siga las instrucciones relativas a los certificados raíz de confianza publicados por el distribuidor de versiones de dicho sistema operativo.
 
 ### <a name="fix-the-problem"></a>Corrección del problema
 **Windows**
@@ -61,37 +60,37 @@ Como SuSE Linux usa vínculos simbólicos para mantener una lista de certificado
 
       ``# cd /etc/ssl/certs``
 
-3. Compruebe si está presente el certificado raíz de CA de Symantec.
+1. Compruebe si está presente el certificado raíz de CA de Symantec.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. Si no se encuentra, ejecute el siguiente comando para descargar el archivo. Compruebe si hay errores y siga la acción recomendada para los errores de red.
+2. Si no se encuentra, ejecute el siguiente comando para descargar el archivo. Compruebe si hay errores y siga la acción recomendada para los errores de red.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Compruebe si está presente el certificado raíz de CA de Baltimore.
+3. Compruebe si está presente el certificado raíz de CA de Baltimore.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. Si no se encuentra, descárguelo.  
+4. Si no se encuentra, descárguelo.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Compruebe si está presente el certificado DigiCert_Global_Root_CA.
+5. Compruebe si está presente el certificado DigiCert_Global_Root_CA.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. Si no se encuentra, ejecute los siguientes comandos para descargarlo.
+6. Si no se encuentra, ejecute los siguientes comandos para descargarlo.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Ejecute el script rehash para actualizar los hashes del firmante del certificado para los certificados descargados recientemente.
+7. Ejecute el script rehash para actualizar los hashes del firmante del certificado para los certificados descargados recientemente.
 
     ``# c_rehash``
 
-10. Compruebe si los hashes del firmante, como los symlink, se crean para los certificados.
+8.  Compruebe si los hashes del firmante, como los symlink, se crean para los certificados.
 
     - Get-Help
 
@@ -120,11 +119,11 @@ Como SuSE Linux usa vínculos simbólicos para mantener una lista de certificado
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Creación de una copia del archivo VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem con el nombre de archivo b204d74a.0
+9.  Creación de una copia del archivo VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem con el nombre de archivo b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Creación de una copia del archivo Baltimore_CyberTrust_Root.pem con el nombre de archivo 653b494a.0
+10. Creación de una copia del archivo Baltimore_CyberTrust_Root.pem con el nombre de archivo 653b494a.0
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
@@ -150,7 +149,7 @@ Como SuSE Linux usa vínculos simbólicos para mantener una lista de certificado
 
 Para que la replicación de Site Recovery funcione, la máquina virtual debe disponer de conectividad saliente a direcciones URL o intervalos IP específicos. Si la máquina virtual está detrás de un firewall o usa reglas de grupo de seguridad de red (NSG) para controlar la conectividad saliente, puede encontrarse alguno de estos problemas.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: no se pudo registrar la máquina virtual de Azure en Site Recovery (151195) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: no se pudo registrar la máquina virtual de Azure en Site Recovery (151195) </br>
 - **Causa posible** </br>
   - No se puede establecer conexión con los puntos de conexión de Site Recovery por un error de resolución de DNS.
   - Normalmente, este problema se produce al volver a establecer la protección tras una conmutación por error de la máquina virtual y no se puede acceder al servidor DNS desde la región de recuperación ante desastres (DR).
@@ -161,7 +160,7 @@ Para que la replicación de Site Recovery funcione, la máquina virtual debe dis
     ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
  
 
-### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: error de configuración de Site Recovery (151196)
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: error de configuración de Site Recovery (151196)
 - **Causa posible** </br>
   - No se puede establecer conexión con los puntos de conexión de autenticación e identidad IP4 de Office 365.
 
@@ -171,7 +170,7 @@ Para que la replicación de Site Recovery funcione, la máquina virtual debe dis
         - Si en el futuro se agregan nuevas direcciones a Azure Active Directory (AAD), tendrá que crear nuevas reglas de grupos de seguridad de red.
 
 
-### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: error de configuración de Site Recovery (151197)
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: error de configuración de Site Recovery (151197)
 - **Causa posible** </br>
   - No se puede establecer conexión con los puntos de conexión del servicio Azure Site Recovery.
 
@@ -185,15 +184,16 @@ Para que la replicación de Site Recovery funcione, la máquina virtual debe dis
 
 
  - **Resolución**
-  1.    El agente de Mobility Service detecta la configuración de proxy de Internet Explorer en Windows y /etc/environment en Linux.
-  2.  Si prefiere configurar el proxy solo para Mobility Service de ASR, puede proporcionar los detalles de este en ProxyInfo.conf en:</br>
-      - ``/usr/local/InMage/config/`` en ***Linux***
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` en ***Windows***
-  3.    ProxyInfo.conf debe tener la configuración de proxy en el siguiente formato INI. </br>
+   1.   El agente de Mobility Service detecta la configuración de proxy de Internet Explorer en Windows y /etc/environment en Linux.
+   2.  Si prefiere configurar el proxy solo para Mobility Service de ASR, puede proporcionar los detalles de este en ProxyInfo.conf en:</br>
+       - ``/usr/local/InMage/config/`` en ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` en ***Windows***
+   3.   ProxyInfo.conf debe tener la configuración de proxy en el siguiente formato INI.</br>
                    *[proxy]*</br>
                    *Address=http://1.2.3.4*</br>
                    *Port=567*</br>
-  4. El agente de Mobility Service de ASR solo admite ***servidores proxy no autenticados***.
+   4. El agente de Mobility Service de ASR solo admite ***servidores proxy no autenticados***.
+ 
 
 ### <a name="fix-the-problem"></a>Corrección del problema
 Para incluir en la lista de permitidos [las direcciones URL necesarias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o los [intervalos IP necesarios](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga los pasos del [documento de instrucciones para redes](site-recovery-azure-to-azure-networking-guidance.md).
@@ -204,12 +204,12 @@ Se debe inicializar un nuevo disco asociado a la máquina virtual.
 
 **Código de error** | **Causas posibles:** | **Recomendaciones**
 --- | --- | ---
-150039<br></br>**Mensaje**: El disco de datos (DiskName) (DiskUri) con el número de unidad lógica (LUN) (LUNValue) no se ha asignado a un disco correspondiente que se notifica desde la máquina virtual como que tiene el mismo valor de LUN. | -Un nuevo disco de datos se asoció a la máquina virtual, pero no se ha inicializado.</br></br>-El disco de datos dentro de la máquina virtual no está notificando correctamente el valor LUN con el que el disco se asoció a la máquina virtual.| Asegúrese de que se inicializan los discos de datos y, a continuación, vuelva a intentar la operación.</br></br>En Windows: [Adjunte e inicialice un disco nuevo](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>En Linux: [Inicialice un nuevo disco de datos en Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+150039<br></br>**Mensaje**: El disco de datos (DiskName) (DiskUri) con el número de unidad lógica (LUN) (LUNValue) no se ha asignado a un disco correspondiente que se notifica desde la máquina virtual como que tiene el mismo valor de LUN. | -Un nuevo disco de datos se asoció a la máquina virtual, pero no se ha inicializado.</br></br>-El disco de datos dentro de la máquina virtual no está notificando correctamente el valor LUN con el que el disco se asoció a la máquina virtual.| Asegúrese de que se inicializan los discos de datos y, a continuación, vuelva a intentar la operación.</br></br>Para Windows: [adjunte e inicialice un disco nuevo](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Para Linux: [inicialice un nuevo disco de datos en Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Corrección del problema
 Asegúrese de que se hayan inicializado los discos de datos y, a continuación, vuelva a intentar la operación:
 
-- En Windows: [Adjunte e inicialice un disco nuevo](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- Para Windows: [adjunte e inicialice un disco nuevo](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
 - En Linux: [Agregue un nuevo disco de datos en Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Si el problema persiste, póngase en contacto con el soporte técnico.
@@ -217,7 +217,7 @@ Si el problema persiste, póngase en contacto con el soporte técnico.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>No se puede ver la máquina virtual de Azure para seleccionarla en "Habilitar la replicación"
 
- **Causa 1: el grupo de recursos y la máquina virtual de origen están en ubicaciones distintas** <br>
+ **Causa 1:  el grupo de recursos y la máquina virtual de origen están en ubicaciones distintas** <br>
 Actualmente Azure Site Recovery requiere que la región de origen de las máquinas virtuales y el grupo de recursos estén en la misma ubicación. Si no es así, no podrá encontrar la máquina virtual durante el momento de la protección.
 
 **Causa 2: el grupo de recursos no forma parte de la suscripción seleccionada** <br>
@@ -234,9 +234,9 @@ Si no ve la VM que quiere habilitar para la replicación, podría deberse a que 
 Puede usar el artículo sobre cómo [quitar el script de configuración de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) y quitar la configuración de Site Recovery obsoleta en la máquina virtual de Azure. Debería poder ver la VM después de quitar la configuración obsoleta.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>No se puede seleccionar la máquina virtual para la protección 
- **Causa 1: la máquina virtual tiene alguna extensión instalada en estado Con errores o No responde** <br>
+ **Causa 1:  la máquina virtual tiene alguna extensión instalada en estado Con errores o No responde** <br>
  Vaya a Máquinas virtuales > Configuración > Extensiones y compruebe si hay alguna extensión en un estado con errores. Desinstale la extensión con errores y vuelva a intentar proteger la máquina virtual.<br>
- **Causa 2:  [El estado de aprovisionamiento de la máquina virtual no es válido](#vms-provisioning-state-is-not-valid-error-code-150019)**
+ **Causa 2:  [el estado de aprovisionamiento de la máquina virtual no es válido](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>El estado de aprovisionamiento de la máquina virtual no es válido (código de error 150019)
 

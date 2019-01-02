@@ -1,5 +1,5 @@
 ---
-title: 'Preparación de un cambio de dirección IP de salida: Azure'
+title: 'Preparación de un cambio de dirección IP de salida: Azure App Service'
 description: Si la dirección IP de salida se va a cambiar, conozca qué debe hacer para que la aplicación continúe funcionando después del cambio.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 2355fa5e3e7fd83b5d9f22d87c19f8152659fc97
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.custom: seodec18
+ms.openlocfilehash: f611733400b8bfd18a135fe07f84606f13e59704
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309367"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275727"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Preparación de un cambio de dirección IP de salida
 
@@ -39,7 +40,7 @@ Las nuevas direcciones IP de salida se muestran en el portal antes de entrar en 
 
 3.  Seleccione la aplicación de App Service en la lista.
 
-4.  Si la aplicación es una aplicación de función, consulte la sección [Function app outbound IP address](../azure-functions/ip-addresses.md#find-outbound-ip-addresses) (Dirección IP saliente de la aplicación de función).
+1.  Si la aplicación es una aplicación de función, consulte la sección [Function app outbound IP address](../azure-functions/ip-addresses.md#find-outbound-ip-addresses) (Dirección IP saliente de la aplicación de función).
 
 4.  En el encabezado **Configuración**, haga clic en **Propiedades** en el menú de navegación izquierdo y busque la sección denominada **Direcciones IP de salida**.
 

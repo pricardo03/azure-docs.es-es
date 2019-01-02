@@ -1,21 +1,22 @@
 ---
-title: Publicación de una aplicación de LUIS en el punto de conexión de predicción
+title: Publicación de aplicación
 titleSuffix: Azure Cognitive Services
 description: Cuando termine de compilar y probar la aplicación de LUIS activa, haga que esté disponible para la aplicación cliente mediante su publicación en el punto de conexión.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6eb48fd0f3290fbc3a249bc3880c809ace9f9ddb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 73788b05cad3abac19b1ef509f1250542d10dba2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886518"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136654"
 ---
 # <a name="publish-your-trained-app"></a>Publicar la aplicación entrenada
 
@@ -37,7 +38,7 @@ La aplicación se publica en todas las regiones asociadas a los recursos de LUIS
 
 Cuando la aplicación se publica correctamente, aparece un cuadro de notificación verde en la parte superior del navegador. La barra de notificación verde también incluye un vínculo a los puntos de conexión. 
 
-![Ventana emergente de publicación](./media/luis-how-to-publish-app/publish-success.png)
+![Publicación de una ventana emergente con vínculo al punto de conexión](./media/luis-how-to-publish-app/publish-success.png)
 
 Si necesita la dirección URL del punto de conexión, seleccione el vínculo. También puede obtener las direcciones URL de punto de conexión seleccionando **Administrar** en el menú superior y, a continuación, **Claves y puntos de conexión** en el menú de la izquierda. 
 

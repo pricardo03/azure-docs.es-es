@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229686"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877979"
 ---
 # <a name="customize-your-text-translations"></a>Personalización de las traducciones de texto
 
-La versión preliminar de Microsoft Custom Translator es una característica del servicio Microsoft Translator que permite a los usuarios personalizar la traducción automática neuronal avanzada de Microsoft Translator al traducir texto mediante Translator Text API (solo la versión 3).
+Traductor personalizado de Microsoft es una característica del servicio Microsoft Translator que permite a los usuarios personalizar la traducción automática neuronal avanzada de Microsoft Translator cuando se traduce texto con Translator Text API (solo en la versión 3).
 
-Dicha característica también se puede usar para personalizar la traducción de voz cuando se usa con la [versión preliminar de Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Esta característica solamente puede utilizarse para personalizar la traducción de voz cuando se usa con el [servicio Voz de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
 ## <a name="custom-translator"></a>Custom Translator
 
@@ -48,7 +48,7 @@ Microsoft Translator Hub se puede utilizar para realizar traducción automática
 
 |   | **Hub** | **Custom Translator**|
 |:-----|:----:|:----:|
-|Estado de la característica de personalización   | Disponibilidad general  | Vista previa |
+|Estado de la característica de personalización   | Disponibilidad general  | Disponibilidad general |
 | Versión de Text API  | Solo v2   | Solo v3 |
 | Personalización de SMT | SÍ   | Sin  |
 | Personalización de NMT | Sin     | SÍ |

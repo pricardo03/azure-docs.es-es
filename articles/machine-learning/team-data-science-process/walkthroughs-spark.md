@@ -1,5 +1,5 @@
 ---
-title: Tutoriales de HDInsight Spark con PySpark y Scala en Azure | Microsoft Docs
+title: 'Análisis en HDInsight Spark con PySpark, Scala: proceso de ciencia de datos en equipo'
 description: Ejemplos del proceso de ciencia de datos en equipo que recorren el uso de PySpark y Scala en un clúster de Azure HDInsight Spark para realizar análisis predictivo.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a7697d2be1a43af93109bb7bbdab50828275f5aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f96e273e27e8d9d6a40370c4ed2161c4a828c5c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446408"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135906"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Tutoriales de ciencia de datos de HDInsight Spark con PySpark y Scala en Azure
 
@@ -40,7 +40,7 @@ Consulte [Exploración y modelado avanzados de datos con Spark](spark-advanced-d
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Predicción de propinas para taxis mediante Scala en Azure Spark
 
-En el tutorial [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md) se usan datos de taxis de Nueva York para predecir si se da una propina y el intervalo de importes de pago esperado. Se muestra cómo usar Scala para realizar tareas supervisadas de aprendizaje automático con la biblioteca de aprendizaje automático de Spark (MLlib) y los paquetes de SparkML en un clúster Azure HDInsight Spark. Además, explicaremos cuáles son las tareas que constituyen el [proceso de ciencia de datos](https://aka.ms/datascienceprocess): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos creados incluyen regresión logística y lineal, bosques aleatorios y árboles impulsados por gradiente:
+En el tutorial [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md) se usan datos de taxis de Nueva York para predecir si se da una propina y el intervalo de importes de pago esperado. Se muestra cómo usar Scala para realizar tareas supervisadas de aprendizaje automático con la biblioteca de aprendizaje automático de Spark (MLlib) y los paquetes de SparkML en un clúster Azure HDInsight Spark. Además, explicaremos cuáles son las tareas que constituyen el [proceso de ciencia de datos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos creados incluyen regresión logística y lineal, bosques aleatorios y árboles impulsados por gradiente:
 
 
 ## <a name="next-steps"></a>Pasos siguientes

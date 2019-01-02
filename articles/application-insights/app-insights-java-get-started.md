@@ -9,16 +9,15 @@ ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 2538bbf32b41e51796e333c11b7af6c091a71ede
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9f58c8c99fa48c0ffb4c76dd9752993b5e7d092e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309096"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994383"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
@@ -75,7 +74,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     </dependencies>
 ```
 
-* *¿Errores de validación en la suma de comprobación o la compilación?* Pruebe en su lugar una versión específica, como:`<version>2.0.n</version>`. La versión más reciente se encuentra en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en los [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *¿Errores de validación en la suma de comprobación o la compilación?* Pruebe en su lugar una versión específica, como:`<version>2.0.n</version>`. La versión más reciente se encuentra en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en los [artefactos de Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *¿Necesita actualizar a un nuevo SDK?*  Actualice las dependencias del proyecto.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Si usa Gradle... <a name="gradle-setup" />
@@ -98,7 +97,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Si usa Eclipse para crear un proyecto web dinámico...
 Use el [complemento SDK de Application Insights para Java][eclipse]. Nota: Aunque con este complemento podrá comenzar a trabajar más rápido con Application Insights (suponiendo que no esté usando Maven o Gradle), no es un sistema de administración de dependencias. Por lo tanto, la actualización del complemento no actualizará automáticamente las bibliotecas de Application Insights en el proyecto.
 
-* *¿Errores de validación en la suma de comprobación o la compilación?* Pruebe en su lugar una versión específica, como:`version:'2.0.n'`. La versión más reciente se encuentra en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en los [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *¿Errores de validación en la suma de comprobación o la compilación?* Pruebe en su lugar una versión específica, como:`version:'2.0.n'`. La versión más reciente se encuentra en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en los [artefactos de Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Para actualizar el SDK a uno nuevo*, actualice las dependencias del proyecto.
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Por el contrario, si va a administrar manualmente las dependencias...
@@ -325,7 +324,7 @@ Cuando vea las propiedades de una solicitud, podrá ver los eventos de telemetr�
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
-### <a name="analytics-powerful-query-language"></a>Analytics: Lenguaje de consulta eficaz
+### <a name="analytics-powerful-query-language"></a>Análisis: Lenguaje de consulta eficaz
 A medida que acumula más datos, puede ejecutar consultas tanto para agregar datos como para buscar instancias individuales.  [Analytics](app-insights-analytics.md) es una eficaz herramienta tanto para conocer el rendimiento y el uso, como para el diagnóstico.
 
 ![Ejemplo de Analytics](./media/app-insights-java-get-started/025.png)

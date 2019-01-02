@@ -1,23 +1,24 @@
 ---
-title: Reconocimiento de intenciones en aplicaciones de LUIS
-titleSuffix: Azure Cognitive Services
-description: Una intención representa una tarea o acción que el usuario quiere realizar. Es una finalidad o un objetivo que se expresa en la expresión de un usuario. Defina un conjunto de intenciones que se correspondan con las acciones que los usuarios quieren realizar en la aplicación.
+title: Intenciones del usuario
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Una intención representa una tarea o acción que el usuario quiere realizar. Es una finalidad o un objetivo que se expresa en la expresión de un usuario.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5ccfe781b3632bd7ccfc532398a00faf7a87b63f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a6343d9bd2009ee2c16f0cca3118e5653faa4c07
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637218"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138694"
 ---
-# <a name="intents-in-luis"></a>Intenciones en LUIS
+# <a name="concepts-about-intents-in-your-luis-app"></a>Conceptos sobre intenciones en la aplicación de LUIS
 
 Una intención representa una tarea o acción que el usuario quiere realizar. Es una finalidad o un objetivo que se expresa en la [expresión](luis-concept-utterance.md) de un usuario.
 

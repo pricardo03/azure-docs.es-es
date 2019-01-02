@@ -1,5 +1,5 @@
 ---
-title: Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
+title: Bloqueo de recursos
 description: Obtenga más información sobre las opciones de bloqueo para proteger los recursos cuando asigne un plano técnico.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: seodec18
+ms.openlocfilehash: 0e272f7137967b545269a408b6e83552de532682
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139449"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309440"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
@@ -21,9 +22,9 @@ La creación de entornos coherentes a escala solo es realmente valiosa si existe
 
 ## <a name="locking-modes-and-states"></a>Estados y modos de bloqueos
 
-El modo de bloqueo se aplica a la asignación de planos técnicos y solo tiene dos opciones: **Ninguno** o **Todos los recursos**. Este modo de bloqueo se configura durante la asignación de planos técnicos y no se puede cambiar una vez que la asignación se aplica correctamente a la suscripción.
+El modo de bloqueo se aplica a la asignación de planos técnicos y solo tiene dos opciones: **None** (Ninguno) o **All Resources** (Todos los recursos). Este modo de bloqueo se configura durante la asignación de planos técnicos y no se puede cambiar una vez que la asignación se aplica correctamente a la suscripción.
 
-Los recursos creados por los artefactos de una asignación de plano técnico tienen tres estados: **Sin bloquear**, **Solo lectura** o **No se puede editar/eliminar**. Todos artefactos pueden tener el estado **Sin bloquear**. Sin embargo, los artefactos de grupos que no son de recursos tienen el estado **Solo lectura** y los grupos de recursos tienen los estados **No se puede editar/eliminar**. Esta diferencia es una distinción importante en la forma en la que se administran estos recursos.
+Los recursos creados por los artefactos en una asignación de plano técnico tienen tres estados: **Not Locked** (Sin bloquear), **Read Only** (Solo lectura) o **Cannot Edit / Delete** (No se puede editar/eliminar). Todos artefactos pueden tener el estado **Sin bloquear**. Sin embargo, los artefactos de grupos que no son de recursos tienen el estado **Solo lectura** y los grupos de recursos tienen los estados **No se puede editar/eliminar**. Esta diferencia es una distinción importante en la forma en la que se administran estos recursos.
 
 El estado **Solo lectura** es exactamente tal como se define: el recurso no se puede modificar de ninguna manera, no se puede cambiar ni eliminar. El estado **No se puede editar/eliminar** es más matizado debido a la naturaleza de tipo "contenedor" de los grupos de recursos. El objeto del grupo de recursos es de solo lectura, pero se pueden realizar cambios en los recursos sin bloquear.
 

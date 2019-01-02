@@ -1,7 +1,7 @@
 ---
 title: 'Códigos de respuesta HTTP de API: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre qué códigos de respuesta HTTP se devuelven de las QnA Maker API
+description: Obtenga información sobre los códigos de respuesta HTTP que devuelve QnA Maker API. Esto ayudará a resolver los errores.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: luis
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 96782d32817e4989c02e0ed098d7772c80aa26c8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.custom: seodec18
+ms.openlocfilehash: d41f434b4e90c3f3850b8cb2e2d5c09fd23fc2cf
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079675"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085441"
 ---
 # <a name="qna-maker-api-http-response-codes"></a>Códigos de respuesta HTTP de QnA Maker API
 Las API de [administración](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) de predicción devuelven códigos de respuesta HTTP. Mientras que los mensajes de respuesta incluyen información específica de una solicitud, el código de estado de respuesta HTTP es general. 

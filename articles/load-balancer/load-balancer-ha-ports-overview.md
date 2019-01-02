@@ -1,5 +1,6 @@
 ---
-title: Introducción a los puertos de alta disponibilidad en Azure | Microsoft Docs
+title: Introducción a los puertos de alta disponibilidad en Azure
+titlesuffix: Azure Load Balancer
 description: Conozca el equilibrio de carga de los puertos de alta disponibilidad en una instancia interna de Load Balancer.
 services: load-balancer
 documentationcenter: na
@@ -7,26 +8,27 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/07/2018
+ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: 744cd933e901b930aa0394b36e9770bab6de38df
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740338"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317209"
 ---
 # <a name="high-availability-ports-overview"></a>Introducción a los puertos de alta disponibilidad
 
 Azure Load Balancer Estándar le ayuda a equilibrar la carga de los flujos TCP y UDP en todos los puertos a la vez cuando se usa un equilibrador de carga interno. 
 
-Una regla de puertos de alta disponibilidad (HA) es una variante de una regla de equilibrio de carga configurada en una instancia interna de Load Balancer Estándar. Puede simplificar el uso de un equilibrador de carga si proporciona una única regla para equilibrar la carga de todos los flujos TCP y UDP que llegan a todos los puertos de una instancia interna de Load Balancer Estándar. La decisión de equilibrio de carga se toma por cada flujo. Esta decisión se toma en función de la conexión de cinco tuplas siguiente: dirección IP de origen, puerto de origen, dirección IP de destino, puerto de destino y protocolo.
+Una regla de equilibrio de carga de puertos de alta disponibilidad (HA) es una variante de una regla de equilibrio de carga configurada en una instancia interna de Standard Load Balancer. Puede simplificar el uso de un equilibrador de carga si proporciona una única regla para equilibrar la carga de todos los flujos TCP y UDP que llegan a todos los puertos de una instancia interna de Load Balancer Estándar. La decisión de equilibrio de carga se toma por cada flujo. Esta decisión se toma en función de la conexión de cinco tuplas siguiente: dirección IP de origen, puerto de origen, dirección IP de destino, puerto de destino y protocolo.
 
-La característica de puertos de alta disponibilidad ayuda a la hora de usar escenarios críticos como aquellos con alta disponibilidad y escalabilidad para dispositivos virtuales de red (NVA) que estén en redes virtuales. La característica también ayuda cuando hay que equilibrar la carga de un gran número de puertos. 
+Las reglas de equilibrio de carga de puertos de alta disponibilidad le ayudan a la hora de usar escenarios críticos como aquellos con alta disponibilidad y escalabilidad para dispositivos virtuales de red (NVA) que estén en redes virtuales. La característica también ayuda cuando hay que equilibrar la carga de un gran número de puertos. 
 
-La característica de puertos de alta disponibilidad se configura al establecer los puertos de front-end y back-end en **0** y el protocolo en **Todos**. Es entonces cuando el equilibrador de carga interno equilibra todos los flujos TCP y UDP, independientemente del número de puerto.
+Las reglas de equilibrio de carga de puertos de alta disponibilidad se configuran al establecer los puertos de front-end y back-end en **0** y el protocolo en **Todos**. Es entonces cuando el equilibrador de carga interno equilibra todos los flujos TCP y UDP, independientemente del número de puerto.
 
 ## <a name="why-use-ha-ports"></a>¿Por qué usar puertos de alta disponibilidad?
 
@@ -42,9 +44,10 @@ En los escenarios de HA de NVA, los puertos de alta disponibilidad proporcionan 
 - Proporcionan escenarios *n*-activos y activo-pasivos
 - Eliminan la necesidad de usar soluciones complejas, como los nodos de Apache ZooKeeper, para la supervisión de dispositivos
 
-En el diagrama siguiente se muestra una implementación de la red virtual de tipo hub-and-spoke. Los radios dirigen su tráfico a la red virtual del concentrador y a través de los NVA, antes de abandonar el espacio de confianza. Los NVA están detrás de una instancia interna de Load Balancer estándar con una configuración de puertos de alta disponibilidad. En consecuencia, se puede procesar y reenviar todo el tráfico.
+En el diagrama siguiente se muestra una implementación de la red virtual de tipo hub-and-spoke. Los radios dirigen su tráfico a la red virtual del concentrador y a través de los NVA, antes de abandonar el espacio de confianza. Los NVA están detrás de una instancia interna de Load Balancer estándar con una configuración de puertos de alta disponibilidad. En consecuencia, se puede procesar y reenviar todo el tráfico. Cuando se configura como se muestra en el diagrama siguiente, una regla de equilibrio de carga de puertos de alta disponibilidad proporciona además simetría de flujo para el tráfico de entrada y salida.
 
-![Diagrama de la red virtual de tipo hub-and-spoke con los NVA implementados en modo de alta disponibilidad.](./media/load-balancer-ha-ports-overview/nvaha.png)
+<a node="diagram"></a>
+![Diagrama de la red virtual de tipo hub-and-spoke con los NVA implementados en modo de alta disponibilidad](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
 > Si va a usar NVA, confirme con su proveedor cómo aprovechar mejor los puertos de alta disponibilidad y cuáles son los escenarios admitidos.
@@ -97,7 +100,7 @@ Puede configurar *un* recurso público Load Balancer Estándar para los recursos
 
 - La característica de los puertos de alta disponibilidad no está disponible para IPv6.
 
-- La simetría de flujo para escenarios de NVA solo es compatible con una NIC única. Consulte la descripción y el diagrama de los [dispositivos virtuales de red](#nva). Pero si una NAT de destino le sirve en su escenario, podría usarla para asegurarse de que el equilibrador de carga interno envía el tráfico de retorno a la misma NVA.
+- Se admite la simetría de flujo (principalmente para escenarios de NVA) con instancias de back-end y una NIC única (y una sola configuración de IP), solo si se usa como se indica en el [diagrama](#diagram) anterior y se usan reglas de equilibrio de carga de puertos de alta disponibilidad. No se proporciona para ningún otro escenario. Esto significa que dos o más recursos de Load Balancer y sus respectivas reglas toman decisiones independientes y nunca se coordinan. Consulte la descripción y el diagrama de los [dispositivos virtuales de red](#nva). Si usa varias NIC o sitúa la aplicación virtual de red entre una instancia pública y una privada de Load Balancer, la simetría de flujo no estará disponible.  Para solucionar este problema, puede alterar el origen del primer paquete del flujo de entrada a la IP de la aplicación para permitir que las respuestas lleguen a la misma NVA.  Sin embargo, se recomienda utilizar una sola NIC y la arquitectura de referencia que se ha indicado en el [diagrama](#diagram) anterior.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

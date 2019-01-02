@@ -1,13 +1,12 @@
 ---
 title: Administración de servicios web de Manage Machine Learning Studio con API Management en Azure | Microsoft Docs
-description: Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API.
+description: Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API. Administre los puntos de conexión de la API REST mediante la definición del acceso del usuario, la limitación de uso y la supervisión del panel.
 keywords: aprendizaje automático, administración de api
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f82332b02d2e7bbf937a84de42714392e3fccd6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308246"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258192"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio con API Management
 ## <a name="overview"></a>Información general
@@ -224,7 +223,7 @@ Haga clic en **Sí** para publicar el experimento.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Prueba del servicio web
-Un servicio web de AzureML consta de los extremos RRS (servicio de solicitud/respuesta) y BES (servicio de ejecución por lotes). RRS sirve para la ejecución sincrónica. BES sirve para la ejecución por lotes asincrónica. Para probar el servicio web con el origen de Python del ejemplo siguiente, puede que necesite descargar e instalar el SDK de Azure para Python (consulte: [Cómo instalar Python](../../python-how-to-install.md)).
+Un servicio web de AzureML consta de los extremos RRS (servicio de solicitud/respuesta) y BES (servicio de ejecución por lotes). RRS sirve para la ejecución sincrónica. BES sirve para la ejecución por lotes asincrónica. Para probar el servicio web con el origen de Python del ejemplo siguiente, puede que necesite descargar e instalar el SDK de Azure para Python (consulte: [Instalación de Python](../../python-how-to-install.md)).
 
 También necesitará el **área de trabajo**, el **servicio** y la **api_key** del experimento para el origen de ejemplo siguiente. Puede encontrar el área de trabajo y el servicio haciendo clic en **Solicitud-respuesta** o en **Ejecución de lotes** del experimento en el panel del servicio web.
 

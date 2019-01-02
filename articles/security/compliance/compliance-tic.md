@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388330"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017106"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Guía de conexiones a Internet de confianza
 
@@ -41,7 +41,7 @@ La iniciativa también incluye directivas de seguridad, directrices y marcos esp
 Existen tres opciones principales para conectarse a los servicios de Azure:
 
 - Conexión directa a Internet: conéctese a los servicios de Azure directamente mediante una conexión a Internet abierta. El medio y la conexión son públicos. Para garantizar la privacidad, se emplea cifrado a nivel de transporte y aplicación. El ancho de banda está limitado por la conectividad del sitio a Internet. Use más de un proveedor activo para garantizar la resistencia.
-- Red privada virtual (VPN): conéctese a su red virtual de Azure de manera privada mediante el uso de VPN Gateway.
+- Red privada virtual (VPN): conéctese a una red virtual de Azure de manera privada utilizando VPN Gateway.
 El medio es público, ya que atraviesa una conexión a Internet estándar de un sitio, pero la conexión está cifrada en un túnel para garantizar la privacidad. El ancho de banda está limitado en función de los dispositivos VPN y la configuración seleccionados. Las conexiones de punto a sitio de Azure suelen estar limitadas a 100 Mbps y las conexiones de sitio a sitio están limitadas a 1,25 Gbps.
 - Azure ExpressRoute: ExpressRoute es una conexión directa a los servicios de Microsoft. Puesto que la conectividad se realiza a través de un canal de fibra aislado, la conexión puede ser pública o privada, según la configuración utilizada. El ancho de banda suele estar limitado a un máximo de 10 Gbps.
 
@@ -63,10 +63,10 @@ El requisito principal para ayudar a garantizar el cumplimiento de la arquitectu
 
 El cumplimiento de TIC de la infraestructura como servicio de Azure se divide en dos pasos principales:
 
-- Paso 1: Configuración.
-- Paso 2: Auditoría.
+- Paso 1: Configuración.
+- Paso 2: Auditoría.
 
-### <a name="azure-iaas-tic-compliance-configuration"></a>Cumplimiento de TIC de la IaaS de Azure: configuración
+### <a name="azure-iaas-tic-compliance-configuration"></a>Cumplimiento de TIC de la IaaS de Azure: Configuración
 
 Para configurar una arquitectura compatible con TIC con Azure, debe impedir en primer lugar el acceso directo de Internet a la red virtual y, a continuación, forzar el tráfico de Internet a través de la red local.
 
@@ -85,7 +85,7 @@ Azure crea automáticamente rutas del sistema y las asigna a todas las subredes 
 
 ![Tunelización forzada de TIC](media/tic-diagram-c.png)
 
-Para garantizar que todo el tráfico pasa por la TIC del D/A, todo el tráfico que sale de la red virtual se debe enrutar mediante la conexión local. Para crear rutas personalizadas, cree rutas definidas por el usuario o intercambie rutas del protocolo de puerta de enlace de borde (BGP) entre su puerta de enlace de red local y una puerta de enlace de VPN de Azure. Para más información acerca de las rutas definidas por el usuario, consulte [Enrutamiento del tráfico de la red virtual: rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Para más información sobre BGP, consulte [Enrutamiento del tráfico de la red virtual: Protocolo de puerta de enlace de borde](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
+Para garantizar que todo el tráfico pasa por la TIC del D/A, todo el tráfico que sale de la red virtual se debe enrutar mediante la conexión local. Para crear rutas personalizadas, cree rutas definidas por el usuario o intercambie rutas del protocolo de puerta de enlace de borde (BGP) entre su puerta de enlace de red local y una puerta de enlace de VPN de Azure. Para más información sobre las rutas definidas por el usuario, consulte [Enrutamiento del tráfico de redes virtuales: Rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Para más información sobre BGP, consulte [Enrutamiento del tráfico de redes virtuales: Protocolo de puerta de enlace de borde](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
 
 #### <a name="add-user-defined-routes"></a>Adición de rutas definidas por el usuario
 
@@ -97,7 +97,7 @@ Si usa una puerta de enlace de red virtual basada en rutas, puede forzar la tune
 
 Si usa ExpressRoute o una puerta de enlace de red virtual habilitada para BGP, BGP es el mecanismo preferido para el anuncio de rutas. Con una ruta de 0.0.0.0/0 anunciada por BGP, ExpressRoute y las puertas de enlace de red virtual compatibles con BGP garantizan que la ruta predeterminada se aplica a todas las subredes de las redes virtuales.
 
-### <a name="azure-iaas-tic-compliance-auditing"></a>Cumplimiento de TIC de la IaaS de Azure: auditoría
+### <a name="azure-iaas-tic-compliance-auditing"></a>Cumplimiento de TIC de la IaaS de Azure: Auditoría
 
 Azure ofrece varias formas de auditar el cumplimiento de TIC.
 
@@ -124,8 +124,8 @@ Los servicios de PaaS de Azure, como Azure Storage, son accesibles mediante una 
 
 Cuando los servicios de PaaS de Azure están integrados con una red virtual, el servicio es accesible de forma privada desde esa red virtual. Puede aplicar enrutamiento personalizado para 0.0.0.0/0 mediante rutas definidas por el usuario o BGP. El enrutamiento personalizado asegura que todo el tráfico vinculado a Internet se enruta de forma local para transcurrir por la TIC. Puede integrar los servicios de Azure en redes virtuales mediante el uso de los siguientes patrones:
 
-- **Implementación de una instancia dedicada de un servicio**: un número creciente de servicios de PaaS se pueden implementar como instancias dedicadas con puntos de conexión vinculados a la red virtual. Puede implementar App Service Environment para PowerApps en el modo "Aislado" para permitir que el punto de conexión de red se pueda restringir a una red virtual. App Service Environment puede hospedar así muchos servicios de PaaS de Azure, como Azure Web Apps, Azure API Management y Azure Functions.
-- **Uso de puntos de conexión de servicio de red virtual**: un número creciente de servicios de PaaS permiten la opción de trasladar su punto de conexión a una dirección IP privada de red virtual en lugar de una dirección pública.
+- **Implementación de una instancia dedicada de un servicio**: cada vez son más los servicios PaaS que se pueden implementar como instancias dedicadas con puntos de conexión vinculados a la red virtual. Puede implementar App Service Environment para PowerApps en el modo "Aislado" para permitir que el punto de conexión de red se pueda restringir a una red virtual. App Service Environment puede hospedar así muchos servicios de PaaS de Azure, como Azure Web Apps, Azure API Management y Azure Functions.
+- **Uso de puntos de conexión de servicio de redes virtuales**: cada vez son más los servicios PaaS que brindan la posibilidad de trasladar el punto de conexión a una dirección IP privada de una red virtual en lugar de a una dirección pública.
 
 Los servicios que admiten la implementación de instancias dedicadas en una red virtual o el uso de puntos de conexión de servicio, a partir de mayo de 2018, se enumeran en las tablas siguientes.
 
@@ -157,7 +157,7 @@ Los servicios que admiten la implementación de instancias dedicadas en una red 
 |Azure Active Directory                | GA               |
 |Azure Batch                           | GA               |
 |Entorno de App Service               | GA               |
-|Azure Redis Cache                     | GA               |
+|Azure Cache for Redis                     | GA               |
 |HDInsight de Azure                       | GA               |
 |Conjunto de escalado de máquina virtual             | GA               |
 |Azure Cloud Services                  | GA               |
@@ -165,7 +165,7 @@ Los servicios que admiten la implementación de instancias dedicadas en una red 
 
 ### <a name="virtual-network-integration-details"></a>Detalles de la integración de red virtual
 
-El siguiente diagrama muestra el flujo general de la red para el acceso a los servicios de PaaS. Se muestra el acceso tanto desde la inserción de red virtual como desde la tunelización del servicio de red virtual. Para más información acerca de las puertas de enlace de servicio de red, las redes virtuales y las etiquetas de servicio, consulte [Grupos de seguridad de red y de aplicaciones : etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+El siguiente diagrama muestra el flujo general de la red para el acceso a los servicios de PaaS. Se muestra el acceso tanto desde la inserción de red virtual como desde la tunelización del servicio de red virtual. Para más información acerca de las puertas de enlace de servicio de red, las redes virtuales y las etiquetas de servicio, consulte [Grupos de seguridad de redes y aplicaciones: Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ![Opciones de conectividad de PaaS para TIC](media/tic-diagram-e.png)
 
@@ -178,13 +178,13 @@ El siguiente diagrama muestra el flujo general de la red para el acceso a los se
    - Implementarse directamente en la red virtual.
    - Autorizarse de manera selectiva en función de las instrucciones del servicio de Azure correspondiente.
 
-#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Opción A: implementación de una instancia dedicada de un servicio (inserción de red virtual)
+#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Opción A: Implementación de una instancia dedicada de un servicio (inserción de red virtual)
 
 La inserción de red virtual permite que los clientes puedan implementar de forma selectiva instancias dedicadas de un servicio de Azure determinado, como HDInsight, en su propia red virtual. Las instancias del servicio se implementan en una subred dedicada en la red virtual de un cliente. La inserción de red virtual permite el acceso a los recursos del servicio mediante direcciones enrutables que no son de Internet. Las instancias locales usan ExpressRoute o una red privada virtual de sitio a sitio para acceder directamente a las instancias del servicio mediante el espacio de direcciones de red virtual, en lugar de abrir un firewall al espacio de direcciones de Internet público. Cuando se conecta una instancia dedicada a un punto de conexión, puede usar las mismas estrategias en cuanto a cumplimiento de TIC de IaaS. El enrutamiento predeterminado garantiza que el tráfico de Internet se redirige a una puerta de enlace de red virtual que está limitada para el entorno local. Puede controlar aún más el acceso entrante y saliente mediante grupos de seguridad de red para la subred indicada.
 
 ![Introducción a la inserción de red virtual](media/tic-diagram-f.png)
 
-#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Opción B: uso de puntos de conexión de servicio de red virtual (túnel de servicio)
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Opción B: Uso de puntos de conexión de servicio de redes virtuales (túnel de servicio)
 
 Un número creciente de servicios multiinquilino de Azure ofrecen "puntos de conexión de servicio". Los puntos de conexión de servicio son un método alternativo para la integración con las redes virtuales de Azure. Los puntos de conexión de servicio de red virtual extienden el espacio de direcciones IP de la red virtual y la identidad de la red virtual a los servicios de Azure sobre una conexión directa. El tráfico desde la red virtual al servicio de Azure siempre permanece dentro de la red troncal de Azure. 
 
@@ -249,10 +249,10 @@ Puede configurar fácilmente el acceso de Microsoft Azure, Office 365 y Dynamics
 
 | Categoría | Carga de trabajo | IaaS | PaaS dedicado / Inserción de red virtual  | Puntos de conexión de servicio  |
 |---------|---------|---------|---------|--------|
-| Compute | Máquinas virtuales Linux en Azure | SÍ | | |
-| Compute | Máquinas virtuales Windows en Azure | SÍ | | |
-| Compute | Conjuntos de escalado de máquinas virtuales | SÍ | | |
-| Compute | Azure Functions | | Entorno de App Service | |
+| Proceso | Máquinas virtuales Linux en Azure | SÍ | | |
+| Proceso | Máquinas virtuales Windows en Azure | SÍ | | |
+| Proceso | Conjuntos de escalado de máquinas virtuales | SÍ | | |
+| Proceso | Azure Functions | | Entorno de App Service | |
 | Web y móviles | Aplicación web interna | | Entorno de App Service| |
 | Web y móviles | Aplicación móvil interna | | Entorno de App Service | |
 | Web y móviles | Aplicaciones de API | | Entorno de App Service | |
@@ -263,7 +263,7 @@ Puede configurar fácilmente el acceso de Microsoft Azure, Office 365 y Dynamics
 | Base de datos | Azure Database for PostgreSQL | | | SÍ |
 | Base de datos | Azure SQL Data Warehouse | | | SÍ |
 | Base de datos | Azure Cosmos DB | | | SÍ |
-| Base de datos | Azure Redis Cache | | SÍ | |
+| Base de datos | Azure Cache for Redis | | SÍ | |
 | Storage | Azure Blob Storage | SÍ | | |
 | Storage | Archivos de Azure | SÍ | | |
 | Storage | Azure Queue Storage | SÍ | | |

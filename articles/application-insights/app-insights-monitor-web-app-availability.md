@@ -9,17 +9,16 @@ ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e8d07922334855a8133cd6271ee98bcfac2243d5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 11a421a30508774d976def8d5836451743ecb6ea
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282618"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270389"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -50,9 +49,9 @@ Abra la hoja Disponibilidad y agregue una prueba.
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **La dirección URL** puede ser cualquier página web que desee probar, pero debe ser visible desde la red pública de Internet. La dirección URL puede incluir una cadena de consulta. Así, por ejemplo, se puede ejercitar un poco la base de datos. Si la dirección URL se resuelve en una redirección, la seguimos, hasta 10 redirecciones.
-* **Analizar solicitudes dependientes**: si se activa esta opción, la prueba solicitará imágenes, scripts, archivos de estilo y otros archivos que forman parte de la página web en pruebas. El tiempo de respuesta registrado incluye el tiempo dedicado a obtener estos archivos. La prueba da error si todos estos recursos no se pueden descargar correctamente dentro del tiempo de espera de la prueba entera. Si la opción no está activada, la prueba solo solicita el archivo en la dirección URL que especificó.
+* **Analizar solicitudes dependientes**: Si se activa esta opción, la prueba solicitará imágenes, scripts, archivos de estilo y otros archivos que forman parte de la página web en pruebas. El tiempo de respuesta registrado incluye el tiempo dedicado a obtener estos archivos. La prueba da error si todos estos recursos no se pueden descargar correctamente dentro del tiempo de espera de la prueba entera. Si la opción no está activada, la prueba solo solicita el archivo en la dirección URL que especificó.
 
-* **Habilitar reintentos**: si esta opción está activa, cuando la prueba da error, se reintenta tras un corto intervalo. Se notifica un error únicamente si los tres intentos sucesivos producen un error. Las sucesivas pruebas se realizan según la frecuencia habitual de la prueba. El reintento se suspende temporalmente hasta que uno se complete correctamente. Esta regla se aplica independientemente en cada ubicación de la prueba. Se recomienda esta opción. Como media, cerca del 80 % de los errores desaparecen al reintentar.
+* **Habilitar reintentos**:  si esta opción está activa, cuando la prueba da error, se reintenta tras un corto intervalo. Se notifica un error únicamente si los tres intentos sucesivos producen un error. Las sucesivas pruebas se realizan según la frecuencia habitual de la prueba. El reintento se suspende temporalmente hasta que uno se complete correctamente. Esta regla se aplica independientemente en cada ubicación de la prueba. Se recomienda esta opción. Como media, cerca del 80 % de los errores desaparecen al reintentar.
 
 * **Frecuencia de prueba**: establece la frecuencia con que se ejecuta la prueba desde cada ubicación de prueba. Con una frecuencia predeterminada de cinco minutos y cinco ubicaciones de prueba, el sitio se prueba, de media, cada minuto.
 
@@ -70,7 +69,7 @@ Abra la hoja Disponibilidad y agregue una prueba.
 
     **Coincidencia de contenido**: una cadena, como "Bienvenido". Probamos que se produce una coincidencia exacta entre mayúsculas y minúsculas en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla.
 
-* **Umbral de ubicación de la alerta**: se recomienda un mínimo de entre tres y cinco ubicaciones. La relación óptima entre el umbral de ubicación de la alerta y el número de ubicaciones de prueba es **umbral de ubicación de la alerta** = **número de ubicaciones de prueba** - 2, con un mínimo de cinco ubicaciones de prueba.
+* **Umbral de la ubicación de la alerta**: se recomienda un mínimo de 3/5 ubicaciones. La relación óptima entre el umbral de ubicación de la alerta y el número de ubicaciones de prueba es **umbral de ubicación de la alerta** = **número de ubicaciones de prueba** - 2, con un mínimo de cinco ubicaciones de prueba.
 
 ## <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 Puede supervisar un escenario que implique una secuencia de direcciones URL. Por ejemplo, si está supervisando un sitio web de ventas, puede probar que la incorporación de elementos al carro de la compra funciona correctamente.
@@ -161,8 +160,8 @@ Seleccione una prueba o una ubicación determinadas, o bien reduzca el período 
 
 Además de los resultados sin formato, hay dos métricas de disponibilidad en el Explorador de métricas: 
 
-1. Disponibilidad: porcentaje de las pruebas que obtuvieron resultados satisfactorios en todas las ejecuciones de prueba. 
-2. Duración de la prueba: duración media de las pruebas en todas las ejecuciones de prueba.
+1. Disponibilidad: Porcentaje de las pruebas que obtuvieron resultados satisfactorios en todas las ejecuciones de prueba. 
+2. Duración de la prueba: Duración media de las pruebas en todas las ejecuciones de prueba.
 
 Puede aplicar filtros en el nombre de la prueba y la ubicación para analizar las tendencias de una prueba o ubicación determinadas.
 
@@ -183,7 +182,7 @@ Puede ver los detalles de transacción en todos los componentes desde el resulta
 
 * Inspeccionar la respuesta recibida desde el servidor.
 * Diagnosticar errores con la telemetría de lado servidor correlacionada que se recopiló durante el procesamiento de la prueba de disponibilidad con error.
-* Registrar un problema o elemento de trabajo en GIT o VSTS para realizar un seguimiento del problema. El error contiene un vínculo a este evento.
+* Registrar un problema o elemento de trabajo en GIT o Azure Boards para realizar un seguimiento del problema. El error contiene un vínculo a este evento.
 * Abra el resultado de la prueba web en Visual Studio.
 
 Obtenga más información acerca de la experiencia de diagnósticos de transacción extremo a extremo [aquí](app-insights-transaction-diagnostics.md).
@@ -203,7 +202,7 @@ La regla de alertas X de las Y ubicaciones se habilita de forma predeterminada e
 
 ![Experiencia de creación](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-**Importante**: Con las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), la gravedad de la regla de alertas y las preferencias de notificación con [grupos de acciones](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **se deben** configurar en la experiencia de alertas. Sin los pasos siguientes, solo recibirá las notificaciones del portal. 
+**Importante**: Con las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), la gravedad de la regla de alertas y las preferencias de notificación con [grupos de acciones](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **se tienen que** configurar en la experiencia de alertas. Sin los pasos siguientes, solo recibirá las notificaciones del portal. 
 
 1. Después de guardar la prueba de disponibilidad, haga clic en el nombre de la prueba para ir a sus detalles. Haga clic en "Editar alerta". ![Editar después de guardar](./media/app-insights-monitor-web-app-availability/editaftersave.png)
 
@@ -218,7 +217,7 @@ La regla de alertas X de las Y ubicaciones se habilita de forma predeterminada e
 ### <a name="alert-on-availability-metrics"></a>Alertas sobre las métricas de disponibilidad
 Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), también puede generar alertas sobre la disponibilidad total segmentada y las métricas de duración de la prueba:
 
-1. Seleccione un recurso de Application Insights en la experiencia de métricas y seleccione una métrica de disponibilidad: ![Selección de métricas de disponibilidad](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+1. Seleccione un recurso de Application Insights en la experiencia de métricas y seleccione una métrica de disponibilidad:  ![Selección de métricas de disponibilidad](./media/app-insights-monitor-web-app-availability/selectmetric.png)
 
 2. Al configurar la opción de alertas desde el menú se abrirá la nueva experiencia, donde podrá seleccionar pruebas o ubicaciones específicas para establecer la regla de alertas. También puede configurar los grupos de acciones para esta regla de alertas.
     ![Configuración de las alertas de disponibilidad](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
@@ -282,13 +281,13 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
 ## <a name="automation"></a>Automation
 * [Use scripts de PowerShell para configurar una prueba de disponibilidad](app-insights-powershell.md#add-an-availability-test) automáticamente.
-* Configure un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) que se llama cuando se genera una alerta.
+* Configure un [webhook](../azure-monitor/platform/alerts-webhooks.md) que se llama cuando se genera una alerta.
 
 ## <a name="qna"></a> Preguntas más frecuentes
 
 * *Este sitio parece correcto, pero se ven errores de pruebas. ¿Por qué recibo alertas de Application Insights?*
 
-    * ¿La prueba tiene habilitada la opción "Analizar solicitudes dependientes"? Esta opción da como resultado una comprobación estricta de los recursos, como las secuencias de comandos y las imágenes, entre otros. Estos tipos de errores pueden no ser visibles en un explorador. Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente. Para reducir la sensibilidad de la prueba para tales errores de recursos, simplemente desactive "Analizar las solicitudes dependientes" de la configuración de pruebas. 
+    * ¿La prueba tiene habilitada la opción "Analizar solicitudes dependientes"? Esta opción da como resultado una comprobación estricta de los recursos, como las secuencias de comandos y las imágenes, entre otros. Estos tipos de errores pueden no ser visibles en un explorador.  Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente. Para reducir la sensibilidad de la prueba para tales errores de recursos, simplemente desactive "Analizar las solicitudes dependientes" de la configuración de pruebas. 
 
     * Para reducir las probabilidades de ruido de señales de red transitorias etc., asegúrese de que se comprueba la configuración "Habilitar reintentos para errores de pruebas". También puede probar desde más ubicaciones y administrar el umbral de la regla de alertas en consecuencia para evitar problemas específicos de ubicación que causan las alertas innecesarias.
 
@@ -318,7 +317,7 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
 * *¿Puedo llamar el código desde mi prueba web?*
 
-    No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.
+     No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.
 
 * *¿Se admite HTTPS?*
 

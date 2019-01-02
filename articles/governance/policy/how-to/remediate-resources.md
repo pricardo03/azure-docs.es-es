@@ -1,28 +1,29 @@
 ---
-title: Corregir los recursos no conformes con Azure Policy
+title: Corrección de recursos no compatibles
 description: Este procedimiento le guiará a través de la corrección de los recursos que no son conformes con las directivas de Azure Policy.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.custom: seodec18
+ms.openlocfilehash: 093b49bea167efb12b941f8f0baff6fbdae5be25
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392707"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312653"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
-Los recursos que no son conformes para un directiva **deployIfNotExists** se pueden colocar en un estado conforme a través de **Corrección**. La corrección se lleva a cabo indicando a Azure Policy que ejecute el efecto **deployIfNotExists** de la directiva asignada en los recursos existentes. Este procedimiento le guía a través de los pasos necesarios para lograr esto.
+Los recursos que no son conformes para un directiva **deployIfNotExists** se pueden colocar en un estado conforme a través de **Corrección**. La corrección se lleva a cabo indicando a Azure Policy que ejecute el efecto **deployIfNotExists** de la directiva asignada en los recursos existentes. En este artículo se muestran los pasos necesarios para comprender y realizar correcciones con Policy.
 
 ## <a name="how-remediation-security-works"></a>Cómo funciona la seguridad de corrección
 
 Cuando Azure Policy ejecuta la plantilla en la definición de directiva **deployIfNotExists**, lo hace mediante una [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy crea una identidad administrada para cada asignación por usted, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si falta roles en la identidad administrada, esto se muestra durante la asignación de la directiva o una iniciativa que contiene la directiva. Al usar Azure Portal, Azure Policy concederá automáticamente a la identidad administrada los roles enumerados una vez que se inicia la asignación.
+Azure Policy crea una identidad administrada para cada asignación, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concederá automáticamente a la identidad administrada los roles enumerados una vez que se inicia la asignación.
 
 ![Identidad administrada - función ausente](../media/remediate-resources/missing-role.png)
 
@@ -31,8 +32,7 @@ Azure Policy crea una identidad administrada para cada asignación por usted, pe
 
 ## <a name="configure-policy-definition"></a>Configurar la definición de directiva
 
-El primer paso es definir los roles que **deployIfNotExists** necesita en la definición de directiva para implementar correctamente el contenido de la plantilla incluida. En la propiedad **details**, agregue una propiedad **roleDefinitionIds**. Se trata de una matriz de cadenas que coinciden con los roles en su entorno.
-Para obtener un ejemplo completo, vea el [ejemplo deployIfNotExists](../concepts/effects.md#deployifnotexists-example).
+El primer paso es definir los roles que **deployIfNotExists** necesita en la definición de directiva para implementar correctamente el contenido de la plantilla incluida. En la propiedad **details**, agregue una propiedad **roleDefinitionIds**. Esta propiedad es una matriz de cadenas que coinciden con los roles de su entorno. Para obtener un ejemplo completo, vea el [ejemplo deployIfNotExists](../concepts/effects.md#deployifnotexists-example).
 
 ```json
 "details": {
@@ -56,7 +56,7 @@ Get-AzureRmRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Configurar manualmente la identidad administrada
 
-Al crear un trabajo mediante Azure Portal, Azure Policy genera la identidad administrada y le concede los roles definidos en **roleDefinitionIds**. En las siguientes condiciones, se deben realizar manualmente los pasos para crear la identidad administrada y asignarle permisos:
+Al crear un trabajo mediante Azure Portal, Azure Policy genera la identidad administrada y le concede los roles definidos en **roleDefinitionIds**. En las siguientes condiciones, los pasos para crear la identidad administrada y asignarle permisos se deben realizar manualmente:
 
 - Al usar el SDK (por ejemplo, Azure PowerShell)
 - Cuando la plantilla modifica un recurso fuera del ámbito de asignación
@@ -123,13 +123,13 @@ Para agregar un rol a la identidad administrada de la asignación, siga estos pa
 
 1. Navegue hasta el contenedor primario del recurso o recursos (grupo de recursos, suscripción, grupo de administración) al que se debe agregar manualmente la definición de función.
 
-1. Haga clic en el vínculo de **Access Control (IAM)** en la página de recursos y haga clic en **+ Agregar** en la parte superior de la página de Access Control.
+1. Haga clic en el vínculo **Control de acceso (IAM)** en la página de recursos y haga clic en **+ Agregar asignación de rol** en la parte superior de la página de control de acceso.
 
 1. Seleccione el rol adecuado que coincide con un **roleDefinitionIds** de la definición de la directiva. Deje **Asignar acceso a** con el valor predeterminado de “Usuario de Azure AD, grupo o aplicación”. En el cuadro **Seleccionar**, pegue o escriba la parte del identificador del recurso de asignación que buscó anteriormente. Una vez finalizada la búsqueda, haga clic en el objeto con el mismo nombre que el identificador seleccionado y haga clic en **Guardar**.
 
 ## <a name="create-a-remediation-task"></a>Crear una tarea de corrección
 
-Durante la evaluación, el efecto de asignación de directiva con **deployIfNotExists** determina si hay recursos no conformes. Cuando se encuentran los recursos no conformes, se proporcionan los detalles en la página **Corrección**. La opción para desencadenar una **tarea de corrección** está junto a la lista de directivas que tienen recursos no página. Esto es lo que crea una implementación de la plantilla **deployIfNotExists**.
+Durante la evaluación, el efecto de asignación de directiva con **deployIfNotExists** determina si hay recursos no conformes. Cuando se encuentran los recursos no conformes, se proporcionan los detalles en la página **Corrección**. La opción para desencadenar una **tarea de corrección** está junto a la lista de directivas que tienen recursos no página. Esta opción crea una implementación desde la plantilla **deployIfNotExists**.
 
 Para crear un **tarea de corrección**, siga estos pasos:
 
@@ -146,21 +146,21 @@ Para crear un **tarea de corrección**, siga estos pasos:
    > [!NOTE]
    > Una forma alternativa de abrir la página **Tareas de corrección** consiste en buscar y hacer clic en la directiva desde la página **Cumplimiento** y después hacer clic en el botón **Crear tarea de corrección**.
 
-1. En la página **Nueva tarea de corrección**, filtrar los recursos necesarios para corregir mediante el uso de la elipse **Ámbito** para seleccionar los recursos secundarios desde los que se asignó la directiva (hasta los objetos de recursos individuales). Además, utilice la lista desplegable **Ubicaciones** para filtrar más los recursos. Solo los recursos enumerados en la tabla se corregirán.
+1. En la página **Nueva tarea de corrección**, filtre los recursos para corregir mediante la elipse **Ámbito** para seleccionar los recursos secundarios a partir de los cuales se asignó la directiva (incluidos los objetos de recursos individuales). Además, utilice la lista desplegable **Ubicaciones** para filtrar más los recursos. Solo los recursos enumerados en la tabla se corregirán.
 
    ![Corrección: selección de recursos](../media/remediate-resources/select-resources.png)
 
-1. Inicie la tarea de corrección de cuando se hayan filtrado los recursos haciendo clic en **Corregir**. Se abrirá la página de cumplimiento de directivas en la pestaña **Tareas de corrección** para mostrar el estado del progreso de las tareas.
+1. Inicie la tarea de corrección cuando se hayan filtrado los recursos, para ello, haga clic en **Corregir**. Se abrirá la página de cumplimiento de directivas en la pestaña **Tareas de corrección** para mostrar el estado del progreso de las tareas.
 
    ![Corrección: progreso de tareas](../media/remediate-resources/task-progress.png)
 
-1. Haga clic en el **tarea de corrección** en la página de cumplimiento de directiva para obtener detalles sobre el progreso. El filtro utilizado en la tarea se muestra junto con una lista de los recursos que se van a corregir.
+1. Haga clic en el **tarea de corrección** en la página de cumplimiento de directiva para obtener detalles sobre el progreso. El filtro usado en la tarea se muestra junto con una lista de los recursos que se van a corregir.
 
-1. En la página **tarea de corrección**, haga clic con el botón derecho en un recurso para ver el recurso o la implementación de la tarea de corrección. Al final de la fila, haga clic en **Eventos relacionados** para ver detalles, como un mensaje de error.
+1. En la página **Tarea de corrección**, haga clic con el botón derecho en un recurso para ver el recurso o la implementación de la tarea de corrección. Al final de la fila, haga clic en **Eventos relacionados** para ver detalles, como un mensaje de error.
 
    ![Corrección: menú contextual de tarea de recurso](../media/remediate-resources/resource-task-context-menu.png)
 
-Los recursos implementados mediante una **tarea de corrección** se agregarán a la pestaña **Recursos implementados** en la página de cumplimiento de directiva después de un breve retraso.
+Los recursos implementados mediante una **tarea de corrección** se agregan a la pestaña **Recursos implementados** en la página de cumplimiento de la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

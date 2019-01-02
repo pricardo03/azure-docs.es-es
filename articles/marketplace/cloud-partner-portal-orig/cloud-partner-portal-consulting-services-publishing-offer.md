@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7ea4a58f072071f60cf87d1e8817ae19658be5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037777"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310426"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Oferta de servicios de consultoría de Dynamics 365 y Azure
 
 <table> <tr> <td>En esta sección se explica cómo publicar un servicio de consultoría en Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> o en <a href="https://appsource.microsoft.com">AppSource Marketplace</a>. Las soluciones basadas en Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> y <a href="https://powerapps.microsoft.com">PowerApps</a> son aptas para ser anunciadas en AppSource. Otras ofertas basadas en otros <a href="https://azure.microsoft.com/services">servicios de Microsoft Azure</a> son aptas para anunciarlas en Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
 
-# <a name="publishing-benefits"></a>Ventajas de publicación
+## <a name="publishing-benefits"></a>Ventajas de publicación
 
 La publicación en los marketplaces de Microsoft ofrece importantes ventajas:
 
@@ -36,13 +36,11 @@ La publicación en los marketplaces de Microsoft ofrece importantes ventajas:
 - Obtenga los servicios promovidos por los equipos de campo y televenta de Microsoft.
 
 
-<a name="define-your-consulting-services-offer"></a>Definición de ofertas de servicios de consultoría
--------------------------------------
+## <a name="define-your-consulting-services-offer"></a>Definición de ofertas de servicios de consultoría
 
 Definición del paquete de ofertas de servicios de consultoría Céntrese en ofertas de ámbito fijo, duración fija, precio estimado fijo (o gratis) y principalmente orientadas a la preventa para un único cliente. Seleccione paquetes de compromisos reiterativos que han demostrado ser populares y eficaces a la hora de impulsar el negocio.
 
-<a name="publish-a-consulting-service-offer"></a>Publicación de una oferta de servicios de consultoría
-----------------------------------
+## <a name="publish-a-consulting-service-offer"></a>Publicación de una oferta de servicios de consultoría
 
 En las secciones siguientes se describe el proceso de publicación de una oferta de servicios de consultoría
 
@@ -62,7 +60,7 @@ Para crear una nueva oferta, complete los siguientes pasos:
 
 ### <a name="define-offer-settings"></a>Definición de la configuración de oferta
 
-En la pantalla Nueva oferta, el primer paso es crear la identidad de la oferta.  La identidad de la oferta consta de tres partes: **Id. de oferta**, **Id. de anunciante** y **nombre**.  Cada una de estas partes se explica en las secciones siguientes.
+En la pantalla Nueva oferta, el primer paso es crear la identidad de la oferta.  La identidad de la oferta consta de tres partes: **Id. de oferta**, **Id. de publicador** y **Nombre**.  Cada una de estas partes se explica en las secciones siguientes.
 
 #### <a name="offer-id"></a>Id. de oferta
 
@@ -80,7 +78,7 @@ Este identificador está relacionado con la cuenta. Cuando inicia sesión con su
 
 Esta cadena es la que se mostrará como el nombre de la oferta en AppSource o Azure Marketplace.
 
-**Importante:** escriba solo el nombre del servicio real aquí. No incluya la duración y el tipo de servicio.
+**Importante:** Aquí escriba solo el nombre del servicio real. No incluya la duración y el tipo de servicio.
 
 El ejemplo siguiente de Edgewater Fullscope muestra cómo se compone el nombre de la oferta. El nombre de la oferta aparece como:
 
@@ -96,15 +94,15 @@ El nombre de la oferta consta de cuatro partes:
 En la lista siguiente se proporcionan varios nombres de oferta adecuados:
 
 -   Fundamentos de los servicios profesionales: Sesión informativa de 1 hora
--   Plataforma de migración a nube: Sesión informativa de 1 hora
+-   Plataforma de migración a la nube: Sesión informativa de 1 hora
 -   PowerApps y Microsoft Flow: Taller de 1 día
--   Azure Machine Learning Services: Prueba de concepto de 3 semanas
+-   Azure Machine Learning Services: Prueba de concepto (PoC) de 3 semanas
 -   Solución de venta para tiendas físicas y virtuales: Sesión informativa de 1 hora
--   Aporte sus propios datos: Taller de 1 semana
--   Análisis en la nube: Taller de 3 días
+-   Traiga sus propios datos: Taller de 1 hora
+-   Análisis de la nube: Taller de 3 días
 -   Aprendizaje de Power BI: Taller de 3 días
 -   Solución de administración de ventas: Implementación de 1 semana
--   Guía de inicio rápido de CRM: Taller de 1 día
+-   Inicio rápido de CRM: Taller de 1 día
 -   Dynamics 365 for Sales: Evaluación de 2 días
 
 Después de haber completado la información de la pestaña **Configuración de oferta**, puede guardar su envío. El nombre de la oferta aparece ahora encima del editor y puede encontrarlo de nuevo en Todas las ofertas.
@@ -131,28 +129,28 @@ El resumen de la oferta es una breve descripción de la oferta que aparece justo
 
 *Ejemplo 1*
 
--   **Nombre de la oferta:** Análisis en la nube: Taller de 3 días
--   **Resumen de la oferta:** Información general de Microsoft Azure y Power BI, evaluación del entorno actual y pequeña prueba de concepto.
+-   **Nombre de la oferta:** Análisis de la nube: Taller de 3 días
+-   **Resumen de la oferta:** información general de Microsoft Azure y Power BI, evaluación del entorno actual y pequeña prueba de concepto.
 
 *Ejemplo 2*
 
 -   **Nombre de la oferta:** Azure IoT industrial: Prueba de concepto de 30 días
--   **Resumen de la oferta:** Creación de un producto piloto conectado industrial para la conexión segura de equipos de campo a una solución de Azure IoT Hub con paneles, informes y notificaciones.
+-   **Resumen de la oferta:** creación de un producto piloto conectado industrial para la conexión segura de equipos en el campo a una solución de Azure IoT Hub con paneles, informes y notificaciones.
 
 *Ejemplo 3*
 
 -   **Nombre de la oferta:** Servicios profesionales: Sesión informativa de 1 hora
--   **Resumen de la oferta:** Introducción y demostración de una solución preconfigurada y ampliada de Dynamics 365 for Operations que proporciona una administración mejorada de proyectos, facturación y recursos para servicios profesionales.
+-   **Resumen de la oferta:** introducción y demostración de una solución preconfigurada y ampliada de Dynamics 365 for Operations que proporciona una administración mejorada de proyectos, facturación y recursos para servicios profesionales.
 
 *Ejemplo 4*
 
--   **Nombre de la oferta:** Power BI en acción: Taller de 4 horas
--   **Resumen de la oferta:** Póngase manos a la obra y ejecute su primer panel, y conozca los procedimientos recomendados. Para un máximo de 12 alumnos, se realiza in situ.
+-   **Nombre de la oferta:** Power BI en el mundo: Taller de 4 horas
+-   **Resumen de la oferta:** póngase manos a la obra y ejecute su primer panel; además, conozca los procedimientos recomendados. Para un máximo de 12 alumnos, se realiza in situ.
 
 *Ejemplo 5*
 
--   **Nombre de la oferta:** Dynamics y los proyectos: Evaluación de 3 días
--   **Resumen de la oferta:** Recopilación y evaluación de requisitos para una solución de ERP diseñada para empresas de servicios profesionales y empresas controladas por proyectos.
+-   **Nombre de la oferta:** Dynamics y proyectos: Evaluación de 3 días
+-   **Resumen de la oferta:** recopilación y evaluación de requisitos para una solución ERP diseñada para empresas de servicios profesionales y empresas controladas por proyectos.
 
 ##### <a name="offer-description"></a>Descripción de la oferta
 
@@ -168,9 +166,9 @@ Haga que la descripción de la oferta sea breve y adáptese al límite de caract
 
 En el ejemplo siguiente se muestra una descripción de la oferta correctamente compuesta y su nombre y resumen correspondientes:
 
-**Nombre de la oferta:** Análisis en la nube: Taller de 3 días
+**Nombre de la oferta:** Análisis de la nube: Taller de 3 días
 
-**Resumen de la oferta:** Información general de Microsoft Azure y Power BI, evaluación del entorno actual y pequeña prueba de concepto.
+**Resumen de la oferta:** información general de Microsoft Azure y Power BI, evaluación del entorno actual y pequeña prueba de concepto.
 
 **Descripción de la oferta:** este taller de 3 días está destinado a directivos técnicos y empresariales, y se realiza in situ en las oficinas del cliente.
 
@@ -236,8 +234,8 @@ Microsoft se centra exclusivamente en ofertas de servicios de consultoría de á
 
 Se incluyen los siguientes cinco tipos de ofertas:
 
--   **Evaluación**: una evaluación del entorno del cliente para determinar la aplicabilidad de una solución y proporcionar una estimación del costo y el tiempo.
--   **Sesión informativa**: introducción a una solución o un servicio de consultoría para determinar el interés del cliente mediante plataformas, demostraciones y ejemplos de clientes. Las sesiones informativas se deben realizar in situ.
+-   **Evaluación:** una evaluación del entorno del cliente para determinar la aplicabilidad de una solución y proporcionar una estimación de costo y tiempo.
+-   **Sesión informativa:** introducción a una solución o un servicio de consultoría para determinar el interés del cliente mediante marcos de trabajo, demostraciones y ejemplos de clientes. Las sesiones informativas se deben realizar in situ.
 -   **Implementación:** una instalación completa que da como resultado una solución que funciona completamente. Para este programa piloto, Microsoft recomienda limitarse a las soluciones que se pueden implementar en una semana o menos.
 -   **Prueba de concepto:** una implementación de ámbito limitado para determinar si una solución cumplirá los requisitos del cliente.
 -   **Taller:** una participación interactiva realizada en las instalaciones de un cliente que puede incluir entrenamiento, sesiones informativas, evaluaciones o demostraciones basadas en el entorno o los datos del cliente.

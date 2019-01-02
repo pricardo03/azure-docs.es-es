@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: tulasim
-ms.openlocfilehash: cb171a666a4a54660a3bf54b8f26aed23f60d249
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 63025a299f6b7b48936be9702522a832a1d77330
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036310"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074815"
 ---
-# <a name="best-practices"></a>Procedimientos recomendados
+# <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 El artículo sobre el [ciclo de vida de desarrollo de una base de conocimiento](../Concepts/development-lifecycle-knowledge-base.md) indica cómo administrar una base de conocimiento de principio a fin. Siga estos procedimientos recomendados para mejorar la base de conocimiento y ofrecer mejores resultados a los usuarios finales del bot de chat o de la aplicación.
 
 ## <a name="extraction"></a>Extracción
@@ -34,7 +35,7 @@ La charla es compatible con tres personalidades predefinidas:
 |Personalidades|
 |--|
 |Profesional|
-|Amigo|
+|El amigo|
 |Cómico|
 
 El rango de respuestas va de formal a informal e irreverente. Debe seleccionar la personalidad que sea más acorde con el tono que quiera para el bot. Puede ver los conjuntos de datos, elegir uno que sirva como base para el bot y, a continuación, personalizar las respuestas. 
@@ -67,7 +68,7 @@ La puntuación de confianza predeterminada que se usa como umbral es de 50, pero
  |Hola|Buenas<br>¿Cómo estamos?|estilo de redacción o jerga|
 
 ### <a name="use-metadata-filters"></a>Usar filtros de metadatos
-Los [metadatos](../How-To/edit-knowledge-base.md) permiten usar filtros para reducir los resultados de una consulta de usuario. La respuesta de la base de conocimiento puede diferir según la etiqueta de metadatos, aunque la consulta sea la misma. Por ejemplo, *¿Dónde está ubicado el estacionamiento?* puede tener otra respuesta si la ubicación del restaurante es diferente; es decir, los metadatos son *ubicación: Seattle* frente a *ubicación: Redmond*.
+Los [metadatos](../How-To/edit-knowledge-base.md) permiten usar filtros para reducir los resultados de una consulta de usuario. La respuesta de la base de conocimiento puede diferir según la etiqueta de metadatos, aunque la consulta sea la misma. Por ejemplo, *¿Dónde está ubicado el estacionamiento?* puede tener otra respuesta si la ubicación de la sucursal del restaurante es diferente; es decir, los metadatos son *ubicación: Seattle* frente a *ubicación: Redmond*.
 
 ### <a name="use-synonyms"></a>Usar sinónimos
 Aunque hay cierta compatibilidad con los sinónimos en inglés, use [modificaciones de palabras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos deben agregarse en el nivel del servicio QnA Maker y todas las bases de conocimiento del servicio deben compartirlos.

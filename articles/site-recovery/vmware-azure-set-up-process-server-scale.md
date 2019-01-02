@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.author: ramamill
-ms.openlocfilehash: 50d1170f64ae199f4a1bf4b852c1ed3232df4d42
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974811"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253687"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Escala para la conmutación por recuperación con servidores de procesos adicionales
 
@@ -23,6 +23,9 @@ De forma predeterminada, al replicar servidores físicos o máquinas virtuales d
 ### <a name="capacity-planning"></a>Planificación de capacidad
 
 Asegúrese de que ha realizado la [planeación de la capacidad](site-recovery-plan-capacity-vmware.md) para la replicación de VMware. Esto le ayudará a identificar cómo y cuándo debe implementar servidores de proceso adicionales.
+
+>[!NOTE]
+No se admite el uso de componentes de Process Server clonados. Siga los pasos de este artículo para el escalado horizontal de Process Server.
 
 ### <a name="sizing-requirements"></a>Requisitos de tamaño 
 

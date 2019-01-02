@@ -10,86 +10,98 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0b1187083c14fc7c536f6a32f3a41957f53f299b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957409"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679722"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
-Translator Text API admite los siguientes idiomas para la conversión de texto a texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator Text API cuando hay un sistema neuronal disponible. La traducción automática neuronal está disponible en V2 con la categoría "generalnn".
+Translator Text API admite los siguientes idiomas para la conversión de texto a texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator Text API cuando hay un sistema neuronal disponible. 
 
 [Más información sobre cómo funciona la traducción automática](https://www.microsoft.com/translator/mt.aspx)
 
-| Idioma    | Tipo de traducción |Código de idioma |
-|:----------- |:-------:|:-------------:|
-| Afrikáans      | Estadística |`af`          |
-| Árabe      | Neuronal | `ar`          |
-| Árabe, levantino    | Neuronal | `apc`
-| Bangla      | Neuronal |`bn`          |
-| Bosnio (latino)      | Estadística |`bs`          |
-| Búlgaro     |  Neuronal |`bg`          |
-| Cantonés (tradicional)      | Estadística |`yue`          |
-| Catalán      | Estadística |`ca`          |
-| Chino simplificado        |  Neuronal |`zh-Hans`          |
-| Chino tradicional        |  Neuronal |`zh-Hant`          |
-| Croata      | Neuronal |`hr`          |
-| Checo        |  Neuronal |`cs`          |
-| Danés        |  Neuronal |`da`          |
-| Neerlandés        |  Neuronal |`nl`          |
-| English       |  Neuronal |`en`          |
-| Estonio      | Neuronal |`et`          |
-| Fiyiano      | Estadística |`fj`          |
-| Filipino      | Estadística |`fil`          |
-| Finés      | Neuronal |`fi`          |
-| Francés        |  Neuronal |`fr`          |
-| Alemán       |  Neuronal |`de`          |
-| Griego      | Neuronal |`el`          |
-| Criollo haitiano      | Estadística |`ht`          |
-| Hebreo      | Neuronal |`he`          |
-| Hindi        |  Neuronal |`hi`          |
-| Hmong daw      | Estadística |`mww`          |
-| Húngaro      | Neuronal |`hu`          |
-| Islandés      |  Neuronal |`is`           |
-| Indonesio      | Estadística |`id`          |
-| Italiano        |  Neuronal |`it`          |
-| Japonés        |  Neuronal |`ja`          |
-| Kiswahili      | Estadística |`sw`          |
-| Klingon      | Estadística |`tlh`          |
-| Klingon (plqaD)      | Estadística |`tlh-Qaak`          |
-| Coreano        |  Neuronal |`ko`          |
-| Letón      | Neuronal |`lv`          |
-| Lituano      | Neuronal |`lt`          |
-| Malgache      | Estadística |`mg`          |
-| Malayo      | Estadística |`ms`          |
-| Maltés      | Estadística |`mt`          |
-| Noruego        |  Neuronal |`nb`          |
-| Persa      | Estadística |`fa`          |
-| Polaco        |  Neuronal |`pl`          |
-| Portugués        |  Neuronal |`pt`          |
-| Otomí Querétaro      | Estadística |`otq`          |
-| Rumano        |  Neuronal |`ro`          |
-| Ruso        |  Neuronal |`ru`          |
-| Samoano      | Estadística |`sm`          |
-| Serbio (cirílico)      | Estadística |`sr-Cyrl`          |
-| Serbio (latino)      | Estadística |`sr-Latn`          |
-| Eslovaco     | Neuronal |`sk`          |
-| Esloveno      | Neuronal |`sl`          |
-| Español        |  Neuronal |`es`          |
-| Sueco        |  Neuronal |`sv`          |
-| Tahitiano      | Estadística |`ty`          |
-| Tamil      | Estadística |`ta`          |
-| Telugu   | Neuronal   | `te` |
-| Tailandés      | Neuronal |`th`          |
-| Tongano      | Estadística |`to`          |
-| Turco       |  Neuronal |`tr`          |
-| Ucraniano      | Neuronal |`uk`          |
-| Urdu      | Estadística |`ur`          |
-| Vietnamita      | Neuronal |`vi`          |
-| Galés      | Neuronal |`cy`          |
-| Maya Yucateco      | Estadística |`yua`          |
+**Translator API V2**
+
+> [!NOTE]
+> V2 quedó en desuso el 30 de abril de 2018 y se suspenderá el 30 de abril de 2019.
+
+* Solo estadísticas: no hay ningún sistema neuronal disponible para este idioma.
+* Traducción neuronal disponible: hay un sistema neuronal disponible. Utilice el parámetro `category=generalnn` para acceder al sistema neuronal.
+* Neuronal como sistema predeterminado: el sistema de traducción neuronal es el predeterminado. Utilice el parámetro `category=smt` para acceder al sistema estadístico y utilizarlo con Microsoft Translator Hub.
+* Solo neuronal: la traducción neuronal es la única que está disponible.
+
+**Translator API V3** Translator API V3 utiliza el sistema neuronal de forma predeterminada, por lo que los sistemas estadísticos solamente están disponibles cuando no existe un sistema neuronal. La característica Traductor personalizado solo puede utilizarse con idiomas neuronales. 
+
+|Idioma|  Código de idioma|  API V2| API V3|
+|:-----|:-----:|:-----|:-----|
+|Afrikáans| `af`    |Solo estadísticas|  Neuronal|
+|Árabe|    `ar`    |Traducción neuronal disponible|  Neuronal|
+|Árabe, levantino| `apc`   |Traducción neuronal disponible|  Neuronal|
+|Bangla|    `bn`    |Traducción neuronal disponible|  Neuronal|
+|Bosnio (latino)|   `bs`    |Solo estadísticas|  Estadística|
+|Búlgaro| `bg`    |Traducción neuronal disponible|  Neuronal|
+|Cantonés (tradicional)|   `yue`   |Solo estadísticas|  Estadística|
+|Catalán|   `ca`    |Solo estadísticas|  Estadística|
+|Chino simplificado|    `zh-Hans`   |Neuronal como sistema predeterminado |Neuronal|
+|Chino tradicional|   `zh-Hant`   |Neuronal como sistema predeterminado |Neuronal|
+|Croata|  `hr`    |Traducción neuronal disponible|  Neuronal|
+|Checo| `cs`    |Traducción neuronal disponible|  Neuronal|
+|Danés|    `da`    |Traducción neuronal disponible   |Neuronal|
+|Neerlandés| `nl`    |Traducción neuronal disponible|  Neuronal|
+|English|   `en`    |Traducción neuronal disponible|  Neuronal|
+|Estonio|  `et`    |Traducción neuronal disponible|  Neuronal|
+|Fiyiano|    `fj`    |Solo estadísticas|  Estadística|
+|Filipino|  `fil`   |Solo estadísticas|  Estadística|
+|Finés|   `fi`    |Traducción neuronal disponible|  Neuronal|
+|Francés|    `fr`    |Traducción neuronal disponible|  Neuronal|
+|Alemán|    `de`    |Traducción neuronal disponible|  Neuronal|
+|Griego| `el`    |Traducción neuronal disponible|  Neuronal|
+|Criollo haitiano|    `ht`    |Solo estadísticas   |Estadística|
+|Hebreo |`he`   |Traducción neuronal disponible   |Neuronal|
+|Hindi| `hi`    |Neuronal como sistema predeterminado|    Neuronal|
+|Hmong Daw| `mww`   |Solo estadísticas|  Estadística|
+|Húngaro| `hu`    |Traducción neuronal disponible|  Neuronal|
+|Islandés| `is`    |Solo neuronal|   Neuronal|
+|Indonesio|    `id`    |Solo estadísticas|  Estadística|
+|Italiano|   `it`    |Traducción neuronal disponible|  Neuronal|
+|Japonés|  `ja`    |Traducción neuronal disponible|  Neuronal|
+|Kiswahili| `sw`    |Solo estadísticas|  Estadística|
+|Klingon|   `tlh`   |Solo estadísticas|  Estadística|
+|Klingon (plqaD)|   `tlh-Qaak`  |Solo estadísticas|  Estadística|
+|Coreano |`ko`   |Traducción neuronal disponible|  Neuronal|
+|Letón|   `lv`    |Traducción neuronal disponible|  Neuronal|
+|Lituano|    `lt`    |Traducción neuronal disponible|  Neuronal|
+|Malgache|  `mg`    |Solo estadísticas|  Estadística|
+|Malayo| `ms`    |Solo estadísticas   |Estadística|
+|Maltés|   `mt`    |Solo estadísticas|  Estadística|
+|Noruego| `nb`    |Traducción neuronal disponible|  Neuronal|
+|Persa|   `fa`    |Solo estadísticas|  Estadística|
+|Polaco|    `pl`    |Traducción neuronal disponible|  Neuronal|
+|Portugués|    `pt`    |Traducción neuronal disponible|  Neuronal|
+|Otomí Querétaro|   `otq`   |Solo estadísticas|  Estadística|
+|Rumano|  `ro`    |Traducción neuronal disponible|  Neuronal|
+|Ruso|   `ru`    |Traducción neuronal disponible|  Neuronal|
+|Samoano|    `sm`    |Solo estadísticas|  Estadística|
+|Serbio (cirílico)|    `sr-Cyrl`   |Solo estadísticas|  Estadística|
+|Serbio (latino)|   `sr-Latn`   |Solo estadísticas   |Estadística|
+|Eslovaco|    `sk`    |Traducción neuronal disponible|  Neuronal|
+|Esloveno| `sl`    |Traducción neuronal disponible|  Neuronal|
+|Español|   `es`    |Traducción neuronal disponible|  Neuronal|
+|Sueco|   `sv`    |Traducción neuronal disponible   |Neuronal|
+|Tahitiano|  `ty`    |Solo estadísticas|  Estadística|
+|Tamil| `ta`    |Solo estadísticas|  Estadística|
+|Telugu|    `te`    |Solo neuronal|   Neuronal|
+|Tailandés|  `th`    |Traducción neuronal disponible|  Neuronal|
+|Tongano|    `to`    |Solo estadísticas|  Estadística|
+|Turco|   `tr`    |Traducción neuronal disponible   |Neuronal|
+|Ucraniano| `uk`    |Traducción neuronal disponible|  Neuronal|
+|Urdu|  `ur`    |Solo estadísticas|  Estadística|
+|Vietnamita|    `vi`    |Traducción neuronal disponible|  Neuronal|
+|Galés| `cy`    |Traducción neuronal disponible|  Neuronal|
+|Maya Yucateco|  `yua`   |Solo estadísticas|  Estadística|
 
 ## <a name="transliteration"></a>Transliteración
 

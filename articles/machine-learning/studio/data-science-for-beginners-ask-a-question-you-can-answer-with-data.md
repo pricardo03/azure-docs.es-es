@@ -4,10 +4,9 @@ description: Aprenda a formular una buena pregunta de ciencia de datos en Cienci
 keywords: problemas de ciencia de datos,preguntas de ciencias de datos,formular pregunta,preguntas de regresión,preguntas de clasificación,pregunta directa
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310844"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250986"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Realización de preguntas que pueden responderse con datos
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciencia de datos para principiantes
@@ -49,7 +48,7 @@ Este es el tercer vídeo de la serie "Ciencia de datos para principiantes".
 
 En este vídeo, recibirá algunas sugerencias para formular una pregunta que se pueda responder con datos.
 
-Para aprovechar mejor este vídeo, vea antes los dos primeros de esta serie: "Las cinco preguntas a las que responde la ciencia de datos"y "Is your data is ready for data science?" (¿Están sus datos preparados para la ciencia de datos?)
+Aprovechará mejor este vídeo si ve primero los dos vídeos anteriores de esta serie. "Las cinco preguntas a las que responde la ciencia de datos" y "¿Están sus datos preparados para la ciencia de datos?"
 
 ## <a name="ask-a-sharp-question"></a>Formulación de una pregunta directa
 Hemos hablado de que la ciencia de datos es el proceso de usar nombres (llamados también categorías o etiquetas) y números para predecir una respuesta a una pregunta. Pero no sirve cualquier pregunta; debe ser una *pregunta directa.*
@@ -62,7 +61,7 @@ Si formulara una pregunta vaga como "¿Qué va a pasar con mis acciones?", el ge
 
 Pero si tuviera que formular una pregunta directa, como "¿Cuál será el precio de venta de mis acciones la próxima semana?", el genio no podrá evitar darle una respuesta específica y predecir un precio de venta.
 
-## <a name="examples-of-your-answer-target-data"></a>Ejemplos de respuesta: datos de destino
+## <a name="examples-of-your-answer-target-data"></a>Ejemplos de la respuesta: datos de destino
 Después de formular la pregunta, compruebe si tiene ejemplos de la respuesta en sus datos.
 
 Si la pregunta es "¿A qué precio de venta estarán mis acciones la semana próxima?", tenemos para asegurarnos de que nuestros datos incluyan el historial de precios de cotización.

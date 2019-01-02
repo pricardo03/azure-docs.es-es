@@ -1,21 +1,22 @@
 ---
-title: Administración de suscripciones de punto de conexión en LUIS
-titleSuffix: Azure Cognitive Services
+title: Administración de recursos de Azure
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: En este artículo, se crea una clave de punto de conexión de uso medido para la cuenta de LUIS para proporcionar tráfico ilimitado al punto de conexión en función de un plan de pago.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5d3e837cf644e0cb9b35a0cfc715a9dcace592e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040387"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082992"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Administración de las claves de suscripción de punto de conexión de Azure
 
@@ -56,7 +57,7 @@ Para pruebas y prototipos solo, use el plan gratuito (F0). Para los sistemas de 
 5. No olvide [asignar esta clave de punto de conexión](luis-how-to-manage-keys.md#assign-endpoint-key) en la página **Publicar** y usarla en todas las consultas de punto de conexión. 
 
 ## <a name="exceed-pricing-tier-usage"></a>Superar el uso del plan de tarifa
-Cada plan permite solicitudes de punto de conexión a la cuenta de LUIS a una tasa específica. Si la tasa de solicitudes es mayor que la permitida para la cuenta de uso medido por minuto o por mes, las solicitudes reciben un error HTTP de "429: demasiadas solicitudes."
+Cada plan permite solicitudes de punto de conexión a la cuenta de LUIS a una tasa específica. Si la tasa de solicitudes es mayor que la permitida para la cuenta de uso medido por minuto o por mes, las solicitudes reciben un error HTTP de "429: demasiadas solicitudes".
 
 Cada plan permite solicitudes acumulativas por mes. Si el número total de solicitudes es más alto que la tasa permitida, las solicitudes reciben un error HTTP "403: prohibido".  
 

@@ -12,15 +12,15 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056648"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315222"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Administración de esquema en una aplicación SaaS que usa bases de datos SQL multiinquilino particionadas
- 
+
 En este tutorial se examinan los desafíos de mantenimiento de una gran cantidad de bases de datos en una aplicación de software como servicio (SaaS). Se muestran soluciones para distribuir de manera ramificada los cambios de esquema en todas las bases de datos.
 
 Como cualquier otra aplicación, la aplicación SaaS de Wingtip Tickets evolucionará con el tiempo y requerirá que se hagan cambios en la base de datos. Los cambios pueden afectar los datos de referencia o el esquema, o bien aplicar tareas de mantenimiento de la base de datos. Con una aplicación SaaS con un patrón de base de datos por inquilino, se deben coordinar los cambios en toda una cantidad potencialmente enorme de bases de datos de inquilino. Además, debe incorporar estos cambios en el proceso de aprovisionamiento de base de datos para garantizar que se incluyen en las bases de datos nuevas a medida que se crean.
@@ -64,12 +64,12 @@ El modelo de base de datos multiinquilino con particiones utilizado en este ejem
 ## <a name="elastic-jobs-limited-preview"></a>Versión preliminar limitada de Trabajos elásticos
 
 Hay una nueva versión de Trabajos elásticos que ahora es una característica integrada de Azure SQL Database. Esta nueva versión de Trabajos elásticos ofrece actualmente una versión preliminar limitada. La versión preliminar limitada actualmente admite usar PowerShell para crear un agente de trabajo y T-SQL para crear y administrar trabajos.
-> [!NOTE] 
+> [!NOTE]
 > En este tutorial se usan características del servicio SQL Database que se encuentran en una versión preliminar limitada (trabajos de Elastic Database). Si desea seguir este tutorial, envíe su identificador de suscripción a SaaSFeedback@microsoft.com con el asunto Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, descargue e instale los cmdlets de trabajos de versión preliminar más recientes. Esta versión preliminar es limitada, por lo que debe ponerse en contacto con SaaSFeedback@microsoft.com para realizar preguntas u obtener soporte técnico relacionados.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtención del código fuente y los scripts de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets
 
-Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) de GitHub. Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets. 
+Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) de GitHub. Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Creación de una base de datos de agente de trabajo y un agente de trabajo nuevo
 
@@ -84,9 +84,9 @@ El script *Demo-SchemaManagement.ps1* llama al script *Deploy-SchemaManagement.p
 
 #### <a name="prepare"></a>Preparación
 
-Cada base de datos de inquilinos incluye un conjunto de los tipos de ubicación en la tabla **VenueTypes**. Cada tipo de ubicación define la clase de eventos que se organizan en una ubicación. Estos tipos de ubicación se corresponden con las imágenes de fondo que se ven en la aplicación de eventos de inquilino.  En este ejercicio, se implementa una actualización en todas las bases de datos para agregar dos tipos de ubicación adicionales: *Motorcycle Racing* (motociclismo) y *Swimming Club* (club de natación). 
+Cada base de datos de inquilinos incluye un conjunto de los tipos de ubicación en la tabla **VenueTypes**. Cada tipo de ubicación define la clase de eventos que se organizan en una ubicación. Estos tipos de ubicación se corresponden con las imágenes de fondo que se ven en la aplicación de eventos de inquilino.  En este ejercicio, se implementa una actualización en todas las bases de datos para agregar dos tipos de ubicación adicionales: *Motorcycle Racing* (motociclismo) y *Swimming Club* (club de natación).
 
-En primer lugar, revise los tipos de ubicación que se incluyen en cada base de datos de inquilino. Conéctese a una de las bases de datos de inquilino en SQL Server Management Studio (SSMS) y revise la tabla VenueTypes.  También puede consultar esta tabla en el Editor de consultas de Azure Portal, al que se accede desde la página de la base de datos. 
+En primer lugar, revise los tipos de ubicación que se incluyen en cada base de datos de inquilino. Conéctese a una de las bases de datos de inquilino en SQL Server Management Studio (SSMS) y revise la tabla VenueTypes.  También puede consultar esta tabla en el Editor de consultas de Azure Portal, al que se accede desde la página de la base de datos.
 
 1. Abra SSMS y conéctese al servidor de inquilino: *tenants1-dpt-&lt;usuario&gt;.database.windows.net*
 1. Para confirmar que *Motorcycle Racing* y *Swimming Club* **no están** incluidos actualmente, vaya a la base de datos *contosoconcerthall* en el servidor *tenants1-dpt-&lt;usuari&gt;* y consulte la tabla *VenueTypes*.

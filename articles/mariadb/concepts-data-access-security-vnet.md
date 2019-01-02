@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 31eec9e146c64e2310ab27414952593140f11cb2
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 8c4f14849c39414217837a3c86fb6e067cd87c90
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276970"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434348"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure Database for MariaDB
 
@@ -33,11 +33,11 @@ Para crear una regla de red virtual, primero debe haber una [red virtual][vm-vir
 
 ## <a name="terminology-and-description"></a>Terminología y descripción
 
-**Red virtual:** puede tener redes virtuales asociadas a su suscripción de Azure.
+**Red virtual:** puede tener redes virtuales asociadas a la suscripción de Azure.
 
 **Subred:** una red virtual contiene **subredes**. Cualquier máquina virtual (VM) de Azure que tenga se asignará a las subredes. Una subred puede contener varias máquinas virtuales u otros nodos de proceso. Los nodos de proceso que se encuentran fuera de la red virtual no pueden tener acceso a su red virtual a menos que configure la seguridad para que permita el acceso.
 
-**Punto de conexión del servicio de Virtual Network:** un [punto de conexión del servicio de Virtual Network][vm-virtual-network-service-endpoints-overview-649d] es una subred cuyos valores de propiedad incluyen uno o más nombres formales de tipo de servicio de Azure. En este artículo nos interesa el nombre de tipo de **Microsoft.Sql**, que hace referencia al servicio de Azure denominado SQL Database. Esta etiqueta de servicio también se aplica a los servicios Azure Database for MariaDB, MySQL y PostgreSQL. Es importante tener en cuenta que, al aplicar la etiqueta de servicio de **Microsoft.Sql** a un punto de conexión de servicio de red virtual, se configurará el tráfico de punto de conexión de servicio de todos los servidores de Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL y Azure Database for PostgreSQL de la subred.
+**Punto de conexión de servicio de red virtual:** un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] es una subred cuyos valores de propiedad incluyen uno o más nombres formales de tipo de servicio de Azure. En este artículo nos interesa el nombre de tipo de **Microsoft.Sql**, que hace referencia al servicio de Azure denominado SQL Database. Esta etiqueta de servicio también se aplica a los servicios Azure Database for MariaDB, MySQL y PostgreSQL. Es importante tener en cuenta que, al aplicar la etiqueta de servicio de **Microsoft.Sql** a un punto de conexión de servicio de red virtual, se configurará el tráfico de punto de conexión de servicio de todos los servidores de Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL y Azure Database for PostgreSQL de la subred.
 
 **Regla de red virtual:** una regla de red virtual para el servidor de Azure Database for MariaDB es una subred que se muestra en la lista de control de acceso (ACL) de su servidor de Azure Database for MariaDB. Para estar en la ACL de su servidor de Azure Database for MariaDB, la subred tiene que contener el nombre de tipo **Microsoft.Sql**.
 
@@ -93,8 +93,8 @@ Cada regla de red virtual se aplica a todo el servidor de Azure Database for Mar
 
 Existe una separación de los roles de seguridad en la administración de puntos de conexión del servicio de Virtual Network. Se requiere una acción de cada uno de los roles siguientes:
 
-- **Administrador de red:**&nbsp; activar el punto de conexión.
-- **Administrador de base de datos:** &nbsp; actualizar la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor de Azure Database for MariaDB.
+- **Administrador de red:** &nbsp; se activa el punto de conexión.
+- **Administrador de base de datos:** &nbsp; se actualiza la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor de Azure Database for MariaDB.
 
 *Alternativa de RBAC:*
 
@@ -117,7 +117,7 @@ Para Azure Database for MariaDB, la característica de las reglas de red virtual
 
 - Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][resource-manager-deployment-model-568f].
 
-- Al activar los puntos de conexión de servicio de red virtual en Azure Database for MariaDB usando la etiqueta de servicio de **Microsoft.Sql** también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure SQL Data Warehouse.
+- Al activar los puntos de conexión de servicio de red virtual en Azure Database for MariaDB con la etiqueta de servicio **Microsoft.Sql** también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure SQL Data Warehouse.
 
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
 
@@ -149,7 +149,7 @@ Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguien
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 -->
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: fbfe7255f2b848187c74fd832f349186eef5eaef
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 724b1a2562e4723bd02c97cdecb0ef7dbd8ed177
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287581"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139068"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -94,7 +94,7 @@ La plantilla anidada requiere las [mismas propiedades](resource-group-authoring-
 
 ### <a name="external-template-and-external-parameters"></a>Plantilla externa y parámetros externos
 
-Para vincular a una plantilla externa y a un archivo de parámetros, utilice **templateLink** y **parametersLink**. Al vincular a una plantilla, el servicio Resource Manager debe tener acceso a ella. No se puede especificar un archivo local o un archivo que solo está disponible en la red local. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento.
+Para vincular a una plantilla externa y a un archivo de parámetros, utilice **templateLink** y **parametersLink**. Al vincular a una plantilla, el servicio Resource Manager debe tener acceso a ella. No se puede especificar un archivo local o un archivo que solo esté disponible en la red local. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento.
 
 ```json
 "resources": [
@@ -169,7 +169,9 @@ También puede usar la función [deployment()](resource-group-template-functions
 
 ## <a name="get-values-from-linked-template"></a>Obtención de valores a partir de la plantilla vinculada
 
-Para obtener un valor de salida de una plantilla vinculada, recupere el valor de propiedad con sintaxis de esta manera: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Para obtener un valor de salida de una plantilla vinculada, recupere el valor de propiedad con sintaxis de esta manera: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Al obtener una propiedad de salida a partir de una plantilla vinculada, el nombre de propiedad no puede incluir un guión.
 
 Los ejemplos siguientes muestran cómo hacer referencia a una plantilla vinculada y recuperar un valor de salida. La plantilla vinculada devuelve un mensaje simple.
 

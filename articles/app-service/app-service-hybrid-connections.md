@@ -1,5 +1,5 @@
 ---
-title: Hybrid Connections de Azure App Service | Microsoft Docs
+title: 'Hybrid Connections: Azure App Service | Microsoft Docs'
 description: Creación y uso de Hybrid Connections para acceder a recursos de redes distintas
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
-ms.openlocfilehash: 69897e288a90a731d95db82d0ff978d776c12580
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.custom: seodec18
+ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42143396"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258022"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service #
 
@@ -136,7 +137,7 @@ Cuando inicia la interfaz de usuario de HCM, lo primero que se ve es una tabla d
 Para agregar una o varias conexiones híbridas a HCM:
 
 1. Inicie la interfaz de usuario de HCM.
-1. Seleccione **Configure another Hybrid Connection** (Configurar otra conexión híbrida).
+2. Seleccione **Configure another Hybrid Connection** (Configurar otra conexión híbrida).
 ![Captura de pantalla de configuración de conexiones híbridas nuevas][8]
 
 1. Inicie sesión con su cuenta de Azure.
@@ -197,7 +198,7 @@ El objeto JSON asociado con una conexión híbrida tiene el siguiente aspecto:
       }
     }
 
-Una forma de usar esta información es con ARMClient, que se puede obtener en el proyecto de GitHub [ARMClient][armclient]. Este es un ejemplo sobre cómo adjuntar una conexión híbrida existente a una aplicación web. Cree un archivo JSON siguiendo el esquema anterior como:
+Una forma de usar esta información es con ARMClient, que se puede obtener del proyecto de GitHub [ARMClient][armclient]. Este es un ejemplo sobre cómo adjuntar una conexión híbrida existente a una aplicación web. Cree un archivo JSON siguiendo el esquema anterior como:
 
     {
       "name": "relay-demo-hc",
@@ -249,8 +250,8 @@ La forma temprana de esta característica se llamó Conexiones híbridas de BizT
 [12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
-[HCService]: http://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
-[portal]: http://portal.azure.com/
-[oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
-[sbpricing]: http://azure.microsoft.com/pricing/details/service-bus/
+[HCService]: https://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
+[portal]: https://portal.azure.com/
+[oldhc]: https://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
+[sbpricing]: https://azure.microsoft.com/pricing/details/service-bus/
 [armclient]: https://github.com/projectkudu/ARMClient/

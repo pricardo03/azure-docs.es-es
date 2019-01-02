@@ -1,6 +1,6 @@
 ---
-title: Actualización a la versión más reciente de la API REST del servicio Azure Search | Microsoft Docs
-description: Actualización a la versión más reciente de la API REST del servicio Azure Search
+title: 'Actualización a la versión más reciente de la API REST de Azure Search Service: Azure Search'
+description: Revise las diferencias en las versiones de API y conozca qué acciones son necesarias para migrar código existente a la versión más reciente de la API REST de Azure Search Service.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,14 +9,15 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 2efe7769f68988f3c0d52c8806b78c1b96d8c639
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.custom: seodec2018
+ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620236"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312194"
 ---
-# <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>Actualización a la versión más reciente de la API REST del servicio Azure Search
+# <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Actualización a la versión más reciente de la API REST de Azure Search Service
 Si usa la versión anterior de la [API REST del servicio Azure Search](https://docs.microsoft.com/rest/api/searchservice/), este artículo le ayudará a actualizar la aplicación para que use la versión más reciente de la API disponible con carácter general, 2017-11-11.
 
 La versión 2017-11-11 de la API REST contiene algunos cambios con respecto a versiones anteriores. Se trata principalmente de cambios compatibles con versiones anteriores, por lo que cambiar el código apenas debe exigir esfuerzo, según la versión que utilizaba antes. Vea [Pasos para actualizar](#UpgradeSteps), a fin de obtener instrucciones sobre cómo cambiar el código para usar la nueva versión de API.

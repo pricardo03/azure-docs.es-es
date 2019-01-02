@@ -1,21 +1,22 @@
 ---
-title: Administración de las versiones en las aplicaciones de LUIS
-titleSuffix: Azure Cognitive Services
+title: Administración de versiones
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Las versiones permiten compilar y publicar modelos diferentes. Una buena práctica consiste en clonar el modelo activo actual a una versión diferente de la aplicación antes de realizar cambios en el modelo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: db461191b70aabc322e570ecc814a076c21206f2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a1594d3dfe449049258e5ee12bc173c413459f8a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033794"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132881"
 ---
 # <a name="manage-versions"></a>Administración de versiones
 
@@ -25,7 +26,7 @@ Para trabajar con versiones, abra la aplicación, seleccione su nombre en la pá
 
 La lista de versiones muestra las versiones que se publican, dónde se publican y qué versión está activa actualmente. 
 
-[![](./media/luis-how-to-manage-versions/versions-import.png "Sección Administrar, página de versiones")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+[![Sección Administrar, página de versiones](./media/luis-how-to-manage-versions/versions-import.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Clonar una versión
 
@@ -44,7 +45,7 @@ La lista de versiones muestra las versiones que se publican, dónde se publican 
 
 Seleccione una versión de la lista y, a continuación, seleccione **Activar** en la barra de herramientas. 
 
-[![](./media/luis-how-to-manage-versions/versions-other.png "Sección Administrar, página de versiones")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Sección Administrar, página de versiones, realizar una acción de versión](./media/luis-how-to-manage-versions/versions-other.png "Manage section, versions page, make a version action")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Importar versión
 
@@ -52,7 +53,7 @@ Seleccione una versión de la lista y, a continuación, seleccione **Activar** e
 
 2. En la ventana emergente **Importar nueva versión**, escriba el nuevo nombre de la versión, de diez caracteres. Basta con establecer una id. de versión si la versión en el archivo JSON ya existe en la aplicación.
 
-    ![Sección Administrar, página de versiones](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
+    ![Sección Administrar, página de versiones, importar nueva versión](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Después de importar una versión, la nueva versión se convierte en la versión activa.
 

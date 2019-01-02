@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827976"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187218"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integración de Mapa de servicio con System Center Operations Manager
   > [!NOTE]
@@ -94,15 +93,15 @@ Después de conectar el área de trabajo de Log Analytics, una nueva carpeta (Se
 La carpeta de Service Map tiene cuatro nodos:
 * **Alertas activas**: muestra todas las alertas activas sobre la comunicación entre Operations Manager y Service Map.  Observe que estas alertas no son alertas de Log Analytics sincronizadas con Operations Manager. 
 
-* **Servidores**: muestra los servidores supervisados que se han configurado para la sincronización con Mapa de servicio.
+* **Servidores**: muestra los servidores supervisados que se han configurado para la sincronización con Service Map.
 
     ![Panel de servidores de supervisión de Operations Manager](media/service-map-scom/scom-monitoring-servers.png)
 
-* **Vistas de dependencia de grupo de máquinas**: muestra todos los grupos de máquinas que se sincronizan desde Service Map. Puede hacer clic en cualquier grupo para ver su diagrama de aplicaciones distribuidas.
+* **Machine Group Dependency Views** (Vistas de dependencia de grupo de máquinas): muestra todos los grupos de máquinas que se sincronizan desde Service Map. Puede hacer clic en cualquier grupo para ver su diagrama de aplicaciones distribuidas.
 
     ![Diagrama de aplicaciones distribuidas de Operations Manager](media/service-map-scom/scom-group-dad.png)
 
-* **Vistas de la dependencia de servidor**: muestra todos los servidores que se sincronizan desde Mapa de servicio. Puede hacer clic en cualquier servidor para ver su diagrama de aplicaciones distribuidas.
+* **Server Dependency Views** (Vistas de dependencia de servidor): muestra todos los servidores que se sincronizan desde Service Map. Puede hacer clic en cualquier servidor para ver su diagrama de aplicaciones distribuidas.
 
     ![Diagrama de aplicaciones distribuidas de Operations Manager](media/service-map-scom/scom-dad.png)
 
@@ -123,7 +122,7 @@ Se crea una regla, _Microsoft.SystemCenter.ServiceMapImport.Rule_, para capturar
 
 * **Enabled**: sirve para habilitar o deshabilitar las actualizaciones automáticas. 
 * **IntervalMinutes**: restablece el tiempo entre actualizaciones. El intervalo predeterminado es de una hora. Si desea sincronizar asignaciones de servidor con más frecuencia, puede cambiar el valor.
-* **TimeoutSeconds**: restablece el período de tiempo antes de que se agote el tiempo de espera de la solicitud. 
+* **TimeoutSeconds**: se restablece el período de tiempo antes de que se agote el tiempo de espera de la solicitud. 
 * **TimeWindowMinutes**: restablece el período de tiempo para consultar datos. El valor predeterminado es de 60 minutos. El valor máximo permitido por Mapa de servicio es de 60 minutos.
 
 ## <a name="known-issues-and-limitations"></a>Problemas conocidos y limitaciones

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 3b07485d4168e38736c12a74b0d36bcc8a276748
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7b8276281b8b550492fed17adc516e9539380987
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233072"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269743"
 ---
 # <a name="azure-stack-capacity-planner"></a>Herramienta de planeamiento de capacidad de Azure Stack
 La Herramienta de planeamiento de capacidad de Azure Stack es una hoja de cálculo que se usa para planear la capacidad de recursos de Azure Stack. La herramienta de planeamiento de capacidad le permite diseñar varias asignaciones de recursos informáticos y ver cómo estos se ajustarían a través de una selección de ofertas de hardware. A continuación se proporcionan instrucciones detalladas para el uso de Azure Stack Calculator.
@@ -61,7 +61,7 @@ Para crear un modelo con una sola colección de varios tamaños y cantidades de 
 3. Ahora tiene todo listo para empezar a agregar máquinas virtuales de tamaños distintos al modelo. Para incluir un tipo determinado de máquina virtual, escriba un valor de cantidad en el cuadro de contorno azul a la izquierda de la entrada de esa máquina virtual.
 
   > [!NOTE]
-  > Cada máquina virtual empieza con un tamaño de almacenamiento que se asignó inicialmente. El tamaño de almacenamiento se muestra mediante un cuadro de lista y se puede modificar para ajustar el nivel del recurso de almacenamiento que desee para cada máquina virtual de Azure Stack. Si no se proporciona el tamaño de almacenamiento que desea usar, puede agregarlo modificando cualquiera de los 10 tamaños iniciales contenidos en la lista de “Configuraciones de almacenamiento disponible” que se encuentra en el lado derecho de la página.<br><br>Cada máquina virtual empieza con un almacenamiento temporal que se asignó inicialmente. Para reflejar el aprovisionamiento fino de almacenamiento temporal se puede cambiar el número local-temp a cualquier valor en la lista desplegable del menú, incluyendo la cantidad máxima de almacenamiento temporal permitido.
+  > El almacenamiento total de la máquina virtual hace referencia a la capacidad total del disco de datos de esta (número de discos admitidos * capacidad máxima de un solo disco [1 TB]). En función de los indicadores de configuración hemos rellenado la tabla de configuraciones de almacenamiento disponibles de manera que pueda elegir el nivel de recursos de almacenamiento para cada máquina virtual de Azure Stack. Sin embargo, es importante tener en cuenta que puede agregar elementos a la tabla de configuraciones de almacenamiento disponibles o cambiarla según sea necesario.<br><br>Cada máquina virtual empieza con un almacenamiento temporal que se asignó inicialmente. Para reflejar el aprovisionamiento fino de almacenamiento temporal se puede cambiar el número local-temp a cualquier valor en la lista desplegable del menú, incluyendo la cantidad máxima de almacenamiento temporal permitido.
 
 4. A medida que agregue máquinas virtuales, verá cómo cambian los gráficos que muestran los recursos disponibles de la SKU. Esto le permite ver los efectos de agregar varios tamaños y las cantidades de máquinas virtuales durante el proceso de modelado. Otra forma de ver el efecto de los cambios es mirar los números “Consumido” y “Todavía disponible” que aparecen directamente debajo de la lista de máquinas virtuales disponibles. Estos números reflejan los valores estimados según la SKU de hardware seleccionada actualmente.
 5. Una vez haya creado el conjunto de máquinas virtuales, puede encontrar la SKU de hardware recomendada haciendo clic en el botón de “SKU recomendada” que se encuentra en la esquina superior derecha de la página, directamente debajo de la etiqueta “SKU actual”. Con este botón puede modificar las configuraciones de máquina virtual y después ver qué hardware es compatible con cada configuración.

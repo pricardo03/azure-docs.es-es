@@ -1,7 +1,7 @@
 ---
 title: 'Migrar bases de conocimiento de versión preliminar: Qna Maker'
 titleSuffix: Azure Cognitive Services
-description: Cómo importar una base de conocimiento
+description: Las bases de conocimiento que se crean con la versión preliminar gratuita de QnA Maker se tienen que migrar a QnA Maker GA (disponibilidad general). QnA Maker Versión preliminar quedará en desuso en enero de 2019.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,15 +10,16 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 261d42a6c21681ee8015edfe73ad78b4458eb0ee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365567"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078824"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar una base de conocimiento mediante la exportación e importación
-QnA Maker anunció la disponibilidad general el 7 de mayo de 2018, en la conferencia \\\build\. QnA Maker GA tiene una nueva arquitectura basada en Azure. Las bases de conocimiento que se crean con la versión preliminar gratuita de QnA Maker se tienen que migrar a QnA Maker GA (disponibilidad general). QnA Maker Preview quedará en desuso en noviembre de 2018. Para obtener más información sobre los cambios en QnA Maker GA, vea la [entrada de blog](https://aka.ms/qnamakerga-blog) del anuncio de QnA Maker GA.
+QnA Maker anunció la disponibilidad general el 7 de mayo de 2018, en la conferencia \\\build\. QnA Maker GA tiene una nueva arquitectura basada en Azure. Las bases de conocimiento que se crean con la versión preliminar gratuita de QnA Maker se tienen que migrar a QnA Maker GA (disponibilidad general). QnA Maker Versión preliminar quedará en desuso en enero de 2019. Para obtener más información sobre los cambios en QnA Maker GA, vea la [entrada de blog](https://aka.ms/qnamakerga-blog) del anuncio de QnA Maker GA.
 
 QnA Maker ahora tiene un [modelo de precios](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 

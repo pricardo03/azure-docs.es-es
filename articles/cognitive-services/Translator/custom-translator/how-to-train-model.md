@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 9ec8cbe3d2467714a4b2586db79566aaef30d6d7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 60e0485c28d90050a6ff775db41f8696a09fe033
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627149"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165765"
 ---
 # <a name="train-a-model"></a>Entrenamiento de un modelo
 
@@ -26,21 +26,17 @@ Para entrenar un modelo:
 
 2.  La pestaña Datos del proyecto mostrará todos los documentos pertinentes para el par de idiomas del proyecto. Seleccione manualmente los documentos que desea usar para entrenar el modelo. Puede seleccionar documentos de aprendizaje, optimización y prueba desde esta pantalla. También basta con seleccionar el conjunto de aprendizaje y que Custom Translator cree automáticamente los conjuntos de optimización y prueba.
 
-    -  Nombre del documento: nombre que le asigna al documento
+    -  Nombre del documento: el nombre asignado.
 
-    -  Emparejamiento: indica si este documento es un documento paralelo o monolingüe.
+    -  Emparejamiento: indica si se trata de un documento paralelo o monolingüe. En este momento, no se admiten los documentos monolingües para el entrenamiento.
 
-    - En este momento, no se admiten los documentos monolingües para el entrenamiento.
+    -  Tipo de documento: puede ser de entrenamiento, ajuste, prueba o diccionario.
 
-    -  Tipo de documento: puede ser de aprendizaje, optimización, prueba o diccionario.
+    -  Par de idiomas: muestra los idiomas de origen y de destino para el proyecto.
 
-    -  Par de idiomas: esta opción muestra el idioma de origen y de destino para el proyecto.
+    -  Frases de origen: muestra el número de frases extraídas del archivo de origen.
 
-    -  Frases de origen: muestra el número de frases extraído del
-    - archivo de origen.
-
-    -  Frases de destino: muestra el número de frases extraído del
-    - archivo de destino.
+    -  Frases de destino: muestra el número de frases extraídas del archivo de destino.
 
     ![Entrenar modelo](media/how-to/how-to-train-model.png)
 

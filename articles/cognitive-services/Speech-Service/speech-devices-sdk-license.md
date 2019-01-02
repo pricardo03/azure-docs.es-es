@@ -1,5 +1,5 @@
 ---
-title: Contrato de licencia del SDK de dispositivos de voz
+title: 'Contrato de licencia del SDK de dispositivos de voz: servicios de Voz'
 titleSuffix: Azure Cognitive Services
 description: Contrato de licencia del SDK de dispositivos de voz.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b1605337a810c635bfa40cd05e2f9b15d2e5a7e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466127"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078521"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrato de licencia del SDK de dispositivos de voz
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>TÉRMINOS DE LICENCIA DE SOFTWARE DE MICROSOFT<br>KIT DE DESARROLLO DE SOFTWARE DE (SDK) DE DISPOSITIVOS DE VOZ 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>TÉRMINOS DE LICENCIA DE SOFTWARE DE MICROSOFT<br>KIT DE DESARROLLO DE SOFTWARE DE (SDK) DE DISPOSITIVOS DE VOZ
 
 > SI VIVE EN LOS ESTADOS UNIDOS (O ES UNA EMPRESA CUYA SEDE CENTRAL SE ENCUENTRA EN LOS ESTADOS UNIDOS), LEA LA SECCIÓN "CLÁUSULA ARBITRAL Y CLÁUSULA DE RENUNCIA" A CONTINUACIÓN. AFECTA A CÓMO SE RESUELVEN LOS CONFLICTOS.
 
@@ -57,7 +58,7 @@ f) Debe usar el software solo en combinación con Microsoft Azure Cognitive Serv
 
 **5\. COMENTARIOS.** Si proporciona comentarios sobre el software a Microsoft, concede a Microsoft el derecho de usar, compartir y comercializar sus comentarios de cualquier forma y para cualquier fin sin cargo alguno. No enviará comentarios sujetos a una licencia que obliguen a Microsoft a licenciar su software o documentación a terceros porque Microsoft incluye sus comentarios en ellos. Estos derechos perdurarán con independencia de este contrato.
 
-**6\. PERÍODO.** Este contrato entra en vigor cuando se acepta y usted o Microsoft pueden finalizarlo en cualquier momento. 
+**6\. PERÍODO.** Este contrato entra en vigor cuando se acepta y usted o Microsoft pueden finalizarlo en cualquier momento.
 
 **7\. TERMINACIÓN.** Sin perjuicio de ningún otro derecho, Microsoft puede finalizar este contrato si usted incumple alguno de sus términos o condiciones. En tal caso, deberá destruir todas las copias del software y todos sus componentes.
 

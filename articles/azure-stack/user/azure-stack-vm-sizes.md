@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087498"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722095"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tamaños de máquinas virtuales admitidos en Azure Stack
 
@@ -28,14 +28,14 @@ En este artículo se incluyen los tamaños de máquinas virtuales que están dis
 
 ## <a name="general-purpose"></a>Uso general
 
-Los tamaños de máquina virtual de uso general proporcionan una relación equilibrada entre la CPU y la memoria. Estas máquinas se usan para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio.
+Los tamaños de máquina virtual de uso general proporcionan una relación equilibrada entre la CPU y la memoria. Estas máquinas se usan para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. Cada disco de datos tiene 2300 IOPS en los tamaños prémium de máquina virtual, excepto en la serie A básica. En el caso de la serie A básica, el tamaño del disco de datos es de 500 IOPS.
 
 ### <a name="basic-a"></a>A básico
 
 > [!NOTE]
 > Se han retirado los tamaños de máquina virtual *A básico* para la [creación de conjuntos de escalado de máquinas virtuales](../azure-stack-compute-add-scalesets.md) (VMSS) a través del portal. Para crear un VMSS con este tamaño, use PowerShell o una plantilla.
 
-|Tamaño - Tamaño\nombre |vCPU     |Memoria | Tamaño máximo del disco temporal | Rendimiento de discos del SO máx.: (IOPS) | Rendimiento máximo de almacenamiento temporal (IOPS) | Rendimiento de discos de datos máx. (IOPS) | Nº máx. NIC |    
+|Tamaño - Tamaño\nombre |vCPU     |Memoria | Tamaño máximo del disco temporal | Rendimiento máximo del disco del SO: (IOPS) | Rendimiento máximo de almacenamiento temporal (IOPS) | Rendimiento de discos de datos máx. (IOPS) | Nº máx. NIC |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |1   |
 |**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2 / 2x300  |1   |

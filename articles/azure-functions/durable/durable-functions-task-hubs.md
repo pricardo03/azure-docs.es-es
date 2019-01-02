@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 7a6346e594c5a7cc4cf02f3ea658aac4977e641a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637460"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336907"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centrales de tareas en Durable Functions (Azure Functions)
 
@@ -27,7 +27,7 @@ Cada aplicación de función tiene una central de tareas independiente. Si varia
 
 ## <a name="azure-storage-resources"></a>Recursos de Azure Storage
 
-Una central de tareas consta de los siguientes recursos de almacenamiento: 
+Una central de tareas consta de los siguientes recursos de almacenamiento:
 
 * Una o más colas de control.
 * Una cola de elementos de trabajo.
@@ -41,7 +41,8 @@ Todos estos recursos se crean automáticamente en la cuenta de Azure Storage pre
 
 Las centrales de tareas se identifican mediante un nombre que se declara en el archivo *host.json*, como se muestra en el ejemplo siguiente:
 
-### <a name="hostjson-functions-v1"></a>host.json (Functions v1)
+### <a name="hostjson-functions-1x"></a>host.json (Functions 1.x)
+
 ```json
 {
   "durableTask": {
@@ -49,7 +50,9 @@ Las centrales de tareas se identifican mediante un nombre que se declara en el a
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.json (Functions v2)
+
+### <a name="hostjson-functions-2x"></a>host.json (Functions 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -60,9 +63,11 @@ Las centrales de tareas se identifican mediante un nombre que se declara en el a
   }
 }
 ```
+
 Las centrales de tareas también se pueden configurar mediante la configuración de la aplicación, tal como se muestra en el siguiente archivo de ejemplo *host.json*:
 
-### <a name="hostjson-functions-v1"></a>host.json (Functions v1)
+### <a name="hostjson-functions-1x"></a>host.json (Functions 1.x)
+
 ```json
 {
   "durableTask": {
@@ -70,7 +75,9 @@ Las centrales de tareas también se pueden configurar mediante la configuración
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.json (Functions v2)
+
+### <a name="hostjson-functions-2x"></a>host.json (Functions 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -81,14 +88,46 @@ Las centrales de tareas también se pueden configurar mediante la configuración
   }
 }
 ```
+
 El nombre de la central de tareas se establecerá en el valor de la configuración `MyTaskHub` de la aplicación. El siguiente valor de `local.settings.json` muestra cómo definir la configuración `MyTaskHub` como `samplehubname`:
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "MyTaskHub" :  "samplehubname" 
+    "MyTaskHub" : "samplehubname"
   }
+}
+```
+
+Este es un ejemplo precompilado en C# de cómo escribir una función que usa [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) para trabajar con una central de tareas configurada como configuración de aplicación:
+
+```csharp
+[FunctionName("HttpStart")]
+public static async Task<HttpResponseMessage> Run(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    string functionName,
+    ILogger log)
+{
+    // Function input comes from the request content.
+    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+    return starter.CreateCheckStatusResponse(req, instanceId);
+}
+```
+
+Y la siguiente es la configuración necesaria para JavaScript. La propiedad de la central de tareas del archivo `function.json` se establece mediante la configuración de aplicación:
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
 }
 ```
 

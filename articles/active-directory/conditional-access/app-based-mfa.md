@@ -13,17 +13,17 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f27ced5c67c5124d0792c5ce3884c88473fba056
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 1c61286a24c3562e32cb4c734ea081526d38837a
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604202"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413162"
 ---
-# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Inicio rápido: requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory 
+# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Inicio rápido: Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory 
 
 Para simplificar la experiencia de inicio de sesión de los usuarios, puede permitirles iniciar sesión en sus aplicaciones en la nube mediante un nombre de usuario y una contraseña. Sin embargo, muchos entornos tienen al menos algunas aplicaciones para las que es preferible requerir una forma más segura para verificar la cuenta, como la autenticación multifactor (MFA). Esto podría ser true, por ejemplo, para tener acceso a las aplicaciones de recursos humanos o al sistema de correo electrónico de su organización. En Azure Active Directory (Azure AD), puede lograr este objetivo con una directiva de acceso condicional.    
 
@@ -85,11 +85,11 @@ En la directiva, establezca:
 
     ![Azure Active Directory](./media/app-based-mfa/02.png)
 
-3. En la página **Azure Active Directory**, en la sección **Administrar**, haga clic en **Acceso condicional**.
+3. En la página **Azure Active Directory**, en la sección **Seguridad**, haga clic en **Acceso condicional**.
 
     ![Acceso condicional](./media/app-based-mfa/03.png)
  
-4. En la página **Acceso condicional**, en la barra de herramientas de la parte superior, haga clic en **Agregar**.
+4. En la página **Acceso condicional**, en la barra de herramientas de la parte superior, haga clic en **Nueva directiva**.
 
     ![Sumar](./media/app-based-mfa/04.png)
 
@@ -105,7 +105,7 @@ En la directiva, establezca:
 
     ![Usuarios y grupos](./media/app-based-mfa/24.png)
 
-    a. Haga clic en **Seleccionar usuarios y grupos** y, luego, seleccione **Usuarios y grupos**.
+     a. Haga clic en **Seleccionar usuarios y grupos** y, luego, seleccione **Usuarios y grupos**.
 
     b. Haga clic en **Seleccionar**.
 
@@ -121,7 +121,7 @@ En la directiva, establezca:
 
     ![Seleccionar aplicaciones en la nube](./media/app-based-mfa/26.png)
 
-    a. Haga clic en **Seleccionar aplicaciones**.
+     a. Haga clic en **Seleccionar aplicaciones**.
 
     b. Haga clic en **Seleccionar**.
 
@@ -138,9 +138,9 @@ En la directiva, establezca:
 
     ![Conceder](./media/app-based-mfa/11.png)
 
-    a. Seleccione **Conceder acceso**.
+     a. Seleccione **Conceder acceso**.
 
-    a. Seleccione **Requerir autenticación multifactor**.
+     a. Seleccione **Requerir autenticación multifactor**.
 
     b. Haga clic en **Seleccionar**.
 
@@ -183,7 +183,7 @@ Para inicializar la herramienta de evaluación de directivas What If, establezca
 
     ![Aplicaciones de nube](./media/app-based-mfa/16.png)
 
-    a. Haga clic en **Aplicaciones en la nube**.
+     a. Haga clic en **Aplicaciones en la nube**.
 
     b. En la **página Aplicaciones en la nube**, haga clic en **Seleccionar aplicaciones**.
 

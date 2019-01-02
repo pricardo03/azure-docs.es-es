@@ -6,15 +6,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: 2eddf1da9f797f4646d6e3fc3380580d9923d963
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: d3ae15193b5e2d759825e60f880dea4355329837
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013792"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407061"
 ---
-# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Solución de problemas de HDFS mediante Azure HDInsight
+# <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Solución de problemas de HDFS de Apache Hadoop con Azure HDInsight
 
 Obtenga información sobre los principales problemas y sus soluciones al trabajar con cargas útiles del Sistema de archivos distribuido de Hadoop (HDFS) en Apache Ambari.
 

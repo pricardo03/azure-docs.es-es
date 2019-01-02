@@ -1,22 +1,23 @@
 ---
-title: Supervisión de HSM dedicado de Azure | Microsoft Docs
-description: HSM dedicado de Azure proporciona funcionalidades de almacenamiento de claves dentro de Azure que cumplen con la certificación FIPS 140-2 nivel 3
+title: 'Opciones de supervisión: Azure Dedicated HSM | Microsoft Docs'
+description: Introducción a las opciones de supervisión de Azure Dedicated HSM y responsabilidades de supervisión
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 4e2089c62da5fec1e1cfe96ce27b363cfb35eadf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b577c2c68512c6e7e36f80b75245d9db4f839d9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319224"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085696"
 ---
 # <a name="azure-dedicated-hsm-monitoring"></a>Supervisión de HSM dedicado de Azure
 

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim88
-ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031091"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166598"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Uso de metadatos y GenerateAnswer API
 
@@ -54,15 +54,15 @@ Para llamar a GenerateAnswer, se utiliza una solicitud HTTP POST. Para ver códi
 - **URL de la solicitud**: https://{QnA Maker endpoint}/knowledgebases/{knowledge base ID}/generateAnswer
 
 - **Parámetros de la solicitud** 
-    - **Identificador de la base de conocimiento** (cadena): GUID de la base de conocimiento.
-    - **Punto de conexión de QnAMaker** (cadena): nombre de host del punto de conexión implementado en su suscripción de Azure.
+    - **Knowledge base ID** (cadena): GUID de Knowledge Base.
+    - **QnAMaker endpoint** (cadena): nombre de host del punto de conexión implementado en la suscripción de Azure.
 - **Encabezados de solicitud**
-    - **Content-Type** (cadena): tipo de medio del cuerpo que se envía a la API.
-    - **Autorización** (cadena): la clave de punto de conexión (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
+    - **Content-Type** (cadena): tipo de soporte del cuerpo enviado a la API.
+    - **Authorization** (cadena): su clave de punto de conexión (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Cuerpo de la solicitud**
-    - **question** (cadena): pregunta de usuario que realizará la consulta a la base de conocimiento.
+    - **question** (cadena): pregunta del usuario que realizará la consulta a la base de conocimiento.
     - **top** (opcional, entero): número de resultados clasificados por orden de prioridad que se incluirá en la salida. El valor predeterminado es 1.
-    - **UserId** (opcional, cadena): identificador único del usuario. Este identificador se registrará en los registros de chat.
+    - **userId** (opcional, cadena): identificador único que identifica el usuario. Este identificador se registrará en los registros de chat.
     - **strictFilters** (opcional, cadena): si se especifica, indica a QnA Maker que solo devuelva las respuestas que tienen los metadatos especificados. Para obtener más información, consulte más adelante.
     ```json
     {
@@ -167,6 +167,8 @@ La respuesta a GenerateAnswer contiene la información de los metadatos correspo
 Esta información puede utilizarse para registrar el contexto de la conversación anterior para usarlo en conversaciones posteriores. 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+La página de publicación también proporciona información para generar una respuesta [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) y [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
 > [Creación de una base de conocimientos](./create-knowledge-base.md)

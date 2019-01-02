@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1e6bd1b7ddb38d0fad33ab9d282f8edc4ff8c765
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129138"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968004"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: Ejemplos de diccionario
+# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: Ejemplos de diccionario
 
-Proporciona ejemplos que muestran cómo se usan los términos del diccionario en el contexto. Esta operación se usa junto con la opción [Búsqueda de diccionario](.\v3-0-dictionary-lookup.md).
+Proporciona ejemplos que muestran cómo se usan los términos del diccionario en el contexto. Esta operación se usa junto con la opción [Búsqueda de diccionario](./v3-0-dictionary-lookup.md).
 
 ## <a name="request-url"></a>URL de la solicitud
 
@@ -42,11 +42,11 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
   </tr>
   <tr>
     <td>De</td>
-    <td>*Parámetro obligatorio*.<br/>Especifica el idioma del texto de entrada. El idioma de origen debe ser uno de los [idiomas admitidos](.\v3-0-languages.md) que están incluidos en el ámbito `dictionary`.</td>
+    <td>*Parámetro obligatorio*.<br/>Especifica el idioma del texto de entrada. El idioma de origen debe ser uno de los [idiomas admitidos](./v3-0-languages.md) que están incluidos en el ámbito `dictionary`.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>*Parámetro obligatorio*.<br/>Especifica el idioma del texto de salida. El idioma de origen debe ser uno de los [idiomas admitidos](.\v3-0-languages.md) que están incluidos en el ámbito `dictionary`.</td>
+    <td>*Parámetro obligatorio*.<br/>Especifica el idioma del texto de salida. El idioma de origen debe ser uno de los [idiomas admitidos](./v3-0-languages.md) que están incluidos en el ámbito `dictionary`.</td>
   </tr>
 </table>
 
@@ -77,9 +77,9 @@ Los encabezados de solicitud incluyen lo siguiente:
 
 El cuerpo de la solicitud es una matriz JSON. Cada elemento de la matriz es un objeto JSON que consta de las siguientes propiedades:
 
-  * `Text`: una cadena que especifica el término que se va a buscar. Este debería ser el valor de un campo `normalizedText` que proceda de las traducciones inversas encontradas cuando se realizó una solicitud de una [búsqueda de diccionario](.\v3-0-dictionary-lookup.md) anterior. También puede ser el valor del campo `normalizedSource`.
+  * `Text`: cadena que especifica el término que se va a buscar. Este debería ser el valor de un campo `normalizedText` que proceda de las traducciones inversas encontradas cuando se realizó una solicitud de una [búsqueda de diccionario](./v3-0-dictionary-lookup.md) anterior. También puede ser el valor del campo `normalizedSource`.
 
-  * `Translation`: una cadena que especifica el texto traducido, y que previamente devolvió la operación [Búsqueda de diccionario](.\v3-0-dictionary-lookup.md). Este debería ser el valor del campo `normalizedTarget` en la lista `translations` de la respuesta [Búsqueda de diccionario ](.\v3-0-dictionary-lookup.md). El servicio devolverá ejemplos para el par de palabras específico "fuente-objetivo".
+  * `Translation`: cadena que especifica el texto traducido que previamente devolvió la operación [Búsqueda de diccionario](./v3-0-dictionary-lookup.md). Este debería ser el valor del campo `normalizedTarget` en la lista `translations` de la respuesta [Búsqueda de diccionario ](./v3-0-dictionary-lookup.md). El servicio devolverá ejemplos para el par de palabras específico "fuente-objetivo".
 
 Ejemplo:
 
@@ -98,23 +98,23 @@ Se aplican las siguientes limitaciones:
 
 Una respuesta correcta es una matriz JSON con un resultado para cada cadena en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
 
-  * `normalizedSource`: es una cadena que proporciona el formato normalizado del término de origen. En general, esto debería ser idéntico al valor del campo `Text` que se encuentra en el índice de la lista de coincidencias del cuerpo de la solicitud.
+  * `normalizedSource`: cadena que proporciona la forma normalizada del término de origen. En general, esto debería ser idéntico al valor del campo `Text` en el índice de la lista de coincidencias del cuerpo de la solicitud.
     
-  * `normalizedTarget`:es una cadena que da la forma normalizada del término de destino. En general, esto debería ser idéntico al valor del campo `Translation` en el índice de la lista de coincidencias del cuerpo de la solicitud.
+  * `normalizedTarget`: cadena que proporciona la forma normalizada del término de destino. En general, esto debería ser idéntico al valor del campo `Translation` en el índice de la lista de coincidencias del cuerpo de la solicitud.
   
-  * `examples`: es una lista de ejemplos para el par (término de origen y de destino). Cada elemento de la lista es un objeto que consta de las siguientes propiedades:
+  * `examples`: lista de ejemplos del par (término de origen y de destino). Cada elemento de la lista es un objeto que consta de las siguientes propiedades:
 
-    * `sourcePrefix`: es la cadena que hay que concatenar _antes_ del valor de `sourceTerm` para formar un ejemplo completo. No agregue un carácter de espacio, ya que ya estará allí en el momento apropiado. Este valor puede ser una cadena vacía.
+    * `sourcePrefix`: cadena que se va a concatenar _antes_ del valor de `sourceTerm` para formar un ejemplo completo. No agregue un carácter de espacio, ya que ya estará allí en el momento apropiado. Este valor puede ser una cadena vacía.
 
-    * `sourceTerm`: es una cadena equivalente al término real que se esta buscando. La cadena se agrega con `sourcePrefix` y `sourceSuffix` para formar el ejemplo completo. Su valor está separado, por lo que se puede marcar en una interfaz de usuario poniéndolo en negrita, por ejemplo.
+    * `sourceTerm`: cadena equivalente al término real que se esta buscando. La cadena se agrega con `sourcePrefix` y `sourceSuffix` para formar el ejemplo completo. Su valor está separado, por lo que se puede marcar en una interfaz de usuario poniéndolo en negrita, por ejemplo.
 
-    * `sourceSuffix`: es la cadena que hay que concatenar _después_ del valor de `sourceTerm` para formar un ejemplo completo. No agregue un carácter de espacio, ya que ya estará allí en el momento apropiado. Este valor puede ser una cadena vacía.
+    * `sourceSuffix`: cadena que se va a concatenar _después_ del valor de `sourceTerm` para formar un ejemplo completo. No agregue un carácter de espacio, ya que ya estará allí en el momento apropiado. Este valor puede ser una cadena vacía.
 
-    * `targetPrefix`: es una cadena similar a `sourcePrefix`, pero se usa en el destino.
+    * `targetPrefix`: cadena similar a `sourcePrefix` que se usa en el destino.
 
-    * `targetTerm`: es una cadena similar a `sourceTerm`, pero se usa en el destino.
+    * `targetTerm`: cadena similar a `sourceTerm` que se usa en el destino.
 
-    * `targetSuffix`: es una cadena similar a `sourceSuffix`, pero se usa en el destino.
+    * `targetSuffix`: cadena similar a `sourceSuffix` que se usa en el destino.
 
     > [!NOTE]
     > Si no hay ejemplos en el diccionario, la respuesta es 200 (OK), pero la lista `examples` será una lista vacía.

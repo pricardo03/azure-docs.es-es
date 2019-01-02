@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494250"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278651"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seleccione, administre y opere clústeres de Service Fabric.
@@ -140,9 +140,9 @@ Obtiene el manifiesto de clúster de Service Fabric. El manifiesto de clúster c
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 Cancela una operación de error provocada por el usuario.
 
-Las siguientes API inician operaciones de error que se pueden cancelar mediante el uso de CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Si force es false, la operación inducida por el usuario especificado se detendrá y se limpiará correctamente.  Si force es true, se anulará el comando y puede quedar algún estado interno.  Debe utilizarse con cuidado la especificación de force como true. No se permite llamar a esta API con force establecido en true hasta que esta API se haya llamado en el mismo comando de prueba con force establecido en false primero, o a menos que el comando de prueba ya tenga un elemento OperationState de OperationState.RollingBack. 
+Las siguientes API inician operaciones de error que se pueden cancelar mediante CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Si force es false, la operación inducida por el usuario especificado se detendrá y se limpiará correctamente.  Si force es true, se anulará el comando y puede quedar algún estado interno.  Debe utilizarse con cuidado la especificación de force como true. No se permite llamar a esta API con force establecido en true hasta que esta API se haya llamado en el mismo comando de prueba con force establecido en false primero, o a menos que el comando de prueba ya tenga un elemento OperationState de OperationState.RollingBack. 
 
- Aclaración\: OperationState.RollingBack significa que el sistema limpia o limpiará el estado interno del sistema causado por la ejecución del comando. No restaurará los datos si el comando de prueba iba a causar pérdida de datos.  Por ejemplo, si llama a StartDataLoss y luego llama a esta API, el sistema solo limpiará el estado interno de la ejecución del comando. No restaurará datos de la partición de destino si el comando ha progresado lo suficiente para provocar la pérdida de datos. 
+Aclaración\: OperationState.RollingBack significa que el sistema limpia o limpiará el estado interno del sistema causado por la ejecución del comando.  No restaurará los datos si el comando de prueba iba a causar pérdida de datos.  Por ejemplo, si llama a StartDataLoss y luego llama a esta API, el sistema solo limpiará el estado interno de la ejecución del comando. No restaurará datos de la partición de destino si el comando ha progresado lo suficiente para provocar la pérdida de datos. 
 
 > [!NOTE]
 > Si esta API se invoca con force== true, el estado interno puede quedar atrás.
@@ -264,7 +264,7 @@ El informe debe contener la información sobre el origen del informe de mantenim
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 Se conecta a un punto de conexión del clúster de Service Fabric.
 
-Si se conecta al clúster seguro, especifique una ruta de acceso absoluta a un archivo de certificado (.crt) y de clave (.key) o un único archivo con ambos (.pem). No especifique ambos. Como alternativa, si se conecta a un clúster seguro, también especifique una ruta de acceso absoluta a un archivo de paquete de la entidad emisora de certificados o al directorio de certificados de confianza de la entidad emisora de certificados.
+Si se conecta al clúster seguro, especifique una ruta de acceso absoluta a un archivo de certificado (.crt) y de clave (.key) o un único archivo con ambos (.pem). No especifique ambos. Como alternativa, si se conecta a un clúster seguro, también especifique una ruta de acceso absoluta a un archivo de paquetes de la entidad de certificación o al directorio de certificados de confianza de la entidad de certificación. Si usa un directorio de certificados de CA, `c_rehash <directory>` proporcionado por OpenSSL, se debe ejecutar en primer lugar para calcular los valores hash del certificado y crear los vínculos simbólicos adecuados.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -340,19 +340,19 @@ Valida los parámetros de actualización suministrados e inicia la actualizació
 | --delta-health-evaluation | Permite la evaluación de mantenimiento delta en lugar de absoluta tras la finalización de cada dominio de actualización. |
 | --delta-unhealthy-nodes | El porcentaje máximo permitido de degradación del mantenimiento de los nodos durante las actualizaciones del clúster.  Valor predeterminado\: 10. <br><br> El delta se mide entre el estado de los nodos al principio de la actualización y el estado de los nodos en el momento de la evaluación de mantenimiento. La comprobación se realiza después de que finaliza la actualización de cada dominio de actualización para asegurarse de que el estado global del clúster está dentro de los límites permitidos. |
 | --failure-action | Los valores posibles son\: "Invalid", "Rollback", "Manual". |
-| --force-restart | Fuerza el reinicio. |
-| --health-check-retry | Tiempo de espera de reintentos de comprobación de mantenimiento medido en milisegundos. |
-| --health-check-stable | Duración estable de comprobación de mantenimiento medida en milisegundos. |
-| --health-check-wait | Duración de espera de comprobación de mantenimiento medida en milisegundos. |
-| --replica-set-check-timeout | Tiempo de espera de comprobación del conjunto de réplicas de actualización medido en segundos. |
+| --force-restart | Los procesos se reinician de forma forzosa durante la actualización incluso si no ha cambiado la versión del código. <br><br> La actualización solo cambia la configuración o los datos. |
+| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no son correctos. |
+| --health-check-stable | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
+| --health-check-wait | El período de tiempo de espera después de completar un dominio de actualización antes de iniciar el proceso de comprobaciones de mantenimiento. |
+| --replica-set-check-timeout | El período de tiempo máximo para bloquear el procesamiento de un dominio de actualización y evitar la pérdida de disponibilidad cuando hay problemas inesperados. <br><br> Cuando este tiempo de espera expire, el procesamiento del dominio de actualización se llevará a cabo independientemente de los problemas de pérdida de disponibilidad. El tiempo de espera se restablece al principio de cada dominio de actualización. Los valores válidos oscilan entre 0 y 42949672925, ambos inclusive. |
 | --rolling-upgrade-mode | Los valores posibles son\: "Invalid", "UnmonitoredAuto", "UnmonitoredManual", "Monitored".  Valor predeterminado\: UnmonitoredAuto. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 | --unhealthy-applications | El porcentaje máximo permitido de aplicaciones en mal estado antes de informar de un error. <br><br> Por ejemplo, para permitir el 10 % de las aplicaciones en mal estado, este valor sería 10. El valor representa el porcentaje máximo tolerado de aplicaciones que pueden ser incorrectas antes de que el clúster se considere erróneo. Si se respeta el porcentaje, pero hay al menos una aplicación en mal estado, el estado se evalúa como Warning. Esto se calcula dividiendo el número de aplicaciones en mal estado sobre el número total de instancias de la aplicación en el clúster, excluidas las aplicaciones de los tipos de aplicación que se incluyen en ApplicationTypeHealthPolicyMap. El cálculo se redondea hacia arriba para tolerar un error en números reducidos de aplicaciones. |
 | --unhealthy-nodes | El porcentaje máximo permitido de nodos en mal estado antes de informar de un error. <br><br> Por ejemplo, para permitir el 10 % de los nodos en mal estado, este valor sería 10. El valor representa el porcentaje máximo tolerado de nodos que pueden ser incorrectos antes de que el clúster se considere erróneo. Si se respeta el porcentaje, pero hay al menos un nodo en mal estado, el estado se evalúa como Warning. El porcentaje se calcula dividiendo el número de nodos en mal estado sobre el número total de nodos del clúster. El cálculo se redondea hacia arriba para tolerar un error en números reducidos de nodos. En los clústeres grandes, siempre habrá nodos inactivos o inoperativos debido a reparaciones, por lo que este porcentaje debe configurarse para tolerar ese hecho. |
 | --upgrade-domain-delta-unhealthy-nodes | El porcentaje máximo permitido de degradación del mantenimiento de los nodos de dominio de actualización durante las actualizaciones del clúster.  Valor predeterminado\: 15. <br><br> El delta se mide entre el estado de los nodos del dominio de actualización al principio de la actualización y el estado de los nodos del dominio de actualización en el momento de la evaluación de mantenimiento. La comprobación se realiza después de que finaliza la actualización de cada dominio de actualización en todos los dominios de actualización completados para asegurarse de que el estado global del clúster está dentro de los límites permitidos. |
-| --upgrade-domain-timeout | Tiempo de espera del dominio de actualización medido en milisegundos. |
-| --upgrade-timeout | Tiempo de espera de actualización medido en milisegundos. |
-| --warning-as-error | Las advertencias se tratan con el mismo nivel de gravedad que los errores. |
+| --upgrade-domain-timeout | El período de tiempo del que dispone cada dominio de actualización para completarse antes de la ejecución de FailureAction. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
+| --upgrade-timeout | El período de tiempo en el que se debe completar la actualización general antes de que se ejecute FailureAction. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
+| --warning-as-error | Indica si las advertencias se tratan con el mismo nivel de gravedad que los errores. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -440,20 +440,20 @@ Actualiza los parámetros de actualización de una actualización de clúster de
 | --delta-health-evaluation | Permite la evaluación de mantenimiento delta en lugar de absoluta tras la finalización de cada dominio de actualización. |
 | --delta-unhealthy-nodes | El porcentaje máximo permitido de degradación del mantenimiento de los nodos durante las actualizaciones del clúster.  Valor predeterminado\: 10. <br><br> El delta se mide entre el estado de los nodos al principio de la actualización y el estado de los nodos en el momento de la evaluación de mantenimiento. La comprobación se realiza después de que finaliza la actualización de cada dominio de actualización para asegurarse de que el estado global del clúster está dentro de los límites permitidos. |
 | --failure-action | Los valores posibles son\: "Invalid", "Rollback", "Manual". |
-| --force-restart | Fuerza el reinicio. |
-| --health-check-retry | Tiempo de espera de reintentos de comprobación de mantenimiento medido en milisegundos. |
-| --health-check-stable | Duración estable de comprobación de mantenimiento medida en milisegundos. |
-| --health-check-wait | Duración de espera de comprobación de mantenimiento medida en milisegundos. |
-| --replica-set-check-timeout | Tiempo de espera de comprobación del conjunto de réplicas de actualización medido en segundos. |
+| --force-restart | Los procesos se reinician de forma forzosa durante la actualización incluso si no ha cambiado la versión del código. <br><br> La actualización solo cambia la configuración o los datos. |
+| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no son correctos. |
+| --health-check-stable | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
+| --health-check-wait | El período de tiempo de espera después de completar un dominio de actualización antes de iniciar el proceso de comprobaciones de mantenimiento. |
+| --replica-set-check-timeout | El período de tiempo máximo para bloquear el procesamiento de un dominio de actualización y evitar la pérdida de disponibilidad cuando hay problemas inesperados. <br><br> Cuando este tiempo de espera expire, el procesamiento del dominio de actualización se llevará a cabo independientemente de los problemas de pérdida de disponibilidad. El tiempo de espera se restablece al principio de cada dominio de actualización. Los valores válidos oscilan entre 0 y 42949672925, ambos inclusive. |
 | --rolling-upgrade-mode | Los valores posibles son\: "Invalid", "UnmonitoredAuto", "UnmonitoredManual", "Monitored".  Valor predeterminado\: UnmonitoredAuto. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 | --unhealthy-applications | El porcentaje máximo permitido de aplicaciones en mal estado antes de informar de un error. <br><br> Por ejemplo, para permitir el 10 % de las aplicaciones en mal estado, este valor sería 10. El valor representa el porcentaje máximo tolerado de aplicaciones que pueden ser incorrectas antes de que el clúster se considere erróneo. Si se respeta el porcentaje, pero hay al menos una aplicación en mal estado, el estado se evalúa como Warning. Esto se calcula dividiendo el número de aplicaciones en mal estado sobre el número total de instancias de la aplicación en el clúster, excluidas las aplicaciones de los tipos de aplicación que se incluyen en ApplicationTypeHealthPolicyMap. El cálculo se redondea hacia arriba para tolerar un error en números reducidos de aplicaciones. |
 | --unhealthy-nodes | El porcentaje máximo permitido de nodos en mal estado antes de informar de un error. <br><br> Por ejemplo, para permitir el 10 % de los nodos en mal estado, este valor sería 10. El valor representa el porcentaje máximo tolerado de nodos que pueden ser incorrectos antes de que el clúster se considere erróneo. Si se respeta el porcentaje, pero hay al menos un nodo en mal estado, el estado se evalúa como Warning. El porcentaje se calcula dividiendo el número de nodos en mal estado sobre el número total de nodos del clúster. El cálculo se redondea hacia arriba para tolerar un error en números reducidos de nodos. En los clústeres grandes, siempre habrá nodos inactivos o inoperativos debido a reparaciones, por lo que este porcentaje debe configurarse para tolerar ese hecho. |
 | --upgrade-domain-delta-unhealthy-nodes | El porcentaje máximo permitido de degradación del mantenimiento de los nodos de dominio de actualización durante las actualizaciones del clúster.  Valor predeterminado\: 15. <br><br> El delta se mide entre el estado de los nodos del dominio de actualización al principio de la actualización y el estado de los nodos del dominio de actualización en el momento de la evaluación de mantenimiento. La comprobación se realiza después de que finaliza la actualización de cada dominio de actualización en todos los dominios de actualización completados para asegurarse de que el estado global del clúster está dentro de los límites permitidos. |
-| --upgrade-domain-timeout | Tiempo de espera del dominio de actualización medido en milisegundos. |
+| --upgrade-domain-timeout | El período de tiempo del que dispone cada dominio de actualización para completarse antes de la ejecución de FailureAction. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --upgrade-kind | Los valores posibles incluyen\: "Invalid", "Rolling", "Rolling_ForceRestart".  Valor predeterminado\: Rolling. |
-| --upgrade-timeout | Tiempo de espera de actualización medido en milisegundos. |
-| --warning-as-error | Las advertencias se tratan con el mismo nivel de gravedad que los errores. |
+| --upgrade-timeout | El período de tiempo en el que se debe completar la actualización general antes de que se ejecute FailureAction. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
+| --warning-as-error | Indica si las advertencias se tratan con el mismo nivel de gravedad que los errores. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -464,6 +464,7 @@ Actualiza los parámetros de actualización de una actualización de clúster de
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.

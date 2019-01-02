@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025266"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139272"
 ---
 <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 =================================
@@ -177,7 +177,7 @@ Puede usar este parámetro para identificar de forma única la sesión de la ver
 
 Algunos recursos de Azure, como las cuentas de almacenamiento o los nombres DNS, requieren nombres únicos globalmente.
 
-Esto significa que cada vez que la versión de prueba implementa la plantilla de Resource Manager, crea un **grupo de recursos con un nombre único** para todos los \'recursos **.** Por lo tanto, es preciso utilizar la función concatenada [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) con los nombres de variables en los identificadores de grupo de recursos para generar valores únicos aleatorios:
+Esto significa que, cada vez que la versión de prueba implementa la plantilla de Resource Manager, crea un **grupo de recursos con un nombre único** para todos sus recursos \'. Por lo tanto, es preciso utilizar la función concatenada [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) con los nombres de variables en los identificadores de grupo de recursos para generar valores únicos aleatorios:
 
       "variables": {
       ...
@@ -310,11 +310,11 @@ La siguiente sección que hay que rellenar corresponde a los detalles de la vers
 
 **Manual del usuario:** *obligatorio* se trata del tutorial detallado de la experiencia con la versión de prueba. El cliente lo abrirá y podrá seguir exactamente lo que se quiere que haga durante la versión de prueba. Es importante que este contenido sea fácil de entender y de seguir. (Debe ser un archivo .pdf)
 
-**Test Drive Demo Video:** (Vídeo de demostración de la versión de prueba) *recomendado* de forma parecida al manual del usuario, se recomienda incluir un vídeo tutorial de la experiencia con la versión de prueba. El cliente lo verá antes o durante el uso de la versión de prueba y hará exactamente lo que se desea que haga con esa versión de prueba. Es importante que este contenido sea fácil de entender y de seguir.
+**Vídeo de demostración de la versión de prueba:** *Recomendable* De forma parecida al Manual del usuario, es recomendable incluir un tutorial en vídeo con la experiencia de la versión de prueba. El cliente lo verá antes o durante el uso de la versión de prueba y hará exactamente lo que desea que hagan con esa versión de prueba. Es importante que este contenido sea fácil de entender y de seguir.
 
 - **Nombre**: título del vídeo.
 - **Vínculo**: debe ser una dirección URL insertada desde la cámara o el vídeo. Abajo puede ver un ejemplo de cómo obtener la dirección URL insertada:
-- **Miniatura**: debe ser una imagen de alta calidad (533 × 324 píxeles). Aquí se recomienda realizar una captura de pantalla de alguna parte de su experiencia con la versión de prueba.
+- **Miniatura**: Debe ser una imagen de alta calidad (533 × 324 píxeles). Aquí es recomendable realizar una captura de pantalla de alguna parte de su experiencia con la versión de prueba.
 
 A continuación se muestra cómo aparecerán estos campos para el cliente durante su experiencia con la versión de prueba.
 
@@ -341,9 +341,9 @@ En este momento se calcula el número total de posibles versiones de prueba simu
 
 **Test Drive Resource Manager template:** (Plantilla de Resource Manager de la versión de prueba) *obligatorio* cargue aquí la plantilla de Resource Manager. Se trata del archivo compilado en la sección anterior. Asigne al archivo de plantilla principal "main-template.json" y asegúrese de que la plantilla de Resource Manager contiene los parámetros de salida para las variables clave que se necesitan. (Debe ser un archivo .zip)
 
-**Información de acceso:** *obligatorio* cuando un cliente obtiene su versión de prueba, se le presenta la información de acceso. Estas instrucciones tienen por objeto compartir los parámetros de salida útiles de la plantilla de Resource Manager de la versión de prueba. Para incluir parámetros de salida, use corchetes dobles (por ejemplo, **{{outputname}}**) y se insertarán correctamente en la ubicación. (En este caso se recomienda usar el formato de cadena HTML para la presentación en el front-end).
+**Información de acceso:** *obligatorio* cuando un cliente obtiene su versión de prueba, se le presenta la información de acceso. Estas instrucciones tienen por objeto compartir los parámetros de salida útiles de la plantilla de Resource Manager de la versión de prueba. Para incluir parámetros de salida, use corchetes dobles (por ejemplo, **{{outputname}}**) y se insertarán correctamente en la ubicación. (En este caso se recomienda usar el formato de cadena HTML para la representación en el front-end).
 
-### <a name="test-drive-deployment-subscription-details"></a>Detalles de la suscripción de implementación de la versión de prueba
+### <a name="test-drive-deployment-subscription-details"></a>Detalles de suscripción de la implementación de la versión de prueba
 
 La última sección que hay que rellenar permite implementar las versiones de prueba automáticamente mediante la conexión de la suscripción de Azure y Azure Active Directory (AD).
 
@@ -369,7 +369,7 @@ En caso contrario, cree un inquilino en Azure Active Directory.
 
 1. Navegue al directorio recién creado o a uno que ya existe y seleccione Azure Active Directory en el panel de filtro.
 2. Busque "Registros de aplicaciones" y haga clic en "Agregar".
-3. Especifique un nombre para la aplicación.
+3. Proporcione un nombre para la aplicación.
 4. Como Tipo, seleccione "Aplicación web o API".
 5. Puede proporcionar cualquier valor en URL de inicio de sesión ya que ese campo no se usará.
 6. Haga clic en Crear.
@@ -381,16 +381,14 @@ Haga clic en Guardar. El último paso consiste en copiar el identificador de apl
 
 Dado que vamos a usar la aplicación para implementar en la suscripción, es necesario agregar la aplicación como colaborador en la suscripción. Las instrucciones son las siguientes:
 
-1. Navegue a la hoja Suscripciones y seleccione la suscripción adecuada que solo utiliza con la versión de prueba.
-2. Haga clic en Control de acceso (IAM).
-3. Presione + Agregar en la nueva hoja.
-4. Establezca el rol en Colaborador.
-5. Escriba el nombre de la aplicación de AAD y selecciónela para asignar el rol.
-6. Haga clic en Guardar.
-
-![Adición de una nueva entidad de seguridad de Access Control](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Adición de permisos](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Vaya a la hoja Suscripciones y seleccione la suscripción adecuada que va a usar solo para la versión de prueba.
+1. Haga clic en **Control de acceso (IAM)**.
+1. Haga clic en la pestaña **Asignaciones de roles**.  ![Adición de una nueva entidad de seguridad de Access Control](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Haga clic en **Agregar asignación de roles**.
+1. Establezca el rol en **Colaborador**.
+1. Escriba el nombre de la aplicación de Azure AD y selecciónela para asignar el rol.
+    ![Adición de permisos](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Haga clic en **Save**(Guardar).
 
 **Clave de aplicación de Azure AD:** *obligatorio* el último campo permite generar una clave de autenticación. En Claves, agregue una descripción de la clave, establezca la duración para que no expire nunca y luego seleccione Guardar. Esto es **importante** para evitar tener una clave expirada, lo que interrumpiría la versión de prueba en producción. Copie este valor y péguelo en el campo obligatorio Versión de prueba.
 

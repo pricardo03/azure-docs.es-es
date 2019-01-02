@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es el Proceso de ciencia de datos en equipo (TDSP)? | Microsoft Docs
+title: ¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?
 description: Se proporciona una metodología de ciencia de datos que ofrece soluciones de análisis predictivo y aplicaciones inteligentes.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 44da452b0ec07eaa1b1446de5dab5bedaac3bc30
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 94728bbc74d1864c76aa801628fcbfb133b97abd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446847"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435997"
 ---
 # <a name="what-is-the-team-data-science-process"></a>¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?
 
@@ -79,7 +79,7 @@ Se proporcionan plantillas para la estructura de carpetas y los documentos neces
 
 [ ![Directorios de TDSP](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
-La estructura de directorio se puede clonar desde [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
+La estructura de directorio se puede clonar desde [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
 ## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infraestructura y recursos para los proyectos de ciencia de datos  
 
@@ -99,9 +99,9 @@ Este es un ejemplo de un equipo que trabaja en varios proyectos y que comparte d
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Herramientas y utilidades para la ejecución de proyectos
 
-En la mayoría de las organizaciones la introducción de procesos presenta ciertos desafíos. Las herramientas proporcionadas para implementar el proceso y el ciclo de vida de ciencia de datos ayudan a reducir las barreras a su adopción y la normalizan. TDSP proporciona un conjunto inicial de herramientas y scripts para impulsar la adopción de TDSP dentro de un equipo. También ayuda a automatizar algunas de las tareas comunes del ciclo de vida de ciencia de datos, como la exploración de datos y el modelado de línea de base. Existe una estructura bien definida que se proporciona a los individuos para que contribuyan con herramientas y utilidades compartidas al repositorio de código compartido de su equipo. Estos recursos se pueden aprovechar luego en otros proyectos dentro del equipo o en la organización. TDSP también tiene previsto habilitar las contribuciones de herramientas y utilidades a toda la comunidad. Las utilidades de TDSP se pueden clonar desde [Github](https://github.com/Azure/Azure-TDSP-Utilities).
+En la mayoría de las organizaciones la introducción de procesos presenta ciertos desafíos. Las herramientas proporcionadas para implementar el proceso y el ciclo de vida de ciencia de datos ayudan a reducir las barreras a su adopción y la normalizan. TDSP proporciona un conjunto inicial de herramientas y scripts para impulsar la adopción de TDSP dentro de un equipo. También ayuda a automatizar algunas de las tareas comunes del ciclo de vida de ciencia de datos, como la exploración de datos y el modelado de línea de base. Existe una estructura bien definida que se proporciona a los individuos para que contribuyan con herramientas y utilidades compartidas al repositorio de código compartido de su equipo. Estos recursos se pueden aprovechar luego en otros proyectos dentro del equipo o en la organización. TDSP también tiene previsto habilitar las contribuciones de herramientas y utilidades a toda la comunidad. Las utilidades de TDSP se pueden clonar desde [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En [Team Data Science Process: Roles and tasks](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) (Proceso de ciencia de datos en equipo: roles y tareas) se subrayan los roles y sus tareas asociadas en un equipo de ciencia de datos que se estandariza en este proceso. 
+En el artículo [Roles y tareas del proceso de ciencia de datos en equipo](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) se subrayan los roles y sus tareas asociadas en un equipo de ciencia de datos que se estandariza en este proceso. 

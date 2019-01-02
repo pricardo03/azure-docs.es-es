@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f7f23a6d645a1d8e16e42e751050d8d91b49e2b3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007832"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956727"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Solucionar problemas de implementación de Kubernetes en Azure Stack
 
@@ -45,10 +45,10 @@ En el siguiente diagrama se muestra el proceso general para implementar el clús
 1. Recopile los parámetros de entrada del elemento de Marketplace.
 
     Escriba los valores necesarios para configurar el clúster de Kubernetes, por ejemplo:
-    -  **Nombre de usuario**: nombre de usuario de las máquinas virtuales Linux que forman parte del clúster de Kubernetes y DVM.
+    -  **Nombre de usuario**: nombre de usuario de las máquinas virtuales de Linux que forman parte del clúster de Kubernetes y DVM.
     -  **Clave pública SSH**: clave que se usa para la autorización de todas las máquinas Linux creadas como parte del clúster de Kubernetes y DVM.
     -  **Entidad de servicio**: identificador que usa el proveedor de nube de Azure Kubernetes. El identificador de cliente identificado como identificador de la aplicación cuando se creó la entidad de servicio. 
-    -  **Secreto de cliente**: la clave que se creó al crear la entidad de servicio.
+    -  **Secreto del cliente**: clave que se creó al generar la entidad de servicio.
 
 2. Cree la máquina virtual de implementación y la extensión de script personalizada.
     -  Crea la máquina virtual Linux de implementación mediante la imagen de Linux de Marketplace, **Ubuntu Server 16.04-LTS**.
@@ -178,6 +178,6 @@ Para obtener registros, realice estos pasos:
 
 [Implementación de Kubernetes en Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
 
-[Agregar un clúster de Kubernetes a Marketplace (para el operador de Azure Stack)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Agregar un clúster de Kubernetes a Marketplace (para el operador de Azure Stack)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes en Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

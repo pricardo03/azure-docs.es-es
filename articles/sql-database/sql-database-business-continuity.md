@@ -4,7 +4,7 @@ description: Obtenga información acerca de cómo Azure SQL Database permite la 
 keywords: continuidad del negocio, continuidad del negocio en la nube, recuperación de desastres de la base de datos, recuperación de la base de datos
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 14fdc0dc12debb32f63d7322c233e06fc2fc0d9e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/10/2018
+ms.openlocfilehash: aecfecda08a6008b931738802bb89054f9d3963c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161548"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274134"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
-Azure SQL Database es una implementación del motor de base de datos de SQL Server estable más reciente configurada y optimizada para el entorno en la nube de Azure que proporciona [alta disponibilidad](sql-database-high-availability.md) y resistencia frente a los errores que podrían afectar a los procesos empresariales. **Continuidad empresarial** en Azure SQL Database hace referencia a los mecanismos, directivas y procedimientos que permiten a una empresa seguir funcionando en caso de interrupciones, especialmente en su infraestructura informática. En la mayoría de los casos, Azure SQL Database controlará los eventos de interrupción que puedan ocurrir en el entorno en la nube y permitirá que se sigan ejecutando los procesos empresariales. No obstante, hay algunos eventos de interrupción que no se pueden controlar mediante SQL Database como, por ejemplo:
+**Continuidad empresarial** en Azure SQL Database hace referencia a los mecanismos, directivas y procedimientos que permiten a su empresa seguir funcionando en caso de interrupciones, especialmente en su infraestructura de computación. En la mayoría de los casos, Azure SQL Database controlará los eventos de interrupción que puedan ocurrir en el entorno en la nube y permitirá que se sigan ejecutando las aplicaciones y los procesos empresariales. No obstante, hay algunos eventos de interrupción que no se pueden controlar mediante SQL Database como, por ejemplo:
 
 - El usuario eliminó o actualizó accidentalmente una fila de una tabla.
 - Un atacante malintencionado consiguió eliminar datos o quitar una base de datos.
@@ -48,7 +48,8 @@ A continuación, puede obtener información acerca de los mecanismos adicionales
 - Las [copias de seguridad automatizadas integradas](sql-database-automated-backups.md) y la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) le permiten restaurar la base de datos completa a un momento dado de los últimos 35 días.
 - Puede [restaurar una base de datos eliminada](sql-database-recovery-using-backups.md#deleted-database-restore) al momento en que se eliminó si el **servidor lógico no se ha eliminado**.
 - La [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md) le permite conservar las copias de seguridad hasta 10 años.
-- El [grupo de conmutación por error automática](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) permite que la aplicación se recupere automáticamente en el caso de que se produzca una interrupción a escala del centro de datos.
+- La [replicación geográfica activa](sql-database-active-geo-replication.md) le permite crear réplicas legibles y realizar una conmutación por error manual a cualquier réplica en el caso de una interrupción en el centro de datos o una actualización de aplicación.
+- El [grupo de conmutación por error automática](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) permite que la aplicación se recupere automáticamente en el caso de que se produzca una interrupción en el centro de datos.
 
 Cada una de ellas posee distintas características que abarcan los conceptos de tiempo de recuperación calculado (ERT) y pérdida de datos potencial de transacciones recientes. Cuando entienda estas opciones, puede elegir las que más relevantes considere y, en la mayoría de los escenarios, utilizarlas juntas con distintos objetivos. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que la aplicación se recupere totalmente se conoce como el objetivo de tiempo de recuperación (RTO). También debe conocer el período máximo de actualizaciones de datos recientes (intervalo de tiempo) que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como objetivo de punto de recuperación (RPO).
 
@@ -75,8 +76,7 @@ Utilice las copias de seguridad automatizadas y la [restauración a un momento d
 - Tiene una tasa de cambio de datos reducida (bajo número de transacciones por hora) y se tolera perder hasta una hora de datos.
 - Los costos son un factor fundamental.
 
-Si necesita una recuperación más rápida, utilice [grupos de conmutación por error ](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
-) (se describen a continuación). Si necesita recuperar datos de un período anterior a 35 días, use la [retención a largo plazo](sql-database-long-term-retention.md).
+Si necesita recuperaciones más rápidas, utilice la [replicación geográfica activa](sql-database-active-geo-replication.md) o los [grupos de conmutación por error automática](sql-database-auto-failover-group.md). Si necesita recuperar datos de un período anterior a 35 días, use la [retención a largo plazo](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region"></a>Recuperación de una base de datos en otra región
 
@@ -84,7 +84,7 @@ Aunque es poco habitual, en los centros de datos de Azure pueden producirse inte
 
 - Una opción consiste en esperar a que la base de datos vuelva a estar en línea cuando termine la interrupción del centro de datos. Esto puede hacerse con las aplicaciones que pueden permitirse que la base de datos esté desconectada. Por ejemplo, los proyectos de desarrollo o las pruebas gratuitas no tienen que estar en funcionamiento constantemente. Cuando se produce una interrupción en un centro de datos, no sabe cuánto durará, por lo que esta opción solo es útil si no necesita utilizar la base de datos durante un tiempo.
 - Otra opción consiste en restaurar una base de datos en cualquier servidor de cualquier región de Azure mediante [copias de seguridad de base de datos con redundancia geográfica](sql-database-recovery-using-backups.md#geo-restore) (restauración geográfica). La funcionalidad de restauración geográfica utiliza una copia de seguridad con redundancia geográfica como origen y se puede usar para recuperar una base de datos, aunque no se pueda acceder a dicha base de datos o al centro de datos debido a una interrupción.
-- Por último, puede recuperarse rápidamente de una interrupción si ha configurado un [grupo de conmutación por error automática](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) para las bases de datos. Puede personalizar la directiva de conmutación por error para usar la conmutación por error automática o manual. Mientras la propia conmutación por error solo tarda unos segundos, el servicio tardará al menos de 1 hora en activarla. Esto es necesario asegurarse de que la conmutación por error está justificada por la escala de la interrupción. Además, la conmutación por error puede provocar pérdida de datos pequeño debido a la naturaleza de la replicación asincrónica. Consulte la tabla anterior de este artículo para detalles sobre RTO y RPO de conmutación por error automática.
+- Por último, puede recuperarse rápidamente de una interrupción si ha configurado o bien una réplica geográfica con la [replicación geográfica activa](sql-database-active-geo-replication.md) o un [grupo de conmutación por error automática](sql-database-auto-failover-group.md) para las bases de datos. Dependiendo de la selección de estas tecnologías, puede usar la conmutación manual o automática por error. Mientras la propia conmutación por error solo tarda unos segundos, el servicio tardará al menos de 1 hora en activarla. Esto es necesario asegurarse de que la conmutación por error está justificada por la escala de la interrupción. Además, la conmutación por error puede provocar pérdida de datos pequeño debido a la naturaleza de la replicación asincrónica. Consulte la tabla anterior de este artículo para detalles sobre RTO y RPO de conmutación por error automática.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >

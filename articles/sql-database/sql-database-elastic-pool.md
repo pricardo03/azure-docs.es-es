@@ -3,7 +3,7 @@ title: 'Administración de varias instancias de SQL Database con grupos elástic
 description: Administración y escalado de muchas instancias de SQL Database, cientos y miles, mediante los grupos elásticos. Un precio para los recursos que se puede distribuir cuando sea necesario.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ea548b55bc216b815b5f49f1e0405f1a90d05d08
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283570"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275625"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias instancias de Azure SQL Database
 
@@ -70,9 +70,9 @@ En la ilustración anterior, el uso total de DTU en las 20 bases de datos está 
 
 Este ejemplo es ideal por las siguientes razones:
 
-* Existen grandes diferencias entre la utilización de picos y la utilización media por base de datos.
-* La utilización de picos para cada base de dato se produce en puntos de tiempo distintos.
-* Las eDTU se comparten entre varias bases de datos.
+- Existen grandes diferencias entre la utilización de picos y la utilización media por base de datos.
+- La utilización de picos para cada base de dato se produce en puntos de tiempo distintos.
+- Las eDTU se comparten entre varias bases de datos.
 
 El precio de un grupo es una función de las eDTU del grupo. Aunque el precio unitario de una eDTU para un grupo es 1,5 veces mayor que el de una DTU para una base de datos única, **las eDTU de grupo pueden compartirse entre muchas bases de datos, por lo que el número total de eDTU que se necesitan es menor**. Estas distinciones de precio y uso compartido de la eDTU son la base de la posibilidad de ahorro en el precio que pueden proporcionar los grupos.
 
@@ -89,23 +89,24 @@ Al menos dos bases de datos S3 o 15 bases de datos S0 son necesarias para que un
 
 Al compartir recursos, no todas las bases de datos de un grupo pueden usar a la vez los recursos hasta el límite disponible para bases de datos únicas. Cuantas menos bases de datos con un pico simultáneo haya, más bajo puede establecerse el número de recursos de grupo y más rentable resultará el grupo. En general, no más de 2/3 (o el 67 %) de las bases de datos del grupo deben alcanzar el límite de recursos establecido como pico de forma simultánea.
 
-***Ejemplo de modelo de compra basado en DTU***<br>
+***Ejemplo de modelo de compra basado en DTU***
+
 : para reducir los costos de tres bases de datos S3 de un grupo de 200 eDTU, como mucho dos de estas bases de datos pueden alcanzar simultáneamente el pico de uso máximo. De lo contrario, si más de dos de estas cuatro bases de datos S3 establecen simultáneamente el pico, tendría que establecerse un tamaño del grupo en más de 200 eDTU. Si el tamaño del grupo se cambia a más de 200 eDTU, será necesario agregar más bases de datos S3 al grupo para que los costos sigan siendo inferiores a los tamaños de proceso de las bases de datos únicas.
 
 Tenga en cuenta que este ejemplo no tiene en cuenta la utilización de otras bases de datos en el grupo. Si en un momento determinado se están usando todas las bases de datos, menos de los 2/3 (o el 67%) de las bases de datos podrán alcanzar simultáneamente el pico de uso.
 
 ### <a name="resource-utilization-per-database"></a>Utilización de recursos por base de datos
+
 Una gran diferencia entre el pico y la utilización media de una base de datos indica largos períodos de poca utilización y breves períodos de uso intenso. Este patrón de uso es ideal para compartir recursos entre bases de datos. Debe considerarse utilizar una base de datos para un grupo cuando su uso máximo es aproximadamente 1,5 veces mayor que su uso medio.
 
-***Ejemplo de modelo de compra basado en DTU***<br>
-: una base de datos S3 que establece un pico en 100 DTU y de media usa 67 DTU o menos es una buena candidata para compartir DTU en un grupo. O bien, una base de datos S1 con un pico de hasta 20 DTU y que de media usa 13 DTU o menos es una buena candidata para un grupo.
+**Ejemplo de modelo de compra basado en DTU** : una base de datos S3 que establece un pico en 100 DTU y de media usa 67 DTU o menos es una buena candidata para compartir DTU en un grupo. O bien, una base de datos S1 con un pico de hasta 20 DTU y que de media usa 13 DTU o menos es una buena candidata para un grupo.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>¿Cómo se elige el tamaño de grupo correcto?
 
 El mejor tamaño para un grupo depende de los recursos agregados necesarios para todas las bases de datos del grupo. Esto implica determinar lo siguiente:
 
-* Los recursos máximos que usan todas las bases de datos del grupo (DTU máximas o núcleos virtuales máximos, según la elección del modelo de recursos).
-* Número máximo de bytes de almacenamiento utilizado por todas las bases de datos en el grupo.
+- Los recursos máximos que usan todas las bases de datos del grupo (DTU máximas o núcleos virtuales máximos, según la elección del modelo de recursos).
+- Número máximo de bytes de almacenamiento utilizado por todas las bases de datos en el grupo.
 
 Para obtener información sobre los niveles de servicio disponibles para cada modelo de recursos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 
@@ -113,11 +114,11 @@ En casos donde no se pueden usar herramientas, las siguientes instrucciones paso
 
 1. Calcule las eDTU o los núcleos virtuales necesarios para el grupo de la siguiente forma:
 
-   Para el modelo de compra basado en DTU: MAX(<*número total de bases de datos* X *promedio de uso de DTU por base de datos* >.<br>  
-   < *Número de bases de datos con picos simultáneos* X *Uso de picos de DTU por base de datos* )
+   Para el modelo de compra basado en DTU: MAX(<*Número total de bases de datos* X *promedio de uso de DTU por base de datos*>,<br>  
+   <*Número de bases de datos con picos simultáneos* X *Uso de picos de DTU por base de datos*)
 
-   Para el modelo de compra basado en núcleos virtuales: MAX (<*número total de bases de datos* X *promedio de utilización de núcleos virtuales por base de datos* >.<br>  
-   < *número de bases de datos con picos simultáneos* X *uso máximo de núcleos virtuales por base de datos* )
+   Para el modelo de compra basado en núcleos virtuales: MAX(<*Número total de bases de datos* X *promedio de uso de núcleo virtual por base de datos*>,<br>  
+   <*número de bases de datos con picos simultáneos* X *uso máximo de núcleos virtuales por base de datos*)
 
 2. Calcule el espacio de almacenamiento necesario para el grupo agregando el número de bytes necesarios para todas las bases de datos del grupo. A continuación, determine el tamaño del grupo de eDTU que proporciona esta cantidad de almacenamiento.
 3. El modelo de compra basado en DTU toma las estimaciones de eDTU más grandes del paso 1 y el paso 2. El modelo de compra basado en núcleos virtuales toma la estimación de núcleos virtuales del paso 1.
@@ -133,17 +134,25 @@ Con un grupo, las tareas de administración se simplifican al ejecutarse los scr
 Para más información sobre otras herramientas de bases de datos para trabajar con varias bases de datos, consulte [Escalado horizontal con Azure SQL Database](sql-database-elastic-scale-introduction.md).
 
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Opciones de continuidad de negocio para bases de datos de un grupo elástico
+
 Las bases de datos agrupadas suelen ser compatibles con las mismas [características de continuidad empresarial](sql-database-business-continuity.md) que encontrará en las bases de datos únicas.
 
-- **Restauración a un momento dado**: la restauración a un momento dado usa copias de seguridad automáticas de bases de datos para recuperar una base de datos de un grupo en un momento específico. Consulte [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **Restauración a un momento dado**
 
-- **Georestauración**: la georestauración proporciona la opción de recuperación predeterminada cuando una base de datos no está disponible debido a una incidencia en la región en la que se hospeda. Consulte [Restauración de una base de datos Azure SQL Database o una conmutación por error en una secundaria](sql-database-disaster-recovery.md)
+  La característica de restauración a un momento dado utiliza copias de seguridad automáticas de bases de datos para restaurar una base de datos de un grupo a un momento específico. Consulte [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-- **Replicación geográfica activa**: en el caso de aplicaciones con requisitos de recuperación más exigentes que los que puede ofrecer la georestauración, configure la [replicación geográfica activa](sql-database-geo-replication-overview.md).
+- **Restauración geográfica**
+
+  La restauración geográfica proporciona la opción de recuperación predeterminada cuando una base de datos no está disponible debido a una incidencia en la región en la que se hospeda la base de datos. Consulte [Restauración de una base de datos Azure SQL Database o una conmutación por error en una secundaria](sql-database-disaster-recovery.md)
+
+- **Replicación geográfica activa**
+
+  En el caso de aplicaciones con requisitos de recuperación más exigentes que los que puede ofrecer la restauración geográfica, configure la [replicación geográfica activa](sql-database-active-geo-replication.md) o un [grupo de conmutación por error automática](sql-database-auto-failover-group.md).
 
 ## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Creación de un nuevo grupo elástico de SQL Database mediante Azure Portal
 
 Hay dos maneras de crear un grupo elástico en Azure Portal.
+
 1. También puede crear un grupo elástico si busca **grupo elástico de SQL** en **Marketplace** o hace clic en **+Agregar** en la hoja para examinar grupos elásticos de SQL. Puede especificar un servidor nuevo o existente por medio de este flujo de trabajo de aprovisionamiento de grupo.
 2. O bien, puede crear un grupo elástico; para ello, vaya a un servidor SQL existente y haga clic en **Crear grupo** para crear un grupo directamente en ese servidor. La única diferencia aquí es que omite el paso donde se especifica el servidor durante el flujo de trabajo de aprovisionamiento del grupo.
 
@@ -162,8 +171,8 @@ En Azure Portal puede supervisar el uso de un grupo elástico y las bases de dat
 
 Para comenzar a supervisar el grupo elástico, busque y abra un grupo elástico en el portal. En primer lugar, verá una pantalla que le proporciona información general del estado de su grupo elástico. Esto incluye:
 
-* Supervisión de gráficos que muestran el uso de recursos del grupo elástico
-* Alertas y recomendaciones recientes, si están disponibles, para el grupo elástico
+- Supervisión de gráficos que muestran el uso de recursos del grupo elástico
+- Alertas y recomendaciones recientes, si están disponibles, para el grupo elástico
 
 El siguiente gráfico muestra un grupo elástico de ejemplo:
 
@@ -192,6 +201,6 @@ Para más información, consulte cómo [crear alertas de SQL Database en Azure P
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para escalar grupos elásticos, consulte los artículos sobre el [escalado de grupos elásticos](sql-database-elastic-pool.md) y el [código de ejemplo de escalado de un grupo elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-* Para ver un vídeo, vea el [Curso de vídeo de la Academia virtual de Microsoft sobre las funcionalidades de las bases de datos elásticas en Azure SQL Database](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554).
-* Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Diseño de patrones para aplicaciones SaaS multiempresa con Base de datos SQL de Azure).
-* Para obtener un tutorial sobre SaaS con grupos elásticos, vea [Introducción a la aplicación de SaaS Wingtip](sql-database-wtp-overview.md).
+- Para ver un vídeo, vea el [Curso de vídeo de la Academia virtual de Microsoft sobre las funcionalidades de las bases de datos elásticas en Azure SQL Database](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554).
+- Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Diseño de patrones para aplicaciones SaaS multiempresa con Base de datos SQL de Azure).
+- Para obtener un tutorial sobre SaaS con grupos elásticos, vea [Introducción a la aplicación de SaaS Wingtip](sql-database-wtp-overview.md).

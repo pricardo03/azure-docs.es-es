@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 34011144d4f960413e78f13c999dfddf6d2660bf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: c4a289d1aeefc35f07e7598adf3780620b11f0da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742950"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252208"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configuración de la lista personalizada de contraseñas prohibidas
 
@@ -36,7 +36,7 @@ La configuración de la lista personalizada de contraseñas prohibidas requiere 
    * La lista personalizada de contraseñas prohibidas puede contener hasta 1000 palabras.
    * La lista personalizada de contraseñas prohibidas distingue mayúsculas de minúsculas.
    * La lista personalizada de contraseñas prohibidas considera la sustitución de caracteres comunes.
-      * Por ejemplo: "o" y "0" o "a" y "\@\"
+      * Ejemplo: "o" y "0" o "a" y "\@"
    * La longitud mínima de la cadena es cuatro caracteres, mientras que la máxima es 16 caracteres.
 1. Cuando haya agregado todas las cadenas, haga clic en **Guardar**.
 

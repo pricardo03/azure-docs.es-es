@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial 2: Prueba por lotes con un conjunto de 1000 expresiones '
+title: Pruebas en lote
 titleSuffix: Azure Cognitive Services
 description: En este tutorial se muestra cómo usar las pruebas por lotes para encontrar problemas de predicción de expresiones en la aplicación y corregirlos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162548"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106046"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>Tutorial 2: Conjuntos de datos de prueba por lotes
+# <a name="tutorial-2-batch-test-data-sets"></a>Tutorial 2: Pruebas en lote de conjuntos de datos
 
 En este tutorial se muestra cómo usar las pruebas por lotes para encontrar problemas de predicción de expresiones en la aplicación y corregirlos.  
 
@@ -35,7 +36,7 @@ Cuando use una aplicación que no sea este tutorial, asegúrese de *no* usar las
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usar la aplicación de tutorial existente
+> * Usar la aplicación del tutorial existente
 > * Crear un archivo de prueba por lotes 
 > * Ejecutar una prueba por lotes
 > * Revisar los resultados de la prueba

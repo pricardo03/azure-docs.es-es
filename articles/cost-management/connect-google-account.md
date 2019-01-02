@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 1877acbd39f4e312e3a567e092bb0bcf7531b96b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 45d5cee92ce75c2e13f602d1ea6540698ea8abf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276336"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078368"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Conectar una cuenta de Google Cloud Platform
 
@@ -30,8 +30,8 @@ Debe comenzar por recopilar información acerca de su proyecto.
 
 1. Inicie sesión en la consola de Google Cloud Platform en [https://console.cloud.google.com](https://console.cloud.google.com).
 2. Revise la información del proyecto que quiera incorporar a Cloudyn y anote el **Nombre del proyecto** y el **Id. del proyecto**. Mantenga esta información a mano para los pasos posteriores.  
-    ![Consola de Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
-3. Si la facturación no está habilitada ni vinculada a su proyecto, cree una cuenta de facturación. Para más información, consulte [Create a new billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account) (Crear una nueva cuenta de facturación).
+    ![Nombre del proyecto e identificador de proyecto que se muestra en la consola de Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
+3. Si la facturación no está habilitada ni vinculada a su proyecto, cree una cuenta de facturación. Para más información, consulte [Create a new billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account) (Crear una nueva cuenta de facturación).
 
 ## <a name="enable-storage-bucket-billing-export"></a>Habilitar la exportación de facturación de depósitos de almacenamiento
 
@@ -41,7 +41,7 @@ Las tarifas del uso de Google Cloud Storage para almacenar informes de uso son m
 
 1. Si no ha habilitado la exportación de facturas a un archivo, siga las instrucciones de [Habilitar la exportación de facturación a un archivo](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file). Puede usar el formato de exportación de facturas JSON o CSV.
 2. En caso contrario, en la consola de Google Cloud Platform, vaya a **Facturación** > **Exportación de la facturación**. Anote el **Nombre del depósito** y el **Prefijo del informe** de la facturación.  
-    ![Exportación de facturación](./media/connect-google-account/billing-export.png)
+    ![Información de exportación de facturación que se muestra en la página de exportación de facturación](./media/connect-google-account/billing-export.png)
 
 ## <a name="enable-google-cloud-platform-apis"></a>Habilite las API de Google Cloud Platform
 
@@ -69,7 +69,7 @@ Para recopilar información de uso y de recursos, Cloudyn necesita que las sigui
 4. En **Nombre de la cuenta de Google**, escriba la dirección de correo electrónico de la cuenta de facturación y, después, haga clic en **Siguiente**.
 5. En el cuadro de diálogo de autenticación de Google, seleccione o escriba una cuenta de Google y, después, haga clic en **PERMITIR** para que cloudyn.com pueda acceder a su cuenta.
 6. Agregue la información del proyecto que anotó antes. Incluido el **Id. del proyecto**, el nombre del **Proyecto**, el nombre del depósito de **facturación** y el prefijo del informe del **archivo facturación** y, después, haga clic en  **Guardar**.  
-    ![Adición de un proyecto de Google](./media/connect-google-account/add-project.png)
+    ![Agregar proyecto de Google a la cuenta de Cloudyn](./media/connect-google-account/add-project.png)
 
 Su cuenta de Google aparece en la lista de cuentas y debería aparecer como **Autenticada**. Debajo de esta, el nombre del proyecto de Google y el identificador deberían aparecer y tener un símbolo de marca de verificación verde. El estado de la cuenta debe aparecer como **Completado**.
 

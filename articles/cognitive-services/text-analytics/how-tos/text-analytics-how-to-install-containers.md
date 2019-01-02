@@ -1,21 +1,22 @@
 ---
 title: Instalación y ejecución de contenedores
-titleSuffix: Text Analytics - Cognitive Services - Azure
+titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Cómo descargar, instalar y ejecutar contenedores para Text Analytics en este tutorial paso a paso.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 99bdb42d9a0d86d0d2acc4a6272e0c802042e6b5
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 11798c3bfd4032ad10c738032a816a2a0488ce67
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634941"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090540"
 ---
 # <a name="install-and-run-containers"></a>Instalación y ejecución de contenedores
 
@@ -27,7 +28,7 @@ Text Analytics proporciona el siguiente conjunto de contenedores de Docker, cada
 |----------|-------------|
 |Extracción de frases clave | Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". |
 |Detección de idiomas | Hasta 120 idiomas, detecta y notifica en qué idioma está escrito el texto de entrada. El contenedor informa de un código de idioma único para cada documento que se incluye en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. |
-|Análisis de sentimiento | Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta API devuelve una puntuación de la opción, que oscila entre 0 y 1, con respecto a cada documento, donde 1 es la más positiva. Los modelos de análisis se entrenan previamente con una gran cantidad de cuerpo de texto y tecnologías de idioma natural de Microsoft. Para los [idiomas seleccionados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md), la API puede analizar y puntuar cualquier texto sin formato que se proporcione, y devolver los resultados directamente a la aplicación que realiza la llamada. |
+|Análisis de sentimiento | Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta API devuelve una puntuación de la opción, que oscila entre 0 y 1, con respecto a cada documento, donde 1 es la más positiva. Los modelos de análisis se entrenan previamente con una gran cantidad de cuerpo de texto y tecnologías de idioma natural de Microsoft. Para los [idiomas seleccionados](../language-support.md), la API puede analizar y puntuar cualquier texto sin formato que se proporcione, y devolver los resultados directamente a la aplicación que realiza la llamada. |
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -43,7 +44,7 @@ Docker debe configurarse para permitir que los contenedores se conecten con Azur
 
 Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Recomendaciones y requisitos del servidor
+### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 
 En la tabla siguiente, se describe el número mínimo y recomendado de núcleos de CPU, por lo menos 2,6 gigahercios (GHz) o con mayor rapidez, y de memoria, en gigabytes (GB), para asignar a cada contenedor de Text Analytics.
 
@@ -51,7 +52,7 @@ En la tabla siguiente, se describe el número mínimo y recomendado de núcleos 
 |-----------|---------|-------------|
 |Extracción de frases clave | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |
 |Detección de idiomas | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |
-|Análisis de sentimiento | 1 núcleo, 8 GB de memoria | 1 núcleo, 8 GB de memoria |
+|Análisis de sentimiento | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |
 
 ## <a name="download-container-images-from-microsoft-container-registry"></a>Descarga de imágenes de contenedor de Microsoft Container Registry
 
@@ -149,11 +150,13 @@ Para obtener más información acerca de estas opciones, consulte [Configure con
 En este artículo, ha aprendido los conceptos y el flujo de trabajo para la descarga, instalación y ejecución de contenedores de Text Analytics. En resumen:
 
 * Text Analytics proporciona tres contenedores de Linux para Docker, que encapsulan la extracción de frases clave, la detección de idioma y el análisis de sentimiento.
-* Las imágenes de contenedor se descargan desde un registro de contenedor privado de Azure.
+* Las imágenes del contenedor se descargan desde Microsoft Container Registry (MCR) en Azure.
 * Las imágenes de contenedor se ejecutan en Docker.
 * Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Text Analytics mediante la especificación del URI del host del contenedor.
 * Debe especificar la información de facturación al crear una instancia de un contenedor.
-* **Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para la medición. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían datos de los clientes (por ejemplo, la imagen o el texto que se está analizando) a Microsoft.  
+
+> [!IMPORTANT]
+> Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían datos de los clientes (por ejemplo, la imagen o el texto que se está analizando) a Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

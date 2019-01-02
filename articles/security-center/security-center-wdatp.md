@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316997"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337604"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Protección contra amenazas avanzada de Windows Defender con Azure Security Center
 
@@ -31,7 +31,7 @@ Los clientes de Azure Security Center ahora pueden usar las características de 
 
 - **Detección de brechas basadas en la nube y el análisis**: ATP de Windows Defender se adapta rápidamente a las cambiantes amenazas. Utiliza análisis avanzados y macrodatos. ATP de Windows Defender se amplía gracias a la eficacia de Intelligent Security Graph con señales a través de Windows Azure y Office para detectar amenazas desconocidas. Proporciona alertas que requieren intervención y le permite responder rápidamente.
 
-- **Inteligencia sobre amenazas**: ATP de Windows Defender identifica las herramientas, las técnicas y los procedimientos de los atacantes. Cuando los detecta, genera alertas. Usa datos generados por los equipos de seguridad y los buscadores de amenazas de Microsoft, con la ayuda de mecanismos de inteligencia que aportan los partners.
+- **Información sobre amenazas**: ATP de Windows Defender identifica las herramientas, las técnicas y los procedimientos de los atacantes. Cuando los detecta, genera alertas. Usa datos generados por los equipos de seguridad y los buscadores de amenazas de Microsoft, con la ayuda de mecanismos de inteligencia que aportan los partners.
 
 Estas funcionalidades están disponibles ahora en Azure Security Center:
 
@@ -105,6 +105,6 @@ Para generar una alerta de prueba inofensiva de ATP de Windows Defender:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-- [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): aprenda cómo las recomendaciones lo ayudan a proteger los recursos de Azure.
-- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
+- [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Administración de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): aprenda cómo las recomendaciones le ayudarán a proteger los recursos de Azure.
+- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): Aprenda a supervisar el estado de los recursos de Azure.

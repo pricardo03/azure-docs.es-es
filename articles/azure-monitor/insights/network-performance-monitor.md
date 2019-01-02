@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 64daab1c5c6c372dc7b8808e2c5d3da75d0fffe6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7f7fe545c10d80fc5a201923679b7d61623786fb
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430220"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193797"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -39,7 +37,7 @@ Network Performance Monitor ofrece tres amplias funcionalidades:
 
     Esta funcionalidad le ayuda a realizar pruebas basadas en HTTP, HTTPS, TCP e ICMP con el fin de supervisar, casi en tiempo real o históricamente, la disponibilidad y el tiempo de respuesta del servicio. También puede supervisar la contribución de la red en latencia y pérdida de paquetes. Con un mapa de topología de red, puede aislar las ralentizaciones de la red. Puede identificar las zonas problemáticas a lo largo de la ruta de acceso de la red, desde el nodo al servicio, con datos de latencia en cada salto. Con las pruebas integradas, puede supervisar la conectividad de red a Office 365 y Dynamics CRM sin ninguna configuración previa. Con esta funcionalidad, puede supervisar la conectividad de red a cualquier punto de conexión compatible con TCP, como sitios web, aplicaciones SaaS, aplicaciones PaaS y bases de datos SQL.
 
-* [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md): supervise la conectividad de un extremo a otro y el rendimiento entre sus sucursales y Azure, mediante Azure ExpressRoute.  
+* [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md): supervise el rendimiento y la conectividad de un extremo a otro entre las sucursales y Azure a través de Azure ExpressRoute.  
 
 Hay más información sobre las diferentes funcionalidades compatibles con [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) disponible en línea.
  
@@ -61,17 +59,17 @@ La lista de regiones admitidas para la Supervisión de ExpressRoute está dispon
 
 ### <a name="install-and-configure-agents"></a>Instalación y configuración de agentes 
 
-Use los procesos básicos para instalar agentes en [Conexión de equipos Windows a Azure Log Analytics](../../log-analytics/log-analytics-om-agents.md) y [Conexión de Operations Manager con Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Use los procesos básicos para instalar agentes en [Conexión de equipos Windows a Azure Log Analytics](../../azure-monitor/platform/om-agents.md) y [Conexión de Operations Manager con Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Dónde instalar los agentes 
 
-* **Monitor de rendimiento:** instale agentes de Log Analytics como mínimo en un nodo conectado a cada subred desde la que supervisará la conectividad de red a otras subredes.
+* **Monitor de rendimiento**: instale agentes de Log Analytics como mínimo en un nodo conectado a cada subred desde la que supervisará la conectividad de red a otras subredes.
 
     Para supervisar un vínculo de red, instale agentes en ambos puntos de conexión del vínculo en cuestión. Si no está seguro de la topología de la red, instale los agentes en servidores con cargas de trabajo críticas entre las que desee supervisar el rendimiento de red. Por ejemplo, si quiere supervisar la conexión de red entre un servidor web y un servidor que ejecuta SQL, instale un agente en ambos servidores. Los agentes supervisan la conectividad de red (vínculos) entre los hosts, no los hosts propiamente dichos. 
 
 * **Monitor de conectividad de servicio**: instale un agente de Log Analytics en cada nodo desde el que supervisará la conectividad de red al punto de conexión de servicio. Un ejemplo es si desea supervisar la conectividad de red a Office 365 desde sus oficinas etiquetadas O1, O2 y O3. Instale el agente de Log Analytics como mínimo en un nodo en O1, O2 y O3. 
 
-* **Monitor de ExpressRoute**: instale como mínimo un agente de Log Analytics en la red virtual de Azure. Asimismo, instale al menos un agente en la subred local, que se conecta mediante el emparejamiento privado de ExpressRoute.  
+* **Supervisión de ExpressRoute**: instale como mínimo un agente de Log Analytics en la red virtual de Azure. Asimismo, instale al menos un agente en la subred local, que se conecta mediante el emparejamiento privado de ExpressRoute.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurar agentes de Log Analytics para la supervisión 
 
@@ -111,15 +109,15 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
 
 4. En la página **Configuración**, verá la opción para instalar agentes de Log Analytics y configurar los agentes para la supervisión en la vista **Configuración común**. Como se ha explicado anteriormente, si ha instalado y configurado los agentes de Log Analytics, seleccione la vista **Configuración** para configurar la función que quiere usar. 
 
-   **Performance Monitor** (Monitor de rendimiento): elija el protocolo que se va a usar para las transacciones sintéticas en la regla de monitor de rendimiento **Default** (Predeterminada) y seleccione **Save & Continue** (Guardar y continuar). Esta selección de protocolo contiene únicamente para la regla predeterminada generada por el sistema. Debe elegir el protocolo cada vez que cree explícitamente una regla de monitor de rendimiento. Siempre puede mover la configuración de reglas **Default** (Predeterminada) en la pestaña **Performance Monitor** (Monitor de rendimiento) (que aparece después de completar la configuración del día 0) y cambiar el protocolo más adelante. Si no desea la funcionalidad Monitor de rendimiento, puede deshabilitar la regla predeterminada en la configuración de reglas **Default** (Predeterminada) de la pestaña **Performance Monitor** (Monitor de rendimiento).
+   **Monitor de rendimiento**: elija el protocolo que se va a usar para las transacciones sintéticas en la regla del Monitor de rendimiento **Default** (Predeterminada) y seleccione **Save & Continue** (Guardar y continuar). Esta selección de protocolo contiene únicamente para la regla predeterminada generada por el sistema. Debe elegir el protocolo cada vez que cree explícitamente una regla de monitor de rendimiento. Siempre puede mover la configuración de reglas **Default** (Predeterminada) en la pestaña **Performance Monitor** (Monitor de rendimiento) (que aparece después de completar la configuración del día 0) y cambiar el protocolo más adelante. Si no desea la funcionalidad Monitor de rendimiento, puede deshabilitar la regla predeterminada en la configuración de reglas **Default** (Predeterminada) de la pestaña **Performance Monitor** (Monitor de rendimiento).
 
    ![Vista Supervisión del rendimiento](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Monitor de conectividad de servicio**: esta funcionalidad proporciona pruebas preconfiguradas integradas para supervisar la conectividad de red a Office 365 y Dynamics 365 desde los agentes. Elija los servicios de Office 365 y Dynamics 365 que desea supervisar seleccionando las casillas junto a ellos. Para elegir los agentes desde los que desea realizar la supervisión, seleccione el botón **Add Agents** (Agregar agentes). Si no desea utilizar esta funcionalidad o si desea configurarla más adelante, no seleccione nada y haga clic en **Save & Continue** (Guardar y continuar).
+   **Monitor de conectividad de servicio**: esta funcionalidad proporciona pruebas preconfiguradas integradas para supervisar la conectividad de red a Office 365 y Dynamics 365 desde los agentes. Elija los servicios de Office 365 y Dynamics 365 que desea supervisar seleccionando las casillas junto a ellos. Para elegir los agentes desde los que desea realizar la supervisión, seleccione el botón **Add Agents** (Agregar agentes). Si no desea utilizar esta funcionalidad o si desea configurarla más adelante, no seleccione nada y haga clic en **Save & Continue** (Guardar y continuar).
 
    ![Vista Monitor de puntos de conexión de servicio](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **ExpressRoute Monitor** (Supervisión de ExpressRoute): seleccione **Discover Now** (Detectar ahora) para detectar todos los emparejamientos privados de ExpressRoute que están conectados a las redes virtuales en la suscripción de Azure vinculada a esta área de trabajo de Log Analytics. 
+   **Supervisión de ExpressRoute**: Seleccione **Detectar ahora** para detectar todos los emparejamientos privados de ExpressRoute que están conectados a las redes virtuales en la suscripción de Azure vinculada a esta área de trabajo de Azure Log Analytics. 
 
    >[!NOTE] 
    > Actualmente, la solución detecta solo emparejamientos privados de ExpressRoute. 
@@ -193,15 +191,15 @@ Una vez que ha habilitado la solución Network Performance Monitor, el icono de 
 
 ### <a name="network-performance-monitor-dashboard"></a>Panel Monitor de rendimiento de red 
 
-* **Top Network Health Events** (Eventos de mantenimiento de red principales): esta página proporciona una lista de los eventos de mantenimiento y las alertas más recientes del sistema, así como el tiempo que llevan los eventos activos. Cada vez que el valor de la métrica seleccionada (pérdida, latencia, tiempo de respuesta o utilización de ancho de banda) para la regla de supervisión supera el umbral, se genera un evento de mantenimiento o una alerta. 
+* **Eventos de mantenimiento de red principales**: esta página proporciona una lista de los eventos de mantenimiento y las alertas más recientes del sistema, así como el tiempo que llevan activos los eventos. Cada vez que el valor de la métrica seleccionada (pérdida, latencia, tiempo de respuesta o utilización de ancho de banda) para la regla de supervisión supera el umbral, se genera un evento de mantenimiento o una alerta. 
 
-* **ExpressRoute Monitor** (Supervisión de ExpressRoute): esta página proporciona resúmenes de mantenimiento para las distintas conexiones de emparejamiento de ExpressRoute que supervisa la solución. El icono **Topology** (Topología) muestra el número de rutas de acceso de red mediante los circuitos de ExpressRoute que se supervisan en la red. Seleccione este icono para ir a la vista **Topology** (Topología).
+* **Supervisión de ExpressRoute**: esta página proporciona resúmenes de mantenimiento para las distintas conexiones de emparejamiento de ExpressRoute que supervisa la solución. El icono **Topology** (Topología) muestra el número de rutas de acceso de red mediante los circuitos de ExpressRoute que se supervisan en la red. Seleccione este icono para ir a la vista **Topology** (Topología).
 
-* **Supervisor de conectividad de servicio**: esta página proporciona resúmenes de mantenimiento de las distintas pruebas creadas. El icono **Topology** (Topología) indica al número de puntos de conexión que se supervisan. Seleccione este icono para ir a la vista **Topology** (Topología).
+* **Monitor de conectividad de servicio**: esta página proporciona resúmenes de mantenimiento de las distintas pruebas creadas. El icono **Topology** (Topología) indica al número de puntos de conexión que se supervisan. Seleccione este icono para ir a la vista **Topology** (Topología).
 
-* **Performance Monitor** (Monitor de rendimiento): esta página proporciona resúmenes de mantenimiento para los vínculos **Network** (Red) y **Subnetwork** (Subred) que supervisa la solución. El icono **Topology** (Topología) indica al número de rutas de acceso de red que se supervisan en la red. Seleccione este icono para ir a la vista **Topology** (Topología). 
+* **Monitor de rendimiento**: esta página proporciona resúmenes de mantenimiento para los vínculos **Network** (Red) y **Subnetwork** (Subred) que supervisa la solución. El icono **Topology** (Topología) indica al número de rutas de acceso de red que se supervisan en la red. Seleccione este icono para ir a la vista **Topology** (Topología). 
 
-* **Common Queries** (Consultas comunes): esta página contiene un conjunto de consultas de búsqueda que capturan directamente los datos de supervisión de la red sin procesar. Puede usar estas consultas como punto de partida a fin de crear las suyas propias para generar informes personalizados. 
+* **Consultas comunes**: esta página contiene un conjunto de consultas de búsqueda que capturan directamente los datos de supervisión de la red sin procesar. Puede usar estas consultas como punto de partida a fin de crear las suyas propias para generar informes personalizados. 
 
    ![Panel Monitor de rendimiento de red](media/network-performance-monitor/npm-dashboard.png)
 
@@ -251,7 +249,7 @@ La topología mostrada en el mapa corresponde al nivel 3 y no contiene ningún d
 
 ## <a name="log-analytics-search"></a>Búsqueda de Log Analytics 
 
-Todos los datos expuestos mediante gráficos en las páginas de exploración en profundidad y en el panel de Network Performance Monitor también se encuentran disponibles de forma nativa en la [búsqueda de Log Analytics](../../log-analytics/log-analytics-queries.md). Puede realizar un análisis interactivo de los datos en el repositorio y correlacionar datos procedentes de distintos orígenes. También puede crear vistas y alertas personalizadas, y exportar los datos a Excel, Power BI o un vínculo que se pueda compartir. El área  **Common Queries**  (Consultas comunes) del panel incorpora una serie de consultas útiles que puede usar como punto de partida para crear sus propios informes y consultas. 
+Todos los datos expuestos mediante gráficos en las páginas de exploración en profundidad y en el panel de Network Performance Monitor también se encuentran disponibles de forma nativa en la [búsqueda de Log Analytics](../../azure-monitor/log-query/log-query-overview.md). Puede realizar un análisis interactivo de los datos en el repositorio y correlacionar datos procedentes de distintos orígenes. También puede crear vistas y alertas personalizadas, y exportar los datos a Excel, Power BI o un vínculo que se pueda compartir. El área  **Common Queries**  (Consultas comunes) del panel incorpora una serie de consultas útiles que puede usar como punto de partida para crear sus propios informes y consultas. 
 
 ## <a name="alerts"></a>Alertas
 
@@ -281,9 +279,9 @@ La información sobre los precios está disponible [en línea](network-performan
 
 ## <a name="provide-feedback"></a>Envío de comentarios 
 
-* **UserVoice**: puede publicar sus ideas sobre las características de Network Performance Monitor (monitor de rendimiento de red) en las que le gustaría que trabajásemos. Visite la [página de UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
+* **UserVoice:** puede publicar sus ideas sobre las características de Network Performance Monitor en las que le gustaría que trabajásemos. Visite la [página de UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 
-* **Únase a nuestra cohorte**: siempre estamos interesados en que se unan nuevos clientes a nuestra cohorte. Como parte de todo ello, podrá obtener un acceso anticipado a las nuevas características y tendrá la oportunidad de ayudarnos a mejorar Network Performance Monitor. Si está interesado en unirse, rellene esta  [encuesta rápida](https://aka.ms/npmcohort). 
+* **Únase a nuestra cohorte**. Siempre estamos interesados en que se unan nuevos clientes a nuestra cohorte. Como parte de todo ello, podrá obtener un acceso anticipado a las nuevas características y tendrá la oportunidad de ayudarnos a mejorar Network Performance Monitor. Si está interesado en unirse, rellene esta  [encuesta rápida](https://aka.ms/npmcohort). 
 
 ## <a name="next-steps"></a>Pasos siguientes 
 Más información sobre [Monitor de rendimiento](network-performance-monitor-performance-monitor.md), [Monitor de conectividad de servicio](network-performance-monitor-performance-monitor.md) y [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md). 

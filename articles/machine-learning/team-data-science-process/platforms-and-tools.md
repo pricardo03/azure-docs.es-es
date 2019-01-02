@@ -1,5 +1,5 @@
 ---
-title: Plataformas y herramientas para proyectos de equipo de ciencia de datos en Azure | Microsoft Docs
+title: 'Plataformas y herramientas para proyectos de ciencia de datos: proceso de ciencia de datos en equipo'
 description: Detalla y describe los recursos de datos y análisis disponibles para las empresas y que están normalizados en el proceso de ciencia de datos en equipo.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8a37c200e52e1d2786690a8a0e669af57312294d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446456"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139187"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
 
@@ -59,7 +59,7 @@ Apache Spark es una plataforma de procesamiento paralelo de código abierto que 
 
 Cuando crea un clúster Spark en HDInsight, aprovisiona recursos de proceso de Azure con Spark instalado y configurado. Se tardan unos diez minutos en crear un clúster Spark en HDInsight. Almacene los datos que se van procesar en Azure Blob Storage. Para más información sobre cómo usar Azure Blob Storage con HDInsight, consulte [Uso de Azure Storage con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre el uso de clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, en Python y en Scala. Para más información sobre **clústeres de Azure HDInsight Spark**, consulte [Introducción a Apache Spark en HDInsight para Linux](../../hdinsight/spark/apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
+El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre el uso de clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, en Python y en Scala. Para más información sobre **clústeres de Spark** de Azure HDInsight, consulte [Introducción: Apache Spark en HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
@@ -73,7 +73,7 @@ Para más información sobre Azure SQL Data Warehouse, consulte el sitio web de 
 
 Azure Data Lake es un repositorio empresarial donde se recopila todo tipo de datos en una única ubicación antes de aplicar requisitos o esquemas formales. Esta flexibilidad permite conservar cualquier tipo de datos en Data Lake, con independencia del tamaño, la estructura o la velocidad de ingestión. Las organizaciones pueden usar después Hadoop o análisis avanzado para buscar patrones en estos Data Lake. Data Lake también sirve de repositorio para una preparación de los datos más económica antes de su mantenimiento y transferencia a un almacenamiento de datos.
 
-Para más información sobre Azure Data Lake, consulte la entrada de blob [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/) (Introducción a Azure Data Lake). Para obtener información sobre cómo crear una solución de ciencia de datos completa y escalable con Azure Data Lake, consulte [Ciencia de datos escalables con Azure Data Lake: tutorial completo](data-lake-walkthrough.md)
+Para más información sobre Azure Data Lake, consulte la entrada de blob [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/) (Introducción a Azure Data Lake). Para obtener información sobre cómo crear una solución de ciencia de datos completa y escalable con Azure Data Lake, consulte [Ciencia de datos escalable con Azure Data Lake: tutorial completo](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Clústeres de Azure HDInsight Hive (Hadoop)
@@ -129,17 +129,17 @@ Si se usan máquinas Linux (CentOS) para ejecutar los comandos de GIT, tendrá q
         ssh-keygen
         cat .ssh/id_rsa.pub
 
-![](./media/platforms-and-tools/resources-1-generate_ssh.png)
+![Comandos para generar la clave SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copie la clave ssh completa, incluido *ssh-rsa*. 
 - Inicie sesión en Azure DevOps Services. 
 - Haga clic en **<Su nombre\>** en la esquina superior derecha de la página y haga clic en **Seguridad**. 
     
-    ![](./media/platforms-and-tools/resources-2-user-setting.png)
+    ![Haga clic en el nombre y luego haga clic en Seguridad.](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - Haga clic en **Claves públicas de SSH** y haga clic en **+Agregar**. 
 
-    ![](./media/platforms-and-tools/resources-3-add-ssh.png)
+    ![Haga clic en Claves públicas de SSH y, luego, haga clic en +Agregar.](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - Pegue la clave SSH que acaba de copiar en el cuadro de texto y guárdela.
 

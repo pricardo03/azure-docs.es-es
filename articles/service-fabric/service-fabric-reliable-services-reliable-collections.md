@@ -3,7 +3,7 @@ title: Introducción a Reliable Collections en los servicios con estado de Azure
 description: Los servicios con estado de Service Fabric proporcionan colecciones confiables que le permiten escribir aplicaciones en la nube altamente disponibles, escalables y de baja latencia.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
-ms.author: mcoskun
-ms.openlocfilehash: 2876d90c02995394104009d1b2d62d5b3ed6a8d9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: caca297afb9ed4e2d85f1068ad3c1122db60c1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212932"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191995"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introducción a Reliable Collections en los servicios con estado de Azure Service Fabric
 Reliable Collections le permite escribir aplicaciones en la nube altamente disponibles, escalables y de baja latencia como si estuviese escribiendo aplicaciones para un solo equipo. Las clases del espacio de nombres **Microsoft.ServiceFabric.Data.Collections** proporcionan un conjunto de colecciones que automáticamente hacen que el estado tenga una elevada disponibilidad. Los desarrolladores solo necesitan programar en las API de Reliable Collections y permiten que Reliable Collections administren el estado local y el replicado.
@@ -34,7 +34,7 @@ La diferencia clave entre Reliable Collections y otras tecnologías de alta disp
 Reliable Collections se puede considerar como la evolución natural de las clases **System.Collections** : un nuevo conjunto de colecciones que están diseñadas para la nube y aplicaciones de varios equipos sin aumentar la complejidad para los desarrolladores. De esta forma, Reliable Collections tienen los estados siguientes:
 
 * Replicado: se replican los cambios de estado para obtener una alta disponibilidad.
-* Guardado: los datos se conservan en el disco para obtener una mayor durabilidad frente a las interrupciones a gran escala (por ejemplo, un corte de alimentación del centro de datos).
+* Conservado: los datos se conservan en el disco para obtener una mayor durabilidad frente a las interrupciones a gran escala (por ejemplo, un corte de alimentación del centro de datos).
 * Asincrónico: las API son asincrónicas para asegurarse de que los subprocesos no se bloquean durante las E/S.
 * Transaccional: las API usan la abstracción de transacciones para que pueda administrar fácilmente varias instancias de Reliable Collections dentro de un servicio.
 
@@ -46,13 +46,13 @@ Las API de Reliable Collections son una evolución de las API de colecciones sim
 
 * Asincrónico: devuelve una tarea debido a que, a diferencia de las colecciones simultáneas, las operaciones se replican y se guardan.
 * Ningún parámetro de salida: usa `ConditionalValue<T>` para devolver un valor y un booleano en lugar de parámetros de salida. `ConditionalValue<T>` es similar a `Nullable<T>`, pero no requiere que T sea una estructura.
-* Transacciones: utiliza un objeto de transacción para permitir que el usuario agrupe acciones en varias colecciones fiables en una transacción.
+* Transacciones: utiliza un objeto de transacción para permitir que el usuario agrupe acciones en varias colecciones confiables en una transacción.
 
 Por el momento, el espacio de nombres **Microsoft.ServiceFabric.Data.Collections** contiene tres colecciones:
 
-* [Diccionario confiable](https://msdn.microsoft.com/library/azure/dn971511.aspx): representa una colección replicada, transaccional y asincrónica de pares clave/valor. De forma similar a **ConcurrentDictionary**, la clave y el valor pueden ser de cualquier tipo.
-* [Cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx): representa una cola estricta replicada, transaccional y asincrónica de tipo primero en entrar primero en salir (FIFO). De forma similar a **ConcurrentQueue**, el valor puede ser de cualquier tipo.
-* [Cola simultánea confiable](service-fabric-reliable-services-reliable-concurrent-queue.md): representa una mejor cola de ordenación replicada, transaccional y asincrónica para obtener un alto rendimiento. De forma similar a **ConcurrentQueue**, el valor puede ser de cualquier tipo.
+* [Diccionario de confianza](https://msdn.microsoft.com/library/azure/dn971511.aspx): representa una colección replicada, transaccional y asincrónica de pares clave/valor. De forma similar a **ConcurrentDictionary**, la clave y el valor pueden ser de cualquier tipo.
+* [Cola de confianza](https://msdn.microsoft.com/library/azure/dn971527.aspx): representa una cola estricta replicada, transaccional y asincrónica de tipo primero en entrar primero en salir (FIFO). De forma similar a **ConcurrentQueue**, el valor puede ser de cualquier tipo.
+* [Cola simultánea de confianza](service-fabric-reliable-services-reliable-concurrent-queue.md): representa una mejor cola de ordenación replicada, transaccional y asincrónica para obtener un alto rendimiento. De forma similar a **ConcurrentQueue**, el valor puede ser de cualquier tipo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Recomendaciones y directrices de Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)

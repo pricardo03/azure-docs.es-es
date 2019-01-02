@@ -1,23 +1,24 @@
 ---
-title: Bot de LUIS con Node.js - Bot de aplicación web - Bot Framework SDK 3.0
+title: Bot - Node.js - v3
 titleSuffix: Azure Cognitive Services
 description: Cree un bot integrado con una aplicación de LUIS mediante Bot Framework.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0bd191da3f2625bc202ee66100e7dac25d9d65de
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e73f22a2da9e8b8b3bd70f4a0231ea7932fc7a86
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042336"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436949"
 ---
-# <a name="luis-bot-in-nodejs"></a>Bot de LUIS en Node.js
+# <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot de LUIS en Node.js con Bot Framework 3.x y el bot de aplicación web de Azure
 
 Use Node.js para crear un bot de chat que se integre con Language Understanding (LUIS). Este bot de chat utiliza el dominio HomeAutomation creado previamente para implementar con rapidez una solución de bot. El bot se compila con Bot Framework 3.x y el bot de aplicación web de Azure.
 
@@ -78,7 +79,7 @@ Instale paquetes de NPM con los pasos siguientes:
 
 5. Se abre una nueva ventana del explorador. En la consola, escriba el siguiente comando:
 
-    ```
+    ```console
     cd site\wwwroot && npm install
     ```
 
@@ -115,7 +116,7 @@ Vaya a la segunda ventana del explorador si sigue abierta o, en la primera venta
 
 En el editor de código, abra `app.js`. Contiene el siguiente código:
 
-```javascript
+```nodejs
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
@@ -206,7 +207,7 @@ Se omiten las intenciones existentes en app.js. Puede dejarlas.
 
 Copie el código siguiente y agréguelo en `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOn',
     (session) => {
         session.send('You reached the TurnOn intent. You said \'%s\'.', session.message.text);
@@ -223,7 +224,7 @@ La opción [matches][matches] de [triggerAction][triggerAction] adjunta al cuadr
 
 Copie el código siguiente y agréguelo en `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOff',
     (session) => {
         session.send('You reached the TurnOff intent. You said \'%s\'.', session.message.text);
@@ -299,9 +300,9 @@ Obtenga más información sobre [Bot Framework](https://dev.botframework.com/) y
 
 
 <!-- Old Links -->
-[Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
-[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
+[GitHub-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
+[GitHub-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[GitHub-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
 [NodeJs]: https://nodejs.org/
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot

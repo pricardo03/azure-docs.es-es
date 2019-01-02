@@ -1,21 +1,19 @@
 ---
-title: Conexión a Azure Cosmos DB mediante herramientas de análisis de BI | Microsoft Docs
+title: Conexión a Azure Cosmos DB mediante herramientas de análisis de BI
 description: Obtenga información sobre cómo usar el controlador ODBC de Azure Cosmos DB para crear tablas y vistas de forma que los datos normalizados puedan verse en el software de análisis de datos y BI.
 keywords: odbc, controlador odbc
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: d1ea0a51d9637c1ca1dba214e969e6835dfb241c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050007"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136365"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
 
@@ -27,11 +25,11 @@ El controlador ODBC de Azure Cosmos DB es compatible con ODBC 3.8 y admite la si
 > La conexión a Azure Cosmos DB con el controlador ODBC actualmente solo se admite para cuentas de API de SQL de Azure Cosmos DB.
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>¿Por qué es necesario normalizar los datos?
-Azure Cosmos DB es una base de datos sin esquema, por lo que habilita el desarrollo rápido de aplicaciones al permitir que estas iteren sobre la marcha su modelo de datos sin limitarlos a un esquema estricto. Una sola base de datos de Azure Cosmos DB puede contener documentos JSON de varias estructuras. Esto es ideal para el desarrollo rápido de aplicaciones, pero cuando desea analizar y crear informes de los datos mediante análisis de datos y herramientas de BI, suele ser normal eliminar el formato de los datos y que estos se ajusten a un esquema específico.
+Azure Cosmos DB es una base de datos sin esquema, lo que permite el desarrollo rápido de aplicaciones y la capacidad de iterar en los modelos de datos sin que se limite a un esquema estricto. Una sola base de datos de Azure Cosmos DB puede contener documentos JSON de varias estructuras. Esto es ideal para el desarrollo rápido de aplicaciones, pero cuando desea analizar y crear informes de los datos mediante análisis de datos y herramientas de BI, suele ser normal eliminar el formato de los datos y que estos se ajusten a un esquema específico.
 
-Aquí es donde entra en juego el controlador ODBC. Mediante el controlador ODBC, ahora puede volver a normalizar datos de Azure Cosmos DB en tablas y vistas que se ajusten a sus necesidades de informes y análisis de datos. Los esquemas renormalizados no tienen ningún impacto en los datos subyacentes y no limitan a los desarrolladores a ajustarse a ellos, sino que permiten aprovechar las herramientas compatibles con ODBC para acceder a los datos. Por tanto, la base de datos de Azure Cosmos DB no solo será ahora la favorita del equipo de desarrollo, sino que a los analistas de datos también les encantará.
+Aquí es donde entra en juego el controlador ODBC. Mediante el controlador ODBC, ahora puede volver a normalizar datos de Azure Cosmos DB en tablas y vistas que se ajusten a sus necesidades de informes y análisis de datos. Los esquemas que ese han vuelto a normalizar no tienen ningún efecto en los datos subyacentes y no obligan a los desarrolladores a ajustarse a ellos. En su lugar, le permiten aprovechar las herramientas compatibles con ODBC para acceder a los datos. Por tanto, la base de datos de Azure Cosmos DB no solo será ahora la favorita del equipo de desarrollo, sino que a los analistas de datos también les encantará.
 
-Ahora empecemos con el controlador ODBC.
+Empecemos con el controlador ODBC.
 
 ## <a id="install"></a>Paso 1: Instalación del controlador ODBC de Azure Cosmos DB
 
@@ -39,35 +37,41 @@ Ahora empecemos con el controlador ODBC.
 
     | Instalador | Sistemas operativos compatibles| 
     |---|---| 
-    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para Windows de 64 bits| Versiones de 64 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 y Windows Server 2008 R2.| 
-    |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) para Windows de 32 bits en 64 bits| Versiones de 64 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 y Windows Server 2003.| 
-    |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) para Windows de 32 bits|Versiones de 32 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows XP y Windows Vista.|
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/cosmos-odbc-64x64) para Windows de 64 bits| Versiones de 64 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 y Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/cosmos-odbc-32x64) para Windows de 32 bits en 64 bits| Versiones de 64 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 y Windows Server 2003.| 
+    |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/cosmos-odbc-32x32) para Windows de 32 bits|Versiones de 32 bits de Windows 8.1 o posterior, Windows 8, Windows 7, Windows XP y Windows Vista.|
 
     Ejecute el archivo msi localmente, lo que iniciará el **Asistente para instalación del controlador ODBC de Microsoft Azure Cosmos DB**. 
+
 1. Complete el asistente para instalación con la entrada predeterminada para instalar el controlador ODBC.
-1. Abra la aplicación **Administrador de orígenes de datos ODBC** en el equipo. Puede hacerlo escribiendo **orígenes de datos ODBC** en el cuadro de búsqueda de Windows. 
+
+1. Abra la aplicación **Administrador de orígenes de datos ODBC** en su equipo. Para ello, puede escribir **orígenes de datos ODBC** en el cuadro de búsqueda de Windows. 
     Puede confirmar que el controlador se ha instalado haciendo clic en la pestaña **Controladores** y asegurándose de que **el controlador ODBC de Microsoft Azure Cosmos DB** aparece en la lista.
 
     ![Administrador de orígenes de datos ODBC de Azure Cosmos DB](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Paso 2: Conexión a su cuenta de Azure Cosmos DB
+## <a id="connect"></a>Paso 2: Conexión a la base de datos de Azure Cosmos DB
 
 1. Después de [instalar el controlador ODBC de Azure Cosmos DB](#install), en la ventana **Administrador de orígenes de datos ODBC**, haga clic en **Agregar**. Puede crear un DSN de usuario o de sistema. En este ejemplo, va a crear un DSN de usuario.
+
 1. En la ventana **Crear un nuevo origen de datos**, seleccione **Microsoft Azure Cosmos DB ODBC Driver** (Controlador ODBC de Microsoft Azure Cosmos DB) y haga clic en **Finalizar**.
-1. En la ventana **Azure Cosmos DB ODBC Driver DSN Setup** (Configuración de DSN del controlador ODBC de Azure Cosmos DB), rellene lo siguiente: 
+
+1. En la ventana **Azure Cosmos DB ODBC Driver DSN Setup** (Configuración de DSN del controlador ODBC de Azure Cosmos DB), rellene la información siguiente: 
 
     ![Ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB)](./media/odbc-driver/odbc-driver-dsn-setup.png)
-    - **Nombre del origen de datos**: su propio nombre descriptivo para el DSN de ODBC. Este nombre es único en su cuenta de Azure Cosmos DB, por lo que debe ser apropiado si tiene varias cuentas.
-    - **Descripción**: breve descripción del origen de datos.
+    - **Nombre del origen de datos**: el propio nombre descriptivo para el DSN de ODBC. Este nombre es único en su cuenta de Azure Cosmos DB, por lo que debe ser apropiado si tiene varias cuentas.
+    - **Descripción**: Una breve descripción del origen de datos.
     - **Host**: URI de la cuenta de Azure Cosmos DB. Puede recuperar esta información de la página Claves de Azure Cosmos DB en Azure Portal, como se muestra en la captura de pantalla siguiente. 
     - **Clave de acceso**: clave principal o secundaria, de solo escritura o solo lectura de la página Claves de Azure Cosmos DB de Azure Portal, como se muestra en la captura de pantalla siguiente. Se recomienda usar la clave de solo lectura si DSN se utiliza para procesamiento e informes de datos de solo lectura.
     ![Página Claves de Azure Cosmos DB](./media/odbc-driver/odbc-driver-keys.png)
-    - **Encrypt Access Key for** (Cifrar clave de acceso para): seleccione la mejor opción en función de los usuarios de esta máquina. 
+    - **Encrypt Access Key for** (Cifrar la clave de acceso para): seleccione la mejor opción en función de los usuarios de esta máquina. 
+    
 1. Haga clic en el botón **Probar** para asegurarse de que puede conectarse a su cuenta de Azure Cosmos DB. 
+
 1. Haga clic en **Opciones avanzadas** y establezca los siguientes valores:
-    - **Query Consistency** (Coherencia de consultas): seleccione el [nivel de coherencia](consistency-levels.md) para las operaciones. El valor predeterminado es Sesión.
+    - **Coherencia de consultas**: seleccione el [nivel de coherencia](consistency-levels.md) para las operaciones. El valor predeterminado es Sesión.
     - **Número de reintentos**: escriba el número de veces que se volverá a intentar una operación si la solicitud inicial no se completa debido a una limitación de la velocidad del servicio.
-    - **Archivo de esquema**: dispone de varias opciones.
+    - **Archivo de esquema**: Tiene varias opciones.
         - De forma predeterminada, dejando esta entrada tal cual (en blanco), el controlador busca todas las coleccionas en los datos de la primera página para determinar el esquema de cada colección. Esto se conoce como asignación de colección. Sin un archivo de esquema definido, el controlador tiene que realizar el examen para cada sesión de controlador y podría dar lugar a un tiempo de inicio mayor de una aplicación con DSN. Se recomienda asociar siempre un archivo de esquema para un DSN.
         - Si ya tiene un archivo de esquema (posiblemente uno que creó mediante el [Editor de esquemas](#schema-editor)), puede hacer clic en **Examinar**, navegar al archivo, hacer clic en **Guardar** y, luego, hacer clic en **Aceptar**.
         - Si desea crear un nuevo esquema, haga clic en **Aceptar**y luego en **Editor de esquemas** en la ventana principal. Después, continúe con la información del [Editor de esquemas](#schema-editor). Tras crear el nuevo archivo de esquema, recuerde que debe volver a la ventana **Opciones avanzadas** para incluir el archivo de esquema recién creado.
@@ -76,7 +80,7 @@ Ahora empecemos con el controlador ODBC.
 
     ![Nuevo DSN de ODBC de Azure Cosmos DB en la pestaña DSN de usuario](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#collection-mapping"></a>Paso 3: Creación de una definición de esquema mediante el método de asignación de colección
+## <a id="#collection-mapping"></a>Paso 3: Creación de una definición de esquema mediante el método de asignación de colección
 
 Hay dos tipos de métodos de muestreo que puede usar: **asignación de colección** o **delimitadores de tabla**. Una sesión de muestreo puede utilizar ambos métodos de muestreo, pero cada colección solo puede usar un método de muestreo específico. Los pasos siguientes crean un esquema para los datos de una o varias colecciones mediante el método de asignación de colección. Este método de muestreo recupera los datos de la página de una colección para determinar la estructura de dichos datos. Transpone una colección a una tabla en el lado ODBC. Este método de muestreo es rápido y eficaz cuando los datos de una colección son homogéneos. Si una colección contiene un tipo heterogénea de datos, es recomendable usar el [método de asignación de delimitadores de tabla ](#table-mapping), ya que proporciona un método de muestreo más robusto para determinar las estructuras de datos de la colección. 
 
@@ -85,37 +89,46 @@ Hay dos tipos de métodos de muestreo que puede usar: **asignación de colecció
     ![Botón Editor de esquemas en la ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB)](./media/odbc-driver/odbc-driver-schema-editor.png)
 1. En la ventana **Editor de esquemas**, haga clic en **Crear nuevo**.
     La ventana **Generate Schema** (Generar esquema) muestra todas las colecciones de la cuenta de Azure Cosmos DB. 
+
 1. Seleccione una o varias recopilaciones para muestrear y luego haga clic en **Muestra**. 
+
 1. En la pestaña **Vista de diseño**, se representan la base de datos, el esquema y la tabla. En la vista de tabla, el examen muestra el conjunto de propiedades asociadas a los nombres de columna (Nombre SQL, Nombre de origen, etc.).
     Para cada columna, puede modificar el nombre SQL de la columna, el tipo de SQL, la longitud SQL (si procede), la escala (si procede), la precisión (si procede) y si acepta valores NULL.
     - Puede establecer **Ocultar columna** en **true** si desea excluir esa columna de los resultados de la consulta. Las columnas marcadas con Ocultar columna = true no se devuelven para la selección y proyección, aunque aún forman parte del esquema. Por ejemplo, puede ocultar todas las propiedades necesarias del sistema de Azure Cosmos DB a partir de "_".
     - La columna **identificador** es el único campo que no se puede ocultar, ya que se usa como la clave principal en el esquema normalizado. 
+
 1. Cuando haya terminado de definir el esquema, haga clic en **Archivo** | **Guardar**, navegue hasta el directorio para guardar el esquema y, luego, haga clic en **Guardar**.
 
     Si en el futuro desea utilizar este esquema con un DSN, abra la ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB) a través del Administrador de orígenes de datos ODBC, haga clic en Opciones avanzadas y, luego, en el cuadro Archivo de esquema, desplácese al esquema guardado. Al guardar un archivo de esquema en un DSN existente se modifica la conexión de DSN para tener como ámbito los datos y la estructura definidos por el esquema.
 
-## <a id="table-mapping"></a>Paso 4: Creación de una definición de esquema mediante el método de asignación de delimitadores de tabla
+## <a id="table-mapping"></a>Paso 4: Creación de una definición de esquema mediante el método de asignación de delimitadores de tabla
 
 Hay dos tipos de métodos de muestreo que puede usar: **asignación de colección** o **delimitadores de tabla**. Una sesión de muestreo puede utilizar ambos métodos de muestreo, pero cada colección solo puede usar un método de muestreo específico. 
 
 Los pasos siguientes crean un esquema para los datos de una o varias colecciones mediante el método de asignación de **delimitadores de table**. Se recomienda usar este método de muestreo cuando las colecciones contengan un tipo heterogéneo de datos. Puede usar este método para limitar el muestreo a un conjunto de atributos y sus valores correspondientes. Por ejemplo, si un documento contiene una propiedad "Type", puede limitar el muestreo a los valores de esta propiedad. El resultado final del muestreo sería un conjunto de tablas para cada uno de los valores para el tipo especificado. Por ejemplo, Tipo = Vehículo generará una tabla de vehículos, mientras que Tipo = Plano generaría una tabla de planos.
 
 1. Después de completar los pasos 1 a 4 de [Conexión a la base de datos de Azure Cosmos DB](#connect), haga clic en **Editor de esquemas** en la ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB).
+
 1. En la ventana **Editor de esquemas**, haga clic en **Crear nuevo**.
     La ventana **Generate Schema** (Generar esquema) muestra todas las colecciones de la cuenta de Azure Cosmos DB. 
+
 1. Seleccione una colección en la pestaña **Vista de ejemplo**, en la columna **Mapping Definition** (Definición de asignación) para la colección y haga clic en **Editar**. A continuación, en la ventana **Mapping Definition** (Definición de asignación), seleccione el método **Table Delimiters** (Delimitadores de tabla). A continuación, haga lo siguiente:
 
-    a. En el cuadro **Atributos**, escriba el nombre de una propiedad de delimitador. Se trata de una propiedad del documento a la que desea limitar el ámbito del muestreo, por ejemplo, Ciudad; luego, presione Intro. 
+     a. En el cuadro **Atributos**, escriba el nombre de una propiedad de delimitador. Se trata de una propiedad del documento a la que desea limitar el ámbito del muestreo, por ejemplo, Ciudad; luego, presione Intro. 
 
-    b. Si solo desea definir el ámbito del muestreo a ciertos valores para el atributo que acaba de escribir, seleccione dicho atributo en el cuadro de selección, escriba un valor en el cuadro **Valor** (por ejemplo, Seattle) y presione Intro. Puede seguir agregando más valores para los atributos. Solo tiene que asegurarse de que se selecciona el atributo correcto cuando está escribiendo valores.
+    b. Si solo desea definir el ámbito del muestreo a ciertos valores para el atributo que escribió antes, seleccione dicho atributo en el cuadro de selección, escriba un valor en el cuadro **Valor** (por ejemplo, Seattle) y presione Entrar. Puede seguir agregando más valores para los atributos. Solo tiene que asegurarse de que se selecciona el atributo correcto cuando está escribiendo valores.
 
     Por ejemplo, si incluye Ciudad como un valor de **Atributos** y desea limitar la tabla para incluir solo filas con Nueva York y Dubai como valores de ciudad, tendría que escribir Ciudad en el cuadro Atributos, y Nueva York y luego Dubái en el cuadro **Valores**.
+
 1. Haga clic en **OK**. 
+
 1. Después de completar las definiciones de asignación para las colecciones que desea muestrear, en la ventana **Editor de esquemas**, haga clic en **Ejemplo**.
      Para cada columna, puede modificar el nombre SQL de la columna, el tipo de SQL, la longitud SQL (si procede), la escala (si procede), la precisión (si procede) y si acepta valores NULL.
     - Puede establecer **Ocultar columna** en **true** si desea excluir esa columna de los resultados de la consulta. Las columnas marcadas con Ocultar columna = true no se devuelven para la selección y proyección, aunque aún forman parte del esquema. Por ejemplo, puede ocultar todas las propiedades necesarias del sistema de Azure Cosmos DB a partir de `_`.
     - La columna **identificador** es el único campo que no se puede ocultar, ya que se usa como la clave principal en el esquema normalizado. 
+
 1. Cuando haya terminado de definir el esquema, haga clic en **Archivo** | **Guardar**, navegue hasta el directorio para guardar el esquema y, luego, haga clic en **Guardar**.
+
 1. De vuelta a la ventana **Azure Cosmos DB ODBC Driver DSN Setup** (Configuración de DSN del controlador ODBC de Azure Cosmos DB), haga clic en **Opciones avanzadas**. A continuación, en el cuadro **Archivo de esquema** , navegue hasta el archivo de esquema guardado y haga clic en **Aceptar**. Haga clic en **Aceptar** de nuevo para guardar el DSN. Esto guarda el esquema que ha creado en el DSN. 
 
 ## <a name="optional-set-up-linked-server-connection"></a>(Opcional) Configuración de la conexión de servidor vinculado
@@ -123,7 +136,9 @@ Los pasos siguientes crean un esquema para los datos de una o varias colecciones
 Puede consultar Azure Cosmos DB desde SQL Server Management Studio (SSMS) mediante la configuración de una conexión de servidor vinculado.
 
 1. Cree un origen de datos del sistema, tal como se describe en el [Paso 2](#connect), denominado, por ejemplo, `SDS Name`.
+
 1. [Instale SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) y conéctese al servidor. 
+
 1. En el editor de consultas de SSMS, cree un objeto de servidor vinculado `DEMOCOSMOS` para el origen de datos con los siguientes comandos. Reemplace `DEMOCOSMOS` por el nombre del servidor vinculado, y `SDS Name` por el nombre del origen de datos del sistema.
 
     ```sql
@@ -169,26 +184,51 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 ``` 
 
 ## <a name="optional-creating-views"></a>(Opcional) Creación de vistas
-Puede definir y crear vistas como parte del proceso de muestreo. Estas vistas son equivalentes a las vistas SQL. Son de solo lectura y con el ámbito de las selecciones y proyecciones de SQL de Azure Cosmos DB definido. 
+Puede definir y crear vistas como parte del proceso de muestreo. Estas vistas son equivalentes a las vistas SQL. Son de solo lectura y con el ámbito de las selecciones y proyecciones de la consulta SQL de Azure Cosmos DB definida. 
 
-Para crear una vista para los datos, en la ventana **Editor de esquemas**, en la columna **View Definitions** (Definiciones de vista), haga clic en **Agregar** en la fila de la colección en el ejemplo. A continuación, en la ventana **View Definitions** (Definiciones de vista), haga lo siguiente:
+Para crear una vista para los datos, en la ventana **Editor de esquemas**, en la columna **View Definitions** (Definiciones de vista), haga clic en **Agregar** en la fila de la colección en el ejemplo. 
+    ![Creación de una vista de datos](./media/odbc-driver/odbc-driver-create-view.png)
+
+
+A continuación, en la ventana **View Definitions** (Definiciones de vista), haga lo siguiente:
+
 1. Haga clic en **Nuevo**, escriba un nombre para la vista, por ejemplo, EmployeesfromSeattleView y luego haga clic en **Aceptar**.
-1. En la ventana **Editar vista**, escriba una consulta de Azure Cosmos DB. Debe tratarse de una consulta SQL de Azure Cosmos DB, por ejemplo`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"` y, luego, haga clic en **Aceptar**.
+
+1. En la ventana **Editar vista**, escriba una consulta de Azure Cosmos DB. Debe tratarse de una [consulta de Azure Cosmos DB SQL](how-to-sql-query.md), por ejemplo `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`, y, a continuación, haga clic en **Aceptar**.
+
+    ![Adición de consultas al crear una vista](./media/odbc-driver/odbc-driver-create-view-2.png)
+
 
 Puede crear tantas vistas como desee. Una vez que haya terminado de definir las vistas, puede muestrear los datos. 
 
 ## <a name="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop"></a>Paso 5: Visualización de los datos en herramientas de BI como Power BI Desktop
 
-Puede utilizar el nuevo DSN para conectar DocumentADB con cualquier herramienta compatible con ODBC; este paso simplemente muestra cómo conectarse a Power BI Desktop y crear una visualización de Power BI.
+Puede utilizar el nuevo DSN para conectar Azure Cosmos DB con cualquier herramienta compatible con ODBC; este paso simplemente muestra cómo conectarse a Power BI Desktop y crear una visualización de Power BI.
 
 1. Abra Power BI Desktop.
+
 1. Haga clic en **Obtener datos**.
+
+    ![Obtención de datos en Power BI Desktop](./media/odbc-driver/odbc-driver-power-bi-get-data.png)
+
 1. En la ventana **Obtener datos**, haga clic en **Otros** | **ODBC** | **Conectar**.
+
+    ![Elección de origen de datos ODBC en Get Data de Power BI](./media/odbc-driver/odbc-driver-power-bi-get-data-2.png)
+
 1. En la ventana **Desde ODBC**, seleccione el nombre del origen de datos que ha creado el nombre y luego haga clic en **Aceptar**. Puede dejar las entradas **Opciones avanzadas** en blanco.
+
+    ![Elección del nombre del origen de datos (DSN) en Get Data de Power BI](./media/odbc-driver/odbc-driver-power-bi-get-data-3.png)
+
 1. En la ventana **Acceda a un origen de datos a través de un controlador ODBC**, seleccione **Predeterminado o personalizado** y luego haga clic en **Conectar**. No es necesario incluir **Propiedades de la cadena de conexión de credenciales**.
+
 1. En la ventana **Navegador**, en el panel izquierdo, expanda la base de datos, el esquema y luego seleccione la tabla. El panel de resultados incluye los datos que usan el esquema que ha creado.
+
+    ![Selección de la tabla en Get Data de Power BI](./media/odbc-driver/odbc-driver-power-bi-get-data-4.png)
+
 1. Para visualizar los datos en Power BI Desktop, active la casilla junto al nombre de tabla y luego haga clic en **Cargar**.
+
 1. En Power BI Desktop, en el extremo izquierdo, seleccione la pestaña Datos ![Pestaña Datos en Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) para confirmar que los datos se importaron.
+
 1. Ahora puede crear objetos visuales con Power BI haciendo clic en la pestaña Informe ![Pestaña Informe en Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), haciendo clic en **Nuevo objeto visual** y, por último, personalizando el icono. Para más información sobre cómo crear visualizaciones en Power BI Desktop, consulte [Tipos de visualización en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
 
 ## <a name="troubleshooting"></a>solución de problemas

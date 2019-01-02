@@ -1,32 +1,36 @@
 ---
-title: Uso de Transcription API de Azure Batch
+title: 'Cómo usar la transcripción de lotes: servicios de Voz'
 titlesuffix: Azure Cognitive Services
-description: Ejemplos de transcripción de grandes volúmenes de contenido de audio.
+description: La transcripción de lotes es ideal si desea transcribir una gran cantidad de audio en el almacenamiento, como los blobs de Azure. Mediante la API REST dedicada, puede apuntar a archivos de audio con un identificador URI de firma de acceso compartido (SAS) y recibir las transcripciones de forma asincrónica.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: b4e7c11a6077104e874d67b75f5d00e8f481f739
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495593"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086936"
 ---
 # <a name="why-use-batch-transcription"></a>¿Por qué usar la transcripción de lotes?
 
-La transcripción de Batch resulta muy conveniente si tiene grandes cantidades de audio en almacenamiento. Mediante la API REST dedicada, puede apuntar a archivos de audio por URI de firma de acceso compartido (SAS) y recibir las transcripciones de forma asincrónica.
+La transcripción de lotes es ideal si desea transcribir una gran cantidad de audio en el almacenamiento, como los blobs de Azure. Mediante la API REST dedicada, puede apuntar a archivos de audio con un identificador URI de firma de acceso compartido (SAS) y recibir las transcripciones de forma asincrónica.
+
+>[!NOTE]
+> Se requiere una suscripción estándar (S0) para los servicios de Voz para usar la transcripción de lotes. Las claves de suscripción gratuita (F0) no funcionarán. Para más información, consulte [Precios y límites](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
 
 ## <a name="the-batch-transcription-api"></a>Transcription API de Azure Batch
 
 Transcription API de Batch ofrece la transcripción asincrónica de voz a texto, además de otras características. Es una API REST que expone métodos para:
 
 1. Crear solicitudes de procesamiento por lotes
-1. Consultar el estado 
+1. Consultar el estado
 1. Descargar transcripciones
 
 > [!NOTE]
@@ -75,7 +79,7 @@ Estos parámetros podrían incluirse en la cadena de consulta de la solicitud de
 
 ## <a name="authorization-token"></a>Token de autorización
 
-Como sucede con todas las características del servicio Voz, puede crear una clave de suscripción en [Azure Portal](https://portal.azure.com) siguiendo nuestra [guía de inicio](get-started.md). Si va a obtener transcripciones de nuestros modelos de base de referencia, todo lo que necesita hacer es crear una clave. 
+Como sucede con todas las características del servicio Voz, puede crear una clave de suscripción en [Azure Portal](https://portal.azure.com) siguiendo nuestra [guía de inicio](get-started.md). Si va a obtener transcripciones de nuestros modelos de base de referencia, todo lo que necesita hacer es crear una clave.
 
 Si va a personalizar y usar un modelo personalizado, agregue la clave de suscripción al portal de voz personalizado mediante los pasos siguientes:
 
@@ -106,19 +110,19 @@ Personalice el siguiente código de ejemplo con una clave de suscripción y una 
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-         
+
             return new CrisClient(client);
         }
 ```
 
-Después de obtener el token, especifique el URI de SAS que apunte al archivo de audio que requiere la transcripción. El resto del código procesa una iteración en el estado y muestra los resultados. En primer lugar, configure la clave, la región, los modelos de uso y la asociación de seguridad, tal y como se muestra en el siguiente fragmento de código. A continuación, se crea una instancia del cliente y la solicitud POST. 
+Después de obtener el token, especifique el URI de SAS que apunte al archivo de audio que requiere la transcripción. El resto del código procesa una iteración en el estado y muestra los resultados. En primer lugar, configure la clave, la región, los modelos de uso y la asociación de seguridad, tal y como se muestra en el siguiente fragmento de código. A continuación, se crea una instancia del cliente y la solicitud POST.
 
 ```cs
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
-    
-            // SAS URI 
+
+            // SAS URI
             private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
@@ -127,14 +131,14 @@ Después de obtener el token, especifique el URI de SAS que apunte al archivo de
 
             // Creating a Batch Transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
-            
+
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
 ```
 
 Ahora que ha realizado la solicitud, puede consultar y descargar los resultados de la transcripción, tal como se muestra en el siguiente fragmento de código:
 
 ```cs
-  
+
             // get all transcriptions for the user
             transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
@@ -152,9 +156,9 @@ Ahora que ha realizado la solicitud, puede consultar y descargar los resultados 
                             // not created from here, continue
                             continue;
                         }
-                            
+
                         completed++;
-                            
+
                         // if the transcription was successful, check the results
                         if (transcription.Status == "Succeeded")
                         {
@@ -166,7 +170,7 @@ Ahora que ha realizado la solicitud, puede consultar y descargar los resultados 
                             Console.WriteLine("Transcription succeeded. Results: ");
                             Console.WriteLine(results);
                         }
-                    
+
                     break;
                     case "Running":
                     running++;
@@ -174,7 +178,7 @@ Ahora que ha realizado la solicitud, puede consultar y descargar los resultados 
                     case "NotStarted":
                     notStarted++;
                     break;
-                    
+
                     }
                 }
             }
@@ -188,7 +192,7 @@ Para obtener detalles completos acerca de las llamadas anteriores, consulte nues
 
 Tome nota de la configuración asincrónica para publicar audio y recibir el estado de la transcripción. El cliente que crea es un cliente HTTP de .NET. Hay un método `PostTranscriptions` para enviar los detalles del archivo de audio y un método `GetTranscriptions` para recibir los resultados. `PostTranscriptions` devuelve un identificador y `GetTranscriptions` lo usa para crear un identificador y obtener el estado de la transcripción.
 
-El ejemplo de código actual no especifica un modelo personalizado. El servicio usa los modelos base de referencia para transcribir los archivos. Para especificar los modelos, puede pasar los mismos identificadores de modelo para el modelo acústico y de lenguaje. 
+El ejemplo de código actual no especifica un modelo personalizado. El servicio usa los modelos base de referencia para transcribir los archivos. Para especificar los modelos, puede pasar los mismos identificadores de modelo para el modelo acústico y de lenguaje.
 
 Si no quiere usar los modelos base de referencia, pase los identificadores de modelo tanto para los modelos acústico como de lenguaje.
 

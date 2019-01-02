@@ -1,23 +1,24 @@
 ---
-title: 'Prueba por lotes de la aplicación de LUIS: Language Understanding'
-titleSuffix: Azure Cognitive Services
+title: Pruebas por lotes
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use las pruebas por lotes para trabajar continuamente en la aplicación para refinarla y mejorar la comprensión del lenguaje.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 44abadc653c4679f37152e6592c882475b139bdd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333911"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133154"
 ---
-# <a name="batch-testing-in-luis"></a>Pruebas por lotes en LUIS
+# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Pruebas por lotes con 1 000 expresiones en el portal de LUIS
 
 Las pruebas por lotes validan el modelo entrenado [activo](luis-concept-version.md#active-version) para medir la precisión de la predicción. Una prueba por lotes ayuda a ver la precisión de cada intención y entidad en el modelo entrenado actual en un gráfico. Revise los resultados de la prueba por lotes para adoptar las medidas apropiadas para mejorar la precisión, como agregar más expresiones de ejemplo a una intención si la aplicación presenta errores frecuentes de identificación de la intención correcta.
 

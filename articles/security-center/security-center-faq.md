@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 10ff2118ade13980250608bf4bc238e8ff2f9c64
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2be11f97882a7c6353b214886ce6c5a3a66add89
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312993"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339117"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre el Centro de seguridad de Azure
 Estas preguntas más frecuentes responden a preguntas sobre Azure Security Center, un servicio que le ayuda a evitar y detectar amenazas y a responder a las mismas con mayor visibilidad y control sobre la seguridad de los recursos de Microsoft Azure.
@@ -42,7 +42,7 @@ Security Center se ofrece en dos niveles:
 
 El nivel **Gratis** permite ver el estado de seguridad de los recursos de Azure, la directiva de seguridad básica, las recomendaciones de seguridad, y la integración con los productos y servicios de seguridad de los asociados.
 
-En el **nivel Estándar** se agregan funcionalidades de detección de amenazas avanzada, como inteligencia de amenazas, análisis del comportamiento, detección de anomalías, incidentes de seguridad e informes de atribución de amenazas. El nivel Estándar es gratuito durante los primeros 60 días. Si decide seguir utilizando el servicio después de esos 60 días, automáticamente se empieza a cobrar por el servicio.  Para actualizarlo, seleccione el [plan de tarifa](https://docs.microsoft.com/azure/security-center/security-center-pricing) de la directiva de seguridad.
+En el **nivel Estándar** se agregan funcionalidades de detección de amenazas avanzada, como inteligencia de amenazas, análisis del comportamiento, detección de anomalías, incidentes de seguridad e informes de atribución de amenazas. Puede iniciar una versión de evaluación gratuita Estándar. Para actualizarlo, seleccione el [plan de tarifa](https://docs.microsoft.com/azure/security-center/security-center-pricing) de la directiva de seguridad. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="permissions"></a>Permisos
 Azure Security Center usa el [control de acceso basado en roles (RBAC)](../role-based-access-control/role-assignments-portal.md), que proporciona [roles integrados](../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
@@ -133,7 +133,7 @@ Security Center no identifica previamente si hay un agente instalado.  Intenta i
 Si quita la extensión de Microsoft Monitoring, Security Center no será capaz de recopilar datos de seguridad de la VM y algunas recomendaciones de seguridad y las alertas no estarán disponibles. En un plazo de 24 horas, Security Center determina que la VM no tiene la extensión y vuelve a instalarla.
 
 ### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>¿Cómo detengo la instalación automática del agente y la creación del área de trabajo?
-Puede desactivar el aprovisionamiento automático en las suscripciones en la directiva de seguridad, pero no es recomendable. La desactivación del aprovisionamiento automático limita las recomendaciones y las alertas de Security Center. El aprovisionamiento automático es necesario en las suscripciones del plan de tarifa Estándar. Para deshabilitar el aprovisionamiento automático:
+Puede desactivar el aprovisionamiento automático en las suscripciones en la directiva de seguridad, pero no es recomendable. La desactivación del aprovisionamiento automático limita las recomendaciones y las alertas de Security Center. Para deshabilitar el aprovisionamiento automático:
 
 1. Si la suscripción está configurada para el nivel Estándar, abra la directiva de seguridad de esa suscripción y seleccione el nivel **Gratis**.
 
@@ -163,7 +163,8 @@ Quizá desee rechazar el aprovisionamiento automático si lo siguiente es aplica
 Una vez terminada la migración, Security Center no será capaz de recopilar datos de seguridad de la máquina virtual y algunas recomendaciones de seguridad y las alertas no estarán disponibles. Si lo rechaza, deberá instalar Microsoft Monitoring Agent manualmente. Consulte los [pasos recomendados al rechazarlo](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>¿Cuáles son los pasos recomendados al rechazar el aprovisionamiento automático?
-Debe instalar Microsoft Monitoring Agent manualmente para que Security Center pueda recopilar los datos de seguridad de las máquinas virtuales y proporcionar recomendaciones y alertas. Consulte [Conexión de equipos Windows al servicio Log Analytics de Azure](../log-analytics/log-analytics-windows-agent.md) como guía de instalación.
+
+Debe instalar la extensión Microsoft Monitoring Agent manualmente para que Security Center pueda recopilar los datos de seguridad de las máquinas virtuales y proporcionar recomendaciones y alertas. Consulte la [instalación del agente de máquina virtual Windows](../virtual-machines/extensions/oms-windows.md) o la [instalación del agente de máquina virtual Linux](../virtual-machines/extensions/oms-linux.md) para obtener instrucciones sobre la instalación.
 
 Puede conectar al agente a cualquier área de trabajo personalizada existente o a la que creara Security Center. Si el área de trabajo personalizada no tiene las soluciones "Security" o "SecurityCenterFree" habilitadas, será necesario aplicar una solución. Para la aplicación, seleccione el área de trabajo personalizada o la suscripción y aplique un plan de tarifa desde la hoja **Directiva de seguridad: plan de tarifa**.
 
@@ -200,7 +201,7 @@ Para deshabilitar la recopilación de datos, [inicie sesión en Azure Portal](ht
 Puede habilitar la colección de datos de la suscripción de Azure en la directiva de seguridad. Para habilitar la recopilación de datos, [Inicie sesión en Azure Portal](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Seleccionar directiva**. Seleccione la suscripción en la que quiere habilitar el aprovisionamiento automático. Al seleccionar una suscripción, se abre **Directiva de seguridad: recopilación de datos**. En **Autoaprovisionamiento**, seleccione **Activar**.
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>¿Qué sucede cuando se habilita la colección de datos?
-Si el aprovisionamiento automático está habilitado, Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las que se creen. El aprovisionamiento automático está muy recomendado, pero la instalación manual del agente también está disponible. [Aprenda a instalar la extensión Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+Si el aprovisionamiento automático está habilitado, Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las que se creen. El aprovisionamiento automático está muy recomendado, pero la instalación manual del agente también está disponible. [Aprenda a instalar la extensión Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
 El agente habilita el evento 4688 de creación de procesos y el campo *CommandLine* dentro del evento 4688. El registro de eventos registra los nuevos procesos creados en la VM y los servicios de detección de Security Center los supervisan. Para obtener información sobre los detalles que se registran para cada nuevo proceso, consulte los [campos de descripción en 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). El agente también recopila los eventos 4688 creados en la máquina virtual y los almacena en la búsqueda.
 
@@ -226,7 +227,7 @@ Una solución de Security Center se instala en el área de trabajo si todavía n
 Si Microsoft Monitoring Agent se instala directamente en la VM (no como una extensión de Azure), Security Center no instala Microsoft Monitoring Agent y la supervisión de seguridad estará limitada.
 
 ### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>¿Instala Security Center soluciones en mis áreas de trabajo de Log Analytics existentes? ¿Qué implica desde el punto de vista de la facturación?
-Cuando Security Center identifica que una VM ya está conectada a un área de trabajo creado por el usuario, habilita las soluciones en esta área de trabajo según el plan de tarifa. Las soluciones se aplican solo a las VM de Azure pertinentes a través de la [selección de destino de solución](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), por lo que la facturación sigue siendo la misma.
+Cuando Security Center identifica que una VM ya está conectada a un área de trabajo creado por el usuario, habilita las soluciones en esta área de trabajo según el plan de tarifa. Las soluciones se aplican solo a las VM de Azure pertinentes a través de la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md), por lo que la facturación sigue siendo la misma.
 
 - **Nivel Gratis**: Security Center instala la solución “SecurityCenterFree” en el área de trabajo. No se le facturará por el nivel Gratis.
 - **Nivel Estándar**: Security Center instala la solución "Security" en el área de trabajo.
@@ -234,7 +235,7 @@ Cuando Security Center identifica que una VM ya está conectada a un área de tr
    ![Soluciones del área de trabajo predeterminada][4]
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Ya tengo áreas de trabajo en mi entorno, ¿puedo utilizarlas para recopilar datos de seguridad?
-Si una VM ya tiene Microsoft Monitoring Agent instalado como una extensión de Azure, Security Center usa el área de trabajo conectada existente. Una solución de Security Center se instala en el área de trabajo si todavía no está presente y la solución solo se aplica a VM relevantes mediante la [selección de destino de solución](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
+Si una VM ya tiene Microsoft Monitoring Agent instalado como una extensión de Azure, Security Center usa el área de trabajo conectada existente. Una solución de Security Center se instala en el área de trabajo si todavía no está presente y la solución solo se aplica a VM relevantes mediante la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
 Cuando Security Center instala Microsoft Monitoring Agent en VM, utiliza los espacios de trabajo predeterminados creados por Security Center.
 
@@ -250,7 +251,7 @@ Las directivas de seguridad habilitadas en Azure Security Center generan la supe
 ### <a name="who-can-modify-a-security-policy"></a>¿Quién puede modificar una directiva de seguridad?
 Para modificar una directiva de seguridad, debe ser administrador de seguridad o propietario/colaborador de esa suscripción.
 
-Para obtener información sobre cómo configurar una directiva de seguridad, consulte [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-azure-policy.md).
+Para obtener información sobre cómo configurar una directiva de seguridad, consulte [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](tutorial-security-policy.md).
 
 ### <a name="what-is-a-security-recommendation"></a>¿Qué es una recomendación de seguridad?
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Las recomendaciones se crean una vez que se identifican las posibles vulnerabilidades de seguridad. Las recomendaciones le guían en el proceso de configurar el control necesario. Algunos ejemplos son:

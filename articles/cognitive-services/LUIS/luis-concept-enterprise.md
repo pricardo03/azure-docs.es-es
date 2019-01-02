@@ -1,21 +1,22 @@
 ---
-title: 'Conceptos de Enterprise para una aplicación de LUIS: Language Understanding'
-titleSuffix: Azure Cognitive Services
-description: Comprender los conceptos de diseño para las aplicaciones de LUIS grandes.
+title: Conceptos empresariales
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Comprender los conceptos de diseño para aplicaciones grandes de LUIS o aplicaciones múltiples con LUIS y QnA Maker juntos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bb4078c9131488e5077795df792de259d7c789dc
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 60e1e8d49fcbae7d7049c97e9ee756dc938ca5ff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638281"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105944"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estrategias de Enterprise para una aplicación de LUIS
 Revise estas estrategias de diseño de la aplicación de empresa.

@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/18/2018
-ms.author: ramamill
-ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162609"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251035"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -148,6 +148,9 @@ Para evitar interrupciones en la replicación en curso, asegúrese de que la dir
 7. ¿Dónde puedo descargar las claves de registro del almacén?
 
     En **Almacén de Recovery Services**,**Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**. En Servidores, seleccione **Descargar clave de registro** para descargar el archivo de credenciales de almacén.
+8. ¿Puedo clonar un servidor de configuración existente y usarlo para la orquestación de replicación?
+
+    **No**, no se admite el uso de componentes del servidor de configuración clonados. 
 
 ## <a name="troubleshoot-deployment-issues"></a>Solución de problemas de implementación
 

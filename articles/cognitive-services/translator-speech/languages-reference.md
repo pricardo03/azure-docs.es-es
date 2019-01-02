@@ -10,20 +10,20 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345210"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256407"
 ---
-# <a name="translator-speech-api-languages"></a>Translator Speech API: Idiomas
+# <a name="translator-speech-api-languages"></a>Translator Speech API: Lenguajes
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Translator Speech amplía continuamente la lista de idiomas que se admiten en sus servicios. Use esta API para averiguar el conjunto de idiomas disponibles actualmente que se pueden usar con el servicio Translator Speech.
 
-Los ejemplos de código demuestran el uso de la API para obtener los idiomas disponibles del [sitio de Github de Microsoft Translator](https://github.com/MicrosoftTranslator).
+Los ejemplos de código demuestran el uso de la API para obtener los idiomas disponibles del [sitio de GitHub de Microsoft Translator](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Notas de implementación
 
@@ -35,7 +35,7 @@ Un cliente usa el parámetro de consulta `scope` para definir en qué conjuntos 
 
 * **Conversión de voz en texto:** use el parámetro de consulta `scope=speech` para recuperar el conjunto de idiomas disponibles a fin de transcribir la voz a texto.
 * **Traducción de texto:** use el parámetro de consulta `scope=text` para recuperar el conjunto de idiomas disponibles para traducir el texto transcrito.
-* **Texto a voz:** use el parámetro de consulta `scope=tts` para recuperar el conjunto de idiomas y voces disponibles a fin de sintetizar el texto traducido a voz.
+* **Texto a voz:**  use el parámetro de consulta `scope=tts` para recuperar el conjunto de idiomas y voces disponibles a fin de sintetizar el texto traducido a voz.
 
 Un cliente puede recuperar varios conjuntos simultáneamente mediante la especificación de una lista de opciones separadas por comas. Por ejemplo, `scope=speech,text,tts`.
 
@@ -80,7 +80,7 @@ Ejemplo:
 El valor asociado a la propiedad `text` también es un diccionario donde cada clave identifica un idioma admitido para la traducción de texto. El valor asociado a la clave describe el idioma:
 
 * `name`: nombre para mostrar del idioma.
-* `dir`: direccionalidad que es `rtl` para idiomas de derecha a izquierda o `ltr` para idiomas de izquierda a derecha.
+* `dir`: direccionalidad, que es `rtl` para los idiomas de derecha a izquierda o `ltr` para los idiomas de izquierda a derecha.
 
 Ejemplo:
 

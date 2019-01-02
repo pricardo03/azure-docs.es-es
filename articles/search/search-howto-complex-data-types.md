@@ -1,5 +1,5 @@
 ---
-title: Modelado de tipos de datos complejos en Azure Search | Microsoft Docs
+title: 'Modelado de tipos de datos complejos: Azure Search'
 description: Las estructuras de datos jerárquicas o anidadas se pueden modelar en un índice de Azure Search mediante conjuntos de filas aplanados y el tipo de datos Collections.
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 81298bedd43a89ea948753dffc5f80248f5429ca
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 973623d6c4cb57518af2012bccf67c969146d23c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799080"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311990"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modelado de tipos de datos complejos en Azure Search
 Los conjuntos de datos externos usados para rellenar un índice de Azure Search a veces incluyen subestructuras jerárquicas o anidadas que no se dividen perfectamente en un conjunto de filas tabular. Algunos ejemplos de estas estructuras son varias ubicaciones y números de teléfono de un solo cliente, varios tamaños y colores de un único SKU, varios autores de un único libro, etc. En términos de modelado, puede que vea referirse a *estas estructuras* como *tipos de datos complejos*, *tipos de datos compuestos* o *tipos de datos agregados*, por nombrar algunos.
@@ -65,14 +66,14 @@ Mientras que los campos 'id', 'name' y 'company' se pueden asignar fácilmente u
 > 
 > 
 
-## <a name="part-1-flatten-the-array-into-individual-fields"></a>Parte 1: Aplanar la matriz en campos individuales
+## <a name="part-1-flatten-the-array-into-individual-fields"></a>Parte 1: Acoplamiento de la matriz en campos individuales
 Para crear un índice de Azure Search que dé cabida a este conjunto de datos, cree campos individuales para la subestructura anidada: `locationsID` y `locationsDescription` con un tipo de datos [collection](https://msdn.microsoft.com/library/azure/dn798938.aspx) (o una matriz de cadenas). En estos campos, los valores '1' y '2' se indizan en el campo `locationsID` para John Smith y los valores '3' y '4' en el campo `locationsID` para Jen Campbell.  
 
 Los datos en Azure Search tendrían el siguiente aspecto: 
 
 ![datos de ejemplo, 2 filas](./media/search-howto-complex-data-types/sample-data.png)
 
-## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>Parte 2: Agregar un campo de colección en la definición del índice
+## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>Parte 2: Incorporación de un campo de colección en la definición del índice
 En el esquema de índice, las definiciones de campo podrían ser similares a las de este ejemplo.
 
 ~~~~

@@ -1,21 +1,22 @@
 ---
-title: Entidades precompiladas para Language Understanding (LUIS)
+title: Entidades precompiladas
 titleSuffix: Azure Cognitive Services
 description: LUIS incluye un conjunto de entidades precompiladas para reconocer tipos comunes de información, como fechas, horas, números, medidas y moneda. La compatibilidad de entidades precompiladas varía según la referencia cultural de la aplicación LUIS.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 9e0d1ae39431ca75b43680981802b82f16703d4d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139981"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103938"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades precompiladas para reconocer tipos de datos comunes
 
@@ -54,6 +55,12 @@ Pruebe la nueva intención en el punto de conexión agregando un valor para el p
 |Cancelar la cita del 3 de marzo|LUIS devuelve el 3 de marzo más reciente pasado (03-03-2018) y el 3 de marzo próximo (03-03-2019) porque la expresión no especificó un año.|
 |Programar una reunión a las 10:00|10:00:00|
 
+## <a name="marking-entities-containing-a-prebuilt-entity-token"></a>Marcado de las entidades que contienen un token de entidad creada previamente
+ Si tiene texto, como `HH-1234`, que desea marcar como una entidad personalizada _y_ tiene un [número creado previamente](luis-reference-prebuilt-number.md) agregado al modelo, no podrá marcar la entidad personalizada en el portal de LUIS. Se puede marcar con la API. 
+
+ Para marcar este tipo de token, en el que parte del mismo ya está marcado con una entidad creada previamente, elimine la entidad creada previamente de la aplicación de LUIS. No es necesario entrenar la aplicación. A continuación, marque el token con su propia entidad personalizada. Después, agregue de nuevo la entidad creada previamente a la aplicación de LUIS.
+
+ Para otro ejemplo, considere la expresión como una lista de preferencias de clase: `I want first year spanish, second year calculus, and fourth year english lit.` Si la aplicación de LUIS tiene agregado el ordinal creado previamente, `first`, `second` y `fourth` ya estarán marcados con ordinales. Si desea capturar el ordinal y la clase, puede crear una entidad compuesta y encapsularla en el ordinal creado previamente y la entidad personalizada para el nombre de clase.
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]

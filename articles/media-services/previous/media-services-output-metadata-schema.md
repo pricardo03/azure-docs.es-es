@@ -12,27 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 35b728793b81c41f0a81c5c7621b9e17edf1f22a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250893"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994676"
 ---
 # <a name="output-metadata"></a>Metadatos de salida
 ## <a name="overview"></a>Información general
 Un trabajo de codificación está asociado a un recurso (o recursos) de entrada donde desea realizar algunas tareas de codificación. Por ejemplo, codificar un archivo MP4 en conjuntos MP4 de velocidad de bits adaptable H.264; crear una miniatura; crear superposiciones. Tras la finalización de una tarea, se produce un recurso de salida.  El recurso de salida contiene vídeo, audio, miniaturas, etc. El recurso de salida también contiene un archivo con metadatos sobre el recurso de salida. El nombre del archivo XML de metadatos tiene el formato siguiente: &lt;nombre_de_archivo_de_origen&gt;_manifest.xml (por ejemplo, BigBuckBunny_manifest.xml).  
 
+Media Services no realiza un examen preventivo de los recursos de entrada para generar metadatos. Los metadatos de entrada se generan únicamente como artefactos cuando un recurso de entrada se procesa en un trabajo. Por tanto, estos artefactos se escriben en el recurso de salida. Para generar metadatos de los recursos de entrada y salida, se utilizan diferentes herramientas. Por tanto, los metadatos de entrada tienen un esquema ligeramente diferente al de los metadatos de salida.
+
 Si desea examinar el archivo de metadatos, puede crear un localizador **SAS** y descargar el archivo en el equipo local.  
 
 En este artículo se describen los elementos y los tipos del esquema XML en que se basan los metadatos de salida (&lt;nombre_de_archivo_de_origen&gt;_manifest.xml). Para información acerca del archivo que contiene metadatos sobre el recurso de entada, consulte [Input Metadata](media-services-input-metadata-schema.md) (Metadatos de entrada).  
 
-> [!NOTE]
-> Puede encontrar el código del esquema completo y un ejemplo de XML al final de este artículo.  
->
->
+Puede encontrar el código del esquema completo y un ejemplo de XML al final de este artículo.  
 
 ## <a name="AssetFiles "></a> Elemento raíz AssetFiles
 Colección de entradas AssetFile para el trabajo de codificación.  
@@ -97,7 +96,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-meta
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Índice de base cero de esta pista de vídeo. **Nota:** Este **Id** no es necesariamente el elemento TrackID que se usa en un archivo MP4. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Índice de base cero de esta pista de vídeo. **Nota:**  este **identificador** no es necesariamente el objeto TrackID que se usa en un archivo MP4. |
 | **FourCC**<br/><br/> Obligatorio |**xs:string** |Código FourCC de códec de vídeo. |
 | **Perfil** |**xs:string** |Perfil de H264 (solo es aplicable al códec H264). |
 | **Level** |**xs:string** |Nivel de H264 (solo es aplicable al códec H264). |
@@ -129,7 +128,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-meta
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Índice de base cero de esta pista de audio. **Nota:** No es necesariamente el elemento TrackID que se usa en un archivo MP4. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Índice de base cero de esta pista de audio. **Nota:**  no es necesariamente el objeto TrackID que se usa en un archivo MP4. |
 | **Codec** |**xs:string** |Cadena de códec de pista de audio. |
 | **EncoderVersion** |**xs:string** |Cadena de versión de codificador opcional, requerida para EAC3. |
 | **Channels**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Número de canales de audio. |

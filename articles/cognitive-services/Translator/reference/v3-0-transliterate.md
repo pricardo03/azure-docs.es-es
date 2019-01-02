@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 841982a4ecbfa5241d826beaaae81921b2859596
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018628"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967340"
 ---
-# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: transliteración
+# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterar
 
 Convierte el texto en un idioma de un script a otro.
 
@@ -42,15 +42,15 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
   </tr>
   <tr>
     <td>language</td>
-    <td>*Parámetro obligatorio*.<br/>Especifica el idioma del texto que se va a convertir de un script a otro. Los idiomas posibles se enumeran en el ámbito `transliteration` obtenido al consultar el servicio de sus [idiomas admitidos](.\v3-0-languages.md).</td>
+    <td>*Parámetro obligatorio*.<br/>Especifica el idioma del texto que se va a convertir de un script a otro. Los idiomas posibles se enumeran en el ámbito `transliteration` obtenido al consultar el servicio de sus [idiomas admitidos](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Parámetro obligatorio*.<br/>Especifica el script que usa el texto de entrada. Busque los [idiomas admitidos](.\v3-0-languages.md) con el ámbito `transliteration`, para ver los scripts de entrada disponibles para el idioma seleccionado.</td>
+    <td>*Parámetro obligatorio*.<br/>Especifica el script que usa el texto de entrada. Busque los [idiomas admitidos](./v3-0-languages.md) con el ámbito `transliteration`, para ver los scripts de entrada disponibles para el idioma seleccionado.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Parámetro obligatorio*.<br/>Especifica el nombre del script de salida. Busque los [idiomas admitidos](.\v3-0-languages.md) con el ámbito `transliteration`, para ver los scripts de salida disponibles para la combinación de idiomas y el script de entrada seleccionados.</td>
+    <td>*Parámetro obligatorio*.<br/>Especifica el nombre del script de salida. Busque los [idiomas admitidos](./v3-0-languages.md) con el ámbito `transliteration`, para ver los scripts de salida disponibles para la combinación de idiomas y el script de entrada seleccionados.</td>
   </tr>
 </table> 
 
@@ -98,9 +98,9 @@ Se aplican las siguientes limitaciones:
 
 Una respuesta correcta es una matriz JSON, que cuenta con un resultado para cada elemento en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
 
-  * `text`: es una cadena que es el resultado de convertir la cadena de entrada al script de salida.
+  * `text`: cadena que es el resultado de convertir la cadena de entrada en el script de salida.
   
-  * `script`: es una cadena que especifica el script que se usa en la salida.
+  * `script`: cadena que especifica el script que se usa en la salida.
 
 Un ejemplo de respuesta JSON es:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
 ms.custom: hdinsightactive
-ms.openlocfilehash: 9daf0d45c9bb24192750991e7bf84fa3614c970d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4f51de6ded29f93d29dbf80dd68715f621b5cb06
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011041"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384622"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Instalación o actualización de Mono en HDInsight
 
@@ -52,7 +52,7 @@ Mientras sigue el documento de la acción de script, use el siguiente identifica
 
 Para especificar la versión de Mono instalada, use el número de versión en el campo __Parámetros__. Por ejemplo, escriba `5.4` para instalar Mono 5.4.
 
-> [!NOTE]
+> [!NOTE]  
 > Al configurar HDInsight con este script, marque el script como __Persistente__. Esta configuración permite a HDInsight aplicar el script a los nodos de trabajo agregados a través de operaciones de escala.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -60,7 +60,7 @@ Para especificar la versión de Mono instalada, use el número de versión en el
 Ha aprendido a actualizar o instalar una versión específica de Mono en HDInsight. Para más información sobre el uso de aplicaciones .NET con Mono en HDInsight, vea los documentos siguientes:
 
 * [Uso de .NET con el streaming de MapReduce en Hadoop en HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Uso de .NET con Hive y Pig en HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Uso de .NET con Apache Hive y Apache Pig en Azure HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 * [Desarrollo de topologías de C# para Apache Storm en HDInsight con herramientas de Hadoop para Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md)
 * [Migración de soluciones .NET a HDInsight basado en Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 

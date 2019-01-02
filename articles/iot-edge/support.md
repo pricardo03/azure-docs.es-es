@@ -1,6 +1,6 @@
 ---
-title: Compatibilidad de plataformas con Azure IoT Edge | Microsoft Docs
-description: Plataformas compatibles con Azure IoT Edge
+title: 'Sistemas operativos y motores de contenedor compatibles: Azure IoT Edge | Microsoft Docs'
+description: Obtenga información sobre qué sistemas operativos pueden ejecutar el demonio y el entorno de ejecución de Azure IoT Edge y los motores de contenedor admitidos para los dispositivos de producción
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,16 @@ ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45c5c7245a2af3b0d0e328bfcc43112eaee406ee
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565010"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100195"
 ---
-# <a name="azure-iot-edge-support"></a>Compatibilidad de Azure IoT Edge
+# <a name="azure-iot-edge-supported-systems"></a>Sistemas compatibles con Azure IoT Edge
+
 Hay varias maneras de buscar compatibilidad para el producto de Azure IoT Edge.
 
 **Notificación de errores**: la mayor parte del desarrollo que lleva el producto de Azure IoT Edge se produce en el proyecto de código abierto de IoT Edge. Los errores se pueden notificar en la [página de problemas](https://github.com/azure/iotedge/issues) del proyecto. Las correcciones pasan pronto del proyecto a las actualizaciones de producto.

@@ -12,23 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615881"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275676"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de empezar a trabajar con App Service en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Antes de implementar Azure App Service en Azure Stack, debe completar los pasos de los requisitos previos de este artículo.
 
 > [!IMPORTANT]
-> Aplique la actualización 1809 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack (ASDK) más reciente antes de implementar Azure App Service 1.4.
+> Aplique la actualización 1809 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack (ASDK) más reciente antes de implementar Azure App Service 1.4.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Descarga de los scripts de la aplicación auxiliar y el instalador
 
@@ -152,6 +152,12 @@ El certificado de identidad debe contener un firmante que coincida con el siguie
 | Formato | Ejemplo |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
+
+
+### <a name="validate-certificates"></a>Validación de certificados
+Antes de implementar el proveedor de recursos de App Service, debería [validar los certificados que se usarán](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) mediante la herramienta Azure Stack Readiness Checker disponible en la [Galería de PowerShell](https://aka.ms/AzsReadinessChecker). La herramienta Azure Stack Readiness Checker valida que los certificados PKI generados son adecuados para la implementación de servicios de aplicación. 
+
+Como práctica recomendada, al trabajar con cualquiera de los necesarios [certificados PKI de Azure Stack](azure-stack-pki-certs.md), debe planear dejar tiempo suficiente para probar y volver a emitir certificados si fuese necesario. 
 
 ## <a name="virtual-network"></a>Virtual network
 
@@ -347,7 +353,7 @@ Siga estos pasos:
 | AzureStackAdminCredential | Obligatorio | Null | Credenciales del administrador del servicio de Azure AD. |
 | CertificateFilePath | Obligatorio | Null | **Ruta de acceso completa** del archivo de certificado de la aplicación de identidad generado anteriormente. |
 | CertificatePassword | Obligatorio | Null | Contraseña que ayuda a proteger la clave privada del certificado. |
-| Entorno | Opcional | AzureCloud | El nombre del entorno en la nube admitido en el que está disponible el servicio Graph de Azure Active Directory de destino.  Valores permitidos: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
+| Entorno | Opcional | AzureCloud | El nombre del entorno en la nube admitido en el que está disponible el servicio Graph de Azure Active Directory de destino.  Valores permitidos: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Creación de una aplicación de Servicios de federación de Active Directory
 

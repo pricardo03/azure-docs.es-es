@@ -1,20 +1,21 @@
 ---
-title: Habilitación de Azure Disk Encryption para máquinas virtuales IaaS de Windows | Microsoft Docs
+title: Habilitación de Azure Disk Encryption para máquinas virtuales IaaS Windows
 description: En este artículo se proporcionan instrucciones sobre cómo habilitar Microsoft Azure Disk Encryption para máquinas virtuales IaaS de Windows.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/12/2018
-ms.openlocfilehash: 545723a020609766b9556746e6547eb8b93e5de9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/12/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4c053ec5fdf895c04abafc103778c86d02a8735c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687527"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312687"
 ---
-# <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Habilitación de Azure Disk Encryption para máquinas virtuales IaaS Windows 
+# <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Habilitación de Azure Disk Encryption para máquinas virtuales IaaS Windows
 
 Puede habilitar muchos escenarios de cifrado de disco, y los pasos pueden variar en función del escenario. En las secciones siguientes se tratan con más detalle los escenarios de máquinas virtuales IaaS de Windows. Para poder usar el cifrado de disco, es necesario satisfacer los [requisitos previos de Azure Disk Encryption](../security/azure-security-disk-encryption-prerequisites.md). 
 
@@ -66,7 +67,7 @@ Use el cmdlet [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.
    >[!NOTE]
    > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Comprobar que los discos están cifrados:** para comprobar el estado de cifrado de una máquina virtual IaaS, use el cmdlet [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus). 
+- **Comprobar que los discos están cifrados:** para comprobar el estado de cifrado de una máquina virtual de IaaS, use el cmdlet [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus). 
      ```azurepowershell-interactive
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
      ```
@@ -95,7 +96,7 @@ Use el comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encrypti
      >[!NOTE]
      > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name] </br> La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Compruebe que los discos están cifrados:** para comprobar el estado de cifrado de una máquina virtual IaaS, use el comando [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). 
+- **Comprobar que los discos están cifrados:** para comprobar el estado de cifrado de una máquina virtual IaaS, use el comando [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
@@ -134,6 +135,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | location | Ubicación para todos los recursos. |
 
 ## <a name="encrypt-virtual-machine-scale-sets"></a>Cifrado de conjuntos de escalado de máquinas virtuales
+
 Los [conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/overview.md) permiten crear y administrar un grupo de máquinas virtuales idénticas con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Use la CLI o Azure PowerShell para cifrar los conjuntos de escalado de máquinas virtuales.
 
 
@@ -180,13 +182,13 @@ Use el cmdlet [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurer
      Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
     ```
 
-- **Obtención del estado de cifrado de un conjunto de escalado de máquinas virtuales:** use el cmdlet [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption).
+- **Obtener el estado de cifrado para un conjunto de escalado de máquinas virtuales:** use el cmdlet [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption).
     
     ```azurepowershell-interactive
     get-AzureRmVmssVMDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
     ```
 
-- **Deshabilitación del cifrado en un conjunto de escalado de máquinas virtuales:** use el cmdlet [Disable-AzureRmVmssDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption). 
+- **Deshabilitar el cifrado en un conjunto de escalado de máquinas virtuales**: use el cmdlet [Disable-AzureRmVmssDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption). 
 
     ```azurepowershell-interactive
     Disable-AzureRmVmssDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
@@ -194,13 +196,13 @@ Use el cmdlet [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurer
 
 ### <a name="register-for-disk-encryption-preview-using-azure-cli"></a>Registro para la versión preliminar de cifrado de discos con la CLI de Azure.
 
-El cifrado de discos de Azure para conjuntos de escalado de máquinas virtuales (versión preliminar) exige el autorregistro de la suscripción con [az feature register](/cli/azure/feature#az_feature_register). Solo tiene que realizar los siguientes pasos la primera vez que use la característica de cifrado de discos (versión preliminar):
+El cifrado de discos de Azure para conjuntos de escalado de máquinas virtuales (versión preliminar) exige el autorregistro de la suscripción con [az feature register](/cli/azure/feature#az-feature-register). Solo tiene que realizar los siguientes pasos la primera vez que use la característica de cifrado de discos (versión preliminar):
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-La solicitud de registro puede tardar hasta diez minutos en propagarse. Puede comprobar el estado de registro con [az feature show](/cli/azure/feature#az_feature_show). Cuando `State` indique *Registered* (Registrado), vuelva a registrar el proveedor *Microsoft.Compute* con [az provider register](/cli/azure/provider#az_provider_register):
+La solicitud de registro puede tardar hasta diez minutos en propagarse. Puede comprobar el estado de registro con [az feature show](/cli/azure/feature#az-feature-show). Cuando `State` indique *Registered* (Registrado), vuelva a registrar el proveedor *Microsoft.Compute* con [az provider register](/cli/azure/provider#az-provider-register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -222,18 +224,31 @@ Use [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-en
      az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
 
      ```
-- **Obtención del estado de cifrado de un conjunto de escalado de máquinas virtuales:** Use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show)
+- **Obtener el estado de cifrado para un conjunto de escalado de máquinas virtuales:** use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show).
 
     ```azurecli-interactive
      az vmss encryption show --resource-group "MySecureRG" --name "MySecureVmss"
     ```
 
-- **Deshabilitación del cifrado en un conjunto de escalado de máquinas virtuales:** use [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable)
+- **Deshabilitar el cifrado en un conjunto de escalado de máquinas virtuales**: use [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable).
     ```azurecli-interactive
      az vmss encryption disable --resource-group "MySecureRG" --name "MySecureVmss"
     ```
 
-## <a name="bkmk_VHDpre"> </a>Máquinas virtuales IaaS creadas a partir de discos duros virtuales cifrados y claves de cifrado
+### <a name="azure-resource-manager-templates-for-windows-virtual-machine-scale-sets"></a>Plantillas de Azure Resource Manager para conjuntos de escalado de máquinas virtuales Windows
+
+Para cifrar o descifrar conjuntos de escalado de máquinas virtuales Windows, use las plantillas de Azure Resource Manager y las instrucciones siguientes:
+
+- [Habilitación del cifrado en conjuntos de escalado de máquinas virtuales Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+- [Implementación de un conjunto de escalado de máquinas virtuales Windows con JumpBox y habilitación de su cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+- [Deshabilitación del cifrado en un conjunto de escalado de máquinas virtuales Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+
+     1. Haga clic en **Implementar en Azure**.
+     2. Rellene los campos obligatorios y acepte los términos y condiciones.
+     3. Haga clic en **Comprar** para implementar la plantilla.
+
+## <a name="bkmk_VHDpre"> </a> Máquinas virtuales IaaS creadas a partir de discos duros virtuales cifrados y claves de cifrado
+
 En este escenario, puede habilitar el cifrado mediante los cmdlets de PowerShell o los comandos de la CLI. 
 
 Use las instrucciones del apéndice para preparar imágenes previamente cifradas que se pueden usar en Azure. Una vez creada la imagen, puede seguir los pasos de la sección siguiente para crear una VM cifrada de Azure.
@@ -277,7 +292,7 @@ También puede [agregar un nuevo disco a una máquina virtual Windows con PowerS
 
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType "All" –SequenceVersion $sequenceVersion;
     ```
-- **Cifrado de una VM en ejecución con KEK:** este ejemplo utiliza "All" para el parámetro -VolumeType, que incluye los volúmenes de sistema operativo y de datos. Si solo quiere cifrar el volumen del sistema operativo, use "OS" para el parámetro VolumeType.
+- **Cifrado de una máquina virtual en ejecución mediante KEK:** Este ejemplo utiliza "All" para el parámetro -VolumeType, que incluye los volúmenes de sistema operativo y de datos. Si solo quiere cifrar el volumen del sistema operativo, use "OS" para el parámetro VolumeType.
 
      ```azurepowershell-interactive
      $sequenceVersion = [Guid]::NewGuid();

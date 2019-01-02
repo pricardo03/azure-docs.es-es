@@ -1,5 +1,5 @@
 ---
-title: Procesamiento y extracción de texto de imágenes en Azure Search | Microsoft Docs
+title: Procesamiento y extracción de texto de imágenes en Cognitve Search | Microsoft Docs
 description: Procese y extraiga el texto y otra información de imágenes en canalizaciones de búsqueda cognitiva en Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 5ee821f3d1e81e581f376d4b14b3e8393a8f190c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444642"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312619"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de búsqueda cognitiva
 
@@ -90,7 +91,7 @@ Cuando *imageAction* se establece en "generateNormalizedImages", el nuevo campo 
 
 ## <a name="image-related-skills"></a>Habilidades relacionadas con la imagen
 
-Hay dos habilidades cognitivas integradas que se usan para tomar imágenes como entrada: [OCR](cognitive-search-skill-ocr.md) y [Análisis de imágenes](cognitive-search-skill-image-analysis.md). 
+Hay dos aptitudes cognitivas integradas que toman las imágenes como entrada: [OCR](cognitive-search-skill-ocr.md) y [análisis de la imagen](cognitive-search-skill-image-analysis.md). 
 
 Actualmente, estas habilidades solo funcionan con imágenes generadas a partir del paso de averiguación de documentos. Por lo tanto, la única entrada compatible es `"/document/normalized_images"`.
 

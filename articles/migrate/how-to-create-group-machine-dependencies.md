@@ -4,19 +4,21 @@ description: En este artículo se describe cómo crear una evaluación con depen
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 2755cc4e8e0e5a1b2a0e491b00fc73530dd9b958
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8756809de4ec1a8150610027a8197f1bcae213f0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635686"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252538"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupación de máquinas con asignación de dependencias de máquina
 
 En este artículo se describe cómo crear un grupo de máquinas para la evaluación de [Azure Migrate](migrate-overview.md) mediante la visualización de dependencias de máquina. Este método se utiliza normalmente cuando se quiere evaluar grupos de máquinas virtuales con mayores niveles de confianza mediante la comprobación cruzada de dependencias de máquina antes de ejecutar una evaluación. La visualización de dependencia puede ayudarle a planear la migración a Azure de forma eficaz. Le ayuda a asegurarse de que no se deja nada atrás y de que no se produzcan interrupciones inesperadas al realizar una migración a Azure. Puede detectar todos los sistemas interdependientes que tienen que migrarse juntos e identificar si un sistema en ejecución sigue ofreciendo servicio a los usuarios o si es un candidato para la retirada en lugar de la migración.
 
+> [!NOTE]
+> La funcionalidad de visualización de dependencias no está disponible en Azure Government.
 
 ## <a name="prepare-for-dependency-visualization"></a>Preparar la visualización de dependencias
 Azure Migrate aprovecha la solución Service Map en Log Analytics para habilitar la visualización de dependencias de máquinas.
@@ -28,8 +30,9 @@ Si quiere aprovechar la visualización de dependencias, necesita asociar un áre
 
     ![Asociar un área de trabajo de Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Después, se crea el área de trabajo en la misma suscripción que el proyecto de migración y en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
-- La opción **Usar existente** enumera solo esas áreas de trabajo que se crean en las regiones donde está disponible Service Map. Si tiene un área de trabajo en una región donde Service Map no está disponible, no aparecerá en la lista desplegable.
+- Al asociar un área de trabajo, obtendrá la opción de crear una o de conectar una existente:
+  - Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Después, se crea el área de trabajo en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
+  - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración. Tenga en cuenta que solo se enumeran las áreas de trabajo que se crearon en una región donde [se admita Service Map](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para poder asociar un área de trabajo, asegúrese de que tiene acceso de lectura a ella.
 
 > [!NOTE]
 > No se puede cambiar el área de trabajo asociada a un proyecto de migración.
@@ -88,7 +91,7 @@ Obtenga más información sobre la compatibilidad de Dependency Agent para los s
     - Procesos que se ejecutan dentro de la máquina; aquí puede expandir cada casilla de la máquina para ver los procesos
     - Propiedades, como el nombre de dominio completo, el sistema operativo, la dirección MAC, entre otras, de cada máquina; puede hacer clic en la casilla de cada máquina para ver estos detalles
 
- ![Ver las dependencias de máquinas](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+      ![Ver las dependencias de máquinas](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. Puede consultar las dependencias de distintas duraciones; para ello, haga clic en la duración correspondiente en la etiqueta de intervalo de tiempo. De forma predeterminada, el intervalo es una hora. Puede modificar el intervalo de tiempo o especificar las fechas de inicio y finalización, y la duración.
 5. Después de identificar máquinas dependientes que desea agrupar, use Ctrl+clic para seleccionar varias máquinas en el mapa y haga clic en **Agrupar máquinas**.

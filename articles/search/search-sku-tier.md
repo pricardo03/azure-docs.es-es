@@ -1,6 +1,6 @@
 ---
-title: Selección de SKU o plan de tarifa del servicio Azure Search | Microsoft Docs
-description: 'El servicio Azure Search puede aprovisionarse en estas SKU: Gratis, Básico o Estándar; este último está disponible en varias configuraciones de recursos y niveles de capacidad.'
+title: 'Selección de SKU o plan de tarifa del servicio Azure Search: Azure Search'
+description: 'Azure Search puede aprovisionarse en estas SKU: Gratis, Básico o Estándar; este último está disponible en varias configuraciones de recursos y niveles de capacidad.'
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.custom: seodec2018
+ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785314"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315561"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 

@@ -1,13 +1,12 @@
 ---
-title: Consumo de un servicio web de Machine Learning con una plantilla de aplicación web - Azure Machine Learning Studio | Microsoft Docs
+title: 'Consumo de un servicio web Studio con una plantilla de aplicación web: Azure Machine Learning Studio | Microsoft Docs'
 description: Use una plantilla de aplicación web en Azure Marketplace para consumir un servicio web predictivo en Azure Machine Learning.
 keywords: servicio web,operacionalización,API de REST,aprendizaje automático
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 2c0bba4a442b73b82ebc271c3516f65954d6d8a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a6da1af937338637cd875abe4e9d539b2e2b6e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311575"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273891"
 ---
-# <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Consumo de un servicio web Azure Machine Learning con una plantilla de aplicación web
+# <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>Consumo de un servicio web Azure Machine Learning Studio con una plantilla de aplicación web
 
 También puede desarrollar un modelo predictivo e implementarlo como un servicio web de Azure mediante el uso de:
 - Azure Machine Learning Studio.
@@ -36,7 +35,7 @@ Hay varias maneras de usar la API de REST y tener acceso al servicio web. Por ej
 
 Pero la manera más rápida y fácil de acceder al servicio web es a través de las plantillas de aplicación web disponibles en [Azure Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="azure-machine-learning-web-app-templates"></a>Plantillas de aplicación web de Azure Machine Learning
 Las plantillas de aplicación web disponibles en Azure Marketplace pueden crear una aplicación web personalizada que conoce los datos de entrada del servicio web y los resultados esperados. Todo lo que necesita hacer es conceder el acceso de la aplicación web al servicio web y los datos, y la plantilla se encarga del resto.

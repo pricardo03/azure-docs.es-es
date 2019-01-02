@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635176"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413275"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
@@ -96,7 +96,23 @@ Las siguientes secciones de este artículo explican cada propiedad de nivel supe
 
 Esta configuración es un elemento secundario de [logging](#logging).
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+Controla la [característica de muestreo de Application Insights](./functions-monitoring.md#configure-sampling).
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|---------|---------|---------| 
+|isEnabled|true|Habilita o deshabilita el muestreo.| 
+|maxTelemetryItemsPerSecond|5|Umbral donde comienza el muestreo.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -185,7 +201,28 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qué nivel de registro de archivos está habilitado.  Las opciones son `never`, `always`, `debugOnly`. |
 |logLevel|N/D|Objeto que define el filtrado por categoría de registro para las funciones de la aplicación. En la versión 2.x se sigue el diseño de filtrado por categoría de registro de ASP.NET Core. Esto permite el filtrado del registro de funciones específicas. Para más información, consulte [Filtrado del registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) en la documentación de ASP.NET Core. |
+|console|N/D| Configuración del registro de [consola](#console). |
 |applicationInsights|N/D| Configuración de [applicationInsights](#applicationinsights). |
+
+## <a name="console"></a>console
+
+Esta configuración es un elemento secundario de [logging](#logging). Controla el registro de la consola cuando no está en modo de depuración.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": "false"
+        },
+    ...
+    }
+}
+```
+
+|Propiedad  |Valor predeterminado | DESCRIPCIÓN |
+|---------|---------|---------| 
+|isEnabled|false|Habilita o deshabilita el registro de la consola.| 
 
 ## <a name="queues"></a>queues
 

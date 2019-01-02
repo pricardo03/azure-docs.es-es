@@ -10,17 +10,15 @@ ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: ''
-ms.openlocfilehash: 72c7febe48c89041aad3c2e127eeb4e2d33d5eca
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430560"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192777"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solución de Azure Key Vault Analytics en Log Analytics
 
@@ -140,7 +138,7 @@ Para usar la solución actualizada:
 3. Actualice cualquier consulta guardada, panel o alerta para usar el nuevo tipo de datos.
   + El tipo se cambia de KeyVaults a AzureDiagnostics. Puede usar ResourceType para filtrar registros de Key Vault.
   - En lugar de `KeyVaults`, use `AzureDiagnostics | where ResourceType'=="VAULTS"`.
-  + Campos: (Los nombres de campo distinguen entre mayúsculas y minúsculas).
+  + Campos: (los nombres de campo distinguen entre mayúsculas y minúsculas)
   - Para todos los campos que tengan un sufijo \_s, \_d o \_g en el nombre, cambie el primer carácter a minúsculas.
   - Para todos los campos que tengan un sufijo \_o en el nombre, los datos se dividen en campos individuales según los nombres de campo anidados. Por ejemplo, el UPN del llamador se almacena en un campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`.
    - El campo CallerIpAddress cambió a CallerIPAddress.
@@ -153,4 +151,4 @@ Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use [Búsquedas de registros en Log Analytics](../../log-analytics/log-analytics-queries.md) para ver datos detallados sobre los datos de Azure Key Vault.
+* Use [Búsquedas de registros en Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados sobre los datos de Azure Key Vault.

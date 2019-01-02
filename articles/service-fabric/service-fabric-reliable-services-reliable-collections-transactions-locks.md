@@ -3,7 +3,7 @@ title: Transacciones y modos de bloqueo en Reliable Collections de Azure Service
 description: Transacciones y registros de Reliable State Manager y Reliable Collections de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: mcoskun
-ms.openlocfilehash: 79be861a70abb0331d971b00e753691e77642637
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: a7e2bfba736e3b6cee738d5a2b5283f51f60d7c5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207373"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185406"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transacciones y modos de bloqueo en Reliable Collections de Azure Service Fabric
 
@@ -35,8 +35,8 @@ Una transacción debe presentar las siguientes propiedades ACID. (vea: https://t
 Un nivel de aislamiento define el grado en el que debe aislarse la transacción de las modificaciones que realicen otras transacciones.
 Hay dos niveles de aislamiento que se admiten en Colecciones confiables:
 
-* **Repeatable Read**: especifica que las instrucciones no puedan leer datos que se han modificado, pero que aún no han confirmado otras transacciones, y que ninguna otra transacción puede modificar los datos leídos por la transacción actual hasta que esta finalice. Para obtener información, vea [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-* **Instantánea**: especifica que los datos que ha leído cualquier instrucción de una transacción sea la versión coherente, desde el punto de vista transaccional, de los datos existentes al comienzo de la transacción.
+* **Lectura repetible**: especifica que las instrucciones no puedan leer datos que se hayan modificado, pero que otras transacciones aún no han confirmado y que ninguna otra puede modificar los datos leídos por la actual hasta que esta finalice. Para obtener información, vea [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Instantánea**: especifica que los datos que ha leído cualquier instrucción de una transacción sean la versión coherente, desde el punto de vista transaccional, de los datos existentes al comienzo de la transacción.
   La transacción solo puede reconocer las modificaciones de datos que se confirmaron antes del inicio de la transacción.
   Las modificaciones de datos realizadas por otras transacciones después del inicio de la transacción actual no son visibles para las instrucciones que se ejecutan en la transacción actual.
   El efecto es como si las instrucciones de una transacción obtienen una instantánea de los datos confirmados tal como se encontraban al inicio de la transacción.

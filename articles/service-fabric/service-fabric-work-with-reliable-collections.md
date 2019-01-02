@@ -3,7 +3,7 @@ title: Trabajo con Reliable Collections | Microsoft Docs
 description: Aprenda los procedimientos recomendados para trabajar con Reliable Collections.
 services: service-fabric
 documentationcenter: .net
-author: rajak
+author: tylermsft
 manager: timlt
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
-ms.author: rajak
-ms.openlocfilehash: 2568e116fdb3f80976d49787877d2ecf68f128ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: 86e1370bb5241dbe14b34cebe2f2ee6d71a0a323
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210824"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193542"
 ---
 # <a name="working-with-reliable-collections"></a>Trabajo con Reliable Collections
 Service Fabric ofrece un modelo de programación con estado a los desarrolladores de .NET a través de Reliable Collections. En concreto, Service Fabric proporciona un diccionario confiable y clases de cola confiables. Al utilizar estas clases, se crean particiones en el estado (para escalabilidad) y este se replica (para disponibilidad) y se tramita dentro de una partición (para semántica ACID). Veamos un uso típico de un objeto de diccionario confiable y vea lo que está haciendo realmente.
@@ -198,7 +198,7 @@ public struct ItemId {
 ```
 
 ## <a name="schema-versioning-upgrades"></a>Control de versiones de esquema (actualizaciones)
-Internamente, Reliable Collections serializa los objetos mediante DataContractSerializer de NET. Los objetos serializados se conservan en el disco local de la réplica principal y también se transmiten a las réplicas secundarias. A medida que se desarrolle el servicio, es probable que desee cambiar el tipo de datos (esquema) que el servicio requiere. Debe abordar el control de versiones de los datos con mucho cuidado. En primer lugar y ante todo, siempre debe ser capaz de deserializar los datos antiguos. En concreto, esto significa que el código de deserialización debe ser compatible con versiones anteriores de forma ilimitada: la versión 333 del código de servicio debe ser capaz de funcionar en los datos colocados en una colección confiable por la versión 1 del código de servicio de hace 5 años.
+Internamente, Reliable Collections serializa los objetos mediante DataContractSerializer de NET. Los objetos serializados se conservan en el disco local de la réplica principal y también se transmiten a las réplicas secundarias. A medida que se desarrolle el servicio, es probable que desee cambiar el tipo de datos (esquema) que el servicio requiere. Debe abordar el control de versiones de los datos con mucho cuidado. En primer lugar y ante todo, siempre debe ser capaz de deserializar los datos antiguos. En concreto, esto significa que el código de deserialización debe ser compatible con todas las versiones anteriores: la versión 333 del código de servicio debe ser capaz de funcionar en los datos colocados en una colección de confianza por la versión 1 del código de servicio de hace 5 años.
 
 Además, el código de servicio se actualiza con un dominio de actualización en cada momento. Por lo tanto, durante una actualización, tiene dos versiones diferentes del código de servicio ejecutándose simultáneamente. Debe evitar que la nueva versión del código de servicio utilice el nuevo esquema, ya que las versiones anteriores de dicho código podrían no ser capaces de controlar el nuevo esquema. Cuando sea posible, debería diseñar cada versión del servicio para que sea compatible con versiones posteriores mediante la versión 1. En concreto, esto significa que la versión 1 (V1) del código de servicio simplemente debe ser capaz de omitir cualquier elemento de esquema que no controla explícitamente. Sin embargo, debe ser capaz de guardar todos los datos que no conoce explícitamente y simplemente reescribirlos al actualizar un valor o una clave de diccionario.
 
@@ -207,7 +207,7 @@ Además, el código de servicio se actualiza con un dominio de actualización en
 >
 >
 
-Como alternativa, puede realizar lo que se conoce normalmente como una actualización de 2 fases. Con una actualización de 2 fases, usted actualiza el servicio de V1 a V2: V2 contiene el código que sabe cómo tratar con el nuevo cambio de esquema, pero este código no se ejecuta. Cuando el código de V2 lee datos de V1, opera en ellos y escribe datos de V1. Luego, después de que la actualización se complete en todos los dominios de actualización, puede indicar de algún modo a las instancias de V2 en ejecución que la actualización se ha completado. (Una forma de indicar esto es lanzar una actualización de la configuración; esta característica es la que convierte a esto en una actualización de 2 fases). Ahora, las instancias de V2 pueden leer datos de V1, convertirlos en datos de V2, operar en ellos y escribirlos como datos de V2. Cuando otras instancias lean datos de V2, no necesitarán convertirlos; simplemente operarán en ellos y escribirán datos de V2.
+Como alternativa, puede realizar lo que se conoce normalmente como una actualización de 2 fases. Con una actualización de dos fases, se actualiza el servicio de V1 a V2: V2 contiene el código que sabe cómo tratar el nuevo cambio de esquema, pero este código no se ejecuta. Cuando el código de V2 lee datos de V1, opera en ellos y escribe datos de V1. Luego, después de que la actualización se complete en todos los dominios de actualización, puede indicar de algún modo a las instancias de V2 en ejecución que la actualización se ha completado. (Una forma de indicar esto es lanzar una actualización de la configuración; esta característica es la que convierte a esto en una actualización de 2 fases). Ahora, las instancias de V2 pueden leer datos de V1, convertirlos en datos de V2, operar en ellos y escribirlos como datos de V2. Cuando otras instancias lean datos de V2, no necesitarán convertirlos; simplemente operarán en ellos y escribirán datos de V2.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la creación de contratos de datos compatibles con versiones posteriores, vea [Contratos de datos compatibles con versiones posteriores](https://msdn.microsoft.com/library/ms731083.aspx).

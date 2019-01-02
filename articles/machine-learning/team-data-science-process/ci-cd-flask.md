@@ -1,6 +1,6 @@
 ---
-title: 'DevOps para aplicaciones de inteligencia artificial (IA): creación de canalización de integración continua en Azure mediante una aplicación de Docker, Kubernetes y Python Flask'
-description: 'DevOps para aplicaciones de inteligencia artificial (IA): creación de canalización de integración continua en Azure mediante Docker y Kubernetes'
+title: 'Creación de una canalización de integración continua en Azure: Team Data Science Process'
+description: 'DevOps para aplicaciones de inteligencia artificial (IA): Creación de una canalización de integración continua en Azure con Docker y Kubernetes'
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: (previous author=jainr, ms.author=jainr)
-ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
+ms.openlocfilehash: a3c570d3d22742afcbba86f35a9dd1f6a85c0b8f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496739"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134291"
 ---
-# <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps para aplicaciones de inteligencia artificial (IA): creación de canalización de integración continua en Azure mediante Docker y Kubernetes
+# <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Creación de una canalización de integración continua en Azure mediante Docker, Kubernetes y una aplicación de Python Flask
 Para una aplicación de IA, suele haber dos flujos de trabajo: los científicos de datos, que crean modelos de aprendizaje automático, y los desarrolladores de aplicaciones, que crean la aplicación y la exponen a los usuarios finales para que la consuman. En este artículo, se muestra cómo implementar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de IA. Una aplicación de IA es una combinación de código de aplicación insertado con un modelo de aprendizaje automático (ML) previamente entrenado. Para este artículo, obtenemos un modelo previamente entrenado de una cuenta de almacenamiento de blobs de Azure privada; también podría ser una cuenta de AWS S3. Usaremos una aplicación web sencilla de Python Flask para el artículo.
 
 > [!NOTE]

@@ -1,13 +1,12 @@
 ---
 title: Copia de otros ejemplos de ciencia de datos en Azure Machine Learning Studio | Microsoft Docs
-description: 'El secreto comercial de la ciencia de datos: consiga que otras personas hagan el trabajo por usted. Obtenga ejemplos de Machine Learning en Azure AI Gallery.'
+description: 'Secreto comercial de ciencia de datos: Consiga que otras personas hagan el trabajo por usted. Obtenga ejemplos de Machine Learning en Azure AI Gallery.'
 keywords: ejemplos de ciencia de datos,ejemplo de aprendizaje automático, algoritmo de agrupación en clústeres, ejemplo de algoritmo de agrupación en clústeres
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: e573a0394fa47cd6325fe582366242644232cf3d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313782"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260385"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copia del trabajo de otras personas para realizar ciencia de datos
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciencia de datos para principiantes
@@ -46,9 +45,9 @@ Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de
 * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 minutos y 56 segundos)*
 * Vídeo 3: [Realización de preguntas que pueden responderse con datos](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 minutos y 17 segundos)*
 * Vídeo 4: [Predicción de respuestas con un modelo sencillo](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 minutos y 42 segundos)*
-* Vídeo 5: Copia del trabajo de otras personas para realizar ciencia de datos.
+* Vídeo 5: Copia del trabajo de otras personas para realizar ciencia de datos
 
-## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transcript: Copia del trabajo de otras personas para realizar ciencia de datos
+## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transcripción: Copia del trabajo de otras personas para realizar ciencia de datos
 Este es el quinto vídeo de la serie "Ciencia de datos para principiantes".
 
 En este caso, descubrirá un lugar donde puede buscar ejemplos que puede usar como punto de partida para su propio trabajo. Aprovechará al máximo este vídeo si ve primero los vídeos anteriores de esta serie.

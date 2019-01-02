@@ -8,18 +8,17 @@ manager: abhemraj
 editor: ''
 ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447153"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255098"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Solución de problemas y errores cuando una máquina virtual se conmuta por error en Azure
 
@@ -29,7 +28,7 @@ Es posible que aparezca uno de los errores siguientes mientras se realiza la con
 
 Site Recovery no pudo crear una máquina virtual conmutada por error en Azure. Esto podría deberse a uno de los siguientes motivos:
 
-* No hay una cuota suficiente disponible para crear la máquina virtual: para comprobar la cuota disponible, vaya a Suscripción -> Uso y cuotas. Puede abrir una [solicitud de soporte técnico nueva](http://aka.ms/getazuresupport) para aumentar la cuota.
+* No hay cuota suficiente disponible para crear la máquina virtual: Para comprobar la cuota disponible, vaya a Suscripción ->Uso y cuotas. Puede abrir una [solicitud de soporte técnico nueva](http://aka.ms/getazuresupport) para aumentar la cuota.
 
 * Se intenta conmutar por error máquinas virtuales de familias de distinto tamaño en el mismo conjunto de disponibilidad. Asegúrese de elegir una familia del mismo tamaño para todas las máquinas virtuales del mismo conjunto de disponibilidad. Cambie el tamaño en la configuración de Proceso y red de la máquina virtual y reintente la conmutación por error.
 
@@ -114,9 +113,6 @@ Si el botón **Conectar** de la máquina virtual conmutada por error de Azure es
 Al arrancar una máquina tras la conmutación por error, si recibe un mensaje de cierre inesperado sobre la máquina virtual recuperada, esto indica que el estado de cierre no se capturó en el punto de recuperación usado para la conmutación por error. Esto ocurre al recuperarse hasta un punto en el que la máquina virtual no se había cerrado completamente.
 
 Esto no suele ser motivo de preocupación y normalmente puede omitirse en las conmutaciones por error no planeadas. En el caso de una conmutación por error planeada, asegúrese de que la máquina virtual se cierra correctamente antes de la conmutación por error y proporcione tiempo suficiente para que los datos de replicación pendientes locales se envíen a Azure. A continuación, use la opción **Más reciente** de la [pantalla Conmutación por error](site-recovery-failover.md#run-a-failover) para que los datos pendientes de Azure se procesen en un punto de recuperación, el cual se utiliza para la conmutación por error de la máquina virtual.
-
-## <a name="retaining-drive-letter-after-failover"></a>Conservación de la letra de unidad después de la conmutación por error
-Para conservar la letra de unidad en las máquinas virtuales después de la conmutación por error, puede establecer la **Directiva SAN** de la máquina virtual local en **OnlineAll**. [Más información](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Solucionar problemas de [conexión RDP con una máquina virtual Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)

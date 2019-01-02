@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238633"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864985"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Consideraciones de planeación de la implementación de Azure Stack
 Antes de implementar el Kit de desarrollo de Azure Stack (ASDK), asegúrese de que el equipo host del kit de desarrollo cumple los requisitos que se describen en este artículo.
@@ -29,17 +29,17 @@ Antes de implementar el Kit de desarrollo de Azure Stack (ASDK), asegúrese de q
 ## <a name="hardware"></a>Hardware
 | Componente | Mínima | Recomendado |
 | --- | --- | --- |
-| Unidades de disco: sistema operativo |Un disco del sistema operativo con un mínimo de 200 GB disponibles para la partición del sistema (SSD o HDD) |Un disco del sistema operativo con un mínimo de 200 GB disponibles para la partición del sistema (SSD o HDD) |
+| Unidades de disco: Sistema operativo |Un disco del sistema operativo con un mínimo de 200 GB disponibles para la partición del sistema (SSD o HDD) |Un disco del sistema operativo con un mínimo de 200 GB disponibles para la partición del sistema (SSD o HDD) |
 | Unidades de disco: datos generales del kit de desarrollo<sup>*</sup>  |Cuatro discos. Cada disco proporciona un mínimo de 140 GB de capacidad (SSD o HDD). Se utilizan todos los discos disponibles. |Cuatro discos. Cada disco proporciona un mínimo de 250 GB de capacidad (SSD o HDD). Se utilizan todos los discos disponibles. |
-| Proceso: CPU |Socket dual: 12 núcleos físicos (total) |Socket dual: 16 núcleos físicos (total) |
-| Proceso: memoria |96 GB de RAM |128 GB de RAM (Este es el mínimo para admitir proveedores de recursos de PaaS.)|
+| Proceso: CPU |Socket dual: 12 núcleos físicos (total) |Socket dual: 16 núcleos físicos (total) |
+| Proceso: Memoria |96 GB de RAM |128 GB de RAM (Este es el mínimo para admitir proveedores de recursos de PaaS.)|
 | Proceso: BIOS |Hyper-V habilitado (con compatibilidad para SLAT) |Hyper-V habilitado (con compatibilidad para SLAT) |
 | Red: NIC |Certificación de Windows Server 2012 R2 necesaria para NIC; no se necesitan características especializadas |Certificación de Windows Server 2012 R2 necesaria para NIC; no se necesitan características especializadas |
 | Certificación del logotipo de hardware |[Certificado para Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certificado para Windows Server 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup>Si tiene previsto agregar muchos de los [elementos de Marketplace](asdk-marketplace-item.md) desde Azure, necesitará más capacidad de la que se recomienda.
 
-**Configuración de unidad de disco de datos:** todas las unidades de datos deben ser del mismo tipo (todas SAS, SATA o NVMe) y capacidad. Si se usan unidades de disco SAS, las unidades de disco debe estar conectadas a través de una ruta de acceso única (no se proporciona compatibilidad con MPIO ni con rutas de acceso múltiples).
+**Configuración de la unidad de disco de datos:** todas las unidades de datos deben ser del mismo tipo (SAS, SATA o NVMe) y tener la misma capacidad. Si se usan unidades de disco SAS, las unidades de disco debe estar conectadas a través de una ruta de acceso única (no se proporciona compatibilidad con MPIO ni con rutas de acceso múltiples).
 
 **Opciones de configuración HBA**
 
@@ -121,7 +121,7 @@ Se admite solo IPv4. No se pueden crear redes IPv6.
 Asegúrese de que hay un servidor DHCP disponible en la red al que se conecta la tarjeta NIC. Si DHCP no está disponible, debe preparar una red IPv4 estática adicional además de la usada por el host. Debe proporcionar esa dirección IP y la puerta de enlace como parámetro de implementación.
 
 ### <a name="internet-access"></a>Acceso a Internet
-Azure Stack necesita acceso a Internet, ya sea directamente o a través de un proxy transparente. Azure Stack no admite la configuración de un proxy web para habilitar el acceso a Internet. Tanto la dirección IP del host como la nueva dirección IP asignada a MAS-BGPNAT01 (por DHCP o dirección IP estática) deben poder acceder a Internet. Se usan los puertos 80 y 443 en los dominios graph.windows.net y login.microsoftonline.com.
+Azure Stack necesita acceso a Internet, ya sea directamente o a través de un proxy transparente. Azure Stack no admite la configuración de un proxy web para habilitar el acceso a Internet. Tanto la dirección IP del host como la nueva dirección IP asignada a AzS-BGPNAT01 (por DHCP o la dirección IP estática) deben poder acceder a Internet. Se usan los puertos 80 y 443 en los dominios graph.windows.net y login.microsoftonline.com.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
