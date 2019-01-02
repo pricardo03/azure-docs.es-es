@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422803"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255081"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparación para copias de seguridad de máquinas virtuales de Azure
 
@@ -39,7 +39,7 @@ Si estas condiciones ya existen en su entorno, vaya al artículo [Copia de segur
     > [!NOTE]
     > Otras distribuciones del tipo "traiga su propio Linux" podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python. Sin embargo, estas distribuciones no se admiten.
     >
- * **Windows Server**, **cliente de Windows**: no se admiten las versiones anteriores a Windows Server 2008 R2 o Windows 7.
+ * **Windows Server**, **cliente Windows**:  no se admiten las versiones anteriores a Windows Server 2008 R2 o Windows 7.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitaciones al realizar copias de seguridad y restaurar una máquina virtual
@@ -177,14 +177,14 @@ Para que la extensión de Backup funcione, el [agente de máquina virtual](../vi
 
 La siguiente información se proporciona para aquellas situaciones en las que *no* se usa una máquina virtual creada en Microsoft Azure Marketplace. **Por ejemplo, ha migrado una máquina virtual desde un centro de datos local. En ese caso, debe instalarse el agente de máquina virtual con el fin de proteger la máquina virtual.**
 
-**Nota**: después de instalar el agente de máquina virtual, también debe usar Azure PowerShell para actualizar la propiedad ProvisionGuestAgent para que Azure sepa que la máquina virtual tiene instalado el agente.
+**Nota**: Después de instalar el agente de máquina virtual, también debe usar Azure PowerShell para actualizar la propiedad ProvisionGuestAgent para que Azure sepa que la máquina virtual tiene instalado el agente.
 
 Si tiene problemas para realizar una copia de seguridad de la máquina virtual de Azure, use la siguiente tabla para comprobar que el agente de máquina virtual de Azure está instalado correctamente en la máquina virtual. La tabla proporciona información adicional acerca del agente de máquina virtual para las máquinas virtuales Windows y Linux.
 
 | **operación** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalación del agente de la máquina virtual |Descargue e instale el [MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necesitará privilegios de administrador para efectuar la instalación. |<li> Instale el [agente de Linux](../virtual-machines/extensions/agent-linux.md) más reciente. Necesitará privilegios de administrador para efectuar la instalación. Se recomienda instalar el agente desde el repositorio de distribución. **No se recomienda** instalar el agente de máquina virtual Linux directamente desde github.  |
-| Actualización del agente de la máquina virtual |Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |Siga las instrucciones para [actualizar el agente de máquina virtual Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se recomienda actualizar el agente desde el repositorio de distribución. **No se recomienda** actualizar el agente de máquina virtual Linux directamente desde github.<br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
+| Instalación del agente de la máquina virtual |Descargue e instale el [MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necesitará privilegios de administrador para efectuar la instalación. |<li> Instale el [agente de Linux](../virtual-machines/extensions/agent-linux.md) más reciente. Necesitará privilegios de administrador para efectuar la instalación. Se recomienda instalar el agente desde el repositorio de distribución. **No se recomienda** instalar el agente de máquina virtual Linux directamente desde GitHub.  |
+| Actualización del agente de la máquina virtual |Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |Siga las instrucciones para [actualizar el agente de máquina virtual Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se recomienda actualizar el agente desde el repositorio de distribución. **No se recomienda** actualizar el agente de máquina virtual Linux directamente desde GitHub.<br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
 | Validación de la instalación del agente de máquina virtual |<li>Acceda a la carpeta *C:\WindowsAzure\Packages* de la máquina virtual de Azure. <li>El archivo WaAppAgent.exe debe estar ahí.<li> Haga clic con el botón derecho en el archivo, desplácese hasta **Propiedades** y seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior. |N/D |
 
 ### <a name="backup-extension"></a>Extensión de Backup
@@ -283,7 +283,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Paso 2: Permiso para las conexiones entrantes en el servidor proxy
+#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Paso 2: Aceptación de conexiones entrantes en el servidor proxy
 1. En el servidor proxy, abra Firewall de Windows. La forma más fácil de acceder al firewall es buscar **Firewall de Windows con seguridad avanzada**.
 1. En el cuadro de diálogo **Firewall de Windows con seguridad avanzada**, haga clic en **Reglas de entrada** y seleccione **Nueva regla**.
 1. En el Asistente para nueva regla de entrada, en la página **Tipo de regla**, seleccione la **Personalizada** y, después, **Siguiente**.
@@ -295,7 +295,7 @@ HttpProxy.Port=<proxy port>
 
 En cuanto al resto del asistente, acepte la configuración predeterminada hasta llegar al final. Asigne un nombre a esta regla.
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Paso 3: Incorporación de una regla de excepción al grupo de seguridad de red
+#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Paso 3: Adición de una regla de excepción al grupo de seguridad de red
 El siguiente comando agrega una excepción al NSG. Esta excepción permite el tráfico TCP de cualquier puerto en la dirección IP 10.0.0.5 a cualquier dirección de Internet en los puertos 80 (HTTP) o 443 (HTTPS). Si necesita un puerto específico en la red pública de Internet, asegúrese de agregarlo a ```-DestinationPortRange```.
 
 En un símbolo del sistema de Azure PowerShell, escriba el siguiente comando:

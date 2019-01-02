@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb81f62bcea43c3c30abff6b5f76e3a89347813
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8b6edcb70bca480ebe0d53c061c6461745f189e8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985403"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321296"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
@@ -27,7 +27,7 @@ Los correos electrónicos de invitación son un componente fundamental para inco
 Se van a tratar algunos elementos del correo electrónico para saber cómo hacer el mejor uso de estas funcionalidades.
 
 ### <a name="subject"></a>Asunto
-El asunto del correo electrónico sigue este patrón: Está invitado a la organización de &lt;nombreinquilino&gt;.
+El asunto del correo electrónico sigue este patrón: está invitado a la organización de &lt;nombreInquilino&gt;.
 
 ### <a name="from-address"></a>Dirección De
 Se usa un patrón similar a LinkedIn para la dirección De.  Es necesario tener claro quién es el invitador y a qué empresa pertenece y también aclarar que el correo electrónico procede de una dirección de correo electrónico de Microsoft. El formato es: &lt;Nombre para mostrar del invitador&gt; de &lt;nombreinquilino&gt; (a través de Microsoft) <invites@microsoft.com>.
@@ -40,7 +40,7 @@ Los correos electrónicos de invitación del inquilino usan la personalización 
 
 ### <a name="call-to-action"></a>Llamada a la acción
 La llamada a la acción consta de dos partes: explicar por qué el destinatario ha recibido el correo electrónico y qué se pide al destinatario que haga al respecto.
-- La sección “por qué” puede seguir este patrón: Se le ha invitado a acceder a aplicaciones en la organización de &lt;nombreinquilino&gt;.
+- La sección “por qué” puede seguir este patrón: Se le ha invitado a acceder a aplicaciones en la organización de &lt;nombreInquilino&gt;.
 
 - Y la sección “qué se le pide que haga” está indicada por la presencia del botón **Introducción**. Cuando el destinatario se agrega sin necesidad de invitaciones, este botón no se muestra.
 
@@ -52,7 +52,7 @@ Si aún no ha configurado la imagen del perfil, se muestra un icono con las inic
   ![mostrar las iniciales del invitador](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Cuerpo
-Contiene el mensaje que el invitador escribe o se transmite a través de la API de invitación. Al ser un área de texto, por motivos de seguridad no se procesan las etiquetas HTML.
+El cuerpo contiene el mensaje que el invitador redacta al [invitar a un usuario invitado al directorio, grupo o aplicación](add-users-administrator.md) o al [usar la API de invitación](customize-invitation-api.md). Al ser un área de texto, por motivos de seguridad no se procesan las etiquetas HTML.
 
 ### <a name="footer-section"></a>Sección de pie de página
 El pie de página contiene la marca de empresa de Microsoft y permite que el destinatario sepa si el correo electrónico se envía desde un alias no supervisado. Casos especiales:

@@ -1,6 +1,6 @@
 ---
-title: Indexación de Azure Table Storage con Azure Search | Microsoft Docs
-description: Aprenda a indexar datos almacenados en tablas de Azure Table Storage con Azure Search
+title: 'Indexación de contenido desde Azure Table Storage para la búsqueda de texto completo: Azure Search'
+description: Aprenda a indexar datos almacenados en tablas de Azure Table Storage con Azure Search.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 738518f94869a55cf80db1c87b8c74b167f5cce1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406932"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317277"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexación de Azure Table Storage con Azure Search
 En este artículo se muestra cómo usar Azure Search para indexar datos almacenados en Azure Table Storage.
@@ -29,7 +30,7 @@ Puede configurar un indexador de Azure Table Storage mediante estos recursos:
 
 En este caso, demostramos el flujo mediante la API de REST. 
 
-### <a name="step-1-create-a-datasource"></a>Paso 1: Creación de un origen de datos
+### <a name="step-1-create-a-datasource"></a>Paso 1: Crear un origen de datos
 
 Un origen de datos especifica los datos que se indexan, las credenciales necesarias para acceder a ellos y las directivas que permiten que Azure Search identifique cambios en los datos de forma eficiente.
 
@@ -66,9 +67,9 @@ Para más información sobre la API de creación de origen de datos, consulte [C
 
 Puede proporcionar las credenciales para la tabla de una de estas maneras: 
 
-- **Cadena de conexión de la cuenta de almacenamiento con acceso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` para obtener la cadena de conexión de Azure Portal, vaya a la **hoja Cuenta de almacenamiento** > **Configuración** > **Claves** (para las cuentas de almacenamiento del modelo clásico) o **Configuración** > **Claves de acceso** (para las cuentas de almacenamiento de Azure Resource Manager).
-- **Cadena de conexión de firma de acceso compartido de cuenta de almacenamiento**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` la firma de acceso compartido debería tener los permisos de lectura y de lista en contenedores (tablas, en este caso) y objetos (filas de tabla).
--  **Firma de acceso compartido de tabla**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` la firma de acceso compartido debería tener permisos de consulta (lectura) en la tabla.
+- **Cadena de conexión de la cuenta de almacenamiento de acceso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Para obtener la cadena de conexión de Azure Portal, vaya a la **hoja de la cuenta de almacenamiento** > **Configuración** > **Claves** (para las cuentas de almacenamiento del modelo clásico) o **Configuración** > **Claves de acceso** (para las cuentas de almacenamiento de Azure Resource Manager).
+- **Cadena de conexión de la firma de acceso compartido de la cuenta de almacenamiento**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` La firma de acceso compartido debe tener permisos de enumeración y lectura sobre los contenedores (en este caso, tablas) y objetos (filas de tabla).
+-  **Firma de acceso compartido de tabla**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` La firma de acceso compartido debería tener permisos de consulta (lectura) en la tabla.
 
 Para más información sobre las firmas de acceso compartido de almacenamiento, consulte [Uso de firmas de acceso compartido (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

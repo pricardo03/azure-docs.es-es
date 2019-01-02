@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b565252c78bfe2194530d840651a57df2686728
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: a7b657d11e829d636063639e26a90d671a5d1473
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633180"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438360"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Ejecución de trabajos de Apache Sqoop con Hadoop en HDInsight con Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -26,17 +26,19 @@ Curl sirve para demostrar cómo se puede interactuar con HDInsight usando solici
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
-* Complete la opción [Usar Sqoop con Hadoop en HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) para configurar un entorno con un clúster de HDInsight y una base de datos de Azure SQL.
-* [Curl](http://curl.haxx.se/). Curl es una herramienta que se usa para transferir datos desde o hacia un clúster de HDInsight.
-* [jq](http://stedolan.github.io/jq/). La utilidad jq se usa para procesar los datos JSON que devuelven las solicitudes de REST.
 
-## <a name="submit-sqoop-jobs-by-using-curl"></a>Envío de trabajos de Sqoop mediante Curl
-> [!NOTE]
+* Complete la opción [Usar Apache Sqoop con Hadoop en HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) para configurar un entorno con un clúster de HDInsight y una base de datos de Azure SQL.
+* [Curl](https://curl.haxx.se/). Curl es una herramienta que se usa para transferir datos desde o hacia un clúster de HDInsight.
+* [jq](https://stedolan.github.io/jq/). La utilidad jq se usa para procesar los datos JSON que devuelven las solicitudes de REST.
+
+
+## <a name="submit-apache-sqoop-jobs-by-using-curl"></a>Envío de trabajos de Apache Sqoop mediante Curl
+> [!NOTE]  
 > Al usar Curl o cualquier otra comunicación REST con WebHCat, debe proporcionar el nombre de usuario y la contraseña del administrador del clúster de HDInsight para autenticar las solicitudes. También debe usar el nombre del clúster como parte del identificador uniforme de recursos (URI) que se usa para enviar las solicitudes al servidor.
 > 
 > En el caso de los comandos que aparecen en esta sección, reemplace **USERNAME** por el usuario para autenticación en el clúster y **PASSWORD** por la contraseña de la cuenta de usuario. Reemplace **CLUSTERNAME** por el nombre del clúster.
 > 
-> La API de REST se protege con la [autenticación básica](http://en.wikipedia.org/wiki/Basic_access_authentication). Siempre debe crear solicitudes usando HTTP segura (HTTPS) para así garantizar que las credenciales se envían de manera segura al servidor.
+> La API de REST se protege con la [autenticación básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Siempre debe crear solicitudes usando HTTP segura (HTTPS) para así garantizar que las credenciales se envían de manera segura al servidor.
 > 
 > 
 
@@ -88,10 +90,9 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
     Si se completó el trabajo, el estado será **SUCCEEDED**.
    
-   > [!NOTE]
+   > [!NOTE]  
    > Esta solicitud de Curl devuelve un documento de notación de objetos JavaScript (JSON) con información acerca del trabajo; jq se usa para recuperar solo el valor de estado.
-   > 
-   > 
+
 4. Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde Azure Blob Storage. El parámetro `statusdir` transmitido con la consulta contiene la ubicación del archivo de salida; en este caso, **wasb:///example/data/sqoop/curl**. Esta dirección almacena la salida del trabajo en el directorio **example/data/sqoop/curl** que se encuentra en el contenedor de almacenamiento predeterminado que su clúster de HDInsight usa.
    
     Puede usar Azure Portal para tener acceso a los blobs "stderr" y "stdout".  Asimismo, también puede usar Microsoft SQL Server Management Studio para comprobar los datos que se cargan en la tabla denominada "log4jlogs".
@@ -103,25 +104,25 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 ## <a name="summary"></a>Resumen
 Tal como se ha mostrado en este documento, puede usar una solicitud HTTP sin procesar para ejecutar, supervisar y ver los resultados de los trabajos de Sqoop en su clúster de HDInsight.
 
-Para obtener más información sobre la interfaz REST utilizada en este artículo, consulte la referencia <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Sqoop REST API Guide</a>.
+Para más información sobre la interfaz REST utilizada en este artículo, consulte la <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">guía de Apache Sqoop REST API</a>.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea obtener información general sobre Hive con HDInsight:
 
-* [Uso de Sqoop con Hadoop en HDInsight (Windows)](hdinsight-use-sqoop.md)
+* [Uso de Apache Sqoop con Apache Hadoop en HDInsight](hdinsight-use-sqoop.md)
 
 Para obtener información sobre otras formas en que puede trabajar con Hadoop en HDInsight:
 
-* [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
-* [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
-* [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
+* [Uso de Apache Hive con Apache Hadoop en HDInsight](hdinsight-use-hive.md)
+* [Uso de Apache Pig con Apache Hadoop en HDInsight](hdinsight-use-pig.md)
+* [Uso de MapReduce con Apache Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
 Si quiere leer más artículos de HDInsight en los que se incluya Curl, consulte:
  
-* [Creación de clústeres de Hadoop mediante la API de REST de Azure](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)
-* [Ejecución de consultas de Hive con Hadoop en HDInsight con REST](apache-hadoop-use-hive-curl.md)
-* [Ejecución de trabajos de MapReduce con Hadoop en HDInsight con REST](apache-hadoop-use-mapreduce-curl.md)
-* [Ejecución de trabajos de Pig con Hadoop en HDInsight con Curl](apache-hadoop-use-pig-curl.md)
+* [Creación de clústeres de Apache Hadoop mediante la API REST de Azure](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)
+* [Ejecución de consultas de Apache Hive con Apache Hadoop en HDInsight mediante REST](apache-hadoop-use-hive-curl.md)
+* [Ejecución de trabajos de MapReduce con Apache Hadoop en HDInsight con REST](apache-hadoop-use-mapreduce-curl.md)
+* [Ejecución de trabajos de Apache Pig con Apache Hadoop en HDInsight mediante cURL](apache-hadoop-use-pig-curl.md)
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure App Service Environment
+title: 'Uso de App Service Environment: Azure'
 description: Cómo crear, publicar y escalar aplicaciones en Azure App Service Environment
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.custom: seodec18
+ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303377"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274724"
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment #
 
@@ -29,7 +30,7 @@ Azure App Service Environment es una implementación de Azure App Service en una
 - **Servidores front-end**: en ellos finaliza HTTP/HTTPS en una instancia de App Service Environment (ASE).
 - **Trabajos**: los trabajos son los recursos que hospedan las aplicaciones.
 - **Base de datos**: la base de datos contiene información que define el entorno.
-- **Almacenamiento**: el almacenamiento se usa para hospedar las aplicaciones publicadas del cliente.
+- **Almacenamiento**: El almacenamiento se usa para hospedar las aplicaciones publicadas del cliente.
 
 > [!NOTE]
 > Hay dos versiones de App Service Environment: ASEv1 y ASEv2. En ASEv1, debe administrar los recursos antes de que pueda usarlos. Para información sobre cómo configurar y administrar ASEv1, consulte [Configuración de App Service Environment v1][ConfigureASEv1]. El resto de este artículo se centra en ASEv2.
@@ -51,7 +52,7 @@ Para crear una aplicación web en ASE:
 
 1. Seleccione **Crear un recurso** > **Web y móvil** > **Aplicación web**.
 
-1. Escriba un nombre para la aplicación web. Si ya seleccionó un plan de App Service en ASE, el nombre de dominio de la aplicación refleja el nombre de dominio del entorno ASE.
+2. Escriba un nombre para la aplicación web. Si ya seleccionó un plan de App Service en ASE, el nombre de dominio de la aplicación refleja el nombre de dominio del entorno ASE.
 
     ![Selección del nombre de la aplicación web][1]
 
@@ -66,11 +67,11 @@ Para crear una aplicación web en ASE:
 
 1. Seleccione un plan de App Service existente en ASE o cree uno nuevo siguiendo estos pasos:
 
-    a. Seleccione **Crear nuevo**.
+     a. Seleccione **Crear nuevo**.
 
     b. Especifique el nombre del plan de App Service.
 
-    c. Seleccione el entorno ASE en la lista desplegable **Ubicación**. El hospedaje de una aplicación Linux en ASE solo está habilitado en 6 regiones, en este momento: **Oeste de EE. UU., Este de EE. UU., Europa Occidental, Europa del Norte, Este de Australia, Sudeste Asiático.** 
+    c. Seleccione el entorno ASE en la lista desplegable **Ubicación**. El hospedaje de una aplicación Linux en una instancia de ASE solo está habilitado en este momento en 6 regiones: **Oeste de EE. UU., Este de EE. UU., Europa Occidental, Europa del Norte, Este de Australia, Sudeste Asiático.** 
 
     d. Seleccione un plan de tarifa **Aislado**. Elija **Seleccionar**.
 
@@ -182,10 +183,10 @@ Para eliminar un entorno ASE:
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../app-service-deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

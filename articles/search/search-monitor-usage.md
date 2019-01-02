@@ -1,5 +1,5 @@
 ---
-title: Supervisión del uso y estadísticas en un servicio Azure Search | Microsoft Docs
+title: 'Supervisión del uso y estadísticas en un servicio de búsqueda: Azure Search'
 description: Realice el seguimiento del consumo de recursos y el tamaño de índice para Azure Search, un servicio de búsqueda hospedado en la nube en Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795116"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314166"
 ---
-# <a name="monitoring-an-azure-search-service"></a>Supervisión de un servicio de Azure Search
+# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Supervisión de un servicio Azure Search en Azure Portal
 
 Azure Search ofrece varios recursos para realizar el seguimiento del uso y rendimiento de los servicios de búsqueda. Proporciona acceso a métricas, registros, estadísticas de índices y funcionalidades de supervisión extendidas en Power BI. En este artículo se describe cómo habilitar las diferentes estrategias de supervisión y cómo interpretar los datos resultantes.
 
@@ -26,9 +27,9 @@ Las métricas ofrecen visibilidad casi en tiempo real de cualquier servicio de b
 
 Azure Search recopila datos de tres métricas diferentes:
 
-* Latencia de búsqueda: tiempo que ha necesitado el servicio de búsqueda para procesar las consultas de búsqueda, agregadas por minuto.
-* Consultas de búsqueda por segundo (QPS): número de consultas de búsqueda recibidas por segundo, agregadas por minuto.
-* Porcentaje de consultas de búsqueda limitadas: porcentaje de consultas de búsqueda que se han limitado, agregadas por minuto.
+* Latencia de búsqueda: tiempo que necesita el servicio para procesar las consultas de búsqueda (agregado por minuto).
+* Consultas de búsqueda por segundo (QPS): número de consultas de búsqueda recibidas por segundo (agregado por minuto).
+* Porcentaje de consultas de búsqueda limitadas: Porcentaje de consultas de búsqueda limitadas (agregado por minuto).
 
 ![Captura de pantalla de la actividad de QPS][1]
 
@@ -71,7 +72,7 @@ Puede exportar los registros de operaciones de un servicio y los datos sin proce
 ### <a name="enabling-monitoring"></a>Habilitación de la supervisión
 Abra el servicio Azure Search en [Azure Portal](http://portal.azure.com), en la opción Habilitar supervisión.
 
-Elija los datos que desea exportar: registros, métricas o ambos. Puede copiarlos en una cuenta de almacenamiento, enviarlos a un centro de eventos o exportarlo a Log Analytics.
+Elija los datos que quiere exportar: registros, métricas o ambos. Puede copiarlos en una cuenta de almacenamiento, enviarlos a un centro de eventos o exportarlo a Log Analytics.
 
 ![Habilitación de la supervisión en el portal][3]
 
@@ -95,7 +96,7 @@ Cada blob tiene registros en todas las operaciones que tuvieron lugar durante la
 | NOMBRE | Escriba | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | Twitter en tiempo |Datetime |"2015-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
-| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
 | operationName |string |"Query.Search" |El nombre de la operación |
 | operationVersion |string |"2015-02-28" |La versión de la API usada |
 | categoría |string |"OperationLogs" |constant |
@@ -105,6 +106,7 @@ Cada blob tiene registros en todas las operaciones que tuvieron lugar durante la
 | propiedades |objeto |consulte la tabla siguiente |Objeto que contiene datos específicos de la operación |
 
 **Esquema de propiedades**
+
 | NOMBRE | Escriba | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | DESCRIPCIÓN |string |"GET /indexes('content')/docs" |Punto de conexión de la operación |
@@ -113,9 +115,10 @@ Cada blob tiene registros en todas las operaciones que tuvieron lugar durante la
 | IndexName |string |"testindex" |Nombre del índice asociado a la operación |
 
 #### <a name="metrics-schema"></a>Esquema de métricas
+
 | NOMBRE | Escriba | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
 | metricName |string |"Latency" |el nombre de la métrica |
 | Twitter en tiempo |Datetime |"2015-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
 | average |int |64 |El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |

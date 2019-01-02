@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: ae93611bfe5dd11bea8bc0327868c2865b36b713
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210676"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964023"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
 
@@ -84,7 +84,7 @@ La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máq
 
 | Requisito del servidor | DESCRIPCIÓN |
 |---|---|
-|Obtención de la lista de máquinas virtuales, generación de perfiles y medición de rendimiento |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configuración del equipo: 8 vCPU, 16 GB de RAM y 300 GB de HDD</li><li>[Microsoft .NET 4.5 Framework](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La máquina virtual desde donde se ejecuta la herramienta Azure Site Recovery Deployment Planner debe agregarse a la lista TrustedHosts de todos los servidores Hyper-V.</li><li>Las máquinas virtuales de todos los servidores Hyper-V deben agregarse a la lista TrustedHosts de la máquina virtual del cliente desde donde se esté ejecutando la herramienta. [Más información sobre cómo agregar servidores a la lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> La herramienta debe ejecutarse con privilegios de administrador desde PowerShell o la consola de línea de comandos en el cliente</ul></ul>|
+|Obtención de la lista de máquinas virtuales, generación de perfiles y medición de rendimiento |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configuración de la máquina: 8 vCPUs, 16 GB de RAM y disco duro de 300 GB</li><li>[Microsoft .NET 4.5 Framework](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La máquina virtual desde donde se ejecuta la herramienta Azure Site Recovery Deployment Planner debe agregarse a la lista TrustedHosts de todos los servidores Hyper-V.</li><li>Las máquinas virtuales de todos los servidores Hyper-V deben agregarse a la lista TrustedHosts de la máquina virtual del cliente desde donde se esté ejecutando la herramienta. [Más información sobre cómo agregar servidores a la lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> La herramienta debe ejecutarse con privilegios de administrador desde PowerShell o la consola de línea de comandos en el cliente</ul></ul>|
 | Generación de informes | Un PC con Windows o Windows Server con Microsoft Excel 2013, o cualquier versión posterior |
 | Permisos de usuario | Cuenta de administrador para tener acceso al clúster o al host Hyper-V durante la obtención de una lista de máquinas virtuales y las operaciones de generación de perfiles.<br>Todos los hosts cuyo perfil debe generarse deben tener una cuenta de administrador de dominio con las mismas credenciales, es decir, el nombre de usuario y la contraseña
  |
@@ -96,7 +96,7 @@ La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máq
 
 1.  Cada host Hyper-V cuyo perfil debe realizarse debe tener:
 
-    a. La máquina virtual en la que la herramienta se va a ejecutar en su lista TrustedHosts. Ejecute el siguiente comando desde una sesión de PowerShell con privilegios elevados en el host Hyper-V.
+     a. La máquina virtual en la que la herramienta se va a ejecutar en su lista TrustedHosts. Ejecute el siguiente comando desde una sesión de PowerShell con privilegios elevados en el host Hyper-V.
 
             set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
@@ -115,9 +115,9 @@ Configuración recomendada de la máquina virtual: 8 vCPU, 16 GB de RAM, disco d
 1.  Extraiga la carpeta .zip.
 La carpeta contiene varios archivos y subcarpetas. El archivo ejecutable es ASRDeploymentPlanner.exe y está en la carpeta primaria.
 
-Ejemplo: copie el archivo .zip en la unidad E:\ y extráigalo. E:\ASR Deployment Planner_v2.2.zip
+Ejemplo: Copie el archivo .zip en la unidad E:\ y extráigalo. E:\ASR Deployment Planner_v2.3.zip
 
-E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Actualización a la versión más reciente de Deployment Planner
 Si tiene una versión anterior de la herramienta, realice una de las siguientes acciones:
@@ -132,7 +132,7 @@ Si tiene una versión anterior de la herramienta, realice una de las siguientes 
   >Cada nueva instancia de Deployment Planner es una actualización acumulativa del archivo zip. No es preciso copiar los archivos más recientes en la carpeta anterior. Se puede crear y usar una carpeta nueva.
 
 ## <a name="version-history"></a>Historial de versiones
-La versión más reciente de la herramienta ASR Deployment Planner es la 2.2.
+La versión más reciente de la herramienta ASR Deployment Planner es la 2.3.
 Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Historial de versiones de ASR Deployment Planner).
 
 

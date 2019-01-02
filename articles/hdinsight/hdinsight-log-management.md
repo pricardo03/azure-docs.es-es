@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988502"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434892"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -24,13 +24,13 @@ La administración de registros de clúster de HDInsight incluye la retención d
 
 A continuación, se indican los pasos habituales de administración de registros de HDInsight:
 
-* Paso 1: Determinar las directivas de retención de registros
-* Paso 2: Administrar los registros de configuración de las versiones del servicio de clúster
-* Paso 3: Administrar los archivos de registro de ejecución de trabajo del clúster
-* Paso 4: Pronosticar los costos y tamaños de almacenamiento del volumen de registros
-* Paso 5: Determinar las directivas y procesos del archivo de registro
+* Paso 1: Determinación de las directivas de retención de registros
+* Paso 2: Administración de los registros de configuración de las versiones del servicio de clúster
+* Paso 3: Administración de los archivos de registro de ejecución de trabajo del clúster
+* Paso 4: Previsión de los costos y tamaños de almacenamiento del volumen de registros
+* Paso 5: Determinación de las directivas y procesos del archivo de registro
 
-## <a name="step-1-determine-log-retention-policies"></a>Paso 1: Determinar las directivas de retención de registros
+## <a name="step-1-determine-log-retention-policies"></a>Paso 1: Determinación de las directivas de retención de registros
 
 El primer paso para crear una estrategia de administración de registros de clúster de HDInsight consiste en recopilar información acerca de escenarios empresariales y los requisitos de almacenamiento del historial de ejecución de trabajos.
 
@@ -51,7 +51,7 @@ Puede obtener la mayor parte de esta información de nivel superior mediante Azu
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-También puede usar PowerShell para ver esta información.  Para más información, consulte [Administración de clústeres de Hadoop en HDInsight mediante Azure PowerShell](hdinsight-administer-use-powershell.md).
+También puede usar PowerShell para ver esta información.  Para más información, consulte [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ### <a name="understand-the-workloads-running-on-your-clusters"></a>Comprender las cargas de trabajo que se ejecutan en los clústeres
 
@@ -69,9 +69,9 @@ Es importante entender los tipos de cargas de trabajo que se ejecutan en los cl�
 
 * Tenga en cuenta cómo puede recopilar registros del clúster, o de varios clústeres, e intercálelos para fines tales como la auditoría, la supervisión, el planeamiento y las alertas. Puede usar una solución personalizada para tener acceso a los archivos de registro, y descargarlos, de forma regular, y combinarlos y analizarlos para proporcionar una pantalla de panel. También puede agregar funcionalidades adicionales para las alertas de seguridad o detección de errores. Puede compilar estas utilidades mediante PowerShell, los SDK de HDInsight o el código que tiene acceso al modelo de implementación clásica de Azure.
 
-* Considere si una solución o un servicio de supervisión sería una ventaja útil. Microsoft System Center proporciona un [paquete de administración de HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). También puede usar herramientas de terceros, como Chukwa y Ganglia, para recopilar y centralizar los registros. Muchas compañías ofrecen servicios para supervisar soluciones de macrodatos basadas en Hadoop, por ejemplo Centerity, Compuware APM, Sematext SPM y Zettaset Orchestrator.
+* Considere si una solución o un servicio de supervisión sería una ventaja útil. Microsoft System Center proporciona un [paquete de administración de HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). También puede usar herramientas de terceros, como Apache Chukwa y Ganglia, para recopilar y centralizar los registros. Por ejemplo, muchas compañías ofrecen servicios para supervisar las soluciones de macrodatos basadas en Hadoop, por ejemplo: Centerity, Compuware APM, Sematext SPM y Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Paso 2: Administrar las versiones del servicio de clúster y ver los registros de acciones de script
+## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Paso 2: Administración de las versiones del servicio de clúster y ver los registros de acciones de script
 
 Un clúster típico de HDInsight utiliza varios servicios y paquetes de software de código abierto (por ejemplo, Apache HBase, Apache Spark, etc.). Para algunas cargas de trabajo, como bioinformática, es posible que deba conservar el historial de registro de configuración del servicio, además de los registros de ejecución de trabajo.
 
@@ -91,7 +91,7 @@ Con la UI de Ambari, puede descargar la configuración de cualquier servicio (o 
 
 Las [acciones de script](hdinsight-hadoop-customize-cluster-linux.md) de HDInsight ejecutan scripts en un clúster, ya sea manualmente o cuando se especifique. Por ejemplo, las acciones de script pueden utilizarse para instalar software adicional en el clúster o para modificar las opciones de configuración de los valores predeterminados. Los registros de acciones de script pueden proporcionar información sobre los errores que se produjeron durante la instalación del clúster, así como sobre los cambios de las opciones de configuración que podrían afectar a la disponibilidad y al rendimiento del clúster.  Para ver el estado de una acción de script, seleccione el botón **Operaciones** en la UI de Ambari o acceda a los registros del estado de la cuenta de almacenamiento predeterminada. Los registros de almacenamiento están disponibles en `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
-## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Paso 3: Administrar los archivos de registro de ejecución de trabajo del clúster
+## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Paso 3: Administración de los archivos de registro de ejecución de trabajo del clúster
 
 El paso siguiente es revisar los archivos de registro de ejecución de trabajo de los distintos servicios.  Estos servicios podrían incluir Apache HBase, Apache Spark y muchos más. Un clúster de Hadoop genera un gran número de registros detallados, por lo que determinar qué registros son útiles (y cuáles no) puede llevar mucho tiempo.  Comprender el sistema de registro es importante para la administración dirigida de archivos de registro.  A continuación, se muestra un archivo de registro de ejemplo.
 
@@ -136,7 +136,7 @@ La interfaz de usuario de YARN ResourceManager se ejecuta en el nodo principal d
 2. En la lista de servicios de la izquierda de la página, seleccione YARN.
 3. En la lista desplegable Vínculos rápidos, seleccione uno de los nodos principales del clúster y, a continuación, **Registros de ResourceManager**. Aparece una lista de vínculos a los registros de YARN.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Paso 4: Prever los costos y tamaños de almacenamiento del volumen de registros
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Paso 4: Previsión de los costos y tamaños de almacenamiento del volumen de registros
 
 Tras completar los pasos anteriores, comprenderá los tipos y volúmenes de los archivos de registro que generan los clústeres de HDInsight.
 
@@ -144,7 +144,7 @@ A continuación, analice el volumen de datos de registro en ubicaciones clave de
 
 Ahora tiene información suficiente para crear una estrategia de administración de registros para los registros clave.  Utilice la hoja de cálculo (o la herramienta que prefiera) para pronosticar el crecimiento del tamaño del registro y los costos de servicio de Azure de almacenamiento de registros en el futuro.  También debe tener en cuenta los requisitos de retención de registros para el conjunto de registros que está examinando.  Ahora puede volver a prever los futuros costos de almacenamiento de registros, después de determinar qué archivos de registro pueden eliminarse (si los hubiera) y qué registros se deberían conservar y archivar en una instancia de Azure Storage más económica.
 
-## <a name="step-5-determine-log-archive-policies-and-processes"></a>Paso 5: Determinar las directivas y procesos del archivo de registro
+## <a name="step-5-determine-log-archive-policies-and-processes"></a>Paso 5: Determinación de las directivas y procesos del archivo de registro
 
 Después de determinar qué archivos de registro se pueden eliminar, puede ajustar los parámetros de registro en muchos servicios de Hadoop para eliminar automáticamente los archivos de registro tras un período de tiempo específico.
 
@@ -177,5 +177,5 @@ Para recopilar los registros de todos los nodos en una ubicación central, puede
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Práctica de supervisión y registro para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Acceso a registros de aplicación de YARN en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [How to control size of log files for various Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html) (Cómo controlar el tamaño de los archivos de registro para diversos componentes de Hadoop)
+* [Acceso a registros de aplicación de YARN de Apache Hadoop en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [How to control size of log files for various Apache Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html) (Cómo controlar el tamaño de los archivos de registro para diversos componentes de Apache Hadoop)

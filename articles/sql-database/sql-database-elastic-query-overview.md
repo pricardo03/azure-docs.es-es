@@ -3,7 +3,7 @@ title: Información general sobre las consultas elásticas de Azure SQL Database
 description: La consulta elástica permite ejecutar una consulta de Transact-SQL que abarca varias bases de datos.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: fb546c8ffd3c4f3cdd2024bf9d60ae96401b263f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 777b0e6e98c0d8d726b69f0fc169f2d2752b4b6d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242218"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865019"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Información general sobre las consultas elásticas de Azure SQL Database (versión preliminar)
 
@@ -56,8 +56,8 @@ Una consulta elástica facilita el acceso a toda una colección de bases de dato
 
 Los escenarios de clientes para la consulta elástica se caracterizan por las siguientes topologías:
 
-* **Particiones verticales: consultas entre bases de datos** (topología 1): los datos se particionan en vertical entre varias bases de datos en una capa de datos. Normalmente, los distintos conjuntos de tablas residen en bases de datos diferentes. Esto significa que el esquema es diferente en las distintas bases de datos. Por ejemplo, todas las tablas de inventario se encuentran en una base de datos mientras que todas las relacionadas con la contabilidad se encuentran en otra. En los casos de uso habituales con esta topología, se requiere uno para realizar una consulta o compilar informes en todas las tablas de varias bases de datos.
-* **Particiones horizontales: Particionamiento** (topología 2): los datos se particionan en horizontal para distribuir las filas en una capa de datos de escala horizontal. Con este enfoque, el esquema es idéntico en todas las bases de datos participantes. Este enfoque también se denomina simplemente "particionamiento". El particionamiento se puede realizar y administrar mediante 1) las bibliotecas de herramientas de bases de datos elásticas o 2) el particionamiento automático. Se usa una consulta elástica para realizar consultas o compilar informes en muchas particiones.
+* **Particionamiento vertical: consultas entre bases de datos** (Topología 1): los datos se particionan en vertical entre varias bases de datos en una capa de datos. Normalmente, los distintos conjuntos de tablas residen en bases de datos diferentes. Esto significa que el esquema es diferente en las distintas bases de datos. Por ejemplo, todas las tablas de inventario se encuentran en una base de datos mientras que todas las relacionadas con la contabilidad se encuentran en otra. En los casos de uso habituales con esta topología, se requiere uno para realizar una consulta o compilar informes en todas las tablas de varias bases de datos.
+* **Creación de partición horizontal: particionamiento** (Topología 2): los datos se particionan en horizontal para distribuir las filas en una capa de datos de escala horizontal. Con este enfoque, el esquema es idéntico en todas las bases de datos participantes. Este enfoque también se denomina simplemente "particionamiento". El particionamiento se puede realizar y administrar mediante 1) las bibliotecas de herramientas de bases de datos elásticas o 2) el particionamiento automático. Se usa una consulta elástica para realizar consultas o compilar informes en muchas particiones.
 
 > [!NOTE]
 > La consulta elástica funciona mejor en escenarios de informes en los que la mayor parte del procesamiento (filtrado, agregación) se puede realizar en el origen externo. No es adecuada para las operaciones de ETL en las que se transfieren grandes cantidades de datos desde bases de datos remotas. Para grandes cargas de trabajo de informes o escenarios de almacenamiento de datos con consultas más complejas, considere también usar [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
@@ -77,13 +77,13 @@ Se puede usar una consulta elástica para que los datos de una base de datos SQL
 
 **Ilustración 2** Particionamiento vertical: usar una consulta elástica para consultar datos de referencia
 
-![Particionamiento vertical: usar una consulta elástica para consultar datos de referencia][3]
+![ Particionamiento vertical: usar una consulta elástica para consultar datos de referencia][3]
 
-**Consulta entre bases de datos**: las consultas elásticas hacen posibles los casos de uso que requieren realizar consultas en varias bases de datos SQL. En la ilustración 3, se muestran cuatro bases de datos diferentes: CRM, Inventory, HR y Products. Las consultas realizadas en una de las bases de datos también necesitan acceder a una de las otras bases de datos o a todas ellas. Mediante una consulta elástica, puede configurar la base de datos para este caso ejecutando unas pocas instrucciones DDL sencillas en cada una de las cuatro bases de datos. Después de esta configuración única, el acceso a una tabla remota es tan sencillo como hacer referencia a una tabla local desde las consultas T-SQL o las herramientas de BI. Se recomienda este enfoque si las consultas remotas no devuelven resultados de gran tamaño.
+**Consultas entre bases de datos**: las consultas elásticas hacen posibles los casos de uso que requieren realizar consultas en varias bases de datos SQL. En la figura 3 se muestran cuatro bases de datos distintas: CRM, Inventory, HR y Products. Las consultas realizadas en una de las bases de datos también necesitan acceder a una de las otras bases de datos o a todas ellas. Mediante una consulta elástica, puede configurar la base de datos para este caso ejecutando unas pocas instrucciones DDL sencillas en cada una de las cuatro bases de datos. Después de esta configuración única, el acceso a una tabla remota es tan sencillo como hacer referencia a una tabla local desde las consultas T-SQL o las herramientas de BI. Se recomienda este enfoque si las consultas remotas no devuelven resultados de gran tamaño.
 
 **Ilustración 3** Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos
 
-![Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos][4]
+![ Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos][4]
 
 Con los siguientes pasos, se configuran consultas de bases de datos elásticas para escenarios de particionamiento vertical que requieren acceso a tablas ubicadas en una base de datos SQL remota con el mismo esquema:
 
@@ -100,7 +100,7 @@ El uso de una consulta elástica para realizar tareas de informes en una capa de
 
 **Ilustración 4** Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas
 
-![Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas][5]
+![ Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas][5]
 
 > [!NOTE]
 > La base de datos de consulta elástica (nodo principal) puede ser una independiente o la misma que hospeda el mapa de particiones.

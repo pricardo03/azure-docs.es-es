@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585836"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326506"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -85,9 +85,9 @@ Se configura una cuenta de almacenamiento privada para el diagnóstico de máqui
 
 Managed Disks admite tres roles predeterminados fundamentales:
 
-* Propietario: puede administrar todo, incluido el acceso.
-* Colaborador: puede administrar todo, excepto el acceso.
-* Lector: puede ver todo, pero no realizar cambios.
+* Propietario: Puede administrar todo el contenido, incluido el acceso
+* Colaborador: Puede administrar todo el contenido, excepto el acceso
+* Lector: Puede ver todo el contenido, pero no puede realizar cambios
 
 **¿Hay alguna manera de copiar o exportar un disco administrado a una cuenta de almacenamiento privada?**
 
@@ -137,9 +137,9 @@ No, cuando se crea el nuevo disco es una copia completa independiente de ese blo
 
 No se puede cambiar el nombre de los discos administrados. Sin embargo, es posible cambiar el nombre de un disco no administrado; siempre y cuando no esté asociado a una VM o a un disco duro virtual.
 
-**¿Puedo usar la creación de particiones de GBT en un disco de Azure?**
+**¿Puedo usar la creación de particiones de GPT en un disco de Azure?**
 
-La creación de particiones de GBT solo se puede usar en discos de datos, no en discos de sistemas operativos. Los discos de SO deben usar el estilo de partición de MBR.
+La creación de particiones de GPT solo se puede usar en discos de datos, no en discos de sistemas operativos. Los discos de SO deben usar el estilo de partición de MBR.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD estándar
 
@@ -188,6 +188,10 @@ No, los discos SSD estándar solo están disponibles como discos administrados.
 No, los discos SSD estándar no tiene un Acuerdo de Nivel de Servicio de máquina virtual de instancia única. Use discos SSD Premium para tener ese acuerdo.
 
 ## <a name="migrate-to-managed-disks"></a>Migración a Managed Disks
+
+**Hay algún impacto de la migración en el rendimiento de Managed Disks?
+
+La migración conlleva el traslado del disco de una ubicación de almacenamiento a otra. Esto se orquesta mediante una copia en segundo plano de los datos que puede tardar varias horas en completarse, normalmente menos de 24 horas dependiendo de la cantidad de datos en los discos. Durante ese tiempo, la aplicación puede experimentar una latencia de lectura más alta de lo habitual, ya que algunas lecturas pueden redirigirse a la ubicación original y pueden tardar más tiempo en completarse. No hay ningún impacto en la latencia de escritura durante este período.  
 
 **¿Qué cambios son necesarios en una configuración del servicio Azure Backup preexistente antes y después de la migración a Managed Disks?**
 
@@ -262,7 +266,7 @@ SÍ
 
  No. Pero si exporta un disco duro virtual a una cuenta de almacenamiento cifrada desde un disco administrado cifrado o una instantánea, en este caso se cifra. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Discos premium: tanto administrados como no administrados
+## <a name="premium-disks-managed-and-unmanaged"></a>Discos premium: Administrados y no administrados
 
 **Si una máquina virtual usa una serie de tamaño que admite discos SSD premium, como DSv2, ¿puedo conectar discos de datos tanto premium como estándar?** 
 
@@ -292,7 +296,7 @@ El SSD local es un almacenamiento temporal que se incluye con una máquina virtu
 
 No hay ningún inconveniente a la hora de usar TRIM en discos de Azure, ya sea en discos estándar o premium.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nuevos tamaños de discos: tanto administrados como no administrados
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nuevos tamaños de disco: Administrados y no administrados
 
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
@@ -312,10 +316,10 @@ No es necesario actualizar las herramientas de Azure existentes para crear, cone
 
 |Herramientas de Azure      | Versiones compatibles                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Número de versión 4.1.0: versión de junio de 2017 o posterior|
-|CLI de Azure v1     | Número de versión 0.10.13: versión de mayo de 2017 o posterior|
-|CLI de Azure v2     | Número de versión 2.0.12: versión de julio de 2017 o posterior|
-|AzCopy           | Número de versión 6.1.0: versión de junio de 2017 o posterior|
+|Azure PowerShell | Número de versión 4.1.0: Versión de junio de 2017 o posterior|
+|CLI de Azure v1     | Número de versión 0.10.13: Versión de mayo de 2017 o posterior|
+|CLI de Azure v2     | Número de versión 2.0.12: Versión de julio de 2017 o posterior|
+|AzCopy           | Número de versión 6.1.0: Versión de junio de 2017 o posterior|
 
 **¿Se admiten los tamaños de disco P4 y P6 para blobs en páginas o discos no administrados?**
 
@@ -339,7 +343,7 @@ El tamaño de disco más grande que admiten Azure Backup y el servicio Azure Sit
 
 **¿Cuáles son los tamaños de VM recomendados para los tamaños de disco grandes (> 4TiB) para discos SSD estándar y discos HDD estándar con la finalidad de lograr niveles optimizados de ancho de banda e IOPS del disco?**
 
-Para lograr un rendimiento de los discos SSD y HDD estándar de gran tamaño (> 4 TB) por encima de 500 IOPS y 60 MiB/s, debe usar uno de los siguientes tamaños de VM para optimizar su rendimiento: máquinas virtuales serie B, serie DSv2, serie Dsv3, serie ESv3, serie Fs, serie Fsv2, serie M, serie GS, serie NCv2, serie NCv3 o serie Ls.
+Para lograr el rendimiento de disco de los tamaños de discos grandes SSD y HDD estándar (>4 TB) más allá de 500 IOPS y 60 MiB/s, debe utilizar uno de los siguientes tamaños de máquina virtual para optimizar su rendimiento: Serie B, serie DSv2, serie Dsv3, serie ESv3, serie Fs, serie Fsv2, serie M, serie GS, serie NCv2, serie NCv3 o máquinas virtuales de la serie Ls.
 
 **¿En qué regiones se admiten los tamaños de disco administrado mayores de 4 TiB?**
 

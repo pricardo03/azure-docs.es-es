@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498345"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321467"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 
@@ -38,20 +38,20 @@ Los procedimientos recomendados se basan en un consenso de opinión y son válid
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Protección de máquinas virtuales mediante la autenticación y el control de acceso
 El primer paso para proteger la máquina virtual es garantizar que solo los usuarios autorizados puedan configurar nuevas máquinas virtuales y obtener acceso a ellas.
 
-**Procedimiento recomendado**: control de acceso a las máquinas virtuales.   
-**Detalle**: use [directivas de Azure](../azure-policy/azure-policy-introduction.md) para establecer convenciones para los recursos de la organización y crear directivas personalizadas. Aplique estas directivas a los recursos, como los [grupos de recursos](../azure-resource-manager/resource-group-overview.md). Las máquinas virtuales que pertenecen a un grupo de recursos heredan sus directivas.
+**Procedimiento recomendado**: Control de acceso a las máquinas virtuales.   
+**Detalles**: Use [directivas de Azure](../azure-policy/azure-policy-introduction.md) para establecer convenciones para los recursos de la organización y crear directivas personalizadas. Aplique estas directivas a los recursos, como los [grupos de recursos](../azure-resource-manager/resource-group-overview.md). Las máquinas virtuales que pertenecen a un grupo de recursos heredan sus directivas.
 
 Si su organización tiene varias suscripciones, podría necesitar una manera de administrar el acceso, las directivas y el cumplimiento de esas suscripciones de forma eficaz. Los [grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md) proporcionan un nivel de ámbito por encima de las suscripciones. Las suscripciones se organizan en grupos de administración (contenedores) y aplican sus condiciones de gobierno a dichos grupos. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las condiciones que se aplican al grupo. Los grupos de administración proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.
 
-**Procedimiento recomendado**: reducción de la variabilidad en la configuración e implementación de máquinas virtuales.   
-**Detalle**: use plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para reforzar las opciones de implementación y facilitar la comprensión y la realización de inventario de las máquinas virtuales de su entorno.
+**Procedimiento recomendado**: Reducción de la variabilidad en la configuración e implementación de máquinas virtuales.   
+**Detalles**: Use plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para reforzar las opciones de implementación y facilitar la comprensión y la realización de inventario de las máquinas virtuales de su entorno.
 
-**Procedimiento recomendado**: protección del acceso con privilegios.   
-**Detalle**: use un [enfoque de privilegios mínimos](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) y roles integrados de Azure para permitir que los usuarios configuren las máquinas virtuales y obtengan acceso a ellas.
+**Procedimiento recomendado**: Protección del acceso con privilegios.   
+**Detalles**: Use un [enfoque de privilegios mínimos](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) y roles integrados de Azure para permitir que los usuarios configuren las máquinas virtuales y accedan a ellas.
 
-- [Colaborador de la máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): puede administrar máquinas virtuales, pero no la red virtual ni la cuenta de almacenamiento a la que están conectadas.
-- [Colaborador de la máquina virtual clásica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): puede administrar máquinas virtuales creadas con el modelo de implementación clásico, pero no la cuenta de almacenamiento ni la red virtual a la que están conectadas.
-- [Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-admin): Solo en Security Center: puede ver las directivas de seguridad, ver los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones.
+- [Colaborador de la máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Puede administrar máquinas virtuales, pero no la cuenta de almacenamiento o la red virtual a la que están conectadas.
+- [Colaborador de la máquina virtual clásica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Puede administrar máquinas virtuales creadas con el modelo de implementación clásica, pero no la cuenta de almacenamiento ni la red virtual a la que están conectadas.
+- [Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-admin): Solo en Security Center: puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones.
 - [Usuario de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): puede ver todo el contenido, así como conectar, iniciar, reiniciar y apagar las máquinas virtuales.
 
 Los administradores y coadministradores de la suscripción pueden cambiar esta configuración, convirtiéndose en administradores de todas las máquinas virtuales de una suscripción. Asegúrese de que confía en todos los administradores y coadministradores de la suscripción para iniciar sesión en cualquiera de las máquinas.
@@ -75,17 +75,17 @@ Microsoft Antimalware incluye características como la protección en tiempo rea
 
 Puede integrar soluciones de asociados y Microsoft Antimalware con [Azure Security Center](https://docs.microsoft.com/azure/security-center/) para facilitar la implementación y la integración de detecciones (alertas e incidentes).
 
-**Procedimiento recomendado**: instalación de una solución antimalware para protegerse frente a malware.   
-**Detalle**: [Instalación de una solución de asociado de Microsoft o Microsoft Antimalware](../security-center/security-center-install-endpoint-protection.md)
+**Procedimiento recomendado**: Instalación de una solución antimalware para protegerse frente a malware.   
+**Detalles**: [Instale una solución de asociado de Microsoft o Microsoft Antimalware](../security-center/security-center-install-endpoint-protection.md)
 
-**Procedimiento recomendado**: integración de la solución antimalware con Security Center para supervisar el estado de la protección.   
-**Detalle**: [Administrar problemas de Endpoint Protection con Security Center](../security-center/security-center-partner-integration.md)
+**Procedimiento recomendado**: Integración de la solución antimalware con Security Center para supervisar el estado de la protección.   
+**Detalles**: [Administre problemas de Endpoint Protection con Security Center](../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>Administrar las actualizaciones de la máquina virtual
 Las máquinas virtuales de Azure, al igual que todas las máquinas virtuales locales, están diseñadas para que las administre el usuario. Azure no inserta las actualizaciones de Windows en ellas. Debe administrar las actualizaciones de la máquina virtual.
 
-**Procedimiento recomendado**: mantener actualizadas las máquinas virtuales.   
-**Detail**: use la solución [Update Management](../automation/automation-update-management.md) de Azure Automation para administrar las actualizaciones del sistema operativo de los equipos Windows y Linux implementados en Azure, en entornos locales o en otros proveedores de nube. Puede evaluar rápidamente el estado de las actualizaciones disponibles en todos los equipos agente y administrar el proceso de instalación de las actualizaciones necesarias para los servidores.
+**Procedimiento recomendado**: Mantener actualizadas las máquinas virtuales.   
+**Detalles**: Use la solución [Update Management](../automation/automation-update-management.md) de Azure Automation para administrar las actualizaciones del sistema operativo de los equipos Windows y Linux implementados en Azure, en entornos locales o en otros proveedores de nube. Puede evaluar rápidamente el estado de las actualizaciones disponibles en todos los equipos agente y administrar el proceso de instalación de las actualizaciones necesarias para los servidores.
 
 Los equipos administrados por Update Management usan las siguientes configuraciones para evaluar e implementar actualizaciones:
 
@@ -96,17 +96,17 @@ Los equipos administrados por Update Management usan las siguientes configuracio
 
 Si usa Windows Update, deje habilitada la configuración automática de Windows Update.
 
-**Procedimiento recomendado**: comprobación de que en la implementación las imágenes creadas incluyen las actualizaciones de Windows más recientes.   
-**Detalle**: busque e instale las actualizaciones de Windows como primer paso de cada implementación. Es especialmente importante aplicar esta medida al implementar imágenes que proceden de usted o de su propia biblioteca. Aunque las imágenes de Azure Marketplace se actualizan automáticamente de forma predeterminada, puede producirse un intervalo de tiempo (hasta unas cuantas semanas) después de una versión pública.
+**Procedimiento recomendado**: Comprobación de que en la implementación las imágenes creadas incluyen las actualizaciones de Windows más recientes.   
+**Detalles**: Busque e instale las actualizaciones de Windows como primer paso de cada implementación. Es especialmente importante aplicar esta medida al implementar imágenes que proceden de usted o de su propia biblioteca. Aunque las imágenes de Azure Marketplace se actualizan automáticamente de forma predeterminada, puede producirse un intervalo de tiempo (hasta unas cuantas semanas) después de una versión pública.
 
-**Procedimiento recomendado**: volver a implementar periódicamente las máquinas virtuales para forzar una nueva versión del sistema operativo.   
-**Detalle**: defina la máquina virtual con una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para poder implementarla fácilmente. El uso de una plantilla le ofrece una máquina virtual segura y revisada cuando la necesite.
+**Procedimiento recomendado**: Volver a implementar periódicamente las máquinas virtuales para forzar una nueva versión del sistema operativo.   
+**Detalles**: Defina la máquina virtual con una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para poder implementarla fácilmente. El uso de una plantilla le ofrece una máquina virtual segura y revisada cuando la necesite.
 
-**Procedimiento recomendado**: instalación de las últimas actualizaciones de seguridad.   
-**Detalle**: algunas de las primeras cargas de trabajo que los clientes mueven a Azure son laboratorios y sistemas orientados externamente. Si las máquinas virtuales de Azure hospedan aplicaciones o servicios que deben estar accesibles desde Internet, esté atento a la aplicación de revisiones. Aplique revisiones no solo del sistema operativo. Las vulnerabilidades de aplicaciones de asociados a las que no se han aplicado revisiones también pueden provocar problemas que podrían haberse evitado si hubiera una buena administración de revisiones vigente.
+**Procedimiento recomendado**: Instalación de las últimas actualizaciones de seguridad.   
+**Detalles**: Algunas de las primeras cargas de trabajo que los clientes mueven a Azure son laboratorios y sistemas orientados externamente. Si las máquinas virtuales de Azure hospedan aplicaciones o servicios que deben estar accesibles desde Internet, esté atento a la aplicación de revisiones. Aplique revisiones no solo del sistema operativo. Las vulnerabilidades de aplicaciones de asociados a las que no se han aplicado revisiones también pueden provocar problemas que podrían haberse evitado si hubiera una buena administración de revisiones vigente.
 
-**Procedimiento recomendado**: implementación y comprobación de una solución de copia de seguridad.   
-**Detalle**: una copia de seguridad se debe realizar de la misma manera que cualquier otra operación, al menos en los sistemas que formen parte del entorno de producción que se extiende a la nube.
+**Procedimiento recomendado**: Implementación y comprobación de una solución de copia de seguridad.   
+**Detalles**: Una copia de seguridad se debe realizar de la misma manera que cualquier otra operación. al menos en los sistemas que formen parte del entorno de producción que se extiende a la nube.
 
 Los sistemas de prueba y desarrollo deben seguir estrategias de copia de seguridad que proporcionen funcionalidades de restauración que sean similares a las que los usuarios están acostumbrado en función de su experiencia en entornos locales. Las cargas de trabajo de producción movidas a Azure deben integrarse con las soluciones de copia de seguridad existentes cuando sea posible. O bien, puede usar [Azure Backup](../backup/backup-azure-vms-first-look-arm.md) para ayudarle a enfrentar los requisitos de copia de seguridad.
 
@@ -137,8 +137,8 @@ El abuso de los recursos puede ser un problema cuando los procesos de las máqui
 
 Se recomienda el uso de [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) para obtener una mayor visibilidad del estado de los recursos. Características de Azure Monitor:
 
-- [Archivos de registro de diagnóstico de recursos](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): supervisa los recursos de la máquina virtual e identifica posibles problemas que podrían poner en peligro la disponibilidad y rendimiento.
-- [Extensión Azure Diagnostics](../monitoring-and-diagnostics/azure-diagnostics.md): proporciona funcionalidades de supervisión y diagnóstico en máquinas virtuales de Windows. Para habilitar estas funcionalidades, incluya la extensión como parte de la [plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
+- [Archivos de registro de diagnóstico del recurso](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): supervisa los recursos de la máquina virtual e identifica posibles problemas que podrían poner en peligro la disponibilidad y rendimiento.
+- [Extensión de Azure Diagnostics](../azure-monitor/platform/diagnostics-extension-overview.md): proporciona funcionalidades de supervisión y diagnóstico en máquinas virtuales Windows. Para habilitar estas funcionalidades, incluya la extensión como parte de la [plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Las organizaciones que no supervisan el rendimiento de la máquina virtual no pueden determinar si ciertos cambios en los patrones de rendimiento son normales o anómalos. Una máquina virtual que consume más recursos de lo habitual podría indicar un ataque procedente de un recurso externo o un proceso en peligro que se está ejecutando en la máquina virtual.
 
@@ -149,17 +149,17 @@ Se recomienda cifrar los discos duros virtuales (VHD) para ayudar a proteger el 
 
 Estos son algunos procedimientos recomendados para usar Azure Disk Encryption:
 
-**Procedimiento recomendado**: habilitación del cifrado en máquinas virtuales.   
-**Detalle**: Azure Disk Encryption genera y escribe las claves de cifrado en el almacén de claves. La administración de claves de cifrado en el almacén de claves necesita la autenticación de Azure AD. Para ello, cree una aplicación de Azure AD. Para realizar la autenticación, se pueden usar la autenticación basada en secreto de cliente o la [autenticación de Azure AD basada en certificado del cliente](../active-directory/active-directory-certificate-based-authentication-get-started.md).
+**Procedimiento recomendado**: Habilitar cifrado en las máquinas virtuales.   
+**Detalles**: Azure Disk Encryption genera y escribe las claves de cifrado en el almacén de claves. La administración de claves de cifrado en el almacén de claves necesita la autenticación de Azure AD. Para ello, cree una aplicación de Azure AD. Para realizar la autenticación, se pueden usar la autenticación basada en secreto de cliente o la [autenticación de Azure AD basada en certificado del cliente](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
-**Procedimiento recomendado**: uso de una clave de cifrado de claves (KEK) para una brindar una capa adicional de seguridad para las claves de cifrado. Agregue una KEK al almacén de claves.   
-**Detalle**: use el cmdlet [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) para crear una clave de cifrado de claves en el almacén de claves. También puede importar una KEK en el módulo de seguridad de hardware (HSM) de administración de claves local. Para más información, consulte la [documentación de Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Cuando se especifica una clave de cifrado de claves, Azure Disk Encryption usa esa clave para encapsular los secretos de cifrado antes de escribirlos en Key Vault. El mantenimiento de una copia de custodia de esta clave en un HSM de administración de claves local ofrece una protección adicional contra la eliminación accidental de claves.
+**Procedimiento recomendado**: Uso de una clave de cifrado de claves (KEK) para una brindar una capa adicional de seguridad para las claves de cifrado. Agregue una KEK al almacén de claves.   
+**Detalles**: Use el cmdlet [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) para crear una clave de cifrado de claves en el almacén de claves. También puede importar una KEK en el módulo de seguridad de hardware (HSM) de administración de claves local. Para más información, consulte la [documentación de Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Cuando se especifica una clave de cifrado de claves, Azure Disk Encryption usa esa clave para encapsular los secretos de cifrado antes de escribirlos en Key Vault. El mantenimiento de una copia de custodia de esta clave en un HSM de administración de claves local ofrece una protección adicional contra la eliminación accidental de claves.
 
-**Procedimiento recomendado**: tome una [instantánea](../virtual-machines/windows/snapshot-copy-managed-disk.md) o realice una copia de seguridad antes de cifrar los discos. Las copias de seguridad proporcionan una opción de recuperación si se produce un error inesperado durante el cifrado.   
-**Detalle**: las máquinas virtuales con discos administrados requieren una copia de seguridad antes del cifrado. Una vez realizada la copia de seguridad, puede usar el cmdlet **Set-AzureRmVMDiskEncryptionExtension** para cifrar los discos administrados mediante la especificación del parámetro *-skipVmBackup*. Para más información sobre cómo realizar la copia de seguridad y restauración de máquinas virtuales cifradas, consulte el artículo sobre [Azure Backup](../backup/backup-azure-vms-encryption.md).
+**Procedimiento recomendado**: Tomar una [instantánea](../virtual-machines/windows/snapshot-copy-managed-disk.md) o realizar una copia de seguridad antes de cifrar los discos. Las copias de seguridad proporcionan una opción de recuperación si se produce un error inesperado durante el cifrado.   
+**Detalles**: Las máquinas virtuales con discos administrados requieren una copia de seguridad antes del cifrado. Una vez realizada la copia de seguridad, puede usar el cmdlet **Set-AzureRmVMDiskEncryptionExtension** para cifrar los discos administrados mediante la especificación del parámetro *-skipVmBackup*. Para más información sobre cómo realizar la copia de seguridad y restauración de máquinas virtuales cifradas, consulte el artículo sobre [Azure Backup](../backup/backup-azure-vms-encryption.md).
 
-**Procedimiento recomendado**: para garantizar que los secretos de cifrado no traspasen los límites regionales, Azure Disk Encryption necesita que Key Vault y las máquinas virtuales se ubiquen en la misma región.   
-**Detalle**: cree y use una instancia de Key Vault que se encuentre en la misma región que la máquina virtual que se va a cifrar.
+**Procedimiento recomendado**: Para garantizar que los secretos de cifrado no traspasen los límites regionales, Azure Disk Encryption necesita que Key Vault y las máquinas virtuales estén ubicadas en la misma región.   
+**Detalles**: Cree y use una instancia de Key Vault que se encuentre en la misma región que la máquina virtual que se va a cifrar.
 
 Cuando se aplica Azure Disk Encryption, puede atender las siguientes necesidades empresariales:
 

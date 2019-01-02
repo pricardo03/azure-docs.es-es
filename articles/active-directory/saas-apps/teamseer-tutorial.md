@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: a5910689f34c511c6cf7d8a044ef4358d2e0570d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2b9f3c7905fbb301c74a040a259b2f8666c75377
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445587"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834502"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: integración de Azure Active Directory con TeamSeer
+# <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: Integración de Azure Active Directory con TeamSeer
 
 En este tutorial, aprenderá a integrar TeamSeer con Azure Active Directory (Azure AD).
 
@@ -115,7 +115,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
      En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.teamseer.com/<companyid>`.
 
     > [!NOTE] 
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de TeamSeer](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) para obtener este valor. 
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de TeamSeer](https://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) para obtener este valor. 
  
 1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
@@ -147,7 +147,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configuración de SAML](./media/teamseer-tutorial/ic789637.png "Configuración de SAML")   
 
-    a. Pegue el valor de **Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único) en el cuadro de texto **URL**.
+     a. Pegue el valor de **Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único) en el cuadro de texto **URL**.
           
     b. Abra el certificado codificado en base 64 en el bloc de notas, copie su contenido en el portapapeles y péguelo en el cuadro de texto **IdP Public Certificate** (Certificado público del proveedor de identidades).
 
@@ -155,14 +155,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configuración de SAML](./media/teamseer-tutorial/ic789638.png "Configuración de SAML") 
 
-    a. En las **Direcciones de correo electrónico de prueba**, escriba la dirección de correo electrónico del usuario de prueba. 
+     a. En las **Direcciones de correo electrónico de prueba**, escriba la dirección de correo electrónico del usuario de prueba. 
   
     b. En el cuadro de texto **Emisor** , escriba la dirección URL de emisor del proveedor de servicios. 
   
     c. Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -188,7 +188,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/teamseer-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -208,7 +208,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en TeamSeer, deben ap
    
     ![Administración de RR. HH.](./media/teamseer-tutorial/ic789640.png "Administración de RR. HH.")  
  
-    a. Vaya a **Administrador de RR. HH. \> Usuarios**.
+     a. Vaya a **Administrador de RR. HH. \> Usuarios**.
   
     b. Haga clic en **Ejecutar el Asistente para nuevos usuarios**.
 
@@ -216,7 +216,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en TeamSeer, deben ap
    
     ![Detalles del usuario](./media/teamseer-tutorial/ic789641.png "Detalles del usuario")
 
-    a. Escriba el **Nombre**, **Apellido**, **Nombre de usuario (dirección de correo electrónico)** de una cuenta válida de AAD que desee aprovisionar en los cuadros de texto correspondientes.
+     a. Escriba el **Nombre**, **Apellido**, **Nombre de usuario (dirección de correo electrónico)** de una cuenta válida de AAD que desee aprovisionar en los cuadros de texto correspondientes.
   
     b. Haga clic en **Next**.
 

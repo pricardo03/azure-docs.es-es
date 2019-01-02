@@ -1,5 +1,5 @@
 ---
-title: Desarrollo de Agile de proyectos de ciencia de datos - Azure Machine Learning | Microsoft Docs
+title: 'Desarrollo Agile de proyectos de ciencia de datos: Team Data Science Process'
 description: Forma en que los desarrolladores pueden ejecutar un proyecto de ciencia de datos de forma sistemática, con control de versiones y en colaboración dentro de un equipo de proyecto mediante el Proceso de ciencia de los datos en equipos.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9fd8714e4c9fdc89036a3b05ba835b140363c0e3
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ee8e3e3ef33a8b09b92d4dfc262fce26dd60abb3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443379"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134410"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desarrollo de Agile de proyectos de ciencia de datos
 
@@ -38,17 +38,17 @@ En la siguiente ilustración se muestra un flujo de trabajo habitual de planeaci
 
 ##  1. <a name='Terminology-1'></a>Terminología 
 
-En la plataforma de planeamiento de sprint del proceso de ciencia de datos en equipo, hay cuatro tipos más usados de **elementos de trabajo**: **característica**, **caso de usuario**, **tarea** y **error**. Cada proyecto mantiene un único trabajo pendiente para todos los elementos de trabajo. No hay ningún trabajo pendiente en el nivel de repositorio de GIT en un proyecto. Estas son sus definiciones:
+En la plataforma de planeamiento de sprint de TDSP, hay cuatro tipos de **elementos de trabajo** usados frecuentemente: **Característica**, **Caso de usuario**, **Tarea** y **Error**. Cada proyecto mantiene un único trabajo pendiente para todos los elementos de trabajo. No hay ningún trabajo pendiente en el nivel de repositorio de GIT en un proyecto. Estas son sus definiciones:
 
 - **Característica**: una característica se corresponde a una interacción de proyecto. Las distintas interacciones con un cliente se consideran características diferentes. De igual forma, es mejor considerar las distintas fases de un proyecto con un cliente como características diferentes. Si elige un esquema como ***ClientName-EngagementName*** para denominar las características, puede reconocer fácilmente el contexto del proyecto o interacción y de los propios nombres.
-- **Caso**: los casos son elementos de trabajo diferentes que son necesarios para completar una característica (proyecto) completa. Ejemplos de casos incluyen:
+- **Caso práctico**: los casos son elementos de trabajo diferentes que son necesarios para completar una característica (proyecto) de un extremo a otro. Ejemplos de casos incluyen:
     - Obtención de datos 
     - Exploración de datos 
     - Generación de características
     - Creación de modelos
     - Puesta en marcha de modelos 
     - Reentrenamiento de modelos
-- **Tarea**: las tareas son elementos de trabajo de documentos o de código asignables u otras actividades que se deben realizar para completar un caso concreto. Por ejemplo, las tareas del caso *Obtención de datos* podrían ser:
+- **Tarea**: las tareas son código asignable o elementos de trabajo de documentos u otras actividades que se deben realizar para completar un caso específico. Por ejemplo, las tareas del caso *Obtención de datos* podrían ser:
     -  Obtención de credenciales de SQL Server 
     -  Actualización de datos en SQL Data Warehouse 
 - **Error**: los errores normalmente hacen referencia a las correcciones necesarias en un código existente o documento que se llevan a cabo al completar una tarea. Si el error se debe a que faltan fases o tareas, respectivamente, puede pasar a convertirse en un caso o una tarea. 

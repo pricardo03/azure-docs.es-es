@@ -1,6 +1,6 @@
 ---
-title: Importación de datos en Azure Search | Microsoft Docs
-description: Aprenda a cargar datos en un índice en Azure Search.
+title: 'Importación de datos para su ingesta en un índice de búsqueda: Azure Search'
+description: Rellene y cargue datos en un índice de Azure Search desde orígenes de datos externos.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249785"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314863"
 ---
-# <a name="indexing-in-azure-search"></a>Indexación en Azure Search
+# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexación de datos externos para consultas de Azure Search
 > [!div class="op_single_selector"]
 > * [Información general](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -23,7 +24,7 @@ ms.locfileid: "51249785"
 > 
 > 
 
-En Azure Search, las consultas se ejecutan sobre el contenido cargado en un [índice de búsqueda](search-what-is-an-index.md). Este artículo examina los dos enfoques básicos para cargar contenido en un índice: *insertar* los datos en el índice mediante programación o apuntar un [indexador de Azure Search](search-indexer-overview.md) en un origen de datos admitido para *extraer* en los datos.
+En Azure Search, las consultas se ejecutan sobre el contenido cargado y guardado en un [índice de búsqueda](search-what-is-an-index.md). Este artículo examina los dos enfoques básicos para rellenar un índice: *insertar* los datos en el índice mediante programación o apuntar un [indexador de Azure Search](search-indexer-overview.md) en un origen de datos admitido para *extraer* en los datos.
 
 ## <a name="pushing-data-to-an-index"></a>Inserción de datos en un índice
 El modelo de inserción, que se usa para enviar a Azure Search los datos mediante programación, es el enfoque más flexible. En primer lugar, no tiene ninguna restricción en el tipo de origen de datos. Cualquier conjunto de datos que se compone de documentos JSON se puede insertar en un índice de Azure Search si cada documento en el conjunto de datos tiene campos asignados a los campos definidos en el esquema de índice. En segundo lugar, no tiene ninguna restricción en la frecuencia de ejecución. Puede insertar los cambios a un índice tantas veces como desee. En el caso de las aplicaciones con requisitos de latencia muy baja (por ejemplo, si se necesita que las operaciones de búsqueda estén sincronizadas con las bases de datos dinámicas del inventario), la única opción es un modelo de inserción.

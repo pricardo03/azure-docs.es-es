@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253727"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014504"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: niveles de almacenamiento de archivo, esporádico, frecuente y prémium (versión preliminar)
 
@@ -113,7 +113,7 @@ Los blobs en los tres niveles de almacenamiento pueden coexistir dentro de la mi
 Los datos almacenados en el nivel de acceso Premium no se pueden poner en niveles de almacenamiento de acceso frecuente, esporádico o de archivo mediante el comando [Set Blob Tier](/rest/api/storageservices/set-blob-tier) o mediante la administración del ciclo de vida de Azure Blob Storage. Para mover datos, puede copiar blobs de forma sincrónica desde el nivel de acceso Premium al frecuente con el uso [Put Block From URL API](/rest/api/storageservices/put-block-from-url) o una versión de AzCopy que admite esta API. *Put Block From URL* API copia datos de forma asíncrónica en el servidor, lo que significa que la llamada solo se completa una vez que todos los datos se han movido de la ubicación original del servidor a la ubicación de destino.
 
 ### <a name="blob-lifecycle-management"></a>Administración del ciclo de vida de blobs
-La administración del ciclo de vida de Blob Storage (versión preliminar) ofrece una directiva enriquecida basada en reglas que se puede usar para realizar la transición de los datos al nivel de acceso mejorado y para hacer que los datos expiren cuando finalice su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).  
+La administración del ciclo de vida de Blob Storage (versión preliminar) ofrece una directiva enriquecida basada en reglas que se puede usar para realizar la transición de los datos al nivel de acceso mejorado y para hacer que los datos expiren cuando finalice su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).  
 
 ### <a name="blob-level-tiering-billing"></a>Facturación del almacenamiento por niveles de blob
 
@@ -157,7 +157,7 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 
 3. En la hoja Configuración, haga clic en **Configuración** para ver o cambiar la configuración de la cuenta.
 
-4. Seleccione la capa de almacenamiento que más se ajuste a sus necesidades: en **Nivel de acceso** seleccione **Esporádico** o **Frecuente**.
+4. Seleccione la capa de almacenamiento correcta para sus necesidades: Establezca **Nivel de acceso** en **Esporádico** o **Frecuente**.
 
 5. Haga clic en Guardar en la parte superior de la hoja.
 
@@ -176,7 +176,7 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamiento de blobs basado en el nivel de cada blob. Tenga en cuenta las siguientes consideraciones de facturación:
 
 * **Costos de almacenamiento**: además de la cantidad de datos almacenados, el costo varía en función de la capa de almacenamiento. El costo por gigabyte disminuye a medida que el nivel es más esporádico.
-* **Data access costs**: los gastos de acceso a los datos aumentan a medida que el nivel es más esporádico. En el nivel de almacenamiento esporádico y de archivo se cobra un cargo de acceso a datos por gigabyte por las operaciones de lectura.
+* **Costos de acceso a datos**: los gastos de acceso a los datos aumentan a medida que el nivel es más esporádico. En el nivel de almacenamiento esporádico y de archivo se cobra un cargo de acceso a datos por gigabyte por las operaciones de lectura.
 * **Costos de transacciones**: hay un cargo por transacción para todos los niveles, que aumenta a medida que el nivel es más esporádico.
 * **Costos de transferencia de datos de replicación geográfica**: este cargo solo se aplica a las cuentas con replicación geográfica configurada, incluidas GRS y RA-GRS. La transferencia de datos de replicación geográfica incurre en un cargo por gigabyte.
 * **Costos de transferencia de datos salientes**: las transferencias de datos salientes (los datos que se transfieren fuera de una región de Azure) conllevan un cargo por el uso del ancho de banda por gigabyte, lo que es coherente con las cuentas de almacenamiento de uso general.
@@ -203,7 +203,7 @@ Sí, puede cambiar el nivel de almacenamiento predeterminado mediante la definic
 
 **¿Puedo establecer el nivel de acceso de cuenta predeterminado en archivo?**
 
-No. Los niveles de almacenamiento de acceso frecuente y esporádico se pueden establecer como nivel de acceso de cuenta predeterminado. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto.
+ No. Los niveles de almacenamiento de acceso frecuente y esporádico se pueden establecer como nivel de acceso de cuenta predeterminado. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto.
 
 **¿En qué regiones están disponibles los niveles de almacenamiento de acceso frecuente, esporádico y de archivo?**
 
@@ -245,7 +245,7 @@ El almacenamiento de datos, junto con otros límites, se establece en el nivel d
 
 [Comprobación de la disponibilidad de los niveles de acceso frecuente, esporádico o de archivo por región](https://azure.microsoft.com/regions/#services)
 
-[Administración del ciclo de vida de Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+[Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)
 
 [Evaluación del uso de las cuentas de almacenamiento actuales mediante la habilitación de las métricas de Azure Storage](../common/storage-enable-and-view-metrics.md)
 

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: ae21dbe675d78c663fc9d05364d91eca3288dd46
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034956"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435419"
 ---
-# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servicio Azure Metadata: Scheduled Events para Windows VM
+# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
 
 Eventos programados es un servicio de Azure Metadata Service que proporciona el tiempo de aplicación para prepararse para el mantenimiento de la máquina virtual. Proporciona información sobre los eventos de mantenimiento próximos (por ejemplo, un reinicio) para que la aplicación se pueda preparar y así limitar las interrupciones. Está disponible para todos los tipos de máquina virtual de Azure, incluido IaaS y PaaS, tanto en Windows como en Linux. 
 
@@ -225,6 +225,6 @@ foreach($event in $scheduledEvents.Events)
 ## <a name="next-steps"></a>Pasos siguientes 
 
 - Vea una [demostración de Scheduled Events](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) en Azure el viernes. 
-- Revise los ejemplos de código de Eventos programados en el [repositorio de Eventos programados de metadatos de instancia de Azure de GitHub](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
+- Repase los ejemplos de código de Scheduled Events en [Azure Instance Metadata Scheduled Events GitHub repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm) (Repositorio GitHub de Scheduled Events de Azure Instance Metadata).
 - En [Instance Metadata Service](instance-metadata-service.md) (Servicio Instance Metadata), puede obtener más información sobre las API disponibles.
 - Obtenga información sobre cómo realizar [el mantenimiento planeado para máquinas virtuales Windows en Azure](planned-maintenance.md).

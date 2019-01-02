@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314684"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088058"
 ---
 # <a name="azure-stack-1809-update"></a>Actualización de Azure Stack 1809
 
@@ -57,13 +57,13 @@ Esta actualización incluye las siguientes correcciones para Azure Stack:
 <!-- TBD - IS ASDK --> 
 - Se ha corregido un problema en el que se creaban máquinas virtuales en el portal de usuarios de Azure Stack y el portal mostraba un número incorrecto de discos de datos que se pueden asociar a una máquina virtual de la serie DS. Las máquinas virtuales de la serie DS pueden albergar tantos discos de datos como la configuración de Azure.
 
-- Los siguientes problemas de disco administrado se han corregido en la 1809 y también en la 1808 [Revisión 1.1808.5.110 de Azure Stack](https://support.microsoft.com/help/4468920/): 
+- Los siguientes problemas de disco administrado se han corregido en la 1809 y también en la 1808 [Revisión 1.1808.9.117 de Azure Stack](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Se ha corregido un problema en el que al asociar discos de datos SSD a máquinas virtuales con discos administrados de tamaño premium (DS, DSv2, Fs, Fs_V2), se produce el error *Failed to update disks for the virtual machine 'vmname' Error: Requested operation cannot be performed because storage account type 'Premium_LRS' is not supported for VM size 'Standard_DS/Ds_V2/FS/Fs_v2'* (No se pudieron actualizar los discos para la máquina virtual "nombre_de_máquina_virtual" Error: No se puede realizar la operación solicitada porque el tipo de cuenta de almacenamiento "Premium_LRS" no es compatible con el tamaño de máquina virtual (Standard_DS/Ds_V2/FS/Fs_v2)). 
+   - Se ha corregido el problema que se daba al conectar discos de datos SSD a máquinas virtuales de discos administrados de tamaño prémium (DS, DSv2, Fs y Fs_V2) con el siguiente error:  *Error al actualizar discos para la máquina virtual "vmName". Error: No se puede realizar la operación solicitada porque el tipo de cuenta de almacenamiento "Premium_LRS" no es compatible con el tamaño de VM "Standard_DS/Ds_V2/FS/Fs_v2)"*. 
    
-   - Al crear una máquina virtual de disco administrado mediante **createOption**: la opción para **asociar** genera el siguiente error: *Long running operation failed with status 'Failed' (No se pudo realizar la operación de ejecución prolongada: estado "Error"). Información adicional:'An internal execution error occurred'* (Se produjo un error de ejecución interno).
-   ErrorCode: InternalExecutionError ErrorMessage: An internal execution error occurred (Se produjo un error de ejecución interno).
+   - Creación de una máquina virtual de disco administrado mediante **createOption**: **Conectar** genera el error siguiente: *Se produjo un problema en la operación de larga ejecución con el estado "Error". Información adicional:'An internal execution error occurred'* (Se produjo un error de ejecución interno).
+   Código de error: InternalExecutionError Mensaje de error: Se produjo un error de ejecución interno.
    
    Este problema se ha corregido ahora.
 
@@ -71,21 +71,10 @@ Esta actualización incluye las siguientes correcciones para Azure Stack:
 
 - <!-- 3078022 - IS, ASDK --> Si una máquina virtual se detenía o desasignaba con una actualización anterior a la 1808, no se podía reasignar después de la actualización 1808.  Este problema se ha corregido en la actualización 1809. Con esta corrección, las instancias que se encontraban en este estado y no se podían iniciar ya se pueden iniciar en la actualización 1809. La corrección también impide que este problema vuelva a ocurrir.
 
-<!-- 3090289 – IS, ASDK --> 
-- Se corrigió el error que, después de aplicar la actualización 1808, producía los problemas siguientes al implementar máquinas virtuales con Managed Disks:
-
-   1. Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
-      1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
-      2. En la misma suscripción, vaya a **Control de acceso (IAM)**, y compruebe que **Azure Stack – Managed Disk** (Azure Stack - Disco administrado) aparece en la lista.
-   2. Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga estos pasos:
-      1. Aplique la [revisión 1808 de Azure Stack](https://support.microsoft.com/help/4471992).
-      2. Siga los pasos de [este artículo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
-
-
 ### <a name="changes"></a>Cambios
 
 <!-- 2635202 - IS, ASDK -->
-- El servicio de copia de seguridad de la infraestructura se traslada de la [red de infraestructura pública](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) a la [red VIP pública](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Los clientes deberán asegurarse de que el servicio tenga acceso a la ubicación de almacenamiento de la copia de seguridad desde la red VIP pública.  
+- El servicio de copia de seguridad de la infraestructura se traslada de la [red de infraestructura pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) a la [red VIP pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Los clientes deberán asegurarse de que el servicio tenga acceso a la ubicación de almacenamiento de la copia de seguridad desde la red VIP pública.  
 
 > [!IMPORTANT]  
 > Si tiene un firewall que no permite las conexiones desde la red VIP pública al servidor de archivos, este cambio hará que se produzca un error en las copias de seguridad de la infraestructura que se indicará como "Error 53: No se encontró la ruta de acceso a la red". Este es un cambio importante que no tiene una solución alternativa razonable. Según los comentarios de los clientes, Microsoft revertirá este cambio en una revisión. Revise la sección en la que se encuentran [los pasos posteriores a la actualización](#post-update-steps) para obtener más información sobre las revisiones disponibles para 1809. Una vez que la revisión esté disponible, asegúrese de aplicarla después de actualizar a 1809 solo si las políticas de su red no permiten que la red VIP pública obtenga acceso a los recursos de infraestructura. En 1811, este cambio se aplicará a todos los sistemas. Si aplicó la revisión en 1809, no es necesario que haga ninguna otra acción.  
@@ -143,7 +132,7 @@ Para obtener más información acerca de estos puntos vulnerables, haga clic en 
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- Instale la revisión más reciente de Azure Stack para la actualización 1808 antes de aplicar la 1809. Para obtener más información, consulte [KB 4471992: Revisión de Azure Stack 1.1808.7.113](https://support.microsoft.com/help/4471992/).
+- Instale la revisión más reciente de Azure Stack para la actualización 1808 antes de aplicar la 1809. Para más información, consulte [KB 4481066: Revisión de Azure Stack 1.1808.9.117](https://support.microsoft.com/help/4481066/).
 
   > [!TIP]  
   > Suscríbase a las siguientes fuentes *RRS* o *Atom* para mantenerse al día con las revisiones de Azure Stack:
@@ -173,7 +162,7 @@ Para obtener más información acerca de estos puntos vulnerables, haga clic en 
 > Prepare la implementación de Azure Stack para el host de extensiones que se habilita en la siguiente actualización. Prepare el sistema mediante la guía siguiente: [Preparación de un host de extensiones de Azure Stack](azure-stack-extension-host-prepare.md).
 
 Después de instalar esta actualización, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).  
-- [KB 4477849: Revisión de Azure Stack 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
+- [KB 4481548: Revisión de Azure Stack 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## <a name="known-issues-post-installation"></a>Problemas conocidos (posteriores a la instalación)
 
@@ -226,20 +215,20 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
    
   Vuelva a ejecutar el cmdlet [Test-AzureStack](azure-stack-diagnostic-test.md) para comprobar el estado de las instancias de rol de infraestructura y los nodos de la unidad de escalado. Si [Test-AzureStack](azure-stack-diagnostic-test.md) no detecta ningún problema, puede ignorar estas alertas. Si se detecta un problema, puede intentar iniciar la instancia de rol de infraestructura o un nodo utilizando el portal de administración o PowerShell.
 
-  Este problema se corrigió en la versión más reciente de la [revisión 1809](https://support.microsoft.com/help/4477849/), así que asegúrese de instalarla si está experimentando el problema. 
+  Este problema se corrigió en la versión más reciente de la [revisión 1809](https://support.microsoft.com/help/4481548/), así que asegúrese de instalarla si está experimentando el problema. 
 
 <!-- 1264761 - IS ASDK -->  
 - Es posible que vea alertas del componente **Controlador de mantenimiento** con los siguientes detalles:  
 
    Alerta 1:
-   - NOMBRE: rol de infraestructura incorrecto
-   - GRAVEDAD: advertencia
+   - NOMBRE:  rol de infraestructura incorrecto
+   - GRAVEDAD: Advertencia
    - COMPONENTE: controlador de mantenimiento
    - DESCRIPCIÓN: el controlador de mantenimiento Heartbeat Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.  
 
   Alerta 2:
-   - NOMBRE: rol de infraestructura incorrecto
-   - GRAVEDAD: advertencia
+   - NOMBRE:  rol de infraestructura incorrecto
+   - GRAVEDAD: Advertencia
    - COMPONENTE: controlador de mantenimiento
    - DESCRIPCIÓN: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
 
@@ -250,7 +239,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 - Es posible que vea una alerta para el componente **Storage** con los siguientes detalles:
 
    - NOMBRE: error de comunicación interna del servicio Storage  
-   - GRAVEDAD: crítica  
+   - GRAVEDAD: Crítico  
    - COMPONENTE: Storage  
    - DESCRIPCIÓN: se produjo un error de comunicación interna del servicio Storage al enviar solicitudes a los nodos siguientes.  
 
@@ -259,7 +248,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 <!-- 2368581 - IS, ASDK --> 
 - Operador de Azure Stack: si recibe una alerta de memoria insuficiente y no se pueden implementar las máquinas virtuales del inquilino debido a un **error de creación de máquina virtual de Fabric**, es posible que la marca de Azure Stack supere la memoria disponible. Use la [herramienta de planeamiento de capacidad de Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para comprender mejor la capacidad disponible para las cargas de trabajo.
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Proceso
 
 <!-- 3235634 – IS, ASDK -->
 - Para implementar máquinas virtuales con tamaños que contiene un sufijo **v2**; por ejemplo, **Standard_A2_v2**, especifique el sufijo como **Standard_A2_v2** (v minúscula). No use **Standard_A2_V2** (v mayúscula). Esto funciona en Azure global y es una incoherencia en Azure Stack.
@@ -268,12 +257,12 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 - Cuando cree una máquina virtual mediante el portal de Azure Stack y seleccione el tamaño de la máquina, se mostrará la columna USD/mes con el mensaje **No disponible**. Esta columna no debería aparecer, ya que en Azure Stack no se permite mostrar la columna de precios de la máquina virtual.
 
 <!-- 2869209 – IS, ASDK --> 
-- Cuando se usa el [cmdlet **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), se debe usar el parámetro **-OsUri** como el URI de la cuenta de almacenamiento donde se ha cargado el disco. Si usa la ruta de acceso local del disco, se produce un error en el cmdlet con el error siguiente: *Error en la operación de larga ejecución con el estado "Error"*. 
+- Cuando se usa el [cmdlet **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), se debe usar el parámetro **-OsUri** como el URI de la cuenta de almacenamiento donde se ha cargado el disco. Si usa la ruta de acceso local del disco, se produce el siguiente error en el cmdlet: *Long running operation failed with status ‘Failed’* (Se produjo un problema en la operación de larga ejecución con el estado "Error"). 
 
 <!--  2795678 – IS, ASDK --> 
 - Cuando usa el portal para crear máquinas virtuales (VM) en un tamaño de máquina virtual prémium (DS, Ds_v2, FS, FSv2), la máquina virtual se crea en una cuenta de almacenamiento estándar. La creación en una cuenta de almacenamiento estándar no afecta al funcionamiento, E/S por segundo ni la facturación. 
 
-   Puede ignorar la advertencia que dice: *Ha elegido usar un disco estándar en un tamaño que admite discos premium. Esto no se recomienda ya que podría afectar al rendimiento del sistema operativo. Considere la opción de usar Premium Storage (SSD).*
+   Puede omitir la siguiente advertencia sin problemas: *Ha elegido usar un disco estándar en un tamaño que admite discos prémium. Esto no se recomienda ya que podría afectar al rendimiento del sistema operativo. Considere la opción de usar Premium Storage (SSD).*
 
 <!-- 2967447 - IS, ASDK --> 
 - La experiencia de creación de conjuntos de escalado de máquinas virtuales (VMSS) proporciona la versión 7.2 basada en CentOS como una opción para la implementación. Como esa imagen no está disponible en Azure Stack, seleccione otro sistema operativo para la implementación o use una plantilla de Azure Resource Manager en la que se especifique otra imagen de CentOS que el operador haya descargado de Marketplace antes de la implementación.  
@@ -292,7 +281,18 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
    Para buscar datos de métricas, como el gráfico de porcentaje de CPU para la máquina virtual, vaya a la ventana Métrica y muestre todas las métricas de invitado de las máquinas virtuales Windows admitidas.
 
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks crea dos nuevos [tipos de cuota de proceso](azure-stack-quota-types.md#compute-quota-types) para limitar la capacidad máxima de los discos administrados que se pueden aprovisionar. De forma predeterminada, se asignan 2 048 GiB para cada tipo de cuota de discos administrados. Sin embargo, es posible que encuentre los siguientes problemas:
 
+   - Para las cuotas creadas antes de la actualización 1808, la cuota de Managed Disks mostrará valores 0 en el portal de administrador, aunque se han asignado 2 048 GiB. Puede aumentar o disminuir el valor según sus necesidades reales y el valor de la cuota recién establecido invalida el predeterminado de 2 048 GiB.
+   - Si actualiza el valor de la cuota a 0, equivale al valor predeterminado de 2 048 GiB. Como alternativa, establezca el valor de la cuota en 1.
+
+<!-- TBD - IS ASDK --> Después de aplicar la actualización 1809, se pueden producir los problemas siguientes al implementar máquinas virtuales con Managed Disks:
+
+   - Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
+      1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
+      2. En la misma suscripción, vaya a **Control de acceso (IAM)**, y compruebe que **Azure Stack – Managed Disk** (Azure Stack - Disco administrado) aparece en la lista.
+   2. Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga los pasos de [este artículo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
 
 ### <a name="networking"></a>Redes  
 

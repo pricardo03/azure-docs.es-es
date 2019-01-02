@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 954eec8566173dd4707926d5f713a5cd509bdd9b
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 9c63808af8d883badd379cf8bc3372a1d65d6624
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620071"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968667"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integración de Azure Active Directory con SharePoint local
 
@@ -76,7 +76,7 @@ Para configurar la integración de SharePoint local en Azure AD, tiene que agreg
 
 4. En el cuadro de búsqueda, escriba **SharePoint local**, seleccione **SharePoint local** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![SharePoint local en la lista de resultados](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
+    ![SharePoint local en la lista de resultados](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, se habilita el inicio de sesión único de Azure AD en Azure P
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
 
-    ![Cuadro de diálogo Inicio de sesión único](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
+    ![Cuadro de diálogo Inicio de sesión único](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
 
 3. En la sección **Dominio y direcciones URL de SharePoint local**, realice los pasos siguientes:
 
-    ![Información de inicio de sesión único de Dominio y direcciones URL de SharePoint local](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
+    ![Información de inicio de sesión único de Dominio y direcciones URL de SharePoint local](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YourSharePointServerURL>/_trust/default.aspx`.
 
@@ -118,21 +118,21 @@ En esta sección, se habilita el inicio de sesión único de Azure AD en Azure P
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
-    ![Vínculo de descarga del certificado](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
+    ![Vínculo de descarga del certificado](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
     > [!Note]
     > Anote la ruta de acceso del archivo en la que ha descargado el archivo de certificado, ya que la usará más tarde para la configuración en el script de PowerShell.
 
 5. Haga clic en el botón **Guardar** .
 
-    ![Botón Configurar inicio de sesión único](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
+    ![Botón Configurar inicio de sesión único](./media/sharepoint-on-premises-tutorial/tutorial_general_400.png)
 
 6. En la sección **Configuración de SharePoint local**, haga clic en **Configurar SharePoint local** para abrir la ventana **Configurar inicio de sesión**. Copie el valor de **Identificador de entidad de SAML** de la **sección Referencia rápida** En **Dirección URL del servicio de inicio de sesión único**, use un valor del siguiente patrón: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
     > [!Note]
     > _my_directory_id_ es el identificador de inquilino de la suscripción de Azure AD.
 
-    ![Configuración de SharePoint local](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
+    ![Configuración de SharePoint local](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
     > [!NOTE]
     > La aplicación SharePoint local usa el token SAML 1.1, por lo que Azure AD espera la solicitud de WS Fed del servidor de SharePoint y, después de la autenticación, emite el token. SAML 1.1.
@@ -171,7 +171,7 @@ En esta sección, se habilita el inicio de sesión único de Azure AD en Azure P
 
     e. Haga clic en **OK**.
 
-    ![Configuración del proveedor de autenticación](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+    ![Configuración del proveedor de autenticación](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
     > [!NOTE]
     > Algunos de los usuarios externos no podrán usar esta integración de inicio de sesión único dado que su UPN habrá trastocado el valor de esta forma: `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. En breve permitiremos a los clientes configurar la aplicación para administrar el UPM en función del tipo de usuario. Después de eso, todos los usuarios invitados podrán usar el inicio de sesión único sin problemas igual que los empleados de la organización.
@@ -186,19 +186,19 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
 
-    ![Botón Azure Active Directory](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
+    ![Botón Azure Active Directory](./media/sharepoint-on-premises-tutorial/create_aaduser_01.png)
 
 2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/sharepoint-on-premises-tutorial/create_aaduser_02.png)
 
 3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
-    ![Botón Agregar](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
+    ![Botón Agregar](./media/sharepoint-on-premises-tutorial/create_aaduser_03.png)
 
 4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
-    ![Cuadro de diálogo Usuario](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
+    ![Cuadro de diálogo Usuario](./media/sharepoint-on-premises-tutorial/create_aaduser_04.png)
 
      a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
@@ -220,7 +220,7 @@ Los usuarios que inicien sesión en Azure AD y accedan a SharePoint deben tener 
 
 4. En Directiva para aplicación web, haga clic en **Agregar usuarios**.
 
-    ![Búsqueda de un usuario por su notificación de nombre](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
+    ![Búsqueda de un usuario por su notificación de nombre](./media/sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
 5. En el cuadro de diálogo **Agregar usuarios**, haga clic en la zona que corresponda de **Zonas** y luego en **Siguiente**.
 
@@ -232,7 +232,7 @@ Los usuarios que inicien sesión en Azure AD y accedan a SharePoint deben tener 
 
 9. En Permisos, haga clic en **Control total**.
 
-    ![Concesión de control total a un usuario de notificaciones](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
+    ![Concesión de control total a un usuario de notificaciones](./media/sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
 10. Haga clic en **Finalizar** y, después, en **Aceptar**.
 
@@ -263,7 +263,7 @@ La configuración funciona para una sola aplicación web, pero se necesitará co
 
 Los usuarios ahora pueden iniciar sesión en SharePoint 2016 mediante identidades de Azure AD, pero todavía hay oportunidades de mejora de la experiencia del usuario. Por ejemplo, la búsqueda de un usuario da lugar a varios resultados de búsqueda en el selector de personas. Hay un resultado de búsqueda por cada uno de los tres tipos de notificación creados en la asignación de notificación. Para elegir un usuario mediante el selector de personas, debe escribir su nombre de usuario exactamente y elegir el resultado de notificación **Nombre**.
 
-![Resultados de búsqueda de notificaciones](./media\sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
+![Resultados de búsqueda de notificaciones](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
 No hay ninguna validación de los valores que se buscan, lo cual puede dar lugar a errores ortográficos o a que los usuarios elijan accidentalmente el tipo de notificación incorrecto para asignar, como la notificación **Apellido**. Esto puede evitar que los usuarios accedan correctamente a los recursos.
 
@@ -283,7 +283,7 @@ En esta sección, se habilita a Britta Simon para que use el inicio de sesión �
 
 2. En la lista de aplicaciones, seleccione **SharePoint local**.
 
-    ![Vínculo de SharePoint en la lista de aplicaciones](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
+    ![Vínculo de SharePoint en la lista de aplicaciones](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 

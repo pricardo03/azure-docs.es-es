@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340450"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259433"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -89,6 +89,9 @@ Tenga en cuenta que el tamaño total del archivo (de 4 a 7 bytes) y el tamaño d
 
 Después de enviar el encabezado WAV (RIFF), el cliente envía fragmentos de los datos de audio. El cliente normalmente transmite fragmentos de tamaño fijo que representan una duración fija (por ejemplo, secuencia de audio de 100 ms cada vez).
 
+### <a name="signal-the-end-of-the-utterance"></a>Indicación del final de la expresión
+Translator Speech API devuelve la transcripción y la traducción de la transmisión de la secuencia de audio según se envía. La transcripción final, la traducción final y la secuencia de audio traducida se le devolverán una vez finalizada la expresión. En algunos caso podría querer forzar el final de la expresión. Para ello, envíe 2,5 segundos de silencio. 
+
 ### <a name="final-result"></a>Resultado final
 Se genera un resultado final de reconocimiento de voz al final de una expresión. Se transmite un resultado desde el servicio al cliente mediante un mensaje de WebSocket de tipo texto. El contenido del mensaje es la serialización JSON de un objeto con las siguientes propiedades:
 
@@ -96,8 +99,8 @@ Se genera un resultado final de reconocimiento de voz al final de una expresión
 * `id`: identificador de cadena asignado al resultado del reconocimiento.
 * `recognition`: texto reconocido en el idioma de origen. El texto puede ser una cadena vacía en el caso de un reconocimiento falso.
 * `translation`: texto reconocido traducido en el idioma de destino.
-* `audioTimeOffset`: desfase horario del inicio del reconocimiento en ticks (1 tick = 100 nanosegundos). El desfase es relativo al principio de la transmisión.
-* `audioTimeSize`: duración en ticks (100 nanosegundos) del reconocimiento.
+* `audioTimeOffset`: desfase horario del inicio del reconocimiento en tics (1 tic = 100 nanosegundos). El desfase es relativo al principio de la transmisión.
+* `audioTimeSize`: duración en tics (100 nanosegundos) del reconocimiento.
 * `audioStreamPosition`: desfase de bytes del principio del reconocimiento. El desfase es relativo al principio de la secuencia.
 * `audioSizeBytes`: tamaño en bytes del reconocimiento.
 
@@ -127,8 +130,8 @@ Un resultado parcial se transmite desde el servicio al cliente mediante un mensa
 * `id`: identificador de cadena asignado al resultado del reconocimiento.
 * `recognition`: texto reconocido en el idioma de origen.
 * `translation`: texto reconocido traducido en el idioma de destino.
-* `audioTimeOffset`: desfase horario del inicio del reconocimiento en ticks (1 tick = 100 nanosegundos). El desfase es relativo al principio de la transmisión.
-* `audioTimeSize`: duración en ticks (100 nanosegundos) del reconocimiento.
+* `audioTimeOffset`: desfase horario del inicio del reconocimiento en tics (1 tic = 100 nanosegundos). El desfase es relativo al principio de la transmisión.
+* `audioTimeSize`: duración en tics (100 nanosegundos) del reconocimiento.
 * `audioStreamPosition`: desfase de bytes del principio del reconocimiento. El desfase es relativo al principio de la secuencia.
 * `audioSizeBytes`: tamaño en bytes del reconocimiento.
 
@@ -156,7 +159,7 @@ Cuando se habilita la característica de texto a voz (consulte el parámetro `fe
 Cuando una aplicación cliente ha terminado de transmitir el audio y ha recibido el último resultado final, debe cerrar la conexión mediante el inicio del protocolo de enlace de cierre de WebSocket. Hay condiciones que provocan que el servidor finalice la conexión. El cliente puede recibir los siguientes códigos de cierre de WebSocket:
 
 * `1003 - Invalid Message Type`: el servidor finaliza la conexión porque no puede aceptar el tipo de datos que recibió. Esto suele ocurrir cuando el audio de entrada no inicia con un encabezado adecuado.
-* `1000 - Normal closure`:la conexión se cerró después de llevar a cabo la solicitud. El servidor cerrará la conexión: cuando no se reciba ningún audio del cliente durante un largo período de tiempo; cuando se transmita silencio durante un largo período de tiempo; cuando una sesión alcance la duración máxima permitida (aproximadamente 90 minutos).
+* `1000 - Normal closure`: la conexión se cerró después de llevar a cabo la solicitud. El servidor cerrará la conexión: cuando no se reciba ningún audio del cliente durante un largo período de tiempo; cuando se transmita silencio durante un largo período de tiempo; cuando una sesión alcance la duración máxima permitida (aproximadamente 90 minutos).
 * `1001 - Endpoint Unavailable`: indica que el servidor dejará de estar disponible. La aplicación cliente puede intentar volver a conectarse con un límite de número de reintentos.
 * `1011 - Internal Server Error`: el servidor cerrará la conexión debido a un error en el servidor.
 
@@ -169,7 +172,7 @@ Cuando una aplicación cliente ha terminado de transmitir el audio y ha recibido
 |to|(vacío)|Especifica el idioma al que se va a traducir el texto transcrito. El valor es uno de los identificadores de idioma del ámbito `text` de la respuesta de la API de idiomas.|query|string|
 |features|(vacío)   |Conjunto separados por comas de las características seleccionadas por el cliente. Las características disponibles son:<ul><li>`TextToSpeech`: especifica que el servicio debe devolver el audio traducido de la última oración traducida.</li><li>`Partial`: especifica que el servicio debe devolver los resultados intermedios del reconocimiento mientras el audio transmite al servicio.</li><li>`TimingInfo`: especifica que el servicio debe devolver información de tiempo asociada a cada reconocimiento.</li></ul>Por ejemplo, un cliente debe especificar `features=partial,texttospeech` para recibir los resultados parciales y texto a voz, pero no información de tiempo. Tenga en cuenta que los resultados finales siempre se transmiten al cliente.|query|string|
 |voice|(vacío)|Identifica qué voz utilizar para la representación de texto a voz del texto traducido. El valor es uno de los identificadores de voz del ámbito de tts de la respuesta de la API de idiomas. Si no se especifica una voz, el sistema elegirá una automáticamente cuando esté habilitada la característica de texto a voz.|query|string|
-|formato|(vacío)|Especifica el formato de la secuencia de audio de texto a voz devuelta por el servicio. Las opciones disponibles son la siguientes:<ul><li>`audio/wav`: secuencia de audio de forma de onda. El cliente debe utilizar el encabezado WAV para interpretar correctamente el formato de audio. El audio WAV para texto a voz es de PCM de canal único de 16 bits con una velocidad de muestreo de 24 kHz o 16 kHz.</li><li>`audio/mp3`: secuencia de audio MP3.</li></ul>El valor predeterminado es `audio/wav`.|query|string|
+|formato|(vacío)|Especifica el formato de la secuencia de audio de texto a voz devuelta por el servicio. Las opciones disponibles son la siguientes:<ul><li>`audio/wav`: secuencia de audio Waveform. El cliente debe utilizar el encabezado WAV para interpretar correctamente el formato de audio. El audio WAV para texto a voz es de PCM de canal único de 16 bits con una velocidad de muestreo de 24 kHz o 16 kHz.</li><li>`audio/mp3`: secuencia de audio MP3.</li></ul>El valor predeterminado es `audio/wav`.|query|string|
 |ProfanityAction    |(vacío)    |Especifica cómo el servicio debe tratar las palabras soeces reconocidas en la voz. Las acciones válidas son las siguientes:<ul><li>`NoAction`: las palabras soeces se dejan tal cual.</li><li>`Marked`: las palabras soeces se reemplazan por un marcador. Consulte el parámetro `ProfanityMarker`.</li><li>`Deleted`: las palabras soeces se eliminan. Por ejemplo, si la palabra `"jackass"` se trata como una palabra soez, la frase `"He is a jackass."` se convertirá en `"He is a .".`</li></ul>El valor predeterminado es Marcado.|query|string|
 |ProfanityMarker|(vacío)    |Especifica cómo se tratan las palabras soeces detectadas cuando `ProfanityAction` se establece en `Marked`. Las opciones válidas son las siguientes:<ul><li>`Asterisk`: las palabras soeces se reemplazan por la cadena `***`. Por ejemplo, si la palabra `"jackass"` se trata como una palabra soez, la frase `"He is a jackass."` se convertirá en `"He is a ***.".`</li><li>`Tag`: las palabras soeces están rodeadas por una etiqueta XML de palabras soeces. Por ejemplo, si la palabra `"jackass"` se trata como una palabra soez, la frase `"He is a jackass."` se convertirá en `"He is a <profanity>jackass</profanity>."`.</li></ul>El valor predeterminado es `Asterisk`.|query|string|
 |Autorización|(vacío)  |Especifica el valor del token de portador del cliente. Use el prefijo `Bearer` seguido del valor de `access_token` devuelto por el servicio de token de autenticación.|encabezado   |string|

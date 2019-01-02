@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: cc4e128cab3cad235462e29e65fa58002a103bcd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855908"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834832"
 ---
 # <a name="register-in-dev-center"></a>Registro en el Centro para desarrolladores  
 Para ayudar a asegurarse de que no está registrado en una cuenta de explorador personal, abra una nueva sesión de exploración de incógnito de Chrome o de InPrivate en Internet Explorer.  
@@ -103,7 +103,7 @@ Si tiene problemas con el registro en el Centro para desarrolladores, siga estos
 3.  Para enviar el vale, haga clic en el botón Enviar. 
 
 
-## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problema: agregar información bancaria y fiscal de pagos de editor  
+## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problema: Agregar información bancaria y fiscal para pagos del anunciante  
 La información bancaria y fiscal es obligatoria para todas las ofertas comerciales con el tipo de listado de transacciones.  
 *   Si va a publicar ofertas comerciales de compra, debe agregar información de pago y fiscal y solicitar validación en el Centro de desarrollo.  
     >[!IMPORTANT]
@@ -143,7 +143,7 @@ La información bancaria y fiscal es obligatoria para todas las ofertas comercia
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes: 
 
 *   **¿Qué publicadores requieren un registro de cuenta en el Centro de desarrollo?** 
-> Los publicadores que publican en el tipo de aplicación Transact: máquina virtual, aplicaciones de Azure: plantillas de solución y aplicaciones administradas.  
+> Anunciante que publica en el tipo de anuncio de transacción: máquina virtual, aplicaciones de Azure: plantillas de solución y aplicaciones administradas.  
 
 *   **¿Por qué se necesita la cuenta del Centro de desarrollo?**
 > La cuenta del Centro de desarrollo es obligatoria para que Microsoft pueda facturar al cliente en nombre del publicador por el tipo de aplicación Transact. El registro de la cuenta del Centro de desarrollo permite a Microsoft validar la información legal, fiscal y bancaria de su compañía. Para obtener más información, haga clic [aquí](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center).
@@ -165,13 +165,13 @@ La información bancaria y fiscal es obligatoria para todas las ofertas comercia
 > Complete el formulario de [Registro de Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) para recibir un código promocional del Centro de desarrollo.
  
 *   **¿Qué debo esperar cuando después de completar el registro?**
-> Busque un correo electrónico de verify@microsoft.com con la línea de asunto "Action needed: Verify your email account with Microsoft" (Se requiere una acción: compruebe la cuenta de correo electrónico con Microsoft). Haga clic en el vínculo de comprobación sujeto a limitación temporal para completar el registro. *Si no ha recibido ningún correo electrónico en 24 horas, compruebe la carpeta de correo no deseado.*
+> Busque un correo electrónico en verify@microsoft.com con la línea de asunto "Action needed: Verify your email account with Microsoft" (Se requiere una acción: compruebe la cuenta de correo electrónico con Microsoft). Haga clic en el vínculo de comprobación sujeto a limitación temporal para completar el registro. *Si no ha recibido ningún correo electrónico en 24 horas, compruebe la carpeta de correo no deseado.*
 
 *   **¿Cuáles son los pasos siguientes después de la comprobación del Centro de desarrollo?**
 > Vaya a "Your Programs" (Sus programas) (https://developer.microsoft.com/dashboard/Account/Programs) e inicie sesión con la cuenta del Centro de desarrollo. Si no ve Azure como un programa registrado, mire en "Recommended programs for you" (Programas recomendado para usted) y, después, busque Azure para seleccionar "Get Started" (Comenzar).
 
 *   **¿Cómo se vincula una cuenta del Centro de desarrollo a un perfil de publicación de Cloud Partner Portal?**
-> El último paso antes de la publicación es vincular su cuenta del Centro de desarrollo a su [perfil](https://cloudpartner.azure.com/#profile) de Cloud Partner Portal. Si la cuenta del Centro de desarrollo no es la misma que la de [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), agréguela como un [usuario](https://cloudpartner.azure.com/#documentation/manage-users) nuevo en Cloud Partner Portal. Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers) con su cuenta del Centro de desarrollo. Seleccione Publisher profile (Perfil de publicación) en el menú situado en la parte superior derecha del explorador web. Seleccione el vínculo Dev Center Account (Cuenta del Centro de desarrollo).
+> El último paso antes de la publicación es vincular su cuenta del Centro de desarrollo a su [perfil](https://cloudpartner.azure.com/#profile) de Cloud Partner Portal. Si la cuenta del Centro de desarrollo no es la misma que la de [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), agréguela como un [usuario](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) nuevo en Cloud Partner Portal. Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers) con su cuenta del Centro de desarrollo. Seleccione Publisher profile (Perfil de publicación) en el menú situado en la parte superior derecha del explorador web. Seleccione el vínculo Dev Center Account (Cuenta del Centro de desarrollo).
 
 *   **¿Por qué se rechaza mi aplicación del Centro de desarrollo?**
 > La compañía de examen de terceros (Duns & Bradstreet) no pudo ponerse en contacto con usted a través del número de teléfono que proporcionó. Póngase en contacto con soporte técnico en [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) para volver a iniciar el proceso de examen.
@@ -187,7 +187,7 @@ La información bancaria y fiscal es obligatoria para todas las ofertas comercia
 > No podrá publicar ofertas Transact sin completar la información fiscal y bancaria de su cuenta del Centro de desarrollo.  Para más información sobre la adición de información de la cuenta, visite la sección [Adición de información bancaria y fiscal](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information).
 
 *   **¿Puedo cambiar la cuenta de inicio de sesión de Microsoft del Centro de desarrollo?**
-> No. Una vez creado un Centro de desarrollo, no se puede cambiar la cuenta de propietario. Tiene que empezar de nuevo con una cuenta del Centro de desarrollo totalmente nueva con la cuenta de Microsoft que desee.
+>  No. Una vez creado un Centro de desarrollo, no se puede cambiar la cuenta de propietario. Tiene que empezar de nuevo con una cuenta del Centro de desarrollo totalmente nueva con la cuenta de Microsoft que desee.
 
 *   **¿Dónde puedo ponerme en contacto con el soporte técnico para problemas relativos al registro en el Centro de desarrollo?**
 Para acceder a soporte técnico, visite la página Soporte técnico para desarrolladores de Windows en [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 

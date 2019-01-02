@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 54a88188a432a23476af6a1670635a23fb72eea7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638210"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341175"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -33,7 +33,7 @@ Cuando sea necesario ejecutar una instancia de orquestación, las filas correspo
 
 La tabla **Instances** es otra tabla de Azure Storage que contiene los estados de todas las instancias de orquestación dentro de una central de tareas. Según se crean las instancias, se van agregando nuevas filas a esta tabla. La clave de partición de esta tabla es el identificador de instancia de orquestación y la clave de fila es una constante fija. Hay una fila por cada instancia de orquestación.
 
-Esta tabla se utiliza para satisfacer las solicitudes de consulta de instancia de [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API, así como de [API HTTP de consulta de estado](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). Se mantiene coherente en última instancia con el contenido de la tabla **History** mencionada anteriormente. El uso de una tabla de Azure Storage independiente para satisfacer con eficiencia operaciones de consulta de instancias de esta manera se ve influenciada por el [patrón Command and Query Responsibility Segregation (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Esta tabla se utiliza para satisfacer las solicitudes de consulta de instancia de las API [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) (.NET) y `getStatus` (JavaScript), así como de la [API HTTP de consulta de estado](durable-functions-http-api.md#get-instance-status). Se mantiene coherente en última instancia con el contenido de la tabla **History** mencionada anteriormente. El uso de una tabla de Azure Storage independiente para satisfacer con eficiencia operaciones de consulta de instancias de esta manera se ve influenciada por el [patrón Command and Query Responsibility Segregation (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Desencadenadores de cola interna
 
@@ -53,10 +53,24 @@ Las colas de control contienen una gran variedad de tipos de mensajes del ciclo 
 
 Las colas, tablas y blobs usados por Durable Functions se crean en una cuenta de Azure Storage. Se puede especificar la cuenta que se va a usar mediante el valor `durableTask/azureStorageConnectionStringName` del archivo **host.json**.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+    }
   }
 }
 ```
@@ -67,6 +81,8 @@ Si no se especifica, se utiliza la cuenta de almacenamiento `AzureWebJobsStorage
 
 Las funciones de actividad no tienen estado y se escalan horizontalmente de manera automática con la incorporación de máquinas virtuales. En cambio, las funciones de orquestador,tienen *particiones* en una o más colas de control. El número de colas de control se define en el archivo **host.json**. El siguiente fragmento de código de host.json de ejemplo establece la propiedad `durableTask/partitionCount` en `3`.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
@@ -74,6 +90,19 @@ Las funciones de actividad no tienen estado y se escalan horizontalmente de mane
   }
 }
 ```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "partitionCount": 3
+    }
+  }
+}
+```
+
 Una central de tareas se puede configurar con entre 1 y 16 particiones. Si no se especifica, el número de participaciones predeterminado es **4**.
 
 Mientras se escala horizontalmente a varias instancias de host de función (normalmente en máquinas virtuales diferentes), cada instancia adquiere un bloqueo en una de las colas de control. Estos bloqueos se implementan internamente como concesiones de almacenamiento de blobs y aseguran que solo se ejecuta una instancia de orquestación en una única instancia de host a la vez. Si una central de tareas está configurada con tres colas de control, se puede equilibrar la carga de las instancias de orquestación en tres máquinas virtuales como máximo. Se pueden agregar máquinas virtuales adicionales para aumentar la capacidad de ejecución de la función de actividad,
@@ -106,11 +135,26 @@ Azure Functions admite la ejecución de varias funciones simultáneamente dentro
 
 Tanto el límite de simultaneidad de la función de actividad como de la función de orquestador se pueden configurar en el archivo **host.json**. La configuración pertinente es `durableTask/maxConcurrentActivityFunctions` y `durableTask/maxConcurrentOrchestratorFunctions` respectivamente.
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
   }
 }
 ```
@@ -121,15 +165,31 @@ En el ejemplo anterior, se pueden ejecutar simultáneamente un máximo de 10 fun
 > Esta configuración resulta útil para ayudar a administrar el uso de memoria y de CPU en una única máquina virtual. Sin embargo, al escalar horizontalmente a través de varias máquinas virtuales, cada máquina virtual tendrá su propio conjunto de límites. Esta configuración no se puede usar para controlar la simultaneidad a nivel global.
 
 ## <a name="orchestrator-function-replay"></a>Reproducción de una función de orquestador
+
 Tal como se ha mencionado anteriormente, las funciones de orquestador se reproducen con el contenido de la tabla **History**. De forma predeterminada, el código de la función de orquestador se reproduce cada vez que se elimina un lote de mensajes de una cola de control.
 
 Se puede deshabilitar este comportamiento agresivo de reproducción habilitando **sesiones extendidas**. Cuando se habilitan sesiones extendidas, las instancias de la función de orquestador se mantienen en la memoria más tiempo y se pueden procesar mensajes nuevos sin una reproducción completa. Las sesiones extendidas se habilitan al establecer `durableTask/extendedSessionsEnabled` en `true` en el archivo **host.json**. El valor `durableTask/extendedSessionIdleTimeoutInSeconds` se utiliza para controlar cuánto tiempo se retiene una sesión inactiva en la memoria:
+
+### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
   "durableTask": {
     "extendedSessionsEnabled": true,
     "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "extendedSessionsEnabled": true,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
   }
 }
 ```

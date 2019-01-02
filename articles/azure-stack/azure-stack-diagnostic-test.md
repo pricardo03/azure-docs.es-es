@@ -1,5 +1,5 @@
 ---
-title: Ejecución de una prueba de validación en Azure Stack | Microsoft Docs
+title: Uso de la herramienta de validación de Azure Stack | Microsoft Docs
 description: Recopilación de archivos de registro de diagnósticos en Azure Stack
 services: azure-stack
 author: jeffgilb
@@ -10,193 +10,188 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 12/03/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: af601005c7c8bd8fa7fe335879991caa34187927
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f754242d0cf7ee30572b21a3f4daf6fd2c0f63ff
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236982"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275914"
 ---
-# <a name="run-a-validation-test-for-azure-stack"></a>Ejecución de una prueba de validación para Azure Stack
+# <a name="validate-azure-stack-system-state"></a>Validación del estado del sistema de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
- 
-Puede validar el estado de Azure Stack. Si hay algún problema, póngase en contacto con el Soporte de servicio al cliente de Microsoft. Soporte le pedirá que ejecute **Test-AzureStack** desde el nodo de administración. La prueba de validación permite aislar el error. A continuación, Soporte puede analizar los registros detallados, centrarse en el área donde se produjo el error y trabajar con usted para resolver el problema.
 
-## <a name="run-test-azurestack"></a>Ejecución de Test-AzureStack
+Como operador de Azure Stack, es esencial tener la capacidad de saber a petición sobre el mantenimiento y el estado del sistema. La herramienta de validación de Azure Stack (**Test-AzureStack**) es un cmdlet de PowerShell que le permite ejecutar una serie de pruebas en el sistema para identificar errores, si los hubiera. Cuando se ponga en contacto con los Servicios de atención al cliente y soporte técnico de Microsoft (CSS) con un problema, normalmente se le pedirá que ejecute esta herramienta a través del [punto de conexión con privilegios (PEP)](azure-stack-privileged-endpoint.md). Con la información sobre el mantenimiento y el estado en todo el sistema, CSS puede recopilar y analizar registros detallados, centrarse en el área donde se produjo el error y trabajar conjuntamente con usted para resolver el problema.
 
-Si hay algún problema, póngase en contacto con el Soporte de servicio al cliente de Microsoft y ejecute **Test-AzureStack**.
+## <a name="running-the-validation-tool-and-accessing-results"></a>Ejecución de la herramienta de validación y acceso a los resultados
 
-1. Tiene un problema.
-2. Póngase en contacto con el Soporte de servicio al cliente de Microsoft.
-3. Ejecute **Test-AzureStack** desde el punto de conexión con privilegios.
-    1. Acceda al punto de conexión con privilegios. Para obtener instrucciones, consulte [Uso del punto de conexión con privilegios en Azure Stack](azure-stack-privileged-endpoint.md). 
-    2. En ASDK, inicie sesión en el host de administración como **AzureStack\CloudAdmin**.  
-    En los sistemas integrados, tendrá que utilizar la dirección IP del punto de conexión con privilegios en la administración proporcionada por el proveedor de hardware de OEM.
-    3. Abra PowerShell como administrador.
-    4. Ejecute: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
-    5. Ejecute: `Test-AzureStack`
-4. Si ninguna de las pruebas notifica **ERROR**, ejecute: `Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath “<path>” -OutputShareCredential $cred`. El cmdlet recopilará los registros de Test-AzureStack. Para más información sobre los registros de diagnóstico, consulte [Registros de diagnóstico de Azure Stack](azure-stack-diagnostics.md). No debe recopilar registros ni ponerse en contacto con el Soporte técnico y el servicio al cliente de Microsoft (CSS) si las pruebas devuelven **WARN**.
-5. Envíe los registros **SeedRing** al Soporte de servicio de Microsoft. Este le ayudará a resolver el problema.
+Como se indicó anteriormente, la herramienta de validación se ejecuta a través del PEP. Cada prueba devuelve un estado **PASS/FAIL** (correcto/incorrecto) en la ventana de PowerShell. Además, se crea un informe HTML detallado al que se puede tener acceso más adelante durante la [recopilación de registros](azure-stack-diagnostics.md). Este es un esquema del proceso de prueba de validación de un extremo a otro: 
 
-## <a name="reference-for-test-azurestack"></a>Referencia de Test-AzureStack
+1. Acceda al punto de conexión con privilegios (PEP). Ejecute los comandos siguientes para establecer una sesión de PEP:
 
-Esta sección contiene información general sobre el cmdlet Test-AzureStack y un resumen del informe de validación.
+   ```powershell
+   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+   ```
 
-### <a name="test-azurestack"></a>Test-AzureStack
+   > [!TIP]
+   > Para acceder al PEP en un equipo host del Kit de desarrollo de Azure Stack, use AzS-ERCS01 para - ComputerName.
 
-Valida el estado de Azure Stack. El cmdlet notifica el estado del hardware y el software de Azure Stack. El personal de Soporte puede utilizar este informe para reducir el tiempo necesario para resolver casos de soporte técnico de Azure Stack.
+2. Una vez que esté en el PEP, ejecute: 
 
-> [!Note]  
-> **Test-AzureStack** puede detectar errores que no producen interrupciones en la nube, como un único disco erróneo o un único error en el nodo físico del host.
+   ```powershell
+   Test-AzureStack
+   ```
 
-#### <a name="syntax"></a>Sintaxis
+   Acuda a las secciones [Consideraciones sobre los parámetros](azure-stack-diagnostic-test.md#parameter-considerations) y [Ejemplos de caso de uso](azure-stack-diagnostic-test.md#use-case-examples) para más información.
 
-````PowerShell
-  Test-AzureStack
-````
+3. Si cualquier informe de pruebas aparece como **FAIL**, ejecute:
 
-#### <a name="parameters"></a>Parámetros
+   ```powershell
+   Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
+   ```
 
-| Parámetro               | Valor           | Obligatorio | Valor predeterminado |
-| ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | string    | Sin        | FALSE   |
-| DoNotDeployTenantVm     | SwitchParameter | Sin        | FALSE   |
-| AdminCredential         | PSCredential    | Sin        | N/D      |
-| Enumerar                    | SwitchParameter | Sin        | FALSE   |
-| Ignorar                  | string          | Sin        | N/D      |
-| Include                 | string          | Sin        | N/D      |
-| BackupSharePath         | string          | Sin        | N/D      |
-| BackupShareCredential   | PSCredential    | Sin        | N/D      |
+   El cmdlet recopila registros generados por Test-AzureStack. Para más información sobre los registros de diagnóstico, consulte [Registros de diagnóstico de Azure Stack](azure-stack-diagnostics.md). Si las pruebas devuelven **WARN** (Advertir) no necesita recopilar registros ni ponerse en contacto con los Servicios de atención al cliente y soporte técnico de Microsoft (CSS).
 
+4. Si el CSS le indicó que ejecutase la herramienta de validación, el representante del CSS le solicitará los registros que haya recopilado para continuar con la solución del problema.
 
-El cmdlet Test-AzureStack cmdlet admite los parámetros habituales: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable y OutVariable. Para más información, consulte [About Common Parameters](https://go.microsoft.com/fwlink/?LinkID=113216) (Acerca de parámetros habituales). 
+## <a name="tests-available"></a>Pruebas disponibles
 
-### <a name="examples-of-test-azurestack"></a>Ejemplos de Test-AzureStack
+La herramienta de validación le permite ejecutar una serie de pruebas de nivel de sistema y escenarios de nube básicos que le proporcionan una recomendación sobre el estado actual y determinan los problemas en el sistema.
 
-En los ejemplos siguientes se supone que ha iniciado sesión como **CloudAdmin** y que va a acceder al punto de conexión con privilegios (PEP). Para obtener instrucciones, consulte [Uso del punto de conexión con privilegios en Azure Stack](azure-stack-privileged-endpoint.md). 
+### <a name="cloud-infrastructure-tests"></a>Pruebas de infraestructura en la nube
 
-#### <a name="run-test-azurestack-interactively-without-cloud-scenarios"></a>Ejecución de Test-AzureStack de forma interactiva sin escenarios en la nube
+Estas pruebas de bajo impacto trabajan a nivel de infraestructura y proporcionan información sobre los distintos componentes y funciones del sistema. Actualmente, las pruebas se agrupan en las siguientes categorías:
 
-En una sesión PEP, ejecute:
+| Categoría de prueba                                        | Argumento de -Include and -Ignore |
+| :--------------------------------------------------- | :-------------------------------- |
+| Resumen de alertas de Azure Stack                            | AzsAlertSummary                   |
+| Resumen de accesibilidad del recurso compartido de copia de seguridad de Azure Stack       | AzsBackupShareAccessibility       |
+| Resumen de plano de Control de Azure Stack                    | AzsControlPlane                   |
+| Resumen de Azure Stack Defender                         | AzsDefenderSummary                |
+| Resumen del firmware de la infraestructura de hospedaje de Azure Stack  | AzsHostingInfraFWSummary          |
+| Resumen de la infraestructura de hospedaje en la nube de Azure Stack     | AzsHostingInfraSummary            |
+| Uso de la infraestructura de hospedaje en la nube de Azure Stack | AzsHostingInfraUtilization        |
+| Capacidad de la infraestructura de Azure Stack                  | AzsInfraCapacity                  |
+| Rendimiento de la infraestructura de Azure Stack               | AzsInfraPerformance               |
+| Resumen de los roles de la infraestructura de Azure Stack              | AzsInfraRoleSummary               |
+| Resumen de actualización de Azure Stack                           | AzsInfraUpdateSummary             |
+| Resumen de API y del portal de Azure Stack                   | AzsPortalAPISummary               |
+| Eventos de máquina virtual de la unidad de escalado de Azure Stack                     | AzsScaleUnitEvents                |
+| Recursos de máquina virtual de la unidad de escalado de Azure Stack                  | AzsScaleUnitResources             |
+| Resumen de validación de SDN de Azure Stack                   | AzsSDNValidation                  |
+| Resumen de roles de Azure Stack Service Fabric              | AzsSFRoleSummary                  |
+| Resumen del BMC de Azure Stack                              | AzsStampBMCSummary                |
+| Resumen de los servicios de almacenamiento de Azure Stack                 | AzsStorageSvcsSummary             |
+| Resumen del almacén de SQL de Azure Stack                        | AzsStoreSummary                   |
+| Resumen de la selección de máquina virtual de Azure Stack                     | AzsVmPlacement                    |
 
-````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-    Test-AzureStack
-````
+### <a name="cloud-scenario-tests"></a>Pruebas de escenario de nube
 
-#### <a name="run-test-azurestack-with-cloud-scenarios"></a>Ejecución de Test-AzureStack con escenarios en la nube
+Además de la infraestructura de pruebas anteriores, también tiene la capacidad de ejecutar pruebas de escenario de nube para comprobar la funcionalidad en todos los componentes de la infraestructura. Las credenciales de administrador de la nube son necesarias para ejecutar estas pruebas, ya que implican la implementación de recursos. 
+    > [!NOTE]
+    >
+    > Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
-Puede usar **Test-AzureStack** para ejecutar escenarios en la nube en Azure Stack. Entre los escenarios se incluyen los siguientes:
+Los siguientes escenarios de nube han sido probados por la herramienta de validación:
+- Creación de grupos de recursos   
+- Creación de planes              
+- Creación de ofertas            
+- Creación de cuentas de almacenamiento   
+- Creación de máquinas virtuales 
+- Operación de almacenamiento de blobs   
+- Operación de almacenamiento en cola  
+- Operación de almacenamiento en tabla  
 
- - Creación de grupos de recursos
- - Creación de planes
- - Creación de ofertas
- - Creación de cuentas de almacenamiento
- - Creación de una máquina virtual
- - Realización de operaciones de blob mediante la cuenta de almacenamiento que creó en el escenario de prueba
- - Realización de operaciones de cola mediante la cuenta de almacenamiento que creó en el escenario de prueba
- - Realización de operaciones de tabla mediante la cuenta de almacenamiento que creó en el escenario de prueba
+## <a name="parameter-considerations"></a>Consideraciones sobre los parámetros
 
-Los escenarios en la nube requieren credenciales de administrador en la nube. 
-> [!Note]  
-> No se pueden ejecutar los escenarios en la nube mediante las credenciales de los Servicios de federación de Active Directory (AD FS). Solo se puede acceder al cmdlet **Test-AzureStack** mediante el punto de conexión con privilegios. Sin embargo, este no admite las credenciales de AD FS.
+- El parámetro **List** puede usarse para mostrar todas las categorías de prueba disponibles.
 
-Escriba el nombre de usuario del administrador de la nube en formato UPN serviceadmin@contoso.onmicrosoft.com (Azure AD). Cuando se le solicite, escriba la contraseña en la cuenta de administrador en la nube.
+- Los parámetros **Include** e **Ignore** pueden usarse para incluir o excluir las categorías de pruebas. Consulte la sección [Pruebas disponibles](azure-stack-diagnostic-test.md#tests-available) para más información sobre la forma abreviada para usar con estos argumentos.
 
-En una sesión PEP, ejecute:
-
-````PowerShell
-  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-  Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
-````
-
-#### <a name="run-test-azurestack-without-cloud-scenarios"></a>Ejecución de Test-AzureStack sin escenarios en la nube
-
-En una sesión PEP, ejecute:
-
-````PowerShell
-  $session = New-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-  Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
-````
-
-#### <a name="list-available-test-scenarios"></a>Enumeración de los escenarios de prueba disponibles:
-
-En una sesión PEP, ejecute:
-
-````PowerShell
-  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-  Test-AzureStack -List
-````
-
-#### <a name="run-a-specified-test"></a>Ejecutar una prueba específica
-
-En una sesión PEP, ejecute:
-
-````PowerShell
-  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+  ```powershell
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
-````
+  ```
 
-Para excluir pruebas específicas:
+  ```powershell
+  Test-AzureStack -Ignore AzsInfraPerformance
+  ```
 
-````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-    Test-AzureStack -Ignore AzsInfraPerformance
-````
+- Se implementa una máquina virtual de inquilino como parte de una de las pruebas de escenario de nube. Puede usar **DoNotDeployTenantVm** para deshabilitar esta implementación. 
 
-### <a name="run-test-azurestack-to-test-infrastructure-backup-settings"></a>Ejecución de Test-AzureStack para probar la configuración de copia de seguridad de la infraestructura
+- Tendrá que agregar el parámetro **ServiceAdminCredential** para ejecutar las pruebas de escenario de nube, tal y como se describe en la sección [Ejemplos de caso de uso](azure-stack-diagnostic-test.md#use-case-examples).
 
-Antes de configurar la copia de seguridad de la infraestructura, puede probar la ruta de acceso y las credenciales del recurso compartido de copia de seguridad mediante la prueba **AzsBackupShareAccessibility**.
+- **BackupSharePath** y **BackupShareCredential** se utilizan cuando se prueba la configuración de copia de seguridad de la infraestructura, tal y como se muestra en la sección [Ejemplos de caso de uso](azure-stack-diagnostic-test.md#use-case-examples).
 
-En una sesión PEP, ejecute:
+- La herramienta de validación también admite parámetros comunes de PowerShell: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable y OutVariable. Para más información, consulte [About Common Parameters](http://go.microsoft.com/fwlink/?LinkID=113216) (Acerca de parámetros habituales).  
 
-````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-    Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
-````
-Después de configurar la copia de seguridad, puede ejecutar AzsBackupShareAccessibility para asegurarse de que el recurso compartido sea accesible desde ERCS, en una sesión PEP, ejecute:
+## <a name="use-case-examples"></a>Ejemplos de caso de uso
 
-````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-    Test-AzureStack -Include AzsBackupShareAccessibility
-````
+### <a name="run-validation-without-cloud-scenarios"></a>Ejecución de la validación sin escenarios de nube
 
-Para probar las nuevas credenciales con el recurso compartido de copia de seguridad configurada, en una sesión PEP, ejecute:
+Ejecute la herramienta de validación sin el parámetro **ServiceAdminCredential** para omitir la ejecución de las pruebas de escenario de nube: 
 
-````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-    Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential <PSCredential for backup share>
-````
+```powershell
+New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred
+Test-AzureStack
+```
 
-### <a name="validation-test"></a>Prueba de validación
+### <a name="run-validation-with-cloud-scenarios"></a>Ejecución de la validación con escenarios de nube
 
-En la tabla siguiente se resumen las pruebas de validación ejecutadas por **Test-AzureStack**.
+Al proporcionar la herramienta de validación con el parámetro **ServiceAdminCredentials** se ejecutan las pruebas de escenario de nube de forma predeterminada: 
 
-| NOMBRE                                                                                                                              |
-|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| Resumen de la infraestructura de hospedaje en la nube de Azure Stack                                                                                  |
-| Resumen de los servicios de almacenamiento de Azure Stack                                                                                              |
-| Resumen de la instancia de rol de la infraestructura de Azure Stack                                                                                  |
-| Uso de la infraestructura de hospedaje en la nube de Azure Stack                                                                              |
-| Capacidad de la infraestructura de Azure Stack                                                                                               |
-| Resumen de API y del portal de Azure Stack                                                                                                |
-| Resumen del certificado de Azure Resource Manager de Azure Stack                                                                                               |
-| Roles de controlador de administración de la infraestructura, controlador de red, servicios de almacenamiento y de infraestructura de puntos de conexión con privilegios          |
-| Instancias de roles de controlador de administración de la infraestructura, controlador de red, servicios de almacenamiento y de infraestructura de puntos de conexión con privilegios |
-| Resumen de roles de la infraestructura de Azure Stack                                                                                           |
-| Servicios Service Fabric en la nube de Azure Stack                                                                                         |
-| Rendimiento de la instancia de rol de la infraestructura de Azure Stack                                                                              |
-| Resumen del rendimiento del host en la nube de Azure Stack                                                                                        |
-| Resumen del consumo de recursos del servicio Azure Stack                                                                                  |
-| Eventos críticos de la unidad de escalado de Azure Stack (últimas 8 horas)                                                                             |
-| Resumen de los discos físicos de los servicios de almacenamiento de Azure Stack                                                                               |
-|Resumen de accesibilidad del recurso compartido de copia de seguridad de Azure Stack                                                                                     |
+```powershell
+Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" 
+```
+
+Si desea ejecutar SOLO escenarios de nube sin ejecutar el resto de las pruebas, puede usar el parámetro **Include** para hacerlo: 
+
+```powershell
+Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Include AzsScenarios   
+```
+
+El nombre de usuario del administrador de la nube tiene que escribirse en formato UPN: serviceadmin@contoso.onmicrosoft.com (Azure AD). Cuando se le solicite, escriba la contraseña en la cuenta de administrador en la nube.
+
+### <a name="run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix"></a>Ejecución de la herramienta de validación para probar la preparación del sistema antes de instalar una actualización o una revisión
+
+Antes de iniciar la instalación de una actualización o una revisión, debe ejecutar la herramienta de validación para comprobar el estado de la instancia de Azure Stack:
+
+```powershell
+New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+```
+
+### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>Ejecución de la herramienta de validación para probar la configuración de copia de seguridad de la infraestructura
+
+*Antes* de configurar la copia de seguridad de la infraestructura, puede probar la ruta de acceso y las credenciales del recurso compartido de copia de seguridad mediante la prueba **AzsBackupShareAccessibility**: 
+
+  ```powershell
+  New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+  Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
+  ```
+
+*Después* de configurar la copia de seguridad, puede ejecutar **AzsBackupShareAccessibility** para asegurarse de que el recurso compartido sea accesible desde ERCS:
+
+  ```powershell
+  Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+  Test-AzureStack -Include AzsBackupShareAccessibility
+  ```
+
+Para probar las nuevas credenciales con el recurso compartido de la copia de seguridad configurada, ejecute: 
+
+  ```powershell
+  Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+  Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
+  ```
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- - Para más información sobre las herramientas de diagnóstico de Azure Stack y el registro de problemas, consulte [Herramientas de diagnóstico de Azure Stack](azure-stack-diagnostics.md).
- - Para más información sobre la solución de problemas, consulte [Solución de problemas de Microsoft Azure Stack](azure-stack-troubleshooting.md)
+Para más información acerca de las herramientas de diagnóstico de Azure Stack y el registro de problemas, consulte [Herramientas de diagnóstico de Azure Stack](azure-stack-diagnostics.md).
+
+Para más información acerca de la solución de problemas, consulte [Solución de problemas de Microsoft Azure Stack](azure-stack-troubleshooting.md).

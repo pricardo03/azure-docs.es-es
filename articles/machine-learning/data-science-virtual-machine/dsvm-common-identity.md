@@ -1,11 +1,12 @@
 ---
 title: Configuración de una identidad común para Data Science Virtual Machine en Azure | Microsoft Docs
-description: Configuración de una identidad común en los entornos DSVM de un equipo de empresa.
+description: Obtenga información sobre cómo crear cuentas de usuario comunes que se pueden usar en varias instancias de Data Science Virtual Machine. Puede usar Azure Active Directory o una instancia local de Active Directory para autenticar usuarios en Data Science Virtual Machine.
 keywords: aprendizaje profundo, AI, herramientas de ciencia de datos, data science virtual machine, análisis geoespacial, proceso de ciencia de datos en equipo
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be7c63d3879c7ed89cd97eaecd6d59b6b5aadd4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436308"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075478"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configuración de una identidad común en Data Science Virtual Machine
 
@@ -40,7 +41,7 @@ Azure AD DS simplifica el proceso de administrar las identidades al proporcionar
 
 1. En Azure Portal, agregue el usuario a Active Directory: 
 
-   a. Inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
+    a. Inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
     
    b. Seleccione **Azure Active Directory** y, después, **Usuarios y grupos**.
     
@@ -67,7 +68,7 @@ Azure AD DS simplifica el proceso de administrar las identidades al proporcionar
 1. Siga las [instrucciones](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) para agregar DSVM a Active Directory. 
 1. Monte un recurso compartido de Azure Files para hospedar su directorio particular o de cuaderno de forma que el área de trabajo se pueda montar en cualquier máquina. (Si necesita permisos de nivel de archivo estrictos, necesitará que NFS se ejecute en una o varias máquinas virtuales).
 
-   a. [Cree un recurso compartido de Azure Files](../../storage/files/storage-how-to-create-file-share.md).
+    a. [Cree un recurso compartido de Azure Files](../../storage/files/storage-how-to-create-file-share.md).
     
    b. Móntelo en la DSVM de Linux. Al hacer clic en el botón **Conectar** para el recurso compartido de Azure Files en la cuenta de almacenamiento en Azure Portal, se muestra el comando para la ejecución en el shell de Bash en la máquina virtual DSVM de Linux. El comando tiene este aspecto:
    

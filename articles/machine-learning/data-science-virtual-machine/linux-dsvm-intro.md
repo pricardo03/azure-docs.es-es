@@ -1,10 +1,12 @@
 ---
-title: Aprovisionamiento de una instancia de Data Science Virtual Machine de Linux CentOS en Azure | Microsoft Docs
+title: Creación de una instancia de Data Science Virtual Machine de Linux CentOS
+titleSuffix: Azure
 description: Configure y cree Linux Data Science Virtual Machine en Azure para realizar análisis y aprendizaje automático.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -14,18 +16,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262560"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081870"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de una instancia de Data Science Virtual Machine de Linux CentOS en Azure
 
 Linux Data Science Virtual Machine es una máquina virtual de Azure basada en CentOS que incluye una colección de herramientas preinstaladas. que se utilizan normalmente para hacer análisis de datos y tareas de aprendizaje automático. Los principales componentes de software que se incluyen son:
 
-* Sistema operativo: distribución CentOS de Linux.
+* Sistema operativo: Distribución de Linux CentOS.
 * Microsoft R Server Developer Edition
 * Distribución de Anaconda Python (versiones 2.7 y 3.5), incluidas las bibliotecas de análisis de datos más conocidas
 * JuliaPro : distribución protegida del lenguaje Julia con bibliotecas populares científicas y de análisis de datos
@@ -36,9 +38,9 @@ Linux Data Science Virtual Machine es una máquina virtual de Azure basada en Ce
 * PostgresSQL Database
 * Herramientas de aprendizaje automático
   * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): kit de herramientas de software de Deep Learning de Microsoft Research.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema de aprendizaje automático rápido que admite varias técnicas, como el aprendizaje en línea, el uso de hash, la clase AllReduce, las reducciones, learning2search y los aprendizajes activo e interactivo
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): herramienta que proporciona una implementación de árbol ampliada, rápida y precisa
-  * [Rattle](https://togaware.com/rattle/) (sigla del inglés “R Analytical Tool To Learn Easily”, la herramienta de análisis de R para aprender fácilmente): herramienta que simplifica la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema de aprendizaje automático rápido que admite varias técnicas, como el aprendizaje en línea, el uso de hash, la clase AllReduce, las reducciones, learning2search y los aprendizajes activo e interactivo.
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): herramienta que proporciona una implementación de árbol ampliada, rápida y precisa.
+  * [Rattle](https://togaware.com/rattle/) (la herramienta de análisis de R para aprender fácilmente): Una herramienta que simplifica la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R.
 * Azure SDK en Java, Python, node.js, Ruby, PHP
 * Bibliotecas en R y Python para usarlas en Azure Machine Learning y en otros servicios de Azure
 * Editores y herramientas de desarrollo (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -62,8 +64,8 @@ También hay una imagen de [Ubuntu](dsvm-ubuntu-intro.md) disponible, con la may
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de poder crear una Linux Data Science Virtual Machine, debe tener lo siguiente:
 
-* **Una suscripción a Azure**: para conseguir una, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/free/).
-* **Una cuenta de almacenamiento de Azure**: consulte la sección sobre [creación de una cuenta de almacenamiento de Azure](../../storage/common/storage-quickstart-create-account.md)para crear una. Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
+* **Una suscripción a Azure**: Para obtener una, consulte [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/free/).
+* **Una cuenta de Azure Storage**: Para crear una, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-quickstart-create-account.md). Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Creación de su Linux Data Science Virtual Machine
 A continuación le indicamos los pasos para crear una instancia de Linux Data Science Virtual Machine:
@@ -77,8 +79,8 @@ A continuación le indicamos los pasos para crear una instancia de Linux Data Sc
    * **Nombre**: nombre del servidor de ciencia de datos que está creando.
    * **Nombre de usuario**: identificador de acceso de la primera cuenta.
    * **Contraseña**: contraseña de la primera cuenta (puede usar una clave pública SSH en lugar de una contraseña).
-   * **Suscripción**: si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina. Debe tener privilegios de creación de recursos en esta suscripción.
-   * **Grupo de recursos**: puede crear uno nuevo o usar un grupo que ya exista.
+   * **Suscripción**: Si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina. Debe tener privilegios de creación de recursos en esta suscripción.
+   * **Grupos de recursos**: Puede crear uno nuevo o utilizar un grupo ya existente.
    * **Ubicación**: seleccione el centro de datos más adecuado. Normalmente, es el centro de datos que tenga la mayoría de los datos o el que esté más cerca de su ubicación física para disfrutar de un acceso más rápido a la red.
    
    b. **Tamaño**:
@@ -87,9 +89,9 @@ A continuación le indicamos los pasos para crear una instancia de Linux Data Sc
    
    c. **Configuración**:
    
-   * **Tipo de disco**: seleccione **Premium** si prefiere una unidad de estado sólido (SSD). De lo contrario, elija **Estándar**.
+   * **Tipo de disco**: elija **Premium** si prefiere una unidad de estado sólido (SSD). De lo contrario, elija **Estándar**.
    * **Cuenta de almacenamiento**: puede crear una nueva cuenta de Azure Storage en su suscripción o usar una existente en la misma ubicación que ha elegido en el paso **Aspectos básicos** del Asistente.
-   * **Otros parámetros**: en la mayoría de los casos, usará simplemente los valores predeterminados. Si se plantea utilizar valores no predeterminados, mueva el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos.
+   * **Otros parámetros**: en la mayoría de los casos, puede usar simplemente los valores predeterminados. Si se plantea utilizar valores no predeterminados, mueva el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos.
    
    d. **Resumen**:
    
@@ -117,10 +119,10 @@ La VM de Linux ya está provista del servidor X2Go y está preparada para acepta
    * **Pestaña Sesión**:
      * **Host**: nombre de host o dirección IP de la Linux Data Science Virtual Machine.
      * **Inicio de sesión**: nombre de usuario en la máquina virtual Linux.
-     * **Puerto SSH**: Déjelo en 22, el valor predeterminado.
-     * **Tipo de sesión**: Cambie el valor a XFCE. Actualmente, la máquina virtual Linux solo admite el escritorio XFCE.
+     * **Puerto SSH**: déjelo en 22, el valor predeterminado.
+     * **Tipo de sesión**: cambie el valor a XFCE. Actualmente, la máquina virtual Linux solo admite el escritorio XFCE.
    * **Pestaña Multimedia**: puede desactivar la compatibilidad de sonido y la impresión en el cliente si no necesita usarlas.
-   * **Carpetas compartidas**: Si quiere que los directorios de las máquinas cliente se monten en la VM de Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM.
+   * **Carpetas compartidas**: si quiere que los directorios de las máquinas cliente se monten en la VM de Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM.
 
 Una vez que inicie sesión en la máquina virtual mediante el cliente SSH o el escritorio gráfico XFCE a través del cliente X2Go, ya podrá empezar a usar las herramientas que están instaladas y configuradas en la máquina virtual. En XFCE, puede ver accesos directos del menú de aplicaciones e iconos de escritorio para muchas de las herramientas.
 
@@ -247,13 +249,13 @@ Hay bibliotecas disponibles en Python y en R para acceder a bases de datos.
 Para acceder a **Postgres**:
 
 * Desde R: use el paquete **RPostgreSQL**.
-* Desde Python: use la biblioteca **psycopg2** .
+* Desde Python: use la biblioteca **psycopg2**.
 
 ### <a name="azure-tools"></a>Herramientas de Azure
 En la VM se instalan las siguientes herramientas de Azure:
 
-* **Interfaz de la línea de comandos de Azure**: la CLI de Azure permite crear y administrar recursos de Azure mediante comandos de shell. Para invocar las herramientas de Azure, escriba **azure help**. Para obtener más información, consulte la [página de documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Explorador de Microsoft Azure Storage**: explorador de Microsoft Azure Storage es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Azure Storage y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de Storage desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
+* **Interfaz de línea de comandos de Azure**: la CLI de Azure permite crear y administrar recursos de Azure mediante comandos de shell. Para invocar las herramientas de Azure, escriba **azure help**. Para obtener más información, consulte la [página de documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Explorador de Microsoft Azure Storage**: el Explorador de Microsoft Azure Storage es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Azure Storage y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de Storage desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
 * **Bibliotecas de Azure**: a continuación, figuran algunas de las bibliotecas preinstaladas.
   
   * **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son **azure**, **azureml**, **pydocumentdb** y **pyodbc**. Las tres primeras bibliotecas permiten acceder a los servicios de Azure Storage, a Azure Machine Learning y a Azure Cosmos DB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Azure SQL Database y Azure SQL Data Warehouse desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.
@@ -279,9 +281,9 @@ Para obtener información sobre cómo implementar modelos en R y en Python en Az
 ### <a name="machine-learning-tools"></a>Herramientas de aprendizaje automático
 La máquina virtual incluye algunas herramientas o algoritmos de aprendizaje automático que se han precompilado y preinstalado de forma local. Entre ellas se incluyen las siguientes:
 
-* **Microsoft Cognitive Toolkit**: un kit de herramientas de Deep Learning.
-* **Vowpal Wabbit**: algoritmo de aprendizaje rápido en línea
-* **xgboost**: herramienta que proporciona los algoritmos de árbol ampliados y optimizados
+* **Microsoft Cognitive Toolkit** : un kit de herramientas de aprendizaje profundo.
+* **Vowpal Wabbit**: algoritmo de aprendizaje rápido en línea.
+* **xgboost**: herramienta que proporciona los algoritmos de árbol ampliados y optimizados.
 * **Python**: Anaconda Python integra algoritmos de aprendizaje automático con bibliotecas como Scikit-learn. Puede instalar otras bibliotecas con el comando `pip install` .
 * **R**: hay disponible una completa biblioteca de funciones de aprendizaje automático para R. Algunas de las bibliotecas preinstaladas son lm, glm, randomForest y rpart. Puede instalar otras bibliotecas si ejecuta el comando:
   

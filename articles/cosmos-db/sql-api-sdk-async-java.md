@@ -1,23 +1,22 @@
 ---
-title: 'Azure Cosmos DB: API, SDK y recursos de Java asincrónico para SQL | Microsoft Docs'
+title: 'Azure Cosmos DB: API, SDK y recursos de Java asincrónico para SQL'
 description: Obtenga toda la información sobre la API y el SDK de Java asincrónico para SQL, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Java asincrónico para SQL de Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: c8b8397e5d51b67895a6a95ed6d1611813a9aaf6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 5284de9a5b0f4f78b3b8b68e3848c2cb2783b839
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300853"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338624"
 ---
-# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
+# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -28,11 +27,11 @@ ms.locfileid: "51300853"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor: Java](sql-api-sdk-bulk-executor-java.md)
 
-El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de SQL al proporcionar a las operaciones asincrónicas compatibilidad con la [biblioteca de Netty](http://netty.io/). El [SDK de Java de API de SQL](sql-api-sdk-java.md) no admite las operaciones asincrónicas. 
+El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de SQL al proporcionar a las operaciones asincrónicas compatibilidad con la [biblioteca de Netty](https://netty.io/). El [SDK de Java de API de SQL](sql-api-sdk-java.md) no admite las operaciones asincrónicas. 
 
 <table>
 
@@ -44,7 +43,7 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 
 <tr><td>**Primeros pasos**</td><td>[Introducción al SDK de Java asincrónico](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
-<tr><td>**Código de ejemplo**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
+<tr><td>**Código de ejemplo**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 
 <tr><td>**Consejos de rendimiento**</td><td>[Léame de GitHub](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
@@ -53,13 +52,18 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* Se ha corregido un error de pérdida de recursos.
+* Se ha agregado compatibilidad con MultiPolygon.
+* Se ha agregado compatibilidad con los encabezados personalizados en RequestOptions.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 * Se ha corregido un error de empaquetado.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Se corrigió un error NPE en la ruta de acceso de reintento de escritura.
 * Se corrigió un error NPE en la administración de puntos de conexión.
-* Se actualizaron dependencias vulnerables ([GitHub #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Se han actualizado dependencias vulnerables ([GitHub #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
 * Se agregó compatibilidad para el registro de red de Netty para solucionar problemas.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
@@ -68,16 +72,16 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Se agregó compatibilidad con proxy.
 * Se agregó compatibilidad con la autorización de tokens de recursos.
-* Se ha corregido un error en el tratamiento de claves de partición de gran tamaño ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* Se ha corregido un error en el tratamiento de claves de partición de gran tamaño ([GitHub 63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
 * Documentación mejorada.
 * SDK reestructurados en módulos más granulares.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
-* Se ha corregido un error para las configuraciones regionales distintas del inglés ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Se ha corregido un error de las configuraciones regionales distintas del inglés ([GitHub 51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
 * Se han agregado métodos auxiliares en conflicto de recursos.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* La dependencia org.json se reemplazó por jackson por motivos de rendimiento y licencias ([github 29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Se ha reemplazado la dependencia de org.json por jackson por motivos de rendimiento y licencias ([GitHub 29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
 * La clase OfferV2 en desuso se quitó.
 * Se agregó el método de descriptor de acceso a la clase Offer para el contenido de rendimiento.
 * Todos los métodos de Document/Resource que devuelven tipos org.json cambiaron para devolver un tipo de objeto jackson.
@@ -90,18 +94,18 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 * Se agregó compatibilidad con la directiva de índice único.
 * Se agregó compatibilidad para limitar la respuesta del tamaño del token de continuación en opciones de fuente.
 * Se agregó compatibilidad para división de particiones en la consulta entre particiones.
-* Se ha corregido un error en la serialización de marca de tiempo de Json ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Se ha corregido un error en la serialización de marcas de tiempo de Json ([GitHub 32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
 * Se ha corregido un error en la serialización de enumeración.
-* Se ha corregido un error en los documentos de administración de tamaño de 2 MB ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
-* Se ha actualizado la dependencia com.fasterxml.jackson.core:jackson-databind a la versión 2.9.5 debido a un error ([jackson-databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
-* Se ha actualizado la dependencia rxjava-extras a la versión 0.8.0.17 debido a un error ([rxjava-extras: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* Se ha corregido un error en la administración de documentos con un tamaño de 2 MB ([GitHub 33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Se ha actualizado la dependencia com.fasterxml.jackson.core:jackson-databind a la versión 2.9.5 debido a un error ([jackson-databind: GitHub #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Se ha actualizado la dependencia en rxjava-extras a la versión 0.8.0.17 debido a un error ([rxjava-extras: GitHub #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
 * Se ha actualizado la descripción de metadatos en el archivo pom para que esté alineado con el resto de la documentación.
-* Se ha mejorado la sintaxis ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github 40 #](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+* Se ha mejorado la sintaxis ([GitHub 41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([GitHub 40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Se agregó compatibilidad con la contrapresión en las consultas.
 * Se agregó compatibilidad con el identificador de intervalo de claves de partición en la consulta.
-* Corrección para permitir un token de mayor continuación en el encabezado de solicitud (corrección de errores GitHub n.º 24).
+* Corrección que permite un token de mayor continuación en el encabezado de solicitud (corrección de errores GitHub 24).
 * Se actualizó la dependencia de Netty a 4.1.22.Final para garantizar que la JVM se apaga después de que finaliza el subproceso principal.
 * Corrección para evitar pasar el token de sesión cuando se leen los recursos maestros.
 * Se agregaron más ejemplos.
@@ -109,7 +113,7 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 * Se corrigieron los archivos de encabezado de Java para la generación correcta de documentos de Java.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* El SDK de disponibilidad general con compatibilidad total para E/S sin bloqueo mediante la [biblioteca de Netty](http://netty.io/) en el modo de puerta de enlace. 
+* El SDK de disponibilidad general con compatibilidad total para E/S sin bloqueo mediante la [biblioteca de Netty](https://netty.io/) en el modo de puerta de enlace. 
 
 ## <a name="release-and-retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
@@ -122,6 +126,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |29 de noviembre de 2018|--- |
 | [2.2.2](#2.2.2) |8 de noviembre de 2018|--- |
 | [2.2.1](#2.2.1) |2 de noviembre de 2018|--- |
 | [2.2.0](#2.2.0) |22 de septiembre de 2018|--- |

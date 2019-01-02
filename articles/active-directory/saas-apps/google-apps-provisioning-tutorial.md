@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 48a835bf8c63ffa5512173b600fb85abd5c6cb45
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346396"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840357"
 ---
-# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para aprovisionar usuarios automáticamente
+# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es explicar cómo aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure Active Directory (Azure AD) para G Suite.
 
@@ -67,7 +67,7 @@ Esta sección lo guiará a través del proceso de conexión de Azure AD a la API
 > [!NOTE]
 > Otra opción viable para automatizar el aprovisionamiento de usuarios en G Suite consiste en usar [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS aprovisiona las identidades de Active Directory locales en G Suite. En cambio, la solución en este tutorial realiza el aprovisionamiento de los usuarios de Azure Active Directory (nube) y a los grupos habilitados para correo en G Suite. 
 
-1. Inicie sesión en la [Consola de administración de Google Apps](http://admin.google.com/) con su cuenta de administrador y haga clic en **Security** (Seguridad). Si no ve el vínculo, puede estar oculto debajo del menú **More Controls** (Más controles) en la parte inferior de la pantalla.
+1. Inicie sesión en la [Consola de administración de Google Apps](https://admin.google.com/) con su cuenta de administrador y haga clic en **Security** (Seguridad). Si no ve el vínculo, puede estar oculto debajo del menú **More Controls** (Más controles) en la parte inferior de la pantalla.
    
     ![Selección de seguridad.][10]
 
@@ -84,7 +84,7 @@ Esta sección lo guiará a través del proceso de conexión de Azure AD a la API
       
 1. Si todavía no ha agregado un nombre de dominio personalizado para Azure Active Directory, siga los pasos a continuación:
   
-    a. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**. En la lista de directorios, seleccione el directorio. 
+     a. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**. En la lista de directorios, seleccione el directorio. 
 
     b. Seleccione **Nombre de dominio** en el panel de navegación izquierdo y, después seleccione **Agregar**.
      
@@ -110,7 +110,7 @@ Esta sección lo guiará a través del proceso de conexión de Azure AD a la API
 
 1. Ahora que ha comprobado todos los dominios con Azure AD, tiene que volverlos a comprobar con Google Apps. Para cada dominio que no esté registrado aún con Google, realice los pasos siguientes:
    
-    a. En la [Consola de administración de Google Apps](http://admin.google.com/), haga clic en **Domains** (Dominios).
+     a. En la [Consola de administración de Google Apps](https://admin.google.com/), haga clic en **Domains** (Dominios).
      
      ![Selección de dominios][20]
 
@@ -127,9 +127,9 @@ Esta sección lo guiará a través del proceso de conexión de Azure AD a la API
     e. Repita los pasos anteriores para todos los dominios adicionales que se van a agregar a Google Apps.
      
      > [!WARNING]
-     > Si cambia el dominio principal del inquilino de G Suite y ya ha configurado el inicio de sesión único con Azure AD, tendrá que repetir el paso 3 en [Paso 2: Habilitar el inicio de sesión único](#step-two-enable-single-sign-on).
+     > Si cambia el dominio principal del inquilino de G Suite y ya ha configurado el inicio de sesión único con Azure AD, tendrá que repetir el paso 3 en [Paso 2: Habilitación del inicio de sesión único](#step-two-enable-single-sign-on).
        
-1. En la [Consola de administración de Google Apps](http://admin.google.com/), seleccione **Admin Roles** (Funciones de administrador).
+1. En la [Consola de administración de Google Apps](https://admin.google.com/), seleccione **Admin Roles** (Funciones de administrador).
    
      ![Selección de Google Apps][26]
 

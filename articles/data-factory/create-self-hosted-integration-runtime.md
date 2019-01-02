@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284836"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969488"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -49,7 +49,7 @@ Cuando mueve datos entre un entorno local y la nube, la actividad utiliza un ent
 
 A continuación se muestra un flujo de datos de alto nivel y el resumen de los pasos para copiar con un IR autohospedado:
 
-![Información general de alto nivel](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![Información general de alto nivel](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. El desarrollador de datos crea un entorno de ejecución de integración autohospedado en una instancia de Azure Data Factory mediante un cmdlet de PowerShell. Actualmente, Azure Portal no admite esta característica.
 2. El desarrollador de datos crea un servicio vinculado para un almacén de datos local mediante la especificación de la instancia del entorno de ejecución de integración autohospedado que debe usar para conectarse a los almacenes de datos. Como parte de la configuración del servicio vinculado, el desarrollador de datos usa la aplicación Credential Manager (que actualmente no es compatible) para establecer las credenciales y los tipos de autenticación. La aplicación Credential Manager se comunica con el almacén de datos para probar la conexión y con el entorno de ejecución de integración autohospedado para guardar las credenciales.
@@ -131,7 +131,7 @@ Cuando queda poca memoria disponible en el IR autohospedado y el uso de la CPU e
 
 Cuando la memoria disponible y la CPU no se utilizan correctamente, pero la ejecución de trabajos simultáneos está alcanzando el límite, debe realizar un escalado vertical aumentando el número de trabajos simultáneos que se pueden ejecutar en un nodo. También puede realizar el escalado verticalmente cuando se agota el tiempo de espera de las actividades porque el IR autohospedado está sobrecargado. Como se muestra en la siguiente imagen, puede aumentar la capacidad máxima de los nodos:  
 
-![Aumento del número de trabajos simultáneos que se pueden ejecutar en un nodo](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Aumento del número de trabajos simultáneos que se pueden ejecutar en un nodo](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisitos del certificado TLS/SSL
 
@@ -162,33 +162,33 @@ Si desea ver una demostración y una introducción de doce minutos de esta carac
 
 1. En el IR autohospedado que se va a compartir, conceda permiso a la factoría de datos en la que desea crear el entorno de ejecución de integración vinculado. 
 
-   ![El botón para conceder el permiso en la pestaña Compartir](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![El botón para conceder el permiso en la pestaña Compartir](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![Selecciones para asignar permisos](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![Selecciones para asignar permisos](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. Anote el identificador de recurso del IR autohospedado que se va a compartir.
 
-   ![Ubicación del identificador de recurso](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![Ubicación del identificador de recurso](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. En la factoría de datos en la que se concedieron los permisos, cree un nuevo IR autohospedado (vinculado) y escriba el identificador de recurso.
 
-   ![Botón para crear un entorno de ejecución de integración autohospedado vinculado](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![Botón para crear un entorno de ejecución de integración autohospedado vinculado](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![Cuadros para nombre y el identificador de recurso](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![Cuadros para nombre y el identificador de recurso](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### <a name="monitoring"></a>Supervisión 
 
 - **IR compartido**
 
-  ![Opciones para buscar un entorno de ejecución de integración compartido](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Opciones para buscar un entorno de ejecución de integración compartido](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![Pestaña para la supervisión](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![Pestaña para la supervisión](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **IR vinculado**
 
-  ![Opciones para buscar un entorno de ejecución de integración vinculado](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Opciones para buscar un entorno de ejecución de integración vinculado](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![Pestaña para la supervisión](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![Pestaña para la supervisión](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitaciones conocidas del uso compartido de un entorno de ejecución de integración autohospedado
 
@@ -211,12 +211,12 @@ Si desea ver una demostración y una introducción de doce minutos de esta carac
 
 Si mueve el cursor sobre el icono o el mensaje en el área de notificación, podrá ver los detalles del estado del entorno de ejecución de integración autohospedado.
 
-![Notificaciones en el área de notificación](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Notificaciones en el área de notificación](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>Puertos y firewall
 Hay dos firewalls que deben tenerse en cuenta: el *firewall corporativo*, que se ejecuta en el enrutador central de la organización, y el *firewall de Windows*, que se configura como un demonio en el equipo local en la que está instalado el entorno de ejecución de integración autohospedado.
 
-![Firewall](media\create-self-hosted-integration-runtime\firewall.png)
+![Firewall](media/create-self-hosted-integration-runtime/firewall.png)
 
 A nivel de *firewall corporativo*, es preciso configurar los siguientes dominios y puertos de salida:
 
@@ -249,16 +249,16 @@ Por ejemplo, para copiar información desde un almacén de datos local a un rece
 ## <a name="proxy-server-considerations"></a>Consideraciones acerca del servidor proxy
 Si en su entorno de red corporativo se usa un servidor proxy para acceder a Internet, configure el entorno de ejecución de integración autohospedado para utilizar la configuración del proxy adecuada. Puede establecer el proxy durante la fase de registro inicial.
 
-![Especificación del servidor proxy](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![Especificación del servidor proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
 El entorno de ejecución de integración autohospedado utiliza el servidor proxy para conectarse al servicio en la nube. Seleccione **Cambiar vínculo** durante la configuración inicial. Verá el cuadro de diálogo de configuración del proxy.
 
-![Establecimiento de proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![Establecimiento de proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 Hay tres opciones de configuración:
 
 - **No utilizar proxy**: el entorno de ejecución de integración autohospedado no usa expresamente ningún proxy para conectarse a servicios en la nube.
-- **Usar proxy del sistema**: el entorno de ejecución de integración autohospedado utiliza la configuración del proxy de diahost.exe.config y diawp.exe.config. Si no hay ningún proxy configurado en diahost.exe.config y diawp.exe.config, el entorno de ejecución de integración autohospedado se conecta al servicio en la nube directamente sin pasar por ningún proxy.
+- **Usar proxy del sistema**: el entorno Integration Runtime autohospedado utiliza la configuración de proxy de diahost.exe.config y diawp.exe.config. Si no hay ningún proxy configurado en diahost.exe.config y diawp.exe.config, el entorno de ejecución de integración autohospedado se conecta al servicio en la nube directamente sin pasar por ningún proxy.
 - **Usar proxy personalizado**: establezca la configuración del proxy HTTP que se utilizará para el entorno de ejecución de integración autohospedado, en lugar de usar las configuraciones de diahost.exe.config y diawp.exe.config. Se requieren los valores de **Dirección** y **Puerto**. Los valores de **Nombre de usuario** y **Contraseña** son opcionales, dependen de la configuración de la autenticación del proxy. Todas las configuraciones se cifran con DPAPI de Windows en el entorno de ejecución de integración autohospedado y se almacenan localmente en el equipo.
 
 El servicio host de Integration Runtime se reinicia automáticamente después de guardar la configuración de proxy actualizada.
@@ -272,7 +272,7 @@ Cuando el entorno de ejecución de integración autohospedado se haya registrado
 
 Puede ver y actualizar el proxy HTTP mediante la herramienta Configuration Manager.
 
-![Visualización de proxy](media\create-self-hosted-integration-runtime\view-proxy.png)
+![Visualización de proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > Si configura un servidor proxy con la autenticación NTLM, el servicio de host del entorno de ejecución de integración se ejecutará en la cuenta del dominio. Si más adelante cambia la contraseña de dicha cuenta, no olvide actualizar la configuración del servicio y reiniciarlo en consecuencia. Debido a este requisito, se recomienda usar una cuenta de dominio dedicada para acceder al servidor proxy, una cuenta que no requiera que se actualice la contraseña con frecuencia.
@@ -345,4 +345,4 @@ Si elige no abrir el puerto 8060 en la máquina del entorno de ejecución de int
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En el siguiente tutorial encontrará instrucciones detalladas al respecto: [Tutorial: Copia de datos locales a la nube](tutorial-hybrid-copy-powershell.md).
+Consulte el siguiente tutorial para obtener instrucciones detalladas: [Tutorial: Copia de datos locales en la nube](tutorial-hybrid-copy-powershell.md).

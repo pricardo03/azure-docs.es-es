@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b535939e200b533c06c97686897e283fb6cf57bc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632796"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720191"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -94,8 +94,8 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 ```
 
 Donde: 
-- El nombre y tipo de la extensión para Windows es: ManagedIdentityExtensionForWindows
-- El nombre y tipo de la extensión para Linux es: ManagedIdentityExtensionForLinux
+- El tipo y el nombre de la extensión para Windows es: ManagedIdentityExtensionForWindows
+- El tipo y el nombre de la extensión para Linux es: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -115,7 +115,7 @@ Si la hoja de configuración de la máquina virtual no aparece en la máquina vi
 
 ### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>No se puede asignar el acceso a las máquinas virtuales en la hoja Control de acceso (IAM)
 
-Si **Virtual Machine** no aparece en Azure Portal como una opción para **Asignar acceso a** en **Control de acceso (IAM)** > **Agregar permisos**, las identidades administradas para recursos de Azure todavía no se han habilitado en el portal en su región. Vuelva a comprobarlo más tarde.  Aún puede seleccionar la identidad de la máquina virtual para la asignación de roles; para ello, busque la entidad de servicio de las identidades administradas para recursos de Azure.  Escriba el nombre de la máquina virtual en el campo **Seleccionar** y la entidad de servicio aparece en el resultado de la búsqueda.
+Si **Virtual Machine** no aparece en Azure Portal como una opción para **Asignar acceso a** en **Control de acceso (IAM)** > **Agregar asignación de roles**, las identidades administradas para recursos de Azure todavía no se han habilitado en el portal en su región. Vuelva a comprobarlo más tarde.  Aún puede seleccionar la identidad de la máquina virtual para la asignación de roles; para ello, busque la entidad de servicio de las identidades administradas para recursos de Azure.  Escriba el nombre de la máquina virtual en el campo **Seleccionar** y la entidad de servicio aparece en el resultado de la búsqueda.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>La máquina virtual no puede iniciarse después de moverse del grupo de recursos o de la suscripción
 

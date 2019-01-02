@@ -1,10 +1,12 @@
 ---
-title: Aprovisionamiento de una instancia de Deep Learning Data Science Virtual Machine en Azure | Microsoft Docs
+title: Creación de una instancia de Deep Learning Data Science Virtual Machine
+titleSuffix: Azure
 description: Configure y cree una instancia de Deep Learning Data Science Virtual Machine en Azure para realizar análisis y aprendizaje automático.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229669"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078763"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionamiento de Deep Learning Virtual Machine en Azure 
 
@@ -39,8 +41,8 @@ A continuación le indicamos los pasos para crear una instancia de Deep Learning
       1. **Nombre**: nombre del servidor de ciencia de datos que está creando.
       2. **Seleccione el tipo de sistema operativo para la máquina virtual de aprendizaje profundo**: elija Windows o Linux (para Windows 2016 y DSVM con base Ubuntu Linux)
       2. **Nombre de usuario**: identificador de inicio de sesión de la cuenta del administrador.
-      3. **Contraseña**: contraseña de la cuenta del administrador.
-      4. **Suscripción**: si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina.
+      3. **Contraseña**: contraseña de la cuenta de administrador.
+      4. **Suscripción**: Si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina.
       5. **Grupo de recursos**: puede crear uno nuevo o usar un grupo de recursos **vacío** existente de Azure en su suscripción.
       6. **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red. 
       
@@ -50,7 +52,7 @@ A continuación le indicamos los pasos para crear una instancia de Deep Learning
    2. **Configuración**: seleccione uno de los tamaños de máquina virtual GPU de las series NC (NC, NCv2, NCv3) o ND que satisfaga sus requisitos funcionales y las restricciones de costo. Cree una cuenta de almacenamiento para su máquina virtual.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **Resumen**: Compruebe que toda la información que ha especificado es correcta.
-   5. **Compra**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
+   5. **Comprar**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
 
 > [!NOTE]
 > El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
@@ -79,10 +81,10 @@ La máquina virtual de aprendizaje profundo Linux ya está provista del servidor
    * **Pestaña Sesión**:
      * **Host**: nombre de host o dirección IP de la Linux Data Science Virtual Machine.
      * **Inicio de sesión**: nombre de usuario en la máquina virtual Linux.
-     * **Puerto SSH**: Déjelo en 22, el valor predeterminado.
+     * **Puerto SSH**: déjelo en 22, el valor predeterminado.
      * **Tipo de sesión**: cambie el valor a **XFCE**. Actualmente, la máquina virtual de aprendizaje profundo Linux solo admite el escritorio XFCE.
-   * **Pestaña Multimedia**: Puede desactivar la compatibilidad de sonido y la impresión en el cliente si no necesita usarlas.
-   * **Carpetas compartidas**: Si quiere que los directorios de las máquinas cliente se monten en la VM de Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM.
+   * **Pestaña Multimedia**: puede desactivar la compatibilidad de sonido y la impresión en el cliente si no necesita usarlas.
+   * **Carpetas compartidas**: si quiere que los directorios de las máquinas cliente se monten en la VM Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM.
 
 Una vez que inicie sesión en la máquina virtual mediante el cliente SSH o el escritorio gráfico XFCE a través del cliente X2Go, ya podrá empezar a usar las herramientas que están instaladas y configuradas en la máquina virtual. En XFCE, puede ver accesos directos del menú de aplicaciones e iconos de escritorio para muchas de las herramientas.
 

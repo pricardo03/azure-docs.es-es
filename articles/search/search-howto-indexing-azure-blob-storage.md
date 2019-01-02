@@ -1,6 +1,6 @@
 ---
-title: Indexación de Azure Blob Storage con Azure Search
-description: Aprenda a indexar Azure Blob Storage y a extraer el texto de los documentos con Azure Search
+title: 'Indexación del contenido de Azure Blob Storage para la búsqueda de texto completo: Azure Search'
+description: Aprenda a indexar Azure Blob Storage y a extraer el texto de los documentos con Azure Search.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: d2706d4b10303cb62066f0381f9a69b553c05cb4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406979"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317481"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexación de documentos en Azure Blob Storage con Azure Search
 En este artículo se explica cómo usar Azure Search para indexar documentos (como archivos PD, documentos de Microsoft Office y otros formatos comunes) almacenados en Azure Blob Storage. En primer lugar, se explican los conceptos básicos de cómo instalar y configurar un indizador de blobs. A continuación, se ofrecen más detalles sobre los comportamientos y escenarios que es probable que encuentre.
@@ -69,8 +70,8 @@ Para más información sobre la API de creación de origen de datos, consulte [C
 Puede proporcionar las credenciales para el contenedor de blobs de una de estas maneras:
 
 - **Cadena de conexión de la cuenta de almacenamiento de acceso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Para obtener la cadena de conexión del portal de Azure, vaya a la hoja de la cuenta de almacenamiento > Configuración > Claves (para las cuentas de almacenamiento del modelo clásico) o Configuración > Claves de acceso (para las cuentas de almacenamiento de Azure Resource Manager).
-- **Cadena de conexión de firma de acceso compartido (SAS) de cuenta de almacenamiento**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS debería tener permisos de lectura y de lista en contenedores y objetos (blobs en este caso).
--  **Firma de acceso compartido de contenedor**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS debería tener permisos de lista y de lectura en el contenedor.
+- Cadena de conexión de la **firma de acceso compartido de la cuenta de almacenamiento** (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` La firma de acceso compartido debe tener permisos de enumeración y lectura sobre los contenedores y objetos (en este caso, los blobs).
+-  **Firma de acceso compartido del contenedor**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` La firma de acceso compartido debe tener permisos de enumeración y lectura sobre el contenedor.
 
 Para más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -333,7 +334,7 @@ La indización de blobs puede ser un proceso lento. En los casos donde hay millo
 
 Es posible que quiera "ensamblar" documentos de varios orígenes en el índice. Por ejemplo, puede que quiera combinar texto de blobs con otros metadatos almacenados en Cosmos DB. Incluso puede usar la API de indexación de inserción junto con varios indexadores para crear documentos de búsqueda a partir de varias partes. 
 
-Para que funcione, todos los indexadores y demás componentes deben coincidir con la clave del documento. Para obtener un tutorial detallado, vea este artículo externo: [Combine documents with other data in Azure Search (Combinación de documentos con otros datos en Azure Search)](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Para que funcione, todos los indexadores y demás componentes deben coincidir con la clave del documento. Para obtener un tutorial detallado, consulte este artículo externo: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Combinación de documentos con otros datos en Azure Search).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexación de texto sin formato 
@@ -374,7 +375,7 @@ La tabla siguiente resume el procesamiento que se realiza para cada formato de d
 | MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extraer texto, incluidos los datos adjuntos |
 | ZIP (application/zip) |`metadata_content_type` |Extraer el texto de todos los documentos en el archivo |
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Seccionar el marcado XML y extraer texto |
-| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extraer texto<br/>NOTA: Si necesita extraer varios campos de documentos de un blob JSON, consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) para detalles. |
+| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extraer texto<br/>NOTA:  Si necesita extraer varios campos de documentos de un blob JSON, consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) para detalles. |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extraer texto, incluidos los datos adjuntos |
 | RTF (aplicación/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Extraer texto|
 | Plain text (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Extraer texto|

@@ -1,5 +1,5 @@
 ---
-title: Exploración de datos en un clúster de Hadoop y creación de modelos en Azure Machine Learning | Microsoft Docs
+title: 'Exploración de datos en un clúster de Hadoop: proceso de ciencia de datos en equipos'
 description: Uso del proceso de ciencia de datos en equipos para un escenario completo que emplea un clúster de Hadoop de HDInsight con el objetivo de compilar e implementar un modelo.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444212"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139629"
 ---
-# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de Azure HDInsight
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: Uso de clústeres de Azure HDInsight Hadoop
 En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop para Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el muestreo de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
 
 Para ver un tutorial acerca de cómo controlar un conjunto de datos mayor, consulte [Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB](hive-criteo-walkthrough.md).
@@ -50,18 +50,18 @@ La clave única para unir trip\_data and trip\_fare se compone de los campos: me
 ## <a name="mltasks"></a>Ejemplos de tareas de predicción
 Determine el tipo de predicciones que quiere realizar basándose en análisis de datos. Esto ayuda a aclarar las tareas que necesita incluir en su proceso. A continuación, presentamos tres ejemplos de problemas de predicción que abordaremos en este tutorial. Estos se basan en *tip\_amount*:
 
-- **Clasificación binaria**: permite predecir si se dio propina en una carrera, o no. Es decir, un *importe\_ de propina* que sea mayor que 0 $ es un ejemplo positivo, mientras que un *importe\_ de propina* de 0 $ es un ejemplo negativo.
+- **Clasificación binaria**: permite predecir si se dio propina en una carrera o no. Es decir, un *importe\_ de propina* que sea mayor que 0 $ es un ejemplo positivo, mientras que un *importe\_ de propina* de 0 $ es un ejemplo negativo.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **Clasificación en múltiples clases**: permite predecir el rango de propinas que se entregaron por la carrera. Dividimos *tip\_amount* en cinco clases:
+- **Clasificación multiclase**: permite predecir el rango de importes de propina pagados por la carrera. Dividimos *tip\_amount* en cinco clases:
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **Tarea de regresión**: permite predecir el importe pagado como propina en una carrera.  
+- **Tarea de regresión**: permite predecir el importe de la propina pagada por una carrera.  
 
 ## <a name="setup"></a>Configuración de un clúster de Hadoop de HDInsight para el análisis avanzado
 > [!NOTE]
@@ -71,12 +71,12 @@ Determine el tipo de predicciones que quiere realizar basándose en análisis de
 
 Puede configurar un entorno de Azure para análisis avanzado que emplee un clúster de HDInsight en tres pasos:
 
-1. [Cree una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight también se encuentran aquí.
+1. [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight también se encuentran aquí.
 2. [Personalice los clústeres de Hadoop de HDInsight de Azure para la tecnología y procesos de análisis avanzado](customize-hadoop-cluster.md). Este paso crea un clúster de Hadoop de HDInsight con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay dos pasos importantes que debe recordar al personalizar el clúster de HDInsight.
    
    * Recuerde vincular la cuenta de almacenamiento que creó en el paso 1 con el clúster de HDInsight en el momento de crearlo. Esta cuenta de almacenamiento tiene acceso a los datos que se procesan en el clúster.
    * Después de crear el clúster, debe habilitar el acceso remoto a su nodo principal. Navegue hasta la pestaña **Configuración** y haga clic en **Habilitar de forma remota**. Este paso especifica las credenciales de usuario usadas para el inicio de sesión remoto.
-3. [Cree un área de trabajo de Azure Machine Learning](../studio/create-workspace.md): puede usar este área de trabajo para crear modelos de aprendizaje automático. Esta tarea se lleva a cabo después de completar una exploración inicial de los datos y de reducir su tamaño con el clúster de HDInsight.
+3. [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md): use esta área de trabajo para compilar modelos de Machine Learning. Esta tarea se lleva a cabo después de completar una exploración inicial de los datos y de reducir su tamaño con el clúster de HDInsight.
 
 ## <a name="getdata"></a>Obtención de los datos desde un origen público
 > [!NOTE]
@@ -286,7 +286,7 @@ Puede usar las consultas de Hive para realizar tareas de exploración de datos e
 * Generar etiquetas de clasificación binaria y multiclase según el importe de las propinas.
 * Generar características calculando las distancias de las carreras directas.
 
-### <a name="exploration-view-the-top-10-records-in-table-trip"></a>Exploración: Consulta de los 10 principales registros de la tabla trip
+### <a name="exploration-view-the-top-10-records-in-table-trip"></a>Exploración: Consulta de los 10 principales registros de la tabla "trip"
 > [!NOTE]
 > Esta tarea la suelen hacer los científicos de datos.
 > 
@@ -376,7 +376,7 @@ El resultado es:
 
 El número total de registros de ambas tablas es también el mismo. Esto supone la segunda validación de que los datos se han cargado correctamente.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>Exploración: distribución de carreras por licencia
+### <a name="exploration-trip-distribution-by-medallion"></a>Exploración: Distribución de carreras por medallion
 > [!NOTE]
 > Esta tarea la suelen hacer los científicos de datos.
 > 
@@ -410,13 +410,13 @@ Desde el símbolo del sistema del directorio de Hive, ejecute el siguiente coman
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploración: distribución de carreras por placa y número de licencia
+### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploración: Distribución de carreras por medallion y hack_license
 > [!NOTE]
 > Esta tarea la suelen hacer los científicos de datos.
 > 
 > 
 
-Al explorar un conjunto de datos, con frecuencia deseamos examinar el número de repeticiones de grupos de valores. En esta sección se ofrece un ejemplo de cómo llevar esto a cabo para los taxis y los conductores.
+Al explorar un conjunto de datos, con frecuencia deseamos examinar el número de repeticiones simultáneas de grupos de valores. En esta sección se ofrece un ejemplo de cómo llevar esto a cabo para los taxis y los conductores.
 
 El archivo **sample\_hive\_trip\_count\_by\_medallion\_license.hql** agrupa el conjunto de datos de tarifas en función de los valores de **medallion** y **hack_license**, y devuelve los recuentos de cada combinación. A continuación se muestra su contenido:
 
@@ -508,7 +508,7 @@ Ejecute el siguiente comando desde la consola de la línea de comandos de Hadoop
 
     hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 
-### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Exploración: cálculo de la distancia directa entre dos ubicaciones de longitud y latitud de proceso
+### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Exploración: Cálculo de la distancia directa entre dos ubicaciones de longitud-latitud
 > [!NOTE]
 > Esta tarea la suelen hacer los científicos de datos.
 > 
@@ -721,17 +721,17 @@ Para la emisión de consultas de Hive en el módulo [Importar datos][import-data
 
 A continuación se indican algunos detalles acerca del módulo [Importar datos][import-data] y los parámetros de entrada:
 
-**URI del servidor de HCatalog**: si el nombre el clúster es **abc123**, es simplemente: https://abc123.azurehdinsight.net.
+**URI del servidor de HCatalog** : si el nombre el clúster es **abc123**, consiste simplemente en: https://abc123.azurehdinsight.net.
 
-**Nombre de la cuenta de usuario de Hadoop**: el nombre de usuario elegido para el clúster (no es el nombre de usuario de acceso remoto).
+**Nombre de la cuenta de usuario de Hadoop**: nombre de usuario elegido para el clúster (no es el nombre de usuario de acceso remoto).
 
-**Contraseña de la cuenta de usuario de Hadoop**: la contraseña elegida para el clúster (no es la contraseña de acceso remoto).
+**Contraseña de la cuenta de usuario de Hadoop**: contraseña elegida para el clúster (no es la contraseña de acceso remoto).
 
-**Ubicación de datos de salida** : este valor se elige como Azure.
+**Ubicación de los datos de salida**: Se elige que sea Azure.
 
-**Nombre de la cuenta de almacenamiento de Azure**: nombre de la cuenta de almacenamiento predeterminada asociada al clúster.
+**Nombre de la cuenta de Azure Storage**: nombre de la cuenta de almacenamiento predeterminada asociada al clúster.
 
-**Nombre de contenedor de Azure**: es el nombre del contenedor predeterminado para el clúster, y suele ser el mismo que el nombre del clúster. En un clúster denominado **abc123**, es abc123.
+**Nombre del contenedor de Azure**: se trata del nombre del contenedor predeterminado para el clúster, que suele ser el mismo nombre del clúster. En un clúster denominado **abc123**, es abc123.
 
 > [!IMPORTANT]
 > Cualquier tabla que desee consultar mediante el módulo [Importar datos][import-data] de Machine Learning debe ser una tabla interna.
@@ -757,15 +757,15 @@ Ahora el conjunto de datos se puede usar como punto de partida para la creación
 ### <a name="mlmodel"></a>Creación de modelos en Machine Learning
 Ya puede pasar a la creación del modelo y la implementación del mismo en [Machine Learning](https://studio.azureml.net). Los datos ya están listos para usarlos con el fin de abordar los problemas de predicción identificados anteriormente:
 
-- **Clasificación binaria**: para predecir si se dio propina en una carrera o no.
+- **Clasificación binaria**: permite predecir si se dio propina en una carrera o no.
 
-  **Lector usado** : regresión logística de dos clases
+  **Mecanismo de aprendizaje utilizado:** regresión logística de dos clases
 
    a. En este problema la etiqueta de destino (o clase) es **tipped**. El conjunto de datos con muestreo reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de **tip\_class**, **tip\_amount** y **total\_amount**, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
   El siguiente diagrama muestra nuestro experimento para predecir si se pagó o no una propina por una carrera determinada:
 
-  ![Diagrama del experimento](./media/hive-walkthrough/QGxRz5A.png)
+  ![Diagrama del experimento para predecir si se pagó propina](./media/hive-walkthrough/QGxRz5A.png)
 
   b. En este experimento las distribuciones de la etiqueta de destino eran aproximadamente 1:1.
 
@@ -777,15 +777,15 @@ Ya puede pasar a la creación del modelo y la implementación del mismo en [Mach
 
   ![Gráfica del valor de AUC](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Clasificación con múltiples clases**: permite predecir el intervalo de importes de propinas para la carrera mediante las clases definidas anteriormente.
+- **Clasificación multiclase**: Permite predecir el intervalo de importes de propina pagadas por la carrera mediante las clases definidas anteriormente.
 
-  **Lector usado** : regresión logística de múltiples clases
+  **Mecanismo de aprendizaje utilizado:** regresión logística multiclase
 
    a. En este problema, la etiqueta de destino (o clase) es **tip\_class**, que puede adoptar uno de cinco valores (0,1,2,3,4). Como en el caso de clasificación binaria, tenemos algunas columnas que son pérdidas de destino para este experimento. Se trata, en concreto, de: **tipped**, **tip\_amount** y **total\_amount**, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
   En el siguiente diagrama se muestra el experimento para predecir en qué intervalo es probable que se sitúe una propina. Los intervalos son: Clase 0: propina = 0 USD, Clase 1: propina > 0 USD y propina <= 5 USD, Clase 2: propina > 5 USD y propina <= 10 USD, Clase 3: propina > 10 USD y propina <= 20 USD y Clase 4: propina > 20 USD.
 
-  ![Diagrama del experimento](./media/hive-walkthrough/5ztv0n0.png)
+  ![Diagrama del experimento para predecir el intervalo de propina](./media/hive-walkthrough/5ztv0n0.png)
 
   Ahora vemos qué aspecto tiene la distribución de clases de prueba real. Las clases 0 y 1 son frecuentes, las demás no lo son.
 
@@ -797,15 +797,15 @@ Ya puede pasar a la creación del modelo y la implementación del mismo en [Mach
 
   Observe que, aunque la precisión para las clases frecuentes es bastante buena, el modelo no hace un buen trabajo de "aprendizaje" en las clases menos frecuentes.
 
-- **Tarea de regresión**: para predecir la cantidad de propina pagada en una carrera.
+- **Tarea de regresión**: Permite predecir el importe de la propina pagada por una carrera.
 
-  **Lector usado** : árbol de decisión incrementado
+  **Mecanismo de aprendizaje utilizado:** árbol de decisión ampliado
 
    a. En este problema, la etiqueta de destino (o clase) es **tip\_amount**. En este caso, las pérdidas de destino son: **tipped**, **tip\_class** y **total\_amount**. Todas estas variables ofrecen información sobre el importe de la propina, que no suele estar disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
   El diagrama siguiente muestra nuestro experimento para predecir el importe de una propina determinada:
 
-  ![Diagrama del experimento](./media/hive-walkthrough/11TZWgV.png)
+  ![Diagrama del experimento para predecir la cantidad de propina](./media/hive-walkthrough/11TZWgV.png)
 
   b. En los problemas de regresión se mide la precisión de nuestra predicción mediante la observación del error cuadrático en las predicciones y el coeficiente de determinación:
 

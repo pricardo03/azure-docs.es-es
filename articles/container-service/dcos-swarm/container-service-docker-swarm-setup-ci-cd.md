@@ -1,5 +1,5 @@
 ---
-title: CI/CD con Azure Container Service y Swarm
+title: (EN DESUSO) CI/CD con Azure Container Service y Swarm
 description: Uso de Azure Container Service con Docker Swarm, Azure Container Registry y Azure DevOps para proporcionar de forma continua una aplicación .NET Core de varios contenedores
 services: container-service
 author: jcorioland
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 3b91c269104e740add1d3a5b8ecaee93ca269188
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db0a16fa44dd23cbc32159889fe8b8ec28c77a5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302833"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992541"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con Docker Swarm mediante Azure DevOps Services
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(EN DESUSO) Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con Docker Swarm mediante Azure DevOps Services
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Uno de los mayores desafíos al desarrollar aplicaciones modernas para la nube es la posibilidad de proporcionar estas aplicaciones de forma continua. En este artículo, aprenderá a implementar una canalización completa de integración e implementación (CI/CD) continuas mediante Azure Container Service con la administración de Docker Swarm, Azure Container Registry y Azure Pipelines.
 
@@ -160,7 +162,7 @@ Deberá agregar dos pasos de Docker para cada imagen, uno para compilar la image
 
 1. Después de configurar los pasos de compilación e inserción para cada una de las cinco imágenes, agregue dos pasos más en el flujo de trabajo de compilación.
 
-    a. Una tarea de la línea de comandos que usa un script de bash para reemplazar la aparición de *BuildNumber* en el archivo docker-compose.yml por el identificador de la compilación actual. Consulte la siguiente pantalla para más información.
+     a. Una tarea de la línea de comandos que usa un script de bash para reemplazar la aparición de *BuildNumber* en el archivo docker-compose.yml por el identificador de la compilación actual. Consulte la siguiente pantalla para más información.
 
     ![Azure DevOps Services (actualización de archivo de Compose)](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 

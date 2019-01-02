@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con IdeaScale | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con IdeaScale | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e IdeaScale.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 1f6c2c9b01a2f861214240eca054242ec73f3929
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ecb73e4b520936b573254f2cf209d4a02c0fdd32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442707"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848755"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: integración de Azure Active Directory con IdeaScale
+# <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: Integración de Azure Active Directory con IdeaScale
 
 En este tutorial, aprenderá a integrar IdeaScale con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/ideascale-tutorial/tutorial_ideascale_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.ideascale.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.ideascale.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
     | |
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | `https://<companyname>.ideascale.com` |
 
     > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de clientes de IdeaScale](http://support.ideascale.com/). 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de clientes de IdeaScale](https://support.ideascale.com/). 
  
 1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -153,7 +153,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configuración de inicio de sesión único](./media/ideascale-tutorial/ic790850.png "Configuración de inicio de sesión único")
    
-    a. En el cuadro de texto **SAML IdP Entity ID** (Identificador de entidad del IdP de SAML), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que copió de Azure Portal.
+     a. En el cuadro de texto **SAML IdP Entity ID** (Identificador de entidad del IdP de SAML), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que copió de Azure Portal.
 
     b. Copie el contenido del archivo de metadatos descargado de Azure Portal y péguelo en el cuadro de texto **SAML IdP Metadata** (Metadatos del IdP de SAML).
 
@@ -162,7 +162,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     d. Haga clic en **Guardar cambios**.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -188,7 +188,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/ideascale-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -218,7 +218,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en IdeaScale, deben a
    
     ![Agregar nuevo miembro](./media/ideascale-tutorial/ic790853.png "Agregar nuevo miembro")
    
-    a. En el cuadro de texto **Direcciones de correo electrónico** , escriba la dirección de correo electrónico de la cuenta de AAD válida que quiera aprovisionar.
+     a. En el cuadro de texto **Direcciones de correo electrónico** , escriba la dirección de correo electrónico de la cuenta de AAD válida que quiera aprovisionar.
    
     b. Haga clic en **Guardar cambios**. 
    

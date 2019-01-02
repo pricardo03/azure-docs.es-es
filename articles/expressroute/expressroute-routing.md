@@ -1,18 +1,19 @@
 ---
-title: Requisitos de enrutamiento de Azure ExpressRoute | Microsoft Docs
-description: En eta página se especifican los requisitos detallados para configurar y administrar el enrutamiento en los circuitos de ExpressRoute.
+title: Requisitos de enrutamiento de ExpressRoute Azure | Microsoft Docs
+description: En esta página se especifican los requisitos detallados para configurar y administrar el enrutamiento en los circuitos de ExpressRoute.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/13/2018
 ms.author: ganesr
-ms.openlocfilehash: cb48a9470a39cbe152f821333050e3dd5a28e1ca
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230960"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406562"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -51,7 +52,7 @@ Suponga que se selecciona 192.168.100.128/29 para configurar el emparejamiento p
 * 192.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
 
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Direcciones IP usadas para el emparejamiento de Microsoft
-Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet  y los registros de enrutamiento de Internet.
+Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet y los registros de enrutamiento de Internet.
 
 * Las direcciones IP que se enumeran en el portal de los prefijos públicos anunciados del emparejamiento de Microsoft creará las ACL de los enrutadores principales de Microsoft para permitir el tráfico entrante de estas direcciones IP. 
 * Debe usar una única subred /29 (IPv4) o /125 (IPv6) o dos o dos subredes /30 (IPv4) o /126 (IPv6) para configurar el emparejamiento BGP para cada emparejamiento por circuito ExpressRoute (si tiene más de uno).
@@ -69,7 +70,7 @@ Para configurar las sesiones BGP, debe usar las direcciones IP públicas que pos
 > El emparejamiento público de Azure no está disponible para los circuitos nuevos.
 > 
 
-Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet  y los registros de enrutamiento de Internet. 
+Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet y los registros de enrutamiento de Internet. 
 
 * Debe usar una única subred /29 o dos subredes /30 para configurar el emparejamiento BGP para cada emparejamiento por circuito ExpressRoute (si tiene más de uno). 
 * Si se usa una subred /29, se divide en dos subredes /30. 
@@ -100,7 +101,7 @@ Si no se le asignaron los prefijos y el número de sistema autónomo en los regi
 Con el emparejamiento de Microsoft se permite un número de sistema autónomo privado, pero debe validarse manualmente. Además, se quitan los números AS privados en AS PATH para los prefijos recibidos. En consecuencia, no puede anexar números AS privados en AS PATH para que [influyan en el enrutamiento del emparejamiento de Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> No anuncie la misma ruta de dirección IP pública en la red pública de Internet ni mediante ExpressRoute. Se recomienda encarecidamente anunciar una ruta más específica mediante ExpressRoute y una ruta más general en Internet para [NAT](expressroute-nat.md). Además de la ruta pública para NAT, también puede anunciar mediante ExpressRoute las direcciones IP públicas usadas por los servidores en la red local que se comunican con puntos de conexión de Office 365 en Microsoft. 
+> No anuncie la misma ruta de dirección IP pública en la red pública de Internet ni mediante ExpressRoute. Para reducir el riesgo de configuración incorrecta que causa el enrutamiento asimétrico, se recomienda encarecidamente que las [direcciones IP de NAT](expressroute-nat.md) anunciadas a Microsoft a través de ExpressRoute provengan de un intervalo que no se anuncie en Internet. Si esto no es posible, es esencial que garantice que a través de ExpressRoute anuncia un intervalo más específico que el que anuncia en la conexión a Internet. Además de la ruta pública para NAT, también puede anunciar mediante ExpressRoute las direcciones IP públicas usadas por los servidores en la red local que se comunican con puntos de conexión de Office 365 en Microsoft. 
 > 
 > 
 

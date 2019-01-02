@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8ba4fa1b5f5efd671c13ad2201b0cd34642d346
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261883"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844947"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planeamiento de la capacidad para la recuperación ante desastres de máquinas virtuales de Hyper-V 
 
@@ -33,8 +33,8 @@ Use Site Recovery Capacity Planner para analizar su entorno de origen y las carg
 
 Puede ejecutar la herramienta de dos modos distintos:
 
-* **Planeación rápida**: proporciona las proyecciones de la red y del servidor según el promedio de las máquinas virtuales, discos, almacenamiento y tasa de cambio.
-* **Planificación detallada**: proporciona detalles de cada carga de trabajo en el nivel de máquina virtual. Analice la compatibilidad de la máquina virtual y obtenga proyecciones de red y del servidor.
+* **Planeamiento rápido**: proporciona las proyecciones de red y servidor según el número medio de máquinas virtuales, discos, almacenamiento y tasa de cambio.
+* **Planeamiento detallado**: proporciona detalles de cada carga de trabajo en el nivel de máquina virtual. Analice la compatibilidad de la máquina virtual y obtenga proyecciones de red y del servidor.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -51,7 +51,7 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 3. En la hoja de cálculo **Capacity Planner**, escriba la información que necesite. Rellene todos los campos rodeados por un círculo rojo de la captura de pantalla siguiente:
 
-   a. En **Select your scenario** (Seleccionar escenario) elija **Hyper-V to Azure** (Hyper-V a Azure) o **VMware/Physical to Azure** (VMWare/Físico a Azure).
+    a. En **Select your scenario** (Seleccionar escenario) elija **Hyper-V to Azure** (Hyper-V a Azure) o **VMware/Physical to Azure** (VMWare/Físico a Azure).
 
    b. En **Average daily data change rate (%)** [Tasa media diaria de cambio de datos (%)], escriba la información que ha recopilado con la [herramienta de planeamiento de capacidad de Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o con [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
@@ -65,17 +65,17 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 4. Después de haber especificado los valores para el entorno de origen, la salida mostrada incluye:
 
-   * **Ancho de banda necesario para la replicación diferencial (MB/s)**: el ancho de banda de red necesario para la replicación diferencial se calcula según la tasa media diaria de cambio de datos.
-   * **Ancho de banda necesario para la replicación inicial (MB/s)**: el ancho de banda de red necesario para la replicación inicial se calcula según los valores de replicación inicial que especifique.
-   * **Almacenamiento necesario (en GB)**: el almacenamiento total requerido en Azure.
-   * **IOPS totales en cuentas de almacenamiento estándar**: el número se calcula en función de un tamaño de unidad IOPS de 8 K en las cuentas de almacenamiento estándar totales. Para Quick Planner, el número se calcula en función de todos los discos de máquinas virtuales de origen y la tasa de cambio de los datos diarios. Para Detailed Planner el número se calcula en función del número total de máquinas virtuales que se asignan a las máquinas virtuales estándar de Azure y a la tasa de cambio de los datos en dichas máquinas virtuales.
-   * **Número de cuentas de almacenamiento estándar necesarias**: el número total de cuentas de almacenamiento estándar necesarias para proteger las máquinas virtuales. Una cuenta de almacenamiento estándar puede contener hasta 20 000 IOPS en todas las máquinas virtuales de un almacenamiento estándar. Se admite un máximo de 500 IOPS por disco.
-   * **Número de discos blob necesarios**: el número de discos que se crearán en Azure Storage.
-   * **Número de cuentas premium necesarias**: el número total de cuentas de almacenamiento premium necesarias para proteger las máquinas virtuales. Una máquina virtual de origen con una IOPS elevada (más de 20 000) necesita una cuenta de Premium Storage. Una cuenta de Premium Storage puede contener hasta 80 000 IOPS.
-   * **IOPS totales en Premium Storage**: el número se calcula en función de un tamaño de unidad IOPS de 256 K en las cuentas de Premium Storage totales. Para Quick Planner, el número se calcula en función de todos los discos de máquinas virtuales de origen y la tasa de cambio de los datos diarios. Para Detailed Planner el número se calcula en función del número total de máquinas virtuales que se asignan a las máquinas virtuales premium de Azure (serie DS y GS) y a la tasa de cambio de los datos en dichas máquinas virtuales.
-   * **Número de servidores de configuración necesarios**: muestra cuántos servidores de configuración son necesarios para la implementación.
-   * **Número de servidores de procesos adicionales necesarios**: muestra si se requieren servidores de procesos adicionales, además del servidor de proceso configurado en el servidor de configuración de forma predeterminada.
-   * **100 % de almacenamiento adicional en origen**: muestra si se necesita almacenamiento adicional en la ubicación de origen.
+   * **Bandwidth required for delta replication (in Megabits/sec)** (Ancho de banda necesario para la replicación diferencial [en Megabits por segundo]): El ancho de banda de red necesario para la replicación diferencial se calcula según la tasa media diaria de cambio de datos.
+   * **Bandwidth required for initial replication (in Megabits/sec)** (Ancho de banda necesario para la replicación inicial [en Megabits por segundo]): el ancho de banda de red para la replicación inicial se calcula según los valores de replicación iniciales establecidos.
+   * **Storage required (in GBs)** (Almacenamiento necesario [en GB]): almacenamiento total de Azure necesario.
+   * **Total IOPS on Standard Storage** (IOPS total en cuentas de almacenamiento estándar): el número se calcula en función de un tamaño de unidad IOPS de 8 K en las cuentas de almacenamiento estándar total. Para Quick Planner, el número se calcula en función de todos los discos de máquinas virtuales de origen y la tasa de cambio de los datos diarios. Para Detailed Planner el número se calcula en función del número total de máquinas virtuales que se asignan a las máquinas virtuales estándar de Azure y a la tasa de cambio de los datos en dichas máquinas virtuales.
+   * **Number of Standard storage accounts required** (Número de cuentas de almacenamiento estándar necesarias): Número total de cuentas de almacenamiento estándar necesarias para proteger las VM. Una cuenta de almacenamiento estándar puede contener hasta 20 000 IOPS en todas las máquinas virtuales de un almacenamiento estándar. Se admite un máximo de 500 IOPS por disco.
+   * **Number of Blob disks required** (Número de discos de blob necesarios): Número de discos que se crearán en Azure Storage.
+   * **Number of premium accounts required** (Número de cuentas premium necesarias): Número total de cuentas de almacenamiento premium necesarias para proteger las VM. Una máquina virtual de origen con una IOPS elevada (más de 20 000) necesita una cuenta de Premium Storage. Una cuenta de Premium Storage puede contener hasta 80 000 IOPS.
+   * **Total IOPS on Premium Storage** (IOPS total en Premium Storage): el número se calcula en función del tamaño de unidad IOPS de 256 K en las cuentas de Premium Storage totales. Para Quick Planner, el número se calcula en función de todos los discos de máquinas virtuales de origen y la tasa de cambio de los datos diarios. Para Detailed Planner el número se calcula en función del número total de máquinas virtuales que se asignan a las máquinas virtuales premium de Azure (serie DS y GS) y a la tasa de cambio de los datos en dichas máquinas virtuales.
+   * **Number of Configuration Servers required** (Número de servidores de configuración necesarios): muestra cuántos servidores de configuración son necesarios para la implementación.
+   * **Number of additional Process Servers required** (Número de servidores de proceso adicionales necesarios): Muestra si se requieren servidores de procesos adicionales, además del servidor de proceso que se ejecuta en el servidor de configuración de forma predeterminada.
+   * **100% additional storage on the Source** (100 % de almacenamiento adicional en el origen): Muestra si se necesita almacenamiento adicional en la ubicación de origen.
 
       ![Salida](./media/site-recovery-capacity-planner/output.png)
 
@@ -89,7 +89,7 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 3. En la hoja de cálculo **Workload Qualification**, escriba la información necesaria. Debe rellenar todos los campos marcados.
 
-   a. En **Processor Cores** (Núcleos de procesador), especifique el número total de núcleos de un servidor de origen.
+    a. En **Processor Cores** (Núcleos de procesador), especifique el número total de núcleos de un servidor de origen.
 
    b. En **Memory allocation (in MBs)** [Asignación de memoria (en MB)], especifique el tamaño de la RAM de un servidor de origen.
 

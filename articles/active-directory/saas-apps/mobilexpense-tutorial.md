@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Mobile Xpense | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con MobileXpense | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Mobile Xpense.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: fd35cb67d0555919a1340c428bac042b67239469
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d51ced3f264a486288c951def7c23a0d95609ac0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427346"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850693"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Tutorial: Integración de Azure Active Directory con Mobile Xpense
+# <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Tutorial: Integración de Azure Active Directory con MobileXpense
 
 En este tutorial, obtendrá información sobre cómo integrar Mobile Xpense con Azure Active Directory (Azure AD).
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Mobile Xpense](./media/mobilexpense-tutorial/tutorial_mobilexpense_url11.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://mobilexpense.com/ServiceProvider`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://mobilexpense.com/ServiceProvider`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`.
 
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub-domain>.mobilexpense.com/<customername>`.
      
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de Mobile Xpense](http://www.mobilexpense.net/contact) para obtener estos valores. 
+    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de Mobile Xpense](https://www.mobilexpense.net/contact) para obtener estos valores. 
 
 1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -131,10 +131,10 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Configurar inicio de sesión único](./media/mobilexpense-tutorial/tutorial_general_400.png)
 
-1. Para configurar el inicio de sesión único en el lado de **Mobile Xpense**, tiene que enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Mobile Xpense](http://www.mobilexpense.net/contact). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para configurar el inicio de sesión único en el lado de **Mobile Xpense**, tiene que enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Mobile Xpense](https://www.mobilexpense.net/contact). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -160,7 +160,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/mobilexpense-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -170,7 +170,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-mobile-xpense-test-user"></a>Creación de un usuario de prueba de Mobile Xpense
 
-En esta sección, creará un usuario llamado Britta Simon en MobileXpense. Trabaje con el [equipo de soporte técnico de MobileXpense](http://www.mobilexpense.net/contact) para agregar los usuarios en la plataforma de MobileXpense. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado Britta Simon en MobileXpense. Trabaje con el  [equipo de soporte técnico de MobileXpense](https://www.mobilexpense.net/contact)  para agregar los usuarios en la plataforma de MobileXpense. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -207,7 +207,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Mobile Xpense en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Mobile Xpense.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

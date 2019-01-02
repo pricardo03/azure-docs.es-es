@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582894"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834245"
 ---
-# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas
+# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -193,7 +193,7 @@ La plantilla HTML5 está lista para usarse. Sin embargo, no está disponible en 
 * El servidor de contenido esté habilitado para CORS.
 
     >[!NOTE]
-    >Para comprobar que el sitio donde va a albergar el contenido ha habilitado CORS y puede probar las solicitudes CORS, vaya al sitio web [test-cors.org](http://test-cors.org/). 
+    >Para comprobar que el sitio donde va a albergar el contenido ha habilitado CORS y puede probar las solicitudes CORS, vaya al sitio web [test-cors.org](https://test-cors.org/). 
 
 * El contenido servido es seguro sobre **HTTPS**.
 * Está usando *direcciones URL absolutas* como *https://yourdomain/content*, para todos los vínculos, el contenido de CSS y las imágenes.
@@ -228,7 +228,7 @@ Para configurar `ContentDefinition` haga lo siguiente:
 
 6. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
 
-## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Paso 7: Prueba de la directiva personalizada con Ejecutar ahora
+## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Paso 7: Probar la directiva personalizada con Ejecutar ahora
 1. Seleccione **Configuración de Azure AD B2C** y, después, **Marco de experiencia de identidad**.
 
     >[!NOTE]
@@ -242,7 +242,7 @@ Para configurar `ContentDefinition` haga lo siguiente:
 ## <a name="step-8-add-dynamic-content"></a>Paso 8: Incorporación de contenido dinámico
 Cambie el fondo en función del parámetro de la cadena de consulta _campaignId_. La aplicación de usuario de confianza (aplicaciones web y móviles) envía el parámetro a Azure AD B2C. La directiva lee el parámetro y envía su valor a la plantilla HTML5. 
 
-### <a name="step-81-add-a-content-definition-parameter"></a>Paso 8.1: Incorporación del parámetro de definición de contenido
+### <a name="step-81-add-a-content-definition-parameter"></a>Paso 8.1: Incorporación de un parámetro de definición de contenido
 
 Agregue el elemento `ContentDefinitionParameters` haciendo lo siguiente:
 1. Abra el archivo *SignUpOrSignin* de la directiva (por ejemplo, *SignUpOrSignin.xml*).

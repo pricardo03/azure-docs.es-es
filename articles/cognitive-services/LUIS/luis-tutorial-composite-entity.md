@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 6: Extraer datos compuestos con una entidad compuesta de LUIS'
+title: Entidad compuesta
 titleSuffix: Azure Cognitive Services
 description: Agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423508"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079218"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Tutorial 6: Agrupación y extracción de datos relacionados
 En este tutorial, agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
@@ -57,7 +58,7 @@ Cree una entidad compuesta cuando se puedan agrupar las entidades independientes
 
 En esta aplicación, el nombre del empleado se define en la entidad de lista **Employee** (Empleado) e incluye sinónimos del nombre, la dirección de correo electrónico, la extensión de teléfono de la empresa, el número de teléfono móvil y EE. UU. Número de identificación fiscal 
 
-La intención **MoveEmployee** tiene expresiones de ejemplo para solicitar el traslado de un empleado de un edificio y oficina a otro. Los nombres de los edificios son alfabéticos: "A", "B", etc., mientras que las oficinas son numéricas: "1234", "13245". 
+La intención **MoveEmployee** tiene expresiones de ejemplo para solicitar el traslado de un empleado de un edificio y oficina a otro. Los nombres de edificio son alfabéticos: "A", "B", etc., mientras que las oficinas son numéricas: "1234", "13245". 
 
 Entre las expresiones de ejemplo de la intención **MoveEmployee** se incluyen las siguientes:
 
@@ -70,7 +71,7 @@ La solicitud de traslado debe incluir el empleado (con cualquier sinónimo) y la
 
 Los datos extraídos del punto de conexión deben contener esta información y devolverla en la entidad compuesta `RequestEmployeeMove`:
 
-```JSON
+```json
 "compositeEntities": [
   {
     "parentType": "RequestEmployeeMove",
@@ -103,22 +104,22 @@ Los datos extraídos del punto de conexión deben contener esta información y d
 
 3. Seleccione el icono de lupa de la barra de herramientas para filtrar la lista de expresiones. 
 
-    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Captura de pantalla de LUIS en la intención \"MoveEmployee\" con el botón de lupa resaltado")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    [![Captura de pantalla de LUIS en la intención "MoveEmployee" con el botón de lupa resaltado](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot of LUIS on 'MoveEmployee' intent with magnifying glass button highlighted")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. Escriba `tomorrow` en el cuadro de texto de filtro para buscar la expresión `shift x12345 to h-1234 tomorrow`.
 
-    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Captura de pantalla de LUIS en la intención \"MoveEmployee\" con el filtro de \"tomorrow\" resaltado")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    [![Captura de pantalla de LUIS en la intención "MoveEmployee" con el filtro "mañana" resaltado](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot of LUIS on 'MoveEmployee' intent with filter of 'tomorrow' highlighted")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
     Otro método consiste en filtrar la entidad por datetimeV2, mediante la selección de **Entity filters** (Filtros de entidad) y seleccione **datetimeV2** en la lista. 
 
 5. Seleccione la primera entidad, `Employee`, y seleccione **Ajustar en la entidad compuesta** en la lista del menú emergente. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Captura de pantalla de LUIS en la intención \"MoveEmployee\" con la opción de seleccionar la primera entidad en la composición resaltada")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![Captura de pantalla de LUIS en la intención "MoveEmployee" con la selección de la primera entidad de la composición en resaltado](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. A continuación, seleccione inmediatamente la última entidad, `datetimeV2`, en la expresión. Se dibuja una barra verde debajo de las palabras seleccionadas que indica una entidad compuesta. En el menú emergente, escriba el nombre compuesto `RequestEmployeeMove` y, a continuación, seleccione Intro. 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Captura de pantalla de LUIS en la intención \"MoveEmployee\" con la opción de seleccionar la última entidad en la composición y la creación de entidad resaltadas")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+    [![Captura de pantalla de LUIS en la intención "MoveEmployee" con la selección de la última entidad de la composición y la creación de la entidad en resaltado](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. En **What type of entity do you want to create?** (¿Qué tipo de entidad quiere crear), casi todos los campos necesarios están en la lista. Solo falta la ubicación de origen. Seleccione **Add a child entity** (Agregar una entidad secundaria), seleccione **Locations::Origin** en la lista de las entidades existentes y seleccione **Done** (Listo). 
 
@@ -135,15 +136,15 @@ Los datos extraídos del punto de conexión deben contener esta información y d
 
 1. En cada expresión de ejemplo, seleccione la entidad que se encuentra más a la izquierda que debería estar en la composición. A continuación, seleccione **Wrap in composite entity** (Ajustar en la entidad compuesta).
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Captura de pantalla de LUIS en la intención \"MoveEmployee\" con la opción de seleccionar la primera unidad en la composición resaltada")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+    [![Captura de pantalla de LUIS en la intención "MoveEmployee" con la selección de la primera entidad de la composición en resaltado](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
 2. Seleccione la última palabra en la entidad compuesta y luego seleccione **RequestEmployeeMove** en el menú emergente. 
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Captura de pantalla de LUIS en la intención \"MoveEmployee\" con la opción de seleccionar la última entidad en la composición resaltada")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+    [![Captura de pantalla de LUIS en la intención "MoveEmployee" con la selección de la última entidad de la composición en resaltado](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
 3. Compruebe que todas las expresiones de la intención están etiquetadas con la entidad compuesta. 
 
-    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Captura de pantalla de LUIS en la intención \"MoveEmployee\" con todas las expresiones etiquetadas")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+    [![Captura de pantalla de LUIS en "MoveEmployee" con todas las expresiones etiquetadas](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot of LUIS on 'MoveEmployee' with all utterances labeled")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train"></a>Train
 
@@ -161,7 +162,7 @@ Los datos extraídos del punto de conexión deben contener esta información y d
 
     Como esta prueba se realiza para comprobar que la entidad compuesta se extrae correctamente, puede incluir una expresión de ejemplo existente o una expresión nueva. En una prueba buena se incluyen todas las entidades secundarias de la entidad compuesta.
 
-    ```JSON
+    ```json
     {
       "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
       "topScoringIntent": {

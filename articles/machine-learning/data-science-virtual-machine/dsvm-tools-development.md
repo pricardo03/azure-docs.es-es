@@ -1,11 +1,12 @@
 ---
 title: Herramientas de desarrollo de Data Science Virtual Machine - Azure | Microsoft Docs
-description: Herramientas de desarrollo de Data Science Virtual Machine.
+description: Obtenga información sobre las herramientas y los entornos de desarrollo integrado que están instalados previamente en Data Science Virtual Machine.
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ee1e7003a9f1479db7311072e29132cf491cbc88
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237884"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073761"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Herramientas de desarrollo en Data Science Virtual Machine
 
@@ -30,9 +31,9 @@ Data Science Virtual Machine (DSVM) proporciona un entorno productivo para el de
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | IDE de uso general      |
-| Versiones de DSVM compatibles      | Windows      |
+| Versiones de DSVM compatibles      |  Windows      |
 | Usos típicos      | Desarrollo de software    |
-| ¿Cómo se configura/instala en DSVM?      | Carga de trabajo de ciencia de datos (herramientas de Python y de R), carga de trabajo de Azure (Hadoop y Data Lake), Node.js y herramientas de SQL Server, [Visual Studio Tools para AI](https://github.com/Microsoft/vs-tools-for-ai)    |
+| ¿Cómo se configura/instala en DSVM?      | Carga de trabajo de ciencia de datos (herramientas de Python y R), carga de trabajo de Azure (Hadoop, Data Lake), Node.js, herramientas de SQL Server, [Azure Machine Learning para Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
 | ¿Cómo se usa o ejecuta?      | Acceso directo de escritorio (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Herramientas relacionadas en DSVM      |     Visual Studio Code, RStudio y Juno  |
 
@@ -87,7 +88,7 @@ Data Science Virtual Machine (DSVM) proporciona un entorno productivo para el de
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Visualización de datos interactivos y herramienta de BI    |
-| Versiones de DSVM compatibles      | Windows  |
+| Versiones de DSVM compatibles      |  Windows  |
 | Usos típicos      |  Visualización de datos y creación de paneles   |
 | ¿Cómo se usa o ejecuta?      | Acceso directo de escritorio (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Herramientas relacionadas en DSVM      |   Visual Studio 2017, Visual Studio Code y Juno      |

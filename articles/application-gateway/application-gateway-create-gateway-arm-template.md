@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: c749cdf133caebb2d1f061d53a1db38e9ec433bd
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6a671744944527b64aab9a7b9afe05d6a9f2f27f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770781"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002091"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Creación de una instancia de Application Gateway con la plantilla de Azure Resource Manager
 
@@ -60,7 +60,7 @@ Puede descargar la plantilla de Azure Resource Manager existente para crear una 
 1. Abra el archivo que guardó y vea el contenido de **parameters** en la línea
 1. Los parámetros de la plantilla de Azure Resource Manager proporcionan un marcador de posición para los valores que se pueden rellenar durante la implementación.
 
-  | . | DESCRIPCIÓN |
+  | Parámetro | DESCRIPCIÓN |
   | --- | --- |
   | **subnetPrefix** |Bloque CIDR de la subred de Application Gateway. |
   | **applicationGatewaySize** | Tamaño de la instancia de Application Gateway.  WAF solo permite tamaños medianos y grandes. |
@@ -84,7 +84,7 @@ Puede descargar la plantilla de Azure Resource Manager existente para crear una 
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -121,11 +121,11 @@ Puede descargar la plantilla de Azure Resource Manager existente para crear una 
     }
     ```
 
-1. Guarde el archivo. Puede probar la plantilla de JSON y la plantilla de parámetros mediante las herramientas en línea de validación de JSON como [JSlint.com](http://www.jslint.com/).
+1. Guarde el archivo. Puede probar la plantilla de JSON y la plantilla de parámetros mediante las herramientas en línea de validación de JSON como [JSlint.com](https://www.jslint.com/).
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Implementación de la plantilla de Azure Resource Manager mediante PowerShell
 
-Si es la primera vez que usa Azure PowerShell, visite [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) y siga las instrucciones para iniciar sesión en Azure y seleccionar su suscripción.
+Si es la primera vez que usa Azure PowerShell, visite: [How to install and configure Azure PowerShell](/powershell/azure/overview) (Instalación y configuración de Azure PowerShell) y siga las instrucciones para iniciar sesión en Azure y seleccionar su suscripción.
 
 1. Inicio de sesión en PowerShell
 
@@ -210,7 +210,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
@@ -233,9 +233,9 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea configurar la descarga de SSL, consulte [Configuración de una instancia de Application Gateway para la descarga de SSL](application-gateway-ssl.md).
+Si desea configurar la descarga SSL, visite: [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](application-gateway-ssl.md).
 
-Si quiere configurar una instancia de Application Gateway para usarla con un equilibrador de carga interno, consulte [Creación de una instancia de Application Gateway con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
+Si desea configurar una puerta de enlace de aplicaciones para usarla con un equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
 Si desea más información acerca de las opciones de equilibrio de carga en general, visite:
 

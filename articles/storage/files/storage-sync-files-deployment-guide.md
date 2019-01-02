@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: f32dd0fb1ffd1bbd2c58f187b2dbc310a48f65ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ee0d46cd07de4e9b123357bcc4ee9d1e51926f49
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011075"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312984"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -136,7 +136,7 @@ Para implementar un servicio de sincronización de almacenamiento, vaya a [Azure
 
 En el panel que se abre, escriba la siguiente información:
 
-- **Nombre**: un nombre único (por suscripción) para el servicio de sincronización de almacenamiento.
+- **Nombre**: Un nombre único (por suscripción) para el servicio de sincronización de almacenamiento.
 - **Suscripción**: la suscripción en la que quiere crear el servicio de sincronización de almacenamiento. Según la estrategia de configuración de la organización, puede tener acceso a una o más suscripciones. Una suscripción de Azure es el contenedor más básico para la facturación de cada servicio en la nube (como Azure Files).
 - **Grupo de recursos**: un grupo de recursos es un grupo lógico de recursos de Azure, como una cuenta de almacenamiento o un servicio de sincronización de almacenamiento. Puede crear un nuevo grupo de recursos o seleccionar uno existente para Azure File Sync. (Se recomienda usar los grupos de recursos como contenedores para aislar los recursos de manera lógica para su organización, como la agrupación de recursos de RR. HH. o recursos de un proyecto específico).
 - **Ubicación**: la región en la que quiere implementar Azure File Sync. Solo las regiones admitidas están disponibles en esta lista.
@@ -201,7 +201,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
 Login-AzureRmStorageSync `
-    –SubscriptionId $subID `
+    -SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
     -Location $region
@@ -223,13 +223,13 @@ El registro del servidor Windows Server con un servicio de sincronización de al
 > El registro del servidor usa sus credenciales de Azure para crear una relación de confianza entre el servicio de sincronización de almacenamiento y su instancia de Windows Server; sin embargo, posteriormente, el servidor crea y usa su propia identidad, que es válida mientras el servidor permanezca registrado y el token de la firma de acceso compartido (SAS de almacenamiento) actual sea válido. No se puede emitir un nuevo token de SAS para el servidor una vez que se anula el registro del servidor, lo que elimina la capacidad del servidor de acceder a los recursos compartidos de archivos de Azure, deteniendo cualquier sincronización.
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-Al término de la instalación del agente de Azure File Sync, la interfaz de usuario Registro del servidor debería abrirse automáticamente. Si no es así, puede abrirla manualmente desde la ubicación del archivo: C:\Archivos de programa\Azure\StorageSyncAgent\ServerRegistration.exe. Cuando la interfaz de usuario Registro del servidor se abra, seleccione **Iniciar sesión** para comenzar.
+Al término de la instalación del agente de Azure File Sync, la interfaz de usuario Registro del servidor debería abrirse automáticamente. Si no es así, puede abrirla manualmente desde su ubicación de archivo: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Cuando la interfaz de usuario Registro del servidor se abra, seleccione **Iniciar sesión** para comenzar.
 
 Después de iniciar sesión se le pedirá la información siguiente:
 
 ![Captura de pantalla de la interfaz de usuario Registro del servidor](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
-- **Suscripción de Azure**: la suscripción que contiene el servicio de sincronización de almacenamiento (vea [Implementación del servicio de sincronización de almacenamiento](#deploy-the-storage-sync-service)). 
+- **Suscripción de Azure**: la suscripción que contiene el servicio de sincronización de almacenamiento (consulte [Implementación del servicio de sincronización de almacenamiento](#deploy-the-storage-sync-service)). 
 - **Grupo de recursos**: el grupo de recursos que contiene el servicio de sincronización de almacenamiento.
 - **Servicio de sincronización de almacenamiento**: el nombre del servicio de sincronización de almacenamiento con el que quiere registrar.
 
@@ -245,7 +245,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Creación de un grupo de sincronización y un punto de conexión en la nube
 Un grupo de sincronización define la topología de sincronización de un conjunto de archivos. Los puntos de conexión dentro de un grupo de sincronización se mantienen sincronizados entre sí. Un grupo de sincronización debe contener al menos un punto de conexión en la nube, que representa un recurso compartido de archivos de Azure y uno o varios puntos de conexión de servidor. Un punto de conexión de servidor representa una ruta de acceso en un servidor registrado. Un servidor puede tener puntos de conexión de servidor en varios grupos de sincronización. Puede crear tantos grupos de sincronización como sea necesario para describir correctamente la topología de sincronización deseada.
 
-Un punto de conexión en la nube es un puntero a un recurso compartido de archivos de Azure. Todos los puntos de conexión de servidor se sincronizarán con un punto de conexión en la nube, lo que hace que el punto de conexión en la nube actúe como concentrador. La cuenta de almacenamiento para el recurso compartido de archivos de Azure debe encontrarse en la misma región que el servicio de sincronización de almacenamiento. Se sincronizará la totalidad del recurso compartido de archivos de Azure, con una excepción: una carpeta especial, comparable a la carpeta oculta "System Volume Information" de un volumen NTFS, se aprovisionará. Este directorio se llama ".SystemShareInformation". Contiene metadatos de sincronización importantes que no se sincronizarán con otros puntos de conexión. No la utilice ni elimine.
+Un punto de conexión en la nube es un puntero a un recurso compartido de archivos de Azure. Todos los puntos de conexión de servidor se sincronizarán con un punto de conexión en la nube, lo que hace que el punto de conexión en la nube actúe como concentrador. La cuenta de almacenamiento para el recurso compartido de archivos de Azure debe encontrarse en la misma región que el servicio de sincronización de almacenamiento. Se sincronizará la totalidad del recurso compartido de archivos de Azure, con una excepción: se aprovisionará una carpeta especial, comparable a la carpeta oculta "System Volume Information" de un volumen NTFS. Este directorio se llama ".SystemShareInformation". Contiene metadatos de sincronización importantes que no se sincronizarán con otros puntos de conexión. No la utilice ni elimine.
 
 > [!Important]  
 > Puede realizar cambios en cualquier punto de conexión en la nube o punto de conexión de servidor en el grupo de sincronización y sincronizar los archivos con los demás puntos de conexión del grupo de sincronización. Si realiza algún cambio directamente en el punto de conexión en la nube (recurso compartido de archivos de Azure), tenga en cuenta que un trabajo de detección de cambios de Azure File Sync deberá detectar primero esos cambios. Se inicia un trabajo de detección de cambios para un punto de conexión en la nube solo una vez cada 24 horas. Para obtener más información, consulte [Preguntas más frecuentes de Azure Files](storage-files-faq.md#afs-change-detection).
@@ -259,7 +259,7 @@ En el panel que se abre, escriba la información siguiente para crear un grupo d
 
 - **Nombre del grupo de sincronización**: el nombre del grupo de sincronización que se va a crear. Este nombre debe ser único dentro del servicio de sincronización de almacenamiento, pero puede ser cualquier nombre que considere lógico.
 - **Suscripción**: la suscripción en la que ha implementado el servicio de sincronización de almacenamiento en [Implementación del servicio de sincronización de almacenamiento](#deploy-the-storage-sync-service).
-- **Cuenta de almacenamiento**: si elige **Seleccionar cuenta de almacenamiento**, aparece otro panel donde puede seleccionar la cuenta de almacenamiento que tiene el recurso compartido de archivos de Azure con el que quiere realizar la sincronización.
+- **Cuenta de almacenamiento**: si elige **Seleccionar cuenta de almacenamiento**, aparecerá otro panel donde puede seleccionar la cuenta de almacenamiento que tiene el recurso compartido de archivos de Azure con el que quiere realizar la sincronización.
 - **Recurso compartido de archivos de Azure**: el nombre del recurso compartido de archivos de Azure con el que desea realizar la sincronización.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
@@ -303,7 +303,7 @@ if ($fileShare -eq $null) {
 New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
-    -StorageAccountResourceId $storageAccount.Id
+    -StorageAccountResourceId $storageAccount.Id `
     -StorageAccountShareName $fileShare.Name
 ```
 
@@ -321,7 +321,7 @@ En el panel **Agregar punto de conexión de servidor**, escriba la siguiente inf
 
 - **Servidor registrado**: el nombre del servidor o el clúster en el que se va a crear el punto de conexión de servidor.
 - **Ruta de acceso**: la ruta de acceso de Windows Server que se va a sincronizar como parte del grupo de sincronización.
-- **Niveles de la nube**: un conmutador para habilitar o deshabilitar los niveles de la nube. Con los niveles de la nube, los archivos que se usen o a los que se acceda con poca frecuencia se pueden colocar en capas en Azure Files.
+- **Nube por niveles**: un conmutador para habilitar o deshabilitar la nube por niveles. Con los niveles de la nube, los archivos que se usen o a los que se acceda con poca frecuencia se pueden colocar en capas en Azure Files.
 - **Espacio disponible del volumen**: la cantidad de espacio libre que se reserva en el volumen en el que reside el punto de conexión de servidor. Por ejemplo, si el espacio disponible del volumen se establece en el 50 % en un volumen con un único punto de conexión de servidor, casi la mitad de la cantidad de datos se coloca en capas en Azure Files. Con independencia de si la característica de niveles en la nube está habilitada, el recurso compartido de archivos de Azure siempre tiene una copia completa de los datos en el grupo de sincronización.
 
 Para agregar el punto de conexión de servidor, seleccione **Crear**. Los archivos se mantienen ahora sincronizados entre el recurso compartido de archivos de Azure y Windows Server. 

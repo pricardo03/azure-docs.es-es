@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010650"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842958"
 ---
-# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: preguntas más frecuentes (P+F) 
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes 
 Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>¿Por qué no puedo acceder a la extensión de Azure AD B2C en Azure Portal?
@@ -34,17 +34,17 @@ En un inquilino de Azure AD, los usuarios que pertenecen al inquilino inician se
 
 En un inquilino de Azure AD B2C, la mayoría de las aplicaciones desean que el usuario inicie sesión con cualquier dirección de correo electrónico arbitraria (por ejemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com). Este tipo de cuenta es una cuenta local.  También se admiten nombres de usuario arbitrarios tales como cuentas locales (por ejemplo, joe, bob, sarah o jim). Puede elegir uno de estos dos tipos de cuentas locales al configurar proveedores de identidades para Azure AD B2C en Azure Portal. En el inquilino de Azure AD B2C, haga clic en **Proveedores de identidades** y, a continuación, seleccione **Nombre de usuario** en Cuentas locales. 
 
-Las cuentas de usuario de las aplicaciones siempre se deben crear a través de una directiva de registro, una directiva de registro o de inicio de sesión, o mediante Azure AD Graph API. Las cuentas de usuario creadas en Azure Portal solo se usan para administrar el inquilino.
+Las cuentas de usuario de las aplicaciones siempre se deben crear mediante un flujo de usuario de registro, un flujo de usuario de registro o inicio de sesión, o mediante Azure AD Graph API. Las cuentas de usuario creadas en Azure Portal solo se usan para administrar el inquilino.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>¿Qué proveedores de identidades sociales se admiten ahora? ¿Cuáles se prevén que se van a admitir en el futuro?
 Actualmente admitimos Facebook, Google+, LinkedIn, Amazon, Twitter (versión preliminar), WeChat (versión preliminar), Weibo (versión preliminar) y QQ (versión preliminar). Agregaremos compatibilidad con otros proveedores de identidades sociales conocidos en función de la demanda del cliente.
 
-Azure AD B2C también ha agregado compatibilidad para [directivas personalizadas](active-directory-b2c-overview-custom.md).  Estas [directivas personalizadas](active-directory-b2c-overview-custom.md) permiten a un desarrollador crear su propia directiva con cualquier proveedor de identidades que admita [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) o SAML. 
+Azure AD B2C también ha agregado compatibilidad para [directivas personalizadas](active-directory-b2c-overview-custom.md).  Estas [directivas personalizadas](active-directory-b2c-overview-custom.md) permiten a un desarrollador crear su propia directiva con cualquier proveedor de identidades que admita [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) o SAML. 
 
 Empiece a trabajar con directivas personalizadas consultando nuestro [paquete de inicio de directivas personalizadas](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>¿Puedo configurar ámbitos para recopilar más información acerca de los consumidores de distintos proveedores de identidades sociales?
-No. Los ámbitos predeterminados usados para el conjunto de proveedores de identidades sociales admitidos son:
+ No. Los ámbitos predeterminados usados para el conjunto de proveedores de identidades sociales admitidos son:
 
 * Facebook: correo electrónico
 * Google+: correo electrónico
@@ -61,7 +61,7 @@ Antes de abrir "Azure AD B2C" en el menú de la izquierda de Azure Portal, debe 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>¿Cómo puedo personalizar los mensajes de correo electrónico de comprobación (el contenido y el campo "De:") enviados por Azure AD B2C?
 Puede utilizar la [característica de personalización de marca de compañía](../active-directory/fundamentals/customize-branding.md) para personalizar el contenido de los mensajes de correo electrónico de comprobación. En concreto, se pueden personalizar estos dos elementos del correo electrónico:
 
-* **Logotipo del banner**: se muestra en la parte inferior derecha.
+* **Logotipo del banner**: se muestra en la esquina inferior derecha.
 * **Color de fondo**: se muestra en la parte superior.
 
     ![Captura de pantalla de un correo electrónico de comprobación personalizado](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
@@ -79,8 +79,8 @@ En estos momentos no se puede cambiar el valor del campo De del correo electrón
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>¿Cómo puedo migrar mis nombres de usuario, contraseñas y perfiles existentes desde la base de datos a Azure AD B2C?
 Puede usar Graph API de Azure AD para escribir la herramienta de migración. Consulte la [guía de migración para el usuario](active-directory-b2c-user-migration.md) para detalles.
 
-### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>¿Qué directiva de contraseñas se utiliza para las cuentas locales en Azure AD B2C?
-La directiva de contraseñas de Azure AD B2C para cuentas locales se basa en la directiva para Azure AD. Las directivas de restablecimiento de la contraseña, inicio de sesión, registro e inicio de sesión de Azure AD B2C utilizan la seguridad de la contraseña "segura" y las contraseñas no caducan. Lea [Directiva de contraseñas en Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obtener más información. Para información sobre los bloqueos de cuentas y las contraseñas, consulte [Administración de amenazas para recursos y datos de Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>¿Qué flujo de usuario de contraseñas se usa para las cuentas locales en Azure AD B2C?
+El flujo de usuario de Azure AD B2C para cuentas locales se basa en la directiva para Azure AD. Los flujos de usuario de restablecimiento de la contraseña, inicio de sesión, registro e inicio de sesión de Azure AD B2C usan la seguridad de la contraseña "segura" y las contraseñas no caducan. Lea [Directiva de contraseñas en Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obtener más información. Para información sobre los bloqueos de cuentas y las contraseñas, consulte [Administración de amenazas para recursos y datos de Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>¿Puedo usar Azure AD Connect para migrar identidades de consumidores almacenadas en mi entorno Active Directory local a Azure AD B2C?
 No, Azure AD Connect no está diseñado para funcionar con Azure AD B2C. Considere la posibilidad de usar [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) para la migración de usuarios.  Consulte la [guía de migración para el usuario](active-directory-b2c-user-migration.md) para detalles.

@@ -1,25 +1,23 @@
 ---
-title: API, SDK y recursos de Java para SQL de Azure Cosmos DB | Microsoft Docs
+title: 'Azure Cosmos DB: SDK y recursos de Java para SQL API'
 description: Obtenga toda la información sobre la API y el SDK de Java para SQL, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Java para SQL de Azure Cosmos DB.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e5c733ecd65482e4b02a5d4e28784e84e63f2231
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634496"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340528"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +28,7 @@ ms.locfileid: "52634496"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor: Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -38,7 +36,7 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 
 <table>
 
-<tr><td>**Descarga del SDK**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**Descarga del SDK**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**Documentación de la API**</td><td>[Documentación de referencia de API](/java/api/com.microsoft.azure.documentdb)</td></tr>
 
@@ -52,6 +50,23 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Se ha agregado compatibilidad de la escritura en varias regiones con el modo directo.
+* Se agregó compatibilidad para controlar excepciones de E/S producidas como excepciones ServiceUnavailable desde un proxy.
+* Se ha corregido un error en la directiva de reintentos de detección de puntos de conexión.
+* Se ha corregido un error para asegurarse que no se producen excepciones de puntero nulo en BaseDatabaseAccountConfigurationProvider.
+* Se ha corregido un error para asegurarse de que el iterador de consulta no devuelve valores NULL.
+* Se ha corregido un error para asegurarse de que se permite un valor de PartitionKey grande
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Se ha agregado compatibilidad de la escritura en varias regiones con el modo de puerta de enlace.
+
+### <a name="a-name11641164"></a><a name="1.16.4"/>1.16.4
+* Se ha corregido un error en los intervalos de claves de la partición de lectura en una consulta.
+
+### <a name="a-name11631163"></a><a name="1.16.3"/>1.16.3
+* Se ha corregido un error en la configuración del tamaño de encabezado del token de continuación en modo DirectHttps.
 
 ### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
 * Se ha agregado soporte técnico para conmutar por error con streaming.
@@ -205,6 +220,10 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |21 de noviembre de 2018 |--- |
+| [2.0.0](#2.0.0) |21 de septiembre de 2018 |--- |
+| [1.16.4](#1.16.4) |10 de septiembre de 2018 |--- |
+| [1.16.3](#1.16.3) |09 de septiembre de 2018 |--- |
 | [1.16.2](#1.16.2) |29 de junio de 2018 |--- |
 | [1.16.1](#1.16.1) |16 de mayo de 2018 |--- |
 | [1.16.0](#1.16.0) |15 de marzo de 2018 |--- |

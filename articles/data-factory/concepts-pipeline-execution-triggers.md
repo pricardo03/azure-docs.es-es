@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 890ef4baf27e193fecc17d8435998604ce25e282
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162694"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876484"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -92,7 +92,7 @@ POST
 https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
 ```
 
-Para obtener un ejemplo completo, consulte la guía de inicio rápido [Creación de una instancia de Azure Data Factory y una canalización mediante la API REST](quickstart-create-data-factory-rest-api.md).
+Para obtener un ejemplo completo, vea [Inicio rápido: Creación de una instancia de Azure Data Factory y una canalización mediante la API de REST](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 El comando de ejemplo siguiente muestra cómo ejecutar manualmente la canalización mediante Azure PowerShell:
@@ -118,7 +118,7 @@ La carga de respuesta es un identificador único de la ejecución de canalizaci�
 }
 ```
 
-Para obtener un ejemplo completo, consulte la guía de inicio rápido [Creación de una factoría de datos de Azure con PowerShell](quickstart-create-data-factory-powershell.md).
+Para obtener un ejemplo completo, vea [Inicio rápido: Creación de una factoría de datos de Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>.NET SDK
 La llamada de ejemplo siguiente muestra cómo ejecutar manualmente la canalización mediante el SDK de .NET:
@@ -127,7 +127,7 @@ La llamada de ejemplo siguiente muestra cómo ejecutar manualmente la canalizaci
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
 ```
 
-Para obtener un ejemplo completo, consulte la guía de inicio rápido [Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md).
+Para obtener un ejemplo completo, vea [Inicio rápido: Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
 > Puede utilizar el SDK de .NET para invocar las canalizaciones de Data Factory desde Azure Functions o de sus propios servicios web, entre otros.
@@ -196,7 +196,7 @@ Para hacer que el desencadenador de programación dé inicio a una ejecución de
           "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-60>>],
           "monthDays": [<<1-31>>],
-          "monthlyOccurences": [
+          "monthlyOccurrences": [
             {
               "day": <<Monday-Sunday>>,
               "occurrence": <<1-5>>
@@ -313,7 +313,7 @@ En la siguiente tabla se describen los elementos de **schedule** con detalle:
 | **minutes** | Minutos de la hora en la que se ejecuta el desencadenador. |- Entero<br />- Matriz de enteros|
 | **hours** | Horas del día en la que se ejecuta el desencadenador. |- Entero<br />- Matriz de enteros|
 | **weekDays** | Días de la semana en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia semanal.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Matriz de valores de día (el tamaño máximo de la matriz es 7)<br /><br />Los valores de día no distinguen mayúsculas de minúsculas.|
-| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Matriz de objetos **monthlyOccurrence**: `{ "day": day,  "occurrence": occurence }`.<br />- El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.<br />- El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.|
+| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Matriz de objetos de **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`.<br />- El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.<br />- El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.|
 | **monthDays** | Día del mes en el que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Cualquier valor <= -1 y >= -31<br />- Cualquier valor >= 1 y <= 31<br />- Matriz de valores|
 
 ## <a name="tumbling-window-trigger"></a>Desencadenador de ventana de saltos de tamaño constante
@@ -378,6 +378,6 @@ En la siguiente tabla se muestra una comparación entre el desencadenador de ven
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes tutoriales:
 
-- [Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md)
+- [Inicio rápido: Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md).
 - [Creación de un desencadenador que ejecuta una canalización en una programación](how-to-create-schedule-trigger.md)
 - [Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md)

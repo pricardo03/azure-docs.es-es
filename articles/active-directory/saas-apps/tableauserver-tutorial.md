@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 9986e7984f24e065886f6d0a8b2d06968f778702
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582724"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850370"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integración de Azure Active Directory con Tableau Server
 
@@ -106,7 +106,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](common/tutorial-general-301.png)
 
-3. La aplicación Tableau Server espera recibir una notificación personalizada **username** que se debe definir como sigue. Se usa como identificador de usuario en lugar de como notificación de identificador de usuario único. Puede administrar los valores de estos atributos en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) de la página de integración de aplicaciones. Haga clic en el botón **Editar** para abrir el cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario).
+3. La aplicación Tableau Server espera recibir una notificación personalizada **username** que se debe definir como sigue. Se usa como identificador de usuario en lugar de como notificación de identificador de usuario único. Puede administrar los valores de estos atributos en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) de la página de integración de aplicaciones. Haga clic en el botón **Edit** (Editar) para abrir el cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario).
 
     ![imagen](./media/tableauserver-tutorial/tutorial-tableauserver-attribute.png)
 
@@ -175,7 +175,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     >[!NOTE] 
     >El cliente tiene que cargar los certificados en la configuración de SSO de SAML de Tableau Server para que se omitan en el flujo de SSO.
-    >Si necesita ayuda para configurar SAML en Tableau Server, vea el artículo [Configuración de SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >Si necesita ayuda para configurar SAML en Tableau Server, vea el artículo [Configuración de SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

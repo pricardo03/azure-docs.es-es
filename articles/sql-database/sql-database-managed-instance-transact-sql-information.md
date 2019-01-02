@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/03/2018
+ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712150"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843213"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
 
@@ -124,7 +124,7 @@ Instancia administrada no puede acceder a los recursos compartidos de archivos n
 
 ### <a name="compatibility-levels"></a>Niveles de compatibilidad
 
-- Los niveles de compatibilidad admitidos son: 100, 110, 120, 130, 140.  
+- Los niveles de compatibilidad admitidos son: 100, 110, 120, 130, 140  
 - No se admiten los niveles de compatibilidad menores que 100.
 - El nivel de compatibilidad predeterminado es 140 para las bases de datos nuevas. Para las bases de datos restauradas, el nivel de compatibilidad no cambiará si era 100 o superior.
 
@@ -145,7 +145,7 @@ Instancia administrada no puede acceder a archivos, por lo que no se pueden crea
 
 ### <a name="collation"></a>Collation
 
-La intercalación del servidor es `SQL_Latin1_General_CP1_CI_AS` y no se puede cambiar. Consulte [Intercalaciones](https://docs.microsoft.com/sql/t-sql/statements/collations).
+La intercalación de la instancia predeterminada es `SQL_Latin1_General_CP1_CI_AS` y puede especificarse como un parámetro de creación. Consulte [Intercalaciones](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### <a name="database-options"></a>Opciones de base de datos
 
@@ -277,7 +277,8 @@ Operaciones
 ### <a name="logins--users"></a>Inicios de sesión y usuarios
 
 - Se admiten los inicios de sesión SQL creados con `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` y `FROM SID`. Consulte [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- No se admiten los inicios de sesión de Windows creados con `CREATE LOGIN ... FROM WINDOWS`.
+- Se admiten los inicios de sesión de Azure Active Directory (AAD) creados con la sintaxis [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) o la sintaxis [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) (**versión preliminar pública**).
+- No se admiten los inicios de sesión de Windows creados con `CREATE LOGIN ... FROM WINDOWS`. Use los usuarios e inicios de sesión de Azure Active Directory.
 - El usuario de Azure Active Directory (Azure AD) que creó la instancia tiene [privilegios de administrador sin restricciones](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
 - Los usuarios de nivel de base de datos de Azure Active Directory (Azure AD) que no son administradores pueden crearse con la sintaxis `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
 
@@ -333,7 +334,7 @@ Para más información acerca de las instrucciones Restore, consulte [Instruccio
 No se admite el agente de servicio entre instancias.
 
 - `sys.routes` (requisito previo): seleccione la dirección de sys.routes. La dirección debe ser LOCAL en todas las rutas. Consulte [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: no se puede ejecutar `CREATE ROUTE` con un valor de `ADDRESS` distinto de `LOCAL`. Consulte [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `CREATE ROUTE`: no se puede usar `CREATE ROUTE` con un valor de `ADDRESS` distinto de `LOCAL`. Consulte [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE`: no se puede ejecutar `ALTER ROUTE` con un valor de `ADDRESS` distinto de `LOCAL`. Consulte [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
 ### <a name="service-key-and-service-master-key"></a>Clave maestra de servicio y clave de servicio
@@ -427,12 +428,12 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 
 Cada instancia administrada tiene hasta 35 TB de almacenamiento reservado para el espacio en disco premium de Azure, y cada archivo de base de datos se coloca en un disco físico independiente. Los posibles tamaños de disco son: 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. El espacio no utilizado en el disco no se cobra, pero la suma total de los tamaños de disco Premium de Azure no puede superar los 35 TB. En algunos casos, una instancia administrada que no necesita 8 TB en total puede superar los 35 TB de límite de Azure en tamaño de almacenamiento debido a la fragmentación interna.
 
-Por ejemplo, una instancia administrada podría tener un archivo de 1,2 TB de tamaño que se coloca en un disco de 4 TB y 248 archivos de 1 GB de tamaño cada uno y que se colocan en discos independientes de 128 GB. En este ejemplo:
+Por ejemplo, una instancia administrada podría tener un archivo de 1,2 TB de tamaño que se coloca en un disco de 4 TB y 248 archivos de 1 GB de tamaño cada uno que se colocan en discos independientes de 128 GB. En este ejemplo:
 
-- el tamaño de almacenamiento total del disco es de 1 x 4 TB + 248 x 128 GB = 35 TB.
-- el espacio total reservado para las bases de datos en la instancia es de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
+- El tamaño de almacenamiento total del disco es de 1 x 4 TB + 248 x 128 GB = 35 TB.
+- El espacio total reservado para las bases de datos en la instancia es de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
 
-Esto ilustra que, en determinadas circunstancias, debido a una distribución muy específica de archivos, una instancia administrada alcanza los 35 TB reservados para el disco adjunto de Azure Premium cuando no se lo espere.
+Esto ilustra que, en determinadas circunstancias, debido a una distribución muy específica de archivos, una instancia administrada podría alcanzar los 35 TB reservados para el disco adjunto de Azure Premium cuando no se lo espere.
 
 En este ejemplo, las bases de datos existentes seguirán funcionando y pueden crecer sin ningún problema, siempre y cuando no se agreguen nuevos archivos. Sin embargo, no se podrían crear ni restaurar nuevas bases de datos porque no hay suficiente espacio para nuevas unidades de disco, incluso si el tamaño total de todas las bases de datos no alcanza el límite de tamaño de la instancia. El error que se devuelve en ese caso no está claro.
 
@@ -443,7 +444,10 @@ Asegúrese de quitar el signo `?` inicial de la clave SAS generada mediante Azur
 
 ### <a name="tooling"></a>Herramientas
 
-SQL Server Management Studio y SQL Server Data Tools podrían tener algunos problemas al obtener acceso a Instancia administrada. Todos los problemas de herramientas se corregirán antes de la versión de disponibilidad general.
+SQL Server Management Studio (SSMS) y SQL Server Data Tools (SSDT) podrían tener algunos problemas al acceder a Instancia administrada.
+
+- El uso de usuarios e inicios de sesión de Azure AD (**versión preliminar pública**) con SSDT no se admite actualmente.
+- La creación de scripts para usuarios e inicios de sesión de Azure AD (**versión preliminar pública**) no se admite en SSMS.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nombres incorrectos de base de datos en algunas vistas, registros y mensajes
 
@@ -451,7 +455,7 @@ Varias vistas del sistema, contadores de rendimiento, mensajes de error, XEvents
 
 ### <a name="database-mail-profile"></a>Perfil de Correo electrónico de base de datos
 
-Solo puede haber un perfil de Correo electrónico de base de datos y debe llamarse `AzureManagedInstance_dbmail_profile`. Se trata de una limitación temporal que se quitará próximamente.
+Solo puede haber un perfil de Correo electrónico de base de datos y debe llamarse `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Los registros de errores no son persistentes
 
@@ -496,7 +500,7 @@ Aunque este código funciona con datos en la misma instancia, requería el coord
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Los módulos de CLR y los servidores vinculados en algún momento no pueden hacer referencia a la dirección IP local
 
-Los módulos de CLR colocados en Instancia administrada y las consultas distribuidas o servidores vinculados que hacen referencia a la instancia actual en algún momento no pueden resolver la dirección IP de la instancia local. Se trata de un problema transitorio.
+Los módulos de CLR colocados en Instancia administrada y las consultas distribuidas o servidores vinculados que hacen referencia a la instancia actual en algún momento no pueden resolver la dirección IP de la instancia local. Este error es un problema transitorio.
 
 **Solución alternativa**: use conexiones de contexto en el módulo de CLR, si es posible.
 

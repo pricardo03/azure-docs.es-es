@@ -1,5 +1,6 @@
 ---
-title: Ajuste de los hiperparámetros de un modelo mediante Azure Machine Learning
+title: Ajuste de los hiperparámetros de un modelo
+titleSuffix: Azure Machine Learning service
 description: Ajuste de forma eficaz los hiperparámetros de su modelo de aprendizaje profundo o aprendizaje automático mediante el servicio Azure Machine Learning. Aprenderá cómo definir el espacio de búsqueda de parámetros, especificar una métrica principal para optimizar y terminar anticipadamente las series de bajo rendimiento.
 ms.author: swatig
 author: swatig007
@@ -8,15 +9,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140813"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100742"
 ---
-# <a name="tune-hyperparameters-for-your-model"></a>Ajuste de los hiperparámetros de un modelo
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Ajuste de los hiperparámetros de un modelo mediante Azure Machine Learning Service
 
 Ajuste de forma eficaz los hiperparámetros de un modelo mediante el servicio Azure Machine Learning.  El ajuste de hiperparámetros incluye los siguientes pasos:
 
@@ -36,8 +38,6 @@ En escenarios de aprendizaje profundo o aprendizaje automático, el rendimiento 
 
 Azure Machine Learning le permite automatizar la exploración de hiperparámetros de manera eficiente, de forma que le ahorra una cantidad considerable de tiempo y recursos. Especifique el intervalo de valores de hiperparámetro y un número máximo de series de entrenamiento. El sistema inicia entonces automáticamente varias series simultáneas con configuraciones de parámetros diferentes y busca la configuración que da como resultado un rendimiento óptimo, según se mida mediante la métrica que haya elegido. Las series de entrenamientos con bajo rendimiento se terminan automáticamente de forma anticipada, lo que reduce el desperdicio de recursos de proceso. En su lugar, estos recursos se usan para explorar otras configuraciones de hiperparámetros.
 
->[!NOTE]
-> El código de este artículo se ha probado con el SDK de Azure Machine Learning versión 0.168. 
 
 ## <a name="define-search-space"></a>Definición del espacio de búsqueda
 
@@ -149,7 +149,7 @@ param_sampling = BayesianParameterSampling( {
 
 Especifique la métrica principal que quiere que se optimice con el experimento de ajuste de hiperparámetros. En cada serie de entrenamiento se evalúa la métrica principal. Las ejecuciones con un rendimiento deficiente (donde la métrica principal no satisface los criterios establecidos por la directiva de terminación anticipada) se terminan. Además del nombre de la métrica principal, también especificará el objetivo de la optimización: si maximizar o minimizar la métrica principal.
 
-* `primary_metric_name`: el nombre de la métrica principal para optimizar. El nombre de la métrica principal debe coincidir exactamente con el nombre de la métrica registrado por el script de entrenamiento. Consulte [Registrar métricas para el ajuste de hiperparámetros](#log-metrics-for-hyperparameter-tuning).
+* `primary_metric_name`: nombre de la métrica principal a optimizar. El nombre de la métrica principal debe coincidir exactamente con el nombre de la métrica registrado por el script de entrenamiento. Consulte [Registrar métricas para el ajuste de hiperparámetros](#log-metrics-for-hyperparameter-tuning).
 * `primary_metric_goal`: puede ser `PrimaryMetricGoal.MAXIMIZE` o `PrimaryMetricGoal.MINIMIZE` y determina si la métrica principal se maximizará o minimizará al evaluar las ejecuciones. 
 
 ```Python
@@ -255,7 +255,7 @@ Si no se especifica ninguna directiva, el servicio de ajuste de hiperparámetros
 
 Controle el presupuesto de recursos para el experimento de ajuste de hiperparámetros especificando el número total máximo de ejecuciones de entrenamiento.  Opcionalmente, especifique la duración máxima para el experimento de ajuste de hiperparámetros.
 
-* `max_total_runs`: número total máximo de series de entrenamientos que se crearán. Límite superior: por ejemplo, se pueden tener menos ejecuciones si el espacio de hiperparámetros es finito y tiene menos muestras. Debe ser un número entre 1 y 1000.
+* `max_total_runs`: número total máximo de ejecuciones de entrenamiento que se crearán. Límite superior: por ejemplo, se pueden tener menos ejecuciones si el espacio de hiperparámetros es finito y tiene menos muestras. Debe ser un número entre 1 y 1000.
 * `max_duration_minutes`: duración máxima en minutos del experimento de ajuste de hiperparámetros. El parámetro es opcional y, si existe, automáticamente se cancelan todas las series que podrían estar ejecutándose después de esta duración.
 
 >[!NOTE] 
@@ -311,7 +311,7 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 El SDK de Azure Machine Learning proporciona un widget de Notebook que visualiza el progreso de las series de entrenamientos. El siguiente fragmento de código visualiza todas las ejecuciones de ajuste de hiperparámetros en un solo lugar, un Jupyter Notebook:
 
 ```Python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
 
@@ -348,10 +348,9 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>Cuaderno de ejemplo
-Consulte 
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow) para ver un tutorial acerca del ajuste de hiperparámetros para un modelo de Tensorflow. 
-
-Obtenga este cuaderno:
+Consulte estos cuadernos:
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) 
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

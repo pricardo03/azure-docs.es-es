@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: dbf21c7c22a9b3273a65f7e186a2ac02ccae6ba2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b933bc5f5ecb39c3462e4e9bd300f1e07fd718c0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436214"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integración de Azure Active Directory con Symantec Web Security Service (WSS)
 
@@ -113,7 +113,7 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Symantec Web Security Service (WSS)](./media/symantec-tutorial/tutorial_symantecwebsecurityservicewss_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
+     a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
 
     b. En el cuadro de texto **URL de respuesta**, escriba la siguiente dirección URL: `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
 
@@ -131,7 +131,7 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
 1. Para configurar el inicio de sesión único en Symantec Web Security Service (WSS), consulte la documentación en línea de WSS. El archivo **XML de metadatos** descargado debe ser importado en el portal de WSS. Póngase en contacto con el [equipo de soporte técnico de Symantec Web Security Service (WSS)](https://www.symantec.com/contact-us) si necesita ayuda con la configuración en el portal de WSS.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -157,7 +157,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/symantec-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -170,7 +170,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 En esta sección, creará un usuario llamado Britta Simon en Symantec Web Security Service (WSS). El nombre de usuario final correspondiente se puede crear manualmente en el portal de WSS o puede esperar a que los usuarios y grupos que se han aprovisionado en Azure AD se sincronicen con el portal de WSS transcurridos unos minutos (unos 15 minutos). Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. La dirección IP pública del equipo del usuario final, que se utilizará para examinar sitios web, también debe aprovisionarse en el portal de Symantec Web Security Service (WSS).
 
 > [!NOTE]
-> [Haga clic aquí](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) para obtener la dirección IP pública del equipo.
+> [Haga clic aquí](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) para obtener la dirección IP pública del equipo.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

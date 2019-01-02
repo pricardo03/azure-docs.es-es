@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 78b9fe704c5c8a1f81da480787f1791e88bf4f72
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c789f5fec9b31b53d316b23faad5c438b52137c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714725"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integración de Azure Active Directory con Workday
 
@@ -112,9 +112,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Workday](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://impl.workday.com/<tenant>/login-saml2.htmld`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://impl.workday.com/<tenant>/login-saml2.htmld`.
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL como: `http://www.workday.com`
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://www.workday.com`
 
 4. Active la casilla **Mostrar configuración avanzada de URL** y realice el siguiente paso:
 
@@ -155,7 +155,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Direcciones URL de redirección](./media/workday-tutorial/IC7829581.png "Direcciones URL de redirección")
 
-    a. Haga clic en **Add Row**(Agregar fila).
+     a. Haga clic en **Add Row**(Agregar fila).
 
     b. En los cuadros de texto **Dirección URL de redireccionamiento de inicio de sesión** y **URL de redireccionamiento móvil**, escriba la **dirección URL de inicio de sesión** que ha especificado en la sección **Dominio y direcciones URL de Workday** de Azure Portal.
 
@@ -172,7 +172,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de SAML](./media/workday-tutorial/IC782926.png "Configuración de SAML")
 
-    a.  Seleccione **Enable SAML Authentication**(Habilitar autenticación SAML).
+     a.  Seleccione **Enable SAML Authentication**(Habilitar autenticación SAML).
 
     b.  Haga clic en **Add Row**(Agregar fila).
 
@@ -180,7 +180,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Proveedores de identidades SAML](./media/workday-tutorial/IC7829271.png "Proveedores de identidades SAML")
 
-    a. En el cuadro de texto **Nombre del proveedor de identidades**, escriba un nombre de proveedor (por ejemplo, *SPInitiatedSSO*).
+     a. En el cuadro de texto **Identity Provider Name** (Nombre del proveedor de identidades), escriba un nombre de proveedor (por ejemplo: *SPInitiatedSSO*).
 
     b. En la ventana **Configurar inicio de sesión único** de Azure Portal, copie el valor de **SAML Entity ID** (Identificador de entidad de SAML) y, luego, péguelo en el cuadro de texto **Emisor**.
 
@@ -204,7 +204,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Visualización de clave pública x509](./media/workday-tutorial/IC782930.png "Visualización de clave pública x509")
 
-    a. En el cuadro de texto **Nombre**, escriba el nombre del certificado (por ejemplo, *PPE\_SP*).
+     a. En el cuadro de texto **Name** (Nombre), escriba un nombre para el certificado (por ejemplo: *PPE\_SP*).
 
     b. En el cuadro de texto **Válido desde** , escriba el valor del atributo Válido desde del certificado.
 
@@ -225,7 +225,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Configuración de SSO")
 
-    a.  En el cuadro de texto **Service Provider ID** (Id. de proveedor de servicios), escriba **http://www.workday.com**.
+     a.  En el cuadro de texto **Service Provider ID** (Id. de proveedor de servicios), escriba **https://www.workday.com**.
 
     b. Seleccione **No desinflar la solicitud de autenticación iniciada por el SP**.
 
@@ -264,7 +264,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/workday-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 

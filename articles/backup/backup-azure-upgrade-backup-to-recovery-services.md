@@ -2,18 +2,18 @@
 title: Actualización de un almacén de Backup a un almacén de Recovery Services
 description: Instrucciones e información de compatibilidad para actualizar el almacén de Azure Backup a un almacén de Recovery Services.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 431ca75a653b93342b61a9b39dc42a93270519f1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 41a826304af338814666e80dfaf584021809dbb0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228528"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880053"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Actualización de un almacén de Backup a un almacén de Recovery Services
 
@@ -39,7 +39,7 @@ Compruebe lo siguiente antes de actualizar los almacenes de Backup a almacenes d
 
 - **Versión del agente mínima**: para actualizar el almacén, asegúrese de que el agente de Microsoft Azure Recovery Services (MARS) es al menos la versión 2.0.9083.0. Si el agente de MARS es anterior a 2.0.9083.0, actualícelo antes de iniciar el proceso de actualización.
 - **Modelo de facturación basado en instancias**: los almacenes de Recovery Service solo admiten el modelo de facturación basado en instancias. Si tiene un almacén de Backup que utiliza el anterior modelo de facturación basado en almacenamiento, convierta el modelo durante la actualización.
-- **Ninguna operación de configuración de copia de seguridad en curso**: durante la actualización, se restringe el acceso al plan de administración. Complete todas las acciones del plan de administración e inicie la actualización.
+- **No hay ninguna operación de configuración de copia de seguridad en curso**: durante la actualización, el acceso al plano de administración está restringido. Complete todas las acciones del plan de administración e inicie la actualización.
 
 ## <a name="using-powershell-scripts-to-upgrade-your-vaults"></a>Uso de scripts de PowerShell para actualizar los almacenes
 
@@ -113,7 +113,7 @@ Cuando haya actualizado a un almacén de Recovery Services, configure los inform
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 **¿Afecta el plan de actualización a mis copias de seguridad en curso?**</br>
-No. Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
+ No. Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
 
 **¿Qué ocurre con mis almacenes si no tengo previsto actualizar pronto?**</br>
 Puesto que todas las características nuevas solo se aplican a almacenes de Recovery Services, le instamos a que actualice los almacenes. A partir del 1 de septiembre de 2017, Microsoft comenzará a actualizar automáticamente los almacenes de copia de seguridad para almacenes de Recovery Services. Después del 30 de noviembre de 2017, ya no podrá crear almacenes de Backup con PowerShell. El almacén se puede actualizar automáticamente en cualquier momento hasta esa fecha. Microsoft le recomienda que actualice el almacén tan pronto como sea posible.
@@ -125,16 +125,16 @@ Actualice las herramientas al modelo de implementación de Resource Manager. Los
 Depende del número de recursos que se vayan a actualizar. Para implementaciones pequeñas (de unas decenas de instancias protegidas), toda la actualización debería tardar menos de 20 minutos. Para implementaciones grandes, debe tardar una hora como máximo.
 
 **¿Puedo revertir la actualización?**</br>
-No. No se admite la reversión una vez actualizados correctamente los recursos.
+ No. No se admite la reversión una vez actualizados correctamente los recursos.
 
 **¿Puedo validar mi suscripción o mis recursos para ver si son aptos para la actualización?**</br>
 Sí. El primer paso de la actualización comprueba si los recursos son aptos para la actualización. En caso de que se produzca un error en la validación, recibirá mensajes para todas las razones que no se pudo completar la actualización.
 
 **¿Puedo actualizar mi almacén de Backup basado en CSP?**</br>
-No. Actualmente, no se pueden actualizar los almacenes de Backup basados en CSP. En las próximas versiones, se agregará compatibilidad para actualizar los almacenes de Backup basados en CSP.
+ No. Actualmente, no se pueden actualizar los almacenes de Backup basados en CSP. En las próximas versiones, se agregará compatibilidad para actualizar los almacenes de Backup basados en CSP.
 
 **¿Puedo ver mi almacén clásico después de la actualización?**</br>
-No. No se puede ver o administrar su almacén clásico después de la actualización. Solo podrá usar el nuevo Azure Portal para todas las acciones de administración en el almacén.
+ No. No se puede ver o administrar su almacén clásico después de la actualización. Solo podrá usar el nuevo Azure Portal para todas las acciones de administración en el almacén.
 
 **Hubo un error de actualización, pero la máquina que mantenía el agente que requiere actualización ya no existe. ¿Qué hago en este caso?**</br>
 Si tiene que usar el almacén, las copias de seguridad de esta máquina para una retención a largo plazo, no podrá actualizar el almacén. En versiones futuras se agregará compatibilidad para actualizar tal almacén.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 71ecffebe095fd325837aeb1d6e741a2f3321aea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88952d09672fb4dd2d31878d56a59cb425f53de2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421845"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integración de Azure Active Directory con Mimecast Personal Portal
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: 
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: 
 
     | Region  |  Valor | 
     | --------------- | --------------- | 
@@ -139,7 +139,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | Internacional        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
-    > El valor del identificador no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte de cliente de Mimecast Personal Portal](http://www.mimecast.com/customer-success/technical-support/) para obtener el valor. 
+    > El valor del identificador no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte de cliente de Mimecast Personal Portal](https://www.mimecast.com/customer-success/technical-support/) para obtener el valor. 
 
 1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
@@ -171,7 +171,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Authentication Profile (Perfil de autenticación)](./media/mimecast-personal-portal-tutorial/ic795001.png "Authentication Profile (Perfil de autenticación)")
    
-    a. En el cuadro de texto **Description** (Descripción), escriba un nombre para la configuración.
+     a. En el cuadro de texto **Description** (Descripción), escriba un nombre para la configuración.
    
     b. Seleccione **Aplicar la autenticación SAML a Mimecast Personal Portal**.
    
@@ -213,7 +213,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/mimecast-personal-portal-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -247,7 +247,7 @@ Deberá registrar un dominio para poder crear los usuarios.
    
     ![Guardar](./media/mimecast-personal-portal-tutorial/ic795006.png "Guardar")
    
-    a. En el cuadro de texto **Dirección de correo electrónico**, escriba la **dirección de correo electrónico** del usuario, en este caso **BrittaSimon@contoso.com**.
+     a. En el cuadro de texto **Dirección de correo electrónico**, escriba la **dirección de correo electrónico** del usuario, en este caso **BrittaSimon@contoso.com**.
     
     b. En el cuadro de texto **Nombre global**, escriba el **nombre de usuario** como **BrittaSimon**.
 
@@ -293,7 +293,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Mimecast Personal Portal en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Mimecast Personal Portal.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316657"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340834"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protección de las aplicaciones y las máquinas en Azure Security Center
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios. Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, equipos, aplicaciones, redes, SQL e identidad y acceso.
@@ -45,7 +45,7 @@ En **Procesos**, hay cuatro pestañas:
 - **App Services (versión preliminar)**: muestra la lista actual de los entornos de App Service y el estado de seguridad actual de cada uno.
 Para continuar, seleccione **Procesos y aplicaciones** en **Recursos** o en el menú principal de Security Center.
 
-![Compute][2]
+![Proceso][2]
 
 Todas las pestañas pueden tener varias secciones y en cada una de ella se puede seleccionar cualquiera de las opciones para ver más detalles acerca de los pasos recomendados para abordar un problema concreto.
 
@@ -59,7 +59,7 @@ Se abre **Problemas de mantenimiento del agente de supervisión**. Se enumeran l
 ### Equipos y máquinas virtuales no supervisados <a name="unmonitored-vms-and-computers"></a>
 Una máquina virtual o un equipo no está supervisado por Security Center si no está ejecutando la extensión de Microsoft Monitoring Agent. Una máquina virtual puede tener ya instalado un agente local, por ejemplo un agente directo de OMS o el agente SCOM. Las máquinas virtuales con estos agentes se identifican como sin supervisar porque estos agentes no son totalmente compatibles en Security Center. Para aprovechar al máximo todas las funcionalidades de Security Center, se necesita la extensión de Microsoft Monitoring Agent.
 
-Puede instalar la extensión en la máquina virtual o en el equipo no supervisados además del agente local ya instalado. Configure de la misma forma a ambos agentes, conectándolos a la misma área de trabajo. Esto permite que Security Center interactúe con la extensión de Microsoft Monitoring Agent y recopile datos. Consulte [Habilitar la extensión de VM](../log-analytics/log-analytics-quick-collect-azurevm.md) para obtener instrucciones acerca de cómo instalar la extensión de Microsoft Monitoring Agent.
+Puede instalar la extensión en la máquina virtual o en el equipo no supervisados además del agente local ya instalado. Configure de la misma forma a ambos agentes, conectándolos a la misma área de trabajo. Esto permite que Security Center interactúe con la extensión de Microsoft Monitoring Agent y recopile datos. Consulte [Habilitar la extensión de VM](../azure-monitor/learn/quick-collect-azurevm.md) para obtener instrucciones acerca de cómo instalar la extensión de Microsoft Monitoring Agent.
 
 Consulte [Supervisión de problemas de Agent Health](security-center-troubleshooting-guide.md#mon-agent) para saber más acerca de los motivos por los que Security Center no puede supervisar correctamente las máquinas virtuales y los equipos inicializados para el aprovisionamiento automático.
 
@@ -75,12 +75,12 @@ Cada recomendación tiene un conjunto de acciones que se podrán realizar una ve
 **Aplicar actualizaciones del sistema** incluye un resumen de actualizaciones críticas en formato de grafo, uno para Windows y otro para Linux. La segunda parte tiene una tabla con la siguiente información:
 
 - **NOMBRE**: nombre de la actualización que falta.
-- **NÚMERO DE MÁQUINAS VIRTUALES Y EQUIPOS**: número total de máquinas virtuales y equipos que no tienen esta actualización.
-- **GRAVEDAD DE LA ACTUALIZACIÓN**: describe la gravedad de una recomendación concreta:
+- **NÚMERO DE DE EQUIPOS Y MÁQUINAS VIRTUALES**: número total de máquinas virtuales y equipos que no tienen esta actualización.
+- **ACTUALIZAR GRAVEDAD**: describe la gravedad de una recomendación concreta:
 
-    - **Crítica**: existe una vulnerabilidad en un recurso importante (aplicación, máquina virtual o grupo de seguridad de red) y requiere atención.
+    - **Crítico**: existe una vulnerabilidad en un recurso importante (aplicación, máquina virtual o grupo de seguridad de red) y requiere atención.
     - **Importante**: para completar un proceso o eliminar una vulnerabilidad se requieren pasos adicionales o no críticos.
-    - **Moderada**: es preciso abordar una vulnerabilidad, pero esta no requiere una atención inmediata. (De manera predeterminada no se muestran las recomendaciones bajas, pero si desea verlas, puede filtrar por ellas).
+    - **Moderado**: es preciso abordar una vulnerabilidad, pero esta no requiere una atención inmediata. (De manera predeterminada no se muestran las recomendaciones bajas, pero si desea verlas, puede filtrar por ellas).
 
 
 - **ESTADO**: el estado actual de la recomendación:
@@ -249,7 +249,7 @@ Para obtener más información sobre las recomendaciones que se aplican a otros 
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 
