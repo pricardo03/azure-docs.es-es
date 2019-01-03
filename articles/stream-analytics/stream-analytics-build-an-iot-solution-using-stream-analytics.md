@@ -2,19 +2,19 @@
 title: Compilación de una solución de IoT con Azure Stream Analytics
 description: Tutorial de introducción a la solución de IoT de Stream Analytics de un escenario de cabinas de peaje.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/21/2018
-ms.openlocfilehash: e70a1210d44e5bfec914006afaf18eff772cac47
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978798"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317396"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilación de una solución de IoT con Stream Analytics
 
@@ -33,10 +33,10 @@ Después de completar esta solución, podrá:
 Necesita cumplir con estos requisitos previos para completar esta solución:
 * [Una suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Introducción al escenario: peajes
+## <a name="scenario-introduction-hello-toll"></a>Introducción al escenario: "peajes".
 Una estación de peaje es un fenómeno común. Se encuentra en muchas autopistas, puentes y túneles de todo el mundo. Cada estación de peaje tiene varias cabinas. En cabinas manuales, se detiene y paga el peaje a un operador. En cabinas automatizadas, un sensor situado en la parte superior de cada cabina escanea una tarjeta RFID que está ubicada en el parabrisas del vehículo al pasar la cabina de peaje. Es fácil imaginar el paso de los vehículos a través de estos peajes como si fuera un flujo de eventos sobre los que se pueden realizar operaciones interesantes.
 
-![Imagen de automóviles en cabinas de peaje](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+![Imagen de automóviles en cabinas de peaje](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
 
 ## <a name="incoming-data"></a>Datos de entrada
 Esta solución funciona con dos secuencias de datos. Los sensores instalados a la entrada y la salida de las estaciones de peaje producen la primera secuencia. La segunda secuencia es un conjunto de datos de búsqueda estática que tiene datos de registro del vehículo.
@@ -113,7 +113,7 @@ Para completar esta solución, necesita una suscripción de Microsoft Azure. Si 
 
 Asegúrese de seguir los pasos de la sección "Limpieza de la cuenta de Azure" al final de este ejercicio para que pueda aprovechar al máximo su crédito de Azure.
 
-## <a name="deploy-the-sample"></a>Implementación del ejemplo 
+## <a name="deploy-the-sample"></a>Implementación del ejemplo
 Existen varios recursos que se pueden implementar fácilmente en un grupo de recursos junto con algunos clics. La definición de la solución se hospeda en el repositorio de GitHub en [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Implementación de la plantilla TollApp en Azure Portal
@@ -123,11 +123,11 @@ Existen varios recursos que se pueden implementar fácilmente en un grupo de rec
 
 3. Elija la suscripción en la que se facturan los distintos recursos.
 
-4. Especifique un grupo de recursos nuevo, con un nombre único, por ejemplo `MyTollBooth`. 
+4. Especifique un grupo de recursos nuevo, con un nombre único, por ejemplo `MyTollBooth`.
 
 5. Seleccione una ubicación de Azure.
 
-6. Especifique un **intervalo** como un número de segundos. Este valor se usa en la aplicación web de ejemplo, con la frecuencia de envío de datos al Centro de eventos. 
+6. Especifique un **intervalo** como un número de segundos. Este valor se usa en la aplicación web de ejemplo, con la frecuencia de envío de datos al Centro de eventos.
 
 7. **Active la casilla** para aceptar los términos y condiciones.
 
@@ -149,7 +149,7 @@ Existen varios recursos que se pueden implementar fácilmente en un grupo de rec
    - Un Centro de eventos de Azure
    - Dos aplicaciones web
 
-## <a name="examine-the-sample-tollapp-job"></a>Inspeccione el trabajo de TollApp de ejemplo 
+## <a name="examine-the-sample-tollapp-job"></a>Inspeccione el trabajo de TollApp de ejemplo
 1. A partir del grupo de recursos de la sección anterior, seleccione el trabajo de streaming de Stream Analytics que empieza por el nombre **tollapp** (el nombre contiene caracteres aleatorios para que sea único).
 
 2. En la página de **información general** del trabajo, observe el cuadro de **consulta** para ver la sintaxis de la consulta.
@@ -195,7 +195,7 @@ Siga estos pasos para iniciar el trabajo de streaming:
 
 6. Seleccione cada identificador para revisar el documento JSON. Observe el valor de cada TollId, el tiempo de WindowEnd y el número de automóviles desde esa ventana.
 
-7. Después de otros tres minutos, otro conjunto de cuatro documentos estará disponible, un documento por TollId. 
+7. Después de otros tres minutos, otro conjunto de cuatro documentos estará disponible, un documento por TollId.
 
 
 ## <a name="report-total-time-for-each-car"></a>Informe del tiempo total de cada automóvil
@@ -229,9 +229,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 7. En el panel **Iniciar trabajo**, seleccione **Ahora**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Revisión del tiempo total en la salida
-Repita los pasos de la sección anterior para revisar los datos de salida de CosmosDB del trabajo de streaming. Revise los documentos JSON más recientes. 
+Repita los pasos de la sección anterior para revisar los datos de salida de CosmosDB del trabajo de streaming. Revise los documentos JSON más recientes.
 
-Por ejemplo, en este documento se muestra un automóvil de ejemplo con determinado número de licencia, la hora de entrada y la hora de salida, además del campo durationinminutes donde se calcula DATEDIFF que muestra la duración de la cabina de peaje con un valor de dos minutos: 
+Por ejemplo, en este documento se muestra un automóvil de ejemplo con determinado número de licencia, la hora de entrada y la hora de salida, además del campo durationinminutes donde se calcula DATEDIFF que muestra la duración de la cabina de peaje con un valor de dos minutos:
 ```JSON
 {
     "tollid": 4,
@@ -249,7 +249,7 @@ Por ejemplo, en este documento se muestra un automóvil de ejemplo con determina
 ```
 
 ## <a name="report-vehicles-with-expired-registration"></a>Informe de los vehículos con registro expirado
-Azure Stream Analytics puede usar instantáneas estáticas de datos de referencia para combinar con flujos de datos temporales. Para demostrar esta funcionalidad se usará la siguiente pregunta de ejemplo. La entrada Registration es un archivo JSON de blob estático que muestra las expiraciones de las licencias. Si se combinan con la licencia, los datos de referencia se comparan con cada vehículo que pasa por la cabina de peaje. 
+Azure Stream Analytics puede usar instantáneas estáticas de datos de referencia para combinar con flujos de datos temporales. Para demostrar esta funcionalidad se usará la siguiente pregunta de ejemplo. La entrada Registration es un archivo JSON de blob estático que muestra las expiraciones de las licencias. Si se combinan con la licencia, los datos de referencia se comparan con cada vehículo que pasa por la cabina de peaje.
 
 Si un vehículo comercial está registrado en la empresa de peaje, puede atravesar la cabina sin detenerse para inspección. Use la tabla de búsqueda de registro para identificar todos los vehículos comerciales con registros expirados.
 
@@ -264,7 +264,7 @@ WHERE Registration.Expired = '1'
 
 1. Repita los pasos de la sección anterior para actualizar la sintaxis de consulta del trabajo de streaming de TollApp.
 
-2. Repita los pasos de la sección anterior para revisar los datos de salida de CosmosDB del trabajo de streaming. 
+2. Repita los pasos de la sección anterior para revisar los datos de salida de CosmosDB del trabajo de streaming.
 
 Salida de ejemplo:
 ```json
@@ -289,28 +289,28 @@ Para escalar horizontalmente la consulta a particiones, edite la sintaxis de la 
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
-FROM EntryStream 
-TIMESTAMP BY EntryTime 
+FROM EntryStream
+TIMESTAMP BY EntryTime
 PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
 Para escalar verticalmente el trabajo de streaming a más unidades de streaming:
 
-1. **Detenga** el trabajo actual. 
+1. **Detenga** el trabajo actual.
 
 2. Actualice la sintaxis de la consulta en la página **< > Consulta** y guarde los cambios.
 
 3. En el encabezado CONFIGURAR del trabajo de streaming, seleccione **Escalar**.
-   
+
 4. Deslice el control deslizante **Unidades de streaming** de 1 a 6. Las unidades de streaming definen la cantidad de capacidad de proceso que el trabajo puede recibir. Seleccione **Guardar**.
 
-5. **Inicie** el trabajo de streaming para mostrar la escala adicional. Azure Stream Analytics distribuye el trabajo en más recursos de proceso y alcanza un mejor rendimiento, mediante la partición del trabajo entre los recursos a través de la columna designada en la cláusula PARTITION BY. 
+5. **Inicie** el trabajo de streaming para mostrar la escala adicional. Azure Stream Analytics distribuye el trabajo en más recursos de proceso y alcanza un mejor rendimiento, mediante la partición del trabajo entre los recursos a través de la columna designada en la cláusula PARTITION BY.
 
 ## <a name="monitor-the-job"></a>Supervisión del trabajo
-El área **SUPERVISIÓN** contiene estadísticas sobre el trabajo en ejecución. La primera vez, se necesita configuración para usar la cuenta de almacenamiento en la misma región (llamada toll como en el resto de este documento).   
+El área **SUPERVISIÓN** contiene estadísticas sobre el trabajo en ejecución. La primera vez, se necesita configuración para usar la cuenta de almacenamiento en la misma región (llamada toll como en el resto de este documento).
 
-![Captura de pantalla de Supervisión](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Supervisión de trabajos de Azure Stream Analytics](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 También, puede acceder a **Registros de actividad** desde el área de **Configuración** del panel del trabajo.
 
