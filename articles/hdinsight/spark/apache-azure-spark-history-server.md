@@ -242,7 +242,7 @@ Si experimenta errores en el servidor de historial, siga los pasos para proporci
 
 ### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. Actualizar el archivo JAR para el escenario de revisión
 
-Si quiere actualizar con la revisión, use el siguiente script que actualizará el archivo spark-enhancement.jar.
+Si quiere actualizar con la revisión, use el siguiente script que actualizará el archivo spark-enhancement.jar\*.
 
 **upgrade_spark_enhancement.sh**:
 
