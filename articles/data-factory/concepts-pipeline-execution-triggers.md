@@ -21,7 +21,7 @@ ms.lasthandoff: 12/04/2018
 ms.locfileid: "52876484"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versión actual](concepts-pipeline-execution-triggers.md)
 
