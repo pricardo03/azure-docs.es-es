@@ -55,7 +55,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Es posible configurar configuraciones que no aparecen en la galería de máquinas virtuales (por ejemplo, Windows 2008 R2 + SQL Server 2012)?**
 
-    No. En el caso de las imágenes de la galería de máquinas virtuales que incluyen SQL Server, debe seleccionar una de las imágenes que se proporcionan.
+   No. En el caso de las imágenes de la galería de máquinas virtuales que incluyen SQL Server, debe seleccionar una de las imágenes que se proporcionan.
 
 ## <a name="creation"></a>Creación
 
@@ -88,7 +88,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿El cambio de modelos de licencia requerirá un tiempo de inactividad para SQL Server?**
 
-    No. El [cambio del modelo de licencias](virtual-machines-windows-sql-ahb.md) no requiere ningún tiempo de inactividad para SQL Server, ya que el cambio es efectivo de inmediato y no requiere un reinicio de la VM. 
+   No. El [cambio del modelo de licencias](virtual-machines-windows-sql-ahb.md) no requiere ningún tiempo de inactividad para SQL Server, ya que el cambio es efectivo de inmediato y no requiere un reinicio de la VM. 
 
 1. **¿Las suscripciones de CSP pueden activar la Ventaja híbrida de Azure?**
 
@@ -96,7 +96,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿El registro de mi VM con el nuevo proveedor de recursos de VM de SQL implicará costos adicionales?**
 
-    No. El proveedor de recursos de VM de SQL simplemente permite la capacidad de administración adicional para SQL Server en VM de Azure sin cargos adicionales. 
+   No. El proveedor de recursos de VM de SQL simplemente permite la capacidad de administración adicional para SQL Server en VM de Azure sin cargos adicionales. 
 
 1. **¿El proveedor de recursos de VM de SQL está disponible para todos los clientes?**
  
@@ -106,7 +106,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
    Cuando el recurso Microsoft.Compute/VirtualMachine se coloca o se mueve, se envía una notificación al recurso Microsoft.SqlVirtualMachine asociado para replicar de forma asincrónica la operación.
 
-1. **¿Qué ocurre con la VM si se coloca el recurso _* Microsoft.SqlVirtualMachine_?**
+1. **¿Qué ocurre con la VM si se coloca el recurso _* Microsoft.SqlVirtualMachine_*?**
 
    El recurso Microsoft.Compute/VirtualMachine no se ve afectado cuando se coloca el recurso Microsoft.SqlVirtualMachine. Sin embargo, los cambios en las licencias devolverán el valor predeterminado al origen de la imagen original. 
 
