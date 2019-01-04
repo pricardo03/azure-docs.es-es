@@ -21,7 +21,7 @@ ms.lasthandoff: 12/06/2018
 ms.locfileid: "52970168"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copia de datos de Amazon Redshift mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Versión actual](connector-amazon-redshift.md)
 
